@@ -1,0 +1,12 @@
+
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="vpc" category="vpc" audience="compute" href="/docs/vpc?topic=vpc-getting-started" path="vpc"}
+Test
+
+    {: .navgroup id="learn"}
+    getting-started.md
+  
+    {: .navgroup-end}
+
