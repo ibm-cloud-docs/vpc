@@ -1,0 +1,114 @@
+
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="vpc" category="vpc" audience="compute" href="/docs/vpc?topic=vpc-getting-started" path="vpc"}
+Virtual Private Cloud (Early Access)
+
+    {: .navgroup id="learn"}
+    getting-started.md
+    about-vpc.md
+    vpc-concepts.md
+        
+    {: .topicgroup}
+    What's in this release?
+        how-to-participate.md
+        supported-features.md
+        quotas.md
+        limitations.md
+
+    {: .topicgroup}
+    Network resources
+        about-network.md
+        vpc-security.md
+
+    {: .topicgroup}
+    Compute resources
+        vsi_is_about_vpc.md
+        vsi_is_profiles.md
+        vsi_is_ssh_keys_about.md
+        vsi_is_provisioning_scripts.md
+ 
+    {: .topicgroup}
+    Storage resources
+        block_storage_vpc_about.md
+        block_storage_vpc_capacity_performance.md
+        block_storage_is_profiles.md
+    {: .navgroup-end}
+
+    {: .navgroup id="howto"}
+    console-tutorial.md
+    set-up-environment.md
+    hello-world-vpc.md
+    example-code.md
+
+    {: .topicgroup}
+    Setting IP ranges
+        how-to-choose-ipv4.md
+        how-to-design-your-vpc.md
+        vpc-regions-and-subnets.md
+
+    {: .topicgroup}
+    Managing access
+        iam.md
+        vpc-user-permissions.md
+        api-auth-correlation.md
+        
+    {: .topicgroup}
+    Creating and managing instances
+        vsi_best_practices.md
+        vsi_is_create_instance.md
+        vsi_is_create_instance_cli.md
+        vsi_is_connecting_linux_gc.md
+
+    {: .topicgroup}
+    Configuring security groups
+        security-groups.md
+        security-groups-default.md
+        security-groups-example.md
+        security-group-usage-examples.md
+
+    {: .topicgroup}
+    Creating and managing block storage
+        block_storage_is_create.md
+        block_storage_is_create_cli.md
+        block_storage_is_attach.md
+        block_storage_is_attach_cli.md
+        block_storage_is_manage.md
+        block_storage_is_manage_cli.md
+        block_storage_is_view.md
+        block_storage_is_view_cli.md
+
+    {: .topicgroup}
+    Deleting a VPC
+        delete-vpc.md
+        delete-vpc-ui.md
+        delete-vpc-cli.md
+        delete-vpc-api.md
+
+    connect-to-cos.md    
+    {: .navgroup-end}
+
+    {: .navgroup id="reference"}
+    cli-reference.md
+    [API reference](https://cloud.ibm.com/apidocs/vpc)
+    vpc-endpoints.md
+    at-events.md
+    {: .navgroup-end}
+
+    {: .navgroup id="help"}
+    {: .topicgroup}
+    FAQs
+        faq-vpc.md
+        faq-vsi.md
+        block_storage_is_faq.md
+
+    {: .topicgroup}
+    Troubleshooting
+        troubleshooting.md
+        vsi_is_troubleshooting.md
+        block_storage_is_troubleshoot.md
+        
+    known-issues.md
+    getting-help.md
+    {: .navgroup-end}

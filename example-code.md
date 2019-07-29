@@ -1,0 +1,478 @@
+---
+
+copyright:
+  years: 2018, 2019
+lastupdated: "2019-07-29"
+
+keywords: create, VPC, API, IAM, token, permissions, endpoint, region, zone, profile, status, subnet, gateway, floating IP, delete, resource, provision
+
+subcollection: vpc
+
+---
+
+{:shortdesc: .shortdesc}
+{:new_window: target="_blank"}
+{:codeblock: .codeblock}
+{:pre: .pre}
+{:note: .note}
+{:screen: .screen}
+{:tip: .tip}
+{:important: .important}
+{:download: .download}
+
+# Creating a VPC using the REST APIs
+{: #creating-a-vpc-using-the-rest-apis}
+
+This guide shows you how to create and configure an {{site.data.keyword.vpc_full}} resources using the REST APIs.
+{:shortdesc} 
+
+To create and configure your virtual private cloud (VPC) and other attached resources, perform the steps in the sections that follow, in this order:
+
+1. Create a VPC and subnet to define the network.
+1. Attach a public gateway to allow all resources in the subnet to communicate with the public internet. 
+1. Create a virtual server instance.
+1. Create a block storage volume and attach it to an instance.
+1. Configure a security group to define the inbound and outbound traffic that's allowed for the instance.
+1. Reserve and associate a floating IP address to enable your instance to be reachable from the internet.
+
+## Before you begin
+{: #before-api-tutorial}
+
+Define variables for the IAM token, API endpoint, and API version. For instructions, see [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment).
+
+A good way to learn more about the API is to click the **Get sample API call** button on the provisioning pages in IBM Cloud console. You can view the correct sequence of API requests and better understand actions and their dependencies.
+{: tip}
+
+## Create a VPC
+{: #create-vpc-api-tutorial}
+
+Create an {{site.data.keyword.vpc_short}} called `my-vpc`.
+
+```bash
+curl -X POST "$api_endpoint/v1/vpcs?version=$api_version&generation=2" \
+  -H "Authorization:$iam_token" \
+  -d '{
+      	"name": "my-vpc"
+      }'
+```
+{: pre}
+
+For the rest of the calls, you'll need to know the ID of the newly created VPC. Save the ID in a variable, for example:
+
+```
+vpc="59de4046-3434-4d87-bb29-0c99c428c96e"
+```
+{: pre}
+
+To verify that the variable was saved, run `echo $vpc` and make sure the response is not empty. 
+
+## Create a subnet
+{: #create-subnet-api-tutorial}
+
+Before you create a subnet, select the zone and address prefix in which to create it. To list the address prefixes for each zone in your VPC, run the following command:
+
+```bash
+curl -X GET "$api_endpoint/v1/vpcs/$vpc/address_prefixes?version=$api_version&generation=2" \
+  -H "Authorization:$iam_token" 
+```
+{: pre}
+
+Let's pick the default address prefix for the us-south-3 zone. From the response, note the CIDR block of the address prefix. When you create a subnet, you must specify an IP range that's within one of the address prefixes of the selected zone. 
+
+```bash
+curl -X POST "$api_endpoint/v1/subnets?version=$api_version&generation=2" \
+  -H "Authorization:$iam_token" \
+  -d '{
+        "name": "my-subnet",
+        "ipv4_cidr_block": "10.0.1.0/24",
+        "zone": { "name": "us-south-3" },
+        "vpc": { "id": "'$vpc'" }
+      }'
+```
+{: pre}
+
+Save the ID of the subnet in a variable.
+
+```bash
+subnet="35fb0489-7105-41b9-99de-033fae723006"
+```
+{: pre}
+
+## Check the status of your subnet
+{: #subnet-status-api-tutorial}
+
+To provision resources in your subnet, the subnet must be in the `Ready` status. Query the subnet resource and make sure the status is `Ready` before you continue. If the status is `failed`, contact [support](/docs/vpc?topic=vpc-getting-help-and-support) with the details. You can attempt to continue by trying to provision another subnet.
+
+```bash
+curl -X GET "$api_endpoint/v1/subnets/$subnet?version=$api_version&generation=2" \
+  -H "Authorization: $iam_token"
+```
+{: pre}
+
+## Attach a public gateway
+{: #attach-public-gateway-api-tutorial}
+
+Attach a public gateway to the subnet to allow all attached resources to communicate with the public internet. 
+
+Create a public gateway for the zone:
+
+```bash
+curl -X POST "$api_endpoint/v1/public_gateways?version=$api_version&generation=2" \
+  -H "Authorization:$iam_token" \
+  -d '{
+        "name": "my-gateway",
+        "zone": { "name": "us-south-2" },
+        "vpc": { "id": "'$vpc'" }
+      }'
+```
+{: pre}
+
+Save the ID of the public gateway in a variable.
+
+```bash
+gateway="ad0cded3-53a3-4d4a-9809-8c59b50d2b80"
+```
+{: pre}
+
+Attach the public gateway to your subnet.
+
+```bash
+curl -X PUT "$api_endpoint/v1/subnets/$subnet/public_gateway?version=$api_version&generation=2" \
+  -H "Authorization:$iam_token" \
+  -d '{
+        "id": "'$gateway'"
+      }'
+```
+{: pre}
+
+Only one public gateway per zone is allowed in a VPC, but that public gateway can be attached to multiple subnets in the zone. To find the public gateway for a zone, run the 'ibmcloud is public-gateways` command and look for the particular VPC and Zone values.
+{: tip}
+
+## Add an SSH key
+{: #add-ssh-key-api-tutorial}
+
+Add your public SSH key to your IBM Cloud acccount. This key is specified when you create the instance, and it's needed later to log into the instance. You can use one key to provision multiple instances.
+
+```bash
+curl -X POST "$api_endpoint/v1/keys?version=$api_version&generation=2" \
+  -H "Authorization:$iam_token" \
+  -d '{
+        "name": "my-key",
+        "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQB/nAmOjTmezNUDKYvEeIRf2YnwM9/uUG1d0BYsc8/tRtx+RGi7N2lUbp728MXGwdnL9od4cItzky/zVdLZE2cycOa18xBK9cOWmcKS0A8FYBxEQWJ/q9YVUgZbFKfYGaGQxsER+A0w/fX8ALuk78ktP31K69LcQgxIsl7rNzxsoOQKJ/CIxOGMMxczYTiEoLvQhapFQMs3FL96didKr/QbrfB1WT6s3838SEaXfgZvLef1YB2xmfhbT9OXFE3FXvh2UPBfN+ffE7iiayQf/2XR+8j4N4bW30DiPtOQLGUrH1y5X/rpNZNlWW2+jGIxqZtgWg7lTy3mXy5x836Sj/6L"
+      }'
+```
+{: pre}
+
+Save the ID of the SSH key in a variable, for example:
+
+```bash
+key="35fb0489-7105-41b9-8764-033fae723006"
+```
+{: pre}
+
+## Select a profile and image for your instance
+{: #select-profile-and-image}
+
+Call the APIs to list all profiles and images available for your instance, and choose a combination. The following command lists the profiles available.
+
+```
+curl -X GET "$api_endpoint/v1/instance/profiles?version=$api_version&generation=2" \
+  -H "Authorization:$iam_token"
+```
+{: pre}
+
+The following command lists the images available.
+
+```
+curl -X GET "$api_endpoint/v1/images?version=$api_version&generation=2" \
+  -H "Authorization:$iam_token"
+```
+{: pre}
+
+Save the name of the profile and the ID of the image in variables, which will be used later to provision an instance. For example:
+
+```bash
+profile_name="b2-2x8"
+image_id="660198a6-52c6-21cd-7b57-e37917cef586"
+```
+{: pre}
+
+
+## Create an instance
+{: #create-instance-api-tutorial}
+
+Create an instance in the newly created subnet. Pass in your public SSH key so that you can log in after the instance is provisioned.
+
+```bash
+curl -X POST "$api_endpoint/v1/instances?version=$api_version&generation=2" \
+  -H "Authorization:$iam_token" \
+  -d '{
+        "name": "my-instance",
+        "zone": {
+          "name": "us-south-3"
+        },
+        "vpc": {
+          "id": "'$vpc'"
+        },
+        "primary_network_interface": {
+          "subnet": {
+            "id": "'$subnet'"
+          }
+        },
+        "keys":[{"id": "'$key'"}],
+        "profile": {
+          "name": "'$profile_name'"
+         },
+        "image": {
+          "id": "'$image_id'"
+         }
+        }'
+```
+{: pre}
+
+Save the ID of the instance in a variable, for example:
+
+```
+instance="35fb0489-7105-41b9-99de-033fae723006"
+```
+{: pre}
+
+## Check the status of your instance
+{: #check-instance-status-api-tutorial}
+
+The status of the instance is `stopped` when it's first created. Before you can proceed, the instance needs to move to the `running` status, which takes a few minutes. Query the status of the instance and make sure it is `running`.
+
+```bash
+curl -X GET "$api_endpoint/v1/instances/$instance?version=$api_version&generation=2" \
+  -H "Authorization: $iam_token"
+```
+{: pre}
+
+Save the ID of the primary network interface of the instance returned in the above API call, for example:  
+
+```bash
+network_interface="7710e766-dd6e-41ef-9d36-06f7adbef33d"
+```
+{: pre}
+
+You can't get the ID of the primary network interface until you query the specific instance.
+{: important}
+
+## Create and attach a block storage volume
+{: #create-and-attach-storage-api-tutorial}
+
+Create a block storage volume with a request similar to this example, and specify a volume name, zone, and profile.
+
+To see a list of volume profiles, provide this request:
+
+```bash
+curl -X GET "$api_endpoint/v1/volumes/profiles?version=$api_version&generation=2" \
+  -H "Authorization: $iam_token" \
+```
+{: pre}
+
+Profiles can be general-purpose (3 IOPS/GB), 5iops-tier, 10-iops-tier, and custom. See [About Block Storage for VPC](/docs/vpc?topic=vpc-block-storage-about#capacity-performance)
+for information about volume capacity and IOPS ranges based on the volume profile you select.
+
+```
+curl -X POST "$api_endpoint/v1/volumes?version=$api_version&generation=2" \
+  -H "Authorization: $iam_token" \
+  -d '{
+        "name": "my-volume",
+        "iops": 1000,
+        "capacity": 100,
+        "zone": {
+            "name": "us-south-3"
+            },
+        "profile": {
+            "name": "custom"
+            }
+      }'
+```
+{: pre}
+
+Your response will look like this:
+
+```
+{
+    "id": "640774d7-2adc-4609-add9-6dfd96167a8f",
+    "crn": crn:v1:public:is:us-south-1:a/78a00cc28d454fba469cdd8a8e4f1618::volume:640444d7-2adc-2309-adc9-6dfd965557a8f",
+    "name": "my-volume",
+    "href": "https://us-south-int01.iaasdev.cloud.ibm.com/v1/volumes/640444d7-2adc-2309-adc9-6dfd965557a8f",
+    "capacity": 50,
+    "iops": 100,
+    "encryption": "provider_managed",
+    "status": "pending",
+    "zone": {
+        "name": "us-south-3",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1"
+    },
+    "profile": {
+        "name": "custom",
+        "crn": "crn:v1:public:globalcatalog::::volume.profile:custom",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/custom"
+    },
+    "resource_group": {
+        "id": "d2253bafe7f32dbe94aba5d1dca5ef72",
+        "href": "https://resource-manager.bluemix.net/v1/resource_groups/d2253bafe7f32dbe94aba5d1dca5ef72",
+        "name": ""
+    },
+    "created_at": "2019-03-28T23:16:53.000Z"
+}
+```
+{: pre}
+
+Save the ID of the volume in a variable, for example:
+
+```
+volume_id="640774d7-2adc-4609-add9-6dfd96167a8f"
+```
+{: pre}
+
+Note that the status of the volume is pending when it first is created. Before you can proceed, the volume needs to move to available status, which takes a few minutes. To check the status of the volume, run this command:
+
+```bash
+curl -X GET "$api_endpoint/v1/volumes/$volume_id?version=$api_version&generation=2" \
+  -H "Authorization: $iam_token"
+```
+{: pre}
+
+Attach the new volume to an available virtual server instance, using the instance ID. To see a list of available instances, specify this request:
+
+```bash
+curl -X GET "$api_endpoint/v1/instances?version=$api_version&generation=2" \
+  -H "Authorization: $iam_token"
+```
+{: pre}
+
+Create a volume attachment. Use the volume ID, CRN of the volume, or URL to specify the volume in the data parameter.  This example uses the volume ID.
+
+```
+curl -X POST "$api_endpoint/v1/instances/$instance_id?version=$api_version&generation=2" \
+  -H "Authorization: $iam_token" \
+  -d '{
+        "name": "my-volume-attachment",
+        "volume": {
+            "id": "640774d7-2adc-4609-add9-6dfd96167a8f"
+            }
+      }'
+```
+{: pre}
+
+After creating the volume attachment, get the volume attachment ID.
+
+```
+curl -X GET "$api_endpoint/v1/instances/$instance_id/volume_attachments?version=$api_version&generation=2" \
+  -H "Authorization: $iam_token"
+```
+{: pre}
+
+Save the ID of the volume attachment in a variable, for example:
+
+```
+attachment_id="9f2a645e-19c1-4f8f-b062-46b9e0671999"
+```
+{: pre}
+
+Specify the volume attachment ID to attach the new volume to a virtual server instance.
+
+```
+curl -X PATCH "$api_endpoint/v1/instances/$instance_id/volume_attachments/$attachment_id?version=$api_version&generation=2" \
+  -H "Authorization: $iam_token" \
+  -d {
+	  "name": "my-vsi-volattachment"
+    }
+```
+{: pre}
+
+## Add a rule to the default security group to allow SSH traffic
+{: #add-sg-rule-api-tutorial}
+
+You can configure the security group to define the inbound and outbound traffic that is allowed for the instance. 
+
+Find the security group for the VPC:
+
+```
+curl -X GET "$api_endpoint/v1/vpcs/$vpc/default_security_group?version=$api_version&generation=2" \
+  -H "Authorization:$iam_token"
+```
+{: pre}
+
+Save the ID of the security group in a variable, for example:
+
+```
+sg=2d364f0a-a870-42c3-a554-000000981149
+```
+{: pre}
+
+Now create a rule to allow inbound SSH traffic so that you'll be able to connect to the instance:
+
+```
+curl -X POST "$api_endpoint/v1/security_groups/$sg/rules?version=$api_version&generation=2" \
+  -H "Authorization: $iam_token" \
+  -d '{
+        "direction": "inbound",
+        "protocol": "tcp",
+        "port_min": 22,
+        "port_max": 22
+      }'
+```
+{: pre}
+
+## Create a floating IP address
+{: #create-floating-ip-api-tutorial}
+
+Create a floating IP address for the instance to enable your instance to be reachable from the internet. Use the instance's primary network interface as the target for the floating IP address.
+
+```bash
+curl -X POST "$api_endpoint/v1/floating_ips?version=$api_version&generation=2" \
+  -H "Authorization:$iam_token" \
+  -d '{
+        "name": "my-floatingip",
+        "target": {
+            "id":"'$network_interface'"
+        }
+      }
+'
+```
+{: pre}
+
+
+Save the ID of the floating IP address in a variable, for example.
+
+```bash
+floating_ip="35fb0489-7105-41b9-99de-033fae723006"
+```
+{: pre}
+
+
+## Log in to your instance using your private SSH key
+{: #log-in-to-instance-api-tutorial}
+
+To connect to the instance, use the floating IP address you created. To get the floating IP address, run the following command:
+
+```
+curl -X GET "$api_endpoint/v1/floating_ips/$floating_ip?version=$api_version&generation=2" \
+  -H "Authorization:$iam_token"
+```
+{: pre}
+
+Use the `address` of the floating IP to connect to the instance with SSH:
+
+```
+ssh -i <private_key_file> root@<floating ip address>
+```
+{: pre}
+
+## (Optional): Delete the resources
+{: #delete-resources-api-tutorial}
+
+Delete the resources if desired. A resource can't be deleted if it's required by other resources.
+For example, a VPC can't be deleted if it contains instances, subnets, or public gateways. For instructions on deleting a VPC and all its resources, see [Deleting a VPC using the REST APIs](/docs/vpc?topic=vpc-deleting-using-api).
+
+
+
+## Congratulations!
+{: #congratulations-api-tutorial}
+
+You've successfully provisioned a Virtual Private Cloud instance using the REST APIs. To try out more API commands, see the [Regional API for VPC (Beta)](https://{DomainName}/apidocs/vpc-advanced-vsi).
