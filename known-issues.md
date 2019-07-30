@@ -57,7 +57,7 @@ The default repository configuration file points to mirrors.softlayer.local, whi
 
 <pre class="codeblock"><code class="hljs">
   # cat /etc/yum.repos.d/CentOS-Base.repo 
-  base] 
+  [base] 
   name=CentOS-$releasever - Base 
   baseurl=http://mirrors.softlayer.local/centos/$releasever/os/$basearch/ 
   #mirrorlist=http://#mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os 
