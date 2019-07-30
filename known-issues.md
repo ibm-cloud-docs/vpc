@@ -51,7 +51,7 @@ Known issues might change during the early access release, so feel free to check
 
 ## COM-1612: Default CentOS repository setting is invalid
 {: #COM-1612}
-- **Symptom:** If you create a VSI on the stocked CentOS image, log in to the VSI, and run the `yum update` command, the command will fail. 
+- **Symptom:** If you create a VSI on the stock CentOS image, log in to the VSI, and run the `yum update` command, the command will fail. 
 - **Cause:**
 The default repository configuration file points to mirrors.softlayer.local, which is invalid. 
 
