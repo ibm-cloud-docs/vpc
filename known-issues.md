@@ -51,30 +51,19 @@ Known issues might change during the early access release, so feel free to check
 
 ## COM-1612: Default CentOS repository setting is invalid
 {: #COM-1612}
-- **Symptom:** If you create a VSI on the stocked CentOS image, log in to the VSI and run the command “yum update", the command will fail. 
+- **Symptom:** If you create a VSI on the stocked CentOS image, log in to the VSI, and run the `yum update` command, the command will fail. 
 - **Cause:**
 The default repository configuration file points to mirrors.softlayer.local, which is invalid. 
 
-<!-- ```
-# cat /etc/yum.repos.d/CentOS-Base.repo 
-base] 
-name=CentOS-$releasever - Base 
-baseurl=http://mirrors.softlayer.local/centos/$releasever/os/$basearch/ 
-#mirrorlist=http://#mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os 
-gpgcheck=1 
-gpgkey=http://mirrors.softlayer.local/centos/RPM-GPG-KEY-CentOS-7 
-... 
-```
-{:codeblock} -->
-
-<pre class="codeblock"><code class="hljs"># cat /etc/yum.repos.d/CentOS-Base.repo 
-base] 
-name=CentOS-$releasever - Base 
-baseurl=http://mirrors.softlayer.local/centos/$releasever/os/$basearch/ 
-#mirrorlist=http://#mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os 
-gpgcheck=1 
-gpgkey=http://mirrors.softlayer.local/centos/RPM-GPG-KEY-CentOS-7 
-... 
+<pre class="codeblock"><code class="hljs">
+  # cat /etc/yum.repos.d/CentOS-Base.repo 
+  base] 
+  name=CentOS-$releasever - Base 
+  baseurl=http://mirrors.softlayer.local/centos/$releasever/os/$basearch/ 
+  #mirrorlist=http://#mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os 
+  gpgcheck=1 
+  gpgkey=http://mirrors.softlayer.local/centos/RPM-GPG-KEY-CentOS-7 
+  ... 
 </code></pre>
 
 - **Workaround:** Update /etc/yum.repos.d/CentOS-Base.repo. Replace "mirrors.softlayer.local" with "mirrors.adn.networklayer.com”. 
