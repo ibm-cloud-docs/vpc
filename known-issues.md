@@ -38,6 +38,13 @@ Known issues might change during the early access release, so feel free to check
 - **Workaround:** Update /etc/apt/sources.list, replace 'mirrors.service.networklayer.com' with 'mirrors.adn.networklayer.com' 
 - **Fix:** Update the default source.list to use mirrors.adn.networklayer.com. Create APT stanza in cloud-init to overwrite FQDN hard coded in Linux images.
 
+
+## COM-1612: Default CentOS repository setting is invalid
+{: #COM-1612}
+- **Symptom:** If you create a VSI on the stock CentOS image, log in to the VSI, and run the `yum update` command, the command will fail.
+- **Workaround:** Update /etc/yum.repos.d/CentOS-Base.repo. Replace "mirrors.softlayer.local" with "mirrors.adn.networklayer.com”.
+
+
 ## NET-1114: Security group rules > generation=2 tested in webUI
 {: #NET-1114}
 - **Symptom:** Deleting or removing a rule takes several hours.
@@ -47,24 +54,4 @@ Known issues might change during the early access release, so feel free to check
 ## RIOS-129: Inconsistent image names between VPC and VPC on Classic
 {: #RIOS-129}
 - **Symptom:** The names of stock images are different in VPC and VPC on Classic. Expected behavior: The names should be consistent across VPC and VPC on Classic unified images.
-- **Fix:** The image service is being rolled out in VPC on Classic and will be in VPC prior to GA. At that point, unified images will have exact name matches between VPC on Classic and VPC as the same image service will be running in both environments.	
-
-## COM-1612: Default CentOS repository setting is invalid
-{: #COM-1612}
-- **Symptom:** If you create a VSI on the stock CentOS image, log in to the VSI, and run the `yum update` command, the command will fail. 
-- **Cause:**
-The default repository configuration file points to mirrors.softlayer.local, which is invalid. 
-
-<pre class="codeblock"><code class="hljs">
-  # cat /etc/yum.repos.d/CentOS-Base.repo 
-  [base] 
-  name=CentOS-$releasever - Base 
-  baseurl=http://mirrors.softlayer.local/centos/$releasever/os/$basearch/ 
-  #mirrorlist=http://#mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os 
-  gpgcheck=1 
-  gpgkey=http://mirrors.softlayer.local/centos/RPM-GPG-KEY-CentOS-7 
-  ... 
-</code></pre>
-
-- **Workaround:** Update /etc/yum.repos.d/CentOS-Base.repo. Replace "mirrors.softlayer.local" with "mirrors.adn.networklayer.com”. 
-- **Fix:** CentOS-Base.repo will be corrected. 
+- **Fix:** The image service is being rolled out in VPC on Classic and will be in VPC prior to GA. At that point, unified images will have exact name matches between VPC on Classic and VPC as the same image service will be running in both environments.

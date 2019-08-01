@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-29"
+lastupdated: "2019-07-31"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
@@ -24,7 +24,7 @@ subcollection: vpc
 # Viewing block storage volume details
 {: #viewing-block-storage}
 
-View details about a {{site.data.keyword.block_storage_is_short}} volume or summary information about all volumes.
+View details about a {{site.data.keyword.block_storage_is_full}} (VPC) volume or summary information about all volumes.
 {:shortdesc}
 
 ## View information about all block storage volumes

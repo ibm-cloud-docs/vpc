@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-29"
+lastupdated: "2019-07-31"
 
 keywords: block storage, IBM Cloud, VPC, CLI, block storage volume, volume, IOPS
 
@@ -41,7 +41,7 @@ You can create {{site.data.keyword.block_storage_is_short}} volumes by using the
 ## Create a block storage volume using the CLI
 {: #create-vol-cli}
 
-Run the following command.
+Run the following command to create a block storage volume. Provide a volume name, profile name, and the name of the availability zone in your region. For information on block storage profiles, see [Profiles](/docs/vpc?topic=vpc-block-storage-profiles). Optional parameters are shown in brackets.
 
 ```bash
 ibmcloud is volume-create VOLUME_NAME PROFILE_NAME ZONE_NAME [--capacity CAPACITY] [--iops IOPS] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--json]
@@ -67,7 +67,7 @@ Volume Attachment Instance Reference    none
 ```
 {:screen}
 
-Capacity, indicated in megabytes, can range from 10 to 2,000 GBs.  IOPS values can be 1,000 to 20,000 IOPS, depending on volume size. If you don't specify an IOPS value, it defaults to the valid configuration per volume profile. For information, see the table of [IOPS ranges based on volume size](/docs/vpc?topic=vpc-block-storage-profiles#custom).
+Capacity, indicated in megabytes, can range from 10 to 2,000 GBs. If not specified, the default capacity is 100 GBs. IOPS values can be 1,000 to 20,000 IOPS, depending on volume size. If not specified, the IOPS value defaults to the valid configuration per volume profile. For information, see the table of [IOPS ranges based on volume size](/docs/vpc?topic=vpc-block-storage-profiles#custom).
 
 The volume ID in the above example is used when attaching block storage to a virtual server instance, viewing block storage volume details, and deleting volumes.
 

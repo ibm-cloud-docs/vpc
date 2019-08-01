@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-29"
+lastupdated: "2019-07-31"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, IOPS, FAQ
 
@@ -13,16 +13,16 @@ subcollection: vpc
 {:codeblock: .codeblock}
 {:screen: .screen}
 
-# {{site.data.keyword.block_storage_is_short}} frequently asked questions
+# FAQs for block storage
 {: #block-storage-vpc-faq}
 
-Welcome to the FAQ page for {{site.data.keyword.block_storage_is_short}}.  This topic answers many of your questions for creating and managing your block storage volumes.  If you have additional questions you'd like to see addressed in this topic, please provide feedback using the **Issues** or **Edit topic** links.
+Welcome to the FAQ page for {{site.data.keyword.block_storage_is_short}}. This topic answers many of your questions for creating and managing your block storage volumes. If you have additional questions you'd like to see addressed in this topic, please provide feedback using the **Issues** or **Edit topic** links.
 {:shortdesc}
 
 ## How do I allocate storage for my instances?
 {: faq}
 
-When you create a virtual server instance, you can [create a block storage volume](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi) that will be attached to that instance.  You can also [create standalone volumes](/docs/vpc?topic=vpc-creating-block-storage#create-standalone-vol) and later attach them to your instances.
+When you create a virtual server instance, you can [create a block storage volume](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi) that will be attached to that instance. You can also [create standalone volumes](/docs/vpc?topic=vpc-creating-block-storage#create-standalone-vol) and later attach them to your instances.
 
 ## How many instances can share a provisioned block storage volume?
 {: faq}
@@ -35,6 +35,8 @@ A block storage volume can be attached to only one instance at a time. Instances
 Instances with less than 4 vCPUs can attach up to 4 block storage secondary volumes.
 
 Instances with 4 vCPUs or more can attach up to 12 block storage secondary volumes.
+
+**Note**: Volume attachment limits are recommended but not strictly enforced in the Early Access release. Depending on your OS environment, you might be able to attach more secondary volumes to an instance.
 
 ## When provisioning IOPs, are the allocated IOPS enforced by instance or by volume?
 {: faq}

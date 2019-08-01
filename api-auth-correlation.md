@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-07-29"
+lastupdated: "2019-07-30"
 
 keywords: resource, resource authorizations, policies, authorization, resource type, resource groups, roles, API, CLI, editor, viewer, administrator, operator
 
@@ -64,31 +64,31 @@ The terms _attached_ or _unattached_ refer to whether the resource is associated
 | Subnet's public gateway | View, List | View authorization for the subnet and public gateway|
 |——————|—————————|————————|
 | Security group | View, List    | View authorization on the security group |
-| Security group | Create  | View authorization on the resource group for the security group<br />Edit authorization on security group resources <br />View authorization for the VPC|
-| Security group | Update, Delete  | Edit authorization on the security group|
+| Security group | Create  | View authorization on the resource group for the security group<br />Update authorization on security group resources <br />View authorization for the VPC|
+| Security group | Update, Delete  | Update authorization on the security group|
 | Security group rule | View, List | View authorization on the security group|
-| Security group rule | Create, Update, Delete | Edit authorization on the security group|
+| Security group rule | Create, Update, Delete | Update authorization on the security group|
 | Security group network interface | View, List | View authorization on the security group and the instance.|
 |  |  | |
-| Security group network interface | Attach, Detach | Operate authorization on the security group.<br />Edit authorization on the instance to which the network interface belongs.|
+| Security group network interface | Attach, Detach | Operate authorization on the security group.<br />Update authorization on the instance to which the network interface belongs.|
 |—————————|—————————|—————————|
 | Images | View, List  | View authorization for the image |
 |—————————|—————————|—————————|
-| Instances | Create| Update authorization for vitual server instance resources<br />View authorization for the Volume<br />Operate authorization for the VPC<br />Operate authorization for the subnet<br />Operate authorization for the Security Group <br />Operate authorization for Floating IP resources, if it is to be  associated|
-| Instances | Update, Delete | Update authorization for the Instance |
-| Instances | View, List  | View authorization for the Instance |
-| Instance actions | Create, Update, Delete | Update authorization for the Instance|
-| Instance actions | View, List  | View authorization for the Instance |
-| Interfaces | View, List  | View authorization for the Instance |
-| Interface's floating IP | View, List | View authorization for the Instance and the floating IP |
-| Instance's floating IP | Associate | Update authorization for the Instance<br />Operate authorization for the floating IP|
-| Instance's floating IP | Disassociate | Update authorization for the Instance |
-| Volume attachments | View, List | View authorization for the Instance |
+| Instances | Create| Update authorization for vitual server instance resources<br />View authorization for the volume<br />Operate authorization for the VPC<br />Operate authorization for the subnet<br />Operate authorization for the security group <br />Operate authorization for floating IP resources, if it is to be  associated|
+| Instances | Update, Delete | Update authorization for the instance |
+| Instances | View, List  | View authorization for the instance |
+| Instance actions | Create, Update, Delete | Update authorization for the instance|
+| Instance actions | View, List  | View authorization for the instance |
+| Interfaces | View, List  | View authorization for the instance |
+| Interface's floating IP | View, List | View authorization for the instance and the floating IP |
+| Instance's floating IP | Associate | Update authorization for the instance<br />Operate authorization for the floating IP|
+| Instance's floating IP | Disassociate | Update authorization for the instance |
+| Volume attachments | View, List | View authorization for the instance |
 | Volume attachments | Create | Update authorization for the Instance and volume |
-| Volume attachments | Update, Delete | Update authorization for the Instance |
+| Volume attachments | Update, Delete | Update authorization for the instance |
 |————————|——————|————————|
-| Volumes | Create| Update authorization for Volume resources |
-| Volumes | Update, Delete | Update authorization for the Volume |
+| Volumes | Create| Update authorization for volume resources |
+| Volumes | Update, Delete | Update authorization for the volume |
 | Volumes | View, List  | View authorization for the volume |
 | Volume profiles | View, List  | Any account user |
 

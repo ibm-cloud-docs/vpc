@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-29"
+lastupdated: "2019-07-31"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
@@ -24,7 +24,7 @@ subcollection: vpc
 # Managing block storage volumes using the UI
 {: #managing-block-storage}
 
-Manage {{site.data.keyword.block_storage_is_short}} from the UI. Detach a volume from a virtual server instance, transfer a volume from one instance to another, attach a previously-attached volume, rename a volume, set automatic volume deletion, manually delete a volume, or assign access to a volume.
+Manage {{site.data.keyword.block_storage_is_full}} (VPC) from the UI. Detach a volume from a virtual server instance, transfer a volume from one instance to another, attach a previously-attached volume, rename a volume, set automatic volume deletion, manually delete a volume, or assign access to a volume.
 {:shortdesc}
 
 ## Detach a block storage volume from a virtual server instance
@@ -144,4 +144,4 @@ Do you prefer to manage block storage volumes using the CLI? For information, se
 
 You can [create additional volumes](/docs/vpc?topic=vpc-creating-block-storage).
 
-For issues with existing block storage volumes, you might be able to troubleshoot and fix the problems yourself. For more information, see [Troubleshooting {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-troubleshooting).
+For issues with existing block storage volumes, you might be able to troubleshoot and fix the problems yourself. For more information, see [Troubleshooting {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-troubleshooting-block-storage).

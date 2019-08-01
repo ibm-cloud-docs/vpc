@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-29"
+lastupdated: "2019-07-31"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, volume, volume attachment, data storage, virtual server instance, instance
 
@@ -129,4 +129,4 @@ Do you prefer to manage block storage volumes using the {{site.data.keyword.clou
 [Create more volumes using the CLI](/docs/vpc?topic=vpc-creating-block-storage-cli).
 
 For issues with existing block storage volumes, you might be able to troubleshoot and fix the problems yourself. For more information, see
-[Troubleshooting {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-troubleshoot).
+[Troubleshooting {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-troubleshooting-block-storage).

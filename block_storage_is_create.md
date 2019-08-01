@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-29"
+lastupdated: "2019-07-31"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, VSI, virtual server instance, instance, IOPS
 
@@ -26,7 +26,7 @@ subcollection: vpc
 {: #creating-block-storage}
 [comment]: # (linked help topic)
 
-You can create a {{site.data.keyword.block_storage_is_short}} volume when you create a virtual server instance, or create a standalone volume to later attach to an instance.
+You can create a {{site.data.keyword.block_storage_is_full}} (VPC) volume when you create a virtual server instance, or create a standalone volume to later attach to an instance.
 {:shortdesc}
 
 Before you get started, make sure you have [created a VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).

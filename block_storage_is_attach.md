@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-29"
+lastupdated: "2019-07-31"
 
 keywords:  block storage, IBM Cloud, VPC, virtual private cloud, block storage volume, volume, volume attachment, virtual server instance, instance
 subcollection: vpc
@@ -23,7 +23,7 @@ subcollection: vpc
 # Attaching a block storage volume using the UI
 {: #attaching-block-storage}
 
-When you create a {{site.data.keyword.block_storage_is_short}} volume for a virtual server instance from the UI, the volume is attached to the instance by default. When you detach a volume, it exists as an unattached volume that you can later reattach.  These available volumes are displayed in the list of [all block storage volumes](/docs/vpc?topic=vpc-viewing-block-storage#viewvols). You can attach the volume to another instance from the list of all block storage volumes or when viewing details about a particular instance.
+When you create a {{site.data.keyword.block_storage_is_full}} (VPC) volume for a virtual server instance from the UI, the volume is attached to the instance by default. When you detach a volume, it exists as an unattached volume that you can later reattach.  These available volumes are displayed in the list of [all block storage volumes](/docs/vpc?topic=vpc-viewing-block-storage#viewvols). You can attach the volume to another instance from the list of all block storage volumes or when viewing details about a particular instance.
 {:shortdesc}
 
 ## Volume attachment limits
@@ -33,6 +33,8 @@ Although you can attach only one block storage volume to a virtual server instan
 
 * Instances with less than 4 virtual CPUs can attach up to 4 block storage secondary volumes, plus the boot volume.
 * Instances with 4 or more virtual CPUs can attach up to 12 block storage secondary volumes, plus the boot volume.
+
+**Note**: Volume attachment limits are recommended but not strictly enforced in the Early Access release. Depending on your OS environment, you might be able to attach more secondary volumes to an instance.
 
 ## Attach a block storage volume to a virtual server instance
 {: #attach}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-29"
+lastupdated: "2019-07-31"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, volume, data storage, troubleshooting, troubleshoot
 
@@ -24,7 +24,7 @@ subcollection: vpc
 {:DomainName: data-hd-keyref="DomainName"}
 
 # Troubleshooting {{site.data.keyword.block_storage_is_short}}
-{: #troubleshoot}
+{: #troubleshooting-block-storage}
 
 When you create or manage {{site.data.keyword.block_storage_is_short}}, you might encounter issues. Often, you can recover by following a few easy steps. Issues, symptoms, likely causes, and resolutions are described in the following sections.
 {:shortdesc}
