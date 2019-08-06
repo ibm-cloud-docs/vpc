@@ -47,7 +47,7 @@ You create data volumes as standalone volumes or when you provision an instance.
 
 Block storage data volumes can be attached to any available instance within your region, within [certain limits](/docs/vpc?topic=vpc-attaching-block-storage#vol-attach-limits). These volumes are detached by default when the instance is deleted. Detaching by default allows your data to persist beyond the virtual server instance life cycle. It only removes the volume's association with the instance. You can delete data volumes manually after they are detached or, when creating a volume, you can specify that they be [automatically detached and deleted](/docs/vpc?topic=vpc-managing-block-storage#auto-delete) when the instance is deleted.
 
-Data volumes are encryped by default with IBM-managed encryption.
+Data volumes are encrypted by default with IBM-managed encryption.
 
 ## Encryption for data-at-rest
 {: #encryption}
