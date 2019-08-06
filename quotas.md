@@ -33,7 +33,7 @@ This document covers quotas and limits for the {{site.data.keyword.vpc_full}} ea
 | ------- | :------: |
 | Virtual private clouds | 10 per account per region|
 | Subnets | 15 per VPC |
-| Public Gateways | 15 per VPC |
+| Public Gateways | 15 per zone per VPC |
 | Address prefixes | 5 per account per VPC |
 
 ## Virtual server instances
