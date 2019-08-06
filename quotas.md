@@ -54,10 +54,10 @@ This document covers quotas and limits for the {{site.data.keyword.vpc_full}} ea
 
 |Resource|Maximum Number|
 |--------|-----|
-|Security groups|5 per instance|
+|Security groups|5 per network interface|
 |Rules|50 per security group|
 |Remote rules|5 per security group|
-|Network interfaces|10 per security group|
+|Network interfaces|100 per security group|
 
 
 
