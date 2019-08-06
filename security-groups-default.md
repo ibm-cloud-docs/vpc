@@ -61,7 +61,7 @@ Inbound rules to allow ping and SSH are not automatically added to the default s
    Run the following CLI command to list all VPCs:
 
    ```
-   ibmcloud is vpc
+   ibmcloud is vpcs
    ```
    {: pre}
 
