@@ -29,7 +29,7 @@ This document covers quotas for the {{site.data.keyword.vpc_full}} early access 
 ## VPCs
 {: #vpc-quotas}
 
-|   Resource     | Maximum Number |
+|   Resource     | Quota |
 | ------- | :------: |
 | Virtual private clouds | 5 per account per region|
 | Subnets | 15 per VPC |
@@ -39,7 +39,7 @@ This document covers quotas for the {{site.data.keyword.vpc_full}} early access 
 ## Virtual server instances
 {: #vsi-quotas}
 
-|   Resource     |Maximum Number |
+|   Resource     | Quota |
 | ------- | :------: |
 | vCPU |  20 per region  |
 | RAM | 80 GB per region* |
@@ -52,7 +52,7 @@ This document covers quotas for the {{site.data.keyword.vpc_full}} early access 
 ## Security groups
 {: #security-group-quotas}
 
-|Resource|Maximum Number|
+|Resource| Quota |
 |--------|-----|
 |Security groups|5 per VPC|
 |Rules|25 per security group|
