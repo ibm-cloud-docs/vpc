@@ -59,6 +59,13 @@ This document covers quotas for the {{site.data.keyword.vpc_full}} early access 
 |Remote rules|5 per security group|
 |Network interfaces|5 per security group|
 
+## Block storage
+{: #block-storage-quotas}
+
+|Resource|Quota|
+|--------|-----|
+|Volumes|750 per account|
+
 
 
 
