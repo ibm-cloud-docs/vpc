@@ -74,6 +74,7 @@ The terms _attached_ or _unattached_ refer to whether the resource is associated
 |—————————|—————————|—————————|
 | Images | View, List  | View authorization for the image |
 |—————————|—————————|—————————|
+| Instances | Create| Update authorization for vitual server instance resources<br />Update authorization for the volume<br />Operate authorization for the VPC<br />Operate authorization for the subnet<br />Operate authorization for the security group <br />Operate authorization for floating IP resources, if it is to be  associated|
 | Instances | Create| Update authorization for vitual server instance resources<br />View authorization for the volume<br />Operate authorization for the VPC<br />Operate authorization for the subnet<br />Operate authorization for the security group <br />Operate authorization for floating IP resources, if it is to be  associated|
 | Instances | Update, Delete | Update authorization for the instance |
 | Instances | View, List  | View authorization for the instance |
