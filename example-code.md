@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-07-29"
+lastupdated: "2019-08-08"
 
 keywords: create, VPC, API, IAM, token, permissions, endpoint, region, zone, profile, status, subnet, gateway, floating IP, delete, resource, provision
 
@@ -20,7 +20,7 @@ subcollection: vpc
 {:important: .important}
 {:download: .download}
 
-# Creating a VPC using the REST APIs
+# Creating VPC resources using the REST APIs
 {: #creating-a-vpc-using-the-rest-apis}
 
 This guide shows you how to create and configure an {{site.data.keyword.vpc_full}} resources using the REST APIs.
@@ -446,7 +446,7 @@ floating_ip="35fb0489-7105-41b9-99de-033fae723006"
 {: pre}
 
 
-## Log in to your instance using your private SSH key
+## Log in to your instance 
 {: #log-in-to-instance-api-tutorial}
 
 To connect to the instance, use the floating IP address you created. To get the floating IP address, run the following command:
@@ -457,7 +457,7 @@ curl -X GET "$api_endpoint/v1/floating_ips/$floating_ip?version=$api_version&gen
 ```
 {: pre}
 
-Use the `address` of the floating IP to connect to the instance with SSH:
+On Linux, use the `address` of the floating IP to connect to the instance with SSH:
 
 ```
 ssh -i <private_key_file> root@<floating ip address>

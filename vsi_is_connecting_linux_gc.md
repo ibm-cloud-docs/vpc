@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-07-29"
+lastupdated: "2019-08-14"
 
 keywords: vsi, virtual server instance, connecting, linux
 
@@ -19,7 +19,7 @@ subcollection: vpc
 {:tip: .tip}
 {:table: .aria-labeledby="caption"}
 
-# Connecting to your Linux instance
+# Connecting to Linux instances
 {: #vsi_is_connecting_linux}
 
 After you have created your Linux instance, you can connect to it by completing these steps.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-29"
+lastupdated: "2019-08-08"
 
 keywords: vpc, cli, command line interface, tutorial, creating a vpc
 
@@ -21,7 +21,7 @@ subcollection: vpc
 {:table: .aria-labeledby="caption"}
 {:download: .download}
 
-# Creating a VPC using the CLI
+# Creating VPC resources using the CLI
 {: #creating-a-vpc-using-cli}
 
 This guide shows you how to create and configure an {{site.data.keyword.vpc_full}} using the {{site.data.keyword.cloud}} CLI.
@@ -321,10 +321,10 @@ address=169.48.88.0
 ```
 {: pre}
 
-## Log in to your instance using your private SSH key
+## Log in to your instance
 {: #log-in-to-your-instance-using-your-private-ssh-key}
 
-For example, you can use a command of this form:
+For example, on Linux you can use a command of this form:
 
 ```
 ssh -i $HOME/.ssh/id_rsa root@$address

@@ -2,7 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-07-29"
+
+lastupdated: "2019-08-08"
+
 
 keywords: vpc, virtual private cloud, vpc ui, console, ACL, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range
 
@@ -21,7 +23,7 @@ subcollection: vpc
 {:important: .important}
 {:download: .download}
 
-# Creating a VPC using the {{site.data.keyword.cloud_notm}} console
+# Creating VPC resources using the {{site.data.keyword.cloud_notm}} console
 {: #creating-a-vpc-using-the-ibm-cloud-console}
 
 This guide shows you how to create and configure an {{site.data.keyword.vpc_full}} (VPC) using the {{site.data.keyword.cloud_notm}} console.
@@ -192,7 +194,7 @@ See [Connecting to your instance using Linux](/docs/vpc?topic=vpc-vsi_is_connect
 ## Monitoring your instance
 {: #monitoring-your-instance} 
 
-You can monitor the CPU, volume, memory, and network usage of your instance over time.
+You can monitor the CPU, volume, memory, and network usage of your instance over time. Metrics are retained in the system for two weeks. 
 
 To monitor your instance:
 
@@ -200,6 +202,8 @@ To monitor your instance:
 1. Click the name of your instance.
 1. Click **Monitoring** in the navigation pane.
 
+You can download the selected metrics and graphs in CSV format. Scroll down to the bottom of the page and click **Download CSV**.
+{: tip}
 
 ## Congratulations!
 {: #congratulations} 
