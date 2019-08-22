@@ -53,14 +53,15 @@ Virtual Private Cloud (Early Access)
         iam.md
         vpc-user-permissions.md
         api-auth-correlation.md
-        
+              
+
     {: .topicgroup}
     Creating and managing instances
         vsi_best_practices.md
         vsi_is_create_instance.md
         vsi_is_create_instance_cli.md
         vsi_is_connecting_linux_gc.md
-
+        
     {: .topicgroup}
     Configuring security groups
         security-groups.md
@@ -86,12 +87,12 @@ Virtual Private Cloud (Early Access)
         delete-vpc-cli.md
         delete-vpc-api.md
 
-    connect-to-cos.md    
+    connect-to-cos.md  
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
     cli-reference.md
-    [API reference](https://cloud.ibm.com/apidocs/vpc)
+    [API reference](https://{DomainName}/apidocs/vpc)
     vpc-endpoints.md
     at-events.md
     {: .navgroup-end}

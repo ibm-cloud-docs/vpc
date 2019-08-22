@@ -25,14 +25,17 @@ subcollection: vpc
 # Managing user permissions for VPC resources
 {: #managing-user-permissions-for-vpc-resources}
 
-{{site.data.keyword.vpc_full}} uses role-based access control that enables account administrators to control their users' access to VPC resources. Access can be assigned to individual users or to groups of users.
+{{site.data.keyword.vpc_full}} uses role-based access control that enables account administrators to control their users' access to VPC resources. Access can be assigned to individual users or to groups of users by using {{site.data.keyword.Bluemix_notm}} Identity and Access Management (IAM).
 {:shortdesc}
 
-This document shows examples of how the VPC administrator can grant the correct permissions to manage VPC infrastructure resources. It covers the following scenarios:
+This document shows examples of how the VPC administrator can use the {{site.data.keyword.cloud_notm}} console to grant the correct permissions for managing VPC infrastructure resources. It covers the following scenarios:
 
 * **Full-access scenario:** Assign an access policy so a new user can create and use all VPC infrastructure resources (including VPCs).
 * **Limited access scenario:** Assign an access policy so an existing user can create and use only virtual server instances.
-* **Team access scenario:** Set up resource groups and access groups to allow two separate teams to create and use the VPC resources assigned to their team.
+* **Team access scenario:** Set up resource groups and access groups to allow two separate teams to create and use the VPC resources that are assigned to their team.
+
+You can also manage permissions through the CLI or API. For more information, see [How do I use IBM Cloud IAM](/docs/iam?topic=iam-iamoverview#howto).
+{: tip}
 
 ## Full-access scenario
 {: #inviting-new-user-to-create-or-manage-vpc-resources}
@@ -109,13 +112,13 @@ By default, account administrators can create new resource groups. Other users m
 
 Resource access can be assigned to groups of users. Groups of users with the same access permissions are called _access groups_. In this scenario, the account administrator creates an access group to represent each grouping of team members who require a specific type of VPC access, a total of four unique access groups.
 
-Create four access groups with the following names: 
+Create four access groups with the following names, and assign the appropriate users to each access group:
 * `test_team_manage_vpcs`
 * `test_team_view_vpcs`
 * `production_team_manage_vpcs`
 * `production_team_view_vpcs`
 
-For more information about how to create access groups, see [Create access groups](/docs/iam?topic=iam-groups#create_ag).
+For more information about how to create access groups and assign users to the access groups, see [Create access groups](/docs/iam?topic=iam-groups#create_ag).
 
 ### Step 3: Add IAM policies to the access groups
 {: #step-3-add-iam-policies-to-the-access-groups}
@@ -155,32 +158,14 @@ Repeat the previous steps to add access policies for the remaining three access 
 |production_team_view_vpcs|Default| Block Storage for VPC| Viewer|
 |production_team_view_vpcs|Default| Floating IP for VPC| Viewer|
 
-
-### Step 4: Add users to the access groups
-{: #step-4-add-users-to-the-access-groups}
-
-Now you can assign users to the access groups. For example, add the appropriate members of the test team to the access group that allows test team VPC management:
-
-1. Go to the [IAM Group UI ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/iam#/groups){: new_window} in the IBM Cloud console.
-2. Select an access group. Let's start with the `test_team_manage_vpcs` access group.
-3. On the **Users** tab, click **Add users**.
-4. Select each user you want to add to the access group.
-5. Click **Add to group**.
-
-Repeat the previous steps to assign users to the other three access groups:
-* `test_team_view_vpcs`
-* `production_team_manage_vpcs`
-* `production_team_view_vpcs`
-
-
-The two example teams are now set up to use VPCs. Members of the `test_team_manage_vpcs` and `production_team_manage_vpcs` access groups can now create VPCs in their assigned resource groups.
+The teams are now set up to use VPCs. Members of the `test_team_manage_vpcs` and `production_team_manage_vpcs` access groups can now create VPCs in their assigned resource groups.
 
 ## Viewing user's permissions
 {: #viewing-user-permissions}
 
 Policies can be viewed in the user's **Access policies** tab.
 
-You can use the following CLI commands to validate the resource group permissions assigned to your user, by policy or by access group:
+You can use the following CLI commands to validate the resource group permissions that are assigned to your user, by policy or by access group:
 
 **By policy**
 ```

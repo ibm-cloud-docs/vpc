@@ -34,7 +34,7 @@ This document covers quotas for the {{site.data.keyword.vpc_full}} early access 
 | Virtual private clouds | 5 per account per region|
 | Subnets | 15 per VPC |
 | Public Gateways | 1 per zone per VPC |
-| Address prefixes | 5 per account per VPC |
+| Address prefixes | 15 per account per VPC |
 
 ## Virtual server instances
 {: #vsi-quotas}

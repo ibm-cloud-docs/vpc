@@ -25,7 +25,7 @@ subcollection: vpc
 The table below lists the minimum Identity and Access Management (IAM) roles required to interact with {{site.data.keyword.vpc_full}} (VPC) infrastructure objects.
 {:shortdesc}
 
-For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?topic=vpc-iam-getting-started-vpc).
+For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?topic=vpc-iam-getting-started).
 
 | Resource | Action | Minimum IAM role |
 |--------|--------|---------|

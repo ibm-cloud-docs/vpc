@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-08"
+lastupdated: "2019-08-14"
 
 keywords: vpc, cli, command line interface, tutorial, creating a vpc
 
@@ -252,7 +252,7 @@ vol=933c8781-f7f5-4a8f-8a2d-3bfc711788ee
 ```
 {: pre}
 
-Note that the status of the volume is `pending` when it first is created. Before you can proceed, the volume needs to move to `available` status, which takes a few minutes. 
+Note that the status of the volume is `pending` when it first is created. Before you can proceed, the volume needs to move to `available` status, which takes a few minutes.
 
 To check the status of the volume, run this command:
 
@@ -352,92 +352,6 @@ You should see the following output:
 my-instance says Hello, World!
 ```
 {:screen}
-
-## Start using your block storage data volume
-{: #start-using-your-block-storage-data-volume}
-
-To use your block storage volume as a filesystem, you'll need to partition the volume, format the volume, and then mount it as a filesystem.
-
-On Linux, run the following command to list all block storage volumes from your instance:
-
-```
-lsblk
-```
-{:pre}
-
-You should see output like this:
-
-```
-NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-xvda    202:0    0  100G  0 disk 
-├─xvda1 202:1    0  256M  0 part /boot
-└─xvda2 202:2    0 99.8G  0 part /
-xvdc    202:32   0  100G  0 disk 
-xvdp    202:240  0   64M  0 disk 
-```
-{:screen}
-
-Volume `xvdc` is your new block storage data volume. 
-
-Run the following command to partition the volume. To begin, use the `n` command for a new partition.
-
-```
-fdisk /dev/xvdc
-```
-{:pre}
-
-Format the volume.
-
-```
-/sbin/mkfs -t ext3 /dev/xvdc
-```
-{:pre}
-
-Label the volume as "myvolume".
-
-```
-/sbin/e2label /dev/xvdc /myvolume
-```
-{:pre}
-
-Create the directory and mount the volume as a filesystem.
-
-```
-mkdir /hellovol
-mount /dev/xvdc /myvolume
-```
-{: codeblock}
-
-To see your new filesystem, run the following command:
-
-```
-df -k
-```
-{:pre}
-
-You should see output like this:
-
-```
-Filesystem     1K-blocks    Used Available Use% Mounted on
-udev             4075344       0   4075344   0% /dev
-tmpfs             816936    8844    808092   2% /run
-/dev/xvda2     101330012 1261048 100052580   2% /
-tmpfs            4084664       0   4084664   0% /dev/shm
-tmpfs               5120       0      5120   0% /run/lock
-tmpfs            4084664       0   4084664   0% /sys/fs/cgroup
-/dev/xvda1        245679   64360    168212  28% /boot
-tmpfs             817040       0    817040   0% /run/user/0
-/dev/xvdc      103081248   61176  97777192   1% /myvolume
-```
-{:screen}
-
-To change directory into your new filesystem and create a file, do something like this:
-
-```
-cd /myvolume
-touch myvolume
-```
-{:codeblock}
 
 ## Congratulations!
 {: #congratulations-cli-tutorials}

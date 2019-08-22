@@ -662,6 +662,75 @@ Delete a VPC.
 
 ---
 
+### `ibmcloud is vpc-route`
+{: #vpc-route}
+
+View details of a route.
+
+`ibmcloud is vpc-route VPC_ID ROUTE_ID [--json]`
+
+**Options**
+
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is vpc-route-create`
+{: #vpc-route-create}
+
+Create a route.
+
+`ibmcloud is vpc-route-create ROUTE_NAME VPC_ID --zone ZONE_NAME --destination DESTINATION_CIDR --next-hop-ip NEXT_HOP_IP [--json]`
+
+**Options**
+
+- `--zone`: Name of the zone.
+- `--destination`: The destination CIDR of the route.
+- `--next-hop-ip`: The IP address of the next hop to which to route packets.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is vpc-route-delete`
+{: #vpc-route-delete}
+
+Delete a route.
+
+`ibmcloud is vpc-route-delete VPC_ID ROUTE_ID [--force]`
+
+**Options**
+
+- `--force, -f`: Force the operation without confirmation.
+
+---
+
+### `ibmcloud is vpc-route-update`
+{: #vpc-route-update}
+
+Update a route.
+
+`ibmcloud is vpc-route-update VPC_ID ROUTE_ID --name NEW_NAME [--json]`
+
+**Options**
+
+- `--name`: New name of the route.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is vpc-routes`
+{: #vpc-routes}
+
+List all routes.
+
+`ibmcloud is vpc-routes VPC_ID [--json]`
+
+**Options**
+
+- `--json`: Format output in JSON.
+
+---
+
 ### `ibmcloud is vpc-update`
 {: #vpc-update}
 
@@ -784,6 +853,19 @@ Delete a virtual server instance.
 **options**
 
 - `--force, -f`: Force the operation without confirmation.
+
+---
+
+### `ibmcloud is instance-initialization-values`
+{: #instance-initialization-values}
+
+View initialization details of a server instance.
+
+`ibmcloud is instance-initialization-values INSTANCE_ID [--json]`
+
+**options**
+
+- `--json`: Format output in JSON.
 
 ---
 
@@ -995,7 +1077,7 @@ Update a virtual server instance.
 ### `ibmcloud is instance-volume-attachment`
 {: #instance-volume-attachment}
 
-View details of a volume attachment of a server instance. 
+View details of a volume attachment.
 
 `ibmcloud is instance-volume-attachment INSTANCE_ID VOLUME_ATTACHMENT_ID [--json]`
 
@@ -1008,7 +1090,7 @@ View details of a volume attachment of a server instance.
 ### `ibmcloud is instance-volume-attachments`
 {: #instance-volume-attachments}
 
-List all volume attachments of a server instance.
+List all volume attachments to an instance.
 
 `ibmcloud is instance-volume-attachments INSTANCE_ID [--json]`
 
@@ -1021,7 +1103,7 @@ List all volume attachments of a server instance.
 ### `ibmcloud is instance-volume-attachment-add`
 {: #instance-volume-attachment-add}
 
-Create a volume attachment for a server instance in the current resource group. 
+Create a volume attachment, connecting a volume to an instance.
 
 `ibmcloud is instance-volume-attachment-add NAME INSTANCE_ID VOLUME_ID [--auto-delete true | false] [--json]`
 
@@ -1035,7 +1117,7 @@ Create a volume attachment for a server instance in the current resource group.
 ### `ibmcloud is instance-volume-attachment-detach`
 {: #instance-volume-attachment-detach}
 
-Delete a volume attachment from a server instance. 
+Delete a volume attachment, detaching a volume from an instance.
 
 `ibmcloud is instance-volume-attachment-detach INSTANCE_ID VOLUME_ATTACHMENT_ID [-f, --force]`
 

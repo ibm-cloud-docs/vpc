@@ -47,6 +47,6 @@ After you have a VPC available, consider the following before you provision your
 ## Next steps
 {: #next-create-instance}
 When you're ready to get started, see the following tutorials:
- * [Creating a VPC using {{site.data.keyword.cloud_notm}} console](/docs/vpc?topic=vpc-creating-a-vpc-using-ibm-cloud-console)
- * [Creating a VPC using the CLI](/docs/vpc?topic=vpc-creating-a-vpc-using-the-cli)
+ * [Creating a VPC using {{site.data.keyword.cloud_notm}} console](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console)
+ * [Creating a VPC using the CLI](/docs/vpc?topic=vpc-creating-a-vpc-using-cli)
  * [Creating a VPC using the REST APIs](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis)
