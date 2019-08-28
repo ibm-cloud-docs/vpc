@@ -61,6 +61,7 @@ Virtual Private Cloud (Early Access)
         vsi_is_create_instance.md
         vsi_is_create_instance_cli.md
         vsi_is_connecting_linux_gc.md
+        vsi_is_manage_images.md
         
     {: .topicgroup}
     Configuring security groups
