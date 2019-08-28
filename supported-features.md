@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-07-29"
+lastupdated: "2019-08-28"
 
 keywords: vpc, early access, features
 
@@ -28,6 +28,7 @@ The following features are available in {{site.data.keyword.vpc_full}} (early ac
  * Create subnets and bring your own IP range
  * Get internet access to subnets by creating a public gateway (PGW), one per zone
  * Create and manage virtual server instances based on CentOS 7, Debian 9, and Ubuntu (16.04 and 18.04) images. All images are cloud-init enabled.
+ * Create and manage virtual server instances based on custom images.
  * Reserve a floating IP address and associate it with an instance.
  * Create and assign security groups to your instances
  * Multi-zone deployment in us-south.
