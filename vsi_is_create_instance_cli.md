@@ -312,4 +312,4 @@ Do you prefer to create an instance using the {{site.data.keyword.cloud_notm}} c
 {: #next-step-after-creating-virtual-servers-cli}
 A series of emails are sent to your administrator: acknowledgment of the virtual server instance order, order approval and processing, and a message stating the instance is created.
 
-After the instance is created, associate a floating IP address to the instance. Then you can connect to your instance. For more information, see [Connecting to your Linux instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux).
+After the instance is created, associate a floating IP address to the instance. Then you can connect to your instance. For more information, see [Connecting to your Linux instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux) or [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).

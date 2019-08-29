@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018, 2019
-lastupdated: "2019-07-29"
+lastupdated: "2019-08-22"
 
 keywords: secure, region, zone, subnet, public gateway, floating IP, NAT
 subcollection: vpc
@@ -38,7 +38,7 @@ Subnets within the VPC offer private connectivity; they can talk to each other o
 ## Terminology
 {: #networking-terminology}
 
-See [VPC concepts](/docs/vpc?topic=vpc-vpc-concepts}) for definitions and information about terms used in this document for {{site.data.keyword.vpc_short}}. When working with your VPC, you'll need to be familiar with the basic concepts of _region_ and _zone_ as they apply to your deployment.
+See [VPC concepts](/docs/vpc?topic=vpc-vpc-concepts) for definitions and information about terms used in this document for {{site.data.keyword.vpc_short}}. When working with your VPC, you'll need to be familiar with the basic concepts of _region_ and _zone_ as they apply to your deployment.
 
 ### Regions
 {: #networking-terms-regions}

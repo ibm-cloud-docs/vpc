@@ -766,6 +766,33 @@ This section provides information about the CLI commands available for compute f
 ## Images
 {: #compute-images}
 
+### `ibmcloud is operating-systems`
+{: #operating-systems}
+
+List all operating systems.
+
+`ibmcloud is operating-systems [--json]`
+
+**Options**
+
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is operating-system`
+{: #operating-system}
+
+View details of an operaging system.
+
+`ibmcloud is operating-system OPERATING_SYSTEM_NAME [--json]`
+
+**Options**
+
+- `OPERATING_SYSTEM_NAME`: Name of the operating system
+- `--json`: Format output in JSON.
+
+---
+
 ### `ibmcloud is image`
 {: #image-details}
 
@@ -789,6 +816,53 @@ List all images in the region.
 **options**
 
 - `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is image-create`
+{: #image-create}
+
+Create an image.
+
+`ibmcloud is image-create IMAGE_NAME --file IMAGE_FILE_LOCATION --os-name OPERATING_SYSTEM_NAME [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--json]`
+
+**Options**
+
+- `IMAGE_NAME`: Name of the new image.
+- `--file`: The Cloud Object Store (COS) location of the image file, for example: 'cos://us-south/custom-image-vpc-bucket/customImage-0.vhd'.
+- `--os-name`: The name of the operating system for this image.
+- `--resource-group-id`: ID of the resource group. This option is mutually exclusive with --resource-group-name.
+- `--resource-group-name`: Name of the resource group. This option is mutually exclusive with --resource-group-id.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is image-update`
+{: #image-update}
+
+Update an image.
+
+`ibmcloud is image-delete IMAGE_ID [--name NEW_NAME] [--json]`
+
+**Options**
+
+- `IMAGE_ID`: ID of the image.
+- `--name`: New name of the image.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is image-delete`
+{: #image-delete}
+
+Delete an image.
+
+`ibmcloud is image-delete IMAGE_ID [-f, --force]`
+
+**Options**
+
+- `IMAGE_ID`: ID of the image.
+- `--force, -f`: Force the operation without confirmation.
 
 ---
 
@@ -1275,6 +1349,964 @@ List all zones in the target region.
 - `--json`: Format output in JSON.
 
 ---
+
+## VPN Commands
+{: #vpn}
+
+This section gives details about the CLI commands available for working with VPN, including IKE and IPsec policies.
+
+## IKE Policies
+
+### `ibmcloud is ike-policies`
+{: #ike-policies}
+
+List all IKE policies.
+
+`ibmcloud is ike-policies [--json]`
+
+**Options**
+
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is ike-policy`
+{: #ike-policy}
+
+View details of an IKE policy.
+
+`ibmcloud is ike-policy IKE_POLICY_ID [--json]`
+
+**Options**
+
+- `IKE_POLICY_ID`: ID of the IKE policy.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is ike-policy-create`
+{: #ike-policy-create}
+
+Create an IKE policy.
+
+`ibmcloud is ike-policy-create IKE_POLICY_NAME AUTHENTICATION_ALGORITHM DH_GROUP ENCRYPTION_ALGORITHM IKE_VERSION [--key-lifetime KEY_LIFETIME] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--json]`
+
+**Options**
+- `IKE_POLICY_NAME`: Name of the IKE policy.
+- `AUTHENTICATION_ALGORITHM`: The authentication algorithm. Enumeration type: `md5`, `sha1`, `sha256`.
+- `DH_GROUP`: The Diffie-Hellman group. Enumeration type: `2`, `5`, `14`.
+- `ENCRYPTION_ALGORITHM`: The encryption algorithm. Enumeration type: `3des`, `aes128`, `aes256`.
+- `IKE_VERSION`: The IKE protocol version. Enumeration type: `1`, `2`.
+- `--key-lifetime`: The key lifetime in seconds. Maximum: 86400, Minimum: 1800 (default: 28800).
+- `--resource-group-id`: ID of the resource group. This option is exclusive with --resource-group-name.
+- `--resource-group-name`: Name of the resource group. This option is exclusive with --resource-group-id.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is ike-policy-delete`
+{: #ike-policy-delete}
+
+Delete an IKE policy.
+
+`ibmcloud is ike-policy-delete IKE_POLICY_ID [-f, --force]`
+
+**Options**
+
+- `IKE_POLICY_ID`: ID of the IKE policy.
+- `--force, -f`: Delete without confirmation.
+
+---
+
+### `ibmcloud is ike-policy-update`
+{: #ike-policy-update}
+
+Update an IKE policy.
+
+`ibmcloud is ike-policy-update IKE_POLICY_ID [--authentication_algorithm md5 | sha1 | sha256] [--dh-group 2 | 5 | 14] [--encryption-algorithm 3des | aes128 | aes256] [--ike-version 1 | 2] [--key-lifetime KEY_LIFETIME] [--name NEW_NAME] [--json]`
+
+**Options**
+- `IKE_POLICY_ID` ID of the IKE policy.
+- `--name`: New name of the IKE policy.
+- `--authentication-algorithm`: The authentication algorithm. Enumeration type: `md5`, `sha1`, `sha256`.
+- `--dh-group`: The Diffie-Hellman group. Enumeration type: `2`, `5`, `14`.
+- `--encryption-algorithm`: The encryption algorithm. Enumeration type: `3des`, `aes128`, `aes256`.
+- `--ike-version`: The IKE protocol version. Enumeration type: `1`, `2`.
+- `--key-lifetime`: The key lifetime in seconds. Maximum: 86400, Minimum: 1800.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is ike-policy-connections`
+{: #ike-policy-connections}
+
+List all connections that use the IKE policy.
+
+`ibmcloud is ike-policy-connections IKE_POLICY_ID [--json]`
+
+**Options**
+- `IKE_POLICY_ID`: ID of the IKE policy.
+- `--json`: Format output in JSON.
+
+
+## IPsec Policies
+
+### `ibmcloud is ipsec-policies`
+{: #ipsec-policies}
+
+List all IPsec policies.
+
+`ibmcloud is ipsec-policies [--json]`
+
+**Options**
+
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is ipsec-policy`
+{: #ipsec-policy}
+
+View details of an IPsec policy.
+
+`ibmcloud is ipsec-policy IPSEC_POLICY_ID [--json]`
+
+**Options**
+- `IPSEC_POLICY_ID`: ID of the IPsec policy.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is ipsec-policy-create`
+{: #ipsec-policy-create}
+
+Create an IPsec policy.
+
+`ibmcloud is ipsec-policy-create IPSEC_POLICY_NAME AUTHENTICATION_ALGORITHM ENCRYPTION_ALGORITHM PFS [--key-lifetime KEY_LIFETIME] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--json]`
+
+**Options**
+- `IPSEC_POLICY_NAME`: Name of the IPsec policy.
+- `AUTHENTICATION_ALGORITHM`: The authentication algorithm. Enumeration type: `md5`, `sha1`, `sha256`.
+- `ENCRYPTION_ALGORITHM`: The encryption algorithm. Enumeration type: `3des`, `aes128`, `aes256`.
+- `PFS`: Perfect Forward Secrecy. Enumeration type: disabled, `group_2`, `group_5`, `group_14`.
+- `--key-lifetime`: The key lifetime in seconds. Maximum: 86400, Minimum: 1800 (default: 3600).
+- `--resource-group-id`: ID of the resource group. This option is exclusive with --resource-group-name.
+- `--resource-group-name`: Name of the resource group. This option is exclusive with --resource-group-id.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is ipsec-policy-delete`
+{: #ipsec-policy-delete}
+
+Delete an IPsec policy.
+
+`ibmcloud is ipsec-policy-delete IPSEC_POLICY_ID [-f, --force]`
+
+**Options**
+
+- `IPSEC_POLICY_NAME`: Name of the IPsec policy.
+- `--force, -f`: Delete without confirmation.
+
+---
+
+### `ibmcloud is ipsec-policy-update`
+{: #ipsec-policy-update}
+
+Update an IPsec policy.
+
+`ibmcloud is ipsec-policy-update IPSEC_POLICY_ID [--authentication_algorithm md5 | sha1 | sha256] [--pfs disabled | group_2 | group_5 | group_14] [--encryption-algorithm 3des | aes128 | aes256] [--key-lifetime KEY_LIFETIME] [--name NEW_NAME] [--json]`
+
+**Options**
+- `IPSEC_POLICY_ID`: ID of the IPsec policy.
+- `--name`: New name of the IPsec policy.
+- `--authentication-algorithm`: The authentication algorithm. Enumeration type: `md5`, `sha1`, `sha256`.
+- `--pfs`: Perfect Forward Secrecy. Enumeration type: `disabled`, `group_2`, `group_5`, `group_14`.
+- `--encryption-algorithm`: The encryption algorithm. Enumeration type: `3des`, `aes128`, `aes256`.
+- `--key-lifetime`: The key lifetime in seconds. Maximum: 86400, Minimum: 1800.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is ipsec-policy-connections`
+{: #ipsec-policy-connections}
+
+List all connections that use the IPsec policy.
+
+`ibmcloud is ipsec-policy-connections IPSEC_POLICY_ID [--json]`
+
+**Options**
+- `IPSEC_POLICY_NAME`: Name of the IPsec policy.
+- `--json`: Format output in JSON.
+
+
+## VPN Gateway Commands
+
+This section contains commands available for working with VPN for VPC gateways.
+
+### `ibmcloud is vpn-gateways`
+{: #vpn-gateways}
+
+
+List all VPN gateways.
+
+`ibmcloud is vpn-gateways [--json]`
+
+**Options**
+
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is vpn-gateway`
+{: #vpn-gateway}
+
+View details of a VPN gateway.
+
+`ibmcloud is vpn-gateway VPN_GATEWAY_ID [--json]`
+
+**Options**
+- `VPN_GATEWAY_ID`: ID of the VPN gateway.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is vpn-gateway-create`
+{: #vpn-gateway-create}
+
+Create a VPN gateway.
+
+`ibmcloud is vpn-gateway-create VPN_GATEWAY_NAME SUBNET_ID [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--json]`
+
+**Options**
+- `VPN_GATEWAY_NAME`: Name of the VPN gateway.
+- `SUBNET_ID`: The unique identifier for this subnet.
+- `--resource-group-id`: ID of the resource group. This option is exclusive with --resource-group-name.
+- `--resource-group-name`: Name of the resource group. This option is exclusive with --resource-group-id.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is vpn-gateway-delete`
+{: #vpn-gateway-delete}
+
+Delete a VPN gateway.
+
+`ibmcloud is vpn-gateway-delete VPN_GATEWAY_ID [-f, --force]`
+
+**Options**
+
+- `VPN_GATEWAY_ID`: ID of the VPN gateway.
+- `--force, -f`: Delete without confirmation.
+
+---
+
+### `ibmcloud is vpn-gateway-update`
+{: #vpn-gateway-update}
+
+Update a VPN gateway.
+
+`ibmcloud is vpn-gateway-update VPN_GATEWAY_ID [--name NEW_NAME] [--json]`
+
+**Options**
+- `VPN_GATEWAY_ID`: ID of the VPN gateway.
+- `--name`: New name of the VPN gateway.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is vpn-gateway-connections`
+{: #vpn-gateway-connections}
+
+List all VPN gateway connections.
+
+`ibmcloud is vpn-gateway-connections VPN_GATEWAY_ID [--json]`
+
+**Options**
+- `VPN_GATEWAY_ID`: ID of the VPN gateway.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is vpn-gateway-connection-create`
+{: #vpn-gateway-connection-create}
+
+Create a VPN gateway connection.
+
+`ibmcloud is vpn-gateway-connection-create CONNECTION_NAME VPN_GATEWAY_ID PEER_ADDRESS PRESHARED_KEY [--admin-state-up true | false] [--dead-peer-detection-action ACTION] [--dead-peer-detection-interval INTERVAL] [--dead-peer-detection-timeout TIMEOUT] [--ike-policy IKE_POLICY_ID] [--ipsec-policy IPSEC_POLICY_ID]  [--local-cidr CIDR1 --local-cidr CIDR2 ...] [--peer-cidr CIDR1 --peer-cidr CIDR2 ...] [--json]`
+
+**Options**
+- `CONNECTION_NAME`: Name of the connection.
+- `VPN_GATEWAY_ID`: ID of the VPN gateway.
+- `PEER_ADDRESS`: The IP address of the peer VPN gateway.
+- `PRESHARED_KEY`: The preshared key.
+- `--admin-state-up`: If set to `false`, the VPN gateway connection is shut down. default is `false`.
+- `--dead-peer-detection-action`: Dead Peer Detection actions. Enumeration type: `restart`, `clear`, `hold`, `none`.
+- `--dead-peer-detection-interval`: Dead Peer Detection interval in seconds (default: 30).
+- `--dead-peer-detection-timeout`: Dead Peer Detection timeout in seconds (default: 120).
+- `--ike-policy`: ID of the IKE policy.
+- `--ipsec-policy`: ID of the IPsec policy.
+- `--local-cidr`: Local CIDR for this resource. This parameter can be specified multiple times to provision multiple local CIDRs.
+- `--peer-cidr`: Peer CIDRs for this resource. This parameter can be specified multiple times to provision multiple peer CIDRs.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is vpn-gateway-connection`
+{: #vpn-gateway-connection}
+
+View details of a VPN gateway connection.
+
+`ibmcloud is vpn-gateway-connection VPN_GATEWAY_ID CONNECTION_ID [--json]`
+
+**Options**
+- `VPN_GATEWAY_ID`: ID of the VPN gateway.
+- `CONNECTION_ID`: ID of the connection.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is vpn-gateway-connection-delete`
+{: #vpn-gateway-connection-delete}
+
+Delete a VPN gateway connection.
+
+`ibmcloud is vpn-gateway-connection-delete VPN_GATEWAY_ID CONNECTION_ID [-f, --force]`
+
+**Options**
+
+- `VPN_GATEWAY_ID`: ID of the VPN gateway.
+- `CONNECTION_ID`: ID of the connection.
+- `--force, -f`: Delete without confirmation.
+
+---
+
+### `ibmcloud is vpn-gateway-connection-update`
+{: #vpn-gateway-connection-update}
+
+Update a VPN gateway connection.
+
+`ibmcloud is vpn-gateway-connection-update VPN_GATEWAY_ID CONNECTION_ID [--admin-state-up true | false] [--dead-peer-detection-action ACTION] [--dead-peer-detection-interval INTERVAL] [--dead-peer-detection-timeout TIMEOUT] [--ike-policy IKE_POLICY_ID] [--ipsec-policy IPSEC_POLICY_ID] [--peer-address ADDRESS] [--psk PSK] [--name NEW_NAME] [--json]`
+
+**Options**
+- `VPN_GATEWAY_ID`: ID of the VPN gateway.
+- `CONNECTION_ID`: ID of the connection.
+- `--admin-state-up`: If set to `false`, the VPN gateway connection is shut down. default is `false`.
+- `--dead-peer-detection-action`: Dead Peer Detection actions. Enumeration type: `restart`, `clear`, `hold`, `none`.
+- `--dead-peer-detection-interval`: Dead Peer Detection interval in seconds.
+- `--dead-peer-detection-timeout`: Dead Peer Detection timeout in seconds.
+- `--ike-policy`: ID of the IKE policy.
+- `--ipsec-policy`: ID of the IPsec policy.
+- `--peer-address`: The IP address of the peer VPN gateway.
+- `--psk`: The preshared key.
+- `--name`: New name of the connection.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is vpn-gateway-connection-local-cidr-delete`
+{: #vpn-gateway-connection-local-cidr-delete}
+
+Remove a local CIDR from the VPN gateway connection.
+
+`ibmcloud is vpn-gateway-connection-local-cidr-delete VPN_GATEWAY_ID CONNECTION_ID PREFIX_ADDRESS PREFIX_LENGTH [-f, --force]`
+
+**Options**
+
+- `VPN_GATEWAY_ID`: ID of the VPN gateway.
+- `CONNECTION_ID`: ID of the connection.
+- `PREFIX_ADDRESS`: The prefix address part of the CIDR.
+- `PREFIX_LENGTH`: The prefix length part of the CIDR.
+- `--force, -f`: Delete without confirmation.
+
+---
+
+### `ibmcloud is vpn-gateway-connection-local-cidr-add`
+{: #vpn-gateway-connection-local-cidr-add}
+
+Add a local CIDR to a VPN gateway connection.
+
+`ibmcloud is vpn-gateway-connection-local-cidr-add VPN_GATEWAY_ID CONNECTION_ID PREFIX_ADDRESS PREFIX_LENGTH [--json]`
+
+**Options**
+
+- `VPN_GATEWAY_ID`: ID of the VPN gateway.
+- `CONNECTION_ID`: ID of the connection.
+- `PREFIX_ADDRESS`: The prefix address part of the CIDR.
+- `PREFIX_LENGTH`: The prefix length part of the CIDR.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is vpn-gateway-connection-peer-cidr-delete`
+{: #vpn-gateway-connection-peer-cidr-delete}
+
+Remove a peer CIDR from the VPN gateway connection.
+
+`ibmcloud is vpn-gateway-connection-peer-cidr-delete VPN_GATEWAY_ID CONNECTION_ID PREFIX_ADDRESS PREFIX_LENGTH [-f, --force]`
+
+**Options**
+
+- `VPN_GATEWAY_ID`: ID of the VPN gateway.
+- `CONNECTION_ID`: ID of the connection.
+- `PREFIX_ADDRESS`: The prefix address part of the CIDR.
+- `PREFIX_LENGTH`: The prefix length part of the CIDR.
+- `--force, -f`: Delete without confirmation.
+
+---
+
+### `ibmcloud is vpn-gateway-connection-peer-cidr-add`
+{: #vpn-gateway-connection-peer-cidr-add}
+
+Add a peer CIDR to a VPN gateway connection.
+
+`ibmcloud is vpn-gateway-connection-peer-cidr-add VPN_GATEWAY_ID CONNECTION_ID PREFIX_ADDRESS PREFIX_LENGTH [--json]`
+
+**Options**
+
+- `VPN_GATEWAY_ID`: ID of the VPN gateway.
+- `CONNECTION_ID`: ID of the connection.
+- `PREFIX_ADDRESS`: The prefix address part of the CIDR.
+- `PREFIX_LENGTH`: The prefix length part of the CIDR.
+- `--json`: Format output in JSON.
+
+
+## Load Balancer Commands
+{: #load-balancers}
+
+This section gives details about the CLI commands available for working with load balancers, listeners, and pools.
+
+## Load Balancer
+
+### `ibmcloud is load-balancers`
+{: #load-balancers-cli}
+
+List all load balancers.
+
+`ibmcloud is load-balancers [--json]`
+
+**Options**
+
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is load-balancer`
+{: #load-balancer}
+
+View details of a load balancer.
+
+`ibmcloud is load-balancer LOAD_BALANCER_ID [--json]`
+
+**Options**
+
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is load-balancer-create`
+{: #load-balancer-create}
+
+Create a load balancer.
+
+`ibmcloud is load-balancer-create LOAD_BALANCER_NAME LOAD_BALANCER_TYPE (--subnet SUBNET_ID1 --subnet SUBNET_ID2 ...) [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--json]`
+
+**Options**
+
+- `LOAD_BALANCER_NAME`: Name of the load balancer.
+- `LOAD_BALANCER_TYPE`: Type of the load balancer, public or private.
+- `--subnet`: ID of the subnets to provision this load balancer. This parameter can be specified multiple times to provision multiple subnets.
+- `--resource-group-id`: ID of the resource group. This option is exclusive with --resource-group-name.
+- `--resource-group-name`: Name of the resource group. This option is exclusive with --resource-group-id.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is load-balancer-delete`
+{: #load-balancer-delete}
+
+Delete a load balancer.
+
+`ibmcloud is load-balancer-delete LOAD_BALANCER_ID [-f, --force]`
+
+**Options**
+
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `--force, -f`: Delete without confirmation.
+
+---
+
+### `ibmcloud is load-balancer-update`
+{: #load-balancer-update}
+
+Update a load balancer.
+
+`ibmcloud is load-balancer-update LOAD_BALANCER_ID [--name NEW_NAME] [--json]`
+
+**Options**
+
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `--name`: New name of the Load balancer.
+- `--json`: Format output in JSON.
+
+---
+
+## Load Balancer Listener
+
+### `ibmcloud is load-balancer-listeners`
+{: #load-balancer-listeners}
+
+List all load balancer listeners.
+
+`ibmcloud is load-balancer-listeners LOAD_BALANCER_ID [--json]`
+
+**Options**
+
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is load-balancer-listener`
+{: #load-balancer-listener}
+
+View details of a load balancer listener.
+
+`ibmcloud is load-balancer-listener LOAD_BALANCER_ID LISTENER_ID [--json]`
+
+**Options**
+
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `LISTENER_ID`: ID of the listener.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is load-balancer-listener-create`
+{: #load-balancer-listener-create}
+
+Create a load balancer listener.
+
+`ibmcloud is load-balancer-listener-create LOAD_BALANCER_ID PORT PROTOCOL [--certificate-instance-crn CERTIFICATE_INSTANCE_CRN] [--connection-limit LIMIT] [--default-pool DEFAULT_POOL_ID] [--policies LISTENER_POLICIES_JSON | @LISTENER_POLICIES_JSON_FILE] [--json]`
+
+
+**Options**
+- `LOAD_BALANCER_NAME`: Name of the load balancer.
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `PORT`: The listener port number.
+- `PROTOCOL`: The listener protocol. Enumeration type: `http`, `https`, `tcp`.
+- `--certificate-instance-crn`: CRN of the certificate instance. Required when protocol is HTTPS.
+- `--connection-limit`: The connection limit of the listener.
+- `--default-pool`: ID of the default pool.
+- `--policies`: LISTENER_POLICIES_JSON | @LISTENER_POLICIES_JSON_FILE, listener policies in json or json file.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is load-balancer-listener-delete`
+{: #load-balancer-listener-delete}
+
+Delete a load balancer listener.
+
+`ibmcloud is load-balancer-listener-delete LOAD_BALANCER_ID LISTENER_ID [-f, --force]`
+
+**Options**
+
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `LISTENER_ID`: ID of the listener.
+- `--force, -f`: Delete without confirmation.
+
+---
+
+### `ibmcloud is load-balancer-listener-update`
+{: #load-balancer-listener-update}
+
+Update a load balancer listener.
+
+`ibmcloud is load-balancer-listener-update LOAD_BALANCER_ID LISTENER_ID [--certificate-instance CERTIFICATE_INSTANCE_ID] [--connection-limit LIMIT] [--port PORT] [--protocol http | https | tcp] [--default-pool DEFAULT_POOL_ID] [--json]`
+
+**Options**
+
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `LISTENER_ID`: ID of the listener.
+- `--certificate-instance-crn`: CRN of the certificate instance.
+- `--connection-limit`: The connection limit of the listener.
+- `--default-pool`: ID of the default pool.
+- `--protocol`: The listener protocol. Enumeration type: `http`, `https`, `tcp`.
+- `--port`: The listener port.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is load-balancer-listener-policies`
+{: #load-balancer-listener-policies}
+
+List all load balancer policies.
+
+`ibmcloud is load-balancer-listener-policies LOAD_BALANCER_ID LISTENER_ID [--json]`
+
+**options**
+
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `LISTENER_ID`: ID of the listener.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is load-balancer-listener-policy`
+{: #load-balancer-listener-policy}
+
+View details of load balancer listener policy.
+
+`ibmcloud is load-balancer-listener-policy LOAD_BALANCER_ID LISTENER_ID POLICY_ID [--json]`
+
+**options**
+
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `LISTENER_ID`: ID of the listener.
+- `POLICY_ID`: ID of the policy.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is load-balancer-listener-policy-create`
+{: #load-balancer-listener-policy-create}
+
+Create a load balancer listener policy.
+
+`ibmcloud is load-balancer-listener-policy-create LOAD_BALANCER_ID LISTENER_ID --priority PRIORITY --action ACTION [--name NAME] [--target-id TARGET_ID] [--target-http-status-code TARGET_HTTP_STATUS_CODE] [--target-url TARGET_URL] [--rules LISTENER_POLICY_RULES_JSON | @LISTENER_POLICY_RULES_JSON_FILE] [--json]`
+
+**options**
+
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `LISTENER_ID`: ID of the listener.
+- `--name`: The new name of the policy.
+- `--target-id`: The unique identifier for this load balancer pool, specified with 'forward' action.
+- `--target-http-status-code`: The http status code in the redirect response, one of [301, 302, 303, 307, 308], specified with 'redirect' action.
+- `--target-url`: The redirect target URL, specified with 'redirect' action.
+- `--priority`: Priority of the policy. Lower value indicates higher priority, e.g. 5, range: [1-10].
+- `--action`: The policy action, one of [forward, redirect, reject].
+- `--rules`: LISTENER_POLICY_RULES_JSON | @LISTENER_POLICY_RULES_JSON_FILE, listener policy rules in json or json file.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is load-balancer-listener-policy-delete`
+{: #load-balancer-listener-policy-delete}
+
+Delete a policy from a load balancer listener.
+
+`ibmcloud is load-balancer-listener-policy-delete LOAD_BALANCER_ID LISTENER_ID POLICY_ID [-f, --force]`
+
+**options**
+
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `LISTENER_ID`: ID of the listener.
+- `POLICY_ID`: ID of the policy.
+- `--force, -f`: Force the operation without confirmation.
+
+---
+
+### `ibmcloud is load-balancer-listener-policy-update`
+{: #load-balancer-listener-policy-update}
+
+Update a policy of a load balancer listener.
+
+`ibmcloud is load-balancer-listener-policy-update LOAD_BALANCER_ID LISTENER_ID POLICY_ID [--name NAME] [--priority PRIORITY] [--target-id TARGET_ID] [--target-http-status-code TARGET_HTTP_STATUS_CODE] [--target-url TARGET_URL] [--json]`
+
+**options**
+
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `LISTENER_ID`: ID of the listener.
+- `POLICY_ID`: ID of the policy.
+- `--name`: The user-defined name for this policy. Names must be unique within the load balancer listener the policy resides in.
+- `--priority`: Priority of the policy. Lower value indicates higher priority.
+- `--target-id`: The unique identifier for this load balancer pool, specified with 'forward' action.
+- `--target-http-status-code`: The http status code in the redirect response, one of [301, 302, 303, 307, 308], specified with 'redirect' action.
+- `--target-url`: The redirect target URL, specified with 'redirect' action.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is load-balancer-listener-policy-rules`
+{: #load-balancer-listener-policy-rules}
+
+List all load balancer policy rules.
+
+`ibmcloud is load-balancer-listener-policy-rules LOAD_BALANCER_ID LISTENER_ID POLICY_ID [--json]`
+
+**options**
+
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `LISTENER_ID`: ID of the listener.
+- `POLICY_ID`: ID of the policy.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is load-balancer-listener-policy-rule`
+{: #load-balancer-listener-policy-rule}
+
+List single load balancer policy rule.
+
+`ibmcloud is load-balancer-listener-policy-rule LOAD_BALANCER_ID LISTENER_ID POLICY_ID RULE_ID [--json]`
+
+**options**
+
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `LISTENER_ID`: ID of the listener.
+- `POLICY_ID`: ID of the policy.
+- `RULE_ID`: ID of the rule.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is load-balancer-listener-policy-rule-create`
+{: #load-balancer-listener-policy-rule-create}
+
+Create a load balancer listener policy rule.
+
+`ibmcloud is load-balancer-listener-policy-rule-create LOAD_BALANCER_ID LISTENER_ID POLICY_ID --condition CONDITION --type TYPE --value VALUE [--field FIELD] [--json]`
+
+**options**
+
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `LISTENER_ID`: ID of the listener.
+- `POLICY_ID`: ID of the policy.
+- `--condition`: The condition of the rule, enumeration type: contains, equals, matches_regex.
+- `--type`: The type of the rule, enumeration type: header, hostname, path.
+- `--`: value      Value to be matched for rule condition.
+- `--field`: HTTP header field. This is only applicable to "header" rule type.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is load-balancer-listener-policy-rule-update`
+{: #load-balancer-listener-policy-rule-update}
+
+Update a rule of a load balancer listener policy.
+
+`ibmcloud is load-balancer-listener-policy-rule-update LOAD_BALANCER_ID LISTENER_ID POLICY_ID RULE_ID [--condition CONDITION] [--type TYPE] [--value VALUE] [--field FIELD] [--json]`
+
+**options**
+
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `LISTENER_ID`: ID of the listener.
+- `POLICY_ID`: ID of the policy.
+- `RULE_ID`: ID of the rule.
+- `--condition`: The condition of the rule, enumeration type: contains, equals, matches_regex.
+- `--type`: The type of the rule, enumeration type: header, hostname, path.
+- `--`: value      Value to be matched for rule condition.
+- `--field`: HTTP header field. This is only applicable to "header" rule type.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is load-balancer-listener-policy-rule-delete`
+{: #load-balancer-listener-policy-rule-delete}
+
+Delete a policy from a load balancer listener.
+
+`ibmcloud is load-balancer-listener-policy-rule-delete LOAD_BALANCER_ID LISTENER_ID POLICY_ID RULE_ID [-f, --force]`
+
+**options**
+
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `LISTENER_ID`: ID of the listener.
+- `POLICY_ID`: ID of the policy.
+- `RULE_ID`: ID of the rule.
+- `--force, -f`: Force the operation without confirmation.
+
+---
+
+## Load Balancer Pools
+
+### `ibmcloud is load-balancer-pools`
+{: #load-balancer-pools}
+
+List all pools of a load balancer.
+
+`ibmcloud is load-balancer-pools LOAD_BALANCER_ID [--json]`
+
+**Options**
+
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is load-balancer-pool`
+{: #load-balancer-pool}
+
+View details of a load balancer pool.
+
+`ibmcloud is load-balancer-pool LOAD_BALANCER_ID POOL_ID [--json]`
+
+**Options**
+
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `POOL_ID`: ID of the pool.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is load-balancer-pool-create`
+{: #load-balancer-pool-create}
+
+Create a load balancer pool.
+
+`ibmcloud is load-balancer-pool-create POOL_NAME LOAD_BALANCER_ID ALGORITHM PROTOCOL HEALTH_DELAY HEALTH_RETRIES HEALTH_TIMEOUT HEALTH_TYPE [--health-monitor-url URL][--health-monitor-port PORT][--session-persistence-type TYPE] [--json]`
+
+**Options**
+- `POOL_NAME`: Name of the pool.
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `ALGORITHM`: The load balancing algorithm. Enumeration type: `round_robin`, `weighted_round_robin`, least_connections.
+- `PROTOCOL`: The pool protocol. Enumeration type: `http`, `tcp`.
+- `HEALTH_DELAY`: The health check interval in seconds. The interval must be greater than the timeout value.
+- `HEALTH_RETRIES`: The health check maximum retries.
+- `HEALTH_TIMEOUT`: The health check timeout in seconds.
+- `HEALTH_TYPE`: The pool protocol. Enumeration type: `http`, `tcp`.
+- `--health-monitor-url`: The health check url. This option is applicable only to `http` type of HEALTH_TYPE.
+- `--session-persistence-type`: The session persistence type, Enumeration type: source_ip
+- `--health-monitor-port`: The health check port number.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is load-balancer-pool-delete`
+{: #load-balancer-pool-delete}
+
+Delete a pool from a load balancer.
+
+`ibmcloud is load-balancer-pool-delete LOAD_BALANCER_ID POOL_ID [-f, --force]`
+
+**Options**
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `POOL_ID`: ID of the pool.
+- `--force, -f`: Delete without confirmation.
+
+---
+
+### `ibmcloud is load-balancer-pool-update`
+{: #load-balancer-pool-update}
+
+Update a pool of a load balancer.
+
+`ibmcloud is load-balancer-pool-update LOAD_BALANCER_ID POOL_ID [--algorithm round_robin | weighted_round_robin | least_connections] [--health-delay DELAY --health-max-retries RETRIES --health-timeout TIMEOUT --health-type TYPE --health-monitor-url URL] [--health-monitor-port PORT] [--protocol http | tcp] [--session-persistence-type TYPE] [--name NEW_NAME] [--json]`
+
+**Options**
+
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `POOL_ID`: ID of the pool.
+- `--algorithm`: The load balancing algorithm. Enumeration type: `round_robin`, `weighted_round_robin`, `least_connections`.
+- `--health-delay`: The health check interval in seconds. Interval must be greater than timeout value. Minimum: 2, maximum: 60.
+- `--health-max-retries`: The health check max retries. Minimum: 2, maximum: 60.
+- `--health-monitor-url`: The health check url. This option is applicable only to `http` type of `--health-type`.
+- `--health-timeout`: The health check timeout in seconds. Minimum: 1, maximum: 59.
+- `--health-type`: The pool protocol. Enumeration type: `http`, `tcp`.
+- `--health-monitor-port`: The health check port number.
+- `--session-persistence-type`: The session persistence type, Enumeration type: `source_ip`.
+- `--session-persistence-cookie-name`: Session persistence cookie name. This option is applicable only to `--session-persistence-type`.
+- `--protocol`: The pool protocol. Enumeration type: `http`, `tcp`.
+- `--name`: The new name of the pool.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is load-balancer-pool-members`
+{: #load-balancer-pool-members}
+
+List all the members of a load balancer pool.
+
+`ibmcloud is load-balancer-pool-members LOAD_BALANCER_ID POOL_ID [--json]`
+
+**Options**
+
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `POOL_ID`: ID of the pool.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is load-balancer-pool-member`
+{: #load-balancer-pool-member}
+
+View details of load balancer pool member.
+
+`ibmcloud is load-balancer-pool-member LOAD_BALANCER_ID POOL_ID MEMBER_ID [--json]`
+
+**Options**
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `POOL_ID`: ID of the pool.
+- `MEMBER_ID`: ID of the member.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is load-balancer-pool-member-create`
+{: #load-balancer-pool-member-create}
+
+Create a load balancer pool member.
+
+`ibmcloud is load-balancer-pool-member-create LOAD_BALANCER_ID POOL_ID PORT TARGET_ADDRESS [--weight WEIGHT] [--json]`
+
+**Options**
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `POOL_ID`: ID of the pool.
+- `PORT`: The port number of the application running in the server member.
+- `TARGET_ADDRESS`: The IP address of the pool member.
+- `--weight`: Weight of the server member. This option takes effect only when the load balancing algorithm of its belonging pool is `weighted_round_robin`.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is load-balancer-pool-member-update`
+{: #load-balancer-pool-member-update}
+
+Update a member of a load balancer pool.
+
+`ibmcloud is load-balancer-pool-member-update LOAD_BALANCER_ID POOL_ID MEMBER_ID [--port PORT] [--target-address TARGET_ADDRESS] [--weight WEIGHT] [--json]`
+
+**Options**
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `POOL_ID`: ID of the pool.
+- `MEMBER_ID`: ID of the member.
+- `--target-address`: The IP address of the pool member.
+- `--weight`: Weight of the server member. This option takes effect only when the load balancing algorithm of its belonging pool is `weighted_round_robin`.
+- `--port`: The port number of the application running in the server member.
+- `--json`: Format output in JSON.
+
+---
+
+### `ibmcloud is load-balancer-pool-member-delete`
+{: #load-balancer-pool-member-delete}
+
+Delete a member from a load balancer pool.
+
+`ibmcloud is load-balancer-pool-member-delete LOAD_BALANCER_ID POOL_ID MEMBER_ID [-f, --force]`
+
+**Options**
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `POOL_ID`: ID of the pool.
+- `MEMBER_ID`: ID of the member.
+- `--force, -f`: Delete without confirmation.
+
+---
+
+### `ibmcloud is load-balancer-statistics`
+{: #load-balancer-statistics}
+
+List all statistics of a load balancer.
+
+`ibmcloud is load-balancer-statistics LOAD_BALANCER_ID [--json]`
+
+**Options**
+- `LOAD_BALANCER_ID`: ID of the load balancer.
+- `--json`: Format output in JSON.
+
+---
+
 ## Storage CLI commands
 {: #storage}
 

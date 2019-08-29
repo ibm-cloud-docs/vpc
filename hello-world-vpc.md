@@ -21,7 +21,7 @@ subcollection: vpc
 {:table: .aria-labeledby="caption"}
 {:download: .download}
 
-# Creating VPC resources using the CLI
+# Using the CLI to create VPC resources
 {: #creating-a-vpc-using-cli}
 
 This guide shows you how to create and configure an {{site.data.keyword.vpc_full}} using the {{site.data.keyword.cloud}} CLI.
@@ -335,6 +335,8 @@ When you're prompted to continue connecting, type `yes`.
 
 SSH access into the instance might be prevented by security groups. Make sure the instance's security group allows SSH access.
 {: tip}
+
+To connect to a Windows image, log in using its decrypted password. For instructions, see [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
 
 ## Hello, World!
 {: #hello-world-cli}

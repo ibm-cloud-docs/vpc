@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-08-28"
+lastupdated: "2019-07-29"
 
 keywords: glossary, terminology, concepts, vpc, virtual private cloud, definitions
 
@@ -35,7 +35,7 @@ You can reserve a floating IP address from the pool of available floating IP add
 
 ## Image
 {: #image-def}
-The information required to launch a virtual server instance, or _instance_. Typically, it is a snapshot image of a commercially-available operating system, used for booting. When you create an instance, you can select from the supported stock images or a custom image that was imported from {{site.data.keyword.cos_full_notm}}.
+The information required to create a virtual server instance, or _instance_. Typically, it is a snapshot image of a commercially-available operating system, used for booting. When you create an instance, you can select from the supported stock images or a custom image that was imported from {{site.data.keyword.cos_full_notm}}.
 
 ## Instance
 {: #instance-def}

@@ -138,7 +138,7 @@ If you run into unexpected results, add the `--verbose` (debug) flag after the `
 
  * Call the GET Regions API to see the regions available for VPC, in JSON format. At least one object should return.
   
-  Send the `generation` parameter with every API request to specify which generation of infrastructure to use. For VPC (early access), specify `generation=2`. For more information, see **Generation** in the [Regional API for VPC](https://{DomainName}/apidocs/vpc-advanced-vsi#generation) 
+  Send the `generation` parameter with every API request to specify which generation of infrastructure to use. For VPC (early access), specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API (Early Access)](https://{DomainName}/apidocs/vpc#api-generation-parameter) 
   {: tip}
 
     ```

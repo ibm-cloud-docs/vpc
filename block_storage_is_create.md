@@ -36,7 +36,7 @@ Before you get started, make sure you have [created a VPC](/docs/vpc?topic=vpc-c
 {: #create-from-vsi}
 
 1. Create an instance. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc){: external} for the Virtual Private Cloud, navigate to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > Compute > Virtual server instances > New instance**.
-1. [Configure your virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers). Under **Attached block storage volumes**, select **New block storage volume**.
+1. [Create your virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers). Under **Attached block storage volumes**, select **New block storage volume**.
 1. Enter the information described in the following table.  When finished, click **Create volume**.
 
 | Field | Value |

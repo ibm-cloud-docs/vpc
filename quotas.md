@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-08-12"
+lastupdated: "2019-08-28"
 
 keywords: quotas, vpc, resources, limited, early access 
 
@@ -31,10 +31,10 @@ This document covers quotas for the {{site.data.keyword.vpc_full}} early access 
 
 |   Resource     | Quota |
 | ------- | :------: |
-| Virtual private clouds | 5 per account per region|
+| Virtual private clouds | 5 per region|
 | Subnets | 15 per VPC |
 | Public Gateways | 1 per zone per VPC |
-| Address prefixes | 15 per account per VPC |
+| Address prefixes | 15 per VPC |
 
 ## Virtual server instances
 {: #vsi-quotas}

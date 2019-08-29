@@ -62,9 +62,7 @@ The following concepts are not supported:
 ## Compute restrictions
 {: #compute-restrictions}
 
-* The following images are not supported:
-  * Red Hat Enterprise Linux 
-  * Windows
+* Red Hat Enterprise Linux images are not supported.
 * Every profile has a network performance value of 2 Gbps per vCPU, with a cap of 80 Gbps.
 
 * Each network interface has a network performance cap of 16 Gbps.

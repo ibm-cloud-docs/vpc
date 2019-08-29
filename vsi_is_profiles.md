@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-29"
+lastupdated: "2019-08-22"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory
 
@@ -126,10 +126,10 @@ When using the command line, the following information describes what the output
 {: #storage-notes-for-profiles}
 
 When you create secondary data volumes, you select a volume profile that best meets your requirements. Volume profiles are available
-as three predefined [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) or as a [custom IOPS profile](/docs/vpc?topic=vp-block-storage-profiles#custom). These volume profiles relate to virtual server instance profiles:
+as three predefined [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) or as a [custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom). These volume profiles relate to virtual server instance profiles:
 
 * A [3 IOPS general-purpose tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers) provides IOPS/GB performance suitable for a virtual server instance Balanced profile.
-* A [5-IOPS tier](/docs/vpc?topic=vp-block-storage-profiles#tiers) profile provides IOPS/GB performance suitable for a virtual server instance Compute profile.
+* A [5-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance suitable for a virtual server instance Compute profile.
 * A [10-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance suitable for a virtual server instance Memory profile.
 
 ## Network performance notes for profiles

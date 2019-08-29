@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-22"
 
 keywords: block storage, IBM Cloud, VPC, CLI, block storage volume, volume, volume attachment, virtual server instance, instance
 
@@ -119,5 +119,5 @@ Here is an example volume attachment JSON file that defines a custom volume:
 
 Create additional volumes and manage existing ones.  See the following information.
 
-* [Create a block storage volume using the CLI](/docs/vpv?topic=vpc-on-classic-block-storage-creating-block-storage-cli#create-vol-cli)
+* [Create a block storage volume using the CLI](/docs/vpc?topic=vpc-creating-block-storage-cli)
 * [Managing block storage volumes using the CLI](/docs/vpc?topic=vpc-managing-block-storage-cli)

@@ -3,7 +3,7 @@
 copyright:
   years: 2019
 
-lastupdated: "2019-08-13"
+lastupdated: "2019-08-27"
 
 keywords: resource, access, role, role-based, authorization, policy, access group, resource group, permission, assign, administrator, operator, editor, viewer, user, team, scenario, manage, create, IAM
 
@@ -22,7 +22,7 @@ subcollection: vpc
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Managing user permissions for VPC resources
+# Granting user permissions for VPC resources
 {: #managing-user-permissions-for-vpc-resources}
 
 {{site.data.keyword.vpc_full}} uses role-based access control that enables account administrators to control their users' access to VPC resources. Access can be assigned to individual users or to groups of users by using {{site.data.keyword.Bluemix_notm}} Identity and Access Management (IAM).
@@ -157,8 +157,11 @@ Repeat the previous steps to add access policies for the remaining three access 
 |production_team_view_vpcs|production_team| All resource types| Viewer|
 |production_team_view_vpcs|Default| Block Storage for VPC| Viewer|
 |production_team_view_vpcs|Default| Floating IP for VPC| Viewer|
+ 
+The teams are now set up to use VPCs. Members of the `test_team_manage_vpcs` and `production_team_manage_vpcs` access groups can now create VPCs in their assigned resource groups (that is, in the `test_team_manage_vpcs` and `production_team_manage_vpcs` resource groups).
 
-The teams are now set up to use VPCs. Members of the `test_team_manage_vpcs` and `production_team_manage_vpcs` access groups can now create VPCs in their assigned resource groups.
+When you create a VPC or other resources, make sure you specify the resource group in which to create the resource. If you don't specify a resource group, the resource is created in the Default resource group.
+{: tip}
 
 ## Viewing user's permissions
 {: #viewing-user-permissions}

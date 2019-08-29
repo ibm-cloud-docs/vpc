@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2019
 
-lastupdated: "2019-08-08"
+lastupdated: "2019-08-28"
 
 
 keywords: vpc, virtual private cloud, vpc ui, console, ACL, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range
@@ -23,7 +23,7 @@ subcollection: vpc
 {:important: .important}
 {:download: .download}
 
-# Creating VPC resources using the {{site.data.keyword.cloud_notm}} console
+# Using the {{site.data.keyword.cloud_notm}} console to create VPC resources
 {: #creating-a-vpc-using-the-ibm-cloud-console}
 
 This guide shows you how to create and configure an {{site.data.keyword.vpc_full}} (VPC) using the {{site.data.keyword.cloud_notm}} console.
@@ -191,6 +191,9 @@ ssh -i <path-to-private-key-file> root@<public-ip-address>
 
 See [Connecting to your instance using Linux](/docs/vpc?topic=vpc-vsi_is_connecting_linux) for more information on how to connect to your instance.
 
+### Connecting to Windows images
+To connect to a Windows image, log in using its decrypted password. For instructions, see [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
+
 ## Monitoring your instance
 {: #monitoring-your-instance} 
 
@@ -208,4 +211,3 @@ You can download the selected metrics and graphs in CSV format. Scroll down to t
 ## Congratulations!
 {: #congratulations} 
 
-You've successfully created and configured a VPC and subnet, a virtual server instance, block storage volume, security group, and floating IP address. You can continue to develop your VPC by adding more instances, subnets, and other resources.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-08-08"
+lastupdated: "2019-08-22"
 
 keywords: create, VPC, API, IAM, token, permissions, endpoint, region, zone, profile, status, subnet, gateway, floating IP, delete, resource, provision
 
@@ -20,7 +20,7 @@ subcollection: vpc
 {:important: .important}
 {:download: .download}
 
-# Creating VPC resources using the REST APIs
+# Using the REST APIs to create VPC resources
 {: #creating-a-vpc-using-the-rest-apis}
 
 This guide shows you how to create and configure an {{site.data.keyword.vpc_full}} resources using the REST APIs.
@@ -101,7 +101,7 @@ subnet="35fb0489-7105-41b9-99de-033fae723006"
 ## Check the status of your subnet
 {: #subnet-status-api-tutorial}
 
-To provision resources in your subnet, the subnet must be in the `Ready` status. Query the subnet resource and make sure the status is `Ready` before you continue. If the status is `failed`, contact [support](/docs/vpc?topic=vpc-getting-help-and-support) with the details. You can attempt to continue by trying to provision another subnet.
+To provision resources in your subnet, the subnet must be in the `Ready` status. Query the subnet resource and make sure the status is `Ready` before you continue. If the status is `failed`, contact [support](/docs/get-support?topic=get-support-getting-customer-support) with the details. You can attempt to continue by trying to provision another subnet.
 
 ```bash
 curl -X GET "$api_endpoint/v1/subnets/$subnet?version=$api_version&generation=2" \
@@ -463,6 +463,8 @@ On Linux, use the `address` of the floating IP to connect to the instance with S
 ssh -i <private_key_file> root@<floating ip address>
 ```
 {: pre}
+
+To connect to a Windows image, log in using its decrypted password. For instructions, see [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
 
 ## (Optional): Delete the resources
 {: #delete-resources-api-tutorial}
