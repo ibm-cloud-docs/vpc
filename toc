@@ -11,52 +11,45 @@ Virtual Private Cloud (Early Access)
     vpc-concepts.md
         
     {: .topicgroup}
-    What's in this release?
+    In this release
         how-to-participate.md
         supported-features.md
         quotas.md
         limitations.md
 
     {: .topicgroup}
-    Network resources
+    Network
         about-network.md
         vpc-security.md
 
     {: .topicgroup}
-    Compute resources
+    Compute
         vsi_is_about_vpc.md
         vsi_is_profiles.md
         vsi_is_ssh_keys_about.md
         vsi_is_provisioning_scripts.md
  
     {: .topicgroup}
-    Storage resources
+    Storage
         block_storage_vpc_about.md
         block_storage_vpc_capacity_performance.md
         block_storage_is_profiles.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
-    console-tutorial.md
     set-up-environment.md
+    console-tutorial.md
     hello-world-vpc.md
     example-code.md
-
-    {: .topicgroup}
-    Setting IP ranges
-        how-to-choose-ipv4.md
-        how-to-design-your-vpc.md
-        vpc-regions-and-subnets.md
 
     {: .topicgroup}
     Managing access
         iam.md
         vpc-user-permissions.md
-        api-auth-correlation.md
-              
+        api-auth-correlation.md       
 
     {: .topicgroup}
-    Creating and managing instances
+    Virtual server instances
         vsi_best_practices.md
         vsi_is_create_instance.md
         vsi_is_create_instance_cli.md
@@ -64,14 +57,7 @@ Virtual Private Cloud (Early Access)
         vsi_is_manage_images.md
         
     {: .topicgroup}
-    Configuring security groups
-        security-groups.md
-        security-groups-default.md
-        security-groups-example.md
-        security-group-usage-examples.md
-
-    {: .topicgroup}
-    Creating and managing block storage
+    Block storage volumes
         block_storage_is_create.md
         block_storage_is_create_cli.md
         block_storage_is_attach.md
@@ -80,6 +66,24 @@ Virtual Private Cloud (Early Access)
         block_storage_is_manage_cli.md
         block_storage_is_view.md
         block_storage_is_view_cli.md
+        block_storage_is_use_volume_cli.md
+
+    {: .topicgroup}
+    Security groups
+        security-groups.md
+        security-groups-default.md
+        security-groups-example.md
+        security-group-usage-examples.md
+
+
+
+    {: .topicgroup}
+    Setting IP ranges
+        how-to-choose-ipv4.md
+        how-to-design-your-vpc.md
+        vpc-regions-and-subnets.md
+    
+    connect-to-cos.md  
 
     {: .topicgroup}
     Deleting a VPC
@@ -87,9 +91,8 @@ Virtual Private Cloud (Early Access)
         delete-vpc-ui.md
         delete-vpc-cli.md
         delete-vpc-api.md
-
-    connect-to-cos.md  
     {: .navgroup-end}
+
 
     {: .navgroup id="reference"}
     cli-reference.md
