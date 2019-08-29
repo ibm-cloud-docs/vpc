@@ -30,7 +30,7 @@ When you're ready to run workloads in your VPC, you can access two types of IBM 
 
 Although the addresses for these endpoints look as if they communicate through the public internet, traffic to and from these endpoints does not leave IBM Cloud. Therefore, this traffic avoids the bandwidth charges associated with traffic that exits the cloud and goes onto the public internet.
 
-# Service endpoints
+## Service endpoints
 {: #cloud-service-endpoints}
 
 Service endpoints enable you to securely connect to IBM Cloud services over the IBM Cloud private network. These endpoints are available through DNS names in the `cloud.ibm.com` domain and resolve to `166.9.x.x` addresses. 

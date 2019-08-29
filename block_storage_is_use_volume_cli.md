@@ -21,7 +21,7 @@ subcollection: vpc
 {:table: .aria-labeledby="caption"}
 {:download: .download}
 
-# Use your block storage data volume (CLI)
+# Using your block storage data volume
 {: #start-using-your-block-storage-data-volume}
 
 After creating a {{site.data.keyword.block_storage_is_full}} (VPC) volume and attaching it to an instance, to use your 
