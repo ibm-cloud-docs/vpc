@@ -2,10 +2,9 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-14"
+lastupdated: "2019-09-03"
 
-keywords: vpc, cli, command line interface, 
-
+keywords: vpc, cli, command line interface, block storage, IBM Cloud, virtual private cloud, block storage, volume
 subcollection: vpc
 
 
@@ -21,16 +20,16 @@ subcollection: vpc
 {:table: .aria-labeledby="caption"}
 {:download: .download}
 
-# Using your block storage data volume
+# Use your block storage data volume (CLI)
 {: #start-using-your-block-storage-data-volume}
 
-After creating a {{site.data.keyword.block_storage_is_full}} (VPC) volume and attaching it to an instance, to use your 
+After creating a {{site.data.keyword.block_storage_is_full}} (VPC) volume and attaching it to an instance, to use your
 block storage volume as a filesystem, you'll need to partition the volume, format the volume, and then mount it as a filesystem.
 {:shortdesc}
 
 Use the following procedure to complete steps for using your block storage volume on a Linux system.
 
-**Note**: Depending on your Linux distribution, devices show up with different paths. For example, Ubuntu block devices show up as `xvdc`, as in the following examples.
+**Note**: Depending on your Linux distribution, devices show up with different paths. For example, Ubuntu block devices show up as `xvda`, `xvdb`, and so on, as in the following examples.
 
 ## Step 1 - List all block storage volumes
 {: #linux-procedure-list-volumes}
@@ -46,15 +45,14 @@ You should see output like this:
 
 ```
 NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-xvda    202:0    0  100G  0 disk 
+xvda    202:0    0  100G  0 disk
 ├─xvda1 202:1    0  256M  0 part /boot
 └─xvda2 202:2    0 99.8G  0 part /
-xvdc    202:32   0  100G  0 disk 
-xvdp    202:240  0   64M  0 disk 
+xvdb    202:32   0  100G  0 disk
 ```
 {:screen}
 
-Volume `xvdc` is your new block storage data volume.
+Volume `xvdb` is your new block storage data volume.
 
 ## Step 2 - Partition the volume
 {: #linux-procedure-partition-volume}
@@ -62,7 +60,7 @@ Volume `xvdc` is your new block storage data volume.
 Run the following command to partition the volume.
 
 ```
-fdisk /dev/xvdc
+fdisk /dev/xvdb
 ```
 {:pre}
 
@@ -82,21 +80,21 @@ Complete the prompts to define the partition's first cylinder number and last cy
 {: #linux-procedure-format-volume}
 
 ```
-/sbin/mkfs -t ext3 /dev/xvdc
+/sbin/mkfs -t ext3 /dev/xvdb
 ```
 {:pre}
 
-Label the volume as `myvolume`.
+Label the volume as `myvolume`
 
 ```
-/sbin/e2label /dev/xvdc /myvolume
+/sbin/e2label /dev/xvdb /myvolume
 ```
 {:pre}
 
 To check the size of the partition, run:
 
 ```
-fdisk -s /dev/xvdc
+fdisk -s /dev/xvdb
 ```
 {:pre}
 
@@ -104,8 +102,8 @@ fdisk -s /dev/xvdc
 {: #linux-procedure-mount-volume}
 
 ```
-mkdir /hellovol
-mount /dev/xvdc /myvolume
+mkdir /myvolumedir
+mount /dev/xvdb /myvolumedir
 ```
 {: codeblock}
 
@@ -131,14 +129,14 @@ tmpfs               5120       0      5120   0% /run/lock
 tmpfs            4084664       0   4084664   0% /sys/fs/cgroup
 /dev/xvda1        245679   64360    168212  28% /boot
 tmpfs             817040       0    817040   0% /run/user/0
-/dev/xvdc      103081248   61176  97777192   1% /myvolume
+/dev/xvdb      103081248   61176  97777192   1% /myvolumedir
 ```
 {:screen}
 
-To change directory into your new filesystem and create a file, do something like this:
+Go to the directory in your new filesystem and create a file:
 
 ```
-cd /myvolume
-touch myvolume
+cd /myvolumedir
+touch myvolumefile1
 ```
 {:codeblock}

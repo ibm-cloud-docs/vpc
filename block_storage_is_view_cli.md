@@ -57,7 +57,7 @@ This example uses the volume ID to show volume details.
 ```bash
 $ ibmcloud is volume 933c8781-f7f5-4a8f-8a2d-3bfc711788ee
 Getting volume 933c8781-f7f5-4a8f-8a2d-3bfc711788ee under account MyAccount01 as user user1@mycompany.com...
-ID                                      933c8781-f7f5-4a8f-8a2d-3bfc711788ee
+ID                                      0738-933c8781-f7f5-4a8f-8a2d-3bfc711788ee
 Name                                    demo_volume
 Capacity                                100
 IOPS                                    1000
@@ -92,9 +92,9 @@ The following example shows all volumes for all resource groups in your availabi
 $ ibmcloud is volumes
 Listing volumes under account MyAccount 01 as user user1@mycompany.com...
 ID                                     Name              Capacity   IOPS   Auto Delete   Encryption        Profile         Created               Status      Zone         Resource Group
-a3f4d60a-c9cf-4666-9a2a-0b1d85f92c19   demo_volume1      50         10     Manual        provider managed  generalpurpose   2019-06-30 11:04:46  pending     us-south-1   (c16d1edd-.)
-3aaa0beb-83ac-4b2f-b4f5-eab382d1a5aa   demo_volume2      50         100    Manual        provider managed  custom           2019-06-30 10:26:34  available   us-south-1   (c16d1edd-.)
-6d9713cf-9688-486d-b8c9-d9f1c6e7876c   demo_volume3      50         100    Manual        provider managed  custom           2019-06-30 10:39:24  available   us-south-1   (c16d1edd-.)
+0738-a3f4d60a-c9cf-4666-9a2a-0b1d85f92c19   demo_volume1      50         10     Manual        provider managed  generalpurpose   2019-06-30 11:04:46  pending     us-south-1   (c16d1edd-.)
+0738-3aaa0beb-83ac-4b2f-b4f5-eab382d1a5aa   demo_volume2      50         100    Manual        provider managed  custom           2019-06-30 10:26:34  available   us-south-1   (c16d1edd-.)
+0738-6d9713cf-9688-486d-b8c9-d9f1c6e7876c   demo_volume3      50         100    Manual        provider managed  custom           2019-06-30 10:39:24  available   us-south-1   (c16d1edd-.)
 ```
 {: screen}
 

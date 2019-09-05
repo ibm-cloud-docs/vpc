@@ -49,10 +49,10 @@ A *region* is the geographical location where you deploy the VPC's services, res
 
 ## Next steps
 To get started using the API and CLI, [set up your environment](/docs/vpc?topic=vpc-set-up-environment).
-To learn how to create resources, see these tutorials:
+To learn how to create VPC resources, see these tutorials:
 
-* [Creating a VPC using the {{site.data.keyword.cloud_notm}} console](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console)
-* [Creating a VPC using the CLI](/docs/vpc?topic=vpc-creating-a-vpc-using-cli)
-* [Creating a VPC using the REST APIs](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis)
+* [Using the {{site.data.keyword.cloud_notm}} console to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console)
+* [Using the CLI to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-cli)
+* [Using the REST APIs to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis)
 
 For a list of features not yet supported in VPC (early access), see [Limitations](/docs/vpc?topic=vpc-limitations).

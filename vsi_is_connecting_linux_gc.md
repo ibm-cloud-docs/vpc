@@ -44,7 +44,7 @@ If you need to locate your floating IP address for the instance to which you wan
            {
                "crn:v1:mydomain:public:vpc:us-south:a/c4cxxxc10xx54xxx9e2xxx59xxx3fa0f::floating_ip:12345x67-8901-234x-5678-9xx01xx23x4x",
                "href": "https://us-south.myaccount.cloud.ibm.com/v1/floating_ips/12345x67-8901-234x-5678-9xx01xx23x4x",
-               "id": "12345x67-8901-234x-5678-9xx01xx23x4x",
+               "id": "0738-12345x67-8901-234x-5678-9xx01xx23x4x",
                "name": “my-instance”
            }
        ]
@@ -61,7 +61,7 @@ If you need to locate your floating IP address for the instance to which you wan
    For this example, you'd see a response similiar to the following output (using generic x and 123 values for example purposes only):
    
    ```
-   ID               12345x67-8901-234x-5678-9xx01xx23x4x   
+   ID               0738-12345x67-8901-234x-5678-9xx01xx23x4x   
    Address          123.45.678.90   
    Name             my-instance   
    Target           primary(1xx2x34x-.)   

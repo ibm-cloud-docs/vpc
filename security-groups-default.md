@@ -77,7 +77,7 @@ Inbound rules to allow ping and SSH are not automatically added to the default s
    Save the security group ID (for the default security group) in a variable so you can use it later. For example, using the variable name `sg`:
 
    ```
-   sg=2d364f0a-a870-42c3-a554-000001162469
+   sg=0738-2d364f0a-a870-42c3-a554-000001162469
    ```
    {: pre}
 

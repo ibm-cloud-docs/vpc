@@ -105,7 +105,7 @@ The following cURL API request retrieves all volume profiles.
 
 ```
 curl -X GET \
-$api_endpoint/v1/volume/profiles?version=2019-05-31&generation=2 \
+$api_endpoint/v1/volume/profiles?version=2019-07-30&generation=2 \
 -H "Authorization: $iam_token"
 ```
 {:codeblock}

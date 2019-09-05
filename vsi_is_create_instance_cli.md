@@ -89,8 +89,8 @@ Use the following commands to determine the required information for creating a 
    For this example, you'd see a response similar to the following output:
    ```
    ID                                     Name                                  Default   Created       Status      Tags   
-   xxx1xx23-4xx5-6789-12x3-456xx7xx123x   my-vpc                                yes       1 month ago   available   -   
-   xxxx1234-5678-9x12-x34x-567x8912x3xx   my-other-vpc                          no        4 days ago    available   -   
+   0738-xxx1xx23-4xx5-6789-12x3-456xx7xx123x   my-vpc                                yes       1 month ago   available   -   
+   0738-xxxx1234-5678-9x12-x34x-567x8912x3xx   my-other-vpc                          no        4 days ago    available   -   
    ```
    {:screen}
 
@@ -105,9 +105,9 @@ Use the following commands to determine the required information for creating a 
    For this example, you'd see a response similar to the following output:
    ```
    ID                                     Name                                     IPv*   Subnet CIDR         Addresses   Gen   Gateway   Created       Status      VPC                        Zone         Resource Group   Tags   
-   1234x12x-345x-1x23-45x6-x7x891011x1x   my-subnet                                ipv4   172.16.1.0/24       0/0         -     -         1 week ago    available   my-vpc(xxx1xx23-.)         us-south-1   -                -   
-   12xx345x-6789-1xxx-x2x3-x4x56xx78x9x   my-subnet-2                              ipv4   172.20.28.0/24      0/0         -     -         1 day ago     available   my-vpc(xxx1xx23-.)         us-south-1   -                -   
-   1x2x3xx4-xx56-7891-234x-xx5678x9x123   my-other-subnet                          ipv4   192.168.88.0/24     0/0         -     -         1 day ago     available   my-other-vpc(xxxx1234-.)   us-south-1   -                -   
+   0738-1234x12x-345x-1x23-45x6-x7x891011x1x   my-subnet                                ipv4   172.16.1.0/24       0/0         -     -         1 week ago    available   my-vpc(xxx1xx23-.)         us-south-1   -                -   
+   0738-12xx345x-6789-1xxx-x2x3-x4x56xx78x9x   my-subnet-2                              ipv4   172.20.28.0/24      0/0         -     -         1 day ago     available   my-vpc(xxx1xx23-.)         us-south-1   -                -   
+   0738-1x2x3xx4-xx56-7891-234x-xx5678x9x123   my-other-subnet                          ipv4   192.168.88.0/24     0/0         -     -         1 day ago     available   my-other-vpc(xxxx1234-.)   us-south-1   -                -   
    ```
    {:screen}
 
@@ -141,8 +141,8 @@ Use the following commands to determine the required information for creating a 
    For this example, you'd see a response similar to the following output:
    ```
    ID                                     Name                 OS                                                       Arch    Created       Status   Visibility   Tags   
-   cc8debe0-1b30-6e37-2e13-744bfb2a0c11   centos-7.x-amd64     CentOS (7.x - Minimal Install)                           amd64   9 hours ago   READY    public       -   
-   7eb4e35b-4257-56f8-d7da-326d85452591   ubuntu-16.04-amd64   Ubuntu Linux (16.04 LTS Xenial Xerus Minimal Install)    amd64   9 hours ago   READY    public       -   
+   0738-cc8debe0-1b30-6e37-2e13-744bfb2a0c11   centos-7.x-amd64     CentOS (7.x - Minimal Install)                           amd64   9 hours ago   READY    public       -   
+   0738-7eb4e35b-4257-56f8-d7da-326d85452591   ubuntu-16.04-amd64   Ubuntu Linux (16.04 LTS Xenial Xerus Minimal Install)    amd64   9 hours ago   READY    public       -   
    ```
    {:screen}
 
@@ -155,8 +155,8 @@ Use the following commands to determine the required information for creating a 
    For this example, you'd see a response similar to the following output:
    ```
    ID                                     Name           Type   Length   FingerPrint          Created        Resource Group   Tags
-   1234xxxx-x12x-xxxx-34xx-xx1234xxxxxx   my-key         RSA    2048     PHcP/zyw/PNGIe/u..   5 days ago     -                -   
-   12xx3456-x78x-9123-4x56-78xx9xxx1x2x   my-other-key   RSA    2048     +rvkRMBhdFmz1dlT..   2 days ago     -                -    
+   0738-1234xxxx-x12x-xxxx-34xx-xx1234xxxxxx   my-key         RSA    2048     PHcP/zyw/PNGIe/u..   5 days ago     -                -   
+   0738-12xx3456-x78x-9123-4x56-78xx9xxx1x2x   my-other-key   RSA    2048     +rvkRMBhdFmz1dlT..   2 days ago     -                -    
    ```
    {:screen}
 
@@ -185,10 +185,10 @@ After you know these values, use them to run the `instance-create` command. In a
    ```
    $ ibmcloud is instance-create \
        my-instance \
-       xxx1xx23-4xx5-6789-12x3-456xx7xx123x \
+       0738-xxx1xx23-4xx5-6789-12x3-456xx7xx123x \
        us-south-1 \
        b-2x4 \
-       1234x12x-345x-1x23-45x6-x7x891011x1x \
+       0738-1234x12x-345x-1x23-45x6-x7x891011x1x \
        --image 1xx2x34x-5678-12x3-x4xx-567x81234567 \
        --keys 1234xxxx-x12x-xxxx-34xx-xx1234xxxxxx
        --volume-attach @/Users/myname/myvolume-attachment_create.json
@@ -207,7 +207,7 @@ After you know these values, use them to run the `instance-create` command. In a
 
    For this example, you'd see the following responses. **Note:** The following response will vary depending on what optional values you use. 
    ```
-   ID                2x12xxx5-xx11-1234-x4x5-1xxx12345678   
+   ID                0738-2x12xxx5-xx11-1234-x4x5-1xxx12345678   
    Name              my-instance   
    Profile           B_2X4   
    Gen                  
@@ -217,13 +217,13 @@ After you know these values, use them to run the `instance-create` command. In a
    Memory            4   
    Primary Intf      great-scott-stride-lilac-captivate-filtrate(xx12x345-5bxx-1x23-458x-1x2xxx345x6x)   
    Primary Address   172.16.1.4   
-   Image             ubuntu-16.04-amd64(7eb4e35b-4257-56f8-d7da-326d85452591)   
+   Image             ubuntu-16.04-amd64(0738-7eb4e35b-4257-56f8-d7da-326d85452591)   
    Profile           -   
    Status            pending   
    Created           now   
    VPC               my-vpc(xxx1xx23-4xx5-6789-12x3-456xx7xx123x)   
    Zone              us-south-1   
-   Volume Attachment my-volume-attachment (xx55xx44-3xx1-1234-42x1-234xx5x678xx)
+   Volume Attachment my-volume-attachment (0738-xx55xx44-3xx1-1234-42x1-234xx5x678xx)
    Resource Group    -   
    Tags              -   
    ```
@@ -241,7 +241,7 @@ After you know these values, use them to run the `instance-create` command. In a
 
    For this example, you'd see the following responses.
    ```
-   ID                2x12xxx5-xx11-1234-x4x5-1xxx12345678   
+   ID                0738-2x12xxx5-xx11-1234-x4x5-1xxx12345678   
    Name              my-instance   
    Profile           B_2X4   
    Gen                  
@@ -251,13 +251,13 @@ After you know these values, use them to run the `instance-create` command. In a
    Memory            4   
    Primary Intf      great-scott-stride-lilac-captivate-filtrate(xx12x345-5bxx-1x23-458x-1x2xxx345x6x)   
    Primary Address   172.16.1.4  
-   Image             ubuntu-16.04-amd64(7eb4e35b-4257-56f8-d7da-326d85452591)   
+   Image             ubuntu-16.04-amd64(0738-7eb4e35b-4257-56f8-d7da-326d85452591)   
    Profile           -   
    Status            running   
    Created           5 minutes ago   
    VPC               my-vpc(xxx1xx23-4xx5-6789-12x3-456xx7xx123x)   
    Zone              us-south-1   
-   Volume Attachment my-volume-attachment (xx55xx44-3xx1-1234-42x1-234xx5x678xx)
+   Volume Attachment my-volume-attachment (0738-xx55xx44-3xx1-1234-42x1-234xx5x678xx)
    Resource Group    -   
    Tags              -
    ```
@@ -272,7 +272,7 @@ After you know these values, use them to run the `instance-create` command. In a
    For this example, you'd see the following responses.
    ```
    ID                                     Name                                            Type       Subnet CIDR                    Primary Address   Speed   SecAddr   SecGrps   FloatIPs   Created          Status   Resource Group   
-   xx12x345-6xxx-7x89-123x-4x5xxx678x9x   great-scott-stride-lilac-captivate-filtrate              my-subnet(1234x12x-.)          172.16.1.4        100     -         -         {...}      10 seconds ago   -   
+   0738-xx12x345-6xxx-7x89-123x-4x5xxx678x9x   great-scott-stride-lilac-captivate-filtrate              my-subnet(1234x12x-.)          172.16.1.4        100     -         -         {...}      10 seconds ago   -   
    ```
    {:screen}
 

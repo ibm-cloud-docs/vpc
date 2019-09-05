@@ -13,6 +13,7 @@ subcollection: vpc
 
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
+{:important: .important}
 {:screen: .screen}
 {:pre: .pre}
 {:tip: .tip}
@@ -52,7 +53,7 @@ Example:
 ```bash
 $ ibmcloud is volume-create demovolume1 custom us-south-1 --iops 1000
 Creating volume demovolume1 in resource group Default under account VPC 01 as user rtuser1@mycompany.com...
-ID                                      933c8781-f7f5-4a8f-8a2d-3bfc711788ee
+ID                                      0738-933c8781-f7f5-4a8f-8a2d-3bfc711788ee
 Name                                    demovolume1
 Capacity                                100
 IOPS                                    1000

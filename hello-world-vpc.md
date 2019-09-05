@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-14"
+lastupdated: "2019-09-02"
 
 keywords: vpc, cli, command line interface, tutorial, creating a vpc
 
@@ -24,17 +24,17 @@ subcollection: vpc
 # Using the CLI to create VPC resources
 {: #creating-a-vpc-using-cli}
 
-This guide shows you how to create and configure an {{site.data.keyword.vpc_full}} using the {{site.data.keyword.cloud}} CLI.
+You can create and configure an {{site.data.keyword.vpc_full}} using the {{site.data.keyword.cloud}} CLI.
 {:shortdesc}
 
 To create and configure your virtual private cloud (VPC) and other attached resources, perform the steps in the sections that follow, in this order:
 
 1. Create a VPC and subnet to define the network.
-1. Attach a public gateway to allow all resources in the subnet to communicate with the public internet. 
-1. Create a virtual server instance.
-1. Create a block storage volume and attach it to an instance.
-1. Configure a security group to define the inbound and outbound traffic that's allowed for the instance.
-1. Reserve and associate a floating IP address to enable your instance to be reachable from the internet.
+1. If you want to allow all resources in the subnet to communicate with the public internet, attach a public gateway. 
+1. Create a virtual server instance. By default, a 100 GB boot volume is attached to the instance.
+1. If you want additional storage, create a block storage volume and attach it to your instance.
+1. To define the inbound and outbound traffic that's allowed for the instance, configure its security group.
+1. If you want your instance to be reachable from the internet, reserve and associate a floating IP address.
 
 ## Before you begin
 {: #before-cli-tutorial}
@@ -77,7 +77,7 @@ ibmcloud is vpc-create my-vpc
 From the output that's returned, save the ID in a variable so you can use it later, for example:
 
 ```
-vpc="59de4046-3434-4d87-bb29-0c99c428c96e"
+vpc="0738-59de4046-3434-4d87-bb29-0c99c428c96e"
 ```
 {: pre}
 
@@ -101,12 +101,9 @@ ibmcloud is subnet-create my-subnet $vpc us-south-3 --ipv4-cidr-block "10.0.1.0/
 From the output that's returned, save the ID in a variable so you can use it later, for example:
 
 ```
-subnet="aaaa_658756a4-1106-4914-969a-3b43b338524a"
+subnet="0738-658756a4-1106-4914-969a-3b43b338524a"
 ```
 {: pre}
-
-## Check the status of your subnet
-{: #check-subnet-status-cli}
 
 The status of the subnet is `pending` when it's first created. Before you can create resources in the subnet, the subnet needs to move to the `available` status, which takes a few seconds. To check the status of the subnet, run this command:
 
@@ -115,7 +112,7 @@ ibmcloud is subnet $subnet
 ```
 {: pre}
 
-## Optional: Attach a public gateway
+## Attach a public gateway
 {: #attach-public-gateway-cli}
 
 Attach a public gateway to the subnet if you want to allow all attached resources to communicate with the public internet. 
@@ -130,7 +127,7 @@ ibmcloud is public-gateway-create my-gateway $vpc us-south-3
 From the output that's returned, save the ID in a variable so you can use it later, for example:
 
 ```
-gateway="446c0c63-f0b1-4043-b30d-644f55fde391"
+gateway="0738-446c0c63-f0b1-4043-b30d-644f55fde391"
 ```
 {: pre}
 
@@ -165,7 +162,7 @@ ibmcloud is key-create my-key @$HOME/.ssh/id_rsa.pub
 From the output that's returned, save the ID in a variable so you can use it later, for example:
 
 ```
-key="859b4e97-7540-4337-9c64-384792b85653"
+key="0738-859b4e97-7540-4337-9c64-384792b85653"
 ```
 {: pre}
 
@@ -206,12 +203,9 @@ ibmcloud is instance-create my-instance $vpc us-south-3 b2-2x8 $subnet --image-i
 From the output that's returned, save the ID of the instance in a variable so you can use it later, for example:
 
 ```
-instance="aaaa_21179496-964e-4c00-8210-cf23d75750b3"
+instance="0738-21179496-964e-4c00-8210-cf23d75750b3"
 ```
 {:pre}
-
-## Check the status of your instance
-{: #check-instance-status-cli}
 
 The status of the instance is `pending` when it's first created. Before you can proceed, the instance needs to move to the `running` status, which takes a few minutes. To check the status of the instance, run this command:
 
@@ -223,13 +217,13 @@ ibmcloud is instance $instance
 From the output that's returned, save the ID of the primary network interface (`Primary Interface`) in a variable so you can use it later, for example:
 
 ```
-nic="aaaa_4d9b3a58-f796-4e6a-b5ac-84f4216e9b68-glhvl"
+nic="0738-4d9b3a58-f796-4e6a-b5ac-84f4216e9b68-glhvl"
 ```
 
 ## Create a block storage data volume
 {: #create-block-storage-data-volume-cli}
 
-When you create a block storage volume, you select a profile to optimize the performance of your compute workloads. See [About Block Storage for VPC](/docs/vpc?topic=vpc-block-storage-about#capacity-performance) for information about volume capacity and IOPS ranges based on the volume profile you select.  
+You can create a block storage volume and attach it to your virtual server instance if you want additional storage. When you create a block storage volume, you select a profile to optimize the performance of your compute workloads. See [About Block Storage for VPC](/docs/vpc?topic=vpc-block-storage-about#capacity-performance) for information about volume capacity and IOPS ranges based on the volume profile you select.  
 
 To see a list of volume profiles, run:
 
@@ -248,7 +242,7 @@ ibmcloud is volume-create my-volume custom us-south-2 --iops 1000
 From the output that's returned, save the ID of the volume in a variable so you can use it later:
 
 ```
-vol=933c8781-f7f5-4a8f-8a2d-3bfc711788ee
+vol=0738-933c8781-f7f5-4a8f-8a2d-3bfc711788ee
 ```
 {: pre}
 
@@ -274,7 +268,7 @@ ibmcloud is instance-volume-attachment-add my-volume-attachment $instance $vol -
 ## Add rules to the default security group
 {: #add-rules-to-default-security-group}
 
-You can configure the security group to define the inbound and outbound traffic that is allowed for the instance. 
+You can configure the security group to define the inbound and outbound traffic that is allowed for the instance. For example, you can add a rule to allow SSH traffic.
 
 Find the security group for the VPC:
 
@@ -286,7 +280,7 @@ ibmcloud is vpc-sg $vpc
 From the output that's returned, save the ID in a variable so you can use it later:
 
 ```
-sg=2d364f0a-a870-42c3-a554-000000981149
+sg=0738-2d364f0a-a870-42c3-a554-000000981149
 ```
 {: pre}
 
@@ -304,10 +298,13 @@ ibmcloud is sg-rulec $sg inbound icmp --icmp-type 8 --icmp-code 0
 ```
 {: pre}
 
+For Windows images, make sure the security group associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
+{: tip}
+
 ## Create a floating IP address for the instance
 {: #create-floating-ip-address-cli}
 
-Create a floating IP address to enable your instance to be reachable from the internet.
+Create a floating IP address if you want your instance to be reachable from the internet.
 
 ```
 ibmcloud is floating-ip-reserve my-fip --nic-id $nic
@@ -338,24 +335,12 @@ SSH access into the instance might be prevented by security groups. Make sure th
 
 To connect to a Windows image, log in using its decrypted password. For instructions, see [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
 
-## Hello, World!
-{: #hello-world-cli}
+## Monitoring your instance
+{: #monitoring-your-instance-cli-tutorial} 
 
-Run the following command in the terminal window:
-
-```
-echo `hostname` says "Hello, World!"
-```
-{:pre}
-
-You should see the following output:
-
-```
-my-instance says Hello, World!
-```
-{:screen}
+You can monitor the CPU, volume, memory, and network usage of your instance over time in the {{site.data.keyword.cloud_notm}} console. Because the monitoring data is stored in {{site.data.keyword.monitoringlong_notm}}, you must be authenticated to an instance of the Monitoring service in your account. For more information, see [Monitoring your instances](/docs/vpc?topic=vpc-monitoring).
 
 ## Congratulations!
 {: #congratulations-cli-tutorials}
 
-You've successfully provisioned and connected to your VPC using the IBM Cloud CLI. To try out more CLI commands, see [CLI reference](/docs/vpc?topic=vpc-cli-reference#cli-reference)
+You've successfully created and configured your VPC using the IBM Cloud CLI. To try out more CLI commands, see [CLI reference](/docs/vpc?topic=vpc-cli-reference#cli-reference)

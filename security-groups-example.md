@@ -57,7 +57,7 @@ You can copy and paste commands from this example CLI code to get you started cr
    Save the ID in a variable so we can use it later, for example, in the variable named `sg`:
 
    ```
-   sg=2d364f0a-a870-42c3-a554-000000632953
+   sg=0738-2d364f0a-a870-42c3-a554-000000632953
    ```
    {: pre}
 

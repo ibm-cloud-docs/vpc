@@ -50,7 +50,7 @@ curl -X POST "$api_endpoint/v1/security_groups?version=2019-01-01&generation=2" 
 Save the ID in a variable so we can use it later, for example, the variable `sg`:
 
 ```
-sg=2d364f0a-a870-42c3-a554-000000632953
+sg=0738-2d364f0a-a870-42c3-a554-000000632953
 ```
 {: pre}
 

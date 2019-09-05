@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2019
 
-lastupdated: "2019-08-28"
+lastupdated: "2019-09-04"
 
 
 keywords: vpc, virtual private cloud, vpc ui, console, ACL, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range
@@ -26,16 +26,16 @@ subcollection: vpc
 # Using the {{site.data.keyword.cloud_notm}} console to create VPC resources
 {: #creating-a-vpc-using-the-ibm-cloud-console}
 
-This guide shows you how to create and configure an {{site.data.keyword.vpc_full}} (VPC) using the {{site.data.keyword.cloud_notm}} console.
+You can create and configure an {{site.data.keyword.vpc_full}} (VPC) using the {{site.data.keyword.cloud_notm}} console.
 {:shortdesc}
 
 To create and configure your VPC and other attached resources, perform the steps in the sections that follow, in this order:
 
-1. Create a VPC and subnet to define the network. When you create your subnet, attach a public gateway to allow all resources in the subnet to communicate with the public internet.
-1. Create a virtual server instance.
-1. Create a block storage volume and attach it to an instance.
-1. Configure a security group to define the inbound and outbound traffic that's allowed for the instance.
-1. Reserve and associate a floating IP address to enable your instance to be reachable from the internet.
+1. Create a VPC and subnet to define the network. When you create your subnet, attach a public gateway if you want to allow all resources in the subnet to communicate with the public internet.
+1. Create a virtual server instance. By default, a 100 GB boot volume is attached to the instance.
+1. If you want additional storage, create a block storage volume and attach it to your instance.
+1. To define the inbound and outbound traffic that's allowed for the instance, configure its security group.
+1. If you want your instance to be reachable from the internet, reserve and associate a floating IP address.
 
 After entering data on the provisioning pages, click the **Get sample API call** button to view the sequence of API requests that correspond to your settings. This is a good way to learn about the API and understand actions and their dependencies.
 {: tip}
@@ -69,7 +69,7 @@ To create a VPC and subnet:
     The region you select is used as the region of the VPC. All additional resources you create in this VPC will be created in the selected region.
     {: tip}
 1. Enter an IP range for the subnet in CIDR notation, for example: `10.240.0.0/24`. In most cases, you can use the default IP range. If you want to specify a custom IP range, you can use the IP range calculator to select a different address prefix or change the number of addresses.
-1. Attach a public gateway to the subnet to allow all attached resources to communicate with the public internet.  
+1. Attach a public gateway to the subnet if you want to allow all attached resources to communicate with the public internet.  
 
     You can also attach the public gateway after you create the subnet.
     {: tip}
@@ -93,7 +93,7 @@ To create a virtual server instance in the newly created subnet:
 1. _Optional:_ Enter user data to run common configuration tasks when your instance starts. For example, you can specify cloud-init directives or shell scripts for Linux images. For more information, see [User Data](/docs//vpc?topic=vpc-user-data).
 1. Note the boot volume. In the current release, 100 GB is allotted for the boot volume. *Auto Delete* is enabled for the volume; it will be deleted automatically if the instance is deleted.
 1. Select an image (that is, operating system and version) such as Debian GNU/Linux 9.x Stretch/Stable.
-1. In the **Attached block storage volume** area, you can click **New block storage volume** to attach a block storage volume to your instance. In this tutorial, we'll create a block storage volume and attach it to the instance later.
+1. In the **Attached block storage volume** area, click **New block storage volume** to attach a block storage volume to your instance if you want additional storage. In this tutorial, we'll create a block storage volume and attach it to the instance later.
 1. In the **Network interfaces** area, you can edit the network interface and change its name. If you have more than one subnet in the selected zone and VPC, you can attach a different subnet to the interface. If you want the instance to exist in multiple subnets, you can create more interfaces.
 
    You can also select which security groups to attach to each interface. By default, the VPC's default security group is attached. The default security group allows inbound SSH and ping traffic, all outbound traffic, and all traffic between instances in the group. All other traffic is blocked; you can configure rules to allow more traffic. If you later edit the rules of the default security group, those updated rules will apply to all current and future instances in the group.
@@ -103,7 +103,7 @@ To create a virtual server instance in the newly created subnet:
 ## Creating and attaching a block storage volume
 {: #creating-a-block-storage-volume}
 
-You can create a block storage volume and attach it to your virtual server instance.
+You can create a block storage volume and attach it to your virtual server instance if you want additional storage.
 
 To create and attach a block storage volume:
 
@@ -140,6 +140,9 @@ To configure the security group:
 1. _Optional:_ To view interfaces that are attached to the security group, click **Attached interfaces** in the navigation pane.
 1. When you finish creating rules, click the **All security groups for VPC** breadcrumb at the top of the page.
 
+For Windows images, make sure the security group associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
+{: tip}
+
 ### Example security group
 {: #example-security-group} 
 
@@ -155,7 +158,7 @@ Then, configure outbound rules that allow all TCP traffic.
 ## Reserving a floating IP address
 {: #reserving-a-floating-ip-address} 
 
-Reserve and associate a floating IP address to enable your instance to be reachable from the internet.  
+Reserve and associate a floating IP address if you want your instance to be reachable from the internet.  
 
 Your instance must be running before you can associate a floating IP address. It can take a few minutes for the instance to be up and running.
 {: tip}
@@ -205,9 +208,11 @@ To monitor your instance:
 1. Click the name of your instance.
 1. Click **Monitoring** in the navigation pane.
 
-You can download the selected metrics and graphs in CSV format. Scroll down to the bottom of the page and click **Download CSV**.
-{: tip}
+Because the monitoring data is stored in {{site.data.keyword.monitoringlong_notm}}, you must be authenticated to an instance of the Monitoring service in your account. For more information, see [Setting up the monitoring service for VPC](/docs/vpc?topic=vpc-monitoring#setup-monitoring)
+{: important}
+
 
 ## Congratulations!
 {: #congratulations} 
 
+You've successfully created and configured your VPC using the IBM Cloud console. You can continue to develop your VPC by adding more instances, subnets, and other resources.

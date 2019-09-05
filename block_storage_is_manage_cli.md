@@ -14,6 +14,7 @@ subcollection: vpc
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:important: .important}
 {:pre: .pre}
 {:tip: .tip}
 {:table: .aria-labeledby="caption"}
@@ -52,7 +53,7 @@ Example:
 ```bash
 $ ibmcloud is volume-update 933c8781-f7f5-4a8f-8a2d-3bfc711788ee --name demo-volume-update
 Updating volume 933c8781-f7f5-4a8f-8a2d-3bfc711788ee under account MyAccount 01 as user user1@mycompany.com...
-ID                                      933c8781-f7f5-4a8f-8a2d-3bfc711788ee
+ID                                      0738-933c8781-f7f5-4a8f-8a2d-3bfc711788ee
 Name                                    demo-volume-update
 Capacity                                100
 IOPS                                    1000
@@ -85,7 +86,7 @@ Example showing details for `Volume Attachment Instance Reference`:
 
 ```
 Vdisk Name    Vdisk ID                               Vdisk Type   Auto Delete   Instance Name   Instance ID
-Vdisk-data1   fd146b1f-e1bb-4eab-ba78-3109e6bc3a2d   data         true          vsi-test1       8b56da93-7990-4ccf-9dc5-5aee6a5f08f9
+Vdisk-data1   0738-fd146b1f-e1bb-4eab-ba78-3109e6bc3a2d   data         true          vsi-test1       0738-8b56da93-7990-4ccf-9dc5-5aee6a5f08f9
 ```
 {: screen}
 
@@ -116,7 +117,7 @@ $ ibmcloud is volume-delete 64d85f0f-6c08-4188-9e9a-0057b3aa1b69
 This will delete volume 64d85f0f-6c08-4188-9e9a-0057b3aa1b69 and cannot be undone. Continue?> y
 Deleting volume 64d85f0f-6c08-4188-9e9a-0057b3aa1b69 under account MyAccount 01 as user user1@mycompany.com...
 OK
-Volume ID 64d85f0f-6c08-4188-9e9a-0057b3aa1b69 is deleted.
+Volume ID 0738-64d85f0f-6c08-4188-9e9a-0057b3aa1b69 is deleted.
 ```
 {: screen}
 

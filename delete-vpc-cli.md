@@ -52,7 +52,7 @@ ibmcloud is vpcs
 Save the ID of the VPC in a variable so we can use it later, for example:
 
 ```
-vpc="3524fef5-da35-4622-bf9a-31614964649d"
+vpc="0738-3524fef5-da35-4622-bf9a-31614964649d"
 ```
 {: pre}
 
@@ -66,7 +66,7 @@ ibmcloud is subnets
 Look at the `VPC` value to determine the subnets that need to be deleted. Save the ID of the subnet in a variable so we can use it later, for example:
 
 ```
-subnet="d31ce469-9b0f-44e1-87ce-0fc77d8b0e53"
+subnet="0738-d31ce469-9b0f-44e1-87ce-0fc77d8b0e53"
 ```
 {: pre}
 
