@@ -71,9 +71,7 @@ Complete the following steps to ensure that your own Linux custom image can be s
     
 4. Make sure that the guest image, in its description of the network interfaces, has at least one network interface set to auto-configure.    
 
-        
 5. Make sure that your image is cloud-init enabled. 
-
     * For more information about configuring images, see
 [cloud-init documentation](https://cloudinit.readthedocs.io/en/latest/){: external}.
     * For more information about datasources, see [Datasources](http://cloudinit.readthedocs.io/en/latest/topics/datasources.html){: external}. {{site.data.keyword.cloud_notm}} cloud-init images are created for the
