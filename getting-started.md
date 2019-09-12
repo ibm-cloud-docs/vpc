@@ -49,10 +49,11 @@ To create and configure your VPC and other attached resources:
 
 1. Create a VPC.
 2. Create subnets in one or more zones. You can create subnets in suggested prefix ranges or in your own IP ranges that you bring to IBM Cloud.
-3. Attach a public gateway to allow all resources in a subnet to communicate with the public internet.
-4. Create virtual server instances with the core and RAM configuration that's right for your workload.
-5. Attach block storage volumes to add secondary data volumes to your instances.
-5. Reserve and associate floating IP addresses to enable instances to be reachable from the internet.
+3. Attach a public gateway if you want to allow all resources in a subnet to communicate with the public internet.
+4. Create generation 2 virtual server instances with the core and RAM configuration that's right for your workload. By default, a 100 GB boot volume is attached to each instance.
+5. If you want additional storage, create block storage volumes and attach them to your instances.
+1. To define the inbound and outbound traffic that's allowed for instances, configure their security groups.
+1. If you want instances to be reachable from the internet, reserve and associate floating IP addresses.
 5. Deploy your service or applications across the instances.
 
 ## Next steps
@@ -60,10 +61,8 @@ To create and configure your VPC and other attached resources:
 
 To learn how to create VPC resources, see these tutorials:
 
-* [Creating a VPC using the {{site.data.keyword.cloud_notm}} console](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console)
-* [Creating a VPC using the CLI](/docs/vpc?topic=vpc-creating-a-vpc-using-cli)
-* [Creating a VPC using the REST APIs](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis)
-
-For a complete list of features that are included in this release, see [Supported features](/docs/vpc?topic=vpc-supported-features).
+* [Using the {{site.data.keyword.cloud_notm}} console to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console)
+* [Using the CLI to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-cli)
+* [Using the REST APIs to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis)
 
 For a general overview of VPC, see [About Virtual Private Cloud](/docs/vpc?topic=vpc-about-vpc#about-vpc).

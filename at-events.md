@@ -3,7 +3,7 @@
 copyright:
   years: 2019
 
-lastupdated: "2019-07-29"
+lastupdated: "2019-09-12"
 
 keywords: activity tracker, vpc, events, logdna 
 
@@ -93,6 +93,17 @@ As a security officer, auditor, or manager, you can use the {{site.data.keyword.
 | key  | is.key.key.delete   | key was deleted.  |
 | key  | is.key.key.update   | key was updated.  |
 {: caption="Table 2. Actions that generate events for compute resources" caption-side="top"}
+
+## List of events: Image resources
+{: #events-images}
+
+The following table lists the actions related to image resources and the generation of events.
+
+| Resource  | Action  | Description  |
+|:----------------|:-----------------------|:-----------------------|
+| image  | is.image.image.create   | Image was created |
+| image  | is.image.image.delete   | Image was deleted |
+| image  | is.image.image.update   | Image was updated  |
 
 ## List of events: Storage resources
 {: #events-storage}

@@ -1358,7 +1358,7 @@ This section gives details about the CLI commands available for working with VPN
 ## IKE Policies
 
 ### `ibmcloud is ike-policies`
-{: #ike-policies}
+{: #ike-policies-anchor}
 
 List all IKE policies.
 
@@ -1452,7 +1452,7 @@ List all connections that use the IKE policy.
 ## IPsec Policies
 
 ### `ibmcloud is ipsec-policies`
-{: #ipsec-policies}
+{: #ipsec-policies-anchor}
 
 List all IPsec policies.
 
@@ -1772,7 +1772,7 @@ Add a peer CIDR to a VPN gateway connection.
 
 
 ## Load Balancer Commands
-{: #load-balancers}
+{: #load-balancers-anchor}
 
 This section gives details about the CLI commands available for working with load balancers, listeners, and pools.
 
@@ -1792,7 +1792,7 @@ List all load balancers.
 ---
 
 ### `ibmcloud is load-balancer`
-{: #load-balancer}
+{: #load-balancer-anchor}
 
 View details of a load balancer.
 
@@ -1869,7 +1869,7 @@ List all load balancer listeners.
 ---
 
 ### `ibmcloud is load-balancer-listener`
-{: #load-balancer-listener}
+{: #load-balancer-listener-anchor}
 
 View details of a load balancer listener.
 
@@ -2123,7 +2123,7 @@ Delete a policy from a load balancer listener.
 ## Load Balancer Pools
 
 ### `ibmcloud is load-balancer-pools`
-{: #load-balancer-pools}
+{: #load-balancer-pools-anchor}
 
 List all pools of a load balancer.
 
@@ -2137,7 +2137,7 @@ List all pools of a load balancer.
 ---
 
 ### `ibmcloud is load-balancer-pool`
-{: #load-balancer-pool}
+{: #load-balancer-pool-anchor}
 
 View details of a load balancer pool.
 

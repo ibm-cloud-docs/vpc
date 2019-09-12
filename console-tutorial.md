@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2019
 
-lastupdated: "2019-09-04"
+lastupdated: "2019-09-12"
 
 
 keywords: vpc, virtual private cloud, vpc ui, console, ACL, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range
@@ -37,7 +37,7 @@ To create and configure your VPC and other attached resources, perform the steps
 1. To define the inbound and outbound traffic that's allowed for the instance, configure its security group.
 1. If you want your instance to be reachable from the internet, reserve and associate a floating IP address.
 
-After entering data on the provisioning pages, click the **Get sample API call** button to view the sequence of API requests that correspond to your settings. This is a good way to learn about the API and understand actions and their dependencies.
+After you enter data on the provisioning pages, you can click the **Get sample API call** button to view the sequence of API requests that correspond to your settings. This is a good way to learn about the API and understand actions and their dependencies.
 {: tip}
 
 ## Before you begin
@@ -57,8 +57,8 @@ Make sure you have an SSH key. The key will be used to connect to the virtual se
 
 To create a VPC and subnet:
 
-1. Open the [{{site.data.keyword.cloud_notm}} console ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/vpc-ext/overview){: new_window}
-1. Click **Create a VPC**.
+1. Open [{{site.data.keyword.cloud_notm}} console](https://{DomainName}){: external}
+1. Click **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Network > VPCs** and click **New virtual private cloud**.
 1. Enter a name for the VPC, such as `my-vpc`.
 1. Select a resource group for the VPC. Resource groups enable you to organize your account resources for access control and billing purposes. For more information, see [Best practices for organizing resources in a resource group](/docs/resources?topic=resources-bp_resourcegroups).
 1. Select whether the default security group allows inbound SSH and ping traffic to virtual server instances in this VPC. We'll configure more rules for the default security group later.
@@ -66,7 +66,7 @@ To create a VPC and subnet:
 1. Select a resource group for the subnet.
 1. Select a location for the subnet. The location consists of a region and a zone.
 
-    The region you select is used as the region of the VPC. All additional resources you create in this VPC will be created in the selected region.
+    The region you select is used as the region of the VPC. All additional resources you create in this VPC are created in the selected region.
     {: tip}
 1. Enter an IP range for the subnet in CIDR notation, for example: `10.240.0.0/24`. In most cases, you can use the default IP range. If you want to specify a custom IP range, you can use the IP range calculator to select a different address prefix or change the number of addresses.
 1. Attach a public gateway to the subnet if you want to allow all attached resources to communicate with the public internet.  
@@ -91,13 +91,12 @@ To create a virtual server instance in the newly created subnet:
   **Important:** After you create your instance, you can't update the profile.
 1. Select an existing SSH key or add a new SSH key that will be used to access the virtual server instance. To add an SSH key, click **New key** and name the key. After you enter your previously generated public key value, click **Add SSH key**.
 1. _Optional:_ Enter user data to run common configuration tasks when your instance starts. For example, you can specify cloud-init directives or shell scripts for Linux images. For more information, see [User Data](/docs//vpc?topic=vpc-user-data).
-1. Note the boot volume. In the current release, 100 GB is allotted for the boot volume. *Auto Delete* is enabled for the volume; it will be deleted automatically if the instance is deleted.
+1. Note the boot volume. In the current release, 100 GB is allotted for the boot volume. *Auto Delete* is enabled for the volume; the boot volume is deleted automatically if the instance is deleted.
 1. Select an image (that is, operating system and version) such as Debian GNU/Linux 9.x Stretch/Stable.
 1. In the **Attached block storage volume** area, click **New block storage volume** to attach a block storage volume to your instance if you want additional storage. In this tutorial, we'll create a block storage volume and attach it to the instance later.
 1. In the **Network interfaces** area, you can edit the network interface and change its name. If you have more than one subnet in the selected zone and VPC, you can attach a different subnet to the interface. If you want the instance to exist in multiple subnets, you can create more interfaces.
 
    You can also select which security groups to attach to each interface. By default, the VPC's default security group is attached. The default security group allows inbound SSH and ping traffic, all outbound traffic, and all traffic between instances in the group. All other traffic is blocked; you can configure rules to allow more traffic. If you later edit the rules of the default security group, those updated rules will apply to all current and future instances in the group.
-
 1. Click **Create virtual server instance**. The status of the instance starts as *Pending*, changes to *Stopped*, and then *Powered On*. You might need to refresh the page to see the change in status.
 
 ## Creating and attaching a block storage volume
@@ -109,9 +108,8 @@ To create and attach a block storage volume:
 
 1. In the navigation pane, click **Storage > Block storage volumes**.
 1. Click **New volume** and specify the following information.
-  * **Name**: Enter a name for the block storage volume, such as `data-volume-1`.  
-  * **Resource group**: Select a resource group for the block storage volume. Resource groups enable you to organize your account resources for access control and billing purposes. For more information, see [Best practices for organizing resources in a resource group](/docs/resources?topic=resources-bp_resourcegroups).
-
+  * **Name**: Enter a name for the block storage volume, such as `data-volume-1`. 
+  * **Resource group**: Select a resource group for the block storage volume. You can use resource groups to organize your account resources for access control and billing purposes. For more information, see [Best practices for organizing resources in a resource group](/docs/resources?topic=resources-bp_resourcegroups).
   * **Location**: Select a location for the block storage volume. The location consists of a region and a zone, for example US South 1.
   * **Size**: Specify the size of the volume between 10 GBs and 2000 GBs.
   * **IOPs**: Select one of the IOPs Tiers or click Custom to enter an IOPs value based on volume size.
@@ -169,7 +167,7 @@ To reserve and associate a floating IP address:
 1. Click your instance to view its details.
 1. In the **Network interfaces** section, click **Reserve** for the interface that you want to associate with a floating IP address.
 
-If you later want to reassign this floating IP address to another instance in the same zone, find the floating IP address on the **Network > Floating IPs** page, click its overflow menu (**...**), and click **Unassociate**. Then, click  **Associate** to select the instance and network interface that you want to associate with the floating IP address.
+If you later want to reassign this floating IP address to another instance in the same zone, find the floating IP address on the **Network > Floating IPs** page, click its overflow menu (**...**), and click **Unassociate**. Then, click **Associate** to select the instance and network interface that you want to associate with the floating IP address.
 {: tip}
 
 ## Connecting to your instance

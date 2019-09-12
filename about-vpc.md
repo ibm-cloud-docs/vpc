@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-29"
+lastupdated: "2019-09-08"
 
 keywords: vpc, virtual private cloud, private cloud network, quick provisioning, logical isolation, security, cloud-native, workloads, BYOIP, high availability, ACL, Access control list, block storage volumes
 
@@ -30,8 +30,8 @@ Use {{site.data.keyword.vpc_full}} to create your own space in {{site.data.keywo
 ## Logical isolation
 VPC gives your applications logical isolation from other networks, while providing scalability and security. To make this logical isolation possible, the VPC is divided into subnets that use a range of private IP addresses. You can create subets in suggested prefix ranges, or bring your own public IPv4 address range to your IBM Cloud account. By default, all resources within the same VPC can communicate with each other over the private network, regardless of their subnet. 
 
-## Quick instance provisioning
-You can quickly provision scalable compute resources in a VPC by creating *virtual server instances* with the core and RAM configuration that's right for your workload. To enable you to connect to your instance without the use of a password, you add *SSH keys*.
+
+You can create instances with up to 80 Gbps network bandwidth per instance. Each instance can be multi-homed, that is, you can create multiple network interfaces per instance.
 
 ## Storage capabilities
 When you create an instance, a 100 GB block storage volume is automatically attached as a primary boot volume. To add secondary data volumes to your instance, create *block storage* volumes.

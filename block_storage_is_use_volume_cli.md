@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-03"
+lastupdated: "2019-09-05"
 
 keywords: vpc, cli, command line interface, block storage, IBM Cloud, virtual private cloud, block storage, volume
 subcollection: vpc
@@ -81,13 +81,6 @@ Complete the prompts to define the partition's first cylinder number and last cy
 
 ```
 /sbin/mkfs -t ext3 /dev/xvdb
-```
-{:pre}
-
-Label the volume as `myvolume`
-
-```
-/sbin/e2label /dev/xvdb /myvolume
 ```
 {:pre}
 

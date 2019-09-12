@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-07-29"
+lastupdated: "2019-09-08"
 
 keywords: vpc, limitations, early access
 
@@ -37,7 +37,6 @@ The following features are not supported, including all properties associated wi
 * Shares
 
 The following concepts are not supported:
-* Custom images
 * Tags
 * IPv6
 * Secondary IP addresses
@@ -63,9 +62,8 @@ The following concepts are not supported:
 {: #compute-restrictions}
 
 * Red Hat Enterprise Linux images are not supported.
-* Every profile has a network performance value of 2 Gbps per vCPU, with a cap of 80 Gbps.
-
-* Each network interface has a network performance cap of 16 Gbps.
+* Every profile has a network performance value of 2 Gbps per vCPU, with a cap of 80 Gbps. 
+* Each network interface has a network performance cap of 16 Gbps. You might need to attach multiple network interfaces to your virtual server instance to optimize network performance.
 
 * API limitations:
   * List APIs don't support pagination. 
