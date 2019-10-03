@@ -10,6 +10,7 @@ Virtual Private Cloud (Early Access)
     about-vpc.md
     vpc-concepts.md
     vpc-responsibilities.md
+    pricing.md
         
     {: .topicgroup}
     In this release
