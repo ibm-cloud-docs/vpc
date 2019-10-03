@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-07-29"
+lastupdated: "2019-10-03"
 
 subcollection: vpc
 
@@ -21,12 +21,6 @@ subcollection: vpc
 
 # FAQs for VPC
 {: #faqs-for-VPC}
-
-## What are the costs for participating in this early access program, if any, beyond my usual account costs?
-{: faq}
-
-{{site.data.keyword.vpc_short}} and the related network services are free during the early access program.
-
 
 ## Can a subnet's size be changed after it's created?
 {: faq}
