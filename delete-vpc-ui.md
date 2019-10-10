@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-29"
+lastupdated: "2019-09-30"
 
 keywords: vpc, delete, resources, ui, console
 
@@ -22,15 +22,15 @@ subcollection: vpc
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Deleting a VPC using the IBM Cloud console
+# Deleting a VPC by using the IBM Cloud console
 {: #deleting-using-console}
 
-Before you can delete a VPC in the IBM Cloud console, you must delete all of the VPC's public gateways, subnets, and attached resources.
+Before you can delete an {{site.data.keyword.vpc_full}} in the {{site.data.keyword.cloud_notm}} console, you must delete all of the VPC's public gateways, subnets, and attached resources.
 {:shortdesc}
 
-To delete a VPC using the console:
+To delete a VPC by using the console:
 
-1. Find all subnets in the VPC.  Click **VPCs** in the navigation pane and select your VPC. 
+1. Find all subnets in the VPC. Click **VPCs** in the navigation pane and select your VPC. 
 2. On the VPC details page, go to the **Subnets in this VPC** list and select a subnet to view its details.
 3. Delete any resources that are attached to the subnet. In the navigation pane, click **Attached resources**. Select each attached instance to go its details page and click the delete icon. 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-09-12"
+lastupdated: "2019-09-30"
 
 keywords: resource, resource authorizations, policies, authorization, resource type, resource groups, roles, API, CLI, editor, viewer, administrator, operator
 
@@ -22,7 +22,7 @@ subcollection: vpc
 # Required permissions for VPC resources
 {: #resource-authorizations-required-for-api-and-cli-calls}
 
-The table below lists the minimum Identity and Access Management (IAM) roles required to interact with {{site.data.keyword.vpc_full}} (VPC) infrastructure objects.
+Table 1 lists the minimum Identity and Access Management (IAM) roles that are required to interact with {{site.data.keyword.vpc_full}} (VPC) infrastructure objects.
 {:shortdesc}
 
 For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?topic=vpc-iam-getting-started).
@@ -50,8 +50,8 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | SSH key | Update, Delete | Editor for the SSH key |
 | SSH key | View, List | Viewer for the SSH key |
 |————————|—————————|————————|
-| Subnet | Create | Editor for Subnet resources<br />Operator for the VPC and the public gateway, if it is to be  associated |
-| Subnet | Update | Editor for the subnet<br />Operator for the public gateway, if it is  associated  |
+| Subnet | Create | Editor for Subnet resources<br />Operator for the VPC and the public gateway, if it is to be associated |
+| Subnet | Update | Editor for the subnet<br />Operator for the public gateway, if it is associated |
 | Subnet | Delete | Editor for the subnet |
 | Subnet | View, List | Viewer for the subnet |
 | Subnet's public gateway | Attach, Detach | Editor for the subnet<br />Operator for the public gateway |
@@ -70,7 +70,7 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | Images | Update, Delete  | Editor for the image |
 | Images | View, List  | Viewer for the image |
 |—————————|—————————|—————————|
-| Instances | Create| Editor for Virtual Server for VPC and Block Storage for VPC resources<br />Editor for Floating IP for VPC resources, if a floating IP is to be  associated<br />Operator for the VPC, subnet, and the security group |
+| Instances | Create| Editor for Virtual Server for VPC and Block Storage for VPC resources<br />Editor for Floating IP for VPC resources, if a floating IP is to be associated<br />Operator for the VPC, subnet, and the security group |
 | Instances | Update, Delete | Editor for the instance |
 | Instances | View, List  | Viewer for the instance |
 | Instance actions | Create, Update, Delete | Editor for the instance|
@@ -88,4 +88,3 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | Volumes | View, List  | Viewer for the volume |
 | Volume profiles | View, List  | Any account user |
 {: caption="Table 1. Minimum IAM roles for VPC actions" caption-side="top"}
-

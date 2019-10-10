@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-08-28"
+lastupdated: "2019-09-30"
 
-keywords: quotas, vpc, resources, limited, early access 
+keywords: quotas, vpc, resources, limits
 
 subcollection: vpc
 
@@ -22,7 +22,7 @@ subcollection: vpc
 # Quotas
 {: #quotas}
 
-This document covers quotas for the {{site.data.keyword.vpc_full}} early access release and the resources available within it. To increase a quota for a particular resource, [contact support](/docs/get-support?topic=get-support-getting-customer-support).
+This document covers quotas for {{site.data.keyword.vpc_full}} and the resources available within it. To increase a quota for a particular resource, [contact support](/docs/get-support?topic=get-support-getting-customer-support).
 {:shortdesc}
 
 
@@ -35,38 +35,40 @@ This document covers quotas for the {{site.data.keyword.vpc_full}} early access 
 | Subnets | 15 per VPC |
 | Public Gateways | 1 per zone per VPC |
 | Address prefixes | 15 per VPC |
+{: caption="Table 1. Quotas for the VPC service" caption-side="top"}
 
 ## Virtual server instances
 {: #vsi-quotas}
 
 |   Resource     | Quota |
 | ------- | :------: |
-| vCPU |  20 per region  |
-| RAM | 80 GB per region* |
+| vCPU |  200 per region  |
+| RAM | 800 GB per region |
 | Network interfaces | 5 per instance |
 | Floating IP addresses | 10 per zone |
-| SSH keys | unlimited |
+| SSH keys | Unlimited |
+{: caption="Table 2. Quotas for virtual server instances" caption-side="top"}
 
-*based on host configuration ratio of 1:8 vCPU:RAM
 
 ## Security groups
 {: #security-group-quotas}
 
 |Resource|Quota|
 |--------|-----|
-|Security groups|5 per VPC|
+|Security groups|25 per VPC|
 |Rules|25 per security group|
 |Remote rules|5 per security group|
 |Network interfaces|5 per security group|
+{: caption="Table 3. Quotas for security groups" caption-side="top"}
 
 ## Block storage volumes
 {: #block-storage-quotas}
 
 | Resource | Quota |
 |----------|-------|
-| Boot and secondary volumes | 750 total volumes per account |
+| Boot and secondary volumes | 750 total volumes per account in a region |
 | Secondary volumes per instance, attached when creating an instance |  4 secondary volumes |
 | Secondary volumes per instance, for existing instances with fewer than 4 cores | 4 secondary volumes |
-| Secondary volumes per instance, for existing instances with 4 cores or more | up to 12 secondary volumes |
+| Secondary volumes per instance, for existing instances with 4 cores or more | Up to 12 secondary volumes |
+{: caption="Table 5. Quotas for block storage volumes" caption-side="top"}
 
-**Note** The volume attachment limits are recommended but not strictly enforced in the early access release. Depending on your OS environment, you might be able to attach more secondary volumes to an instance.

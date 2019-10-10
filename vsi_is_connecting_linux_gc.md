@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-08-14"
+lastupdated: "2019-09-30"
 
 keywords: vsi, virtual server instance, connecting, linux
 
@@ -22,13 +22,13 @@ subcollection: vpc
 # Connecting to Linux instances
 {: #vsi_is_connecting_linux}
 
-After you have created your Linux instance, you can connect to it by completing these steps.
+After you created your Linux instance, you can connect to it by completing these steps.
 {:shortdesc}
 
 ## Locating floating IP address
 {: #locating-floating-ip-address}
 
-If you need to locate your floating IP address for the instance to which you want to connect, complete the following steps. If you already know your floating IP address, skip to [Getting connected](#getting-connected). 
+If you need to locate your floating IP address for the instance to which you want to connect, complete the following steps. If you already know your floating IP address, skip to [Getting connected](#getting-connected).
 
 1. You need to identify your floating IP ID before you can locate your floating IP address. Run the following command to identify your floating IP ID:
 
@@ -37,7 +37,7 @@ If you need to locate your floating IP address for the instance to which you wan
    ```
    {:pre}
    
-   For this example, you'd see a response similiar to the following output (using generic x and 123 values for example purposes only): 
+   For this example, you'd see a response similar to the following output:
    
    ```
    "floating_ips": [
@@ -58,30 +58,28 @@ If you need to locate your floating IP address for the instance to which you wan
    ```
    {:pre}
      
-   For this example, you'd see a response similiar to the following output (using generic x and 123 values for example purposes only):
+   For this example, you'd see a response similar to the following output:
    
    ```
-   ID               0738-12345x67-8901-234x-5678-9xx01xx23x4x   
-   Address          123.45.678.90   
-   Name             my-instance   
-   Target           primary(1xx2x34x-.)   
-   Target Type      intf   
-   Target IP        12.345.6.78   
-   Created          1 week ago   
-   Status           available   
-   Zone             us-south-1   
-   Resource Group   -   
-   Tags             -   
+   ID               0738-12345x67-8901-234x-5678-9xx01xx23x4x
+   Address          123.45.678.90
+   Name             my-instance
+   Target           primary(1xx2x34x-.)
+   Target Type      intf
+   Target IP        12.345.6.78
+   Created          1 week ago
+   Status           available
+   Zone             us-south-1
+   Resource Group   -
+   Tags             -
    ```
    {:screen}
   
-Optionally, you can locate the floating IP address associated to the instance to which you want to connect through the {{site.data.keyword.cloud_notm}} console.
+Optionally, you can locate the floating IP address that is associated to the instance to which you want to connect through the {{site.data.keyword.cloud_notm}} console.
 {:tip}
 
 ## Getting connected
 {: #getting-connected}
-
-The values returned below are for example purposes only.
 
 1. To connect to your instance, use your private key and run the following command:
 
@@ -107,4 +105,3 @@ The values returned below are for example purposes only.
    # exit
    ```
    {:pre}
-

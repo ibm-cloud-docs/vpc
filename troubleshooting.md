@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-07-29"
+lastupdated: "2019-09-30"
 
 keywords: vpc, troubleshoot, tips, error, bearer, API, CLI, problem, debug, token, trace
 
@@ -37,13 +37,13 @@ Another option is to add the `-i` flag to your `curl` command so that the suppor
 ## API calls require a Bearer token
 {: #troubleshoot-api-calls}
 
-When using the API with a cURL command, you may need to include "Bearer" in the Authorization header, depending on what is in the `$iam_token`. If it includes the word "Bearer" you don't include it again in the header. Most of our examples assume that "Bearer" is included in the header.
+When you use the API with a cURL command, you might need to include "Bearer" in the Authorization header, depending on what is in the `$iam_token`. If it includes the word "Bearer", you don't include it again in the header. Most examples assume that "Bearer" is included in the header.
 
 
 ## Turning on `TRACE` mode when using the CLI
 {: #troubleshoot-trace}
 
-To turn on `TRACE` (debug) mode when using the CLI, set `IBMCLOUD_TRACE=true` before the CLI command.
+To turn on `TRACE` (debug) mode when you use the CLI, set `IBMCLOUD_TRACE=true` before the CLI command.
 
 For example:
 
@@ -54,7 +54,7 @@ IBMCLOUD_TRACE=true ibmcloud is pubgws
 ## Using a different endpoint for CLI
 {: #troubleshoot-endpoint-cli}
 
-To change the VPC API endpoint that the {{site.data.keyword.cloud}} CLI uses by default, set the environment variable `IBMCLOUD_IS_API_ENDPOINT` before using the CLI. For example,
+To change the VPC API endpoint that the {{site.data.keyword.cloud}} CLI uses by default, set the environment variable `IBMCLOUD_IS_API_ENDPOINT` before you use the CLI. For example,
 
 ```
 export IBMCLOUD_IS_API_ENDPOINT=api.dev.domain.com
@@ -70,17 +70,17 @@ Here are a few difficulties you might encounter.
 ### Not authorized (401 or 403 error)
 {: #troubleshoot-not-authorized}
 
-Your account may not be authorized for VPC. Make sure you are using an account that has been onboarded. 
+Your account might not be authorized for VPC. Make sure that you are using an account that has been onboarded. 
 
 ### IAM token expired
 {: #troubleshoot-token-expired}
 
-The service is no longer returning any JSON, instead of just giving an HTTP "401 Unauthorized" to all requests. This error will happen after about an hour if your IAM token has expired. Refresh your IAM token by re-running `iam_token=$(ibmcloud iam oauth-tokens | awk '/IAM/{ print $4; }')`.
+The service is no longer returning any JSON, instead of just giving an HTTP "401 Unauthorized" to all requests. This error occurs after about an hour if your IAM token has expired. Refresh your IAM token by rerunning `iam_token=$(ibmcloud iam oauth-tokens | awk '/IAM/{ print $4; }')`.
 
 ### Cannot create resources
 {: #troubleshoot-cannot-create}
 
-If you cannot create a VPC or other resources, make sure the owner of the account has granted you the correct [permissions](/docs/vpc?topic=vpc-managing-user-permissions-for-vpc-resources#managing-user-permissions-for-vpc-resources).
+If you cannot create a VPC or other resources, make sure that the owner of the account has granted you the correct [permissions](/docs/vpc?topic=vpc-managing-user-permissions-for-vpc-resources#managing-user-permissions-for-vpc-resources).
 
 ### No response from API
 {: #troubleshoot-no-response}
@@ -100,7 +100,7 @@ It can take several minutes for resources to be deleted from the system, due to 
 3. Delete your subnets
 4. Delete your VPCs
 
-For more information, see [Deleting a VPC](/docs/vpc?topic=vpc-delete-vpc).
+For more information, see [Deleting a VPC](/docs/vpc?topic=vpc-deleting).
 ## Trace ID is blank
 {: #troubleshoot-trace-id-blank}
 

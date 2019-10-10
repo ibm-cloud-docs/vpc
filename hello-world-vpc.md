@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-02"
+lastupdated: "2019-09-30"
 
 keywords: vpc, cli, command line interface, tutorial, creating a vpc
 
@@ -32,13 +32,13 @@ To create and configure your virtual private cloud (VPC) and other attached reso
 1. Create a VPC and subnet to define the network.
 1. If you want to allow all resources in the subnet to communicate with the public internet, attach a public gateway. 
 1. Create a virtual server instance. By default, a 100 GB boot volume is attached to the instance.
-1. If you want additional storage, create a block storage volume and attach it to your instance.
+1. If you want more storage, create a block storage volume and attach it to your instance.
 1. To define the inbound and outbound traffic that's allowed for the instance, configure its security group.
 1. If you want your instance to be reachable from the internet, reserve and associate a floating IP address.
 
 ## Before you begin
 {: #before-cli-tutorial}
-Make sure you [set up your environment](/docs/vpc?topic=vpc-set-up-environment).
+Make sure that you set up your environment](/docs/vpc?topic=vpc-set-up-environment).
 
 ## Log in to IBM Cloud
 {: #log-in-to-ibm-cloud}
@@ -48,16 +48,16 @@ ibmcloud login --sso -a cloud.ibm.com
  ```
 {: pre}
 
-This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you will get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After the authentication steps, you'll be prompted to choose an account. Choose the account that was granted access to participate in the early access program. If you have access to multiple users, select the user you want to log in as. 
+This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After the authentication steps, you'll be prompted to choose your account. If you have access to multiple users, select the user you want to log in as. 
 
 When you are prompted to select a region, select us-south.
 
 Respond to any remaining prompts to finish logging in.
 
-## Select the generation of VPC infrastructure services
+## Select the generation of VPC
 {: #select-the-generation }
 
-Use the following command to configure the CLI plugin to target next generation services for VPC (early access).
+Use the following command to configure the CLI plug-in to target generation 2 virtual server instances for VPC.
 
 ```
 ibmcloud is target --gen 2
@@ -143,7 +143,7 @@ Only one public gateway per zone is allowed in a VPC, but that public gateway ca
 ## Add an SSH key
 {: #add-ssh-key-cli}
 
-Add your public SSH key to your IBM Cloud acccount. This key is speciified when you create the instance, and it's needed later to log into the instance. You can use one key to provision multiple instances.
+Add your public SSH key to your {{site.data.keyword.cloud_notm}} account. This key is specified when you create the instance, and it's needed later to log in to the instance. You can use one key to provision multiple instances.
 
 To see the available keys in your IBM Cloud account, run this command:
 
@@ -223,7 +223,7 @@ nic="0738-4d9b3a58-f796-4e6a-b5ac-84f4216e9b68-glhvl"
 ## Create a block storage data volume
 {: #create-block-storage-data-volume-cli}
 
-You can create a block storage volume and attach it to your virtual server instance if you want additional storage. When you create a block storage volume, you select a profile to optimize the performance of your compute workloads. See [About Block Storage for VPC](/docs/vpc?topic=vpc-block-storage-about#capacity-performance) for information about volume capacity and IOPS ranges based on the volume profile you select.  
+You can create a block storage volume and attach it to your virtual server instance if you want more storage. When you create a block storage volume, you select a profile to optimize the performance of your compute workloads. See [About Block Storage for VPC](/docs/vpc?topic=vpc-block-storage-about#capacity-performance) for information about volume capacity and IOPS ranges based on the volume profile you select.  
 
 To see a list of volume profiles, run:
 
@@ -246,7 +246,7 @@ vol=0738-933c8781-f7f5-4a8f-8a2d-3bfc711788ee
 ```
 {: pre}
 
-Note that the status of the volume is `pending` when it first is created. Before you can proceed, the volume needs to move to `available` status, which takes a few minutes.
+The status of the volume is `pending` when it first is created. Before you can proceed, the volume needs to move to `available` status, which takes a few minutes.
 
 To check the status of the volume, run this command:
 
@@ -258,7 +258,7 @@ ibmcloud is volume $vol
 ## Attach a block storage data volume to an instance
 {: #attach-block-storage-data-volume-cli}
 
-Use the following command to attach the volume to the virtual server instance, using the variables we created:
+Use the following command to attach the volume to the virtual server instance, by using the variables that we created:
 
 ```
 ibmcloud is instance-volume-attachment-add my-volume-attachment $instance $vol --auto-delete true
@@ -298,9 +298,6 @@ ibmcloud is sg-rulec $sg inbound icmp --icmp-type 8 --icmp-code 0
 ```
 {: pre}
 
-For Windows images, make sure the security group associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
-{: tip}
-
 ## Create a floating IP address for the instance
 {: #create-floating-ip-address-cli}
 
@@ -332,8 +329,6 @@ When you're prompted to continue connecting, type `yes`.
 
 SSH access into the instance might be prevented by security groups. Make sure the instance's security group allows SSH access.
 {: tip}
-
-To connect to a Windows image, log in using its decrypted password. For instructions, see [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
 
 ## Monitoring your instance
 {: #monitoring-your-instance-cli-tutorial} 

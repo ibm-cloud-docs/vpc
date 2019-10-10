@@ -3,7 +3,7 @@
 copyright:
   years: 2019
 
-lastupdated: "2019-08-27"
+lastupdated: "2019-09-30"
 
 keywords: resource, access, role, role-based, authorization, policy, access group, resource group, permission, assign, administrator, operator, editor, viewer, user, team, scenario, manage, create, IAM
 
@@ -49,7 +49,7 @@ To give a new user access to all VPC infrastructure resources:
 4. In the **Access** section, expand the **Services** area and complete the following tasks:
   * From the **Assign access to** list, select **Resource group**.
   * From the **Resource group** list, select the Default resource group.
-  * Make sure the **Assign access to a resource group** option is set to **Viewer**. 
+  * Make sure that the **Assign access to a resource group** option is set to **Viewer**.
   * From the **Services** list, select **VPC Infrastructure**.
   * From the **Resource type** list, select **All resource types**.
   * In the **Assign platform access roles** area, select **Editor**.
@@ -63,7 +63,7 @@ This scenario shows how to give an existing user permission to create and manage
 1. Go to the [IAM Users ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/iam/users){: new_window} page in the IBM Cloud console and select the user whose access you want to configure.
 3. On the **Access policies** tab, click **Assign access**.
 4. Click **Assign access within a resource group** and select the Default resource group.
-6. Make sure the **Assign access to a resource group** option is set to **Viewer**.
+6. Make sure that the **Assign access to a resource group** option is set to **Viewer**.
 7. From the **Services** list, select **VPC Infrastructure**.
 8. From the **Resource type** list, select **All resource types**.
 9. In the **Assign platform access roles** area, select **Operator**.
@@ -75,9 +75,7 @@ This scenario shows how to give an existing user permission to create and manage
 |Block Storage for VPC     | Editor            | 
 |Virtual Server for VPC | Editor|
 |Floating IP for VPC| Editor|
-
-
-
+{: caption="Table 1. Resource types and platform access roles" caption-side="top"}
 
 ## Team access scenario
 {: #team-access-scenario}
@@ -99,8 +97,8 @@ This strategy can be used to assign separate VPC resources to any number of team
 
 Create resource groups that contain each of your teams' VPC resources.
 
-1. Create a resource group called `test_team`.  
-2. Create a resource group called `production_team`.  
+1. Create a resource group called `test_team`.
+2. Create a resource group called `production_team`.
 
 For more information about how to create resource groups, see [Managing resource groups](/docs/resources?topic=resources-rgs).
 
@@ -113,6 +111,7 @@ By default, account administrators can create new resource groups. Other users m
 Resource access can be assigned to groups of users. Groups of users with the same access permissions are called _access groups_. In this scenario, the account administrator creates an access group to represent each grouping of team members who require a specific type of VPC access, a total of four unique access groups.
 
 Create four access groups with the following names, and assign the appropriate users to each access group:
+
 * `test_team_manage_vpcs`
 * `test_team_view_vpcs`
 * `production_team_manage_vpcs`
@@ -130,24 +129,24 @@ Add the necessary VPC access policies for each access group. For example, add a 
 3. On the **Access policies** tab, click **Assign access**.
 4. Select **Assign access within a resource group**.
 5. Select the corresponding resource group. In this case, select the `test_team` resource group.
-6. Make sure the **Assign access to a resource group** option remains set to **Viewer**.
+6. Make sure that the **Assign access to a resource group** option remains set to **Viewer**.
 7. Select the service **VPC Infrastructure**.
-8. Make sure **Resource type** remains set to **All resource types**.
+8. Make sure that **Resource type** remains set to **All resource types**.
 9. In the **Assign platform access roles** area, select **Editor**.
 10. Select **Assign**.
 
-Because the boot volume that's automatically attached to an instance and floating IP resources are created in the Default resource group, you must also add access policies for the Default resource group. 
+Because the boot volume that's automatically attached to an instance and floating IP resources are created in the Default resource group, you must also add access policies for the Default resource group.
 
-| Access group | Resource group |  Resource type | Platform access role|    
-|--------------------------|------------------------|-----------------------------------------------------------------|--------------------------|------------------------|-----------------------------------------------------------------|
+| Access group | Resource group |  Resource type | Platform access role|
+|--------------------------|------------------------|----------------------------------------------------------------|--------------------------|------------------------|-----------------------------------------------------------------|
 |test_team_manage_vpcs|Default|Block Storage for VPC| Editor|
 |test_team_manage_vpcs|Default|Floating IP for VPC| Editor|
+{: caption="Table 2. Access policies for the default resource group" caption-side="top"}
 
+Repeat the previous steps to add access policies for the remaining three access groups.
 
-Repeat the previous steps to add access policies for the remaining three access groups. 
-
-| Access group | Resource group |  Resource type | Platform access role|    
-|--------------------------|------------------------|-----------------------------------------------------------------|--------------------------|------------------------|-----------------------------------------------------------------|
+| Access group | Resource group |  Resource type | Platform access role|
+|--------------------------|------------------------|----------------------------------------------------------------|--------------------------|------------------------|-----------------------------------------------------------------|
 |test_team_view_vpcs|test_team| All resource types| Viewer|
 |test_team_view_vpcs|Default| Block Storage for VPC| Viewer|
 |test_team_view_vpcs|Default| Floating IP for VPC| Viewer|
@@ -157,10 +156,11 @@ Repeat the previous steps to add access policies for the remaining three access 
 |production_team_view_vpcs|production_team| All resource types| Viewer|
 |production_team_view_vpcs|Default| Block Storage for VPC| Viewer|
 |production_team_view_vpcs|Default| Floating IP for VPC| Viewer|
+{: caption="Table 3. Access policies for the remaining access groups" caption-side="top"}
  
 The teams are now set up to use VPCs. Members of the `test_team_manage_vpcs` and `production_team_manage_vpcs` access groups can now create VPCs in their assigned resource groups (that is, in the `test_team_manage_vpcs` and `production_team_manage_vpcs` resource groups).
 
-When you create a VPC or other resources, make sure you specify the resource group in which to create the resource. If you don't specify a resource group, the resource is created in the Default resource group.
+When you create a VPC or other resources, make sure that you specify the resource group in which to create the resource. If you don't specify a resource group, the resource is created in the Default resource group.
 {: tip}
 
 ## Viewing user's permissions
@@ -170,11 +170,16 @@ Policies can be viewed in the user's **Access policies** tab.
 
 You can use the following CLI commands to validate the resource group permissions that are assigned to your user, by policy or by access group:
 
-**By policy**
+### Validate By policy
+{: #validate-by-policy}
+
 ```
 ibmcloud iam user-policies <username>
 ```
-**By access group**
+
+### Validate by access group
+{: #validate-by-access-group}
+
 ```
 ibmcloud iam access-groups -u <username>
 ```

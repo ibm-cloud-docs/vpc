@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-09-30"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, volume, data storage, troubleshooting, troubleshoot
 
@@ -42,13 +42,13 @@ Any of the following causes might apply:
 * You might be trying to access a generation 1 volume.
 {: tsCauses}
 
-Verify that the volume has not been detached from a virtual server instance and deleted. Search for the instance to which you last attached the volume from the list of all virtual server instances:
+Verify that the volume wasn't detached from a virtual server instance and deleted. Search for the instance to which you last attached the volume from the list of all virtual server instances:
 
-1. In [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc){: external}, navigate to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > Compute > Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
 
 1. Select a virtual server instance from the list of all virtual servers.
 
-If the volume is not attached as expected and does not appear in the list of volumes, it has likely been deleted.  Because deleting a volume completely removes its data, it cannot be restored.  
+If the volume is not attached as expected and does not appear in the list of volumes, it was probably deleted. Because deleting a volume completely removes its data, it cannot be restored.  
 
 If you use the CLI, verify that you entered the correct syntax for viewing volumes. See [View all block storage volumes from the CLI](/docs/vpc?topic=vpc-attaching-block-storage-cli). Verify that you specified the correct resource group or zone.
 {: tsResolve}

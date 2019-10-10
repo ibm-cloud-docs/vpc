@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-07-29"
+lastupdated: "2019-09-30"
 
 keywords: glossary, terminology, concepts, vpc, virtual private cloud, definitions
 
@@ -22,34 +22,35 @@ subcollection: vpc
 # VPC concepts
 {: #vpc-concepts}
 
-Learn more about {{site.data.keyword.vpc_full}} by getting to know these key VPC concepts.
+Learn more about {{site.data.keyword.vpc_full}} (VPC) by getting to know these key VPC concepts.
 {:shortdesc}
 
 ## Floating IP
 {: #fip-def}
-Floating IP is a method to provide inbound and outbound access to the internet for VPC resources such as virtual server instances using assigned _Floating IP addresses_ from a pool.
+Floating IP is a method to provide inbound and outbound access to the internet for VPC resources such as virtual server instances by using assigned _Floating IP addresses_ from a pool.
 
-Floating IP addresses are public IP addresses that are provided by the system from the pre-existing pool. You can't bring your own public IP addresses. Floating IP addresses are reachable from the internet, and they can be associated to an instance by means of a network interface.
+Floating IP addresses are public IP addresses that are provided by the system from the pre-existing pool. You can't bring your own public IP addresses. Floating IP addresses are reachable from the internet, and they can be associated to a network interface of an instance.
 
-You can reserve a floating IP address from the pool of available floating IP addresses provided by IBM, and you can associate it to or disassociate it from any instance in the same VPC. Floating IPs allow a server to communicate with the public internet and also with a private subnet within your cloud environment.
+You can reserve a floating IP address from the pool of available floating IP addresses that are provided by IBM. You can associate it to or disassociate it from any instance in the same VPC. Floating IP addresses allow a server to communicate with the public internet and also with a private subnet within your cloud environment.
 
 ## Image
 {: #image-def}
-The information required to create a virtual server instance, or _instance_. Typically, it is a snapshot image of a commercially-available operating system, used for booting. When you create an instance, you can select from the supported stock images or a custom image that was imported from {{site.data.keyword.cos_full_notm}}.
+The information required to create a virtual server instance, or _instance_. Typically, it is a snapshot image of a commercially available operating system. When you create an instance, you can select from the supported stock images or a custom image that was imported from {{site.data.keyword.cos_full_notm}}.
 
 ## Instance
 {: #instance-def}
-A virtual server instance, or VSI, that runs within a VPC. To provision scalable compute resources in a VPC, you'll create virtual server instances with the core and RAM configuration that's right for your workload.
+A virtual server instance, or VSI, that runs within a VPC. To provision scalable compute resources in a VPC, you create virtual server instances with the core and RAM configuration that's best for your workload.
+
 
 ## Profile
 {: #profile-def}
-A profile is a popular combination of vCPU and RAM that can be instantiated quickly to start up a virtual server instance. Three families of profiles are supported: Balanced, Compute, and Memory.
+A profile is a popular combination of vCPU and RAM that can be instantiated quickly to start a virtual server instance. Three families of profiles are supported: Balanced, Compute, and Memory.
 
 ## Public gateway
 {: #pgw-def}
 A public gateway enables outbound-only access for a subnet to connect to the internet. Subnets are private by default; however, you can attach a subnet to a public gateway so that all virtual server instances in that subnet can connect to the internet.
 
-Public gateways uses Many-to-1 NAT, which means that thousands of instances with private addresses use one public IP address to talk to the public internet. Public gateways don't enable the internet to initiate a connection with the instances in the attached subnet.
+Public gateways use Many-to-1 NAT, which means that thousands of instances with private addresses use one public IP address to talk to the public internet. Public gateways don't enable the internet to initiate a connection with the instances in the attached subnet.
 
 ## Region
 {: #region-def}
@@ -61,9 +62,9 @@ A security group acts as a virtual firewall that controls the inbound and outb
 
 ## Subnet
 {: #subnet-def}
-A subnet is an IP address range, bound to a single zone, which cannot span multiple zones or regions. A subnet can span the entirety of a zone in an {{site.data.keyword.vpc_short}}.
+A subnet is an IP address range that is bound to a single zone. A subnet can span the entirety of a zone in an {{site.data.keyword.vpc_short}}.
 
-For the purposes of {{site.data.keyword.vpc_short}}, the important characteristic for a subnet is the fact that subnets can be isolated from one another, as well as being interconnected in the usual way. It is the isolation of subnets that allows you to create a private space within the public cloud.
+Subnets in a VPC can be isolated from one another or be interconnected in the usual way. By isolating the subnets, you can create a private space within the public cloud.
 
 ## SSH Key
 {: #ssh-key-def}
@@ -75,7 +76,7 @@ A secure, isolated virtual network within IBM Cloud. It provides fine-grained co
 
 ## Zone
 {: #zone-def}
-An independent fault domain. A zone is an abstraction designed to assist with improved fault tolerance and decreased latency. A zone guarantees the following properties:
+An independent fault domain. A zone is an abstraction that is designed to assist with improved fault tolerance and decreased latency. A zone has the following properties:
 
- * Because each zone is an independent fault domain, it is extremely unlikely for two zones in a region to fail simultaneously.
- * Traffic between zones in a region will experience less than 2ms in latency.
+ * Because each zone is an independent fault domain, it is unlikely for two zones in a region to fail simultaneously.
+ * Traffic between zones in a region experience less than 2 milliseconds in latency.

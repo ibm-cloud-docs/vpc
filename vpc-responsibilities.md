@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-09"
+lastupdated: "2019-09-30"
 
 keywords: vpc, responsibilities, ha, high availability, disaster recovery
 
@@ -45,7 +45,7 @@ IBM's responsibilities:
 Your responsibilities:
 - Use the provided API, CLI, or UI console to provision compute and storage, and to adjust networking configurations to meet the needs of your workload.
 - Make sure the CIDR blocks you specify for your VPC do not conflict with CIDR blocks used by any other network that you plan to connect to your VPC.
-- Design and deploy your workload in a way that achieves high availability using our provided tools, such as multiple availability zones. At a high level, deploy your workloads in different zones of the region, use at least two load balancers located in different zones, and either use DNS records to point to the load balancers, or ensure that your application can handle a list of IP addresses that it can connect to.
+- Design and deploy your workload in a way that achieves high availability using our provided tools, such as multiple availability zones. At a high level, deploy your workloads in different zones of the region, use at least two load balancers that are located in different zones, and either use DNS records to point to the load balancers, or ensure that your application can handle a list of IP addresses that it can connect to.
 
 ### VPC Workloads
 {: #vpc-workloads}
@@ -57,7 +57,7 @@ IBM's responsibilities:
 Your responsibilities:
 - Maintain OS patches, version updates, and security updates.
 - Set up your backup and recovery strategies for workload data.
-- Monitor the health of your workload using either the built-in virtual server instance monitoring or IBM Monitoring with Grafana.
+- Monitor the health of your workload using either the built-in virtual server instance monitoring or IBM Cloud Monitoring with Sysdig.
 
 ### Security-rich Environment
 {: #security-rich-environment}
@@ -67,14 +67,14 @@ IBM's responsibilities:
 - Enable security features, such as encrypted disks.
 - Continuously monitor stock images to detect vulnerability and security compliance issues.
 - Use IBM Cloud Identity and Access Management (IAM) for authentication and authorization of VPC resources.
-- Provide audit records of the VPC resource lifecycle through IBM Activity Tracker with LogDNA.
+- Provide audit records of the VPC resource lifecycle through IBM Cloud Activity Tracker with LogDNA.
 
 Your responsibilities:
-- Use security groups and network ACLs to secure your virtual server instances, such as restricting what IP addresses can SSH into the instance.
+- Use security groups to secure your virtual server instances, such as restricting what IP addresses can SSH into the instance.
 - Choose how to connect your workload to the public internet, if applicable, either using a public gateway or floating IP.
 - Restrict user access to the appropriate resources and resource groups.
-- Integrate IBM Activity Tracker and IBM Monitoring data into your auditing and monitoring processes.
-
+- Integrate IBM Cloud Activity Tracker with LogDNA and IBM Cloud Monitoring with Sysdig data into your auditing and monitoring processes.
+ 
 ### App Orchestration
 {: #app-orchestration}
 
@@ -83,7 +83,7 @@ IBM's responsibilities:
 
 Your responsibilities:
 - Use the provided tools and features to configure and deploy; set up permissions; integrate with other services; externally serve; monitor the health; save, back up, and restore data; and otherwise manage your highly available and resilient workloads.
-- Design and deploy your workload in a way that achieves high availability using our provided tools, such as multiple availability zones. At a high level, deploy your workloads in different zones of the region, use at least two load balancers located in different zones, and either use DNS records to point to the load balancers, or ensure that your application can handle a list of IP addresses that it can connect to.
+- Design and deploy your workload in a way that achieves high availability using our provided tools, such as multiple availability zones. At a high level, deploy your workloads in different zones of the region, use at least two load balancers that are located in different zones, and either use DNS records to point to the load balancers, or ensure that your application can handle a list of IP addresses that it can connect to.
 
 
 ## Prohibited usage of IBM Cloud Virtual Private Cloud

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-07-29"
+lastupdated: "2019-09-30"
 
 keywords: security, groups, encryption, traffic, rules, subnet, instance, VSI, firewall, encryption, vpc, vpc network
 
@@ -23,12 +23,18 @@ subcollection: vpc
 # Security in your VPC
 {: #security-in-your-vpc}
 
-In the early access release, you can keep your VPC and workloads secure by using security groups. Security groups control traffic on a per-instance basis.
+You can keep {{site.data.keyword.vpc_full}} and workloads secure by controlling network traffic using security groups.
 {:shortdesc}
 
-### Security groups
-{: #sgs-security}
-A **security group** acts as a virtual firewall that controls the traffic for one or more virtual server instances. A security group is a collection of rules that specify whether to allow or deny traffic for an associated instance. You can associate an instance with one or more security groups and edit the security group rules. For more information, see [Using security groups](/docs/vpc?topic=vpc-using-security-groups).
+## Security overview
+{: #security-overview}
+
+Security groups provide a way to control the traffic across instances in your {{site.data.keyword.vpc_full}}, using rules that you specify.
+
+* Security groups can control the traffic at the virtual server instance (VSI) level
+* Set up a floating IP for VSI access to the internet, guarded by SGs
+
+A security group acts as a virtual firewall that controls the traffic for one or more virtual server instances. A security group is a collection of rules that specify whether to allow or deny traffic for an associated instance. You can associate an instance with one or more security groups and edit the security group rules. For more information, see [Using security groups](/docs/vpc?topic=vpc-using-security-groups).
 
 ### End-to-end encryption
 {: #end-to-end-encryption}

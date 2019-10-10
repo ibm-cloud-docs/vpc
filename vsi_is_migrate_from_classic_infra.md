@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-10"
+lastupdated: "2019-09-30"
 
 keywords: migrate virtual server from classic infrastructure, migrate to vpc, migrate image template, image template, import image to vpc infrastructure, migrate virtual server, migrate instance
 
@@ -24,7 +24,7 @@ subcollection: vpc
 # Migrating a virtual server from the classic infrastructure
 {: #migrate-vsi-to-vpc}
 
-You can migrate a vitual server instance from the classic infrastructure by creating an image template and exporting it to 
+You can migrate a virtual server instance from the classic infrastructure by creating an image template and exporting it to 
 {{site.data.keyword.cos_full}}. Then, you can customize the image to meet the requirements of the {{site.data.keyword.vpc_short}} infrastructure, and 
 import it to {{site.data.keyword.vpc_short}} so that it can be deployed. 
 {:shortdesc}
@@ -43,11 +43,11 @@ If you need to create an instance of {{site.data.keyword.cos_full_notm}}, see [G
 ### Granting access between services
 {: #migrate-prereq-create-service-authorization}
 
-From IBM {{site.data.keyword.iamshort}} you must create an authorization so that the Image Service for VPC can access images in {{site.data.keyword.cos_full_notm}}. 
+From IBM {{site.data.keyword.iamshort}}, you must create an authorization so that the Image Service for VPC can access images in {{site.data.keyword.cos_full_notm}}. 
 
 1. From the [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com/vpc){: external} menu bar, click **Manage** &gt; **Access (IAM)**, and select **Authorizations**.
 2. Click **Create**.
-3. Select a source and target service for the authorization. Specify **VPC Infrastructure**  as the source service. Specify **Image Service for VPC** as the resource type. Specify **Cloud Object Storage**  as the target service.
+3. Select a source and target service for the authorization. Specify **VPC Infrastructure** as the source service. Specify **Image Service for VPC** as the resource type. Specify **Cloud Object Storage** as the target service.
 4. Select a role to assign access to the source service that accesses the target service.
 5. Click **Authorize**.
 
@@ -94,7 +94,7 @@ For more information, see [Exporting an image to {{site.data.keyword.cos_full_no
 1. Download the image file from {{site.data.keyword.cos_full_notm}} to a secure local machine to complete {{site.data.keyword.vpc_short}} 
 customization requirements. On the **Objects** page of your {{site.data.keyword.cos_full_notm}} bucket, locate your image, click **...**, and select **Download**. You can use the Aspera high-speed transfer plug-in to download images larger than 200 MB.
 2. With your classic infrastructure image template downloaded, complete the required image customizations for {{site.data.keyword.vpc_short}} infrastructure. For more information, see 
-[Creating a custom image](/docs/vpc?topic=vpc-managing-images#create-deployable-custom-image). Follow the instructions for either a [Linux custom image](/docs/vpc?topic=vpc-managing-images#create-linux-custom-image) or a [Windows custom image](/docs/vpc?topic=vpc-managing-images#create-windows-custom-image). Some of the customization requirements 
+[Creating a custom image](/docs/vpc?topic=vpc-managing-images#create-deployable-custom-image). Follow the instructions for a [Linux custom image](/docs/vpc?topic=vpc-managing-images#create-linux-custom-image). Some of the customization requirements 
 might already be complete on your classic infrastructure image template. 
 3. When the image customization requirements are complete, you can upload the image to {{site.data.keyword.cos_full_notm}}. Make sure that your customized image file has a descriptive name so that you can easily identify it later. On the **Objects** page of your {{site.data.keyword.cos_full_notm}} bucket, click **Upload**. You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB.
 
@@ -104,7 +104,7 @@ might already be complete on your classic infrastructure image template.
 1. In {{site.data.keyword.cloud_notm}} console, navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Custom Images**. 
 2. Click **Import Custom Image**. 
 
-For more information, see [Importing a custom image](/docs/vpc-on-classic-vsi?topic=vpc-on-classic-vsi-managing-images#import-custom-image).
+For more information, see [Importing a custom image](/docs/vpc?topic=vpc-managing-images#import-custom-image).
 
 ### Step 6 - Use the custom image to create a virtual server instance in {{site.data.keyword.vpc_short}}
 {: #migrate-create-virtual-server} 

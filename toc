@@ -56,18 +56,9 @@ Virtual Private Cloud (Early Access)
         vsi_is_create_instance.md
         vsi_is_create_instance_cli.md
         vsi_is_connecting_linux_gc.md
-        vsi_is_connecting_windows_gc.md
         vsi_is_manage_images.md
         vsi_is_migrate_from_classic_infra.md
         monitoring.md
-
-    {: .topicgroup}
-    Security groups
-        security-groups.md
-        security-groups-default.md
-        security-groups-example.md
-        security-group-usage-examples.md
-
             
     {: .topicgroup}
     Block storage volumes
@@ -86,8 +77,7 @@ Virtual Private Cloud (Early Access)
         security-groups.md
         security-groups-default.md
         security-groups-example.md
-        security-group-usage-examples.md
-
+        security-group-usage-examples.md   
 
 
     {: .topicgroup}
@@ -112,8 +102,8 @@ Virtual Private Cloud (Early Access)
     [API reference](https://{DomainName}/apidocs/vpc)
     vpc-endpoints.md
     at-events.md
-    [Go and Python Example Code](https://github.com/IBM-Cloud/vpc-api-samples)
     [Terraform](/terraform/terraform-terraform-getting-started)
+    [Exporter Tool](https://github.com/l2fprod/vpc-diagram-exporter)
     {: .navgroup-end}
 
     {: .navgroup id="help"}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-09-30"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, volume, volume attachment, data storage, virtual server instance, instance
 
@@ -19,25 +19,25 @@ subcollection: vpc
 {:tip: .tip}
 {:table: .aria-labeledby="caption"}
 
-# Managing block storage volumes using the CLI
+# Managing block storage volumes by using the CLI
 {: #managing-block-storage-cli}
 
-Manage {{site.data.keyword.block_storage_is_short}} from the command line interface (CLI). Update a volume name, update a volume attachment, detach a volume, or delete a volume.
+Manage {{site.data.keyword.block_storage_is_short}} from the command-line interface (CLI). Update a volume name, update a volume attachment, detach a volume, or delete a volume.
 {:shortdesc}
 
 ## Before you begin
 {: #before-managing-block-storage-cli}
 
-1. Make sure you have downloaded, installed, and initialized the following CLI plug-ins:
+1. Make sure that you have downloaded, installed, and initialized the following CLI plug-ins:
     * {{site.data.keyword.cloud_notm}} CLI
-    * The infrastructure-service plugin
+    * The infrastructure-service plug-in
 
    For more information, see the [CLI Reference](/docs/vpc?topic=vpc-cli-reference).
    
-   When you install the vpc-infrastructure plugin for the first time, you must set the target generation to gen 2, `ibmcloud is target --gen 2`.
+   When you install the vpc-infrastructure plug-in for the first time, you must set the target generation to gen 2, `ibmcloud is target --gen 2`.
    {:important}
    
-2. Make sure you have [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-getting-started).
+2. Make sure that you have [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-getting-started).
 
 ## Update the name of a volume
 {: #update-vol-name}

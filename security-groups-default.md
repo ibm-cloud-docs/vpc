@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2019
 
-lastupdated: "2019-07-29"
+lastupdated: "2019-09-30"
 
 keywords: default, security group, asynchronous, rules, vpc, vpc network
 
@@ -26,7 +26,7 @@ subcollection: vpc
 {: #updating-the-default-security-group}
 
 
-The default security group is very similar to any other security group, with the exception that it cannot be deleted.
+The default security group is similar to any other security group, with the exception that it cannot be deleted.
 {:shortdesc}
 
 Each VPC has a default security group, with rules to allow:
@@ -36,9 +36,9 @@ Each VPC has a default security group, with rules to allow:
 
 If you edit the rules of the default security group, those edited rules then apply to all current and future servers in the group.
 
-Inbound rules to allow ping and SSH are not automatically added to the default security group. You can modify the rules of the default security group using the REST API, the `ibmcloud cli`, or the UI.
+Inbound rules to allow ping and SSH are not automatically added to the default security group. You can modify the rules of the default security group by using the REST API, the CLI, or the UI.
 
-## Example: Modifying the default security group rules using the CLI
+## Example: Modifying the default security group rules by using the CLI
 {: #example-modifying-the-default-security-group-rules-using-the-cli}
 
 1. Log in to IBM Cloud.
@@ -74,7 +74,7 @@ Inbound rules to allow ping and SSH are not automatically added to the default s
    ```
    {: pre}
 
-   Save the security group ID (for the default security group) in a variable so you can use it later. For example, using the variable name `sg`:
+   Save the security group ID (for the default security group) in a variable so you can use it later. For example, use the variable name `sg`:
 
    ```
    sg=0738-2d364f0a-a870-42c3-a554-000001162469
@@ -88,9 +88,9 @@ Inbound rules to allow ping and SSH are not automatically added to the default s
    ```
    {: pre}
    
-   Alternatively, you could insert the actual ID value in place of the variable `$sg`.
+   Alternatively, you can insert the actual ID value in place of the variable `$sg`.
 
-3. Update the default security group -- add rules allowing SSH and PING
+3. Update the default security group to add rules that allow SSH and PING.
 
    ```
    ibmcloud is security-group-rule-add $sg inbound tcp --port-min 22 --port-max 22
@@ -99,5 +99,5 @@ Inbound rules to allow ping and SSH are not automatically added to the default s
    {: codeblock}
 
 
-Adding and removing security group rules is an asynchronous operation. It usually takes from 1 to 30 seconds for the change to go into effect.
+Adding and removing security group rules is an asynchronous operation. It usually takes 1 - 30 seconds for the change to go into effect.
 {: note}

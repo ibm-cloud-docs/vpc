@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018, 2019
-lastupdated: "2019-08-22"
+lastupdated: "2019-09-30"
 
 keywords: secure, region, zone, subnet, public gateway, floating IP, NAT
 subcollection: vpc
@@ -31,19 +31,21 @@ subcollection: vpc
 
 Each VPC is deployed to a single region. Within that region, the VPC can span multiple zones. 
 
-Subnets in your VPC can connect to the public internet through a public gateway. You can assign floating IP addresses to any virtual server instance to enable it to be reachable from the internet, independent of whether its subnet is attached to a public gateway. 
+Subnets in your VPC can connect to the public internet through an optional public gateway. You can assign floating IP addresses to any virtual server instance to enable it to be reachable from the internet, independent of whether its subnet is attached to a public gateway. 
 
-Subnets within the VPC offer private connectivity; they can talk to each other over a private link through the implicit router. Setting up routes is not necessary.
+Subnets within the VPC offer private connectivity; they can talk to each other over a private link through the implicit router. Setting up routes is not necessary. Figure 1 shows how you can subdivide a Virtual Private Cloud with subnets and each subnet can reach the public internet.
+
+![Figure showing how a VPC can be subdivided with subnets](images/vpc-connectivity-and-security.svg "Figure showing how a VPC can be subdivided with subnets"){: caption="Figure 1. IBM VPC connectivity and security" caption-side="top"}
 
 ## Terminology
 {: #networking-terminology}
 
-See [VPC concepts](/docs/vpc?topic=vpc-vpc-concepts) for definitions and information about terms used in this document for {{site.data.keyword.vpc_short}}. When working with your VPC, you'll need to be familiar with the basic concepts of _region_ and _zone_ as they apply to your deployment.
+See [VPC concepts](/docs/vpc?topic=vpc-vpc-concepts) for definitions and information about terms that are used in this document for {{site.data.keyword.vpc_short}}. When working with your VPC, you'll need to be familiar with the basic concepts of _region_ and _zone_ as they apply to your deployment.
 
 ### Regions
 {: #networking-terms-regions}
 
-A region is an abstraction related to the geographic area in which a VPC is deployed. Each region contains multiple zones, which represent independent fault domains. A VPC can span multiple zones within its assigned region.
+A region is an abstraction that is related to the geographic area in which a VPC is deployed. Each region contains multiple zones, which represent independent fault domains. A VPC can span multiple zones within its assigned region.
 
 ### Zones
 {: #networking-terms-zones}
@@ -74,13 +76,14 @@ A **Public Gateway** enables a subnet and all its attached virtual server instan
 
 Public gateways use _Many-to-1 NAT_, which means that thousands of instances with private addresses use one public IP address to communicate with the public internet.
 
-The following table summarizes the scope of gateway services.
+Table 1 summarizes the scope of gateway services for source and destination network address translation (SNAT and DNAT):
 
-| SNAT | DNAT | 
-| ---- | ---- | 
+| SNAT | DNAT |
+| ---- | ---- |
 | Instances can have outbound-only access to the internet | Allows inbound connectivity from the internet to a private IP | 
 | Entire subnets share the same outbound public endpoint | Provides limited access to a single private server |
-| Protects instances.  Access to instances can't be initiated through the public endpoint | DNAT service can be scaled up or down based on requirements | 
+| Protects instances. Access to instances can't be initiated through the public endpoint | DNAT service can be scaled up or down based on requirements |
+{: caption="Table 1. Scope of gateway services" caption-side="top"}
 
 You can create only one public gateway per zone, but that public gateway can be attached to multiple subnets in the zone.
 {:tip}
@@ -88,9 +91,9 @@ You can create only one public gateway per zone, but that public gateway can be 
 ### Use a Floating IP address for external connectivity of a virtual server instance
 {: #floating-ip-for-external-connectivity}
 
-**Floating IP addresses** are IP addresses that are provided by the system and are reachable from the public internet.
+Floating IP addresses are IP addresses that are provided by the system and are reachable from the public internet.
 
-You can reserve a floating IP address from the pool of available addresses provided by IBM, and you can associate it with a network interface of any instance in the same zone. That interface also will have a private IP address. Each floating IP address can be associated with only one interface. 
+You can reserve a floating IP address from the pool of available addresses that are provided by IBM, and you can associate it with a network interface of any instance in the same zone. That interface also will have a private IP address. Each floating IP address can be associated with only one interface. 
 
 **Notes:**
 * Associating a floating IP address with an instance removes the instance from the public gateway's Many-to-1 NAT.

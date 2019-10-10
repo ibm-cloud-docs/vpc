@@ -3,7 +3,7 @@
 copyright:
   years: 2019
 
-lastupdated: "2019-09-12"
+lastupdated: "2019-09-30"
 
 keywords: activity tracker, vpc, events, logdna 
 
@@ -48,27 +48,20 @@ As a security officer, auditor, or manager, you can use the {{site.data.keyword.
 | floating-ip  | is.floating-ip.floating-ip.delete   | Floating IP was created.  |
 | floating-ip  | is.floating-ip.floating-ip.delete   | Floating IP was updated.  |
 | floating-ip  | is.floating-ip.floating-ip.delete   | Floating IP was deleted.  |
-| network-acl  | is.network-acl.network-acl.create   | Network ACL was created.  |
-| network-acl  | is.network-acl.network-acl.update   | Network ACL was updated.  |
-| network-acl  | is.network-acl.network-acl.delete   | Network ACL was deleted.  |
-| network-acl  | is.network-acl.rule.create  | Rule was added to Network ACL.  |
-| network-acl  | is.network-acl.rule.update  | Network ACL Rule was updated.   |
-| network-acl  | is.network-acl.rule.delete  | Rule was removed from Network ACL.  |
 | public-gateway | is.public-gateway.public-gateway.create   | Public Gateway was created.   |
 | public-gateway | is.public-gateway.public-gateway.update   | Public Gateway was updated.   |
 | public-gateway | is.public-gateway.public-gateway.delete   | Public Gateway was deleted.   |
-| security-group | is.security-group.security-group.create   | Security Group create   |
-| security-group | is.security-group.security-group.delete   | Security Group delete   |
-| security-group | is.security-group.security-group.update   | Security Group update   |
-| security-group | is.security-group.security-group.rule-create  | Security Group rule create  |
-| security-group | is.security-group.security-group.rule-delete  | Security Group rule delete  |
-| security-group | is.security-group.security-group.rule-update  | Security Group rule update  |
-| security-group | is.security-group.security-group.interface-attach | Security Group interface attach   |
-| security-group | is.security-group.security-group.interface-detach | Security Group interface detach   |
+| security-group | is.security-group.security-group.create   | Security Group was created.   |
+| security-group | is.security-group.security-group.delete   | Security Group was deleted.   |
+| security-group | is.security-group.security-group.update   | Security Group was updated.   |
+| security-group | is.security-group.security-group-rule.create  | Rule was added to Security Group.  |
+| security-group | is.security-group.security-group-rule.delete  | Rule was removed from Security Group.  |
+| security-group | is.security-group.security-group-rule.update  | Security Group Rule was updated.  |
+| security-group | is.security-group.security-group-interface.attach | Interface was attached to Security Group.   |
+| security-group | is.security-group.security-group-interface.detach | Interface was removed from Security Group.   |
 | subnet   | is.subnet.subnet.create   | Subnet was created.   |
 | subnet   | is.subnet.subnet.update   | Subnet was updated.   |
 | subnet   | is.subnet.subnet.delete   | Subnet was deleted.   |
-| subnet   | is.subnet.network-acl.update  | Subnet's Network ACL was replaced.   |
 | subnet   | is.subnet.public-gateway.operate  | Public Gateway was attached to Subnet.  |
 | subnet   | is.subnet.public-gateway.operate  | Public Gateway was detached from Subnet.  |
 {: caption="Table 1. Actions that generate events for network resources" caption-side="top"}
@@ -104,6 +97,7 @@ The following table lists the actions related to image resources and the generat
 | image  | is.image.image.create   | Image was created |
 | image  | is.image.image.delete   | Image was deleted |
 | image  | is.image.image.update   | Image was updated  |
+{: caption="Table 3. Actions that generate events for image resources" caption-side="top"}
 
 ## List of events: Storage resources
 {: #events-storage}
@@ -113,7 +107,8 @@ The following table lists the actions related to image resources and the generat
 | volume  | is.volume.volume.create  |  Volume was created.  |
 | volume  | is.volume.volume.update  | Volume was updated.  |
 | volume  | is.volume.volume.delete  | Volume was deleted.  |
-{: caption="Table 3. Actions that generate events for storage resources" caption-side="top"}
+{: caption="Table 4. Actions that generate events for storage resources" caption-side="top"}
+
 
 ## Supported locations
 {: #at-supported-locations}

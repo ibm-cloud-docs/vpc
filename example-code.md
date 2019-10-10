@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-09-02"
+lastupdated: "2019-09-30"
 
 keywords: create, VPC, API, IAM, token, permissions, endpoint, region, zone, profile, status, subnet, gateway, floating IP, delete, resource, provision
 
@@ -29,9 +29,9 @@ You can create and configure an {{site.data.keyword.vpc_full}} resources using t
 To create and configure your virtual private cloud (VPC) and other attached resources, perform the steps in the sections that follow, in this order:
 
 1. Create a VPC and subnet to define the network.
-1. If you want to allow all resources in the subnet to communicate with the public internet, attach a public gateway. 
+1. If you want to allow all resources in the subnet to communicate with the public internet, attach a public gateway.
 1. Create a virtual server instance. By default, a 100 GB boot volume is attached to the instance.
-1. If you want additional storage, create a block storage volume and attach it to your instance.
+1. If you want more storage, create a block storage volume and attach it to your instance.
 1. To define the inbound and outbound traffic that's allowed for the instance, configure its security group.
 1. If you want your instance to be reachable from the internet, reserve and associate a floating IP address.
 
@@ -40,7 +40,7 @@ To create and configure your virtual private cloud (VPC) and other attached reso
 
 Define variables for the IAM token, API endpoint, and API version. For instructions, see [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment).
 
-A good way to learn more about the API is to click the **Get sample API call** button on the provisioning pages in IBM Cloud console. You can view the correct sequence of API requests and better understand actions and their dependencies.
+A good way to learn more about the API is to click **Get sample API call** on the provisioning pages in {{site.data.keyword.cloud_notm}} console. You can view the correct sequence of API requests and better understand actions and their dependencies.
 {: tip}
 
 ## Create a VPC
@@ -56,6 +56,9 @@ curl -X POST "$api_endpoint/v1/vpcs?version=$api_version&generation=2" \
       }'
 ```
 {: pre}
+
+You must send the `generation` parameter with every API request to specify which generation to use. For generation 2 virtual server instances, specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API](https://{DomainName}/apidocs/vpc#api-generation-parameter) 
+{: important}
 
 For the rest of the calls, you'll need to know the ID of the newly created VPC. Save the ID in a variable, for example:
 
@@ -98,7 +101,7 @@ subnet="0738-35fb0489-7105-41b9-99de-033fae723006"
 ```
 {: pre}
 
-To provision resources in your subnet, the subnet must be in the `Ready` status. Query the subnet resource and make sure the status is `Ready` before you continue. If the status is `failed`, contact [support](/docs/get-support?topic=get-support-getting-customer-support) with the details. You can attempt to continue by trying to provision another subnet.
+To provision resources in your subnet, the subnet must be in the `Ready` status. Query the subnet resource and make sure that the status is `Ready` before you continue. If the status is `failed`, contact [support](/docs/get-support?topic=get-support-getting-customer-support) with the details. You can attempt to continue by trying to provision another subnet.
 
 ```bash
 curl -X GET "$api_endpoint/v1/subnets/$subnet?version=$api_version&generation=2" \
@@ -148,7 +151,7 @@ Only one public gateway per zone is allowed in a VPC, but that public gateway ca
 ## Add an SSH key
 {: #add-ssh-key-api-tutorial}
 
-Add your public SSH key to your IBM Cloud acccount. This key is specified when you create the instance, and it's needed later to log into the instance. You can use one key to provision multiple instances.
+Add your public SSH key to your {{site.data.keyword.cloud_notm}} account. This key is specified when you create the instance, and it's needed later to log in to the instance. You can use one key to provision multiple instances.
 
 ```bash
 curl -X POST "$api_endpoint/v1/keys?version=$api_version&generation=2" \
@@ -242,7 +245,7 @@ curl -X GET "$api_endpoint/v1/instances/$instance?version=$api_version&generatio
 ```
 {: pre}
 
-Save the ID of the primary network interface of the instance returned in the above API call, for example:  
+Save the ID of the primary network interface of the instance returned in the `GET/instance API` call, for example:  
 
 ```bash
 network_interface="0738-7710e766-dd6e-41ef-9d36-06f7adbef33d"
@@ -255,7 +258,7 @@ You can't get the ID of the primary network interface until you query the specif
 ## Create and attach a block storage volume
 {: #create-and-attach-storage-api-tutorial}
 
-You can create a block storage volume and attach it to your virtual server instance if you want additional storage. Create a block storage volume with a request similar to this example, and specify a volume name, zone, and profile.
+You can create a block storage volume and attach it to your virtual server instance if you want more storage. Create a block storage volume with a request similar to this example, and specify a volume name, zone, and profile.
 
 To see a list of volume profiles, provide this request:
 
@@ -285,37 +288,6 @@ curl -X POST "$api_endpoint/v1/volumes?version=$api_version&generation=2" \
 ```
 {: pre}
 
-Your response will look like this:
-
-```
-{
-    "id": "0738-640774d7-2adc-4609-add9-6dfd96167a8f",
-    "crn": crn:v1:public:is:us-south-1:a/78a00cc28d454fba469cdd8a8e4f1618::volume:640444d7-2adc-2309-adc9-6dfd965557a8f",
-    "name": "my-volume",
-    "href": "https://us-south-int01.iaasdev.cloud.ibm.com/v1/volumes/640444d7-2adc-2309-adc9-6dfd965557a8f",
-    "capacity": 50,
-    "iops": 100,
-    "encryption": "provider_managed",
-    "status": "pending",
-    "zone": {
-        "name": "us-south-3",
-        "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1"
-    },
-    "profile": {
-        "name": "custom",
-        "crn": "crn:v1:public:globalcatalog::::volume.profile:custom",
-        "href": "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles/custom"
-    },
-    "resource_group": {
-        "id": "d2253bafe7f32dbe94aba5d1dca5ef72",
-        "href": "https://resource-manager.bluemix.net/v1/resource_groups/d2253bafe7f32dbe94aba5d1dca5ef72",
-        "name": ""
-    },
-    "created_at": "2019-03-28T23:16:53.000Z"
-}
-```
-{: pre}
-
 Save the ID of the volume in a variable, for example:
 
 ```
@@ -323,7 +295,7 @@ volume_id="0738-640774d7-2adc-4609-add9-6dfd96167a8f"
 ```
 {: pre}
 
-Note that the status of the volume is pending when it first is created. Before you can proceed, the volume needs to move to available status, which takes a few minutes. To check the status of the volume, run this command:
+The status of the volume is pending when it first is created. Before you can proceed, the volume needs to move to available status, which takes a few minutes. To check the status of the volume, run this command:
 
 ```bash
 curl -X GET "$api_endpoint/v1/volumes/$volume_id?version=$api_version&generation=2" \
@@ -331,7 +303,7 @@ curl -X GET "$api_endpoint/v1/volumes/$volume_id?version=$api_version&generation
 ```
 {: pre}
 
-Attach the new volume to an available virtual server instance, using the instance ID. To see a list of available instances, specify this request:
+Attach the new volume to an available virtual server instance, by using the instance ID. To see a list of available instances, specify this request:
 
 ```bash
 curl -X GET "$api_endpoint/v1/instances?version=$api_version&generation=2" \
@@ -339,7 +311,7 @@ curl -X GET "$api_endpoint/v1/instances?version=$api_version&generation=2" \
 ```
 {: pre}
 
-Create a volume attachment. Use the volume ID, CRN of the volume, or URL to specify the volume in the data parameter.  This example uses the volume ID.
+Create a volume attachment. Use the volume ID, CRN of the volume, or URL to specify the volume in the data parameter. This example uses the volume ID.
 
 ```
 curl -X POST "$api_endpoint/v1/instances/$instance_id?version=$api_version&generation=2" \
@@ -353,7 +325,7 @@ curl -X POST "$api_endpoint/v1/instances/$instance_id?version=$api_version&gener
 ```
 {: pre}
 
-After creating the volume attachment, get the volume attachment ID.
+After you create the volume attachment, get the volume attachment ID.
 
 ```
 curl -X GET "$api_endpoint/v1/instances/$instance_id/volume_attachments?version=$api_version&generation=2" \
@@ -413,9 +385,6 @@ curl -X POST "$api_endpoint/v1/security_groups/$sg/rules?version=$api_version&ge
 ```
 {: pre}
 
-For Windows images, make sure the security group associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
-{: tip}
-
 ## Create a floating IP address
 {: #create-floating-ip-api-tutorial}
 
@@ -461,8 +430,6 @@ ssh -i <private_key_file> root@<floating ip address>
 ```
 {: pre}
 
-To connect to a Windows image, log in using its decrypted password. For instructions, see [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
-
 ## Monitoring your instance
 {: #monitoring-your-instance-api-tutorial} 
 
@@ -471,10 +438,10 @@ You can monitor the CPU, volume, memory, and network usage of your instance over
 ## (Optional): Delete the resources
 {: #delete-resources-api-tutorial}
 
-Delete the resources if desired. A resource can't be deleted if it's required by other resources.
+You can delete resources, however, a resource can't be deleted if it's required by other resources.
 For example, a VPC can't be deleted if it contains instances, subnets, or public gateways. For instructions on deleting a VPC and all its resources, see [Deleting a VPC using the REST APIs](/docs/vpc?topic=vpc-deleting-using-api).
 
 ## Congratulations!
 {: #congratulations-api-tutorial}
 
-You've successfully created and configured your VPC using the REST APIs. To try out more API commands, see the [Regional API for VPC (Beta)](https://{DomainName}/apidocs/vpc-advanced-vsi).
+You've successfully created and configured your VPC by using the REST APIs. To try out more API commands, see the [Regional API for VPC (Beta)](https://{DomainName}/apidocs/vpc).

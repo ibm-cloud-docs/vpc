@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-05"
+lastupdated: "2019-09-30"
 
 keywords: vpc, cli, command line interface, block storage, IBM Cloud, virtual private cloud, block storage, volume
 subcollection: vpc
@@ -20,14 +20,14 @@ subcollection: vpc
 {:table: .aria-labeledby="caption"}
 {:download: .download}
 
-# Use your block storage data volume (CLI)
+# Using your block storage data volume (CLI)
 {: #start-using-your-block-storage-data-volume}
 
-After creating a {{site.data.keyword.block_storage_is_full}} (VPC) volume and attaching it to an instance, to use your
+After you create a {{site.data.keyword.block_storage_is_short}} volume and attaching it to an instance, to use your
 block storage volume as a filesystem, you'll need to partition the volume, format the volume, and then mount it as a filesystem.
 {:shortdesc}
 
-Use the following procedure to complete steps for using your block storage volume on a Linux system.
+Follow this procedure to use your block storage volume on a Linux system.
 
 **Note**: Depending on your Linux distribution, devices show up with different paths. For example, Ubuntu block devices show up as `xvda`, `xvdb`, and so on, as in the following examples.
 
@@ -74,7 +74,7 @@ Select (default p): p
 ```
 {:pre}
 
-Complete the prompts to define the partition's first cylinder number and last cylinder number.  Ater creating a new partition, run the `w` command to save changes to the partition table. Reboot your system to verify newly created partition.
+Complete the prompts to define the partition's first cylinder number and last cylinder number.  After creating a new partition, run the `w` command to save changes to the partition table. Reboot your system to verify newly created partition.
 
 ## Step 3 - Format the volume partition
 {: #linux-procedure-format-volume}

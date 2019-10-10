@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-03"
+lastupdated: "2019-09-30"
 
 Keywords: block storage, IBM CLoud, VPC, CLI, block storage volume, volume, IOPS
 
@@ -21,7 +21,7 @@ subcollection: vpc
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Viewing block storage volumes using the CLI
+# Viewing block storage volumes by using the CLI
 {: #viewing-block-storage-cli}
 
 View details about a {{site.data.keyword.block_storage_is_short}} volume or summary information about all volumes from the CLI.
@@ -30,16 +30,16 @@ View details about a {{site.data.keyword.block_storage_is_short}} volume or summ
 ## Before you begin
 {: #before-viewing-block-storage-cli}
 
-1. Make sure you have downloaded, installed, and initialized the following CLI plug-ins:
+1. Make sure that you have downloaded, installed, and initialized the following CLI plug-ins:
     * {{site.data.keyword.cloud_notm}} CLI
-    * The infrastructure-service plugin
+    * The infrastructure-service plug-in
 
    For more information, see the [CLI Reference](/docs/vpc?topic=vpc-cli-reference).
    
-   When you install the vpc-infrastructure plugin for the first time, you must set the target generation to gen 2, `ibmcloud is target --gen 2`.
+   When you install the vpc-infrastructure plug-in for the first time, you must set the target generation to gen 2, `ibmcloud is target --gen 2`.
    {:important}
    
-2. Make sure you have [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-getting-started).
+2. Make sure that you have [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-getting-started).
 
 ## View details about a block storage volume using the CLI
 {: #viewvol-cli}
@@ -173,5 +173,5 @@ Do you prefer using the {{site.data.keyword.cloud}} console to view your block s
 
 Create more volumes or manage your existing block storage volumes.
 
-* [Creating block storage volumes using the CLI](/docs/vpc?topic=vpc-creating-block-storage-cli)
-* [Managing block storage volumes using the CLI](/docs/vpc?topic=vpc-managing-block-storage-cli)
+* [Creating block storage volumes by using the CLI](/docs/vpc?topic=vpc-creating-block-storage-cli)
+* [Managing block storage volumes by using the CLI](/docs/vpc?topic=vpc-managing-block-storage-cli)

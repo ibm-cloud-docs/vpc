@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-07-29"
+lastupdated: "2019-09-30"
 
 subcollection: vpc
 
@@ -31,7 +31,7 @@ Most likely you do not have adequate permissions to view the server status. Make
 
 The Unknown status also might be caused by an expired IMS token. Run `bx sl init` again and rebuild the `ims_subject` with the new token. Make sure that you are passing in the `X-Subject-Token:$ims_subject` parameter in the request header.
 
-## Error: 409 Conflict when creating an instance action
+## Error: 409 Conflict when you create an instance action
 
 You can't create certain instance actions if the status of your instance is in conflict with another action. For example, if your instance status is `stopped`, and you try to create a `reboot` action, the system returns a 409 error.
 
@@ -46,4 +46,4 @@ You can't create certain instance actions if the status of your instance is in c
 
 ## Instance not responding to `instance-reboot` request
 
-If your instance is not responding to an `instance-reboot` request, you can try an `instance-reset` request. You can think of `instance-reboot` as a soft request and `instance-reset` as a hard request. The `instance-reboot` request sends an OS-reboot request to the instance, but an `instance-reset` request performs a hard reset of the VSI instance. You could think of the difference as typing "ctrl-alt-delete" on your computer's keyboard versus hitting the reset or power button. It is good to remember that the `instance-reset` request takes longer to complete than the `instance-reboot` request.
+If your instance is not responding to an `instance-reboot` request, you can try an `instance-reset` request. The `instance-reboot` request sends an OS-reboot request to the instance, while an `instance-reset` request performs a hard reset of the VSI instance. You can think of the difference as typing "ctrl-alt-delete" on your computer's keyboard versus pressing the reset or power button. Remember that the `instance-reset` request takes longer to complete than the `instance-reboot` request.

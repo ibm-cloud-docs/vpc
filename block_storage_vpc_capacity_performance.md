@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-29"
+lastupdated: "2019-09-30"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, IBM CLoud, volume, data storage, volume capacity, classic, virtual server
 
@@ -27,7 +27,7 @@ subcollection: vpc
 # {{site.data.keyword.block_storage_is_short}} capacity and performance
 {: #capacity-performance}
 
-Choosing the optimal block storage volume size and performance level for your workloads is important. When you provision {{site.data.keyword.block_storage_is_short}} from the UI or CLI, you can choose the size of your volume and performance level.
+Choosing the optimal block storage volume size and performance level for your workloads is important. When you provision {{site.data.keyword.block_storage_is_short}}, you can specify the size of your volume and performance level.
 {:shortdesc}
 
 ## Capacity

@@ -3,7 +3,7 @@
 copyright:
   years: 2019
 
-lastupdated: "2019-08-29"
+lastupdated: "2019-09-30"
 
 keywords: monitoring
 
@@ -42,7 +42,7 @@ To create a monitoring instance, you must have administrator access for the acco
 To set up monitoring for virtual server instances in your VPC:
 1. [Provision an instance of the {{site.data.keyword.monitoringshort}} service](/docs/services/cloud-monitoring/tutorials?topic=cloud-monitoring-provision) in the Dallas region.
 
-  To check whether you already have a monitoring instance that can be used with your VPC, go to the [Resource list ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/resources){: new_window} page in the IBM Cloud console and expand the **Cloud Foundry Services** section. If there is an existing monitoring instance in the Dallas region, you can skip to the next step.
+  To check whether you already have a monitoring instance that can be used with your VPC, go to the [Resource list ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/resources){: new_window} page in the {{site.data.keyword.cloud_notm}} console and expand the **Cloud Foundry Services** section. If there is an existing monitoring instance in the Dallas region, you can skip to the next step.
   {: tip}
 
 1. Grant other users access to the monitoring instance so they can view metrics in the {{site.data.keyword.cloud_notm}} console.
@@ -51,7 +51,7 @@ To set up monitoring for virtual server instances in your VPC:
   3. On the **Access policies** tab, click **Assign access** and then click **Assign access to resources**.
   4. Select **Monitoring** for the service, select your instance, and assign the **Viewer** role.
 
-1. {: #authenticate}Authenticate to the monitoring instance. On the [Resource list ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/resources){: new_window} page, expand the **Cloud Foundry Services** section and open the monitoring instance. Click **Open Monitoring Dashboard** and then click **Launch** to open the IBM Cloud Monitoring dashboard. The monitoring instance will start to store metrics for the virtual server instances in your VPC.
+1. {: #authenticate}Authenticate to the monitoring instance. On the [Resource list ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/resources){: new_window} page, expand the **Cloud Foundry Services** section and open the monitoring instance. Click **Open Monitoring Dashboard** and then click **Launch** to open the IBM Cloud Monitoring dashboard. The monitoring instance starts to store metrics for the virtual server instances in your VPC.
 
 ## Viewing metrics
 {: #monitoring-instances} 
@@ -66,7 +66,7 @@ To view metrics for your virtual server instances:
 It can take some time until metrics are displayed after the monitoring instance is provisioned. 
 {: tip}
 
-You can download selected metrics and graphs in CSV format. Scroll down to the bottom of the page and click **Download CSV**.
+You can download selected metrics and graphs in CSV format. Scroll to the end of the page and click **Download CSV**.
 
 Periodically, you might receive an error on the Monitoring page and metrics can't be displayed because the connection with the monitoring instance timed out. To fix this problem, reauthenticate to the monitoring instance, as described in step 3 of [Setting up the monitoring service for VPC](#setup-monitoring).
 {: important}
