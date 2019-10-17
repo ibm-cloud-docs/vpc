@@ -92,7 +92,7 @@ Virtual Private Cloud
 
 
     {: .navgroup id="reference"}
-    /vpc-infrastructure-cli-plugin/vpc-infrastructure-cli-plugin-vpc-reference
+    cli-reference.md
     [API reference](https://{DomainName}/apidocs/vpc)
     vpc-endpoints.md
     at-events.md
