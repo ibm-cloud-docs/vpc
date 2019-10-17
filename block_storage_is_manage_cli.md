@@ -32,7 +32,7 @@ Manage {{site.data.keyword.block_storage_is_short}} from the command-line interf
     * {{site.data.keyword.cloud_notm}} CLI
     * The infrastructure-service plug-in
 
-   For more information, see the [CLI Reference](/docs/vpc?topic=vpc-cli-reference).
+   For more information, see the [CLI Reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
    
    When you install the vpc-infrastructure plug-in for the first time, you must set the target generation to gen 2, `ibmcloud is target --gen 2`.
    {:important}
@@ -42,7 +42,7 @@ Manage {{site.data.keyword.block_storage_is_short}} from the command-line interf
 ## Update the name of a volume
 {: #update-vol-name}
 
-To change a volume name, specify either the volume name or ID and then indicate the new name.
+To change a volume name, specify either the volume name or ID and then indicate the new name. The volume name can be up to 63 alpha-numeric characters and include special characters. Follow [these volume name conventions](/docs/vpc-on-classic-block-storage?topic=vpc-on-classic-block-storage-managing-block-storage#volume-name-conventions).
 
 ```bash
 ibmcloud is volume-update VOLUME_ID [--name NEW_NAME] [--json]

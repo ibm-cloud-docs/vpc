@@ -3,21 +3,16 @@
 {:topicgroup: .topicgroup}
 
 {: .toc subcollection="vpc" category="vpc" audience="compute" href="/docs/vpc?topic=vpc-getting-started" path="vpc"}
-Virtual Private Cloud (Early Access)
+Virtual Private Cloud
 
     {: .navgroup id="learn"}
     getting-started.md
     about-vpc.md
     vpc-concepts.md
     vpc-responsibilities.md
-    pricing.md
+    quotas.md
+    pricing.md    
         
-    {: .topicgroup}
-    In this release
-        how-to-participate.md
-        supported-features.md
-        quotas.md
-        limitations.md
 
     {: .topicgroup}
     Network
@@ -79,7 +74,6 @@ Virtual Private Cloud (Early Access)
         security-groups-example.md
         security-group-usage-examples.md   
 
-
     {: .topicgroup}
     Setting IP ranges
         how-to-choose-ipv4.md
@@ -98,12 +92,14 @@ Virtual Private Cloud (Early Access)
 
 
     {: .navgroup id="reference"}
-    cli-reference.md
+    /vpc-infrastructure-cli-plugin/vpc-infrastructure-cli-plugin-vpc-reference
     [API reference](https://{DomainName}/apidocs/vpc)
     vpc-endpoints.md
     at-events.md
-    [Terraform](/terraform/terraform-terraform-getting-started)
-    [Exporter Tool](https://github.com/l2fprod/vpc-diagram-exporter)
+    api-integration-migration.md
+    [Go and Python example code](https://github.com/IBM-Cloud/vpc-api-samples)
+    [Terraform](/terraform/terraform-getting-started)
+    [Exporter tool](https://github.com/l2fprod/vpc-diagram-exporter)
     {: .navgroup-end}
 
     {: .navgroup id="help"}
@@ -119,6 +115,7 @@ Virtual Private Cloud (Early Access)
         vsi_is_troubleshooting.md
         block_storage_is_troubleshoot.md
         
+    limitations.md
     known-issues.md
     getting-help.md
     {: .navgroup-end}

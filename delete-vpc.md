@@ -72,7 +72,7 @@ In some cases, deleting a VPC resource removes the link to existing resources au
 ### VPC
 {: #deleting-details}
 
-VPCs contain subnets and public gateways. Instances are provisioned in a subnet. Before a VPC can be deleted, all subnets and all public gateways in the VPC must be deleted.
+VPCs contain subnets and public gateways. Instances are provisioned in a subnet. Before a VPC can be deleted, all subnets and public gateways in the VPC must be deleted. In other words, all public gateways and instances in the VPC must first be deleted.
 
 A VPC also contains address prefixes and security groups, but these resources are deleted automatically when the VPC is deleted.
 
@@ -88,7 +88,7 @@ A VPC must have a default security group. If you created a VPC without specifyin
 ### Subnet
 {: #deleting-subnet}
 
-All resources in a subnet must be deleted before the subnet can be deleted. Subnets contain the instance's network interfaces. The network interface associated with the subnet must be deleted before the subnet can be deleted.
+All resources in a subnet must be deleted before the subnet can be deleted. Subnets contain the instance's network interfaces. Subnets contain the instance's network interfaces. The network interface that is associated with the subnet must be deleted before the subnet can be deleted.
 
 An instance can have multiple network interfaces, and those network interfaces can belong to multiple subnets of the VPC. Before a subnet can be deleted, any network interface in the subnet must first be deleted. The instance's primary network interface cannot be deleted or moved to another subnet. All instances with a primary network interface in the subnet must be deleted before the subnet can be deleted.
 
@@ -106,8 +106,6 @@ No prerequisites are required for deleting an instance. When the instance is del
 | ---------------- | ----------------------------------------- | --------------------------- | ------ | ---------------------------------------------- | ----------------------------------- |
 | Network interface | --- | Subnets, floating IP, security groups | No | Yes | Yes |
 {: caption="Table 4. Information for deleting instances" caption-side="top"}
-
-
 
 ### Floating IP
 {: #deleting-floating-ip}

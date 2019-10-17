@@ -41,7 +41,6 @@ The information required to create a virtual server instance, or _instance_. Typ
 {: #instance-def}
 A virtual server instance, or VSI, that runs within a VPC. To provision scalable compute resources in a VPC, you create virtual server instances with the core and RAM configuration that's best for your workload.
 
-
 ## Profile
 {: #profile-def}
 A profile is a popular combination of vCPU and RAM that can be instantiated quickly to start a virtual server instance. Three families of profiles are supported: Balanced, Compute, and Memory.

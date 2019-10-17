@@ -3,7 +3,7 @@
 copyright:
   years: 2017, 2018, 2019
 
-lastupdated: "2019-10-03"
+lastupdated: "2019-10-16"
 
 keywords: vpc, pricing, billing, data, instance, VSI, block, storage, paygo, transfer, floating, server, VPC, allowance, gateway, egress, minimal charges, ARP, traffic
 
@@ -26,7 +26,7 @@ subcollection: vpc
 # Pricing for VPC
 {: #pricing-for-vpc}
 
-Pricing of {{site.data.keyword.vpc_full}} is applied separately for [internet data transfer](#pricing-for-data-transfer), [load balancers](#lb-for-vpc-pricing), [VPNs](#vpn-for-vpc-pricing), [virtual server instances](#pricing-for-virtual-servers-for-vpc), and [block storage](#pricing-for-block-storage-for-vpc) used within your {{site.data.keyword.vpc_short}}. The following charges apply to your use of {{site.data.keyword.vpc_short}}. For PayGo services, the service tiers are bound to your account, not to any specific VPC instance. Amounts are shown in US dollars.
+Pricing of {{site.data.keyword.vpc_full}} is applied separately for [internet data transfer](#pricing-for-data-transfer), [virtual server instances](#pricing-for-virtual-servers-for-vpc), and [block storage](#pricing-for-block-storage-for-vpc) used within your {{site.data.keyword.vpc_short}}. The following charges apply to your use of {{site.data.keyword.vpc_short}}. For PayGo services, the service tiers are bound to your account, not to any specific VPC instance. Amounts are shown in US dollars.
 
 ## Pricing for internet data transfer with IBM Cloud™ Virtual Private Cloud
 {: #pricing-for-data-transfer}
@@ -69,6 +69,7 @@ If you have a public gateway or floating IP, you might still see some minimal eg
 {: #floating-ip-pricing}
 
 A floating IP is charged at the rate of $1 (US) per month, starting when it is reserved. The fee is charged even if the floating IP is not associated to a VSI or not in use. The $1 for the monthly fee is charged even if the floating IP is reserved for only a few days.
+
 
 ## Pricing for Virtual Servers for VPC
 {: #pricing-for-virtual-servers-for-vpc}
@@ -172,9 +173,9 @@ Review the following table for details on how suspend billing impacts various re
 | RAM                           |          X        |                  |
 | Bandwidth upgrades            |          X        |                  |
 | Operating system licenses     |          X        |                  |
-| Floating IPs, Load balancers, or other attached networking offerings |                   |         X        |
+| Floating IPs or other attached networking offerings |                   |         X        |
 | Storage                       |                   |         X        |
-{: caption="Table 7. Resource billing details" caption-side="top"}   
+{: caption="Table 7. Resource billing details" caption-side="top"}
 
 Usage times are calculated per second, for both the in use time and suspended time of your virtual server instance. Even if you never initiate the suspend billing feature by powering off your instance, the billing is calculated per second of the instance's lifecycle. 
 {:note}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-10-14"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, IOPS, FAQ
 
@@ -65,9 +65,13 @@ Maximum IOPS can still be obtained when you use smaller block sizes, but through
 * 8 KB * 6000 IOPS == ~46.88 MB/sec
 * 4 KB * 6000 IOPS == ~23.44 MB/sec
 
-## Are there quota limits?
+## How will I be charged for usage?
+{: faq}
+For information on how you are charged for usage, see [Pricing](/docs/vpc?topic=vpc-pricing-for-vpc#pricing-for-block-storage-for-vpc).
 
-Certain limits apply. For more information about quotas and limits for your {{site.data.keyword.cloud}} Virtual Private Cloud and the resources available within it, see [Quotas](/docs/vpc?topic=vpc-quotas#quotas).
+## Are there quota limits?
+{: faq}
+For information about quotas and limits for your {{site.data.keyword.cloud}} Virtual Private Cloud and the resources available within it, see [Quotas](/docs/vpc?topic=vpc-quotas#quotas).
 
 ## After I create a volume, can I increase its capacity later?
 {: faq}

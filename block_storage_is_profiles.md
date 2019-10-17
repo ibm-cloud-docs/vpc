@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-010-16"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, volume, profile, volume profile, data storage, storage profile, virtual server instance, instance
 
@@ -73,7 +73,7 @@ requirements for your compute workloads. In general, as your compute requirement
 | IOPS tier storage profile | Virtual server profile |
 |-----------------|------------------------|
 | 3 IOPS/GB       | [Balanced](/docs/vpc?topic=vpc-profiles#balanced) for common workloads |
-| 5 IOPS/GB       | [Compute](/docs/vpc?topic=vpc-profiles#compute) for intensive CPU demands |
+| 5 IOPS/GB       | [Compute](/docs/vpc?topic=vpc-profiles#compute-profiles) for intensive CPU demands |
 | 10 IOPS/GB      | [Memory](/docs/vpc?topic=vpc-profiles#memory) for memory-intensive workloads |
 {: caption="Table 3. Relationship of block storage profiles to virtual server profiles" caption-side="top"}
 

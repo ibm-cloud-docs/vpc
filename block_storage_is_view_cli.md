@@ -34,7 +34,7 @@ View details about a {{site.data.keyword.block_storage_is_short}} volume or summ
     * {{site.data.keyword.cloud_notm}} CLI
     * The infrastructure-service plug-in
 
-   For more information, see the [CLI Reference](/docs/vpc?topic=vpc-cli-reference).
+   For more information, see the [CLI Reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
    
    When you install the vpc-infrastructure plug-in for the first time, you must set the target generation to gen 2, `ibmcloud is target --gen 2`.
    {:important}

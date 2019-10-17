@@ -6,7 +6,7 @@ copyright:
 lastupdated: "2019-09-30"
 
 
-keywords: vpc, virtual private cloud, vpc ui, console, ACL, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range
+keywords: vpc, virtual private cloud, vpc ui, console, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range
 
 subcollection: vpc
 
@@ -228,7 +228,6 @@ To monitor your instance:
 
 Because the monitoring data is stored in {{site.data.keyword.monitoringlong_notm}}, you must be authenticated to an instance of the Monitoring service in your account. For more information, see [Setting up the monitoring service for VPC](/docs/vpc?topic=vpc-monitoring#setup-monitoring)
 {: important}
-
 
 ## Congratulations!
 {: #congratulations} 

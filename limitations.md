@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-09-08"
+lastupdated: "2019-10-14"
 
-keywords: vpc, limitations, early access
+keywords: vpc, limitations, restrictions
 
 subcollection: vpc
 
@@ -23,45 +23,49 @@ subcollection: vpc
 # Limitations
 {: #limitations}
 
-Limitations might be changing during the early access program as we add capabilities, so feel free to check back from time to time.
+Limitations might change as capabilities are added, so feel free to check back from time to time.
 {:shortdesc}
 
 ## General restrictions
 {: #general-restrictions}
 
-The following features are not supported, including all properties associated with these features:
-* Network ACLs (a fixed default NACL policy will be enforced instead)
-* LBaaS
-* VPNaaS
-* Classic peering (also known as Classic Access)
-* Shares
+* The following features are not supported, including all properties associated with these features:
+  * Classic peering (also known as Classic Access)
+  * Network ACLs (access control lists)
+  * Shares
+  * Load balancers
+  * VPNs (virtual private networks)
 
-The following concepts are not supported:
-* Tags
-* IPv6
-* Secondary IP addresses
-* CRNs (Exception: Volumes include CRNs via RSOS.)
+* The following concepts are not supported:
+  * IPV6
+  * Secondary IP addresses
+  * CRNs (Exception: Volumes include CRNs via RSOS)
+
+* Virtual server instance name change: If you update the name of a virtual server, the name change may not appear consistently in different areas of the {{site.data.keyword.cloud_notm}} console. For example, the virtual server name change might not be reflected in the {{site.data.keyword.cloud_notm}} console, or on the billing invoice, yet it appears correctly in the user's list of running instances.
 
 
 ## Network restrictions
 {: #network-restrictions}
 
 * Multi-zone regions: 
-  * Virtual server instances can communicate over the private network only with instances in the same zone and VPC. Instances can communicate with instances in other zones in the same VPC over the public internet only.
   * A security group can be configured in a single zone only. 
   * A security group can’t reference another security group in a different zone in the same region.
 
 * Bring Your Own IP:
-   * Address prefixes must be within one of the "private" address ranges defined in RFC1918.
-   * Address prefixes can't be configured in the IBM Cloud console.
+  * Address prefixes must be within one of the "private" address ranges defined in RFC1918.
+  * Address prefixes can't be configured in the IBM Cloud console.
+   
+* Network billing is currently disabled. 
 
-* Limited network QoS. Network QoS is policed on TX only. RX is not policed.
+* Multiple Virtual Network Interface Controllers: Only one Virtual Network Interface Controller is allowed for each virtual server instance. Currently, only the primary Virtual Network Interface Controller (VNIC) Ethernet 0 (eth0) works for a virtual server.
 
 
 ## Compute restrictions
 {: #compute-restrictions}
 
-* Red Hat Enterprise Linux images are not supported.
+* The following images are not supported:
+  * Red Hat Enterprise Linux
+  * Windows
 * Every profile has a network performance value of 2 Gbps per vCPU, with a cap of 80 Gbps. 
 * Each network interface has a network performance cap of 16 Gbps. You might need to attach multiple network interfaces to your virtual server instance to optimize network performance.
 

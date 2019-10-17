@@ -42,6 +42,7 @@ For more information about service endpoints, see [Secure access to services usi
 If you can't connect to service endpoints, make sure that service endpoints are enabled in your account. For instructions, see [Enabling service endpoints](/docs/account?topic=account-vrf-service-endpoint#service-endpoint).
 {: tip}
 
+
 ## IaaS endpoints
 {: #infrastructure-as-a-service-iaas-endpoints}
 

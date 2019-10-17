@@ -76,7 +76,6 @@ If the VPC you want to delete has multiple subnets, repeat these steps to delete
 ## Step 2: Delete each subnet in the VPC
 {: #deleting-subnet-resources-cli}
 
-
 ### Delete all network interfaces in the subnet, if any
 {: #deleting-nics-cli}
 

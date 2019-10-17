@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-10-14"
 
 keywords: custom image
 
@@ -24,7 +24,7 @@ subcollection: vpc
 # Importing and managing custom images
 {: #managing-images}
 
-When you provision {{site.data.keyword.vsi_is_full}}, you can select a custom image that you import from {{site.data.keyword.cos_full_notm}}. The image that you select determines the operating system that is provisioned for your instance. 
+You can create your own custom image, and import it to {{site.data.keyword.vpc_full}} infrastructure from {{site.data.keyword.cos_full_notm}}. Then, you can use your custom image to create new virtual server instances that run on the KVM hypervisor.
 {:shortdesc}
 
 ## Before you begin

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-10-17"
 
 keywords: create, VPC, API, IAM, token, permissions, endpoint, region, zone, profile, status, subnet, gateway, floating IP, delete, resource, provision
 
@@ -303,51 +303,17 @@ curl -X GET "$api_endpoint/v1/volumes/$volume_id?version=$api_version&generation
 ```
 {: pre}
 
-Attach the new volume to an available virtual server instance, by using the instance ID. To see a list of available instances, specify this request:
+Create a volume attachment to attach the new volume to the virtual server instance. Use the instance ID variable that you created earlier in the request. Use the volume ID, CRN of the volume, or URL to specify the volume in the data parameter. This example uses the variable previously created for the volume ID.
 
 ```bash
-curl -X GET "$api_endpoint/v1/instances?version=$api_version&generation=2" \
-  -H "Authorization: $iam_token"
-```
-{: pre}
-
-Create a volume attachment. Use the volume ID, CRN of the volume, or URL to specify the volume in the data parameter. This example uses the volume ID.
-
-```
-curl -X POST "$api_endpoint/v1/instances/$instance_id?version=$api_version&generation=2" \
+curl -X POST "$api_endpoint/v1/instances/$server/volume_attachments?version=$version&generation=2" \
   -H "Authorization: $iam_token" \
   -d '{
         "name": "my-volume-attachment",
         "volume": {
-            "id": "0738-640774d7-2adc-4609-add9-6dfd96167a8f"
+            "id": "'$volume_id'"
             }
       }'
-```
-{: pre}
-
-After you create the volume attachment, get the volume attachment ID.
-
-```
-curl -X GET "$api_endpoint/v1/instances/$instance_id/volume_attachments?version=$api_version&generation=2" \
-  -H "Authorization: $iam_token"
-```
-{: pre}
-
-Save the ID of the volume attachment in a variable, for example:
-
-```
-attachment_id="0738-9f2a645e-19c1-4f8f-b062-46b9e0671999"
-```
-{: pre}
-
-Specify the volume attachment ID to attach the new volume to a virtual server instance.
-
-```
-curl -X PATCH "$api_endpoint/v1/instances/$instance_id/volume_attachments/$attachment_id?version=$api_version&generation=2" \
-  -H "Authorization: $iam_token" \
-  -d {
-	  "name": "my-vsi-volattachment"
-    }
 ```
 {: pre}
 
@@ -444,4 +410,4 @@ For example, a VPC can't be deleted if it contains instances, subnets, or public
 ## Congratulations!
 {: #congratulations-api-tutorial}
 
-You've successfully created and configured your VPC by using the REST APIs. To try out more API commands, see the [Regional API for VPC (Beta)](https://{DomainName}/apidocs/vpc).
+You've successfully created and configured your VPC by using the REST APIs. To try out more API commands, see the [Virtual Private Cloud API](https://{DomainName}/apidocs/vpc).

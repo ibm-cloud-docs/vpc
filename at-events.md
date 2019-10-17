@@ -109,7 +109,6 @@ The following table lists the actions related to image resources and the generat
 | volume  | is.volume.volume.delete  | Volume was deleted.  |
 {: caption="Table 4. Actions that generate events for storage resources" caption-side="top"}
 
-
 ## Supported locations
 {: #at-supported-locations}
 

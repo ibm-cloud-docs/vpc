@@ -32,7 +32,7 @@ You can create {{site.data.keyword.block_storage_is_short}} volumes by using the
     * {{site.data.keyword.cloud_notm}} CLI
     * The infrastructure-service plug-in
 
-   For more information, see the [CLI Reference](/docs/vpc?topic=vpc-cli-reference).
+   For more information, see the [CLI Reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
    
    After you install the vpc-infrastructure plug-in, set the target to generation 2 by running the command `ibmcloud is target --gen 2`.
    {:important}
@@ -69,6 +69,8 @@ Volume Attachment Instance Reference    none
 {:screen}
 
 Capacity, indicated in megabytes, can range from 10 to 2,000 GBs. If not specified, the default capacity is 100 GBs. IOPS values can be 1,000 - 20,000 IOPS, depending on volume size. If not specified, the IOPS value defaults to the valid configuration per volume profile. For more information, see the table of [IOPS ranges based on volume size](/docs/vpc?topic=vpc-block-storage-profiles#custom).
+
+The volume name can be up to 63 alpha-numeric characters and include special characters. Follow [these conventions](/docs/vpc-on-classic-block-storage?topic=vpc-on-classic-block-storage-managing-block-storage#volume-name-conventions).
 
 Note the volume ID. You need to specify the ID when you attach block storage to a virtual server instance, view block storage volume details, or delete volumes.
 

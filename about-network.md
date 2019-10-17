@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2018, 2019
 lastupdated: "2019-09-30"
 
-keywords: secure, region, zone, subnet, public gateway, floating IP, NAT
+keywords: secure, region, zone, subnet, public gateway, floating IP, NAT, virtual private network
 subcollection: vpc
 
 ---
@@ -69,6 +69,11 @@ Certain IP addresses are reserved for use by IBM when operating the VPC. Here ar
   * Fourth address in the CIDR range (10.10.10.3): reserved by IBM for future use
   * Last address in the CIDR range (10.10.10.255): Network broadcast address
 
+## External connectivity
+{: #external-connectivity}
+
+External connectivity can be achieved by using a floating IP address attached to an instance or by a public gateway attached to a subnet.
+
 ### Use a Public gateway for external connectivity of a subnet
 {: #public-gateway-for-external-connectivity}
 
@@ -98,3 +103,5 @@ You can reserve a floating IP address from the pool of available addresses that 
 **Notes:**
 * Associating a floating IP address with an instance removes the instance from the public gateway's Many-to-1 NAT.
 * Currently, floating IP supports only IPv4 addresses.
+
+
