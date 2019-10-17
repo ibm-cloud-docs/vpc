@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-14"
+lastupdated: "2019-10-17"
 
-keywords: custom image
+keywords: custom image, vpc, virtual private cloud, virtual server instances
 
 subcollection: vpc
 
@@ -90,7 +90,7 @@ When you import a custom image, it's private to the account where you import it.
 When you have an image available in {{site.data.keyword.cos_full_notm}}, you can import it to {{site.data.keyword.vpc_short}} infrastructure by using the {{site.data.keyword.cloud_notm}} console.
 
 1. Make sure that your compatible custom image is available in {{site.data.keyword.cos_full_notm}}. For more information, see [Creating a custom image](/docs/vpc?topic=vpc-managing-images#create-deployable-custom-image) and [Uploading data](/docs/services/cloud-object-storage?topic=cloud-object-storage-upload) to {{site.data.keyword.cos_full_notm}}.
-2. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com/vpc){: external}, 
+2. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com/vpc-ext){: external}, 
 navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Custom Images**.
 3. Click **Import Custom Image**. 
 4. Complete the required fields and click **Create Custom Image**.
@@ -101,6 +101,6 @@ navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastr
 After you import custom images, you can deploy and manage them from the Custom images page. 
 
 You can manage an image by using the {{site.data.keyword.cloud_notm}} console.
-1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com/vpc){: external}, 
+1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com/vpc-ext){: external}, 
 navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Custom Images**.
 2. From your list of custom images, you can click **...** and select from the available options. 

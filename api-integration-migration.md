@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-04"
+lastupdated: "2019-10-17"
 
 keywords: Generation 1, Generation 2, VPC, VPC on Classic, API, migration, integration, application
 
@@ -41,7 +41,6 @@ We are always adding new features and support. Over time, there will be fewer co
 |Pagination | Pagination is not currently supported for instances, instance profiles, or keys.| 
 |Network interface filtering | Filtering by subnet is not currently supported. | 
 |Naming | The unified naming policy requires that resource names be between 1 and 63 characters. Only numbers, lowercase letters, and hyphens (`-`) are permitted.  Names may not start with a number or `-`, and may not end with `-`. <br> In contrast, first generation resources in the API have different name-length and character-set restrictions, depending on the resource.<br> **Note:** Volumes for generation 2 resources do not adhere to this naming policy. | 
-|Address prefixes | Address prefixes are restricted to the [RFC 1918](https://tools.ietf.org/html/1918)) ranges `10.0.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16`. <br> The `address_prefix_management` property is not supported. Creating a VPC automatically creates address prefixes as if you had specified `address_prefix_management=auto`.| 
 |Instance profiles | CRN support on instance profiles is dropped in this release. <br> **Note:** CRNs are deprecated in the VPC API for use with first generation resources. | 
 |Device IDs | Device IDs are not shown when retrieving an instance's volume attachments. <br> **Tip:** Find the device ID in the `volume_attachments` property in the  `GET /volumes/<id>` response.| 
 |Security groups | Filtering is not supported on security group lists by VPC name or VPC CRN. <br> A standards-compliant ([RFC 7396](https://tools.ietf.org/html/rfc7396)) API is used for updating security group rules. As a result, some properties have been removed from the update API, and other properties have different semantics from the first generation update API.| 
@@ -55,4 +54,4 @@ We are always adding new features and support. Over time, there will be fewer co
 See also the following pages:
 * [Comparing compute generations in VPC](/docs/overview?topic=overview-compare-vpc-vpcoc)
 * [Virtual Private Cloud API](/apidocs/vpc) (for generation 2 virtual server profiles)
-* [Virtual Private Cloud on Classic API](/apidocs/vpc-on-classic) (for generation 1 virtual server profiles)
+* [Virtual Private Cloud API (Gen1 compute)](/apidocs/vpc-on-classic) (for generation 1 virtual server profiles)

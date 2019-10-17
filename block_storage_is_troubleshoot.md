@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-10-17"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, volume, data storage, troubleshooting, troubleshoot
 
@@ -50,7 +50,7 @@ Verify that the volume wasn't detached from a virtual server instance and delete
 
 If the volume is not attached as expected and does not appear in the list of volumes, it was probably deleted. Because deleting a volume completely removes its data, it cannot be restored.  
 
-If you use the CLI, verify that you entered the correct syntax for viewing volumes. See [View all block storage volumes from the CLI](/docs/vpc?topic=vpc-attaching-block-storage-cli). Verify that you specified the correct resource group or zone.
+If you use the CLI, verify that you entered the correct syntax for viewing volumes. See [View all block storage volumes from the CLI](/docs/vpc?topic=vpc-viewing-block-storage-cli). Verify that you specified the correct resource group or zone.
 {: tsResolve}
 
 ## Cannot delete a volume by name or ID

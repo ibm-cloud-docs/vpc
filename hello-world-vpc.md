@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-010-17"
 
 keywords: vpc, cli, command line interface, tutorial, creating a vpc
 
@@ -38,7 +38,7 @@ To create and configure your virtual private cloud (VPC) and other attached reso
 
 ## Before you begin
 {: #before-cli-tutorial}
-Make sure that you set up your environment](/docs/vpc?topic=vpc-set-up-environment).
+Make sure that you set up your [environment](/docs/vpc?topic=vpc-set-up-environment).
 
 ## Log in to IBM Cloud
 {: #log-in-to-ibm-cloud}
