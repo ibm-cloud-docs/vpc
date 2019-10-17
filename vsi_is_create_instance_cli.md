@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-10-17"
 
 keywords: vpc, vsi, virtual server instance, creating, CLI, command line interface
 
@@ -94,7 +94,7 @@ Use the following commands to determine the required information for creating a 
    ```
    {:screen}
 
-   If you do not have one available, you can create an {{site.data.keyword.vpc_short}} by using the `ibmcloud is vpc-create` command. For more information about creating an {{site.data.keyword.vpc_short}}, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpcs).
+   If you do not have one available, you can create an {{site.data.keyword.vpc_short}} by using the `ibmcloud is vpc-create` command. For more information about creating an {{site.data.keyword.vpc_short}}, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-cli-reference#vpcs).
 
 4. List the subnets that are associated with the {{site.data.keyword.vpc_short}}.
    ```

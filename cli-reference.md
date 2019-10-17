@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-10-02"
+lastupdated: "2019-10-17"
 
 ---
 
@@ -1456,6 +1456,18 @@ List all zones in the target region.
 ## Storage CLI commands
 {: #storage}
 
+### `ibmcloud is volumes`
+{: #volume-all-details}
+
+View details of all volumes.
+
+#### Command options
+{: #command-options-volume-all-details}
+
+`ibmcloud is volumes [--json]`
+
+---
+
 ### `ibmcloud is volume`
 {: #volume-details}
 
@@ -1468,18 +1480,6 @@ View details of a volume.
 
 - `VOLUME`: ID of the volume.
 - `--json`: Format output in JSON.
-
----
-
-### `ibmcloud is volumes`
-{: #volume-all-details}
-
-View details of all volumes.
-
-#### Command options
-{: #command-options-volume-all-details}
-
-`ibmcloud is volumes [--json]`
 
 ---
 
@@ -1519,6 +1519,20 @@ Delete a volume.
 
 ---
 
+### `ibmcloud is volume-profiles`
+{: #volume-profiles}
+
+List all volume profiles.
+
+`ibmcloud is volume-profiles [--json]`
+
+#### Command options
+{: #command-options-volume-profiles}
+
+- `--json`: Format output in JSON.
+
+---
+
 ### `ibmcloud is volume-profile`
 {: #volume-profile}
 
@@ -1530,20 +1544,6 @@ Volume profile names are 10iops-tier, 5iops-tier, general-purpose, and custom.
 
 #### Command options
 {: #command-options-volume-profile}
-
-- `--json`: Format output in JSON.
-
----
-
-### `ibmcloud is volume-profiles`
-{: #volume-profiles}
-
-List all volume profiles.
-
-`ibmcloud is volume-profiles [--json]`
-
-#### Command options
-{: #command-options-volume-profiles}
 
 - `--json`: Format output in JSON.
 

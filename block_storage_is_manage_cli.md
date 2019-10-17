@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-10-17"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, volume, volume attachment, data storage, virtual server instance, instance
 
@@ -32,7 +32,7 @@ Manage {{site.data.keyword.block_storage_is_short}} from the command-line interf
     * {{site.data.keyword.cloud_notm}} CLI
     * The infrastructure-service plug-in
 
-   For more information, see the [CLI Reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+   For more information, see the [CLI Reference](/docs/vpc?topic=vpc-cli-reference).
    
    When you install the vpc-infrastructure plug-in for the first time, you must set the target generation to gen 2, `ibmcloud is target --gen 2`.
    {:important}
