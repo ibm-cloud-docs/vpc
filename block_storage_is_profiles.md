@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-010-16"
+lastupdated: "2019-10-24"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, volume, profile, volume profile, data storage, storage profile, virtual server instance, instance
 
@@ -94,9 +94,9 @@ You can view available IOPS profiles the {{site.data.keyword.cloud_notm}} consol
 
  To view the list of available profiles by using the CLI, run the following command:
 ```
-$ ibmcloud is volume-profiles
+ibmcloud is volume-profiles
 ```
-{:codeblock}
+{:pre}
 
 ### Using the API
 {: using-api-iops-profiles}

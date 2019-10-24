@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-10-17"
+lastupdated: "2019-10-24"
 
 keywords: vpc, vsi, virtual server instance, creating, CLI, command line interface
 
@@ -56,7 +56,7 @@ Use the following commands to determine the required information for creating a 
 
 1. List the regions associated with your account.
    ```
-   $ ibmcloud is regions
+   ibmcloud is regions
    ```
    {:pre}
 
@@ -69,7 +69,7 @@ Use the following commands to determine the required information for creating a 
 
 2. List the zones associated with the region.
    ```
-   $ ibmcloud is zones us-south
+   ibmcloud is zones us-south
    ```
    {:pre}
 
@@ -82,7 +82,7 @@ Use the following commands to determine the required information for creating a 
 
 3. List the {{site.data.keyword.vpc_short}}s that are associated with your account.
    ```
-   $ ibmcloud is vpcs
+   ibmcloud is vpcs
    ```
    {:pre}
 
@@ -98,7 +98,7 @@ Use the following commands to determine the required information for creating a 
 
 4. List the subnets that are associated with the {{site.data.keyword.vpc_short}}.
    ```
-   $ ibmcloud is subnets
+   ibmcloud is subnets
    ```
    {:pre}
 
@@ -115,7 +115,7 @@ Use the following commands to determine the required information for creating a 
 
 5. List the available profiles for creating your instance.
    ```
-   $ ibmcloud is instance-profiles
+   ibmcloud is instance-profiles
    ```
    {:pre}
 
@@ -134,7 +134,7 @@ Use the following commands to determine the required information for creating a 
 
 6. List the available images for creating your instance.
    ```
-   $ ibmcloud is images   
+   ibmcloud is images   
    ```
    {:pre}
 
@@ -148,7 +148,7 @@ Use the following commands to determine the required information for creating a 
 
 7. List the available SSH keys that you can associate with your instance.
    ```
-   $ ibmcloud is keys
+   ibmcloud is keys
    ```
    {:pre}
 
@@ -168,7 +168,7 @@ After you know these values, use them to run the `instance-create` command. In a
 
 1. Create an instance.
    ```
-   $ ibmcloud is instance-create \
+   ibmcloud is instance-create \
        <INSTANCE_NAME> \
        <VPC_ID> \
        <ZONE_NAME> \
@@ -183,7 +183,7 @@ After you know these values, use them to run the `instance-create` command. In a
    For example, if you create an instance that is called _my-instance_ in _us-south-1_ and use the _b-2x4_ profile, your `instance-create` command would look similar to the following sample:
    
    ```
-   $ ibmcloud is instance-create \
+   ibmcloud is instance-create \
        my-instance \
        0738-xxx1xx23-4xx5-6789-12x3-456xx7xx123x \
        us-south-1 \
@@ -235,7 +235,7 @@ After you know these values, use them to run the `instance-create` command. In a
 2. When the status changes to *running*, verify that you can see your new instance.
 
    ```
-   $ ibmcloud is instance 2x12xxx5-xx11-1234-x4x5-1xxx12345678
+   ibmcloud is instance 2x12xxx5-xx11-1234-x4x5-1xxx12345678
    ```
    {:pre}
 
@@ -265,7 +265,7 @@ After you know these values, use them to run the `instance-create` command. In a
 
 3. View the network interfaces that were created for your new instance.
    ```
-   $ ibmcloud is instance-network-interfaces 2x12xxx5-xx11-1234-x4x5-1xxx12345678
+   ibmcloud is instance-network-interfaces 2x12xxx5-xx11-1234-x4x5-1xxx12345678
    ```
    {:pre}
 
@@ -279,7 +279,7 @@ After you know these values, use them to run the `instance-create` command. In a
 4. Request a floating IP address to associate to your instance.
 
    ```
-   $ ibmcloud is floating-ip-reserve \
+   ibmcloud is floating-ip-reserve \
        my-floatingip \
        --nic xx12x345-6xxx-7x89-123x-4x5xxx678x9x
    ```

@@ -31,7 +31,7 @@ The default security group is similar to any other security group, with the exce
 
 Each VPC has a default security group, with rules to allow:
 
-* Inbound traffic from all members of the group.
+* Inbound traffic from all members of the group (that is, all other virtual server instances that are attached to this security group).
 * All outbound traffic.
 
 If you edit the rules of the default security group, those edited rules then apply to all current and future servers in the group.

@@ -67,7 +67,7 @@ Limitations might change as capabilities are added, so feel free to check back f
   * Red Hat Enterprise Linux
   * Windows
 * Every profile has a network performance value of 2 Gbps per vCPU, with a cap of 80 Gbps. 
-* Each network interface has a network performance cap of 16 Gbps. You might need to attach multiple network interfaces to your virtual server instance to optimize network performance.
+* Each network interface has a network performance cap of 16 Gbps. <!-- You might need to attach multiple network interfaces to your virtual server instance to optimize network performance. -->
 
 * API limitations:
   * List APIs don't support pagination. 

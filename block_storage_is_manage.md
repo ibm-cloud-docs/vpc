@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-14"
+lastupdated: "2019-10-22"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
@@ -70,17 +70,15 @@ You can change the name of an existing volume to make it more meaningful.
 
 1. Navigate to the list of all block storage volumes. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
 1. Locate the volume and then click the name of the volume to go to the Volume Details page.
-1. Click the pencil icon after the name of the volume and edit the volume name.
+1. Click the pencil icon after the name of the volume to edit the name. Provide a [valid volume name](/docs/vpc?topic=vpc-managing-block-storage#volume-name-conventions).
 1. Confirm your edit.
 
-## Volume name conventions
+## Guidelines for naming volumes
 {: #volume-name-conventions}
 
-For volumes created prior to 2019-10-15, volume names can include a combination of lowercase and uppercase alpha characters, numbers, minus sign (-), and underscore (_).
+Valid volume names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the minus sign (-), up to 63 characters.
 
-For volumes created after 2019-10-15, volume names can include a combination of lowercase alpha characters, numbers, and minus sign (-).
-
-All volume names have a maximum length of 63 characters.
+**Note:** Volumes created prior to 2019-10-15 allowed a combination of lowercase and uppercase alpha-numeric characters (A-Z, a-z, 0-9), the minus sign (-), and underscore (_). When you rename such a volume, the newer rules apply.
 
 ## Delete a block storage data volume
 {: #delete}

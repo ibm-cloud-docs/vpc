@@ -338,4 +338,4 @@ You can monitor the CPU, volume, memory, and network usage of your instance over
 ## Congratulations!
 {: #congratulations-cli-tutorials}
 
-You've successfully created and configured your VPC using the {{site.data.keyword.cloud_notm}} CLI. To try out more CLI commands, see [CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#cli-reference)
+You've successfully created and configured your VPC using the {{site.data.keyword.cloud_notm}} CLI. To try out more CLI commands, see the [CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#cli-reference).

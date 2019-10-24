@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-10-24"
 
 keywords: vsi, virtual server instance, connecting, linux
 
@@ -33,7 +33,7 @@ If you need to locate your floating IP address for the instance to which you wan
 1. You need to identify your floating IP ID before you can locate your floating IP address. Run the following command to identify your floating IP ID:
 
    ```
-   $ ibmcloud is instance-network-interfaces <INSTANCE_ID> --json
+   ibmcloud is instance-network-interfaces <INSTANCE_ID> --json
    ```
    {:pre}
    
@@ -54,7 +54,7 @@ If you need to locate your floating IP address for the instance to which you wan
 2. Now that you have your floating IP ID, you can locate your floating IP address by running the following command.
    
    ```
-   $ ibmcloud is ip <FLOATING_IP_ID>
+   ibmcloud is ip <FLOATING_IP_ID>
    ```
    {:pre}
      

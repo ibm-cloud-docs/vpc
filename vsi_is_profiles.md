@@ -91,7 +91,7 @@ For all profile families, these supported operating systems are available: CentO
 
 For information about storage, see [Storage notes for profiles](#storage-notes-for-profiles). 
 
-The network bandwidth cap applies separately to egress (transmitted) and ingress (received) traffic. That is, even if an instance with a network performance cap of 4 Gbps reaches its transmit cap of 4 Gbps, it can still receive up to its cap of 4 Gbps. For more information about network performance, see [Network performance notes for profiles](#network-perf-notes-for-profiles).
+The network bandwidth cap applies separately to egress (transmitted) and ingress (received) traffic. That is, even if an instance with a network performance cap of 4 Gbps reaches its transmit cap of 4 Gbps, it can still receive up to its cap of 4 Gbps. <!-- For more information about network performance, see [Network performance notes for profiles](#network-perf-notes-for-profiles). -->
 
 ## Viewing profile configurations
 {: #popular-profiles}
@@ -129,12 +129,12 @@ as three predefined [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tier
 * A [5-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance suitable for a virtual server instance Compute profile.
 * A [10-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance suitable for a virtual server instance Memory profile.
 
-## Network performance notes for profiles
+<!-- ## Network performance notes for profiles
 {: #network-perf-notes-for-profiles}
 
 Every profile has a maximum network bandwidth of 2 Gbps per vCPU, with a cap of 80 Gbps. Network bandwidth is distributed evenly across network interfaces, and each network interface has a cap of 16 Gbps that might limit the overall performance. You might need to attach multiple network interfaces to your virtual server instance to optimize network performance.
 
-For example, if you choose a profile with 16 vCPU, the network cap for the profile is 32 Gbps. If you have just one network interface, the maximum network performance is 16 Gbps due to the network interface cap. You need to attach two network interfaces (16 Gbps each) to reach the profile cap of 32 Gbps.
+For example, if you choose a profile with 16 vCPU, the network cap for the profile is 32 Gbps. If you have just one network interface, the maximum network performance is 16 Gbps due to the network interface cap. You need to attach two network interfaces (16 Gbps each) to reach the profile cap of 32 Gbps. --> 
 
 
 

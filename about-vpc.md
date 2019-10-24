@@ -35,7 +35,7 @@ VPC gives your applications logical isolation from other networks, while providi
 ## Quick instance provisioning with high network performance
 {: #about-vpc-quick-instance-provisioning}
 
-You can quickly provision scalable generation 2 compute resources in your VPC by creating *virtual server instances* with the core and RAM configuration that's best for your workload. You can select from the supported stock images or custom images that were imported from {{site.data.keyword.cos_full_notm}}. All images are cloud-init enabled. You can connect to your instance without using a password by adding *SSH keys*.
+You can quickly provision scalable generation 2 compute resources in your VPC by creating *virtual server instances* (VSIs) with the core and RAM configuration that's best for your workload. You can select from the supported stock images or custom images that were imported from {{site.data.keyword.cos_full_notm}}. All images are cloud-init enabled. You can connect to your instance without using a password by adding *SSH keys*.
 
 You can create instances with up to 80 Gbps network bandwidth per instance. Each instance can be multi-homed, that is, you can create multiple network interfaces per instance.
 

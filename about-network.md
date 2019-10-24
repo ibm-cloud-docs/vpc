@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018, 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-10-24"
 
 keywords: secure, region, zone, subnet, public gateway, floating IP, NAT, virtual private network
 subcollection: vpc
@@ -40,7 +40,7 @@ Subnets within the VPC offer private connectivity; they can talk to each other o
 ## Terminology
 {: #networking-terminology}
 
-See [VPC concepts](/docs/vpc?topic=vpc-vpc-concepts) for definitions and information about terms that are used in this document for {{site.data.keyword.vpc_short}}. When working with your VPC, you'll need to be familiar with the basic concepts of _region_ and _zone_ as they apply to your deployment.
+When working with your VPC, you'll need to be familiar with the basic concepts of _region_ and _zone_ as they apply to your deployment.
 
 ### Regions
 {: #networking-terms-regions}
@@ -72,7 +72,16 @@ Certain IP addresses are reserved for use by IBM when operating the VPC. Here ar
 ## External connectivity
 {: #external-connectivity}
 
-External connectivity can be achieved by using a floating IP address attached to an instance or by a public gateway attached to a subnet.
+External connectivity can be achieved by using a public gateway that is attached to a subnet, or a floating IP address that is attached to a virtual server instance. Use a public gateway for source network address translation (SNAT) and a floating IP for destination network address translation (DNAT). 
+
+Table 1 summarizes the differences between the options:
+
+| Public gateway | Floating IP |
+| ---- | ---- |
+| Instances have outbound-only access to the internet| Allows inbound connectivity from the internet to a private IP | 
+| Entire subnets share the same outbound public endpoint | Provides limited access to a single instance |
+| Protects instances. Access to instances can't be initiated through the public endpoint | Can be scaled up or down based on requirements |
+{: caption="Table 1. External connectivity options" caption-side="top"}
 
 ### Use a Public gateway for external connectivity of a subnet
 {: #public-gateway-for-external-connectivity}
@@ -80,15 +89,6 @@ External connectivity can be achieved by using a floating IP address attached to
 A **Public Gateway** enables a subnet and all its attached virtual server instances to connect to the internet. Subnets are private by default. After a subnet is attached to the public gateway, all instances in that subnet can connect to the internet. Although each zone has only one public gateway, the public gateway can be attached to multiple subnets. 
 
 Public gateways use _Many-to-1 NAT_, which means that thousands of instances with private addresses use one public IP address to communicate with the public internet.
-
-Table 1 summarizes the scope of gateway services for source and destination network address translation (SNAT and DNAT):
-
-| SNAT | DNAT |
-| ---- | ---- |
-| Instances can have outbound-only access to the internet | Allows inbound connectivity from the internet to a private IP | 
-| Entire subnets share the same outbound public endpoint | Provides limited access to a single private server |
-| Protects instances. Access to instances can't be initiated through the public endpoint | DNAT service can be scaled up or down based on requirements |
-{: caption="Table 1. Scope of gateway services" caption-side="top"}
 
 You can create only one public gateway per zone, but that public gateway can be attached to multiple subnets in the zone.
 {:tip}
