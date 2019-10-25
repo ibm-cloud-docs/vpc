@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-17"
+lastupdated: "2019-10-23"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
@@ -56,9 +56,8 @@ To view details about a block storage volume, navigate to the list of all block 
 
 | Field | Description |
 |-------|-------------|
-| Name  | Name of the volume you specified when you created the volume. Click the pencil icon to edit the volume name. For naming conventions, see [volume name conventions](/docs/vpc?topic=vpc-managing-block-storage#volume-name-conventions). |
+| Name  | Name of the volume you specified when you created the volume. Click the pencil icon to edit the volume name.  Follow these [guidelines for naming volumes](/docs/vpc?topic=vpc-managing-block-storage#volume-name-conventions). |
 | Resource group | Resource group defined when you set up your VPC. Resource groups manage access to resources but do not affect billing or monitoring.|
-| Resource Group | Select a resource group for which to associate the volume. Resource groups help you organize resources for access and billing.|
 | Attachment type | Data, for a secondary volume attached to an instance, boot when attached as a boot volume, or blank for an unattached volume.|
 | ID | System-generated volume ID. |
 | Created | System-generated date when the volume was created.|
