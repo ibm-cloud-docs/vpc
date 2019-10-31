@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-17"
+lastupdated: "2019-10-31"
 
 keywords: Generation 1, Generation 2, VPC, VPC on Classic, API, migration, integration, application
 
@@ -37,6 +37,9 @@ We are always adding new features and support. Over time, there will be fewer co
 
 | Feature | Client code migration considerations  | 
 |-----------------|-------------|
+|VPN | VPN methods are not currently supported in this release. |
+|Load balancer | Load balancer methods are not currently supported in this release.|
+|Network access control lists (ACLs) | ACL methods are not currently supported in this release. | 
 |Pagination | Pagination is not currently supported for instances, instance profiles, or keys.| 
 |Network interface filtering | Filtering by subnet is not currently supported. | 
 |Naming | The unified naming policy requires that resource names be between 1 and 63 characters. Only numbers, lowercase letters, and hyphens (`-`) are permitted.  Names may not start with a number or `-`, and may not end with `-`. <br> In contrast, first generation resources in the API have different name-length and character-set restrictions, depending on the resource.<br> **Note:** Volumes for generation 2 resources do not adhere to this naming policy. | 
