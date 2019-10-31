@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018, 2019
-lastupdated: "2019-10-24"
+lastupdated: "2019-10-29"
 
 keywords: secure, region, zone, subnet, public gateway, floating IP, NAT, virtual private network
 subcollection: vpc
@@ -78,9 +78,8 @@ Table 1 summarizes the differences between the options:
 
 | Public gateway | Floating IP |
 | ---- | ---- |
-| Instances have outbound-only access to the internet| Allows inbound connectivity from the internet to a private IP | 
-| Entire subnets share the same outbound public endpoint | Provides limited access to a single instance |
-| Protects instances. Access to instances can't be initiated through the public endpoint | Can be scaled up or down based on requirements |
+| Instances can initiate connections to the internet, but they can't receive connections from the internet.| Instances can initiate or receive connections to or from the internet | 
+| Provides connectivity for an entire subnet | Provides connectivity for a single instance |
 {: caption="Table 1. External connectivity options" caption-side="top"}
 
 ### Use a Public gateway for external connectivity of a subnet
@@ -103,5 +102,3 @@ You can reserve a floating IP address from the pool of available addresses that 
 **Notes:**
 * Associating a floating IP address with an instance removes the instance from the public gateway's Many-to-1 NAT.
 * Currently, floating IP supports only IPv4 addresses.
-
-

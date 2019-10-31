@@ -30,7 +30,6 @@ Limitations might change as capabilities are added, so feel free to check back f
 {: #general-restrictions}
 
 * The following features are not supported, including all properties associated with these features:
-  * Classic peering (also known as Classic Access)
   * Network ACLs (access control lists)
   * Shares
   * Load balancers

@@ -31,17 +31,17 @@ Pricing of {{site.data.keyword.vpc_full}} is applied separately for [internet da
 ## Pricing for internet data transfer with IBM Cloud™ Virtual Private Cloud
 {: #pricing-for-data-transfer}
 
-The table summarizes the pricing for internet data transfer with {{site.data.keyword.vpc_short}}. There is no charge for traffic within a VPC and other IBM Cloud services (within the IBM data centers). 
+The table summarizes the pricing for internet data transfer with {{site.data.keyword.vpc_short}}. There is no charge for private traffic between instances within a VPC and other IBM Cloud services (within the IBM data centers). Traffic between instances that egresses to the public internet is charged.
 
 ### Free allowances for internet data transfer
 {: #free-allowances-for-internet-data-transfer}
 
-There are no charges for traffic within your VPC and the use of public gateways. 
+There are no charges for private traffic within your VPC and the use of public gateways. 
 
 | Data transfer |  Cost for all {{site.data.keyword.vpc_short}} Customers |
 |---------------|------------------|
-| Within the zone | Free |
-| Between zones in the same region | Free |
+| Private traffic within the zone | Free |
+| Private traffic between zones in the same region | Free |
 | Use of public gateway (PGW) | Free (Charged only for the floating IP used by the PGW) |
 {: caption="Table 1. Free allowances for internet data transfer" caption-side="top"}
 

@@ -79,6 +79,8 @@ Virtual Private Cloud
         how-to-design-your-vpc.md
         vpc-regions-and-subnets.md
     
+    advanced-vpc-routing.md
+    classic-access.md
     connect-to-cos.md  
 
     {: .topicgroup}

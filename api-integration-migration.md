@@ -37,7 +37,6 @@ We are always adding new features and support. Over time, there will be fewer co
 
 | Feature | Client code migration considerations  | 
 |-----------------|-------------|
-|Classic access | Classic access to VPCs (also known as classic peering) is not currently supported in this release.| 
 |Pagination | Pagination is not currently supported for instances, instance profiles, or keys.| 
 |Network interface filtering | Filtering by subnet is not currently supported. | 
 |Naming | The unified naming policy requires that resource names be between 1 and 63 characters. Only numbers, lowercase letters, and hyphens (`-`) are permitted.  Names may not start with a number or `-`, and may not end with `-`. <br> In contrast, first generation resources in the API have different name-length and character-set restrictions, depending on the resource.<br> **Note:** Volumes for generation 2 resources do not adhere to this naming policy. | 

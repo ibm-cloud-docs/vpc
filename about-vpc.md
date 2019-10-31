@@ -61,6 +61,11 @@ For instance-level protection, use *security groups* that act as virtual firewal
 
 A *region* is the geographical location where you deploy the VPC's services, resources, and applications. Each region contains *zones*, which are logically isolated data centers with independent infrastructures. You can deploy resources in multiple zones to achieve fault tolerance and high availability.  
 
+## Classic access
+{: #about-classic-access}
+
+You can set up access from a VPC to your {{site.data.keyword.cloud_notm}} classic infrastructure, including Direct Link connectivity. One VPC per region can communicate with classic resources. For more information, see [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure).
+
 ## Next steps
 {: #about-vpc-next-steps}
 

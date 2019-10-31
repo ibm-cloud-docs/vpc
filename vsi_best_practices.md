@@ -26,7 +26,7 @@ subcollection: vpc
 When you're planning to provision virtual server instances for {{site.data.keyword.vpc_short}}, you might find this configuration checklist helpful to get the most out of your deployment.
 {:shortdesc}
 
-Before you get started, make sure that you created a VPC](/docs/vpc?topic=vpc-getting-started#getting-started).
+Before you get started, make sure that you [created a VPC](/docs/vpc?topic=vpc-getting-started#getting-started).
 {:important}
 
 ## Planning for provisioning instances

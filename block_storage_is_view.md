@@ -56,7 +56,7 @@ To view details about a block storage volume, navigate to the list of all block 
 
 | Field | Description |
 |-------|-------------|
-| Name  | Name of the volume you specified when you created the volume. Click the pencil icon to edit the volume name.  Follow these [guidelines for naming volumes](/docs/vpc?topic=vpc-managing-block-storage#volume-name-conventions). |
+| Name  | Name of the volume you specified when you created the volume. Click the pencil icon to edit the volume name. The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with an alpha character. |
 | Resource group | Resource group defined when you set up your VPC. Resource groups manage access to resources but do not affect billing or monitoring.|
 | Attachment type | Data, for a secondary volume attached to an instance, boot when attached as a boot volume, or blank for an unattached volume.|
 | ID | System-generated volume ID. |

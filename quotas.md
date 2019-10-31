@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-10-29"
 
 keywords: quotas, vpc, resources, limits
 
@@ -32,6 +32,7 @@ This document covers quotas for {{site.data.keyword.vpc_full}} and the resources
 |   Resource     | Quota |
 | ------- | :------: |
 | Virtual private clouds | 5 per region|
+| VPCs with classic access | 1 per region|
 | Subnets | 15 per VPC |
 | Public Gateways | 1 per zone per VPC |
 | Address prefixes | 15 per VPC |
@@ -45,8 +46,8 @@ This document covers quotas for {{site.data.keyword.vpc_full}} and the resources
 | vCPU |  200 per region  |
 | RAM | 800 GB per region |
 | Network interfaces | 5 per instance |
-| Floating IP addresses | 10 per zone |
-| SSH keys | Unlimited |
+| Floating IP addresses | 5 per zone |
+| SSH keys | 200 per account |
 {: caption="Table 2. Quotas for virtual server instances" caption-side="top"}
 
 

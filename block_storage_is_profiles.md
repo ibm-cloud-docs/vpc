@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-24"
+lastupdated: "2019-010-30"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, volume, profile, volume profile, data storage, storage profile, virtual server instance, instance
 
@@ -39,8 +39,6 @@ Block storage provides three predefined IOPS tiers you can select to specify opt
 | 10 IOPS/GB | Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics | 10 GB to 300 GB | Up to 3,000 IOPS |
 | | | More than 300 GB to 2 TB | 10 IOPS/GB up to 20,000 IOPS |
 {: caption="Table 1. IOPS tier profiles and performance levels for each tier" caption-side="top"}
-
-The Maximum throughput for all block storage IOPS tiers is 750 MB/s based on a 16 K block size
 
 ## Custom IOPS profile
 {: #custom}
@@ -94,9 +92,9 @@ You can view available IOPS profiles the {{site.data.keyword.cloud_notm}} consol
 
  To view the list of available profiles by using the CLI, run the following command:
 ```
-ibmcloud is volume-profiles
+$ ibmcloud is volume-profiles
 ```
-{:pre}
+{:codeblock}
 
 ### Using the API
 {: using-api-iops-profiles}

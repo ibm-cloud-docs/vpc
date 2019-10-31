@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-10-31"
 
 keywords: address prefix, region, subnet, zone, reserved, IP, ranges, deleting, creating, CIDR
 
@@ -39,6 +39,8 @@ us-south-2   | 10.240.64.0/18
 us-south-3   | 10.240.128.0/18
 {: caption="Table 1. Address prefixes assigned to a zone in a region" caption-side="top"}
 
+If you don't want these default address prefixes, you can choose to not assign default address prefixes when you create your VPC. For example, add the `"address_prefix_management": "manual"` parameter when you create the VPC by using the API.
+
 To bring your own subnets:
 1. Create a VPC.
 2. For each zone in which you plan to create subnets, create one or more address prefixes.
@@ -50,12 +52,7 @@ If you use an IP range outside of those ranges that are defined by [RFC 1918](ht
 ### Address prefixes and the {{site.data.keyword.cloud_notm}} console
 {: #address-prefixes-and-the-ibm-cloud-console-ui}
 
-When you create a VPC by using the {{site.data.keyword.cloud_notm}} console, the system selects your address prefix automatically and requires you to create a subnet within that default prefix. If this address scheme does not suit your requirements, you can customize the address prefixes after you create the VPC. You can then create subnets in your customized address prefixes, and delete the subnet that you created with the default prefix.
-
-This workaround is needed to use BYOIP through the IBM Cloud Console UI.
-{:note}
-
-
+When you create a VPC by using the {{site.data.keyword.cloud_notm}} console, the system selects your address prefixes automatically and requires you to create subnets within the default prefixes. If this address scheme does not suit your requirements, you can clear the **Default address prefixes** option to not assign default address prefixes to each zone in your VPC. After you create your VPC, go to its details page and set your own address prefixes. Then, you can create subnets within the address prefixes you specified.
 
 ## CLI example
 {: #cli-example-byoip}

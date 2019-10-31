@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-22"
+lastupdated: "2019-10-30"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, VSI, virtual server instance, instance, IOPS
 
@@ -43,7 +43,7 @@ Before you get started, make sure that you [created a VPC](/docs/vpc?topic=vpc-c
 
 | Field | Value |
 |-------|-------|
-| Name  | Specify a meaningful name for your volume, for example, a name that describes your compute or workload function. Follow these [guidelines for naming volumes](/docs/vpc?topic=vpc-managing-block-storage#volume-name-conventions). You can later edit the name if you want. |
+| Name  | Specify a meaningful name for your volume, for example, a name that describes your compute or workload function. The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with an alpha character. You can later edit the name if you want. |
 | Profile | Select [Tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) and select the performance level that you require from the IOPs list. If your performance requirements don't fall within a predefined IOPS tier, select [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) and select an IOPS value within the range for that volume size. Click the **storage size** link to see a table of size and IOPS ranges. |
 | Auto Delete | Enable this feature to automatically delete this volume when the attached virtual server instance is deleted. You can change this setting later on the virtual server details page. |
 | IOPS | Select 3, 5, or 10 IOPS/GB for a Tiered profile |
