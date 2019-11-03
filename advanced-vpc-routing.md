@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-31"
+lastupdated: "2019-11-03"
 
 keywords: vpc, secure, region, zone, subnet, routing, terminology, public gateway, floating IP, NAT, API
 
@@ -41,12 +41,12 @@ A VPC route has three main components: the destination CIDR, the next hop to whi
 
 Go to the details page for a VPC and click **Routes** in the navigation.
 
-### Using the CLI to create a classic access VPC
+### Using the CLI to create VPC routes
 {: #create-a-route-using-the-cli}
 
 Use the [ibmcloud is vpc-route-create](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpc-route-create) command.
 
-### Using the API to create a classic access VPC
+### Using the API to create VPC routes
 {: #create-a-route-using-the-api}
 
 Use the [routes](https://{DomainName}/apidocs/vpc#create-a-route-on-your-vpc) API.
@@ -55,4 +55,4 @@ Use the [routes](https://{DomainName}/apidocs/vpc#create-a-route-on-your-vpc) AP
 {: #routing-limitations}
 
 - Currently, custom default static routes are not available. Only non-default static routes are supported.
-- You can set the `next_hop` to be an `ip_address` only.
+- You can set the next hop to be an ip address only.
