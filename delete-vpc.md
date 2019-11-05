@@ -88,7 +88,7 @@ A VPC must have a default security group. If you created a VPC without specifyin
 ### Subnet
 {: #deleting-subnet}
 
-All resources in a subnet must be deleted before the subnet can be deleted. Subnets contain the instance's network interfaces. Subnets contain the instance's network interfaces. The network interface that is associated with the subnet must be deleted before the subnet can be deleted.
+All resources in a subnet must be deleted before the subnet can be deleted. Subnets contain the instance's network interfaces. The network interface that is associated with the subnet must be deleted before the subnet can be deleted.
 
 An instance can have multiple network interfaces, and those network interfaces can belong to multiple subnets of the VPC. Before a subnet can be deleted, any network interface in the subnet must first be deleted. The instance's primary network interface cannot be deleted or moved to another subnet. All instances with a primary network interface in the subnet must be deleted before the subnet can be deleted.
 
