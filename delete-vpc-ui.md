@@ -32,7 +32,7 @@ To delete a VPC by using the console:
 
 1. Find all subnets in the VPC. Click **VPCs** in the navigation pane and select your VPC. 
 2. On the VPC details page, go to the **Subnets in this VPC** list and select a subnet to view its details.
-3. Delete any resources that are attached to the subnet. In the navigation pane, click **Attached resources**. Select each attached instance to go its details page and click the delete icon. Attached instances must be stopped before you can delete them.
+3. Delete any resources that are attached to the subnet. In the navigation pane, click **Attached resources**. Select each attached instance, load balancer, and VPN gateway to go its details page and click the delete icon. Attached instances must be stopped before you can delete them.
 
   Although the resource's status immediately changes to **Deleting**, it can take up to 30 minutes for the delete operation to complete. The subnet can't be deleted until all attached resources are no longer displayed in the console.
   {: tip}

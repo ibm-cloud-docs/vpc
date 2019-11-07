@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-30"
+lastupdated: "2019-11-06"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, VSI, virtual server instance, instance, IOPS
 
@@ -43,8 +43,8 @@ Before you get started, make sure that you [created a VPC](/docs/vpc?topic=vpc-c
 
 | Field | Value |
 |-------|-------|
-| Name  | Specify a meaningful name for your volume, for example, a name that describes your compute or workload function. The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with an alpha character. You can later edit the name if you want. |
-| Profile | Select [Tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) and select the performance level that you require from the IOPs list. If your performance requirements don't fall within a predefined IOPS tier, select [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) and select an IOPS value within the range for that volume size. Click the **storage size** link to see a table of size and IOPS ranges. |
+| Name  | Specify a meaningful name for your volume, for example, a name that describes your compute or workload function. The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with lowercase letter. You can later edit the name if you want. |
+| Profile | Select [Tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) and select the performance level that you require from the IOPS list. If your performance requirements don't fall within a predefined IOPS tier, select [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) and select an IOPS value within the range for that volume size. Click the **storage size** link to see a table of size and IOPS ranges. |
 | Auto Delete | Enable this feature to automatically delete this volume when the attached virtual server instance is deleted. You can change this setting later on the virtual server details page. |
 | IOPS | Select 3, 5, or 10 IOPS/GB for a Tiered profile |
 | Size | Enter a volume size in GBs. Volume sizes can be between 10 GB and 2 TBs. |
@@ -68,8 +68,8 @@ You can create a block storage volume independent of virtual server provisioning
 
 | Field | Value |
 |-------|-------|
-| Name  | Specify a meaningful name for your volume. For example, provide a name that describes your compute or workload function. Follow these [guidelines for naming volumes](/docs/vpc?topic=vpc-managing-block-storage#volume-name-conventions). You can later edit the name. |
-| Resource Group | Specify a resource group. Resource groups help organize your account resources for access control and billing purposes. For more information about setting up a resource group, see [Best practices for organizing resources in a resource group](/docs/resources?topic=resources-bp_resourcegroups#setuprgs). |
+| Name  | Specify a meaningful name for your volume. For example, provide a name that describes your compute or workload function. The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name. |
+| Resource Group | Specify a resource group. Resource groups help organize your account resources for access control and billing purposes. For more information, see [Best practices for organizing resources in a resource group](/docs/resources?topic=resources-bp_resourcegroups#setuprgs). |
 | Tags | Specify a tag to organize your resources. A tag is a label that you assign to a resource for easy filtering of resources in your resource list. For more information about tags, see [Working with tags](/docs/resources?topic=resources-tag). |
 | Location | The availability zone in your region, inherited from the VPC (for example, US South 1). |
 | Size | Enter a volume size in GBs. Volume sizes can be between 10 GB - 2 TBs. |
@@ -78,7 +78,7 @@ You can create a block storage volume independent of virtual server provisioning
 | Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. |
 {: caption="Table 2. Values for defining a block storage volume" caption-side="top"}
 
-Do you prefer to create block storage volumes by using the CLI? For information, see [Creating block storage volumes by using the CLI](/docs/vpc?topic=vpc-creating-block-storage-cli).
+Do you prefer to create block storage volumes by using the CLI? For more information, see [Creating block storage volumes by using the CLI](/docs/vpc?topic=vpc-creating-block-storage-cli).
 {: tip}
 
 ## Next steps

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-30"
+lastupdated: "2019-11-06"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, IOPS, FAQ
 
@@ -20,7 +20,7 @@ subcollection: vpc
 This topic answers many of your questions for creating and managing your block storage volumes. If you have other questions you'd like to see addressed here, provide feedback by using the **Open Issue** or **Edit Topic** links.
 {:shortdesc}
 
-## How do I create and attach volumes to my instances?
+## How do I create and attach volumes to instances?
 {: faq}
 {: #faq-block-storage-0}
 {: support}
@@ -31,17 +31,17 @@ When you create a virtual server instance, you can [create a block storage volum
 {: faq}
 {: #faq-block-storage-1}
 
-A block storage volume can be attached to only one instance at a time. Instances cannot share the same volume.
+A block storage volume can be attached to only one instance at a time. Instances cannot share a volume.
 
 ## How many block storage secondary (data) volumes can be attached to an instance?
 {: faq}
 {: #faq-block-storage-2}
 
-Instances with less than 4 vCPUs can attach up to 4 block storage secondary volumes.
+Instances with fewer than 4 vCPUs can attach up to 4 block storage secondary volumes.
 
 Instances with 4 vCPUs or more can attach up to 12 block storage secondary volumes.
 
-## When provisioning IOPS, are the allocated IOPS enforced by instance or by volume?
+## Are the allocated IOPS enforced by instance or by volume?
 {: faq}
 {: #faq-block-storage-3}
 
@@ -52,26 +52,26 @@ IOPS is enforced at the volume level.
 {: #faq-block-storage-4}
 {: support}
 
-IOPS profiles define IOPS/GB performance for volumes of various capacities. There are three predefined [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) you can select that offer guaranteed IOPS performance to meet your workload requirements. You can also define [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles#custom) and specify a range of IOPS for a volume size you choose. Custom IOPS is a good option when you have well-defined performance requirements that do not fall within a predefined IOPS tier. If you choose a custom IOPS profile, also define a minimum and maximum range for the volume size.
+IOPS profiles define IOPS/GB performance for volumes of various capacities. There are three predefined [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) that you can select that offer reliable IOPS performance for your workload requirements. You can also define [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles#custom) and specify a range of IOPS for a volume size you choose. Custom IOPS is a good option when you have well-defined performance requirements that do not fall within a predefined IOPS tier. If you choose a custom IOPS profile, also define a minimum and maximum range for the volume size.
 
-Maximum IOPS for data volumes vary based on volume size and the type of profile you select. For example, the max IOPS for a general purpose volume up to 1 TB is 3,000 IOPS.
+Maximum IOPS for data volumes vary based on volume size and the type of profile you select. For example, the max IOPS for a general-purpose volume up to 1 TB is 3,000 IOPS.
 
-IOPS are measured based on a load profile of 16 KB blocks with random 50% read and 50% writes. Workloads that differ from this profile might experience reduced performance. If you use a smaller block size, maximum IOPS can be obtained but throughput will be less. For information, see 
+IOPS are measured based on a load profile of 16 KB blocks with random 50% read and 50% writes. Workloads that differ from this profile might experience reduced performance. If you use a smaller block size, maximum IOPS can be obtained but throughput is less. For information, see
 [How block size affects performance](/docs/vpc?topic=vpc-block-storage-capacity-performance#how-block-size-affects-performance).
 
-## How will I be charged for usage?
+## How am I charged for usage?
 {: faq}
 {: #faq-block-storage-5}
 {: support}
 
-Block Storage for VPC is calculated hourly, based on the total number of hours that the block storage volume exists on the account, until you delete the volume or you reach the end of a billing cycle, whichever comes first. For information, see [Pricing](/docs/vpc?topic=vpc-pricing-for-vpc#pricing-for-block-storage-for-vpc).
+Block Storage for VPC is calculated hourly. The calculation is based on the total number of hours that the block storage volume exists on the account until you delete the volume or you reach the end of a billing cycle, whichever comes first. For information, see [Pricing](/docs/vpc?topic=vpc-pricing-for-vpc#pricing-for-block-storage-for-vpc).
 
 ## Are there quota limits?
 {: faq}
 {: #faq-block-storage-6}
 For information about quotas and limits for your {{site.data.keyword.cloud}} Virtual Private Cloud and the resources available within it, see [Quotas](/docs/vpc?topic=vpc-quotas#quotas).
 
-## After I create a volume, can I increase its capacity later?
+## After I create a volume, can I later increase its capacity?
 {: faq}
 {: #faq-block-storage-7}
 {: support}

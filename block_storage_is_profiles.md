@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-010-30"
+lastupdated: "2019-11-06"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, volume, profile, volume profile, data storage, storage profile, virtual server instance, instance
 
@@ -22,13 +22,13 @@ subcollection: vpc
 # Profiles
 {: #block-storage-profiles}
 
-When you provision {{site.data.keyword.block_storage_is_short}} secondary volumes by using the {{site.data.keyword.cloud_notm}} console, CLI, or API, you specify an IOPS profile that best meets your storage requirements. Profiles are available as three predefined IOPS tiers or as custom IOPS. IOPS tiers provide guaranteed IOPS/GB performance for volumes up to 2 TB capacity. You can also specify a custom IOPS profile and define volume capacity and IOPS within a range.
+When you provision {{site.data.keyword.block_storage_is_short}} secondary volumes by using the {{site.data.keyword.cloud_notm}} console, CLI, or API, you specify an IOPS profile that best meets your storage requirements. Profiles are available as three predefined IOPS tiers or as custom IOPS. IOPS tiers provide reliable IOPS/GB performance for volumes up to 2 TB capacity. You can also specify a custom IOPS profile and define volume capacity and IOPS within a range.
 {:shortdesc}
 
 ## Tiered IOPs profiles
 {: #tiers}
 
-Block storage provides three predefined IOPS tiers you can select to specify optimal performance for your compute workloads and to avoid bottlenecks. You can provision volumes in your availability zone with guaranteed IOPS, as described in the following table:
+Block storage provides three predefined IOPS tiers you can select to specify optimal performance for your compute workloads and help avoid bottlenecks. Table 1 describes the IOPS performance you can expect when create volumes in your availability zone.
 
 | IOPS Tier | Workload | Volume size | Max IOPS |
 |-----------|----------|-------------|----------|
@@ -45,7 +45,7 @@ Block storage provides three predefined IOPS tiers you can select to specify opt
 
 Custom IOPS is a good option when you have well-defined performance requirements that do not fall within a predefined IOPS tier. You can customize the IOPS by specifying the total IOPS for the volume within the range for its volume size. You can provision volumes with 100 IOPS to 20,000 IOPS.
 
-The following table shows the available IOPS ranges based on volume size.
+Table 2 shows the available IOPS ranges based on volume size.
 
 | Volume size (GB) | IOPS range |
 |-------------|--------------|
@@ -66,7 +66,7 @@ based on your workload requirements. These requirements can range from common wo
 Similarly, storage profiles (IOPS tiers or custom) provide a range of capacity and performance for secondary volumes. By default, a
 100 GB primary boot volume is created when you create a virtual server instance. You can also create and attach secondary volumes.  
 When you create a secondary data volume as part of instance creation, you select a storage profile that best meets your storage
-requirements for your compute workloads. In general, as your compute requirements increase, you need higher IOPS performance. The following table shows this relationship.
+requirements for your compute workloads. In general, as your compute requirements increase, you need higher IOPS performance. Table 3 shows this relationship.
 
 | IOPS tier storage profile | Virtual server profile |
 |-----------------|------------------------|

@@ -76,6 +76,43 @@ If the VPC you want to delete has multiple subnets, repeat these steps to delete
 ## Step 2: Delete each subnet in the VPC
 {: #deleting-subnet-resources-cli}
 
+### Delete all VPN gateways in the subnet, if any
+{: #deleting-vpn-cli}
+
+To list all VPN gateways in your account, run the following command:
+
+```
+ibmcloud is vpn-gateways
+```
+{: pre}
+
+For each VPN gateway in the subnet you want like to delete, run the following command, where `$vpnid` is the ID of the VPN gateway.
+
+```
+ibmcloud is vpn-gateway-delete $vpnid
+```
+
+The status of the VPN gateway changes to `deleting` immediately, but it still appears in a list query result. The deletion of a VPN gateway can take up to 30 minutes. You can request other subnet resources to be deleted in parallel while you wait for the VPN gateway to be deleted. However, the subnet can't be deleted until the VPN gateway and all other resources in the subnet no longer appear in the list query results.
+
+### Delete all load balancers in the subnet, if any
+{: #deleting-lbs-cli}
+
+To list alllLoad balancers in your account, run the following command:
+
+```
+ibmcloud is load-balancers
+```
+{: pre}
+
+For each load balancer in the subnet you want to delete, run the following command, where `$lbid` is the ID of the load balancer.
+
+```
+ibmcloud is load-balancer-delete $lbid
+```
+{: pre}
+
+The status of the Load Balancer changes to `deleting` immediately, but it is still shown in a list query result. The deletion of a load balancer can take up to 30 minutes. You can request other subnet resources to be deleted in parallel while you wait for the load balancer to be deleted. However, the subnet can't be deleted until the load balancer and all other resources in the subnet no longer appear in the list query results.
+
 ### Delete all network interfaces in the subnet, if any
 {: #deleting-nics-cli}
 

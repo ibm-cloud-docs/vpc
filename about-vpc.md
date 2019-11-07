@@ -50,6 +50,7 @@ When you create an instance, a 100 GB block storage volume is automatically atta
 Several options are available for enabling your instances to communicate with the public internet:
 * To enable all instances in a subnet to send outgoing traffic, attach a *public gateway* to the subnet.
 * To enable communication to and from a particular instance, independent of whether the subnet is attached to a public gateway, associate the instance with a *floating IP*.
+* To enable secure connectivity, use the Virtual Private Network (VPN) service.
 
 ## Security
 {: #about-vpc-security}
@@ -60,6 +61,8 @@ For instance-level protection, use *security groups* that act as virtual firewal
 {: #about-vpc-high-availability}
 
 A *region* is the geographical location where you deploy the VPC's services, resources, and applications. Each region contains *zones*, which are logically isolated data centers with independent infrastructures. You can deploy resources in multiple zones to achieve fault tolerance and high availability.  
+
+Use load balancers to distribute your network traffic across a set of virtual server instances to improve performance and availability. You can set up a load balancer to distribute incoming application traffic across instances in a single zone or across multiple zones within a region.
 
 ## Classic access
 {: #about-classic-access}

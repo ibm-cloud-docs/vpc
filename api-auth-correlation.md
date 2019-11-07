@@ -81,6 +81,20 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | Volume attachments | View, List | Viewer for the instance |
 | Volume attachments | Create | Editor for the Instance and volume |
 | Volume attachments | Update, Delete | Editor for the instance |
+|————————|——————|————————|
+| VPN gateway | Create | Editor for VPN for VPC resources|
+| VPN gateway | Update, Delete | Editor for the VPN gateway|
+| VPN gateway | View, List  | Viewer for the VPN gateway |
+| VPN gateway connections | Create, Update, Delete | Editor for the VPN gateway |
+| VPN gateway connections | View, List  | Viewer for the VPN gateway |
+| VPN gateway ike_policies, ipsec_policies and connections | Create, Update, Delete | Editor for the VPN gateway |
+| VPN gateway ike_policies, ipsec_policies and connections|View, List  | Viewer for the VPN gateway |
+|—————————|—————————|—————————|
+| Load Balancer | Create| Editor for the Load Balancer for VPC resources |
+| Load Balancer | Update, Delete | Editor for the load balancer |
+| Load Balancer | View, List  | Viewer for the load balancer |
+| Load Balancer pools and listeners | Create, Update, Delete | Editor for the load balancer |
+| Load Balancer pools and listeners | View, List  | Viewer for the load balancer |
 |—————————|—————————|—————————|
 | Volumes | Create| Editor for Block Storage for VPC resources |
 | Volumes | Update, Delete | Editor for the volume |

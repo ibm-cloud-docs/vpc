@@ -30,6 +30,12 @@ Virtual Private Cloud
         block_storage_vpc_about.md
         block_storage_vpc_capacity_performance.md
         block_storage_is_profiles.md
+    
+    {: .topicgroup}
+    Tutorials
+        /tutorials/solution-tutorials-vpc-public-app-private-backend
+        /tutorials/solution-tutorials-vpc-app-deploy
+        /tutorials/solution-tutorials-vpc-secure-management-bastion-server   
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
@@ -72,6 +78,15 @@ Virtual Private Cloud
         security-groups-default.md
         security-groups-example.md
         security-group-usage-examples.md   
+
+    {: .topicgroup}
+    Load balancers (Beta)
+        using-lbaas.md
+    
+    {: .topicgroup}
+    VPNs (Beta)
+        using-vpn.md
+        vpn-onprem-example.md
 
     {: .topicgroup}
     Setting IP ranges
@@ -117,6 +132,7 @@ Virtual Private Cloud
         block_storage_is_troubleshoot.md
         
     limitations.md
+    api-change-log.md
     known-issues.md
     getting-help.md
     {: .navgroup-end}

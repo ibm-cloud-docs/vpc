@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-31"
+lastupdated: "2019-11-06"
 
 keywords: Generation 1, Generation 2, VPC, VPC on Classic, API, migration, integration, application
 
@@ -37,12 +37,13 @@ We are always adding new features and support. Over time, there will be fewer co
 
 | Feature | Client code migration considerations  | 
 |-----------------|-------------|
-|VPN | VPN methods are not currently supported in this release. |
-|Load balancer | Load balancer methods are not currently supported in this release.|
+|VPN | VPN gateways are available as beta in this release. |
+|Load balancer | Load balancers are available as beta in this release.|
 |Network access control lists (ACLs) | ACL methods are not currently supported in this release. | 
-|Pagination | Pagination is not currently supported for instances, instance profiles, or keys.| 
-|Network interface filtering | Filtering by subnet is not currently supported. | 
-|Naming | The unified naming policy requires that resource names be between 1 and 63 characters. Only numbers, lowercase letters, and hyphens (`-`) are permitted.  Names may not start with a number or `-`, and may not end with `-`. <br> In contrast, first generation resources in the API have different name-length and character-set restrictions, depending on the resource.<br> **Note:** Volumes for generation 2 resources do not adhere to this naming policy. | 
+|Pagination | Pagination is not currently supported for instance profiles or keys.| 
+|VPCs | A VPC’s Cloud Service Endpoint source IPs are not shown. |
+|Network interface filtering | Filtering by subnet is not currently supported.|
+|Naming | The unified naming policy requires that resource names be between 1 and 63 characters. Only numbers, lowercase letters, and hyphens (`-`) are permitted.  Names may not start with a number or `-`, and may not end with `-`. <br> In contrast, first generation resources in the API have different name-length and character-set restrictions, depending on the resource.<br> **Note:** Volume names must begin with an alphabetic character. | 
 |Instance profiles | CRN support on instance profiles is dropped in this release. <br> **Note:** CRNs are deprecated in the VPC API for use with first generation resources. | 
 |Device IDs | Device IDs are not shown when retrieving an instance's volume attachments. <br> **Tip:** Find the device ID in the `volume_attachments` property in the  `GET /volumes/<id>` response.| 
 |Security groups | Filtering is not supported on security group lists by VPC name or VPC CRN. <br> A standards-compliant ([RFC 7396](https://tools.ietf.org/html/rfc7396)) API is used for updating security group rules. As a result, some properties have been removed from the update API, and other properties have different semantics from the first generation update API.| 

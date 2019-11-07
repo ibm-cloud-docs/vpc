@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-11-06"
 
 keywords:  block storage, IBM Cloud, VPC, virtual private cloud, block storage volume, volume, volume attachment, virtual server instance, instance
 subcollection: vpc
@@ -23,13 +23,13 @@ subcollection: vpc
 # Attaching a block storage volume by using the UI
 {: #attaching-block-storage}
 
-When you create a {{site.data.keyword.block_storage_is_short}} volume for a virtual server instance from the UI, the volume is attached to the instance by default. When you detach a volume, it exists as an unattached volume that you can later reattach. These available volumes are displayed in the list of [all block storage volumes](/docs/vpc?topic=vpc-viewing-block-storage#viewvols). You can attach the volume to another instance from the list of all block storage volumes or when you view details about a particular instance.
+When you create a {{site.data.keyword.block_storage_is_short}} volume for a virtual server instance from the UI, the volume is attached to the instance by default. When you detach a volume, it exists as an unattached volume that you can later reattach. These available volumes are displayed in the list of [all block storage volumes](/docs/vpc?topic=vpc-viewing-block-storage#viewvols). You can attach the volume to another instance from the list of all block storage volumes, or when you view details about an instance.
 {:shortdesc}
 
 ## Volume attachment limits
 {: #vol-attach-limits}
 
-Although you can attach only one block storage volume to a virtual server instance at a time, you can attach several different block storage volumes to a single instance. Note the following limits:
+Although you can attach only one block storage volume to a virtual server instance at a time, you can attach several different block storage volumes to a single instance. The following limits apply:
 
 * Instances with less than 4 virtual CPUs can attach up to 4 block storage secondary volumes, plus the boot volume.
 * Instances with 4 or more virtual CPUs can attach up to 12 block storage secondary volumes, plus the boot volume.

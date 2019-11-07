@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018, 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-10-05"
 
 keywords: VPC, subnet, address prefixes, design, addressing
 
@@ -59,7 +59,7 @@ Another consideration is the number of available addresses a subnet might need f
 Based on these two considerations, here are the assumptions that are made for this example:
 
 * For this example, CIDR ranges from the 172.16.0.0/12 block of RFC 1918 addresses are used for all subnets.
-* The application's presentation layer is a thin veneer above a REST API. Therefore, horizontal scaling affects the middle tier more than it affects the presentation tier.
+* The application's presentation layer is a thin layer above a REST API. Therefore, horizontal scaling affects the middle tier more than it affects the presentation tier.
 
 ## Determine each tier's subnet size
 {: #determine-each-tier-s-subnet-size}

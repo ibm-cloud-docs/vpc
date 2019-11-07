@@ -73,3 +73,27 @@ This document covers quotas for {{site.data.keyword.vpc_full}} and the resources
 | Secondary volumes per instance, for existing instances with 4 cores or more | Up to 12 secondary volumes |
 {: caption="Table 5. Quotas for block storage volumes" caption-side="top"}
 
+## VPNs
+{: #vpn-quotas}
+
+|Resource|Quota|
+|--------|-----|
+| VPN gateways| 20 per account, 3 per zone |
+| VPN connections | 10 per VPN gateway |
+| IKE policies | 20 per account |
+| IPSec policies | 20 per account |
+| Peer subnets | 50 across all connections of a VPN gateway, 15 per connection|
+| Local subnets | 50 across all connections of a VPN gateway, 15 per connection|
+{: caption="Table 6. Quotas for the VPN service" caption-side="top"}
+
+## Load balancers
+{: #load-balancer-quotas}
+
+
+|Resource|Quota|
+|--------|-----|
+| Load balancers | 20 per account |
+| Listeners | 10 per load balancer |
+| Pools | 10 per load balancer |
+| Members | 50 per pool |
+{: caption="Table 7. Quotas for load balancers" caption-side="top"}

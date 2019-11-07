@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-11-06"
 
 subcollection: vpc
 
@@ -24,7 +24,7 @@ If you experience difficulties with your {{site.data.keyword.vsi_is_full}} insta
 ## Permissions not set up in IBM Cloud
 {: #troubleshooting-permissions-in-ibm-cloud}
 
-Before you can create {{site.data.keyword.vsi_is_short}}, you need the correct permissions to be set up in {{site.data.keyword.cloud_notm}} console. If your permissions are not correct, you can create a server and it shows `Pending` status, which quickly turns into `Failed` status. Make sure that the master of the account assigns you the correct [permissions](/docs/vpc?topic=vpc-managing-user-permissions-for-vpc-resources#managing-user-permissions-for-vpc-resources).
+Before you can create {{site.data.keyword.vsi_is_short}}, you need the correct permissions to be set up in {{site.data.keyword.cloud_notm}} console. If your permissions are not correct, you can create a server and it shows `Pending` status, which quickly turns into `Failed` status. Make sure that the administrator of the account assigns you the correct [permissions](/docs/vpc?topic=vpc-managing-user-permissions-for-vpc-resources#managing-user-permissions-for-vpc-resources).
 
 ## Servers are all in Unknown status
 {: #troubleshooting-servers-unknown-status}
@@ -41,11 +41,11 @@ You can't create certain instance actions if the status of your instance is in c
 | Status      | Action     | Conflict |
 | ----------- | ---------- | -------- |
 | Running     | start      | yes      |
-| Stopped     | not start  | yes      |
+| Stopped     | Any action other than start  | yes      |
 | Not running | pause      | yes      |
 | Not running | reboot     | yes      |
 | Not paused  | resume     | yes      |
-| Paused      | not resume | yes      |
+| Paused      | Any action other than resume | yes      |
 
 ## Instance not responding to `instance-reboot` request
 {: #troubleshooting-instance-not-responding}

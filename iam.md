@@ -62,7 +62,7 @@ For more information about assigning user roles in the UI, see [Managing user pe
 ## Resources and resource groups
 {: #resources-and-resource-groups}
 
-A _resource group_ is a collection of resources, such as an entire VPC or a single subnet, that are associated for the purpose of establishing authorization and usage. You can think of a resource group as a collection of infrastructure that might be used by a project, a department, or a team.
+A _resource group_ is a collection of resources, such as an entire VPC or a single subnet, that are associated for the purpose of establishing authorization and usage. You can think of a resource group as a collection of infrastructure resources that might be used by a project, a department, or a team.
 
 Large enterprises might divide a VPC into various resource groups, whereas smaller companies might need only one resource group because all team members have access to the entire VPC. If you are familiar with _OpenStack_, a resource group is similar in concept to a _Project_ in _OpenStack Keystone_.
 

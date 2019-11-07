@@ -36,6 +36,8 @@ To create and configure your VPC and other attached resources, perform the steps
 1. If you want more storage, create a block storage volume and attach it to your instance.
 1. To define the inbound and outbound traffic that's allowed for the instance, configure its security group.
 1. If you want your instance to be reachable from the internet, reserve and associate a floating IP address.
+1. To distribute requests over multiple instances, create a load balancer.
+1. To enable your VPC to connect securely to another private network, such as your on-premises network or another VPC, create a virtual private network (VPN).
 
 After you enter data on the provisioning pages, you can click the **Get sample API call** button to view the sequence of API requests that correspond to your settings. Viewing the API calls is a good way to learn about the API and understand actions and their dependencies.
 {: tip}
@@ -230,6 +232,116 @@ To monitor your instance:
 
 Because the monitoring data is stored in {{site.data.keyword.monitoringlong_notm}}, you must be authenticated to an instance of the Monitoring service in your account. For more information, see [Setting up the monitoring service for VPC](/docs/vpc?topic=vpc-monitoring#setup-monitoring)
 {: important}
+
+## Creating a load balancer
+{: #load-balancer}
+
+You can create a load balancer to distribute inbound traffic across multiple instances.
+
+To create a load balancer:
+1. In the navigation pane, click **Network > Load balancers**.
+1. On the Load balancers page, click **New load balancer** and specify the following information.
+    * **Name**: Enter a name for the load balancer, such as `my-load-balancer`.
+    * **Virtual private cloud**: Select your VPC.
+    * **Resource group**: Select a resource group for the load balancer.
+    * **Tags**: (Optional) Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/resources?topic=resources-tag).
+    * **Type**: Select the load balancer type. 
+      * A public load balancer has a public IP address, which means that it can route requests from clients over the internet.
+      * A private load balancer has a private IP address, which means that it is accessible only to internal clients on your private subnets, within the same region and VPC.
+    * **Region**: Indicates the region in which the load balancer will be created; that is, the region selected for your VPC.
+    * **Subnets**: Select the subnets in which to create your load balancer. To maximize the availability of your application, select subnets in different zones.
+1. Click **New pool** and specify the following information to create a back-end pool. You can create one or more pools.
+    * **Name**: Enter a name for the pool, such as `my-pool`.
+    * **Protocol**: Select the protocol for your instances in this pool. The protocol of the pool must match the protocol of its associated listener. For example, if an HTTPS or HTTP protocol is selected for the listener, the protocol of the pool must be HTTP. Similarly, if the listener protocol is TCP, the protocol of the pool must be TCP.
+    * **Method**:  Select how you want the load balancer to distribute traffic across the instances in the pool:
+      * **Round robin:** Forward requests to each instance in turn. All instances receive approximately an equal number of client connections.
+      * **Weighted round robin:** Forward requests to each instance in proportion to its assigned weight. For example, you have instances A, B, and C, and their weights are set to 60, 60 and 30. Instances A and B receive an equal number of connections, and instance C receives half as many connections.
+      * **Least connections:** Forward requests to the instance with the least number of connections at the current time.  
+    * **Session stickiness**: Select whether all requests during a user's session are sent to the same instance.  
+    * **Health checks**: Configure how the load balancer checks the health of the instances.
+      * **Health check path**: Health path is applicable only if HTTP is selected as the health check protocol. The health path specifies the URL used by the load balancer to send the HTTP health check requests to the instances in the pool. By default, health checks are sent to the root path (`/`).
+      * **Health protocol**: The protocol used by the load balancer to send health check messages to the instances in the pool.
+      * **Health port**: The port on which to send health check requests. By default, health checks are sent on the same port on which traffic is sent to the instance.
+      * **Interval**: Interval in seconds between two consecutive health check attempts. By default, health checks are sent every 5 seconds.
+      * **Timeout**: Maximum amount of time the system waits for a response from a health check request. By default, the load balancer waits 2 seconds for a response.
+      * **Max retries**: Maximum number of health check attempts that the load balancer makes before an instance is declared unhealthy. By default, an instance is no longer considered healthy after two failed health checks.
+
+        Although the load balancer stops sending connections to unhealthy instances, the load balancer continues monitoring the health of these instances and resumes their use if they're found healthy again (that is, if they successfully pass two consecutive health check attempts).
+
+      If instances in the pool are unhealthy and you believe that your application is running fine, double check the health protocol and health path values. Also, check any security groups that are attached to the instances to ensure that the rules allow traffic between the load balancer and the instances.
+      {: tip}
+
+1. Click **Create**.
+1. Next to the entry for the new pool, click **Attach** in the **Instances** column to add an instance to the pool. Click **Add** to add more instances to the pool. Specify the following information for each instance:
+   * Select one or more subnets from which to select an instance.
+   * Select an instance. If an instance has multiple interfaces, make sure that you select the correct IP address.
+   * Specify the port on which traffic is sent to the instance.
+   * If your pool uses the **Weighted round robin** method, assign a weight for each instance.  
+
+      Assigning '0' weight to an instance means that no new connections are forwarded to that instance, but any existing traffic continues to flow while the current connection is active. Using a weight of '0' can help bring down an instance gracefully and remove it from service rotation.
+      {: tip}
+
+1. Click **New listener** and specify the following information to create a listener. You can create one or more listeners.
+   * **Protocol**: The protocol to use for receiving incoming requests.
+   * **Port**: The listening port on which requests are received. The port range of 56500 to 56520 is reserved for management purposes and can't be used.
+   * **Back-end pool**: The default back-end pool to which this listener forwards traffic.
+   * **Max connections** (optional): Maximum number of concurrent connections the listener allows.
+   * **SSL certificate**: If HTTPS is the selected protocol for this listener, you must select an SSL certificate. Make sure that the load balancer is authorized to access the SSL certificate. For more information, see [Before you begin](#before).
+1. Click **Create**.
+1. After you finish creating pools and listeners, click **Create load balancer**.
+1. To view details of an existing load balancer, click the name of your load balancer on the **Load balancers** page.
+1. If you want to redirect, forward, or reject particular incoming traffic for an HTTP or HTTPS front-end listener based on certain criteria, configure layer-7 policies.
+    1. After the status of the load balancer changes to **Active**, click **Front-end listeners** in the navigation and click the value in the **Policies** column for the listener you created.
+    2. On the Policies page, click **Add policy** and specify the following information to create a policy. You can create multiple policies.
+        * **Name**: Enter a name for the policy, such as `my-policy`. The name must be unique within the listener.
+        * **Action**: The action to take when all the rules for the policy match. You can reject a request with a 403 response, redirect the request to a configured URL and response code, or forward the request to a specific back-end pool. If an incoming request does not match the rules for any policies, the request is forwarded to the default back-end pool of the listener.
+        * **Priority**: Within each action type, policies are evaluated in ascending order of priority. Policies to reject traffic are always evaluated first, regardless of their priority. Policies to redirect traffic are evaluated next, followed by policies to forward traffic.
+        * **Redirect**: The URL to which the request is redirected, if the action is set to **Redirect**.
+        * **Status Code**: The status code of the response returned by the load balancer, if the action is set to **Redirect**.
+        * **Forward**: The back-end pool of virtual server instances to which the request is forwarded, if the action is set to **Forward to pool**.
+    3. On the Policies page, click **Add rule** for your policy. If rules exist for the policy, click the value in the **Rules** column to add more rules.
+    4. In the Rules window, click **Add rule** and specify the following information to create a rule. If you create multiple rules for a policy, the policy is applied only when all its rules are matched.
+        * **Condition**: Specifies the condition with which a rule is evaluated.
+        * **Type**: The type of information to be evaluated by the rule: the name of the host from which the request originated, an HTTP header field, or a path in the URL.
+        * **Value**: The value to be matched.
+        * **Key**: The name of the HTTP header field to evaluate, if the rule type is **Header**. For example, to match a cookie in the HTTP header, enter **Cookie** for the key.
+
+## Creating a VPN
+{: #vpn-ui}
+
+You can create a virtual private network (VPN) so your VPC can connect securely to another private network, such as an on-premises network or another VPC.
+
+To create a VPN:
+1. In the navigation pane, click **Network > VPNs**.
+1. On the VPN page, click **New VPN gateway** and specify the following information:
+    * **Name**: Enter a name for the VPN gateway in your virtual private cloud, such as `my-vpn-gateway`.
+    * **Virtual private cloud**: Select your VPC.
+    * **Resource group**: Select a resource group for the VPN. 
+    * **Subnet**: Select the subnet in which to create the VPN gateway. 
+
+      For best performance, create the VPN gateway in a subnet without any other VPC resources to ensure that there are enough available private IPs for the gateway. A VPN gateway needs 8 private IP addresses to accommodate high availability and rolling upgrades.
+
+      The VPN gateway is created in the zone that is associated with the subnet you select. Because the VPN gateway can connect to virtual server instances in this zone only, instances in other zones can't use this VPN gateway to communicate with the other network. For zone fault tolerance, deploy one VPN gateway per zone.
+      {: tip}
+
+1. In the **New VPN connection** section, define a connection between this gateway and a network outside your VPC by specifying the following information.
+    * **Connection name**: Enter a name for the connection, such as `my-connection`.
+    * **Peer gateway address**: Specify the IP address of the VPN gateway for the network outside your VPC.
+    * **Preshared key**: Specify the authentication key of the VPN gateway for the network outside your VPC.
+    * **Local subnets**: Specify one or more subnets in the VPC you want to connect through the VPN tunnel.
+    * **Peer subnets**: Specify one or more subnets in the other network you want to connect through the VPN tunnel.
+1. To configure how the cloud gateway sends messages to check that the peer gateway is active, specify the following information in the **Dead peer detection** section.
+    * **Dead peer detection action**: The action to take if a peer gateway stops responding. For example, select **Restart** if you want the gateway to immediately renegotiate the connection.
+    * **Interval**: How often to check that the peer gateway is active. By default, messages are sent every 2 seconds.
+    * **Timeout**: How long to wait for a response from the peer gateway. By default, a peer gateway is no longer considered active if a response isn't received within 10 seconds.
+1. Specify the Internet Key Exchange (IKE) and Internet Protocol Security (IPSec) parameters to use for phase 1 and phase 2 negotiation of the connection.
+    * Select **Auto** if you want the cloud gateway to try to automatically establish the connection.
+    * Select or create custom policies if you need to enforce particular security requirements, or the VPN gateway for the other network doesn't support the security proposals that are tried by auto-negotiation.
+
+  The IKE and IPsec security parameters that you specify for the connection must be the same parameters that are set on the gateway for the network outside your VPC.
+  {: important}
+
+  For more information about VPNs, see [Using VPN with your VPC](/docs/vpc?topic=vpc-using-vpn).
 
 ## Congratulations!
 {: #congratulations} 

@@ -41,6 +41,8 @@ The following table summarizes the types of VPC resources and the relationships 
 | Security group | The security group must be detached from all network interfaces. The default security group for a VPC cannot be deleted. | ---- |
 | Floating IP | The floating IP must be detached from any network interface. | ---- |
 | Public gateway | The public gateway must be detached from all subnets. |  ---- |
+| Load balancer | ---- | ---- |
+| VPN gateway | ---- | Because IKE and IPsec policies can be shared between gateways, these policies are not deleted when a VPN Gateway is deleted. These policies must be removed manually. |
 {: caption="Table 1. Types of resources and relationships that affect deletions" caption-side="top"}
 
 ## VPC resources cannot be deleted in a transient state
@@ -48,7 +50,7 @@ The following table summarizes the types of VPC resources and the relationships 
 
 VPC resources cannot be deleted when they are in a transient state, such as `pending`. All resources must be in a "final" state, such as `available` or `failed`, before they can be deleted. You must wait for the resource to get to `available` or `failed` before you try to delete the resource. [Contact support](/docs/vpc-on-classic?topic=vpc-on-classic-getting-help-and-support) if a resource does not show an `available` or `failed` status within 30 minutes.
 
-After you request to delete a resource, the resource enters a transient state of `deleting`. Wait for the resource to disappear from the list before you try to delete the parent or attached resource. In some situations, the delete operation might fail, and the resource enters a `failed` status within a few minutes. Contact support if a resource does not either disappear or show a `failed` status within 30 minutes after you made a delete request. After the resource is in `failed` status, you can attempt to delete it again. [Contact support](/docs/vpc-on-classic?topic=vpc-on-classic-getting-help-and-support) if you are unable to delete a resource in `failed` status.
+After you request to delete a resource, the resource enters a transient state of `deleting`. Wait for the resource to disappear from the list before you try to delete the parent or attached resource. In some situations, the delete operation might fail, and the resource enters a `failed` status within a few minutes. Contact support if a resource doesn't disappear or show a `failed` status within 30 minutes after you made a delete request. After the resource is in `failed` status, you can attempt to delete it again. [Contact support](/docs/vpc-on-classic?topic=vpc-on-classic-getting-help-and-support) if you are unable to delete a resource in `failed` status.
 
 ## Follow this order when you delete a VPC
 {: #deleting-order}
@@ -57,6 +59,8 @@ A VPC contains subnets and public gateways. A public gateway can be attached to 
 
 Follow this order when you delete a VPC:
 
+1. Delete all VPN gateways that are provisioned in any subnet of the VPC.
+2. Detach all load balancers that are provisioned in any subnet of the VPC.
 1. Delete all instances that have network interfaces in any subnet of the VPC. Any Floating IP associated with a network interface is automatically detached from the network interface when the instance is deleted.
 1. Delete all subnets in the VPC. Any public gateway attached to a subnet is automatically detached from the subnet when the subnet is deleted.
 1. Delete all public gateways in the VPC.
@@ -72,7 +76,7 @@ In some cases, deleting a VPC resource removes the link to existing resources au
 ### VPC
 {: #deleting-details}
 
-VPCs contain subnets and public gateways. Instances are provisioned in a subnet. Before a VPC can be deleted, all subnets and public gateways in the VPC must be deleted. In other words, all public gateways and instances in the VPC must first be deleted.
+VPCs contain subnets and public gateways. Load balancers, VPN gateways, and instances are provisioned in a subnet. Before a VPC can be deleted, all subnets and public gateways in the VPC must be deleted. In other words, all public gateways, load balancers, VPN gateways, and instances in the VPC must first be deleted.
 
 A VPC also contains address prefixes and security groups, but these resources are deleted automatically when the VPC is deleted.
 
@@ -88,13 +92,15 @@ A VPC must have a default security group. If you created a VPC without specifyin
 ### Subnet
 {: #deleting-subnet}
 
-All resources in a subnet must be deleted before the subnet can be deleted. Subnets contain the instance's network interfaces. The network interface that is associated with the subnet must be deleted before the subnet can be deleted.
+All resources in a subnet must be deleted before the subnet can be deleted. Subnets contain the instance's network interfaces, load balancers, and VPN gateways. The network interface that is associated with the subnet must be deleted before the subnet can be deleted, along with any load balancers or VPN gateway provisioned in the subnet.
 
 An instance can have multiple network interfaces, and those network interfaces can belong to multiple subnets of the VPC. Before a subnet can be deleted, any network interface in the subnet must first be deleted. The instance's primary network interface cannot be deleted or moved to another subnet. All instances with a primary network interface in the subnet must be deleted before the subnet can be deleted.
 
 | In Subnet | Can contain | Can attach to | Has Status? | Automatically deletes when subnet is deleted | Automatically detached when deleted |
 | ---------------- | ----------------------------------------- | --------------------------- | ------ | ---------------------------------------------- | ----------------------------------- |
 | Instance (network interface) | Multiple network interfaces | Volume attachments, security groups | Yes| No  | Yes|
+| VPN | --- | ---| Yes | No  | --- |
+| Load Balancer | ---  | --- | Yes | No | ---  |
 {: caption="Table 3. Requirements for deleting network interfaces" caption-side="top"}
 
 ### Instance
@@ -106,6 +112,22 @@ No prerequisites are required for deleting an instance. When the instance is del
 | ---------------- | ----------------------------------------- | --------------------------- | ------ | ---------------------------------------------- | ----------------------------------- |
 | Network interface | --- | Subnets, floating IP, security groups | No | Yes | Yes |
 {: caption="Table 4. Information for deleting instances" caption-side="top"}
+
+### Load Balancer
+{: #deleting-lb}
+
+No prerequisites are required for deleting a load balancer. When the load balancer is deleted, all listeners, pools, and pool members that are part of the load balancer are deleted automatically.
+
+Deleting a load balancer can take up to 30 minutes. The delete request immediately changes the provisioning status of the load balancer to `deleting`. However, the load balancer is not deleted until it disappears from the list query.
+{: important}
+
+### VPN
+{: #deleting-vpn}
+
+No prerequisites are required for deleting a VPN gateway. When the VPN gateway is deleted, its associated connections are also deleted automatically. IKE and IPSec policies are not deleted when a VPN gateway is deleted.
+
+Deleting a VPN gateway can take up to 30 minutes. The delete request immediately changes the provisioning status of the VPN gateway to `deleting`. However, the VPN gateway is not deleted until it disappears from the list query.
+{: important}
 
 ### Floating IP
 {: #deleting-floating-ip}

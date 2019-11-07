@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2018, 2019
 lastupdated: "2019-10-29"
 
-keywords: secure, region, zone, subnet, public gateway, floating IP, NAT, virtual private network
+keywords: secure, region, zone, subnet, public gateway, floating IP, NAT, lbaas, vpnaas, lb, vpn, load balancer, virtual private network
 subcollection: vpc
 
 ---
@@ -81,6 +81,8 @@ Table 1 summarizes the differences between the options:
 | Instances can initiate connections to the internet, but they can't receive connections from the internet.| Instances can initiate or receive connections to or from the internet | 
 | Provides connectivity for an entire subnet | Provides connectivity for a single instance |
 {: caption="Table 1. External connectivity options" caption-side="top"}
+
+For secure external connectivity, use the VPN service to connect your VPC to another network. For more information about VPNs, see [Using VPN with your VPC](/docs/vpc?topic=vpc-using-vpn).
 
 ### Use a Public gateway for external connectivity of a subnet
 {: #public-gateway-for-external-connectivity}

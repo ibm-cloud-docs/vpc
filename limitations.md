@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-10-14"
+lastupdated: "2019-11-07"
 
 keywords: vpc, limitations, restrictions
 
@@ -29,11 +29,9 @@ Limitations might change as capabilities are added, so feel free to check back f
 ## General restrictions
 {: #general-restrictions}
 
-* The following features are not supported, including all properties associated with these features:
-  * Network ACLs (access control lists)
-  * Shares
-  * Load balancers
-  * VPNs (virtual private networks)
+The following features are not supported, including all properties associated with these features:
+* Network ACLs (access control lists)
+* Shares
 
 * The following concepts are not supported:
   * IPV6
@@ -58,6 +56,8 @@ Limitations might change as capabilities are added, so feel free to check back f
 
 * Multiple Virtual Network Interface Controllers: Only one Virtual Network Interface Controller is allowed for each virtual server instance. Currently, only the primary Virtual Network Interface Controller (VNIC) Ethernet 0 (eth0) works for a virtual server.
 
+* VPN: A VPN gateway serves only subnets that are in the zone in which the VPN is created. For more information, see [Using VPN](/docs/vpc?topic=vpc-using-vpn#vpn-limitations).
+
 
 ## Compute restrictions
 {: #compute-restrictions}
@@ -75,7 +75,7 @@ Limitations might change as capabilities are added, so feel free to check back f
 * Activity Tracker logs (request logs and resource lifecycle event logs) are not available.
 * Updating the profile of a created instance is not supported.
 
-## Block storage, secondary storage restrictions
+## Storage restrictions
 {: #storage-restrictions}
 
-* Customer-managed encryption is not supported.
+* Customer-managed encryption for secondary volumesis not supported.

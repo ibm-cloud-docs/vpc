@@ -135,7 +135,7 @@ Add the necessary VPC access policies for each access group. For example, add a 
 9. In the **Assign platform access roles** area, select **Editor**.
 10. Select **Assign**.
 
-Because the boot volume that's automatically attached to an instance and floating IP resources are created in the Default resource group, you must also add access policies for the Default resource group.
+Because floating IP resources and the boot volume that's automatically attached to an instance are created in the Default resource group, you must also add access policies for the Default resource group.
 
 | Access group | Resource group |  Resource type | Platform access role|
 |--------------------------|------------------------|----------------------------------------------------------------|--------------------------|------------------------|-----------------------------------------------------------------|

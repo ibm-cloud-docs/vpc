@@ -33,6 +33,8 @@ Here are the main steps in the process:
 
 1. Find all subnets in the VPC you want to delete.
 2. Delete each subnet in the VPC, which means:
+    - Delete all VPN gateways in the subnet.
+    - Delete all Load Balancers in the subnet.
     - Delete all network interfaces of the instances in the subnet.
     - Delete the subnet.
 3. Delete all public gateways in the VPC.
@@ -81,6 +83,48 @@ If the VPC you want to delete has multiple subnets, repeat the steps to delete e
 
 ## Step 2: Delete each subnet in the VPC
 {: #deleting-subnet-resources-api}
+
+### Delete all VPN gateways in the subnet, if any
+{: #deleting-vpn-api}
+
+To list all VPN gateways in your account, run the following command:
+
+```bash
+curl -X GET "$rias_endpoint/v1/vpn_gateways?version=$version&generation=2" \
+     -H "Authorization:$iam_token"
+```
+{: pre}
+
+Run the following command for each VPN gateway in the subnet you want to delete, where `$vpnid` is the ID of the VPN gateway.
+
+```bash
+curl -X DELETE "$rias_endpoint/v1/vpn_gateways/$vpnid?version=$version&generation=2" \     
+     -H "Authorization:$iam_token"
+```
+{: pre}
+
+The status of the VPN gateway changes to `deleting` immediately, but it is still returned when you do a list query. The deletion of a VPN gateway can take up to 30 minutes. You can request other subnet resources to be deleted in parallel while you wait for the VPN gateway to be deleted, but the subnet can't be deleted until the VPN gateway and all other resources in the subnet no longer appear in the list queries.
+
+### Delete all load balancers in the subnet, if any
+{: #deleting-lbs-api}
+
+To list all load balancers in your account, run the following command:
+
+```bash
+curl -X GET "$rias_endpoint/v1/load_balancers?version=$version&generation=2" \     
+     -H "Authorization:$iam_token"
+```
+{: pre}
+
+Run the following command for each load balancer in the subnet you want to delete, where `$lbid` is the ID of the load balancer.
+
+```bash
+curl -X DELETE "$rias_endpoint/v1/load_balancers/$lbid?version=$version&generation=2" \     
+     -H "Authorization:$iam_token"
+```
+{: pre}
+
+The status of the load balancer changes to `deleting` immediately, but it is still returned when you do a list query. The deletion of a load balancer can take up to 30 minutes. You can request other subnet resources to be deleted in parallel while you wait for the load balancer to be deleted, but the subnet can't be deleted until the load balancer and all other resources in the subnet no longer appear in the list queries.
 
 ### Delete all network interfaces in the subnet, if any
 {: #deleting-nics-api}

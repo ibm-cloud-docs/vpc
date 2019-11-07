@@ -55,6 +55,8 @@ To create and configure your VPC and other attached resources:
 1. To define the inbound and outbound traffic that's allowed for instances, configure their security groups.
 1. If you want instances to be reachable from the internet, reserve and associate floating IP addresses.
 5. Deploy your service or applications across the instances.
+1. To distribute requests over multiple instances, create a load balancer.
+1. To enable your VPC to connect securely to another private network, such as your on-premises network or another VPC, create a virtual private network (VPN).
 
 ## Next steps
 {: #getting-started-next-steps}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-11-03"
 
 keywords: virtual server instances, VSI, planning, best practices
 
@@ -38,11 +38,13 @@ After you have a VPC available, consider the following before you provision your
 |__ Make sure your account has the required user permissions. If you have authorization as an editor or admin on a VPC resource, then you also inherit authorization to create, delete, and modify virtual server instances within that virtual private cloud.|
 |__ Check your [account limits](/docs/vpc?topic=vpc-quotas#virtual-server-instances) for concurrent instances. |
 |__ Make sure your [SSH key](/docs/vpc?topic=vpc-ssh-keys#ssh-keys) is available.
-|__ Determine what location to select.|
+|__ Determine what region and zone to select.|
 |__ Determine which subnets you want the instance to connect to.|
 |__ Consider the popular [profile options](/docs/vpc?topic=vpc-profiles#profiles) of vCPU and RAM combinations for your workload. Profiles contain preconfigured instances that are ready to use in a matter of minutes. It's important to ensure that your instances have the necessary resources to keep your workloads and your environment up and running.|
-|__ Determine what operating system image to select for your instance. You can choose among the current stock images: Ubuntu (14, 16, and 18), CentOS, and Debian (9 and 10). |
+|__ Determine what operating system image to select for your instance. You can choose among the current stock images or specify your own custom image. |
 |__ Make sure you have a unique name for the instance. If you have a method to naming virtual server instances, it's much easier to filter and search on them later. |
+|__ Determine how many secondary storage volumes you need. |
+|__ Determine how many network interfaces you need and which security group to attach to each interface.|
 {: caption="Table 1. Checklist for planning to provision instances" caption-side="top"}
 
 ## Next steps

@@ -26,7 +26,7 @@ subcollection: vpc
 # Pricing for VPC
 {: #pricing-for-vpc}
 
-Pricing of {{site.data.keyword.vpc_full}} is applied separately for [internet data transfer](#pricing-for-data-transfer), [virtual server instances](#pricing-for-virtual-servers-for-vpc), and [block storage](#pricing-for-block-storage-for-vpc) used within your {{site.data.keyword.vpc_short}}. The following charges apply to your use of {{site.data.keyword.vpc_short}}. For PayGo services, the service tiers are bound to your account, not to any specific VPC instance. Amounts are shown in US dollars.
+Pricing of {{site.data.keyword.vpc_full}} is applied separately for [internet data transfer](#pricing-for-data-transfer), [load balancers](#lb-for-vpc-pricing), [VPNs](#vpn-for-vpc-pricing), [virtual server instances](#pricing-for-virtual-servers-for-vpc), and [block storage](#pricing-for-block-storage-for-vpc) used within your {{site.data.keyword.vpc_short}}. The following charges apply to your use of {{site.data.keyword.vpc_short}}. For PayGo services, the service tiers are bound to your account, not to any specific VPC instance. Amounts are shown in US dollars.
 
 ## Pricing for internet data transfer with IBM Cloud™ Virtual Private Cloud
 {: #pricing-for-data-transfer}
@@ -42,7 +42,7 @@ There are no charges for private traffic within your VPC and the use of public g
 |---------------|------------------|
 | Private traffic within the zone | Free |
 | Private traffic between zones in the same region | Free |
-| Use of public gateway (PGW) | Free (Charged only for the floating IP used by the PGW) |
+| Use of public gateway (PGW) | Use of the public gateway is free<br>Traffic exiting the public gateway is billed |
 {: caption="Table 1. Free allowances for internet data transfer" caption-side="top"}
 
 ### Basic PayGo pricing for internet data transfer
@@ -69,6 +69,17 @@ If you have a public gateway or floating IP, you might still see some minimal eg
 {: #floating-ip-pricing}
 
 A floating IP is charged at the rate of $1 (US) per month, starting when it is reserved. The fee is charged even if the floating IP is not associated to a VSI or not in use. The $1 for the monthly fee is charged even if the floating IP is reserved for only a few days.
+
+## Pricing for load balancers for VPC 
+{: #lb-for-vpc-pricing}
+
+Load balancers for VPC are currently in Beta. There are no charges for their use.
+
+
+## Pricing for VPN for VPC 
+{: #vpn-for-vpc-pricing}
+
+VPNs for VPC are currently in Beta. There are no charges for their use.
 
 
 ## Pricing for Virtual Servers for VPC
@@ -173,7 +184,7 @@ Review the following table for details on how suspend billing impacts various re
 | RAM                           |          X        |                  |
 | Bandwidth upgrades            |          X        |                  |
 | Operating system licenses     |          X        |                  |
-| Floating IPs or other attached networking offerings |                   |         X        |
+| Floating IPs, Load balancers, or other attached networking offerings |                   |         X        |
 | Storage                       |                   |         X        |
 {: caption="Table 7. Resource billing details" caption-side="top"}
 

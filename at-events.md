@@ -109,6 +109,61 @@ The following table lists the actions related to image resources and the generat
 | volume  | is.volume.volume.delete  | Volume was deleted.  |
 {: caption="Table 4. Actions that generate events for storage resources" caption-side="top"}
 
+## List of events: Load balancers
+{: #events-load-balancers}
+
+The following table lists the actions related to load balancers and the generation of events.
+
+| Resource  | Action  | Description  |
+|:----------------|:-----------------------|:-----------------------|
+| Load balancer |  is.load-balancer.load-balancer.create | Load balancer was created |
+| Load balancer |  is.load-balancer.load-balancer.update | Load balancer was updated |
+| Load balancer |  is.load-balancer.load-balancer.delete | Load balancer was deleted |
+| Listener |  is.load-balancer.load-balancer.listener.create | Listener was created |
+| Listener |  is.load-balancer.load-balancer.listener.update | Listener was updated |
+| Listener |  is.load-balancer.load-balancer.listener.delete | Listener was deleted |
+| Pool |  is.load-balancer.load-balancer.pool.create | Pool was created |
+| Pool |  is.load-balancer.load-balancer.pool.update | Pool was updated |
+| Pool |  is.load-balancer.load-balancer.pool.delete | Pool was deleted |
+| Member |  is.load-balancer.load-balancer.pool.member.create | Member was created |
+| Member |  is.load-balancer.load-balancer.pool.member.update | Member was updated |
+| Member |  is.load-balancer.load-balancer.pool.member.delete | Member was deleted |
+| Policy |  is.load-balancer.load-balancer.listener.policy.create | Policy was created |
+| Policy |  is.load-balancer.load-balancer.listener.policy.update | Policy was updated |
+| Policy |  is.load-balancer.load-balancer.listener.policy.delete | Policy was deleted |
+| Rule |  is.load-balancer.load-balancer.listener.policy.rule.create | Rule was created |
+| Rule |  is.load-balancer.load-balancer.listener.policy.rule.update | Rule was updated |
+| Rule |  is.load-balancer.load-balancer.listener.policy.rule.delete | Rule was deleted |
+{: caption="Table 5. Actions that generate events for load balancers" caption-side="top"}
+
+Load balancer auditing events are recorded to {{site.data.keyword.at_full}} in the `us-south` region. The region in which you provision the load balancer service does not matter.
+{:note}
+
+## List of events: VPNs
+{: #events-vpn}
+
+The following table lists the actions that are related to VPNs and the generation of events.
+
+| Resource  | Action  | Description  |
+|:----------------|:-----------------------|:-----------------------|
+| vpn  | is.vpn.vpn-gateway.create   | VPN Gateway was created |
+| vpn  | is.vpn.vpn-gateway.delete   | VPN Gateway was deleted |
+| vpn  | is.vpn.vpn-gateway.update   | VPN Gateway was updated |
+| vpn  | is.vpn.vpn-connection.create   | VPN connection was created on VPN Gateway |
+| vpn  | is.vpn.vpn-connection.delete   | VPN connection was deleted from VPN Gateway |
+| vpn  | is.vpn.vpn-connection.update   | VPN connection was updated on VPN Gateway |
+| vpn  | is.vpn.vpn-connection_local-cidr.create   | Local subnet was created on VPN Connection |
+| vpn  | is.vpn.vpn-connection_local-cidr.delete   | Local subnet was deleted from VPN Connection |
+| vpn  | is.vpn.vpn-connection_peer-cidr.create   | Peer subnet was created on VPN Connection |
+| vpn  | is.vpn.vpn-connection_peer-cidr.delete   | Peer subnet was deleted from VPN Connection |
+| vpn  | is.vpn.ike-policy.create   | IKE policy was created |
+| vpn  | is.vpn.ike-policy.delete   | IKE policy was deleted |
+| vpn  | is.vpn.ike-policy.update   | IKE policy was updated |
+| vpn  | is.vpn.ipsec-policy.create   | IPsec policy was created |
+| vpn  | is.vpn.ipsec-policy.delete   | IPsec policy was deleted |
+| vpn  | is.vpn.ipsec-policy.update   | IPsec policy was updated |
+{: caption="Table 6. Actions that generate events related to VPNs" caption-side="top"}
+
 ## Supported locations
 {: #at-supported-locations}
 

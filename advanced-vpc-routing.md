@@ -55,4 +55,4 @@ Use the [routes](https://{DomainName}/apidocs/vpc#create-a-route-on-your-vpc) AP
 {: #routing-limitations}
 
 - Currently, custom default static routes are not available. Only non-default static routes are supported.
-- You can set the next hop to be an ip address only.
+- You can set the next hop to be an IP address only.
