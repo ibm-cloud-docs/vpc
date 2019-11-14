@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2019
 
-lastupdated: "2019-09-30"
+lastupdated: "2019-11-14"
 
 
 keywords: vpc, virtual private cloud, vpc ui, console, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range
@@ -342,6 +342,11 @@ To create a VPN:
   {: important}
 
   For more information about VPNs, see [Using VPN with your VPC](/docs/vpc?topic=vpc-using-vpn).
+  
+## Viewing resources associated with a VPC
+{: #vpc-layout} 
+
+You can quickly view the resources that are associated with a VPC by accessing the resource view: In the navigation, click **VPC layout**. You can select the VPC that you are interested in, if your account has multiple VPCs configured. For each VPC you can see the associated subnets, and within each subnet you can see how many instances are running, stopped, and failed. You can also see how many IP addresses are available in each subnet. From the lists of instances and associated IP addresses, you can click a specific instance to view its details.  
 
 ## Congratulations!
 {: #congratulations} 
