@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-10-29"
+lastupdated: "2019-11-18"
 
 keywords: ssh keys, vsi, virtual server instance
 
@@ -34,9 +34,9 @@ Logging in to your instance with a password isn't supported.
 ## Locating or generating your SSH key
 {: #locating-ssh-keys}
 
-Before you can add a key in the {{site.data.keyword.cloud}} console, you must have your SSH key available. To locate your SSH key or generate an SSH key, complete one of the following steps.
+Before you can add a key in the {{site.data.keyword.cloud_notm}} console, you must have your SSH key available. Your SSH key must be an RSA key with a key size of either 2048 bits or 4096 bits. To locate your SSH key or generate an SSH key, complete one of the following steps.
 
- * Locate an SSH key: Look for a file called `id_rsa.pub` under an `.ssh` directory under your home directory, for example, `/Users/<USERNAME>/.ssh/id_rsa.pub`. The file starts with `ssh-rsa` and ends with your email address.
+ * Locate an SSH key: Look for a file called `id_rsa.pub`. It might be in an `.ssh` directory under your home directory, for example, `/Users/<USERNAME>/.ssh/id_rsa.pub`. The content of the file typically starts with `ssh-rsa` and ends with your user ID.  
 
- * Generate an SSH key: If you do not have a public SSH key or if you forgot the password of an existing one, generate a new one by running the `ssh-keygen` command and following the prompts. For example, you can generate an SSH key on your Linux server by running the command `ssh-keygen -t rsa -C "user_ID"`. That command generates two files. The generated public key is in the `<your key>.pub` file.
+* Generate an SSH key: If you don't have a public SSH key or if you forgot the password of an SSH key, generate a new one by running the `ssh-keygen` command and following the prompts. For example, you can generate an SSH key on your Linux or Mac system by running the command `ssh-keygen -t rsa -C "user_ID"`. You can press Enter to accept the default location for the file. The command generates two files. The generated public key is in the `<your key>.pub` file.
 
