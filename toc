@@ -131,6 +131,7 @@ Virtual Private Cloud
         vsi_is_troubleshooting.md
         block_storage_is_troubleshoot.md
         
+    release-notes.md 
     limitations.md
     api-change-log.md
     known-issues.md
