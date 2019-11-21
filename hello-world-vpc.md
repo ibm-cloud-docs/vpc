@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-010-17"
+lastupdated: "2019-11-20"
 
 keywords: vpc, cli, command line interface, tutorial, creating a vpc
 
@@ -18,6 +18,7 @@ subcollection: vpc
 {:pre: .pre}
 {:note: .note}
 {:tip: .tip}
+{:important: .important}
 {:table: .aria-labeledby="caption"}
 {:download: .download}
 
@@ -81,6 +82,9 @@ vpc="0738-59de4046-3434-4d87-bb29-0c99c428c96e"
 ```
 {: pre}
 
+The previous example does not create a VPC with classic access. If you require the VPC to have access to your classic resources, see [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure). You can only enable a VPC for classic access while creating it. In addition, you can only have one classic access VPC in your account at any time.
+{: important}
+
 ## Create a subnet
 {: #create-a-subnet-cli}
 
@@ -92,6 +96,9 @@ ibmcloud is vpc-address-prefixes $vpc
 {: pre}
 
 Let's pick the default address prefix for the us-south-3 zone. From the command output, note the CIDR block of the address prefix. When you create a subnet, you must specify an IP range that's within one of the address prefixes of the selected zone. 
+
+A subnet cannot be resized after it is created. 
+{: important}
 
 ```
 ibmcloud is subnet-create my-subnet $vpc us-south-3 --ipv4-cidr-block "10.0.1.0/24"
