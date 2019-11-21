@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2019
 
-lastupdated: "2019-11-14"
+lastupdated: "2019-11-20"
 
 
 keywords: vpc, virtual private cloud, vpc ui, console, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range
@@ -74,6 +74,10 @@ To create a VPC and subnet:
 1. _Optional:_ Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/resources?topic=resources-tag).
 1. Select whether the default security group allows inbound SSH and ping traffic to virtual server instances in this VPC. We'll configure more rules for the default security group later.
 1. _Optional:_ Select whether you want to enable your VPC to access classic infrastructure resources. For more information, see [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure).
+
+    You can only enable a VPC for classic access while creating it. In addition, you can only have one classic access VPC in your account at any time.
+    {: important}
+
 1. _Optional:_ Clear the **Default address prefixes** option if you don't want to assign default address prefixes to each zone in your VPC. After you create your VPC, you can go to its details page and set your own address prefixes.
 1. Enter a name for the new subnet in your VPC, such as `my-subnet`.
 1. Select a resource group for the subnet.
@@ -82,6 +86,10 @@ To create a VPC and subnet:
     The region that you select is used as the region of the VPC. All additional resources that you create in this VPC are created in the selected region.
     {: tip}
 1. Enter an IP range for the subnet in CIDR notation, for example: `10.240.0.0/24`. In most cases, you can use the default IP range. If you want to specify a custom IP range, you can use the IP range calculator to select a different address prefix or change the number of addresses.
+
+    A subnet cannot be resized after it has been created.
+    {: important}
+
 1. Attach a public gateway to the subnet if you want to allow all attached resources to communicate with the public internet.  
 
     You can also attach the public gateway after you create the subnet.
@@ -101,6 +109,7 @@ To create a virtual server instance in the newly created subnet:
 1. Select a resource group for the instance.
 1. _Optional:_ Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/resources?topic=resources-tag).
 1. In the **Location** field, select the zone in which to create the instance.
+1. Select an image (that is, operating system and version), such as Debian GNU/Linux 9.x Stretch/Stable.
 1. To set the instance size, select one of the popular profiles or click **All profiles** to choose a different core, RAM, and network performance combination that's most appropriate for your workload.
   
     After you create your instance, you can't update the profile.
@@ -109,8 +118,7 @@ To create a virtual server instance in the newly created subnet:
 1. Select an existing SSH key or add an SSH key that will be used to access the virtual server instance. To add an SSH key, click **New key** and name the key. After you enter your previously generated public key value, click **Add SSH key**.
 1. _Optional:_ Enter user data to run common configuration tasks when your instance starts. For example, you can specify cloud-init directives or shell scripts for Linux images. For more information, see [User Data](/docs/vpc?topic=vpc-user-data).
 1. Note the boot volume. In the current release, 100 GB is allotted for the boot volume. *Auto Delete* is enabled for the volume; the boot volume is deleted automatically if the instance is deleted.
-1. Select an image (that is, operating system and version) such as Debian GNU/Linux 9.x Stretch/Stable.
-1. In the **Attached block storage volume** area, click **New block storage volume** to attach a block storage volume to your instance if you want more storage. In this tutorial, we'll create a block storage volume and attach it to the instance later.
+1. In the **Data volumes** area, click **New volume** to attach a block storage volume to your instance if you want more storage. In this tutorial, we'll create a block storage volume and attach it to the instance later.
 1. In the **Network interfaces** area, you can edit the network interface and change its name. If you have more than one subnet in the selected zone and VPC, you can attach a different subnet to the interface. If you want the instance to exist in multiple subnets, you can create more interfaces. 
 
   <!-- Each interface has a maximum network bandwidth of 16 Gbps. If the profile you selected for this instance has a maximum network bandwidth greater than 16 Gbps, you might want to create more interfaces to optimize network performance. For more information, see [Network performance notes for profiles](/docs//vpc?topic=vpc-profiles#network-perf-notes-for-profiles).
@@ -342,11 +350,11 @@ To create a VPN:
   {: important}
 
   For more information about VPNs, see [Using VPN with your VPC](/docs/vpc?topic=vpc-using-vpn).
-  
+
 ## Viewing resources associated with a VPC
 {: #vpc-layout} 
 
-You can quickly view the resources that are associated with a VPC by accessing the resource view: In the navigation, click **VPC layout**. You can select the VPC that you are interested in, if your account has multiple VPCs configured. For each VPC you can see the associated subnets, and within each subnet you can see how many instances are running, stopped, and failed. You can also see how many IP addresses are available in each subnet. From the lists of instances and associated IP addresses, you can click a specific instance to view its details.  
+You can quickly view the resources that are associated with a VPC by accessing the resource view: In the navigation, click **VPC layout**. You can select the VPC that you are interested in, if your account has multiple VPCs configured. For each VPC you can see the associated subnets, and within each subnet you can see how many instances are running, stopped, and failed. You can also see how many IP addresses are available in each subnet. From the lists of instances and associated IP addresses, you can click a specific instance to view its details.
 
 ## Congratulations!
 {: #congratulations} 
