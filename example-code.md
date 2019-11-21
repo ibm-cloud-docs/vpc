@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-10-17"
+lastupdated: "2019-11-20"
 
 keywords: create, VPC, API, IAM, token, permissions, endpoint, region, zone, profile, status, subnet, gateway, floating IP, delete, resource, provision
 
@@ -69,6 +69,9 @@ vpc="0738-59de4046-3434-4d87-bb29-0c99c428c96e"
 
 To verify that the variable was saved, run `echo $vpc` and make sure the response is not empty. 
 
+The previous example does not create a VPC with classic access. If you require the VPC to have access to your classic resources, see [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure). You can only enable a VPC for classic access while creating it. In addition, you can only have one classic access VPC in your account at any time.
+{: important}
+
 ## Create a subnet
 {: #create-subnet-api-tutorial}
 
@@ -81,6 +84,9 @@ curl -X GET "$api_endpoint/v1/vpcs/$vpc/address_prefixes?version=$api_version&ge
 {: pre}
 
 Let's pick the default address prefix for the us-south-3 zone. From the response, note the CIDR block of the address prefix. When you create a subnet, you must specify an IP range that's within one of the address prefixes of the selected zone. 
+
+A subnet cannot be resized after it is created. 
+{: important}
 
 ```bash
 curl -X POST "$api_endpoint/v1/subnets?version=$api_version&generation=2" \
