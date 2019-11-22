@@ -3,7 +3,7 @@
 copyright:
   years: 2019
 
-lastupdated: "2019-09-30"
+lastupdated: "2019-11-22"
 
 keywords: resource, access, role, role-based, authorization, policy, access group, resource group, permission, assign, administrator, operator, editor, viewer, user, team, scenario, manage, create, IAM
 
@@ -46,14 +46,13 @@ To give a new user access to all VPC infrastructure resources:
 
 1. Go to the [IAM Users ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/iam/users){: new_window} page in the IBM Cloud console and click **Invite users**.
 3. In the **Users** section of the Invite users page, enter the email addresses of the users that you want to invite in the **Email address** field.
-4. In the **Access** section, expand the **Services** area and complete the following tasks:
-  * From the **Assign access to** list, select **Resource group**.
-  * From the **Resource group** list, select the Default resource group.
-  * Make sure that the **Assign access to a resource group** option is set to **Viewer**.
-  * From the **Services** list, select **VPC Infrastructure**.
+4. In the **Assign users additional access** section, select **IAM services** and complete the following tasks:
+  * From the **Enter or select a service** list, select **VPC infrastructure**.
+  * From the **Enter or select a resource group** list, select the Default resource group.
   * From the **Resource type** list, select **All resource types**.
-  * In the **Assign platform access roles** area, select **Editor**.
-  * Scroll to the end of the page and click **Invite users**.
+  * In the **Platform access** area, select **Editor**.
+  * In the **Resource group access** area, select **Viewer**.
+  * Scroll to the end of the page and click **Add**.
 
 ## Limited access scenario
 {: #giving-existing-user-permission-to-create-vsis}
