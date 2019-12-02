@@ -26,6 +26,11 @@ subcollection: vpc
 Use these release notes to learn about the latest changes to {{site.data.keyword.vpc_full}}.
 {:shortdesc}
 
+## 2 December 2019
+{: #dec-2-2019}
+
+- **Access control lists**.  You can use an access control list (ACL) to control all incoming and outgoing traffic in {{site.data.keyword.vpc_full}}. For more information, see [Setting up network ACLs](/docs/vpc?topic=vpc-using-acls).
+
 ## 14 November 2019
 {: #nov-14-2019}
 
