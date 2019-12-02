@@ -3,7 +3,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-11-10"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, layer-7
 
@@ -335,6 +335,11 @@ Here is the sample activity tracker message for a **Create Listener** operation:
     "saveServiceCopy": true
 }
 ```
+
+## Configuring ACLs for use with load balancers
+{: #acls-lb}
+
+If you use access control lists (ACLs) to block traffic on the subnets in which the load balancer is deployed, make sure that ACL rules are in place to allow incoming traffic for the configured listener ports and management ports (ports 56500 - 56520). Traffic between the load balancer and back-end instances must also be allowed.
 
 ## APIs available
 {: #lbaas-apis-available}
@@ -765,6 +770,10 @@ The auto-assigned DNS name for the load balancer is not customizable. However, y
 
 Yes. The load balancer automatically adjusts its capacity based on the load. When horizontal scaling takes place, the number of IP addresses associated with the load balancer's DNS changes.
 
+### What should I do if I'm using ACLs on the subnets that are used to deploy the load balancer?
+{: #what-should-i-do-if-i-am-using-acls-on-the-subnets-that-are-used-to-deploy-the-load-balancer}
+
+Make sure that the proper ACL rules are in place to allow incoming traffic for configured listener ports and management ports (ports in the range 56500 - 56520). Traffic between the load balancer and back-end instances should also be allowed.
 
 ### Why am I receiving an error message: `certificate instance not found`?
 {: #error-certificate-instance-not-found}

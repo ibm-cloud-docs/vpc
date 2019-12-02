@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-11-10"
 
 keywords: vpc, responsibilities, ha, high availability, disaster recovery
 
@@ -70,7 +70,7 @@ IBM's responsibilities:
 - Provide audit records of the VPC resource lifecycle through IBM Cloud Activity Tracker with LogDNA.
 
 Your responsibilities:
-- Use security groups to secure your virtual server instances, such as restricting what IP addresses can SSH into the instance.
+- Use security groups and network ACLs to secure your virtual server instances, such as restricting what IP addresses can SSH into the instance.
 - Choose how to connect your workload to the public internet, if applicable, either using a public gateway or floating IP.
 - Restrict user access to the appropriate resources and resource groups.
 - Integrate IBM Cloud Activity Tracker with LogDNA and IBM Cloud Monitoring with Sysdig data into your auditing and monitoring processes.

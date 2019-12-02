@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-11-10"
 
 keywords: vpc, delete, resources
 
@@ -32,12 +32,13 @@ The following table summarizes the types of VPC resources and the relationships 
 | Resource | Before it can be deleted... | After it is deleted... |
 | ---------------- | ----------------------------------------- | --------------------------- |
 | VPC | All subnets and public gateways in the VPC must be deleted. | All security groups and address prefixes are deleted automatically. |
-| Subnet | All instances and any network interfaces in subnet must be deleted. | Any public gateway that serves the subnet is detached.  |
+| Subnet | All instances and any network interfaces in subnet must be deleted. | Any public gateway that serves the subnet is detached. Any network ACL associated with the subnet is detached. |
 | Instance | ---- | All network interfaces are deleted automatically and the boot volume is deleted with the instance. Secondary volume deletion depends on the `delete_volume_on_instance_delete` parameter. Any floating IP attached to one of the network interfaces is detached automatically. |
 | Network interface | ---- | Any floating IP attached to the network interface is released. |
 | Key | ---- | After you delete a key, it can no longer be used to provision a new instance or to perform an OS reload on an existing instance. However, the key is still available on any instances that you provisioned with it, and you can continue using it to log in.  |
 | Image | ---- | The image cannot be used to provision a new instance, but existing instances with the image are not affected. |
 | Volume | The volume must be detached from all instances. | ---- |
+| Network ACL | The network ACL must be detached from all subnets. Default network ACLs for a VPC cannot be deleted.  | ---- |
 | Security group | The security group must be detached from all network interfaces. The default security group for a VPC cannot be deleted. | ---- |
 | Floating IP | The floating IP must be detached from any network interface. | ---- |
 | Public gateway | The public gateway must be detached from all subnets. |  ---- |
@@ -80,11 +81,11 @@ VPCs contain subnets and public gateways. Load balancers, VPN gateways, and inst
 
 A VPC also contains address prefixes and security groups, but these resources are deleted automatically when the VPC is deleted.
 
-A VPC must have a default security group. If you created a VPC without specifying a default security group, a default security group was created automatically for the VPC. The default security group cannot be deleted. All security groups in the VPC are deleted automatically when the VPC is deleted.
+A VPC must have a default security group and a default network ACL. If you created a VPC without specifying a default security group and network ACL, a default security group and network ACL were created automatically for the VPC. The default security group and default network ACL cannot be deleted. The default network ACL is deleted automatically when the VPC is deleted. All security groups in the VPC are deleted automatically when the VPC is deleted.
 
 | In VPC | Can contain | Can attach to | Has Status? | Automatically deleted when VPC is deleted | Automatically detaches when deleted |
 | ---------------- | ----------------------------------------- | --------------------------- | ------ | ---------------------------------------------- | ----------------------------------- |
-| Subnet | Instances, load balancers, VPN gateways | Public gateway | Yes| No | Yes|
+| Subnet | Instances, load balancers, VPN gateways | Public gateway, network ACL | Yes| No | Yes|
 | Public gateway| --- | Subnets, floating IP | Yes | No | No to subnets, Yes to floating IP |
 | Security Groups | ---  | Instances (NIC), VPC as default | No| Yes | No |
 {: caption="Table 2. Requirements for deleting subnets, public gateways, and security groups" caption-side="top"}
@@ -162,6 +163,16 @@ A block storage volume can be attached to only one virtual server at a time.
 A security group cannot be deleted if it is being used by a network interface, or if it is the default security group of a VPC. Before you delete the security group, remove all network interfaces from that security group. Also, make sure that the security group is not being used as the default security group of the VPC.
 
 Deleting a VPC deletes all security groups in that VPC, automatically.
+
+### Network ACLs
+{: #deleting-netacl}
+
+A network ACL cannot be deleted if it is being used by a subnet, or if it is the default network ACL of a VPC. Before you delete the network ACL, detach the network ACL from all subnets and make sure that the network ACL is not being used as the default network ACL of a VPC.
+
+When any VPC is created, it requires a default network ACL. If an existing network ACL is not specified as the default when the VPC is created, a new network ACL is created and set as the default. This default network ACL is deleted automatically when the VPC is deleted, if the ACL is not in use anywhere else.
+
+Unlike security groups, network ACLs can be assigned across VPCs. Therefore, deleting a VPC does not delete the network ACLs.
+{: note}
 
 ## Next Steps
 {: #deleting-nextsteps}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-06"
+lastupdated: "2019-11-26"
 
 keywords: vpc, api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -42,6 +42,17 @@ To minimize bugs caused by changes, use the following best practices when you ca
 * Consume only the resources and properties your application needs to function
 * Avoid depending on behavior that is not explicitly documented
 
+## 2019-11-26
+{: #2019-11-26}
+This API release supports the following changes for all API versions:
+* Network access control list (ACL) methods 
+* Instance filtering by VPC
+
+
+## 2019-11-21
+{: #2019-11-21}
+
+A VPC’s Cloud Service Endpoint source IPs now appear in output. This change is available for all API versions.
 
 ## 2019-11-05
 {: #2019-11-05}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-10-29"
+lastupdated: "2019-11-25"
 
 keywords: quotas, vpc, resources, limits
 
@@ -61,6 +61,16 @@ This document covers quotas for {{site.data.keyword.vpc_full}} and the resources
 |Remote rules|5 per security group|
 |Network interfaces|5 per security group|
 {: caption="Table 3. Quotas for security groups" caption-side="top"}
+
+## Access control lists
+{: #acl-quotas}
+
+|Resource|Quota|
+|--------|-----|
+|ACLs| 25 per VPC |
+|Ingress rules|25 per ACL |
+|Egress rules |25 per ACL |
+{: caption="Table 4. Quotas for access control lists" caption-side="top"}
 
 ## Block storage volumes
 {: #block-storage-quotas}

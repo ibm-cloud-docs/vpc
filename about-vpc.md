@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-11-25"
 
 keywords: vpc, virtual private cloud, private cloud network, quick provisioning, logical isolation, security, cloud-native, workloads, BYOIP, high availability, ACL, Access control list, block storage volumes
 
@@ -35,7 +35,7 @@ VPC gives your applications logical isolation from other networks, while providi
 ## Quick instance provisioning with high network performance
 {: #about-vpc-quick-instance-provisioning}
 
-You can quickly provision scalable generation 2 compute resources in your VPC by creating *virtual server instances* (VSIs) with the core and RAM configuration that's best for your workload. You can select from the supported stock images or custom images that were imported from {{site.data.keyword.cos_full_notm}}. All images are cloud-init enabled. You can connect to your instance without using a password by adding *SSH keys*.
+You can quickly provision scalable generation 2 compute resources in your VPC by creating *virtual server instances* with the core and RAM configuration that's best for your workload. You can select from the supported stock images or custom images that were imported from {{site.data.keyword.cos_full_notm}}. All images are cloud-init enabled. You can connect to your instance without using a password by adding *SSH keys*.
 
 You can create instances with up to 80 Gbps network bandwidth per instance. Each instance can be multi-homed, that is, you can create multiple network interfaces per instance.
 
@@ -55,7 +55,7 @@ Several options are available for enabling your instances to communicate with th
 ## Security
 {: #about-vpc-security}
 
-For instance-level protection, use *security groups* that act as virtual firewalls to restrict traffic for one or more instances.
+For instance-level protection, use *security groups* that act as virtual firewalls to restrict traffic for one or more instances. For subnet-level protection, use *access control lists* (ACLs)  to limit a subnet's inbound and outbound traffic. 
 
 ## High availability
 {: #about-vpc-high-availability}

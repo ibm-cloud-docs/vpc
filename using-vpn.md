@@ -4,7 +4,7 @@
 
 copyright:
   years: 2017,2018, 2019
-lastupdated: "2019-11-07"
+lastupdated: "2019-11-10"
 
 keywords: VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies, gateway, auto-negotiation, vpc, vpc network
 
@@ -367,6 +367,28 @@ Sample output:
 ```
 {: codeblock}
 
+## Configuring ACLs and security groups for use with VPN
+{: #acls-security-groups-vpn}
+
+If you configure access control lists (ACLs) on the subnet in which the VPN gateway is deployed, make sure that the following rules are in place to allow management traffic and VPN tunnel traffic:
+
+* **Inbound rules**
+    - Allow protocol TCP source port 9091
+    - Allow protocol TCP source port 10514
+    - Allow protocol TCP source port 443
+    - Allow protocol TCP source port 80
+    - Allow protocol TCP source port 53
+    - Allow protocol UDP source port 53
+    - Allow protocol ALL source IP is VPN peer gateway public IP
+    - Allow protocol TCP destination port 443
+    - Allow protocol TCP destination port 56500
+    - Allow traffic between virtual server instances in your VPC and your on-premises private network
+    - Allow ICMP traffic
+
+* **Outbound rules**
+   - Allow all traffic
+
+If you use ACLs or security groups on the subnets that need to communicate over the VPN tunnel, make sure that ACL rules or security group rules are in place to allow traffic between virtual server instances in your VPC and the other network.
 
 ## Quotas
 {: #see-vpn-quotas}
@@ -458,6 +480,35 @@ When you create a VPN connection without referencing a policy ID (IKE or IPsec),
 {: faq}
 
 The subnet connects the VPN gateway with other resources in your VPC. The best practice is to create a dedicated subnet for the VPN gateway with no virtual server instances on this subnet to ensure that there are enough free private IPs in the subnet. A VPN gateway needs 8 private IP addresses to accommodate HA and rolling upgrades.
+
+
+### What should I do if I am using ACLs on the subnet that is used to deploy the VPN gateway?
+{: #faq-vpn-13}
+{: faq}
+
+Make sure the following ACL rules are in place to allow management traffic and VPN tunnel traffic:
+
+* **Inbound rules**
+    - Allow protocol TCP source port 9091
+    - Allow protocol TCP source port 10514
+    - Allow protocol TCP source port 443
+    - Allow protocol TCP source port 80
+    - Allow protocol TCP source port 53
+    - Allow protocol UDP source port 53
+    - Allow protocol ALL source IP is VPN peer gateway public IP
+    - Allow protocol TCP destination port 443
+    - Allow protocol TCP destination port 56500
+    - Allow traffic between virtual server instances in your VPC and your on-premises private network
+    - Allow ICMP traffic
+
+* **Outbound rules**
+   - Allow all traffic
+
+### What should I do if I am using ACLs on the subnets that need to communicate with on-premises private network?
+{: #faq-vpn-14}
+{: faq}
+
+Make sure that ACL rules rules are in place to allow traffic between virtual server instances in your VPC and your on-premises private network.
 
 ### Does VPN for VPC support HA configurations?
 {: #faq-vpn-7}

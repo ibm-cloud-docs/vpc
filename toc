@@ -77,7 +77,11 @@ Virtual Private Cloud
         security-groups.md
         security-groups-default.md
         security-groups-example.md
-        security-group-usage-examples.md   
+        security-group-usage-examples.md
+
+    {: .topicgroup}
+    Access control lists
+        using-acls.md    
 
     {: .topicgroup}
     Load balancers (Beta)
@@ -130,8 +134,8 @@ Virtual Private Cloud
         troubleshooting.md
         vsi_is_troubleshooting.md
         block_storage_is_troubleshoot.md
-        
-    release-notes.md 
+
+    release-notes.md    
     limitations.md
     api-change-log.md
     known-issues.md

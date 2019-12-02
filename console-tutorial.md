@@ -32,6 +32,7 @@ You can create and configure an {{site.data.keyword.vpc_full}} (VPC) by using th
 To create and configure your VPC and other attached resources, perform the steps in the sections that follow, in this order:
 
 1. Create a VPC and subnet to define the network. When you create your subnet, attach a public gateway if you want to allow all resources in the subnet to communicate with the public internet.
+1. To limit the subnet's inbound and outbound traffic, you can configure an access control list (ACL). By default, all traffic is allowed.
 1. Create a generation 2 virtual server instance. By default, a 100 GB boot volume is attached to the instance.
 1. If you want more storage, create a block storage volume and attach it to your instance.
 1. To define the inbound and outbound traffic that's allowed for the instance, configure its security group.
@@ -72,6 +73,7 @@ To create a VPC and subnet:
 1. Enter a name for the VPC, such as `my-vpc`.
 1. Select a resource group for the VPC. Use resource groups to organize your account resources for access control and billing purposes. For more information, see [Best practices for organizing resources in a resource group](/docs/resources?topic=resources-bp_resourcegroups).
 1. _Optional:_ Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/resources?topic=resources-tag).
+1. Select or create the default ACL for new subnets in this VPC. In this tutorial, let's create a new default ACL. We'll configure rules for the ACL later.
 1. Select whether the default security group allows inbound SSH and ping traffic to virtual server instances in this VPC. We'll configure more rules for the default security group later.
 1. _Optional:_ Select whether you want to enable your VPC to access classic infrastructure resources. For more information, see [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure).
 
@@ -98,6 +100,53 @@ To create a VPC and subnet:
 1. Click **Create virtual private cloud**.
 1. To create another subnet in this VPC, click the **Subnets** tab and click **New subnet**. When you define the subnet, make sure to select `my_vpc` in the **Virtual private cloud** field.
 
+## Configuring the ACL
+{: #configuring-the-acl}
+
+You can configure the ACL to limit inbound and outbound traffic to the subnet. By default, all traffic is allowed.
+
+Each subnet can be attached to only one ACL. However, each ACL can be attached to multiple subnets.
+
+To configure the ACL:
+
+1. In the navigation pane, click **Network > Subnets**.
+1. Click the subnet that you created.
+1. In the **Subnet details** area, click the name of the ACL.
+1. Click **Add rule** to configure inbound and outbound rules that define what traffic is allowed in or out of the subnet. For each rule, specify the following information:
+   * Select whether to allow or deny the specified traffic.
+   * Select the protocol to which the rule applies.  
+   * For the source and destination of the rule, specify the IP range and ports for which the rule applies. For example, if you want all inbound traffic to be allowed to the IP range 192.168.0.0/24 in your subnet, specify **Any** as the source and 192.168.0.0/24 as the destination. But if you want to allow inbound traffic only from 169.168.0.0/24 to your entire subnet, specify 169.168.0.0/24 as the source and **Any** as the destination for the rule. 
+   * Specify the rule's priority. Rules with lower numbers are evaluated first and override rules with higher numbers. For example, if a rule with priority 2 allows HTTP traffic and a rule with priority 5 denies all traffic, HTTP traffic is still allowed.  
+1. When you finish creating rules, click the **All access control lists** breadcrumb at the beginning of the page.
+
+### Example ACL
+
+For example, you can configure the following inbound rules:
+
+* Allow HTTP traffic from the internet
+* Allow all inbound traffic from the subnet 10.10.20.0/24
+* Deny all other inbound traffic  
+
+| Priority| Allow/Deny | Protocol | Source | Destination |
+|--------------|-----------|------|------|------|
+| 1 | Allow | TCP | Any IP, ports 80 - 80 |Any IP, any port|
+| 2 | Allow | ALL | 10.10.20.0/24, any port |Any IP, any port|
+| 3 | Deny| ALL | Any IP, any port |Any IP, any port|
+{: caption="Table 1. Information for configuring inbound rules" caption-side="top"}
+
+Then, configure the following outbound rules:
+
+* Allow HTTP traffic to the internet
+* Allow all outbound traffic to the subnet 10.10.20.0/24
+* Deny all other outbound traffic  
+
+| Priority| Allow/Deny | Protocol | Source | Destination |
+|--------------|-----------|------|------|------|
+| 1 | Allow | TCP | Any IP, any port |Any IP, ports 80 - 80  |
+| 2 | Allow | ALL | Any IP, any port | 10.10.20.0/24, any port |
+| 3 | Deny| ALL | Any IP, any port |Any IP, any port|
+{: caption="Table 2. Information for configuring outbound rules" caption-side="top"}
+
 ## Creating a virtual server instance
 {: #creating-a-vsi}
 
@@ -110,7 +159,7 @@ To create a virtual server instance in the newly created subnet:
 1. _Optional:_ Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/resources?topic=resources-tag).
 1. In the **Location** field, select the zone in which to create the instance.
 1. Select an image (that is, operating system and version), such as Debian GNU/Linux 9.x Stretch/Stable.
-1. To set the instance size, select one of the popular profiles or click **All profiles** to choose a different core, RAM, and network performance combination that's most appropriate for your workload.
+1. To set the instance size, select one of the popular profiles or click **All profiles** to choose a different core, RAM, and network performance combination that's most appropriate for your workload. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles). 
   
     After you create your instance, you can't update the profile.
     {: important}

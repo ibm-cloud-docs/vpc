@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-11-10"
 
 keywords: security, groups, encryption, traffic, rules, subnet, instance, VSI, firewall, encryption, vpc, vpc network
 
@@ -23,18 +23,50 @@ subcollection: vpc
 # Security in your VPC
 {: #security-in-your-vpc}
 
-You can keep {{site.data.keyword.vpc_full}} and workloads secure by controlling network traffic using security groups.
+You can keep {{site.data.keyword.vpc_full}} and workloads secure by controlling network traffic using security groups, by using network access control lists (ACLs), or by using both types of control.
 {:shortdesc}
 
 ## Security overview
 {: #security-overview}
 
-Security groups provide a way to control the traffic across instances in your {{site.data.keyword.vpc_full}}, using rules that you specify.
+Security groups and access control lists (ACLs) provide ways to control the traffic across the subnets and instances in your {{site.data.keyword.vpc_full}}, using rules that you specify. Security groups and ACLs add security to your subnets and instances.
 
-* Security groups can control the traffic at the virtual server instance (VSI) level
+* Traffic to and from a subnet can be controlled by Access Control Lists (ACLs)
+* Security Groups can control the traffic at the virtual server instance (VSI) level
+* Set up a public gateway for subnet access to the internet, guarded by ACLs
 * Set up a floating IP for VSI access to the internet, guarded by SGs
 
-A security group acts as a virtual firewall that controls the traffic for one or more virtual server instances. A security group is a collection of rules that specify whether to allow or deny traffic for an associated instance. You can associate an instance with one or more security groups and edit the security group rules. For more information, see [Using security groups](/docs/vpc?topic=vpc-using-security-groups).
+![Figure showing how a VPC can be subdivided with subnets](images/vpc-connectivity-and-security.svg "Figure showing how a VPC can be subdivided with subnets"){: caption="Figure 1. IBM VPC connectivity and security" caption-side="top"}
+
+## Definitions
+{: #definitions}
+
+The sections that follow describe basic functions of ACLs and security groups, and the ways in which VPC supports end-to-end encryption.
+
+### Access Control List
+{: #access-control-list}
+
+An **Access Control List (ACL)** can manage (that is, it can allow or deny) inbound and outbound traffic for a subnet. An ACL is stateless, which means that inbound and outbound rules must be specified separately and explicitly. Each ACL consists of rules, based on a *source IP*, *source port*, *destination IP*, *destination port*, and *protocol*.
+
+Every VPC has a default ACL that allows all inbound and outbound traffic. You can edit the default ACL rules or create a custom ACL and attach it to your subnets. Only one ACL is attached to a subnet at any time, but one ACL can be attached to multiple subnets. For more information about how to use ACLs, see [Setting up network ACLs.
+
+### Security groups
+{: #sgs-security}
+A **security group** acts as a virtual firewall that controls the traffic for one or more virtual server instances. A security group is a collection of rules that specify whether to allow or deny traffic for an associated instance. You can associate an instance with one or more security groups and edit the security group rules. For more information, see [Using security groups](/docs/vpc?topic=vpc-using-security-groups).
+
+### Comparing security groups and access control lists
+{: #compare-security-groups-and-access-control-lists}
+
+Table 1 summarizes some key differences between security groups and ACLs.
+
+|  | Security Groups | ACLs    |
+|-------------|-----------------|---------|
+| Control level  | Virtual server instance    | Subnet  |
+| State   | Stateful - When an inbound connection is permitted, it is allowed to reply | Stateless - Both inbound and outbound connections must be explicitly allowed |
+| Supported rules | Uses allow rules only | Uses allow and deny rules|
+| How rules are applied | All rules are considered | Rules are processed in sequence |
+| Relationship to the associated resource | An instance can be associated with multiple security groups| Multiple subnets can be associated with the same ACL|
+{: caption="Table 1. Differences between security groups and ACLs" caption-side="top"}
 
 ### End-to-end encryption
 {: #end-to-end-encryption}

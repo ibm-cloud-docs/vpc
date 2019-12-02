@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-10-17"
+lastupdated: "2019-11-10"
 
 keywords: resource, resource authorizations, policies, authorization, resource type, resource groups, roles, API, CLI, editor, viewer, administrator, operator
 
@@ -29,17 +29,23 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 
 | Resource | Action | Minimum IAM role |
 |--------|--------|---------|
-| VPC | Create | Viewer for the resource group of the VPC<br />Editor for Virtual Private Cloud resources|
+| VPC | Create | Viewer for the resource group of the VPC<br />Editor for Virtual Private Cloud resources<br />Operator for the ACL, if the user selects a specific ACL to be the default ACL|
 | VPC | Update, Delete |  Editor for the VPC |
 | VPC |  View, List | Viewer for the VPC  |
-| VPC default security group|  View, List | Viewer for the VPC |
+| VPC default ACL and security group|  View, List | Viewer for the VPC |
 | VPC address prefixes |  Create, Update, Delete | Editor for the VPC |
 | VPC address prefixes |  View, List | Viewer for the VPC  |
 |————————|—————————|————————|
 | Floating IP (unassociated) | Create| Editor for Floating IP for VPC resources |
 | Floating IP (unassociated) | Update, Delete | Editor for the floating IP |
 | Floating IP (unassociated) | View, List | Viewer for the floating IP |
-|————————|—————————|————————|
+|——————|———————|————————|
+| ACL | Create | Editor for Network ACL resources |
+| ACL | Update, Delete | Editor for the ACL |
+| ACL| View, List | Viewer for the ACL |
+| ACL rule | Create, Update, Delete | Editor for the ACL |
+| ACL rule | View, List | Viewer for the ACL |
+|——————|———————|————————|
 | Public gateway | Create |  Editor for Public Gateway resources<br />Operator for the VPC and Floating IP resources |
 | Public gateway | Update, Delete |  Editor for the public gateway |
 | Public gateway | View, List | Viewer for the public gateway |
@@ -50,10 +56,12 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | SSH key | Update, Delete | Editor for the SSH key |
 | SSH key | View, List | Viewer for the SSH key |
 |————————|—————————|————————|
-| Subnet | Create | Editor for Subnet resources<br />Operator for the VPC and the public gateway, if it is to be associated |
-| Subnet | Update | Editor for the subnet<br />Operator for the public gateway, if it is associated |
+| Subnet | Create | Editor for Subnet resources<br />Operator for the VPC and the public gateway, if it is to be associated<br />Viewer for the ACL |
+| Subnet | Update | Editor for the subnet<br />Operator for the public gateway, if it is associated<br />Viewer for the ACL  |
 | Subnet | Delete | Editor for the subnet |
 | Subnet | View, List | Viewer for the subnet |
+| Subnet's ACL | Attach, Detach | Editor for the subnet<br />Viewer for the ACL |
+| Subnet's ACL | View, List | Viewer for the subnet and ACL|
 | Subnet's public gateway | Attach, Detach | Editor for the subnet<br />Operator for the public gateway |
 | Subnet's public gateway | View, List | Viewer for the subnet and public gateway|
 |————————|—————————|————————|

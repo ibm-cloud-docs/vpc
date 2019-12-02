@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-06"
+lastupdated: "2019-11-27"
 
 keywords: Generation 1, Generation 2, VPC, VPC on Classic, API, migration, integration, application
 
@@ -32,17 +32,16 @@ If you intend to migrate API applications to generation 2 profiles, it is import
 Generation 1 and generation 2 resources are not compatible and must be created in separate VPCs.
 {:tip}
 
-We are always adding new features and support. Over time, there will be fewer considerations between generations of compute resources.
+We are continually adding [new features and support](/docs/vpc?topic=vpc-api-change-log). Over time, there will be fewer considerations between generations of compute resources.
 {:note}
 
 | Feature | Client code migration considerations  | 
 |-----------------|-------------|
 |VPN | VPN gateways are available as beta in this release. |
 |Load balancer | Load balancers are available as beta in this release.|
-|Network access control lists (ACLs) | ACL methods are not currently supported in this release. | 
-|Pagination | Pagination is not currently supported for instance profiles or keys.| 
-|VPCs | A VPC’s Cloud Service Endpoint source IPs are not shown. |
+|Pagination | Pagination is not currently supported for instances, instance profiles, or keys.| 
 |Network interface filtering | Filtering by subnet is not currently supported.|
+|Network access control list (ACL) rules | A standards-compliant ([RFC 7396](https://tools.ietf.org/html/rfc7396)) API is used for updating network rules. As a result, some properties have been removed from the update API, and other properties have different semantics from the update API for generation 1 resources. For example: <br> Network ACLs are scoped to a VPC, rather than to a region. This has several implications: <br>      - Network ACL resource names need only be unique within a VPC.<br>    - At VPC creation, an existing network ACL may not be associated. However, the VPC’s default network ACL may be configured.<br>    - At VPC deletion, any network ACLs associated with that VPC will also be deleted.<br> If a network ACL is created with no rules, all traffic is denied. This differs from first generation behavior, which allows all traffic. Rules are not automatically added when a network ACL is created.<br>The `port_min` and `port_max` fields have been renamed to `destination_port_min` and `destination_port_max`, respectively, for network ACL rules.|
 |Naming | The unified naming policy requires that resource names be between 1 and 63 characters. Only numbers, lowercase letters, and hyphens (`-`) are permitted.  Names may not start with a number or `-`, and may not end with `-`. <br> In contrast, first generation resources in the API have different name-length and character-set restrictions, depending on the resource.<br> **Note:** Volume names must begin with an alphabetic character. | 
 |Instance profiles | CRN support on instance profiles is dropped in this release. <br> **Note:** CRNs are deprecated in the VPC API for use with first generation resources. | 
 |Device IDs | Device IDs are not shown when retrieving an instance's volume attachments. <br> **Tip:** Find the device ID in the `volume_attachments` property in the  `GET /volumes/<id>` response.| 

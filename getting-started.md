@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-11-25"
 
 keywords: Virtual Private Cloud, permissions, infrastructure, VPC, SSH key, CLI, API, console, public gateway, floating IP, IP ranges, BYoIP 
 
@@ -31,7 +31,8 @@ With {{site.data.keyword.vpc_full}} (VPC), you can use the UI, CLI, and API to q
 {: #prereqs}
 
 1. Set up your account to access VPC. Make sure that your account is [upgraded to a paid account](/docs/account?topic=account-accountfaqs#changeacct){: new_window}. 
-2. Make sure you have a public SSH key, which will be used to connect to the virtual server instance. For example, generate an SSH key on your Linux server by running the following command:
+
+2. Make sure that you have a public SSH key, which is used to connect to the virtual server instance. For example, generate an SSH key on your Linux server by running the following command:
 
     ```
     ssh-keygen -t rsa
@@ -50,6 +51,7 @@ To create and configure your VPC and other attached resources:
 1. Create a VPC.
 2. Create subnets in one or more zones. You can create subnets in suggested prefix ranges or in your own IP ranges that you bring to IBM Cloud.
 3. Attach a public gateway if you want to allow all resources in a subnet to communicate with the public internet.
+1. Configure an access control list (ACL) to limit the subnet's inbound and outbound traffic.
 4. Create generation 2 virtual server instances with the core and RAM configuration that's right for your workload. By default, a 100 GB boot volume is attached to each instance.
 5. If you want more storage, create block storage volumes and attach them to your instances.
 1. To define the inbound and outbound traffic that's allowed for instances, configure their security groups.
