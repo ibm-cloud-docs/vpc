@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-11-10"
+lastupdated: "2019-12-03"
 
 keywords: security, groups, encryption, traffic, rules, subnet, instance, VSI, firewall, encryption, vpc, vpc network
 
@@ -18,6 +18,7 @@ subcollection: vpc
 {:note: .note}
 {:screen: .screen}
 {:tip: .tip}
+{:important: .important}
 {:download: .download}
 
 # Security in your VPC
@@ -72,3 +73,6 @@ Table 1 summarizes some key differences between security groups and ACLs.
 {: #end-to-end-encryption}
 
 Although {{site.data.keyword.vpc_short}} doesn't provide end-to-end encryption, it allows for it. For example, if you have a secure endpoint on a virtual server instance (such as an HTTPS server on port 443), you can attach a floating IP to that instance, and then your connection is end-to-end encrypted from the client to the server on port 443. Nothing in the path forces a decryption. However, if you use an insecure protocol such as HTTP on port 80, your data is not encrypted from end to end.
+
+If your application requires end-to-end encryption, then it is *your* responsibility to ensure that your connection is encrypted end-to-end.
+{:important}
