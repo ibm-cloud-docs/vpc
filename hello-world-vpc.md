@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-20"
+lastupdated: "2019-12-05"
 
 keywords: vpc, cli, command line interface, tutorial, creating a vpc
 
@@ -189,6 +189,9 @@ To list all available images, run the following command:
 ibmcloud is images
 ```
 {: pre}
+
+Deprecated images do not include the most current support.
+{: tip}
 
 Let's pick instance profile `b2-2x8` and image `debian-9.x-amd64`. To get the image ID, run the following command:
 
