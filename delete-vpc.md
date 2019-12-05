@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-10"
+lastupdated: "2019-12-05"
 
 keywords: vpc, delete, resources
 
@@ -33,7 +33,7 @@ The following table summarizes the types of VPC resources and the relationships 
 | ---------------- | ----------------------------------------- | --------------------------- |
 | VPC | All subnets and public gateways in the VPC must be deleted. | All security groups and address prefixes are deleted automatically. |
 | Subnet | All instances and any network interfaces in subnet must be deleted. | Any public gateway that serves the subnet is detached. Any network ACL associated with the subnet is detached. |
-| Instance | ---- | All network interfaces are deleted automatically and the boot volume is deleted with the instance. Secondary volume deletion depends on the `delete_volume_on_instance_delete` parameter. Any floating IP attached to one of the network interfaces is detached automatically. |
+| Instance | ---- | All network interfaces are deleted automatically and the boot volume is deleted with the instance. Secondary data volumes are preserved unless the default setting is changed to auto-delete. A floating IP address must be unassociated or released before the instance is deleted.  |
 | Network interface | ---- | Any floating IP attached to the network interface is released. |
 | Key | ---- | After you delete a key, it can no longer be used to provision a new instance or to perform an OS reload on an existing instance. However, the key is still available on any instances that you provisioned with it, and you can continue using it to log in.  |
 | Image | ---- | The image cannot be used to provision a new instance, but existing instances with the image are not affected. |
