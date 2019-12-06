@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-11-07"
+lastupdated: "2019-12-06"
 
 keywords: vpc, limitations, restrictions
 
@@ -30,7 +30,6 @@ Limitations might change as capabilities are added, so feel free to check back f
 {: #general-restrictions}
 
 The following features are not supported, including all properties associated with these features:
-* Network ACLs (access control lists)
 * Shares
 
 * The following concepts are not supported:
@@ -74,7 +73,6 @@ The following features are not supported, including all properties associated wi
 * Start/Stop actions are not registered under virtual server instance activity in the UI.
 * Activity Tracker logs (request logs and resource lifecycle event logs) are not available.
 * Updating the profile of a created instance is not supported.
-* The Auto Delete option for secondary volumes must be set to False (the default). Setting to True could result in deletion of the volume when it is explicitly detached from a virtual server instance. 
 
 ## Storage restrictions
 {: #storage-restrictions}
