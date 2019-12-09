@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-11-25"
+lastupdated: "2019-12-09"
 
 keywords: quotas, vpc, resources, limits
 
@@ -48,6 +48,7 @@ This document covers quotas for {{site.data.keyword.vpc_full}} and the resources
 | Network interfaces | 5 per instance |
 | Floating IP addresses | 5 per zone |
 | SSH keys | 200 per account |
+| GPUs (POWER only) | 16 |
 {: caption="Table 2. Quotas for virtual server instances" caption-side="top"}
 
 
