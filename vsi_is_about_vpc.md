@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-12-09"
 
 keywords: virtual server instances, VSI, planning, best practices
 
@@ -18,6 +18,7 @@ subcollection: vpc
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:external: target="_blank" .external}
 {:table: .aria-labeledby="caption"}
 
 # About virtual server instances for VPC
@@ -37,5 +38,26 @@ In today's IBM Cloud Virtual Server offering, instances use native subnet and VL
 
 {{site.data.keyword.vpc_short}} adds a network orchestration layer that eliminates the pod boundary, creating increased capacity for scaling instances. The network orchestration layer handles all of the networking for all virtual server instances that are within a VPC across regions and zones. With the software defined networking capabilities that VPC provides, you have more options for multi-vNIC instances and larger subnet sizes. 
 
+## Virtual Servers for VPC on POWER (Beta)
+{: #about-power-vsi}
+Virtual server instances with an IBM POWER9 CPU run the Power Instruction Set Architecture (ISA) and Linux workloads. These systems provide up to 3 Gbps per vCPU, provide NVLink2 CPU-to-GPU connectivity for virtual server profiles with NVIDIA Tesla v100 GPUs (with 32 GB RAM per GPU), and natively run within your standard VPC. POWER-based instances that run within your VPC, share the same security groups, subnets, and storage as your x86-based instances.
 
 
+POWER-based instances run many Linux distributions. However, they run a different ISA than x86-based instances. So, any compiled code (for example, C, C++, or golang) must be compiled for ppc64le. Many build tools support compiling for ppc64le (such as Jenkins, Travis CI, and other tools) and have flows to support building for the ppc64le ISA. If you are building a LAMP or MEAN stack application, these technologies usually use interpreted code. Often times these applications don't require any changes to run on the instances.
+
+
+### Maximizing the performance of POWER-based instances
+{: #power-performance}
+The CPUs that are used in this solution are SMT-4 based cores. SMT-4 based cores offer up to four threads per physical core are configurable from one to four threads per core. The lower the threads per core, the faster a single thread can run on that core. The more threads that are enabled, the overall throughput of the core is higher (potentially at the expense of per thread latency). Different workloads have different characteristics.
+
+By default, the POWER-based instances start in SMT-2 mode. For more information see, [Changing SMT settings for POWER-based instances](/docs/vpc?topic=vpc-vsi_is_power_perf).
+
+### How do the POWER-based instances in a VPC differ from all the Power Systems offerings in IBM Cloud?
+{: #power-differences}
+
+Power Virtual Servers that offer AIX and IBM i are hosted in the co-lo area of the IBM data and are designed to host traditional workloads.  This means that Direct Link needs to be used to create a virtual and secure connection between the Power Servers and other IBM Cloud services. IBM Cloud Virtual Servers for VPC on POWER offer Linux on Power exclusively. They are located in the same data centers, are connected to the same backplane and managed by the same operational fabric as x86 for seamless integration with other IBM Cloud services. These virtual servers use KVM has the hypervisor rather than PowerVM.
+
+### What applications can I run on Linux on Power?
+{: #power-apps}
+
+There are thousands of applications available to run on Linux on POWER.  Many open source applications have been compiled for the Power Architecture and are available in public repositories.  For a complete inventory of those applications, see the [Open Source Power Availability Tool](https://www.ibm.com/developerworks/library/l-ospat-trs/index.html){: external}. Additionally, many applications that are written for x86 architectures can run (without any or few code changes) on Power.  For more information on running x86 applications on Power, see [Porting x86 Linux applications to IBM POWER](https://developer.ibm.com/linuxonpower/porting-guide/){: external}.   
