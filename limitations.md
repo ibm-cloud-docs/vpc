@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-12-06"
+lastupdated: "2019-12-09"
 
 keywords: vpc, limitations, restrictions
 
@@ -64,8 +64,10 @@ The following features are not supported, including all properties associated wi
 * The following images are not supported:
   * Red Hat Enterprise Linux
   * Windows
-* Every profile has a network performance value of 2 Gbps per vCPU, with a cap of 80 Gbps. 
-* Each network interface has a network performance cap of 16 Gbps. <!-- You might need to attach multiple network interfaces to your virtual server instance to optimize network performance. -->
+* Every x86-based profile has a network performance value of 2 Gbps per vCPU, with a cap of 80 Gbps.
+* Every POWER-based profile has a network performance value of 3 Gbps per vCPU, with a cap of 100 Gbps.
+* Each x86-based network interface has a network performance cap of 16 Gbps. <!-- You might need to attach multiple network interfaces to your virtual server instance to optimize network performance. -->
+* Each POWER-based network interface has a network performance cap of 25 Gbps.
 
 * API limitations:
   * List APIs don't support pagination. 
@@ -77,4 +79,4 @@ The following features are not supported, including all properties associated wi
 ## Storage restrictions
 {: #storage-restrictions}
 
-* Customer-managed encryption for secondary volumesis not supported.
+* Customer-managed encryption for secondary volumes is not supported.
