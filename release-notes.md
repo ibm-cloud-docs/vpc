@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-12-09"
 
 keywords: vpc release notes, changes, updates, vpc
 
@@ -25,6 +25,13 @@ subcollection: vpc
 
 Use these release notes to learn about the latest changes to {{site.data.keyword.vpc_full}}.
 {:shortdesc}
+
+## 9 December 2019
+{: #dec-9-2019}
+
+- **IBM Virtual Servers for VPC on POWER (Beta)** In Beta, you can create POWER-based instances for all virtual server families, including the addition of the GPU family (for POWER only). For more information, see [Profiles](/docs/vpc?topic=vpc-profiles). 
+- **UI enhancement** On the VPC details page, there is a new section to view source IP addresses for any cloud service endpoints you enabled. For more information, see [Service endpoints](/docs/vpc?topic=vpc-service-endpoints-for-vpc).
+- **CLI plug-in release 0.5.9** You can now target a specific resource group by using the '[-g YOUR_GROUP]' command option. If you specify the target resource group by using the `ibmcloud target [-g YOUR_GROUP]`command, the output only displays VPC resources inside of the specified resource group. There were also enhancements to some of the commands for `get` and `list`, showing more detail for your VPC, instances, and instance profiles. For more information, see [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
 ## 2 December 2019
 {: #dec-2-2019}
