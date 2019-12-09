@@ -140,7 +140,7 @@ The following memory profiles are available for POWER processors:
 
 GPU profiles are best for AI and deep learning workloads.
 
-Each GPU is an NVIDIA Tesla v100 and each includes 32 GBs of memory that contrubtes to the overall memory the VSI will report. The following memory profiles are available for POWER processing with Ubuntu 18.04 images:
+Each GPU is an NVIDIA Tesla v100 and each includes 32 GBs of memory that contributes to the overall memory the VSI will report. The following memory profiles are available for POWER processing with Ubuntu 18.04 images:
 
 | Profile | vCPU | GB RAM | Network Performance Cap (Gbps) | Number of GPUs |
 |---------|---------|---------|---------|---------|
