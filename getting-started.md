@@ -27,7 +27,7 @@ subcollection: vpc
 With {{site.data.keyword.vpc_full}} (VPC), you can use the UI, CLI, and API to quickly provision generation 2 virtual server instances with high network performance.
 {:shortdesc}
 
-New! IBM Cloud Virtual Servers for VPC on POWER are available in Beta. If you are interested in using profiles that are available for POWER processors, complete the [onboarding form](ibm.biz/ibm-cloud-on-power-beta-program).  
+New! IBM Cloud Virtual Servers for VPC on POWER are available in Beta. If you are interested in using profiles that are available for POWER processors, complete the [onboarding form](https://developer.ibm.com/linuxonpower/ibm-cloud-beta-program-registration/).  
 {:tip}
 
 ## Before you begin
