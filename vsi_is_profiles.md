@@ -1,10 +1,9 @@
 ---
-
 copyright:
   years: 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-12-09"
 
-keywords: vsi, virtural server instances, profiles, balanced, compute, memory
+keywords: vsi, virtural server instances, profiles, balanced, compute, memory, GPU, power
 
 subcollection: vpc
 
@@ -24,26 +23,33 @@ subcollection: vpc
 # Profiles
 {: #profiles}
 
-When you provision {{site.data.keyword.vsi_is_full}}, you can select from three families of profiles: Balanced, Compute, and Memory. A profile is a combination of vCPU and RAM that can be instantiated quickly to start a virtual server instance. In the {{site.data.keyword.Bluemix_notm}} console, you can choose from popular profile configurations or select from a list of profiles that best fit your needs.
+When you provision {{site.data.keyword.vsi_is_full}}, you choose a processing architecture (x86-64 or POWER) and select from three families of profiles: Balanced, Compute, and  Memory. For POWER, you can select an additional GPU profile family.
 {: shortdesc}
+
+A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, number of GPUs, and more that can be instantiated quickly to start a virtual server instance. In the {{site.data.keyword.Bluemix_notm}} console, you can choose from popular profile configurations or select from a list of profiles that best fit your needs.
+
+IBM Cloud Virtual Servers for VPC on POWER are available in Beta only. 
+<!--If you are interested in using profiles that are available for POWER processors, complete the [onboarding form](https://www-03.ibm.com/systems/campaignmail/services/labservices/contact.html?cm_sp=Cloud-Product-_-OnPageNavCTA-IBMCloudPlatform_IBMVirtualMachines-_-Power_On_VSI_Cloud). -->
+{:note}
 
 The following profile families are available:
 
 | Families | Description |
 | -------- | ----------- |
-| [Balanced](#balanced) | Best for common cloud workloads that require a balance of performance and scalability. The balanced profiles (with network-attached storage) provide higher performance, since resources are not oversubscribed. |
-| [Compute](#compute-profiles)  | Best for moderate to high web traffic workloads. Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers. |
+| [Balanced](#balanced) | Best for midsize databases and common cloud applications with moderate traffic. |
+| [Compute](#compute)  | Best for moderate to high web traffic workloads. Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers. |
 | [Memory](#memory) | Best for memory caching and real-time analytics workloads. Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. |
+| [GPU](#gpu) | Best for artificial intelligence (AI) and deep learning workloads. Available for POWER processing architecture only. |
 {: caption="Table 1. Virtual server family selections" caption-side="top"}
 
 ## Balanced
 {: #balanced}
 
-The balanced profiles provide higher performance, since resources are not oversubscribed.
+The balanced profiles provide a good mix of performance and scalability for more common workloads.
 
-The following balanced profiles are available:
+The following balanced profiles are available for x86_64 processors:
 
-| Profile | vCPU | RAM | Network Performance Cap (Gbps) |
+| Profile | vCPU | GB RAM | Network Performance Cap (Gbps) |
 |---------|---------|---------|---------|
 | bx2-2x8 | 2 | 8 | 4 |
 | bx2-4x16 | 4 | 16 | 8 |
@@ -51,24 +57,48 @@ The following balanced profiles are available:
 | bx2-16x64 | 16 | 64 | 32 |
 | bx2-32x128 | 32  | 128 | 64 |
 | bx2-48x192 | 48 | 192 | 80 |
-{: caption="Table 2. Virtual server balanced profile options" caption-side="top"}
+{: caption="Table 2. x86-64 balanced profile options" caption-side="top"}
+
+The following balanced profiles are available for POWER processors:
+
+| Profile | vCPU | GB RAM | Network Performance Cap (Gbps) |
+|---------|---------|---------|---------|
+| bp2-2x8 | 2 | 8 | 6 |
+| bp2-4x16 | 4 | 16 | 12 |
+| bp2-8x32 | 8 | 32 | 24 |
+| bp2-16x64 | 16 | 64 | 48 |
+| bp2-32x128 | 32  | 128 | 96 |
+<!--| bp2-48x192 | 48 | 192 | 100 |
+| bp2-56x224 | 56 | 224 | 100 |-->
+{: caption="Table 3. Power balanced profile options" caption-side="top"}
 
 ## Compute
-{: #compute-profiles}
+{: #compute}
 
 Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and
 front-end web servers.
 
-The following compute profiles are available:
+The following compute profiles are available for x86_64 processors:
 
-| Profile | vCPU | RAM | Network Performance Cap (Gbps) |
+| Profile | vCPU | GB RAM | Network Performance Cap (Gbps) |
 |---------|---------|---------|---------|
 | cx2-2x4 | 2 | 4 | 4 |
 | cx2-4x8 | 4 | 8 | 8 |
 | cx2-8x16 | 8 | 16 | 16 |
 | cx2-16x32 | 16 | 32 | 32 |
 | cx2-32x64 | 32  | 64 | 64 |
-{: caption="Table 3. Virtual server instance compute profile options" caption-side="top"}
+{: caption="Table 4. x86-64 compute profile options" caption-side="top"}
+
+The following compute profiles are available for POWER processors:
+
+| Profile | vCPU | GB RAM | Network Performance Cap (Gbps) |
+|---------|---------|---------|---------|
+| cp2-2x4 | 2 | 4 | 6 |
+| cp2-4x8 | 4 | 8 | 12 |
+| cp2-8x16 | 8 | 16 | 24 |
+| cp2-16x32 | 16 | 32 | 48 |
+| cp2-32x64 | 32  | 64 | 96 |
+{: caption="Table 5. Power compute profile options" caption-side="top"}
 
 ## Memory
 {: #memory}
@@ -76,22 +106,60 @@ The following compute profiles are available:
 Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory
 analytics workloads.
 
-The following memory profiles are available:
+The following memory profiles are available for x86_64 processors:
 
-| Profile | vCPU | RAM | Network Performance Cap (Gbps) |
+| Profile | vCPU | GB RAM | Network Performance Cap (Gbps) |
 |---------|---------|---------|---------|
 | mx2-2x16 | 2 | 16 | 4 |
 | mx2-4x32 | 4 | 32 | 8 |
 | mx2-8x64 | 8 | 64 | 16 |
 | mx2-16x128 | 16 | 128 | 32 |
 | mx2-32x256 | 32 | 256 | 64 |
-{: caption="Table 4. Virtual server instance memory profile options" caption-side="top"}
+{: caption="Table 6. x86-64 memory profile options" caption-side="top"}
 
-For all profile families, these supported operating systems are available: CentOS, Debian, and Ubuntu. 
+The following memory profiles are available for POWER processors:
+
+| Profile | vCPU | GB RAM | Network Performance Cap (Gbps) |
+|---------|---------|---------|---------|
+| mp2-2x16 | 2 | 16 | 6 |
+| mp2-2x32 | 2 | 32 | 6 |
+| mp2-4x32 | 4 | 32 | 12 |
+| mp2-4x64 | 4 | 64 | 12 |
+| mp2-8x64 | 8 | 64 | 24 |
+| mp2-8x128 | 8 | 128 | 24 |
+| mp2-16x128 | 16 | 128 | 48 |
+| mp2-16x256 | 16 | 256 | 48 |
+| mp2-32x256 | 32 | 256 | 96 |
+<!--| mp2-48x768 | 48 | 768 | 100 |
+| mp2-56x448 | 56 | 448 | 100 |
+| mp2-56x896 | 56 | 896 | 100 |-->
+{: caption="Table 7. Power memory profile options" caption-side="top"}
+
+## GPU
+{: #gpu}
+
+GPU profiles are best for AI and deep learning workloads.
+
+Each GPU is an NVIDIA Tesla v100 and each includes 32 GBs of memory that contrubtes to the overall memory the VSI will report. The following memory profiles are available for POWER processing with Ubuntu 18.04 images:
+
+| Profile | vCPU | GB RAM | Network Performance Cap (Gbps) | Number of GPUs |
+|---------|---------|---------|---------|---------|
+| gp2-8x64x2 | 8 | 64 | 24 | 2 |
+| gp2-24x224x2 | 24 |224 | 72 | 2 |
+| gp2-16x128x4 | 16 | 128 | 48 | 4 |
+| gp2-32x256x4 | 32 | 256 | 96 | 4 |
+| gp2-56x448x4 | 56 | 448 | 100 | 4 |
+| gp2-56x896x4 | 56 | 896 | 100 | 4 |
+{: caption="Table 8. Power GPU profile options" caption-side="top"}
+
+For the Balanced, Compute, and Memory profile families, the following supported operating systems are available: CentOS, Debian, and Ubuntu. GPU profiles are supported by Ubuntu 18.04 only. A few of the larger profile sizes might require you to increase your quota limit. To increase a quota for a particular resource, [contact support](/docs/get-support?topic=get-support-getting-customer-support).
+
+If you are using GPU profiles, you might want to [download and run the CUDA installer for Linux Ubuntu 18.04 ppc64le](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=ppc64le&target_distro=Ubuntu&target_version=1804&target_type=deblocal). The utility is not required, but nice to try for instances with GPU profiles.
+{:tip}
 
 For information about storage, see [Storage notes for profiles](#storage-notes-for-profiles). 
 
-The network bandwidth cap applies separately to egress (transmitted) and ingress (received) traffic. That is, even if an instance with a network performance cap of 4 Gbps reaches its transmit cap of 4 Gbps, it can still receive up to its cap of 4 Gbps. <!-- For more information about network performance, see [Network performance notes for profiles](#network-perf-notes-for-profiles). -->
+The network bandwidth cap applies separately to egress (transmitted) and ingress (received) traffic. That is, even if an instance capped at 4 Gbps has reached its transmit cap of 4 Gbps, that will not impact its ability to receive up to its cap of 4 Gbps. <!-- For information about network performance, see [Network performance notes for profiles](#network-perf-notes-for-profiles). -->
 
 ## Viewing profile configurations
 {: #popular-profiles}
@@ -101,23 +169,25 @@ You can view available profile configurations by using the {{site.data.keyword.c
 ### Using the IBM Cloud console
 {: #profiles-using-console}
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances** and click **New instance**.
-3. You can either select a profile configuration from **Popular profiles** or click **All profiles** to view more configurations.
+1. In the {{site.data.keyword.cloud_notm}} console, navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
+2. From this page, click **New instance**.
+3. You can either select a profile configuration from **Popular profiles** or click **All profiles** to view additional configurations.
 
 ### Using the CLI
 {: #profiles-using-cli}
 
-To view the list of available profiles by using the CLI, run the following command:
+To view the list of available profiles using the CLI, run the following command:
 ```
 $ ibmcloud is instance-profiles
 ```
 {:codeblock}
 
-When you use the CLI, the following information describes what the output represents. The profile sizes have different ratios of CPU to memory because they are designed for different workloads:
+When using the command line, the following information describes what the output represents. The profile sizes have different ratios of CPU to memory, designed for different workloads:
 
 *  "b" is balanced, which is a 1:4 ratio
-*  "c" is compute (higher on the CPUs), which is a 1:2 ratio
-*  “m” is memory (higher on the memory), which is a 1:8 ratio
+*  "c" is compute (higher on the CPUs) , which is a 1:2 ratio
+*  “m” is memory (higher on the memory), which is a 1:8 ratio or 1:16 ratio
+*  "g" is GPU, which is a 1:8 or 1:16 ratio
 
 ## Storage notes for profiles
 {: #storage-notes-for-profiles}
@@ -129,12 +199,13 @@ as three predefined [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tier
 * A [5-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance suitable for a virtual server instance Compute profile.
 * A [10-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance suitable for a virtual server instance Memory profile.
 
-<!-- ## Network performance notes for profiles
+<!-- 
+## Network performance notes for profiles
 {: #network-perf-notes-for-profiles}
 
 Every profile has a maximum network bandwidth of 2 Gbps per vCPU, with a cap of 80 Gbps. Network bandwidth is distributed evenly across network interfaces, and each network interface has a cap of 16 Gbps that might limit the overall performance. You might need to attach multiple network interfaces to your virtual server instance to optimize network performance.
 
-For example, if you choose a profile with 16 vCPU, the network cap for the profile is 32 Gbps. If you have just one network interface, the maximum network performance is 16 Gbps due to the network interface cap. You need to attach two network interfaces (16 Gbps each) to reach the profile cap of 32 Gbps. --> 
-
+For example, if you choose a profile with 16 vCPU, the network cap for the profile is 32 Gbps. If you have just one network interface, the maximum network performance is 16 Gbps due to the network interface cap. You  need to attach two network interfaces (16 Gbps each) to reach the profile cap of 32 Gbps.
+-->
 
 
