@@ -17,6 +17,7 @@ subcollection: vpc
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:external: target="_blank" .external}
 {:table: .aria-labeledby="caption"}
 
 # Changing SMT settings for POWER-based instances
@@ -97,4 +98,4 @@ avg:3.744 GHz
 
 ### Choosing an SMT setting value
 
-Generally 2 or 4 threads are good choices. Four threads have more parallelization, but with a bit more overhead. Some workloads have their own guidance. For example, for TensorFlow, see the "AC922 with NVIDIA Tesla V100" section in [WML CE tuning recommendations](https://www.ibm.com/support/knowledgecenter/en/SS5SF7_1.6.1/navigation/wmlce_tuning.htm). The POWER virtual server backend is AC922 with optional NVIDIA Tesla V100 GPUs.
+Generally 2 or 4 threads are good choices. Four threads have more parallelization, but with a bit more overhead. Some workloads have their own guidance. For example, for TensorFlow, see the "AC922 with NVIDIA Tesla V100" section in [WML CE tuning recommendations](https://www.ibm.com/support/knowledgecenter/en/SS5SF7_1.6.1/navigation/wmlce_tuning.htm){: external}. The POWER virtual server backend is AC922 with optional NVIDIA Tesla V100 GPUs.
