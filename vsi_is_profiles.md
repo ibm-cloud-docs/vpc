@@ -154,7 +154,7 @@ Each GPU is an NVIDIA Tesla v100 and each includes 32 GBs of memory that contrib
 
 For the Balanced, Compute, and Memory profile families, the following supported operating systems are available: CentOS, Debian, and Ubuntu. GPU profiles are supported by Ubuntu 18.04 only. A few of the larger profile sizes might require you to increase your quota limit. To increase a quota for a particular resource, [contact support](/docs/get-support?topic=get-support-getting-customer-support).
 
-If you are using GPU profiles, you might want to [download and run the CUDA installer for Linux Ubuntu 18.04 ppc64le](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=ppc64le&target_distro=Ubuntu&target_version=1804&target_type=deblocal). The utility is not required, but nice to try for instances with GPU profiles.
+If you are using GPU profiles, you might want to [download and run the CUDA installer (10.1) for Linux Ubuntu 18.04 ppc64le](https://developer.nvidia.com/cuda-10.1-download-archive-update2?target_os=Linux&target_arch=ppc64le&target_distro=Ubuntu&target_version=1804&target_type=deblocal). The CUDA toolkit is not required, but it provides utilities to exercise and validate your GPUs, development APIs, and more. Install the CUDA version that matches your NVIDIA driver version to prevent the driver from being automatically updated to an unsupported version.
 {:tip}
 
 For information about storage, see [Storage notes for profiles](#storage-notes-for-profiles). 
