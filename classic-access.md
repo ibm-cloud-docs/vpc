@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2019
-lastupdated: "2019-10-29"
+lastupdated: "2019-12-19"
 
 keywords: vpc, classic, access, classic access, VRF, peering
 
@@ -129,3 +129,4 @@ Migration is completed by the {{site.data.keyword.cloud_notm}} Network Engineeri
 * Only private networks (also known as backend networks) in classic infrastructure can be connected to your VPC.
 * Only subnets allocated to your classic infrastructure with {{site.data.keyword.cloud_notm}} provisioning systems can be connected to your VPC.
 * Only one VPC per region can be enabled for classic access.
+* If your classic infrastructure includes an imported default route from Direct Link, the imported default route is used by your Classic Access VPC. In this scenario, the public gateway and floating IPs in your Classic Access VPC do not provide internet access.
