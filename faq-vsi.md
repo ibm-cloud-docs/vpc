@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-12-18"
 
 subcollection: vpc
 
@@ -25,7 +25,7 @@ subcollection: vpc
 {: #faq-vsi-0}
 {: faq}
 
-Yes.
+Yes, a vNIC on a virtual server instance has a private IP and can be attached to floating IP.
 
 ## Instance1 has two vNICs, called vNIC1 and vNIC2. Can these two vNICs be attached to the same subnet?
 {: #faq-vsi-1}
@@ -37,25 +37,19 @@ Yes, you can attach multiple network interfaces of an instance to the same subne
 {: #faq-vsi-2}
 {: faq}
 
-No.
+No, a virtual server instance must be provisioned in a subnet.
 
 ## Can an instance be attached to multiple VPCs?
 {: #faq-vsi-3}
 {: faq}
 
-No.
+No, a virtual server instance can be provisioned in only one VPC.
 
 ## During floating IP assignment in a VPC, a customer must specify the vNIC of the instance, is that correct?
 {: #faq-vsi-4}
 {: faq}
 
 Yes, and in fact, it must be the primary network interface of a server.
-
-## Can a vNIC on a virtual server instance in my VPC have both floating IP and private IP?
-{: #faq-vsi-5}
-{: faq}
- 
-Yes.
 
 ## Imagine that instance1 in a VPC has only vNIC1 and it is attached to Subnet1. Subnet1 is attached to a Public Gateway (PGW). Can a customer still assign a floating IP to instance1?
 {: #faq-vsi-6}
@@ -75,15 +69,14 @@ You can create virtual server instances for {{site.data.keyword.vpc_full}} in Da
 
 You can migrate a virtual server instance from the classic infrastructure to a VPC. You need to create an image template, export it to IBM Cloud Object Storage, and then customize the image to meet the requirements of the VPC infrastructure. For more information, see [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc).
 
-## Why doesn't my {{site.data.keyword.vsi_is_short}} instance appear in the Device List in {{site.data.keyword.slportal}}?
-{: #faq-vsi-9}
-{: faq}
-
-{{site.data.keyword.vsi_is_short}} instances appear only in {{site.data.keyword.cloud_notm}} console.
-
-
 ## What virtual server families are supported in {{site.data.keyword.vpc_short}}?
 {: #faq-vsi-10}
 {: faq}
 
 Currently, public virtual servers in the balanced, memory, and compute families are supported. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles#profiles).
+
+## What do I do if an instance is in a bad state, such as continually starting or stopping?
+{: #faq-vsi-11}
+{: faq}
+
+You can issue a command to force the instance to stop. Use the {{site.data.keyword.cloud_notm}} CLI to obtain the instance ID, and then run the following command, `ibmcloud is instance-stop --no-wait -f`.  When the instance is stopped, you can either restart it or delete it.
