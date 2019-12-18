@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-12-18"
 
 keywords: migrate virtual server from classic infrastructure, migrate to vpc, migrate image template, image template, import image to vpc infrastructure, migrate virtual server, migrate instance
 
@@ -57,6 +57,9 @@ For more information, see [Using authorizations to grant access between services
 {: #migrate-vsi-from-classic-to-vpc-on-classic-task}
 
 Complete the following steps to migrate an image template that is associated with a virtual server instance in the classic infrastructure to the {{site.data.keyword.vpc_short}} infrastructure. When the custom image is available in {{site.data.keyword.vpc_short}}, you can use it to create a virtual server.
+
+For an example of using shell scripts to migrate a classic instance to an {{site.data.keyword.vpc_short}} instance, see [Automate the Migration of a Workload Based on Virtual Servers from Classic Infrastructure to VPC](https://www.ibm.com/cloud/blog/automate-the-migration-of-a-workload-based-on-virtual-servers){: external} and [vpc-tutorials](https://github.com/IBM-Cloud/vpc-tutorials/tree/master/vpc-migrate-from-classic){: external}. 
+{: tip}
 
 ### Step 1 - Create an image template
 {: #migrate-create-template}
