@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-12-09"
+lastupdated: "2019-12-18"
 
 keywords: vpc, limitations, restrictions
 
@@ -34,8 +34,7 @@ The following features are not supported, including all properties associated wi
 
 * The following concepts are not supported:
   * IPV6
-  * Secondary IP addresses
-  * CRNs (Exception: Volumes include CRNs via RSOS)
+  * Multiple IP addresses on the same network interface
 
 * Virtual server instance name change: If you update the name of a virtual server, the name change may not appear consistently in different areas of the {{site.data.keyword.cloud_notm}} console. For example, the virtual server name change might not be reflected in the {{site.data.keyword.cloud_notm}} console, or on the billing invoice, yet it appears correctly in the user's list of running instances.
 
@@ -47,7 +46,7 @@ The following features are not supported, including all properties associated wi
   * A security group can be configured in a single zone only. 
   * A security group can’t reference another security group in a different zone in the same region.
 
-* Bring Your Own IP:
+* Bring your own subnet:
   * Address prefixes must be within one of the "private" address ranges defined in RFC1918.
   * Address prefixes can't be configured in the IBM Cloud console.
    
@@ -68,10 +67,6 @@ The following features are not supported, including all properties associated wi
 * Every POWER-based profile has a network performance value of 3 Gbps per vCPU, with a cap of 100 Gbps.
 * Each x86-based network interface has a network performance cap of 16 Gbps. <!-- You might need to attach multiple network interfaces to your virtual server instance to optimize network performance. -->
 * Each POWER-based network interface has a network performance cap of 25 Gbps.
-
-* API limitations:
-  * List APIs don't support pagination. 
-  * GET /instances doesn't support the query parameter `network_interfaces.subnet.id`.
 * Start/Stop actions are not registered under virtual server instance activity in the UI.
 * Activity Tracker logs (request logs and resource lifecycle event logs) are not available.
 * Updating the profile of a created instance is not supported.
@@ -80,3 +75,8 @@ The following features are not supported, including all properties associated wi
 {: #storage-restrictions}
 
 * Customer-managed encryption for secondary volumes is not supported.
+
+## API considerations
+{: #api-considerations}
+
+* For API limitations and considerations, see [API application migration considerations](/docs/vpc?topic=vpc-api-integration-migration). 
