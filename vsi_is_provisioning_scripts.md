@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-12-20"
 
 keywords: user data, vsi, virtual server instance
 
@@ -51,5 +51,8 @@ echo &lt;sshKey&gt; &gt; ~/.ssh/authorized_keys
 </code></pre>
 
 You can paste one of these examples directly into the **User Data** field. The user data is then available to the virtual server instance during provisioning.
+
+If you specify to include a file and have spaces preceding the file name, the data won't be interpreted correctly. Verify that `#!/bin/sh` or `#!/bin/bash` are the first characters on the line immediately following the end of file designation (`<<EOF`). The characters can't be indented. 
+{: tip}
 
 For more Linux user data examples and information, see [Cloud config examples ![External link icon](../icons/launch-glyph.svg "External link icon")](https://cloudinit.readthedocs.io/en/latest/topics/examples.html){:new_window}.
