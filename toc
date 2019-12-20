@@ -21,6 +21,7 @@ Virtual Private Cloud
     {: .topicgroup}
     Compute
         vsi_is_about_vpc.md
+        vsi-images.md
         vsi_is_profiles.md
         vsi_is_ssh_keys_about.md
         vsi_is_provisioning_scripts.md
