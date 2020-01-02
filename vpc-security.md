@@ -49,7 +49,7 @@ The sections that follow describe basic functions of ACLs and security groups, a
 
 An **Access Control List (ACL)** can manage (that is, it can allow or deny) inbound and outbound traffic for a subnet. An ACL is stateless, which means that inbound and outbound rules must be specified separately and explicitly. Each ACL consists of rules, based on a *source IP*, *source port*, *destination IP*, *destination port*, and *protocol*.
 
-Every VPC has a default ACL that allows all inbound and outbound traffic. You can edit the default ACL rules or create a custom ACL and attach it to your subnets. Only one ACL is attached to a subnet at any time, but one ACL can be attached to multiple subnets. For more information about how to use ACLs, see [Setting up network ACLs.
+Every VPC has a default ACL that allows all inbound and outbound traffic. You can edit the default ACL rules or create a custom ACL and attach it to your subnets. Only one ACL is attached to a subnet at any time, but one ACL can be attached to multiple subnets. For more information about how to use ACLs, see [Setting up network ACLs](/docs/vpc?topic=vpc-using-acls).
 
 ### Security groups
 {: #sgs-security}
