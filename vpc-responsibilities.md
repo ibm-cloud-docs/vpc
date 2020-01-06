@@ -75,6 +75,7 @@ Your responsibilities:
 - Choose how to connect your workload to the public internet, if applicable, either using a public gateway or floating IP.
 - Restrict user access to the appropriate resources and resource groups.
 - Integrate IBM Cloud Activity Tracker with LogDNA and IBM Cloud Monitoring with Sysdig data into your auditing and monitoring processes.
+- If your application requires end-to-end encryption, ensure that your connection is encrypted end-to-end.
  
 ### App Orchestration
 {: #app-orchestration}
