@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-09-30"
+  years: 2018, 2020
+lastupdated: "2020-01-07"
 
 keywords: vpc, setup, environment, prerequisites, api, cli, command line interface, plugin, creating a vpc, iam, permissions, access, ssh key
 
@@ -19,6 +19,7 @@ subcollection: vpc
 {:tip: .tip}
 {:important: .important}
 {:download: .download}
+{:external: target="_blank" .external}
 {:DomainName: data-hd-keyref="DomainName"}
 
 # Setting up your API and CLI environment
@@ -82,7 +83,7 @@ apikey="<YOUR_API_KEY>"
 ### Step 2: Get an IBM Identity and Access Management (IAM) token
 {: #get-iam-token}
 
-Run the following command to get and parse an IAM token by using the utility `jq`. You can modify the command to use another parsing tool, or you can remove the last part of the command if you prefer to manually parse the token.
+Run the following command to get and parse an IAM token by using the JSON processing utility [jq](https://stedolan.github.io/jq/){: external}. You can modify the command to use another parsing tool, or you can remove the last part of the command if you prefer to manually parse the token.
 
 ```
 iam_token=`curl -k -X POST \
