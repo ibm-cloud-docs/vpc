@@ -3,8 +3,8 @@
 
 
 copyright:
-  years: 2017,2018, 2019
-lastupdated: "2019-11-10"
+  years: 2019, 2020
+lastupdated: "2020-01-08"
 
 keywords: VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies, gateway, auto-negotiation, vpc, vpc network
 
@@ -539,6 +539,12 @@ Only PSK authentication is supported.
 {: faq}
 
 No. To set up a VPN gateway in your classic environment, you must use the [IPsec VPN](https://{DomainName}/catalog/infrastructure/ipsec-vpn){: external}.
+
+### What {{site.data.keyword.cloud_notm}} infrastructure classic resources can be accessed with VPN for VPC, along with Classic Access VPC? 
+{: #faq-vpn-13}
+{: faq}
+
+Virtual server instances are the only classic resources that can be accessed with VPN for VPC along with Classic Access VPC.
 
 ### What will rekey collision cause?
 {: #faq-vpn-12}
