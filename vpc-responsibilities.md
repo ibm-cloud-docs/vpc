@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-12-17"
+  years: 2019, 2020
+lastupdated: "2020-01-08"
 
 keywords: vpc, responsibilities, ha, high availability, disaster recovery
 
@@ -46,7 +46,7 @@ IBM's responsibilities:
 Your responsibilities:
 - Use the provided API, CLI, or UI console to provision compute and storage, and to adjust networking configurations to meet the needs of your workload.
 - Make sure the CIDR blocks you specify for your VPC do not conflict with CIDR blocks used by any other network that you plan to connect to your VPC.
-- Design and deploy your workload in a way that achieves high availability using our provided tools, such as multiple availability zones. At a high level, deploy your workloads in different zones of the region, use at least two load balancers that are located in different zones, and either use DNS records to point to the load balancers, or ensure that your application can handle a list of IP addresses that it can connect to.
+- Design and deploy your workload in a way that achieves high availability using our provided tools, such as multiple availability zones. At a high level, deploy your workloads in different zones of the region, use at least two load balancers that are located in different zones, and either use DNS records to point to the load balancers, or ensure that your application can handle a list of IP addresses that it can connect to. For more information, see [Deploy isolated workloads across multiple locations and zones](/docs/tutorials?topic=solution-tutorials-vpc-multi-region). 
 
 ### VPC Workloads
 {: #vpc-workloads}
