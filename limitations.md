@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-12-18"
+  years: 2018, 2020
+lastupdated: "2019-01-08"
 
 keywords: vpc, limitations, restrictions
 
@@ -36,8 +36,12 @@ The following features are not supported, including all properties associated wi
   * IPV6
   * Multiple IP addresses on the same network interface
 
-* Virtual server instance name change: If you update the name of a virtual server, the name change may not appear consistently in different areas of the {{site.data.keyword.cloud_notm}} console. For example, the virtual server name change might not be reflected in the {{site.data.keyword.cloud_notm}} console, or on the billing invoice, yet it appears correctly in the user's list of running instances.
+* Virtual server instance name change: If you update the name of a virtual server, the name change may not appear consistently in different areas of the {{site.data.keyword.cloud}} console. For example, the virtual server name change might not be reflected in the {{site.data.keyword.cloud_notm}} console, or on the billing invoice, yet it appears correctly in the user's list of running instances.
 
+## Virtual private cloud restrictions
+{: #virtual-private-cloud-restrictions}
+
+* An {{site.data.keyword.vpc_short}} cannot be peered with other VPCs. While it is possible to connect VPCs with either VPN Gateways or Floating IPs, there is no automatic route advertisement between the two VPCs. Static routes must be used in each VPC to enable layer 3 connectivity between the two VPCs. For more information about how you can achieve VPC-to-VPC connectivity, see [API example: Connecting two VPCs using VPN](/docs/vpc?topic=vpc-using-vpn#vpn-example).
 
 ## Network restrictions
 {: #network-restrictions}
