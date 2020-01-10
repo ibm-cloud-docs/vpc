@@ -39,7 +39,7 @@ IBM provides you with an enterprise cloud platform to deploy your workload. You 
 
 IBM's responsibilities:
 - Deploy a fully managed, highly available, secured, IBM-owned infrastructure.
-- Fulfill requests for VPC infrastructure, such as VPCs, subnets, virtual server instances, block storage volumes, security groups, access control lists, floating IPs, public gateways, and SSH keys across multiple availability zones.
+- Fulfill requests for VPC infrastructure, such as VPCs, subnets, virtual server instances, block storage volumes, security groups, access control lists, floating IPs, public gateways, and SSH keys across multiple availability zones (AZs) and multi-zone regions (MZRs).
 - Provide the ability to bring your own CIDR block to a subnet.
 - Load Balancer and VPN for VPC have off-site storage and replication of configuration data in an out-of-region disaster recovery node with daily backups. This data is fully managed by IBM Cloud and no customer input is required to ensure service recovery, although there can be up to a 24-hour loss of configuration data.
 
