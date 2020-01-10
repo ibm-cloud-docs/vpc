@@ -30,7 +30,7 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 {: #jan-10-2020}
 
 - **New region** The Washington DC region is now available.
-- **CLI plug-in release 0.5.10** For more information, see [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference)
+- **CLI plug-in release 0.5.10** For more information, see [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
   * You now have an Example section in command help for creating and updating commands. Example: `ibmcloud is help instance-create`, `ibmcloud is help instance-update`, or `ibmcloud is help volume-create`.
   * You can now use the _resource group filter_ in list commands. Example: `ibmcloud is vpcs --resource-group-name Littleton`.
   * JSON output format support for the `ibmcloud is target --json` command.
