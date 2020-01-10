@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-26"
+lastupdated: "2020-01-10"
 
 keywords: vpc, api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -41,6 +41,10 @@ To minimize bugs caused by changes, use the following best practices when you ca
 * Follow HTTP redirect rules for any `3xx` HTTP status code
 * Consume only the resources and properties your application needs to function
 * Avoid depending on behavior that is not explicitly documented
+
+## 2020-01-10
+{: #2020-01-10}
+The Washington DC	region endpoint (us-east) is now in service at http://us-east.iaas.cloud.ibm.com.
 
 ## 2019-11-26
 {: #2019-11-26}
