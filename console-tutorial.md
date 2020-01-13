@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2018, 2019
+  years: 2019, 2020
 
-lastupdated: "2019-11-20"
+lastupdated: "2020-01-13"
 
 
 keywords: vpc, virtual private cloud, vpc ui, console, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range
@@ -22,6 +22,8 @@ subcollection: vpc
 {:tip: .tip}
 {:important: .important}
 {:download: .download}
+{:help: data-hd-content-type='help'}
+{:support: data-reuse='support'}
 
 # Using the {{site.data.keyword.cloud_notm}} console to create VPC resources
 {: #creating-a-vpc-using-the-ibm-cloud-console}
@@ -60,6 +62,8 @@ If you plan to create a load balancer and use HTTPs for the listener, an SSL cer
 
 ## Creating a VPC and subnet
 {: #creating-a-vpc-and-subnet}
+{: help} 
+{: support}
 
 To create a VPC and subnet:
 
@@ -149,6 +153,8 @@ Then, configure the following outbound rules:
 
 ## Creating a virtual server instance
 {: #creating-a-vsi}
+{: help} 
+{: support}
 
 To create a virtual server instance in the newly created subnet:
 
