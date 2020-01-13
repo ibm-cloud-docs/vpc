@@ -44,6 +44,7 @@ Virtual Private Cloud
     console-tutorial.md
     hello-world-vpc.md
     example-code.md
+    vpc-regions.md
 
     {: .topicgroup}
     Managing access
