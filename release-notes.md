@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-10"
+lastupdated: "2020-01-13"
 
 keywords: vpc release notes, changes, updates, vpc
 
@@ -29,7 +29,7 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 ## 10 January 2020
 {: #jan-10-2020}
 
-- **New region** The Washington DC region is now available.
+- **New region** The Washington DC region is now available. For more information, see [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region).
 - **CLI plug-in release 0.5.10** For more information, see [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
   * You now have an Example section in command help for creating and updating commands. Example: `ibmcloud is help instance-create`, `ibmcloud is help instance-update`, or `ibmcloud is help volume-create`.
   * You can now use the _resource group filter_ in list commands. Example: `ibmcloud is vpcs --resource-group-name Littleton`.
@@ -46,7 +46,7 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 ## 2 December 2019
 {: #dec-2-2019}
 
-- **Access control lists**.  You can use an access control list (ACL) to control all incoming and outgoing traffic in {{site.data.keyword.vpc_full}}. For more information, see [Setting up network ACLs](/docs/vpc?topic=vpc-using-acls).
+- **Access control lists** You can use an access control list (ACL) to control all incoming and outgoing traffic in {{site.data.keyword.vpc_full}}. For more information, see [Setting up network ACLs](/docs/vpc?topic=vpc-using-acls).
 
 ## 14 November 2019
 {: #nov-14-2019}
