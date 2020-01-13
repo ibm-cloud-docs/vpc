@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-09-30"
+  years: 2019, 2020
+lastupdated: "2020-01-13"
 
 subcollection: vpc
 
@@ -17,6 +17,7 @@ subcollection: vpc
 {:tip: .tip}
 {:download: .download}
 {:faq: data-hd-content-type='faq'}
+{:support: data-reuse='support'}
 
 
 # FAQs for VPC
@@ -25,6 +26,7 @@ subcollection: vpc
 ## Can I connect my VPC to my other IBM Cloud workloads?  
 {: #faq-vpc-0}
 {:faq}
+{: support}
 
 Yes, you can set up access to your {{site.data.keyword.cloud}} classic infrastructure from one VPC in each region. For more information, see [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure).
 

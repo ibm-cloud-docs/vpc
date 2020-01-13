@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-12-18"
+  years: 2019, 2020
+lastupdated: "2020-01-13"
 
 subcollection: vpc
 
@@ -17,6 +17,7 @@ subcollection: vpc
 {:tip: .tip}
 {:download: .download}
 {:faq: data-hd-content-type='faq'}
+{:support: data-reuse='support'}
 
 # FAQs for virtual server instances
 {: #faqs-for-vsis}
@@ -42,6 +43,7 @@ No, a virtual server instance must be provisioned in a subnet.
 ## Can an instance be attached to multiple VPCs?
 {: #faq-vsi-3}
 {: faq}
+{: support}
 
 No, a virtual server instance can be provisioned in only one VPC.
 
@@ -60,23 +62,27 @@ Yes, a server can be on a subnet that is attached to a public gateway and also h
 ## What regions are available?
 {: #faq-vsi-7}
 {: faq}
+{: support}
 
 You can create virtual server instances for {{site.data.keyword.vpc_full}} in Dallas (US-South) and Washington DC (us-east).
 
 ## Can I use existing virtual server instances from my classic infrastructure with an {{site.data.keyword.vpc_short}}?
 {: #faq-vsi-8}
 {: faq}
+{: support}
 
 You can migrate a virtual server instance from the classic infrastructure to a VPC. You need to create an image template, export it to IBM Cloud Object Storage, and then customize the image to meet the requirements of the VPC infrastructure. For more information, see [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc).
 
 ## What virtual server families are supported in {{site.data.keyword.vpc_short}}?
 {: #faq-vsi-10}
 {: faq}
+{: support}
 
 Currently, public virtual servers in the balanced, memory, and compute families are supported. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles#profiles).
 
 ## What do I do if an instance is in a bad state, such as continually starting or stopping?
 {: #faq-vsi-11}
 {: faq}
+{: support}
 
 You can issue a command to force the instance to stop. Use the {{site.data.keyword.cloud_notm}} CLI to obtain the instance ID, and then run the following command, `ibmcloud is instance-stop --no-wait -f`.  When the instance is stopped, you can either restart it or delete it.
