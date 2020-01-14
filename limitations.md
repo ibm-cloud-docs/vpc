@@ -38,6 +38,8 @@ The following features are not supported, including all properties associated wi
 
 * Virtual server instance name change: If you update the name of a virtual server, the name change may not appear consistently in different areas of the {{site.data.keyword.cloud}} console. For example, the virtual server name change might not be reflected in the {{site.data.keyword.cloud_notm}} console, or on the billing invoice, yet it appears correctly in the user's list of running instances.
 
+* POWER-based instances are not supported in the Washington DC region.
+
 ## Virtual private cloud restrictions
 {: #virtual-private-cloud-restrictions}
 
