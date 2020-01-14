@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-01-13"
+lastupdated: "2020-01-14"
 
 keywords: vpc, region, zone, deploy, datacenter, data, center, federated, CLI, API, account, failover, disaster, recovery, DR
 
@@ -114,10 +114,10 @@ ibmcloud is regions
 ```
 {: pre}
 
-To switch to a different region, run the `ibmcloud target -r <region>` command. For example, to switch to the Frankfurt region, run the following command:
+To switch to a different region, run the `ibmcloud target -r <region>` command. For example, to switch to the Washington DC region, run the following command:
 
 ```
-ibmcloud target -r eu-de
+ibmcloud target -r us-east
 ```
 {: pre}
 
