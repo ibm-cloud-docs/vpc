@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2017, 2018, 2019
+  years: 2017, 2020
 
-lastupdated: "2019-10-16"
+lastupdated: "2020-01-14"
 
 keywords: vpc, pricing, billing, data, instance, VSI, block, storage, paygo, transfer, floating, server, VPC, allowance, gateway, egress, minimal charges, ARP, traffic
 
@@ -87,7 +87,7 @@ VPNs for VPC are currently in Beta. There are no charges for their use.
 [comment]: # (linked help topic)
 
 
-For {{site.data.keyword.vsi_is_full}} you're billed at an hourly rate only, with discounts applied the longer your instance is running. Virtual server usage times are calculated per second, for both the in use time and suspended time of your instance. For example, if your instance runs for 45 minutes and 32 seconds, you're billed for 45 minutes and 32 seconds.
+For {{site.data.keyword.vsi_is_full}} you're billed at an hourly rate based on instance prices. Discounts are applied the longer your instance is running. Metrics for the virtual server usage times are calculated per second while the virtual server is running. You are not be billed for the time your instance is powered off. For example, if your instance runs for 45 minutes and 32 seconds, you're billed for 45 minutes and 32 seconds. Another example is if you start your instance and run for 20 minutes, then stop your instance for 24 hours, then start the instance and run for 30 minutes; you're billed for the 50 minutes the instance was running.
 {:shortdesc}
 
 ### Base instance prices
@@ -124,6 +124,16 @@ The following operating systems are included free of charge:
 * CentOS 7.latest
 * Debian 9.latest (minimal)
 * Ubuntu 16.04 LTS, 18.04 (minimal)
+
+### Premium operating systems and add-ons
+{: #premium-os-add-ons}
+
+Premium operating systems and other add-ons are available. You'll see the pricing in your Cost Summary.
+
+| Premium operating system       | Amount of data    |  PayGo Pricing     |
+| ------------------------------ | ----------------- | ---------------------- |    
+| Windows 2012, 2012 R2, 2016    |                   | $.04 per core per hour  |            
+{: caption="Table 4. Premium operating system pricing" caption-side="top"} 
 
 
 ### Sustained usage
