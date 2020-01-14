@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-12-09"
+  years: 2018, 2020
+lastupdated: "2020-01-14"
 
 keywords: quotas, vpc, resources, limits
 
@@ -30,7 +30,7 @@ This document covers quotas for {{site.data.keyword.vpc_full}} and the resources
 {: #vpc-quotas}
 
 |   Resource     | Quota |
-| ------- | :------: |
+| ------- | ------ |
 | Virtual private clouds | 5 per region|
 | VPCs with classic access | 1 per region|
 | Subnets | 15 per VPC |
@@ -42,7 +42,7 @@ This document covers quotas for {{site.data.keyword.vpc_full}} and the resources
 {: #vsi-quotas}
 
 |   Resource     | Quota |
-| ------- | :------: |
+| ------- | ------ |
 | vCPU |  200 per region  |
 | RAM | 800 GB per region |
 | Network interfaces | 5 per instance |
@@ -88,13 +88,13 @@ This document covers quotas for {{site.data.keyword.vpc_full}} and the resources
 {: #vpn-quotas}
 
 |Resource|Quota|
-|--------|-----|
-| VPN gateways| 20 per account, 3 per zone |
+|--------|-----------|
+| VPN gateways| 9 per region, 3 per zone |
 | VPN connections | 10 per VPN gateway |
-| IKE policies | 20 per account |
-| IPSec policies | 20 per account |
-| Peer subnets | 50 across all connections of a VPN gateway, 15 per connection|
-| Local subnets | 50 across all connections of a VPN gateway, 15 per connection|
+| IKE policies | 20 per region |
+| IPSec policies | 20 per region |
+| Peer subnets | 50 across all connections of a VPN gateway, 15 per indvidual VPN connection |
+| Local subnets | 50 across all connections of a VPN gateway, 15 per indvidual VPN connection |
 {: caption="Table 6. Quotas for the VPN service" caption-side="top"}
 
 ## Load balancers
@@ -108,3 +108,4 @@ This document covers quotas for {{site.data.keyword.vpc_full}} and the resources
 | Pools | 10 per load balancer |
 | Members | 50 per pool |
 {: caption="Table 7. Quotas for load balancers" caption-side="top"}
+
