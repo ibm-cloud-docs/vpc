@@ -87,7 +87,7 @@ VPNs for VPC are currently in Beta. There are no charges for their use.
 [comment]: # (linked help topic)
 
 
-For {{site.data.keyword.vsi_is_full}} you're billed at an hourly rate based on instance prices. Discounts are applied the longer your instance is running. Metrics for the virtual server usage times are calculated per second while the virtual server is running. You are not be billed for the time your instance is powered off. For example, if your instance runs for 45 minutes and 32 seconds, you're billed for 45 minutes and 32 seconds. Another example is if you start your instance and run for 20 minutes, then stop your instance for 24 hours, then start the instance and run for 30 minutes; you're billed for the 50 minutes the instance was running.
+For {{site.data.keyword.vsi_is_full}} you're billed at an hourly rate based on instance configurations. Discounts are applied the longer your instance runs. Usage times are calculated per second while the virtual server instance is running. You are not be billed for the time your instance is powered off. For example, if the instance runs for 45 minutes and 32 seconds, you're billed for 45 minutes and 32 seconds. Another example is if you start your instance and run for 20 minutes, then stop your instance for 24 hours, then start the instance and run for 30 minutes; you're billed for the 50 minutes (20 minutes + 30 minutes) the instance was running.
 {:shortdesc}
 
 ### Base instance prices
