@@ -184,6 +184,8 @@ To create a virtual server instance in the newly created subnet:
 
 ## Creating and attaching a block storage volume
 {: #creating-a-block-storage-volume}
+{: help} 
+{: support}
 
 You can create a block storage volume and attach it to your virtual server instance if you want more storage.
 
