@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-01-17"
 
 keywords: vpc, known issues, bugs, defects
 
@@ -36,3 +36,8 @@ Known issues might change over time, so check back occasionally.
 {: #RIOS-129}
 - **Symptom:** The names of stock images are different in VPC generation 1 and VPC generation 2 environments. The expected behavior is that names are consistent across VPC unified images.
 - **Fix:** The image service is being rolled out in VPC generation 1 first. When the service is deployed in VPC generation 2, unified image names will match, as the same image service will be running in both environments.
+
+## CFD-24: Static IP address does not persist on instance restart
+{: #CFD-24}
+- **Symptom:** When you stop an instance and then start it again, a new private IP address is assigned if the instance wasn't created with a static IP address
+- **Fix:** Set a static IP address when you [create the instance](https://cloud.ibm.com/apidocs/vpc#create-an-instance) with the CLI or API.
