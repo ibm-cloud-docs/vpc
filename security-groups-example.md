@@ -28,11 +28,11 @@ subcollection: vpc
 In this example, you create a virtual server instance (VSI) with a security group that is enabled by using the command-line interface (CLI). Figure 1 shows what the scenario looks like.
 {:shortdesc}
 
-![Figure showing a virtual server instance with a security group enabled](/images/security-groups-schematic.png "Figure showing a virtual server instance with a security group enabled"){: caption="Figure 1. Instance with security group enabled" caption-side="top"}
+![Figure showing a virtual server instance with a security group enabled](/images/security-groups-schematic.svg "Figure showing a virtual server instance with a security group enabled"){: caption="Figure 1. Instance with security group enabled" caption-side="top"}
 
-Notice in Figure 1 that the instance named **SG4** has a floating IP `169.60.208.144` assigned to it, in addition to its internal VPC address `10.0.0.5`; therefore, it can talk to the public internet. The security group assigned to instance **SG4** is named "demosg".
+Notice in Figure 1 that the instance named **SG4** has a floating IP `169.60.208.144` assigned to it, in addition to its internal VPC address `10.10.10.5`; therefore, it can talk to the public internet. The security group assigned to instance **SG4** is named "demosg".
 
-The instance **SG8** is internal-only to the VPC, with a private IP address. The security group assigned to instance **SG8** is named "my_vpc_sg". Both of these instances exist within the VPC named `sgvpc` and also on the same subnet `10.0.0.0/28` so they can communicate with each other.
+The instance **SG8** is internal-only to the VPC, with a private IP address. The security group assigned to instance **SG8** is named "my_vpc_sg". Both of these instances exist within the VPC named `sgvpc` and also on the same subnet `10.10.10.0/24` so they can communicate with each other.
 
 ## Steps for creating an instance with a security group attached
 {: #steps-for-creating-a-vsi-with-a-security-group-attached}
