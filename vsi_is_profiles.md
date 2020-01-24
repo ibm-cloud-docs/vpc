@@ -29,7 +29,7 @@ When you provision {{site.data.keyword.vsi_is_full}}, you choose a processing ar
 
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, number of GPUs, and more that can be instantiated quickly to start a virtual server instance. In the {{site.data.keyword.Bluemix_notm}} console, you can choose from popular profile configurations or select from a list of profiles that best fit your needs.
 
-IBM Cloud Virtual Servers for VPC on POWER are available in Beta only. If you are interested in using profiles that are available for POWER processors, complete the [onboarding form](https://developer.ibm.com/linuxonpower/ibm-cloud-beta-program-registration/){: external}.
+New! IBM Cloud Virtual Servers for VPC on POWER are available in Beta. If you are interested in using profiles that are available for POWER processors, [sign up for early access](https://developer.ibm.com/linuxonpower/power-virtual-private-cloud/){: external}. 
 {:note}
 
 The following profile families are available:
