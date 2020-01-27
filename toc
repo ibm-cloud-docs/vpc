@@ -36,7 +36,11 @@ Virtual Private Cloud
     Tutorials
         /tutorials/solution-tutorials-vpc-public-app-private-backend
         /tutorials/solution-tutorials-vpc-app-deploy
-        /tutorials/solution-tutorials-vpc-secure-management-bastion-server   
+        /tutorials/solution-tutorials-vpc-secure-management-bastion-server
+
+    {: .topicgroup}
+    Related links
+        [Architecture Center VPC Solutions](https://www.ibm.com/cloud/garage/architectures/virtual-private-cloud/overview)
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
