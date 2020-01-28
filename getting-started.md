@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-12-09"
+  years: 2018, 2020
+lastupdated: "2020-01-28"
 
 keywords: Virtual Private Cloud, permissions, infrastructure, VPC, SSH key, CLI, API, console, public gateway, floating IP, IP ranges, BYoIP 
 
@@ -73,4 +73,9 @@ To learn how to create VPC resources, see these tutorials:
 * [Using the CLI to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-cli)
 * [Using the REST APIs to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis)
 
-For a general overview of VPC, see [About Virtual Private Cloud](/docs/vpc?topic=vpc-about-vpc#about-vpc).
+For a general overview of the VPC infrastructure and related compute, networking and storage concepts, see the following topics:
+
+* [About Virtual Private Cloud](/docs/vpc?topic=vpc-about-vpc#about-vpc)
+* [About networking for VPC](/docs/vpc?topic=vpc-about-networking-for-vpc)
+* [About instances for VPC](/docs/vpc?topic=vpc-about-advanced-virtual-servers)
+* [About storage for VPC](/docs/vpc?topic=vpc-block-storage-about)
