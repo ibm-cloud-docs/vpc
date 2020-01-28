@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-12-05"
+  years: 2019, 2020
+lastupdated: "2020-01-28"
 
 keywords: vpc, cli, command line interface, tutorial, creating a vpc
 
@@ -193,7 +193,7 @@ ibmcloud is images
 Deprecated images do not include the most current support.
 {: tip}
 
-Let's pick instance profile `b2-2x8` and image `debian-9.x-amd64`. To get the image ID, run the following command:
+Let's pick instance profile `bx2-2x8` and image `debian-9.x-amd64`. To get the image ID, run the following command:
 
 ```
 image=$(ibmcloud is images | grep -i "debian" | cut -d" " -f1)
@@ -206,7 +206,7 @@ image=$(ibmcloud is images | grep -i "debian" | cut -d" " -f1)
 Create an instance in the newly created subnet. Pass in your public SSH key so that you can log in after the instance is provisioned.
 
 ```
-ibmcloud is instance-create my-instance $vpc us-south-3 b2-2x8 $subnet --image-id $image --key-ids $key
+ibmcloud is instance-create my-instance $vpc us-south-3 bx2-2x8 $subnet --image-id $image --key-ids $key
 ```
 {: pre}
 
