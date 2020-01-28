@@ -196,7 +196,7 @@ Deprecated images do not include the most current support.
 Let's pick instance profile `bx2-2x8` and image `debian-9.x-amd64`. To get the image ID, run the following command:
 
 ```
-image=$(ibmcloud is images | grep -i "debian" | cut -d" " -f1)
+image=$(ibmcloud is images | grep -i "debian.*available.*amd64.*public" | cut -d" " -f1)
 ```
 {: pre}
 
