@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-13"
+lastupdated: "2020-01-28"
 
 subcollection: vpc
 
@@ -86,3 +86,10 @@ Currently, public virtual servers in the balanced, memory, and compute families 
 {: support}
 
 You can issue a command to force the instance to stop. Use the {{site.data.keyword.cloud_notm}} CLI to obtain the instance ID, and then run the following command, `ibmcloud is instance-stop --no-wait -f`.  When the instance is stopped, you can either restart it or delete it.
+
+## When I attempt to update my Ubuntu image with apt, I receive an error about the grub menu.lst file. How do I fix it?
+{: #faq-vsi-12}
+{: faq}
+{: support}
+
+Edit the file "`/boot/grub/menu.lst`" by changing `# groot=LABEL...` into `# groot=(hd0)`. Then, run following command, `sudo update-grub-legacy-ec2`. For more information, see [Error: groot must be grub root device on ubuntu](https://developer.ibm.com/answers/questions/462237/error-groot-must-be-grub-root-device-on-ubuntu/){: external}.
