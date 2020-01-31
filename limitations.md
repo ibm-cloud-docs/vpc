@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2019-01-08"
+lastupdated: "2020-01-08"
 
 keywords: vpc, limitations, restrictions
 
