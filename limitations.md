@@ -54,9 +54,7 @@ The following features are not supported, including all properties associated wi
 
 * Bring your own subnet:
   * Address prefixes must be within one of the "private" address ranges defined in RFC1918.
-  * Address prefixes can't be configured in the IBM Cloud console.
-   
-* Network billing is currently disabled. 
+  * Address prefixes can't be configured in the IBM Cloud console. 
 
 * Multiple Virtual Network Interface Controllers: Only one Virtual Network Interface Controller is allowed for each virtual server instance. Currently, only the primary Virtual Network Interface Controller (VNIC) Ethernet 0 (eth0) works for a virtual server.
 
