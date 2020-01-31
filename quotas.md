@@ -111,3 +111,4 @@ To increase a quota for a particular resource, [contact support](/docs/get-suppo
 | Pools | 10 per load balancer |  |
 | Members | 50 per pool | |
 {: caption="Table 7. Quotas for load balancers" caption-side="top"}
+
