@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2018, 2019
+  years: 2018, 2020
 lastupdated: "2019-11-10"
 
 keywords: resource, resource authorizations, policies, authorization, resource type, resource groups, roles, API, CLI, editor, viewer, administrator, operator

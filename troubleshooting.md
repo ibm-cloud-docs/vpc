@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2018, 2019
+  years: 2018, 2020
 lastupdated: "2019-09-30"
 
 keywords: vpc, troubleshoot, tips, error, bearer, API, CLI, problem, debug, token, trace

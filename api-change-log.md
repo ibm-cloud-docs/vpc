@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2019
+  years: 2019, 2020
 lastupdated: "2020-01-10"
 
 keywords: vpc, api, change log, new features, restrictions, migration, generation 2, gen2,

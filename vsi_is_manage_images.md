@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2019
+  years: 2019, 2020
 lastupdated: "2019-10-17"
 
 keywords: custom image, vpc, virtual private cloud, virtual server instances

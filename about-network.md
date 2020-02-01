@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017, 2018, 2019
+  years: 2017, 2020
 lastupdated: "2019-10-29"
 
 keywords: secure, region, zone, subnet, public gateway, floating IP, NAT, lbaas, vpnaas, lb, vpn, load balancer, virtual private network
