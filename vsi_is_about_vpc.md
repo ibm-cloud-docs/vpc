@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2019-12-09"
+lastupdated: "2020-02-01"
 
 keywords: virtual server instances, VSI, planning, best practices
 
@@ -55,9 +55,17 @@ By default, the POWER-based instances start in SMT-2 mode. For more information 
 ### How do the POWER-based instances in a VPC differ from all the Power Systems offerings in IBM Cloud?
 {: #power-differences}
 
-Power Virtual Servers that offer AIX and IBM i are hosted in the co-lo area of the IBM data and are designed to host traditional workloads.  This means that Direct Link needs to be used to create a virtual and secure connection between the Power Servers and other IBM Cloud services. IBM Cloud Virtual Servers for VPC on POWER offer Linux on Power exclusively. They are located in the same data centers, are connected to the same backplane and managed by the same operational fabric as x86 for seamless integration with other IBM Cloud services. These virtual servers use KVM has the hypervisor rather than PowerVM.
+The Power Virtual Server offering provides AIX and IBM i instances hosted as a separate service.  This offers its own network and can use IBM Cloud Direct Link to secure connections to other services in the IBM Cloud.
+
+POWER-based instances in VPC provide Linux on Power access (with or without GPUs).  These are located natively on the same network, have the VPC feature set, and use the same API as the rest of the service. For instance, security groups can be shared across x86 and POWER-based instances.
 
 ### What applications can I run on Linux on Power?
 {: #power-apps}
 
-There are thousands of applications available to run on Linux on POWER.  Many open source applications have been compiled for the Power Architecture and are available in public repositories.  For a complete inventory of those applications, see the [Open Source Power Availability Tool](https://www.ibm.com/developerworks/library/l-ospat-trs/index.html){: external}. Additionally, many applications that are written for x86 architectures can run (without any or few code changes) on Power.  For more information on running x86 applications on Power, see [Porting x86 Linux applications to IBM POWER](https://developer.ibm.com/linuxonpower/porting-guide/){: external}.   
+There are thousands of applications available to run on Linux on POWER.  Many open source applications have been compiled for the Power Architecture and are available in public repositories.  For a complete inventory of those applications, see the [Open Source Power Availability Tool](https://www.ibm.com/developerworks/library/l-ospat-trs/index.html){: external}. Additionally, many applications that are written for x86 architectures can run (without any or few code changes) on Power.  For more information on running x86 applications on Power, see [Porting x86 Linux applications to IBM POWER](https://developer.ibm.com/linuxonpower/porting-guide/){: external}. 
+
+For more informatiom about the IBM Cloud Virtual Servers for VPC on POWER beta program or to dive into deep learning and AI with Power systems, see the following links:
+
+* [IBM Cloud Virtual Private Cloud on POWER](https://developer.ibm.com/linuxonpower/power-virtual-private-cloud/){: external}  
+* [Deep learning and AI on IBM Power Systems](https://developer.ibm.com/linuxonpower/deep-learning-powerai/){: external}
+
