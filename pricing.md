@@ -3,7 +3,7 @@
 copyright:
   years: 2017, 2020
 
-lastupdated: "2020-01-14"
+lastupdated: "2020-02-03"
 
 keywords: vpc, pricing, billing, data, instance, VSI, block, storage, paygo, transfer, floating, server, VPC, allowance, gateway, egress, minimal charges, ARP, traffic
 
@@ -90,7 +90,7 @@ VPNs for VPC are currently in Beta. There are no charges for their use.
 For {{site.data.keyword.vsi_is_full}} you're billed at an hourly rate based on instance configurations. Discounts are applied the longer your instance runs. Usage times are calculated per second while the virtual server instance is running. You are not be billed for the time your instance is powered off. For example, if the instance runs for 45 minutes and 32 seconds, you're billed for 45 minutes and 32 seconds. Another example is if you start your instance and run for 20 minutes, then stop your instance for 24 hours, then start the instance and run for 30 minutes; you're billed for the 50 minutes (20 minutes + 30 minutes) the instance was running.
 {:shortdesc}
 
-### Base instance prices
+### x86-based instance prices
 {: #base-instance-prices}
 
 Base instance prices start at $0.087 per hour. When you create a virtual server, you are prompted to select a virtual server family and select a profile configuration. When you make your selection, the associated hourly rate is displayed in the table. <!-- You can also use the Pricing Calculator to estimate your costs. --> 
@@ -113,8 +113,49 @@ Base instance prices start at $0.087 per hour. When you create a virtual server,
 | mx2-8x64 | 8 | 64 | 16 | $0.497 |
 | mx2-16x128 | 16 | 128 | 32 | $0.994 |
 | mx2-32x256 | 32 | 256 | 64 | $1.987 |
-{: caption="Table 3. Virtual server pricing by profile option" caption-side="top"}
+{: caption="Table 3. x86-based virtual server pricing by profile option" caption-side="top"}
+
+### POWER-based instance prices
+{: #base-instance-prices-power}
+
+Base instance prices start at $0.080 per hour. When you create a virtual server, you are prompted to select a virtual server family and select a profile configuration. When you make your selection, the associated hourly rate is displayed in the table.
+
+| Profile | vCPU | RAM | Network Performance Cap (Gbps) | PayGo / Hour |
+|---------|---------|---------|---------|---------|
+| bp2-2x8 | 2 | 8 | 6 | $0.089 |
+| bp2-4x16 | 4 | 16 | 12 | $0.177 |
+| bp2-8x32 | 8 | 32 | 24 | $0.355 |
+| bp2-16x64 | 16 | 64 | 48 | $0.710 |
+| bp2-32x128 | 32  | 128 | 96 | $1.419 |
+| cp2-2x4 | 2 | 4 | 6 | $0.080 |
+| cp2-4x8 | 4 | 8 | 12 | $0.155 |
+| cp2-8x16 | 8 | 16 | 24 |$0.310 |
+| cp2-16x32 | 16 | 32 | 48 | $0.619 |
+| cp2-32x64 | 32  | 64 | 96 | $1.239 |
+| mp2-2x16 | 2 | 16 | 6 | $0.111 |
+| mp2-4x32 | 4 | 32 | 12 | $0.223 |
+| mp2-8x64 | 8 | 64 | 24 | $0.445 |
+| mp2-16x128 | 16 | 128 | 48 | $0.890 |
+| mp2-32x256 | 32 | 256 | 96 | $1.781 |
+{: caption="Table 3. POWER-based virtual server pricing by profile option" caption-side="top"}
+
+### Accelerated computing (GPU) instance prices
+{: #base-instance-prices-gpu}
+
+Accelerated computing (GPU) instance prices start at $5.445 per hour. When you create a virtual server, you are prompted to select a virtual server family and select a profile configuration. When you make your selection, the associated hourly rate is displayed in the table.
+
+| Profile | vCPU | RAM | GPU | Network Performance Cap (Gbps) | PayGo / Hour |
+|---------|---------|---------|---------|---------|---------|
+| gp2-8x64x2 | 8 | 64 | 2 | 24 | $5.445 | 
+| gp2-24x224x2 | 24 | 224 | 2 | 72 | $6.502 | 
+| gp2-16x128x4 | 16 | 128 | 4 | 48 | $10.890 | 
+| gp2-32x256x4 | 32 | 256 | 4 |  96 | $11.781 | 
+| gp2-56x448x4 | 56  | 448 | 4 | 100 | $13.116 | 
+| gp2-56x896x4 | 56 | 896 | 4 | 100 | $15.446 |
+{: caption="Table 3. GPU instance pricing by profile option" caption-side="top"}
  
+ Accelerated computing (GPU) instances aren't eligible for the sustained usage tier discount model. They are charged at a flat hourly rate.
+ {: note}
 
 ### Included operating systems
 {: #included-operating-systems}
@@ -152,6 +193,9 @@ While the instances are charged at an hourly rate, the longer your instance is r
 
 These discounted tiers provide you with a 10% savings for keeping instances running monthly versus hourly. This discount applies only to base hourly rates; it doesn't apply to software, storage, network, or other charges.
 
+Accelerated computing (GPU) instances aren't eligible for the sustained usage tier discount model. They are charged at a flat hourly rate.
+ {: note}
+
 #### Sustained usage example
 {: #sustained-usage-example}
 
@@ -167,8 +211,6 @@ Say you purchase an instance from the Balanced virtual server family, with 16 CP
 {: caption="Table 6. Tiered discounts example" caption-side="top"}  
 
 Your total bill, if left running for the entire month, with this model is $522.32. The discounts result in an overall monthly savings of 10%, compared to the hourly rate.
-
-
 
 ### Suspend billing
 {: #suspend-billing}
@@ -279,3 +321,4 @@ You provision a 1000-GB volume with the general-purpose 3 IOPS/GB tier, then use
 You provision a 1000-GB volume with 2500 IOPS, then use the volume for 72 hours before you delete it. The total price for the volume is billed by the hour, as follows:
 
 (((1000 x 0.10 USD/GB) + (2500 x 0.07 USD)) / 730 hrs) x 72 hrs = $27.12
+
