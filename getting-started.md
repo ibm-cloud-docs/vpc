@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-01-28"
+lastupdated: "2020-02-03"
 
 keywords: Virtual Private Cloud, permissions, infrastructure, VPC, SSH key, CLI, API, console, public gateway, floating IP, IP ranges, BYoIP 
 
@@ -27,9 +27,6 @@ subcollection: vpc
 
 With {{site.data.keyword.vpc_full}} (VPC), you can use the UI, CLI, and API to quickly provision generation 2 virtual server instances with high network performance.
 {:shortdesc}
-
-New! IBM Cloud Virtual Servers for VPC on POWER are available in Beta. If you are interested in using profiles that are available for POWER processors, [sign up for early access](https://developer.ibm.com/linuxonpower/power-virtual-private-cloud/){: external}. 
-{:tip}
 
 ## Before you begin
 {: #prereqs}
