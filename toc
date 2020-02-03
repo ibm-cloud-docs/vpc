@@ -67,6 +67,7 @@ Virtual Private Cloud
         vsi_is_migrate_from_classic_infra.md
         monitoring.md
         vsi_is_configure_power.md
+        how-to-setup-for-gpu.md
             
     {: .topicgroup}
     Block storage volumes
