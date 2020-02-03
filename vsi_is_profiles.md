@@ -180,7 +180,7 @@ When using the command line, the following information describes what the output
 
 *  "b" is balanced, which is a 1:4 ratio
 *  "c" is compute (higher on the CPUs) , which is a 1:2 ratio
-*  “m” is memory (higher on the memory), which is a 1:8 ratio or 1:16 ratio
+*  “m” is memory (higher on the memory), which is a 1:8 ratio
 *  "g" is GPU, which is a 1:8 or 1:16 ratio
 
 ## Storage notes for profiles
