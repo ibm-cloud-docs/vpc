@@ -65,6 +65,7 @@ The following features are not supported, including all properties associated wi
 {: #compute-restrictions}
 
 * The following images are not supported:
+  * RHEL on the POWER architecture
   * Windows
 * Every x86-based profile has a network performance value of 2 Gbps per vCPU, with a cap of 80 Gbps.
 * Every POWER-based profile has a network performance value of 3 Gbps per vCPU, with a cap of 100 Gbps.
