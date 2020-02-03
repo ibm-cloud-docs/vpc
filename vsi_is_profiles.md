@@ -122,13 +122,9 @@ The following memory profiles are available for POWER processors:
 | Profile | vCPU | GB RAM | Network Performance Cap (Gbps) |
 |---------|---------|---------|---------|
 | mp2-2x16 | 2 | 16 | 6 |
-| mp2-2x32 | 2 | 32 | 6 |
 | mp2-4x32 | 4 | 32 | 12 |
-| mp2-4x64 | 4 | 64 | 12 |
 | mp2-8x64 | 8 | 64 | 24 |
-| mp2-8x128 | 8 | 128 | 24 |
 | mp2-16x128 | 16 | 128 | 48 |
-| mp2-16x256 | 16 | 256 | 48 |
 | mp2-32x256 | 32 | 256 | 96 |
 <!--| mp2-48x768 | 48 | 768 | 100 |
 | mp2-56x448 | 56 | 448 | 100 |
