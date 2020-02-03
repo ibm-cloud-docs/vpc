@@ -4,7 +4,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-08"
+lastupdated: "2020-01-31"
 
 keywords: VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies, gateway, auto-negotiation, vpc, vpc network
 
@@ -25,7 +25,7 @@ subcollection: vpc
 {:DomainName: data-hd-keyref="DomainName"}
 {:external: target="_blank" .external}
 
-# Using VPN (Beta)
+# Using VPN 
 {: #using-vpn}
 [comment]: # (linked help topic)
 
@@ -34,10 +34,9 @@ You can use the {{site.data.keyword.cloud}} VPN for VPC service to securely conn
 
 Currently, only policy-based routing is supported.
 
-## Beta Terms & Conditions
-{: #vpn-beta-terms}
-
-This service is currently available in Beta only. When this service is made generally available, you'll need to change to a Standard plan to continue using instances that you created during the Beta. Any instances that continue to use a Beta plan for this service beyond 30 days notice of general availability will be deleted. Please see [IBM Cloud Service Description](https://www.ibm.com/software/sla/sladb.nsf/pdf/6605-19/$file/i126-6605-19_10-2019_en_US.pdf) and [IBM VPC Service Description](https://www.ibm.com/software/sla/sladb.nsf/pdf/8265-02/$file/i126-8265-02_07-2019_en_US.pdf) for more information about Beta services.
+## Beta participants
+{: #beta-participants}
+31 January 2020: This service is now generally available. You must change to a standard plan to continue using instances that you created during the beta. Any instances that continue to use the beta plan for this service beyond 30 days notice of general availability will be subject to deletion.
 
 ## Features
 {: #vpn-features}
@@ -47,13 +46,13 @@ This service is currently available in Beta only. When this service is made gene
 * Encryption algorithms: `3des`, `aes128`, `aes256`
 * Diffie-Hellman (DH) groups: 2, 5, 14
 * IKE negotiation mode: main
-* IPSec transform protocol: ESP
-* IPSec encapsulation mode: tunnel
+* IPsec transform protocol: ESP
+* IPsec encapsulation mode: tunnel
 * Perfect Forward Secrecy (PFS)
 * Dead Peer Detection
 * Routing: Policy-based
-* Authentication Mode: Pre-shared key
-* HA Support in Active/Standby mode only
+* Authentication mode: Pre-shared key
+* High availability support in active/standby mode only
 
 ## APIs available
 {: #apis-available}
@@ -67,24 +66,24 @@ Table 1 describes API methods for VPN gateways and connections.
 
 | Description | API |
 |----------------------------|-------------|
-| Create a VPN gateway | POST /vpn_gateways |
-| Retrieve VPN gateways | GET /vpn_gateways |
-| Retrieve a VPN gateway | GET /vpn_gateways/{id} |
-| Delete a VPN gateway | DELETE /vpn_gateways/{id} |
-| Update a VPN gateway | PATCH /vpn_gateways/{id} |
-| Create a VPN connection | POST /vpn_gateways/{vpn_gateway_id}/connections |
-| Retrieve VPN connections | GET /vpn_gateways/{vpn_gateway_id}/connections |
-| Retrieve a VPN connection | GET /vpn_gateways/{vpn_gateway_id}/connections/{id} |
-| Delete a VPN connection | DELETE /vpn_gateways/{vpn_gateway_id}/connections/{id} |
-| Update a VPN connection | PATCH /vpn_gateways/{vpn_gateway_id}/connections/{id} |
-| Retrieve all local CIDRs for a VPN connection | GET /vpn_gateways/{vpn_gateway_id}/connections/{id}/local_cidrs |
-| Delete a local CIDR from a VPN connection | DELETE /vpn_gateways/{vpn_gateway_id}/connections/{id}/local_cidrs/{prefix_address}/{prefix_length} |
-| Checks if a specific local CIDR exists on a VPN connection | GET /vpn_gateways/{vpn_gateway_id}/connections/{id}/local_cidrs/{prefix_address}/{prefix_length} |
-| Sets a local CIDR on a VPN connection | PUT /vpn_gateways/{vpn_gateway_id}/connections/{id}/local_cidrs/{prefix_address}/{prefix_length} |
-| Retrieve all peer CIDRs for a VPN connection | GET /vpn_gateways/{vpn_gateway_id}/connections/{id}/peer_cidrs |
-| Delete a peer CIDR from a VPN connection | DELETE /vpn_gateways/{vpn_gateway_id}/connections/{id}/peer_cidrs/{prefix_address}/{prefix_length} |
-| Checks if a specific peer CIDR exists on a VPN connection | GET /vpn_gateways/{vpn_gateway_id}/connections/{id}/peer_cidrs/{prefix_address}/{prefix_length} |
-| Sets a peer CIDR on a VPN connection | PUT /vpn_gateways/{vpn_gateway_id}/connections/{id}/peer_cidrs/{prefix_address}/{prefix_length} |
+| Create a VPN gateway | `POST /vpn_gateways` |
+| Retrieve VPN gateways | `GET /vpn_gateways` |
+| Retrieve a VPN gateway | `GET /vpn_gateways/ID` |
+| Delete a VPN gateway | `DELETE /vpn_gateways/ID` |
+| Update a VPN gateway | `PATCH /vpn_gateways/ID` |
+| Create a VPN connection | `POST /vpn_gateways/VPN_GATEWAY_ID/connections` |
+| Retrieve VPN connections | `GET /vpn_gateways/VPN_GATEWAY_ID/connections` |
+| Retrieve a VPN connection | `GET /vpn_gateways/VPN_GATEWAY_ID/connections/ID` |
+| Delete a VPN connection | `DELETE /vpn_gateways/VPN_GATEWAY_ID/connections/ID` |
+| Update a VPN connection | `PATCH /vpn_gateways/VPN_GATEWAY_ID/connections/ID` |
+| Retrieve all local CIDRs for a VPN connection | `GET /vpn_gateways/VPN_GATEWAY_ID/connections/ID/local_cidrs` |
+| Delete a local CIDR from a VPN connection | `DELETE /vpn_gateways/VPN_GATEWAY_ID/connections/ID/local_cidrs/PREFIX_ADDRESS/PREFIX_LENGTH` |
+| Check if a specific local CIDR exists on a VPN connection | `GET /vpn_gateways/VPN_GATEWAY_ID/connections/ID/local_cidrs/PREFIX_ADDRESS/PREFIX_LENGTH` |
+| Sets a local CIDR on a VPN connection | `PUT /vpn_gateways/VPN_GATEWAY_ID/connections/ID/local_cidrs/PREFIX_ADDRESS/PREFIX_LENGTH` |
+| Retrieve all peer CIDRs for a VPN connection | `GET /vpn_gateways/VPN_GATEWAY_ID/connections/ID/peer_cidrs` |
+| Delete a peer CIDR from a VPN connection | `DELETE /vpn_gateways/VPN_GATEWAY_ID/connections/ID/peer_cidrs/PREFIX_ADDRESS/PREFIX_LENGTH` |
+| Checks if a specific peer CIDR exists on a VPN connection | `GET /vpn_gateways/VPN_GATEWAY_ID/connections/ID/peer_cidrs/PREFIX_ADDRESS/PREFIX_LENGTH` |
+| Sets a peer CIDR on a VPN connection | `PUT /vpn_gateways/VPN_GATEWAY_ID/connections/ID/peer_cidrs/PREFIX_ADDRESS/PREFIX_LENGTH` |
 {: caption="Table 1. Description of APIs for VPN gateways and connections" caption-side="top"}
 
 ### IKE policies
@@ -92,12 +91,12 @@ Table 1 describes API methods for VPN gateways and connections.
 
 | Description | API |
 |-----------------------------|--------------|
-| Retrieve all IKE policies | GET /ike_policies |
-| Create an IKE policy | POST /ike_policies |
-| Delete an IKE policy | DELETE /ike_policies/{id} |
-| Retrieve an IKE policy | GET /ike_policies/{id} |
-| Update an IKE policy | PATCH /ike_policies/{id} |
-| Retrieve all the connections that use the specified IKE policy | GET /ike_policies/{id}/connections |
+| Retrieve all IKE policies | `GET /ike_policies` |
+| Create an IKE policy | `POST /ike_policies` |
+| Delete an IKE policy | `DELETE /ike_policies/ID` |
+| Retrieve an IKE policy | `GET /ike_policies/ID` |
+| Update an IKE policy | `PATCH /ike_policies/ID` |
+| Retrieve all the connections that use the specified IKE policy | `GET /ike_policies/ID/connections` |
 {: caption="Table 2. Description of APIs for IKE policies" caption-side="top"}
 
 ### IPsec policies
@@ -105,13 +104,13 @@ Table 1 describes API methods for VPN gateways and connections.
 
 | Description | API |
 |---------------------|-------------|
-| Retrieve all IPSec policies | GET /ipsec_policies |
-| Create an IPSec policy | POST /ipsec_policies |
-| Delete an IPSec policy | DELETE /ipsec_policies/{id} |
-| Retrieve an IPSec policy | GET /ipsec_policies/{id} |
-| Update an IPSec policy | PATCH /ipsec_policies/{id} |
-| Retrieve all the connections that use the specified IPsec policy | GET /ipsec_policies/{id}/connections |
-| Retrieve all the connections that use the specified IKE policy | GET /ike_policies/{id}/connections |
+| Retrieve all IPsec policies | `GET /ipsec_policies` |
+| Create an IPsec policy | `POST /ipsec_policies` |
+| Delete an IPsec policy | `DELETE /ipsec_policies/ID` |
+| Retrieve an IPsec policy | `GET /ipsec_policies/ID` |
+| Update an IPsec policy | `PATCH /ipsec_policies/ID` |
+| Retrieve all the connections that use the specified IPsec policy | `GET /ipsec_policies/ID/connections` |
+| Retrieve all the connections that use the specified IKE policy | `GET /ike_policies/ID/connections` |
 {: caption="Table 3. Description of APIs for IPsec policies" caption-side="top"}
 
 ## API example: Connecting two VPCs using VPN
@@ -126,7 +125,7 @@ Here's what the scenario looks like:
 
 ![Figure showing a scenario where you connect two VPCs using VPN](images/vpc-vpn.svg){: caption="Figure 1: Connecting two VPCs using VPN" caption-side="top"}
 
-The following example assumes that you already created VPCs, subnets, and virtual server instances. For more information about creating VPC resources, see [Getting Started](/docs/vpc?topic=vpc-getting-started).
+The following example assumes that you already created VPCs, subnets, and virtual server instances. For more information about creating VPC resources, see [Getting started](/docs/vpc?topic=vpc-getting-started).
 
 You can also create a VPN gateway using the UI. For instructions, see [Creating a VPC using the IBM Cloud console](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#vpn).
 {: tip}
@@ -457,11 +456,11 @@ If you use the API or CLI, VPN connections must be created after the VPN gateway
 
 The VPN connections are deleted along with the VPN gateway.
 
-### Are IKE or IPSec policies deleted if I delete a VPN gateway or VPN connection?
+### Are IKE or IPsec policies deleted if I delete a VPN gateway or VPN connection?
 {: #faq-vpn-2}
 {: faq}
 
-No, IKE and IPSec policies can apply to multiple connections.
+No, IKE and IPsec policies can apply to multiple connections.
 
 ### What happens to a VPN gateway if I try to delete the subnet that the gateway is located on?
 {: #faq-vpn-3}
@@ -540,7 +539,7 @@ Only PSK authentication is supported.
 
 No. To set up a VPN gateway in your classic environment, you must use the [IPsec VPN](https://{DomainName}/catalog/infrastructure/ipsec-vpn){: external}.
 
-### What {{site.data.keyword.cloud_notm}} infrastructure classic resources can be accessed with VPN for VPC, along with Classic Access VPC? 
+### What {{site.data.keyword.cloud_notm}} infrastructure classic resources can be accessed with VPN for VPC, along with Classic Access VPC?
 {: #faq-vpn-13}
 {: faq}
 
@@ -551,3 +550,9 @@ Virtual server instances are the only classic resources that can be accessed wit
 {: faq}
 
 If you use IKEv1, rekey collision deletes the IKE/IPsec SA. To re-create the IKE/IPsec SA, set the connection admin state to `down` and then `up` again. You can use IKEv2 to minimize rekey collisions.
+
+### Is it possible to view logs from the VPN gateway for debugging purposes?
+{: #faq-vpn-13}
+{: faq}
+
+Yes. You can find more information in [Using LogDNA to view VPN logs](/docs/vpc?topic=vpc-using-logdna-to-view-vpn-logs).

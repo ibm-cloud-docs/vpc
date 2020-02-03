@@ -10,8 +10,8 @@ Virtual Private Cloud
     about-vpc.md
     vpc-responsibilities.md
     quotas.md
-    pricing.md    
-        
+    pricing.md
+
 
     {: .topicgroup}
     Network
@@ -25,13 +25,13 @@ Virtual Private Cloud
         vsi_is_profiles.md
         vsi_is_ssh_keys_about.md
         vsi_is_provisioning_scripts.md
- 
+
     {: .topicgroup}
     Storage
         block_storage_vpc_about.md
         block_storage_vpc_capacity_performance.md
         block_storage_is_profiles.md
-    
+
     {: .topicgroup}
     Tutorials
         /tutorials/solution-tutorials-vpc-public-app-private-backend
@@ -54,7 +54,7 @@ Virtual Private Cloud
     Managing access
         iam.md
         vpc-user-permissions.md
-        api-auth-correlation.md       
+        api-auth-correlation.md
 
     {: .topicgroup}
     Virtual server instances
@@ -68,7 +68,7 @@ Virtual Private Cloud
         monitoring.md
         vsi_is_configure_power.md
         how-to-setup-for-gpu.md
-            
+
     {: .topicgroup}
     Block storage volumes
         block_storage_is_create.md
@@ -90,26 +90,27 @@ Virtual Private Cloud
 
     {: .topicgroup}
     Access control lists
-        using-acls.md    
+        using-acls.md
 
     {: .topicgroup}
     Load balancers (Beta)
         using-lbaas.md
-    
+
     {: .topicgroup}
     VPNs (Beta)
         using-vpn.md
         vpn-onprem-example.md
+        vpc-vpn-view-logs-logdna.md
 
     {: .topicgroup}
     Setting IP ranges
         how-to-choose-ipv4.md
         how-to-design-your-vpc.md
         vpc-regions-and-subnets.md
-    
+
     advanced-vpc-routing.md
     classic-access.md
-    connect-to-cos.md  
+    connect-to-cos.md
 
     {: .topicgroup}
     Deleting a VPC
@@ -144,7 +145,7 @@ Virtual Private Cloud
         vsi_is_troubleshooting.md
         block_storage_is_troubleshoot.md
 
-    release-notes.md    
+    release-notes.md
     limitations.md
     api-change-log.md
     known-issues.md
