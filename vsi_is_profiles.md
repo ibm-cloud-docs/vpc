@@ -140,9 +140,7 @@ Each GPU is an NVIDIA Tesla v100 and each includes 32 GBs of memory that contrib
 
 | Profile | vCPU | GB RAM | Network Performance Cap (Gbps) | Number of GPUs |
 |---------|---------|---------|---------|---------|
-| gp2-8x64x2 | 8 | 64 | 24 | 2 |
 | gp2-24x224x2 | 24 |224 | 72 | 2 |
-| gp2-16x128x4 | 16 | 128 | 48 | 4 |
 | gp2-32x256x4 | 32 | 256 | 96 | 4 |
 | gp2-56x448x4 | 56 | 448 | 100 | 4 |
 | gp2-56x896x4 | 56 | 896 | 100 | 4 |
