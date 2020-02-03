@@ -41,6 +41,7 @@ The following operating systems are available as stock images when you create a 
 |---------|---------|---------|
 | CentOS 7.x | ppc64le, x86-64 | |
 | Debian 9.x | ppc64le, x86-64 | |
+| Red Hat Enterprise Linux 7.x | x86-64 | |
 | Ubuntu 16.04.x | x86-64 | <!--"xenial xerus"--> |
 | Ubuntu 18.04.x | ppc64le, x86-64 | Supports accelerated compute profiles on POWER processors |
 {: caption="Table 1. Stock boot images provided" caption-side="top"}
