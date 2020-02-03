@@ -164,7 +164,7 @@ The following operating systems are included free of charge:
 * Debian 9.latest (minimal)
 * Ubuntu 16.04 LTS, 18.04 (minimal)
 
-### Premium operating systems and add-ons
+<!-- ### Premium operating systems and add-ons
 {: #premium-os-add-ons}
 
 Premium operating systems and other add-ons are available. You'll see the pricing in your Cost Summary.
@@ -172,8 +172,7 @@ Premium operating systems and other add-ons are available. You'll see the pricin
 | Premium operating system       | Amount of data    |  PayGo Pricing     |
 | ------------------------------ | ----------------- | ---------------------- |    
 | Windows 2012, 2012 R2, 2016    |                   | $.04 per core per hour  |            
-{: caption="Table 4. Premium operating system pricing" caption-side="top"} 
-
+{: caption="Table 4. Premium operating system pricing" caption-side="top"} -->
 
 ### Sustained usage
 {: #sustained-usage}
