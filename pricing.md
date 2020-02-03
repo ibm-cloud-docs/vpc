@@ -142,13 +142,11 @@ Base instance prices start at $0.080 per hour. When you create a virtual server,
 ### Accelerated computing (GPU) instance prices
 {: #base-instance-prices-gpu}
 
-Accelerated computing (GPU) instance prices start at $5.445 per hour. When you create a virtual server, you are prompted to select a virtual server family and select a profile configuration. When you make your selection, the associated hourly rate is displayed in the table.
+Accelerated computing (GPU) instance prices start at $6.502 per hour. When you create a virtual server, you are prompted to select a virtual server family and select a profile configuration. When you make your selection, the associated hourly rate is displayed in the table.
 
 | Profile | vCPU | RAM | GPU | Network Performance Cap (Gbps) | PayGo / Hour |
 |---------|---------|---------|---------|---------|---------|
-| gp2-8x64x2 | 8 | 64 | 2 | 24 | $5.445 | 
-| gp2-24x224x2 | 24 | 224 | 2 | 72 | $6.502 | 
-| gp2-16x128x4 | 16 | 128 | 4 | 48 | $10.890 | 
+| gp2-24x224x2 | 24 | 224 | 2 | 72 | $6.502 |
 | gp2-32x256x4 | 32 | 256 | 4 |  96 | $11.781 | 
 | gp2-56x448x4 | 56  | 448 | 4 | 100 | $13.116 | 
 | gp2-56x896x4 | 56 | 896 | 4 | 100 | $15.446 |
