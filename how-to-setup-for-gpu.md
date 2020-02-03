@@ -24,7 +24,7 @@ subcollection: vpc
 {:external: target="_blank" .external}
 
 
-# Setting up GPU drivers for POWER-based instances
+# Setting up the GPU driver for a POWER-based instance
 {: #setup-gpus}
 
 When you provision IBM Cloud Virtual Servers for VPC on POWER (available in beta), you have the option of specifying profiles with NVIDIA Tesla V100 GPUs to accelerate your cognitive workloads. Due to a current licensing restriction, the NVIDIA GPU driver does not come preinstalled on the stock images. However, you can easily install the NVIDIA driver on your Ubuntu 18.04 POWER virtual server instance with the following procedure.
@@ -32,10 +32,12 @@ When you provision IBM Cloud Virtual Servers for VPC on POWER (available in beta
 Currently, the recommended driver level is the most recent update available on the 418 version stream. Today that is 418.116.0. The minimum recommended level will change in the future, so be sure to keep current as time goes on. Also, check the supported NVIDA driver levels for the GPU software products you intend to use. 
 {: important}
 
-The NVIDIA CUDA Toolkit provides sample utilities and other developer tools that some find useful in validating or developing for their GPUs. CUDA includes a version of the NVIDA GPU driver, if you plan on using CUDA, then see [Installing CUDA](#installing-cuda) to install it before you update any drivers. 
-{: note}
+The NVIDIA CUDA Toolkit provides sample utilities and other developer tools that some find useful in validating or developing for their GPUs. CUDA includes a version of the NVIDA GPU driver, so if you plan on using CUDA, then see [Installing CUDA](#installing-cuda) to install it first. Then, return here to update the GPU driver if not at the recommended level.
+{: important}
 
-To install the NVIDIA GPU driver, follow these steps:
+
+## To install or update the NVIDIA GPU driver, follow these steps:
+{: #install-gpu-driver}
 
 1. Check whether the driver is already installed.
    ```
@@ -101,7 +103,7 @@ To install the NVIDIA GPU driver, follow these steps:
    ```
    {: pre}
    
-After you restart your instance, run the `nvidia-smi` command to load the kernel modules and report status. The following terminal output is an example:
+After you restart your instance, run the `nvidia-smi` command to load the kernel modules and report status. The following console output is an example:
 
 ```
 $ nvidia-smi
@@ -129,28 +131,47 @@ The output from the command that reports `CUDA Version: 10.1` does not necessari
 {:tip}
 
 
-## Installing CUDA
+# Installing CUDA
 {: #installing-cuda}
 
 CUDA is a parallel computing platform and programming model that is developed by NVIDIA. CUDA provides a driver API, a runtime API, and popular programming language extensions to use GPU compute capabilities in your software. It does not come preinstalled on the IBM Cloud stock images for VPC. It might not be required depending on your workload. However, the CUDA toolkit has sample utilities that demonstrate benchmarking and various other utilities to show capabilities and programming examples. If you choose to install CUDA, review the following information.
 
-If the NVIDIA GPU driver is already installed, then you need to install the CUDA level that matches your installed NVIDIA driver version. You can follow step 1 in the previous section to determine whether the NVIDIA driver is installed. To see the available CUDA toolkit releases, see the following information:
-    [CUDA Toolkit releases](https://developer.nvidia.com/cuda-toolkit-archive){: external}
+If the NVIDIA GPU driver is already installed, then you need to install the CUDA level that matches your installed NVIDIA driver version. You can follow step 1 in the previous section to determine whether the NVIDIA driver is installed. Also, the `nvidia-smi` command reports the GPU driver, if installed, and the corresponding CUDA release supported.
 
-The CUDA level and driver version must match. Otherwise, the NVIDIA driver level can inadvertently update or backlevel to an unsupported release for your cognitive workloads. For example, `CUDA Toolkit 10.1 update2` contains Linux GPU driver level 418.87, not 418.116. Also, it is not recommended to use a package manager command like `sudo apt install nvidia-cuda-toolkit` to install CUDA because this remote package management method can put an earlier 9.x release of CUDA on your system.
+If you install a CUDA release for a different GPU driver release, then the NVIDIA GPU driver can inadvertently update or backlevel to an unsupported release for your cognitive workloads. For example, `CUDA Toolkit 10.1 update2` contains Linux GPU driver level 418.87, not 418.116.
 {: important}
 
-A typical scenario on IBM Cloud VPC would be to install CUDA 10.1 update2, and then upgrade the GPU driver to 418.116. To install CUDA, select the release level link, then choose Operating System, Architecture, Distribution, Version, and Installer type of `deb (local)`. These selections show you a set of installation instruction steps to follow from the command line under `Base Installer`.
+To install the CUDA Toolkit, follow these steps.
 
-Run all of the commands that are provided on the page. Then, restart your instance so that any new driver modules configure properly. After you restart the instance, confirm the installation by running the following to output the CUDA compilation tools release information:
+1. Visit the following URL to see the available CUDA toolkit releases:
 
-```
-export PATH=$PATH:/usr/local/cuda/bin
-$ nvcc -V
-```
-{: pre}
+   [CUDA Toolkit releases](https://developer.nvidia.com/cuda-toolkit-archive){: external}
 
-To try the sample utilities, follow NVIDIA's instructions. To find where the samples were installed and perform an example build and run, see the following example:
+   A typical scenario on IBM Cloud VPC would be to install CUDA 10.1 update2, and then update the GPU driver to 418.116 at the end of this sequence (step 6).
+
+2. Select the release level link, then choose Operating System, Architecture, Distribution, Version, and Installer type of `deb (local)`. These selections show you a set of installation instruction steps to follow from the command line under `Base Installer`.
+
+3. Run all of the commands that are provided on the NVIDIA page.
+
+4. Restart your instance so that any new driver modules configure properly.
+
+5. Confirm the installation by running the following to output the CUDA compilation tools release information:
+
+   ```
+   export PATH=$PATH:/usr/local/cuda/bin
+   $ nvcc -V
+   ```
+   {: pre}
+
+6. Update the GPU driver if needed by following the [GPU driver installation instructions](#install-gpu-driver). This allows you to update to the most recent driver level that may not yet be packaged inside a CUDA Toolkit update.
+
+
+## Testing the CUDA Toolkit
+{: #testing-cuda}
+
+To try the sample utilities, follow [NVIDIA's instructions](https://docs.nvidia.com/cuda/cuda-samples/index.html#getting-started-with-cuda-samples){: external}.
+
+The following console output shows an example of navigating to the location of one of the toolkit samples, building it, and running it:
 
 ```
 $ find / -name bandwidthTest 2> /dev/null
