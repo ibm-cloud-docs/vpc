@@ -131,7 +131,7 @@ The output from the command that reports `CUDA Version: 10.1` does not necessari
 {:tip}
 
 
-# Installing CUDA
+## Installing CUDA
 {: #installing-cuda}
 
 CUDA is a parallel computing platform and programming model that is developed by NVIDIA. CUDA provides a driver API, a runtime API, and popular programming language extensions to use GPU compute capabilities in your software. It does not come preinstalled on the IBM Cloud stock images for VPC. It might not be required depending on your workload. However, the CUDA toolkit has sample utilities that demonstrate benchmarking and various other utilities to show capabilities and programming examples. If you choose to install CUDA, review the following information.
