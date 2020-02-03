@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2020
-lastupdated: "2019-12-09"
+lastupdated: "2020-02-03"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, GPU, power
 
@@ -154,7 +154,7 @@ Each GPU is an NVIDIA Tesla v100 and each includes 32 GBs of memory that contrib
 
 For the Balanced, Compute, and Memory profile families, the following supported operating systems are available: CentOS, Debian, and Ubuntu. GPU profiles are supported by Ubuntu 18.04 only. A few of the larger profile sizes might require you to increase your quota limit. To increase a quota for a particular resource, [contact support](/docs/get-support?topic=get-support-getting-customer-support).
 
-If you are using GPU profiles, you might want to [download and run the CUDA installer (10.1) for Linux Ubuntu 18.04 ppc64le](https://developer.nvidia.com/cuda-10.1-download-archive-update2?target_os=Linux&target_arch=ppc64le&target_distro=Ubuntu&target_version=1804&target_type=deblocal). The CUDA toolkit is not required, but it provides utilities to exercise and validate your GPUs, development APIs, and more. Install the CUDA version that matches your NVIDIA driver version to prevent the driver from being automatically updated to an unsupported version.
+If you are using GPU profiles, you may need to install the NVIDA kernel driver and/or the CUDA toolkit onto your virtual server instance. For more information, see [Setting up GPU drivers for POWER-based instances](/docs/vpc?topic=how-to-setup-for-gpu).
 {:tip}
 
 For information about storage, see [Storage notes for profiles](#storage-notes-for-profiles). 
