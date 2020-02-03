@@ -43,7 +43,6 @@ The following operating systems are available as stock images when you create a 
 | Debian 9.x | ppc64le, x86-64 | |
 | Ubuntu 16.04.x | x86-64 | <!--"xenial xerus"--> |
 | Ubuntu 18.04.x | ppc64le, x86-64 | Supports accelerated compute profiles on POWER processors |
-| Windows 2012, 2012 R2, 2016 | x86-64 | |
 {: caption="Table 1. Stock boot images provided" caption-side="top"}
 
  When you order an instance, the images are cloud-init enabled to optimize creation times. With a cloud-init enabled image, you can provide user data. In the **User Data** field on the order form, you can enter optional cloud-init user data for the server. For more information about user data and automation, see [User data](/docs/vpc?topic=vpc-user-data).
