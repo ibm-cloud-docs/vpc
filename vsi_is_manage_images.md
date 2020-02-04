@@ -82,6 +82,106 @@ environment by using the [NoCloud](https://cloudinit.readthedocs.io/en/latest/to
     
 6. Upload your image to {{site.data.keyword.cos_full_notm}}. For more information about uploading to {{site.data.keyword.cos_full_notm}}, see [Upload data](/docs/services/cloud-object-storage?topic=cloud-object-storage-upload).    
 
+### Creating a Windows custom image
+{: #create-windows-custom-image}
+The following procedure describes how to create a Windows custom image that can be successfully deployed in the {{site.data.keyword.vpc_short}} infrastructure environment. The procedure encompasses these high-level tasks:
+* Use VirtualBox to create a Windows image in VHD format.
+* Customize the image with virtIO drivers and Cloudbase-init.
+* Convert the Windows VHD image to qcow2 format, the image format that is supported in the {{site.data.keyword.vpc_short}} environment.
+Complete the following steps to create a Windows custom image.
+1. Begin with a Windows ISO image file. For example, `Windows-2012-install.iso`.
+2. Create a VHD image where you can install Windows. 
+    
+    ```
+    qemu-img create -f vpc Windows-2012.vhd 100G
+    ``` 
+    {: codeblock}
+    
+    To import the Windows image into the VPC environment, you must use the qcow2 format, but Virtual Box doesn't support qcow2. After the VHD image is customized in Virtual Box, you'll convert the image to qcow2 format.
+    {:note}
+    
+3. Download the [virtio-win drivers](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso){: external}. For more information, see the Fedora user documentation, [Creating Windows virtual machines using virtIO drivers](https://docs.fedoraproject.org/en-US/quick-docs/creating-windows-virtual-machines-using-virtio-drivers/){: external}.
+4. Use VirtualBox to create a virtual machine with the VHD image that you created in step 2. For more information, see [Oracle VM VirtualBox User Manual](https://www.virtualbox.org/manual/){: external}. Complete the following steps to customize the virtual machine.
+    1. In Storage settings, add the Windows installation ISO and the virtio-win driver ISO as optical drives. For example, `Windows-2012-install.iso` and `virtio-win-0.1.141.iso`.
+    2. Start the virtual machine and begin the Windows installation. When you see the page **Where do you want to install Windows?** you must load all of the `virtio-win\` drivers. You might need to clear "Hide drivers that aren't compatible with this computer's hardware" to access all of the required drivers. Then, you can select **Drive 0** and continue with the installation. When the installation is complete, shut down the virtual machine and remove the optical drives that you added previously: Windows installation ISO and virtio-win driver ISO. You can ignore any warnings about removing an optical drive. 
+    3. Use the default Windows updater to download and install Windows updates. Repeat the process of downloading and installing updates until there are no more updates available.
+    4. Install [cloudbase-init](https://cloudbase.it/cloudbase-init/){: external}. For more information, see [cloudbase-init’s documentation](https://cloudbase-init.readthedocs.io/en/latest/index.html){: external}.
+    5. Modify the cloudbase-init configuration file, `C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\cloudbase-init.conf` to match the values shown in the following example. 
+   
+         ```
+         [DEFAULT]
+         username=Administrator
+         groups=Administrators
+         inject_user_password=true
+         first_logon_behaviour=no
+         config_drive_types=vfat
+         config_drive_locations=hdd
+         bsdtar_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\bsdtar.exe
+         mtools_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\
+         verbose=true
+         debug=true
+         logdir=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\log\
+         logfile=cloudbase-init.log
+         default_log_levels=comtypes=INFO,suds=INFO,iso8601=WARN,requests=WARN
+         logging_serial_port_settings=
+         mtu_use_dhcp_config=false
+         ntp_use_dhcp_config=false
+         local_scripts_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\
+         metadata_services=cloudbaseinit.metadata.services.configdrive.ConfigDriveService
+         activate_windows=true
+         kms_host=161.26.20.4:1688
+         check_latest_version=false
+         ```
+         {: screen}
+        
+    6. Modify the `cloudbase-init-unattend.conf` file in `C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\cloudbase-init-unattend.conf` to match the values shown in the following example.  
+       
+         ```
+         [DEFAULT]
+         username=Administrator
+         groups=Administrators
+         inject_user_password=true
+         first_logon_behaviour=no
+         config_drive_types=vfat
+         config_drive_locations=hdd
+         bsdtar_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\bsdtar.exe
+         mtools_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\
+         verbose=true
+         debug=true
+         logdir=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\log\
+         logfile=cloudbase-init-unattend.log
+         default_log_levels=comtypes=INFO,suds=INFO,iso8601=WARN,requests=WARN
+         logging_serial_port_settings=
+         mtu_use_dhcp_config=false
+         ntp_use_dhcp_config=false
+         local_scripts_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\
+         metadata_services=cloudbaseinit.metadata.services.configdrive.ConfigDriveService
+         plugins=cloudbaseinit.plugins.common.mtu.MTUPlugin,
+         cloudbaseinit.plugins.common.sethostname.SetHostNamePlugin,
+         cloudbaseinit.plugins.common.localscripts.LocalScriptsPlugin
+         allow_reboot=false
+         stop_service_on_exit=false
+         check_latest_version=false
+         activate_windows=true
+         ```
+         {: screen}
+         
+    7. Modify the `Unattend.xml` file in `C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\Unattend.xml` to set Set **PersistAllDeviceInstalls** to *false*.
+    8. Run Sysprep by using the following command:
+    
+         ```
+         C:\Windows\System32\Sysprep\Sysprep.exe /oobe /generalize /shutdown "/unattend:C:\Program Files\Cloudbase        Solutions\Cloudbase-Init\conf\Unattend.xml"
+         ``` 
+         {: codeblock}
+    
+5. Convert the Windows VHD image to qcow2 by running the following command:
+     ```
+     qemu-img convert -f vpc -O qcow2 -o cluster_size=512k Windows-2012.vhd Windows-2012.qcow2
+     ``` 
+     {: codeblock}
+    
+6. Upload your image to {{site.data.keyword.cos_full_notm}}. For more information about uploading to {{site.data.keyword.cos_full_notm}}, see [Upload data](/docs/services/cloud-object-storage?topic=cloud-object-storage-upload).
+
 ## Importing a custom image
 {: #import-custom-image}
 

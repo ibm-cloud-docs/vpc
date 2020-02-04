@@ -164,15 +164,17 @@ The following operating systems are included free of charge:
 * Debian 9.latest (minimal)
 * Ubuntu 16.04 LTS, 18.04 (minimal)
 
-<!-- ### Premium operating systems and add-ons
+### Premium operating systems and add-ons
 {: #premium-os-add-ons}
 
 Premium operating systems and other add-ons are available. You'll see the pricing in your Cost Summary.
 
 | Premium operating system       | Amount of data    |  PayGo Pricing     |
-| ------------------------------ | ----------------- | ---------------------- |    
+| ------------------------------ | ----------------- | ---------------------- | 
+| Red Hat Enterprise Linux 7.x   | 1-4 cores         | $.08 per core per hour   |     
+| Red Hat Enterprise Linux 7.x   | 5-64 cores        | $.13 per core per hour   |   
 | Windows 2012, 2012 R2, 2016    |                   | $.04 per core per hour  |            
-{: caption="Table 4. Premium operating system pricing" caption-side="top"} -->
+{: caption="Table 4. Premium operating system pricing" caption-side="top"} 
 
 ### Sustained usage
 {: #sustained-usage}

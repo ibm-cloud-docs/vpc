@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2020-01-13"
+lastupdated: "2020-02-04"
 
 
 keywords: vpc, virtual private cloud, vpc ui, console, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range
@@ -207,7 +207,7 @@ To create and attach a block storage volume:
 ## Configuring the security group for the instance
 {: #configuring-the-security-group}
 
-You can configure the security group to define the inbound and outbound traffic that is allowed for the instance.
+You can configure the security group to define the inbound and outbound traffic that is allowed for the instance. For example, after you configure ACL rules for the subnet based on your company's security policies, you can further restrict traffic for specific instances depending on their workloads.
 
 To configure the security group:
 
@@ -221,6 +221,7 @@ To configure the security group:
    **Tips:**  
   * All rules are evaluated, regardless of the order in which they're added.
   * Rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, you created a rule that allows inbound TCP traffic on port 80. That rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
+   * For Windows images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
 1. _Optional:_ To view interfaces that are attached to the security group, click **Attached interfaces** in the navigation pane.
 1. When you finish creating rules, click the **All security groups for VPC** breadcrumb at the beginning of the page.
 
@@ -283,6 +284,8 @@ ssh -i <path-to-private-key-file> root@<public-ip-address>
 {:pre}
 
 For more information about how to connect to your instance, see [Connecting to Linux instances](/docs/vpc?topic=vpc-vsi_is_connecting_linux).
+
+To connect to a Windows image, log in using its decrypted password. For instructions, see [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
 
 ## Monitoring your instance
 {: #monitoring-your-instance}

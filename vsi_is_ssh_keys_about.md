@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2019-10-29"
+lastupdated: "2020-02-04"
 
 keywords: ssh keys, vsi, virtual server instance
 
@@ -18,6 +18,7 @@ subcollection: vpc
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
 {:tip: .tip}
+{:external: target="_blank" .external}
 
 # SSH keys
 {: #ssh-keys}
@@ -38,7 +39,10 @@ Before you can add a key in the {{site.data.keyword.cloud_notm}} console, you mu
 
  * Locate an SSH key: Look for a file called `id_rsa.pub`. It might be in an `.ssh` directory under your home directory, for example, `/Users/<USERNAME>/.ssh/id_rsa.pub`. The content of the file typically starts with `ssh-rsa` and ends with your user ID.  
 
-* Generate an SSH key: If you don't have a public SSH key or if you forgot the password of an SSH key, generate a new one by running the `ssh-keygen` command and following the prompts. For example, you can generate an SSH key on your Linux or Mac system by running the command `ssh-keygen -t rsa -C "user_ID"`. You can press Enter to accept the default location for the file. The command generates two files. The generated public key is in the `<your key>.pub` file.
+* Generate an SSH key: If you don't have a public SSH key or if you forgot the password of an SSH key, generate a new one by running the `ssh-keygen` command and following the prompts. For example, you can generate an SSH key on your Linux or Mac system by running the command `ssh-keygen -t rsa -C "user_ID"`. You can press Enter to accept the default location for the file. The command generates two files. The generated public key is in the `<your key>.pub` file. For Windows systems, you can use [PuTTYgen](https://www.ssh.com/ssh/putty/windows/puttygen){: external} to generate an SSH key.
+
+  If you are using OpenSSH version 7.8 or higher and plan to to access a Windows instance, use the following command to generate the key in PEM format. `$ssh-keygen -m PEM -t rsa -f "user_ID"`
+  {:important}
 
 When you copy an SSH key from a terminal to add the key to your VPC, sometimes extra line breaks are introduced which cause a parsing error. To avoid this issue, first paste your SSH key into a text editor and remove any extra line breaks. Then, copy the SSH key from text editor and paste it into the VPC UI, CLI, or API.
 {:tip}

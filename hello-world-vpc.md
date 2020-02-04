@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-28"
+lastupdated: "2020-02-04"
 
 keywords: vpc, cli, command line interface, tutorial, creating a vpc
 
@@ -308,6 +308,9 @@ ibmcloud is sg-rulec $sg inbound icmp --icmp-type 8 --icmp-code 0
 ```
 {: pre}
 
+For Windows images, make sure the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
+{: tip}
+
 ## Create a floating IP address for the instance
 {: #create-floating-ip-address-cli}
 
@@ -339,6 +342,8 @@ When you're prompted to continue connecting, type `yes`.
 
 SSH access into the instance might be prevented by security groups. Make sure the instance's security group allows SSH access.
 {: tip}
+
+To connect to a Windows image, log in using its decrypted password. For instructions, see [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
 
 ## Monitoring your instance
 {: #monitoring-your-instance-cli-tutorial} 

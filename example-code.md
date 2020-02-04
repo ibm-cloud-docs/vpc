@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2019-11-20"
+lastupdated: "2020-02-04"
 
 keywords: create, VPC, API, IAM, token, permissions, endpoint, region, zone, profile, status, subnet, gateway, floating IP, delete, resource, provision
 
@@ -357,6 +357,9 @@ curl -X POST "$api_endpoint/v1/security_groups/$sg/rules?version=$api_version&ge
 ```
 {: pre}
 
+For Windows images, make sure the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
+{: tip}
+
 ## Create a floating IP address
 {: #create-floating-ip-api-tutorial}
 
@@ -401,6 +404,9 @@ On Linux, use the `address` of the floating IP to connect to the instance with S
 ssh -i <private_key_file> root@<floating ip address>
 ```
 {: pre}
+
+To connect to a Windows image, log in using its decrypted password. For instructions, see [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
+{: tip}
 
 ## Monitoring your instance
 {: #monitoring-your-instance-api-tutorial} 
