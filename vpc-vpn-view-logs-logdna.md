@@ -35,7 +35,7 @@ To initiate sending VPN logs to LogDNA, make sure that the following prerequisit
    {: tip}
 
 
-### Sending VPN logs to IBM Log Analysis with a LogDNA instance
+## Sending VPN logs to IBM Log Analysis with a LogDNA instance
 {: #sending-vpn-logs-logdna}
 
 To send VPN for VPC logs into an instance of {{site.data.keyword.la_full_notm}}, complete the following steps:
@@ -53,7 +53,7 @@ Sending logs from VPN in the Washington DC region is currently not supported. Sp
 
 5. Click **Save**.
 
-### Viewing VPN logs in the IBM Log Analysis with LogDNA instance
+## Viewing VPN logs in the IBM Log Analysis with LogDNA instance
 {: #viewing-vpn-logs-logdna}
 
 View the VPN for VPC logs in the {{site.data.keyword.la_full_notm}} instance. Then, access the logging instance that you configured the platform logs for.
