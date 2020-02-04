@@ -128,7 +128,12 @@ Virtual Private Cloud
     at-events.md
     api-integration-migration.md
     [Go and Python example code](https://github.com/IBM-Cloud/vpc-api-samples)
-    [Terraform](/terraform/terraform-getting-started)
+    
+    {: .topicgroup}
+    Terraform
+        [Terraform](/terraform/terraform-getting-started)
+        [Terraformer for VPC](https://github.com/ibm-cloud-architecture/terraformer)
+    
     [Exporter tool](https://github.com/l2fprod/vpc-diagram-exporter)
     {: .navgroup-end}
 
