@@ -146,7 +146,7 @@ Each GPU is an NVIDIA Tesla v100 and each includes 32 GBs of memory that contrib
 | gp2-56x896x4 | 56 | 896 | 100 | 4 |
 {: caption="Table 8. Power GPU profile options" caption-side="top"}
 
-For the Balanced, Compute, and Memory profile families, the following supported operating systems are available: CentOS, Debian, and Ubuntu. GPU profiles are supported by Ubuntu 18.04 only. A few of the larger profile sizes might require you to increase your quota limit. To increase a quota for a particular resource, [contact support](/docs/get-support?topic=get-support-getting-customer-support).
+GPU profiles are supported by Ubuntu 18.04 only. For more information about supported operating systems, see [Images](/docs/vpc?topic=vpc-about-images). A few of the larger profile sizes might require you to increase your quota limit. To increase a quota for a particular resource, [contact support](/docs/get-support?topic=get-support-getting-customer-support).
 
 If you are using GPU profiles, you may need to install the NVIDA kernel driver and/or the CUDA toolkit onto your virtual server instance. For more information, see [Setting up GPU drivers for POWER-based instances](/docs/vpc?topic=how-to-setup-for-gpu).
 {:tip}
