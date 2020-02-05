@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-02-05"
 
 keywords: vpc, limitations, restrictions
 
@@ -20,11 +20,23 @@ subcollection: vpc
 {:download: .download}
 
 
-# Limitations
+# Limitations and restrictions
 {: #limitations}
 
 Limitations might change as capabilities are added, so feel free to check back from time to time.
 {:shortdesc}
+
+## Limits
+The following table displays current VPC resource limits. Unlike quotas, these limits can't be adjusted. For information about quotas, see [Quotas](/docs/vpc?topic=vpc-quotas).
+
+|Resource|Limit| 
+|--------|-----|
+| VPCs with classic access | 1 per region|
+| Public Gateways | 1 per zone per VPC |
+| Secondary volumes per instance, attached when creating an instance |  4 secondary volumes |
+| Secondary volumes per instance, for existing instances with fewer than 4 cores | 4 secondary volumes |
+| Secondary volumes per instance, for existing instances with 4 cores or more | Up to 12 secondary volumes |
+{: caption="Table 1. Limits for VPC resources" caption-side="top"}
 
 ## General restrictions
 {: #general-restrictions}
@@ -54,12 +66,11 @@ The following features are not supported, including all properties associated wi
 
 * Bring your own subnet:
   * Address prefixes must be within one of the "private" address ranges defined in RFC1918.
-  * Address prefixes can't be configured in the IBM Cloud console. 
+  * Address prefixes can't be configured in the IBM Cloud console.
 
 * Multiple Virtual Network Interface Controllers: Only one Virtual Network Interface Controller is allowed for each virtual server instance. Currently, only the primary Virtual Network Interface Controller (VNIC) Ethernet 0 (eth0) works for a virtual server.
 
 * VPN: A VPN gateway serves only subnets that are in the zone in which the VPN is created. For more information, see [Using VPN](/docs/vpc?topic=vpc-using-vpn#vpn-limitations).
-
 
 ## Compute restrictions
 {: #compute-restrictions}
@@ -85,3 +96,4 @@ The following features are not supported, including all properties associated wi
 {: #api-considerations}
 
 * For API limitations and considerations, see [API application migration considerations](/docs/vpc?topic=vpc-api-integration-migration). 
+
