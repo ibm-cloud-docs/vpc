@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-03"
+lastupdated: "2020-02-05"
 
 keywords: vpc release notes, changes, updates, vpc
 
@@ -33,7 +33,7 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
   * [IBM Cloud Virtual Private Cloud on POWER](https://developer.ibm.com/linuxonpower/power-virtual-private-cloud/){: external}  
   * [Profiles](/docs/vpc?topic=vpc-profiles)
   * [Pricing for Virtual Servers for VPC](/docs/vpc?topic=vpc-pricing-for-vpc#pricing-for-virtual-servers-for-vpc) 
-- **Red Hat Enterprise Linux (RHEL) stock images are now available** You can provision an instance that uses a RHEL image in the Washington DC region. For more information, see [Images](/docs/vpc?topic=vpc-about-images). 
+- **Red Hat Enterprise Linux (RHEL) and Windows stock images are now available** You can provision an instance that uses a RHEL image or a Windows image in the Washington DC region. For more information, see [Images](/docs/vpc?topic=vpc-about-images). 
 - **UI enhancement** The modals for provisioning and attaching a public gateway, as well as, the modal for creating an SSH key are now replaced with an easier side pane design.
 
 ## 10 January 2020
