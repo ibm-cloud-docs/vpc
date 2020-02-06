@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2020
-lastupdated: "2019-12-19"
+lastupdated: "2020-02-06"
 
 keywords: vpc, classic, access, classic access, VRF, peering
 
@@ -30,7 +30,7 @@ You can set up access from a VPC to your {{site.data.keyword.cloud}} classic inf
 
 When you set up a VPC for classic access, every virtual server instance or bare metal server without a public interface in your classic account can send and receive packets to and from the classic access VPC. Firewalls, gateways, network ACLs, or security groups can filter some or all of this traffic. As a best practice, allow only traffic that's required for your applications to function properly.
 
-For classic hosts with a public interface, you must add VPC routes to direct traffic to the classic subnets. For each classic subnet, create a VPC route with the CIDR of the classic subnet as the destination and the classic subnet's gateway address as the next hop. For more information about VPC routes, see [Setting up advanced routing](/docs/vpc?topic=vpc-advanced-routing).
+For virtual server instances and bare metal instances on the classic infrastructure that use a public interface, you must add a route that points back to your classic-enabled VPC. This route must include the subnets of your classic-enabled VPC as a destination. The route must also point to a gateway address for traffic that leaves the private interface of the host as the next hop.
 {: important}
 
 ## Prerequisites
