@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-02-05"
+lastupdated: "2020-02-06"
 
 keywords: vpc, limitations, restrictions
 
@@ -19,24 +19,11 @@ subcollection: vpc
 {:tip: .tip}
 {:download: .download}
 
-
-# Limitations and restrictions
+# Service limitations
 {: #limitations}
 
 Limitations might change as capabilities are added, so feel free to check back from time to time.
 {:shortdesc}
-
-## Limits
-The following table displays current VPC resource limits. Unlike quotas, these limits can't be adjusted. For information about quotas, see [Quotas](/docs/vpc?topic=vpc-quotas).
-
-|Resource|Limit| 
-|--------|-----|
-| VPCs with classic access | 1 per region|
-| Public Gateways | 1 per zone per VPC |
-| Secondary volumes per instance, attached when creating an instance |  4 secondary volumes |
-| Secondary volumes per instance, for existing instances with fewer than 4 cores | 4 secondary volumes |
-| Secondary volumes per instance, for existing instances with 4 cores or more | Up to 12 secondary volumes |
-{: caption="Table 1. Limits for VPC resources" caption-side="top"}
 
 ## General restrictions
 {: #general-restrictions}
