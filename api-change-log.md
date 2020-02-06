@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-10"
+lastupdated: "2020-02-06"
 
 keywords: vpc, api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -41,6 +41,10 @@ To minimize bugs caused by changes, use the following best practices when you ca
 * Follow HTTP redirect rules for any `3xx` HTTP status code
 * Consume only the resources and properties your application needs to function
 * Avoid depending on behavior that is not explicitly documented
+
+## 2020-02-06
+{: #2020-02-06}
+We have temporarily suspended support for creating instances from an existing boot volume. This feature had been available only through the API, with no CLI or UI support. In the interim you must specify the image property when you call POST /instances. You can still create instances that reference existing data volumes.
 
 ## 2020-01-10
 {: #2020-01-10}
