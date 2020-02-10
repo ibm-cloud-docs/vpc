@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-02-06"
+lastupdated: "2020-02-10"
 
 keywords: vpc, limitations, restrictions
 
@@ -73,6 +73,8 @@ The following features are not supported, including all properties associated wi
 * Activity Tracker logs (request logs and resource lifecycle event logs) are not available.
 * Updating the profile of a created instance is not supported.
 * Live migration is not supported.
+
+* We have temporarily suspended API support for creating new instances from an existing boot volume. For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-log).
 
 ## Storage restrictions
 {: #storage-restrictions}
