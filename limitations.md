@@ -29,7 +29,6 @@ Limitations might change as capabilities are added, so feel free to check back f
 {: #general-restrictions}
 
 The following features are not supported, including all properties associated with these features:
-* Shares
 
 * The following concepts are not supported:
   * IPV6
