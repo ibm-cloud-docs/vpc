@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-05"
+lastupdated: "2020-02-10"
 
 keywords: vpc release notes, changes, updates, vpc
 
@@ -25,6 +25,9 @@ subcollection: vpc
 
 Use these release notes to learn about the latest changes to {{site.data.keyword.vpc_full}}.
 {:shortdesc}
+
+## 10 February 2020
+- **API change notification:**  We have temporarily suspended API support for creating new instances from an existing boot volume. For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-log).
 
 ## 03 February 2020
 {: #feb-03-2020}
