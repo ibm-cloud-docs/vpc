@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-02-06"
+lastupdated: "2020-02-12"
 
 keywords: quotas, vpc, resources, limits
 
@@ -20,7 +20,7 @@ subcollection: vpc
 {:note: .note}
 {:download: .download}
 
-# Quotas and limits
+# Quotas and service limits
 {: #quotas}
 
 This document covers quotas and limits for {{site.data.keyword.vpc_full}} and the resources available within it. 
@@ -111,8 +111,8 @@ To increase a quota for a particular resource, [contact support](/docs/get-suppo
 | Members | 50 per pool | 
 {: caption="Table 7. Quotas for load balancers" caption-side="top"}
 
-## Limits
-The following table displays current VPC resource limits. Unlike quotas, these limits can't be adjusted.
+## Service limits
+The following table displays current VPC service limits. Unlike quotas, these limits can't be adjusted.
 
 |Resource|Limit| 
 |--------|-----|
