@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-02-10"
+lastupdated: "2020-02-14"
 
 keywords: vpc, limitations, restrictions
 
@@ -63,9 +63,6 @@ The following features are not supported, including all properties associated wi
 ## Compute restrictions
 {: #compute-restrictions}
 
-* The following images are not supported on the POWER architecture:
-  * Red Hat Enterprise Linux 
-  * Windows
 * Every x86-based profile has a network performance value of 2 Gbps per vCPU, with a cap of 80 Gbps.
 * Every POWER-based profile has a network performance value of 3 Gbps per vCPU, with a cap of 100 Gbps.
 * Each x86-based network interface has a network performance cap of 16 Gbps. <!-- You might need to attach multiple network interfaces to your virtual server instance to optimize network performance. -->
