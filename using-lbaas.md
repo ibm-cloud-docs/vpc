@@ -3,7 +3,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2019-11-10"
+lastupdated: "2020-02-14"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, layer-7
 
@@ -24,16 +24,15 @@ subcollection: vpc
 {:DomainName: data-hd-keyref="DomainName"}
 {:external: target="_blank" .external}
 
-# Using load balancers (Beta)
+# Using load balancers 
 {: #load-balancers}
 
-Use the {{site.data.keyword.cloud}} Load Balancer for VPC service to distribute traffic among multiple server instances within the same region of your VPC.
+Use the {{site.data.keyword.cloud}} load balancer for VPC service to distribute traffic among multiple server instances within the same region of your VPC.
 {:shortdesc}
 
-## Beta Terms & Conditions
-{: #lb-beta-terms}
-
-This service is currently available in Beta only. When this service is made generally available, you'll need to change to a Standard plan to continue using instances that you created during the Beta. Any instances that continue to use a Beta plan for this service beyond 30 days notice of general availability will be deleted. Please see [IBM Cloud Service Description](https://www.ibm.com/software/sla/sladb.nsf/pdf/6605-19/$file/i126-6605-19_10-2019_en_US.pdf) and [IBM VPC Service Description](https://www.ibm.com/software/sla/sladb.nsf/pdf/8265-02/$file/i126-8265-02_07-2019_en_US.pdf) for more information about Beta services.
+## Beta participants
+{: #beta-participants}
+14 February 2020: This service is now generally available. You must change to a standard plan to continue using instances that you created during the beta. Any instances that continue to use the beta plan for this service beyond 30 days notice of general availability will be subject to deletion.
 
 ## Types of load balancers
 {: #types-load-balancer}
@@ -57,7 +56,7 @@ Over time, the number and value of these public IP addresses might change due to
 Use the assigned FQDN to send traffic to the public load balancer to avoid connectivity problems to your applications during system maintenance or scaling down activities.
 {: important}
 
-### Private Load Balancer
+### Private load balancer
 {: #private-load-balancer}
 
 The private load balancer is accessible only to internal clients on your private subnets, within the same region and VPC. The private load balancer accepts traffic only from [RFC1918](https://tools.ietf.org/html/rfc1918){: external} address spaces.
@@ -161,6 +160,9 @@ Field | Specifies the HTTP header field name. This field is applicable only to t
 Value |  The value to be matched.
 {: caption="Table 5. Descriptions of rule properties" caption-side="top"}
 
+The following characters are not allowed for `field` or `value` if the rule type is `header`: `"(),/:;<=>?@[\]{}'`.
+{: tip}
+
 ## Load balancing methods
 {: #load-balancing-methods}
 
@@ -175,19 +177,19 @@ Three load balancing methods are available for distributing traffic across the b
   Setting a server weight to '0' means that no new connections are forwarded to that server, but any existing traffic continues to flow. Using a weight of '0' can help bring down a server gracefully and remove it from service rotation. 
   {: tip}
   
-  The server weight values are applicable only with the weighted round-robin method. They are ignored with round-robin and least connections load balancing methods.
+  The server weight values are applicable only with the weighted round-robin method. They are ignored with round-robin and least-connections load balancing methods.
 
 * **Least connections:** With this method, the back-end server instance that serves the least number of connections at a given time receives the next client connection.
 
 ## Horizontal scaling
 {: #horizontal-scaling}
 
-The load balancer adjusts its capacity automatically according to the load. When this adjustment occurs, you might see a change in the number of IP addresses associated with the load balancer's DNS name.
+The load balancer adjusts its capacity automatically according to the load. When this adjustment occurs, you may see a change in the number of IP addresses associated with the load balancer's DNS name.
 
 ## Health checks
 {: #health-checks}
 
-Health check definitions are mandatory for back-end pools.
+Health check definitions are mandatory for back-end pools. Health checks can be configured on back-end ports or on a separate health check port, based on the application. 
 
 The load balancer conducts periodic health checks to monitor the health of the back-end ports, and it forwards client traffic to them accordingly. If a back-end server port is found to be unhealthy, no new connections are forwarded to it. The load balancer continues to monitor health of unhealthy ports, and it resumes their use if they become healthy again, which means that they successfully pass two consecutive health check attempts.
 
@@ -210,6 +212,48 @@ To give a load balancer access to your SSL certificate, you must enable **servic
 
 If the required authorization is removed, errors might occur for your load balancer.
 {: important}
+
+## MZR support
+{: #mzr-support}
+
+Load Balancer for VPC supports Multi-Zone-Regions (MZRs). High availability and redundancy can be achieved by deploying a load balancer with subnets from different zones. When subnets from multiple zones are used to provision a load balancer, the load balancer appliances get deployed to multiple zones. 
+
+## Advanced traffic management
+{: #advanced-traffic-management}
+
+The following advanced traffic management features are available.
+
+## Max connections
+{: #max-connections}
+
+Use the ‘max connections’ configuration to limit the maximum number of concurrent connections for a given front-end virtual port. By default, no limit is specified. The maximum possible concurrent connections for a given front-end virtual port or system-wide across all front-end virtual ports is `15000`.
+
+## Session persistence
+{: #session-persistence}
+
+The load balancer supports session persistence based upon the source IP of the connection. As an example, if you have `source IP` type session persistence enabled for port 80 (HTTP), then subsequent HTTP connection attempts from the same source IP client are persistent on the same back-end server. This feature is available for all three supported protocols (HTTP, HTTPS and TCP).
+
+## HTTP keep alive
+{: #http-keep-alive}
+
+The load balancer supports `HTTP keep alive` as long as it is enabled on both the client and back-end servers. The load balancer attempts to re-use the server-side HTTP connections to increase connection efficiency and reduce latency.
+
+## Connection timeouts
+{: #connection-timeouts}
+
+The following timeout values are used by the load balancer. You cannot customize these values at this time.
+
+| Name | Description | Timeout |                                                                              
+| ------------------------------------------ | --------------------------------------------------- | ------------------- |
+| Server-side connection attempt    | The maximum time window that the load balancer can use to establish TCP connection with the back-end server. If the connection attempt is unsuccessful, the load balancer tries the next available server, according to the load-balancing method configured. | 5 seconds   |
+| Client-side idle connection  | The maximum idle time, after which the load balancer brings down the client-side connection, if the client has failed to close its connection properly.| 50 seconds  |
+| Server-side idle connection | The maximum idle time (with back-end protocol configuration of TCP), after which the load balancer closes the server-side connection. With the back-end protocol configuration of HTTP, if the load balancer fails to receive a response to its HTTP request within the idle timeout window, it will return an error message to the end-client.                                | 50 seconds |
+{: caption="Table 1. Load Balancer Timeout Values" caption-side="top"}
+
+## Preserving end-client IP address
+{: #preserving-end-client-ip-address}
+
+Load Balancer for VPC works as a reverse proxy, which terminates incoming traffic from the client. The load balancer establishes a separate connection to the back-end server instance, using its own IP address. For HTTP connections with the backend servers (against front-end HTTP or HTTPS connections), the load balancer preserves the original client IP address by including it inside the `X-Forwarded-For HTTP` header. For TCP connections, the original client IP information is not preserved.
 
 ## Identity and access management
 {: #identity-and-access-management-iam}
@@ -239,7 +283,7 @@ Table 6 provides information for configuring resource access policies for users.
 | Administrator | Create/View/Edit/Delete load balancer |
 | Editor | Create/View/Edit/Delete load balancer |
 | Viewer | View load balancer |
-{: caption="Table 6. Platform access roles and load balancer actions" caption-side="top"}
+{: caption="Table 6. Platform-access roles and load balancer actions" caption-side="top"}
 
 1. Go to **Manage > Account > Users**.
 2. Select the name of the user to whom you want to assign an access policy. If the user is not shown, click **Invite users** to add the user to your IBM Cloud account.
@@ -335,11 +379,11 @@ Here is the sample activity tracker message for a **Create Listener** operation:
     "saveServiceCopy": true
 }
 ```
-
 ## Configuring ACLs for use with load balancers
 {: #acls-lb}
 
 If you use access control lists (ACLs) to block traffic on the subnets in which the load balancer is deployed, make sure that ACL rules are in place to allow incoming traffic for the configured listener ports and management ports (ports 56500 - 56520). Traffic between the load balancer and back-end instances must also be allowed.
+
 
 ## APIs available
 {: #lbaas-apis-available}
@@ -392,7 +436,7 @@ Use the APIs described in Table 7 for load balancers in your VPC environment. Fo
 ## Load balancer API example
 {: #load-balancer-example}
 
-In the following example, you use the API to create a load balancer in front of two VPC virtual server instances (192.168.100.5 and 192.168.100.6) running a web application that listens on port 80. The load balancer has a front-end listener, which allows secure access to the web application by using HTTPS. You can use the API to get details of the load balancer after it is created, and to delete the load balancer.
+In the following example, you use the API to create a load balancer in front of two VPC virtual server instances (`192.168.100.5` and `192.168.100.6`) running a web application that listens on port `80`. The load balancer has a front-end listener, which allows secure access to the web application by using HTTPS. You can use the API to get details of the load balancer after it is created, and to delete the load balancer.
 
 The example steps that follow skip the prerequisite steps of using the [IBM Cloud UI](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console), [CLI](/docs/vpc?topic=vpc-creating-a-vpc-using-cli), or [API](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis) to provision a VPC, subnets, and instances.
 
@@ -756,13 +800,13 @@ The auto-assigned DNS name for the load balancer is not customizable. However, y
 {: #what-s-the-maximum-number-of-front-end-listeners-i-can-define-with-my-load-balancer}
 {: faq}
 
-10.
+10
 
 ### What's the maximum number of virtual server instances I can attach to my back-end pool?
 {: #what-s-the-maximum-number-of-server-instances-i-can-attach-to-my-back-end-pool}
 {: faq}
 
-50.
+50
 
 ### Is the load balancer horizontally scalable?
 {: #is-the-load-balancer-horizontally-scalable}
@@ -779,8 +823,8 @@ Make sure that the proper ACL rules are in place to allow incoming traffic for c
 {: #error-certificate-instance-not-found}
 {: faq}
 
-* The certificate instance CRN might be invalid.
-* You might not have granted **service-to-service authorization**. See [SSL offloading](#ssl-offloading-and-required-authorizations).
+* The certificate instance CRN may not be valid.
+* You may not have granted **service-to-service authorization**. See [SSL offloading](#ssl-offloading-and-required-authorizations).
 
 ### Why am I receiving a `401 Unauthorized Error` code?
 {: #401-unauthorized-error}
@@ -806,6 +850,12 @@ The load balancer is in `maintenance_pending` state during various maintenance a
 
 Load Balancer for VPC is Multi-Zone-Region (MZR) ready. Load balancer appliances are deployed to the subnets you selected. To achieve higher availability and redundancy, deploy the load balancer to subnets in different zones.
 
+### Do I need additional IPs in the subnet for load balancer operations?
+{: #do-I-need-additional-ips-in-subnet-for-load-balancer-operations}
+{: faq}
+
+Additional IPs in the subnet will be needed for horizontal scaling and maintenance operations.
+
 ### Why is back-end member health under my pool `unknown`?
 {: #back-end-member-health-unknown}
 {: faq}
@@ -813,6 +863,17 @@ Load Balancer for VPC is Multi-Zone-Region (MZR) ready. Load balancer appliances
 * The pool is not associated with any listeners
 * Configuration changes might have been made to the pool or its associated listener
 
+### Why is back-end member health under my pool `faulted` ?
+{: #back-end-member-health-failing}
+{: faq}
+
+Verify the following configurations:  
+* Does the port of the configured back-end protocol match the port the application is listening on?
+* Does the configured health-check have the correct protocol (TCP or HTTP), port, and URL (for HTTP) information? For HTTP, ensure your application responds with 200 OK for the configured health check URL.
+* Is the back-end server a virtual server with an enabled security group? If so, ensure that the security group rules allow traffic between the load balancer and the virtual server.
+
+Refer to the [Health Checks](#health-checks) section for additional information.
+ 
 ### Which TLS version is supported with SSL offload?
 {: #which-tls-version-is-supported-with-ssl-offload}
 {: faq}
@@ -853,7 +914,7 @@ Use FQDN, rather than cached IP addresses.
 {: #does-the-load-balancer-support-layer-7-switching}
 {: faq}
 
-Yes.
+Yes, the load balancer supports Layer-7 switching.
 
 ### Why does HTTPS listener creation or update tell me that my certificate is invalid?
 {: #why-does-https-listener-creation-or-update-tell-me-that-my-certificate-is-invalid}
@@ -861,5 +922,5 @@ Yes.
 
 Check for these possibilities:
 
-* The provided certificate CRN might not be valid.
-* The certificate instance in Certificate Manager might not have an associated private key.
+* The provided certificate CRN may not be valid.
+* The certificate instance in Certificate Manager may not have an associated private key.

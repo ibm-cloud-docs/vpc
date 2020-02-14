@@ -4,7 +4,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-31"
+lastupdated: "2020-02-14"
 
 keywords: VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies, gateway, auto-negotiation, vpc, vpc network
 
@@ -36,7 +36,7 @@ Currently, only policy-based routing is supported.
 
 ## Beta participants
 {: #beta-participants}
-31 January 2020: This service is now generally available. You must change to a standard plan to continue using instances that you created during the beta. Any instances that continue to use the beta plan for this service beyond 30 days notice of general availability will be subject to deletion.
+14 February 2020: This service is now generally available. You must change to a standard plan to continue using instances that you created during the beta. Any instances that continue to use the beta plan for this service beyond 30 days notice of general availability will be subject to deletion.
 
 ## Features
 {: #vpn-features}
