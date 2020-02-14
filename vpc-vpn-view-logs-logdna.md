@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-17"
+lastupdated: "2020-02-14"
 
 keywords: vpn, vpn for vpc, logs, supertenancy, gateway, troubleshooting
 
