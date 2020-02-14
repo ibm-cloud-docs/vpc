@@ -8,7 +8,6 @@ Virtual Private Cloud
     {: .navgroup id="learn"}
     getting-started.md
     about-vpc.md
-    vpc-responsibilities.md
     quotas.md
     pricing.md
 
@@ -125,6 +124,7 @@ Virtual Private Cloud
     {: .navgroup id="reference"}
     /vpc-infrastructure-cli-plugin/vpc-infrastructure-cli-plugin-vpc-reference
     [API reference](https://{DomainName}/apidocs/vpc)
+    vpc-responsibilities.md
     vpc-endpoints.md
     at-events.md
     api-integration-migration.md
