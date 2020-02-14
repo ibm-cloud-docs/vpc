@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2019-09-30"
+lastupdated: "2019-02-14"
 
 keywords: peering, Vyatta, StrongSwan, FortiGate, Cisco, ASAv, Juniper, vSRX, connection, secure, remote, vpc, vpc network, vpn
 
@@ -22,7 +22,7 @@ subcollection: vpc
 {:download: .download}
 
 
-# Connecting to your on-premises network (Beta)
+# Connecting to your on-premises network
 {: #vpn-onprem-example}
 
 You can use VPN for VPC to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your on-premises VPN gateway to connect with VPN for VPC.
