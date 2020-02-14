@@ -48,7 +48,7 @@ POWER-based instances run many Linux distributions. However, they run a differe
 
 ### Maximizing the performance of POWER-based instances
 {: #power-performance}
-The CPUs that are used in this solution are SMT-4 based cores. SMT-4 based cores offer up to four threads per physical core are configurable from one to four threads per core. The lower the threads per core, the faster a single thread can run on that core. The more threads that are enabled, the overall throughput of the core is higher (potentially at the expense of per thread latency). Different workloads have different characteristics.
+The CPUs that are used in this solution are SMT-4 based cores. SMT-4 based cores offer up to four threads per physical core and are configurable from one to four threads per core. The lower the threads per core, the faster a single thread can run on that core. The more threads that are enabled, the overall throughput of the core is higher (potentially at the expense of per thread latency). Different workloads have different characteristics.
 
 By default, the POWER-based instances start in SMT-2 mode. For more information see, [Changing SMT settings for POWER-based instances](/docs/vpc?topic=vpc-vsi_is_power_perf).
 
