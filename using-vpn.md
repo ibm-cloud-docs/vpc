@@ -539,7 +539,7 @@ Only PSK authentication is supported.
 
 No. To set up a VPN gateway in your classic environment, you must use the [IPsec VPN](https://{DomainName}/catalog/infrastructure/ipsec-vpn){: external}.
 
-### What {{site.data.keyword.cloud_notm}} infrastructure classic resources can be accessed with VPN for VPC, along with Classic Access VPC?
+### What {{site.data.keyword.cloud_notm}} infrastructure classic resources can be accessed with VPN for VPC?
 {: #faq-vpn-13}
 {: faq}
 
