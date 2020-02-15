@@ -32,7 +32,7 @@ The following {{site.data.keyword.vpc_notm}} network services are now generally 
 
    - **Virtual Private Network (VPN)**: Use VPN to set up an IPsec site-to-site tunnel between your VPC and your on-premises private network or another VPC. For details, see [Using VPN](/docs/vpc?topic=vpc-using-vpn).
 
-  - **Load balancers**: Create public and private load balancers to distribute traffic among multiple server instances within the same region of your VPC. For details, see [using load balancers](/docs/vpc?topic=vpc-load-balancers).
+  - **Load balancers**: Create public and private load balancers to distribute traffic among multiple server instances within the same region of your VPC. For details, see [Using load balancers](/docs/vpc?topic=vpc-load-balancers).
 
 
 ## 13 February 2020
