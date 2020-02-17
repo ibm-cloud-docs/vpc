@@ -166,7 +166,7 @@ Complete the following steps to create a Windows custom image.
          ```
          {: screen}
          
-    7. Modify the `Unattend.xml` file in `C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\Unattend.xml` to set Set **PersistAllDeviceInstalls** to *false*.
+    7. Modify the `Unattend.xml` file in `C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\Unattend.xml` to set **PersistAllDeviceInstalls** to *false*.
     8. Run Sysprep by using the following command:
     
          ```
