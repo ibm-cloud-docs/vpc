@@ -19,7 +19,7 @@ subcollection: vpc
 # Using LogDNA to view VPN logs
 {: #using-logdna-to-view-vpn-logs}
 
-You can use {{site.data.keyword.la_full_notm}} to view application and connection logs from your VPN for a VPC gateway.
+You can use {{site.data.keyword.la_full_notm}} to view application and connection logs from your VPN for VPC gateway.
 {: shortdesc}
 
 
