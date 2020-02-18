@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2020
 
-lastupdated: "2020-02-04"
+lastupdated: "2020-02-18"
 
 keywords: vsi, virtual server instance, connecting, windows
 
@@ -55,6 +55,6 @@ After you create your Windows instance and complete the prerequisites, complete 
   You can also get the encrypted password by using the API or CLI. For more information, see [Retrieve configuration used to initialize the instance API](https://{DomainName}/apidocs/vpc#retrieve-configuration-used-to-initialize-the-inst) and [instance-initialization-values](/docs/vpc?topic=vpc-cli-reference#instance-initialization-values).
   {:tip}
 
-1. Decode the encrypted password and store it in a new file (for example, decoded_pwd.txt) by running the following command: `cat encrypted_pwd.txt | base64 -D > decoded_pwd.txt`
+1. Decode the encrypted password and store it in a new file (for example, decoded_pwd.txt) by running the following command: `cat encrypted_pwd.txt | base64 -d > decoded_pwd.txt`
 1. Decrypt the decoded password by using the following openssl command: `/<location_of_openssl_executable> pkeyutl -in decoded_pwd.txt -decrypt -inkey ~/.ssh/id_rsa`
 1. Use the returned value as the Administrator password in Remote Desktop. Enter the public IP address of the Windows instance into the Remote Desktop client.
