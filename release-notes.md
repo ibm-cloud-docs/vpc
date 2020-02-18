@@ -28,12 +28,10 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 ## 14 February 2020
 
-The following {{site.data.keyword.vpc_notm}} network services are now generally available:
+The following VPC network services are now generally available:
 
-   - **Virtual Private Network (VPN)**: Use VPN to set up an IPsec site-to-site tunnel between your VPC and your on-premises private network or another VPC. For details, see [Using VPN](/docs/vpc?topic=vpc-using-vpn).
-
-  - **Load balancers**: Create public and private load balancers to distribute traffic among multiple server instances within the same region of your VPC. For details, see [Using load balancers](/docs/vpc?topic=vpc-load-balancers).
-
+- **Virtual Private Network (VPN)**: Use VPN to set up an IPsec site-to-site tunnel between your VPC and your on-premises private network or another VPC. For details, see [Using VPN](/docs/vpc?topic=vpc-using-vpn).
+- **Load balancers**: Create public and private load balancers to distribute traffic among multiple server instances within the same region of your VPC. For details, see [Using load balancers](/docs/vpc?topic=vpc-load-balancers). 
 
 ## 13 February 2020
 - **Red Hat Enterprise Linux (RHEL) and Windows stock images are now available** You can provision an instance that uses a RHEL image or a Windows image in the Dallas region. For more information, see [Images](/docs/vpc?topic=vpc-about-images).
