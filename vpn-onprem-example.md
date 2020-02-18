@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2019-02-14"
+lastupdated: "2020-02-14"
 
 keywords: peering, Vyatta, StrongSwan, FortiGate, Cisco, ASAv, Juniper, vSRX, connection, secure, remote, vpc, vpc network, vpn
 
@@ -22,7 +22,7 @@ subcollection: vpc
 {:download: .download}
 
 
-# Connecting to your on-premises network
+# Connecting to your on-premises network  
 {: #vpn-onprem-example}
 
 You can use VPN for VPC to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your on-premises VPN gateway to connect with VPN for VPC.
@@ -64,7 +64,7 @@ The first step in configuring your Cisco ASAv for use with VPN for VPC is to ens
 * There's at least one configured and verified functional internal interface
 * There's at least one configured and verified functional external interface
 
-When a Cisco ASAv VPN receives a connection request from VPN for VPC, it uses IPsec Phase 1 parameters to establish a secure connection and authenticate to VPN for VPC. Then, if the security policy permits the connection, the Cisco ASAv establishes the tunnel using IPsec Phase 1 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
+When a Cisco ASAv VPN receives a connection request from VPN for VPC, it uses IPsec Phase 1 parameters to establish a secure connection and authenticate to VPN for VPC. Then, if the security policy permits the connection, the Cisco ASAv establishes the tunnel using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
 
 To support these functions, the following general configuration steps must be performed on the Cisco ASAv VPN:
 
