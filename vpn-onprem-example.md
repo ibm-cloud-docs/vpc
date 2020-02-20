@@ -38,7 +38,7 @@ You can use VPN for VPC to securely connect your VPC to an on-premises network t
 * **Local subnets**: Specify one or more subnets in the VPC you want to connect through the VPN tunnel.
 * **Peer subnets**: Specify one or more subnets in the on-premises network you want to connect through the VPN tunnel.
 
-For the IKE and IPsec security parameters, select **Auto** so the cloud gateway uses auto-negotiation to automatically establish the connection with the on-premises gateway.
+For the Internet Key Exchange (IKE) and IPsec security parameters, select **Auto** so the cloud gateway uses auto-negotiation to automatically establish the connection with the on-premises gateway.
 
 If you create a connection to a Juniper VPN, you must create a custom IPsec policy instead of the default auto-negotiation. For instructions, see [Creating a custom IPsec policy in VPN for VPC](#custom-ipsec-policy).
 {: important}
@@ -64,14 +64,14 @@ The first step in configuring your Cisco ASAv for use with VPN for VPC is to ens
 * There's at least one configured and verified functional internal interface
 * There's at least one configured and verified functional external interface
 
-When a Cisco ASAv VPN receives a connection request from VPN for VPC, it uses IPsec Phase 1 parameters to establish a secure connection and authenticate to VPN for VPC. Then, if the security policy permits the connection, the Cisco ASAv establishes the tunnel using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
+When a Cisco ASAv VPN receives a connection request from VPN for VPC, it uses IKE Phase 1 parameters to establish a secure connection and authenticate to VPN for VPC. Then, if the security policy permits the connection, the Cisco ASAv establishes the tunnel using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
 
 To support these functions, the following general configuration steps must be performed on the Cisco ASAv VPN:
 
 * Define the Phase 1 parameters that the Cisco ASAv VPN requires to authenticate VPN for VPC and establish a secure connection.
 * Define the Phase 2 parameters that the Cisco ASAv VPN requires to create a VPN tunnel with VPN for VPC.
 
-Create an Internet Key Exchange (IKE) version 2 proposal object. IKEv2 proposal objects contain the parameters required for creating IKEv2 proposals when defining remote access and site-to-site VPN policies. IKE is a key management protocol that facilitates the management of
+Create an IKE version 2 proposal object. IKEv2 proposal objects contain the parameters required for creating IKEv2 proposals when defining remote access and site-to-site VPN policies. IKE is a key management protocol that facilitates the management of
 IPsec-based communications. It is used to authenticate IPsec peers, negotiate and distribute IPsec encryption keys, and automatically establish IPsec security associations (SAs).
 
 ```

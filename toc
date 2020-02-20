@@ -93,7 +93,7 @@ Virtual Private Cloud
         using-acls.md
 
     {: .topicgroup}
-    Load balancers  
+    Load balancers
         using-lbaas.md
 
     {: .topicgroup}
@@ -123,7 +123,7 @@ Virtual Private Cloud
 
     {: .navgroup id="reference"}
     /vpc-infrastructure-cli-plugin/vpc-infrastructure-cli-plugin-vpc-reference
-    [API reference](https://{DomainName}/apidocs/vpc)
+    [VPC API reference](https://{DomainName}/apidocs/vpc)
     vpc-responsibilities.md
     vpc-endpoints.md
     at-events.md
