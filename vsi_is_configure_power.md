@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2019-12-09"
+lastupdated: "2020-02-20"
 
 keywords: vsi, virtual server instance, power, performance
 
@@ -32,9 +32,9 @@ To improve overall efficiency, you might want to change the simultaneous multi-t
 To view the current SMT setting, run the following pp64_cpu command:
 
 ```
-$ sudo ppc64_cpu --smt 
+sudo ppc64_cpu --smt 
 ```
-{:codeblock} 
+{:pre} 
 
 ```
 SMT=2
@@ -47,14 +47,14 @@ SMT=2
 To change the SMT value, run the following `ppc64_cpu –smt=<N>` command, where 'N' is the number of virtual CPUs to enable:
  
 ```
-$ sudo ppc64_cpu --smt=4 
+sudo ppc64_cpu --smt=4 
 ```
-{:codeblock}
+{:pre}
 
  ```
 [root@power-centos ~]# ppc64_cpu --smt
  ```
- {:codeblock}
+{:pre}
 
 ```
 SMT=4
@@ -62,9 +62,9 @@ SMT=4
 {:screen}  
 
 ```
-$ sudo lscpu 
+sudo lscpu 
 ```
-{:codeblock}
+{:pre}
 
 ```
 Architecture: ppc64le
@@ -78,9 +78,9 @@ Thread(s) per core: 4
 The instance is dynamically switched to SMT-4 mode. If you run the frequency utility of the ppc64_cpu command, the utility picks two of the vCPUs to report on, at random. Whereas for SMT-2 mode, the utility always returns cpu 0 and 1. The following example shows the frequence utility command and sample output.
 
 ```
-# sudo ppc64_cpu --frequency 
+sudo ppc64_cpu --frequency 
 ```
-{:codeblock}
+{:pre}
 
 ```
 min:3.723 GHz (cpu 0)
@@ -93,9 +93,10 @@ avg:3.744 GHz
 {: #smt_considerations}
 
 * The ppc64_cpu utility is part of the “powerpc_utils”package for Linux distributions. The package should be part of the pre-built boot images available. If for some reason ppc64_cpu is not found, you can install the powerpc_utils package.
-* If you run an older version of the powerpc_utils package, the SMT setting does not persist when you restart the instance. An example of an older version is “powerpc-utils-1.3.4-10.el7.ppc64le”. In this case,you must run the “ppc64_cpu –smt=4” command manually after you restart or place it in a boot script. 
+* If you run an older version of the powerpc_utils package, the SMT setting does not persist when you restart the instance. An example of an older version is “powerpc-utils-1.3.4-10.el7.ppc64le”. In this case,you must run the “ppc64_cpu –smt=4” command manually after you restart or place it in a boot script. If you are using the latest version of the powerpc_utils package and still see issues with the SMT value persisting across a restart, you can run “smtstate --save” after changing the SMT value.
 * The only valid values for the SMT setting are integers 1 - 4.  
 
 ### Choosing an SMT setting value
 
 Generally 2 or 4 threads are good choices. Four threads have more parallelization, but with a bit more overhead. Some workloads have their own guidance. For example, for TensorFlow, see the "AC922 with NVIDIA Tesla V100" section in [WML CE tuning recommendations](https://www.ibm.com/support/knowledgecenter/en/SS5SF7_1.6.1/navigation/wmlce_tuning.htm){: external}. The POWER virtual server backend is AC922 with optional NVIDIA Tesla V100 GPUs.
+
