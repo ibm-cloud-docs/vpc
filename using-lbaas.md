@@ -382,7 +382,9 @@ Here is the sample activity tracker message for a **Create Listener** operation:
 ## Configuring ACLs for use with load balancers
 {: #acls-lb}
 
-If you use access control lists (ACLs) to block traffic on the subnets in which the load balancer is deployed, make sure that ACL rules are in place to allow incoming traffic for the configured listener ports and management ports (ports 56500 - 56520). Traffic between the load balancer and back-end instances must also be allowed.
+If you use access control lists (ACLs) to block traffic on the subnets in which the load balancer is deployed, make sure that ACL rules are in place to allow incoming traffic to the configured listener ports and the following management ports:
+- Inbound on TCP port 56501
+- Outbound on TCP port 53, 443, 10514, 8834
 
 
 ## APIs available
@@ -817,7 +819,9 @@ Yes. The load balancer automatically adjusts its capacity based on the load. Whe
 ### What should I do if I'm using ACLs on the subnets that are used to deploy the load balancer?
 {: #what-should-i-do-if-i-am-using-acls-on-the-subnets-that-are-used-to-deploy-the-load-balancer}
 
-Make sure that the proper ACL rules are in place to allow incoming traffic for configured listener ports and management ports (ports in the range 56500 - 56520). Traffic between the load balancer and back-end instances should also be allowed.
+Make sure that the proper ACL rules are in place to allow incoming traffic for configured listener ports and management ports. Traffic between the load balancer and back-end instances should also be allowed.
+
+For detailed information on the ACLs configuration required, refer to [Configuring ACLs for use with load balancers](#acls-lb).
 
 ### Why am I receiving an error message: `certificate instance not found`?
 {: #error-certificate-instance-not-found}
