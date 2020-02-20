@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2019-10-17"
+lastupdated: "2020-02-20"
 
 keywords: custom image, vpc, virtual private cloud, virtual server instances
 
@@ -80,7 +80,16 @@ environment by using the [NoCloud](https://cloudinit.readthedocs.io/en/latest/to
     * Make sure to configure your image to use SSH for logging in to your virtual server instance.
     * Linux images require Cloud-init version 0.7.7 or greater.
     
-6. Upload your image to {{site.data.keyword.cos_full_notm}}. For more information about uploading to {{site.data.keyword.cos_full_notm}}, see [Upload data](/docs/services/cloud-object-storage?topic=cloud-object-storage-upload).    
+6. Make sure that the image has a boot disk size of 100 GB.
+
+7. If your image is for Power Systems:
+    * If the image uses GPUs, disable the Nouveau driver by using these steps: [Nvidia Nouvea driver disable](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#runfile-nouveau).
+    * If the image is RHEL, CentOS or SLES: the MAC address information might need to be removed to persist network settings across a restart:
+        * Replace `/etc/udev/rules.d/70-persistent-net.rules` with an empty file.  This file contains network persistence rules, including the MAC address, which can interfere with cloud-init configuring the network.
+        * Remove the HWADDR line from `/etc/sysconfig/network-scripts/ifcfg-eth0`.
+    * If you want to modify Simultaneous Multi-Threading (SMT) configuration of the POWER processor for VM performance tuning, install the latest `powerpc-util` package to get the `ppc64_cpu` command.
+
+8. Upload your image to {{site.data.keyword.cos_full_notm}}. For more information about uploading to {{site.data.keyword.cos_full_notm}}, see [Upload data](/docs/services/cloud-object-storage?topic=cloud-object-storage-upload).      
 
 ### Creating a Windows custom image
 {: #create-windows-custom-image}
