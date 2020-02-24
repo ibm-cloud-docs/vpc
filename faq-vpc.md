@@ -70,4 +70,4 @@ The VPC API service enforces this limit.
 {: #faq-crn}
 {: faq}
 
- To obtain the CRN of a VPC, click **Menu** ![Menu icon](../images/icon_hamburger.svg) > **Resource list** from the {{site.data.keyword.cloud_notm}} console. Expand **VPC Infrastructure** to list your VPCs. Select a VPC and then click the **Status** entry to view its details. Use the icon to copy the CRN and paste it where needed.
+ To obtain the CRN of a VPC, click **Menu** ![Menu icon](images/icon_hamburger.svg) > **Resource list** from the {{site.data.keyword.cloud_notm}} console. Expand **VPC Infrastructure** to list your VPCs. Select a VPC and then click the **Status** entry to view its details. Use the icon to copy the CRN and paste it where needed.
