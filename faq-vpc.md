@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-13"
+lastupdated: "2020-02-24"
 
 subcollection: vpc
 
@@ -34,7 +34,7 @@ Yes, you can set up access to your {{site.data.keyword.cloud}} classic infrastru
 {: #faq-vpc-1}
 {: faq}
 
-No.
+No, a subnet cannot be resized after it has been created.
 
 ## What is the limit on the number of characters in a VPC name?
 {: #faq-vpc-2}
@@ -53,12 +53,6 @@ No, although the name can contain numbers, it must begin with a letter.
 {: faq}
 
 Yes, the UI blocks consecutive double dashes, underscores, and periods from being part of a VSI name.
-
-## Can a subnet size be changed after it is created in a VPC?
-{: #faq-vpc-5}
-{: faq}
-
-No.
 
 ## During the PGW creation, do I need to reserve the FIP, or does the system automatically reserve the FIP? Will I see that Floating IP when I query all of the Floating IPs?
 {: #faq-vpc-6}
