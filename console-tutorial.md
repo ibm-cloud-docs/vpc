@@ -6,7 +6,7 @@ copyright:
 lastupdated: "2020-02-04"
 
 
-keywords: vpc, virtual private cloud, vpc ui, console, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range
+keywords: vpc, virtual private cloud, vpc ui, console, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range, generation 2, gen 2
 
 subcollection: vpc
 

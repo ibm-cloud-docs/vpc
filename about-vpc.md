@@ -3,7 +3,7 @@ copyright:
   years: 2017, 2020
 lastupdated: "2019-11-25"
 
-keywords: vpc, virtual private cloud, private cloud network, quick provisioning, logical isolation, security, cloud-native, workloads, BYOIP, high availability, ACL, Access control list, block storage volumes
+keywords: vpc, virtual private cloud, private cloud network, quick provisioning, logical isolation, security, cloud-native, workloads, BYOIP, high availability, ACL, Access control list, block storage volumes, generation 2, gen 2
 
 subcollection: vpc
 

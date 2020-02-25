@@ -3,7 +3,7 @@ copyright:
   years: 2019, 2020
 lastupdated: "2020-02-03"
 
-keywords: vsi, virtural server instances, profiles, balanced, compute, memory, GPU, power
+keywords: vsi, virtural server instances, profiles, balanced, compute, memory, GPU, power, generation 2, gen 2
 
 subcollection: vpc
 
