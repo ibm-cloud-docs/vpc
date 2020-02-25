@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-01-07"
+lastupdated: "2020-02-25"
 
 keywords: vpc, setup, environment, prerequisites, api, cli, command line interface, plugin, creating a vpc, iam, permissions, access, ssh key
 
@@ -112,11 +112,11 @@ You must repeat the preceding step to refresh your IAM token every hour because 
 Run the following command to store the API endpoint in a variable so it can be reused later in your session. 
 
 ```
-api_endpoint="https://us-south.iaas.cloud.ibm.com"
+vpc_api_endpoint="https://us-south.iaas.cloud.ibm.com"
  ```
 {: pre}
 
-To verify that this variable was saved, run ``echo $api_endpoint`` and make sure that the response is not empty.
+To verify that this variable was saved, run ``echo $vpc_api_endpoint`` and make sure that the response is not empty.
 
 ### Step 4: Store the API version as a variable
 {: #store-api-version-variable}
@@ -143,7 +143,7 @@ If you run into unexpected results, add the `--verbose` (debug) flag after the `
   {: important}
 
     ```
-    curl -X GET "$api_endpoint/v1/regions?version=$api_version&generation=2" \
+    curl -X GET "$vpc_api_endpoint/v1/regions?version=$api_version&generation=2" \
       -H "Authorization: $iam_token"
     ```
    {: pre}
@@ -151,7 +151,7 @@ If you run into unexpected results, add the `--verbose` (debug) flag after the `
  * Call the GET Zones API to see all zones available for VPC in a particular region, such as `us-south`, in JSON format.
 
     ```
-    curl -X GET "$api_endpoint/v1/regions/us-south/zones?version=$api_version&generation=2" \
+    curl -X GET "$vpc_api_endpoint/v1/regions/us-south/zones?version=$api_version&generation=2" \
       -H "Authorization: $iam_token"
     ```
    {: pre}
@@ -162,7 +162,7 @@ If you run into unexpected results, add the `--verbose` (debug) flag after the `
   {: tip}
 
     ```
-    curl -X GET "$api_endpoint/v1/instance/profiles?version=$api_version&generation=2" \
+    curl -X GET "$vpc_api_endpoint/v1/instance/profiles?version=$api_version&generation=2" \
       -H "Authorization: $iam_token"
     ```
     {: pre}
@@ -170,7 +170,7 @@ If you run into unexpected results, add the `--verbose` (debug) flag after the `
  * Call the GET Images API to return the images available for your instances, in JSON format. At least one object should return.
  
    ```
-   curl -X GET "$api_endpoint/v1/images?version=$api_version&generation=2" \
+   curl -X GET "$vpc_api_endpoint/v1/images?version=$api_version&generation=2" \
      -H "Authorization: $iam_token"
    ```
    {: pre}
@@ -178,7 +178,7 @@ If you run into unexpected results, add the `--verbose` (debug) flag after the `
  * Call the GET VPCs API to see any VPCs that were already created under your account, in JSON format.
 
     ```
-    curl -X GET "$api_endpoint/v1/vpcs?version=$api_version&generation=2" \
+    curl -X GET "$vpc_api_endpoint/v1/vpcs?version=$api_version&generation=2" \
       -H "Authorization: $iam_token"
     ```
     {: pre}
