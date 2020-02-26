@@ -70,6 +70,49 @@ If you have a public gateway or floating IP, you might still see some minimal eg
 
 A floating IP is charged at the rate of $1 (US) per month, starting when it is reserved. The fee is charged even if the floating IP is not associated to a VSI or not in use. The $1 for the monthly fee is charged even if the floating IP is reserved for only a few days.
 
+### Pricing for load balancers
+{: #lb-prices}
+
+Load balancers (LB) for VPC pricing is based on the following metrics, calculated monthly:
+
+* Service usage hours
+* Data processed
+
+Load balancer pricing by region is shown in the following table.
+
+| Region | LB service usage / hour | LB data processed / GB |
+|---|---|---|
+| Dallas | $0.025 | $0.008 |
+| Frankfurt | $0.027 | $0.009 |
+| Tokyo | $0.028 | $0.009 |
+
+Prices vary by multi-zone regions.
+{: note}
+
+Example: The following chart shows an example for a customer using 4500 GB per month for public load
+balancing, based in the Dallas region.
+
+| Item | Usage | Rate | Cost |
+|---|---|---|---|
+| LB service usage | 720 hours | $0.025 / hour | $18 / month |
+| Data processed | 4500 GB | $0.008 / GB | $36 / month |
+
+The total charge for this scenario is $54 per month.
+
+### Pricing for VPN for VPC
+{: #vpn-vpc-prices}
+
+Virtual Private Network (VPN) for VPC pricing by region is shown in the following table.
+
+| Region | Connection (Peer) per hour | Instance (gateway) per hour |
+|---|---|---|
+| Dallas | $0.04 | $0.045 |
+| Frankfurt |	$0.044 |	$0.0495 |
+| Tokyo |	$0.0452 |	$0.0585 |
+
+Data transfer to the internet as a result of using VPNaaS is charged as regular data transfer; outbound to the internet, billed at the VPC level.
+{: note}
+
 ## Pricing for Virtual Servers for VPC
 {: #pricing-for-virtual-servers-for-vpc}
 [comment]: # (linked help topic)
