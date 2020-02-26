@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-02-25"
 
 keywords: create, VPC, API, IAM, token, permissions, endpoint, region, zone, profile, status, subnet, gateway, floating IP, delete, resource, provision
 
@@ -49,7 +49,7 @@ A good way to learn more about the API is to click **Get sample API call** on th
 Create an {{site.data.keyword.vpc_short}} called `my-vpc`.
 
 ```bash
-curl -X POST "$api_endpoint/v1/vpcs?version=$api_version&generation=2" \
+curl -X POST "$vpc_api_endpoint/v1/vpcs?version=$api_version&generation=2" \
   -H "Authorization:$iam_token" \
   -d '{
       	"name": "my-vpc"
@@ -78,7 +78,7 @@ The previous example does not create a VPC with classic access. If you require t
 Before you create a subnet, select the zone and address prefix in which to create it. To list the address prefixes for each zone in your VPC, run the following command:
 
 ```bash
-curl -X GET "$api_endpoint/v1/vpcs/$vpc/address_prefixes?version=$api_version&generation=2" \
+curl -X GET "$vpc_api_endpoint/v1/vpcs/$vpc/address_prefixes?version=$api_version&generation=2" \
   -H "Authorization:$iam_token" 
 ```
 {: pre}
@@ -89,7 +89,7 @@ A subnet cannot be resized after it is created.
 {: important}
 
 ```bash
-curl -X POST "$api_endpoint/v1/subnets?version=$api_version&generation=2" \
+curl -X POST "$vpc_api_endpoint/v1/subnets?version=$api_version&generation=2" \
   -H "Authorization:$iam_token" \
   -d '{
         "name": "my-subnet",
@@ -110,7 +110,7 @@ subnet="0738-35fb0489-7105-41b9-99de-033fae723006"
 To provision resources in your subnet, the subnet must be in the `Ready` status. Query the subnet resource and make sure that the status is `Ready` before you continue. If the status is `failed`, contact [support](/docs/get-support?topic=get-support-getting-customer-support) with the details. You can attempt to continue by trying to provision another subnet.
 
 ```bash
-curl -X GET "$api_endpoint/v1/subnets/$subnet?version=$api_version&generation=2" \
+curl -X GET "$vpc_api_endpoint/v1/subnets/$subnet?version=$api_version&generation=2" \
   -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -123,7 +123,7 @@ Attach a public gateway to the subnet if you want to allow all attached resource
 Create a public gateway for the zone:
 
 ```bash
-curl -X POST "$api_endpoint/v1/public_gateways?version=$api_version&generation=2" \
+curl -X POST "$vpc_api_endpoint/v1/public_gateways?version=$api_version&generation=2" \
   -H "Authorization:$iam_token" \
   -d '{
         "name": "my-gateway",
@@ -143,7 +143,7 @@ gateway="0738-ad0cded3-53a3-4d4a-9809-8c59b50d2b80"
 Attach the public gateway to your subnet.
 
 ```bash
-curl -X PUT "$api_endpoint/v1/subnets/$subnet/public_gateway?version=$api_version&generation=2" \
+curl -X PUT "$vpc_api_endpoint/v1/subnets/$subnet/public_gateway?version=$api_version&generation=2" \
   -H "Authorization:$iam_token" \
   -d '{
         "id": "'$gateway'"
@@ -160,7 +160,7 @@ Only one public gateway per zone is allowed in a VPC, but that public gateway ca
 Add your public SSH key to your {{site.data.keyword.cloud_notm}} account. This key is specified when you create the instance, and it's needed later to log in to the instance. You can use one key to provision multiple instances.
 
 ```bash
-curl -X POST "$api_endpoint/v1/keys?version=$api_version&generation=2" \
+curl -X POST "$vpc_api_endpoint/v1/keys?version=$api_version&generation=2" \
   -H "Authorization:$iam_token" \
   -d '{
         "name": "my-key",
@@ -182,7 +182,7 @@ key="0738-35fb0489-7105-41b9-8764-033fae723006"
 Call the APIs to list all profiles and images available for your instance, and choose a combination. The following command lists the profiles available.
 
 ```
-curl -X GET "$api_endpoint/v1/instance/profiles?version=$api_version&generation=2" \
+curl -X GET "$vpc_api_endpoint/v1/instance/profiles?version=$api_version&generation=2" \
   -H "Authorization:$iam_token"
 ```
 {: pre}
@@ -190,7 +190,7 @@ curl -X GET "$api_endpoint/v1/instance/profiles?version=$api_version&generation=
 The following command lists the images available.
 
 ```
-curl -X GET "$api_endpoint/v1/images?version=$api_version&generation=2" \
+curl -X GET "$vpc_api_endpoint/v1/images?version=$api_version&generation=2" \
   -H "Authorization:$iam_token"
 ```
 {: pre}
@@ -210,7 +210,7 @@ image_id="0738-660198a6-52c6-21cd-7b57-e37917cef586"
 Create an instance in the newly created subnet. Pass in your public SSH key so that you can log in after the instance is provisioned.
 
 ```bash
-curl -X POST "$api_endpoint/v1/instances?version=$api_version&generation=2" \
+curl -X POST "$vpc_api_endpoint/v1/instances?version=$api_version&generation=2" \
   -H "Authorization:$iam_token" \
   -d '{
         "name": "my-instance",
@@ -246,7 +246,7 @@ instance="0738-35fb0489-7105-41b9-99de-033fae723006"
 The status of the instance is `stopped` when it's first created. Before you can proceed, the instance needs to move to the `running` status, which takes a few minutes. Query the status of the instance and make sure it is `running`.
 
 ```bash
-curl -X GET "$api_endpoint/v1/instances/$instance?version=$api_version&generation=2" \
+curl -X GET "$vpc_api_endpoint/v1/instances/$instance?version=$api_version&generation=2" \
   -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -269,7 +269,7 @@ You can create a block storage volume and attach it to your virtual server insta
 To see a list of volume profiles, provide this request:
 
 ```bash
-curl -X GET "$api_endpoint/v1/volumes/profiles?version=$api_version&generation=2" \
+curl -X GET "$vpc_api_endpoint/v1/volumes/profiles?version=$api_version&generation=2" \
   -H "Authorization: $iam_token" \
 ```
 {: pre}
@@ -278,7 +278,7 @@ Profiles can be general-purpose (3 IOPS/GB), 5iops-tier, 10-iops-tier, and custo
 for information about volume capacity and IOPS ranges based on the volume profile you select.
 
 ```
-curl -X POST "$api_endpoint/v1/volumes?version=$api_version&generation=2" \
+curl -X POST "$vpc_api_endpoint/v1/volumes?version=$api_version&generation=2" \
   -H "Authorization: $iam_token" \
   -d '{
         "name": "my-volume",
@@ -304,7 +304,7 @@ volume_id="0738-640774d7-2adc-4609-add9-6dfd96167a8f"
 The status of the volume is pending when it first is created. Before you can proceed, the volume needs to move to available status, which takes a few minutes. To check the status of the volume, run this command:
 
 ```bash
-curl -X GET "$api_endpoint/v1/volumes/$volume_id?version=$api_version&generation=2" \
+curl -X GET "$vpc_api_endpoint/v1/volumes/$volume_id?version=$api_version&generation=2" \
   -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -312,7 +312,7 @@ curl -X GET "$api_endpoint/v1/volumes/$volume_id?version=$api_version&generation
 Create a volume attachment to attach the new volume to the virtual server instance. Use the instance ID variable that you created earlier in the request. Use the volume ID, CRN of the volume, or URL to specify the volume in the data parameter. This example uses the variable previously created for the volume ID.
 
 ```bash
-curl -X POST "$api_endpoint/v1/instances/$server/volume_attachments?version=$version&generation=2" \
+curl -X POST "$vpc_api_endpoint/v1/instances/$server/volume_attachments?version=$version&generation=2" \
   -H "Authorization: $iam_token" \
   -d '{
         "name": "my-volume-attachment",
@@ -331,7 +331,7 @@ You can configure the security group to define the inbound and outbound traffic 
 Find the security group for the VPC:
 
 ```
-curl -X GET "$api_endpoint/v1/vpcs/$vpc/default_security_group?version=$api_version&generation=2" \
+curl -X GET "$vpc_api_endpoint/v1/vpcs/$vpc/default_security_group?version=$api_version&generation=2" \
   -H "Authorization:$iam_token"
 ```
 {: pre}
@@ -346,7 +346,7 @@ sg=0738-2d364f0a-a870-42c3-a554-000000981149
 Now create a rule to allow inbound SSH traffic so that you'll be able to connect to the instance:
 
 ```
-curl -X POST "$api_endpoint/v1/security_groups/$sg/rules?version=$api_version&generation=2" \
+curl -X POST "$vpc_api_endpoint/v1/security_groups/$sg/rules?version=$api_version&generation=2" \
   -H "Authorization: $iam_token" \
   -d '{
         "direction": "inbound",
@@ -366,7 +366,7 @@ For Windows images, make sure the security group that is associated with the ins
 Create a floating IP address if you want your instance to be reachable from the internet. Use the instance's primary network interface as the target for the floating IP address.
 
 ```bash
-curl -X POST "$api_endpoint/v1/floating_ips?version=$api_version&generation=2" \
+curl -X POST "$vpc_api_endpoint/v1/floating_ips?version=$api_version&generation=2" \
   -H "Authorization:$iam_token" \
   -d '{
         "name": "my-floatingip",
@@ -393,7 +393,7 @@ floating_ip="0738-35fb0489-7105-41b9-99de-033fae723006"
 To connect to the instance, use the floating IP address you created. To get the floating IP address, run the following command:
 
 ```
-curl -X GET "$api_endpoint/v1/floating_ips/$floating_ip?version=$api_version&generation=2" \
+curl -X GET "$vpc_api_endpoint/v1/floating_ips/$floating_ip?version=$api_version&generation=2" \
   -H "Authorization:$iam_token"
 ```
 {: pre}
