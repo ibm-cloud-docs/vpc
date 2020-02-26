@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-28"
+lastupdated: "2020-02-26"
 
 subcollection: vpc
 
@@ -93,3 +93,19 @@ You can issue a command to force the instance to stop. Use the {{site.data.keywo
 {: support}
 
 Edit the file "`/boot/grub/menu.lst`" by changing `# groot=LABEL...` into `# groot=(hd0)`. Then, run following command, `sudo update-grub-legacy-ec2`. For more information, see [Error: groot must be grub root device on ubuntu](https://developer.ibm.com/answers/questions/462237/error-groot-must-be-grub-root-device-on-ubuntu/){: external}.
+
+## In what cases is my virtual server migrated to a different host?
+{: #faq-vsi-13}
+{: faq}
+
+In limited cases a virtual server might need to be migrated to a different host. If a migration is required, the virtual server is shut down, migrated, and then restarted. A virtual server might be migrated in the following cases:
+
+* Infrastructure maintenance. You might receive an email indicating that maintenance is required on a system that is hosting your virtual server. Your virtual server might need to be migrated as part of the infrastructure maintenance.
+* An unplanned host outage. The following actions apply if there is an unexpected host failure:
+    * The virtual servers that were running on the host are stopped when the outage is detected. 
+    * The virtual servers are automatically reassigned and restarted on a different compute host in the same multi-region zone. 
+    * The virtual servers that are restarted use the same boot volume, and the same data volume(s) as the original virtual server.  
+    * The virtual server that was restarted is assigned the same floating IP, static IP, and dynamic IP addresses on the new node.  
+    * If the virtual server cannot be scheduled to run on another compute node, it is placed in a `FAILED` state.
+
+
