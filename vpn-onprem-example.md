@@ -178,205 +178,65 @@ Make sure that you specify IKEv1 in Phase 1. Juniper vSRX supports IKEv2 in _rou
 Here's an example of how to set up security:
 
 ```
-
-admin@Juniper-vSRX# show security    
-
-log {
-    mode stream;
-    report;
+proposal proposal-ike1 {
+    authentication-method pre-shared-keys;
+    dh-group group2;
+    authentication-algorithm sha1;
+    encryption-algorithm aes-128-cbc;
+    lifetime-seconds 28800;
 }
-ike {
-    traceoptions {
-        file ike_log_20 size 10240000;
-        flag all;
-    }
-    proposal ike-proposal-1 {
-        authentication-method pre-shared-keys;
-        dh-group group2;
-        authentication-algorithm sha-256;
-        encryption-algorithm aes-256-cbc;
-    }
-    policy ike1 {
-        mode main;
-        proposals ike-proposal-1;
-        pre-shared-key ascii-text "$9$sO2JGjHqfQFiH0BRhrl"; ## SECRET-DATA
-    }
-    gateway gw1 {
-        ike-policy ike1;
-        address 169.45.74.119;
-        dead-peer-detection always-send;
-        no-nat-traversal;
-        local-identity inet 169.61.195.195;
-        external-interface ge-0/0/1.0;
-        local-address 169.61.195.195;
-        version v1-only;
-    }
+policy ike-policy1 {
+    mode main;
+    proposals proposal-ike1;
+    pre-shared-key ascii-text "your_psk"
 }
-ipsec {
-    proposal AES128cbc-SHA256-esp {
-        protocol esp;
-        authentication-algorithm hmac-sha-256-128;
-        encryption-algorithm aes-128-cbc;
-    }
-    policy ipsec1 {
-        perfect-forward-secrecy {
-            keys group2;
-        }
-        proposals AES128cbc-SHA256-esp;
-    }
-    vpn to-strongswan {
-        ike {
-            gateway gw1;
-            proxy-identity {
-                local 10.93.152.152/29;
-                remote 10.160.26.64/26;
-                service any;
-            }
-            ipsec-policy ipsec1;
-        }
-        establish-tunnels immediately;
-    }
+gateway ibm-vpc-vpn-gw {
+    ike-policy ike-policy1;
+    address 169.61.227.228;
+    local-identity inet 129.146.215.142;
+    remote-identity inet 169.61.227.228;
+    external-interface ge-0/0/0.0;
 }
-address-book {
-    global {
-        address SL_PRIV_MGMT 10.93.160.12/32;
-        address SL_PUB_MGMT 169.61.195.195/32;
-        }
-    }
-    local_cidr {
-        address local_cidr 10.93.160.0/26;
-        attach {
-            zone SL-PRIVATE;
-        }
-    }
-    remote_cidr {
-        address remote 10.160.26.64/26;
-        attach {
-            zone SL-PUBLIC;
-        }
-    }
+proposal ipsec-proposal1 {
+    protocol esp;
+    authentication-algorithm hmac-sha1-96;
+    encryption-algorithm aes-128-cbc;
+    lifetime-seconds 3600;
 }
-screen {
-    ids-option untrust-screen {
-        icmp {
-            ping-death;
-        }
-        ip {
-            source-route-option;
-            tear-drop;                  
-        }
-        tcp {
-            syn-flood {
-                alarm-threshold 1024;
-                attack-threshold 200;
-                source-threshold 1024;
-                destination-threshold 2048;
-                queue-size 2000; ## Warning: 'queue-size' is deprecated
-                timeout 20;
-            }
-            land;
-        }
-    }
+policy ipsec-policy1 {
+    proposals ipsec-proposal1;
 }
-policies {
-    from-zone SL-PRIVATE to-zone SL-PRIVATE {
-        policy Allow_Management {
-            match {
-                source-address any;
-                destination-address any;
-                application any;
-            }
-            then {
-                permit;
-            }
-        }
+vpn ibm_vpc {
+    bind-interface st0.1;
+    df-bit clear;
+    ike {
+        gateway ibm-vpc-vpn-gw;
+        ipsec-policy ipsec-policy1;
     }
-    from-zone SL-PUBLIC to-zone SL-PUBLIC {
-        policy pub2pub {
-            match {
-                source-address any;
-                destination-address SL_PUB_MGMT;
-                application any;
-            }
-            then {
-                permit;
-            }
-        }
-        policy Allow_Management {
-            match {
-                source-address any;     
-                destination-address SL_PUB_MGMT;
-                application [ junos-ssh junos-https junos-http junos-icmp-ping ];
-            }
-            then {
-                permit;
-            }
-        }
+    traffic-selector pair1 {
+        local-ip 172.29.6.0/23;
+        remote-ip 100.64.28.0/25;
     }
-    from-zone SL-PRIVATE to-zone SL-PUBLIC {
-        policy out {
-            match {
-                source-address any;
-                destination-address any;
-                application any;
-            }
-            then {
-                permit {
-                    tunnel {
-                        ipsec-vpn to-strongswan;
-                    }
-                }
+    traffic-selector pair2 {
+        local-ip 172.29.6.0/23;
+        remote-ip 100.64.28.128/26;
+    }
+    establish-tunnels immediately;
+}
+interfaces {
+    st0 {
+        unit 1 {
+            description Tunnel-to-IBM-VPC;
+            family inet {
             }
         }
-    }
-    from-zone SL-PUBLIC to-zone SL-PRIVATE {
-        policy in {
-            match {
-                source-address any;
-                destination-address any;
-                application any;
+}
+security {
+    flow {
+        tcp-mss {
+            ipsec-vpn {
+                mss 1350;
             }
-            then {
-                permit {
-                    tunnel {
-                        ipsec-vpn to-strongswan;
-                    }
-                }
-            }
-        }
-    }
-}                                       
-zones {
-    security-zone SL-PRIVATE {
-        interfaces {
-            ge-0/0/0.0 {
-                host-inbound-traffic {
-                    system-services {
-                        all;
-                    }
-                }
-            }
-            st0.1;
-            ge-0/0/0.986 {
-                host-inbound-traffic {
-                    system-services {
-                        all;
-                    }
-                }
-            }
-        }
-    }
-    security-zone SL-PUBLIC {
-        interfaces {
-            ge-0/0/1.0 {
-                host-inbound-traffic {
-                    system-services {
-                        all;
-                    }
-                }
-            }
-        }
-    }
 }
 
 [edit]
@@ -516,56 +376,216 @@ Use the following configuration:
 5. Set `lifetime = 10800` in the Phase 2 proposal.
 6. Input your peers and subnets information in the Phase 2 proposal.
 
-You can use the Vyatta command line to configure the IPsec tunnel, or you can upload a `*.vcli` file to load your configuration.
+The following commands use the following variables where:
+
+* `{{ peer_address }}` is the VPN gateway public IP address.
+* `{{ peer_cidr }}` is the VPN gateway subnet.
+* `{{ vyatta_address }}` is the Vyatta public IP address.
+* `{{ vyatta_cidr }}` is the Vyatta subnet.
 
 ```
 vim vyatta_temp/create_vpn.vcli
 #!/bin/vcli -f
 configure
 
-set security vpn ipsec ike-group 169.61.161.151_test_ike
-set security vpn ipsec ike-group 169.61.161.151_test_ike dead-peer-detection timeout 120
-set security vpn ipsec ike-group 169.61.161.151_test_ike lifetime 36000
-set security vpn ipsec ike-group 169.61.161.151_test_ike ike-version 2
+set security vpn ipsec ike-group {{ peer_address }}_{{ ike["name"] }}
+set security vpn ipsec ike-group {{ peer_address }}_{{ ike["name"] }} dead-peer-detection timeout 120
+set security vpn ipsec ike-group {{ peer_address }}_{{ ike["name"] }} lifetime {{ ike["lifetime"] }}
+set security vpn ipsec ike-group {{ peer_address }}_{{ ike["name"] }} ike-version {{ ike["version"] }}
 
-set security vpn ipsec ike-group 169.61.161.151_test_ike proposal 1
-set security vpn ipsec ike-group 169.61.161.151_test_ike proposal 1 dh-group 2
-set security vpn ipsec ike-group 169.61.161.151_test_ike proposal 1 encryption aes256
-set security vpn ipsec ike-group 169.61.161.151_test_ike proposal 1 hash sha2_256
-set security vpn ipsec esp-group 169.61.161.151_test_ipsec compression disable
-set security vpn ipsec esp-group 169.61.161.151_test_ipsec lifetime 10800
-set security vpn ipsec esp-group 169.61.161.151_test_ipsec mode tunnel
-set security vpn ipsec esp-group 169.61.161.151_test_ipsec pfs disable
+set security vpn ipsec ike-group {{ peer_address }}_{{ ike["name"] }} proposal {{ loop.index }}
+set security vpn ipsec ike-group {{ peer_address }}_{{ ike["name"] }} proposal {{ loop.index }} dh-group {{ proposal["dhgroup"] }} 
+set security vpn ipsec ike-group {{ peer_address }}_{{ ike["name"] }} proposal {{ loop.index }} encryption {{ proposal["encryption"] }}
+set security vpn ipsec ike-group {{ peer_address }}_{{ ike["name"] }} proposal {{ loop.index }} hash {{ proposal["integrity"] }}
 
 
-set security vpn ipsec esp-group 169.61.161.151_test_ipsec proposal 1 encryption aes256
-set security vpn ipsec esp-group 169.61.161.151_test_ipsec proposal 1 hash sha2_256
-set security vpn ipsec site-to-site peer 169.61.161.151 authentication mode pre-shared-secret
-set security vpn ipsec site-to-site peer 169.61.161.151 authentication pre-shared-secret ******
-set security vpn ipsec site-to-site peer 169.61.161.151 ike-group 169.61.161.151_test_ike
-set security vpn ipsec site-to-site peer 169.61.161.151 default-esp-group 169.61.161.151_test_ipsec
-set security vpn ipsec site-to-site peer 169.61.161.151 description "automation test"
-set security vpn ipsec site-to-site peer 169.61.161.151 local-address 169.45.74.119
-set security vpn ipsec site-to-site peer 169.61.161.151 connection-type initiate
+set security vpn ipsec esp-group {{ peer_address }}_{{ ipsec["name"] }} compression disable
+set security vpn ipsec esp-group {{ peer_address }}_{{ ipsec["name"] }} lifetime {{ ipsec["lifetime"] }}
+set security vpn ipsec esp-group {{ peer_address }}_{{ ipsec["name"] }} mode tunnel
+set security vpn ipsec esp-group {{ peer_address }}_{{ ipsec["name"] }} pfs {{ ipsec["proposals"][0]["dhgroup"] }}
 
+set security vpn ipsec esp-group {{ peer_address }}_{{ ipsec["name"] }} proposal {{ loop.index }} encryption {{ proposal["encryption"] }}
+set security vpn ipsec esp-group {{ peer_address }}_{{ ipsec["name"] }} proposal {{ loop.index }} hash {{ proposal["integrity"] }}
 
-set security vpn ipsec site-to-site peer 169.61.161.151 tunnel 1 local prefix 192.168.200.0/24
-set security vpn ipsec site-to-site peer 169.61.161.151 tunnel 1 remote prefix 192.168.17.0/28
+set security vpn ipsec site-to-site peer {{ peer_address }} authentication mode pre-shared-secret
+set security vpn ipsec site-to-site peer {{ peer_address }} authentication pre-shared-secret {{ psk }}
+set security vpn ipsec site-to-site peer {{ peer_address }} ike-group {{ peer_address }}_{{ ike["name"] }}
+set security vpn ipsec site-to-site peer {{ peer_address }} default-esp-group {{ peer_address }}_{{ ipsec["name"] }}
+set security vpn ipsec site-to-site peer {{ peer_address }} description "automation test"
+set security vpn ipsec site-to-site peer {{ peer_address }} local-address {{ vyatta_address }}
+set security vpn ipsec site-to-site peer {{ peer_address }} connection-type {{ connection_type }}
+set security vpn ipsec site-to-site peer {{ peer_address }} authentication remote-id {{ peer_address }}
+
+set security vpn ipsec site-to-site peer {{ peer_address }} tunnel {{ ns.tunnel_index }} local prefix {{ vyatta_cidr }}
+set security vpn ipsec site-to-site peer {{ peer_address }} tunnel {{ ns.tunnel_index }} remote prefix {{ peer_cidr }}
 
 commit
+end_configure
 ```
 {: codeblock}
 
-Upload this `*.vcli` file to the Vyatta using SCP to apply the configuration.
+## Example
+For example, you can run the following commands:
 
 ```
-scp example.vcli <vyatta_username>@<vyatta_ip>`
+#!/bin/vcli -f
+configure
+
+set security vpn ipsec ike-group 169.61.247.167_test_ike
+set security vpn ipsec ike-group 169.61.247.167_test_ike dead-peer-detection timeout 120
+set security vpn ipsec ike-group 169.61.247.167_test_ike lifetime 36000
+set security vpn ipsec ike-group 169.61.247.167_test_ike ike-version 2
+
+set security vpn ipsec ike-group 169.61.247.167_test_ike proposal 1
+set security vpn ipsec ike-group 169.61.247.167_test_ike proposal 1 dh-group 2 
+set security vpn ipsec ike-group 169.61.247.167_test_ike proposal 1 encryption aes256
+set security vpn ipsec ike-group 169.61.247.167_test_ike proposal 1 hash sha2_256
+set security vpn ipsec esp-group 169.61.247.167_test_ipsec compression disable
+set security vpn ipsec esp-group 169.61.247.167_test_ipsec lifetime 18000
+set security vpn ipsec esp-group 169.61.247.167_test_ipsec mode tunnel
+set security vpn ipsec esp-group 169.61.247.167_test_ipsec pfs disable
+
+
+set security vpn ipsec esp-group 169.61.247.167_test_ipsec proposal 1 encryption aes256
+set security vpn ipsec esp-group 169.61.247.167_test_ipsec proposal 1 hash sha2_256
+set security vpn ipsec site-to-site peer 169.61.247.167 authentication mode pre-shared-secret
+set security vpn ipsec site-to-site peer 169.61.247.167 authentication pre-shared-secret ***YOUR-PSK***
+set security vpn ipsec site-to-site peer 169.61.247.167 ike-group 169.61.247.167_test_ike
+set security vpn ipsec site-to-site peer 169.61.247.167 default-esp-group 169.61.247.167_test_ipsec
+set security vpn ipsec site-to-site peer 169.61.247.167 description "automation test"
+set security vpn ipsec site-to-site peer 169.61.247.167 local-address 169.63.66.53
+set security vpn ipsec site-to-site peer 169.61.247.167 connection-type initiate
+set security vpn ipsec site-to-site peer 169.61.247.167 authentication remote-id 169.61.247.167
+
+
+set security vpn ipsec site-to-site peer 169.61.247.167 tunnel 1 local prefix 10.65.15.104/29
+set security vpn ipsec site-to-site peer 169.61.247.167 tunnel 1 remote prefix 10.240.0.0/24
+    
+    
+commit
+end_configure
+
+```
+{: screen}
+
+Finally, make note of your `{{ psk }}` value, as you will need it to set up the VPN connection in the next step.
+
+### Troubleshooting and more examples  
+{: #troubleshooting-and-more-examples}
+
+Remember to:
+* Config your ACL to allow port 500 and 4500
+
+Allow IKE and ESP traffic for IPsec:
+
+```
+# set rule 100 action 'accept' 
+# set rule 100 destination port '500'
+# set rule 100 protocol 'udp'
+# set rule 200 action 'accept'
+# set rule 200 protocol 'esp'
+```
+
+Allow L2TP over IPsec:
+
+```
+# set rule 210 action 'accept'
+# set rule 210 destination port '1701'
+# set rule 210 ipsec 'match-ipsec'
+# set rule 210 protocol 'udp'
+```
+
+Allow NAT traversal of IPsec:
+
+```
+# set rule 250 action 'accept'
+# set rule 250 destination port '4500'
+# set rule 250 protocol 'udp'
+```
+
+#### Additional examples
+
+To filter on source IP:
+
+```
+vyatta@R1# show security firewall name FWTEST-1
+rule 1 {
+	action accept
+	source {
+		address 172.16.0.26
+	}
+}
+vyatta@R1# show interfaces dataplane dp0p1p1
+address 172.16.1.1/24
+	firewall FWTEST-1 {
+	in {
+	}
+}
+```
+
+To filter on source and destination IP:
+
+```
+vyatta@R1# show security firewall name FWTEST-2
+rule 1 {
+	action accept
+	destination {
+		address 10.10.40.101
+	}
+	source {
+		address 10.10.30.46
+	}
+}
+vyatta@R1# show interfaces dataplane dp0p1p2
+vif 40 {
+	firewall {
+	out FWTEST-2
+	}
+}
+```
+
+To filter traffic between zones:
+
+```
+vyatta@R1# show security zone-policy
+
+zone dmz {
+	description DMZ
+	interface dp0p1p3
+	to private {
+		firewall to_private
+	}
+	to public {
+		firewall to_public
+	}
+}
+zone private {
+	description PRIVATE
+	interface dp0p1p1
+	interface dp0p1p2
+	to dmz {
+		firewall to_dmz
+	}
+	to public {
+		firewall to_public
+	}
+}
+zone public {
+	description PUBLIC
+	interface dp0p1p4
+	to dmz{
+		firewall to_dmz
+	}
+	to private {
+		firewall to_private
+	}
+}
 ```
 {: codeblock}
 
 ## Check the status of the secure connection
 {: #check-connection-status}
 
-You can check the status of your connection in the {{site.data.keyword.cloud_notm}} console. On the VPN for VPC page, select your VPN gateway. Click **Connections** from the navigation pane on the left side of the page.
+You can check the status of your connection in the {{site.data.keyword.cloud_notm}} console. On the VPN for VPC page, select your VPN gateway and click **Connections** from the navigation pane on the left side of the page.
 
 You can also test the connection by doing a ping from a virtual server instance in your VPC to a server in the on-premises network.
