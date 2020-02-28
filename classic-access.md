@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2020
-lastupdated: "2020-02-06"
+lastupdated: "2020-02-28"
 
 keywords: vpc, classic, access, classic access, VRF, peering
 
@@ -94,6 +94,12 @@ Zone         | Address Prefix
 `us-south-1`   | `172.16.0.0/18`
 `us-south-2`   | `172.16.64.0/18`
 `us-south-3`   | `172.16.128.0/18`
+`us-east-1`    | `172.17.0.0/18`
+`us-east-2`    | `172.17.64.0/18`
+`us-east-3`    | `172.17.128.0/18`
+`eu-gb-1`      | `172.18.0.0/18`
+`eu-gb-2`      | `172.18.64.0/18`
+`eu-gb-3`      | `172.18.128.0/18`
 {: caption="Table 1. Classic access VPC address prefixes by zone" caption-side="top"}
 
 To prevent address prefixes from being created, you can add the `"address_prefix_management": "manual"` parameter when you create the VPC by using the API:
