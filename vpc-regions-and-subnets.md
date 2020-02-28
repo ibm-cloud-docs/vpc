@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2019-10-31"
+lastupdated: "2020-02-28"
 
 keywords: address prefix, region, subnet, zone, reserved, IP, ranges, deleting, creating, CIDR
 
@@ -34,9 +34,15 @@ When a new VPC is created, the default address prefixes are assigned to each zon
 
 Zone         | Address prefix
 -------------|---------------
-us-south-1   | 10.240.0.0/18
-us-south-2   | 10.240.64.0/18
-us-south-3   | 10.240.128.0/18
+`us-south-1`   | `10.240.0.0/18`
+`us-south-2`   | `10.240.64.0/18`
+`us-south-3`   | `10.240.128.0/18`
+`us-east-1`    | `10.241.0.0/18`
+`us-east-2`    | `10.241.64.0/18`
+`us-east-3`    | `10.241.128.0/18`
+`eu-gb-1`      | `10.242.0.0/18`
+`eu-gb-2`      | `10.243.0.0/18`
+`eu-gb-3`      | `10.242.128.0/18`
 {: caption="Table 1. Address prefixes assigned to a zone in a region" caption-side="top"}
 
 If you don't want these default address prefixes, you can choose to not assign default address prefixes when you create your VPC. For example, add the `"address_prefix_management": "manual"` parameter when you create the VPC by using the API.
