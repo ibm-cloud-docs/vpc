@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-13"
+lastupdated: "2020-03-02"
 
 keywords: vpc release notes, changes, updates, vpc
 
@@ -25,6 +25,12 @@ subcollection: vpc
 
 Use these release notes to learn about the latest changes to {{site.data.keyword.vpc_full}}.
 {:shortdesc}
+
+## 02 March 2020
+{: #mar-02-2020}
+
+- **New region** The London region is now available. For more information, see [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region).
+- **UI enhancement** There is a new public gateway details page. For more information about public gateways, see [external connectivity](/docs/vpc?topic=vpc-about-networking-for-vpc#external-connectivity).
 
 ## 14 February 2020
 
