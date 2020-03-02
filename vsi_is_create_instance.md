@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020 
-lastupdated: "2019-12-09"
+lastupdated: "2020-03-02"
 
 keywords: vpc, vsi, virtual server instance, creating, UI, console, generation 2, gen 2
 
