@@ -38,7 +38,7 @@ In today's IBM Cloud Virtual Server offering, instances use native subnet and VL
 
 {{site.data.keyword.vpc_short}} adds a network orchestration layer that eliminates the pod boundary, creating increased capacity for scaling instances. The network orchestration layer handles all of the networking for all virtual server instances that are within a VPC across regions and zones. With the software defined networking capabilities that VPC provides, you have more options for multi-vNIC instances and larger subnet sizes. 
 
-## Virtual Servers for VPC on POWER (Beta)
+## Virtual Servers for VPC on POWER
 {: #about-power-vsi}
 Virtual server instances with an IBM POWER9 CPU run the Power Instruction Set Architecture (ISA) and Linux workloads. These systems provide up to 3 Gbps per vCPU, provide NVLink2 CPU-to-GPU connectivity for virtual server profiles with NVIDIA Tesla v100 GPUs (with 32 GB RAM per GPU), and natively run within your standard VPC. POWER-based instances that run within your VPC, share the same security groups, subnets, and storage as your x86-based instances.
 
@@ -64,7 +64,7 @@ POWER-based instances in VPC provide Linux on Power access (with or without GPUs
 
 There are thousands of applications available to run on Linux on POWER.  Many open source applications have been compiled for the Power Architecture and are available in public repositories.  For a complete inventory of those applications, see the [Open Source Power Availability Tool](https://www.ibm.com/developerworks/library/l-ospat-trs/index.html){: external}. Additionally, many applications that are written for x86 architectures can run (without any or few code changes) on Power.  For more information on running x86 applications on Power, see [Porting x86 Linux applications to IBM POWER](https://developer.ibm.com/linuxonpower/porting-guide/){: external}. 
 
-For more informatiom about the IBM Cloud Virtual Servers for VPC on POWER beta program or to dive into deep learning and AI with Power systems, see the following links:
+For more informatiom about the IBM Cloud Virtual Servers for VPC on POWER or to dive into deep learning and AI with Power systems, see the following links:
 
 * [IBM Cloud Virtual Private Cloud on POWER](https://developer.ibm.com/linuxonpower/power-virtual-private-cloud/){: external}  
 * [Deep learning and AI on IBM Power Systems](https://developer.ibm.com/linuxonpower/deep-learning-powerai/){: external}

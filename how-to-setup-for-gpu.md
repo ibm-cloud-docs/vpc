@@ -27,7 +27,7 @@ subcollection: vpc
 # Setting up the GPU driver for a POWER-based instance
 {: #setup-gpus}
 
-When you provision IBM Cloud Virtual Servers for VPC on POWER (available in beta), you have the option of specifying profiles with NVIDIA Tesla V100 GPUs to accelerate your cognitive workloads. Due to a current licensing restriction, the NVIDIA GPU driver does not come preinstalled on the stock images. However, you can easily install the NVIDIA driver on your Ubuntu 18.04 POWER virtual server instance with the following procedure.
+When you provision IBM Cloud Virtual Servers for VPC on POWER, you have the option of specifying profiles with NVIDIA Tesla V100 GPUs to accelerate your cognitive workloads. Due to a current licensing restriction, the NVIDIA GPU driver does not come preinstalled on the stock images. However, you can easily install the NVIDIA driver on your Ubuntu 18.04 POWER virtual server instance with the following procedure.
 
 Currently, the recommended driver level is the most recent update available on the 418 version stream. Today that is 418.116.0. The minimum recommended level will change in the future, so be sure to keep current as time goes on. Also, check the supported NVIDA driver levels for the GPU software products you intend to use. 
 {: important}
