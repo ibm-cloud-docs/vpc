@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2019-09-30"
+lastupdated: "2020-03-03"
 
 keywords: monitoring
 
@@ -36,23 +36,6 @@ Because the monitoring data for virtual server instances is stored in {{site.dat
 To create a monitoring instance, you must have administrator access for the account.
 {: important}
 
-## Setting up the monitoring service for VPC
-{: #setup-monitoring}
-
-To set up monitoring for virtual server instances in your VPC:
-1. [Provision an instance of the {{site.data.keyword.monitoringshort}} service](/docs/services/cloud-monitoring/tutorials?topic=cloud-monitoring-provision) in the Dallas region.
-
-  To check whether you already have a monitoring instance that can be used with your VPC, go to the [Resource list ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/resources){: new_window} page in the {{site.data.keyword.cloud_notm}} console and expand the **Cloud Foundry Services** section. If there is an existing monitoring instance in the Dallas region, you can skip to the next step.
-  {: tip}
-
-1. Grant other users access to the monitoring instance so they can view metrics in the {{site.data.keyword.cloud_notm}} console.
-  1. Go to the [IAM Users ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/iam/users){: new_window} page in the IBM Cloud console and select the user whose access you want to configure.
-  1. On the **Cloud foundry access** tab, click **Assign organization** and assign the **Auditor** role for the organization and space where the monitoring instance is provisioned.
-  3. On the **Access policies** tab, click **Assign access** and then click **Assign access to resources**.
-  4. Select **Monitoring** for the service, select your instance, and assign the **Viewer** role.
-
-1. {: #authenticate}Authenticate to the monitoring instance. On the [Resource list ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/resources){: new_window} page, expand the **Cloud Foundry Services** section and open the monitoring instance. Click **Open Monitoring Dashboard** and then click **Launch** to open the IBM Cloud Monitoring dashboard. The monitoring instance starts to store metrics for the virtual server instances in your VPC.
-
 ## Viewing metrics
 {: #monitoring-instances} 
 
@@ -68,8 +51,47 @@ It can take some time until metrics are displayed after the monitoring instance 
 
 You can download selected metrics and graphs in CSV format. Scroll to the end of the page and click **Download CSV**.
 
-Periodically, you might receive an error on the Monitoring page and metrics can't be displayed because the connection with the monitoring instance timed out. To fix this problem, reauthenticate to the monitoring instance, as described in step 3 of [Setting up the monitoring service for VPC](#setup-monitoring).
-{: important}
+## Default metrics  
+{: #default-metrics} 
 
+The following metrics are available (by default) from the console. 
 
+### CPU
+{: #cpu-metrics}
 
+| Metric Name | Description |
+|----------|-------------|
+| Average CPU [CPU number]| CPU utilization on the virtual server instance|
+{: caption="Table 1: Default CPU metrics available from console" caption-side="top"}
+
+### Volume
+{: #cpu-metrics}
+
+| Metric Name | Description |
+|----------|-------------|
+| Disk [Disk name] Read | Number of read requests (IOPS) for the identified disk name |
+| Disk [Disk name] Write| Number of write requests (IOPS) for the identified disk name|
+{: caption="Table 2: Default volume metrics available from console" caption-side="top"}
+
+Volume metrics are available in either IOPS requests or read/write requests by using the toggle selector. 
+{:tip}
+
+### Memory
+{: #memory-metrics}
+
+| Metric Name | Description |
+|----------|-------------|
+| Available | Total KB of memory used on a virtual server instance|
+{: caption="Table 3: Default memory metrics available from console" caption-side="top"}
+
+### Network
+{: #network-metrics}
+
+| Metric Name | Description |
+|----------|-------------|
+| KB in | Cumulative number of bytes received on a network interface since boot |
+| KB out| Cumulative number of bytes transmitted on a network interface since boot |
+{: caption="Table 3: Default network metrics available from console" caption-side="top"}
+
+Network metrics are available in either packets or KB by using the toggle selector. 
+{:tip}
