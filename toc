@@ -2,7 +2,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="vpc" category="vpc" audience="compute" href="/docs/vpc?topic=vpc-getting-started" path="vpc"}
+{: .toc subcollection="vpc" category="vpc,compute,network,storage" audience="compute" href="/docs/vpc?topic=vpc-getting-started" path="vpc"}
 Virtual Private Cloud
 
     {: .navgroup id="learn"}
