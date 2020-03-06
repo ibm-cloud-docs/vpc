@@ -39,7 +39,7 @@ To increase a quota for a particular resource, [contact support](/docs/get-suppo
 
 |   Resource     | Quota |
 | ------- | ------ |
-| Virtual private clouds | 5 per region|    
+| Virtual private clouds | 10 per region|    
 | Subnets | 15 per VPC |  
 | Address prefixes | 15 per VPC |  
 {: caption="Table 1. Quotas for the VPC service" caption-side="top"}
@@ -50,8 +50,8 @@ To increase a quota for a particular resource, [contact support](/docs/get-suppo
 |   Resource     | Quota | 
 | ------- | ------ | 
 | vCPU |  200 per region  |   
-| RAM | 800 GB per region |   
-| Floating IP addresses | 5 per zone |   
+| RAM | 1600 GB per region |   
+| Floating IP addresses | 20 per zone |   
 | SSH keys | 200 per account |   
 | GPUs (POWER only) | 16 |   
 {: caption="Table 2. Quotas for virtual server instances" caption-side="top"}
