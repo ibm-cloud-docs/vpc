@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-02"
+lastupdated: "2020-03-09"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, GPU, power, generation 2, gen 2
 
@@ -133,7 +133,7 @@ The following memory profiles are available for POWER processors:
 
 GPU profiles are best for AI and deep learning workloads.
 
-Each GPU is an NVIDIA Tesla v100 and each includes 32 GBs of memory that contributes to the overall memory the VSI will report. The following GPU profiles are available for POWER processing with Ubuntu 18.04 images:
+The following GPU profiles, available for POWER-based instances, are provisioned with Ubuntu 18.04. The profiles feature NVLink 2.0 and PCIe Gen4 interconnects for faster CPU to GPU bandwidth and 50% faster networking I/O. Each GPU is a NVIDIA Tesla v100 and each includes 32 GBs of memory that contributes to the overall memory the VSI reports.
 
 | Profile | vCPU | GB RAM | Network Performance Cap (Gbps) | Number of GPUs |
 |---------|---------|---------|---------|---------|
@@ -145,7 +145,7 @@ Each GPU is an NVIDIA Tesla v100 and each includes 32 GBs of memory that contrib
 
 GPU profiles are supported by Ubuntu 18.04 only. For more information about supported operating systems, see [Images](/docs/vpc?topic=vpc-about-images). A few of the larger profile sizes might require you to increase your quota limit. To increase a quota for a particular resource, [contact support](/docs/get-support?topic=get-support-getting-customer-support).
 
-If you are using GPU profiles, you may need to install the NVIDA kernel driver and/or the CUDA toolkit onto your virtual server instance. For more information, see [Setting up GPU drivers for POWER-based instances](/docs/vpc?topic=vpc-setup-gpus).
+If you are using GPU profiles, you might need to install the NVIDA kernel driver, the CUDA toolkit, or both onto your virtual server instance. For more information, see [Setting up GPU drivers for POWER-based instances](/docs/vpc?topic=vpc-setup-gpus).
 {:tip}
 
 For information about storage, see [Storage notes for profiles](#storage-notes-for-profiles). 
@@ -160,9 +160,9 @@ You can view available profile configurations by using the {{site.data.keyword.c
 ### Using the IBM Cloud console
 {: #profiles-using-console}
 
-1. In the {{site.data.keyword.cloud_notm}} console, navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
-2. From this page, click **New instance**.
-3. You can either select a profile configuration from **Popular profiles** or click **All profiles** to view additional configurations.
+1. In the {{site.data.keyword.cloud_notm}} console, navigate to **Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
+2. From the Virtual server instances page, click **New instance**.
+3. You can either select a profile configuration from **Popular profiles** or click **All profiles** to view more configurations.
 
 ### Using the CLI
 {: #profiles-using-cli}
