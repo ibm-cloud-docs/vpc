@@ -122,8 +122,16 @@ Virtual Private Cloud
 
 
     {: .navgroup id="reference"}
-    /vpc-infrastructure-cli-plugin/vpc-infrastructure-cli-plugin-vpc-reference
-    [VPC API reference](https://{DomainName}/apidocs/vpc)
+    {: .topicgroup}
+    VPC CLI reference
+        /vpc-infrastructure-cli-plugin/vpc-infrastructure-cli-plugin-vpc-reference
+        /vpc-infrastructure-cli-plugin/vpc-infrastructure-cli-plugin-vpc-cli-rn
+    
+    {: .topicgroup}
+    VPC API reference
+        [VPC API reference](https://{DomainName}/apidocs/vpc)
+        api-change-log.md
+
     vpc-responsibilities.md
     vpc-endpoints.md
     at-events.md
