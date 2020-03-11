@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-02-28"
+lastupdated: "2020-03-11"
 
 keywords: vpc, region, zone, deploy, datacenter, data, center, federated, CLI, API, account, failover, disaster, recovery, DR
 
@@ -143,7 +143,7 @@ ibmcloud is regions
 For example, to get the list of VPCs in the `us-south` region, run the following command:
 
 ```
-curl "https://us-south.iaas.cloud.ibm.com/v1/vpcs?version=2019-05-31&generation=1" -H "Authorization: $iam_token"
+curl "https://us-south.iaas.cloud.ibm.com/v1/vpcs?version=2019-05-31&generation=2" -H "Authorization: $iam_token"
 ```
 {: pre}
 
