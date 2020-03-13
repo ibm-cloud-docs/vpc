@@ -3,9 +3,9 @@
 copyright:
   years: 2017, 2020
 
-lastupdated: "2020-02-14"
+lastupdated: "2020-03-13"
 
-keywords: vpc, pricing, billing, data, instance, VSI, block, storage, paygo, transfer, floating, server, VPC, allowance, gateway, egress, minimal charges, ARP, traffic
+keywords: vpc, pricing, billing, data, instance, VSI, block, storage, transfer, floating, server, VPC, allowance, gateway, egress, minimal charges, ARP, traffic
 
 subcollection: vpc
 
@@ -26,7 +26,7 @@ subcollection: vpc
 # Pricing for VPC
 {: #pricing-for-vpc}
 
-Pricing of {{site.data.keyword.vpc_full}} is applied separately for [internet data transfer](#pricing-for-data-transfer), [load balancers](#lb-for-vpc-pricing), [VPNs](#vpn-for-vpc-pricing), [virtual server instances](#pricing-for-virtual-servers-for-vpc), and [block storage](#pricing-for-block-storage-for-vpc) used within your {{site.data.keyword.vpc_short}}. The following charges apply to your use of {{site.data.keyword.vpc_short}}. For PayGo services, the service tiers are bound to your account, not to any specific VPC instance. Amounts are shown in US dollars.
+Pricing of {{site.data.keyword.vpc_full}} is applied separately for [internet data transfer](#pricing-for-data-transfer), [load balancers](#lb-for-vpc-pricing), [VPNs](#vpn-for-vpc-pricing), [virtual server instances](#pricing-for-virtual-servers-for-vpc), and [block storage](#pricing-for-block-storage-for-vpc) used within your {{site.data.keyword.vpc_short}}. The following charges apply to your use of {{site.data.keyword.vpc_short}}. For services billed on a consumption basis, the service tiers are bound to your account, not to any specific VPC instance. Amounts are shown in US dollars.
 
 ## Pricing for internet data transfer with IBM Cloud™ Virtual Private Cloud
 {: #pricing-for-data-transfer}
@@ -45,19 +45,19 @@ There are no charges for private traffic within your VPC and the use of public g
 | Use of public gateway (PGW) | Use of the public gateway is free<br>Traffic exiting the public gateway is billed |
 {: caption="Table 1. Free allowances for internet data transfer" caption-side="top"}
 
-### Basic PayGo pricing for internet data transfer
+### Basic pricing for internet data transfer
 {: #basic-paygo-pricing-for-internet-transfer}
 
 For traffic that leaves the VPC, the following pricing applies.
 
-| Data transfer | Amount of data | PayGo pricing (US)|
+| Data transfer | Amount of data | Pricing (US)|
 |-----------|-----------|------------------|
 | Egress to internet |  0 - 5 GB | Free |
 |  | 6 - 10,000 GB | $0.087 per GB |
 |  | 10,001 - 50,000 GB | $0.083 per GB |
 |  | 50,001 - 150,000 GB | $0.07 per GB |
 |  | 150,001 GB and over | $0.05 per GB |
-{: caption="Table 2. PayGo pricing for internet data transfer" caption-side="top"}
+{: caption="Table 2. Pricing for internet data transfer" caption-side="top"}
 
 When you create a new VPC, it can take up to an hour for initial billing charges to appear in the {{site.data.keyword.cloud_notm}} console or API.
 {: tip}
@@ -126,7 +126,7 @@ For {{site.data.keyword.vsi_is_full}} you're billed at an hourly rate based on i
 
 Base instance prices start at $0.087 per hour. When you create a virtual server, you are prompted to select a virtual server family and select a profile configuration. When you make your selection, the associated hourly rate is displayed in the table. <!-- You can also use the Pricing Calculator to estimate your costs. -->
 
-| Profile | vCPU | RAM | Network Performance Cap (Gbps) | PayGo / Hour |
+| Profile | vCPU | RAM | Network Performance Cap (Gbps) | Pricing / Hour |
 |---------|---------|---------|---------|---------|
 | bx2-2x8 | 2 | 8 | 4 | $0.099 |
 | bx2-4x16 | 4 | 16 | 8 | $0.199 |
@@ -151,7 +151,7 @@ Base instance prices start at $0.087 per hour. When you create a virtual server,
 
 Base instance prices start at $0.080 per hour. When you create a virtual server, you are prompted to select a virtual server family and select a profile configuration. When you make your selection, the associated hourly rate is displayed in the table.
 
-| Profile | vCPU | RAM | Network Performance Cap (Gbps) | PayGo / Hour |
+| Profile | vCPU | RAM | Network Performance Cap (Gbps) | Pricing / Hour |
 |---------|---------|---------|---------|---------|
 | bp2-2x8 | 2 | 8 | 6 | $0.089 |
 | bp2-4x16 | 4 | 16 | 12 | $0.177 |
@@ -175,7 +175,7 @@ Base instance prices start at $0.080 per hour. When you create a virtual server,
 
 Accelerated computing (GPU) instance prices start at $6.502 per hour. When you create a virtual server, you are prompted to select a virtual server family and select a profile configuration. When you make your selection, the associated hourly rate is displayed in the table.
 
-| Profile | vCPU | RAM | GPU | Network Performance Cap (Gbps) | PayGo / Hour |
+| Profile | vCPU | RAM | GPU | Network Performance Cap (Gbps) | Pricing / Hour |
 |---------|---------|---------|---------|---------|---------|
 | gp2-24x224x2 | 24 | 224 | 2 | 72 | $6.502 |
 | gp2-32x256x4 | 32 | 256 | 4 |  96 | $11.781 |
@@ -200,10 +200,10 @@ The following operating systems are included free of charge:
 
 Premium operating systems and other add-ons are available. You'll see the pricing in your Cost Summary.
 
-| Premium operating system       | Amount of data    |  PayGo Pricing     |
+| Premium operating system       | Amount of data    |  Pricing     |
 | ------------------------------ | ----------------- | ---------------------- |
-| Red Hat Enterprise Linux 7.x   | 1-4 cores         | $.08 per core per hour   |     
-| Red Hat Enterprise Linux 7.x   | 5-64 cores        | $.13 per core per hour   |   
+| Red Hat Enterprise Linux 7.x   | 1-4 vCPU      | $.08 per instance-hour   |     
+| Red Hat Enterprise Linux 7.x   | 5-64 vCPU     | $.13 per instance-hour   |   
 | Windows 2012, 2012 R2, 2016    |                   | $.04 per core per hour  |            
 {: caption="Table 4. Premium operating system pricing" caption-side="top"}
 
