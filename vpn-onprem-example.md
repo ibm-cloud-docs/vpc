@@ -389,6 +389,42 @@ The following commands use the following variables where:
 * `{{ vyatta_address }}` is the Vyatta public IP address.
 * `{{ vyatta_cidr }}` is the Vyatta subnet.
 
+#### Before you begin
+{: #vyatta-preparation}
+
+To set up your remote Vyatta peer, make sure that the following prerequisites are met.
+
+* A VPC
+* A subnet in the VPC
+* A VPN gateway in the VPC without connections
+
+   After the VPN gateway gets provisioned, note its public IP address.
+   {: tip}
+* The Vyatta public IP address
+* The Vyatta subnet that you want to connect using a VPN
+
+#### Configuring the Vyatta 
+{: #configure-vyatta-peer}
+
+There are two ways you can run the configuration on your Vyatta:
+
+1. Log in to the Vyatta and run the file `create_vpn.vcli` using the commands that follow.
+2. Run the following commands in the Vyatta console. 
+
+Remember to:
+* Choose `IKEv2` in authentication
+* Enable `DH-group 2` 
+* Set `lifetime = 36000` 
+* Disable PFS 
+* Set `lifetime = 18000`  
+
+The following commands use the following variables where:
+
+* `{{ peer_address }}` is the VPN gateway public IP address.
+* `{{ peer_cidr }}` is the VPN gateway subnet.
+* `{{ vyatta_address }}` is the Vyatta public IP address.
+* `{{ vyatta_cidr }}` is the Vyatta subnet.
+
 ```
 vim vyatta_temp/create_vpn.vcli
 #!/bin/vcli -f
@@ -430,7 +466,7 @@ end_configure
 ```
 {: codeblock}
 
-## Example
+
 For example, you can run the following commands:
 
 ```
@@ -476,9 +512,12 @@ end_configure
 
 Finally, make note of your `{{ psk }}` value, as you will need it to set up the VPN connection in the next step.
 
-### Troubleshooting and more examples  
+{: codeblock}
+
+#### Troubleshooting and more examples  
 {: #troubleshooting-and-more-examples}
 
+##### Troubleshooting
 Remember to:
 * Config your ACL to allow port 500 and 4500
 
@@ -492,15 +531,6 @@ Allow IKE and ESP traffic for IPsec:
 # set rule 200 protocol 'esp'
 ```
 
-Allow L2TP over IPsec:
-
-```
-# set rule 210 action 'accept'
-# set rule 210 destination port '1701'
-# set rule 210 ipsec 'match-ipsec'
-# set rule 210 protocol 'udp'
-```
-
 Allow NAT traversal of IPsec:
 
 ```
@@ -509,7 +539,7 @@ Allow NAT traversal of IPsec:
 # set rule 250 protocol 'udp'
 ```
 
-#### Additional examples
+##### Additional examples
 
 To filter on source IP:
 
@@ -518,11 +548,11 @@ vyatta@R1# show security firewall name FWTEST-1
 rule 1 {
 	action accept
 	source {
-		address 172.16.0.26
+		address {{ IP address }}
 	}
 }
 vyatta@R1# show interfaces dataplane dp0p1p1
-address 172.16.1.1/24
+address {{ IP  address }}
 	firewall FWTEST-1 {
 	in {
 	}
@@ -536,10 +566,10 @@ vyatta@R1# show security firewall name FWTEST-2
 rule 1 {
 	action accept
 	destination {
-		address 10.10.40.101
+		address {{ IP address }}
 	}
 	source {
-		address 10.10.30.46
+		address {{ IP address }}
 	}
 }
 vyatta@R1# show interfaces dataplane dp0p1p2
@@ -640,7 +670,7 @@ To use a custom IPsec policy in VPN for VPC:
 1. On the VPN for VPC page in the IBM Cloud console, select the **IPsec policies** tab.
 2. Click **New IPsec policy** and specify the following values:
   * For the **Authentication** field, select **sha1**.
-  * For the **Encryption** field, select **aes256**.
+  * For the **Encryption** field, select **aes128**.
   * For the **Key lifetime** field, specify **3600**.
 3. When you create the VPN connection in your VPC, select this custom IPsec policy.
 
@@ -650,3 +680,4 @@ To use a custom IPsec policy in VPN for VPC:
 You can check the status of your connection in the {{site.data.keyword.cloud_notm}} console. On the VPN for VPC page, select your VPN gateway and click **Connections** from the navigation pane on the left side of the page.
 
 You can also test the connection by doing a ping from a virtual server instance in your VPC to a server in the on-premises network.
+
