@@ -59,9 +59,10 @@ For traffic that leaves the VPC, the following pricing applies.
 |  | 150,001 GB and over | $0.05 per GB |
 {: caption="Table 2. Pricing for internet data transfer" caption-side="top"}
 
+*Notes:*
 * When you create a new VPC, it can take up to an hour for initial billing charges to appear in the {{site.data.keyword.cloud_notm}} console or API.
 * 5 Gb of free data is applied at the account level not for each VPC.
-{: note}
+
 
 If you have a public gateway or floating IP, you might still see some minimal egress charges even if you didn't send any egress traffic during that time. These charges are for ARP traffic, which is necessary to operate your account.
 {: important}
