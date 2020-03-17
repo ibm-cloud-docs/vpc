@@ -3,7 +3,7 @@
 copyright:
   years: 2017, 2020
 
-lastupdated: "2020-03-13"
+lastupdated: "2020-03-17"
 
 keywords: vpc, pricing, billing, data, instance, VSI, block, storage, transfer, floating, server, VPC, allowance, gateway, egress, minimal charges, ARP, traffic
 
@@ -59,18 +59,19 @@ For traffic that leaves the VPC, the following pricing applies.
 |  | 150,001 GB and over | $0.05 per GB |
 {: caption="Table 2. Pricing for internet data transfer" caption-side="top"}
 
-When you create a new VPC, it can take up to an hour for initial billing charges to appear in the {{site.data.keyword.cloud_notm}} console or API.
-{: tip}
+* When you create a new VPC, it can take up to an hour for initial billing charges to appear in the {{site.data.keyword.cloud_notm}} console or API.
+* 5 Gb of free data is applied at the account level not for each VPC.
+{: note}
 
 If you have a public gateway or floating IP, you might still see some minimal egress charges even if you didn't send any egress traffic during that time. These charges are for ARP traffic, which is necessary to operate your account.
 {: important}
 
-### Pricing for floating IPs
+## Pricing for floating IPs
 {: #floating-ip-pricing}
 
 A floating IP is charged at the rate of $1 (US) per month, starting when it is reserved. The fee is charged even if the floating IP is not associated to a VSI or not in use. The $1 for the monthly fee is charged even if the floating IP is reserved for only a few days.
 
-### Pricing for load balancers
+## Pricing for load balancers
 {: #lb-prices}
 
 Load balancers (LB) for VPC pricing is based on the following metrics, calculated monthly:
@@ -99,7 +100,7 @@ balancing, based in the Dallas region.
 
 The total charge for this scenario is $54 per month.
 
-### Pricing for VPN for VPC
+## Pricing for VPN for VPC
 {: #vpn-vpc-prices}
 
 Virtual Private Network (VPN) for VPC pricing by region is shown in the following table.
