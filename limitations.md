@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-02-14"
+lastupdated: "2020-03-18"
 
 keywords: vpc, limitations, restrictions
 
@@ -52,9 +52,7 @@ The following features are not supported, including all properties associated wi
   * A security group can be configured in a single zone only. 
   * A security group can’t reference another security group in a different zone in the same region.
 
-* Bring your own subnet:
-  * Address prefixes must be within one of the "private" address ranges defined in RFC1918.
-  * Address prefixes can't be configured in the IBM Cloud console.
+* Bring your own subnet: Address prefixes must be within one of the "private" address ranges defined in RFC1918.
 
 * Multiple Virtual Network Interface Controllers: Only one Virtual Network Interface Controller is allowed for each virtual server instance. Currently, only the primary Virtual Network Interface Controller (VNIC) Ethernet 0 (eth0) works for a virtual server.
 
