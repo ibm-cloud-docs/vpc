@@ -64,7 +64,7 @@ For an example of using shell scripts to migrate a classic instance to an {{site
 ### Step 1 - Create an image template
 {: #migrate-create-template}
 
-You can create an image template from a virtual server in the classic infrastructure that you want to migrate to the {{site.data.keyword.vpc_short}} infrastructure. The virtual server that the image template is created from must use a [cloud-init enabled image](/docs/infrastructure/image-templates?topic=image-templates-provisioning-with-a-cloud-init-enabled-image) that was provisioned without add-ons. (Add-ons include additional software, post-provisioning scripts, and advanced monitoring.) Make sure that you complete any customization of the virtual server instance before you create the image template.
+You can create an image template from a virtual server in the classic infrastructure that you want to migrate to the {{site.data.keyword.vpc_short}} infrastructure. The virtual server that the image template is created from must use a [cloud-init enabled image](/docs/image-templates?topic=image-templates-provisioning-with-a-cloud-init-enabled-image) that was provisioned without add-ons. (Add-ons include additional software, post-provisioning scripts, and advanced monitoring.) Make sure that you complete any customization of the virtual server instance before you create the image template.
 
 The image template captures an image of the existing virtual server so that you can create a new one based on the captured image. Only image templates with a single primary boot volume (or disk) and associated file can be imported to {{site.data.keyword.vpc_short}} infrastructure. The image template includes the operating system on the primary boot disk along with items you might have installed, such as PHP or Python, up to 100 GB of data. When you use the imported custom image in {{site.data.keyword.vpc_short}} to create a new virtual server, you can select a new profile, assign an SSH key, specify user data, and configure network interfaces. 
 
@@ -75,21 +75,21 @@ Secondary disks and their associated files for an image template are not support
 2. Click the virtual server that you want to use to create an image template. 
 3. From the **Actions** menu, select **Create Image Template**. 
 
-For more information, see [Creating an image template](/docs/infrastructure/image-templates?topic=image-templates-creating-an-image-template).
+For more information, see [Creating an image template](/docs/image-templates?topic=image-templates-creating-an-image-template).
     
 ### Step 2 - Locate the image template
 {: #migrate-locate-template}
 
 Access the **Image Templates** page by selecting **Devices > Manage > Images**. 
 
-Locate the image template that you want to migrate. For more information about accessing image templates in the classic infrastructure, see [Managing images](/docs/infrastructure/image-templates?topic=image-templates-managing-images-from-the-image-templates-page).
+Locate the image template that you want to migrate. For more information about accessing image templates in the classic infrastructure, see [Managing images](/docs/image-templates?topic=image-templates-managing-images-from-the-image-templates-page).
  
 ### Step 3 - Export the image template to {{site.data.keyword.cos_full_notm}}
 {: #migrate-export-template} 
  
 From the **Image Templates** page, click **...** for the image template that you want to export and select **Export to IBM COS**. 
 
-For more information, see [Exporting an image to {{site.data.keyword.cos_full_notm}}](/docs/infrastructure/image-templates?topic=image-templates-exporting-an-image-to-ibm-cloud-object-storage).  
+For more information, see [Exporting an image to {{site.data.keyword.cos_full_notm}}](/docs/image-templates?topic=image-templates-exporting-an-image-to-ibm-cloud-object-storage).  
 
 ### Step 4 - Customize the image for {{site.data.keyword.vpc_short}} infrastructure
 {: #migrate-customize-image-vpc} 
