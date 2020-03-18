@@ -306,7 +306,7 @@ All auditing events are recorded to IBM Cloud Activity Tracker with LogDNA in th
 
 To view events, you must provision an IBM Cloud Activity Tracker with LogDNA instance in the`us-south` region under your account. Users in your account must have an IAM policy that grants the **Viewer** platform access role and **Reader** service access role on the IBM Cloud Activity Tracker with LogDNA instance.
 
-For more information about granting access, see [Granting permissions to see account events](/docs/services/cloud-activity-tracker/how-to?topic=cloud-activity-tracker-grant_permissions).
+For more information about granting access, see [Granting user permissions to a user or service ID](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-iam_view_events).
 
 IBM Cloud account users can monitor account-level operations that are performed on the load balancer service.
 {: tip}
