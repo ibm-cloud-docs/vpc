@@ -104,7 +104,7 @@ For extra security, when you delete a volume, all pointers to the data on that v
 {: faq}
 {: #faq-block-storage-11}
 
-Block Storage for VPC secures your data across redundant fault zones in your region. You are are responsible for independently backing up your data. You might also consider using [{{site.data.keyword.blockstoragefull}}](/docs/infrastructure/BlockStorage?topic=BlockStorage-getting-started), which provides disaster recovery features such as volume cloning, snapshots, and replication.
+Block Storage for VPC secures your data across redundant fault zones in your region. You are are responsible for independently backing up your data. You might also consider using [{{site.data.keyword.blockstoragefull}}](/docs/BlockStorage?topic=BlockStorage-getting-started), which provides disaster recovery features such as volume cloning, snapshots, and replication.
 
 ## How many volumes can be provisioned per account?
 {: faq}
