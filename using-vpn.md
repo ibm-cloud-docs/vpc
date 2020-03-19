@@ -552,7 +552,7 @@ Virtual server instances are the only classic resources that can be accessed wit
 If you use IKEv1, rekey collision deletes the IKE/IPsec SA. To re-create the IKE/IPsec SA, set the connection admin state to `down` and then `up` again. You can use IKEv2 to minimize rekey collisions.
 
 ### Is it possible to view logs from the VPN gateway for debugging purposes?
-{: #faq-vpn-13}
+{: #faq-vpn-15}
 {: faq}
 
 Yes. You can find more information in [Using LogDNA to view VPN logs](/docs/vpc?topic=vpc-using-logdna-to-view-vpn-logs).
