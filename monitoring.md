@@ -65,7 +65,7 @@ The following metrics are available (by default) from the console.
 {: caption="Table 1: Default CPU metrics available from console" caption-side="top"}
 
 ### Volume
-{: #cpu-metrics}
+{: #volume-metrics}
 
 | Metric Name | Description |
 |----------|-------------|
