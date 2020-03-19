@@ -482,7 +482,7 @@ The subnet connects the VPN gateway with other resources in your VPC. The best p
 
 
 ### What should I do if I am using ACLs on the subnet that is used to deploy the VPN gateway?
-{: #faq-vpn-13}
+{: #faq-vpn-6}
 {: faq}
 
 Make sure the following ACL rules are in place to allow management traffic and VPN tunnel traffic:
@@ -504,37 +504,37 @@ Make sure the following ACL rules are in place to allow management traffic and V
    - Allow all traffic
 
 ### What should I do if I am using ACLs on the subnets that need to communicate with on-premises private network?
-{: #faq-vpn-14}
+{: #faq-vpn-7}
 {: faq}
 
 Make sure that ACL rules rules are in place to allow traffic between virtual server instances in your VPC and your on-premises private network.
 
 ### Does VPN for VPC support HA configurations?
-{: #faq-vpn-7}
+{: #faq-vpn-8}
 {: faq}
 
 Yes, it supports HA in an Active / Standby configuration.
 
 ### Are there plans to support SSL VPN?
-{: #faq-vpn-8}
+{: #faq-vpn-9}
 {: faq}
 
 No, only IPsec site-to-site is supported.
 
 ### Are there any caps on throughput for site-to-site VPNaaS?
-{: #faq-vpn-9}
+{: #faq-vpn-10}
 {: faq}
 
 Up to 650 Mbps of throughput is supported.
 
 ### Is PSK and certificate-based IKE authentication supported for VPNaaS?
-{: #faq-vpn-10}
+{: #faq-vpn-11}
 {: faq}
 
 Only PSK authentication is supported.
 
 ### Can you use VPN for VPC as a VPN gateway for your IBM Cloud classic infrastructure?
-{: #faq-vpn-11}
+{: #faq-vpn-12}
 {: faq}
 
 No. To set up a VPN gateway in your classic environment, you must use the [IPsec VPN](https://{DomainName}/catalog/infrastructure/ipsec-vpn){: external}.
@@ -546,7 +546,7 @@ No. To set up a VPN gateway in your classic environment, you must use the [IPsec
 Virtual server instances are the only classic resources that can be accessed with VPN for VPC along with Classic Access VPC.
 
 ### What will rekey collision cause?
-{: #faq-vpn-12}
+{: #faq-vpn-14}
 {: faq}
 
 If you use IKEv1, rekey collision deletes the IKE/IPsec SA. To re-create the IKE/IPsec SA, set the connection admin state to `down` and then `up` again. You can use IKEv2 to minimize rekey collisions.
