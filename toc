@@ -2,11 +2,12 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="vpc" category="vpc,compute,network,storage" audience="compute" href="/docs/vpc?topic=vpc-getting-started" path="vpc"}
+{: .toc subcollection="vpc" category="vpc,compute,network,storage" audience="compute" href="/docs/vpc?topic=vpc-getting-started" console-page="/vpc-ext/overview" product-page="https://www.ibm.com/cloud/vpc" path="vpc"}
 Virtual Private Cloud
 
     {: .navgroup id="learn"}
     getting-started.md
+    [What is Virtual Private Cloud?](https://www.ibm.com/cloud/learn/vpc)
     about-vpc.md
     quotas.md
     pricing.md
