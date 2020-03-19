@@ -21,7 +21,7 @@ subcollection: vpc
 {:table: .aria-labeledby="caption"}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# About Virtual Private Cloud
+# Overview
 {: #about-vpc}
 
 Use {{site.data.keyword.vpc_full}} to create your own space in {{site.data.keyword.cloud}}. A virtual private cloud (VPC) is a secure, isolated virtual network that combines the security of a private cloud with the availability and scalability of IBM's public cloud.
