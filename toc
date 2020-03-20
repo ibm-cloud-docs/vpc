@@ -9,9 +9,8 @@ Virtual Private Cloud
     getting-started.md
     [What is Virtual Private Cloud?](https://www.ibm.com/cloud/learn/vpc)
     about-vpc.md
+    [Pricing](https://www.ibm.com/cloud/vpc/pricing)
     quotas.md
-    pricing.md
-
 
     {: .topicgroup}
     Network
