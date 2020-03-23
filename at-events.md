@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2019-11-10"
+lastupdated: "2020-03-17"
 
 keywords: activity tracker, vpc, events, logdna 
 
@@ -45,8 +45,8 @@ As a security officer, auditor, or manager, you can use the {{site.data.keyword.
 | vpc  | is.vpc.vpc-route.create   | Route was added to VPC.   |
 | vpc  | is.vpc.vpc-route.update   | VPC Route was updated.  |
 | vpc  | is.vpc.vpc-route.delete   | Route was removed from VPC.   |
-| floating-ip  | is.floating-ip.floating-ip.delete   | Floating IP was created.  |
-| floating-ip  | is.floating-ip.floating-ip.delete   | Floating IP was updated.  |
+| floating-ip  | is.floating-ip.floating-ip.create   | Floating IP was created.  |
+| floating-ip  | is.floating-ip.floating-ip.update   | Floating IP was updated.  |
 | floating-ip  | is.floating-ip.floating-ip.delete   | Floating IP was deleted.  |
 | network-acl  | is.network-acl.network-acl.create   | Network ACL was created.  |
 | network-acl  | is.network-acl.network-acl.update   | Network ACL was updated.  |
@@ -69,8 +69,8 @@ As a security officer, auditor, or manager, you can use the {{site.data.keyword.
 | subnet   | is.subnet.subnet.update   | Subnet was updated.   |
 | subnet   | is.subnet.subnet.delete   | Subnet was deleted.   |
 | subnet   | is.subnet.network-acl.update  | Subnet's Network ACL was replaced.   |
-| subnet   | is.subnet.public-gateway.operate  | Public Gateway was attached to Subnet.  |
-| subnet   | is.subnet.public-gateway.operate  | Public Gateway was detached from Subnet.  |
+| subnet   | is.subnet.public-gateway.attach  | Public Gateway was attached to Subnet.  |
+| subnet   | is.subnet.public-gateway.detach  | Public Gateway was detached from Subnet.  |
 {: caption="Table 1. Actions that generate events for network resources" caption-side="top"}
 
 ## List of events: Compute resources
@@ -84,14 +84,17 @@ As a security officer, auditor, or manager, you can use the {{site.data.keyword.
 | instance   | is.instance.instance.update   | Instance was updated.   |
 | instance   | is.instance.action.create   | Instance action was created.  |
 | instance   | is.instance.action.delete   | Pending instance action was deleted.  |
-| instance   | is.instance.network_interface.floating_ip.create  | Floating ip was associated to instance network interface  |
-| instance   | is.instance.network_interface.floating_ip.delete  | Floating ip was Disassociated from instance network interface |
-| instance   | is.instance.volume_attachement.create   | Instance volume attachment was created  |
-| instance   | is.instance.volume_attachement.delete   | Instance volume attachment was deleted  |
-| instance   | is.instance.volume_attachement.update   | Instance volume attachment was updated  |
-| key  | is.key.key.create   | key was created.  |
-| key  | is.key.key.delete   | key was deleted.  |
-| key  | is.key.key.update   | key was updated.  |
+| instance   | is.instance.network-interface_floating-ip.attach  | Floating IP was associated to instance network interface.  |
+| instance   | is.instance.network-interface_floating-ip.detach  | Floating IP was disassociated from instance network interface. |
+| instance   | is.instance.volume-attachment.create   | Instance volume attachment was created.  |
+| instance   | is.instance.volume-attachment.delete   | Instance volume attachment was deleted.  |
+| instance   | is.instance.volume-attachment.update   | Instance volume attachment was updated.  |
+| instance   | is.instance.network-interface.create   | Instance network interface was created (Instance was attached to a subnet).  |
+| instance   | is.instance.network-interface.update   | Instance network interface was updated. |
+| instance   | is.instance.network-interface.delete   | Instance network interface was deleted (Instance was detached from a subnet).  |
+| key  | is.key.key.create   | Key was created.  |
+| key  | is.key.key.delete   | Key was deleted.  |
+| key  | is.key.key.update   | Key was updated.  |
 {: caption="Table 2. Actions that generate events for compute resources" caption-side="top"}
 
 ## List of events: Image resources
@@ -101,9 +104,9 @@ The following table lists the actions related to image resources and the generat
 
 | Resource  | Action  | Description  |
 |:----------------|:-----------------------|:-----------------------|
-| image  | is.image.image.create   | Image was created |
-| image  | is.image.image.delete   | Image was deleted |
-| image  | is.image.image.update   | Image was updated  |
+| image  | is.image.image.create   | Image was created. |
+| image  | is.image.image.delete   | Image was deleted. |
+| image  | is.image.image.update   | Image was updated.  |
 {: caption="Table 3. Actions that generate events for image resources" caption-side="top"}
 
 ## List of events: Storage resources
@@ -111,7 +114,7 @@ The following table lists the actions related to image resources and the generat
 
 | Resource  | Action  | Description  |
 |:----------------|:-----------------------|:-----------------------|
-| volume  | is.volume.volume.create  |  Volume was created.  |
+| volume  | is.volume.volume.create  | Volume was created.  |
 | volume  | is.volume.volume.update  | Volume was updated.  |
 | volume  | is.volume.volume.delete  | Volume was deleted.  |
 {: caption="Table 4. Actions that generate events for storage resources" caption-side="top"}
