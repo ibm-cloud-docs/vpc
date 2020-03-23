@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-03"
+lastupdated: "2020-03-23"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, volume, profile, volume profile, data storage, storage profile, virtual server instance, instance
 
@@ -30,20 +30,17 @@ When you provision {{site.data.keyword.block_storage_is_short}} secondary volume
 
 Block storage provides three predefined IOPS tiers you can select to specify optimal performance for your compute workloads and help avoid bottlenecks. Table 1 describes the IOPS performance you can expect when create volumes in your availability zone.
 
-| IOPS Tier | Workload | Volume size | Max IOPS |
-|-----------|----------|-------------|----------|
-| 3 IOPS/GB | General-purpose workloads - Workloads that host small databases for web applications or store virtual machine disk images for a hypervisor | 10 GB to 1 TB | Up to 3,000 IOPS |
-| | | More than 1 TB to 2 TB | 3 IOPS/GB up to 6,000 IOPS |
-| 5 IOPS/GB | High I/O intensity workloads - Workloads characterized by a large percentage of active data, such as transactional and other performance-sensitive databases| 10 GB to 600 GB | Up to 3,000 IOPS |
-| | | More than 600 GB to 2 TB | 5 IOPS/GB up to 10,000 IOPS|
-| 10 IOPS/GB | Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics | 10 GB to 300 GB | Up to 3,000 IOPS |
-| | | More than 300 GB to 2 TB | 10 IOPS/GB up to 20,000 IOPS |
+| IOPS Tier | Workload | Volume size | Min/Max IOPS |
+|-----------|----------|-------------|--------------|
+| 3 IOPS/GB | General-purpose workloads - Workloads that host small databases for web applications or store virtual machine disk images for a hypervisor | 10 GB to 16,000 GB | 10 IOPS to 16,000 IOPS |
+| 5 IOPS/GB | High I/O intensity workloads - Workloads characterized by a large percentage of active data, such as transactional and other performance-sensitive databases| 10 GB to 9,600 GB | 5 to 48,000 IOPS|
+| 10 IOPS/GB | Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics | 10 GB to 4,800 GB | 10 to 48,000 IOPS |
 {: caption="Table 1. IOPS tier profiles and performance levels for each tier" caption-side="top"}
 
 ## Custom IOPS profile
 {: #custom}
 
-Custom IOPS is a good option when you have well-defined performance requirements that do not fall within a predefined IOPS tier. You can customize the IOPS by specifying the total IOPS for the volume within the range for its volume size. You can provision volumes with 100 IOPS to 20,000 IOPS.
+Custom IOPS is a good option when you have well-defined performance requirements that do not fall within a predefined IOPS tier. You can customize the IOPS by specifying the total IOPS for the volume within the range for its volume size. You can provision volumes with 100 IOPS to 48,000 IOPS.
 
 Table 2 shows the available IOPS ranges based on volume size.
 
@@ -55,12 +52,16 @@ Table 2 shows the available IOPS ranges based on volume size.
 | 100 - 499 | 100 - 6,000 |
 | 500 - 999 | 100 - 10,000 |
 | 1,000 - 1,999 | 100 - 20,000 |
+| 2000 - 3999 GB |200	- 40000 |
+| 4000 - 7999 GB |300	- 40000 |
+| 8000 - 9999 GB |500	- 48000 |
+| 10,000 - 16,000 GB | 1000	- 48000 |
 {: caption="Table 2. Available IOPS based on volume size" caption-side="top"}
 
 ## How virtual server profiles relate to storage profiles
 {: #vsi-profiles-relate-to-storage}
 
-Virtual server profiles are a combination of vCPU and RAM that can be instantiated quickly to start a virtual server instance. You select from [three families of profiles](/docs/vpc?topic=vpc-profiles)
+Virtual server profiles are a combination of vCPU and RAM that can be instantiated quickly to start a virtual server instance. You select from [three families of profiles](/docs/vpc?topic=vpc-profiles#profiles)
 based on your workload requirements. These requirements can range from common workloads to CPU-intensive or memory-intensive workloads.  
 
 Similarly, storage profiles (IOPS tiers or custom) provide a range of capacity and performance for secondary volumes. By default, a
@@ -71,7 +72,7 @@ requirements for your compute workloads. In general, as your compute requirement
 | IOPS tier storage profile | Virtual server profile |
 |-----------------|------------------------|
 | 3 IOPS/GB       | [Balanced](/docs/vpc?topic=vpc-profiles#balanced) for common workloads |
-| 5 IOPS/GB       | [Compute](/docs/vpc?topic=vpc-profiles#compute-profiles) for intensive CPU demands |
+| 5 IOPS/GB       | [Compute](/docs/vpc?topic=vpc-profiles#compute) for intensive CPU demands |
 | 10 IOPS/GB      | [Memory](/docs/vpc?topic=vpc-profiles#memory) for memory-intensive workloads |
 {: caption="Table 3. Relationship of block storage profiles to virtual server profiles" caption-side="top"}
 

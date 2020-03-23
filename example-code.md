@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-02-25"
+lastupdated: "2020-03-23"
 
 keywords: create, VPC, API, IAM, token, permissions, endpoint, region, zone, profile, status, subnet, gateway, floating IP, delete, resource, provision
 
@@ -274,8 +274,7 @@ curl -X GET "$vpc_api_endpoint/v1/volumes/profiles?version=$api_version&generati
 ```
 {: pre}
 
-Profiles can be general-purpose (3 IOPS/GB), 5iops-tier, 10-iops-tier, and custom. See [About Block Storage for VPC](/docs/vpc?topic=vpc-block-storage-about#capacity-performance)
-for information about volume capacity and IOPS ranges based on the volume profile you select.
+Profiles can be general-purpose (3 IOPS/GB), 5iops-tier, 10-iops-tier, and custom. See [Profiles](/docs/vpc?topic=vpc-block-storage-profiles#block-storage-profiles) for information about volume capacity and IOPS ranges based on the volume profile you select.
 
 ```
 curl -X POST "$vpc_api_endpoint/v1/volumes?version=$api_version&generation=2" \

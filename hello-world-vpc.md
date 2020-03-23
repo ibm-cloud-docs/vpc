@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-03-23"
 
 keywords: vpc, cli, command line interface, tutorial, creating a vpc
 
@@ -31,7 +31,7 @@ You can create and configure an {{site.data.keyword.vpc_full}} using the {{site.
 To create and configure your virtual private cloud (VPC) and other attached resources, perform the steps in the sections that follow, in this order:
 
 1. Create a VPC and subnet to define the network.
-1. If you want to allow all resources in the subnet to communicate with the public internet, attach a public gateway. 
+1. If you want to allow all resources in the subnet to communicate with the public internet, attach a public gateway.
 1. Create a virtual server instance. By default, a 100 GB boot volume is attached to the instance.
 1. If you want more storage, create a block storage volume and attach it to your instance.
 1. To define the inbound and outbound traffic that's allowed for the instance, configure its security group.
@@ -49,7 +49,7 @@ ibmcloud login --sso -a cloud.ibm.com
  ```
 {: pre}
 
-This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After the authentication steps, you'll be prompted to choose your account. If you have access to multiple users, select the user you want to log in as. 
+This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After the authentication steps, you'll be prompted to choose your account. If you have access to multiple users, select the user you want to log in as.
 
 When you are prompted to select a region, select us-south.
 
@@ -95,9 +95,9 @@ ibmcloud is vpc-address-prefixes $vpc
 ```
 {: pre}
 
-Let's pick the default address prefix for the us-south-3 zone. From the command output, note the CIDR block of the address prefix. When you create a subnet, you must specify an IP range that's within one of the address prefixes of the selected zone. 
+Let's pick the default address prefix for the `us-south-3` zone. From the command output, note the CIDR block of the address prefix. When you create a subnet, you must specify an IP range that's within one of the address prefixes of the selected zone.
 
-A subnet cannot be resized after it is created. 
+A subnet cannot be resized after it is created.
 {: important}
 
 ```
@@ -122,7 +122,7 @@ ibmcloud is subnet $subnet
 ## Attach a public gateway
 {: #attach-public-gateway-cli}
 
-Attach a public gateway to the subnet if you want to allow all attached resources to communicate with the public internet. 
+Attach a public gateway to the subnet if you want to allow all attached resources to communicate with the public internet.
 
 To create a public gateway, run the following command:
 
@@ -144,7 +144,7 @@ ibmcloud is subnet-update $subnet --public-gateway-id $gateway
 ```
 {: pre}
 
-Only one public gateway per zone is allowed in a VPC, but that public gateway can be attached to multiple subnets in the zone. To find the public gateway for a zone, run the 'ibmcloud is public-gateways` command and look for the particular VPC and Zone values.
+Only one public gateway per zone is allowed in a VPC, but that public gateway can be attached to multiple subnets in the zone. To find the public gateway for a zone, run the `ibmcloud is public-gateways` command and look for the particular VPC and Zone values.
 {: tip}
 
 ## Add an SSH key
@@ -233,7 +233,7 @@ nic="0738-4d9b3a58-f796-4e6a-b5ac-84f4216e9b68-glhvl"
 ## Create a block storage data volume
 {: #create-block-storage-data-volume-cli}
 
-You can create a block storage volume and attach it to your virtual server instance if you want more storage. When you create a block storage volume, you select a profile to optimize the performance of your compute workloads. See [About Block Storage for VPC](/docs/vpc?topic=vpc-block-storage-about#capacity-performance) for information about volume capacity and IOPS ranges based on the volume profile you select.  
+You can create a block storage volume and attach it to your virtual server instance if you want more storage. When you create a block storage volume, you select a profile to optimize the performance of your compute workloads. See [Profiles](/docs/vpc?topic=vpc-block-storage-profiles#block-storage-profiles) for information about volume capacity and IOPS ranges based on the volume profile you select.  
 
 To see a list of volume profiles, run:
 
@@ -346,11 +346,51 @@ SSH access into the instance might be prevented by security groups. Make sure th
 To connect to a Windows image, log in using its decrypted password. For instructions, see [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
 
 ## Monitoring your instance
-{: #monitoring-your-instance-cli-tutorial} 
+{: #monitoring-your-instance-cli-tutorial}
 
 You can monitor the CPU, volume, memory, and network usage of your instance over time in the {{site.data.keyword.cloud_notm}} console. Because the monitoring data is stored in {{site.data.keyword.monitoringlong_notm}}, you must be authenticated to an instance of the Monitoring service in your account. For more information, see [Monitoring your instances](/docs/vpc?topic=vpc-monitoring).
+
+## Create a VPN gateway
+{: #create-a-vpn-gateway}
+
+Create a VPN gateway on the subnet if you want to securely connect your VPC to another private network.
+
+To create a VPN gateway, run the following command:
+
+```
+ibmcloud is vpn-gateway-create my-vpn-gateway $subnet
+```
+{: pre}
+
+From the output that's returned, save the ID of the VPN gateway in a variable so you can use it later, for example:
+
+```
+vpn_gateway="0757-7e91085b-dc11-4707-aa4d-66e735e9a2bc"
+```
+{:pre}
+
+The status of the VPN gateway is `pending` when it's first created. Before you can proceed, the VPN gateway needs to move to the `available` status, which takes a few minutes. To check the status of the VPN gateway, run this command:
+
+```
+ibmcloud is vpn-gateway $vpn_gateway
+```
+{: pre}
+
+To create a VPN connection on the VPN gateway to peer address `169.61.161.150` and pre-shared key `mykey`, run the following command:
+
+```
+ibmcloud is vpn-gateway-connection-create my-vpn-conn $vpn_gateway 169.61.161.150 mykey
+```
+{: pre}
+
+The status of the VPN connection is `down` when it is first created and becomes `up` after the connection is established. To check the status of VPN connections on a VPN gateway, run this command:
+
+```
+ibmcloud is vpn-gateway-connections $vpn_gateway
+```
+{: pre}
 
 ## Congratulations!
 {: #congratulations-cli-tutorials}
 
-You've successfully created and configured your VPC using the {{site.data.keyword.cloud_notm}} CLI. To try out more CLI commands, see the [CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#cli-reference).
+You've successfully created and configured your VPC using the {{site.data.keyword.cloud_notm}} CLI. To try out more CLI commands, see the [CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpc-reference).
