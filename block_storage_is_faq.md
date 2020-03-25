@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-23"
+lastupdated: "2020-03-25"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, IOPS, FAQ
 
@@ -13,6 +13,7 @@ subcollection: vpc
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:support: data-reuse='support'}
+{:external: target="_blank" .external}
 
 # FAQs for block storage
 {: #block-storage-vpc-faq}
@@ -123,7 +124,7 @@ Block Storage for VPC secures your data across redundant fault zones in your reg
 {: faq}
 {: #faq-block-storage-13}
 
-You can provision up to 750 block storage volumes per account in a region.
+You can provision up to 300 block storage volumes per account in a region. You can request your quota to be increased by opening a [support case](https://cloud.ibm.com/unifiedsupport/cases/form){: external}.
 
 ## What strategy can I use to manage {{site.data.keyword.block_storage_is_short}} volumes?
 {: faq}
