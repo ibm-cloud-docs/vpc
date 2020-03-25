@@ -83,7 +83,7 @@ To increase a quota for a particular resource, [contact support](/docs/get-suppo
 
 |Resource|Quota| 
 |--------|-----| 
-| Boot and secondary volumes | 750 total volumes per account in a region |  
+| Boot and secondary volumes | 300 total volumes per account in a region |  
 {: caption="Table 5. Quotas for block storage volumes" caption-side="top"}
 
 ### VPNs
