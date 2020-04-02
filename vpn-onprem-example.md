@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2020
 lastupdated: "2020-02-14"
 
-keywords: peering, Vyatta, StrongSwan, FortiGate, Cisco, ASAv, Juniper, vSRX, Check Point, checkpoint, connection, secure, remote, vpc, vpc network, vpn
+keywords: peering, Vyatta, StrongSwan, FortiGate, Cisco, ASAv, Juniper, vSRX, connection, secure, remote, vpc, vpc network, vpn
 
 subcollection: vpc
 
@@ -41,9 +41,6 @@ You can use VPN for VPC to securely connect your VPC to an on-premises network t
 For the Internet Key Exchange (IKE) and IPsec security parameters, select **Auto** so the cloud gateway uses auto-negotiation to automatically establish the connection with the on-premises gateway.
 
 If you create a connection to a Juniper VPN, you must create a custom [IPsec](#custom-ipsec-policy-with-vsrx) policy instead of the default auto-negotiation. 
-{: important}
-
-If you create a connection to a Check Point Security Gateway, you must create a custom [IKE](#custom-ike-policy-with-cp) and [IPsec](#custom-ipsec-policy-with-cp) policy instead of the default auto-negotiation. 
 {: important}
 
 If you have multiple subnets either on IBM VPC or your on-premises network, and your on-premises VPN device is Cisco ASAv with IKEv2, you must create one VPN connection per one subnet pair on IBM VPN gateway because Cisco ASAv creates a new SA per subnet pair.
@@ -618,61 +615,6 @@ zone public {
 }
 ```
 {: codeblock}
-
-### Check Point Security Gateway configuration
-{: #Check-Point-config}
-
-These instructions are based on Check Point Security Gateway, Software Release [R80.10]. Because Check Point Security Gateway uses IKEv1 by default, you must create a custom IKE and IPsec policy to replace the default policy for the VPN in your VPC. 
-
-To support these functions, the following general configuration steps must be performed on the Check Point Security Gateway:
-
-Use the following configuration:
-1. Configure the Security Gateways that are internally managed
-  * Go to **SmartConsole\>Securitys & Services**, click the name of Security Gateway, the Security Gateway configuration page is opened.
-  * Go to **Network Management** page, define the Topology.
-  * Go to the **Network Management \> VPN Domain** page, define the VPN Domain.
-2. Create an `Interoperable Device` on the Check Point SmartConsole
-  * Go to Object Explorer click **New \> Network Object \> More \> Interoperable Device**, the new interoperable page is opened.
-  * to **General Properties** page, enter IBM VPN gateway name and public IP address.
-  * Go to **Topology page**, add IBM VPN gateway public IP address and IBM VPC subnets. The IBM VPN public IP address should be added as external network with netmask `255.255.255.255`. The IBM VPC subnets should be added as internal network.
-3. Add VPN Community, below instructions are based on that a `Star Community` was chosen, but a `Meshed Community` is an option as well.
-  * Go to **SmartConsole \> Security Policies \> Access Tools \> VPN Communities**, click `Star Community`, the new VPN community page is open.
-  * Enter the new Community name.
-  * Go to **Gateways \> Center Gateways** page, click the `+` icon and add Check Point Security Gateway.
-  * Go to **Gateways \> Satellite Gateways** page, click the `+` icon and add the IBM VPN gateway.
-  * Go to **Encryption** page, use default `Encryption Method` and `Encryption Suite`.
-  * Go to **Tunnel Management** page, select `One VPN tunnel per subnet pair`.
-  * Go to **Shared Secret page**, set the pre-share key.
-  * Click OK and publish the changes
-4. Add relevant access rules in the Security Policy
-  * Add the Community in the VPN column, the services in the Service & Applications column, the desired Action, and the appropriate Track option.
-  * Install the Access Control Policy.
-
-#### Creating a custom IKE policy for Check Point Security Gateway
-{: #custom-ike-policy-with-cp}
-
-By default, Check Point Security Gateway uses IKEv1, therefore, you must create a custom IKE policy to replace the default policy for the VPN in your VPC.
-
-To use a custom IKE policy in VPN for VPC:
-1. On the VPN for VPC page in the IBM Cloud console, select the **IKE policies** tab.
-2. Click **New IKE policy** and specify the following values:
-  * For the **IKE Version** field, select **1**.
-  * For the **Authentication** field, select **sha1**.
-  * For the **Encryption** field, select **aes256**.
-  * For the **DH Group** field, select **2**.
-  * For the **Key lifetime** field, specify **86400**.
-3. When you create the VPN connection in your VPC, select this custom IKE policy.
-
-#### Creating a custom IPsec policy for Check Point Security Gateway
-{: #custom-ipsec-policy-with-cp}
-
-To use a custom IPsec policy in VPN for VPC:
-1. On the VPN for VPC page in the IBM Cloud console, select the **IPsec policies** tab.
-2. Click **New IPsec policy** and specify the following values:
-  * For the **Authentication** field, select **sha1**.
-  * For the **Encryption** field, select **aes128**.
-  * For the **Key lifetime** field, specify **3600**.
-3. When you create the VPN connection in your VPC, select this custom IPsec policy.
 
 ## Check the status of the secure connection
 {: #check-connection-status}

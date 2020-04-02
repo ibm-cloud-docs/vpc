@@ -25,7 +25,7 @@ subcollection: vpc
 {:DomainName: data-hd-keyref="DomainName"}
 {:external: target="_blank" .external}
 
-# Using VPN 
+# Using VPN
 {: #using-vpn}
 [comment]: # (linked help topic)
 
@@ -372,7 +372,6 @@ Sample output:
 If you configure access control lists (ACLs) on the subnet in which the VPN gateway is deployed, make sure that the following rules are in place to allow management traffic and VPN tunnel traffic:
 
 * **Inbound rules**
-    - Allow protocol TCP source port 9091
     - Allow protocol TCP source port 10514
     - Allow protocol TCP source port 443
     - Allow protocol TCP source port 80
@@ -439,7 +438,9 @@ To set up access to a service endpoint:
 ## Limitations
 {: #vpn-limitations}
 
-The VPN gateway resides in the zone associated with the subnet that you chose during provisioning. The VPN gateway serves only the virtual server instances in the same zone of the VPC. Therefore, instances in other zones can't use the VPN gateway to communicate with an on-premises private network. For zone fault tolerance, you must deploy one VPN gateway per zone.
+* The VPN gateway resides in the zone associated with the subnet that you chose during provisioning. The VPN gateway serves only the virtual server instances in the same zone of the VPC. Therefore, instances in other zones can't use the VPN gateway to communicate with an on-premises private network. For zone fault tolerance, you must deploy one VPN gateway per zone.
+
+* IBM VPN gateway on VPC accepts VPN packets with [NAT-Traversal Encapsulation](https://tools.ietf.org/html/rfc3947) only. The [IP Encapsulating Security Payload(ESP)](https://tools.ietf.org/html/rfc4303) is not accepted. Make sure the NAT-T feature is enabled on your on-premises VPN device.
 
 ## FAQs
 {: #vpn-faq}

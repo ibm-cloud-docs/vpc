@@ -208,7 +208,7 @@ For all incoming HTTPS connections, the load balancer service terminates the SSL
 
 An SSL certificate is required for the load balancer to perform SSL offloading tasks. You can manage the SSL certificates through [IBM Certificate Manager](/docs/services/certificate-manager?topic=certificate-manager-getting-started).
 
-To give a load balancer access to your SSL certificate, you must enable **service-to-service authorization**, which grants your load balancer service instance access to your certificate manager instance. For more information, see [Granting access between services](/docs/iam?topic=iam-serviceauth#create-auth). Make sure to choose **VPC Infrastructure** as the source service, **Load Balancer for VPC** as the resource type, **Certificate Manager** as the target service, and assign the **Writer** service access role.
+To give a load balancer access to your SSL certificate, you must enable **service-to-service authorization**, which grants your load balancer service instance access to your certificate manager instance. For more information, see [Granting access between services](/docs/iam?topic=iam-serviceauth#create-auth). Make sure to choose **Infrastructure Service** as the source service, **Load Balancer for VPC** as the resource type, **Certificate Manager** as the target service, and assign the **Writer** service access role.
 
 If the required authorization is removed, errors might occur for your load balancer.
 {: important}
@@ -223,22 +223,22 @@ Load Balancer for VPC supports Multi-Zone-Regions (MZRs). High availability and 
 
 The following advanced traffic management features are available.
 
-## Max connections
+### Max connections
 {: #max-connections}
 
 Use the ‘max connections’ configuration to limit the maximum number of concurrent connections for a given front-end virtual port. By default, no limit is specified. The maximum possible concurrent connections for a given front-end virtual port or system-wide across all front-end virtual ports is `15000`.
 
-## Session persistence
+### Session persistence
 {: #session-persistence}
 
 The load balancer supports session persistence based upon the source IP of the connection. As an example, if you have `source IP` type session persistence enabled for port 80 (HTTP), then subsequent HTTP connection attempts from the same source IP client are persistent on the same back-end server. This feature is available for all three supported protocols (HTTP, HTTPS and TCP).
 
-## HTTP keep alive
+### HTTP keep alive
 {: #http-keep-alive}
 
 The load balancer supports `HTTP keep alive` as long as it is enabled on both the client and back-end servers. The load balancer attempts to re-use the server-side HTTP connections to increase connection efficiency and reduce latency.
 
-## Connection timeouts
+### Connection timeouts
 {: #connection-timeouts}
 
 The following timeout values are used by the load balancer. You cannot customize these values at this time.
@@ -250,7 +250,7 @@ The following timeout values are used by the load balancer. You cannot customize
 | Server-side idle connection | The maximum idle time (with back-end protocol configuration of TCP), after which the load balancer closes the server-side connection. With the back-end protocol configuration of HTTP, if the load balancer fails to receive a response to its HTTP request within the idle timeout window, it will return an error message to the end-client.                                | 50 seconds |
 {: caption="Table 1. Load Balancer Timeout Values" caption-side="top"}
 
-## Preserving end-client IP address
+### Preserving end-client IP address
 {: #preserving-end-client-ip-address}
 
 Load Balancer for VPC works as a reverse proxy, which terminates incoming traffic from the client. The load balancer establishes a separate connection to the back-end server instance, using its own IP address. For HTTP connections with the backend servers (against front-end HTTP or HTTPS connections), the load balancer preserves the original client IP address by including it inside the `X-Forwarded-For HTTP` header. For TCP connections, the original client IP information is not preserved.
@@ -289,7 +289,7 @@ Table 6 provides information for configuring resource access policies for users.
 2. Select the name of the user to whom you want to assign an access policy. If the user is not shown, click **Invite users** to add the user to your IBM Cloud account.
 3. Select **Assign access**.
 4. Select **Assign access to resources**.
-5. From the **Services** list, select **VPC Infrastructure**.
+5. From the **Services** list, select **Infrastructure Service**.
 6. From the **Resource type** list, select **Load Balancer for VPC**.
 7. From the **Load Balancer ID** list, select a Load Balancer instance ID, or use the default value, **All load balancers**.
 8. Assign a platform access role to the user.
@@ -885,14 +885,12 @@ Refer to the [Health Checks](#health-checks) section for additional information.
 Load Balancer for VPC supports TLS 1.2 with SSL termination.
 
 The following ciphers are supported (listed in order of precedence):
-* ECDHE-RSA-AES256-GCM-SHA384
-* ECDHE-RSA-AES256-SHA384
-* AES256-GCM-SHA384
-* AES256-SHA256
-* ECDHE-RSA-AES128-GCM-SHA256
-* ECDHE-RSA-AES128-SHA256
-* AES128-GCM-SHA256
-* AES128-SHA256
+* TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+* TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+* TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+* TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+* TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 
 ### What are the default settings and allowed values for health check parameters?
 {: #what-are-the-default-settings-and-allowed-values-for-health-check-parameters}
