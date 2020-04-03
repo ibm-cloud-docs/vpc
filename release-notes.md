@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-02"
+lastupdated: "2020-04-03"
 
 keywords: vpc release notes, changes, updates, vpc
 
@@ -25,6 +25,12 @@ subcollection: vpc
 
 Use these release notes to learn about the latest changes to {{site.data.keyword.vpc_full}}.
 {:shortdesc}
+
+## 27 March 2020
+{: #mar-27-2020}
+
+- **{{site.data.keyword.mon_full_notm}} monitoring** You can now monitor virtual server instances using {{site.data.keyword.mon_full_notm}}. Use the new **Add monitoring** button on the instance's **Monitoring** page to provision an instance of the monitoring service. If a monitoring instance is already provisioned for the region, use the **Launch monitoring** button to view metrics associated with the instance. For more information, see [Sysdig monitoring metrics](/docs/vpc?topic=virtual-servers-sysdig-monitoring-metrics). 
+- **Updated styling** VPC pages in {{site.data.keyword.IBM_notm}} console now use [Carbon 10](https://www.carbondesignsystem.com/){: external}, IBM's open-source design system, which improves consistency and quality.
 
 ## 02 March 2020
 {: #mar-02-2020}
