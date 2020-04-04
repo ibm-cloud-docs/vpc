@@ -31,7 +31,7 @@ You can use VPN for VPC to securely connect your VPC to an on-premises network t
 ## Creating the VPN for VPC gateway and connection
 {: #create-vpc-vpn-gateway}
 
-[Create a VPN gateway in your VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#vpn) and create a VPN connection between the VPC and the peer gateway of the on-premises network by specifying the following information.
+[Create a VPN gateway in your VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#vpn-ui) and create a VPN connection between the VPC and the peer gateway of the on-premises network by specifying the following information.
 * **Connection name**: Enter a name for the connection, such as `onprem-connection`.
 * **Peer gateway address**: Specify the IP address of the VPN gateway for the on-premises network.
 * **Preshared key**: Specify the authentication key of the VPN gateway for the on-premises network.
@@ -40,7 +40,7 @@ You can use VPN for VPC to securely connect your VPC to an on-premises network t
 
 For the Internet Key Exchange (IKE) and IPsec security parameters, select **Auto** so the cloud gateway uses auto-negotiation to automatically establish the connection with the on-premises gateway.
 
-If you create a connection to a Juniper VPN, you must create a custom [IPsec](#custom-ipsec-policy-with-vsrx) policy instead of the default auto-negotiation. 
+If you create a connection to a Juniper VPN, you must create a custom [IPsec](#custom-ipsec-policy-with-vsrx) policy instead of the default auto-negotiation.
 {: important}
 
 If you have multiple subnets either on IBM VPC or your on-premises network, and your on-premises VPN device is Cisco ASAv with IKEv2, you must create one VPN connection per one subnet pair on IBM VPN gateway because Cisco ASAv creates a new SA per subnet pair.
@@ -400,19 +400,19 @@ To set up your remote Vyatta peer, make sure that the following prerequisites ar
 * The Vyatta public IP address
 * The Vyatta subnet that you want to connect using a VPN
 
-#### Configuring the Vyatta 
+#### Configuring the Vyatta
 {: #configure-vyatta-peer}
 
 There are two ways you can run the configuration on your Vyatta:
 
 1. Log in to the Vyatta and run the file `create_vpn.vcli` using the commands that follow.
-2. Run the following commands in the Vyatta console. 
+2. Run the following commands in the Vyatta console.
 
 Remember to:
 * Choose `IKEv2` in authentication
-* Enable `DH-group 2` 
-* Set `lifetime = 36000` 
-* Disable PFS 
+* Enable `DH-group 2`
+* Set `lifetime = 36000`
+* Disable PFS
 * Set `lifetime = 18000`  
 
 The following commands use the following variables where:
@@ -433,7 +433,7 @@ set security vpn ipsec ike-group {{ peer_address }}_{{ ike["name"] }} lifetime {
 set security vpn ipsec ike-group {{ peer_address }}_{{ ike["name"] }} ike-version {{ ike["version"] }}
 
 set security vpn ipsec ike-group {{ peer_address }}_{{ ike["name"] }} proposal {{ loop.index }}
-set security vpn ipsec ike-group {{ peer_address }}_{{ ike["name"] }} proposal {{ loop.index }} dh-group {{ proposal["dhgroup"] }} 
+set security vpn ipsec ike-group {{ peer_address }}_{{ ike["name"] }} proposal {{ loop.index }} dh-group {{ proposal["dhgroup"] }}
 set security vpn ipsec ike-group {{ peer_address }}_{{ ike["name"] }} proposal {{ loop.index }} encryption {{ proposal["encryption"] }}
 set security vpn ipsec ike-group {{ peer_address }}_{{ ike["name"] }} proposal {{ loop.index }} hash {{ proposal["integrity"] }}
 
@@ -476,7 +476,7 @@ set security vpn ipsec ike-group 169.61.247.167_test_ike lifetime 36000
 set security vpn ipsec ike-group 169.61.247.167_test_ike ike-version 2
 
 set security vpn ipsec ike-group 169.61.247.167_test_ike proposal 1
-set security vpn ipsec ike-group 169.61.247.167_test_ike proposal 1 dh-group 2 
+set security vpn ipsec ike-group 169.61.247.167_test_ike proposal 1 dh-group 2
 set security vpn ipsec ike-group 169.61.247.167_test_ike proposal 1 encryption aes256
 set security vpn ipsec ike-group 169.61.247.167_test_ike proposal 1 hash sha2_256
 set security vpn ipsec esp-group 169.61.247.167_test_ipsec compression disable
@@ -499,8 +499,8 @@ set security vpn ipsec site-to-site peer 169.61.247.167 authentication remote-id
 
 set security vpn ipsec site-to-site peer 169.61.247.167 tunnel 1 local prefix 10.65.15.104/29
 set security vpn ipsec site-to-site peer 169.61.247.167 tunnel 1 remote prefix 10.240.0.0/24
-    
-    
+
+
 commit
 end_configure
 
@@ -521,7 +521,7 @@ Remember to:
 Allow IKE and ESP traffic for IPsec:
 
 ```
-# set rule 100 action 'accept' 
+# set rule 100 action 'accept'
 # set rule 100 destination port '500'
 # set rule 100 protocol 'udp'
 # set rule 200 action 'accept'
@@ -622,4 +622,3 @@ zone public {
 You can check the status of your connection in the {{site.data.keyword.cloud_notm}} console. On the VPN for VPC page, select your VPN gateway and click **Connections** from the navigation pane on the left side of the page.
 
 You can also test the connection by doing a ping from a virtual server instance in your VPC to a server in the on-premises network.
-
