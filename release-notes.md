@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-03"
+lastupdated: "2020-03-05"
 
 keywords: vpc release notes, changes, updates, vpc
 
@@ -26,6 +26,18 @@ subcollection: vpc
 Use these release notes to learn about the latest changes to {{site.data.keyword.vpc_full}}.
 {:shortdesc}
 
+<!--## 09 March 2020
+{: #mar-09-2020}
+
+- **IBM Virtual Servers for VPC on POWER:** POWER-based instances are now generally available. For more information, see the following resources:
+  * [IBM Cloud Virtual Private Cloud on POWER](https://developer.ibm.com/linuxonpower/power-virtual-private-cloud/){: external}  
+  * [Profiles](/docs/vpc?topic=vpc-profiles)-->
+  
+## 03 April 2020
+{: #apr-03-2020}
+
+- **Load Balancer for VPC Update** You can now access load balancer monitoring metrics (throughput, active connections, connection rate) using [IBM Cloud Monitoring with Sysdig](/docs/vpc?topic=vpc-monitoring-metrics-sysdig).
+
 ## 27 March 2020
 {: #mar-27-2020}
 
@@ -39,16 +51,22 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 - **UI enhancement** There is a new public gateway details page. For more information about public gateways, see [external connectivity](/docs/vpc?topic=vpc-about-networking-for-vpc#external-connectivity).
 
 ## 14 February 2020
+{: #feb-14-2020}
 
 The following VPC network services are now generally available:
 
 - **Virtual Private Network (VPN)**: Use VPN to set up an IPsec site-to-site tunnel between your VPC and your on-premises private network or another VPC. For details, see [Using VPN](/docs/vpc?topic=vpc-using-vpn).
 - **Load balancers**: Create public and private load balancers to distribute traffic among multiple server instances within the same region of your VPC. For details, see [Using load balancers](/docs/vpc?topic=vpc-load-balancers). 
 
+
 ## 13 February 2020
+{: #feb-13-2020}
+
 - **Red Hat Enterprise Linux (RHEL) and Windows stock images are now available** You can provision an instance that uses a RHEL image or a Windows image in the Dallas region. For more information, see [Images](/docs/vpc?topic=vpc-about-images).
 
 ## 10 February 2020
+{: #feb-10-2020}
+
 - **API change notification:**  We have temporarily suspended API support for creating new instances from an existing boot volume. For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-log).
 
 ## 03 February 2020
@@ -57,7 +75,6 @@ The following VPC network services are now generally available:
 - **IBM Virtual Servers for VPC on POWER (Beta):** No sign-up necessary. The beta is now open to anyone interested. For more information, see the following resources:
   * [IBM Cloud Virtual Private Cloud on POWER](https://developer.ibm.com/linuxonpower/power-virtual-private-cloud/){: external}  
   * [Profiles](/docs/vpc?topic=vpc-profiles)
-  * [Pricing for Virtual Servers for VPC](/docs/vpc?topic=vpc-pricing-for-vpc#pricing-for-virtual-servers-for-vpc)
 - **Red Hat Enterprise Linux (RHEL) and Windows stock images are now available** You can provision an instance that uses a RHEL image or a Windows image in the Washington DC region. For more information, see [Images](/docs/vpc?topic=vpc-about-images).
 - **UI enhancement** The modals for provisioning and attaching a public gateway, as well as, the modal for creating an SSH key are now replaced with an easier side pane design.
 
