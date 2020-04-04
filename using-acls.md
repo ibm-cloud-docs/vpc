@@ -43,7 +43,7 @@ To make your ACLs effective, create rules that determine how to handle your inbo
 * ACL rules are prioritized and considered in sequence. Higher priority rules are evaluated first and override lower priority rules.
 * Inbound rules are separated from outbound rules.
 
-For information about using ICMP, TCP, and UDP protocols in your ACL rules, see [Understanding internet communication protocols](/docs/vpc?topic=vpc-understanding-icp).
+For information about using ICMP, TCP, and UDP protocols in your ACL rules, see [Understanding internet communication protocols](/docs/vpc?topic=vpc-understanding-icp#understanding-icp).
 
 ### Attaching an ACL to a subnet
 {: #attaching-an-acl-to-a-subnet}
