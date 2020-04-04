@@ -41,14 +41,14 @@ These metrics help track the traffic and usage patterns for your load balancers 
 Each metric is composed of the following metadata types:
 
 * Metric name - The name for the collected metric.
-* Metric type - Metric type determines whether the metric value is a counter metric or a gauge metric. Each of these metrics is of the type `gauge`, which represents a single numerical value that can arbitrarily fluctuate over time. 
+* Metric type - Metric type determines whether the metric value is a counter metric or a gauge metric. Each of these metrics is of the type `gauge`, which represents a single numerical value that can arbitrarily fluctuate over time.
 * Value type - A unit of measurement for a specific metric. Examples include bytes or counts. A value type of `none` means that the metric value represents individual occurrences of that metric type.
 * Segment - How you want Sysdig to divide and display the monitoring metrics.
 
 ### Active connections
 {: #ibm_is_load_balancer_active_connections}
 
-_Active connections_ are the number of connections established on a load balancer at a specific time. 
+_Active connections_ are the number of connections established on a load balancer at a specific time.
 
 The active connection metric contains the following metadata:
 
@@ -93,7 +93,7 @@ _Throughput_ is the amount of data that passes in and out of a load balancer ove
 
 You can split the data that Sysdig presents into various visualizations in the Sysdig dashboard, allowing views of different metrics based on your preferences. For example, if you have multiple load balancers or accounts with different load balancers in each account, you might want to focus on a particular listener port.
 
-As an example, you can segment the `active connections` by `IBM Load Balancer for VPC listener port` to show how many active users are connected to the load balancer through each listener type. To illustrate this, let's assume that your load balancer has two different listener protocols one HTTP on port 80 and another for TCP on port 8080. The dashboard would contain different lines showing 10 users who are connected through HTTP on Port 80 in one color, and 6 users connected through TCP on port 8080 in another color. 
+As an example, you can segment the `active connections` by `IBM Load Balancer for VPC listener port` to show how many active users are connected to the load balancer through each listener type. To illustrate this, let's assume that your load balancer has two different listener protocols one HTTP on port 80 and another for TCP on port 8080. The dashboard would contain different lines showing 10 users who are connected through HTTP on Port 80 in one color, and 6 users connected through TCP on port 8080 in another color.
 
 ### Global attributes
 {: global-attributes}
@@ -151,7 +151,7 @@ To do so, follow these steps:
 
 2. Select a region for your Sysdig instance.
 
-  If you do not have an existing load balancer, see [Using an IBM Load Balancer for VPC for server load balancing](INSERT LINK FOR VPC CREATE LOAD BALANCER) to provision one.
+  If you do not have an existing load balancer, see [Using an IBM Load Balancer for VPC for server load balancing](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#load-balancer) to provision one.
   {: tip}
 
   The region must match the location of your existing load balancer.
@@ -193,7 +193,7 @@ To view and work with your Sysdig metrics, follow these steps:
 
 3. Select **Dashboards** on the left sidebar to open the IBM Load Balancer Monitoring Metrics dashboard. Then, click **Default Dashboards > IBM > Load Balancer Monitoring Metrics**. The default dashboard is not editable.
 
-4. Three main metrics in the dashboard are shown: Throughput, Active Connections, and Connection Rate. To modify parameters and segment your metrics by load balancer ID or listener port, you must create a custom dashboard. 
+4. Three main metrics in the dashboard are shown: Throughput, Active Connections, and Connection Rate. To modify parameters and segment your metrics by load balancer ID or listener port, you must create a custom dashboard.
 
   ![Sysdig dashboard](images/metrics_3.png "Sysdig dashboard")
 
