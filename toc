@@ -96,7 +96,13 @@ Virtual Private Cloud
 
     {: .topicgroup}
     Load balancers
-        using-lbaas.md
+        lb-overview.md
+        lb-adv-traffic-mgmt.md
+        lb-layer-7-policies-rules.md
+        lb-iam.md
+        lb-activity-tracker.md
+        lb-monitoring-metrics.md
+        lb-api.md
 
     {: .topicgroup}
     VPNs
@@ -128,7 +134,7 @@ Virtual Private Cloud
     VPC CLI reference
         /vpc-infrastructure-cli-plugin/vpc-infrastructure-cli-plugin-vpc-reference
         /vpc-infrastructure-cli-plugin/vpc-infrastructure-cli-plugin-vpc-cli-rn
-    
+
     {: .topicgroup}
     VPC API reference
         [VPC API reference](https://{DomainName}/apidocs/vpc)
@@ -152,6 +158,7 @@ Virtual Private Cloud
     {: .topicgroup}
     FAQs
         faq-vpc.md
+        lb-faqs.md
         faq-vsi.md
         block_storage_is_faq.md
 
