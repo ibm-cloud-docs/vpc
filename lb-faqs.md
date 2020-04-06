@@ -57,7 +57,7 @@ Yes. The load balancer automatically adjusts its capacity based on the load. Whe
 
 Make sure that the proper ACL rules are in place to allow incoming traffic for configured listener ports and management ports. Traffic between the load balancer and back-end instances should also be allowed.
 
-For detailed information on the ACLs configuration required, refer to [Configuring ACLs for use with load balancers](#acls-lb).
+For detailed information on the ACLs configuration required, refer to [Configuring ACLs for use with load balancers](/docs/vpc?topic=vpc-load-balancers#configuring-acls-for-use-with-load-balancers).
 
 ## Why am I receiving an error message: `certificate instance not found`?
 {: #error-certificate-instance-not-found}
