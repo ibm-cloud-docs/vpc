@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-04-02"
+lastupdated: "2020-04-07"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, layer-7
 
@@ -26,7 +26,7 @@ subcollection: vpc
 # FAQs for load balancers
 {: #load-balancer-faqs}
 
-This section contains answers to some frequently asked questions about the Load Balancer for VPC service.
+This section contains answers to some frequently asked questions about the {{site.data.keyword.cloud}} Load Balancer for VPC service.
 
 ## Can I use a different DNS name for my load balancer?
 {: #can-i-use-a-different-dns-name-for-my-load-balancer}
@@ -113,20 +113,6 @@ Verify the following configurations:
 * Is the back-end server a virtual server with an enabled security group? If so, ensure that the security group rules allow traffic between the load balancer and the virtual server.
 
 Refer to the [Health Checks](#health-checks) section for additional information.
-
-## Which TLS version is supported with SSL offload?
-{: #which-tls-version-is-supported-with-ssl-offload}
-{: faq}
-
-Load Balancer for VPC supports TLS 1.2 with SSL termination.
-
-The following ciphers are supported (listed in order of precedence):
-* TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-* TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-* TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
-* TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-* TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 
 ## What are the default settings and allowed values for health check parameters?
 {: #what-are-the-default-settings-and-allowed-values-for-health-check-parameters}

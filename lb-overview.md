@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-04-02"
+lastupdated: "2020-04-07"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, layer-7
 
@@ -141,6 +141,15 @@ To give a load balancer access to your SSL certificate, you must enable **servic
 If the required authorization is removed, errors might occur for your load balancer.
 {: important}
 
+Only TLS 1.2 is supported. The following list details the supported ciphers (listed in order of precedence):
+
+* TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+* TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+* TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+* TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+* TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+
 ## Configuring ACLs for use with load balancers
 {: #configuring-acls-for-use-with-load-balancers}
 
@@ -160,4 +169,4 @@ Additionally, if a load balancer has listeners configured, then the correspondin
 ## MZR support
 {: #mzr-support}
 
-Load Balancer for VPC supports Multi-Zone-Regions (MZRs). High availability and redundancy can be achieved by deploying a load balancer with subnets from different zones. When subnets from multiple zones are used to provision a load balancer, the load balancer appliances get deployed to multiple zones.
+{{site.data.keyword.cloud.notm}} Load Balancer for VPC supports Multi-Zone-Regions (MZRs). You can achieve high availability and redundancy by deploying a load balancer with subnets from different zones. When subnets from multiple zones are used to provision a load balancer, the load balancer appliances get deployed to multiple zones.
