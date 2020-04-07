@@ -36,7 +36,14 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 ## 03 April 2020
 {: #apr-03-2020}
 
-- **Load Balancer for VPC Update** You can now access load balancer monitoring metrics (throughput, active connections, connection rate) using [IBM Cloud Monitoring with Sysdig](/docs/vpc?topic=vpc-monitoring-metrics-sysdig).
+- **Load Balancer for VPC Update** You can now access load balancer monitoring metrics (throughput, active connections, connection rate) using [IBM Cloud Monitoring with Sysdig](/docs/vpc?topic=vpc-monitoring-metrics-sysdig). 
+- The following cipher suites are supported for load balancer HTTPS listeners:
+    - `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
+    - `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
+    - `TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256`
+    - `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
+    - `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
+    - `TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256`
 
 ## 27 March 2020
 {: #mar-27-2020}
