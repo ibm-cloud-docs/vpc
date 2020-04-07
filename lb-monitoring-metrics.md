@@ -156,7 +156,9 @@ To do so, follow these steps:
   If you do not have an existing load balancer, see [Using an IBM Load Balancer for VPC for server load balancing](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#load-balancer) to provision one.
   {: tip}
 
-  The region must match the location of your existing load balancer.
+  ![Region](images/metrics_1.png "Region")
+
+  The region should match the location of your existing load balancer.
   {: important}
 
 3. Choose your pricing plan.
@@ -169,6 +171,8 @@ To do so, follow these steps:
   {: important}
 
 5. Optionally, select a resource group. A resource group is a way to organize account resources in customizable groupings. Any account resource that is managed by using IBM Cloud Identity and Access Management (IAM) access control belongs to a resource group within your account.
+
+   ![Resource group](images/metrics_2.png "Resource group")
 
   If you do not have any pre-configured resource groups, or no reason to share this resource selectively, use the default selection.
   {: note}
@@ -241,10 +245,10 @@ To customize your dashboard, follow these steps:
 
 To return to the default Sysdig dashboard at any time, select **Dashboards > Default Dashboards > IBM > Load Balancer Monitoring Metrics**.
 
-## Working with Sysdig via API
+## Working with Sysdig using the APIs
 {: #metric-query-api}
 
-You can also work with the Sysdig instance by using the metric query API. You might want to do this if you need raw data points or want to consume your metrics from a command-line interface rather than using the Sysdig dashboard.
+You can also work with the Sysdig instance by using the metric query APIs. You might want to do this if you need raw data points or want to consume your metrics from a command-line interface rather than using the Sysdig dashboard.
 
 After creating your IBM Cloud Monitoring Sysdig instance, you must collect the following two pieces of information.
 
@@ -300,7 +304,7 @@ To collect this information and start working with your Sysdig instance using me
             "format": {
                 "type": "data"
             },
-            "scope": "ibm_resource=\"908461\"",
+            "scope": "ibm_resource = \"cfc851b1-f30b-4a06-b354-5b64526c0a69\"",
             "metrics": {
                 "k0": "timestamp",
                 “v1”: "ibm_is_load_balancer_throughput"
