@@ -231,7 +231,7 @@ To customize your dashboard, follow these steps:
 
   * In the **Metrics** field, enter `ibm_is` to display the three IBM Sysdig load balancer metrics: `ibm_is_load_balancer_active_connections`, `ibm_is_load_balancer_connection_rate`, and `ibm_is_load_balancer_throughput`.
 
-  You can monitor listener port traffic by enabling the `ibm_cloud_load_balancer_listener_port` metric.
+  You can monitor listener port traffic by enabling the `ibm_is_load_balancer_listener_port` metric.
   {: tip}
 
   * You can choose a scope to display in your dashboard by clicking **Override Dashboard Scope**. For example, you can display the metrics for a particular load balancer.
