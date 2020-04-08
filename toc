@@ -35,6 +35,7 @@ Virtual Private Cloud
     {: .topicgroup}
     Tutorials
         /tutorials/solution-tutorials-vpc-public-app-private-backend
+        /tutorials/solution-tutorials-vpc-multi-region
         /tutorials/solution-tutorials-vpc-app-deploy
         /tutorials/solution-tutorials-vpc-secure-management-bastion-server
 
