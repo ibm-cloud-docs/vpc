@@ -48,7 +48,7 @@ To provision an IBM Cloud Activity Tracker with LogDNA instance:
 6. Choose a plan other than `lite` if you have a paid account.
 7. Click **Create**.
 
-For more information, see the [getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/services/Activity-Tracker-with-LogDNA?topic=logdnaat-getting-started#getting-started).
+For more information, see the [getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-getting-started#getting-started).
 
 Here is the sample activity tracker message for a **Create Listener** operation:
 ```bash

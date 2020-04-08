@@ -37,7 +37,7 @@ To import a custom image to {{site.data.keyword.vpc_short}}, you must have an in
 ### Creating an {{site.data.keyword.cos_full_notm}} service instance
 {: #migrate-prereq-icos-instance}
 
-If you need to create an instance of {{site.data.keyword.cos_full_notm}}, see [Getting started with {{site.data.keyword.cos_full_notm}}](/docs/services/cloud-object-storage?topic=cloud-object-storage-getting-started).
+If you need to create an instance of {{site.data.keyword.cos_full_notm}}, see [Getting started with {{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started).
 
 
 ### Granting access between services

@@ -53,7 +53,7 @@ There is no charge for traffic from your VPCs to all COS endpoints listed on thi
 ## How to connect to IBM Cloud Object Storage (COS) from a VPC
 {: #how-to-connect-to-ibm-cloud-object-storage-cos-from-a-vpc}
 
-1. Provision a COS instance. For more information, see [Getting started with Cloud Object Storage](/docs/services/cloud-object-storage?topic=cloud-object-storage-getting-started).
+1. Provision a COS instance. For more information, see [Getting started with Cloud Object Storage](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started).
 2. Create a COS bucket in one of the regions listed in the following section.
 3. Use the endpoint to communicate with your COS bucket.
 

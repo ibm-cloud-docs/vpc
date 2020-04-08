@@ -32,9 +32,9 @@ You can create your own custom image, and import it to {{site.data.keyword.vpc_f
 
 To import a custom image to {{site.data.keyword.vpc_full}}, you must have an instance of {{site.data.keyword.cos_full_notm}} available. You must also create a bucket in {{site.data.keyword.cos_full_notm}} to store your images. 
 
-1. If you don't already have an instance of {{site.data.keyword.cos_full_notm}}, see [Getting started with {{site.data.keyword.cos_full_notm}}](/docs/services/cloud-object-storage?topic=cloud-object-storage-getting-started).
+1. If you don't already have an instance of {{site.data.keyword.cos_full_notm}}, see [Getting started with {{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started).
 2. If you need to upload an image to {{site.data.keyword.cos_full_notm}}, navigate to your bucket and click **Add Objects** to 
-[upload](/docs/services/cloud-object-storage?topic=cloud-object-storage-upload) the image. You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB.
+[upload](/docs/cloud-object-storage?topic=cloud-object-storage-upload) the image. You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB.
 3. From IBM {{site.data.keyword.iamshort}} (IAM), [create an authorization](/docs/iam?topic=iam-serviceauth#serviceauth) between **VPC Infrastructure** (source service) > **Image Service for VPC** (resource type) and **Cloud Object Storage** (target service).
 4. Make sure that your image meets custom image requirements:
   - Contains a single file or volume 
@@ -89,7 +89,7 @@ environment by using the [NoCloud](https://cloudinit.readthedocs.io/en/latest/to
         * Remove the HWADDR line from `/etc/sysconfig/network-scripts/ifcfg-eth0`.
     * If you want to modify Simultaneous Multi-Threading (SMT) configuration of the POWER processor for VM performance tuning, install the latest `powerpc-util` package to get the `ppc64_cpu` command.
 
-8. Upload your image to {{site.data.keyword.cos_full_notm}}. For more information about uploading to {{site.data.keyword.cos_full_notm}}, see [Upload data](/docs/services/cloud-object-storage?topic=cloud-object-storage-upload).      
+8. Upload your image to {{site.data.keyword.cos_full_notm}}. For more information about uploading to {{site.data.keyword.cos_full_notm}}, see [Upload data](/docs/cloud-object-storage?topic=cloud-object-storage-upload).      
 
 ### Creating a Windows custom image
 {: #create-windows-custom-image}
@@ -189,7 +189,7 @@ Complete the following steps to create a Windows custom image.
      ``` 
      {: codeblock}
     
-6. Upload your image to {{site.data.keyword.cos_full_notm}}. For more information about uploading to {{site.data.keyword.cos_full_notm}}, see [Upload data](/docs/services/cloud-object-storage?topic=cloud-object-storage-upload).
+6. Upload your image to {{site.data.keyword.cos_full_notm}}. For more information about uploading to {{site.data.keyword.cos_full_notm}}, see [Upload data](/docs/cloud-object-storage?topic=cloud-object-storage-upload).
 
 ## Importing a custom image
 {: #import-custom-image}
@@ -198,7 +198,7 @@ When you import a custom image, it's private to the account where you import it.
 
 When you have an image available in {{site.data.keyword.cos_full_notm}}, you can import it to {{site.data.keyword.vpc_short}} infrastructure by using the {{site.data.keyword.cloud_notm}} console.
 
-1. Make sure that your compatible custom image is available in {{site.data.keyword.cos_full_notm}}. For more information, see [Creating a custom image](/docs/vpc?topic=vpc-managing-images#create-deployable-custom-image) and [Uploading data](/docs/services/cloud-object-storage?topic=cloud-object-storage-upload) to {{site.data.keyword.cos_full_notm}}.
+1. Make sure that your compatible custom image is available in {{site.data.keyword.cos_full_notm}}. For more information, see [Creating a custom image](/docs/vpc?topic=vpc-managing-images#create-deployable-custom-image) and [Uploading data](/docs/cloud-object-storage?topic=cloud-object-storage-upload) to {{site.data.keyword.cos_full_notm}}.
 2. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com/vpc-ext){: external}, 
 navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Custom Images**.
 3. Click **Import Custom Image**. 
