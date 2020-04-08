@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2020
-lastupdated: "2020-02-28"
+lastupdated: "2020-04-08"
 
 keywords: vpc, classic, access, classic access, VRF, peering
 
@@ -36,10 +36,9 @@ For virtual server instances and bare metal instances on the classic infrastruct
 ## Prerequisites
 {: #vpc-prerequisites}
 
-1. Your classic account must be linked to your {{site.data.keyword.cloud_notm}} account. See [Linking IBMid accounts](/docs/account?topic=account-unifyingaccounts) for instructions.
-1. Your classic account must be enabled for Virtual Router Forwarding (VRF).
-    * If you already have Direct Link on your account, you're ready.
-    * If your account is not VRF-enabled, open a ticket to request "VRF Migration" for your account. See [Converting to VRF](#vrf-conversion) to learn more about the conversion process.
+ Your classic account must be enabled for Virtual Router Forwarding (VRF).
+   * If you already have Direct Link on your account, you're ready.
+   * If your account is not VRF-enabled, open a ticket to request "VRF Migration" for your account. See [Converting to VRF](#vrf-conversion) to learn more about the conversion process.
 
 All subnets in a classic access VPC are shared into the classic infrastructure VRF, which uses IP addresses in the `10.0.0.0/8` space. To avoid IP address conflicts, don't use IP addresses in the `10.0.0.0/14`, `10.200.0.0/14`, `10.198.0.0/15`, and `10.254.0.0/16` blocks in your classic access VPC. Also, don't use addresses from your classic infrastructure subnets. To view the list of your classic infrastructure subnets, see [View all Subnets](/docs/subnets?topic=subnets-view-all-subnets).
 {: important}
@@ -100,6 +99,9 @@ Zone         | Address Prefix
 `eu-gb-1`      | `172.18.0.0/18`
 `eu-gb-2`      | `172.18.64.0/18`
 `eu-gb-3`      | `172.18.128.0/18`
+`eu-de-1`      | `172.19.0.0/18`
+`eu-de-2`      | `172.19.64.0/18`
+`eu-de-3`      | `172.19.128.0/18`
 {: caption="Table 1. Classic access VPC address prefixes by zone" caption-side="top"}
 
 To prevent address prefixes from being created, you can add the `"address_prefix_management": "manual"` parameter when you create the VPC by using the API:
