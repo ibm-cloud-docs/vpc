@@ -29,9 +29,9 @@ subcollection: vpc
 ## Overview
 {: #networking-overview}
 
-Each VPC is deployed to a single region. Within that region, the VPC can span multiple zones. 
+Each VPC is deployed to a single region. Within that region, the VPC can span multiple zones.
 
-Subnets in your VPC can connect to the public internet through an optional public gateway. You can assign floating IP addresses to any virtual server instance to enable it to be reachable from the internet, independent of whether its subnet is attached to a public gateway. 
+Subnets in your VPC can connect to the public internet through an optional public gateway. You can assign floating IP addresses to any virtual server instance to enable it to be reachable from the internet, independent of whether its subnet is attached to a public gateway.
 
 Subnets within the VPC offer private connectivity; they can talk to each other over a private link through the implicit router. Setting up routes is not necessary. Figure 1 shows how you can subdivide a Virtual Private Cloud with subnets and each subnet can reach the public internet.
 
@@ -72,13 +72,13 @@ Certain IP addresses are reserved for use by IBM when operating the VPC. Here ar
 ## External connectivity
 {: #external-connectivity}
 
-External connectivity can be achieved by using a public gateway that is attached to a subnet, or a floating IP address that is attached to a virtual server instance. Use a public gateway for source network address translation (SNAT) and a floating IP for destination network address translation (DNAT). 
+External connectivity can be achieved by using a public gateway that is attached to a subnet, or a floating IP address that is attached to a virtual server instance. Use a public gateway for source network address translation (SNAT) and a floating IP for destination network address translation (DNAT).
 
 Table 1 summarizes the differences between the options:
 
 | Public gateway | Floating IP |
 | ---- | ---- |
-| Instances can initiate connections to the internet, but they can't receive connections from the internet.| Instances can initiate or receive connections to or from the internet | 
+| Instances can initiate connections to the internet, but they can't receive connections from the internet.| Instances can initiate or receive connections to or from the internet |
 | Provides connectivity for an entire subnet | Provides connectivity for a single instance |
 {: caption="Table 1. External connectivity options" caption-side="top"}
 
@@ -87,9 +87,17 @@ For secure external connectivity, use the VPN service to connect your VPC to ano
 ### Use a Public gateway for external connectivity of a subnet
 {: #public-gateway-for-external-connectivity}
 
-A **Public Gateway** enables a subnet and all its attached virtual server instances to connect to the internet. Subnets are private by default. After a subnet is attached to the public gateway, all instances in that subnet can connect to the internet. Although each zone has only one public gateway, the public gateway can be attached to multiple subnets. 
+A **Public Gateway** enables a subnet and all its attached virtual server instances to connect to the internet. Subnets are private by default. After a subnet is attached to the public gateway, all instances in that subnet can connect to the internet. Although each zone has only one public gateway, the public gateway can be attached to multiple subnets.
 
 Public gateways use _Many-to-1 NAT_, which means that thousands of instances with private addresses use one public IP address to communicate with the public internet.
+
+The following figure summarizes the current scope of gateway services.
+
+| SNAT | DNAT | ACL | VPN |
+| ---- | ---- | --- | --- |
+| Instances can have outbound-only access to the Internet | Allow inbound connectivity from the Internet to a Private IP | Provide restricted inbound access from the Internet to instances or subnets | Site-to-Site VPN handles customers of any size, and single or multiple locations |
+| Entire subnets share the same outbound public endpoint | Provides limited access to a single private server | Restrict access inbound from Internet, based on service, protocol, or port | High throughput (up to 10 Gbps) provides customers the ability to transfer large data files securely and quickly |
+| Protects instances; Cannot initiate access to instances through the public endpoint | DNAT service can be scaled up or down, based on requirements | Stateless ACLs allow for granular control of traffic | Create secure connections with industry standard encryption |
 
 You can create only one public gateway per zone, but that public gateway can be attached to multiple subnets in the zone.
 {:tip}
