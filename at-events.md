@@ -5,7 +5,7 @@ copyright:
 
 lastupdated: "2020-03-17"
 
-keywords: activity tracker, vpc, events, logdna 
+keywords: activity tracker, vpc, events, logdna
 
 subcollection: vpc
 
@@ -159,25 +159,37 @@ The following table lists the actions that are related to VPNs and the generatio
 | vpn  | is.vpn.vpn-gateway.create   | VPN Gateway was created |
 | vpn  | is.vpn.vpn-gateway.delete   | VPN Gateway was deleted |
 | vpn  | is.vpn.vpn-gateway.update   | VPN Gateway was updated |
+| vpn  | is.vpn.vpn-gateway.read   | VPN Gateway was retrieved |
+| vpn  | is.vpn.vpn-gateway.list   | VPN Gateways were listed |
 | vpn  | is.vpn.vpn-connection.create   | VPN connection was created on VPN Gateway |
 | vpn  | is.vpn.vpn-connection.delete   | VPN connection was deleted from VPN Gateway |
 | vpn  | is.vpn.vpn-connection.update   | VPN connection was updated on VPN Gateway |
+| vpn  | is.vpn.vpn-connection.read   | VPN connection was retrieved from VPN Gateway |
+| vpn  | is.vpn.vpn-connection.list   | VPN connections were listed |
 | vpn  | is.vpn.vpn-connection_local-cidr.create   | Local subnet was created on VPN Connection |
 | vpn  | is.vpn.vpn-connection_local-cidr.delete   | Local subnet was deleted from VPN Connection |
+| vpn  | is.vpn.vpn-connection_local-cidr.read   | Local subnet was retrieved from VPN Connection |
+| vpn  | is.vpn.vpn-connection_local-cidr.list   | Local subnets were listed from VPN Connection |
 | vpn  | is.vpn.vpn-connection_peer-cidr.create   | Peer subnet was created on VPN Connection |
 | vpn  | is.vpn.vpn-connection_peer-cidr.delete   | Peer subnet was deleted from VPN Connection |
+| vpn  | is.vpn.vpn-connection_peer-cidr.read   | Peer subnet was retrieved from VPN Connection |
+| vpn  | is.vpn.vpn-connection_peer-cidr.list   | Peer subnets were listed from VPN Connection |
 | vpn  | is.vpn.ike-policy.create   | IKE policy was created |
 | vpn  | is.vpn.ike-policy.delete   | IKE policy was deleted |
 | vpn  | is.vpn.ike-policy.update   | IKE policy was updated |
+| vpn  | is.vpn.ike-policy.read   | IKE policy was retrieved |
+| vpn  | is.vpn.ike-policy.list   | IKE policies were listed |
 | vpn  | is.vpn.ipsec-policy.create   | IPsec policy was created |
 | vpn  | is.vpn.ipsec-policy.delete   | IPsec policy was deleted |
 | vpn  | is.vpn.ipsec-policy.update   | IPsec policy was updated |
+| vpn  | is.vpn.ipsec-policy.read   | IPsec policy was retrieved |
+| vpn  | is.vpn.ipsec-policy.list   | IPsec policies were listed |
 {: caption="Table 6. Actions that generate events related to VPNs" caption-side="top"}
 
 ## Supported locations
 {: #at-supported-locations}
 
-{{site.data.keyword.at_full}} support is currently available for the Dallas location. 
+{{site.data.keyword.at_full}} support is currently available for the Dallas location.
 
 ## Viewing events
 {: #at_ui}
