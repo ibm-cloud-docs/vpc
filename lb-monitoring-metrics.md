@@ -116,7 +116,7 @@ The following attributes are available to segment one or more of the global attr
 
 | Attribute | Attribute Name | Attribute Description |
 |-----------|----------------|-----------------------|
-| IBM Load Balancer for VPC appliance metrics | `ibm_is_load_balancer_appliance_ip` | The metrics coming from the load balancer backlend. Because the load balancer is highly available, multiple appliances support each load balancer for redundancy.  |
+| IBM Load Balancer for VPC appliance metrics | `ibm_is_load_balancer_appliance_ip` | The metrics coming from the load balancer backend. Because the load balancer is highly available, multiple appliances support each load balancer for redundancy.  |
 | IBM Load Balancer for VPC listener metrics | `ibm_is_load_balancer_listener_port` | The metrics that are gathered from individual listeners and their ports. Configure the listeners in your load balancer settings. The monitoring metrics reflect the metrics coming from those listeners. |
 {: caption="Table 5: Sysdig additional attributes" caption-side="top"}
 
