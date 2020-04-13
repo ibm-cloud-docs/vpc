@@ -38,6 +38,7 @@ Virtual Private Cloud
         /tutorials/solution-tutorials-vpc-multi-region
         /tutorials/solution-tutorials-vpc-app-deploy
         /tutorials/solution-tutorials-vpc-secure-management-bastion-server
+        /tutorials/solution-tutorials-computer-vision-visual-insights-schematics
 
     {: .topicgroup}
     Related links
