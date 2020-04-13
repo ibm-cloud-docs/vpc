@@ -33,6 +33,7 @@ To sign up, complete the following steps.
 
 1. Request to [join the public Slack channel](https://cloud.ibm.com/kubernetes/slack).
 2. Next, [sign in to Slack](https://ibm-cloud-success.slack.com).
+3. Finally, join our `#virtual-private-cloud` channel.
 
 ## Support tickets
 {: getting-help-tickets}
