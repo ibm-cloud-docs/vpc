@@ -9,8 +9,7 @@ Virtual Private Cloud
     getting-started.md
     [What is Virtual Private Cloud?](https://www.ibm.com/cloud/learn/vpc)
     [Architecture Center VPC Resources](https://www.ibm.com/cloud/architecture/architectures/public-cloud/resources)
-    [Pricing](https://www.ibm.com/cloud/vpc/pricing)
-   
+    
     {: .topicgroup}
     Solution tutorials
         /tutorials/solution-tutorials-vpc-public-app-private-backend
@@ -19,6 +18,7 @@ Virtual Private Cloud
         /tutorials/solution-tutorials-vpc-secure-management-bastion-server
         /tutorials/solution-tutorials-computer-vision-visual-insights-schematics
     
+    [Pricing](https://www.ibm.com/cloud/vpc/pricing)
     about-vpc.md
     quotas.md
 
