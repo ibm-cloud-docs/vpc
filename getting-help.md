@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2019-09-30"
+lastupdated: "2020-04-13"
 
 keywords: vpc, help, support
 
@@ -20,7 +20,22 @@ subcollection: vpc
 
 
 # Getting help and support
-{: #getting-help}
+{: #getting-help} 
+
+ Depending on the level of help you need, use the information below to sign up for Slack communication or open an IBM support ticket.  
+
+## Slack channel
+{: getting-help-slack}
+
+We actively monitor our Slack channel for questions about VPC infrastructure services. Join a community of customers and IBM employees where you can ask questions or discuss IBM Cloud VPC releases.
+
+To sign up, complete the following steps.
+
+1. Request to [join the public Slack channel](https://cloud.ibm.com/kubernetes/slack).
+2. Next, [sign in to Slack](https://ibm-cloud-success.slack.com).
+
+## Support tickets
+{: getting-help-tickets}
 
 For information about opening an IBM support ticket, or about support levels and ticket severities, see [Contacting support](/docs/get-support?topic=get-support-getting-customer-support).
 {:shortdesc} 
