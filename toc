@@ -8,8 +8,18 @@ Virtual Private Cloud
     {: .navgroup id="learn"}
     getting-started.md
     [What is Virtual Private Cloud?](https://www.ibm.com/cloud/learn/vpc)
-    about-vpc.md
+    [Architecture Center VPC Solutions](https://www.ibm.com/cloud/architecture/architectures/public-cloud/resources)
     [Pricing](https://www.ibm.com/cloud/vpc/pricing)
+   
+    {: .topicgroup}
+    Solution tutorials
+        /tutorials/solution-tutorials-vpc-public-app-private-backend
+        /tutorials/solution-tutorials-vpc-multi-region
+        /tutorials/solution-tutorials-vpc-app-deploy
+        /tutorials/solution-tutorials-vpc-secure-management-bastion-server
+        /tutorials/solution-tutorials-computer-vision-visual-insights-schematics
+    
+    about-vpc.md
     quotas.md
 
     {: .topicgroup}
@@ -31,18 +41,6 @@ Virtual Private Cloud
         block_storage_vpc_about.md
         block_storage_vpc_capacity_performance.md
         block_storage_is_profiles.md
-
-    {: .topicgroup}
-    Tutorials
-        /tutorials/solution-tutorials-vpc-public-app-private-backend
-        /tutorials/solution-tutorials-vpc-multi-region
-        /tutorials/solution-tutorials-vpc-app-deploy
-        /tutorials/solution-tutorials-vpc-secure-management-bastion-server
-        /tutorials/solution-tutorials-computer-vision-visual-insights-schematics
-
-    {: .topicgroup}
-    Related links
-        [Architecture Center VPC Solutions](https://www.ibm.com/cloud/garage/architectures/virtual-private-cloud/overview)
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
