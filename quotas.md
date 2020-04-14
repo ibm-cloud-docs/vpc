@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-02-12"
+lastupdated: "2020-04-14"
 
 keywords: quotas, vpc, resources, limits
 
@@ -53,7 +53,7 @@ To increase a quota for a particular resource, [contact support](/docs/get-suppo
 | RAM | 1600 GB per region |   
 | Floating IP addresses | 20 per zone |   
 | SSH keys | 200 per account |   
-| GPUs (POWER only) | 16 |   
+| GPUs (POWER only) | 16 per region |   
 {: caption="Table 2. Quotas for virtual server instances" caption-side="top"}
 
 
