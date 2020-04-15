@@ -169,4 +169,4 @@ Additionally, if a load balancer has listeners configured, then the correspondin
 ## MZR support
 {: #mzr-support}
 
-{{site.data.keyword.cloud.notm}} Load Balancer for VPC supports Multi-Zone-Regions (MZRs). You can achieve high availability and redundancy by deploying a load balancer with subnets from different zones. When subnets from multiple zones are used to provision a load balancer, the load balancer appliances get deployed to multiple zones.
+{{site.data.keyword.cloud_notm}} Load Balancer for VPC supports Multi-Zone-Regions (MZRs). You can achieve high availability and redundancy by deploying a load balancer with subnets from different zones. When subnets from multiple zones are used to provision a load balancer, the load balancer appliances get deployed to multiple zones.
