@@ -170,7 +170,6 @@ Virtual Private Cloud
 
     release-notes.md
     limitations.md
-    api-change-log.md
     known-issues.md
     getting-help.md
     {: .navgroup-end}
