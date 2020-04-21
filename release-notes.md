@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-05"
+lastupdated: "2020-04-03"
 
 keywords: vpc release notes, changes, updates, vpc
 
@@ -26,12 +26,10 @@ subcollection: vpc
 Use these release notes to learn about the latest changes to {{site.data.keyword.vpc_full}}.
 {:shortdesc}
 
-<!--## 09 March 2020
-{: #mar-09-2020}
+<!-- ## 22 April 2020
+{: #apr-22-2020}
 
-- **IBM Virtual Servers for VPC on POWER:** POWER-based instances are now generally available. For more information, see the following resources:
-  * [IBM Cloud Virtual Private Cloud on POWER](https://developer.ibm.com/linuxonpower/power-virtual-private-cloud/){: external}  
-  * [Profiles](/docs/vpc?topic=vpc-profiles)-->
+**New region** The Frankfurt region is now available. For more information, see [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region).-->
   
 ## 03 April 2020
 {: #apr-03-2020}
@@ -50,6 +48,13 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 - **{{site.data.keyword.mon_full_notm}} monitoring** You can now monitor virtual server instances using {{site.data.keyword.mon_full_notm}}. Use the new **Add monitoring** button on the instance's **Monitoring** page to provision an instance of the monitoring service. If a monitoring instance is already provisioned for the region, use the **Launch monitoring** button to view metrics associated with the instance. For more information, see [Sysdig monitoring metrics](/docs/vpc?topic=virtual-servers-sysdig-monitoring-metrics). 
 - **Updated styling** VPC pages in {{site.data.keyword.IBM_notm}} console now use [Carbon 10](https://www.carbondesignsystem.com/){: external}, IBM's open-source design system, which improves consistency and quality.
+
+## 09 March 2020
+{: #mar-09-2020}
+
+**IBM Virtual Servers for VPC on POWER:** POWER-based instances are now generally available. For more information, see the following resources:
+  * [IBM Cloud Virtual Private Cloud on POWER](https://developer.ibm.com/linuxonpower/power-virtual-private-cloud/){: external}  
+  * [Profiles](/docs/vpc?topic=vpc-profiles)
 
 ## 02 March 2020
 {: #mar-02-2020}
