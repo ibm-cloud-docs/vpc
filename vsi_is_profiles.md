@@ -199,4 +199,10 @@ Every profile has a maximum network bandwidth of 2 Gbps per vCPU, with a cap of 
 For example, if you choose a profile with 16 vCPU, the network cap for the profile is 32 Gbps. If you have just one network interface, the maximum network performance is 16 Gbps due to the network interface cap. You  need to attach two network interfaces (16 Gbps each) to reach the profile cap of 32 Gbps.
 -->
 
+## Next steps
+{: nextsteps-profiles}
 
+After you choose a profile, it's time to create an instance. 
+
+* [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers)
+* [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli)
