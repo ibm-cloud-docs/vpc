@@ -35,8 +35,9 @@ To create an instance:
 Be sure to select VPC infrastructure from the Menu icon.   
 {: tip}
 
-2. Click **New instance** and enter the information in Table 1.
-3. Click **Create virtual server instance** when you are ready to provision.
+2. Click **New instance** and enter the information in Table 1. 
+3. If necessary, click the *Switch to Gen 2 compute* link in the top banner to ensure you are creating generation 2 resources. 
+4. Click **Create virtual server instance** when you are ready to provision.
 
 | Field | Value |
 |-------|-------|
