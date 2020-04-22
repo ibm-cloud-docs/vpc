@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-03"
+lastupdated: "2020-04-21"
 
 keywords: vpc release notes, changes, updates, vpc
 
@@ -26,10 +26,10 @@ subcollection: vpc
 Use these release notes to learn about the latest changes to {{site.data.keyword.vpc_full}}.
 {:shortdesc}
 
-<!-- ## 22 April 2020
-{: #apr-22-2020}
+## 21 April 2020
+{: #apr-21-2020}
 
-**New region** The Frankfurt region is now available. For more information, see [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region).-->
+**New region** The Frankfurt region is now available. For more information, see [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region).
   
 ## 03 April 2020
 {: #apr-03-2020}
