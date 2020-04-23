@@ -62,6 +62,7 @@ Virtual Private Cloud
         vsi_best_practices.md
         vsi_is_create_instance.md
         vsi_is_create_instance_cli.md
+        vsi_is_create_instance_byok.md
         vsi_is_connecting_linux_gc.md
         vsi_is_connecting_windows.md
         vsi_is_manage_images.md
@@ -76,6 +77,7 @@ Virtual Private Cloud
     Block storage volumes
         block_storage_is_create.md
         block_storage_is_create_cli.md
+        block_storage_vpc_encryption.md
         block_storage_is_attach.md
         block_storage_is_attach_cli.md
         block_storage_is_manage.md

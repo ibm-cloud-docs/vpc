@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-25"
+lastupdated: "2020-04-22"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, IOPS, FAQ
 
@@ -78,7 +78,7 @@ There are quota limits for your block storage volumes based on the number of cor
 {: #faq-block-storage-8}
 {: support}
 
-No, you cannot increase the capacity of a volume. Estimate sufficient capacity for projected growth before you provision a block storage volume.
+You can't increase the capacity of a volume (GBs) after provisioning. Estimate sufficient capacity for projected growth before you provision a block storage volume.
 
 ## What rules apply to volume names and can I rename a volume later on?
 {: faq}
@@ -99,8 +99,7 @@ You do not have to pre-warm a volume. You can see the specified throughput immed
 {: #faq-block-storage-11}
 {: support}
 
-All block storage volumes are encrypted at rest with IBM-managed encryption or by using your own encryption keys. IBM-managed keys are generated and securely stored in a block storage vault that is backed by Consul and then maintained by the system. Customer-managed keys are safely managed that uses the IBM Key Protect service or Hyper Protect Crypto Services. For information, see [Creating block storage volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
-
+All block storage volumes are encrypted at rest with IBM-managed encryption or by using your own encryption keys. IBM-managed keys are generated and securely stored in a block storage vault that is backed by Consul and then maintained by the system. Customer-managed keys are safely managed by the IBM Key Protect service or Hyper Protect Crypto Services. For information, see [Creating block storage volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
 
 To tell what type of encryption you have, when your view your list of all block storage volumes in the UI, the Encryption column indicates either provider-managed or customer-managed encryption. Optionally, show the properties of a volume by by using this CLI command:
 
@@ -110,15 +109,15 @@ ibmcloud is volume (VOLUME_NAME | VOLUME_ID)
 
 For extra security, when you delete a volume, all pointers to the data on that volume are removed and the data becomes inaccessible.
 
-All block storage volumes are encrypted at rest with IBM-managed encryption. IBM-managed keys are generated and securely stored in a block storage vault that is backed by Consul and then maintained by the system.
-
-For extra security, when you delete a volume, all pointers to the data on that volume are removed and the data becomes inaccessible.
+After you set up customer-managed encryption on a volume, you might decide to later disable an encryption key and temporarily revoke access to the key's associated data on the cloud. For more information, see [Making your data inaccessible after setting up customer-managed encryption](/docs/vpc?topic=vpc-creating-instances-byok#instance-byok-inaccessible-data).
 
 ## What can I do about data backups for disaster recovery?
 {: faq}
 {: #faq-block-storage-12}
 
-Block Storage for VPC secures your data across redundant fault zones in your region. You are are responsible for independently backing up your data. You might also consider by using [{{site.data.keyword.blockstoragefull}}](/docs/BlockStorage?topic=BlockStorage-getting-started), which provides disaster recovery features such as volume cloning, snapshots, and replication.
+Block Storage for VPC secures your data across redundant fault zones in your region. You are are responsible for independently backing up your data. 
+
+You might also consider using [{{site.data.keyword.blockstoragefull}} - Classic](/docs/BlockStorage?topic=BlockStorage-getting-started), which provides disaster recovery features such as volume cloning, snapshots, and replication. In particular, see the topics under **Replication and Disaster Recovery**.
 
 ## How many volumes can be provisioned per account?
 {: faq}

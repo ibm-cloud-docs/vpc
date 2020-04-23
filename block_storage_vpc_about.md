@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-12"
+lastupdated: "2020-04-23"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, IOPS, HPCS, Key Protect
 
@@ -25,7 +25,9 @@ subcollection: vpc
 {{site.data.keyword.block_storage_is_short}} provides hypervisor-mounted, high-performance data storage for your virtual server instances (instances) that you can provision within an {{site.data.keyword.vpc_full}} (VPC). The VPC infrastructure provides rapid scaling across multiple regions and zones, and extra performance and security. For more information about {{site.data.keyword.vpc_short}}, see [About Virtual Private Cloud](/docs/vpc?topic=vpc-about-vpc).
 {:shortdesc}
 
-{{site.data.keyword.block_storage_is_short}} provides primary boot volumes and secondary data volumes. Boot volumes are automatically created and attached during instance provisioning. Data volumes can be created and attached during instance provisioning as well, or as stand-alone volumes that you can later attach to an instance. To protect your data, volumes are encrypted with IBM-managed encryption. You can choose [IOPS tier profiles](/docs/vpc?topic=vpc-block-storage-profiles#tiers) to specify a pre-defined level of performance for your volumes. Or, you can choose a [custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom) and define your own volume capacity and IOPS level.
+{{site.data.keyword.block_storage_is_short}} provides primary boot volumes and secondary data volumes. Boot volumes are automatically created and attached during instance provisioning. Data volumes can be created and attached during instance provisioning as well, or as stand-alone volumes that you can later attach to an instance. To protect your data, you can use your own encryption keys or choose IBM-managed encryption. 
+
+You can choose [IOPS tier profiles](/docs/vpc?topic=vpc-block-storage-profiles#tiers) to specify a pre-defined level of performance for your volumes. Or, you can choose a [custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom) and define your own volume capacity and IOPS level.
 
 ## Block storage for VPC volumes
 {: #block-storage-vpc-volumes}
@@ -35,7 +37,9 @@ subcollection: vpc
 ### Boot volumes
 {: #block-storage-vpc-boot-volumes}
 
-When you create an instance, a 100 GB boot volume is created and attached to the instance by default. The boot volume has a maximum IOPS of 3,000 IOPS. Boot volumes are encrypted by IBM-managed encryption. A boot volume can't be manually detached and deleted. Boot volumes are always deleted when you when you delete the instance.
+When you create an instance, a 100 GB boot volume is created and attached to the instance by default. The boot volume has a maximum IOPS of 3,000 IOPS.
+
+By default, boot volumes are encrypted by IBM-managed encryption. Optionally, you can use your own encryption keys by choosing customer-managed encryption during instance creation (see [Customer-managed encryption](#about-vpc-customer-managed-encryption)). You cannot detach and delete the boot volume. Boot volumes are always deleted when you when you delete the instance.
 
 ### Data volumes
 {: #secondary-data-volumes}
@@ -45,25 +49,47 @@ Block storage data volumes are secondary volumes with total capacity range of 10
 
 You create data volumes as stand-alone volumes or when you provision an instance. Stand-alone volumes exist in an unattached state until you attach the volume to an instance. When you create a data volume as part of instance provisioning, the volume is automatically attached to the instance.
 
-Block storage data volumes can be attached to any available instance within your region, based on your  customer account and permissions, and within [certain limits](/docs/vpc?topic=vpc-attaching-block-storage#vol-attach-limits). These volumes are detached by default when the instance is deleted. Detaching by default allows your data to persist beyond the virtual server instance lifecycle. It removes only the volume's association with the instance. You can delete data volumes manually after they are detached. Also, when you create data volumes, you can specify that they be [automatically deleted](/docs/vpc?topic=vpc-managing-block-storage#auto-delete) when the instance is deleted.
+Block storage data volumes can be attached to any available instance within your region, based on your customer account and permissions, and within [certain limits](/docs/vpc?topic=vpc-attaching-block-storage#vol-attach-limits). These volumes are detached by default when the instance is deleted. Detaching by default allows your data to persist beyond the virtual server instance lifecycle. It removes only the volume's association with the instance. You can delete data volumes manually after they are detached. Also, when you create data volumes, you can specify that they be [automatically deleted](/docs/vpc?topic=vpc-managing-block-storage#auto-delete) when the instance is deleted.
 
-Data volumes are encrypted by default with IBM-managed encryption.
+Data volumes are encrypted by default with IBM-managed encryption. You can also encrypt data volumes using [your own encryption keys](#about-vpc-customer-managed-encryption).
 
-## Encryption for data-at-rest
-{: #encryption}
+## Block Storage encryption
+{: #vpc-storage-encryption}
 
-{{site.data.keyword.cloud_notm}} takes the need for security seriously and understands the importance of being able to encrypt data to keep it safe. When you create a stand-alone volume or create a volume as part of instance creation, your data is protected with IBM-managed encryption. All boot and data volumes are encrypted with IBM-managed encryption. There is no additional cost for this service or impact on performance. Provider-managed encryption uses the following industry standard protocols:
+{{site.data.keyword.cloud_notm}} takes the need for security seriously and understands the importance of being able to encrypt data to keep it safe. When you create a standalone data volume or create a data volume as part of instance creation, you can choose to protect your data by using your own master encryption keys, or by using IBM provider-managed encryption. Provider-managed encryption is the default encryption type for all volumes. After you set up ecryption for a volume, you can't change it.
+
+### Provider-managed encryption
+{: #about-vpc-provider-managed-encryption}
+
+By default, all boot and data volumes are encrypted with IBM provider-managed encryption. There is no additional cost for this service or impact on performance. Provider-managed encryption uses the following industry standard protocols:
 
 * AES-256 encryption
 * Keys are managed in-house with Key Management Interoperability Protocol (KMIP)
 * Storage is validated for Federal Information Processing Standard (FIPS) Publication 140-2, Federal Information Security Management Act (FISMA), Health Insurance Portability and Accountability Act (HIPAA). Storage is also validated for Payment Card Industry (PCI), Basel II, California Security Breach Information Act (SB 1386), and EU Data Protection Directive 95/46/EC compliance.
 
+### Customer-managed encryption
+{: #about-vpc-customer-managed-encryption}
+
+Customer-managed encryption, also called "bring your own key" (BYOK), lets you encrypt your block storage volumes with your own customer root keys (CRKs). For data volumes, you specify customer-managed encryption when creating the volume. For boot volumes, you can edit the boot volume properties during instance creation and specify customer-managed encryption. For procedures, see [Creating block storage volumes with customer managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
+
+When you use customer-managed encryption, you import your root key to a key management service (KMS) of your choice, either {{site.data.keyword.keymanagementservicelong_notm}} or {{site.data.keyword.hscrypto}}. You can also create your root key in the KMS. The VPC infrastructure locates the key in the KMS instance and then encrypts the volume. For prerequisites and a one-time set up procedure, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-creating-instances-byok#byok-vsi-prereqs).
+
+After encrypting your volume, you can't remove the encryption or change it to provider-managed encryption.
+
+For information about creating customer-managed encryption for volumes during virtual server instance provisioning, see [Customer managed encryption for block storage](/docs/vpc?topic=vpc-creating-instances-byok).
+
+## Next Steps
+{: #block-storage-about-next-steps}
+
+Start creating {{site.data.keyword.block_storage_is_short}} volumes.
+
+* For information about creating a new volume during instance provisioning, see [Create and attach a block storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi).
+* For information about creating block storage volumes with customer-managed encryption, see [Creating customer-managed encrypted data volumes by using the UI](/docs/vpc?topic=vpc-block-storage-vpc-encryption#data-vol-encryption-ui).
+
 ## Related information
 {: #related-info-storage}
 
 For more information about creating and managing instances in the VPC, see [About virtual server instances for VPC](/docs/vpc?topic=vpc-about-advanced-virtual-servers).
-
-To get started with creating block storage for VPC, see [Creating block storage volumes](/docs/vpc?topic=vpc-creating-block-storage#creating-block-storage).
 
 {{site.data.keyword.block_storage_is_short}} provides features unique to the VPC and is not compatible with the classic infrastructure storage. If you're interested in {{site.data.keyword.blockstoragefull}} on the classic infrastructure, see [{{site.data.keyword.blockstoragefull}}](/docs/BlockStorage?topic=BlockStorage-getting-started).
 {:note}
