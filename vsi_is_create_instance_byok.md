@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-23"
+lastupdated: "2020-04-24"
 
 keywords: create virtual server with encryption, data encryption key, dek, encrypted volume, virtual server instance, create virtual server, provision virtual server, virtual machine, instance, virtual server, deploy virtual server, block storage volume
 
@@ -68,7 +68,7 @@ The following example steps are specific to {{site.data.keyword.keymanagementser
 {{site.data.keyword.keymanagementservicelong_notm}}. 
 
    Plan ahead for importing keys by [reviewing your options for creating and encrypting key material](/docs/key-protect?topic=key-protect-importing-keys#plan-ahead). For added security, you can enable the secure import of the key material by using an [import token](/docs/key-protect?topic=key-protect-importing-keys#using-import-tokens) to encrypt your key material before you bring it to the cloud.
-   {: note}
+   {: tip}
 
 3. From IBM {{site.data.keyword.iamshort}} (IAM), [authorize access](/docs/iam?topic=iam-serviceauth#serviceauth) between **Cloud Block Storage** (source service) and **{{site.data.keyword.keymanagementserviceshort}}** (target service).
 
