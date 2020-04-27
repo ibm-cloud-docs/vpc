@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2020 
 lastupdated: "2020-03-02"
 
-keywords: vpc, vsi, virtual server instance, creating, UI, console, generation 2, gen 2
+keywords: instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, vpc, creating, UI, console, generation 2, gen 2
 
 subcollection: vpc
 
