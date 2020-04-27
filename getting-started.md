@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2020
 lastupdated: "2020-02-03"
 
-keywords: Virtual Private Cloud, permissions, infrastructure, VPC, SSH key, CLI, API, console, public gateway, floating IP, IP ranges, BYoIP, generation 2, gen 2 
+keywords: VPC, virtual private cloud, IBM CLoud, Virtual Private Cloud, getting started, permissions, infrastructure, SSH key, CLI, API, console, public gateway, floating IP, IP ranges, BYoIP, generation 2, gen 2
 
 subcollection: vpc
 
