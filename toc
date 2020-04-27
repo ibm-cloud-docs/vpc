@@ -8,7 +8,7 @@ Virtual Private Cloud
     {: .navgroup id="learn"}
     getting-started.md
     [What is Virtual Private Cloud?](https://www.ibm.com/cloud/learn/vpc)
-    [Architecture Center VPC Resources](https://www.ibm.com/cloud/architecture/architectures/public-cloud/resources)
+    [Architecture Center VPC Resources](https://www.ibm.com/cloud/architecture/architectures/virtual-private-cloud/resources)
 
     {: .topicgroup}
     Solution tutorials
