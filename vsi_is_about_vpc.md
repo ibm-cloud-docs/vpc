@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-03-02"
+lastupdated: "2020-04-28"
 
 keywords: virtual server instances, VSI, planning, best practices
 
@@ -29,7 +29,7 @@ Virtual server instances for VPC give you access to all of the benefits of {{sit
 
 ## What are virtual server instances for VPC?
 {: #what-are-vsis}
-With virtual server instances for VPC, you can quickly provision instances with high network performance. When you provision an instance, you select a profile that matches the amount of memory and compute power that you need for the application that you plan to run on the instance. After you provision an instance, you control and manage those infrastructure resources. 
+With virtual server instances for VPC, you can quickly provision instances with high network performance. When you provision an instance, you select a profile that matches the amount of memory and compute power that you need for the application that you plan to run on the instance. Instances are available on both x86 and POWER architectures. After you provision an instance, you control and manage those infrastructure resources. 
 
 ## How are virtual server instances for VPC different from other IBM virtual server offerings?
 {: #how-are-vsis-different}
