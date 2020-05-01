@@ -1,0 +1,108 @@
+---
+
+copyright:
+  years: 2019, 2020
+lastupdated: "2020-04-22"
+
+keywords: flow logs, ordering, getting started
+
+subcollection: vpc
+---
+
+{:shortdesc: .shortdesc}
+{:new_window: target="_blank"}
+{:codeblock: .codeblock}
+{:pre: .pre}
+{:screen: .screen}
+{:term: .term}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:external: target="_blank_" .external}
+{:generic: data-hd-programlang="generic"}
+{:download: .download}
+{:DomainName: data-hd-keyref="DomainName"}
+
+# Listing flow log collectors
+{: #listing-all-flow-log-collectors} 
+
+You can list your flow log collectors by using the UI, the CLI, or the API. 
+
+## Using the UI
+{: #fl-list-ui}
+
+To list your flow log collectors using the IBM Cloud console:
+
+1. Navigate to the [Virtual Private Cloud console](https://cloud.ibm.com/vpc/). 
+2. Select **Gen 2 Compute**.
+3. From the left navigation pane, click **Flow Log Collectors (beta)**. If available, a list of provisioned flow logs collectors shows.  
+
+   Flow log collector attributes shown in the table are as follows:
+
+   * **Status** - The status of the flow log collector (Stable, Failed, Pending, and so on).
+   * **Active** - On/Off flag for the flow log. If Active, the flow log collector is set to write log files. If Suspended, the collector is deactivated and not writing log files.
+   * **Name** - The flow log name.
+   * **Target** - The specified resource the collector logs traffic for.
+   * **Date Created** - The date the flow log collector was provisioned. 
+   * **Object Storage Bucket** - The selected Cloud Object Storage (COS) bucket the system saves flow log files to.
+
+   Notice that the page includes tabbed views, which show flow log collectors that were created with that target type.  
+
+   * **VPC** - Shows flow log collectors that are attached directly to a VPC. 
+   * **Subnet** - Shows flow log collectors that are attached directly to a subnet within the specified VPC.
+   * **Instance** - Shows all flow log collectors that are attached directly to a VSI within the specified VPC. 
+   * **Interface** - Shows all flow log collectors that are attached directly to a network interface of a VSI within the specified VPC.
+
+### Example
+
+The following screen capture shows a flow log collector attached to a subnet within the `demo-vpc` VPC.
+
+   ![Subnet Tab](./images/flow-log-subnet-tab-items.png "Subnet List View")   
+   
+## Using the CLI
+{: #fl-list-cli}
+
+To list all your flow logs, run the following command:
+
+``` 
+ibmcloud is flow-logs \
+  [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] 
+  [--json]
+```
+
+Where...
+
+- **--resource-group-id** is the ID of the resource group. This option is mutually exclusive with **--resource-group-name**.
+- **--resource-group-name** is the name of the resource group. This option is mutually exclusive with **--resource-group-id**.
+- **--json** formats the output in JSON.
+
+## Using the API
+{: #fl-list-api}
+
+To list flow log collectors by using the API, follow these steps:
+
+1. Provision these variables with the appropriate values:
+
+   * `token` - Use the following command:
+
+      ``` 
+      export token="$(ibmcloud iam oauth-tokens | awk '{ print $4 }')"
+      ```
+      {:pre}
+
+   * `api_endpoints` - Set the environment's end point. For example, for `us-south` use:
+
+      ``` 
+      export api_endpoint=https://us-south.iaas.cloud.ibm.com
+      ```
+      {:pre}
+
+2. When all variables are initiated, list your flow log collectors:
+
+```
+curl -sS -X GET \
+  -H "Authorization: $token" \
+  $api_endpoint/v1/flow_log_collectors?version=2019-10-03 | jq
+``` 
+{: pre}
