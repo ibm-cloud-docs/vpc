@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-21"
+lastupdated: "2020-05-01"
 
 keywords: vpc, api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -41,6 +41,10 @@ To minimize bugs caused by changes, use the following best practices when you ca
 * Follow HTTP redirect rules for any `3xx` HTTP status code
 * Consume only the resources and properties your application needs to function
 * Avoid depending on behavior that is not explicitly documented
+
+## 2020-05-01
+{: #2020-05-01}
+Flow logs are available as beta in this release.
 
 ## 2020-04-21
 {: #2020-04-21}
