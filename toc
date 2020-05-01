@@ -97,6 +97,16 @@ Virtual Private Cloud
         using-acls.md
 
     {: .topicgroup}
+    Flow logs (Beta)
+        fl-using.md
+        fl-ordering.md
+        fl-analyze.md
+        fl-iam.md
+        fl-managing.md
+        fl-activate.md
+        fl-delete.md
+
+    {: .topicgroup}
     Load balancers
         lb-overview.md
         lb-adv-traffic-mgmt.md
@@ -161,6 +171,7 @@ Virtual Private Cloud
     {: .topicgroup}
     FAQs
         faq-vpc.md
+        fl-faq.md
         lb-faqs.md
         faq-vsi.md
         block_storage_is_faq.md
