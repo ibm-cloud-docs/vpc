@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-21"
+lastupdated: "2020-05-01"
 
 keywords: vpc release notes, changes, updates, vpc
 
@@ -25,6 +25,15 @@ subcollection: vpc
 
 Use these release notes to learn about the latest changes to {{site.data.keyword.vpc_full}}.
 {:shortdesc}
+
+## 01 May 2020
+{: #may-01-2020}
+
+- **Customer-managed encryption (BYOK) beta** Customer-managed Encryption (BYOK) is now available in beta. You can use keys that you store and manage in Key Protect within VPC. This gives you the ability to encrypt your VPC-enabled block storage at the volume level by using your own keys. For more information, see [Creating virtual server instances with customer-managed encryption (Beta)](/docs/vpc?topic=vpc-creating-instances-byok).
+
+- **Flow logs beta** Flow logs allow you to collect, store, and present the Internet Protocol (IP) traffic going to and from networks within your VPC. For more information, see [About flow logs (Beta)](/docs/vpc?topic=vpc-flow-logs).
+
+- **UI enhancement** You can now create a new subnet directly from the page where you create a new instance. 
 
 ## 21 April 2020
 {: #apr-21-2020}
