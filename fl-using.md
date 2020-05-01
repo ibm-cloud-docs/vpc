@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-04-22"
+lastupdated: "2020-05-01"
 
-keywords: flow logs, getting startd, features
+keywords: flow logs, getting started, features
 
 subcollection: vpc
 
@@ -27,23 +27,23 @@ subcollection: vpc
 {:DomainName: data-hd-keyref="DomainName"}
 
 # About flow logs
-{: #flow-logs} 
+{: #flow-logs}
 
-The IBM Cloud Flow Logs Beta is only available to whitelisted users. Contact your IBM Sales representative if you are interested in getting early access. 
+The IBM Cloud Flow Logs Beta is only available to whitelisted users. Contact your IBM Sales representative if you are interested in getting early access.
 {:preview}
 
 {{site.data.keyword.cloud}} Flow Logs enable the collection, storage, and presentation of Internet Protocol (IP) traffic going to and from networks within your Virtual Private Cloud (VPC). Flow logs can help with a number of tasks, including:
 
-* Troubleshooting why specific traffic isn't reaching an instance, which helps to diagnose restrictive security group rules. 
-* Monitoring the traffic that is reaching your instance. 
+* Troubleshooting why specific traffic isn't reaching an instance, which helps to diagnose restrictive security group rules.
+* Monitoring the traffic that is reaching your instance.
 * Adhering to compliance regulations.
 * Determining the overall health of network monitoring.
-* Assisting with root cause analysis. 
+* Assisting with root cause analysis.
 
 ## Overview of features
 {: #fl-overview-of-features}
 
-* Availablility in all Multi-Zone Regions (MZRs) worldwide, providing global solutions
+* Availability in all Multi-Zone Regions (MZRs) worldwide, providing global solutions
 * Network-centric lifecycle and operations management
 * Conveniently stores collector output in IBM Cloud Object Storage (COS)
 * Metered pricing for services billed on a consumption basis
@@ -55,7 +55,7 @@ The IBM Cloud Flow Logs Beta is only available to whitelisted users. Contact you
 You can configure flow log collectors with different collection granularities. For example, a collector that targets a Virtual Private Cloud (VPC) and aggregates in-transit data from _all_ network interfaces within that VPC. Or, a collector that targets a virtual server instance (VSI) and aggregates in-transit data from _only_ that VSI's network interfaces. After data is collected, flow logs are stored in a Cloud Object Storage (COS) bucket, which you configure when creating the flow log collector.
 {: shortdesc}
 
-You can set the granularity of a flow log collector for the following target scopes. Keep in mind that if you create a flow log for a subnet or VPC, each network interface in that subnet or VPC is monitored. 
+You can set the granularity of a flow log collector for the following target scopes. Keep in mind that if you create a flow log for a subnet or VPC, each network interface in that subnet or VPC is monitored.
 
 | Target | What data gets collected |
 |---|---|
@@ -70,7 +70,7 @@ During each collector upload interval, there are two flow logs (ingress and egre
 ### Finest granularity wins
 {: #flow-logs-granularity-wins}
 
-Each flow resource type can have a single flow log collector. This can lead to overlaps. For example, 
+Each flow resource type can have a single flow log collector. This can lead to overlaps. For example,
 
 * A VSI interface might have a flow log collector.
 * The VSI that the interface is attached to might have a separate flow log collector.
@@ -92,9 +92,8 @@ To get started using flow log collectors, follow these steps:
 {: #fl-related-links}
 
 These links provide additional information about the IBM Cloud Flow Logs beta release.
- 
-* [Flow logs CLI](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#flow-logs-cli-ref)
-* [Flow logs APIs](https://{DomainName}/apidocs/vpc)
+
+* [Flow logs CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#flow-logs-cli-ref)
+* [Flow logs API reference](https://{DomainName}/apidocs/vpc)
 * [FAQs for flow log collectors](/docs/vpc?topic=vpc-fl-faq)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-flow-logs)
-
