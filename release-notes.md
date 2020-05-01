@@ -29,21 +29,21 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 ## 01 May 2020
 {: #may-01-2020}
 
-- **Customer-managed encryption (BYOK) beta** Customer-managed Encryption (BYOK) is now available in beta. You can use keys that you store and manage in Key Protect within VPC. This gives you the ability to encrypt your VPC-enabled block storage at the volume level by using your own keys. For more information, see [Creating virtual server instances with customer-managed encryption (Beta)](/docs/vpc?topic=vpc-creating-instances-byok).
+- **Customer-managed encryption (BYOK) beta:** Customer-managed Encryption (BYOK) is now available in beta. You can use keys that you store and manage in Key Protect within VPC. This gives you the ability to encrypt your VPC-enabled block storage at the volume level by using your own keys. For more information, see [Creating virtual server instances with customer-managed encryption (Beta)](/docs/vpc?topic=vpc-creating-instances-byok).
 
-- **Flow logs beta** Flow logs allow you to collect, store, and present the Internet Protocol (IP) traffic going to and from networks within your VPC. For more information, see [About flow logs (Beta)](/docs/vpc?topic=vpc-flow-logs).
+- **Flow logs beta:** Flow logs are now available in beta. Flow logs allow you to collect, store, and present the Internet Protocol (IP) traffic going to and from networks within your VPC. For more information, see [About flow logs (Beta)](/docs/vpc?topic=vpc-flow-logs).
 
 - **UI enhancement** You can now create a new subnet directly from the page where you create a new instance. 
 
 ## 21 April 2020
 {: #apr-21-2020}
 
-**New region** The Frankfurt region is now available. For more information, see [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region).
+**New region:** The Frankfurt region is now available. For more information, see [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region).
   
 ## 03 April 2020
 {: #apr-03-2020}
 
-- **Load Balancer for VPC Update** You can now access load balancer monitoring metrics (throughput, active connections, connection rate) using [IBM Cloud Monitoring with Sysdig](/docs/vpc?topic=vpc-monitoring-metrics-sysdig). 
+- **Load Balancer for VPC Update:** You can now access load balancer monitoring metrics (throughput, active connections, connection rate) using [IBM Cloud Monitoring with Sysdig](/docs/vpc?topic=vpc-monitoring-metrics-sysdig). 
 - The following cipher suites are supported for load balancer HTTPS listeners:
     - `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
     - `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
@@ -55,8 +55,8 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 ## 27 March 2020
 {: #mar-27-2020}
 
-- **{{site.data.keyword.mon_full_notm}} monitoring** You can now monitor virtual server instances using {{site.data.keyword.mon_full_notm}}. Use the new **Add monitoring** button on the instance's **Monitoring** page to provision an instance of the monitoring service. If a monitoring instance is already provisioned for the region, use the **Launch monitoring** button to view metrics associated with the instance. For more information, see [Sysdig monitoring metrics](/docs/vpc?topic=virtual-servers-sysdig-monitoring-metrics). 
-- **Updated styling** VPC pages in {{site.data.keyword.IBM_notm}} console now use [Carbon 10](https://www.carbondesignsystem.com/){: external}, IBM's open-source design system, which improves consistency and quality.
+- **{{site.data.keyword.mon_full_notm}} monitoring:** You can now monitor virtual server instances using {{site.data.keyword.mon_full_notm}}. Use the new **Add monitoring** button on the instance's **Monitoring** page to provision an instance of the monitoring service. If a monitoring instance is already provisioned for the region, use the **Launch monitoring** button to view metrics associated with the instance. For more information, see [Sysdig monitoring metrics](/docs/vpc?topic=virtual-servers-sysdig-monitoring-metrics). 
+- **Updated styling:** VPC pages in {{site.data.keyword.IBM_notm}} console now use [Carbon 10](https://www.carbondesignsystem.com/){: external}, IBM's open-source design system, which improves consistency and quality.
 
 ## 09 March 2020
 {: #mar-09-2020}
@@ -68,8 +68,8 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 ## 02 March 2020
 {: #mar-02-2020}
 
-- **New region** The London region is now available. For more information, see [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region).
-- **UI enhancement** There is a new public gateway details page. For more information about public gateways, see [external connectivity](/docs/vpc?topic=vpc-about-networking-for-vpc#external-connectivity).
+- **New region:** The London region is now available. For more information, see [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region).
+- **UI enhancement:** There is a new public gateway details page. For more information about public gateways, see [external connectivity](/docs/vpc?topic=vpc-about-networking-for-vpc#external-connectivity).
 
 ## 14 February 2020
 {: #feb-14-2020}
