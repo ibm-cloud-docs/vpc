@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2019, 2020
+  years: 2020
 lastupdated: "2020-05-01"
 
 keywords: flow logs, ordering, getting started
@@ -48,19 +48,17 @@ Prior to creating a flow log collector, ensure that you have met the following p
 
 To create a flow log collector by using the IBM Cloud console, follow these steps:
 
-1. Navigate to the [Virtual Private Cloud](https://cloud.ibm.com/vpc/) page in the IBM Cloud console.
-2. Select **Gen 2 Compute**.
-3. In the left navigation pane, click **Flow Log Collectors (beta)**. The flow logs list appears.
+1. Log in to your whitelisted IBM Cloud account and go to [https://cloud.ibm.com/vpc-ext/network/flowLogs](https://test.cloud.ibm.com/vpc-ext/network/flowLogs). The flow logs list view appears.
 
   ![Flow Log Collector List View](./images/list-view-01.png "Flow Log Collector List View")
 
-4. Click **Create flow log collector** to go to the flow logs provisioning page.
-5. Enter values for the following fields:
+2. Click **Create flow log collector** to go to the flow logs provisioning page.
+3. Enter values for the following fields:
 
   * **Name** - Type a unique name for your flow log collector.
   * **Resource group** - Select a resource group for your flow log collector.
 
-6. From the **Attach the flow log connector to** menu, choose a "target type" for the flow log. Depending on your selection, additional fields might be required.   
+4. From the **Attach the flow log connector to** menu, choose a "target type" for the flow log. Depending on your selection, additional fields might be required.   
 
   * **VPC** - Select a VPC. All network traffic within the selected VPC is logged.
   * **Subnet** -  Select a VPC and a subnet within the selected VPC. All traffic within the selected subnet is logged.
@@ -69,7 +67,7 @@ To create a flow log collector by using the IBM Cloud console, follow these step
 
   ![Example Network Interface Target](./images/flow-log-provision-interface-target-example.png "Example Network Interface Target")
 
-8. Specify where the logs are written. Flow logs are written to a COS bucket, which must be created as a single-region bucket in the same region as the target resource.
+5. Specify where the logs are written. Flow logs are written to a COS bucket, which must be created as a single-region bucket in the same region as the target resource.
 
   * **Cloud Object Storage Instance** - The COS instance that the wanted bucket resides in.
   * **Location** - This input is unavailable because it is directly tied to the region the target resource resides in.
