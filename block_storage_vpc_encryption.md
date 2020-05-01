@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2020
-lastupdated: "2020-04-30"
+lastupdated: "2020-05-01"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
@@ -47,7 +47,7 @@ For information and prerequisite steps, see [Prerequisites for setting up custom
 
 You can specify customer-managed encryption when you create a new block storage volume during instance provisioning or as a stand-alone volume.
 
-**Note**: To create an encrypted volume when you create a virtual server instance, see [Creating virtual server instances with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
+**Note**: To create an encrypted volume when you create a virtual server instance, see [Creating virtual server instances with customer-managed encryption](/docs/vpc?topic=vpc-creating-instances-byok).
 
 Figure 1 shows the end-to-end procedure for creating a standalone volume and attaching it to an instance.
 
@@ -71,7 +71,9 @@ To specify customer-managed encryption when you create a stand-alone volume, fol
 ## Creating customer-managed encrypted data volumes by using the CLI
 {: #data-vol-encryption-cli}
 
-To create a block storage volume with customer-managed encryption by using the CLI, specify the `ibmcloud is volume-create` command with the `--encryption-key` parameter:
+Follow [CLI step 1](/docs/vpc?topic=vpc-creating-instances-byok#provision-byok-cli) for obtaining the CRN of the root key in your key management service.
+
+To create a block storage volume with customer-managed encryption by using the CLI, specify the `ibmcloud is volume-create` command with the `--encryption-key` parameter. The encryption_key parameter in the JSON file must include a valid CRN for the root key in the Key Protect service. See the [JSON file examples](/docs/vpc?topic=vpc-creating-instances-byok#vsi-vol-attachment-json) of a boot volume attachment JSON and secondary volume attachment JSON. 
 
 ```bash
 ibmcloud is volume-create VOLUME_NAME PROFILE_NAME ZONE_NAME [--encryption-key ENCRYPTION_KEY] [--capacity CAPACITY] [--iops IOPS] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--json]
