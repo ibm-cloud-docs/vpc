@@ -33,7 +33,7 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 - **Flow logs beta:** Flow logs are now available in beta. Flow logs allow you to collect, store, and present the Internet Protocol (IP) traffic going to and from networks within your VPC. For more information, see [About flow logs (Beta)](/docs/vpc?topic=vpc-flow-logs).
 
-- **UI enhancement** You can now create a new subnet directly from the page where you create a new instance. 
+- **UI enhancement:** You can now create a new subnet directly from the page where you create a new instance. 
 
 ## 21 April 2020
 {: #apr-21-2020}
