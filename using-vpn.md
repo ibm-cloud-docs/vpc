@@ -127,7 +127,7 @@ Here's what the scenario looks like:
 
 The following example assumes that you already created VPCs, subnets, and virtual server instances. For more information about creating VPC resources, see [Getting started](/docs/vpc?topic=vpc-getting-started).
 
-You can also create a VPN gateway using the UI. For instructions, see [Creating a VPC using the IBM Cloud console](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#vpn-ui).
+You can also create a VPN gateway using the UI. For instructions, see [Creating a VPC using the IBM Cloud console](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#vpn).
 {: tip}
 
 ### Step 1. Create a VPN gateway in a subnet of your VPC
@@ -434,6 +434,13 @@ To set up access to a service endpoint:
 
 1. Get the IP of the service endpoint. IBM Cloud supports two types of service endpoints: Infrastructure as a Service (IaaS) endpoints and IBM Cloud service endpoints. The IaaS endpoints are hosted in the IP address ranges 161.26.0.0/16; cloud service endpoints are hosted in the IP address ranges 166.9.0.0/14. For more information about endpoints, see [Endpoints available for VPC](/docs/vpc?topic=vpc-service-endpoints-for-vpc).
 2. Create a VPN gateway and a VPN connection. For the VPN connection, the local subnets should include the range 166.9.0.0/14 for IBM Cloud service endpoints or 161.26.0.0/16 for IaaS endpoints.
+
+## Architecture
+{: #vpn-architecture-diagram}
+
+* The architecture shown in Figure 2 displays the control and data flow of the VPN for VPC service.
+
+![Figure showing VPN for VPC architecture](images/vpn-architecture-diagram.png){: caption="Figure 2: VPN for VPC Architecture " caption-side="top"}
 
 ## Limitations
 {: #vpn-limitations}
