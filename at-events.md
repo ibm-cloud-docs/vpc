@@ -189,6 +189,18 @@ The following table lists the actions that are related to VPNs and the generatio
 | vpn  | is.vpn.ipsec-policy.list   | IPsec policies were listed |
 {: caption="Table 6. Actions that generate events related to VPNs" caption-side="top"}
 
+## List of events: Flow logs (Beta)
+{: #events-flow-logs}
+
+The following table lists the actions that are related to flow logs and the generation of events.
+
+| Resource | Action | Description |
+|---|---|---|
+| flow-log-collector | is.flow-log-collector.flow-log-collector.create | Flow log collector was created |
+| flow-log-collector | is.flow-log-collector.flow-log-collector.update | Flow log collector was updated |
+| flow-log-collector | is.flow-log-collector.flow-log-collector.delete | Flow log collector was deleted |
+{: caption="Table 7. Actions that generate events related to flow log collectors" caption-side="top"}
+
 ## Supported locations
 {: #at-supported-locations}
 
