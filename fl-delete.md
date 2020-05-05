@@ -32,7 +32,7 @@ You can delete a flow log collector by using the UI, the CLI, or the API.
 **Notes**:
 
 * Any logs that were collected, but weren't sent to Cloud Object Storage (COS) yet, are dropped immediately on deletion. If this is a problem, you can suspend the collector instead.
-* Flow logs that were already shipped to your COS buckets are not deleted. 
+* Flow logs that were already shipped to your COS buckets are not deleted.
 
 ## Using the UI
 {: #fl-deleting-ui}
@@ -48,7 +48,7 @@ To delete a flow log collector by using the CLI, run the following command:
 ibmcloud is flow-log-delete FLOW_LOG [-f, --force]
 ```
 
-Where `--force, -f` forces the operation without confirmation.
+Where **--force, -f** forces the operation without confirmation.
 
 ## Using the API
 {: #fl-deleting-api}
@@ -59,30 +59,30 @@ To delete a flow log collector by using the API, follow these steps:
 
    * `token` - Use the following command:
 
-      ```
+      ```sh
       export token="$(ibmcloud iam oauth-tokens | awk '{ print $4 }')"
       ```
       {:pre}
 
    * `api_endpoint` - Set the environment's end point. For example, for production in `us-south` use:
-   
-      ```
+
+      ```sh
       export api_endpoint=https://us-south.iaas.cloud.ibm.com
       ```
       {:pre}
 
    * `FlowLogID01t` - Set the requested flow-logs ID in variable:
 
-      ```
-      export FlowLogID01=
+      ```sh
+      export FlowLogID01="<your_flow_log_id>"
       ```
       {:pre}
 
 2. To delete a flow log collector:
 
-```
+```sh
 curl -v -sS -X DELETE \
   -H "Authorization: $token" \
-  $api_endpoint/v1/flow_log_collectors/$FlowLogID04?version=2019-10-03 | jq
+  $api_endpoint/v1/flow_log_collectors/$FlowLogID04?version=2020-05-03 | jq
 ```
 {:pre}

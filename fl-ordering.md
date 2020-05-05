@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-05-01"
+lastupdated: "2020-05-04"
 
 keywords: flow logs, ordering, getting started
 
@@ -104,21 +104,21 @@ To create a flow log collector by using the API, follow these steps:
 
    * `token` - Use the following command:
 
-      ```
+      ```sh
       export token="$(ibmcloud iam oauth-tokens | awk '{ print $4 }')"
       ```
       {: pre}
 
    *  `api_endpoint` - Set the environment end point. For example, for a production in `us-south` use:
 
-      ```
+      ```sh
       export api_endpoint=https://us-south.iaas.cloud.ibm.com
       ```
       {: pre}
 
    * `ResourceGroupId` - First, get your resource group and then populate the variable:
 
-      ```
+      ```sh
       ibmcloud resource groups
       export ResourceGroupId=
       ```
@@ -126,7 +126,7 @@ To create a flow log collector by using the API, follow these steps:
 
    * `VpcId` - Find by using the **list vpc** command (with the preceding variables) and then populate the variable based on the provided ID:
 
-      ```
+      ```sh
       curl -k -sS -H "Authorization: Bearer ${token}" $api_endpoint/v1/vpcs?version=2019-10-03  | jq
       export VpcId=
       ```
@@ -134,7 +134,7 @@ To create a flow log collector by using the API, follow these steps:
 
 2. When all variables are initiated, provision a flow log collector for the specific VPC:
 
-   ```
+   ```sh
    curl -X POST
      -sH "Authorization:${token}"
      $api_endpoint/v1/flow_log_collectors?version=2019-10-03 \
@@ -149,7 +149,7 @@ To create a flow log collector by using the API, follow these steps:
 
 3. To provision a collector that targets a subnet, VSI, or VNIC, you must provide a subnet ID, VSI ID, or VNIC ID as collector targets. For example, the following request creates a collector that targets a VSI ID:
 
-   ```bash
+   ```sh
    export VsiId=
 
    curl -X POST \

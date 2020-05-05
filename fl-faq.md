@@ -54,7 +54,7 @@ Likely causes of this error include:
 
    * Your user is not authorized to create flow log collectors.
    * Your user is not authorized to access the specified target of the flow log collector.
-   * Your Cloud Object Storage (COS) bucket is missing the Identity Authorization Management (IAM) authorization to allow te flow logs service to write flow logs to your bucket.
+   * Your Cloud Object Storage (COS) bucket is missing the Identity Authorization Management (IAM) authorization to allow the flow logs service to write flow logs to your bucket.
 
 ## Can I create multiple flow log collectors?
 {: #faq-multiple-flow-log-collectors}
