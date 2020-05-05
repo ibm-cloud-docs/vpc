@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-03-10"
+lastupdated: "2020-05-05"
 
 keywords: instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, vpc, creating, CLI, command line interface, generation 2, gen 2
 
@@ -174,8 +174,8 @@ After you know these values, use them to run the `instance-create` command. In a
        <ZONE_NAME> \
        <PROFILE_ID> \
        <SUBNET_ID> \
-       --image <IMAGE_ID> \
-       --keys <KEY_IDS>
+       --image-id <IMAGE_ID> \
+       --key-ids <KEY_IDS>
        --volume-attach <VOLUME_ATTACH_JSON or JSON file>
    ```
    {:pre}
@@ -189,8 +189,8 @@ After you know these values, use them to run the `instance-create` command. In a
        us-south-1 \
        b-2x4 \
        0738-1234x12x-345x-1x23-45x6-x7x891011x1x \
-       --image 1xx2x34x-5678-12x3-x4xx-567x81234567 \
-       --keys 1234xxxx-x12x-xxxx-34xx-xx1234xxxxxx
+       --image-id 1xx2x34x-5678-12x3-x4xx-567x81234567 \
+       --key-ids 1234xxxx-x12x-xxxx-34xx-xx1234xxxxxx
        --volume-attach @/Users/myname/myvolume-attachment_create.json
    ```
    {:pre}
