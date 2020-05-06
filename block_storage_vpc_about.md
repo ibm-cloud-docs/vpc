@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-04"
+lastupdated: "2020-05-06"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, IOPS, HPCS, Key Protect
 
@@ -70,18 +70,28 @@ By default, all boot and data volumes are encrypted with IBM provider-managed en
 ### Customer-managed encryption (Beta)
 {: #about-vpc-customer-managed-encryption}
 
-Customer-managed encryption, also called "bring your own key" (BYOK), lets you encrypt your block storage volumes with your own customer root keys (CRKs). Customer-managed encryption protects you data while in transit and while at rest. For added security, enable the secure import of your CRKs by using import tokens. 
-
-For data volumes, you specify customer-managed encryption when creating the volume. For boot volumes, you can edit the boot volume properties during instance creation and specify customer-managed encryption. For procedures, see [Creating block storage volumes with customer managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
+Customer-managed encryption, also called "bring your own key" (BYOK), lets you encrypt your block storage volumes with your own customer root keys (CRKs). Customer-managed encryption protects you data while in transit and while at rest. For added security, you can securely import of your CRKs by using import tokens. 
 
 Customer-managed encryption is only available to accounts with special approval to preview this beta feature. Contact your IBM Sales representative if you are interested in getting access.
 {:note}
 
+#### Advantages
+{: #byok-advantages}
+Customer-managed encryption gives you the following advantages over provider-managed encryption:
+
+* Encryption keys are controlled by you. You grant IBM access to use your root keys to encrypt your data.
+* Data is encrypted at rest and in motion at all times using your root keys.
+* You choose the key management service (KMS) you want to use. You can select {{site.data.keyword.keymanagementserviceshort}}, a public multi-tenant KMS that is FIPS 140-2 L3 compliant, or the more secure {{site.data.keyword.hscrypto}}, which is FIPS 140-2 L4 compliant.
+* Customer-managed encryption provides better audit records for key usage. Your key access is logged in the Activity Tracker with LogDNA service. The Activity Tracker lets you track interactions with the VPC.
+
+#### How it works
+{: #byok-use}
+
+For data volumes, you specify customer-managed encryption when creating the volume. For boot volumes, you can edit the boot volume properties during instance creation and specify customer-managed encryption. For procedures, see [Creating block storage volumes with customer managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
+
 When you use customer-managed encryption, you import your root key to a key management service (KMS) of your choice, either {{site.data.keyword.keymanagementservicelong_notm}} or {{site.data.keyword.hscrypto}}. You can also create your root key in the KMS. The VPC infrastructure locates the key in the KMS instance and then encrypts the volume. For prerequisites and a one-time set up procedure, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-creating-instances-byok#byok-vsi-prereqs).
 
 After encrypting your volume, you can't remove the encryption or change it to provider-managed encryption.
-
-For information about creating customer-managed encryption for volumes during virtual server instance provisioning, see [Customer managed encryption for block storage](/docs/vpc?topic=vpc-creating-instances-byok).
 
 ## Next Steps
 {: #block-storage-about-next-steps}
