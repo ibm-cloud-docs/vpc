@@ -21,7 +21,7 @@ subcollection: vpc
 {:external: target="_blank" .external}
 {:download: .download}
 
-# VPC Dependencies
+# VPC dependencies
 {: #vpc-dependencies}
 
 The {{site.data.keyword.vpc_full}} (VPC) depends upon various {{site.data.keyword.cloud_notm}} integrated services for purposes such as:
