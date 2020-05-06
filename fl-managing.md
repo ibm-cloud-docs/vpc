@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-04-22"
+  years: 2020
+lastupdated: "2020-05-06"
 
 keywords: flow logs, ordering, getting started
 
@@ -45,7 +45,7 @@ To list your flow log collectors using the IBM Cloud console:
    * **Name** - The flow log name.
    * **Target** - The specified resource the collector logs traffic for.
    * **Date Created** - The date the flow log collector was provisioned.
-   * **Object Storage Bucket** - The selected Cloud Object Storage (COS) bucket the system saves flow log files to.
+   * **Object Storage Bucket** - The selected Cloud Object Storage (COS) bucket where the system saves flow log files.
 
    Notice that the page includes tabbed views, which show flow log collectors that were created with that target type.  
 
@@ -82,27 +82,13 @@ Where...
 
 To list flow log collectors by using the API, follow these steps:
 
-1. Provision these variables with the appropriate values:
-
-   * `token` - Use the following command:
-
-      ```sh
-      export token="$(ibmcloud iam oauth-tokens | awk '{ print $4 }')"
-      ```
-      {:pre}
-
-   * `api_endpoints` - Set the environment's end point. For example, for `us-south` use:
-
-      ```sh
-      export api_endpoint=https://us-south.iaas.cloud.ibm.com
-      ```
-      {:pre}
-
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with 
+the right variables.
 2. When all variables are initiated, list your flow log collectors:
 
 ```sh
 curl -sS -X GET \
-  -H "Authorization: $token" \
-  $api_endpoint/v1/flow_log_collectors?version=2020-05-03 | jq
+  -H "Authorization: $iam_token" \
+  $vpc_api_endpoint/v1/flow_log_collectors?version=$api_version&generation=2 | jq
 ```
 {: pre}

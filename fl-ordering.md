@@ -100,35 +100,28 @@ Where...
 
 To create a flow log collector by using the API, follow these steps:
 
-1. Provision these variables with the appropriate values:
-
-   * `token` - Use the following command:
-
-      ```sh
-      export token="$(ibmcloud iam oauth-tokens | awk '{ print $4 }')"
-      ```
-      {: pre}
-
-   *  `api_endpoint` - Set the environment end point. For example, for a production in `us-south` use:
-
-      ```sh
-      export api_endpoint=https://us-south.iaas.cloud.ibm.com
-      ```
-      {: pre}
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with 
+the right variables.
+2. Store the following variables to be used in the API commands:
 
    * `ResourceGroupId` - First, get your resource group and then populate the variable:
 
       ```sh
-      ibmcloud resource groups
-      export ResourceGroupId=
+      export ResourceGroupId=<your_resourcegroup_id>
       ```
-      {: pre}
+      {: codeblock}
 
    * `VpcId` - Find by using the **list vpc** command (with the preceding variables) and then populate the variable based on the provided ID:
 
       ```sh
-      curl -k -sS -H "Authorization: Bearer ${token}" $api_endpoint/v1/vpcs?version=2019-10-03  | jq
-      export VpcId=
+      export VpcId=<your_VPC_id>
+      ```
+      {: pre}
+
+   * `COSbucket` - The name of the COS bucket.
+
+      ```sh
+      export COSbucket=<your_COS_bucket_name>
       ```
       {: pre}
 
@@ -136,12 +129,12 @@ To create a flow log collector by using the API, follow these steps:
 
    ```sh
    curl -X POST
-     -sH "Authorization:${token}"
-     $api_endpoint/v1/flow_log_collectors?version=2019-10-03 \
+     -sH "Authorization:${iam_token}"
+     $vpc_api_endpoint/v1/flow_log_collectors?version=$api_version&generation=2 \
      -d  '{ \
           "name": "flow-logs-1", \
           "resource_group": { "id": "'$ResourceGroupId'"  }, \
-          "storage_bucket": { "name": "riastestbucket" }, \
+          "storage_bucket": { "name": "'$COSbucket'" }, \
           "target": { "id": "'$VpcId'" } \
           }' | jq
    ```
@@ -150,15 +143,18 @@ To create a flow log collector by using the API, follow these steps:
 3. To provision a collector that targets a subnet, VSI, or VNIC, you must provide a subnet ID, VSI ID, or VNIC ID as collector targets. For example, the following request creates a collector that targets a VSI ID:
 
    ```sh
-   export VsiId=
+   export VsiId=<your_vsi_id>
+   ```
+   {: pre}
 
+   ```sh
    curl -X POST \
-     -sH "Authorization:${token}" \
-     $api_endpoint/v1/flow_log_collectors?version=2019-10-03 \
+     -sH "Authorization:${iam_token}" \
+     $vpc_api_endpoint/v1/flow_log_collectors?version=$api_version&generation=2 \
      -d '{ \
       	 "name": "flow-logs-1", \
          "resource_group": { "id": "'$ResourceGroupId'"  }, \
-         "storage_bucket": { "name": "riastestbucket" }, \
+         "storage_bucket": { "name": "'$COSbucket'" }, \
          "target": { "id": "'$VsiId'" } \
          }' | jq    
    ```

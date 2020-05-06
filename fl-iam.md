@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-04-22"
+  years: 2020
+lastupdated: "2020-05-06"
 
 keywords: flow logs, iam
 
@@ -27,7 +27,7 @@ subcollection: vpc
 # Managing access for flow logs
 {: #fl-iam}
 
-Access to IBM Cloud Flow Logs service instances for users in your account is controlled by {{site.data.keyword.Bluemix_notm}} Identity and Access Management (IAM). Every user that accesses the Flow Logs service in your account must be assigned an access policy with an IAM role defined. The policy determines what actions a user can perform within the context of the service or instance that you select. The allowable actions are customized and defined by the {{site.data.keyword.Bluemix_notm}} service as operations that are allowed to be performed on the service. The actions are then mapped to IAM user roles.
+Access to {{site.data.keyword.cloud}} Flow Logs service instances for users in your account is controlled by {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM). Every user that accesses the Flow Logs service in your account must be assigned an access policy with an IAM role defined. The policy determines what actions a user can perform within the context of the service or instance that you select. The allowable actions are customized and defined by the {{site.data.keyword.cloud_notm}} service as operations that are allowed to be performed on the service. The actions are then mapped to IAM user roles.
 
 Policies enable access to be granted at different levels. Some of the options include the following: 
 
@@ -53,7 +53,7 @@ For information about assigning user roles in the console, see [Managing access 
 Only one operator role is needed, as determined by the scope of your flow log collector. 
 {: important}
  
-In addition, you also require the following actions and operations that are not specific to IBM Cloud Flow Logs.
+In addition, you also require the following actions and operations that are not specific to {{site.data.keyword.cloud_notm}} Flow Logs.
 
 | Additional role                | Description of actions    | 
 | ---------------------------- | --------------------------- |  

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-04-22"
+  years: 2020
+lastupdated: "2020-05-06"
 
 keywords: flow logs, delete
 
@@ -48,41 +48,27 @@ To delete a flow log collector by using the CLI, run the following command:
 ibmcloud is flow-log-delete FLOW_LOG [-f, --force]
 ```
 
-Where **--force, -f** forces the operation without confirmation.
+Where...
+- **FLOW_LOG** is the ID of the flow log instance.
+- **--force, -f** forces the operation without confirmation.
 
 ## Using the API
 {: #fl-deleting-api}
 
 To delete a flow log collector by using the API, follow these steps:
 
-1. Provision these variables with the appropriate values:
-
-   * `token` - Use the following command:
-
-      ```sh
-      export token="$(ibmcloud iam oauth-tokens | awk '{ print $4 }')"
-      ```
-      {:pre}
-
-   * `api_endpoint` - Set the environment's end point. For example, for production in `us-south` use:
-
-      ```sh
-      export api_endpoint=https://us-south.iaas.cloud.ibm.com
-      ```
-      {:pre}
-
-   * `FlowLogID01t` - Set the requested flow-logs ID in variable:
-
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with 
+the right variables.
+2. Store your `FlowLogID01` in a variable to be used in the command. For example:
       ```sh
       export FlowLogID01="<your_flow_log_id>"
       ```
       {:pre}
-
-2. To delete a flow log collector:
+3. To delete a flow log collector:
 
 ```sh
 curl -v -sS -X DELETE \
-  -H "Authorization: $token" \
-  $api_endpoint/v1/flow_log_collectors/$FlowLogID04?version=2020-05-03 | jq
+  -H "Authorization: $iam_token" \
+  $vpc_api_endpoint/v1/flow_log_collectors/$FlowLogID01?version=$api_version&generation=2 | jq
 ```
 {:pre}
