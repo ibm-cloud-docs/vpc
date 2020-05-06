@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2020
 lastupdated: "2020-02-03"
 
-keywords: VPC, virtual private cloud, IBM CLoud, Virtual Private Cloud, getting started, permissions, infrastructure, SSH key, CLI, API, console, public gateway, floating IP, IP ranges, BYoIP, generation 2, gen 2
+keywords: vpc, VPC, virtual private cloud, IBM CLoud, Virtual Private Cloud, getting started, permissions, infrastructure, SSH key, CLI, API, console, public gateway, floating IP, IP ranges, BYoIP, generation 2, gen 2, gen2
 
 subcollection: vpc
 
@@ -25,7 +25,7 @@ subcollection: vpc
 # Getting started with Virtual Private Cloud
 {: #getting-started}
 
-With {{site.data.keyword.vpc_full}} (VPC), you can use the UI, CLI, and API to quickly provision generation 2 virtual server instances with high network performance.
+With {{site.data.keyword.vpc_full}} (VPC), you can use the UI, CLI, and API to quickly provision generation 2 virtual server instances with high network performance. Use the following information to understand a simple use case for planning, creating, and configuring resources for your VPC, and learn about additional VPC overviews and tutorials.  
 {:shortdesc}
 
 ## Before you begin
