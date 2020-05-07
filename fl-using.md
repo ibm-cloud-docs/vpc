@@ -94,10 +94,6 @@ To get started using flow log collectors, follow these steps:
 These links provide additional information about the IBM Cloud Flow Logs beta release.
 
 * [Flow logs CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#flow-logs-cli-ref)
-
-   To expose the flow log commands in the CLI, you must first set the following environment variable:<br />`export   IBMCLOUD_IS_FEATURE_FLOW_LOGS_NG=true`
-   {: note}
-
 * [Flow logs API reference](https://{DomainName}/apidocs/vpc#list-all-flow-log-collectors)
 * [FAQs for flow log collectors](/docs/vpc?topic=vpc-fl-faq)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-flow-logs)
