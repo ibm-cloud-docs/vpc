@@ -29,7 +29,7 @@ subcollection: vpc
 
 A flow log summarizes the network traffic that is sent and received by a specific virtual network interface card (vNIC), over a specific (TCP/UDP) connection, within a certain time window. A flow log describes either traffic that is accepted by the firewall (relevant security groups or network ACLs), or rejected traffic, but not both.
 
-Each flow log object contains individual flow logs. To view flow logs:
+Each flow log object contains individual flow logs. To view flow logs, follow these steps.
 
 1. Download the objects from your designated Cloud Object Storage (COS) bucket by using the COS UI, CLI, or API.
 1. Extract and view the downloaded flow log objects in JSON format.
@@ -56,7 +56,7 @@ The `start_time` and `end_time` in a flow log reflects:
    - Capture time: The time that the data path elements were queried for traffic counters.
    - Data path time: The time as maintained in the data path element itself.
 
-It is possible that not all traffic that actually occurred (for example, in the data path) between a flow log `start_time` and `end_time` is reflected in that flow log. In other words, it might be that packets sent/received by the vNIC towards the end of the capture window are reflected only in a flow log with the later `start_time` window.
+It is possible that not all traffic that occurred (for example, in the data path) between a flow log `start_time` and `end_time` is reflected in that flow log. In other words, it might be that packets sent/received by the vNIC towards the end of the capture window are reflected only in a flow log with the later `start_time` window.
 
 **Flow logs reflect actual traffic on connections**: If traffic does not occur on a connection in a capture window, no flow log appears for it in the COS object for that window. This means that the sequence of flow logs for a connection might be mapped to a sequence of non-consecutive COS objects.
 
@@ -103,7 +103,7 @@ Fields are mandatory unless marked optional.
 
 | Field                  | Type   | Description       |
 | ---------------------- | ------ | ----------------- |
-| `start_time`             | string | When the first byte in a flow log was captured and seen in then data path (RFC 3339 Date and Time - Coordinated Universal Time) |
+| `start_time`             | string | When the first byte in a flow log was captured and seen in the data path (RFC 3339 Date and Time - Coordinated Universal Time) |
 | `end_time`               | string | When the last byte in a flow log was captured and seen in the data path (RFC 3339 Date and Time - Coordinated Universal Time) |
 | `connection_start_time`  | string | When the first byte in a flow log’s _connection_ was captured and seen in the data path (RFC 3339 Date and Time - Coordinated Universal Time) |
 | `direction`              | string | Values are `inbound` or `outbound`. If the first packet on the connection was _received_ by the vNIC, the direction is `inbound`. If the first packet was _sent_ by the vNIC, the direction is `outbound`. |
@@ -113,23 +113,25 @@ Fields are mandatory unless marked optional.
 | `target_ip`              | string | (IPv4 address) Dest-IP as it appears in the first packet processed by the vNIC on this connection. If  `direction=="inbound"`, this is a private IP associated with the vNIC. |
 | `initiator_port`         | uint16 | TCP/UDP source-port as it appears in first packet processed by this vNIC on this connection |
 | `target_port`            | uint16 | TCP/UDP dest-port as it appears in first packet processed by this vNIC on this connection |
-| `transport_protocol`     | uint8  | IANA protocol number (TCP or UDP) |
+| `transport_protocol`     | uint8  | Internet Assigned Numbers Authority (IANA) protocol number (TCP or UDP) |
 | `ether_type`            | string | Currently, `IPv4` is the only value. |
 | `was_initiated`          | bool   | Was the connection initiated in this flow log. |
 | `was_terminated`         | bool   | Was the connection terminated (for example, `timeout/RST/Final-FIN`). |
 | `bytes_from_initiator`   | uint64 | Count of bytes on connection in this flow log’s time-window, in the direction Initiator to Target. |
-| `packets_from_initiator` | uint64 | Optional.  |
+| `packets_from_initiator` | uint64 | Optional. Count of packets on the connection in this flow log’s time-window, in the direction Initiator to Target. |
 | `bytes_from_target`      | uint64 | Count of bytes on the connection in this flow log’s time-window, in the direction Target to Initiator. |
-| `packets_from_target`    | uint64 | Optional.  |
+| `packets_from_target`    | uint64 | Optional.  Count of packets on the connection in this flow log’s time-window, in the direction Target to Initiator. |
 | `cumulative_bytes_from_initiator` | uint64 | Count of bytes since the connection was initiated, in direction Initiator to Target. |
-| `cumulative_packets_from_initiator` | uint64 | Optional. |
+| `cumulative_packets_from_initiator` | uint64 | Optional. Count of packets since the connection was initiated, in direction Initiator to Target. |
 | `cumulative_bytes_from_target` | uint64 | Count of bytes since the connection was initiated, in direction Target to Initiator. |
-| `cumulative_packets_from_target` | uint64 | Optional.  |
+| `cumulative_packets_from_target` | uint64 | Optional. Count of packets since the connection was initiated, in direction Target to Initiator. |
 
 In most cases, you can find the direction field by comparing the vNIC’s private IP with the source and destination IPs. However, the field is convenient for queries.
 {: note}
 
 #### Example flow logs object
+
+```
 
     {
         "version": "0.0.1",
@@ -167,3 +169,5 @@ In most cases, you can find the direction field by comparing the vNIC’s privat
             }
         ],
     }
+
+```
