@@ -26,7 +26,7 @@ subcollection: vpc
 # Activity tracker integration
 {: #activity-tracker-integration}
 
-The load balancer service is integrated with IBM Cloud Activity Tracker with LogDNA, which records events in a manner compliant with the CADF standard, as triggered by user-initiated activities that change the state of the service in the cloud.
+The load balancer service is integrated with {{site.data.keyword.cloud}} Activity Tracker with LogDNA, which records events in a manner compliant with the CADF standard, as triggered by user-initiated activities that change the state of the service in the cloud.
 
 For a list of actions that are recorded as auditing events on the load balancer service instances, see [Activity tracker with LogDNA events](/docs/vpc?topic=vpc-at-events#events-load-balancers).
 

@@ -27,7 +27,7 @@ subcollection: vpc
 # Layer-7 load balancing
 {: #layer-7-load-balancing}
 
-Both public and private load balancers support Layer-7 load balancing. Data traffic is distributed based on configured policies and rules. A _policy_ defines the action to take, which means how the traffic is distributed, when the incoming request matches the rules that are associated with the policy.
+Both public and private load balancers support Layer-7 load balancing. Data traffic is distributed based on configured policies and rules. A policy defines the action to take, which means how the traffic is distributed, when the incoming request matches the rules that are associated with the policy.
 
 ## Policies
 {: #layer-7-policy}
