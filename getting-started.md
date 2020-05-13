@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-02-03"
+lastupdated: "2020-05-13"
 
 keywords: vpc, VPC, virtual private cloud, IBM CLoud, Virtual Private Cloud, getting started, permissions, infrastructure, SSH key, CLI, API, console, public gateway, floating IP, IP ranges, BYoIP, generation 2, gen 2, gen2
 
@@ -41,6 +41,8 @@ With {{site.data.keyword.vpc_full}} (VPC), you can use the UI, CLI, and API to q
     {: pre}
 
    This command generates two files, `id_rsa` and `id_rsa.pub`. The generated public key is in the `id_rsa.pub` file under an ``.ssh`` directory in your home directory, for example, ``.../.ssh/id_rsa.pub``.
+
+   For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
 
 For a complete list of prerequisites for using the API and CLI, see [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment).
 
