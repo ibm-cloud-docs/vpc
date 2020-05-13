@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-02-25"
+lastupdated: "2020-05-13"
 
 keywords: vpc, setup, environment, prerequisites, api, cli, command line interface, plugin, creating a vpc, iam, permissions, access, ssh key
 
@@ -41,6 +41,8 @@ Before you can create an {{site.data.keyword.vpc_full}} (VPC) by using the API o
     {: pre}
 
    This command generates two files. The generated public key is in the `id_rsa.pub` file under an ``.ssh`` directory in your home directory, for example, ``.../.ssh/id_rsa.pub``.
+
+   For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
 
 ## CLI prerequisites
 {: #cli-prerequisites-setup}
