@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-05-04"
+lastupdated: "2020-05-14"
 
 keywords: flow logs, ordering, getting started
 
@@ -15,6 +15,7 @@ subcollection: vpc
 {:pre: .pre}
 {:screen: .screen}
 {:term: .term}
+{:note: .note}
 {:tip: .tip}
 {:important: .important}
 {:external: target="_blank_" .external}
@@ -41,14 +42,34 @@ Prior to creating a flow log collector, ensure that you have met the following p
    The COS bucket must be a single-region bucket in the same region as the target resource.
    {: important}
 
-3. [Authorize](/docs/iam?topic=iam-serviceauth#create-auth) resources of type **Flow Log Collector** in the VPC infrastructure to use the COS instance identified in Step 2.
+3. Authorize resources of type **Flow Logs for VPC** to use the COS instance created in Step 2.
+
+   To do so, follow these steps:
+
+   * In the IBM Cloud console, click **Manage > Access (IAM)**, then select **Authorizations** from the navigation pane.
+   * Click **Create** and complete the following information:
+
+      - For Source service, select **Infrastructure Service** in **Account**.
+      - For Resource type, select **Flow Logs for VPC**.
+      - For Source resource instance, select **All resource instances**.
+      - For Target service, select **Cloud Object Storage** in **Account**.
+      - For Target service instance, select **string equals** for **All instances**.
+      - For Service access, select the **Writer** role to assign access to the source service that accesses the target service.
+
+   * Click **Authorize**.   
+
+   ![Grant a service authorization](/images/fl-iam.png "Grant a service authorization")
+
+    For more information, see [Using authorizations to grant access between services](/docs/iam?topic=iam-serviceauth#create-auth).
+   {: note}
+
 
 ## Using the UI
 {: #fl-ordering-ui}
 
 To create a flow log collector by using the IBM Cloud console, follow these steps:
 
-1. Log in to your whitelisted IBM Cloud account and go to [https://cloud.ibm.com/vpc-ext/network/flowLogs](https://cloud.ibm.com/vpc-ext/network/flowLogs). The flow logs list view appears.
+1. Log in to your whitelisted IBM Cloud account and go to [https://cloud.ibm.com/vpc-ext/network/flowLogs](https://test.cloud.ibm.com/vpc-ext/network/flowLogs). The flow logs list view appears.
 
   ![Flow Log Collector List View](./images/list-view-01.png "Flow Log Collector List View")
 
@@ -82,6 +103,7 @@ To create a flow log collector by using the CLI, run the following command:
   ibmcloud is flow-log-create \
     --bucket STORAGE_BUCKET_NAME \
     --target TARGET_ID [--name NAME] \
+    --active ACTIVE \
     [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] \
     [--json]
   ```
@@ -91,6 +113,7 @@ Where...
 * **--bucket** is the name of the COS bucket.
 * **--target** is the target for the flow log.
 * **--name** is the new name for the flow log.
+* **--active** Indicates whether this collector is active.
 * **--resource-group-id** is the ID of the resource group. This option is mutually exclusive with **--resource-group-name**.
 * **--resource-group-name** is the name of the resource group. This option is mutually exclusive with **--resource-group-id**.
 * **--json** formats the output in JSON.
@@ -106,31 +129,31 @@ the right variables.
 
    * `ResourceGroupId` - First, get your resource group and then populate the variable:
 
-      ```sh
-      export ResourceGroupId=<your_resourcegroup_id>
-      ```
-      {: codeblock}
+    ```sh
+    export ResourceGroupId=<your_resourcegroup_id>
+    ```
+    {: pre}
 
    * `VpcId` - Find by using the **list vpc** command (with the preceding variables) and then populate the variable based on the provided ID:
 
-      ```sh
-      export VpcId=<your_VPC_id>
-      ```
-      {: pre}
+    ```sh
+    export VpcId=<your_VPC_id>
+    ```
+    {: pre}
 
    * `COSbucket` - The name of the COS bucket.
 
-      ```sh
-      export COSbucket=<your_COS_bucket_name>
-      ```
-      {: pre}
+    ```sh
+    export COSbucket=<your_COS_bucket_name>
+    ```
+    {: pre}
 
 2. When all variables are initiated, provision a flow log collector for the specific VPC:
 
    ```sh
    curl -X POST
      -sH "Authorization:${iam_token}"
-     $vpc_api_endpoint/v1/flow_log_collectors?version=$api_version&generation=2 \
+     "$vpc_api_endpoint/v1/flow_log_collectors?version=$api_version&generation=2" \
      -d  '{ \
           "name": "flow-logs-1", \
           "resource_group": { "id": "'$ResourceGroupId'"  }, \
@@ -140,7 +163,7 @@ the right variables.
    ```
    {: pre}
 
-3. To provision a collector that targets a subnet, VSI, or VNIC, you must provide a subnet ID, VSI ID, or VNIC ID as collector targets. For example, the following request creates a collector that targets a VSI ID:
+3. To provision a collector that targets a subnet, VSI, or VNIC, you must provide a subnet ID, VSI ID, or VNIC ID as a collector target. For example, the following request creates a collector that targets a VSI ID:
 
    ```sh
    export VsiId=<your_vsi_id>
@@ -150,7 +173,7 @@ the right variables.
    ```sh
    curl -X POST \
      -sH "Authorization:${iam_token}" \
-     $vpc_api_endpoint/v1/flow_log_collectors?version=$api_version&generation=2 \
+     "$vpc_api_endpoint/v1/flow_log_collectors?version=$api_version&generation=2" \
      -d '{ \
       	 "name": "flow-logs-1", \
          "resource_group": { "id": "'$ResourceGroupId'"  }, \
