@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-06"
+lastupdated: "2020-05-14"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, IOPS, HPCS, Key Protect
 
@@ -80,7 +80,8 @@ Customer-managed encryption is only available to accounts with special approval 
 Customer-managed encryption gives you the following advantages over provider-managed encryption:
 
 * Encryption keys are controlled by you. You grant IBM access to use your root keys to encrypt your data.
-* Data is encrypted at rest and in motion at all times using your root keys.
+* Encryption is handled by IBM's host/hypervisor technology for your instances. This feature provides greater level of security over solutions that use storage node encryption technology only. 
+* Data is encrypted with your root key at all times outside of the host/hypervisor. This means your data is protected while in motion between the host system and IBM's storage systems, and while at rest in IBM's storage system.
 * You choose the key management service (KMS) you want to use. You can select {{site.data.keyword.keymanagementserviceshort}}, a public multi-tenant KMS that is FIPS 140-2 L3 compliant, or the more secure {{site.data.keyword.hscrypto}}, which is FIPS 140-2 L4 compliant.
 * Customer-managed encryption provides better audit records for key usage. Your key access is logged in the Activity Tracker with LogDNA service. The Activity Tracker lets you track interactions with the VPC.
 
@@ -92,6 +93,8 @@ For data volumes, you specify customer-managed encryption when creating the volu
 When you use customer-managed encryption, you import your root key to a key management service (KMS) of your choice, either {{site.data.keyword.keymanagementservicelong_notm}} or {{site.data.keyword.hscrypto}}. You can also create your root key in the KMS. The VPC infrastructure locates the key in the KMS instance and then encrypts the volume. For prerequisites and a one-time set up procedure, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-creating-instances-byok#byok-vsi-prereqs).
 
 After encrypting your volume, you can't remove the encryption or change it to provider-managed encryption.
+
+For information about creating customer-managed encryption for volumes during virtual server instance provisioning, see [Customer managed encryption for block storage](/docs/vpc?topic=vpc-creating-instances-byok).
 
 ## Next Steps
 {: #block-storage-about-next-steps}
