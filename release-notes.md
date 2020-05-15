@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-01"
+lastupdated: "2020-05-15"
 
 keywords: vpc release notes, changes, updates, vpc
 
@@ -25,6 +25,11 @@ subcollection: vpc
 
 Use these release notes to learn about the latest changes to {{site.data.keyword.vpc_full}}.
 {:shortdesc}
+
+## 15 May 2020
+{: #may-15-2020}
+
+- **Load Balancer for VPC update:** Supports backend encryption (HTTPS for backend pool). See [Using load balancers for VPC](/docs/vpc?topic=vpc-load-balancers) for details.
 
 ## 01 May 2020
 {: #may-01-2020}
