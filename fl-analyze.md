@@ -35,6 +35,9 @@ Each flow log object contains individual flow logs. To view flow logs, follow th
 1. Extract and view the downloaded flow log objects in JSON format.
 1. Use command-line tools, such as **jq** or **grep** to search the downloaded flow log objects.
 
+Flow logs are periodically written to COS about every 5 minutes.
+{: note}
+
 ## Flow log data format
 
 The traffic summary that is contained in a flow log includes:
