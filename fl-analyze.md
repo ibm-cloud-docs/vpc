@@ -27,7 +27,11 @@ subcollection: vpc
 # Viewing flow log objects
 {: #fl-analyze}
 
-A flow log summarizes the network traffic that is sent and received by a specific virtual network interface card (vNIC), over a specific (TCP/UDP) connection, within a certain time window. A flow log describes either traffic that is accepted by the firewall (relevant security groups or network ACLs), or rejected traffic, but not both.
+A flow log summarizes the network traffic that is sent and received by a specific virtual network interface card (vNIC), over a specific connection, within a certain time window. A flow log describes either traffic that is accepted by the firewall (relevant security groups or network ACLs), or rejected traffic, but not both.
+{:shortdesc}
+
+Currently, flow logs collect Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) traffic, but not Internet Control Message Protocol (ICMP) traffic.
+{: note}
 
 Each flow log object contains individual flow logs. To view flow logs, follow these steps.
 
