@@ -124,7 +124,7 @@ Instance groups do not support instance templates that have the following config
 | Instance template |  Select the instance template that you want to use for provisioning the virtual server instances in your auto-scale instance group. All virtual server instances in the group are provisioned with the same instance template. |
 | Scaling method | Select whether you want to use a dynamic or static scaling method. With the dynamic scaling method, instances are added or removed based on the metric targets that you specify. With the static scaling method, you can specify a fixed number of instances that you always want to maintain. |
 | Instance group size | For a static group, enter the number of instances that you want to constantly have in this instance group. For a dynamic group, enter the minimum and maximum number of instances for your group. The number of instances will scale automatically within that range based on the target metrics that you define. |
-| Aggregation window (seconds) | This value determines the time period that the auto scale system monitors each instance and determines the average utilization. |
+| Aggregation window (seconds) | This value determines the time period that the auto scale manager monitors each instance and determines the average utilization. |
 | Cooldown period (seconds) | The period of time in seconds to pause further scaling actions after scaling has taken place. |
 {: caption="Table 2. Instance group selections" caption-side="top"}
 
@@ -138,5 +138,5 @@ To add scaling policies, complete the following fields on the **New instance gro
 | Field | Value |
 |-------|-------|
 | Metric type | Select the metric type that you want to associate with a target utilization value to use for adding or removing instances from your group. You can choose one of these metrics: CPU utilization (%), RAM utilization (%), Network in (Mbps), Network out (Mbps). You can define more than one target metric policy, but only one policy for each type of metric. |
-| Average target utilization | Specify a desired average utilization for the metric that you select. This target value defines when the system should scale up instances or scale down instances in your group. At the end of each aggregation window, the auto scale system adds the current utilization of each instance and divides it by this target utilization value to determine the membership count. |
+| Average target utilization | Specify a desired average utilization for the metric that you select. This target value defines when the auto scale manager should scale up instances or scale down instances in your group. At the end of each aggregation window, the auto scale manager adds the current utilization of each instance and divides it by this target utilization value to determine the membership count. |
 {: caption="Table 3. Scaling policies selections" caption-side="top"}
