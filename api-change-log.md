@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-01"
+lastupdated: "2020-05-20"
 
 keywords: vpc, api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -41,6 +41,10 @@ To minimize bugs caused by changes, use the following best practices when you ca
 * Follow HTTP redirect rules for any `3xx` HTTP status code
 * Consume only the resources and properties your application needs to function
 * Avoid depending on behavior that is not explicitly documented
+
+## 2020-05-12
+{: #2020-05-12}
+Load balancer pool resources and their health monitors can now be configured to use the https protocol. This enables end-to-end SSL encryption with HTTPS listeners, along with HTTPS health checks for increased availability.
 
 ## 2020-05-01
 {: #2020-05-01}
