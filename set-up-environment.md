@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-05-13"
+lastupdated: "2020-05-20"
 
 keywords: vpc, setup, environment, prerequisites, api, cli, command line interface, plugin, creating a vpc, iam, permissions, access, ssh key
 
@@ -71,6 +71,9 @@ To learn how to create resources by using the CLI, see [Creating a VPC using the
 {: #api-prerequisites-setup}
 
 Before you can use the API to create your VPC, you must get an IAM token, store the endpoint as a variable, and verify that you have access to the VPC API service. 
+
+The following examples use the `us-south` regional endpoint. To view additional API endpoints, see [Virtual Private Cloud API](https://cloud.ibm.com/apidocs/vpc#api-endpoint).
+{:note}
 
 ### Step 1: Store your API key as a variable
 {: #store-api-key-variable}
