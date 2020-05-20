@@ -131,6 +131,11 @@ Virtual Private Cloud
     advanced-vpc-routing.md
     classic-access.md
     connect-to-cos.md
+    
+    {: .topicgroup}
+    Auto scale (Beta)
+        vsi_is_creating_auto_scale_group.md
+        vsi_is_managing_auto_scale_group.md
 
     {: .topicgroup}
     Deleting a VPC
