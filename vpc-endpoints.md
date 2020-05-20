@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2020-2-6"
+lastupdated: "2020-05-20"
 
 keywords: vpc, CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
 
@@ -25,8 +25,21 @@ subcollection: vpc
 # Endpoints available for VPC
 {: #service-endpoints-for-vpc}
 
-When you're ready to run workloads in your {{site.data.keyword.vpc_short}}, you can access two types of {{site.data.keyword.cloud_notm}} endpoints: platform as a service (PaaS) endpoints, also known as service endpoints, and infrastructure as a service (IaaS) endpoints. 
-{:shortdesc}
+Before you can run workloads in an {{site.data.keyword.vpc_short}}, you must first set up your environment to access the VPC API. That is, if you choose to manage your VPC resources programmatically. The following information lists the regional API endpoints you can use to access your VPC resources. 
+
+For more information about setting up your VPC API environment or referencing methods to access your VPC resources, see [Setting up your CLI or API environment](/docs/vpc?topic=vpc-set-up-environment) or the [Virtual Private Cloud API reference](https://cloud.ibm.com/apidocs/vpc). 
+
+Use one of the following public endpoints to connect to the API. The endpoints are based on the region of the service. 
+
+| Region            | Endpoint                              |
+|-------------------|---------------------------------------|
+| US South          | `https://us-south.iaas.cloud.ibm.com` |
+| US East           | `https://us-east.iaas.cloud.ibm.com`  |
+| United Kingdom    | `https://eu-gb.iaas.cloud.ibm.com`    |
+| EU - Germany      | `https://eu-de.iaas.cloud.ibm.com`    |
+{: caption="Table 1. VPC API Regional Endpoints" caption-side="top"}
+ 
+After you've created and are accessing the resources in your VPC, you're ready to run workloads. You can access two types of {{site.data.keyword.cloud_notm}} endpoints: platform as a service (PaaS) endpoints, also known as service endpoints, and infrastructure as a service (IaaS) endpoints. 
 
 Although the addresses for these endpoints look as if they communicate through the public internet, traffic to and from these endpoints does not leave {{site.data.keyword.cloud_notm}}. Therefore, this traffic avoids the bandwidth charges associated with traffic that exits the cloud and goes onto the public internet.
 
@@ -41,7 +54,6 @@ If you can't connect to service endpoints, make sure that service endpoints are 
 {: tip}
 
 You can also use VPN for VPC to access service endpoints. For more information, see [Access service endpoints through VPN](/docs/vpc?topic=vpc-using-vpn#build-se-connectivity-using-vpn).
-
 
 ## IaaS endpoints
 {: #infrastructure-as-a-service-iaas-endpoints}
@@ -73,6 +85,9 @@ DNS resolvers use IP address, rather than names. For shared cloud service endpoi
 
 APT mirrors for updating Ubuntu and Debian images are available from `mirrors.adn.networklayer.com`, which resolves to `161.26.0.6`.
 
+For instances that are provisioned with stock images for CentOS, Red Hat Enterprise Linux, or Windows, update connections are  configured as part of the provisioning process.  
+{: tip}
+
 ###  NTP servers
 {: #network-time-protocol-ntp-servers}
 
@@ -82,4 +97,8 @@ An NTP server is available from `time.adn.networklayer.com`, which resolves to `
 {: #object-storage}
 
 To reach Cloud Object Storage from a VPC see [Connecting to {{site.data.keyword.cloud_notm}} Object Storage from VPC](/docs/vpc?topic=vpc-connecting-vpc-cos).
+
+
+
+
 
