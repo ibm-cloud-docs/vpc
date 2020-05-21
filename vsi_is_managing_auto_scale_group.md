@@ -24,8 +24,7 @@ subcollection: vpc
 # Managing an instance group (Beta)
 {: #managing-instance-group}
 
-When you have an instance group created, you can duplicate it, delete it, or edit it (scaling method, group size, and target policies for 
-scaling).   
+When you have an instance group created, you can duplicate it, delete it, or edit it to change the scaling method, group size, or target policies for scaling.   
 {:shortdesc}
 
 To manage your instance group from the Instance groups for VPC page, complete the following steps.
@@ -64,27 +63,27 @@ You can manually scale the instances in the group at any time by editing the mem
 ### Changing the scaling method for an instance group
 {: #changing-scaling-method}
 
-If you start out with a static membership in your instance group, for example, you can change it to use the dynamic scaling method. (You can also switch from dynamic scaling method to the static scaling method.) With the dynamic scaling method, you set a minimum and maximum number of instances for the instance group. Then, you specify target policies that define the desired utilization of a metric (such as vCPU) that you want the instance group to maintain.
+If you start out with a static membership in your instance group, for example, you can change it to use the dynamic scaling method. (You can also switch from dynamic scaling method to the static scaling method.) With the dynamic scaling method, you set a minimum and maximum number of instances for the instance group. Then, you specify target policies that define the desired utilization of a metric (such as CPU) that you want the instance group to maintain.
 
 To change an instance group from using static membership to dynamic scaling, complete the following steps:
 
 1. From the menu in the upper right-hand corner of the instance group details page, select **Switch scaling method**. 
 2. On the **Switch to dynamic** page, click **Switch** to confirm that you want to change to the dynamic scaling method.
 3. Specify the minimum and maximum number of instances that you want to have running in your instance group at any given time.
-4. Specify the aggregation window. The aggregation window is the time period in seconds that the auto scale manager monitors each instance and determines the average utilization.
+4. Specify the aggregation window. The aggregation window is the time period in seconds that the instance group manager monitors each instance and determines the average utilization.
 5. Specify the cool down period, the number of seconds to pause further scaling actions after scaling has taken place.
-6. Create one or more target policies that define a metric and target utilization that the auto scale manager will use for auto scaling in your instance group. See Table 1 for more information. 
+6. Create one or more target policies that define a metric and target utilization that the instance group manager will use for auto scaling in your instance group. See Table 1 for more information. 
 
 | Field | Value |
 |-------|-------|
 | Metric type | Select the metric type that you want to associate with a target utilization value to use for adding or removing instances from your group. You can choose one of these metrics: CPU utilization (%), RAM utilization (%), Network in (Mbps), Network out (Mbps). You can define more than one target scaling policy, but only one policy for each metric type. |
-| Average target utilization | Specify a desired average utilization for the metric that you select. This target value defines when the auto scale manager should scale up instances or scale down instances in your group. At the end of each aggregation window, the auto scale manager adds the current utilization of each instance and divides it by this target utilization value to determine the membership count. |
+| Average target utilization | Specify a desired average utilization for the metric that you select. This target value defines when the instance group manager should scale up instances or scale down instances in your group. At the end of each aggregation window, the instance group manager adds the current utilization of each instance and divides it by this target utilization value to determine the membership count. |
 {: caption="Table 1. Target policies selections" caption-side="top"}
 
 ### Creating target scaling policies
 {: #creating-target-policies}
 
-For the dynamic scaling method, you define certain metrics (like vCPU) and the desired target utilization for that metric. Together, the metric and the average target utilization, determine when your instance group should dynamically add or remove virtual server instances from your group. 
+For the dynamic scaling method, you define certain metrics (like CPU) and the desired target utilization for that metric. Together, the metric and the average target utilization, determine when your instance group should dynamically add or remove virtual server instances from your group. 
 
 To add scaling policies, complete the following steps. You can define more than one target scaling policy, but only one policy for each type of metric.
 
@@ -94,5 +93,5 @@ To add scaling policies, complete the following steps. You can define more than 
 | Field | Value |
 |-------|-------|
 | Metric type | Select the metric type that you want to associate with a target utilization value to use for adding or removing instances from your group. You can choose one of these metrics: CPU utilization (%), RAM utilization (%), Network in (Mbps), Network out (Mbps). You can define more than one target scaling policy, but only one policy for each type of metric. |
-| Average target utilization | Specify a desired average utilization for the metric that you select. This target value defines when the auto scale manager should scale up instances or scale down instances in your group. At the end of each aggregation window, the auto scale manager adds the current utilization of each instance and divides it by this target utilization value to determine the membership count. |
+| Average target utilization | Specify a desired average utilization for the metric that you select. This target value defines when the instance group manager should scale up instances or scale down instances in your group. At the end of each aggregation window, the instance group manager adds the current utilization of each instance and divides it by this target utilization value to determine the membership count. |
 {: caption="Table 2. Target policies selections" caption-side="top"}
