@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-03-18"
+lastupdated: "2020-05-21"
 
 keywords: vpc, limitations, restrictions
 
@@ -43,7 +43,10 @@ The following features are not supported, including all properties associated wi
 ## Virtual private cloud restrictions
 {: #virtual-private-cloud-restrictions}
 
-* An {{site.data.keyword.vpc_short}} cannot be peered with other VPCs. While it is possible to connect VPCs with either VPN Gateways or Floating IPs, there is no automatic route advertisement between the two VPCs. Static routes must be used in each VPC to enable layer 3 connectivity between the two VPCs. For more information about how you can achieve VPC-to-VPC connectivity, see [API example: Connecting two VPCs using VPN](/docs/vpc?topic=vpc-using-vpn#vpn-example).
+An {{site.data.keyword.vpc_short}} cannot be peered with other VPCs natively. It is possible to connect VPCs utilizing either Transit Gateway, VPN Gateways or Floating IPs. 
+
+* With both VPN Gateways and Floating IPs, there is no automatic route advertisement between the two VPCs. Static routes must be used in each VPC to enable layer 3 connectivity between the two VPCs. See [How to use a VPN Gateway to connect two VPCs](/docs/vpc-on-classic-network topic=vpc-on-classic-network-using-vpn-with-your-vpc#vpn-example) for how you can achieve VPC-to-VPC connectivity using this method. 
+* With Transit Gateway, it advertises the root subnets of each VPC allowing trafific to be routed without the use of static routes. For more information see [Getting started with IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started)
 
 ## Network restrictions
 {: #network-restrictions}
