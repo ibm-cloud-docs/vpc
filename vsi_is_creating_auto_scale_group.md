@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020 
-lastupdated: "2020-05-20"
+lastupdated: "2020-05-21"
 
 keywords: auto scale, autoscale, virtual server instance, creating, UI, console
 
@@ -36,7 +36,7 @@ Auto Scale for VPC is only available to accounts with special approval to previe
 
 With Auto Scale for VPC, you can improve performance and costs by dynamically creating virtual server instances to meet the demands of your environment. You set scaling policies that define your desired average utilization for metrics like CPU, memory, and network usage. The policies that you define determine when virtual server instances are added or removed from your instance group. 
 
-As an example, imagine that the fictitious company, Acme Web Retailer, has set up an instance group for auto scaling. They  define that they always want to maintain a minimum of 3 instances and a maximum of 7 instances. They create a dynamic scaling policy for CPU usage with their desired average utilization for instances at 70%. They set an aggregation window of 10 minutes, so the auto scale manager monitors each instance for 10 minutes before calculating the average utilization. If adjustments are needed to meet the target utilization across instances, the auto scale manager provisions or reclaims more instances as needed.   
+As an example, imagine that the fictitious company, Acme Web Retailer, has set up an instance group for auto scaling. They  define that they always want to maintain a minimum of 3 instances and a maximum of 7 instances. They create a dynamic scaling policy for CPU usage with their desired average utilization for instances at 70%. They set an aggregation window of 10 minutes, so the instance group manager monitors each instance for 10 minutes before calculating the average utilization. If adjustments are needed to meet the target utilization across instances, the instance group manager provisions or reclaims more instances as needed.   
 
 Auto scale uses the following computation to determine how many instances are running at any given time:
 
@@ -50,7 +50,7 @@ If Acme Web Retailer has four virtual server instances running when the aggregat
 80% + 70% + 65% + 85% / 70% = 4.29 
 ```
 
-Based on this calculation, the auto scale manager rounds **4.29** up to **5** and provisions another instance. Now Acme Web Retailer has a total of five instances and maintains their desired average CPU utilization across the instances in the group. 
+Based on this calculation, the instance group manager rounds **4.29** up to **5** and provisions another instance. Now Acme Web Retailer has a total of five instances and maintains their desired average CPU utilization across the instances in the group. 
 
 
 ## Setting up auto scale 
@@ -124,7 +124,7 @@ Instance groups do not support instance templates that have the following config
 | Instance template |  Select the instance template that you want to use for provisioning the virtual server instances in your auto-scale instance group. All virtual server instances in the group are provisioned with the same instance template. |
 | Scaling method | Select whether you want to use a dynamic or static scaling method. With the dynamic scaling method, instances are added or removed based on the metric targets that you specify. With the static scaling method, you can specify a fixed number of instances that you always want to maintain. |
 | Instance group size | For a static group, enter the number of instances that you want to constantly have in this instance group. For a dynamic group, enter the minimum and maximum number of instances for your group. The number of instances will scale automatically within that range based on the target metrics that you define. |
-| Aggregation window (seconds) | This value determines the time period that the auto scale manager monitors each instance and determines the average utilization. |
+| Aggregation window (seconds) | This value determines the time period that the instance group manager monitors each instance and determines the average utilization. |
 | Cooldown period (seconds) | The period of time in seconds to pause further scaling actions after scaling has taken place. |
 {: caption="Table 2. Instance group selections" caption-side="top"}
 
@@ -138,5 +138,6 @@ To add scaling policies, complete the following fields on the **New instance gro
 | Field | Value |
 |-------|-------|
 | Metric type | Select the metric type that you want to associate with a target utilization value to use for adding or removing instances from your group. You can choose one of these metrics: CPU utilization (%), RAM utilization (%), Network in (Mbps), Network out (Mbps). You can define more than one target metric policy, but only one policy for each type of metric. |
-| Average target utilization | Specify a desired average utilization for the metric that you select. This target value defines when the auto scale manager should scale up instances or scale down instances in your group. At the end of each aggregation window, the auto scale manager adds the current utilization of each instance and divides it by this target utilization value to determine the membership count. |
+| Average target utilization | Specify a desired average utilization for the metric that you select. This target value defines when the instance group manager should scale up instances or scale down instances in your group. At the end of each aggregation window, the instance group manager adds the current utilization of each instance and divides it by this target utilization value to determine the membership count. |
 {: caption="Table 3. Scaling policies selections" caption-side="top"}
+
