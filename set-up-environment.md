@@ -17,6 +17,7 @@ subcollection: vpc
 {:pre: .pre}
 {:screen: .screen}
 {:tip: .tip}
+{:note: .note}
 {:important: .important}
 {:download: .download}
 {:external: target="_blank" .external}
