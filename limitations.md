@@ -43,10 +43,10 @@ The following features are not supported, including all properties associated wi
 ## Virtual private cloud restrictions
 {: #virtual-private-cloud-restrictions}
 
-An {{site.data.keyword.vpc_short}} cannot be peered with other VPCs natively. It is possible to connect VPCs utilizing either Transit Gateway, VPN Gateways or Floating IPs. 
+An {{site.data.keyword.vpc_short}} cannot be peered with other VPCs natively. It is possible to connect VPCs using either Transit Gateway, VPN Gateways, or Floating IPs. 
 
-* With both VPN Gateways and Floating IPs, there is no automatic route advertisement between the two VPCs. Static routes must be used in each VPC to enable layer 3 connectivity between the two VPCs. See [How to use a VPN Gateway to connect two VPCs](/docs/vpc-on-classic-network topic=vpc-on-classic-network-using-vpn-with-your-vpc#vpn-example) for how you can achieve VPC-to-VPC connectivity using this method. 
-* With Transit Gateway, it advertises the root subnets of each VPC allowing trafific to be routed without the use of static routes. For more information see [Getting started with IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started)
+* With both VPN Gateways and Floating IPs, there is no automatic route advertisement between the two VPCs. Static routes must be used in each VPC to enable layer 3 connectivity between the two VPCs. See [How to use a VPN Gateway to connect two VPCs](https://cloud.ibm.com/docs/vpc?topic=vpc-using-vpn) for how you can achieve VPC-to-VPC connectivity by using this method. 
+* With Transit Gateway, it advertises the root subnets of each VPC allowing traffic to be routed without the use of static routes. For more information, see [Getting started with IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started).
 
 ## Network restrictions
 {: #network-restrictions}
