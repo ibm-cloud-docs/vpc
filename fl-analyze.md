@@ -106,7 +106,7 @@ Fields are mandatory unless marked optional.
 | `number_of_flow_logs`    | uin32  | Number of elements in a `flow_logs` array. Since this number highly variable, it is useful because it gives you a quick reference for the number of flow logs contained in a single COS object, without needing to download the object first. |
 | `flow_logs`              | array of JSON objects | This might be an empty array, which indicates `no traffic`.|
 
-#### Per flow low fields
+#### Per flow log fields
 
 | Field                  | Type   | Description       |
 | ---------------------- | ------ | ----------------- |
