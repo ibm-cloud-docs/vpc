@@ -78,7 +78,7 @@ Rejected traffic:
 - Rejected packets on an existing connection (for example, traffic that does not match TCP state-machine, or a network ACL rule changed mid-connection).
 -  Rejected packets are written to separate flow logs based on whether they are incoming or outgoing.
 
-   Not all dropped packets appear in flow logs. For example, in some packets are dropped in HW (spoofed SRC MAC, SRC IP).
+   Not all dropped packets appear in flow logs. For example, some packets are dropped in HW (spoofed SRC MAC, SRC IP).
    {: note}
 
 ### Flow log object format
