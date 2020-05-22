@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-15"
+lastupdated: "2020-05-21"
 
 keywords: vpc release notes, changes, updates, vpc
 
@@ -25,6 +25,11 @@ subcollection: vpc
 
 Use these release notes to learn about the latest changes to {{site.data.keyword.vpc_full}}.
 {:shortdesc}
+
+## 21 May 2020
+{: #may-21-2020}
+
+- **Auto Scale for VPC Beta:** Auto scale is now available in a limited beta. With auto scale, you can improve performance and costs by dynamically creating virtual server instances to meet the demands of your environment. For more information, see [Creating an instance group for auto scaling (Beta)](/docs/vpc?topic=vpc-creating-auto-scale-instance-group). 
 
 ## 15 May 2020
 {: #may-15-2020}
