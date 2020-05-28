@@ -152,7 +152,7 @@ To use the CLI to create a virtual server instance with volumes that use custome
     
     4. List the available keys and their associated CRNs within your desired {{site.data.keyword.keymanagementserviceshort}} service instance by running the following command:
        ```
-       ibmcloud kp list -c --instance-id 7mnxxxo8-91xx-23px-q4rs-xxtuv5w6xxx7
+       ibmcloud kp keys -c --instance-id 7mnxxxo8-91xx-23px-q4rs-xxtuv5w6xxx7
        ```
        {: pre}
        
