@@ -76,14 +76,12 @@ To specify customer-managed encryption when you create a stand-alone volume, fol
 
 Follow [CLI step 1](/docs/vpc?topic=vpc-creating-instances-byok#provision-byok-cli) for obtaining the CRN of the root key in your key management service.
 
-To create a block storage volume with customer-managed encryption by using the CLI, specify the `ibmcloud is volume-create` command with the `--encryption-key` parameter. The encryption_key parameter in the JSON file must include a valid CRN for the root key in the Key Protect service. See the [JSON file examples](/docs/vpc?topic=vpc-creating-instances-byok#vsi-vol-attachment-json) of a boot volume attachment JSON and secondary volume attachment JSON. 
+To create a block storage volume with customer-managed encryption by using the CLI, specify the `ibmcloud is volume-create` command with the `--encryption-key` parameter.  The `encryption_key` parameter specifies a valid CRN for the root key in the key management service.
 
 ```bash
 ibmcloud is volume-create VOLUME_NAME PROFILE_NAME ZONE_NAME [--encryption-key ENCRYPTION_KEY] [--capacity CAPACITY] [--iops IOPS] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--json]
 ```
 {: pre}
-
-The `--encryption-key` parameter takes the CRN of the root key. Obtain the CRN of the root key in your key management service instance. For more information, see the [virtual server instance documentation](/docs/vpc?topic=vpc-creating-instances-byok#provision-byok-cli). For information about creating block storage volumes with the CLI, see [Creating block storage volumes by using the CLI](/docs/vpc?topic=vpc-creating-block-storage-cli).
 
 The following example shows a new volume that is created with customer-managed encryption.
 
