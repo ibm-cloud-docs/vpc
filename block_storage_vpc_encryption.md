@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2020
-lastupdated: "2020-05-27"
+lastupdated: "2020-05-28"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
@@ -30,7 +30,7 @@ By default, {{site.data.keyword.block_storage_is_short}} boot and data volumes a
 Customer-managed encryption is an option for boot and data volumes that are [created during instance provisioning](/docs/vpc?topic=vpc-creating-instances-byok#provision-byok-ui). You can also specify customer-managed encryption when you [create a stand-alone data volume](#data-vol-encryption-ui). This feature is available in the Dallas, Washington DC, London, and Frankfort regions.
 
 This is a beta feature that is available for evaluation and testing purposes. 
-{:beta}
+{:note}
 
 ## Key management services for block storage volumes
 {: #key-mgt-services-for-storage}

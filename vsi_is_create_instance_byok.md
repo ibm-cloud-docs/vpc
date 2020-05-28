@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-27"
+lastupdated: "2020-05-28"
 
 keywords: create virtual server with encryption, data encryption key, dek, encrypted volume, virtual server instance, create virtual server, provision virtual server, virtual machine, instance, virtual server, deploy virtual server, block storage volume
 
@@ -32,7 +32,7 @@ You can create {{site.data.keyword.vsi_is_full}} that use your encryption keys t
 This feature is available in the Dallas, Washington DC, London, and Frankfort regions.
 
 This is a beta feature that is available for evaluation and testing purposes. 
-{:beta}
+{:note}
 
 Before you can create an instance, you need to [create an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
 {:important}

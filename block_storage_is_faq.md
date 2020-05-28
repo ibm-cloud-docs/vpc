@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-27"
+lastupdated: "2020-05-28"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, IOPS, FAQ
 
@@ -177,7 +177,7 @@ Target latency within the storage is less than 1 millisecond. Block storage is c
 {: #block-storage-vpc-security-questions}
 
 Customer-managed encryption is a beta feature that is available for evaluation and testing purposes. 
-{:beta}
+{:note}
 
 ### How secure is data in a {{site.data.keyword.block_storage_is_short}} volume?
 {: faq}
