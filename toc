@@ -16,6 +16,7 @@ Virtual Private Cloud
         /tutorials/solution-tutorials-vpc-multi-region
         /tutorials/solution-tutorials-vpc-app-deploy
         /tutorials/solution-tutorials-vpc-secure-management-bastion-server
+        /containers/containers-vpc_ks_tutorial
 
     [Pricing](https://www.ibm.com/cloud/vpc/pricing)
     about-vpc.md
