@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-03-02"
+lastupdated: "2020-06-02"
 
 keywords: image, stock image, custom image, power, virtual server, GPU, profiles
 
@@ -20,12 +20,16 @@ subcollection: vpc
 {:note: .note}
 {:important: .important}
 {:download: .download}
+(:deprecated: .deprecated)
 {:DomainName: data-hd-keyref="DomainName"}
 {:external: target="_blank" .external}
 
 
 # Setting up the GPU driver for a POWER-based instance
 {: #setup-gpus}
+
+The IBM Cloud Virtual Servers for VPC on POWER service is deprecated. As of 02 June 2020, you cannot provision new instances. Any instance that is still provisioned as of 02 September 2020 will be deleted. For more information, see the [End of Service Announcement for Virtual Servers for VPC on POWER](https://www.ibm.com/cloud/blog/announcements/end-of-service-announcement-for-virtual-servers-for-vpc-on-power).
+{:deprecated}
 
 When you provision IBM Cloud Virtual Servers for VPC on POWER, you have the option of specifying profiles with NVIDIA Tesla V100 GPUs to accelerate your cognitive workloads. Due to a current licensing restriction, the NVIDIA GPU driver does not come preinstalled on the stock images. However, you can easily install the NVIDIA driver on your Ubuntu 18.04 POWER virtual server instance with the following procedure.
 
