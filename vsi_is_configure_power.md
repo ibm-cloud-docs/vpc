@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-20"
+lastupdated: "2020-06-02"
 
 keywords: vsi, virtual server instance, power, performance
 
@@ -17,6 +17,7 @@ subcollection: vpc
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:tip: .tip}
+{:deprecated: .deprecated}
 {:external: target="_blank" .external}
 {:table: .aria-labeledby="caption"}
 
@@ -25,6 +26,9 @@ subcollection: vpc
 
 To improve overall efficiency, you might want to change the simultaneous multi-threading (SMT) value for your POWER-based instance. When you create an instance, the default SMT value is set to 2 for the boot images provided.  
 {:shortdesc}
+
+The IBM Cloud Virtual Servers for VPC on POWER service is deprecated. As of 02 June 2020, you cannot provision new instances. Any instance that is still provisioned as of 02 September 2020 will be deleted. For more information, see the [End of Service Announcement for Virtual Servers for VPC on POWER](https://www.ibm.com/cloud/blog/announcements/end-of-service-announcement-for-virtual-servers-for-vpc-on-power).
+{:deprecated}
 
 ## Viewing the current SMT setting
 {: #view_smt_setting}
