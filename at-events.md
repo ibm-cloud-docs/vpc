@@ -70,10 +70,10 @@ As a security officer, auditor, or manager, you can use the {{site.data.keyword.
 | security-group | is.security-group.security-group-rule.create  | Rule was added to Security Group  |
 | security-group | is.security-group.security-group-rule.delete  | Rule was removed from Security Group  |
 | security-group | is.security-group.security-group-rule.update  | Security Group Rule was updated  |
-| security-group | is.security-group.security-group_rule.read | One or more security group rule was retrieved |
+| security-group | is.security-group.security-group-rule.read | One or more security group rule was retrieved |
 | security-group | is.security-group.security-group-interface.attach | Interface was attached to Security Group   |
 | security-group | is.security-group.security-group-interface.detach | Interface was removed from Security Group   |
-| security-group | is.security-group.security-group_interface.read | One or more security group interface was retrieved |
+| security-group | is.security-group.security-group-interface.read | One or more security group interface was retrieved |
 | subnet   | is.subnet.subnet.create   | Subnet was created   |
 | subnet   | is.subnet.subnet.update   | Subnet was updated   |
 | subnet   | is.subnet.subnet.delete   | Subnet was deleted   |
