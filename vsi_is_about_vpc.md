@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-04-28"
+lastupdated: "2020-06-02"
 
 keywords: virtual server instances, VSI, planning, best practices
 
@@ -18,6 +18,7 @@ subcollection: vpc
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:deprecated: .deprecated}
 {:external: target="_blank" .external}
 {:table: .aria-labeledby="caption"}
 
@@ -40,6 +41,11 @@ In today's IBM Cloud Virtual Server offering, instances use native subnet and VL
 
 ## Virtual Servers for VPC on POWER
 {: #about-power-vsi}
+
+The IBM Cloud Virtual Servers for VPC on POWER service is deprecated. As of 02 June 2020, you cannot provision new instances.
+Any instance that is still provisioned as of 02 September 2020 will be deleted. For more information, see the [End of Service Announcement for Virtual Servers for VPC on POWER](https://www.ibm.com/cloud/blog/announcements/end-of-service-announcement-for-virtual-servers-for-vpc-on-power).
+{:deprecated}
+
 Virtual server instances with an IBM POWER9 CPU run the Power Instruction Set Architecture (ISA) and Linux workloads. These systems provide up to 3 Gbps per vCPU, provide NVLink2 CPU-to-GPU connectivity for virtual server profiles with NVIDIA Tesla v100 GPUs (with 32 GB RAM per GPU), and natively run within your standard VPC. POWER-based instances that run within your VPC, share the same security groups, subnets, and storage as your x86-based instances.
 
 
