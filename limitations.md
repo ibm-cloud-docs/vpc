@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-05-21"
+lastupdated: "2020-06-02"
 
 keywords: vpc, limitations, restrictions
 
@@ -36,8 +36,6 @@ The following features are not supported, including all properties associated wi
 
 * Virtual server instance name change: If you update the name of a virtual server, the name change may not appear consistently in different areas of the {{site.data.keyword.cloud}} console. For example, the virtual server name change might not be reflected in the {{site.data.keyword.cloud_notm}} console, or on the billing invoice, yet it appears correctly in the user's list of running instances.
 
-* POWER-based instances are only available in the Dallas region.
-
 * Direct Link on Classic access to VPC is supported through [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure) only. Direct Link (release 2.0) does not have this limitation. 
 
 ## Virtual private cloud restrictions
@@ -65,9 +63,7 @@ An {{site.data.keyword.vpc_short}} cannot be peered with other VPCs natively. It
 {: #compute-restrictions}
 
 * Every x86-based profile has a network performance value of 2 Gbps per vCPU, with a cap of 80 Gbps.
-* Every POWER-based profile has a network performance value of 3 Gbps per vCPU, with a cap of 100 Gbps.
 * Each x86-based network interface has a network performance cap of 16 Gbps. <!-- You might need to attach multiple network interfaces to your virtual server instance to optimize network performance. -->
-* Each POWER-based network interface has a network performance cap of 25 Gbps.
 * Start/Stop actions are not registered under virtual server instance activity in the UI.
 * Activity Tracker logs (request logs and resource lifecycle event logs) are not available.
 * Updating the profile of a created instance is not supported.
