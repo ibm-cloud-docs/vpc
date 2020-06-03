@@ -36,9 +36,9 @@ As a security officer, auditor, or manager, you can use the {{site.data.keyword.
 
 | Resource  | Action  | Description  |
 |:----------------|:-----------------------|:-----------------------|
-| vpc  | is.vpc.vpc.create   | VPC was created.  |
-| vpc  | is.vpc.vpc.update   | VPC was updated.  |
-| vpc  | is.vpc.vpc.delete   | VPC was deleted.  |
+| vpc  | is.vpc.vpc.create   | VPC was created  |
+| vpc  | is.vpc.vpc.update   | VPC was updated  |
+| vpc  | is.vpc.vpc.delete   | VPC was deleted  |
 | vpc  | is.vpc.vpc.read  | One or more VPC was retrieved |
 | vpc  | is.vpc.address-prefix.create  | Address Prefix was added to VPC  |
 | vpc  | is.vpc.address-prefix.update  | VPC Address Prefix was updated   |
