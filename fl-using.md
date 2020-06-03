@@ -15,6 +15,7 @@ subcollection: vpc
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:screen: .screen}
+{:beta: .beta}
 {:term: .term}
 {:tip: .tip}
 {:note: .note}
@@ -30,7 +31,7 @@ subcollection: vpc
 {: #flow-logs}
 
 The IBM Cloud Flow Logs Beta is only available to whitelisted users. Contact your IBM Sales representative if you are interested in getting early access.
-{:preview}
+{: beta}
 
 {{site.data.keyword.cloud}} Flow Logs enable the collection, storage, and presentation of Internet Protocol (IP) traffic going to and from networks within your Virtual Private Cloud (VPC). Flow logs can help with a number of tasks, including:
 
