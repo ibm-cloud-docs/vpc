@@ -127,7 +127,7 @@ Here's what the scenario looks like:
 
 The following example assumes that you already created VPCs, subnets, and virtual server instances. For more information about creating VPC resources, see [Getting started](/docs/vpc?topic=vpc-getting-started).
 
-You can also create a VPN gateway using the UI. For instructions, see [Creating a VPC using the IBM Cloud console](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#vpn).
+You can also create a VPN gateway using the UI. For instructions, see [Using the IBM Cloud console to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#vpn-ui).
 {: tip}
 
 ### Step 1. Create a VPN gateway in a subnet of your VPC
