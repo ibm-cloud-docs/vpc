@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-06-02"
+lastupdated: "2020-06-04"
 
 keywords: vpc, limitations, restrictions
 
@@ -37,6 +37,13 @@ The following features are not supported, including all properties associated wi
 * Virtual server instance name change: If you update the name of a virtual server, the name change may not appear consistently in different areas of the {{site.data.keyword.cloud}} console. For example, the virtual server name change might not be reflected in the {{site.data.keyword.cloud_notm}} console, or on the billing invoice, yet it appears correctly in the user's list of running instances.
 
 * Direct Link on Classic access to VPC is supported through [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure) only. Direct Link (release 2.0) does not have this limitation. 
+
+### Billing note
+When the VPC billing system reports network traffic from load balancers and VPNs, the resources are identified with a nonstandard name. The resource is indentified using the prefix `instance-`, followed by the last 16 digits of the back-end virtual server instance. 
+
+For example, if the load balancer UUID is `10000`, but it is running in a virtual server instance that has an internal UUID of `75007600770078007900`. The last 16 digits of the instance UUID are: `7600770078007900`. 
+  
+The CRN will identify the load balancer as follows:`crn:v1:bluemix:public:is:eu-gb:a/0000000001::load-balancer:instance-7600770078007900`.
 
 ## Virtual private cloud restrictions
 {: #virtual-private-cloud-restrictions}
