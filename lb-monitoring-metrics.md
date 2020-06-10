@@ -122,7 +122,7 @@ The following attributes are available to segment one or more of the global attr
 
 The displayed metrics contain a timestamp in UNIX epoch time and the metric value for the time interval ending at that timestamp. You can specify different scopes, as well as the time interval over which to report the metrics.
 
-The supported listener protocols include:
+The supported listener protocols for IBM Load Balancer for VPC include:
 
 * HTTP
 * HTTPS
