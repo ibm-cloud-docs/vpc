@@ -29,19 +29,19 @@ subcollection: vpc
 This section contains answers to some frequently asked questions about the {{site.data.keyword.cloud}} Load Balancer for VPC service.
 
 ## Can I use a different DNS name for my load balancer?
-{: #can-i-use-a-different-dns-name-for-my-load-balancer}
+{: #can-i-use-a-different-dns-name-for-my-load-balancer-alb}
 {: faq}
 
 The auto-assigned DNS name for the load balancer is not customizable. However, you can add a CNAME (Canonical Name) record that points your preferred DNS name to the auto-assigned load balancer DNS name. For example, your load balancer in `us-south` has ID `dd754295-e9e0-4c9d-bf6c-58fbc59e5727`, and the auto-assigned load balancer DNS name is `dd754295-us-south.lb.appdomain.cloud`. Your preferred DNS name is `www.myapp.com`. You can add a CNAME record (through the DNS provider that you use to manage `myapp.com`) pointing `www.myapp.com` to the load balancer DNS name `dd754295-us-south.lb.appdomain.cloud`.
 
 ## What's the maximum number of front-end listeners I can define with my load balancer?
-{: #what-s-the-maximum-number-of-front-end-listeners-i-can-define-with-my-load-balancer}
+{: #what-s-the-maximum-number-of-front-end-listeners-i-can-define-with-my-load-balancer-alb}
 {: faq}
 
 10 is the maximum number of front-end listeners that you can define with your load balancer.
 
 ## What's the maximum number of virtual server instances I can attach to my back-end pool?
-{: #what-s-the-maximum-number-of-server-instances-i-can-attach-to-my-back-end-pool}
+{: #what-s-the-maximum-number-of-server-instances-i-can-attach-to-my-back-end-pool-alb}
 {: faq}
 
 50 is the maximum number of virtual server instances that you can attach to a back-end pool.
@@ -136,7 +136,7 @@ Use FQDN, rather than cached IP addresses.
 {:important}
 
 ## Does the load balancer support Layer-7 switching?
-{: #does-the-load-balancer-support-layer-7-switching}
+{: #does-the-load-balancer-support-layer-7-switching-alb}
 {: faq}
 
 Yes, the load balancer supports Layer-7 switching.
