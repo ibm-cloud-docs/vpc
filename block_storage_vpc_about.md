@@ -33,7 +33,7 @@ You can choose [IOPS tier profiles](/docs/vpc?topic=vpc-block-storage-profiles#t
 ## Block storage for VPC volumes
 {: #block-storage-vpc-volumes}
 
-{{site.data.keyword.block_storage_is_short}} offers block-level volumes that can be attached to an instance as either a boot volume or as a data volume. You can configure up to 750 block storage volumes per account in a region. You can attach several block storage data volumes to a single instance for extra capacity. The number of volumes you can attach to an instance depends on how many vCPUs that instance contains. For more information, see [Volume attachment limits](/docs/vpc?topic=vpc-attaching-block-storage#vol-attach-limits).
+{{site.data.keyword.block_storage_is_short}} offers block-level volumes that can be attached to an instance as either a boot volume or as a data volume. You can configure up to 300 block storage volumes per account in a region. You can attach several block storage data volumes to a single instance for extra capacity. The number of volumes you can attach to an instance depends on how many vCPUs that instance contains. For more information, see [Volume attachment limits](/docs/vpc?topic=vpc-attaching-block-storage#vol-attach-limits).
 
 ### Boot volumes
 {: #block-storage-vpc-boot-volumes}
