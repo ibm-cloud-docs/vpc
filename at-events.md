@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2020-06-02"
+lastupdated: "2020-06-19"
 
 keywords: activity tracker, vpc, events, logdna
 
@@ -114,6 +114,14 @@ As a security officer, auditor, or manager, you can use the {{site.data.keyword.
 | key  | is.key.key.delete   | Key was deleted  |
 | key  | is.key.key.update   | Key was updated  |
 | key | is.key.key.read | One or more key was retrieved |
+| dedicated-host | is.dedicated-host.dedicated-host.create | Dedicated host was created |
+| dedicated-host | is.dedicated-host.dedicated-host.update | Dedicated host was updated |
+| dedicated-host | is.dedicated-host.dedicated-host.delete  |Dedicated host was deleted |
+| dedicated-host | is.dedicated-host.dedicated-host.read | One or more dedicated host was retrieved |
+| dedicated-host-group  | is.dedicated-host.dedicated-host-group.create | Dedicated host group was created |
+| dedicated-host-group  | is.dedicated-host.dedicated-host-group.update | Dedicated host group was updated |
+| dedicated-host-group  | is.dedicated-host.dedicated-host-group.delete | Dedicated host group was deleted |
+| dedicated-host-group  | is.dedicated-host.dedicated-host-group.read | One or more dedicated host group was retrieved |
 {: caption="Table 2. Actions that generate events for compute resources" caption-side="top"}
 
 ## List of events: Image resources
