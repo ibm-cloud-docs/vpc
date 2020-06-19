@@ -65,13 +65,21 @@ Virtual Private Cloud
         vsi_is_create_instance_byok.md
         vsi_is_connecting_linux_gc.md
         vsi_is_connecting_windows.md
-        vsi_is_manage_images.md
         vsi_is_manage_instances.md
-        vsi_is_migrate_from_classic_infra.md
         monitoring.md
         /vsi/virtual-servers-sysdig-monitoring-metrics
         vsi_is_configure_power.md
         how-to-setup-for-gpu.md
+        
+
+    {: .topicgroup}
+    Custom images
+        vsi_is_plan_custom_image.md
+        vsi_is_object_storage_auth.md
+        vsi_is_create_linux_custom_image.md
+        vsi_is_create_windows_custom_image.md
+        vsi_is_migrate_from_classic_infra.md
+        vsi_is_manage_images.md
 
     {: .topicgroup}
     Block storage volumes
