@@ -134,6 +134,11 @@ Virtual Private Cloud
     connect-to-cos.md
     
     {: .topicgroup}
+    Dedicated hosts (Beta)
+        vsi_is_dedicated_hosts_instances.md
+        vsi_is_manage_dedicated_host_group.md
+    
+    {: .topicgroup}
     Auto scale (Beta)
         vsi_is_creating_auto_scale_group.md
         vsi_is_managing_auto_scale_group.md
