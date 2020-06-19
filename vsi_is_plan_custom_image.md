@@ -35,7 +35,7 @@ migrate an instance to VPC.
 | Task              | Details           |
 |-------------------|-------------------|
 | 1. Review custom image [requirements](/docs/vpc?topic=vpc-about-images#custom-image-reqs). | The image must be in qcow2 format, contain a single file or volume, and be cloud-init enabled. The image cannot exceed 100 GB. |
-| 2. Choose a supported operating system.| Make sure that your image is supported as a [stock image](https://test.cloud.ibm.com/docs/vpc?topic=vpc-about-images#stock-images) in VPC. |
+| 2. Choose a supported operating system.| Make sure that your image is supported as a [stock image](/docs/vpc?topic=vpc-about-images#stock-images) in VPC. |
 | 3. Provision an instance of {{site.data.keyword.cos_full_notm}} if you don't have one. | You must also create an IAM authorization between the Image Service for VPC and Cloud Object Storage. For more information, see [Granting access to IBM Cloud Object Storage to import images](/docs/vpc?topic=vpc-object-storage-prereq). |
 | 4. Create a Linux custom image. | For more information, see [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image). |
 | 5. Or create a Windows custom image. | For more information, see [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image). | 
