@@ -1,0 +1,406 @@
+{
+    "faq-vpc-0": [
+        "connect vpc infrastructure to classic infrastructure",
+        "connect vpc to bare metal servers",
+        "connecting vpc vsi to classic vsi servers",
+        "connecting servers to VPC",
+        "connect vpc to classic infrastructure",
+        "connect all my vpc to classic infrastructure",
+        "connect vpc to softlayer servers"
+    ],
+    "faq-vpc-1": [
+        "change the size of my vpc subnet",
+        "changing the size of my vpc subnet",
+        "change the size of a vpc subnet after it is created",
+        "adding IPs to my vpc subnet",
+        "alter the size of my vpc subnet",
+        "add IP's to my vpc subnet"
+    ],
+    "faq-vpc-2": [
+        "many characters long can a vpc name be",
+        "limit for how long a vpc name can be?",
+        "many characters are needed for a vpc name",
+        "How long does a vpc name need to be",
+        "How short can a vpc name be",
+        "max characters for a VPC name"
+    ],
+    "faq-vpc-3": [
+        "vpc resource names begin with a number",
+        "can't create vpc resources that start with a number in the name",
+        "want my vpc resource names to start with a number",
+        "use numbers to name vpc resources?",
+        "include numeric characters in vpc name",
+        "include numbers in my vpc names"
+    ],
+    "faq-vpc-4": [
+        "restrictions on what characters I can use in vpc names",
+        "the naming requirements for vpc resources",
+        "Are there naming limitations for vpc devices",
+        "requirements fornaming  VPC resources",
+        "What is the naming convention for vpc resources",
+        "use any character to name my vpc devices"
+    ],
+    "faq-vpc-6": [
+        "vpc Public Gateway automatically create a Floating IP",
+        "need to create a FIP when provisioning a vpc public gateway",
+        "Will my public gateway floating IP show up in my FIP list",
+        "ordering a floating IP for VPC public gateway",
+        "order a separate vpc floating IP when creating a public gateway",
+        "order a FIP with my vpc public gateway."
+    ],
+    "can-i-use-a-different-dns-name-for-my-load-balancer": [
+        "use a different DNS name for my vpc load balancer",
+        "customize the DNS name for my vpc load balancer",
+        "add a CNAME record pointing to the auto-assigned DNS name for my vpc load balancer",
+        "update DNS name on my vpc load balancer",
+        "cant edit DNS name on the vpc load balancer",
+        "change the DNS name for my vpc load balancer",
+        "can't change the DNS name for the vpc load balancer"
+    ],
+    "what-s-the-maximum-number-of-front-end-listeners-i-can-define-with-my-load-balancer": [
+        "maximum number of front-end listeners I can define with my vpc load balancer",
+        "define more than 10 front-end listeners for my vpc load balancer",
+        "limit to how many front-end listeners I can define for the vpc load balancer",
+        "max number of front end listeners for the vpc load balancer",
+        "how many front end listeners for the vpc load balancer"
+    ],
+    "what-s-the-maximum-number-of-server-instances-i-can-attach-to-my-back-end-pool": [
+        "maximum number of vpc vsi's I can attach to my back-end pool",
+        "many vpc vsi's  attach to my back-end pool",
+        "attach more than 50 vpc vsi's to my back-end pool",
+        "many vpc vsis  can attach to my back end pool",
+        "attach more than 50 vpc vsis to my back end pool"
+    ],
+    "is-the-load-balancer-horizontally-scalable": [
+        "scale my vpc load balancer horizontally",
+        "the vpc load balancer scale automatically",
+        "number of IP addresses on my vpc load balancer has changed",
+        "different number of IP addresses on my vpc load balancer",
+        "vpc load balancer scales automatically"
+    ],
+    "what-should-i-do-if-i-am-using-acls-on-the-subnets-that-are-used-to-deploy-the-load-balancer": [
+        "adjust the ACL rules for my vpc load balancer",
+        "vpc load balancer ACL rules",
+        "configure ACL rules for the vpc load balancer",
+        "Traffic is blocked between the load balancer and the vpc vsi's",
+        "added a vpc load balancer and traffic is blocked to the VSI",
+        "ACL rules for the vpc load balancer",
+        "added a vpc load balancer and traffic is blocked to the vpc vsis."
+    ],
+    "error-certificate-instance-not-found": [
+        "Getting error certificate instance not found in VPC",
+        "use SSL Offloading with my vpc load balancer",
+        "apply my SSL certificate to my vpc load balancer",
+        "use SSL offloading with my vpc load balancer",
+        "VPC load balancer's SSl certificate",
+        "manage SSL certificates for my vpc load balancer"
+    ],
+    "401-unauthorized-error": [
+        "vpc load balancer getting 401 unathorized error ",
+        "getting vpc load balancer unathorized error",
+        "vpc load balaner is not authorized"
+    ],
+    "maintenance-pending": [
+        "vpc load balancer in pending state",
+        "vpc load balancer is maintenance pending",
+        "vpc load balancer did not complete upgrade",
+        "vpc load balancer did not complete recovery"
+    ],
+    "why-do-I-need-to-choose-multiple-subnets-during-provisioning": [
+        "to select multiple subnets for the vpc load balancer",
+        "selecting one zone for vpc load balancer",
+        "vpc load balancer redundancy",
+        "vpc load balancer HA",
+        "are VPC load balancers highly available",
+        "available zones for vpc load balancer",
+        "are VPC load balancers MZR ready",
+        "what zones are available for vpc load balancer",
+        "2 IP's required for vpc load balancers"
+    ],
+    "do-I-need-additional-ips-in-subnet-for-load-balancer-operations": [
+        "additional subnet IP's for vpc load balancers",
+        "vpc load balancer scaling",
+        "vpc load balancer redundancy",
+        "required vpc load balancer IP addressing",
+        "additional IPs in the subnet for VPC load balancing"
+    ],
+    "back-end-member-health-unknown": [
+        "vpc load balancer back end health pool unknown",
+        "back-end member health under my pool unknown for VPC",
+        "VPC error with back-end member health under my pool unknown",
+        "vpc load balancer pool ",
+        "vpc load balance listener"
+    ],
+    "back-end-member-health-failing": [
+        "vpc load balancer ports listen",
+        "back-end member health under my pool faulted ",
+        "VPC error back-end member health under my pool faulted ",
+        "vpc load balancer faulted",
+        "vpc for load balancer protocol",
+        "vpc load balancer security group setting",
+        "vpc load balancer http",
+        "vpc load balancer health check"
+    ],
+    "what-are-the-default-settings-and-allowed-values-for-health-check-parameters": [
+        "vpc load balancer health check parameters",
+        "default settings and allowed values for health check parameters in VPC",
+        "vpc load balancer health check interval",
+        "vpc for load balancer healthcheck timeout",
+        "response timeout for load balancer for VPC ",
+        "vpc load balancer health check retry",
+        "vpc load balancer interval value"
+    ],
+    "are-the-load-balancer-ip-addresses-fixed": [
+        "vpc load balancer IP's static",
+        "vpc load balancer IP's fixed",
+        "load balancer IP addresses fixed in VPC",
+        "VPC load balancer IP addresses fixed",
+        "vpc for load balancer FQDN",
+        "vpc load balancer IP changed",
+        "vpc load balancer IP dhcp"
+    ],
+    "does-the-load-balancer-support-layer-7-switching": [
+        "vpc load balancer layer 7",
+        "load balancer support Layer-7 switching in VPC",
+        "VPC load balancer support Layer-7 switching",
+        "vpc load balancer switching",
+        "vpc load balancer layer seven switching"
+    ],
+    "why-does-https-listener-creation-or-update-tell-me-that-my-certificate-is-invalid": [
+        "vpc load balancer invalid certificate",
+        "vpc for load balancer certificate CRN status",
+        "vpc load balancer certificate manager key",
+        "vpc load balancer private key",
+        "vpc loac balancer CM associated private key"
+    ],
+    "faq-vsi-0": [
+        "have a floating IP and private IP for my vpc vnic",
+        "does a vpc vsi have a public and private IP address",
+		"vNIC have a floating IP and private IP",
+        "can the vpc private vsi have a public IP",
+        "want a FIP with my private vcp vsi"
+    ],
+    "faq-vsi-1": [
+        "vpc vsi interfaces be attached to the same subnet",
+        "attach the vpc vsi vnics to the same subnet",
+        "can multiple vnics be on the same vpc vsi subnet",
+		"two vNICs be attached to the same subnet in VPC",
+        "my vpc vsi subnet requires multiple vnics"
+    ],
+    "faq-vsi-2": [
+        "cannot create my vpc vsi without a subnet",
+        "vpc vsi will not provision without a subnet",
+        "are subnets required for vpc vsi servers",
+        "vpc vsi fails to provision with only a floating IP",
+        "can my vpc vsi only have a public FIP"
+    ],
+    "faq-vsi-3": [
+        "attach my vsi to more than one vpc",
+        "attach the server to multiple vpc's",
+		"virtual server instance provisioned in one VPC",
+		"VSI provisioned in multiple VPCs",
+        "link the server to more than one vpc",
+        "create a vsi attached to all vpc's"
+    ],
+    "faq-vsi-4": [
+        "does a vpc FIP have to be for a specific vnic",
+        "can the FIP be assigned to the vsi",
+		"can the Floating IP be assigned to the vsi",
+        "what interface do I need to assign the vpc FIP ",
+        "is the vpc FIP auto assigned"
+    ],
+    "faq-vsi-6": [
+        "does a vpc vsi with a public gateway need a floating IP",
+        "attach a floating IP to a subnet with a public gateway",
+        "does the FIP override the public gateway",
+		"subnets with a public gateway need a floating IP in VPC",
+        "a subnet with a public gateway require a floating IP"
+    ],
+    "faq-vsi-7": [
+        "What Gen2 vpc regions are available",
+        "available regions for VPC gen2",
+        "Gen2 vpc regions available in Dallas us-south",
+        "Gen2 vpc regions available in Washington DC us-east",
+        "Gen2 vpc regions available in London eu-gb",
+        "Gen2 vpc regions available in Frankfurt eu-de"
+    ],
+    "faq-vsi-8": [
+        "use a classic infrastructure vsi with my vpc infrastructure?",
+        "migrate my classic vsi to vpc",
+        "integrate classic vsi infrastructure into vpc infrastructure",
+        "use a classic infrastruture image to create vpc vsis",
+        "use my classic vsi templates to create vpc vsi servers"
+    ],
+    "faq-vsi-10": [
+        "What virtual server operating systems are supported in VPC",
+        "what virtual servers are supported in VPC",
+        "What server profiles are supported in VPC",
+        "What vpc VSI is best for a database?",
+        "What vpc vsi is best for web applications?",
+        "What vpc server is best for AI?",
+        "What vpc server is best for analytics?"
+    ],
+    "faq-vsi-11": [
+        "My vpc vsi is stopping.",
+        "My vpc vsi is restarting.",
+        "My vpc vsi is in a bad state",
+        "VPC VSI keeps stopping",
+        "My vpc vsi is in a failed state",
+        "My vpc vsi is stuck",
+        "need to make my VPC VSI stop",
+        "How do I force my vpc vsi to stop"
+    ],
+    "faq-vsi-12": [
+        "My vpc vsi ubuntu server has a grub error",
+        "fix the vpc vsi ubuntu grub error",
+        "error in VPC about the grub menu.lst file.",
+        "VPC vsi ubuntu server getting error after update",
+        "VPC vsi ubuntu server not booting"
+    ],
+    "faq-vsi-13": [
+        "Was my vpc vsi server migrated to another host",
+        "I want my vpc vsi migrated",
+        "virtual server migrated to a different host in VPC",
+        "in my VPC VSI being migrated",
+        "email saying my vpc host is having maintenance",
+        "Does a maintence notice mean my vpc vsi is being migrated"
+    ],
+    "faq-block-storage-1": [
+        "attach vpc block storage",
+        "create vpc storage volume",
+        "attach block storage to VPC",
+        "does vpc have block storage",
+        "does vpc include block storage",
+        "vpc include file storage",
+        "vpc disk storage attached",
+        "add storage to my vpc vsi",
+        "add storage drive to vpc",
+        "secondary vpc disk drive storage",
+        "secondary vpc block storage"
+    ],
+    "faq-block-storage-2": [
+        "share vpc storage volume",
+        "shared vpc storage",
+        "VPC share a provisioned block storage volume",
+        "cannot share vpc block storage ",
+        "vpc block storage drive not being shared"
+    ],
+    "faq-block-storage-3": [
+        "attached vpc block storage secondary volumes",
+        "unable to attach secondary vpc block storage",
+        "how many block storage secondary data volumes for VPC",
+        "more vpc secondary block storage volumes",
+        "order secondary vpc block storage volumes"
+    ],
+    "faq-block-storage-6": [
+        "charged for vpc block storage",
+        "vpc for block storage calculated",
+        "Block Storage for VPC is calculated hourly",
+        "how is Block Storage for VPC calculated",
+        "vpc block storage hourly",
+        "billing vpc for block storage ",
+        "deleted vpc block storage charges",
+        "cancelled vpc block storage charges"
+    ],
+    "faq-block-storage-7": [
+        "vpc block storage quota",
+        "quota limits for your block storage volumes on VPC",
+        "limit for block storage volumes on VPC",
+        "vpc for block storage limits based on cores",
+        "vpc cores per instance and block storage quota"
+    ],
+    "faq-block-storage-8": [
+        "increase vpc storage volume capacity",
+        "increase vpc storage volume size",
+        "increase the capacity of a volume on VPC",
+        "increasing storage volume capacity on VPC",
+        "expand vpc storage volume",
+        "vpc storage volume full",
+        "vpc storage volume out of space"
+    ],
+    "faq-block-storage-12": [
+        "vpc storage volumes per account",
+        "many volumes can I provision on my account for VPC",
+        "how many vpc storage volumes can be provisioned",
+        "vpc storage volume limit per region",
+        "vpc storage volume limit per account",
+        "vpc region storage volume quota"
+    ],
+    "faq-block-storage-13": [
+        "minimum vpc storage requirement",
+        "maximum vpc storage requrement",
+        "adding vpc strorage space",
+        "vpc storage capacity",
+        "determine vpc storage requirements",
+        "vpc storage performance requirements",
+        "vpc storage performance limits",
+        "custom vpc storage requirements"
+    ],
+    "faq-block-storage-14": [
+        "how is the vpc vsi boot disk created",
+        "vpc boot volume creation",
+        "vpc boot volume image",
+        "delete vpc boot disk volume",
+        "vpc instance boot disk volume"
+    ],
+    "faq-block-storage-15": [
+        "delete vpc block storage data volume",
+        "cancel vpc block storage data volume disk",
+        "delete a block storage data volume in VPC",
+        "detach vpc block storage data volume",
+        "deleting vpc block storage volume",
+        "remove vpc block storage data volume"
+    ],
+    "faq-block-storage-16": [
+        "what happens to data from deleted vpc block storage",
+        "delete data from old vpc block storage",
+        "delete data from cancelled vpc block storage",
+        "vpc block storage data after it is deleted",
+        "recover deleted vpc block storage data",
+        "restore deleted vpc block storage data",
+        "retrieve vpc block storage data "
+    ],
+    "faq-block-storage-17": [
+        "vpc block storage response",
+        "performance latency from Block Storage for VPC",
+        "performance for Block Storage for VPC",
+        "vpc block storage latency",
+        "vpc block storage performance",
+        "vpc block storage speed"
+    ],
+    "faq-block-storage-18": [
+        "vpc multizone storage options",
+        "vpc shared storage in a multizone cluster",
+        "vpc MZR storage options",
+        "set up shared storage in a multizone cluster for VPC",
+        "vpc storage availability zone",
+        "vpc shared storage in multiple zones",
+        "vpc shared storage zones"
+    ],
+    "faq-block-storage-19": [
+        "migrate classic storage to vpc",
+        "attach classic storage to vpc",
+        "port classic storage to VPC",
+        "move classic storage to vpc",
+        "use classic storage with vpc"
+    ],
+    "faq-block-storage-20": [
+        "vpc block storage encryption",
+        "how secure is vpc block storage",
+        "secure is data in a Block Storage for VPC",
+        "vpc block storage managed encryption",
+        "customer root keys used with vpc block storage",
+        "crk for vpc block storage encryption",
+        "ibm managed encryption key for vpc block storage",
+        "vpc block strorage encrypted at rest",
+        "vpc for block storage date protection in transit"
+    ],
+    "faq-block-storage-21": [
+        "vpc block storage customer managed encryption",
+        "vpc for block storage grant ibm access",
+        "block storage encryption key in VPC",
+        "vpc block storage key management service",
+        "vpc block storage kms control",
+        "vpc block storage audit"
+    ]
+}
