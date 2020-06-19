@@ -72,7 +72,7 @@ Custom images must meet the following requirements:
 Encrypted images aren't supported for custom images.
 {: note}
 
-For more information about importing custom images, see [Importing and managing images](/docs/vpc?topic=vpc-managing-images).
+For more information about custom images, see [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images).
 
 <!--### Storage costs
 {: #custom-image-storage}
