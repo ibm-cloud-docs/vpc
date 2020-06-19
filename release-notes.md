@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-02"
+lastupdated: "2020-06-19"
 
 keywords: vpc release notes, changes, updates, vpc
 
@@ -25,6 +25,18 @@ subcollection: vpc
 
 Use these release notes to learn about the latest changes to {{site.data.keyword.vpc_full}}.
 {:shortdesc}
+
+## 19 June 2020
+{: #june-19-2020}
+
+- **Updated custom images information:** A new [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images) checklist is available. The migration procedure for migrating a virtual server instance from classic infrastructure to IBM Cloud VPC is enhanced. For more information, see [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc). 
+
+- **User interface updates:**
+  - Pagination is added for the security groups list table.
+  - On the VPN Provision page, you can select a subnet from a table, or you have the ability to create subnets.
+  - New "upgrade pending" button if a user account is pending upgrade.
+
+
 
 ## 02 June 2020
 {: #june-02-2020}
