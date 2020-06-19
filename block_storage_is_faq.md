@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-05-28"
+lastupdated: "2020-06-19"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, IOPS, FAQ
 
@@ -164,7 +164,7 @@ IOPS profiles define IOPS/GB performance for volumes of various capacities. Ther
 Maximum IOPS for data volumes varies based on volume size and the type of profile you select. For example, the max IOPS for a general-purpose volume up to 1 TB is 3,000 IOPS.
 
 IOPS is measured based on a load profile of 16 KB blocks with random 50% read and 50% writes. Workloads that differ from this profile might experience reduced performance. If you use a smaller block size, maximum IOPS can be obtained but throughput is less. For information, see
-[How block size affects performance](/docs/vpc?topic=vpc-block-storage-capacity-performance#how-block-size-affects-performance).
+[How block size affects performance](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
 
 ## What performance latency can I expect from {{site.data.keyword.block_storage_is_short}}?
 {: faq}

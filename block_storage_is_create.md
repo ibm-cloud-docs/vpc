@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-3-23-20"
+lastupdated: "2020-6-19-20"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, VSI, virtual server instance, instance, IOPS
 
@@ -80,7 +80,7 @@ You can create a block storage volume independent of virtual server provisioning
 | Location | The availability zone in your region, inherited from the VPC (for example, us-south-1). You can select a different availability zone in your region from the dropdown menu. |
 | Size | Enter a volume size in GBs. Volume sizes can be between 10 GB - 2 TBs. |
 | IOPS | Select [IOPS Tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) and then select the tile with performance level you require. <br>Select [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) to specify a custom IOPS value based on the size of the volume you're creating. Click the **storage size** link to see a table of size and IOPS ranges. For more information, see [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom).</br> |
-| Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also choose **Customer Managed** and use [your own encryption key](/docs/vpc?topic=vpc-block-storage-encryption). |
+| Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also choose **Customer Managed** and use [your own encryption key](/docs/vpc?topic=vpc-block-storage-vpc-encryption). |
 {: caption="Table 2. Values for defining a block storage volume" caption-side="top"}
 
 Do you prefer to create block storage volumes by using the CLI? For more information, see [Creating block storage volumes by using the CLI](/docs/vpc?topic=vpc-creating-block-storage-cli).
