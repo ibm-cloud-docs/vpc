@@ -37,7 +37,7 @@ When an instance is created and no security groups are specified, the instance's
 
 You can set up security groups by using the UI, CLI, or REST API:
 
-* [Setting up security groups by using the UI](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#configuring-the-security-group-for-the-instance)
+* [Setting up security groups by using the UI](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#configuring-the-security-group)
 * [Setting up security groups by using the CLI](/docs/vpc?topic=vpc-setting-up-security-groups-using-the-cli#setting-up-security-groups-using-the-cli)
 * [Setting up security groups by using the API](/docs/vpc?topic=vpc-setting-up-security-groups-using-the-apis#setting-up-security-groups-using-the-apis)
 
