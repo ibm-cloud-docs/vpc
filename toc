@@ -70,7 +70,7 @@ Virtual Private Cloud
         /vsi/virtual-servers-sysdig-monitoring-metrics
         vsi_is_configure_power.md
         how-to-setup-for-gpu.md
-        
+
 
     {: .topicgroup}
     Custom images
@@ -130,6 +130,7 @@ Virtual Private Cloud
         using-vpn.md
         vpn-onprem-example.md
         vpc-vpn-view-logs-logdna.md
+        vpc-vpn-sysdig-monitoring-metrics.md
 
     {: .topicgroup}
     Setting IP ranges
@@ -140,12 +141,12 @@ Virtual Private Cloud
     advanced-vpc-routing.md
     classic-access.md
     connect-to-cos.md
-    
+
     {: .topicgroup}
     Dedicated hosts (Beta)
         vsi_is_dedicated_hosts_instances.md
         vsi_is_manage_dedicated_host_group.md
-    
+
     {: .topicgroup}
     Auto scale (Beta)
         vsi_is_creating_auto_scale_group.md
