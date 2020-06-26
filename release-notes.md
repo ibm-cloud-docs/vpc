@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-19"
+lastupdated: "2020-06-26"
 
 keywords: vpc release notes, changes, updates, vpc
 
@@ -25,6 +25,11 @@ subcollection: vpc
 
 Use these release notes to learn about the latest changes to {{site.data.keyword.vpc_full}}.
 {:shortdesc}
+
+## 26 June 2020
+{: #june-26-2020}
+
+- **Dedicated Hosts Beta:** Dedicated hosts are available in a limited beta. With dedicated hosts, you can carve out a single-tenant compute node. For more information, see [Creating dedicated hosts and groups (Beta)](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances). 
 
 ## 19 June 2020
 {: #june-19-2020}
