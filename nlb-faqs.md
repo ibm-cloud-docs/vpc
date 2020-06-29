@@ -15,6 +15,7 @@ subcollection: vpc
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:note: .note}
+{:beta: .beta}
 {:screen: .screen}
 {:tip: .tip}
 {:note: .note}
@@ -27,6 +28,10 @@ subcollection: vpc
 {: #nlb-faqs}
 
 This section contains answers to some frequently asked questions about the {{site.data.keyword.cloud}} Network Load Balancer service.
+{: shortdesc}
+
+The beta release of IBM Cloud Network Load Balancer is only available to allowlisted users. Contact your IBM Cloud Sales representative if you are interested in getting early access to this beta offering. When network load balancer is made generally available, you'll need to change to a Standard plan to continue using the instances you created during the Beta. Any instances that continue to use a Beta plan for this service beyond 30 days notice of general availability are deleted. See the [{{site.data.keyword.cloud_notm}} Service Description](https://www.ibm.com/software/sla/sladb.nsf/pdf/6605-19/$file/i126-6605-19_10-2019_en_US.pdf){: external} and [IBM VPC Service Description](https://www.ibm.com/software/sla/sladb.nsf/pdf/8265-02/$file/i126-8265-02_07-2019_en_US.pdf){: external} for more information about Beta services.
+{: beta}
 
 ## Can I use a different DNS name for my load balancer?
 {: #can-i-use-a-different-dns-name-for-my-load-balancer}
