@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-06-08"
+lastupdated: "2020-06-29"
 
 keywords: l7, Layer-7, monitor, metrics, connection
 
@@ -11,7 +11,7 @@ subcollection: vpc
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank_"}
+{:new_window: target="_blank"}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:screen: .screen}
@@ -21,23 +21,22 @@ subcollection: vpc
 {:note: .note}
 {:important: .important}
 
-# Monitoring metrics using {{site.data.keyword.cloud_notm}} Application Load Balancer with Sysdig
-{: #monitoring-metrics-sysdig}
+# Monitoring metrics using {{site.data.keyword.cloud_notm}} Network Load Balancer for VPC with Sysdig
+{: #nlb_monitoring-metrics-sysdig}
 
-{{site.data.keyword.cloud}} Application Load Balancer monitoring metrics are provided with {{site.data.keyword.cloud_notm}} Monitoring with Sysdig, a third-party monitoring tool that specializes in data aggregation, usage alerts, and in-depth visualizations. For more information, see [IBM Cloud Monitoring with Sysdig](/docs/Monitoring-with-Sysdig).
+{{site.data.keyword.cloud}} Network load Balancer for VPC monitoring metrics are provided with {{site.data.keyword.cloud_notm}} Monitoring with Sysdig, a third-party monitoring tool that specializes in data aggregation, usage alerts, and in-depth visualizations. For more information, see [IBM Cloud Monitoring with Sysdig](/docs/Monitoring-with-Sysdig).
 
-Load balancers calculate the metrics and send those metrics to your Sysdig instance, which reflects different types of use and traffic. You can visualize and analyze metrics from either the {{site.data.keyword.cloud_notm}} Monitoring with Sysdig dashboard, or its API.
+Network load balancers calculate the metrics and send those metrics to your Sysdig instance, which reflects different types of use and traffic. You can visualize and analyze metrics from either the {{site.data.keyword.cloud_notm}} Monitoring with Sysdig dashboard, or its API.
 
 ## Metrics available by service plan
-{: metrics-by-plan}
+{: #metrics-by-plan}
 
 The supported monitoring metrics include:
 
-* Active connections to your application load balancer at a given time.
-* Throughput of data passing through your load balancer over a given time.
+* Active connections to your load balancer at a given time.
 * Connection rate, or an analysis of when more or less connections are made to your load balancer.
 
-These metrics help track the traffic and usage patterns for your load balancers and can provide insight about peak traffic hours, usage dropoffs, and overall usage patterns.
+These metrics help track the traffic and usage patterns for your network load balancers and can provide insight about peak traffic hours, usage dropoffs, and overall usage patterns.
 
 Each metric is composed of the following metadata types:
 
@@ -46,12 +45,10 @@ Each metric is composed of the following metadata types:
 * Value type - A unit of measurement for a specific metric. Examples include bytes or counts. A value type of `none` means that the metric value represents individual occurrences of that metric type.
 * Segment - How you want Sysdig to divide and display the monitoring metrics.
 
-Only the resources in the same zone as the selected subnet can connect through this VPN gateway.
-
 ### Active connections
 {: #ibm_is_load_balancer_active_connections}
 
-Active connections are the number of connections that are established on a load balancer at a specific time.
+Active connections are the number of connections established on a load balancer at a specific time.
 
 The active connection metric contains the following metadata:
 
@@ -60,8 +57,8 @@ The active connection metric contains the following metadata:
 | Metric name | `ibm_is_load_balancer_active_connections` |
 | Metric type | `gauge` |
 | Value type | `none`  |
-| Segment by | `Application load balancer appliance metrics` and `Application load balancer listener metrics` |
-{: caption="Table 1: Application Load Balancer active connections metrics metadata" caption-side="top"}
+| Segment by | `IBM Load Balancer for VPC appliance metrics` and `IBM Load Balancer for VPC listener metrics` |
+{: caption="Table 1: IBM Load Balancer for VPC active connections metrics metadata" caption-side="top"}
 
 
 ### Connection rate
@@ -74,29 +71,15 @@ Connection rate is the number of new, incoming active connections per second to 
 | Metric name | `ibm_is_load_balancer_connection_rate`|
 | Metric type | `gauge` |
 | Value type  | `none` |
-| Segment by | `Application load balancer appliance metrics` and `Application load balancer listener metrics` |
-{: caption="Table 2: Application Load Balancer connection rate metric metadata" caption-side="top"}
-
-
-### Throughput
-{: #ibm_is_load_balancer_throughput}
-
-Throughput is the amount of data that passes in and out of a load balancer over a period of time.
-
-| Metadata | Description |
-|----------|-------------|
-| Metric name | `ibm_is_load_balancer_throughput`|
-| Metric type | `gauge` |
-| Value type  | `byte` |
-| Segment by | `Application load balancer appliance metrics` and `Application load balancer listener metrics` |
-{: caption="Table 3: Application Load Balancer throughput metric metadata" caption-side="top"}
+| Segment by | `IBM Load Balancer for VPC appliance metrics` and `IBM Load Balancer for VPC listener metrics` |
+{: caption="Table 2: IBM Load Balancer for VPC connection rate metric metadata" caption-side="top"}
 
 ## Metric segmentation
 {: attributes}
 
 You can split the data that Sysdig presents into various visualizations in the Sysdig dashboard, allowing views of different metrics based on your preferences. For example, if you have multiple load balancers or accounts with different load balancers in each account, you might want to focus on a particular listener port.
 
-As an example, you can segment the `active connections` by `Application load balancer listener port` to show how many active users are connected to the load balancer through each listener type. To illustrate this, let's assume that your load balancer has two different listener protocols one HTTP on port 80 and another for TCP on port 8080. The dashboard would contain different lines showing 10 users who are connected through HTTP on Port 80 in one color, and 6 users connected through TCP on port 8080 in another color.
+For example, you can segment the `active connections` by `IBM Load Balancer for VPC listener port` to show how many active users are connected to the load balancer through each listener type. To illustrate this, let's assume that your network load balancer has listener protocol TCP on port 8080. The dashboard would contain different lines showing 10 users who are connected through HTTP on Port 80 in one color, and 6 users connected through TCP on port 8080 in another color.
 
 ### Global attributes
 {: global-attributes}
@@ -106,9 +89,9 @@ The following attributes are available for segmenting the three Sysdig metrics.
 | Attribute | Attribute Name | Attribute Description |
 |-----------|----------------|-----------------------|
 | `Resource` | `ibm_resource` | A load balancer's unique ID |
-| `Scope` | `ibm_scope` | The account that is associated with a given load balancer |
+| `Scope` | `ibm_scope` | The account associated with a given load balancer |
 | `Service name` | `ibm_service_name` | ibm-is-load-balancer |
-{: caption="Table 4: Sysdig global attributes" caption-side="top"}
+{: caption="Table 3: Sysdig global attributes" caption-side="top"}
 
 ### Additional attributes
 {: additional-attributes}
@@ -117,19 +100,15 @@ The following attributes are available to segment one or more of the global attr
 
 | Attribute | Attribute Name | Attribute Description |
 |-----------|----------------|-----------------------|
-| Application load balancer appliance metrics | `ibm_is_load_balancer_appliance_ip` | The metrics coming from the load balancer backend. Because the load balancer is highly available, multiple appliances support each load balancer for redundancy.  |
-| Application load balancer listener metrics | `ibm_is_load_balancer_listener_port` | The metrics that are gathered from individual listeners and their ports. Configure the listeners in your load balancer settings. The monitoring metrics reflect the metrics coming from those listeners. |
-{: caption="Table 5: Sysdig additional attributes" caption-side="top"}
+| IBM Load Balancer for VPC appliance metrics | `ibm_is_load_balancer_appliance_ip` | The metrics coming from the load balancer backend. Because the load balancer is highly available, multiple appliances support each load balancer for redundancy.  |
+| IBM Load Balancer for VPC listener metrics | `ibm_is_load_balancer_listener_port` | The metrics that are gathered from individual listeners and their ports. Configure the listeners in your load balancer settings. The monitoring metrics reflect the metrics coming from those listeners. |
+{: caption="Table 4: Sysdig additional attributes" caption-side="top"}
 
-The displayed metrics contain a timestamp in UNIX epoch time and the metric value for the time interval ending at that timestamp. You can specify different scopes, as well as the time interval over which to report the metrics.
+The displayed metrics contain a timestamp in UNIX Epoch Time and the metric value for the time interval ending at that timestamp. You can specify different scopes, as well as the time interval over which to report the metrics.
 
-The supported listener protocols for IBM Cloud Application Load Balancer include:
+The supported listener protocol for network load balancer is:
 
-* HTTP
-* HTTPS
 * TCP
-
-Specifying a listener port filters the metric by that listener. For example, if you don't specify a port, and the metric is `Throughput`, then Sysdig reports the total throughput for all listener protocols. However, if the protocol is HTTP on port 80, then Sysdig reports the throughput for HTTP traffic only.
 
 You can also specify the time interval over which to report your metrics. Time intervals that are supported in the Sysdig dashboard are:
 
@@ -154,7 +133,7 @@ To do so, follow these steps:
 
 2. Select a region for your Sysdig instance.
 
-  If you do not have an existing load balancer, see [Creating an application load balancer](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#load-balancer) to provision one.
+  If you do not have an existing load balancer, see [Using an IBM Load Balancer for VPC for server load balancing](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#load-balancer) to provision one.
   {: tip}
 
   ![Region](images/metrics_1.png "Region")
@@ -200,16 +179,16 @@ To view and work with your Sysdig metrics, follow these steps:
 
 3. Select **Dashboards** on the left sidebar to open the IBM Load Balancer Monitoring Metrics dashboard. Then, click **Default Dashboards > IBM > Load Balancer Monitoring Metrics**. The default dashboard is not editable.
 
-4. Three main metrics in the dashboard are shown: Throughput, Active Connections, and Connection Rate. To modify parameters and segment your metrics by load balancer ID or listener port, you must create a custom dashboard.
+4. Two main metrics in the dashboard are shown: Active Connections, and Connection Rate. To modify parameters and segment your metrics by load balancer ID or listener port, you must create a custom dashboard.
 
-  ![Sysdig dashboard](images/metrics_3.png "Sysdig dashboard")
+  ![Sysdig dashboard](images/metrics_nlb.png "Sysdig dashboard")
 
   You can choose what time window you'd like to see your metrics displayed for, using the bar on the bottom.
   {: tip}
 
 ## Creating a custom metrics dashboard
 
-You can create your own dashboard to customize your monitoring metrics, such as viewing information about particular load balancers, or seeing traffic that only comes through particular listeners.
+You can create your own dashboard to customize your monitoring metrics, such as viewing information about particular load balancers, or only seeing traffic that comes through particular listeners.
 
 To customize your dashboard, follow these steps:
 
@@ -230,14 +209,13 @@ To customize your dashboard, follow these steps:
 
 5. Configure your custom dashboard.
 
-  * In the **Metrics** field, enter `ibm_is` to display the three IBM Sysdig load balancer metrics: `ibm_is_load_balancer_active_connections`, `ibm_is_load_balancer_connection_rate`, and `ibm_is_load_balancer_throughput`.
+  * In the **Metrics** field, enter `ibm_is` to display the two IBM Sysdig load balancer metrics: `ibm_is_load_balancer_active_connections` and `ibm_is_load_balancer_connection_rate`.
 
   You can monitor listener port traffic by enabling the `ibm_is_load_balancer_listener_port` metric.
   {: tip}
 
   * You can choose a scope to display in your dashboard by clicking **Override Dashboard Scope**. For example, you can display the metrics for a particular load balancer.
-
-  * You can also set a segment to compare metrics across the scope you have defined. For example, you can look at throughput for a particular load balancer segmented by listener port.
+  * You can also set a segment to compare metrics across the scope you have defined. For example, you can look at Active connections for a particular load balancer segmented by listener port.
 
 6. Click **Save** for your new custom dashboard to be accessible.
 
@@ -256,7 +234,7 @@ After creating your IBM Cloud Monitoring Sysdig instance, you must collect the f
 * The Sysdig Monitor API token
 * The endpoint of your IBM Cloud Monitoring Sysdig instance
 
-To collect this information and work with your Sysdig instance using metric query API, follow these steps:
+To collect this information and start working with your Sysdig instance using metric query API, follow these steps:
 
 1. Access the [Monitoring home page](https://cloud.ibm.com/observe/monitoring), and click **View Sysdig** next to the instance you want to work with. After the Sysdig dashboard displays, select your Account Profile icon on the left sidebar, then select **Settings**. Your account settings display.
 
@@ -284,7 +262,7 @@ To collect this information and work with your Sysdig instance using metric quer
      If you want to see this metric for all of your load balancers, do not enter a value for the `scope` attribute. For example, use `"scope" : ""`.
      {: note}
 
-  * The metric type that you want to see the results for. This example uses `ibm_is_load_balancer_throughput`, but `ibm_is_load_balancer_active_connections` and `ibm_is_load_balancer_connection_rate` are also valid options.
+  * The metric type that you want to see the results for. This example uses `ibm_is_load_balancer_active_connections`, but `ibm_is_load_balancer_connection_rate` is also a valid option.
   * The `from` and `to` attributes define the times to focus the scan, set in Epoch Time and in microseconds.
   * The `sampling` and `value` attributes set the granularity of which data is returned in the POST request.
 
@@ -308,7 +286,7 @@ To collect this information and work with your Sysdig instance using metric quer
             "scope": "ibm_resource = \"cfc851b1-f30b-4a06-b354-5b64526c0a69\"",
             "metrics": {
                 "k0": "timestamp",
-                “v1”: "ibm_is_load_balancer_throughput"
+                “v1”: "ibm_is_load_balancer_active_connections"
             },
             "time": {
                 "from": 1584396900000000,
@@ -331,6 +309,6 @@ To collect this information and work with your Sysdig instance using metric quer
             }
         }
     ]
-}'
+  }'
 ```
 {:  codeblock}

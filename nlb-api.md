@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-06-16"
+  years: 2020
+lastupdated: "2020-06-29"
 
-keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, layer-7
+keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network
 
 subcollection: vpc
 
@@ -14,49 +14,50 @@ subcollection: vpc
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
 {:pre: .pre}
-{:note: .note}
 {:screen: .screen}
+{:term: .term}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
+{:deprecated: .deprecated}
+{:external: target="_blank" .external}
+{:generic: data-hd-programlang="generic"}
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
-{:external: target="_blank" .external}
 
-# Application load balancer API example
-{: #lbaas-apis-available-alb}
+# Network load balancer API example
+{: #nlbaas-apis}
 
-To make API calls, you must use a REST client. For example, you can use a `curl` command to retrieve all existing load balancers:
+For detailed information on APIs available for network load balancers in your VPC environment, see the load balancers section in the [VPC API reference](https://{DomainName}/apidocs/vpc#list-all-load-balancers).
+{: shortdesc}
 
-```
-curl -X GET "$api_endpoint/v1/load_balancers?version=$api_version&generation=2" -H "Authorization: $iam_token"
-```
+The following example illustrates using the API to create a small network load balancer in front of two VPC virtual server instances (`192.168.100.5` and `192.168.100.6`) running a web application that listens on port 80. The load balancer has a front-end listener, which allows secure access to the web application by using HTTPS. You can use the API to get details of the load balancer after it is created, and to delete the load balancer.
 
-For detailed information on APIs available for application load balancers in your VPC environment, see the load balancers section in the [VPC API reference](https://{DomainName}/apidocs/vpc#list-all-load-balancers).
-
-In the following example, use the API to create an application load balancer in front of two VPC virtual server instances (`192.168.100.5` and `192.168.100.6`) running a web application that listens on port `80`. The load balancer has a front-end listener, which allows secure access to the web application by using HTTPS. You can use the API to get details of the load balancer after it is created, and to delete the load balancer.
-
-The example steps that follow skip the prerequisite steps of using the [IBM Cloud console](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console), [CLI](/docs/vpc?topic=vpc-creating-a-vpc-using-cli), or [API](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis) to provision a VPC, subnets, and instances.
+The example steps that follow skip the prerequisite steps of using the [IBM Cloud UI](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console), [CLI](/docs/vpc?topic=vpc-creating-a-vpc-using-cli), or [API](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis) to provision a VPC, subnets, and instances.
 
 You can also create a load balancer using the UI or CLI. For instructions, see [Creating a load balancer using the IBM Cloud console](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#load-balancer) or the [CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 {: tip}
 
 ## Step 1. Create a load balancer with a listener, pool, and attached server instances (pool members)
-{: #step-1-create-a-load-balancer-alb}
+{: #step-1-create-a-load-balancer-nlb}
 
-```sh
+```
+bash
 curl -H "Authorization: $iam_token" -X POST
 "$api_endpoint/v1/load_balancers?version=$api_version&generation=2" \
     -d '{
         "name": "example-balancer",
         "is_public": true,
+        "profile": {
+            "name": "network-small"
+        },
         "listeners": [
             {
                 "certificate_instance": {
                     "crn": "crn:v1:staging:public:cloudcerts:us-south:a/123456:b8877ea4-b8eg-467e-912a-da1eb7f031cg:certificate:43219c4c97d013fb2a95b21dddde1234"
                 },
                 "port": 443,
-                "protocol": "https",
+                "protocol": "tcp",
                 "default_pool": {
                     "name": "example-pool"
                 }
@@ -69,11 +70,11 @@ curl -H "Authorization: $iam_token" -X POST
                     "delay": 5,
                     "max_retries": 2,
                     "timeout": 2,
-                    "type": "http",
+                    "type": "tcp",
                     "url_path": "/"
                 },
                 "name": "example-pool",
-                "protocol": "http",
+                "protocol": "tcp",
                 "session_persistence": {
                     "cookie_name": "string",
                     "type": "source_ip"
@@ -106,7 +107,6 @@ curl -H "Authorization: $iam_token" -X POST
 {: codeblock}
 
 Sample output:
-
 ```
 {
     "created_at": "2018-07-12T23:17:07.5985381Z",
@@ -115,6 +115,10 @@ Sample output:
     "href": "https://us-south.iaas.cloud.ibm.com/v1/load_balancers/dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
     "id": "0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
     "is_public": true,
+    "profile": {
+        "name": "network-small",
+        "family": "network"
+    },
     "listeners": [
         {
             "id": "0738-70294e14-4e61-11e8-bcf4-0242ac110004",
@@ -147,25 +151,21 @@ Sample output:
 
 Save the ID of the load balancer to use in the next steps. For example, save it in the variable `lbid`.
 
-```
-lbid=0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727
-```
-You can deploy load balancer appliances to multiple subnets. To achieve higher availability and redundancy, deploy the load balancer to subnets in different zones.
-{: tip}
+  ```
+  lbid=0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727
+  ```
+  {: tip}
 
 ## Step 2. Get details about the load balancer
-{: #step-2-get-details-about-the-alb}
 
-```sh
+```
 curl -H "Authorization: $iam_token" -X GET "$api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
 ```
 {: pre}
 
 Allow some time for provisioning. When the load balancer is ready, it is set to `online` and `active` status, as shown in the following sample output:
 
-Sample output:
-
-```sh
+```bash
 {
   "id": "0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
   "crn": "crn:v1:staging:public:is:us-south:a/123456::load-balancer:dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
@@ -174,6 +174,10 @@ Sample output:
   "created_at": "2018-07-13T22:22:24.489Z",
   "hostname": "dd754295-e9e0-4c9d-bf6c-58fbc59e5727.lb.appdomain.cloud",
   "is_public": true,
+  "profile": {
+        "name": "network-small",
+        "family": "network"
+  },
   "listeners": [
     {
       "id": "0738-70294e14-4e61-11e8-bcf4-0242ac110004",
@@ -219,10 +223,11 @@ Sample output:
 ```
 {: screen}
 
-## Step 3. Delete the application load balancer
-{: #step-3-delete-the-alb}
+## Step 3. Delete the load balancer
 
-```sh
+Run the following command to delete the load balancer.
+
+```bash
 curl -H "Authorization: $iam_token" -X DELETE "$api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
 ```
 {: pre}

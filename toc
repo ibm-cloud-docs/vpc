@@ -115,15 +115,24 @@ Virtual Private Cloud
         fl-activate.md
         fl-delete.md
 
-    {: .topicgroup}
+    {: topicgroup}
     Load balancers
-        lb-overview.md
-        lb-adv-traffic-mgmt.md
-        lb-layer-7-policies-rules.md
-        lb-iam.md
-        lb-activity-tracker.md
-        lb-monitoring-metrics.md
-        lb-api.md
+        load-balancers.md
+
+        {: .topicgroup}
+        Application load balancers
+            lb-overview.md
+            lb-adv-traffic-mgmt.md
+            lb-layer-7-policies-rules.md
+            lb-monitoring-metrics.md
+            lb-api.md
+
+        {: .topicgroup}
+        Network load balancers (Beta)
+            nlb-about.md
+            nlb-health-checks.md
+            nlb-monitoring-metrics.md
+            nlb-api.md
 
     {: .topicgroup}
     VPNs
@@ -193,6 +202,7 @@ Virtual Private Cloud
         faq-vpc.md
         fl-faq.md
         lb-faqs.md
+        nlb-faqs.md
         faq-vsi.md
         block_storage_is_faq.md
 

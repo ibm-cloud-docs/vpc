@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-04-02"
+lastupdated: "2020-06-16"
 
-keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, layer-7
+keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, layer-7
 
 subcollection: vpc
 
@@ -27,12 +27,12 @@ subcollection: vpc
 # Layer-7 load balancing
 {: #layer-7-load-balancing}
 
-Both public and private load balancers support Layer-7 load balancing. Data traffic is distributed based on configured policies and rules. A policy defines the action to take, which means how the traffic is distributed, when the incoming request matches the rules that are associated with the policy.
+Both public and private application load balancers support Layer-7 load balancing. Data traffic is distributed based on configured policies and rules. A policy defines the action to take, which means how the traffic is distributed, when the incoming request matches the rules that are associated with the policy.
 
 ## Policies
 {: #layer-7-policy}
 
-You can define policies for HTTP and HTTPS listeners. For each policy, you define one or more rules. The policy is applied only when all its rules are matched.
+You can define policies for HTTP and HTTPS listeners. For each policy, you must define one or more rules. The policy is applied only when all its rules are matched.
 
 You can attach more than one policy to a listener. In general, a policy with the lowest priority is evaluated first. Each policy must have a different priority.
 
@@ -40,13 +40,11 @@ If the incoming request does not match the rules for any of the policies, the re
 
 The following actions are supported for a Layer-7 policy:
 
-* **Reject:** The request is denied with a 403 response.
-* **Redirect:** The request is redirected to a configured URL and response code.
-* **Forward:** The request is sent to a specific back-end pool.
+* **Reject** - The request is denied with a 403 response.
+* **Redirect** - The request is redirected to a configured URL and response code.
+* **Forward** - The request is sent to a specific back-end pool.
 
-Policies set to `reject` are evaluated first, regardless of their priority. Next, policies set to `redirect` are evaluated. Finally, policies set to `forward` are evaluated.
-
-Within each action category, the policies are evaluated in ascending order of priority (lowest priority to highest priority). Table 2 defines these policy properties.
+Within each action category, the policies are evaluated in ascending order of priority (lowest priority to highest priority). Table 1 defines these policy properties.
 
 ## Policy properties
 {: #layer-7-policy-properties}
@@ -54,10 +52,10 @@ Within each action category, the policies are evaluated in ascending order of pr
 Property  | Description
 ------------- | -------------
 Name | The name of the policy. The name must be unique within the listener.
-Action | The action to take when all policy rules match. The acceptable values are `reject`, `redirect`, and `forward`. A policy for the `reject` action is always evaluated first, regardless of its priority. Policies with `redirect` actions are evaluated next, followed by policies with `forward` actions.
+Action | The action to take when all policy rules match. The acceptable values are `reject`, `redirect`, and `forward`. A policy set to `reject` is always evaluated first, regardless of its priority. Policies with `redirect` actions are evaluated next, followed by policies with `forward` actions.
 Priority | Policies are evaluated based on ascending order of priority.
 URL | The URL to which the request is redirected, if the action is set to `redirect`.
-HTTP status code | Status code of the response returned by the load balancer when the action is set to `redirect`. The acceptable values are: 301, 302, 303, 307 or 308.
+HTTP status code | Status code of the response returned by the application load balancer when the action is set to `redirect`. The acceptable values are: `301`, `302`, `303`, `307`, or `308`.
 Target | The back-end pool of virtual server instances to which the request is forwarded, if the action is set to `forward`.
 {: caption="Table 1. Description of policy properties" caption-side="top"}
 
