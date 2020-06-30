@@ -23,7 +23,7 @@ subcollection: vpc
 {:DomainName: data-hd-keyref="DomainName"}
 {:external: target="_blank" .external}
 
-# About IBM Cloud {{site.data.keyword.cloud_notm}} Application Load Balancer
+# About {{site.data.keyword.cloud_notm}} Application Load Balancer
 {: #load-balancers}
 
 Use {{site.data.keyword.cloud}} application load balancer to distribute traffic among multiple server instances within the same region of your VPC.
