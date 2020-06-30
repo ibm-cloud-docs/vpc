@@ -27,10 +27,10 @@ subcollection: vpc
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# About {{site.data.keyword.cloud_notm}} Network Load Balancer for VPC
+# About {{site.data.keyword.cloud_notm}} Network Load Balancer
 {: #network-load-balancers}
 
-You can use the {{site.data.keyword.cloud}} Network Load Balancer for VPC to distribute traffic among multiple server instances within the same region of your VPC.
+You can use the {{site.data.keyword.cloud}} Network Load Balancer to distribute traffic among multiple server instances within the same region of your VPC.
 {:shortdesc}
 
 The beta release of IBM Cloud Network Load Balancer is only available to allowlisted users. Contact your IBM Cloud Sales representative if you are interested in getting early access to this beta offering. When network load balancer is made generally available, you'll need to change to a Standard plan to continue using the instances you created during the Beta. Any instances that continue to use a Beta plan for this service beyond 30 days notice of general availability are deleted. See the [{{site.data.keyword.cloud_notm}} Service Description](https://www.ibm.com/software/sla/sladb.nsf/pdf/6605-19/$file/i126-6605-19_10-2019_en_US.pdf){: external} and [IBM VPC Service Description](https://www.ibm.com/software/sla/sladb.nsf/pdf/8265-02/$file/i126-8265-02_07-2019_en_US.pdf){: external} for more information about Beta services.
@@ -40,7 +40,7 @@ The beta release of IBM Cloud Network Load Balancer is only available to allowli
 {: #nlb-use-cases}
 
 ### Use case 1: High traffic volume
-The following diagram illustrates how IBM Cloud Network Load Balancer for VPC supports sudden high volume inbound TCP requests. Notice that the network load balancer supports a static IP address, not proxies.
+The following diagram illustrates how IBM Cloud Network Load Balancer supports sudden high volume inbound TCP requests. Notice that the network load balancer supports a static IP address, not proxies.
 
 Often times a client might submit a request that is fairly small with little performance hit on the load balancer; however, the information returned from the backend targets (VSI or container workloads) can be significant. With Direct Server Return (DSR), the information is sent directly back to the clients, thus minimizing latency and optimizing performance.
 
@@ -49,7 +49,7 @@ Often times a client might submit a request that is fairly small with little per
 ## Creating a network load balancer  
 {: #ordering-nlb}
 
-To order and start using the {{site.data.keyword.cloud_notm}} Network Load Balancer for VPC, refer to [these instructions](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#nlb-ui).
+To order and start using the {{site.data.keyword.cloud_notm}} Network Load Balancer, refer to [these instructions](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#nlb-ui).
 
 ## Types of network load balancers
 {: #types-network-load-balancers}  
