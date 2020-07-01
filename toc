@@ -167,6 +167,13 @@ Virtual Private Cloud
         delete-vpc-ui.md
         delete-vpc-cli.md
         delete-vpc-api.md
+        
+    {: .topicgroup}
+    Backup and recovery using Veeam
+        about-veeam.md
+        ordering-veeam-licenses.md
+        using-veeam-agent.md
+        using-veeam-backup-replication.md
     {: .navgroup-end}
 
 
