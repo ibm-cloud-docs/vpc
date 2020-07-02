@@ -23,7 +23,7 @@ subcollection: vpc
 # Using Veeam Backup and Replication software
 {: #using-veeam-backup-replication-software}
 
-The Veeam Backup and Replication software offers an optional way of managing backups of {{site.data.keyword.vsi_is_full}}, although [using the Veeam Agent](/docs/vpc?topic=vpc-using-veeam-agent) is the recommended method. The Veeam Backup and Replication software is supported only on the Microsoft Windows operating system. However, you can use it to manage backups for multiple virtual server instances for {{site.data.keyword.vpc_short}} that are deployed with any of the supported Linux operating systems, including CentOS, RHEL, Ubuntu, and Debian, and with any of the supported Windows operating systems.
+The Veeam Backup and Replication software offers an optional way of managing backups of {{site.data.keyword.vsi_is_full}}, although [using the Veeam Agent](/docs/vpc?topic=vpc-using-veeam-agent) is the recommended method. The Veeam Backup and Replication software is supported only on the Microsoft Windows operating system. However, you can use it to manage backups for multiple virtual server instances for {{site.data.keyword.vpc_short}} that are deployed with any of the supported Linux&reg; operating systems, including CentOS, RHEL, Ubuntu, and Debian, and with any of the supported Windows operating systems.
 
 For backup of Windows virtual server instances for VPC, the operating system version of the instance to be backed up must match that of the instance where the Veeam Backup and Replication software is installed.
 {: important}

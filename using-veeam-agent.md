@@ -23,7 +23,7 @@ subcollection: vpc
 # Using Veeam Agent
 {: #using-veeam-agent}
 
-The [Veeam Agent for Linux](https://www.veeam.com/linux-cloud-server-backup-agent.html){: external} is supported on the Linux operating systems, which you can deploy on a virtual server instance for {{site.data.keyword.vpc_full}}, including CentOS, RHEL, Ubuntu, and Debian. Similarly, the [Veeam Agent for Windows](https://www.veeam.com/windows-cloud-server-backup-agent.html){: external} is available for use on Windows instances for {{site.data.keyword.vpc_short}}.
+The [Veeam Agent for Linux](https://www.veeam.com/linux-cloud-server-backup-agent.html){: external} is supported on the Linux&reg; operating systems, which you can deploy on a virtual server instance for {{site.data.keyword.vpc_full}}, including CentOS, RHEL, Ubuntu, and Debian. Similarly, the [Veeam Agent for Windows](https://www.veeam.com/windows-cloud-server-backup-agent.html){: external} is available for use on Windows instances for {{site.data.keyword.vpc_short}}.
 
 The following example provides information on installing, configuring, and using the Linux Agent on a virtual server instance that is provisioned with CentOS. Similar instructions apply to the other operating system types, although you need to replace any OS-specific commands. In addition, the example specifically provides instructions on how to perform a volume backup and restore, but you would use similar instructions if you prefer to do full system or file and folder backup and restore operations.
 
