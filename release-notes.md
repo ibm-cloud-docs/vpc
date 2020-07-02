@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-26"
+lastupdated: "2020-07-03"
 
 keywords: vpc release notes, changes, updates, vpc
 
@@ -26,6 +26,13 @@ subcollection: vpc
 Use these release notes to learn about the latest changes to {{site.data.keyword.vpc_full}}.
 {:shortdesc}
 
+## 03 July 2020
+{: #july-03-2020}
+
+- **Network Load Balancer Beta:** Network load balancers are available in a limited beta. Use network load balancers to distribute traffic among multiple server instances within the same region of your VPC. For more information, see [Load balancers overview](/docs/vpc?topic=vpc-nlb-vs-elb) and [About network load balancers](/docs/vpc?topic=vpc-network-load-balancers).
+
+- **VPN for VPC update:** You can now access VPN monitoring metrics using [IBM Cloud Monitoring with Sysdig](/docs/vpc?topic=vpc-sysdig-monitoring-metrics).
+
 ## 26 June 2020
 {: #june-26-2020}
 
@@ -37,21 +44,21 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 - **Updated custom images information:** A new [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images) checklist is available. The migration procedure for migrating a virtual server instance from classic infrastructure to IBM Cloud VPC is enhanced. For more information, see [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc). 
 
 - **User interface updates:**
-  - Pagination is added for the security groups list table.
+  - Added pagination for the security groups list table.
   - On the VPN Provision page, you can select a subnet from a table, or you have the ability to create subnets.
   - New "upgrade pending" button if a user account is pending upgrade.
-
 
 
 ## 02 June 2020
 {: #june-02-2020}
 
-The IBM Cloud Virtual Servers for VPC on POWER service is deprecated. As of 02 June 2020, you cannot provision new instances. Any instance that is still provisioned as of 22 August 2020 will be deleted. For more information, see the [End of Service Announcement for Virtual Servers for VPC on POWER](https://www.ibm.com/cloud/blog/announcements/end-of-service-announcement-for-virtual-servers-for-vpc-on-power).
+- **IBM Cloud Virtual Servers for VPC on POWER service is deprecated.** As of 02 June 2020, you cannot provision new instances. Any instance that is still provisioned as of 22 August 2020 will be deleted. For more information, see the [End of Service Announcement for Virtual Servers for VPC on POWER](https://www.ibm.com/cloud/blog/announcements/end-of-service-announcement-for-virtual-servers-for-vpc-on-power).
 
 ## 21 May 2020
 {: #may-21-2020}
 
 - **Auto Scale for VPC Beta:** Auto scale is now available in a limited beta. With auto scale, you can improve performance and costs by dynamically creating virtual server instances to meet the demands of your environment. For more information, see [Creating an instance group for auto scaling (Beta)](/docs/vpc?topic=vpc-creating-auto-scale-instance-group). 
+
 
 ## 15 May 2020
 {: #may-15-2020}
@@ -67,8 +74,8 @@ The IBM Cloud Virtual Servers for VPC on POWER service is deprecated. As of 02 J
 
 - **UI enhancement:** You can now create a new subnet directly from the page where you create a new instance. 
 
-## 21 April 2020
-{: #apr-21-2020}
+## 22 April 2020
+{: #apr-22-2020}
 
 **New region:** The Frankfurt region is now available. For more information, see [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region).
   
@@ -93,7 +100,7 @@ The IBM Cloud Virtual Servers for VPC on POWER service is deprecated. As of 02 J
 ## 09 March 2020
 {: #mar-09-2020}
 
-**IBM Virtual Servers for VPC on POWER:** POWER-based instances are now generally available. For more information, see the following resources:
+- **IBM Virtual Servers for VPC on POWER:** POWER-based instances are now generally available. For more information, see the following resources:
   * [IBM Cloud Virtual Private Cloud on POWER](https://developer.ibm.com/linuxonpower/power-virtual-private-cloud/){: external}  
   * [Profiles](/docs/vpc?topic=vpc-profiles)
 
@@ -115,7 +122,7 @@ The following VPC network services are now generally available:
 ## 13 February 2020
 {: #feb-13-2020}
 
-- **Red Hat Enterprise Linux (RHEL) and Windows stock images are now available** You can provision an instance that uses a RHEL image or a Windows image in the Dallas region. For more information, see [Images](/docs/vpc?topic=vpc-about-images).
+- **Red Hat Enterprise Linux (RHEL) and Windows stock images are now available:** You can provision an instance that uses a RHEL image or a Windows image in the Dallas region. For more information, see [Images](/docs/vpc?topic=vpc-about-images).
 
 ## 10 February 2020
 {: #feb-10-2020}
