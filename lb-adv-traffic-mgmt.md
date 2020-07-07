@@ -33,7 +33,7 @@ The following advanced traffic management features are available in {{site.data.
 {: #max-connections}
 
 
-Use the `max connections` configuration to limit the maximum number of concurrent connections for a given front-end virtual port. By default, no limit is specified. The maximum possible concurrent connections for a given front-end virtual port or system-wide across all front-end virtual ports is `15000`.
+Use the `max connections` configuration to limit the maximum number of concurrent connections for a given front-end virtual port. If you do not configure a value, the default of `2000` concurrent connections is used. The maximum possible concurrent connections for a given front-end virtual port or system-wide across all front-end virtual ports is `15000`.
 
 ## Session persistence
 {: #session-persistence}
