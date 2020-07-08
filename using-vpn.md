@@ -4,7 +4,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-14"
+lastupdated: "2020-07-06"
 
 keywords: VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies, gateway, auto-negotiation, vpc, vpc network
 
@@ -486,7 +486,7 @@ When you create a VPN connection without referencing a policy ID (IKE or IPsec),
 {: #faq-vpn-5}
 {: faq}
 
-The subnet connects the VPN gateway with other resources in your VPC. The best practice is to create a dedicated subnet for the VPN gateway with no virtual server instances on this subnet to ensure that there are enough free private IPs in the subnet. A VPN gateway needs 8 private IP addresses to accommodate HA and rolling upgrades.
+The VPN gateway needs to be deployed in the VPC to provide connectivity. The VPN gateway provides connectivity to the entire zone where it is deployed.  A VPN gateway needs 4 available private IP addresses in the subnet to provide high availability and automatic maintenance. It is best if you use a dedicated subnet for the VPN gateway of size 16, where the length of the subnet prefix is shorter or equal to 28. 
 
 
 ### What should I do if I am using ACLs on the subnet that is used to deploy the VPN gateway?
