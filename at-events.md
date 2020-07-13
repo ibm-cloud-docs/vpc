@@ -142,7 +142,6 @@ The following tables list the actions related to compute resources and the gener
 | instance   | is.instance.action.delete   | Pending instance action was deleted  |
 | instance   | is.instance.instance.start  | Instance was started     |
 | instance   | is.instance.instance.stop   | Instance was stopped      |
-| instance   | is.instance.instance.reboot | Instance was rebooted    |
 | instance   | is.instance.network-interface_floating-ip.attach  | Floating IP was associated to instance network interface  |
 | instance   | is.instance.network-interface_floating-ip.detach  | Floating IP was disassociated from instance network interface |
 | instance   | is.instance.volume-attachment.create   | Instance volume attachment was created  |
