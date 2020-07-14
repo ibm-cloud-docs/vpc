@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2020
 lastupdated: "2020-05-13"
 
-keywords: ssh keys, vsi, virtual server instance
+keywords: ssh public keys, OpenSSH, add ssh key, ssh key, manage ssh key, virtual server instance, instance, virtual servers, vsi, virtual machines, server
 
 subcollection: vpc
 
@@ -18,16 +18,15 @@ subcollection: vpc
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
 {:tip: .tip}
-{:external: target="_blank" .external}
 
 # SSH keys
 {: #ssh-keys}
 [comment]: # (linked help topic)
 
-When you create a virtual server instance, you must select an existing SSH key or add a new SSH key. SSH keys are used by servers to identify a user or device through public-key cryptography. SSH keys are made up of an alpha-numeric combination and are unique to the device to which they are assigned. You can add, edit, or delete SSH keys by using the {{site.data.keyword.cloud}} console.
-{:shortdesc}
+When you create a virtual server instance, you must select an existing SSH key or add a new SSH key. SSH keys are used by virtual servers to identify a user or device through public-key cryptography. SSH keys are made up of an alpha-numeric combination and are unique to the device to which they are assigned. You can add, edit, or delete SSH keys by using the {{site.data.keyword.cloud}} console.
 
-By adding an SSH key to an instance, the instance can be accessed with the corresponding key instead of a password. You can add SSH keys to an instance only when you initially create the instance. After a Linux instance is created, you can edit keys directly in the `~/.ssh/` directory of the instance.
+By adding an SSH key to a virtual server instance, the instance can be accessed with the corresponding SSH key instead of a password. You can add SSH keys to a virtual server instance only when you initially create the instance. After a Linux instance is created, you can edit keys directly in the `~/.ssh/` directory of the instance.
+{:shortdesc}
 
 Logging in to your instance with a password isn't supported. 
 {:note}
