@@ -42,7 +42,7 @@ After you have a VPC available, consider the following before you provision your
 |__ Determine which subnets you want the instance to connect to.|
 |__ Consider the popular [profile options](/docs/vpc?topic=vpc-profiles#profiles) of vCPU and RAM combinations for your workload. Profiles contain preconfigured instances that are ready to use in a matter of minutes. It's important to ensure that your instances have the necessary resources to keep your workloads and your environment up and running.|
 |__ Determine what operating system image to select for your instance. You can choose among the current stock images or specify your own custom image. |
-|__ Make sure you have a unique name for the instance. The instance name must be unique within the account and within the region. If you have a method to naming virtual server instances, it's much easier to filter and search on them later. |
+|__ Make sure you have a unique name for the instance. The instance name must be unique within an account and region. If you have a method to naming virtual server instances, it's much easier to filter and search on them later. |
 |__ Determine how many secondary storage volumes you need. |
 |__ Determine how many network interfaces you need and which security group to attach to each interface.|
 {: caption="Table 1. Checklist for planning to provision instances" caption-side="top"}
