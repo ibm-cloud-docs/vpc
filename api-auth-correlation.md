@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2019-11-10"
+lastupdated: "2020-07-14"
 
 keywords: resource, resource authorizations, policies, authorization, resource type, resource groups, roles, API, CLI, editor, viewer, administrator, operator
 
@@ -40,7 +40,7 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | Floating IP (unassociated) | Update, Delete | Editor for the floating IP |
 | Floating IP (unassociated) | View, List | Viewer for the floating IP |
 |——————|———————|————————|
-| ACL | Create | Editor for Network ACL resources |
+| ACL | Create | Editor for Network ACL and VPC resources |
 | ACL | Update, Delete | Editor for the ACL |
 | ACL| View, List | Viewer for the ACL |
 | ACL rule | Create, Update, Delete | Editor for the ACL |
