@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020 
-lastupdated: "2020-05-21"
+lastupdated: "2020-07-15"
 
 keywords: auto scale, autoscale, virtual server instance, creating, UI, console
 
@@ -95,6 +95,11 @@ To create an instance template, complete the following steps.
 | Network interfaces | Defines the networking connection into the IBM Cloud VPC.  |
 {: caption="Table 1. Instance template selections" caption-side="top"}
 
+**Important:** Instance groups do not support instance templates that have the following configurations:
+- Secondary network interfaces are not supported. Only one, primary network interface for an instance template is supported in an instance group.
+- A primary IP address or floating IP addresses assigned to the primary interface is not supported.
+- Attached data volumes are not supported.
+
 When you create an instance template, validation steps are performed to ensure that you can use this template to provision a virtual server instance. 
 {: tip}
 
@@ -108,11 +113,6 @@ You can set a static number of instances or choose to dynamically scale instance
 2. Click **New instance group** and enter the information in Table 2. 
 3. If you want to create dynamic scaling policies as part of instance group creation, see [Creating scaling policies](#creating-scaling-policies) for more information. You can also [add policies later](/docs/vpc?topic=vpc-managing-instance-group#creating-target-policies), after you create your instance group. 
 3. Click **Create instance group** when the information is complete.
-
-Instance groups do not support instance templates that have the following configurations:
-  - Secondary network interfaces are not supported. Only one, primary network interface for an instance template is supported         in an instance group.
-  - A primary IP address or floating IP addresses assigned to the primary interface is not supported.
-  - Attached data volumes are not supported. 
 
 | Field | Value |
 |-------|-------|
