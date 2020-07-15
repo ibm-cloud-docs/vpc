@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2020-05-20"
+lastupdated: "2020-07-15"
 
 keywords: vpc, CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
 
@@ -78,6 +78,8 @@ The following ports must be open to allow ADN network traffic to flow for the fo
 ### DNS resolver endpoints
 {: #dns-domain-name-system-resolver-endpoints}
 
+{{site.data.keyword.dns_full_notm}} provides private DNS to VPC users. Private DNS zones are resolvable only on IBM Cloud, and only from explicitly permitted networks in an account. For more information about DNS Services, see [Getting started with {{site.data.keyword.dns_full_notm}}](/docs/dns-svcs?topic=dns-svcs-getting-started).
+
 DNS resolvers use IP address, rather than names. For shared cloud service endpoints, use the DNS server addresses `161.26.0.10` and `161.26.0.11`.
 
 ### Ubuntu and Debian APT Mirrors
@@ -91,10 +93,14 @@ For instances that are provisioned with stock images for CentOS, Red Hat Enterpr
 ###  NTP servers
 {: #network-time-protocol-ntp-servers}
 
+NTP is widely used to synchronize a computer to Internet time servers or other sources. The IBM NTP server is available for VPC instances to use for time synchronization.
+
 An NTP server is available from `time.adn.networklayer.com`, which resolves to `161.26.0.6`.
 
 ### {{site.data.keyword.cloud_notm}} Object Storage
 {: #object-storage}
+
+{{site.data.keyword.cos_full_notm}} stores encrypted and dispersed data across multiple geographic locations. For more information about {{site.data.keyword.cos_full_notm}}, see [Getting started with {{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage).
 
 To reach Cloud Object Storage from a VPC see [Connecting to {{site.data.keyword.cloud_notm}} Object Storage from VPC](/docs/vpc?topic=vpc-connecting-vpc-cos).
 
