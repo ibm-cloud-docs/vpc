@@ -4,7 +4,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-06"
+lastupdated: "2020-07-15"
 
 keywords: VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies, gateway, auto-negotiation, vpc, vpc network
 
@@ -127,7 +127,7 @@ Here's what the scenario looks like:
 
 The following example assumes that you already created VPCs, subnets, and virtual server instances. For more information about creating VPC resources, see [Getting started](/docs/vpc?topic=vpc-getting-started).
 
-You can also create a VPN gateway using the UI. For instructions, see [Using the IBM Cloud console to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#vpn-ui).
+You can also create a VPN gateway using the UI. For instructions, see [Using the {{site.data.keyword.cloud_notm}} console to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#vpn-ui).
 {: tip}
 
 ### Step 1. Create a VPN gateway in a subnet of your VPC
@@ -398,7 +398,7 @@ For information about VPN quotas, see [Quotas](/docs/vpc?topic=vpc-quotas#vpn-qu
 
 The use of IKE and IPsec policies to configure a VPN connection is optional. When no policy is selected, default proposals are chosen automatically through a process known as _auto-negotiation_.
 
-Because IBM Cloud auto-negotiation uses **IKEv2**, the on-premises device must also use **IKEv2**. Use a customized IKE policy if your on-premises device does not support **IKEv2**.
+Because {{site.data.keyword.cloud_notm}} auto-negotiation uses **IKEv2**, the on-premises device must also use **IKEv2**. Use a customized IKE policy if your on-premises device does not support **IKEv2**.
 {: tip}
 
 ### IKE auto-negotiation (Phase 1)
@@ -432,8 +432,8 @@ VPC allows access to a service endpoint from an on-premises network through a VP
 
 To set up access to a service endpoint:
 
-1. Get the IP of the service endpoint. IBM Cloud supports two types of service endpoints: Infrastructure as a Service (IaaS) endpoints and IBM Cloud service endpoints. The IaaS endpoints are hosted in the IP address ranges 161.26.0.0/16; cloud service endpoints are hosted in the IP address ranges 166.9.0.0/14. For more information about endpoints, see [Endpoints available for VPC](/docs/vpc?topic=vpc-service-endpoints-for-vpc).
-2. Create a VPN gateway and a VPN connection. For the VPN connection, the local subnets should include the range 166.9.0.0/14 for IBM Cloud service endpoints or 161.26.0.0/16 for IaaS endpoints.
+1. Get the IP of the service endpoint. {{site.data.keyword.cloud_notm}} supports two types of service endpoints: Infrastructure as a Service (IaaS) endpoints and {{site.data.keyword.cloud_notm}} service endpoints. The IaaS endpoints are hosted in the IP address ranges 161.26.0.0/16; {{site.data.keyword.cloud_notm}} service endpoints are hosted in the IP address ranges 166.8.0.0/14. For more information about endpoints, see [Endpoints available for VPC](/docs/vpc?topic=vpc-service-endpoints-for-vpc).
+2. Create a VPN gateway and a VPN connection. For the VPN connection, the local subnets should include the range 166.8.0.0/14 for {{site.data.keyword.cloud_notm}} service endpoints or 161.26.0.0/16 for IaaS endpoints.
 
 ## Architecture
 {: #vpn-architecture-diagram}
@@ -456,7 +456,7 @@ To set up access to a service endpoint:
 {: #faq-vpn-0}
 {: faq}
 
-If you use the API or CLI, VPN connections must be created after the VPN gateway is created. In the IBM Cloud console, you can create the gateway and a connection at the same time.
+If you use the API or CLI, VPN connections must be created after the VPN gateway is created. In the {{site.data.keyword.cloud_notm}} console, you can create the gateway and a connection at the same time.
 
 ### If I delete a VPN gateway that has VPN connections attached, what happens to the connections?
 {: #faq-vpn-1}
@@ -541,7 +541,7 @@ Up to 650 Mbps of throughput is supported.
 
 Only PSK authentication is supported.
 
-### Can you use VPN for VPC as a VPN gateway for your IBM Cloud classic infrastructure?
+### Can you use VPN for VPC as a VPN gateway for your {{site.data.keyword.cloud_notm}} classic infrastructure?
 {: #faq-vpn-12}
 {: faq}
 
