@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-21"
+lastupdated: "2020-07-16"
 
 keywords: address prefix, region, subnet, zone, reserved, IP, ranges, deleting, creating, CIDR
 
@@ -46,6 +46,9 @@ Zone         | Address prefix
 `eu-de-1`      | `10.243.0.0/18`
 `eu-de-2`      | `10.243.64.0/18`
 `eu-de-3`      | `10.243.128.0/18`
+`jp-tok-1`     | `10.244.0.0/18`
+`jp-tok-2`     | `10.244.64.0/18`
+`jp-tok-3`     | `10.244.128.0/18`
 {: caption="Table 1. Address prefixes assigned to a zone in a region" caption-side="top"}
 
 If you don't want these default address prefixes, you can choose to not assign default address prefixes when you create your VPC. For example, add the `"address_prefix_management": "manual"` parameter when you create the VPC by using the API.
