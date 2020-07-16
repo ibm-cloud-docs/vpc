@@ -25,7 +25,7 @@ subcollection: vpc
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Health checks
+# Working with health checks
 {: #nlb-health-checks}
 
 The {{site.data.keyword.cloud}} Network Load Balancer conducts periodic health checks to monitor the health of the back-end ports, and it forwards client traffic to them accordingly. If a back-end server port is found to be unhealthy, no new connections are forwarded to it. The load balancer continues to monitor the health of unhealthy ports, and it resumes their use if they become healthy again, which means that they successfully pass the user-defined health check attempts.

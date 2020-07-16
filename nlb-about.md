@@ -101,7 +101,7 @@ Ports `56500 - 56520` cannot be used as front-end listener ports. These are rese
 ## Configuring ACLs for use with network load balancers
 {: #nlb-configuring-acls}
 
-If you use access control lists (ACLs) to block traffic on the subnets in which the load balancer is deployed, make sure that ACL rules are in place to allow incoming traffic for the configured listener ports and management ports (ports `56500 - 56520`). You must also allow traffic between the load balancer and back-end instances.
+If you use access control lists (ACLs) and security groups (SGs) to block traffic on the subnets where you deploy the load balancer, make sure that ACL and SG rules are in place to allow incoming traffic for the configured listener ports and management ports (ports `56500 - 56520`). You must also allow traffic between the load balancer and back-end instances.
 
 ## Related links
 {: #nlb-permissions-related-links}
