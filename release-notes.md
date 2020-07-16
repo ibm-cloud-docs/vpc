@@ -29,7 +29,8 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 ## 16 July 2020
 {: #july-16-2020}
 
-**New region:** The Tokyo region is now available. For more information, see [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region).
+- **New region:** The Tokyo region is now available. For more information, see [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region).
+- **Add to estimate updates for virtual server pricing:** Added support for itemized virtual server pricing in the Add to estimate capability.   
 
 ## 03 July 2020
 {: #july-03-2020}
