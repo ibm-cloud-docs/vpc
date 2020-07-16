@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-03"
+lastupdated: "2020-07-16"
 
 keywords: vpc release notes, changes, updates, vpc
 
@@ -25,6 +25,11 @@ subcollection: vpc
 
 Use these release notes to learn about the latest changes to {{site.data.keyword.vpc_full}}.
 {:shortdesc}
+
+## 16 July 2020
+{: #july-16-2020}
+
+**New region:** The Tokyo region is now available. For more information, see [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region).
 
 ## 03 July 2020
 {: #july-03-2020}
