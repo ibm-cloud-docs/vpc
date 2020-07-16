@@ -131,6 +131,8 @@ Virtual Private Cloud
         Network load balancers (Beta)
             nlb-about.md
             nlb-health-checks.md
+            nlb-listeners.md
+            nlb-pools.md
             nlb-monitoring-metrics.md
             nlb-api.md
 
