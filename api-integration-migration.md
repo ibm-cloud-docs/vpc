@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2020
 lastupdated: "2020-05-29"
 
-keywords: Generation 1, Generation 2, VPC, VPC on Classic, API, migration, integration, application
+keywords: Generation 1, Generation 2, API, migration, integration, application
 
 subcollection: vpc
 

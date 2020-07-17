@@ -5,8 +5,6 @@ copyright:
 
 lastupdated: "2020-03-17"
 
-keywords: vpc, pricing, billing, data, instance, VSI, block, storage, transfer, floating, server, VPC, allowance, gateway, egress, minimal charges, ARP, traffic
-
 subcollection: vpc
 
 

@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2020
 lastupdated: "2019-09-30"
 
-keywords: vpc, security groups, api
+keywords: security groups, api
 
 subcollection: vpc
 

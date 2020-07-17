@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2020
 lastupdated: "2020-06-02"
 
-keywords: vsi, virtual server instance, power, performance
+keywords: power, performance
 
 subcollection: vpc
 

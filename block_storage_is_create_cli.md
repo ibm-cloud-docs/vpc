@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2020
 lastupdated: "2019-11-06"
 
-keywords: block storage, IBM Cloud, VPC, CLI, block storage volume, volume, IOPS
+keywords: block storage, CLI, block storage volume, volume, IOPS
 
 subcollection: vpc
 

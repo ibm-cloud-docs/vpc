@@ -5,7 +5,7 @@ copyright:
 
 lastupdated: "2020-03-26"
 
-keywords: vsi, virtual server instance, connecting, windows
+keywords: connecting, windows
 
 subcollection: vpc
 

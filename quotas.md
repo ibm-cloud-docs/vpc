@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2020
 lastupdated: "2020-6-29"
 
-keywords: quotas, vpc, resources, limits
+keywords: quotas, resources, limits
 
 subcollection: vpc
 

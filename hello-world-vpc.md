@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2020
 lastupdated: "2020-03-23"
 
-keywords: vpc, cli, command line interface, tutorial, creating a vpc
+keywords: cli, command line interface, tutorial, creating a vpc
 
 subcollection: vpc
 

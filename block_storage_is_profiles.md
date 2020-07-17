@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2020
 lastupdated: "2020-04-28"
 
-keywords: block storage, IBM Cloud, VPC, virtual private cloud, volume, profile, volume profile, data storage, storage profile, virtual server instance, instance
+keywords: block storage, volume, profile, volume profile, data storage, storage profile
 
 subcollection: vpc
 

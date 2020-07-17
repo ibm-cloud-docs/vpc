@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2020
 lastupdated: "2020-07-16"
 
-keywords: vpc release notes, changes, updates, vpc
+keywords: release notes, changes, updates
 
 subcollection: vpc
 

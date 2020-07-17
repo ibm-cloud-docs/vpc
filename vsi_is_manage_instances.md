@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2020
 lastupdated: "2019-12-05"
 
-keywords: view instance details, virtual server instance, restart virtual server, stop virtual server, instance details, delete virtual server, delete instance
+keywords: view instance details, restart, stop, instance details, delete
 
 subcollection: vpc
 ---

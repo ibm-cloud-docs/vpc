@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2020
 lastupdated: "2020-06-18"
 
-keywords: VPC, IBM CLoud, Virtual Private Cloud, generation 2, gen 2, system dependencies, dependencies, hard dependency
+keywords: generation 2, gen 2, system dependencies, dependencies, hard dependency
 
 subcollection: vpc
 

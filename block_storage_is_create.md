@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2020
 lastupdated: "2020-6-19-20"
 
-keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, VSI, virtual server instance, instance, IOPS
+keywords: block storage, boot volume, data volume, volume, data storage, IOPS
 
 subcollection: vpc
 

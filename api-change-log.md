@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2020
 lastupdated: "2020-07-16"
 
-keywords: vpc, api, change log, new features, restrictions, migration, generation 2, gen2,
+keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
 subcollection: vpc
 

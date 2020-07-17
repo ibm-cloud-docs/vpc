@@ -5,7 +5,7 @@ copyright:
 
 lastupdated: "2020-07-08"
 
-keywords: activity tracker, vpc, events, logdna
+keywords: activity tracker, events, logdna
 
 subcollection: vpc
 

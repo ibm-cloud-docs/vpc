@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2020
 lastupdated: "2020-05-28"
 
-keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, IOPS, HPCS, Key Protect
+keywords: block storage, IBM Cloud Block Storage for VPC, boot volume, data volume, volume, data storage, IOPS, HPCS, Key Protect
 
 subcollection: vpc
 

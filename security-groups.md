@@ -5,7 +5,7 @@ copyright:
 
 lastupdated: "2019-09-30"
 
-keywords: security groups, traffic, firewall, stateful, filtering, vpc, vpc network
+keywords: security groups, traffic, firewall, stateful, filtering
 
 subcollection: vpc
 

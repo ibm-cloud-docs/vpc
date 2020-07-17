@@ -5,7 +5,7 @@ copyright:
 
 lastupdated: "2020-01-22"
 
-keywords: security group, VSI, ping, TCP, outbound, rules, metadata, setting up, vpc, vpc network
+keywords: security group, ping, TCP, outbound, rules, metadata, setting up
 
 subcollection: vpc
 

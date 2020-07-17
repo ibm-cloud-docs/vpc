@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2020
 lastupdated: "2019-12-05"
 
-keywords: vpc, delete, resources
+keywords: delete, resources
 
 subcollection: vpc
 ---

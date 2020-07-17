@@ -5,7 +5,7 @@ copyright:
 lastupdated: "2019-09-30"
 
 
-keywords: vpc, delete, resources, cli, infrastructure, command line interface
+keywords: delete, resources, cli, infrastructure, command line interface
 
 subcollection: vpc
 

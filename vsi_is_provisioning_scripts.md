@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2020
 lastupdated: "2020-02-10"
 
-keywords: user data, vsi, virtual server instance
+keywords: user data
 
 subcollection: vpc
 

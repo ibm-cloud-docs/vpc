@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2020
 lastupdated: "2019-11-03"
 
-keywords: vpc, secure, region, zone, subnet, routing, terminology, public gateway, floating IP, NAT, API
+keywords: secure, region, zone, subnet, routing, terminology, public gateway, floating IP, NAT, API
 
 subcollection: vpc
 

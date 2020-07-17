@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2020
 lastupdated: "2020-04-13"
 
-keywords: vpc, help, support
+keywords: help, support
 
 subcollection: vpc
 

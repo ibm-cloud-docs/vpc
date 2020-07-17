@@ -5,7 +5,7 @@ copyright:
 
 lastupdated: "2019-09-30"
 
-keywords: default, security group, asynchronous, rules, vpc, vpc network
+keywords: default, security group, asynchronous, rules
 
 subcollection: vpc
 

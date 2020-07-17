@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2020
 lastupdated: "2019-10-17"
 
-keywords: block storage, IBM Cloud, VPC, CLI, block storage volume, volume, volume attachment, virtual server instance, instance
+keywords: block storage, CLI, block storage volume, volume, volume attachment
 
 subcollection: vpc
 

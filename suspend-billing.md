@@ -5,7 +5,7 @@ copyright:
 
 lastupdated: "2020-03-11"
 
-keywords: vpc, pricing, billing, data, instance, VSI, suspend 
+keywords: pricing, billing, data, instance, suspend 
 
 subcollection: vpc
 

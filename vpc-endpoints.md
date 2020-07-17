@@ -5,7 +5,7 @@ copyright:
 
 lastupdated: "2020-07-16"
 
-keywords: vpc, CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
+keywords: CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
 
 subcollection: vpc
 

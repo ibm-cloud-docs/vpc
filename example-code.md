@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2020
 lastupdated: "2020-03-23"
 
-keywords: create, VPC, API, IAM, token, permissions, endpoint, region, zone, profile, status, subnet, gateway, floating IP, delete, resource, provision
+keywords: create, API, IAM, token, permissions, endpoint, region, zone, profile, status, subnet, gateway, floating IP, delete, resource, provision
 
 subcollection: vpc
 
