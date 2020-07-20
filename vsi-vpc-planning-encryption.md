@@ -39,7 +39,6 @@ Consider the following prerequisites before you set up data encryption for your 
 |__ Evaluate whether a combination of IBM-managed encrypted volumes and customer-managed encrypted volumes meets your needs.  |
 |__ Choose the UI, CLI, or API for provisioning customer-managed encryption.
 |__ Evaluate which [key management service](#byok-encryption-prereqs) best meets your needs. Determine the availability of these services in your region and zone. | 
-|__ For customer-managed encryption, consider importing or creating multiple root keys and [rotating your keys](/docs/vpc?topic=vpc-vpc-key-rotation) for greater security. |
 |__ If you're provisioning an instance with encrypted volumes, make sure that you [created a VPC](/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc). |
 |__ Decide how many secondary volumes you require and how many will use customer-managed encryption. |
 |__ Choose the secondary volume [profile](/docs/vpc?topic=vpc-block-storage-profiles) that best meets your needs. **IOPS** profiles offer pre-defined performance; **Custom** profiles let you independently choose from a range of capacity and IOPS for your volumes.|
