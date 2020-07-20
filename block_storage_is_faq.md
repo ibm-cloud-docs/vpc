@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-17"
+lastupdated: "2020-07-20"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, IOPS, FAQ
 
@@ -187,7 +187,7 @@ All block storage volumes are encrypted at rest with IBM-managed encryption. IBM
 
 For more security, you can protect your data using your own customer root keys (CRKs). You import your root keys to, or create them in, a supported key management service (KMS). Your root keys are safely managed by the supported KMS, either {{site.data.keyword.keymanagementserviceshort}} (FIPS 140-2 Level 3 compliance) or {{site.data.keyword.hscrypto}}, which offer the highest level of security (FIPS 140-2 Level 4 compliance). Your key material is protected in transit and at rest. 
 
-For information, see [Supported key management services for customer-managed encryption](/docs/vpc?topic=vpc-creating-instances-byok#kms-for-byok). To learn how to set up customer-managed encryption, see 
+For information, see [Supported key management services for customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok). To learn how to set up customer-managed encryption, see 
 [Creating block storage volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
 
 You control access to your root keys stored in KMS instances within IBM Cloud by using IBM Access Management (IAM). You grant access to the IBM Block Storage Service to use your keys. You can also revoke access at any time, for example, if you suspect your keys might have been compromised. You can also disable or delete a root key, or take temporarily revoke access to the key's associated data on the cloud. For more information, see [Managing root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-manage-root-keys).
@@ -196,7 +196,7 @@ You control access to your root keys stored in KMS instances within IBM Cloud by
 {: faq}
 {: #faq-block-storage-21}
 
-Customer-managed encryption lets you encrypt your block storage volumes using your own root keys. You have complete control over your data security and grant IBM access to use your root keys.  For more information, see [Advantages of customer-managed encryption](/docs/vpc?topic=vpc-block-storage-about#byok-advantages).
+Customer-managed encryption lets you encrypt your block storage volumes using your own root keys. You have complete control over your data security and grant IBM access to use your root keys.  For more information, see [Advantages of customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#byok-advantages).
 
 ### What encryption technology is used for customer-managed encryption?
 {: faq}
@@ -232,7 +232,7 @@ There is no extra charge for creating volumes with customer-managed encryption. 
 {: faq}
 {: #faq-block-storage-28}
 
-Both key management systems provide you complete control over your data, managed by your root keys. {{site.data.keyword.keymanagementserviceshort}} is a multi-tenant KMS that lets you import or create your root keys and securely manage them. {{site.data.keyword.hscrypto}} is a single-tenant KMS and hardware security module (HSM) that's controlled by you, which offers the highest level of security. For more information and links to documentation about these key managment services, see [Supported key management services for customer-managed encryption](/docs/vpc?topic=vpc-creating-instances-byok#kms-for-byok).
+Both key management systems provide you complete control over your data, managed by your root keys. {{site.data.keyword.keymanagementserviceshort}} is a multi-tenant KMS that lets you import or create your root keys and securely manage them. {{site.data.keyword.hscrypto}} is a single-tenant KMS and hardware security module (HSM) that's controlled by you, which offers the highest level of security. For more information and links to documentation about these key managment services, see [Supported key management services for customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok).
 
 ### Can I convert my volume from provider-managed encryption to customer-managed encryption? 
 {: faq}
