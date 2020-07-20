@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2019-12-19"
+lastupdated: "2020-07-16"
 
-keywords: block storage, volume, data storage, volume capacity, classic
+keywords: block storage, IBM Cloud, VPC, virtual private cloud, IBM CLoud, volume, data storage, volume capacity, classic, virtual server
 
 subcollection: vpc
 
@@ -39,7 +39,7 @@ You can specify 10 - 2000 GB (2 TB) of capacity per block storage data volume in
 ## Block storage IOPS profiles
 {: #iops-profiles}
 
-When you provision {{site.data.keyword.block_storage_is_short}} volumes, you specify an [IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles) that best meets your storage requirements. Three predefined tiered profiles are available, or you can choose a custom profile. [IOPS tiered profiles](/docs/vpc?topic=vpc-block-storage-profiles#tiers) provide guaranteed IOPS/GB performance for volumes up to 2 TB capacity. [Custom IOPS profiles](/docs/vpc?topic=vpc-block-storage-profiles#custom) define custom volume capacity/IOPS combinations,within permitted ranges.
+When you provision {{site.data.keyword.block_storage_is_short}} volumes, you specify an [IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles) that best meets your storage requirements. Three predefined tiered profiles are available, or you can choose a custom profile. [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) provide guaranteed IOPS/GB performance for volumes up to 2 TB capacity. A [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) profile defines ranges of volume capacity and IOPS that you can select.
 
 ## How block size affects performance
 {: #how-block-size-affects-performance}

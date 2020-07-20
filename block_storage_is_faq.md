@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-19"
+lastupdated: "2020-07-17"
 
-keywords: block storage, boot volume, data volume, volume, data storage, IOPS, FAQ
+keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, IOPS, FAQ
 
 subcollection: vpc
 
@@ -14,7 +14,6 @@ subcollection: vpc
 {:screen: .screen}
 {:support: data-reuse='support'}
 {:external: target="_blank" .external}
-{:beta: .beta}
 
 # FAQs for block storage
 {: #block-storage-vpc-faq}
@@ -102,7 +101,7 @@ The boot disk, also called a boot volume, is created when you provision a virtua
 {: faq}
 {: #faq-block-storage-13}
 
-Determine the capacity that you need based on anticipated growth. Volume size cannot be expanded after provisioning. However, you can create new volumes as needed. Also, if you have well-defined performance requirements, you might consider choosing [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles#custom) that provides a specific range of IOPS per volume size.
+Determine the capacity that you need based on anticipated growth. Volume size cannot be expanded after provisioning. However, you can create new volumes as needed. Also, if you have well-defined performance requirements, you might consider choosing a [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles#custom) profile that provides a specific range of IOPS per volume size.
 
 ### When can I delete a block storage data volume?
 {: faq}
@@ -148,13 +147,13 @@ You might also consider using [{{site.data.keyword.blockstoragefull}} - Classic]
 
 Input/Output Operations Per Second (IOPS) are used to measure the performance of your block storage volumes. A number of variables impact IOPS values, such as the balance of read/write operations, queue depth, and data block sizes. In general, the higher the IOPS of your block storage volumes, the better the performance. For information on expected IOPS for block storage profiles, see [Profiles](/docs/vpc?topic=vpc-block-storage-profiles). For information about how block size affects performance, see [this topic](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
 
-## Are the allocated IOPS enforced by instance or by volume?
+### Are the allocated IOPS enforced by instance or by volume?
 {: faq}
 {: #faq-block-storage-4}
 
 IOPS is enforced at the volume level.
 
-## What are IOPS profiles and how do they affect volume performance?
+### What are IOPS profiles and how do they affect volume performance?
 {: faq}
 {: #faq-block-storage-5}
 {: support}
@@ -166,7 +165,7 @@ Maximum IOPS for data volumes varies based on volume size and the type of profil
 IOPS is measured based on a load profile of 16 KB blocks with random 50% read and 50% writes. Workloads that differ from this profile might experience reduced performance. If you use a smaller block size, maximum IOPS can be obtained but throughput is less. For information, see
 [How block size affects performance](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
 
-## What performance latency can I expect from {{site.data.keyword.block_storage_is_short}}?
+### What performance latency can I expect from {{site.data.keyword.block_storage_is_short}}?
 {: faq}
 {: #faq-block-storage-17}
 
@@ -186,18 +185,18 @@ Customer-managed encryption is a beta feature that is available for evaluation a
 
 All block storage volumes are encrypted at rest with IBM-managed encryption. IBM-managed keys are generated and securely stored in a block storage vault that is backed by Consul and maintained by IBM Cloud operations. 
 
-For more security, you can protect your data using your own customer root keys (CRKs). You import your root keys to, or create them in, a supported key management service (KMS). Your root keys are safely managed by the supported KMS, either {{site.data.keyword.keymanagementserviceshort}} (FIPS 140-2 Level 3 compliance) or {{site.data.keyword.hscrypto}}, which offer the highest level of security (FIPS 140-2 Level 4 compliance).  Your key material is protected in transit and at rest. 
+For more security, you can protect your data using your own customer root keys (CRKs). You import your root keys to, or create them in, a supported key management service (KMS). Your root keys are safely managed by the supported KMS, either {{site.data.keyword.keymanagementserviceshort}} (FIPS 140-2 Level 3 compliance) or {{site.data.keyword.hscrypto}}, which offer the highest level of security (FIPS 140-2 Level 4 compliance). Your key material is protected in transit and at rest. 
 
 For information, see [Supported key management services for customer-managed encryption](/docs/vpc?topic=vpc-creating-instances-byok#kms-for-byok). To learn how to set up customer-managed encryption, see 
 [Creating block storage volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
 
-You control access to your root keys stored in KMS instances within IBM Cloud by using IBM Access Management (IAM). You grant access to the IBM Block Storage Service to use your keys. You can also revoke access at any time, for example, if you suspect your keys might have been compromised. You can also disable an encryption key and temporarily revoke access to the key's associated data on the cloud. For more information, see [Making your data inaccessible after setting up customer-managed encryption](/docs/vpc?topic=vpc-creating-instances-byok#instance-byok-inaccessible-data).
+You control access to your root keys stored in KMS instances within IBM Cloud by using IBM Access Management (IAM). You grant access to the IBM Block Storage Service to use your keys. You can also revoke access at any time, for example, if you suspect your keys might have been compromised. You can also disable or delete a root key, or take temporarily revoke access to the key's associated data on the cloud. For more information, see [Managing root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-manage-root-keys).
 
 ### What are the advantages of using customer managed encryption over provider managed encryption?
 {: faq}
 {: #faq-block-storage-21}
 
-Customer-managed encryption lets you encrypt your block storage volumes using your own root keys. You have complete control over your data security and grant IBM access to use your root keys.  For more information, see [Advantages of customer-managed encryption](/docs/vpc?topic=vpc-block-storage-about#byok-advantages). 
+Customer-managed encryption lets you encrypt your block storage volumes using your own root keys. You have complete control over your data security and grant IBM access to use your root keys.  For more information, see [Advantages of customer-managed encryption](/docs/vpc?topic=vpc-block-storage-about#byok-advantages).
 
 ### What encryption technology is used for customer-managed encryption?
 {: faq}
@@ -215,19 +214,19 @@ Each volume is assigned a unique master encryption key generated by the instance
 {: faq}
 {: #faq-block-storage-24}
 
-When you delete your root key or suspend it in your key management service, your workloads remain running in your virtual server instance and volumes remain encrypted.  However, if you power down the VM and then power it back on, any instances with encrypted boot volumes will not start. If your boot volume was encrypted with provider-managed encryption, the instance will start but all secondary volumes encrypted by root key you deleted will be inaccessible.  All volume attachments will fail during the boot process. You can cancel the deletion if your key is in a suspended (pending delete) state. Look at the list of resources for the status of the key.
+When you delete your root key or suspend it in your key management service, your workloads remain running in your virtual server instance and volumes remain encrypted.  However, if you power down the VM and then power it back on, any instances with encrypted boot volumes will not start. If your boot volume was encrypted with provider-managed encryption, the instance will start but all secondary volumes encrypted by root key you deleted will be inaccessible.  All volume attachments will fail during the boot process. You can cancel the deletion if your key is in a suspended state. Look at the list of resources for the status of the key.
 
 ### What should I do if my key is compromised?
 {: faq}
 {: #faq-block-storage-25}
 
-Independently back up your data.  Then, delete the compromised root key and power down the instance with volumes encrypted with that key. 
+Independently back up your data. Then, delete the compromised root key and power down the instance with volumes encrypted with that key. 
 
 ### Am I charged for using customer-managed encryption?
 {: faq}
 {: #faq-block-storage-27}
 
-There is no extra charge for creating volumes with customer-managed encryption.  However, there is a charge for setting up a Key Protect or HPCS instance to import, create, and manage your root keys. Contact your IBM customer service representative for details.
+There is no extra charge for creating volumes with customer-managed encryption.  However, there is a charge for setting up a {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance to import, create, and manage your root keys. Contact your IBM customer service representative for details.
 
 ### What's the difference between using Key Protect as my KMS compared to HPCS?  When would I use one over the other?
 {: faq}
@@ -239,4 +238,4 @@ Both key management systems provide you complete control over your data, managed
 {: faq}
 {: #faq-block-storage-29}
 
- No, after you provision a volume and specify the encryption type, it can't be changed.
+ No, after you provision a volume and specify the encryption type, you can't change it.
