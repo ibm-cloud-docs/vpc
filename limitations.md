@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-06-18"
+lastupdated: "2020-07-20"
 
 keywords: limitations, restrictions
 
@@ -75,11 +75,6 @@ An {{site.data.keyword.vpc_short}} cannot be peered with other VPCs natively. It
 * Live migration is not supported.
 
 * We have temporarily suspended API support for creating new instances from an existing boot volume. For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-log).
-
-## Storage restrictions
-{: #storage-restrictions}
-
-* Customer-managed encryption for secondary volumes is not supported.
 
 ## API considerations
 {: #api-considerations}
