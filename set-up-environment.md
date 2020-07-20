@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-05-20"
+lastupdated: "2020-07-20"
 
 keywords: setup, environment, prerequisites, api, cli, command line interface, plugin, creating a vpc, iam, permissions, access, ssh key
 
@@ -79,7 +79,7 @@ The following examples use the `us-south` regional endpoint. To view additional 
 ### Step 1: Store your API key as a variable
 {: #store-api-key-variable}
 
-Run the following command to store the API key for your account in an environment variable. If you don't have an API key, see [Creating an API key](/docs/iam?topic=iam-userapikey#create_user_key){: new_window}.
+Run the following command to store the API key for your account in an environment variable. If you don't have an API key, see [Creating an API key](/docs/account?topic=account-userapikey#create_user_key){: new_window}.
 
 ```bash
 apikey="<YOUR_API_KEY>"
