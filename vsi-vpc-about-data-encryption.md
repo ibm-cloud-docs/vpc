@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2020
-lastupdated: "2020-07-16"
+lastupdated: "2020-07-20"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
@@ -54,8 +54,8 @@ Customer-managed encryption gives you the following advantages over provider-man
 * Encryption keys are controlled by you. You grant IBM access to use your root keys to encrypt your data.
 * Data is encrypted while in transit and while at rest.
 * You can encrypt boot and data volumes.
-* You choose the key management service (KMS) you want to use. You can select {{site.data.keyword.keymanagementserviceshort}}, a public multi-tenant KMS that is FIPS 140-2 L3 compliant, or the more secure {{site.data.keyword.hscrypto}}, which is FIPS 140-2 L4 compliant.
-* Customer-managed encryption provides better audit records for key usage. Your key access is logged in the Activity Tracker with LogDNA service. The Activity Tracker lets you track interactions with the VPC.
+* You choose the [key management service (KMS)](#kms-for-byok) you want to use. You can select {{site.data.keyword.keymanagementserviceshort}}, a public multi-tenant KMS that is FIPS 140-2 L3 compliant, or the more secure {{site.data.keyword.hscrypto}}, which is FIPS 140-2 L4 compliant.
+* Customer-managed encryption provides better audit records for key usage. Your key access is logged in the [Activity Tracker](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-activity-tracker-events) with LogDNA service. The Activity Tracker lets you track interactions with the VPC.
 
 ### IBM's encryption technology - How your data is secured
 {: #byok-technologies}
