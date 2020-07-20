@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2020
-lastupdated: "2020-07-16"
+lastupdated: "2020-07-20"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
@@ -31,7 +31,7 @@ Take actions to manage your customer-managed encryption that secures your boot a
 Manage your root keys by taking the following actions: 
 
 * Decide whether importing your own root key or using a KMS-generated root key is preferable. If you want to set up a rotation policy for automatic key rotation, you must use KMS-generated root keys.
-* Review the [Activity Tracker](#byok-key-rotation-activity-tracker-events) to verify events as you manage the lifecycle of your keys.
+* Review the [Activity Tracker](#byok-activity-tracker-event) to verify events as you manage the lifecycle of your keys.
 * Decide when you might want to make your data [temporarily inaccessible](#instance-byok-inaccessible-data) but retain it on the cloud.
 * Decide when [disabling](#byok-disable-root-keys) or [deleting](#byok-delete-root-keys) a root key is necessary. 
 
@@ -81,7 +81,7 @@ Use the Activity Tracker to verify user-initiated activities that change the sta
 
 Due to the sensitivity of the information for an encryption key, when an event is generated as a result of an API call to the {{site.data.keyword.keymanagementserviceshort}} service, the event that is generated does not include detailed information about the key. Instead, it includes a correlation ID that you can use to identify the key internally in your cloud environment. The correlation ID is a field that is returned as part of the `correlationId` field.
 
-For information about all Activity Tracker events in {{site.data.keyword.keymanagementserviceshort}}, see [Activity Tracker events](/docs/key-protecttopic=key-protect-at-events#rotate-key-registrations-success).
+For information about all Activity Tracker events in {{site.data.keyword.keymanagementserviceshort}}, see [Activity Tracker events](/docs/key-protect?topic=key-protect-at-events).
 
 ## Next Steps
 {: #next-steps-byok-manage}
