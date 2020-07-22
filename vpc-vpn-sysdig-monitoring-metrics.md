@@ -2,7 +2,7 @@
 
 copyright:
   years:  2020
-lastupdated: "2020-06-22"
+lastupdated: "2020-07-16"
 
 keywords: Sysdig, IBM Cloud, monitoring, platform metrics, metrics, VPN metrics
 
@@ -80,7 +80,7 @@ Bytes per minute received for a VPN gateway
 | `Metric type` | `gauge` |
 | `Value type`  | `byte` |
 | `Segment by` | `Service instance, Service instance name, VPN name, IBM IS Generation 2` |
-{: caption="Table 7: VPN gateway bytes received" caption-side="top"}
+{: caption="Table 2: VPN gateway bytes received" caption-side="top"}
 
 ### VPN gateway bytes sent
 {: #ibm_is_vpn_gateway_bytes_out}
@@ -93,7 +93,7 @@ Bytes sent per minute for a VPN gateway
 | `Metric type` | `gauge` |
 | `Value type`  | `byte` |
 | `Segment by` | `Service instance, Service instance name, VPN name, IBM IS Generation 2` |
-{: caption="Table 8: VPN gateway bytes sent" caption-side="top"}
+{: caption="Table 3: VPN gateway bytes sent" caption-side="top"}
 
 ### VPN gateway packets received
 {: #ibm_is_vpn_gateway_packets_in}
@@ -106,7 +106,7 @@ Packets received per minute for a VPN gateway
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `Service instance, Service instance name, VPN name, IBM IS Generation 2` |
-{: caption="Table 9: VPN gateway packets received" caption-side="top"}
+{: caption="Table 4: VPN gateway packets received" caption-side="top"}
 
 ### VPN gateway packets sent
 {: #ibm_is_vpn_gateway_packets_out}
@@ -119,7 +119,7 @@ Packets sent per minute for a VPN gateway
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `Service instance, Service instance name, VPN name, IBM IS Generation 2` |
-{: caption="Table 10: VPN gateway packets sent" caption-side="top"}
+{: caption="Table 5: VPN gateway packets sent" caption-side="top"}
 
 ### VPN gateway status
 {: #ibm_is_vpn_gateway_status}
@@ -132,7 +132,7 @@ Status for a VPN gateway (for example, `1`=available, `0`=unavailable)
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `Service instance, Service instance name, VPN name, IBM IS Generation 2` |
-{: caption="Table 11: VPN gateway status" caption-side="top"}
+{: caption="Table 6: VPN gateway status" caption-side="top"}
 
 ### VPN connection bytes received
 {: #ibm_is_vpn_connection_bytes_in}
@@ -145,7 +145,7 @@ Bytes received per minute for a VPN gateway's connection
 | `Metric type` | `gauge` |
 | `Value type`  | `byte` |
 | `Segment by` | `Service instance, VPN name, Connection name, Connection ID, IBM IS Generation 2` |
-{: caption="Table 2: VPN connection bytes received" caption-side="top"}
+{: caption="Table 7: VPN connection bytes received" caption-side="top"}
 
 ### VPN connection bytes sent
 {: #ibm_is_vpn_connection_bytes_out}
@@ -158,7 +158,7 @@ Bytes sent per minute for a VPN gateway connection
 | `Metric type` | `gauge` |
 | `Value type`  | `byte` |
 | `Segment by` | `Service instance, VPN name, Connection name, Connection ID, IBM IS Generation 2` |
-{: caption="Table 3: VPN connection bytes sent" caption-side="top"}
+{: caption="Table 8: VPN connection bytes sent" caption-side="top"}
 
 ### VPN connection packets received
 {: #ibm_is_vpn_connection_packets_in}
@@ -171,7 +171,7 @@ Packets received per minute for a VPN gateway connection
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `Service instance, VPN Name, Connection Name, Connection ID, IBM IS Generation 2` |
-{: caption="Table 4: VPN connection packets received" caption-side="top"}
+{: caption="Table 9: VPN connection packets received" caption-side="top"}
 
 ### VPN connection packets output
 {: #ibm_is_vpn_connection_packets_out}
@@ -184,7 +184,7 @@ Packets sent per minute for a VPN gateway connection
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `Service instance, VPN name, Connection name, Connection ID, IBM IS Generation 2` |
-{: caption="Table 5: VPN connection packets sent" caption-side="top"}
+{: caption="Table 10: VPN connection packets sent" caption-side="top"}
 
 ### VPN connection status
 {: #ibm_is_vpn_connection_status}
@@ -197,12 +197,12 @@ Status of a VPN gateway connection (for example, `1`=up, `0`=down)
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `Service instance, VPN name, Connection name, Connection ID, IBM IS Generation 2` |
-{: caption="Table 6: VPN connection status" caption-side="top"}
+{: caption="Table 11: VPN connection status" caption-side="top"}
 
 ## Metric segmentation
 {: attributes}
 
-You can split the metrics that Sysdig presents into various visualizations in the Sysdig dashboard, allowing views of different metrics based on your preferences. For example, if you have multiple VPN gateways or accounts with different VPN gateways in each account, you might want to focus on a particular gateway name.
+You can split the metrics that Sysdig presents into various visualizations in the Sysdig dashboard, allowing views of different metrics based on your preference. For example, if you have multiple VPN gateways or accounts with different VPN gateways in each account, you might want to focus on a particular gateway name.
 
 As an example, you can segment the `VPN Gateway Bytes Input` by `IBM VPN for VPC gateway name` to show how many bytes per minute are received for a VPN gateway through its name. To illustrate this example, let's assume that your account has 10 VPN gateways with different names. The dashboard contains different lines in different colors. Each line represents received bytes per minute for a VPN gateway.
 
@@ -353,7 +353,7 @@ To customize your dashboard, use the following steps:
 
 To return to the default Sysdig dashboard at any time, select **Dashboards > Default Dashboards > IBM > VPC Gen 2 VPN**.
 
-## Working with {{site.data.keyword.mon_full_notm}} by using APIs
+## Working with Sysdig by using APIs
 {: #metric-query-api}
 
 You can also work with the {{site.data.keyword.mon_full_notm}} instance by using metric query APIs. You might want to use APIs if you need raw data points or want to consume your metrics from a command-line interface rather than using the Sysdig dashboard.
@@ -445,3 +445,24 @@ To collect this information and work with your Sysdig instance by using metric q
  }'
 ```
 {: codeblock}
+
+## Working with {{site.data.keyword.mon_full_notm}} by using VPN for VPC UI
+
+You can view individual VPN gateway metrics and launch the Sysdig dashboard from the VPN UI.
+
+1. Navigate to the [VPN UI](https://cloud.ibm.com/vpc-ext/network/vpngateways).
+
+2. Click a VPN gateway name whose Sysdig metrics you want to view and go to its **Overview** page.
+
+   The **Monitoring preview** panel displays the sum of every metric over the last hour.
+   ![VPN Monitoring preview](images/vpn_monitoring_preview.png "VPN Monitoring preview")
+
+   You can click **Launch monitoring** to launch the VPN gateway's default Sysdig dashboard.
+   ![VPN Monitoring dashboard](images/vpn_monitoring_dashboard.png "VPN Monitoring dashboard")
+
+3. Open the VPN gateway's **Monitoring** page.
+
+    The page displays a VPN gateway's throughput and packets in a time range.
+   ![VPN Monitoring](images/vpn_monitoring.png "VPN Monitoring")
+
+   Similarly, you can also launch the VPN gateway's default Sysdig dashboard by clicking **Launch monitoring**
