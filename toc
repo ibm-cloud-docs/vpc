@@ -178,11 +178,15 @@ Virtual Private Cloud
         delete-vpc-api.md
         
     {: .topicgroup}
-    Backup and recovery using Veeam
-        about-veeam.md
-        ordering-veeam-licenses.md
-        using-veeam-agent.md
-        using-veeam-backup-replication.md
+    High availability and disaster recovery
+        ha-dr.md        
+
+        {: .topicgroup}
+        Backup and recovery using Veeam
+            about-veeam.md
+            ordering-veeam-licenses.md
+            using-veeam-agent.md
+            using-veeam-backup-replication.md
     {: .navgroup-end}
 
 
