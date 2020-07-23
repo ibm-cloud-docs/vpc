@@ -119,7 +119,7 @@ Where:
 * **--bucket** is the name of the COS bucket.
 * **--target** is the target for the flow log.
 * **--name** is the new name for the flow log.
-* **--active** Indicates whether this collector is active.
+* **--active** indicates whether this collector is active.
 * **--resource-group-id** is the ID of the resource group. This option is mutually exclusive with **--resource-group-name**.
 * **--resource-group-name** is the name of the resource group. This option is mutually exclusive with **--resource-group-id**.
 * **--json** formats the output in JSON.
