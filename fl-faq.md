@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-17"
+lastupdated: "2020-07-23"
 
 keywords: flow logs, faqs, cos bucket
 
@@ -26,10 +26,10 @@ subcollection: vpc
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# FAQs for flow log collectors (Beta)
+# FAQs for flow log collectors
 {: #fl-faq}
 
-You might encounter the following frequently asked questions when using IBM Cloud Flow Logs.
+You might encounter the following frequently asked questions when using {{site.data.keyword.cloud_notm}} Flow Logs for VPC.
 
 ## Why don't I see any Cloud Object Storage (COS) buckets as options when creating a flow log collector?
 {: #faq-cos-buckets-as-options}
@@ -52,7 +52,6 @@ The most likely reasons why you might not see your COS buckets when ordering a f
 
 Likely causes of this error include:
 
-   * Your user is not authorized to create flow log collectors.
    * Your user is not authorized to access the specified target of the flow log collector.
    * Your Cloud Object Storage (COS) bucket is missing the Identity Authorization Management (IAM) authorization to allow the flow logs service to write flow logs to your bucket.
 
@@ -69,6 +68,20 @@ You can create multiple flow log collectors as long as they are on different tar
 {: support}
 
 You cannot change the COS bucket location for an existing flow log collector. You can delete the existing collector and create a new one with the COS bucket location that you want to use.
+
+## Are Virtual Appliances (IKS workers, LBaaS, VPN gateway) included in the flow log collector data output?
+{: #virtual-appliances-in-collector-output}
+{: faq}
+{: support}
+
+Flow Logs for VPC collects at the VSI-level of the VPC instance. Virtual Appliances (IKS workers, LBaaS, VPN Gateway) are currently not included in flow log collector data output.
+
+## Is there a viewer or filter for flow logs?
+{: viewer-filter}
+{: faq}
+{: support}
+
+Flow Logs for VPC does not have a native viewer or filter. However, LogDNA and SQL Query are viable options.
 
 ## Can I modify the target scope for a flow log collector?
 {: #faq-modify-target-scope-flow-log-collector}

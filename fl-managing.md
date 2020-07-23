@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-05-06"
+lastupdated: "2020-07-23"
 
 keywords: flow logs, ordering, getting started
 
@@ -36,9 +36,14 @@ To list your flow log collectors using the IBM Cloud console:
 
 1. Navigate to the [Virtual Private Cloud console](https://cloud.ibm.com/vpc/).
 2. Select **Gen 2 Compute**.
-3. From the left navigation pane, click **Flow Log Collectors (beta)**. If available, a list of provisioned flow logs collectors shows.  
+3. From the left navigation pane, click **Flow Log Collectors**. If available, a list of provisioned flow logs collectors shows.  
 
-   Flow log collector attributes shown in the table are as follows:
+For example, the following screen capture shows a flow log collector attached to a subnet within the `demo-vpc` VPC.
+
+   ![Subnet Tab](./images/flow-log-subnet-tab-items.png "Subnet List View")   
+
+
+Flow log collector attributes shown in the table are as follows:
 
    * **Status** - The status of the flow log collector (Stable, Failed, Pending, and so on).
    * **Active** - On/Off flag for the flow log. If Active, the flow log collector is set to write log files. If Suspended, the collector is deactivated and not writing log files.
@@ -54,12 +59,6 @@ To list your flow log collectors using the IBM Cloud console:
    * **Instance** - Shows all flow log collectors that are attached directly to a VSI within the specified VPC.
    * **Interface** - Shows all flow log collectors that are attached directly to a network interface of a VSI within the specified VPC.
 
-### Example
-
-The following screen capture shows a flow log collector attached to a subnet within the `demo-vpc` VPC.
-
-   ![Subnet Tab](./images/flow-log-subnet-tab-items.png "Subnet List View")   
-
 ## Using the CLI
 {: #fl-list-cli}
 
@@ -71,7 +70,7 @@ ibmcloud is flow-logs \
   [--json]
 ```
 
-Where...
+Where:
 
 - **--resource-group-id** is the ID of the resource group. This option is mutually exclusive with **--resource-group-name**.
 - **--resource-group-name** is the name of the resource group. This option is mutually exclusive with **--resource-group-id**.
@@ -82,13 +81,13 @@ Where...
 
 To list flow log collectors by using the API, follow these steps:
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with 
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with
 the right variables.
 2. When all variables are initiated, list your flow log collectors:
 
 ```sh
 curl -sS -X GET \
   -H "Authorization: $iam_token" \
-  $vpc_api_endpoint/v1/flow_log_collectors?version=$api_version&generation=2 | jq
+  "$vpc_api_endpoint/v1/flow_log_collectors?version=$api_version&generation=2" | jq
 ```
 {: pre}

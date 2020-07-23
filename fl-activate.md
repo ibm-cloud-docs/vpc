@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-04-22"
+lastupdated: "2020-07-23"
 
 keywords: flow logs, activate, deactivate, suspend, resume
 
@@ -35,11 +35,11 @@ After you create a flow log collector, its default state is `Active`.
 ## Using the UI
 {: #fl-managing-ui}
 
-To suspend an `Active` flow log collector, click the **Overflow** ![Overflow menu](images/overflow.png) menu and select **Suspend**. Suspending the flow log stops the flow log from writing to the Cloud Object Storage (COS) bucket.  
+To suspend an `Active` flow log collector, click the overflow ![overflow menu](images/overflow.png) menu and select **Suspend**. Suspending the flow log stops the flow log from writing to the Cloud Object Storage (COS) bucket.  
 
 ![Suspend](/images/flow-log-suspend.png)
 
-To resume a suspended flow log, select **Resume** from the **Overflow** ![Overflow menu](images/overflow.png) menu.
+To resume a suspended flow log, select **Resume** from the overflow ![overflow menu](images/overflow.png) menu.
 
 ![Resume](/images/flow-log-resume.png)
 
@@ -52,7 +52,7 @@ To suspend or resume a flow log collector by using the CLI, you must pass a **tr
 ibmcloud is flow-log-update FLOW_LOG --active (true|false) [--json]
 ```
 
-Where...
+Where:
 
 * **FLOW_LOG** is the ID of the flow log instance.
 * **--active** is the intended `active` status after the update. Set to **true** to resume or **false** to suspend.
@@ -63,20 +63,20 @@ Where...
 
 To suspend and resume flow log collectors by using the API, follow these steps:
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with 
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with
 the right variables.
 2. Store your `FlowLogID01` in a variable to be used in the command. For example:
-      ```sh
-      export FlowLogID01="<your_flow_log_id>"
-      ```
-      {:pre}
+    ```sh
+    export FlowLogID01="<your_flow_log_id>"
+    ```
+    {:pre}
 3. Choose from the following:
 
    * To suspend a flow logs collector:
 
       ```sh
       curl -s -X PATCH \
-        $vpc_api_endpoint/v1/flow_log_collectors/$FlowLogID01?version=$api_version&generation=2" \
+        "$vpc_api_endpoint/v1/flow_log_collectors/$FlowLogID01?version=$api_version&generation=2" \
         -H "Authorization: $iam_token" \
         -d '{ "active": false }' | jq
       ```
@@ -86,7 +86,7 @@ the right variables.
 
       ```sh
       curl -s -X PATCH \
-        $vpc_api_endpoint/v1/flow_log_collectors/$FlowLogID01?version=$api_version&generation=2" \
+        "$vpc_api_endpoint/v1/flow_log_collectors/$FlowLogID01?version=$api_version&generation=2" \
         -H "Authorization: $iam_token" \
         -d '{ "active": true }' | jq
       ```      
