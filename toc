@@ -105,7 +105,7 @@ Virtual Private Cloud
         using-acls.md
 
     {: .topicgroup}
-    Flow logs (Beta)
+    Flow logs
         fl-using.md
         fl-ordering.md
         fl-analyze.md
@@ -176,10 +176,10 @@ Virtual Private Cloud
         delete-vpc-ui.md
         delete-vpc-cli.md
         delete-vpc-api.md
-        
+
     {: .topicgroup}
     High availability and disaster recovery
-        ha-dr.md        
+        ha-dr.md
 
         {: .topicgroup}
         Backup and recovery using Veeam
