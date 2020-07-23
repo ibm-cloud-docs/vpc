@@ -145,4 +145,4 @@ These links provide additional information about {{site.data.keyword.cloud_notm}
 * [Flow logs CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#flow-logs-cli-ref)
 * [Flow logs API reference](https://{DomainName}/apidocs/vpc#list-all-flow-log-collectors)
 * [FAQs for flow log collectors](/docs/vpc?topic=vpc-fl-faq)
-* [Activity Tracker with LogDNA events](/docs/vpc?topic=vpc-at-events)
+* [Activity Tracker with LogDNA events](/docs/vpc?topic=vpc-at-events#events-flow-logs)
