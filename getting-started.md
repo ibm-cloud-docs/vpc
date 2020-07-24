@@ -22,7 +22,7 @@ subcollection: vpc
 {:external: target="_blank" .external}
 {:download: .download}
 
-# Getting started with Virtual Private Cloud
+# Getting started with Virtual Private Cloud (VPC)
 {: #getting-started}
 
 With {{site.data.keyword.vpc_full}} (VPC), you can use the UI, CLI, and API to quickly provision generation 2 virtual server instances with high network performance. Use the following information to understand a simple use case for planning, creating, and configuring resources for your VPC, and learn about additional VPC overviews and tutorials.  
