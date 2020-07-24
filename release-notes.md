@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-16"
+lastupdated: "2020-07-23"
 
 keywords: release notes, changes, updates
 
@@ -25,6 +25,13 @@ subcollection: vpc
 
 Use these release notes to learn about the latest changes to {{site.data.keyword.vpc_full}}.
 {:shortdesc}
+
+## 23 July 2020
+{: #july-23-2020}
+
+- **Customer-managed encrytion for Block storage for VPC (GA):** Customer-managed encryption is now available for protecting boot and data volumes on Gen 2 Compute resources. You can import your own root keys to the cloud or create one in Key Protect or Hyper Protect Crypto Services, then use your key to secure your data. For more information, see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption).
+
+- **IBM Cloud Flow Logs for VPC (GA):** FLow logs for VPC are now generally available. This service enables the collection, storage, and presentation of information about IP traffic going to and from network interfaces within a VPC. For more information, see [About IBM Cloud Flow Logs for VPC](/docs/vpc?topic=vpc-flow-logs).
 
 ## 16 July 2020
 {: #july-16-2020}
