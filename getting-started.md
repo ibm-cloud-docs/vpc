@@ -71,6 +71,7 @@ To learn how to create VPC resources, see these tutorials:
 * [Using the {{site.data.keyword.cloud_notm}} console to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console)
 * [Using the CLI to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-cli)
 * [Using the REST APIs to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis)
+* [Using Terraform: Provisioning a virtual server instance in a VPC](/docs/terraform?topic=terraform-getting-started#sample_vpc_config)
 
 For a general overview of the VPC infrastructure and related compute, networking and storage concepts, see the following topics:
 
@@ -78,4 +79,4 @@ For a general overview of the VPC infrastructure and related compute, networking
 * [About networking for VPC](/docs/vpc?topic=vpc-about-networking-for-vpc)
 * [About instances for VPC](/docs/vpc?topic=vpc-about-advanced-virtual-servers)
 * [About storage for VPC](/docs/vpc?topic=vpc-block-storage-about)
-* [Using Terraform: Provisioning a virtual server instance in a VPC](/docs/terraform?topic=terraform-getting-started#sample_vpc_config)
+
