@@ -40,7 +40,7 @@ The following profile families are available:
 | [Balanced](#balanced) | Best for midsize databases and common cloud applications with moderate traffic. |
 | [Compute](#compute)  | Best for moderate to high web traffic workloads. Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers. |
 | [Memory](#memory) | Best for memory caching and real-time analytics workloads. Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. |
-| [GPU](#gpu) | Best for artificial intelligence (AI) and deep learning workloads. Available for POWER processing architecture only. |
+<!--| GPU | Best for artificial intelligence (AI) and deep learning workloads. Available for POWER processing architecture only. (deprecated) |-->
 {: caption="Table 1. Virtual server family selections" caption-side="top"}
 
 ## Balanced
@@ -132,12 +132,12 @@ The following memory profiles are available for POWER processors:
 | mp2-56x896 | 56 | 896 | 100 |-->
 {: caption="Table 7. Power memory profile options" caption-side="top"}
 
-## GPU
+## GPU (deprecated with POWER-based instances)
 {: #gpu}
 
 GPU profiles are best for AI and deep learning workloads.
 
-The following GPU profiles, available for POWER-based instances, are provisioned with Ubuntu 18.04. The profiles feature NVLink 2.0 and PCIe Gen4 interconnects for faster CPU to GPU bandwidth and 50% faster networking I/O. Each GPU is a NVIDIA Tesla v100 and each includes 32 GBs of memory that contributes to the overall memory the VSI reports.
+The following GPU profiles, available for POWER-based instances, are provisioned with Ubuntu 18.04. The profiles feature NVLink 2.0 and PCIe Gen4 interconnects for faster CPU to GPU bandwidth and 50% faster networking I/O. Each GPU is a NVIDIA Tesla v100 and each includes 32 GBs of memory that contributes to the overall memory the virutal server instance reports.
 
 | Profile | vCPU | GB RAM | Network Performance Cap (Gbps) | Number of GPUs |
 |---------|---------|---------|---------|---------|
