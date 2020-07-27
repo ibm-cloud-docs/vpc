@@ -22,7 +22,7 @@ subcollection: vpc
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Endpoints available for VPC
+# Endpoints available
 {: #service-endpoints-for-vpc}
 
 Before you can run workloads in an {{site.data.keyword.vpc_short}}, you must first set up your environment to access the VPC API. That is, if you choose to manage your VPC resources programmatically. The following information lists the regional API endpoints you can use to access your VPC resources. 

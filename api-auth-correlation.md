@@ -19,7 +19,7 @@ subcollection: vpc
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Required permissions for VPC resources
+# Required permissions
 {: #resource-authorizations-required-for-api-and-cli-calls}
 
 Table 1 lists the minimum Identity and Access Management (IAM) roles that are required to interact with {{site.data.keyword.vpc_full}} (VPC) infrastructure objects.
