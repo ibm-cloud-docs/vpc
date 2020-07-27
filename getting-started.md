@@ -25,7 +25,7 @@ subcollection: vpc
 # Getting started with Virtual Private Cloud (VPC)
 {: #getting-started}
 
-With {{site.data.keyword.vpc_full}} (VPC), you can use the UI, CLI, and API to quickly provision generation 2 virtual server instances with high network performance. VPC infrastructure contains a number of Infrastructure as a Service (IaaS) offerings, including Virtual Servers for VPC. Use the following information to understand a simple use case for planning, creating, and configuring resources for your VPC, and learn about additional VPC overviews and tutorials.  
+With {{site.data.keyword.vpc_full}} (VPC), you can use the UI, CLI, and API to quickly provision generation 2 virtual server instances for VPC with high network performance. VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers for VPC. Use the following information to understand a simple use case for planning, creating, and configuring resources for your VPC, and learn about additional VPC overviews and VPC tutorials.  
 {:shortdesc}
 
 ## Before you begin
