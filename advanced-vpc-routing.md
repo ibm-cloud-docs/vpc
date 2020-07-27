@@ -23,10 +23,10 @@ subcollection: vpc
 
 
 
-# Setting up advanced routing in VPC
+# Setting up advanced routing
 {: #advanced-routing}
 
-You can control the flow of network traffic in your VPC by configuring VPC routes. Use VPC routes to specify the next hop for packets, based on their destination addresses.
+You can control the flow of network traffic in your VPC by configuring routes. Use routes to specify the next hop for packets, based on their destination addresses.
 {:shortdesc}
 
 Separate route tables exist for each zone in your VPC. When a packet leaves a subnet, it is evaluated against the route table in the subnet's zone to determine where to send the packet next. Each route table has a default route, but you can add custom static routes to your routing tables. 
