@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2020
 lastupdated: "2020-07-27"
 
-keywords: Getting started with Virtual Private Cloud (VPC), VPC, vpc, virtual private cloud, IBM Cloud, Virtual Private Cloud, getting started, permissions, infrastructure, SSH key, CLI, API, console, public gateway, floating IP, IP ranges, BYoIP, generation 2, gen 2, gen2, virtual servers, virtual server instances, instances. vsi, virtual machines, server
+keywords: Getting started with Virtual Private Cloud (VPC), VPC, vpc, virtual private cloud, IBM Cloud, Virtual Private Cloud, getting started, permissions, infrastructure, iaas, IaaS, Infrastructure as a Service, SSH key, CLI, API, console, public gateway, floating IP, IP ranges, BYoIP, generation 2, gen 2, gen2, virtual servers, virtual server instances, instances. vsi, virtual machines, server
 
 subcollection: vpc
 
@@ -78,3 +78,4 @@ For a general overview of the VPC infrastructure and related compute, networking
 * [About networking for VPC](/docs/vpc?topic=vpc-about-networking-for-vpc)
 * [About instances for VPC](/docs/vpc?topic=vpc-about-advanced-virtual-servers)
 * [About storage for VPC](/docs/vpc?topic=vpc-block-storage-about)
+* [Using Terraform: Provisioning a virtual server instance in a VPC](/docs/terraform?topic=terraform-getting-started#sample_vpc_config)
