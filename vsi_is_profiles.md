@@ -164,7 +164,7 @@ You can view available profile configurations by using the {{site.data.keyword.c
 ### Using the IBM Cloud console
 {: #profiles-using-console}
 
-1. In the {{site.data.keyword.cloud_notm}} console, navigate to **Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
+1. In the {{site.data.keyword.cloud_notm}} console, navigate to **Menu icon](../images/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
 2. From the Virtual server instances page, click **New instance**.
 3. You can either select a profile configuration from **Popular profiles** or click **All profiles** to view more configurations.
 
