@@ -113,8 +113,10 @@ You can use this quota for inbound rules, outbound rules, or both. For example, 
 |Resource|Quota|
 |--------|-----|
 | Boot and secondary volumes | 300 total volumes per account in a region<sup>1</sup> |  
-<sup>1</sup> You can request to increase the block storage volume limit by submitting an [IBM Support](/docs/vpc?topic=vpc-getting-help) case.
 {: caption="Table 7. Quotas for block storage volumes" caption-side="top"}
+
+<sup>1</sup> You can request to increase the block storage volume limit by submitting an [IBM Support](/docs/vpc?topic=vpc-getting-help) case.
+
 
 ## Service limits
 The following table displays current VPC service limits. Unlike quotas, these limits can't be adjusted.
