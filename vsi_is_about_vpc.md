@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2020
 lastupdated: "2020-07-28"
 
-keywords: virtual server instances, VSI, compute, virtual machines, planning, best practices, instances, virtual servers, virtual server instance, Virtual servers for VPC, gen 2, generation 2
+keywords: virtual server instances, VSI, compute, virtual machines, planning, best practices, instances, virtual servers, virtual server instance, Virtual servers for VPC, gen 2, generation 2, infrastructure, Infrastructure as a Service, IaaS
 
 subcollection: vpc
 
@@ -25,7 +25,7 @@ subcollection: vpc
 # About virtual server instances for VPC
 {: #about-advanced-virtual-servers}
 
-Virtual server instances for VPC give you access to all of the benefits of {{site.data.keyword.vpc_short}}, including network isolation, security, and flexibility. 
+Virtual servers for VPC is an Infrastructure-as-a-Service (IaaS) offering that gives you access to all of the benefits of {{site.data.keyword.vpc_short}}, including network isolation, security, and flexibility. 
 
 With virtual server instances for VPC, you can quickly provision instances with high network performance. When you provision an instance, you select a profile that matches the amount of memory and compute power that you need for the application that you plan to run on the instance. Instances are available on the x86 architecture. After you provision an instance, you control and manage those infrastructure resources. 
 {:shortdesc}
