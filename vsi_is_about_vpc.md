@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-07-27"
+lastupdated: "2020-07-28"
 
 keywords: virtual server instances, VSI, compute, virtual machines, planning, best practices, instances, virtual servers, virtual server instance, Virtual servers for VPC, gen 2, generation 2
 
@@ -83,3 +83,10 @@ For more informatiom about the IBM Cloud Virtual Servers for VPC on POWER or to 
 * [IBM Cloud Virtual Private Cloud on POWER](https://developer.ibm.com/linuxonpower/power-virtual-private-cloud/){: external}  
 * [Deep learning and AI on IBM Power Systems](https://developer.ibm.com/linuxonpower/deep-learning-powerai/){: external}
 
+## Next steps
+{: #next-steps-about}
+
+After you choose a profile, it's time to plan for and create an instance. 
+* [Planning for instances](/docs/vpc?topic=vpc-vsi_best_practices)
+* [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers)
+* [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-10"
+lastupdated: "2020-07-28"
 
 keywords: user data
 
@@ -68,3 +68,11 @@ The following example shows user data that can be passed to a Windows instance. 
 {:codeblock}
 
 For more Windows user data examples and information, see [Cloudbase-init 1.0 documentation ![External link icon](../icons/launch-glyph.svg "External link icon")](https://cloudbase-init.readthedocs.io/en/latest/userdata.html){:new_window}.
+
+## Next steps
+{: #next-steps-user}
+
+After you choose a profile, it's time to plan for and create an instance. 
+* [Planning for instances](/docs/vpc?topic=vpc-vsi_best_practices)
+* [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers)
+* [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli)

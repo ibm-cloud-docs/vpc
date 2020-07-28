@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-02"
+lastupdated: "2020-07-28"
 
 keywords: image, stock image, custom image, virtual server, power, generation 2, gen 2
 
@@ -79,4 +79,11 @@ For more information about custom images, see [Planning for custom images](/docs
 
 Storage costs are incurred for storing custom images. This charge is separate from charges for storing images in {{site.data.keyword.cos_full_notm}}.-->
 
- 
+## Next steps
+{: #next-steps-images}
+
+After you choose a profile, it's time to plan for and create an instance. 
+* [Planning for instances](/docs/vpc?topic=vpc-vsi_best_practices)
+* [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers)
+* [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli)
+

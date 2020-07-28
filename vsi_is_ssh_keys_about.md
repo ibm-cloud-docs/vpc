@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-05-13"
+lastupdated: "2020-07-28"
 
 keywords: ssh public keys, OpenSSH, add ssh key, ssh key, manage ssh key, virtual server instance, instance, virtual servers, vsi, virtual machines, server
 
@@ -53,3 +53,10 @@ Before you can add a key in the {{site.data.keyword.cloud_notm}} console, you mu
 When you copy an SSH key from a terminal to add the key to your VPC, sometimes extra line breaks are introduced which cause a parsing error. To avoid this issue, first paste your SSH key into a text editor and remove any extra line breaks. Then, copy the SSH key from text editor and paste it into the VPC UI, CLI, or API.
 {:tip}
 
+## Next steps
+{: #next-steps-ssh}
+
+After you choose a profile, it's time to plan for and create an instance. 
+* [Planning for instances](/docs/vpc?topic=vpc-vsi_best_practices)
+* [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers)
+* [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli)
