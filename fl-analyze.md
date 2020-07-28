@@ -193,4 +193,4 @@ In most cases, you can find the direction field by comparing the vNIC’s privat
 ### Example solution: Analyzing flow Logs for VPC using LogDNA
 {: #example-analyzing-flow-logs-using-logdna}
 
-You can download an example solution of how to use LogDNA to analyze flow logs from [https://github.ibm.com/portfolio-solutions/vpc-flowlogs-logdna](https://github.ibm.com/portfolio-solutions/vpc-flowlogs-logdna). This project ([Readme file](https://github.ibm.com/portfolio-solutions/vpc-flowlogs-logdna/blob/master/README.md)) shows how to use a trigger function to read a flow log COS object and write it to LogDNA.
+You can download an example solution of how to use LogDNA to analyze flow logs from [https://github.com/IBM-Cloud/vpc-flowlogs-logdna](https://github.com/IBM-Cloud/vpc-flowlogs-logdna). This project ([Readme file](https://github.com/IBM-Cloud/vpc-flowlogs-logdna/blob/master/README.md)) shows how to use a trigger function to read a flow log COS object and write it to LogDNA.

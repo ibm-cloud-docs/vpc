@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-07-24"
+lastupdated: "2020-07-23"
 
 keywords: flow logs, ordering, getting started
 

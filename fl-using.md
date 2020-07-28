@@ -102,7 +102,7 @@ With IBM Cloud Flow Logs for VPC, you can validate that network connections and 
 ### Use case 1: Analyzing flow logs using LogDNA
 {: #analyzing-flow-logs-using-logdna-example}
 
-You can review and download a [flow log example solution](https://github.ibm.com/portfolio-solutions/vpc-flowlogs-logdna){: external}  of how to use a trigger function to read a flow log COS object and write it to LogDNA.
+You can review and download a [flow log example solution](https://github.com/IBM-Cloud/vpc-flowlogs-logdna){: external} of how to use a trigger function to read a flow log COS object and write it to LogDNA.
 
 ### Use case 2: Setting up finest granularity wins
 {: #finest-granularity-wins-example}
