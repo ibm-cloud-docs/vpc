@@ -91,6 +91,7 @@ Virtual Private Cloud
         block_storage_is_manage_cli.md
         block_storage_is_view.md
         block_storage_is_view_cli.md
+        block_storage_vpc_expandable_volumes.md
         block_storage_is_use_volume_cli.md
 
     {: .topicgroup}
