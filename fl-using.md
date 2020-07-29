@@ -146,3 +146,4 @@ These links provide additional information about {{site.data.keyword.cloud_notm}
 * [Flow logs API reference](https://{DomainName}/apidocs/vpc#list-all-flow-log-collectors)
 * [FAQs for flow log collectors](/docs/vpc?topic=vpc-fl-faq)
 * [Activity Tracker with LogDNA events](/docs/vpc?topic=vpc-at-events#events-flow-logs)
+* [Blog: Use IBM Log Analysis with LogDNA to Analyze VPC Network Traffic from IBM Cloud Flow Logs for VPC](https://www.ibm.com/cloud/blog/use-ibm-log-analysis-with-logdna-to-analyze-vpc-network-traffic-from-ibm-cloud-flow-logs-for-vpc)
