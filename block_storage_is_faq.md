@@ -70,7 +70,7 @@ You might consider participating in the Beta release of larger-size and expandab
 * Volumes under 250 GB can expand up to 250 GB.
 * Volumes 250 GB and greater can expand up to 16 TB, depending on the volume profile.
 
-For more information, see [Expanding block storage volume capacity (Beta)](/docs/vpc?topic=vpc-expanding-block-storage-volumes) and [Expanded capacity IOPs tiers (Beta)](#tiers-beta).
+For more information, see [Expanding block storage volume capacity (Beta)](/docs/vpc?topic=vpc-expanding-block-storage-volumes) and [Expanded capacity IOPs tiers (Beta)](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta).
 
 ### How many volumes can I provision on my account?
 {: faq}

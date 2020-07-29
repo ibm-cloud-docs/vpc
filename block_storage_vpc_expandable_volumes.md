@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-28"
+lastupdated: "2020-07-29"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -49,7 +49,7 @@ IOPS are automatically adjusted based on the size of the volume. For example, if
 
 Volume capacity is immediately changed. To realize increased IOPS, you must restart the instance.
 
-If you want larger volumes up to 16 TB at higher IOPS performance than provided by a general-purpose profile, you can create a [custom profile](/docs/vpc?topic=vpc-block-storage-profiles#custom) that allows expansion up to 16 TB and higher IOPS. Note that IOPS remain constant at the level you set when you created the custom volume.
+If you want larger volumes up to 16 TB at higher IOPS performance than provided by a general-purpose profile, you can create a [custom profile](/docs/vpc?topic=vpc-block-storage-profiles#custom) that allows expansion up to 16 TB wtih a higher IOPS range. Note that IOPS remain constant at the level you set when you created the custom volume.
 
 You can monitor the progress of your volume expansion from the UI or CLI. You can also use the [Activity Tracker](/docs/vpc?topic=vpc-at-events) to verify that the volume has been expanded. After a volume is expanded, you can't reduce capacity. 
 
@@ -64,7 +64,7 @@ The following limitations apply in this Beta release.
 You can't expand volume capacity when:
 
 * The volume is on a Gen1 Compute resource.
-* The volume is an older volume on Gen2 Compute resources that was created before the expandable volume Beta release (July 2020)
+* The volume is an older volume on Gen2 Compute resources that was created before the expandable volume Beta release (July 2020).
 * The volume is not attached to a virtual server instance.
 * The volume is a boot volume.
 * The volume is already at its maximum size for its [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta) or [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) volume IOPS range.
@@ -77,7 +77,7 @@ In addition, these limitations apply:
 * Volumes over 250 GB can expand to 16 TB, with the following restrictions: 
   * If the volume was created using an [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta) that limits capacity to less than 16 TB, it can only expand to the allowed capacity for that tier.
   * If the volume is a [custom volume](/docs/vpc?topic=vpc-block-storage-profiles#custom) created in a lower IOPS range that doesn't allow expanding to 16 TB, it can only expand to its maximum capacity for that custom range.
-* IOPS automatically expand to a IOPS value, depending upon the profile you're using. While volume resizing does not incur downtime (that is, you don't have to restart the instance and reattach the volume), for the increased IOPS to take effect, you must restart the virtual server instance.
+* IOPS automatically expand to an IOPS value, depending upon the profile you're using. While volume resizing does not incur downtime (that is, you don't have to restart the instance and reattach the volume), for the increased IOPS to take effect, you must restart the virtual server instance.
 * Maximum IOPS for a volume is capped at [48,000 IOPS](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta).
 * After a volume is expanded, you can't reduce the size of the volume.
 * After you create a volume, can't change a volume's IOPS tier profile.
