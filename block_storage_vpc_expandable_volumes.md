@@ -49,7 +49,7 @@ IOPS are automatically adjusted based on the size of the volume. For example, if
 
 Volume capacity is immediately changed. To realize increased IOPS, you must restart the instance.
 
-If you want larger volumes up to 16 TB at higher IOPS performance than provided by a general-purpose profile, you can create a [custom profile](/docs/vpc?topic=vpc-block-storage-profiles#custom) that allows expansion up to 16 TB wtih a higher IOPS range. Note that IOPS remain constant at the level you set when you created the custom volume.
+If you want larger volumes up to 16 TB at higher IOPS performance than provided by a general-purpose profile, you can create a [custom profile](/docs/vpc?topic=vpc-block-storage-profiles#custom) that allows expansion up to 16 TB with a higher IOPS range. Note that IOPS remain constant at the level you set when you created the custom volume.
 
 You can monitor the progress of your volume expansion from the UI or CLI. You can also use the [Activity Tracker](/docs/vpc?topic=vpc-at-events) to verify that the volume has been expanded. After a volume is expanded, you can't reduce capacity. 
 
