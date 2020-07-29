@@ -46,8 +46,8 @@ Virtual Private Cloud
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
-    set-up-environment.md
     console-tutorial.md
+    set-up-environment.md
     hello-world-vpc.md
     example-code.md
     vpc-regions.md
