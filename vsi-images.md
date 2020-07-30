@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-28"
+lastupdated: "2020-07-30"
 
 keywords: image, stock image, custom image, virtual server, power, generation 2, gen 2
 
@@ -69,7 +69,7 @@ Custom images must meet the following requirements:
 - The operating system is supported as a stock image operating system
 - Size doesn't exceed 100 GB
 
-Encrypted images aren't supported for custom images.
+Support for importing encrypted custom images is available in beta. For more information, see [Creating an encrypted custom image (Beta)](/docs/vpc?topic=vpc-create-encrypted-custom-image). 
 {: note}
 
 For more information about custom images, see [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images).
