@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-23"
+lastupdated: "2020-07-30"
 
 keywords: release notes, changes, updates
 
@@ -25,6 +25,15 @@ subcollection: vpc
 
 Use these release notes to learn about the latest changes to {{site.data.keyword.vpc_full}}.
 {:shortdesc}
+
+## 30 July 2020
+{: #july-30-2020}
+
+- **Larger volume capacity for Block Storage for VPC (Beta):** You can now provision volumes with capacities greater than 2 TB and up to 16 TB, depending on the profile you selected.  For information about the increased volume capacity, see [Expanded Capacity IOPS Tiers (Beta)](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta).
+
+- **Expanding Block Storage for VPC volume capacity** For new block storage volumes you create and attach to a virtual server instance on Gen 2 Compute resources, you can expand the size of the volumes. You indicate capacity in GB increments up to 16 TB capacity, depending on your volume profile limits. For more information, see [Expanding block storage volume capacity (Beta)](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
+
+- **Encrypted images beta** You can import an encrypted custom image with beta support for the feature. For more information, see [Creating an encrypted custom image (Beta)](/docs/vpc?topic=vpc-create-encrypted-custom-image). 
 
 ## 23 July 2020
 {: #july-23-2020}
