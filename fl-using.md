@@ -39,7 +39,7 @@ subcollection: vpc
 Flow logs can help with a number of tasks, including:
 
 * Troubleshooting why specific traffic isn't reaching an instance, which helps to diagnose restrictive security group rules
-* Recoding the metadata network traffic that is reaching your instance
+* Recording the metadata network traffic that is reaching your instance
 * Determining source and destination traffic from the network interfaces
 * Adhering to compliance regulations
 * Assisting with root cause analysis
@@ -125,8 +125,8 @@ Scenario:
 1. NACL 2 on Subnet 3 is preventing you from running a web server there. Notice that this network ACL allows ingress, but denies egress.  
 2. A VSI on Subnet 2 (NACL 1 allows ingress and egress) tries to query the web server that you are running on Subnet 3.
 3. The query gets through and you see that the traffic is accepted on the ingress path to Subnet 3 into VSI 31.  
-4. When VSI 31 receives the request, it generates a reply and tries to send it. Unfortunately, the response cannot come back and your connection is going to hang on Subnet 2 until it times out.
-5. Flow logs will show that the request was sent and that it was accepted on VSI 31. Flow logs will show that the response traffic was rejected.
+4. When VSI 31 receives the request, it generates a reply and tries to send it. Unfortunately, the response cannot be returned and your connection hangs on Subnet 2 until it times out.
+5. Flow logs will show that the request was sent and that it was accepted on VSI 31. Flow logs show that the response traffic was rejected.
 
 ![Troubleshooting security groups and network ACLs](/images/fl-sc-acls.png "Troubleshooting security groups and network ACLs")
 

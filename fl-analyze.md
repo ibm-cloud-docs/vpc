@@ -114,11 +114,11 @@ The object header fields that are specified in the following table are written t
 | `vpc_crn`                | string | The CRN of the VPC that the flow log collector is a member of. |
 | `capture_start_time`     | string | RFC 3339 Date and Time (Coordinated Universal Time) |
 | `capture_end_time`       | string | RFC 3339 Date and Time (Coordinated Universal Time) |
-| `state`                  | string |  Indicates the operational state of the flow log collector. `OK` means that data is being collected and shipped without any errors. `skip data` indicates that there was data lost during this collection interval (for example, because of high rate of rejected syn packets). |
+| `state`                  | string |  Indicates the operational state of the flow log collector. `OK` means that data is being collected and shipped without any errors. `skip data` indicates that there was data lost during this collection interval (for example, because of high rate of rejected SYN packets). |
 | `number_of_flow_logs`    | uin32  | The number of elements in a `flow_logs` array. Since this number is highly variable, it's useful as a quick reference of the number of flow logs contained in a single COS object, without needing to download the object first. |
 | `flow_logs`              | array of JSON objects | This may be an empty array, which indicates `no traffic`.|
 
-### Per flow log fields
+### Flow log fields
 
 | Field                  | Type   | Description       |
 | ---------------------- | ------ | ----------------- |
