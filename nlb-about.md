@@ -103,6 +103,16 @@ Ports `56500 - 56520` cannot be used as front-end listener ports. These are rese
 
 If you use access control lists (ACLs) and security groups (SGs) to block traffic on the subnets where you deploy the load balancer, make sure that ACL and SG rules are in place to allow incoming traffic for the configured listener ports and management ports (ports `56500 - 56520`). You must also allow traffic between the load balancer and back-end instances.
 
+## Network load balancer limitations
+{: #nlb-limitations}
+
+Known limitations for network load balancer are as follows:
+
+* The network load balancer requires the member and port combination to be unique. In other words, a member with instance X and port Y can not be added to a pool if a member with instance X and port Y already exists in another pool.
+* There is a one-to-one mapping between listener and pool.
+* All members associated with a network load balancer must be in the same zone as the load balancer.
+* Two members with the same instance X and same port Y cannot exist at the same time for application and network load balancer. This case is not supported and your traffic might not be routed correctly.
+
 ## Related links
 {: #nlb-permissions-related-links}
 
