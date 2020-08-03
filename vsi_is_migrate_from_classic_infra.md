@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-06-16"
+lastupdated: "2020-08-03"
 
 keywords: migrate virtual server from classic infrastructure, migrate to vpc, migrate image template, image template, import image to vpc infrastructure, migrate virtual server, migrate instance
 
@@ -105,7 +105,7 @@ To export the new image template that you created from the modified virtual serv
 ### Step 6 - Convert VHD file to qcow2 format
 {: #migrate-convert-image} 
 
-A custom image must be in qcow2 format in the {{site.data.keyword.vpc_short}}. You must convert the classic infrastructure VHD image template to be in qcow2 format. Complete the following steps to download the file from {{site.data.keyword.cos_full_notm}}, convert it from VHD to cqow2 format, and upload it again to {{site.data.keyword.cos_full_notm}}.
+A custom image must be in qcow2 format in the {{site.data.keyword.vpc_short}}. You must convert the classic infrastructure VHD image template to be in qcow2 format. Complete the following steps to download the file from {{site.data.keyword.cos_full_notm}}, convert it from VHD to qcow2 format, and upload it again to {{site.data.keyword.cos_full_notm}}.
 
 1. Download the image file from {{site.data.keyword.cos_full_notm}} to a secure local machine. On the **Objects** page of your {{site.data.keyword.cos_full_notm}} bucket, locate your image, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg), and select **Download**. You can use the Aspera high-speed transfer plug-in to download images larger than 200 MB.
 2. Convert the VHD image file to qcow2 format by using the `qemu-img convert` command. (Make sure that your [QEMU](https://www.qemu.org/){: external} version is at version 2.12 or later.) For example, you can run the following command to convert a VHD image to qcow2 format, `qemu-img convert -f vpc -O qcow2 -o cluster_size=512k <filename>.vhd <filename>.qcow2`
