@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2020-07-30"
+lastupdated: "2020-08-03"
 
 keywords: activity tracker, events, logdna
 
@@ -48,7 +48,7 @@ The following tables list the actions related to network resources and the gener
 | network-acl  | is.network-acl.rule.create  | Rule was added to Network ACL  |
 | network-acl  | is.network-acl.rule.update  | Network ACL Rule was updated   |
 | network-acl  | is.network-acl.rule.delete  | Rule was removed from Network ACL  |
-| network-acl  | is.network-acl.rule.read | One or more network ACL rule was added retrieved |
+| network-acl  | is.network-acl.rule.read | One or more network ACL rule was retrieved |
 {: caption="Table 1. Actions that generate events for Network ACL" caption-side="top"}
 
 ### Floating IP events
