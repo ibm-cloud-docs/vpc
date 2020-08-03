@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-16"
+lastupdated: "2020-08-03"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, IBM CLoud, volume, data storage, volume capacity, classic, virtual server
 
@@ -20,6 +20,7 @@ subcollection: vpc
 {:table: .aria-labeledby="caption"}
 {:important: .important}
 {:note: .note}
+{:beta: .beta}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 {:external: target="_blank" .external}
@@ -35,6 +36,9 @@ Choosing the optimal block storage volume size and performance level for your wo
 
 {{site.data.keyword.block_storage_is_short}} offers a range of storage capacities to meet your requirements.
 You can specify 10 - 2000 GB (2 TB) of capacity per block storage data volume in 1 GB increments. This capacity depends on the [block storage IOPS profile](#iops-profiles) you're using. Boot volumes are always 100 GB.
+
+Data volumes are also available with capacities greater than 2000 GB. This is a beta feature that is available for evaluation and testing purposes. For information, see [Expanded capacity IOPS tiers (Beta)](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta).
+{:beta}
 
 ## Block storage IOPS profiles
 {: #iops-profiles}
