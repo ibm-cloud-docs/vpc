@@ -82,6 +82,6 @@ The application load balancer can be configured to span multiple zones. The back
 
 The load balancer control plane configures the network load balancer through RESTful APIs using the floating IPs in the management port. The NLB belongs to the VPC load balancer service account; however, it is provisioned such that the VPC and subnet belongs to your account. Each network load balancer has a single network interface with a floating IP address for load balancing traffic.
 
-![Network load balancer Architecture](images/nlb-workflow-customer-view.png "Network load balancer architecture"){: caption="n=Network load balancer work flow" caption-side="top"}
+![Network load balancer Architecture](images/nlb-workflow-customer-view.png "Network load balancer architecture"){: caption="Network load balancer work flow" caption-side="top"}
 
 See [Data is stored and encrypted](/docs/vpc?topic=vpc-load-balancers#load-balancer-data-stored-encryted) for more details.
