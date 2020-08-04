@@ -28,7 +28,7 @@ subcollection: vpc
 
 Customer-managed encryption for volumes and custom images lets you use root keys in the same region as you resources. You can also use root keys from another region to encrypt your resources. For more information, see [Root key regional and cross-regional considerations](#byok-cross-region-keys).
 
-Encrypted custom image is a Beta features available for testing and evaluation. Contact your IBM Sales representative if you are interested in getting access.
+Encrypted custom image is a Beta feature available for testing and evaluation. Contact your IBM Sales representative if you are interested in getting access.
 {:beta}
 
 ## IBM-managed encryption
