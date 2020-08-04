@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2020
-lastupdated: "2020-07-20"
+lastupdated: "2020-08-03"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
@@ -170,3 +170,5 @@ A successful response will look like this:
 {: #next-step-create-byok-volumes-vpc}
 
 When you refresh the list of block storage volumes using the UI, the new volume appears at the beginning of the list of volumes with "customer managed" as the encryption type. When the volume is created, it shows a status of Available. For stand-alone volumes, the Attachment Type column is blank (-). The Action menu (...) at the end of a table row provides a link for [attaching a block storage volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage).
+
+Interested in setting up key rotation for your customer-managed root keys? For more information, see [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).

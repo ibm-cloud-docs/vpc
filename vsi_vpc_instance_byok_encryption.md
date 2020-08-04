@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-16"
+lastupdated: "2020-08-03"
 
 keywords: create virtual server with encryption, root key, encrypted volume, virtual server instance, create virtual server, provision virtual server, virtual machine, instance, virtual server, deploy virtual server, block storage volume
 
@@ -425,3 +425,5 @@ A successful response will look like this. Note that the boot volume appears und
 After the instance is created with the encrypted boot and data volumes, associate a floating IP address to the instance. Then, you can connect to your instance. For more information, see [Connecting to your Linux instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux) or [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows). If you have an existing instance with a floating IP address, then it's not necessary to assign a second floating IP to another instance. You can connect to the first with a floating IP, then SSH to the second instance using the private subnet IP address that's automatically assigned to it.
 
 You can also independently create block storage volumes that use your encryption keys and later attach them to an instance. For information, see [Creating block storage volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
+
+Interested in setting up key rotation for your customer-managed root keys? For more information, see [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).

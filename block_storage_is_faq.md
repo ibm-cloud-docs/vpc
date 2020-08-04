@@ -182,9 +182,6 @@ Target latency within the storage is less than 1 millisecond. Block storage is c
 ## Data security and encryption questions
 {: #block-storage-vpc-security-questions}
 
-Customer-managed encryption is a beta feature that is available for evaluation and testing purposes. 
-{:note}
-
 ### How secure is data in a {{site.data.keyword.block_storage_is_short}} volume?
 {: faq}
 {: #faq-block-storage-20}
@@ -197,7 +194,7 @@ For more security, you can protect your data using your own customer root keys (
 For information, see [Supported key management services for customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok). To learn how to set up customer-managed encryption, see 
 [Creating block storage volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
 
-You control access to your root keys stored in KMS instances within IBM Cloud by using IBM Access Management (IAM). You grant access to the IBM Block Storage Service to use your keys. You can also revoke access at any time, for example, if you suspect your keys might have been compromised. You can also disable or delete a root key, or temporarily revoke access to the key's associated data on the cloud. For more information, see [Managing root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-manage-root-keys).
+You control access to your root keys stored in KMS instances within IBM Cloud by using IBM Access Management (IAM). You grant access to the IBM Block Storage Service to use your keys. You can also revoke access at any time, for example, if you suspect your keys might have been compromised. You can also disable or delete a root key, or take temporarily revoke access to the key's associated data on the cloud. For more information, see [Managing root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-manage-root-keys).
 
 ### What are the advantages of using customer managed encryption over provider managed encryption?
 {: faq}
@@ -209,7 +206,7 @@ Customer-managed encryption lets you encrypt your block storage volumes using yo
 {: faq}
 {: #faq-block-storage-22}
 
-Virtual disk images for VPC Generation 2 use QEMU Copy On Write Version 2 (QCOW2) file format. (VPC Generation 1 uses VHD file format.) LUKS encryption format secures the QCOW2 format files. IBM currently uses the ASE-256 cipher suite and XTS cipher mode options with LUKS. This combination provides you a much greater level of security than AES-CBC and provides key replacement options in case your keys are compromised.
+Virtual disk images for VPC Generation 2 use QEMU Copy On Write Version 2 (QCOW2) file format. (VPC Generation 1 uses VHD file format.) LUKS encryption format secures the QCOW2 format files. IBM currently uses the ASE-256 cipher suite and XTS cipher mode options with LUKS. This combination provides you a much greater level of security than AES-CBC, along with better management of passphrases for key rotation, and provides key replacement options in case your keys are compromised.
 
 ### What are master encryption keys and how are they assigned to my block storage volumes?  
 {: faq}
@@ -228,6 +225,26 @@ When you delete your root key or suspend it in your key management service, your
 {: #faq-block-storage-25}
 
 Independently back up your data. Then, delete the compromised root key and power down the instance with volumes encrypted with that key. 
+
+Also, consider setting up a key rotation policy that automatically rotates your keys based on a schedule. For more information, see [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).
+
+### What is key rotation?
+{: faq}
+{: #faq-block-storage-25a}
+For {{site.data.keyword.vpc_short}} resources such as block storage volumes that are protected by your customer root key (CRK), you can rotate the root keys for additional security. When you rotate a root key by a schedule or on demand, the original key material is replaced. The old key remains active to decrypt existing volumes but can't be used to encrypt new volumes. For more information, see [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).
+
+### How does key rotation work?
+{: faq}
+{: #faq-block-storage-25b}
+Customer-managed encrypted resources such as block storage volumes use your root key (CRK) as the root-of-trust key that encrypts a LUKS passphrase that encrypts a master key protecting the volume. You can import your CRK to a key management service (KMS) instance or instruct the KMS to generate one for you. Root keys are rotated in your KMS instance.
+
+When you rotate a root key, a new version of the key is created by generating or importing new cryptographic key material. The old root key is retired, which means its key material remains available for decrypting existing volumes, but not available for encrypting new ones. New resources are protected by the latest key. For more information, see [How key rotation works](https://test.cloud.ibm.com/docs/vpc?topic=vpc-vpc-key-rotation#vpc-key-rotation-function).
+
+### I have volumes using Gen 1 and Gen 2 compute resources. Can I rotate my keys for all of these volumes?
+{: faq}
+{: #faq-block-storage-26}
+
+No, Gen 1 resources do not support key rotation. You can only rotate keys for Gen 2 resources, such as block storage volumes.
 
 ### Am I charged for using customer-managed encryption?
 {: faq}

@@ -2,9 +2,9 @@
 
 Copyright:
   years: 2019, 2020
-lastupdated: "2020-07-28"
+lastupdated: "2020-08-04"
 
-keywords: block storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, custom images
+keywords: block storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
 subcollection: vpc
 
@@ -17,6 +17,8 @@ subcollection: vpc
 {:screen: .screen}
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
+{:beta: .beta}
+{:note: .note}
 
 # About data encryption for VPC
 {: #vpc-encryption-about}
@@ -26,7 +28,7 @@ subcollection: vpc
 
 Customer-managed encryption for volumes and custom images lets you use root keys in the same region as you resources. You can also use root keys from another region to encrypt your resources. For more information, see [Root key regional and cross-regional considerations](#byok-cross-region-keys).
 
-Encrypted custom images is a Beta feature available for testing and evaluation. Contact your IBM Sales representative if you are interested in getting access.
+Encrypted custom image is a Beta features available for testing and evaluation. Contact your IBM Sales representative if you are interested in getting access.
 {:beta}
 
 ## IBM-managed encryption
@@ -60,24 +62,25 @@ Customer-managed encryption gives you the following advantages over provider-man
 
 * Encryption keys are controlled by you. You grant IBM access to use your root keys to encrypt your data.
 * Data is encrypted while in transit and while at rest.
-* You can encrypt boot and data volumes.
+* You can encrypt boot and data volumes. 
 * You can encrypt [custom images](/docs/vpc?topic=vpc-create-encrypted-custom-image) by importing a QCOW2 boot image file protected by your root key. The data in the instance's boot volume is also encrypted.
 * You choose the [key management service (KMS)](#kms-for-byok) you want to use. You can select {{site.data.keyword.keymanagementserviceshort}}, a public multi-tenant KMS that is FIPS 140-2 L3 compliant, or the more secure {{site.data.keyword.hscrypto}}, which is FIPS 140-2 L4 compliant.
-* Customer-managed encryption provides better audit records for key usage. Your key access is logged in the [Activity Tracker](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-activity-tracker-events) with LogDNA service. The Activity Tracker lets you track interactions with the VPC.
+* Customer-managed encryption provides better audit records for root key usage. Your key access is logged in the [Activity Tracker](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-activity-tracker-events) with LogDNA service. The Activity Tracker lets you track interactions with the VPC, such as when a root key is rotated.
+* You can manually rotate your root keys using the API or CLI, or set up a rotation policy to automatically rotate your keys. Rotating keys replaces the root key's original cryptographic material and generates new material. For more inforation, see [Key Rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).
 
 ### IBM's encryption technology - How your data is secured
 {: #byok-technologies}
 
-Encryption is handled by IBM's host/hypervisor technology for your instances. This feature provides greater level of security over solutions that only provide storage node encryption. Data is always encrypted with your root key outside the host/hypervisor. This means that your data is protected while in transit between the host system and IBM's storage systems, and while at rest in IBM's storage system.
+Encryption is handled by IBM's host/hypervisor technology for your instances. This feature provides greater level of security over solutions that only provide storage node encryption. Data is always encrypted with your root key outside the host/hypervisor. Your data is protected while in transit between the host system and IBM's storage systems, and while at rest in IBM's storage system.
 
-Communication between the host system and IBM's storage systems is also encrypted using Transport Layer Security (TLS) encryption technology using IBM-managed keys. This means when your data is in transit, it's encrypted twice; first with your AES-256 master encryption key and then with IBM's TLS encryption key.
+Communication between the host system and IBM's storage systems is also encrypted using Transport Layer Security (TLS) encryption technology using IBM-managed keys. When your data is in transit, it's encrypted twice; first with your AES-256 master encryption key and then with IBM's TLS encryption key.
 
 For more information about technologies used for customer-managed encryption, see [Data security and encryption questions](/docs/vpc?topic=vpc-block-storage-vpc-faq#block-storage-vpc-security-questions) in the {{site.data.keyword.block_storage_is_short}} FAQs.
 
 ### Root key regional and cross-regional considerations
 {: #byok-cross-region-keys}
 
-Customer-managed encryption lets you keep your root keys in the same region as your resources, or in a different region (cross-regional). 
+Customer-managed encryption for volumes and images lets you keep your root keys in the same region as your resources, or in a different region (cross-regional). 
 
 When you use root keys in the same region as your resources, all network traffic is directed to a private endpoint. That is, your keys encrypt and decrypt resources over a private network that's inaccessible to the Internet. In contrast, when your keys are in a different region than your resource, the key material must transmit over a public network, exposing it to the Internet.
 
@@ -100,7 +103,7 @@ When it's time to provision a new virtual server instance with the encrypted ima
 
 At provision time, data in the instance's boot volume is also encrypted by using the same CRK that the custom image uses along with a generated passphrase. Alternatively, you can provide a different root key for the boot volume.
 
-After the virtual server instance is created you can view the custom image and see the root key CRN. 
+After the virtual server instance is created you can view the custom image and see the root key CRN. You can also [rotate the root key](/docs/vpc?topic=vpc-vpc-key-rotation) and be notified by the KMS when your encrypted image WDEK is automatically re-wrapped (re-encrypted).
 
 Any secondary volumes you create and attach from the encrypted custom image use a different passphrase than the base custom image. Optionally, you can provide a different root key for secondary volumes created during instance provisioning.  
 
@@ -130,18 +133,18 @@ Setting up customer-managed encryption for your block storage volumes involves s
 1. {{site.data.keyword.cloud_notm}} data centers provide a dedicated HSM to create and protect your keys. Using {{site.data.keyword.hscrypto}}, you can take control of your cloud data encryption keys and cloud hardware security module.
 1. From IBM {{site.data.keyword.iamshort}} (IAM), authorize service between Cloud Block Storage (source service) and your KMS (target service). For custom images, also authorize between Image Service for VPC and IBM Cloud Object Storage.
 1. The {{site.data.keyword.cloud_notm}} infrastructure uses your root key to secure the data by wrapping the passphrases for volumes or custom images. For custom images, your root key wraps your passphrase before you import the custom image file to the cloud. For more information, see [About encrypted custom images](#byok-about-encrypted-images).
-1. Manage your keys in your KMS. For example, you can disable your root key to ensure that the IBM-managed keys' associated data can [no longer be accessed or decrypted](/docs/vpc?topic=vpc-vpc-encryption-managing#instance-byok-inaccessible-data).
+1. Manage your keys in your KMS. For example, you can disable your root key to ensure that the IBM-managed keys' associated data can [no longer be accessed or decrypted](/docs/vpc?topic=vpc-vpc-encryption-managing#instance-byok-inaccessible-data). You can also [rotate your customer-managed root keys](/docs/vpc?topic=vpc-vpc-key-rotation). Rotating your root keys lets you roll out a new key across the resources that were protected by the old key.
 
 ## Flow diagrams for specifying customer-managed encryption for volumes
-{: #byok-options}
+{: #byok-flow-diagrams-volumes}
 
 You can specify customer-managed encryption when you create a new block storage volume during instance provisioning. You can also specify it when you create a volume outside instance provisioning.
 
-Figure 1 shows the end-to-end procedure for creating a data volume with customer-managed encryption during instance provisioning. The volume is automatically attached to the instance.
+Figure 1 shows the procedure for creating a data volume with customer-managed encryption during instance provisioning. The volume is automatically attached to the instance.
 
 ![Figure showing the procedure for creating an instance with a customer-managed encrypted volume.](/images/vpc_flowchart_instances_color.png "Figure showing the procedure for creating an instance with a customer-managed encrypted volume"){: caption="Figure 1. Creating an instance with a customer-managed encrypted volume" caption-side="bottom"}
 
-Figure 2 shows the end-to-end procedure for creating a standalone volume and then attaching it to an instance.
+Figure 2 shows the procedure for creating a standalone volume and then attaching it to an instance.
 
 ![Figure showing the procedure for creating block storage volumes with customer-managed encryption.](/images/vpc_flowchart_volumes_color.png "Figure showing the procedure for creating block storage volumes with customer-managed encryption"){: caption="Figure 2. Creating a block storage volume with customer-managed encryption" caption-side="bottom"}
 

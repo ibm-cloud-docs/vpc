@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2020
-lastupdated: "2020-07-28"
+lastupdated: "2020-08-04"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, planning, best practices
 
@@ -28,7 +28,7 @@ subcollection: vpc
 When you're planning a data encryption strategy for your {{site.data.keyword.block_storage_is_short}} volumes or custom images, you might find this checklist helpful to choose and set up your data encryption service.
 {:shortdesc}
 
-Encrypted custom images is a Beta feature available for testing and evaluation. Contact your IBM Sales representative if you are interested in getting access.
+Encrypted custom image is a Beta feature available for testing and evaluation. Contact your IBM Sales representative if you are interested in getting access.
 {:beta}
 
 ## Planning for data encryption
@@ -40,12 +40,13 @@ Consider the following prerequisites before you set up data encryption for your 
 |-------------------|
 |__ Evaluate the amount of control you want over your data encryption. [IBM-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-provider-managed-encryption) is provided by default for boot and data volumes.  [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption) lets you control access to your data. |
 |__ Evaluate whether a combination of IBM-managed encrypted volumes and customer-managed encrypted volumes meets your needs.  |
-|__ For encrypted custom images, review the image requirements, supported operating systems, and learn about creating and importing QCOW2 custom image files. For additional planning tips for custom images, see [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images). |
+|__ For encrypted custom images (Beta), review the image requirements, supported operating systems, and learn about creating and importing QCOW2 custom image files. For additional planning tips for custom images, see [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images). |
 |__ Choose the UI, CLI, or API for provisioning customer-managed encryption. |
 |__ Evaluate which [key management service](#byok-encryption-prereqs) best meets your needs. Determine the availability of these services in your region and zone. | 
+|__ For customer-managed encryption, consider importing or creating multiple root keys and [rotating your keys](/docs/vpc?topic=vpc-vpc-key-rotation) for greater security. |
 |__ If you're provisioning an instance with encrypted volumes, make sure that you [created a VPC](/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc). |
 |__ Decide how many secondary volumes you require and how many will use customer-managed encryption. |
-|__ Choose the secondary volume [profile](/docs/vpc?topic=vpc-block-storage-profiles) that best meets your needs. **IOPS** profiles offer pre-defined performance; **Custom** profiles let you independently choose from a range of capacity and IOPS for your volumes.|
+|__ Choose the secondary volume [profile](/docs/vpc?topic=vpc-block-storage-profiles) that best meets your needs. **IOPS** profiles offer pre-defined performance; **Custom** profiles let you independently choose from a range of capacity and IOPS for your volumes. |
 |__ Make sure you have a unique name for your virtual server instances and volumes. For example, if you have a method for naming volumes with customer-managed encryption, it's much easier to filter and search for them later. |
 |__ Determine how long you want to retain a volume and whether you might want to [make the data inaccessible](/docs/vpc?topic=vpc-vpc-encryption-managing#instance-byok-inaccessible-data) for any reason. |
 {: caption="Table 1. Checklist for planning data encryption" caption-side="top"}
@@ -53,7 +54,7 @@ Consider the following prerequisites before you set up data encryption for your 
 ## Prerequisites for setting up customer-managed encryption
 {: #byok-encryption-prereqs}
 
-Complete the following prerequisites to set up customer-managed encryption for your VPC volumes. 
+Complete the following prerequisites to set up customer-managed encryption for your VPC resources. 
 
 ### Block storage volume prerequisites
 {: #byok-volumes-prereqs}
@@ -87,4 +88,4 @@ If you plan to take advantage of beta functionality to import an encrypted custo
 
 * [Creating virtual server instances with customer-managed encrypted volumes](/docs/vpc?topic=vpc-creating-instances-byok).
 * [Create standalone volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
-
+* [Create custom encrypted images (Beta)](/docs/vpc?topic=vpc-create-encrypted-custom-image).
