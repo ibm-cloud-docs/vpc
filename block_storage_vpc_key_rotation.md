@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2020
-lastupdated: "2020-08-04"
+lastupdated: "2020-08-05"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
@@ -122,7 +122,7 @@ This process rotates your root key to a new key version that you can use to reen
 5. From the options menu, click **Rotate key**. 
 6. Click **Rotate key** to confirm.
 
-Verify that the key was rotated by viewing the root key's [registration information](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-root-key-registration). The root key version ID and key version date change, indicating that the key has been rotated. The root key retains its original name and ID.
+Verify that the key was rotated by viewing the root key's [registration information](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-root-key-verify-rotation). The root key version ID and key version date change, indicating that the key has been rotated. The root key retains its original name and ID.
 
 You can also view Activity Tracker events for key rotation. For information, see [Important events for key rotation ](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-key-rotation-events)
 

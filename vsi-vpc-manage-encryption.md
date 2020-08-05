@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2020
-lastupdated: "2020-08-04"
+lastupdated: "2020-08-05"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
@@ -30,15 +30,26 @@ Take actions to manage your customer-managed encryption that secures your resour
 
 Manage your root keys by taking the following actions: 
 
-* View information showing your root keys have been rotated by looking at [root key registration](#byok-root-key-registration) in the KMS instance. 
+* View the association of root keys to the resources they protect by [viewing root key registrations](#byok-root-key-registration).
+* View information showing your root keys have been rotated by looking at [root key registration](#byok-root-key-verify-rotation) in the KMS instance.
 * [Rotate your root keys](/docs/vpc?topic=vpc-vpc-key-rotation) at regular intervals, including imported keys that you rotate manually. Shortening the crypto period of a key reduces the possibility of a security breach.
 * Decide whether importing your own root key or using a KMS-generated root key is preferable. If you want to set up a rotation policy for automatic key rotation, you must use KMS-generated root keys.
 * Review the [Activity Tracker](#byok-key-rotation-activity-tracker-events) to verify events as you manage the lifecycle of your keys.
 * Decide when you might want to make your data [temporarily inaccessible](#instance-byok-inaccessible-data) but retain it on the cloud.
 * Decide when [disabling](#byok-disable-root-keys) or [deleting](#byok-delete-root-keys) a root key is necessary. When you rotate keys, the former key remains active and is still used to decrypt existing resourcs. Take precautions when disabling or deleting root keys.
 
-### Verifying root key rotation by using the UI
+### Viewing root key registrations
 {: #byok-root-key-registration}
+
+Block storage volumes and custom images that are encrypted with your key are registered against the root key in the key management service (Key Protect or HPCS). Registration lets you map your volumes or encrypted custom images to their associated encryption keys. As an administrator, you can quickly see which resources are protected by a root key. You can also access the risk involved in disabling or deleting a key by viewing which keys are actively protecting data.
+
+For more information, see: 
+
+* Key Protect - [Viewing associations between root keys and encrypted IBM Cloud resources](/docs/key-protect?topic=key-protect-view-protected-resources)
+* HPCS - [Viewing associations between root keys and encrypted IBM Cloud resources](/docs/hs-crypto?topic=hs-crypto-view-protected-resources)
+
+### Verifying root key rotation by using the UI
+{: #byok-root-key-verify-rotation}
 
 When you [create a customer-managed encryption volume](/docs/vpc?topic=vpc-block-storage-vpc-encryption#data-vol-encryption-ui), your root key is automatically registered in the KMS instance. You can view this information to verify the key has been rotated by using the UI:
 
