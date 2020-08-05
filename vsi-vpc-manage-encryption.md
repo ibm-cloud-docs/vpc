@@ -41,7 +41,7 @@ Manage your root keys by taking the following actions:
 ### Viewing root key registrations
 {: #byok-root-key-registration}
 
-Block storage volumes and custom images that are encrypted with your key are registered against the root key in the key management service (Key Protect or HPCS). Registration lets you map your volumes or encrypted custom images to their associated encryption keys. As an administrator, you can quickly see which resources are protected by a root key. You can also access the risk involved in disabling or deleting a key by viewing which keys are actively protecting data.
+Block storage volumes and custom images that are encrypted with your key are registered against the root key in the key management service (Key Protect or HPCS). Registration lets you map your volumes or encrypted custom images to their associated encryption keys. You can quickly see which resources are protected by a root key. You can also access the risk involved in disabling or deleting a key by viewing which keys are actively protecting data.
 
 For more information, see: 
 
