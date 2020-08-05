@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2020
-lastupdated: "2020-08-03"
+lastupdated: "2020-08-04"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
@@ -60,20 +60,20 @@ When a root key is [rotated](/docs/vpc?topic=vpc-vpc-key-rotation) manually or a
 ### Disabling root keys
 {: #byok-disable-root-keys}
 
-[Disabling a key](/docs/key-protect?topic=key-protect-disable-keys) places it in a _suspended_ state, which revokes access to the key's associated data on the cloud. When you disable a root key, you suspend its encryption and decryption operations. Temporarily disabling a root key is good practice if you suspect a possible security exposure, compromise, or breach with your data. You can restore a disabled root key when the security risk is no longer active.
+[Disabling a key](/docs/key-protect?topic=key-protect-disable-keys) places it in a _suspended_ state, which revokes access to the key's associated data on the cloud. When you disable a root key, you suspend its encryption and decryption operations. Temporarily disabling a root key is good practice if you suspect a possible security exposure, compromise, or breach with your data. You can enable a disabled root key when the security risk is no longer active.
 
 When you suspend a root key in your key management service, your workloads remain running in your virtual server instance and volumes remain encrypted. However, if you power down the VM and then power it back on, any instances with encrypted boot volumes will not start. You can cancel the deletion if your key is in a suspended state. Look at the list of resources for the status of the key.
 
 ### Deleting root keys
 {: #byok-delete-root-keys}
 
-When you delete a root key, the KMS decrypts (unwraps) the passphrase encrypting a master key that encrypts the resource. The passphrase becomes unavailable and the resource is therefore inaccessible. 
+When you delete a root key, the key is no longer available to decrypt passphrases used to encrypt your resources. Therefore, your encrypted resources become unavailable.
 
 Deleting a root key places it in a _destoyed_ key state. The root key can't be recovered. 
 
 The KMS blocks the deletion of any key that's actively protecting a resource. Before you delete a key, review the resources that are associated with the key.
 
-As best practice, make sure the volume data is not longer needed before deleting any root key. Consider [temporarily disabling the key](#byok-disable-root-keys) instead of deleting it to suspend access to the key's associated data.
+As best practice, make sure the volume data is no longer needed before deleting any root key. Consider [temporarily disabling the key](#byok-disable-root-keys) instead of deleting it to suspend access to the key's associated data.
 {:important}
 
 For more information about deleting root keys, see the [Key Protect](/docs/key-protect?topic=key-protect-delete-keys) or [HPCS](/docs/hs-crypto?topic=hs-crypto-delete-keys) documentation.
