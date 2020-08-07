@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-28"
+lastupdated: "2020-08-07"
 
 keywords: custom image
 
@@ -39,7 +39,7 @@ Make sure that your image meets custom image requirements:
 * Contains a single file or volume 
 * Is in qcow2 format
 * Is cloud-init enabled
-* The operating system is supported as a stock image operating system
+* The operating system is supported as a [stock image](/docs/vpc?topic=vpc-about-images#stock-images) operating system
 * Size doesn't exceed 100 GB
 
 Support for importing encrypted images is available in beta. For more information, see [Creating an encrypted custom image (Beta)](/docs/vpc?topic=vpc-create-encrypted-custom-image). 
