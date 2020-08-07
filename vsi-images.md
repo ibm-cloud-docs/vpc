@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-30"
+lastupdated: "2020-08-07"
 
 keywords: image, stock image, custom image, virtual server, power, generation 2, gen 2
 
@@ -15,9 +15,11 @@ subcollection: vpc
 {:screen: .screen}
 {:note: .note}
 {:important: .important}
+{:tip: .tip}
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
+{:external: target="_blank" .external}
 
 
 # Images
@@ -48,6 +50,9 @@ The following operating systems are available as stock images when you create a 
 {: caption="Table 1. Stock boot images provided" caption-side="top"}
 
  When you order an instance, the images are cloud-init enabled to optimize creation times. With a cloud-init enabled image, you can provide user data. In the **User Data** field on the order form, you can enter optional cloud-init user data for the server. For more information about user data and automation, see [User data](/docs/vpc?topic=vpc-user-data).
+ 
+You can access details about each operating system, such as the url for the operating system, by using the API call, [Retrieves all operating systems](https://cloud.ibm.com/apidocs/vpc#retrieves-all-operating-systems){: external}.  
+{: tip}  
 
 ### Image support for GPUs
 {: #gpu-images}
