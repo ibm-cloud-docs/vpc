@@ -95,8 +95,8 @@ Where:
 * `{xxxx}` is the year in four digit format,
 * `{yy}` is the month in two digit, zero-leading format,
 * `{zz}` is the day of the month in two digit, zero-leading format, and
-* `{hh}` is the hour in zero-leading format (e.g. 00-24)
-* any instances of URL-unsafe characters in the path are URL-encoded.
+* `{hh}` is the hour in zero-leading format (for example, 00-24)
+* Any instances of URL-unsafe characters in the path are URL-encoded.
 
 A flow log's COS object contains a single valid JSON object. The COS object is `.gz` compressed.
 
