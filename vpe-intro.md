@@ -32,7 +32,7 @@ A VPE is the equivalent to a [Cloud Service Endpoint (CSE)](/docs/account?topic=
 
 **Notes**:
 
-* Users can connect to service instances deployed in all Multi-Zone Regions (MZRs).
+* Beta users can connect to service instances deployed in IBM Cloud service regions: Dallas, Washington D.C., London, Frankfurt, and Tokyo.
 * A reserved IP address bound to an endpoint gateway can receive traffic from another zone of the same VPC.
 * You can bind more than one IP address to an endpoint gateway; however, the current limit is one IP address per zone.
 
