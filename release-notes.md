@@ -26,6 +26,16 @@ subcollection: vpc
 Use these release notes to learn about the latest changes to {{site.data.keyword.vpc_full}}.
 {:shortdesc}
 
+## 07 August 2020
+{: #august-07-2020}
+
+- **Virtual Private Endpoint (VPE) Beta:** Endpoint gateways for VPC are now available in a limited, allowlisted beta. VPE enables you to connect to supported IBM Cloud services from your VPC virtual network by using the IP addresses of your choosing, allocated from a subnet within your VPC. For more information, see [About Virtual Private Endpoints for VPC (Beta)](/docs/vpc?topic=vpc-about-vpe).
+
+- **Other enhancements:**  
+   - Improved name validation on provisioning pages.
+   - Eliminated polling on data tables.
+   - Enhanced data tables PAL look and feel.
+
 ## 30 July 2020
 {: #july-30-2020}
 
@@ -46,7 +56,7 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 {: #july-16-2020}
 
 - **New region:** The Tokyo region is now available. For more information, see [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region).
-- **"Add to estimate" capability updates:** Added support for itemized virtual server pricing in the Add to estimate capability.     
+- **"Add to estimate" capability updates:** Added support for itemized virtual server pricing in the Add to estimate capability.   
 
 ## 03 July 2020
 {: #july-03-2020}
