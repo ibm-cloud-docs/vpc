@@ -48,9 +48,7 @@ VPE for VPC offers the following features:
    * You can apply security through Access Control Lists (ACLs).
    * The endpoint IP is deployed in a customer-defined virtual network.
    * Customer-driven and controlled, including ACLs.
-
 * Platform integration to VPC - Identity and Access Management (IAM), Ghost, and ACLs.
-
 * VPE for VPC supports:
    * New endpoints through the UI, CLI, and API.
    * Mapping a new endpoint to an existing service.
