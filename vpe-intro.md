@@ -42,9 +42,7 @@ A VPE is the equivalent to a [Cloud Service Endpoint (CSE)](/docs/account?topic=
 VPE for VPC offers the following features:
 
 * Scales elastically for bursting and performance management.
-
 * Does not require public connectivity and has no public data egress charges.
-
 * Reach {{site.data.keyword.cloud_notm}} assets through a private service provider or, when combined with DNS Services, private fully qualified domain name within a VPC:
    * A VPE lives in your network address space, extending your private and multicloud into the {{site.data.keyword.cloud_notm}}.
    * You can apply security through Access Control Lists (ACLs).
