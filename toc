@@ -139,6 +139,17 @@ Virtual Private Cloud
             nlb-api.md
 
     {: .topicgroup}
+    Virtual Private Endpoints (Beta)
+        vpe-intro.md
+        vpe-create.md
+        vpe-view-details.md
+        vpe-bind-unbind-reserved-ip.md
+        vpe-list.md
+        vpe-delete.md
+        vpe-iam.md
+        vpe-limitations.md
+
+    {: .topicgroup}
     VPNs
         using-vpn.md
         vpn-onprem-example.md
@@ -226,7 +237,7 @@ Virtual Private Cloud
         faq-vpc.md
         fl-faq.md
         lb-faqs.md
-        nlb-faqs.md        
+        nlb-faqs.md
         vpe-faqs.md
         faq-vsi.md
         block_storage_is_faq.md
