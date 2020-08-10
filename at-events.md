@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2020-08-03"
+lastupdated: "2020-08-10"
 
 keywords: activity tracker, events, logdna
 
@@ -148,6 +148,18 @@ Load balancer auditing events are recorded to {{site.data.keyword.at_full}} in t
 | subnet   | is.subnet.public-gateway.detach  | Public Gateway was detached from Subnet  |
 | subnet   | is.subnet.public-gateway.read | A subnet public-gateway attachment was retrieved |
 {: caption="Table 8. Actions that generate events for Subnet" caption-side="top"}
+
+### Virtual private endpoints (Beta) events
+{: #events-vpe}
+
+The following table lists the actions that are related to Virtual Private Endpoints (VPEs) and the generation of events.
+
+| Resource | Action | Description |
+|---|---|---|
+| endpoint-gateway | is.endpoint-gateway.endpoint-gateway.create | Endpoint gateway was created |
+| endpoint-gateway | is.endpoint-gateway.endpoint-gateway.delete | Endpoint gateway was deleted |
+| endpoint-gateway | is.endpoint-gateway.endpoint-gateway.update | Endpoint gateway was updated |
+{: caption="Table 9. Actions that generate events for Virtual Private Endpoints (VPEs)" caption-side="top"}
 
 ### VPC events
 {: #events-network-vpc}
