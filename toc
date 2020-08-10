@@ -226,13 +226,15 @@ Virtual Private Cloud
         faq-vpc.md
         fl-faq.md
         lb-faqs.md
-        nlb-faqs.md
+        nlb-faqs.md        
+        vpe-faqs.md
         faq-vsi.md
         block_storage_is_faq.md
 
     {: .topicgroup}
     Troubleshooting
         troubleshooting.md
+        vpe-troubleshooting.md
         vsi_is_troubleshooting.md
         block_storage_is_troubleshoot.md
 
