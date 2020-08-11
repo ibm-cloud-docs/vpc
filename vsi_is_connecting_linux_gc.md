@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2019-10-24"
+lastupdated: "2020-08-11"
 
 keywords: connecting, linux
 
@@ -15,6 +15,7 @@ subcollection: vpc
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:new_window: target="_blank"}
+{:note: .note}
 {:pre: .pre}
 {:tip: .tip}
 {:table: .aria-labeledby="caption"}
@@ -28,12 +29,16 @@ After you created your Linux instance, you can connect to it by completing these
 ## Locating floating IP address
 {: #locating-floating-ip-address}
 
+If you haven’t associated a floating IP to your instance, follow Step 4 
+in [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli#create-instance-cli) to request a floating IP address to associate to your instance.
+{:note}
+
 If you need to locate your floating IP address for the instance to which you want to connect, complete the following steps. If you already know your floating IP address, skip to [Getting connected](#getting-connected).
 
 1. You need to identify your floating IP ID before you can locate your floating IP address. Run the following command to identify your floating IP ID:
 
    ```
-   ibmcloud is instance-network-interfaces <INSTANCE_ID> --json
+   ibmcloud is instance-network-interfaces <INSTANCE_ID> <NETWORK_INTERFACE_ID> --json
    ```
    {:pre}
    
