@@ -41,4 +41,4 @@ If IBM Support can access the cloud service public endpoint, follow these steps:
    To list all endpoint gateways, run this command: `ibmcloud is egs`
    {: tip}
 
-2. Check the health of the service instance and then attemt to access the service through its public endpoint.
+2. Check the health of the service instance and then attempt to access the service through its public endpoint.
