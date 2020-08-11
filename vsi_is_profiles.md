@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-27"
+lastupdated: "2020-08-11"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, GPU, power, generation 2, gen 2
 
@@ -161,10 +161,32 @@ The network bandwidth cap applies separately to egress (transmitted) and ingress
 
 You can view available profile configurations by using the {{site.data.keyword.cloud_notm}} console or the CLI. In the {{site.data.keyword.cloud_notm}} console, you can select from popular profile configurations that support most common use cases.
 
+### Understanding the naming rule of the profiles
+{: #profiles-naming-rule}
+
+The following information describes the naming rule of the profiles.
+
+The first character represents the profile families. Different profile families have different ratios of CPU to memory, which is designed for different workloads.
+-	"b": balanced family, 1:4 ratio
+-	"c": compute family (higher on the CPUs), 1:2 ratio
+-	"m": memory family (higher on the memory), 1:16 ratio
+
+The second character represents the CPU architecture.
+- "x": x86_64
+- "p": POWER
+
+The third character represents the generation of VPC the profile is for.
+-	"1": IBM Cloud Virtual Servers for Classic
+-	"2": IBM Cloud Virtual Servers for VPC
+
+The field after "-" represents the number of vCPU and the size of RAM (GB), e.g., "2x8" means this profile has 2 vCPU and a RAM of 8 GB.
+
+Take “bx2-4x16” as an example, you can know from the name that it is a balanced profile with a 1:4 CPU to memory ratio (4 vCPU and 16 GB RAM). The CPU architecture is x86_64 and this profile is for VPC.
+
 ### Using the IBM Cloud console
 {: #profiles-using-console}
 
-1. In the {{site.data.keyword.cloud_notm}} console, navigate to **Menu icon](../images/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
+1. In the {{site.data.keyword.cloud_notm}} console, navigate to **![Menu icon](../images/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
 2. From the Virtual server instances page, click **New instance**.
 3. You can either select a profile configuration from **Popular profiles** or click **All profiles** to view more configurations.
 
@@ -176,13 +198,6 @@ To view the list of available profiles using the CLI, run the following command:
 $ ibmcloud is instance-profiles
 ```
 {:codeblock}
-
-When using the command line, the following information describes what the output represents. The profile sizes have different ratios of CPU to memory, designed for different workloads:
-
-*  "b" is balanced, which is a 1:4 ratio
-*  "c" is compute (higher on the CPUs) , which is a 1:2 ratio
-*  “m” is memory (higher on the memory), which is a 1:8 ratio
-*  "g" is GPU, which is a 1:8 or 1:16 ratio
 
 ## Storage notes for profiles
 {: #storage-notes-for-profiles}
