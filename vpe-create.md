@@ -44,7 +44,7 @@ Prior to creating an endpoint gateway, ensure that you review and have satisfied
 * A unique name for the endpoint gateway
 * A subnet in at least one availability zone if you intend on binding an IP address at the time the endpoint gateway is provisioned
 * An instance of the service
-* Appropriate IAM permissions to create an endpoint gateway, create or bind a reserved IP, and view/list the target service
+* Appropriate [IAM permissions](/docs/vpc?topic=vpc-vpe-iam) to create an endpoint gateway, create or bind a reserved IP, and view/list the target service
 * Verify support for VPEs and best practices in the individual IBM service documentation
 
 ### Optional

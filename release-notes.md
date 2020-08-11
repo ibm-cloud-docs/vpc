@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-30"
+lastupdated: "2020-08-10"
 
 keywords: release notes, changes, updates
 
@@ -31,10 +31,10 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 - **Virtual Private Endpoint (VPE) Beta:** Endpoint gateways for VPC are now available in a limited, allowlisted beta. VPE enables you to connect to supported IBM Cloud services from your VPC virtual network by using the IP addresses of your choosing, allocated from a subnet within your VPC. For more information, see [About Virtual Private Endpoints for VPC (Beta)](/docs/vpc?topic=vpc-about-vpe).
 
-- **Other enhancements:**  
+- **UI enhancements:**  
    - Improved name validation on provisioning pages.
    - Eliminated polling on data tables.
-   - Enhanced data tables PAL look and feel.
+   - Enhanced look and feel of data tables. 
 
 ## 30 July 2020
 {: #july-30-2020}
