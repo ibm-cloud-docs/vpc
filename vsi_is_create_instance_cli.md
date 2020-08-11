@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-07-30"
+lastupdated: "2020-08-11"
 
 keywords: instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, vpc, creating, CLI, command line interface, generation 2, gen 2
 
@@ -282,7 +282,7 @@ After you know these values, use them to run the `instance-create` command. In a
    ```
    ibmcloud is floating-ip-reserve \
        my-floatingip \
-       --nic xx12x345-6xxx-7x89-123x-4x5xxx678x9x
+       --nic-id xx12x345-6xxx-7x89-123x-4x5xxx678x9x
    ```
    {:pre}
 
