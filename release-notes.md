@@ -29,7 +29,7 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 ## 12 August 2020
 {: #august-12-2020}
 
--  {{site.data.keyword.redhat_full}} Enterprise Linux 8 is now available in all regions. 
+-  **New image support:** {{site.data.keyword.redhat_full}} Enterprise Linux 8 is now available in all regions. 
 
 ## 07 August 2020
 {: #august-07-2020}
