@@ -18,6 +18,7 @@ Virtual Private Cloud
         about-network.md
         vpc-security.md
         vpc-networking-concepts.md
+        interconnectivity.md        
 
     {: .topicgroup}
     Compute
