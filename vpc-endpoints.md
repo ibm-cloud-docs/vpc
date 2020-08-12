@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2020-07-16"
+lastupdated: "2020-08-12"
 
 keywords: CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
 
@@ -29,7 +29,7 @@ Before you can run workloads in an {{site.data.keyword.vpc_short}}, you must fir
 
 For more information about setting up your VPC API environment or referencing methods to access your VPC resources, see [Setting up your CLI or API environment](/docs/vpc?topic=vpc-set-up-environment) or the [Virtual Private Cloud API reference](https://cloud.ibm.com/apidocs/vpc). 
 
-Use one of the following public endpoints to connect to the API. The endpoints are based on the region of the service. 
+Use one of the following public endpoints to connect to the VPC infrastructure API. The endpoints are based on the region of the service. 
 
 | Region            | Endpoint                              |
 |-------------------|---------------------------------------|
@@ -40,7 +40,7 @@ Use one of the following public endpoints to connect to the API. The endpoints a
 | Tokyo             | `https://jp-tok.iaas.cloud.ibm.com`   |
 {: caption="Table 1. VPC API Regional Endpoints" caption-side="top"}
  
-After you've created and are accessing the resources in your VPC, you're ready to run workloads. You can access two types of {{site.data.keyword.cloud_notm}} endpoints: platform as a service (PaaS) endpoints, also known as service endpoints, and infrastructure as a service (IaaS) endpoints. 
+After you've created and are accessing the resources in your VPC, you're ready to run workloads. From inside the VPC infrastructure, you can access two types of {{site.data.keyword.cloud_notm}} endpoints: platform as a service (PaaS) endpoints, also known as service endpoints, and infrastructure as a service (IaaS) endpoints. 
 
 Although the addresses for these endpoints look as if they communicate through the public internet, traffic to and from these endpoints does not leave {{site.data.keyword.cloud_notm}}. Therefore, this traffic avoids the bandwidth charges associated with traffic that exits the cloud and goes onto the public internet.
 
@@ -49,10 +49,9 @@ Although the addresses for these endpoints look as if they communicate through t
 
 Use service endpoints to securely connect to {{site.data.keyword.cloud_notm}} services over the {{site.data.keyword.cloud_notm}} private network. These endpoints are available through DNS (Domain Name System) names in the `cloud.ibm.com` domain and resolve to `166.9.x.x` addresses. 
 
-For more information about service endpoints, see [Services that support service endpoints](/docs/resources?topic=resources-private-network-endpoints#services-support-service-endpoints). After you provision a service as a private endpoint, ping the endpoint from your virtual server instance to verify that the endpoint is reachable.
+Service endpoints must be enabled in your account before they can be accessed. For instructions, see [Enabling service endpoints](/docs/account?topic=account-vrf-service-endpoint#service-endpoint).
 
-If you can't connect to service endpoints, make sure that service endpoints are enabled in your account. For instructions, see [Enabling service endpoints](/docs/account?topic=account-vrf-service-endpoint#service-endpoint).
-{: tip}
+For more information about service endpoints, see [Services that support service endpoints](/docs/account?topic=account-vrf-service-endpoint#use-service-endpoint). After you provision a service as a private endpoint, ping the endpoint from your virtual server instance to verify that the endpoint is reachable.
 
 You can also use VPN for VPC to access service endpoints. For more information, see [Access service endpoints through VPN](/docs/vpc?topic=vpc-using-vpn#build-se-connectivity-using-vpn).
 
