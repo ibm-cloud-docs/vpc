@@ -4,9 +4,9 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-15"
+lastupdated: "2020-08-12"
 
-keywords: VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies, gateway, auto-negotiation, vpc, vpc network
+keywords: VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies, gateway, auto-negotiation
 
 subcollection: vpc
 
@@ -29,7 +29,7 @@ subcollection: vpc
 {: #using-vpn}
 [comment]: # (linked help topic)
 
-You can use the {{site.data.keyword.cloud}} VPN for VPC service to securely connect your VPC to another private network. You can use VPN to set up an IPsec site-to-site tunnel between your VPC and your on-premises private network or another VPC.
+You can use the {{site.data.keyword.cloud}} VPN for VPC service to securely connect your virtual private cloud to another private network. You can use VPN to set up an IPsec site-to-site tunnel between your VPC and your on-premises private network or another VPC.
 {:shortdesc}
 
 Currently, only policy-based routing is supported.
@@ -432,8 +432,8 @@ VPC allows access to a service endpoint from an on-premises network through a VP
 
 To set up access to a service endpoint:
 
-1. Get the IP of the service endpoint. {{site.data.keyword.cloud_notm}} supports two types of service endpoints: Infrastructure as a Service (IaaS) endpoints and {{site.data.keyword.cloud_notm}} service endpoints. The IaaS endpoints are hosted in the IP address ranges 161.26.0.0/16; {{site.data.keyword.cloud_notm}} service endpoints are hosted in the IP address ranges 166.8.0.0/14. For more information about endpoints, see [Endpoints available for VPC](/docs/vpc?topic=vpc-service-endpoints-for-vpc).
-2. Create a VPN gateway and a VPN connection. For the VPN connection, the local subnets should include the range 166.8.0.0/14 for {{site.data.keyword.cloud_notm}} service endpoints or 161.26.0.0/16 for IaaS endpoints.
+1. Get the IP of the service endpoint. {{site.data.keyword.cloud_notm}} supports two types of service endpoints: Infrastructure as a Service (IaaS) endpoints and {{site.data.keyword.cloud_notm}} service endpoints. The IaaS endpoints are hosted in the IP address ranges `161.26.0.0/16`; {{site.data.keyword.cloud_notm}} service endpoints are hosted in the IP address ranges `166.8.0.0/14`. For more information about endpoints, see [IaaS endpoints](/docs/vpc?topic=vpc-service-endpoints-for-vpc#infrastructure-as-a-service-iaas-endpoints) and [Using service endpoints](/docs/account?topic=account-vrf-service-endpoint#use-service-endpoint).
+2. Create a VPN gateway and a VPN connection. For the VPN connection, the local subnets should include the range `161.26.0.0/16` for IaaS endpoints and `166.8.0.0/14` for service endpoints.
 
 ## Architecture
 {: #vpn-architecture-diagram}
@@ -486,7 +486,7 @@ When you create a VPN connection without referencing a policy ID (IKE or IPsec),
 {: #faq-vpn-5}
 {: faq}
 
-The VPN gateway needs to be deployed in the VPC to provide connectivity. The VPN gateway provides connectivity to the entire zone where it is deployed.  A VPN gateway needs 4 available private IP addresses in the subnet to provide high availability and automatic maintenance. It is best if you use a dedicated subnet for the VPN gateway of size 16, where the length of the subnet prefix is shorter or equal to 28. 
+The VPN gateway needs to be deployed in the VPC to provide connectivity. The VPN gateway provides connectivity to the entire zone where it is deployed.  A VPN gateway needs 4 available private IP addresses in the subnet to provide high availability and automatic maintenance. It is best if you use a dedicated subnet for the VPN gateway of size 16, where the length of the subnet prefix is shorter or equal to 28.
 
 
 ### What should I do if I am using ACLs on the subnet that is used to deploy the VPN gateway?
