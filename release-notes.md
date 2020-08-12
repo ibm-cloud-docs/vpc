@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-10"
+lastupdated: "2020-08-12"
 
 keywords: release notes, changes, updates
 
@@ -25,6 +25,11 @@ subcollection: vpc
 
 Use these release notes to learn about the latest changes to {{site.data.keyword.vpc_full}}.
 {:shortdesc}
+
+## 12 August 2020
+{: #august-12-2020}
+
+-  {{site.data.keyword.redhat_full}} Enterprise Linux 8 is now available in all regions. 
 
 ## 07 August 2020
 {: #august-07-2020}
