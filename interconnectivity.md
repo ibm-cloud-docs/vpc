@@ -47,10 +47,7 @@ IBM has the following offerings that can interconnect a VPC with an on-premises 
 
    * **{{site.data.keyword.dl_full_notm}} Connect** provides connectivity between your on-premises and {{site.data.keyword.cloud_notm}} VPC networks through a supported service provider. A service provider connection is useful if your data center is in a physical location that can't reach a dedicated colocation facility, or if your data needs don't warrant a 5 Gbps+ connection. Connect service providers  are often used to facilitate multicloud connectivity (public clouds from multiple vendors) via their network. Connect service providers offer Layer-2 connectivity, Layer-3 connectivity, or both. Work with your service provider to understand their offerings and requirements.
 
-To access the ordering pages for these offerings, select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) on the upper left of the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){:external}, then select **Interconnectivity**.
-{: note}
-
-    * **VPN for VPC** can securely connect your virtual private cloud to another private network. You can use VPN to set up an IPsec site-to-site tunnel between your VPC and your on-premises private network or another VPC. See [Connecting to your on-premises network using a VPN gateway](/docs/vpc?topic=vpc-vpn-onprem-example) for details.
+   * **VPN for VPC** can securely connect your virtual private cloud to another private network. You can use VPN to set up an IPsec site-to-site tunnel between your VPC and your on-premises private network or another VPC. See [Connecting to your on-premises network using a VPN gateway](/docs/vpc?topic=vpc-vpn-onprem-example) for details.
 
 ## Interconnecting VPCs
 {: #interconnecting-vpcs}
