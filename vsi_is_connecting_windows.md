@@ -55,6 +55,18 @@ After you create your Windows instance and complete the prerequisites, complete 
   You can also use the API to get the encrypted password, or the CLI, which returns the decoded and decrypted password. For more information, see [Retrieve configuration used to initialize the instance API](https://{DomainName}/apidocs/vpc#retrieve-configuration-used-to-initialize-the-inst) and [instance-initialization-values](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-initialization-values).
   {:tip}
 
-1. Decode the encrypted password and store it in a new file (for example, decoded_pwd.txt) by running the following command: `cat encrypted_pwd.txt | base64 -d > decoded_pwd.txt`
-1. Decrypt the decoded password by using the following openssl command: `/<location_of_openssl_executable> pkeyutl -in decoded_pwd.txt -decrypt -inkey ~/.ssh/id_rsa`
-1. Use the returned value as the Administrator password in Remote Desktop. Enter the public IP address of the Windows instance into the Remote Desktop client.
+2. Decode the encrypted password and store it in a new file (for example, decoded_pwd.txt) by running the following command: 
+
+    In Linux: `cat encrypted_pwd.txt | base64 -d > decoded_pwd.txt`
+    
+    In Windows Powershell: `certutil -decode .\encrypted_pwd.txt decoded_pwd.txt`
+
+3. Decrypt the decoded password by using the following openssl command: 
+
+    In Linux: `/<location_of_openssl_executable> pkeyutl -in decoded_pwd.txt -decrypt -inkey ~/.ssh/id_rsa`
+    
+    In Windows Powershell: `openssl.exe pkeyutl -in .\decoded_pwd.txt -decrypt -inkey privatekey.pem`
+
+    The privatekey need to be in PEM format. You can use PuttyGen to export private key in PEM format from ppk format.{:note}
+
+4. Use the returned value as the Administrator password in Remote Desktop. Enter the public IP address of the Windows instance into the Remote Desktop client.
