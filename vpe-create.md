@@ -25,7 +25,7 @@ subcollection: vpc
 {:help: data-hd-content-type='help'}
 {:support: data-reuse='support'}
 
-# Creating an endpoint gateway
+# Creating an endpoint gateway (Beta)
 {: #ordering-endpoint-gateway}
 {: help}
 {: support}

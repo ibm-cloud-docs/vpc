@@ -26,7 +26,7 @@ subcollection: vpc
 {:generic: data-hd-programlang="generic"}
 {:download: .download}
 
-# Binding and unbinding a reserved IP address
+# Binding and unbinding a reserved IP address (Beta)
 {: #bind-unbind-reserved-ip}
 {: help}
 {: support}

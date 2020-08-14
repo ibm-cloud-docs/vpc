@@ -25,7 +25,7 @@ subcollection: vpc
 {:generic: data-hd-programlang="generic"}
 {:download: .download}
 
-# Viewing details of an endpoint gateway
+# Viewing details of an endpoint gateway (Beta)
 {: #vpe-viewing-details-of-an-endpoint-gateway}
 
 You can view details about a specific endpoint gateway, or see a summary of endpoint gateways for VPC by using the UI, CLI, or API.

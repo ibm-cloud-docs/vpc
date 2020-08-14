@@ -14,16 +14,20 @@ subcollection: vpc
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:screen: .screen}
+{:beta: .beta}
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
 {:download: .download}
 
-# About Virtual Private Endpoints
+# About Virtual Private Endpoints (Beta)
 {: #about-vpe}
 
 {{site.data.keyword.cloud}} Virtual Private Endpoint (VPE) for VPC enables you to connect to supported {{site.data.keyword.cloud_notm}} services from your VPC virtual network by using the IP addresses of your choosing, allocated from a subnet within your VPC.
 {:shortdesc}
+
+Endpoint gateways are only available to accounts with special approval to preview this beta feature. Contact your IBM Sales representative if you are interested in getting access.
+{:beta}
 
 VPE is an evolution of the private connectivity to IBM Cloud services. VPEs are virtual IP interfaces that are bound to an endpoint gateway created on a per service, or service instance basis. The endpoint gateway is a virtualized function that scales horizontally, is redundant and highly available, and spans all availability zones of your VPC. Endpoint gateways enable communications from virtual server instances within your VPC and {{site.data.keyword.cloud}} service on the private backbone without adding availability or bandwidth constraints. VPE gives you the experience of controlling all the private addressing within your cloud.
 
@@ -42,13 +46,17 @@ A VPE is the equivalent to a [Cloud Service Endpoint (CSE)](/docs/account?topic=
 VPE for VPC offers the following features:
 
 * Scales elastically for bursting and performance management.
+
 * Does not require public connectivity and has no public data egress charges.
+
 * Reach {{site.data.keyword.cloud_notm}} assets through a private service provider or, when combined with DNS Services, private fully qualified domain name within a VPC:
    * A VPE lives in your network address space, extending your private and multicloud into the {{site.data.keyword.cloud_notm}}.
    * You can apply security through Access Control Lists (ACLs).
    * The endpoint IP is deployed in a customer-defined virtual network.
    * Customer-driven and controlled, including ACLs.
+
 * Platform integration to VPC - Identity and Access Management (IAM), Ghost, and ACLs.
+
 * VPE for VPC supports:
    * New endpoints through the UI, CLI, and API.
    * Mapping a new endpoint to an existing service.

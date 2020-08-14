@@ -18,7 +18,7 @@ keywords: vpe, virtual private endpoint, limitations
 {:important: .important}
 {:download: .download}
 
-# Virtual Private Endpoint limitations
+# Virtual Private Endpoint limitations (Beta)
 {: #limitations-vpe}
 
 The following items are not supported for {{site.data.keyword.cloud_notm}} Virtual Private Endpoint for VPC:
@@ -26,4 +26,4 @@ The following items are not supported for {{site.data.keyword.cloud_notm}} Virtu
 * IBM Cloud Security Groups and Flow Logs for VPC
 * VPE access over IBM Cloud Direct Link (2.0)
 * Integration with DNS Services
-* Services that are in zones and regions other than IBM Cloud Multi-Zone Regions (MZRs).
+* Services that are in zones and regions other than [IBM Cloud Multi-Zone Regions (MZRs)](/docs/overview?topic=overview-locations#mzr-table)

@@ -26,7 +26,7 @@ subcollection: vpc
 {:generic: data-hd-programlang="generic"}
 {:download: .download}
 
-# Deleting an endpoint gateway
+# Deleting an endpoint gateway (Beta)
 {: #vpe-deleting-ui-cli-api}
 
 You can delete an endpoint gateway using the UI, the CLI, or the API.  

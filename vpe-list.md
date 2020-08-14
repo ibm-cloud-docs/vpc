@@ -26,10 +26,10 @@ subcollection: vpc
 {:generic: data-hd-programlang="generic"}
 {:download: .download}
 
-# Listing endpoint gateways in the region
+# Listing endpoint gateways in the region (Beta)
 {: #vpe-listing-endpoint-gateways}
 
-You can list all endpoint gateways in the region using the UI, CLI, or API.
+You can list all {{site.data.keyword.cloud}} Virtual Private Endpoint (VPE) for VPC endpoint gateways in the region using the UI, CLI, or API.
 {: shortdesc}
 
 ## Using the UI
