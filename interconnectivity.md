@@ -4,7 +4,7 @@ copyright:
   years: 2020
 lastupdated: "2020-08-12"
 
-keywords: vpc peering, vpc interconnectivity, vpc direct link, vpc transit gateway, interconnect, hybrid cloud, multicloud
+keywords: peering, interconnectivity, interconnect
 
 subcollection: vpc
 
