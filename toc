@@ -69,9 +69,6 @@ Virtual Private Cloud
         vsi_is_manage_instances.md
         monitoring.md
         /virtual-servers/virtual-servers-sysdig-monitoring-metrics
-        vsi_is_configure_power.md
-        how-to-setup-for-gpu.md
-
 
     {: .topicgroup}
     Custom images
