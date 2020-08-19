@@ -6,7 +6,7 @@ lastupdated: "2020-07-16"
 
 keywords: Sysdig, IBM Cloud, monitoring, platform metrics, metrics, VPN metrics
 
-subcollection: vpc_vpn
+subcollection: vpc
 
 ---
 
