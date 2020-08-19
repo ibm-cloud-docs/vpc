@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-11"
+lastupdated: "2020-08-19"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, GPU, power, generation 2, gen 2
 
@@ -30,9 +30,6 @@ When you provision {{site.data.keyword.vsi_is_full}}, you can select from three 
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, and more that can be instantiated quickly to start a virtual server instance. In the {{site.data.keyword.Bluemix_notm}} console, you can choose from popular profile configurations or select from a list of profiles that best fit your needs.
 {: shortdesc}
 
-The IBM Cloud Virtual Servers for VPC on POWER service is deprecated. As of 02 June 2020, you cannot provision new instances. Any instance that is still provisioned as of 22 August 2020 will be deleted. For more information, see the [End of Service Announcement for Virtual Servers for VPC on POWER](https://www.ibm.com/cloud/blog/announcements/end-of-service-announcement-for-virtual-servers-for-vpc-on-power).
-{:deprecated}
-
 The following profile families are available:
 
 | Families | Description |
@@ -60,19 +57,6 @@ The following balanced profiles are available for x86_64 processors:
 | bx2-48x192 | 48 | 192 | 80 |
 {: caption="Table 2. x86-64 balanced profile options" caption-side="top"}
 
-The following balanced profiles are available for POWER processors:
-
-| Profile | vCPU | GB RAM | Network Performance Cap (Gbps) |
-|---------|---------|---------|---------|
-| bp2-2x8 | 2 | 8 | 6 |
-| bp2-4x16 | 4 | 16 | 12 |
-| bp2-8x32 | 8 | 32 | 24 |
-| bp2-16x64 | 16 | 64 | 48 |
-| bp2-32x128 | 32  | 128 | 96 |
-<!--| bp2-48x192 | 48 | 192 | 100 |
-| bp2-56x224 | 56 | 224 | 100 |-->
-{: caption="Table 3. Power balanced profile options" caption-side="top"}
-
 ## Compute
 {: #compute}
 
@@ -88,18 +72,7 @@ The following compute profiles are available for x86_64 processors:
 | cx2-8x16 | 8 | 16 | 16 |
 | cx2-16x32 | 16 | 32 | 32 |
 | cx2-32x64 | 32  | 64 | 64 |
-{: caption="Table 4. x86-64 compute profile options" caption-side="top"}
-
-The following compute profiles are available for POWER processors:
-
-| Profile | vCPU | GB RAM | Network Performance Cap (Gbps) |
-|---------|---------|---------|---------|
-| cp2-2x4 | 2 | 4 | 6 |
-| cp2-4x8 | 4 | 8 | 12 |
-| cp2-8x16 | 8 | 16 | 24 |
-| cp2-16x32 | 16 | 32 | 48 |
-| cp2-32x64 | 32  | 64 | 96 |
-{: caption="Table 5. Power compute profile options" caption-side="top"}
+{: caption="Table 3. x86-64 compute profile options" caption-side="top"}
 
 ## Memory
 {: #memory}
@@ -116,23 +89,9 @@ The following memory profiles are available for x86_64 processors:
 | mx2-8x64 | 8 | 64 | 16 |
 | mx2-16x128 | 16 | 128 | 32 |
 | mx2-32x256 | 32 | 256 | 64 |
-{: caption="Table 6. x86-64 memory profile options" caption-side="top"}
+{: caption="Table 4. x86-64 memory profile options" caption-side="top"}
 
-The following memory profiles are available for POWER processors:
-
-| Profile | vCPU | GB RAM | Network Performance Cap (Gbps) |
-|---------|---------|---------|---------|
-| mp2-2x16 | 2 | 16 | 6 |
-| mp2-4x32 | 4 | 32 | 12 |
-| mp2-8x64 | 8 | 64 | 24 |
-| mp2-16x128 | 16 | 128 | 48 |
-| mp2-32x256 | 32 | 256 | 96 |
-<!--| mp2-48x768 | 48 | 768 | 100 |
-| mp2-56x448 | 56 | 448 | 100 |
-| mp2-56x896 | 56 | 896 | 100 |-->
-{: caption="Table 7. Power memory profile options" caption-side="top"}
-
-## GPU (deprecated with POWER-based instances)
+<!--## GPU (deprecated with POWER-based instances)
 {: #gpu}
 
 GPU profiles are best for AI and deep learning workloads.
@@ -145,12 +104,12 @@ The following GPU profiles, available for POWER-based instances, are provisioned
 | gp2-32x256x4 | 32 | 256 | 96 | 4 |
 | gp2-56x448x4 | 56 | 448 | 100 | 4 |
 | gp2-56x896x4 | 56 | 896 | 100 | 4 |
-{: caption="Table 8. Power GPU profile options" caption-side="top"}
+{: caption="Table 5. Power GPU profile options" caption-side="top"}
 
 GPU profiles are supported by Ubuntu 18.04 only. For more information about supported operating systems, see [Images](/docs/vpc?topic=vpc-about-images). A few of the larger profile sizes might require you to increase your quota limit. To increase a quota for a particular resource, [contact support](/docs/get-support?topic=get-support-getting-customer-support).
 
 If you are using GPU profiles, you might need to install the NVIDA kernel driver, the CUDA toolkit, or both onto your virtual server instance. For more information, see [Setting up GPU drivers for POWER-based instances](/docs/vpc?topic=vpc-setup-gpus).
-{:tip}
+{:tip}-->
 
 For information about storage, see [Storage notes for profiles](#storage-notes-for-profiles). 
 
@@ -173,7 +132,6 @@ The first character represents the profile families. Different profile families 
 
 The second character represents the CPU architecture.
 - "x": x86_64
-- "p": POWER
 
 The third character represents the generation of VPC the profile is for.
 -	"1": IBM Cloud Virtual Servers for Classic
