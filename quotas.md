@@ -43,7 +43,7 @@ To increase a quota for a particular resource, [contact support](/docs/get-suppo
 | RAM | 1600 GB per region |   
 | Floating IP addresses | 20 per zone |   
 | SSH keys | 200 per account |   
-| GPUs (POWER only) | 16 per region |   
+<!--| GPUs (POWER only) | 16 per region |-->
 {: caption="Table 1. Quotas for virtual server instances" caption-side="top"}
 
 ### Dedicated hosts (Beta)
