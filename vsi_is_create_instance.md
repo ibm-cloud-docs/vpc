@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020 
-lastupdated: "2020-08-19"
+lastupdated: "2020-08-21"
 
 keywords: instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, vpc, creating, UI, console, generation 2, gen 2
 
@@ -46,7 +46,7 @@ Be sure to select VPC infrastructure from the Menu icon.
 | Resource group | Select a resource group for the instance. |
 | Location | Locations are composed of regions (specific geographic areas) and zones (fault tolerant data centers within a region). Select the location where you want your virtual server instance to be created. |
 | Image | All images use cloud-init, which allows you to enter user metadata associated with the instance for post provisioning scripts. For more information about available stock images, and custom image requirements, see [Images](/docs/vpc?topic=vpc-about-images).|
-| Profile |  Select from popular profiles or all available vCPU and RAM combinations. The profile families are Balanced, Compute, Memory and GPU (available after selecting the POWER processor architecture). For more information, see [Profiles](/docs/vpc?topic=vpc-profiles). |
+| Profile |  Select from popular profiles or all available vCPU and RAM combinations. The profile families are Balanced, Compute, and Memory. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles). |
 | SSH Key | You must select an existing SSH key or upload a new SSH key to use before you can create the instance. SSH keys are used to securely connect to the instance after it's running. |
 | | **Note:** Alpha-numeric combinations are limited to 100 characters. |
 | | For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
