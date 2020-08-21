@@ -38,7 +38,7 @@ You might encounter the following frequently asked questions when using {{site.d
 IBM Cloud services cannot be mapped to a VPE from the service catalog during the time of purchase.
 
 ## Can I map an IBM Cloud service to a Public endpoint?
-{ #faq-map-cloud-service-public-endpoint}
+{: #faq-map-cloud-service-public-endpoint}
 {: faq}
 {: support}
 
