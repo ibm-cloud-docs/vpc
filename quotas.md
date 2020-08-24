@@ -130,6 +130,7 @@ The following table displays current VPC service limits. Unlike quotas, these li
 | Secondary volumes per instance, for existing instances with fewer than 4 cores | 4 secondary volumes |
 | Secondary volumes per instance, for existing instances with 4 cores or more | Up to 12 secondary volumes |
 | Instance groups for auto scale and more  | 200 per account|
+| Instance group memberships  | 1000 per instance group|
 {: caption="Table 8. Limits for VPC resources" caption-side="top"}
 
 
