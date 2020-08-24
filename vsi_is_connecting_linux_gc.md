@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-08-11"
+lastupdated: "2020-08-24"
 
 keywords: connecting, linux
 
@@ -89,7 +89,7 @@ Optionally, you can locate the floating IP address that is associated to the ins
 1. To connect to your instance, use your private key and run the following command:
 
    ```
-   $ ssh -i <path to your private key file> root@<floating ip address>
+   ssh -i <path to your private key file> root@<floating ip address>
    ```
    {:pre}
 
