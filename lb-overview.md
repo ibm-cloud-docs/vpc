@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-06-16"
+lastupdated: "2020-07-30"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, layer-7
 
@@ -31,13 +31,10 @@ Use {{site.data.keyword.cloud}} application load balancer to distribute traffic 
 
 The following diagram illustrates the deployment architecture for the application load balancer.
 
+**REVIEWERS: This diagram needs to be described.**
+
 ![Load Balancer for VPC](images/VPC-LBaaS-Architecture.png "Application Load Balancer")
 {: caption="Application Load Balancer" caption-side="top"}
-
-## Creating an application load balancer  
-{: #ordering-alb}
-
-To order and start using the {{site.data.keyword.cloud_notm}} Application Load Balancer, refer to [these instructions](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#load-balancer).
 
 ## Types of application load balancers
 {: #types-load-balancer}
@@ -168,8 +165,22 @@ An application load balancer adjusts its capacity automatically according to the
 
 IBM Db2-on-Cloud Service serves as the database for the application load balancer. It has high-availability (HA) enabled, and SSL connections are enforced. SSL certificates are also used for the load balancer RESTful APIs. When you create a load balancer, a workflow activity creates a VSI. Before the VSI is created, a request is made to the Certificate Manager to obtain the server SSL certificate to be injected into the appliance.
 
+## Application load balancer data flow path
+{: #alb-data-flow}
+
+**REVIEWERS: Need introduction here, not just picture.**
+
+![ALB traffic flow](images/alb-datapath.png)
+
+## Integration with instance groups
+{: #lbaas-integration-with-instance-groups-overview}
+
+IBM Cloud Application Load Balancer integrates with instance groups, which can `auto scale` your back-end members. Pool members are dynamically added and deleted based on your usage and requirements.
+
 ## Health checks
 {: #health-checks}
+
+**REVIEWERS: We have a [task](/docs/vpc?topic=vpc-nlb-health-checks) for NLB.  Why isn't there a procedure for this for ALB?**
 
 Health check definitions are mandatory for back-end pools. Health checks can be configured on back-end ports, or on a separate health check port based on the application.
 
@@ -185,21 +196,12 @@ The health checks for HTTP, HTTPS, and TCP ports are conducted as follows:
 
 By default, health checks are sent every 5 seconds on the same port on which traffic is sent to the instance. By default, the load balancer waits 2 seconds for a response to the health check, and an instance is no longer considered healthy after two failed health checks.
 
-## Configuring ACLs for use with application load balancers
-{: #configuring-acls-for-use-with-load-balancers}
+## Application load balancer limitation
+{: #alb-limitations}
 
-If you use access control lists (ACLs) to block traffic on the subnets where a load balancer is deployed, make sure the following ACL rules are configured.
+There is one limitation for an application load balancer:
 
-| Inbound/Outbound| Protocol | Source IP | Source Port | Destination IP | Destination Port |
-|--------------|------|------|------|------|------------------|
-| Inbound |TCP| AnyIP | AnyPort | AnyIP | `56501`|
-| Inbound |TCP| AnyIP | `443`, `10514`, `8834`| AnyIP | AnyPort |
-| Inbound |UDP| `161.26.0.0/16` | `53`| AnyIP | AnyPort |
-| Outbound | TCP | AnyIP | `56501` | AnyIP | AnyPort |
-| Outbound | TCP | AnyIP | AnyPort | AnyIP |`443`, `10514`, `8834` |
-| Outbound | UDP | AnyIP | AnyPort | `161.26.0.0/16` |`53` |
-
-Additionally, if an application load balancer has listeners that are configured, then the corresponding inbound and outbound ACL rules must be configured for traffic to go through.
+* Two members with the same instance X and same port Y cannot exist at the same time for an application load balancer. This case is not supported and your traffic might not be routed correctly.
 
 ## Related links
 {: #permissions-related-links-alb}
@@ -209,3 +211,4 @@ Additionally, if an application load balancer has listeners that are configured,
 * [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
 * [Activity Tracker with LogDNA events](/docs/vpc?topic=vpc-at-events)
 * [FAQs for application load balancers](/docs/vpc?topic=vpc-load-balancer-faqs)
+* [Quotas](/docs/wanclouds-vpc-plus?topic=vpc-quotas#vpn-quotas)

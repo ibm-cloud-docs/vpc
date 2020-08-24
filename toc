@@ -125,6 +125,7 @@ Virtual Private Cloud
             lb-adv-traffic-mgmt.md
             lb-layer-7-policies-rules.md
             lb-monitoring-metrics.md
+            lb-ig-integration.md
             lb-api.md
 
         {: .topicgroup}
