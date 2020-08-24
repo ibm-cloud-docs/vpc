@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2020
 
-lastupdated: "2020-03-26"
+lastupdated: "2020-08-24"
 
 keywords: connecting, windows
 
@@ -37,24 +37,43 @@ Complete the following prerequisites:
 4. Have Microsoft Remote Desktop client software available.
 1. Make sure the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
 1. Make sure that you reserve and associate a floating IP address to your Windows instance.
-2. Install openssl (on Mac: `brew install openssl`) and note the location of the executable file (for example, `/usr/local/opt/openssl/bin/openssl`)
-
-You must run OpenSSL (not LibreSSL). For more information, see [OpenSSL Downloads ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.openssl.org/source/){: new_window}.
-{:important}
-
 
 ## Connecting to your Windows instance
 {: #vsi_connecting_windows_instance}
 
 After you create your Windows instance and complete the prerequisites, complete the following steps to connect to your Windows instance. 
   
-1. Determine the encrypted password of the instance:
-    1. In the navigation pane of the {{site.data.keyword.cloud_notm}} console, click **Compute > Virtual server instances** and click your instance to view its details.
-    1. Scroll down to the **Encrypted password** field. Copy the value and paste it into a text file, for example, encrypted_pwd.txt.
+1. Query the status of your instance by running the following command:
+  
+  ```
+  $ ibmcloud is instance <INSTANCE_ID>
+  ```
+  {:codeblock}
+  
+  When the instance shows that it's `running`, you are ready to retrieve the initialization values to get your password.
 
-  You can also use the API to get the encrypted password, or the CLI, which returns the decoded and decrypted password. For more information, see [Retrieve configuration used to initialize the instance API](https://{DomainName}/apidocs/vpc#retrieve-configuration-used-to-initialize-the-inst) and [instance-initialization-values](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-initialization-values).
-  {:tip}
+2. Run the following command to initialize your instance and obtain your instance password:
 
-1. Decode the encrypted password and store it in a new file (for example, decoded_pwd.txt) by running the following command: `cat encrypted_pwd.txt | base64 -d > decoded_pwd.txt`
-1. Decrypt the decoded password by using the following openssl command: `/<location_of_openssl_executable> pkeyutl -in decoded_pwd.txt -decrypt -inkey ~/.ssh/id_rsa`
-1. Use the returned value as the Administrator password in Remote Desktop. Enter the public IP address of the Windows instance into the Remote Desktop client.
+    ```
+    ibmcloud is instance-initialization-values INSTANCE [--private-key (KEY | @KEY_FILE)] [--json]
+    ```
+    {:pre}
+
+    This command decodes and decrypts your password, which is automatically generated when you create an instance using a Windows image based on the public SSH Key you uploaded and the associated private SSH key file. For more information, see the [CLI command reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-initialization-values).
+
+    You can also use the API to get the encrypted password, which returns the decoded and decrypted password. For more information, see [Retrieve configuration used to initialize the instance API](https://{DomainName}/apidocs/vpc#retrieve-configuration-used-to-initialize-the-inst).
+    {:tip}
+
+3. After you obtain your instance password, you can optionally associate a floating IP address to your Windows instance so you can connect to it from an internet location. Run the following command to associate a floating IP address to your instance:
+
+   ```
+   ibmcloud is floating-ip-reserve <FLOATING_IP_NAME> --nic-id <NIC_ID>
+   ```
+   {:pre}
+
+4. You now have what you need in order to connect to your Windows instance: a decrypted password and a floating IP address. Use your preferred Remote Desktop client to connect to your instance. To connect to your instance, provide the floating IP address and the decrypted password. The username is `Administrator` by default. (If you are connecting from a client that is running the Windows Administrator account, use `.\Administrator` as the user ID to log on to RDP.)
+
+## Next steps
+{: #next-manage-vsi}
+
+After you are connected to your instance, you can [manage your instances](/docs/vpc?topic=vpc-managing-virtual-server-instances). 
