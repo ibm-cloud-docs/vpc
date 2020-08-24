@@ -170,9 +170,10 @@ Virtual Private Cloud
         vsi_is_manage_dedicated_host_group.md
 
     {: .topicgroup}
-    Auto scale (Beta)
+    Auto scale
         vsi_is_creating_auto_scale_group.md
         vsi_is_managing_auto_scale_group.md
+        vsi_is_managing_instance_template.md        
 
     {: .topicgroup}
     Data Encryption
@@ -233,12 +234,13 @@ Virtual Private Cloud
     {: .topicgroup}
     FAQs
         faq-vpc.md
-        fl-faq.md
         lb-faqs.md
+        faq-auto-scale.md
+        block_storage_is_faq.md
+        fl-faq.md
         nlb-faqs.md
         vpe-faqs.md
         faq-vsi.md
-        block_storage_is_faq.md
 
     {: .topicgroup}
     Troubleshooting
