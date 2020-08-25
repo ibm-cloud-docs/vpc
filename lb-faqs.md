@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2018, 2020 
+  years: 2018, 2020
 lastupdated: "2020-07-30"  
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, layer-7, auto scale, managed pool, instance group
@@ -57,7 +57,7 @@ Yes. The application load balancer automatically adjusts its capacity based on t
 
 Make sure that the proper ACL rules are in place to allow incoming traffic for configured listener ports and management ports. Traffic between the application load balancer and back-end instances should also be allowed.
 
-For detailed information on the ACLs configuration required, see [Configuring ACLs for use with application load balancers](/docs/vpc?topic=vpc-load-balancers#configuring-acls-for-use-with-load-balancers).
+For detailed information on the ACLs configuration required, see [Configuring ACLs for use with application load balancers](/docs/vpc?topic=vpc-load-balancers#configuring-acls-alb).
 
 ## Why am I receiving an error message: `certificate instance not found`?
 {: #error-certificate-instance}
@@ -83,11 +83,11 @@ Check the following access policies for your user:
 The application load balancer is in `maintenance_pending` state during various maintenance activities, such as:
 
 * Horizontal scaling activities
-* Recovery activities 
+* Recovery activities
 * Rolling upgrades to address vulnerabilities and apply security patches
-* ACLs blocking management traffic to the load balancer 
+* ACLs blocking management traffic to the load balancer
 
-  This puts your load balancer in a `maintenance_pending` state. Ensure that the ACLs on your load balancer subnets are configured properly. Refer to [Configuring ACLs for use with load balancers](/docs/vpc?topic=vpc-load-balancers#configuring-acls-for-use-with-load-balancers).
+  This puts your load balancer in a `maintenance_pending` state. Ensure that the ACLs on your load balancer subnets are configured properly. Refer to [Configuring ACLs for use with load balancers](/docs/vpc?topic=vpc-load-balancers#configuring-acls-alb).
   {: note}
 
 ## Why do I need to choose multiple subnets during provisioning?
@@ -164,7 +164,7 @@ Load balancer front end listeners are the application listening ports. They act 
 ### Why are there only 2 IPs instead of 3?
 {: #why-only-2-ips}
 {: faq}
- 
+
 The application load balancer operates in ACTIVE-ACTIVE mode, a configuration that makes it highly available. Horizontal scaling may further add extra appliances when your load increases. It's recommended that you choose subnets in different zones to make your load balancers support MZR. This way, if a zone is negatively impacted, a new load balancer will be provisioned in a different zone.
 
 ### Why am I receiving a 409 Conflict Error code when updating or deleting a load balancer?

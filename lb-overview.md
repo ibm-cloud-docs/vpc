@@ -190,6 +190,22 @@ The health checks for HTTP, HTTPS, and TCP ports are conducted as follows:
 
 By default, health checks are sent every 5 seconds on the same port on which traffic is sent to the instance. By default, the load balancer waits 2 seconds for a response to the health check, and an instance is no longer considered healthy after two failed health checks.
 
+## Configuring ACLs for use with application load balancers
+{: #configuring-acls-alb}
+
+If you use access control lists (ACLs) to block traffic on the subnets where a load balancer is deployed, make sure the following ACL rules are configured.
+
+| Inbound/Outbound| Protocol | Source IP | Source Port | Destination IP | Destination Port |
+|--------------|------|------|------|------|------------------|
+| Inbound |TCP| AnyIP | AnyPort| AnyIP | 56501|
+| Inbound |TCP| AnyIP | 443, 10514, 8834 | AnyIP | AnyPort|
+| Inbound |UDP| 161.26.0.0/16 | 53| AnyIP | AnyPort|
+| Outbound | TCP | AnyIP | 56501| AnyIP | AnyPort|
+| Outbound | TCP | AnyIP | AnyPort| AnyIP |443, 10514, 8834 |
+| Outbound | UDP | AnyIP | AnyPort| 161.26.0.0/16 |53|
+
+Additionally, if a load balancer has listeners configured, then the corresponding inbound and outbound ACL rules should be configured for traffic to go through.
+
 ## Application load balancer limitation
 {: #alb-limitations}
 
