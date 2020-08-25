@@ -31,8 +31,6 @@ Use {{site.data.keyword.cloud}} application load balancer to distribute traffic 
 
 The following diagram illustrates the deployment architecture for the application load balancer.
 
-**REVIEWERS: This diagram needs to be described.**
-
 ![Load Balancer for VPC](images/VPC-LBaaS-Architecture.png "Application Load Balancer")
 {: caption="Application Load Balancer" caption-side="top"}
 
@@ -168,8 +166,6 @@ IBM Db2-on-Cloud Service serves as the database for the application load balance
 ## Application load balancer data flow path
 {: #alb-data-flow}
 
-**REVIEWERS: Need introduction here, not just picture.**
-
 ![ALB traffic flow](images/alb-datapath.png)
 
 ## Integration with instance groups
@@ -179,8 +175,6 @@ IBM Cloud Application Load Balancer integrates with instance groups, which can `
 
 ## Health checks
 {: #health-checks}
-
-**REVIEWERS: We have a [task](/docs/vpc?topic=vpc-nlb-health-checks) for NLB.  Why isn't there a procedure for this for ALB?**
 
 Health check definitions are mandatory for back-end pools. Health checks can be configured on back-end ports, or on a separate health check port based on the application.
 
