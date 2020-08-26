@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2020-08-10"
+lastupdated: "2020-08-26"
 
 keywords: activity tracker, events, logdna
 
@@ -60,7 +60,7 @@ The following tables list the actions related to network resources and the gener
 | floating-ip  | is.floating-ip.floating-ip.update   | Floating IP was updated  |
 | floating-ip  | is.floating-ip.floating-ip.delete   | Floating IP was deleted  |
 | floating-ip  | is.floating-ip.floating-ip.read | One or more floating IP was retrieved |
-{: caption="Table 3. Actions that generate events for Floating IP" caption-side="top"}
+{: caption="Table 2. Actions that generate events for Floating IP" caption-side="top"}
 
 ### Flow log events
 {: #events-flow-logs}
@@ -73,7 +73,7 @@ The following table lists the actions that are related to flow logs and the gene
 | flow-log-collector | is.flow-log-collector.flow-log-collector.delete | Flow log collector was deleted |
 | flow-log-collector | is.flow-log-collector.flow-log-collector.read | Flow log collector was read |
 | flow-log-collector | is.flow-log-collector.flow-log-collector.update | Flow log collector was updated |
-{: caption="Table 4. Actions that generate events for flow log collectors" caption-side="top"}
+{: caption="Table 3. Actions that generate events for flow log collectors" caption-side="top"}
 
 ### Load balancer events
 {: #events-load-balancers}
@@ -100,7 +100,7 @@ The following table lists the actions related to load balancers and the generati
 | Rule |  is.load-balancer.load-balancer.listener.policy.rule.create | Rule was created |
 | Rule |  is.load-balancer.load-balancer.listener.policy.rule.update | Rule was updated |
 | Rule |  is.load-balancer.load-balancer.listener.policy.rule.delete | Rule was deleted |
-{: caption="Table 5. Actions that generate events for load balancers" caption-side="top"}
+{: caption="Table 4. Actions that generate events for load balancers" caption-side="top"}
 
 Load balancer auditing events are recorded to {{site.data.keyword.at_full}} in the `us-south` region. The region in which you provision the load balancer service does not matter.
 {:note}
@@ -114,7 +114,7 @@ Load balancer auditing events are recorded to {{site.data.keyword.at_full}} in t
 | public-gateway | is.public-gateway.public-gateway.update   | Public Gateway was updated   |
 | public-gateway | is.public-gateway.public-gateway.delete   | Public Gateway was deleted   |
 | public-gateway | is.public-gateway.public-gateway.read | One or more public gateway was retrieved  |
-{: caption="Table 6. Actions that generate events for Public Gateway" caption-side="top"}
+{: caption="Table 5. Actions that generate events for Public Gateway" caption-side="top"}
 
 ### Security group events
 {: #events-network-security-group}
@@ -132,7 +132,7 @@ Load balancer auditing events are recorded to {{site.data.keyword.at_full}} in t
 | security-group | is.security-group.security-group-interface.attach | Interface was attached to Security Group   |
 | security-group | is.security-group.security-group-interface.detach | Interface was removed from Security Group   |
 | security-group | is.security-group.security-group-interface.read | One or more security group interface was retrieved |
-{: caption="Table 7. Actions that generate events for Security Group" caption-side="top"}
+{: caption="Table 6. Actions that generate events for Security Group" caption-side="top"}
 
 ### Subnet events
 {: #events-network-subnet}
@@ -147,7 +147,7 @@ Load balancer auditing events are recorded to {{site.data.keyword.at_full}} in t
 | subnet   | is.subnet.public-gateway.attach  | Public Gateway was attached to Subnet  |
 | subnet   | is.subnet.public-gateway.detach  | Public Gateway was detached from Subnet  |
 | subnet   | is.subnet.public-gateway.read | A subnet public-gateway attachment was retrieved |
-{: caption="Table 8. Actions that generate events for Subnet" caption-side="top"}
+{: caption="Table 7. Actions that generate events for Subnet" caption-side="top"}
 
 ### Virtual private endpoints (Beta) events
 {: #events-vpe}
@@ -159,7 +159,7 @@ The following table lists the actions that are related to Virtual Private Endpoi
 | endpoint-gateway | is.endpoint-gateway.endpoint-gateway.create | Endpoint gateway was created |
 | endpoint-gateway | is.endpoint-gateway.endpoint-gateway.delete | Endpoint gateway was deleted |
 | endpoint-gateway | is.endpoint-gateway.endpoint-gateway.update | Endpoint gateway was updated |
-{: caption="Table 9. Actions that generate events for Virtual Private Endpoints (VPEs)" caption-side="top"}
+{: caption="Table 8. Actions that generate events for Virtual Private Endpoints (VPEs)" caption-side="top"}
 
 ### VPC events
 {: #events-network-vpc}
@@ -177,44 +177,44 @@ The following table lists the actions that are related to Virtual Private Endpoi
 | vpc  | is.vpc.vpc-route.create   | Route was added to VPC   |
 | vpc  | is.vpc.vpc-route.update   | VPC Route was updated  |
 | vpc  | is.vpc.vpc-route.delete   | Route was removed from VPC   |
-{: caption="Table 10. Actions that generate events for VPC" caption-side="top"}
+{: caption="Table 9. Actions that generate events for VPC" caption-side="top"}
 
 ### VPN events
 {: #events-vpns}
 
 The following table lists the actions that are related to VPNs and the generation of events.
 
-| Resource  | Action  | Description  |
-|:----------------|:-----------------------|:-----------------------|
-| vpn  | is.vpn.vpn-gateway.create   | VPN Gateway was created |
-| vpn  | is.vpn.vpn-gateway.delete   | VPN Gateway was deleted |
-| vpn  | is.vpn.vpn-gateway.update   | VPN Gateway was updated |
-| vpn  | is.vpn.vpn-gateway.read   | VPN Gateway was retrieved |
-| vpn  | is.vpn.vpn-gateway.list   | VPN Gateways were listed |
-| vpn  | is.vpn.vpn-connection.create   | VPN connection was created on VPN Gateway |
-| vpn  | is.vpn.vpn-connection.delete   | VPN connection was deleted from VPN Gateway |
-| vpn  | is.vpn.vpn-connection.update   | VPN connection was updated on VPN Gateway |
-| vpn  | is.vpn.vpn-connection.read   | VPN connection was retrieved from VPN Gateway |
-| vpn  | is.vpn.vpn-connection.list   | VPN connections were listed |
-| vpn  | is.vpn.vpn-connection_local-cidr.create   | Local subnet was created on VPN Connection |
-| vpn  | is.vpn.vpn-connection_local-cidr.delete   | Local subnet was deleted from VPN Connection |
-| vpn  | is.vpn.vpn-connection_local-cidr.read   | Local subnet was retrieved from VPN Connection |
-| vpn  | is.vpn.vpn-connection_local-cidr.list   | Local subnets were listed from VPN Connection |
-| vpn  | is.vpn.vpn-connection_peer-cidr.create   | Peer subnet was created on VPN Connection |
-| vpn  | is.vpn.vpn-connection_peer-cidr.delete   | Peer subnet was deleted from VPN Connection |
-| vpn  | is.vpn.vpn-connection_peer-cidr.read   | Peer subnet was retrieved from VPN Connection |
-| vpn  | is.vpn.vpn-connection_peer-cidr.list   | Peer subnets were listed from VPN Connection |
-| vpn  | is.vpn.ike-policy.create   | IKE policy was created |
-| vpn  | is.vpn.ike-policy.delete   | IKE policy was deleted |
-| vpn  | is.vpn.ike-policy.update   | IKE policy was updated |
-| vpn  | is.vpn.ike-policy.read   | IKE policy was retrieved |
-| vpn  | is.vpn.ike-policy.list   | IKE policies were listed |
-| vpn  | is.vpn.ipsec-policy.create   | IPsec policy was created |
-| vpn  | is.vpn.ipsec-policy.delete   | IPsec policy was deleted |
-| vpn  | is.vpn.ipsec-policy.update   | IPsec policy was updated |
-| vpn  | is.vpn.ipsec-policy.read   | IPsec policy was retrieved |
-| vpn  | is.vpn.ipsec-policy.list   | IPsec policies were listed |
-{: caption="Table 11. Actions that generate events for VPNs" caption-side="top"}
+| Resource  | Action  | Data Event | Description  |
+|:----------------|:-----------------------|:--------------|:-----------------------|
+| vpn  | is.vpn.vpn-gateway.create   | | VPN gateway was created |
+| vpn  | is.vpn.vpn-gateway.delete   | | VPN gateway was deleted |
+| vpn  | is.vpn.vpn-gateway.update   | | VPN gateway was updated |
+| vpn  | is.vpn.vpn-gateway.read   | | VPN gateway was retrieved |
+| vpn  | is.vpn.vpn-gateway.list   | | VPN gateways were listed |
+| vpn  | is.vpn.vpn-connection.create   | Yes | VPN connection was created on VPN gateway |
+| vpn  | is.vpn.vpn-connection.delete   | Yes | VPN connection was deleted from VPN gateway |
+| vpn  | is.vpn.vpn-connection.update   | Yes | VPN connection was updated on VPN gateway |
+| vpn  | is.vpn.vpn-connection.read   | Yes | VPN connection was retrieved from VPN gateway |
+| vpn  | is.vpn.vpn-connection.list   | | VPN gateway connections were listed |
+| vpn  | is.vpn.vpn-connection_local-cidr.create   | | Local subnet was created on VPN gateway connection |
+| vpn  | is.vpn.vpn-connection_local-cidr.delete   | | Local subnet was deleted from VPN gateway connection |
+| vpn  | is.vpn.vpn-connection_local-cidr.read   | | Local subnet was retrieved from VPN gateway connection |
+| vpn  | is.vpn.vpn-connection_local-cidr.list   | | Local subnets were listed from VPN gateway connection |
+| vpn  | is.vpn.vpn-connection_peer-cidr.create   | | Peer subnet was created on VPN gateway connection |
+| vpn  | is.vpn.vpn-connection_peer-cidr.delete   | | Peer subnet was deleted from VPN gateway connection |
+| vpn  | is.vpn.vpn-connection_peer-cidr.read   | | Peer subnet was retrieved from VPN gateway connection |
+| vpn  | is.vpn.vpn-connection_peer-cidr.list   | | Peer subnets were listed from VPN gateway connection |
+| vpn  | is.vpn.ike-policy.create   | | IKE policy was created |
+| vpn  | is.vpn.ike-policy.delete   | | IKE policy was deleted |
+| vpn  | is.vpn.ike-policy.update   | | IKE policy was updated |
+| vpn  | is.vpn.ike-policy.read   | | IKE policy was retrieved |
+| vpn  | is.vpn.ike-policy.list   | | IKE policies were listed |
+| vpn  | is.vpn.ipsec-policy.create   | | IPsec policy was created |
+| vpn  | is.vpn.ipsec-policy.delete   | | IPsec policy was deleted |
+| vpn  | is.vpn.ipsec-policy.update   | | IPsec policy was updated |
+| vpn  | is.vpn.ipsec-policy.read   | | IPsec policy was retrieved |
+| vpn  | is.vpn.ipsec-policy.list   | | IPsec policies were listed |
+{: caption="Table 10. Actions that generate events for VPNs" caption-side="top"}
 
 ## Compute resources
 {: #events-compute}
@@ -245,7 +245,7 @@ The following tables list the actions related to compute resources and the gener
 | instance   | is.instance.network-interface.delete   | Instance network interface was deleted (Instance was detached from a subnet)  |
 | instance | is.instance.network-interface.read | One or more instance network interface was retrieved |
 | instance | is.instance.network-interface_floating-ip.read | One or more floating ip under an instance network interface was retrieved |
-{: caption="Table 12. Actions that generate events for Instance" caption-side="top"}
+{: caption="Table 11. Actions that generate events for Instance" caption-side="top"}
 
 ### Key events
 {: #events-compute-key}
@@ -256,7 +256,7 @@ The following tables list the actions related to compute resources and the gener
 | key  | is.key.key.delete   | Key was deleted  |
 | key  | is.key.key.update   | Key was updated  |
 | key | is.key.key.read | One or more key was retrieved |
-{: caption="Table 13. Actions that generate events for Key" caption-side="top"}
+{: caption="Table 12. Actions that generate events for Key" caption-side="top"}
 
 ### Dedicated host events
 {: #events-compute-dedicated-host}
@@ -267,7 +267,7 @@ The following tables list the actions related to compute resources and the gener
 | dedicated-host | is.dedicated-host.dedicated-host.update | Dedicated host was updated |
 | dedicated-host | is.dedicated-host.dedicated-host.delete  |Dedicated host was deleted |
 | dedicated-host | is.dedicated-host.dedicated-host.read | One or more dedicated host was retrieved |
-{: caption="Table 14. Actions that generate events for Dedicated Host" caption-side="top"}
+{: caption="Table 13. Actions that generate events for Dedicated Host" caption-side="top"}
 
 ### Dedicated host group events
 {: #events-compute-dedicated-host-group}
@@ -278,7 +278,7 @@ The following tables list the actions related to compute resources and the gener
 | dedicated-host-group  | is.dedicated-host.dedicated-host-group.update | Dedicated host group was updated |
 | dedicated-host-group  | is.dedicated-host.dedicated-host-group.delete | Dedicated host group was deleted |
 | dedicated-host-group  | is.dedicated-host.dedicated-host-group.read | One or more dedicated host group was retrieved |
-{: caption="Table 15. Actions that generate events for Dedicated Host Group" caption-side="top"}
+{: caption="Table 14. Actions that generate events for Dedicated Host Group" caption-side="top"}
 
 ### Instance group events
 {: #events-compute-instance-group}
@@ -307,7 +307,7 @@ The following tables list the actions related to compute resources and the gener
 | instance-group  | is.instance-group.membership.update   | Instance group membership was updated  |
 | instance-group  | is.instance-group.membership.read     | Instance group membership was retrieved |
 | instance-group  | is.instance-group.instance.create     | Instance group instance was created |
-{: caption="Table 16. Actions that generate events for Instance Group" caption-side="top"}
+{: caption="Table 15. Actions that generate events for Instance Group" caption-side="top"}
 
 ## Image resources
 {: #events-images}
@@ -319,7 +319,7 @@ The following table lists the actions related to image resources and the generat
 | image  | is.image.image.create   | Image was created |
 | image  | is.image.image.delete   | Image was deleted |
 | image  | is.image.image.update   | Image was updated |
-{: caption="Table 17. Actions that generate events for image resources" caption-side="top"}
+{: caption="Table 16. Actions that generate events for image resources" caption-side="top"}
 
 ## Storage resources
 {: #events-storage}
@@ -332,7 +332,7 @@ The following table lists the actions related to volume resources and the genera
 | volume  | is.volume.volume.update  | Volume was updated  |
 | volume  | is.volume.volume.delete  | Volume was deleted  |
 | volume  | is.volume.volume.read    | One or more volumes were retrieved  |
-{: caption="Table 18. Actions that generate events for storage resources" caption-side="top"}
+{: caption="Table 17. Actions that generate events for storage resources" caption-side="top"}
 
 An event will not contain a volume name if there was no information available at the time of the event. For example, when you make a request to create a volume but do not provide a volume name, the information will not be available and will not appear in the event.
 {:note}
