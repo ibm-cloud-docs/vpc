@@ -28,6 +28,7 @@ Virtual Private Cloud
         vsi_is_profiles.md
         vsi_is_ssh_keys_about.md
         vsi_is_provisioning_scripts.md
+        vsi_is_instance_vnics.md
 
     {: .topicgroup}
     Storage
