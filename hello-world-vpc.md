@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-03-23"
+lastupdated: "2020-08-27"
 
 keywords: cli, command line interface, tutorial, creating a vpc
 
@@ -209,6 +209,9 @@ Create an instance in the newly created subnet. Pass in your public SSH key so t
 ibmcloud is instance-create my-instance $vpc us-south-3 bx2-2x8 $subnet --image-id $image --key-ids $key
 ```
 {: pre}
+
+Information about the network interface that is created for the new instance is not returned after the instance is created.
+{: note}
 
 From the output that's returned, save the ID of the instance in a variable so you can use it later, for example:
 
