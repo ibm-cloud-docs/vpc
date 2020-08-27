@@ -72,6 +72,7 @@ The following compute profiles are available for x86_64 processors:
 | cx2-8x16 | 8 | 16 | 16 |
 | cx2-16x32 | 16 | 32 | 32 |
 | cx2-32x64 | 32  | 64 | 64 |
+| cx2-48x96 | 48  | 96 | 80 |
 {: caption="Table 3. x86-64 compute profile options" caption-side="top"}
 
 ## Memory
