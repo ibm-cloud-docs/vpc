@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-08-11"
+lastupdated: "2020-08-27"
 
 keywords: instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, vpc, creating, CLI, command line interface, generation 2, gen 2
 
@@ -16,6 +16,7 @@ subcollection: vpc
 {:screen: .screen}
 {:new_window: target="_blank"}
 {:pre: .pre}
+{:note: .note}
 {:tip: .tip}
 {:table: .aria-labeledby="caption"}
 {:DomainName: data-hd-keyref="DomainName"}
@@ -208,32 +209,37 @@ After you know these values, use them to run the `instance-create` command. In a
 
    For this example, you'd see the following responses. **Note:** The following response varies depending on what optional values you use. 
    ```
-   ID                0738-2x12xxx5-xx11-1234-x4x5-1xxx12345678   
-   Name              my-instance   
-   Profile           B_2X4   
-   Gen                  
-   CPU Arch          amd64   
-   CPU Cores         2   
-   CPU Frequency     2000   
-   Memory            4   
-   Primary Intf      great-scott-stride-lilac-captivate-filtrate(xx12x345-5bxx-1x23-458x-1x2xxx345x6x)   
-   Primary Address   172.16.1.4   
-   Image             ubuntu-16.04-amd64(0738-7eb4e35b-4257-56f8-d7da-326d85452591)   
-   Profile           -   
-   Status            pending   
-   Created           now   
-   VPC               my-vpc(xxx1xx23-4xx5-6789-12x3-456xx7xx123x)   
-   Zone              us-south-1   
-   Volume Attachment my-volume-attachment (0738-xx55xx44-3xx1-1234-42x1-234xx5x678xx)
-   Resource Group    -   
-   Tags              -   
+   ID                           0738-2x12xxx5-xx11-1234-x4x5-1xxx12345678
+   Name                         my-instance
+   Status                       pending
+   Profile                      b-2x4
+   Architecture                 amd64
+   vCPUs                        2
+   Memory                       4
+   Network Performance (Gbps)   4
+   Image                        ID                                          Name
+                                0738-7eb4e35b-4257-56f8-d7da-326d85452591   ubuntu-16.04-amd64
+
+   VPC                          ID                                          Name
+                                xxx1xx23-4xx5-6789-12x3-456xx7xx123x        my-vpc
+
+   Zone                         us-south-1
+   Resource group               Default
+   Created                      2020-08-24T20:25:50+08:00
+   Boot volume                  ID   Name           Attachment ID                               Attachment name
+                                -    PROVISIONING   0736-76436447-3262-4b3d-8b42-aa3fbb5927f6   volume-attachment
+   Data volumes                 ID                                          Name        Attachment ID                               Attachment name
+                                r134-dd9cefce-8f3e-4a63-b92a-066c8505e25c   my-volume   0738-xx55xx44-3xx1-1234-42x1-234xx5x678xx   my-volume-attachment
    ```
    {:screen}
+   
+   Information about the network interfaces that are created for the new instance is not returned after the instance is created. You can view it using the command provided in **Step 2**.
+   {: note}
 
    The status displays pending until the instance is created.
    {: tip}
 
-2. When the status changes to *running*, verify that you can see your new instance.
+2. When the status changes to *running*, verify that you can see your new instance and view the network interfaces that were created for your new instance.
 
    ```
    ibmcloud is instance 2x12xxx5-xx11-1234-x4x5-1xxx12345678
@@ -242,42 +248,33 @@ After you know these values, use them to run the `instance-create` command. In a
 
    For this example, you'd see the following responses.
    ```
-   ID                0738-2x12xxx5-xx11-1234-x4x5-1xxx12345678   
-   Name              my-instance   
-   Profile           B_2X4   
-   Gen                  
-   CPU Arch          amd64   
-   CPU Cores         2   
-   CPU Frequency     2000   
-   Memory            4   
-   Primary Intf      great-scott-stride-lilac-captivate-filtrate(xx12x345-5bxx-1x23-458x-1x2xxx345x6x)   
-   Primary Address   172.16.1.4  
-   Image             ubuntu-16.04-amd64(0738-7eb4e35b-4257-56f8-d7da-326d85452591)   
-   Profile           -   
-   Status            running   
-   Created           5 minutes ago   
-   VPC               my-vpc(xxx1xx23-4xx5-6789-12x3-456xx7xx123x)   
-   Zone              us-south-1   
-   Volume Attachment my-volume-attachment (0738-xx55xx44-3xx1-1234-42x1-234xx5x678xx)
-   Resource Group    -   
-   Tags              -
+   ID                           0738-2x12xxx5-xx11-1234-x4x5-1xxx12345678
+   Name                         my-instance
+   Status                       running
+   Profile                      b-2x4
+   Architecture                 amd64
+   vCPUs                        2
+   Memory                       4
+   Network Performance (Gbps)   4
+   Image                        ID                                          Name
+                                0738-7eb4e35b-4257-56f8-d7da-326d85452591   ubuntu-16.04-amd64
+
+   VPC                          ID                                          Name
+                                xxx1xx23-4xx5-6789-12x3-456xx7xx123x        my-vpc
+
+   Zone                         us-south-1
+   Resource group               Default
+   Created                      2020-08-24T20:25:50+08:00
+   Network Interfaces           Interface   Name      ID                                          Subnet      Subnet ID                                       Private IP     Floating IP   Security Groups
+                                Primary     primary   0738-xx12x345-6xxx-7x89-123x-4x5xxx678x9x   my-subnet   0736-a50f4dbb-d374-492f-a8bf-877b4cbd8921   10.240.128.5   -             ajar-arrive-urging-daylong    
+   Boot volume                  ID   Name           Attachment ID                               Attachment name
+                                -    PROVISIONING   0736-76436447-3262-4b3d-8b42-aa3fbb5927f6   volume-attachment
+   Data volumes                 ID                                          Name        Attachment ID                    Attachment name
+                                r134-dd9cefce-8f3e-4a63-b92a-066c8505e25c   my-volume   0738-xx55xx44-3xx1-1234-42x1-234xx5x678xx my-volume-attachment
    ```
    {:screen}
 
-3. View the network interfaces that were created for your new instance.
-   ```
-   ibmcloud is instance-network-interfaces 2x12xxx5-xx11-1234-x4x5-1xxx12345678
-   ```
-   {:pre}
-
-   For this example, you'd see the following responses.
-   ```
-   ID                                          Name                                            Type     Subnet CIDR                    Primary Address   Speed   SecAddr   SecGrps   FloatIPs   Created          Status   Resource Group   
-   0738-xx12x345-6xxx-7x89-123x-4x5xxx678x9x   great-scott-stride-lilac-captivate-filtrate     -        my-subnet(1234x12x-.)          172.16.1.4        100     -         -         {...}      10 seconds ago   -        -   
-   ```
-   {:screen}
-
-4. Request a floating IP address to associate to your instance.
+3. Request a floating IP address to associate to your instance.
 
    ```
    ibmcloud is floating-ip-reserve \
