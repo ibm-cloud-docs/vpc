@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-19"
+lastupdated: "2020-08-27"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, GPU, power, generation 2, gen 2
 
@@ -90,6 +90,7 @@ The following memory profiles are available for x86_64 processors:
 | mx2-8x64 | 8 | 64 | 16 |
 | mx2-16x128 | 16 | 128 | 32 |
 | mx2-32x256 | 32 | 256 | 64 |
+| mx2-48x384 | 48 | 384 | 80 |
 {: caption="Table 4. x86-64 memory profile options" caption-side="top"}
 
 <!--## GPU (deprecated with POWER-based instances)
