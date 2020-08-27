@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-23"
+lastupdated: "2020-08-27"
 
 keywords: vpc network, VRF, router, hypervisor, address prefixes, classic access, implicit router, packet flows, NAT, data flows
 
@@ -32,7 +32,7 @@ VPC network isolation takes place at three levels:
 
 * **Hypervisor**: The VSIs (virtual server instances) are isolated by the hypervisor itself. A VSI can not directly reach other VSIs hosted by the same hypervisor if they are not in the same VPC.
 
-* **Network**: Isolation occurs at the network level through the use of **virtual network identifiers** (VNIs). These identifiers are scoped to the local zone. These VNIs are added to all data packets entering any zone of the VPC: entering either from the hypervisor, when sent by a VSI, or entering the zone from the cloud, when sent by the implicit routing function.
+* **Network**: Isolation occurs at the network level through the use of **virtual network identifiers** (VNIs). These identifiers are assigned to each subnet and scoped to a single zone. A VNI is added to all data packets entering any zone of the VPC: entering either from the hypervisor, when sent by a VSI, or entering the zone from the cloud, when sent by the implicit routing function.
 
 A packet leaving a zone has the VNI stripped off. When the packet reaches its destination zone, entering through the implicit routing function, the implicit router always adds the proper VNI for that zone.
 {: note}
