@@ -26,6 +26,18 @@ subcollection: vpc
 Use these release notes to learn about the latest changes to {{site.data.keyword.vpc_full}}.
 {:shortdesc}
 
+## 27 August 2020
+{: #august-27-2020}
+
+- **Large Profiles (GA):** The following two 48-core profiles are now generally available:
+    * cx2-48x96
+    * mx2-48x384 
+  For more information, see [Profiles](/docs/vpc?topic=vpc-profiles).
+
+- **UI enhancements:**
+    - New design for the VPC Overview page and generation switcher.
+    - Updated load balancer page to include auto scale enablement.   
+
 ## 24 August 2020
 {: #august-24-2020}
 
