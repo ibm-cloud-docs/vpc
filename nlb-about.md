@@ -113,6 +113,10 @@ Known limitations for network load balancer are as follows:
 * All members associated with a network load balancer must be in the same zone as the load balancer.
 * Two members with the same instance X and same port Y cannot exist at the same time for application and network load balancer. This case is not supported and your traffic might not be routed correctly.
 
+## Layer-4 load balancing
+{: #nlb-layer4}
+Network Load balancer provides a Layer-4 (known as the transport layer) load balancing service to user’s servers in VPC. It makes decision based on the source and destination IP addressed and port in the packed header, and no check will be performed on the contents of the packet. Then, this Layer-4 load balancer requests less computation comparing to another sophisticated load balancer, such as Layer-7. The usage of CPU and memory will be more sufficient and faster.  
+
 ## Related links
 {: #nlb-permissions-related-links}
 
