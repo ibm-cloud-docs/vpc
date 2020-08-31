@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-24"
+lastupdated: "2020-08-31"
 
 subcollection: vpc
 
@@ -59,7 +59,7 @@ For more information about how it works, see [Auto Scale for VPC](/docs/vpc?topi
 {: faq}
 
 You can check the required permissions for actions on instance templates, instance groups, instance group managers, 
-memberships, and policies in the [Required permissions for VPC resources](docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls). 
+memberships, and policies in the [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls). 
 For more information about using {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) to assign users access, 
 see [Granting user permissions for VPC resources](/docs/vpc?topic=vpc-managing-user-permissions-for-vpc-resources).
 
