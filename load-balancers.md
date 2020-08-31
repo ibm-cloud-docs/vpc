@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-11"
+lastupdated: "2020-08-31"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network
 
@@ -27,10 +27,10 @@ subcollection: vpc
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Load balancers overview
+# Load balancers for VPC overview
 {: #nlb-vs-elb}
 
-There are several differences between {{site.data.keyword.cloud}} Application Load Balancer and Network Load Balancer to be aware of when choosing one or the other for your needs.
+{{site.data.keyword.cloud_notm}} provides two families of load balancers for VPC, Application Load Balancer and Network Load Balancer. There are several differences between the two to be aware of when choosing one for your needs. 
 {: shortdesc}
 
 {{site.data.keyword.cloud_notm}} provides public- and private-facing application load balancers. An application load balancer provides Layer-7 and Layer-4 load balancing on {{site.data.keyword.cloud_notm}} and supports SSL offloading. The incoming and outgoing packets flow through the load balancer.
@@ -48,13 +48,13 @@ The following table provides a comparison of the two types of load balancers.
 |                             | Network load balancer    | Application load balancer            |
 |-----------------------------|------------------|--------------------|
 | HA mode                     | Active-standby (with single VIP)   |  Active-active (with multiple VIPs assigned to a DNS name) |
-| Monitoring metrics with Sysdig | Not in beta<br />(coming soon) | Yes |
+| Monitoring metrics with Sysdig | Yes | Yes |
 | Multi-zone support | No (see [Multi-zone support](/docs/vpc?topic=vpc-nlb-vs-elb#nlb-mz-support)) | Yes |     
 | Source IP address is preserved | Yes | No |
 | SSL offloading              | No              | Yes |
 | Supported protocols         | TCP | HTTPS, HTTP, TCP  |
 | Transport layer             | Layer-4         | Layer-4, Layer-7 |
-| Types of load balancers | Public only for beta | Public and private |
+| Types of load balancers | Public | Public and private |
 | Virtual IP Address (VIP)    | Single    | Multiple |
 {: caption="Table 1. Comparison of network and application load balancers" caption-side="top"}
 
@@ -77,16 +77,27 @@ The application load balancer can be configured to span multiple zones. The back
 
 IBM Cloud Application Load Balancer and Network Load Balancer both integrate with Private Catalog to centrally manage access to products in the IBM Cloud® catalog and your own catalogs. You can customize your private catalogs to allow or disallow load balancer provisioning to specific users in your account. For more information, see [Private Catalog](/docs/account?topic=account-restrict-by-user).
 
-## Application load balancer data flow path
+## Application load balancer data flow
 {: #alb-data-flow}
+
+A client makes a request using the fully quantified domain name registered to the load balancer instance. A DNS server handles the request and distributes the traffic in a round robin fashion to the appliances. The appliances then accept the request and route it to a backend server. Eventually the backend server responds, and the response flows back through the load balancer, then back to the client.
 
 ![ALB traffic flow](images/alb-datapath.png)
 
 ## Network load balancer data flow
-{: #nlb-management-access-data-flow}
+{: #nlb-data-flow}
 
-The load balancer control plane configures the network load balancer through RESTful APIs using the floating IPs in the management port. The NLB belongs to the VPC load balancer service account; however, it is provisioned such that the VPC and subnet belong to your account. Each network load balancer has a single network interface with a floating IP address for load balancing traffic.
+The client sends the TCP request to the network load balancer. The client source IP is preserved
+after the network load balancer forwards the request to the backend target. Once the target
+generates the response, the response is sent directly to the client using DSR (Direct Server
+Return).
 
-![Network load balancer Architecture](images/nlb-workflow-customer-view.png "Network load balancer architecture"){: caption="nNetwork load balancer work flow" caption-side="top"}
+![Network load balancer traffic flow](images/nlb-datapath.png)
 
-For more information about how data is stored and encrypted, see [Data is stored and encrypted](/docs/vpc?topic=vpc-load-balancers#load-balancer-data-stored-encryted).
+## Related links
+{: #lb-related-links}
+
+* [Load balancer API reference](https://{DomainName}/apidocs/nlb-beta)
+* [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
+* [Activity Tracker with LogDNA events](/docs/vpc?topic=vpc-at-events)
+* [Quotas](/docs/wanclouds-vpc-plus?topic=vpc-quotas#vpn-quotas)

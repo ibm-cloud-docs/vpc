@@ -28,10 +28,10 @@ subcollection: vpc
 # Working with pools
 {: #nlb-pools}
 
-The {{site.data.keyword.cloud}} Network Load Balancer pool is a group of backend targets that receive the inbound customer traffic from the load balancer and provide your outbound traffic response. The pool has a protocol, a load balancing algorithm, the back end targets (VPC instances), the health checks for the back end targets, and the session stickiness.
+The {{site.data.keyword.cloud}} Network Load Balancer (NLB) for VPC pool is a group of backend targets that receive the inbound customer traffic from the load balancer and provide your outbound traffic response. The pool has a protocol, a load balancing algorithm, the back end targets (VPC instances), the health checks for the back end targets, and the session stickiness.
 {: shortdesc}
 
-You can configure pools when [creating your load balancer](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#nlb-ui), or afterwards using the following procedure:
+You can configure pools when [creating your load balancer](/docs/vpc?topic=vpc-nlb-ui), or afterwards using the following procedure:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){:external} and log in to your account.
 
@@ -47,4 +47,4 @@ You can configure pools when [creating your load balancer](/docs/vpc?topic=vpc-c
   * **Protocol**: The network traffic protocol for your traffic.
   * **Method**: The load balancing algorithm for the pool.
   * **Session stickiness**: Whether or not all requests during a user's session are sent to the same instance.
-  * **Health check**: Information on health checks can be found [here](/docs/vpc?topic=vpc-nlb-health-checks#nlb-health-checks).
+  * **Health check**: For information about configuring health checks, see [Working with health checks](/docs/vpc?topic=vpc-nlb-health-checks#nlb-health-checks).

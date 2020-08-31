@@ -130,13 +130,17 @@ Virtual Private Cloud
             lb-api.md
 
         {: .topicgroup}
-        Network load balancers (Beta)
+        Network load balancers
             nlb-about.md
+            nlb-create.md
+            nlb-update.md
+            nlb-delete.md
+            nlb-configure-acls-sgs.md
             nlb-health-checks.md
             nlb-listeners.md
             nlb-pools.md
             nlb-monitoring-metrics.md
-            nlb-api.md
+            nlb-limitations.md
 
     {: .topicgroup}
     Virtual Private Endpoints (Beta)
@@ -236,10 +240,10 @@ Virtual Private Cloud
     {: .topicgroup}
     FAQs
         faq-vpc.md
-        lb-faqs.md
         faq-auto-scale.md
         block_storage_is_faq.md
         fl-faq.md
+        lb-faqs.md
         nlb-faqs.md
         vpe-faqs.md
         faq-vsi.md
