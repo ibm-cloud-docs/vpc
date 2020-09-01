@@ -30,7 +30,7 @@ subcollection: vpc
 # Load balancers for VPC overview
 {: #nlb-vs-elb}
 
-{{site.data.keyword.cloud_notm}} provides two families of load balancers for VPC, Application Load Balancer and Network Load Balancer. There are several differences between the two to be aware of when choosing one for your needs. 
+{{site.data.keyword.cloud_notm}} provides two families of load balancers for VPC, Application Load Balancer and Network Load Balancer. There are several differences between the two to be aware of when choosing one for your needs.
 {: shortdesc}
 
 {{site.data.keyword.cloud_notm}} provides public- and private-facing application load balancers. An application load balancer provides Layer-7 and Layer-4 load balancing on {{site.data.keyword.cloud_notm}} and supports SSL offloading. The incoming and outgoing packets flow through the load balancer.
@@ -97,7 +97,7 @@ Return).
 ## Related links
 {: #lb-related-links}
 
-* [Load balancer API reference](https://{DomainName}/apidocs/nlb-beta)
+* [Load balancer API reference](https://{DomainName}/apidocs/vpc#list-all-load-balancers)
 * [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
 * [Activity Tracker with LogDNA events](/docs/vpc?topic=vpc-at-events)
-* [Quotas](/docs/wanclouds-vpc-plus?topic=vpc-quotas#vpn-quotas)
+* [Quotas](/docs/wanclouds-vpc-plus?topic=vpc-quotas#load-balancer-quotas)

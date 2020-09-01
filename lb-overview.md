@@ -221,4 +221,4 @@ There is one limitation for an application load balancer:
 * [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
 * [Activity Tracker with LogDNA events](/docs/vpc?topic=vpc-at-events)
 * [FAQs for application load balancers](/docs/vpc?topic=vpc-load-balancer-faqs)
-* [Quotas](/docs/wanclouds-vpc-plus?topic=vpc-quotas#vpn-quotas)
+* [Quotas](/docs/wanclouds-vpc-plus?topic=vpc-quotas#load-balancer-quotas)
