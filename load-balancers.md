@@ -99,5 +99,5 @@ Return).
 
 * [Load balancer API reference](https://{DomainName}/apidocs/vpc#list-all-load-balancers)
 * [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
-* [Activity Tracker with LogDNA events](/docs/vpc?topic=vpc-at-events)
+* [Activity Tracker with LogDNA events](/docs/vpc?topic=vpc-at-events#events-load-balancers)
 * [Quotas](/docs/wanclouds-vpc-plus?topic=vpc-quotas#load-balancer-quotas)
