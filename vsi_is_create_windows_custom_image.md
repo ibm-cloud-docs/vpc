@@ -35,7 +35,7 @@ Your image must adhere to the following custom image requirements:
 * The operating system is supported as a stock image operating system
 * Size doesn't exceed 100 GB
 
-Encrypted images aren't supported for custom images.
+After your custom image is created, you can [encrypt](/docs/vpc?topic=vpc-create-encrypted-custom-image) it by using the encryption support that is available in beta.
 {: note}
 
 The following procedure describes how to create a Windows custom image that can be successfully deployed in the {{site.data.keyword.vpc_short}} infrastructure environment. The procedure encompasses these high-level tasks:
@@ -64,60 +64,60 @@ Complete the following steps to create a Windows custom image.
     5. Modify the cloudbase-init configuration file, `C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\cloudbase-init.conf` to match the values shown in the following example. 
    
          ```
-         [DEFAULT]
-         username=Administrator
-         groups=Administrators
-         inject_user_password=true
-         first_logon_behaviour=no
-         config_drive_types=vfat
-         config_drive_locations=hdd
-         bsdtar_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\bsdtar.exe
-         mtools_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\
-         verbose=true
-         debug=true
-         logdir=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\log\
-         logfile=cloudbase-init.log
-         default_log_levels=comtypes=INFO,suds=INFO,iso8601=WARN,requests=WARN
-         logging_serial_port_settings=
-         mtu_use_dhcp_config=false
-         ntp_use_dhcp_config=false
-         local_scripts_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\
-         metadata_services=cloudbaseinit.metadata.services.configdrive.ConfigDriveService
-         activate_windows=true
-         kms_host=kms.adn.networklayer.com:1688
-         check_latest_version=false
+          [DEFAULT]
+          #  "cloudbase-init.conf" is used for every boot
+          config_drive_types=vfat
+          config_drive_locations=hdd
+          activate_windows=true
+          kms_host=kms.adn.networklayer.com:1688
+          mtu_use_dhcp_config=false
+          real_time_clock_utc=false
+          bsdtar_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\bsdtar.exe
+          mtools_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\
+          debug=true
+          log_dir=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\log\
+          log_file=cloudbase-init.log
+          default_log_levels=comtypes=INFO,suds=INFO,iso8601=WARN,requests=WARN
+          local_scripts_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\
+          metadata_services=cloudbaseinit.metadata.services.configdrive.ConfigDriveService
+          # enabled plugins - executed in order
+          plugins=cloudbaseinit.plugins.common.mtu.MTUPlugin,
+                  cloudbaseinit.plugins.windows.ntpclient.NTPClientPlugin,
+                  cloudbaseinit.plugins.windows.licensing.WindowsLicensingPlugin,
+                  cloudbaseinit.plugins.windows.extendvolumes.ExtendVolumesPlugin,
+                  cloudbaseinit.plugins.common.userdata.UserDataPlugin,
+                  cloudbaseinit.plugins.common.localscripts.LocalScriptsPlugin
          ```
          {: screen}
         
     6. Modify the `cloudbase-init-unattend.conf` file in `C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\cloudbase-init-unattend.conf` to match the values shown in the following example.  
        
          ```
-         [DEFAULT]
-         username=Administrator
-         groups=Administrators
-         inject_user_password=true
-         first_logon_behaviour=no
-         config_drive_types=vfat
-         config_drive_locations=hdd
-         bsdtar_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\bsdtar.exe
-         mtools_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\
-         verbose=true
-         debug=true
-         logdir=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\log\
-         logfile=cloudbase-init-unattend.log
-         default_log_levels=comtypes=INFO,suds=INFO,iso8601=WARN,requests=WARN
-         logging_serial_port_settings=
-         mtu_use_dhcp_config=false
-         ntp_use_dhcp_config=false
-         local_scripts_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\
-         metadata_services=cloudbaseinit.metadata.services.configdrive.ConfigDriveService
-         plugins=cloudbaseinit.plugins.common.mtu.MTUPlugin,
-         cloudbaseinit.plugins.common.sethostname.SetHostNamePlugin,
-         cloudbaseinit.plugins.common.localscripts.LocalScriptsPlugin
-         allow_reboot=false
-         stop_service_on_exit=false
-         check_latest_version=false
-         activate_windows=true
+          [DEFAULT]
+          #  "cloudbase-init-unattend.conf" is used during the Sysprep phase
+          username=Administrator
+          inject_user_password=true
+          first_logon_behaviour=no
+          config_drive_types=vfat
+          config_drive_locations=hdd
+          allow_reboot=false
+          stop_service_on_exit=false
+          mtu_use_dhcp_config=false
+          bsdtar_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\bsdtar.exe
+          mtools_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\
+          debug=true
+          log_dir=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\log\
+          log_file=cloudbase-init-unattend.log
+          default_log_levels=comtypes=INFO,suds=INFO,iso8601=WARN,requests=WARN
+          local_scripts_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\
+          metadata_services=cloudbaseinit.metadata.services.configdrive.ConfigDriveService
+          # enabled plugins - executed in order
+          plugins=cloudbaseinit.plugins.common.mtu.MTUPlugin,
+                  cloudbaseinit.plugins.common.sethostname.SetHostNamePlugin,
+                  cloudbaseinit.plugins.windows.createuser.CreateUserPlugin,
+                  cloudbaseinit.plugins.windows.extendvolumes.ExtendVolumesPlugin,
+                  cloudbaseinit.plugins.common.setuserpassword.SetUserPasswordPlugin,
+                  cloudbaseinit.plugins.common.localscripts.LocalScriptsPlugin
          ```
          {: screen}
          
