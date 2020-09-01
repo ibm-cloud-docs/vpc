@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-07-16"
+lastupdated: "2020-09-01"
 
 keywords: region, zone, deploy, datacenter, data, center, federated, CLI, API, account, failover, disaster, recovery, DR
 
@@ -33,11 +33,12 @@ Virtual Private Cloud is available in the following {{site.data.keyword.cloud}} 
 
 |   Location     | Region | API Endpoint | 
 | ------- | :------: | :------: |
-| Dallas | us-south | `us-south.iaas.cloud.ibm.com`| 
-| Frankfurt | eu-de | `eu-de.iaas.cloud.ibm.com`| 
-| London | eu-gb | `eu-gb.iaas.cloud.ibm.com`|
-| Tokyo | jp-tok | `jp-tok.iaas.cloud.ibm.com` |
-| Washington DC | us-east | `us-east.iaas.cloud.ibm.com`|
+| US South (Dallas) | us-south | `us-south.iaas.cloud.ibm.com`| 
+| US East (Washington DC) | us-east | `us-east.iaas.cloud.ibm.com`| 
+| United Kingdom (London) | eu-gb | `eu-gb.iaas.cloud.ibm.com`|
+| EU Germany (Frankfurt) | eu-de | `eu-de.iaas.cloud.ibm.com`| 
+| Japan (Tokyo) | jp-tok | `jp-tok.iaas.cloud.ibm.com` |
+| Australia (Sydney) | au-syd | `au-syd.iaas.cloud.ibm.com` |
 
 The Regional API (VPC) endpoint is automatically set by the IBM Cloud CLI when you log in to a specific region.
 {: note}
