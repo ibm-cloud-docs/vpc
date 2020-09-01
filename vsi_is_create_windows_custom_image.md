@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-25"
+lastupdated: "2020-09-01"
 
 keywords: creating a Windows custom image, cloudbase-init, qcow2
 
@@ -84,7 +84,7 @@ Complete the following steps to create a Windows custom image.
          local_scripts_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\
          metadata_services=cloudbaseinit.metadata.services.configdrive.ConfigDriveService
          activate_windows=true
-         kms_host=161.26.20.4:1688
+         kms_host=kms.adn.networklayer.com:1688
          check_latest_version=false
          ```
          {: screen}
