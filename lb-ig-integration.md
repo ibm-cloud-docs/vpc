@@ -74,5 +74,5 @@ To create an instance group:
 * [Creating an instance group template](/docs/vpc?topic=vpc-creating-auto-scale-instance-group#creating-instance-template)
 * [Creating an instance group](/docs/vpc?topic=vpc-creating-auto-scale-instance-group#creating-instance-group)
 * [Creating scaling policies](/docs/vpc?topic=vpc-creating-auto-scale-instance-group#creating-scaling-policies)
-* [FAQs for application load balancer](/docs/vpc?topic=vpc-load-balancer-faqs)
+* [FAQs for application load balancers](/docs/vpc?topic=vpc-load-balancer-faqs)
 * [FAQs for auto scale](/docs/vpc?topic=vpc-faqs-auto-scale)
