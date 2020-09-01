@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-30"
+lastupdated: "2020-09-01"
 
 keywords: creating an encrypted custom image for vpc, qcow2
 
@@ -62,7 +62,10 @@ The custom image that you plan to encrypt must meet the custom image requirement
 * [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image)
 * [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image)
 
-To complete the encryption task you must have [QEMU](https://www.qemu.org/){: external} version 2.12 or later installed. 
+To complete the encryption task you must have [QEMU](https://www.qemu.org/){: external} version 2.12 or later installed.
+
+You must use a Linux or Windows operating system to complete the QEMU encryption instructions. Mac operating system is not supported. 
+{: important}
 
 Complete the following steps by using QEMU to create a second, encrypted qcow2 file of your custom image. 
 
