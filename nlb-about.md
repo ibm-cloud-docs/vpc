@@ -27,10 +27,10 @@ subcollection: vpc
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# About {{site.data.keyword.cloud_notm}} Network Load Balancer
+# About {{site.data.keyword.cloud_notm}} Network Load Balancer for VPC
 {: #network-load-balancers}
 
-You can use the {{site.data.keyword.cloud}} Network Load Balancer to distribute traffic among multiple server instances within the same region of your VPC.
+You can use the {{site.data.keyword.cloud}} Network Load Balancer for VPC to distribute traffic among multiple server instances within the same region of your VPC. 
 {:shortdesc}
 
 The following diagram illustrates the deployment architecture for a network load balancer.
@@ -136,4 +136,4 @@ Since Layer-4 load balancing requires fewer computations compared to more sophis
 * [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
 * [Activity Tracker with LogDNA events](/docs/vpc?topic=vpc-at-events#events-load-balancers)
 * [FAQs for network load balancers](/docs/vpc?topic=vpc-nlb-faqs)
-* [Quotas](/docs/wanclouds-vpc-plus?topic=vpc-quotas#load-balancer-quotas)
+* [Quotas](/docs/vpc?topic=vpc-quotas#load-balancer-quotas)

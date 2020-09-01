@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-28"
+lastupdated: "2020-08-31"
 
 keywords: network load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, delete
 
@@ -34,7 +34,7 @@ You can delete a {{site.data.keyword.cloud}} Network Load Balancer (NLB) by usin
 ## Using the UI
 {: #nlb-deleting-ui}
 
-To delete a network load balancer using the IBM Cloud console, perform the following procedure:
+To delete a network load balancer by using the IBM Cloud console, perform the following procedure:
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){:external}.
 1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg), then click **VPC Infrastructure > Load balancers** from the Network section. 
@@ -46,16 +46,16 @@ The Status for the load balancer now shows **Deleting**. Refresh the page to con
 ## Using the CLI
 {: #nlb-deleting-cli}
 
-To delete a network load balancer using the CLI, run the following command:
+To delete a network load balancer by using the CLI, run the following command:
 
   ```
   ibmcloud is load-balancer-delete <load_balancer_id> -f -q
   ```
-  {: codeblock}
+  {: pre}
 
 Where:
 
-* **LOAD_BALANCER_ID** is the ID of the load balancer (for example, `r134-99b5ab45-6357-42db-8b32-5d2c8aa62776`).
+* **load_balancer_id** is the ID of the load balancer (for example, `r134-99b5ab45-6357-42db-8b32-5d2c8aa62776`).
 * **--force, -f** forces the operation without confirmation.
 * **--quiet, -q** suppresses verbose output.
 
@@ -71,6 +71,8 @@ Deletion request for load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 has
 
 ## Using the API
 {: #nlb-deleting-api}
+
+To delete a network load balancer by using the API, perform the following procedure:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with
 the right variables. 

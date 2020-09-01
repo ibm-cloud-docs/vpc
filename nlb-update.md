@@ -32,7 +32,8 @@ You can update a {{site.data.keyword.cloud}} Network Load Balancer (NLB) for VPC
 
 ## Using the UI
 {: #nlb-updating-ui}
-To update a network load balancer, perform the following procedure:
+
+To update a network load balancer by using the {{site.data.keyword.cloud_notm}} console, perform the following procedure:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){:external} and log in to your account.
 1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**
@@ -52,7 +53,7 @@ The following example shows how to use the CLI to update your network load balan
   ```
   ibmcloud is load-balancer-pool-update r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 --algorithm least_connections 
   ```
-  {: codeblock}
+  {: pre}
 
 Sample output:
 
@@ -79,7 +80,7 @@ Sample output:
   ```
   ibmcloud is load-balancer-pool-member-update r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 r134-61f8b000-a90d-4abe-909e-c507dffec565 --port 6060 
   ```
-  {: codeblock}
+  {: pre}
 
 Sample output:
   ```
@@ -100,18 +101,19 @@ Sample output:
 
 The following example illustrates using the API to update the front-end listener port of a network load balancer. For example, if the front-end listener port was set to 80 and you want to update the port value to 90.
 
+To update a network load balancer by using the API, perform the following procedure:
+
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
 2. Get the listener id that you will need for the update by doing the following:
 
   Save the ID of the load balancer
 
-  ```
+  ```bash
   export lbid="0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727"
   ```
-  {: codeblock}
+  {: pre}
 
-  ```
-  bash
+  ```bash
   curl -H "Authorization: $iam_token" -X GET
   "$api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
   ```
@@ -187,15 +189,14 @@ The following example illustrates using the API to update the front-end listener
 
 4. Save the listener id you want to update from the previous step. For example, save it in the variable `listenerid`.
 
-  ```
+  ```sh
     export listenerid="r018-3811d7ad-3bbe-4cb4-82de-8608f767866a"
   ```
-  {: codeblock}
+  {: pre}
 
 5. Update the listener port of the load balancer:
 
-  ```
-  bash
+  ```bash
   curl -H "Authorization: $iam_token" -X PATCH
   "$api_endpoint/v1/load_balancers/$lbid/listeners/$listenerid?version=$api_version&generation=2" \
       -d '{"port": 200}'

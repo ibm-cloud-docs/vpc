@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-07-10"
+lastupdated: "2020-08-31"
 
 keywords: network load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, create
 
@@ -37,7 +37,7 @@ You can create a {{site.data.keyword.cloud}} Network Load Balancer (NLB) for VPC
 ## Using the UI
 {: #nlb-ui}
 
-To create and configure a network load balancer using the UI, follow these steps:
+To create and configure a network load balancer by using the {{site.data.keyword.cloud_notm}} console, perform the following procedure:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){:external} and log in to your account.
 1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**
@@ -87,28 +87,28 @@ Then, click **Create** to complete your order.
 
 The following example illustrates using the CLI to create a network load balancer. In this example, it is in front of one VPC virtual server instance (id `0716_6acdd058-4607-4463-af08-d4999d983945`) running a TCP server that listens on port 9090. The load balancer has a front-end listener, which allows secure access to the TCP server. 
 
-To create a network load balancer using the CLI, perform the following procedure:
+To create a network load balancer by using the CLI, perform the following procedure:
 
 1. Set up your [CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
-2. Use the terminal to log in to your account using the CLI. After you enter the password, the system asks which account and region you want to use:
+2. Use the terminal to log in to your account using the CLI. After you enter the password, the system prompts which account and region you want to use:
 
     ```
     ibmcloud login --sso
     ```
+    {: pre}
 
 3. Create a load balancer:
 
   ```
-  bash
   ibmcloud is load-balancer-create nlb-test public --subnet 0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c --family network 
   ```
-  {: codeblock}
+  {: pre}
   
   Sample output:
 
   ```
-  Creating load balancer nlb-test in resource group  under account IBM Cloud Network Services as user test@ibm.com...
+  Creating load balancer nlb-test in resource group under account IBM Cloud Network Services as user test@ibm.com...
                             
     ID                 r134-99b5ab45-6357-42db-8b32-5d2c8aa62776    
     Name               nlb-test   
@@ -136,10 +136,9 @@ To create a network load balancer using the CLI, perform the following procedure
 4. Create a pool:
 
   ```
-  bash
   ibmcloud is load-balancer-pool-create nlb-pool r134-99b5ab45-6357-42db-8b32-5d2c8aa62776  weighted_round_robin tcp 10 
   ```
-  {: codeblock}
+  {: pre}
   
   Sample output:
 
@@ -166,10 +165,9 @@ To create a network load balancer using the CLI, perform the following procedure
 5. Create a member:
   
   ```
-  bash
   ibmcloud is load-balancer-pool-member-create r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 9090 0716_6acdd058-4607-4463-af08-d4999d983945 --weight 70
   ```
-  {: codeblock}
+  {: pre}
   
   Sample output:
   ```
@@ -188,10 +186,9 @@ To create a network load balancer using the CLI, perform the following procedure
 6. Create a listener:
   
   ```
-  bash
   ibmcloud is load-balancer-listener-create r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 7070 tcp --default-pool r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 
   ```
-  {: codeblock} 
+  {: pre} 
   
   Sample output:
   ```
@@ -213,6 +210,7 @@ To create a network load balancer using the CLI, perform the following procedure
   ```
   ibmcloud is load-balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776
   ```
+  {: pre}
 
   Sample output:
 
@@ -259,15 +257,14 @@ To create a network load balancer by using the API, perform the following proced
 
    * `ResourceGroupId` - First, get your resource group and then populate the variable:
 
-    ```sh
+    ```bash
     export ResourceGroupId=<your_resourcegroup_id>
     ```
     {: pre}
 
 3. Create a load balancer with a listener, pool, and attached server instances (pool members)
 
-  ```
-  bash
+  ```bash
   curl -H "Authorization: $iam_token" -X POST
   "$api_endpoint/v1/load_balancers?version=$api_version&generation=2" \
       -d '{
@@ -377,15 +374,17 @@ To create a network load balancer by using the API, perform the following proced
 
   Save the ID of the load balancer to use in the next steps. For example, save it in the variable `lbid`.
 
-  ```
+  ```bash
   lbid=0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727
   ```
+  {: pre}
 
 4. Get details about the load balancer
 
-  ```
+  ```bash
   curl -H "Authorization: $iam_token" -X GET "$api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
   ```
+  {: codeblock}
 
   Allow some time for provisioning. When the load balancer is ready, it is set to `online` and `active` status, as shown in the following sample output:
 

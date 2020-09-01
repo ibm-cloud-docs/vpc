@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-31"
+lastupdated: "2020-06-29"
 
 keywords: l7, Layer-7, monitor, metrics, connection
 
@@ -146,8 +146,6 @@ To do so, follow these steps:
   Pricing plan details are explained in the selection window. Select the plan that best meets your requirements.
 
 4. Provide a unique service name for your instance. 
-
-
 5. Optionally, select a resource group. A resource group is a way to organize account resources in customizable groupings. Any account resource that is managed by using IBM Cloud Identity and Access Management (IAM) access control belongs to a resource group within your account.
 
    ![Resource group](images/metrics_2.png "Resource group")
@@ -311,4 +309,4 @@ To collect this information and start working with your Sysdig instance using me
     ]
   }'
 ```
-{:  codeblock}
+{: codeblock}
