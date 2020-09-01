@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2020-08-12"
+lastupdated: "2020-09-01"
 
 keywords: CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
 
@@ -37,6 +37,7 @@ Use one of the following public endpoints to connect to the VPC infrastructure A
 | US East           | `https://us-east.iaas.cloud.ibm.com`  |
 | United Kingdom    | `https://eu-gb.iaas.cloud.ibm.com`    |
 | EU - Germany      | `https://eu-de.iaas.cloud.ibm.com`    |
+| Sydney            | `https://au-syd.iaas.cloud.ibm.com`   |
 | Tokyo             | `https://jp-tok.iaas.cloud.ibm.com`   |
 {: caption="Table 1. VPC API Regional Endpoints" caption-side="top"}
  
