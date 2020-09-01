@@ -160,7 +160,7 @@ To create a network load balancer by using the CLI, perform the following proced
   Provision status           active   
   Created                    2020-08-27T14:45:42.038-05:00 
   ```
-{: screen}
+  {: screen}
   
 5. Create a member:
   
