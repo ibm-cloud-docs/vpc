@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-07-30"
+lastupdated: "2020-08-31"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, layer-7
 
@@ -31,8 +31,10 @@ Use {{site.data.keyword.cloud}} application load balancer to distribute traffic 
 
 The following diagram illustrates the deployment architecture for the application load balancer.
 
-![Load Balancer for VPC](images/VPC-LBaaS-Architecture.png "Application Load Balancer")
-{: caption="Application Load Balancer" caption-side="top"}
+![Application load balancer for VPC](images/alb_arc.png "Application load balancer")
+{: caption="Application load balancer" caption-side="top"}
+
+**REVIEWERS: This diagram needs to be described.**
 
 ## Types of application load balancers
 {: #types-load-balancer}
@@ -119,7 +121,7 @@ When an HTTPS listener is configured with an HTTP pool, the HTTPS request is ter
 
 SSL offloading requires you to provide an SSL certificate for the application load balancer to perform SSL offloading tasks. You can manage the SSL certificates through the [IBM Certificate Manager](/docs/certificate-manager?topic=certificate-manager-getting-started).
 
-To give an application load balancer access to your SSL certificate, you must enable **service-to-service authorization**, which grants your load balancer service instance access to your certificate manager instance. For more information, see [Granting access between services](/docs/iam?topic=iam-serviceauth#create-auth). Make sure to choose **Infrastructure Service** as the source service, **Application Load Balancer** as the resource type, **Certificate Manager** as the target service, and assign the **Writer** service access role.
+To give an application load balancer access to your SSL certificate, you must enable **service-to-service authorization**, which grants your load balancer service instance access to your certificate manager instance. For more information, see [Granting access between services](/docs/account?topic=account-serviceauth#create-auth). Make sure to choose **Infrastructure Service** as the source service, **Application Load Balancer** as the resource type, **Certificate Manager** as the target service, and assign the **Writer** service access role.
 
 The required authorization between the load balancer and certificate manager must be set to prevent errors in your load balancer.
 {: important}
@@ -166,6 +168,8 @@ IBM Db2-on-Cloud Service serves as the database for the application load balance
 ## Application load balancer data flow path
 {: #alb-data-flow}
 
+**REVIEWERS: Need introduction here, not just picture.**
+
 ![ALB traffic flow](images/alb-datapath.png)
 
 ## Integration with instance groups
@@ -175,6 +179,8 @@ IBM Cloud Application Load Balancer integrates with instance groups, which can `
 
 ## Health checks
 {: #health-checks}
+
+**REVIEWERS: We have a [task](/docs/vpc?topic=vpc-nlb-health-checks) for NLB.  Why isn't there a procedure for this for ALB?**
 
 Health check definitions are mandatory for back-end pools. Health checks can be configured on back-end ports, or on a separate health check port based on the application.
 
@@ -189,22 +195,6 @@ The health checks for HTTP, HTTPS, and TCP ports are conducted as follows:
 * **TCP:** The load balancer attempts to open a TCP connection with the back-end server on the specified TCP port. The server port is marked healthy if the connection attempt is successful, and the connection is closed.
 
 By default, health checks are sent every 5 seconds on the same port on which traffic is sent to the instance. By default, the load balancer waits 2 seconds for a response to the health check, and an instance is no longer considered healthy after two failed health checks.
-
-## Configuring ACLs for use with application load balancers
-{: #configuring-acls-alb}
-
-If you use access control lists (ACLs) to block traffic on the subnets where a load balancer is deployed, make sure the following ACL rules are configured.
-
-| Inbound/Outbound| Protocol | Source IP | Source Port | Destination IP | Destination Port |
-|--------------|------|------|------|------|------------------|
-| Inbound |TCP| AnyIP | AnyPort| AnyIP | 56501|
-| Inbound |TCP| AnyIP | 443, 10514, 8834 | AnyIP | AnyPort|
-| Inbound |UDP| 161.26.0.0/16 | 53| AnyIP | AnyPort|
-| Outbound | TCP | AnyIP | 56501| AnyIP | AnyPort|
-| Outbound | TCP | AnyIP | AnyPort| AnyIP |443, 10514, 8834 |
-| Outbound | UDP | AnyIP | AnyPort| 161.26.0.0/16 |53|
-
-Additionally, if a load balancer has listeners configured, then the corresponding inbound and outbound ACL rules should be configured for traffic to go through.
 
 ## Application load balancer limitation
 {: #alb-limitations}
@@ -221,4 +211,4 @@ There is one limitation for an application load balancer:
 * [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
 * [Activity Tracker with LogDNA events](/docs/vpc?topic=vpc-at-events#events-load-balancers)
 * [FAQs for application load balancers](/docs/vpc?topic=vpc-load-balancer-faqs)
-* [Quotas](/docs/wanclouds-vpc-plus?topic=vpc-quotas#load-balancer-quotas)
+* [Quotas](/docs/vpc?topic=vpc-quotas#load-balancer-quotas)
