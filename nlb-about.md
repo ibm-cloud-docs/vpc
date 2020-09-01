@@ -52,7 +52,7 @@ To configure a network load balancer, make sure that you have met the following 
 
   For more information, see [Configuring ACLs and security groups for use with network load balancers](/docs/vpc?topic=vpc-nlb-configuring-acls).
 
-After you've completed all prerequisites, you can create your network load balancer. For more information, see [Creating a network load balancer](/docs/vpc?topic=vpc-nlb-ui).
+After you've completed all prerequisites, you can create your network load balancer. For more information, see [Creating a network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer).
 
 ## Types of network load balancers
 {: #types-network-load-balancers}  

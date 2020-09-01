@@ -30,7 +30,7 @@ subcollection: vpc
 
 {{site.data.keyword.cloud}} Network Load Balancer (NLB) for VPC listeners are used to configure how the load balancer receives your traffic. The attributes you can define on a listener are protocols, ports, and pools.
 
-You can configure listeners when [creating your load balancer](/docs/vpc?topic=vpc-nlb-ui), or afterwards using the following procedure:
+You can configure listeners when [creating a network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer), or afterwards using the following procedure:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){:external} and log in to your account.
 

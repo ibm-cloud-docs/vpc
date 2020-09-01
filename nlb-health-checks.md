@@ -31,7 +31,7 @@ subcollection: vpc
 The {{site.data.keyword.cloud}} Network Load Balancer (NLB) for VPC conducts periodic health checks to monitor the health of the back-end ports, and it forwards client traffic to them accordingly. If a back-end server port is found to be unhealthy, no new connections are forwarded to it. The load balancer continues to monitor the health of unhealthy ports, and it resumes their use if they become healthy again, which means that they successfully pass the user-defined health check attempts.
 {: shortdesc}
 
-You can configure health checks when [creating your load balancer](/docs/vpc?topic=vpc-nlb-ui), or afterwards using the following procedure:
+You can configure health checks when [creating a network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer), or afterwards using the following procedure:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){:external} and log in to your account.
 2. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
