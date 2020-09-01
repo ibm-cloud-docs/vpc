@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-28"
+lastupdated: "2020-09-01"
 
 keywords: user data
 
@@ -15,6 +15,7 @@ subcollection: vpc
 {:screen: .screen}
 {:new_window: target="_blank"}
 {:pre: .pre}
+{:tip: .tip}
 {:table: .aria-labeledby="caption"}
 
 # User data
@@ -25,6 +26,9 @@ When you create an {{site.data.keyword.vsi_is_full}} instance, you can specify o
 {:shortdesc}
 
 You can specify cloud-config data directly in the user data field, or you can include the cloud-config data in a text file and specify the file name when you create your instance. For example, if you save the cloud-config data in `userdata.blob`, specify `-user-data @userdata.blob` when you create an instance by using the CLI.
+
+The size limit of the user data field (or file) is 64 K bytes.
+{:tip}
 
 ## User data examples for Linux 
 {: #user-data-examples-for-linux}
