@@ -50,21 +50,21 @@ To create a managed pool, first create a regular pool and ensure there are no me
 
 To create an instance group:
 
-1. [Create an instance group template](/docs/vpc?topic=vpc-creating-auto-scale-instance-group#creating-instance-template). 
+1. [Create an instance group template](/docs/vpc?topic=vpc-creating-auto-scale-instance-group#creating-instance-template).
 
   An instance group template defines your backend member instance configurations.
 
 2. Next, [create an instance group](/docs/vpc?topic=vpc-creating-auto-scale-instance-group). During the instance group creation, you specify the application port, load balancer and pool identities.
 
-  For an existing instance group you can update it with the load balancer pool identity. You should also choose a scaling method. Options include: 
-  
+  For an existing instance group you can update it with the load balancer pool identity. You should also choose a scaling method. Options include:
+
    * A static method that allows a fixed number of backend members
    * A dynamic method for utilization based scaling
 
 3. Finally, [create your instance group scaling policies](/docs/vpc?topic=vpc-creating-auto-scale-instance-group#creating-scaling-policies).
 
-  Configure scaling policies only if you are using a dynaminc scaling method. 
-  
+  Configure scaling policies only if you are using a dynaminc scaling method.
+
   When configuring these policies, you define certain metrics (like the CPU utilization percentage) and the desired target utilization for that metric. Together, the metric and the average target utilization determine when your instance group dynamically adds or removes virtual server instances from the group.
   {: tip}
 
@@ -74,5 +74,5 @@ To create an instance group:
 * [Creating an instance group template](/docs/vpc?topic=vpc-creating-auto-scale-instance-group#creating-instance-template)
 * [Creating an instance group](/docs/vpc?topic=vpc-creating-auto-scale-instance-group#creating-instance-group)
 * [Creating scaling policies](/docs/vpc?topic=vpc-creating-auto-scale-instance-group#creating-scaling-policies)
-* [FAQ's for application load balancer for VPC](/docs/vpc?topic=vpc-load-balancer-faqs)
-* [FAQ's for auto scale for VPC](/docs/vpc?topic=vpc-faqs-auto-scale)
+* [FAQs for application load balancer](/docs/vpc?topic=vpc-load-balancer-faqs)
+* [FAQs for auto scale](/docs/vpc?topic=vpc-faqs-auto-scale)
