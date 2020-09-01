@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-06-29"
+  years: 2020
+lastupdated: "2020-08-31"
 
 keywords: l7, Layer-7, monitor, metrics, connection
 
@@ -24,7 +24,7 @@ subcollection: vpc
 # Monitoring metrics using {{site.data.keyword.cloud_notm}} Network Load Balancer for VPC with Sysdig
 {: #nlb_monitoring-metrics-sysdig}
 
-{{site.data.keyword.cloud}} Network load Balancer monitoring metrics are provided with {{site.data.keyword.cloud_notm}} Monitoring with Sysdig, a third-party monitoring tool that specializes in data aggregation, usage alerts, and in-depth visualizations. For more information, see [IBM Cloud Monitoring with Sysdig](/docs/Monitoring-with-Sysdig).
+{{site.data.keyword.cloud}} Network Load Balancer (NLB) for VPC monitoring metrics are provided with {{site.data.keyword.cloud_notm}} Monitoring with Sysdig, a third-party monitoring tool that specializes in data aggregation, usage alerts, and in-depth visualizations. For more information, see [IBM Cloud Monitoring with Sysdig](/docs/Monitoring-with-Sysdig).
 
 Network load balancers calculate the metrics and send those metrics to your Sysdig instance, which reflects different types of use and traffic. You can visualize and analyze metrics from either the {{site.data.keyword.cloud_notm}} Monitoring with Sysdig dashboard, or its API.
 
@@ -36,7 +36,7 @@ The supported monitoring metrics include:
 * Active connections to your load balancer at a given time.
 * Connection rate, or an analysis of when more or less connections are made to your load balancer.
 
-These metrics help track the traffic and usage patterns for your network load balancers and can provide insight about peak traffic hours, usage dropoffs, and overall usage patterns.
+These metrics help track the traffic and usage patterns for your network load balancers and can provide insight about peak traffic hours, usage drop-offs, and overall usage patterns.
 
 Each metric is composed of the following metadata types:
 
@@ -82,7 +82,7 @@ You can split the data that Sysdig presents into various visualizations in the S
 For example, you can segment the `active connections` by `IBM Load Balancer for VPC listener port` to show how many active users are connected to the load balancer through each listener type. To illustrate this, let's assume that your network load balancer has listener protocol TCP on port 8080. The dashboard would contain different lines showing 10 users who are connected through HTTP on Port 80 in one color, and 6 users connected through TCP on port 8080 in another color.
 
 ### Global attributes
-{: global-attributes}
+{: #global-attributes}
 
 The following attributes are available for segmenting the three Sysdig metrics.
 
@@ -94,7 +94,7 @@ The following attributes are available for segmenting the three Sysdig metrics.
 {: caption="Table 3: Sysdig global attributes" caption-side="top"}
 
 ### Additional attributes
-{: additional-attributes}
+{: #additional-attributes}
 
 The following attributes are available to segment one or more of the global attributes. See the individual metrics for any segmentation options.
 
@@ -133,7 +133,7 @@ To do so, follow these steps:
 
 2. Select a region for your Sysdig instance.
 
-  If you do not have an existing load balancer, see [Using an IBM Load Balancer for VPC for server load balancing](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#load-balancer) to provision one.
+  If you do not have an existing load balancer, see [Creating a network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer) to provision one.
   {: tip}
 
   ![Region](images/metrics_1.png "Region")
@@ -145,10 +145,8 @@ To do so, follow these steps:
 
   Pricing plan details are explained in the selection window. Select the plan that best meets your requirements.
 
-4. Provide a service name for your instance. It can be any name that you want, and has no impact on functionality.
+4. Provide a unique service name for your instance. 
 
-  Do not create multiple Sysdig instances with the same name.
-  {: important}
 
 5. Optionally, select a resource group. A resource group is a way to organize account resources in customizable groupings. Any account resource that is managed by using IBM Cloud Identity and Access Management (IAM) access control belongs to a resource group within your account.
 
@@ -167,6 +165,7 @@ To do so, follow these steps:
 Within a few minutes, your new Sysdig instance is displayed with several configurations. You might have to refresh your browser to see it.  
 
 ## Working with the Sysdig dashboard
+{: #sysdig-metrics-monitoring}
 
 To view and work with your Sysdig metrics, follow these steps:
 
@@ -187,6 +186,7 @@ To view and work with your Sysdig metrics, follow these steps:
   {: tip}
 
 ## Creating a custom metrics dashboard
+{: #sysdig-metrics-custom}
 
 You can create your own dashboard to customize your monitoring metrics, such as viewing information about particular load balancers, or only seeing traffic that comes through particular listeners.
 
@@ -272,7 +272,7 @@ To collect this information and start working with your Sysdig instance using me
       {: tip}
 
 
-  ```
+  ```bash
   curl \
   -H 'Authorization: Bearer <API_TOKEN>’ \
   -H 'Content-Type: application/json' \
