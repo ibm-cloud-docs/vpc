@@ -240,10 +240,10 @@ Virtual Private Cloud
     {: .topicgroup}
     FAQs
         faq-vpc.md
+        lb-faqs.md
         faq-auto-scale.md
         block_storage_is_faq.md
         fl-faq.md
-        lb-faqs.md
         nlb-faqs.md
         vpe-faqs.md
         faq-vsi.md
