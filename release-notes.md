@@ -37,6 +37,7 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 - **Large Profiles (GA):** The following two 48-core profiles are now generally available:
     * cx2-48x96
     * mx2-48x384 
+  
   For more information, see [Profiles](/docs/vpc?topic=vpc-profiles).
 
 - **UI enhancements:**
