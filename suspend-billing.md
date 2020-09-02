@@ -3,7 +3,7 @@
 copyright:
   years: 2017, 2020
 
-lastupdated: "2020-03-11"
+lastupdated: "2020-09-02"
 
 keywords: pricing, billing, data, instance, suspend 
 
@@ -59,15 +59,6 @@ Usage times are calculated per second, for both the in use time and suspended ti
 {: #suspend-billing-and-sustained-usage-discounts}
 
 For sustained usage discounts, a suspended image picks up from where it was on the discount tier. In other words, a usage discount applies only to the time the image is in use, not to the time the image was suspended.
-
-### Minimum usage charge
-{: #minimum-usage-charge}
-
-Virtual server instances have a minimum usage charge per month. If usage is greater than 25% in the billing cycle, you're billed for the actual usage. If usage is less than 25% of the time it existed in the billing cycle, then the minimum charge of 25% applies.
-
-For example, let's say you have an instance running for an entire billing cycle (720 hours). Of that time, the instance was suspended for 577 hours and running for 143 hours. The instance is charged for 180 hours (the minimum of the available hours in that billing period).  
-
-However, let's say you had an instance that was both created and stopped within a billing cycle that lasted for 400 hours total. Of that time, the instance was suspended for 120 hours and ran for 280 hours. The instance would be charged for its usage of 280 hours.
 
 ### Billing invoice
 {: #billing-invoice}
