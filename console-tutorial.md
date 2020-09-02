@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2020-08-31"
+lastupdated: "2020-09-02"
 
 
 keywords: vpc, virtual private cloud, vpc ui, console, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range, generation 2, gen 2
@@ -180,7 +180,7 @@ To create a virtual server instance in the newly created subnet:
   {: tip}
 
   You can also select which security groups to attach to each interface. By default, the VPC's default security group is attached. The default security group allows inbound SSH and ping traffic, all outbound traffic, and all traffic between instances in the group. All other traffic is blocked; you can configure rules to allow more traffic. If you later edit the rules of the default security group, those updated rules will apply to all current and future instances in the group.
-1. Click **Create virtual server instance**. The status of the instance starts as *Pending*, changes to *Stopped*, and then *Powered On*. You might need to refresh the page to see the change in status.
+1. Click **Create virtual server instance**. The status of the instance starts as *Pending*, changes to *Stopped*, and then *Running*. You might need to refresh the page to see the change in status.
 
 ## Creating and attaching a block storage volume
 {: #creating-a-block-storage-volume}

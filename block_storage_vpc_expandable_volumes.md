@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-25"
+lastupdated: "2020-09-02"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -37,7 +37,7 @@ Expandable volumes is a beta feature that is available for evaluation and testin
 ## Expandable volume concepts
 {: #expandable-volume-concepts}
 
-Volume capacity can be expanded for data volumes attached to a virtual server instance. The volume must be in an _available_ state and the instance powered on. Your user authorization is verified prior to expanding the volume. You can use the [UI](#expand-vpc-volumes-ui), [CLI](#expand-vpc-volumes-cli), or [API](#expand-vpc-volumes-api) to expand volume capacity. You can expand the volume multiple times up to it's [maximum capacity limit](#exp-vols-capacity-IOPs-limitations). After expanding the volume, you and can't reduce the volume capacity.
+Volume capacity can be expanded for data volumes attached to a virtual server instance. The volume must be in an _available_ state and the instance running. Your user authorization is verified prior to expanding the volume. You can use the [UI](#expand-vpc-volumes-ui), [CLI](#expand-vpc-volumes-cli), or [API](#expand-vpc-volumes-api) to expand volume capacity. You can expand the volume multiple times up to it's [maximum capacity limit](#exp-vols-capacity-IOPs-limitations). After expanding the volume, you and can't reduce the volume capacity.
 
 Expanded capacity is determined by the maximum allowed by the volume's profile. Volumes created from a [Custom profile](/docs/vpc?topic=vpc-block-storage-profiles#custom) can be expanded within their custom IOPs range. Volumes created using an [IOPs tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta) can be expanded to the maximum size for its IOPs tier:
 
