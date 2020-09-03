@@ -156,5 +156,5 @@ These links provide additional information about {{site.data.keyword.cloud_notm}
 * [VPN gateways CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpn-clis)
 * [VPN gateways API reference](https://{DomainName}/apidocs/vpc#list-ike-policies)
 * [Activity Tracker with LogDNA events](/docs/vpc?topic=vpc-at-events#events-vpns)
-* [VPN quotas](/vpc?topic=vpc-quotas#vpn-quotas)
+* [VPN quotas](/docs/vpc?topic=vpc-quotas)
 * [FAQs for VPN gateways](/docs/vpc?topic=vpc-faqs-vpn)
