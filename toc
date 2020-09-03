@@ -18,7 +18,7 @@ Virtual Private Cloud
         about-network.md
         vpc-security.md
         vpc-networking-concepts.md
-        interconnectivity.md        
+        interconnectivity.md
 
     {: .topicgroup}
     Compute
@@ -154,11 +154,12 @@ Virtual Private Cloud
         vpe-limitations.md
 
     {: .topicgroup}
-    VPNs
+    VPN gateways
         using-vpn.md
         vpn-onprem-example.md
         vpc-vpn-view-logs-logdna.md
         vpc-vpn-sysdig-monitoring-metrics.md
+        vpn-limitations.md
 
     {: .topicgroup}
     Setting IP ranges
@@ -179,7 +180,7 @@ Virtual Private Cloud
     Auto scale
         vsi_is_creating_auto_scale_group.md
         vsi_is_managing_auto_scale_group.md
-        vsi_is_managing_instance_template.md        
+        vsi_is_managing_instance_template.md
 
     {: .topicgroup}
     Data Encryption
@@ -246,6 +247,7 @@ Virtual Private Cloud
         fl-faq.md
         nlb-faqs.md
         vpe-faqs.md
+        vpn-faqs.md
         faq-vsi.md
 
     {: .topicgroup}
