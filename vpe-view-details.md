@@ -31,6 +31,9 @@ subcollection: vpc
 You can view details about a specific endpoint gateway, or see a summary of endpoint gateways for VPC by using the UI, CLI, or API.
 {: shortdesc}
 
+If you create a service instance that is not onboarded with VPE, the service instance does not show up in the list of endpoint gateway targets.
+{: note}
+
 ## Using the UI
 
 To view details of an endpoint gateway using the IBM Cloud console, follow these steps:
@@ -39,7 +42,7 @@ To view details of an endpoint gateway using the IBM Cloud console, follow these
 
    The **Endpoint gateways for VPC** page shows all endpoint gateways for all VPCs in the region.
 
-3. To view the details of a specific gateway, click an individual gateway name. From the details page, you can view additional information about the endpoint gateway, view its bound reserved IPs and their subnets, delete an endpoint gateway, and more.
+1. To view the details of a specific gateway, click an individual gateway name. From the details page, you can view additional information about the endpoint gateway, view its bound reserved IPs and their subnets, delete an endpoint gateway, and more.
 
   ![Endpoint gateway details page](./images/vpe-details.png "Endpoint gateway details page")
 

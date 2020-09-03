@@ -25,7 +25,7 @@ subcollection: vpc
 {:DomainName: data-hd-keyref="DomainName"}
 {:external: target="_blank" .external}
 
-# FAQs for Virtual Private Endpoints (Beta)
+# FAQs for virtual private endpoints (Beta)
 {: #faqs-vpe}
 
 You might encounter the following frequently asked questions when using {{site.data.keyword.cloud_notm}} Virtual Private Endpoint (VPE) for VPC.

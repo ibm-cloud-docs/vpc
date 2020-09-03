@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-10"
+lastupdated: "2020-09-03"
 
 keywords: secure, region, zone, subnet, public gateway, floating IP, NAT, lbaas, vpnaas, lb, vpn, load balancer, virtual private network
 subcollection: vpc
@@ -20,7 +20,7 @@ subcollection: vpc
 {:important: .important}
 {:download: .download}
 
-# About Virtual Private Endpoints (Beta)
+# About virtual private endpoints (Beta)
 {: #about-vpe}
 
 {{site.data.keyword.cloud}} Virtual Private Endpoint (VPE) for VPC enables you to connect to supported {{site.data.keyword.cloud_notm}} services from your VPC virtual network by using the IP addresses of your choosing, allocated from a subnet within your VPC.
@@ -39,6 +39,7 @@ A VPE is the equivalent to a [Cloud Service Endpoint (CSE)](/docs/account?topic=
 * Beta users can connect to service instances deployed in IBM Cloud service regions: Dallas, Washington D.C., London, Frankfurt, and Tokyo.
 * A reserved IP address bound to an endpoint gateway can receive traffic from another zone of the same VPC.
 * You can bind more than one IP address to an endpoint gateway; however, the current limit is one IP address per zone.
+* You can access IBM Cloud services by using either CSEs or VPEs. However, if you want your VPC to enforce a certain behavior or discipline, it is recommended to block direct access to CSE IP addresses using network ACLs (NACLs).
 
 ## Overview of features
 {: #vpe-feature-overview}
@@ -46,9 +47,7 @@ A VPE is the equivalent to a [Cloud Service Endpoint (CSE)](/docs/account?topic=
 VPE for VPC offers the following features:
 
 * Scales elastically for bursting and performance management.
-
 * Does not require public connectivity and has no public data egress charges.
-
 * Reach {{site.data.keyword.cloud_notm}} assets through a private service provider or, when combined with DNS Services, private fully qualified domain name within a VPC:
    * A VPE lives in your network address space, extending your private and multicloud into the {{site.data.keyword.cloud_notm}}.
    * You can apply security through Access Control Lists (ACLs).
@@ -56,7 +55,6 @@ VPE for VPC offers the following features:
    * Customer-driven and controlled, including ACLs.
 
 * Platform integration to VPC - Identity and Access Management (IAM), Ghost, and ACLs.
-
 * VPE for VPC supports:
    * New endpoints through the UI, CLI, and API.
    * Mapping a new endpoint to an existing service.
@@ -87,10 +85,10 @@ After the endpoint gateway is created, virtual server instances in the VPC can a
 
 ## Related links
 
-These links provide additional information about the IBM Cloud Virtual Private Endpoints for VPC beta release.
+These links provide additional information about the {{site.data.keyword.cloud}} Virtual Private Endpoints for VPC beta release.
 
 * [VPE CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpe-clis)
 * [VPE API reference (for allowlisted Beta participants only)](https://{DomainName}/apidocs/vpe-beta)
-* [FAQs for Virtual Private Endpoints](/docs/vpc?topic=vpc-faqs-vpe)
-* [Troubleshooting Virtual Private Endpoints for VPC](/docs/vpc?topic=vpc-vpc-troubleshooting-vpe)
 * [VPE Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-vpe)
+* [FAQs for virtual private endpoints](/docs/vpc?topic=vpc-faqs-vpe)
+* [Troubleshooting virtual private endpoints](/docs/vpc?topic=vpc-vpc-troubleshooting-vpe)

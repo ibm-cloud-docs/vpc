@@ -18,7 +18,7 @@ keywords: vpe, virtual private endpoint, limitations
 {:important: .important}
 {:download: .download}
 
-# Virtual Private Endpoint limitations (Beta)
+# Virtual private endpoint limitations (Beta)
 {: #limitations-vpe}
 
 The following items are not supported for {{site.data.keyword.cloud_notm}} Virtual Private Endpoint for VPC:
