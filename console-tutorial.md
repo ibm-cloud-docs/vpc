@@ -306,42 +306,10 @@ Because the monitoring data is stored in {{site.data.keyword.monitoringlong_notm
 
 There are two different types of {{site.data.keyword.cloud_notm}} load balancers that you can create: an application load balancer and a network load balancer. For comparison information and instructions on how to create an  {{site.data.keyword.cloud_notm}} load balancer, see [Load balancers overview](/docs/vpc?topic=vpc-nlb-vs-elb).
 
-## Creating a VPN
+## Creating a VPN gateway
 {: #vpn-ui}
 
-You can create a virtual private network (VPN) so your VPC can connect securely to another private network, such as an on-premises network or another VPC.
-
-To create a VPN:
-1. In the navigation pane, click **Network > VPNs**.
-1. On the VPN page, click **New VPN gateway** and specify the following information:
-    * **Name**: Enter a name for the VPN gateway in your virtual private cloud, such as `my-vpn-gateway`.
-    * **Virtual private cloud**: Select your VPC.
-    * **Resource group**: Select a resource group for the VPN.
-    * **Subnet**: Select the subnet in which to create the VPN gateway.
-
-      For best performance, create the VPN gateway in a subnet without any other VPC resources to ensure that there are enough available private IPs for the gateway. A VPN gateway needs 8 private IP addresses to accommodate high availability and rolling upgrades.
-
-      The VPN gateway is created in the zone that is associated with the subnet you select. Because the VPN gateway can connect to virtual server instances in this zone only, instances in other zones can't use this VPN gateway to communicate with the other network. For zone fault tolerance, deploy one VPN gateway per zone.
-      {: tip}
-
-1. In the **New VPN connection** section, define a connection between this gateway and a network outside your VPC by specifying the following information.
-    * **Connection name**: Enter a name for the connection, such as `my-connection`.
-    * **Peer gateway address**: Specify the IP address of the VPN gateway for the network outside your VPC.
-    * **Preshared key**: Specify the authentication key of the VPN gateway for the network outside your VPC.
-    * **Local subnets**: Specify one or more subnets in the VPC you want to connect through the VPN tunnel.
-    * **Peer subnets**: Specify one or more subnets in the other network you want to connect through the VPN tunnel.
-1. To configure how the cloud gateway sends messages to check that the peer gateway is active, specify the following information in the **Dead peer detection** section.
-    * **Dead peer detection action**: The action to take if a peer gateway stops responding. For example, select **Restart** if you want the gateway to immediately renegotiate the connection.
-    * **Interval**: How often to check that the peer gateway is active. By default, messages are sent every 2 seconds.
-    * **Timeout**: How long to wait for a response from the peer gateway. By default, a peer gateway is no longer considered active if a response isn't received within 10 seconds.
-1. Specify the Internet Key Exchange (IKE) and Internet Protocol Security (IPSec) parameters to use for phase 1 and phase 2 negotiation of the connection.
-    * Select **Auto** if you want the cloud gateway to try to automatically establish the connection.
-    * Select or create custom policies if you need to enforce particular security requirements, or the VPN gateway for the other network doesn't support the security proposals that are tried by auto-negotiation.
-
-  The IKE and IPsec security parameters that you specify for the connection must be the same parameters that are set on the gateway for the network outside your VPC.
-  {: important}
-
-  For more information about VPNs, see [Using VPN with your VPC](/docs/vpc?topic=vpc-using-vpn).
+You can create a virtual private network (VPN) so your VPC can connect securely to another private network, such as an on-premises network or another VPC. For more information, see [Creating a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway).
 
 ## Viewing resources associated with a VPC
 {: #vpc-layout}

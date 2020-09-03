@@ -156,10 +156,24 @@ Virtual Private Cloud
     {: .topicgroup}
     VPN gateways
         using-vpn.md
-        vpn-onprem-example.md
+        vpn-create.md
+
+        {: .topicgroup}
+        Connecting to your on-premises network
+            vpn-onprem.md
+            vpn-onprem-check-point.md
+            vpn-onprem-cisco.md
+            vpn-onprem-fortigate.md
+            vpn-onprem-juniper.md
+            vpn-onprem-strongswan.md
+            vpn-onprem-vyatta.md
+
+        vpn-access-service-endpoint.md
+        vpn-configure-acls-security-groups.md
         vpc-vpn-view-logs-logdna.md
         vpc-vpn-sysdig-monitoring-metrics.md
         vpn-limitations.md
+        vpn-api-example.md
 
     {: .topicgroup}
     Setting IP ranges
