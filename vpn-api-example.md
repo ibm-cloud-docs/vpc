@@ -28,35 +28,49 @@ subcollection: vpc
 # API example: Connecting two VPCs using VPN
 {: #vpn-example}
 
-The following API example describes how to connect two VPCs by creating a VPN gateway in each VPC. Because you create the VPN gateways in zone 1 of each VPC, you connect the subnets and associated virtual server instances in VPC 1 zone 1 to the subnets and associated instances in VPC 2 zone 1 as if they were a single network. The IP addresses of the subnets in the two VPCs must not overlap.
+The following API example describes how to connect two VPCs by creating a VPN gateway in each VPC. A VPN gateway can connect all the subnets in the zone where it is deployed so having a VPN gateway in each zone that you want to interconnect makes the subnets in both zones act as if they were a single network. The IP addresses of the subnets in the two VPCs must not overlap.
 {: shortdesc}
 
-You can use VPN to connect two VPCs. However, it is recommended to use IBM Cloud Transit Gateway for VPC-to-VPC connectivity. For more information, see [Getting Started with IBM Cloud Transit Gateway](https://test.cloud.ibm.com/docs/transit-gateway).
+You can use a VPN gateway to connect two VPCs. However, it is recommended to use IBM Cloud Transit Gateway for VPC-to-VPC connectivity. For more information, see [Getting Started with IBM Cloud Transit Gateway](/docs/transit-gateway).
 {: important}
 
-Here's what the scenario looks like:
+The following diagram shows how to interconnect three VPCs, but the example that follows shows you how to connect only the first two. You can repeat the steps to connect more VPCs.
 
-![Figure showing a scenario where you connect two VPCs using VPN](images/vpc-vpn.svg){: caption="Figure 1: Connecting two VPCs using VPN" caption-side="top"} 
+![Interconnecting VPCs by using VPN gateways](images/vpc-vpn.svg){: caption="Figure 1: Interconnecting VPCs by using VPN gateways" caption-side="top"}
 
-The following example assumes that you already created VPCs, subnets, and virtual server instances. For more information about creating VPC resources, see [Getting started](/docs/vpc?topic=vpc-getting-started).
+The following example assumes that:
 
-You can also create a VPN gateway using the UI. For instructions, see [Using the {{site.data.keyword.cloud_notm}} console to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#vpn-ui).
+1. You already created VPCs, subnets, and virtual server instances. For more information about creating VPC resources, see [Getting started](/docs/vpc?topic=vpc-getting-started).
+1. You set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) and initialized all the variables needed.
+
+You can also create a VPN gateway and add VPN connections using the UI. For instructions, see [Creating a VPN gateway using the UI](/docs/vpc?topic=vpc-vpn-create-gateway#vpn-create-ui).
 {: tip}
 
-## Step 1. Create a VPN gateway in a subnet of your VPC
+## Step 1. Create a VPN gateway in the first VPC
 {: #step-1-create-a-vpn-gateway-in-your-vpc-subnet}
 
-For best performance, create the VPN gateway in a subnet without any other VPC resources to ensure that there are enough available private IPs for the gateway. A VPN gateway needs 8 private IP addresses to accommodate high availability and rolling upgrades.
+The VPN gateway is created in the zone that is associated with the subnet you select. For best performance, create the VPN gateway in a subnet without any other VPC resources to ensure that there are enough available private IPs for the gateway. A VPN gateway needs 8 private IP addresses to accommodate high availability and rolling upgrades.
 
-The VPN gateway is created in the zone that is associated with the subnet you select. Because the VPN gateway can connect to virtual server instances in this zone only, instances in other zones can't use this VPN gateway to communicate with the other network. For zone fault tolerance, deploy one VPN gateway per zone.
+The VPN gateway can connect only to virtual server instances in the zone it is deployed. Instances in other zones can't use this VPN gateway to communicate with the other network. For zone fault tolerance, deploy one VPN gateway per zone.
 {: tip}
 
+Find the Subnet ID by using the **get subnet** command then populate the variable:
+
+```sh
+export SubnetId1=<your_subnet_id>
+```
+{: pre}
+
+The following command deploys the VPN gateway in the `Default` resource group.
 
 ```bash
-curl -H "Authorization: $iam_token" -X POST "$api_endpoint/v1/vpn_gateways?version=$api_version&generation=2" \
+curl -X POST  "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=2" \
+    -H "Authorization: $iam_token" \
     -d '{
             "name": "vpn-gateway-1",
-            "subnet": {"id": $subnet1}
+            "subnet": {
+                "id": "'$SubnetId1'"
+            }
         }'
 ```
 {: codeblock}
@@ -86,30 +100,55 @@ Sample output:
 ```
 {: screen}
 
-Save the following fields for subsequent steps.
-* `id`. The ID of the VPN gateway in VPC 1, referred to in this example as `$gwid1`.
-* `address`. The public IP address of the VPN gateway in VPC 1, referred to in this example as `$gwaddress1`.
+Save the `id` of the first VPN gateway, for example:
 
-The gateway status appears as `pending` while the VPN gateway is being created, and the status becomes `available` when creation is complete. Creation might take some time.
+```sh
+export gwid1=<your_vpngateway_id>
+```
+{: pre}
+
+The gateway status appears as `pending` while the VPN gateway is being created, and the status becomes `available` when creation is complete. Creation can take a few minutes.
 
 You can check the gateway's status with the following command:
 
 ```bash
-curl -H "Authorization: $iam_token" -X GET "$api_endpoint/v1/vpn_gateways/$gwid1?version=$api_version&generation=2"
+curl -X GET "$vpc_api_endpoint/v1/vpn_gateways/$gwid1?version=$api_version&generation=2" \
+     -H "Authorization: $iam_token"
 ```
 {: codeblock}
 
-## Step 2. Create a second VPN gateway in a different VPC
+Save the `public_ip.address` of the first VPN gateway, for example:
+
+```sh
+export gwaddress1=<your_vpngateway_public_ip>
+```
+{: pre}
+
+## Step 2. Create a VPN gateway in the second VPC
 {: #step-2-create-a-second-vpn-gateway-on-a-different-vpc}
 
+Find the Subnet ID of the second VPC by using the **get subnet** command then populate the variable:
+
+```sh
+export SubnetId2=<your_subnet_id>
+```
+{: pre}
+
+The following command deploys the VPN gateway in the `Default` resource group. If the second VPC belongs to a different region,
+make sure to update the variable `vpc_api_endpoint`. See the list of [API endpoints](https://{DomainName}/apidocs/vpc#endpoint-url).
+
 ```bash
-curl -H "Authorization: $iam_token" -X POST "$api_endpoint/v1/vpn_gateways?version=$api_version&generation=2" \
-        -d '{
-                "name": "vpn-gateway-2",
-                "subnet": {"id": $subnet2}
-            }'
+curl -X POST  "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=2" \
+    -H "Authorization: $iam_token"  \
+    -d '{
+            "name": "vpn-gateway-2",
+            "subnet": {
+                "id": "'$SubnetId2'"
+            }
+        }'
 ```
 {: codeblock}
+
 
 Sample output:
 ```
@@ -136,24 +175,51 @@ Sample output:
 ```
 {: screen}
 
-Save the following fields for subsequent steps.
-* `id`. The ID of the VPN gateway in VPC 2, referred to in this example as `$gwid2`.
-* `address`. The public IP address of the VPN gateway in VPC 2, referred to in this example as `$gwaddress2`.
+Save the `id` of the second VPN gateway, for example:
+
+```sh
+export gwid2=<your_vpngateway_id>
+```
+{: pre}
+
+The gateway status appears as `pending` while the VPN gateway is being created, and the status becomes `available` when creation is complete. Creation can take a few minutes.
+
+You can check the gateway's status with the following command:
+
+```bash
+curl -X GET "$vpc_api_endpoint/v1/vpn_gateways/$gwid2?version=$api_version&generation=2" \
+     -H "Authorization: $iam_token"
+```
+{: codeblock}
+
+Save the `public_ip.address` of the second VPN gateway, for example:
+
+```sh
+export gwaddress2=<your_vpngateway_public_ip>
+```
+{: pre}
 
 
 ## Step 3. Create a VPN connection from the first VPN gateway to the second VPN gateway
 {: #step-3-create-a-vpc-connection-from-the-first-vpn-gateway-to-the-second-vpn-gateway}
 
-When you create the connection for the VPN gateway of VPC 1, set `local_cidrs` to the subnets on VPC 1 and set `peer_cidrs` to the subnets on VPC 2.
+When you create the connection for the VPN gateway of VPC 1, set `local_cidrs` to the subnets on VPC 1 and set `peer_cidrs` to the subnets on VPC 2. Separate multiple CIDRs with commas. Remember to update the variable `vpc_api_endpoint` depending on the region the VPN gateway is in.
+
+```sh
+export Vpc1Subnets=<your_vpc1_subnets>
+export Vpc2Subnets=<your_vpc2_subnets>
+```
+{: codeblock}
 
 ```bash
-curl -H "Authorization: $iam_token" -X POST "$api_endpoint/v1/vpn_gateways/$gwid1/connections?version=$api_version&generation=2" \
+curl -X POST "$vpc_api_endpoint/v1/vpn_gateways/$gwid1/connections?version=$api_version&generation=2" \
+        -H "Authorization: $iam_token"   \
         -d '{
                 "name": "vpn-connection-to-vpn-gateway-2",
-                "peer_address": $gwaddress2,
+                "peer_address": "'$gwaddress2'",
                 "psk": "VPNDemoPassword",
-                "local_cidrs": [ "<LOCAL-CIDR>" ],
-                "peer_cidrs": [ "<PEER-CIDR>" ]
+                "local_cidrs": [ "'$Vpc1Subnets'" ],
+                "peer_cidrs": [ "'$Vpc2Subnets'" ]
             }'
 ```
 {: codeblock}
@@ -190,16 +256,17 @@ Sample output:
 ## Step 4. Create a VPN connection from the second VPN gateway to the first VPN gateway
 {: #step-4-create-a-vpn-connection-from-the-second-vpn-gateway-to-the-first-vpn-gateway}
 
-When you create the connection for the VPN gateway of VPC 2, set `local_cidrs` to the subnets on VPC 2 and `peer_cidrs` to the subnets on VPC 1.
+When you create the connection for the VPN gateway of VPC 2, set `local_cidrs` to the subnets on VPC 2 and `peer_cidrs` to the subnets on VPC 1. Remember to update the variable `vpc_api_endpoint` depending on the region the VPN gateway is in.
 
 ```bash
-curl -H "Authorization: $iam_token" -X POST "$api_endpoint/v1/vpn_gateways/$gwid2/connections?version=$api_version&generation=2" \
+curl -X POST "$vpc_api_endpoint/v1/vpn_gateways/$gwid2/connections?version=$api_version&generation=2" \
+        -H "Authorization: $iam_token" \
         -d '{
                 "name": "vpn-connection-to-vpn-gateway-1",
-                "peer_address": $gwaddress1,
+                "peer_address": "'$gwaddress1'",
                 "psk": "VPNDemoPassword",
-                "local_cidrs": [ "<LOCAL-CIDR>" ],
-                "peer_cidrs": [ "<PEER-CIDR>" ]
+                "local_cidrs": [ "'$Vpc2Subnets'" ],
+                "peer_cidrs": [ "'$Vpc1Subnets'" ]
             }'
 ```
 {: codeblock}
@@ -235,11 +302,12 @@ Sample output:
 ## Step 5. Verify connectivity
 {: #step-5-verify-connectivity}
 
-After the VPN connection is established, you can reach your virtual server instances on subnet 2 from subnet 1, and vice versa.
+
 
 You can check the status of the VPN connection as follows:
 ```bash
-curl -H "Authorization: $iam_token" -X GET "$api_endpoint/v1/vpn_gateways/$gwid1/connections?version=$api_version&generation=2"
+curl  -X GET "$vpc_api_endpoint/v1/vpn_gateways/$gwid1/connections?version=$api_version&generation=2" \
+      -H "Authorization: $iam_token"
 ```
 {: codeblock}
 
@@ -278,3 +346,5 @@ Sample output:
 }
 ```
 {: codeblock}
+
+After the VPN connection is established, you can reach your virtual server instances from the subnets in VPC 1 to the ones in VPC 2, and vice versa.
