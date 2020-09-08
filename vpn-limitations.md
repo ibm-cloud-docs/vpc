@@ -35,4 +35,4 @@ Lists known limitations for a VPN gateway for VPC.
 
 * IBM VPN gateway on VPC accepts VPN packets with [NAT-Traversal Encapsulation](https://tools.ietf.org/html/rfc3947) only. The [IP Encapsulating Security Payload (ESP)](https://tools.ietf.org/html/rfc4303) is not accepted. Make sure the NAT-T feature is enabled on your on-premises VPN device.
 
-* The peer subnet of a VPN gateway connection cannot overlap in the same zone and VPC. For example, suppose you have a VPN gateway connection with a peer subnet `192.168.1.0/24`, and the VPN gateway is in zone `us-south-1` in VPC1. You cannot add another peer `192.168.0.0/16` in the same VPN connection, or in a different VPN connection in the same zone in VPC1 because `192.168.1.0/24` and `192.168.0.0/16` overlap. However, you can add a VPN connection with peer subnet `192.168.0.0/16` if the VPN gateway is in a different VPC or zone.
+* Peer subnets of a VPN gateway connection cannot overlap.
