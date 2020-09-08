@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-01"
+lastupdated: "2020-09-08"
 
 keywords: creating a Windows custom image, cloudbase-init, qcow2
 
@@ -79,7 +79,7 @@ Complete the following steps to create a Windows custom image.
           log_file=cloudbase-init.log
           default_log_levels=comtypes=INFO,suds=INFO,iso8601=WARN,requests=WARN
           local_scripts_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\
-          metadata_services=cloudbaseinit.metadata.services.configdrive.ConfigDriveService
+          metadata_services=cloudbaseinit.metadata.services.configdrive.ConfigDriveService,
           # enabled plugins - executed in order
           plugins=cloudbaseinit.plugins.common.mtu.MTUPlugin,
                   cloudbaseinit.plugins.windows.ntpclient.NTPClientPlugin,
@@ -110,7 +110,7 @@ Complete the following steps to create a Windows custom image.
           log_file=cloudbase-init-unattend.log
           default_log_levels=comtypes=INFO,suds=INFO,iso8601=WARN,requests=WARN
           local_scripts_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\
-          metadata_services=cloudbaseinit.metadata.services.configdrive.ConfigDriveService
+          metadata_services=cloudbaseinit.metadata.services.configdrive.ConfigDriveService,
           # enabled plugins - executed in order
           plugins=cloudbaseinit.plugins.common.mtu.MTUPlugin,
                   cloudbaseinit.plugins.common.sethostname.SetHostNamePlugin,
@@ -125,7 +125,7 @@ Complete the following steps to create a Windows custom image.
     8. Run Sysprep by using the following command:
     
          ```
-         C:\Windows\System32\Sysprep\Sysprep.exe /oobe /generalize /shutdown "/unattend:C:\Program Files\Cloudbase        Solutions\Cloudbase-Init\conf\Unattend.xml"
+         C:\Windows\System32\Sysprep\Sysprep.exe /oobe /generalize /shutdown "/unattend:C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\Unattend.xml"
          ``` 
          {: codeblock}
     
