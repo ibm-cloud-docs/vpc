@@ -132,7 +132,7 @@ Since Layer-4 load balancing requires fewer computations compared to more sophis
 {: #nlb-permissions-related-links}
 
 * [Network load balancer CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#nlb-anchor)
-* [Load balancer API reference](https://{DomainName}/apidocs/vpc#list-load-balancers)
+* [Load balancer API reference](https://{DomainName}/apidocs/vpc#list-load-balancer-profiles)
 * [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
 * [Activity Tracker with LogDNA events](/docs/vpc?topic=vpc-at-events#events-load-balancers)
 * [FAQs for network load balancers](/docs/vpc?topic=vpc-nlb-faqs)

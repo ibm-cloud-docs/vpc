@@ -207,7 +207,7 @@ There is one limitation for an application load balancer:
 {: #permissions-related-links-alb}
 
 * [Application load balancer CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#alb-anchor)
-* [Load balancer API reference](https://{DomainName}/apidocs/vpc#list-all-load-balancers)
+* [Load balancer API reference](https://{DomainName}/apidocs/vpc#list-load-balancer-profiles)
 * [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
 * [Activity Tracker with LogDNA events](/docs/vpc?topic=vpc-at-events#events-load-balancers)
 * [FAQs for application load balancers](/docs/vpc?topic=vpc-load-balancer-faqs)
