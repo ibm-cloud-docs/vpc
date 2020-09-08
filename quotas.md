@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-7-28"
+lastupdated: "2020-9-08"
 
 keywords: quotas, resources, limits
 
@@ -66,11 +66,12 @@ If you provision dedicated hosts, the vCPU associated with your dedicated hosts 
 
 |Resource|Quota|
 |--------|-----|
-|ACLs| 50 per VPC<sup>1</sup> |   
+|ACLs|50 per VPC |   
+|Rules|50 per ACL<sup>1</sup>|
 {: caption="Table 3. Quotas for access control lists" caption-side="top"}
 
 <sup>1</sup>
-You can use this quota for inbound rules, outbound rules, or both. For example, you might have 40 inbound rules and 10 outbound rules per ACL.
+You can use the rules quota for inbound rules, outbound rules, or both. For example, you might have 40 inbound rules and 10 outbound rules per ACL.
 
 ### Security groups
 {: #security-group-quotas}
@@ -132,5 +133,3 @@ The following table displays current VPC service limits. Unlike quotas, these li
 | Instance groups for auto scale and more  | 200 per account|
 | Instance group memberships  | 1000 per instance group|
 {: caption="Table 8. Limits for VPC resources" caption-side="top"}
-
-
