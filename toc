@@ -45,6 +45,7 @@ Virtual Private Cloud
         /solution-tutorials/solution-tutorials-vpc-app-deploy
         /solution-tutorials/solution-tutorials-vpc-secure-management-bastion-server
         /containers/containers-vpc_ks_tutorial
+        /solution-tutorials/solution-tutorials-vpc-tg-dns-iam
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
