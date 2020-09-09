@@ -69,8 +69,8 @@ Virtual Private Cloud
         vsi_is_connecting_linux_gc.md
         vsi_is_connecting_windows.md
         vsi_is_manage_instances.md
-        monitoring.md
-        /virtual-servers/virtual-servers-sysdig-monitoring-metrics
+        /cloud-infrastructure/cloud-infrastructure-monitoring
+        /cloud-infrastructure/cloud-infrastructure-sysdig-monitoring-metrics
 
     {: .topicgroup}
     Custom images
