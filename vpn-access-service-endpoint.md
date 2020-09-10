@@ -26,9 +26,9 @@ subcollection: vpc
 {:external: target="_blank" .external}
 
 # Accessing service endpoints through VPN
-{: #build-se-connectivity-using-vpn} 
+{: #build-se-connectivity-using-vpn}
 
-A VPN for VPC gateway allows your VPC to get access to cloud service endpoints from an on-premises network and from your VPC?.
+A VPN for VPC gateway allows your VPC to get access to cloud service endpoints from an on-premises network and from your VPC.
 
 To set up access to a service endpoint:
 
