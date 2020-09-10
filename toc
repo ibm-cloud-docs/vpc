@@ -162,6 +162,7 @@ Virtual Private Cloud
         {: .topicgroup}
         Connecting to your on-premises network
             vpn-onprem.md
+            vpn-onprem-aws.md
             vpn-onprem-check-point.md
             vpn-onprem-cisco.md
             vpn-onprem-fortigate.md
