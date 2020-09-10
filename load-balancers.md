@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-31"
+lastupdated: "2020-09-10"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network
 
@@ -49,7 +49,7 @@ The following table provides a comparison of the two types of load balancers.
 |-----------------------------|------------------|--------------------|
 | HA mode                     | Active-standby (with single VIP)   |  Active-active (with multiple VIPs assigned to a DNS name) |
 | Monitoring metrics with Sysdig | Yes | Yes |
-| Multi-zone support | No (see [Multi-zone support](/docs/vpc?topic=vpc-nlb-vs-elb#nlb-mz-support)) | Yes |     
+| Multi-zone support | No (see [Multi-zone support](/docs/vpc?topic=vpc-network-load-balancers#nlb-use-case-2)) | Yes |     
 | Source IP address is preserved | Yes | No |
 | SSL offloading              | No              | Yes |
 | Supported protocols         | TCP | HTTPS, HTTP, TCP  |
