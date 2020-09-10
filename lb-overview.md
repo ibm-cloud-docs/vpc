@@ -34,8 +34,6 @@ The following diagram illustrates the deployment architecture for the applicatio
 ![Application load balancer for VPC](images/alb_arc.png "Application load balancer")
 {: caption="Application load balancer" caption-side="top"}
 
-**REVIEWERS: This diagram needs to be described.**
-
 ## Types of application load balancers
 {: #types-load-balancer}
 
@@ -168,8 +166,6 @@ IBM Db2-on-Cloud Service serves as the database for the application load balance
 ## Application load balancer data flow path
 {: #alb-data-flow}
 
-**REVIEWERS: Need introduction here, not just picture.**
-
 ![ALB traffic flow](images/alb-datapath.png)
 
 ## Integration with instance groups
@@ -179,9 +175,7 @@ IBM Cloud Application Load Balancer integrates with instance groups, which can `
 
 ## Health checks
 {: #health-checks}
-
-**REVIEWERS: We have a [task](/docs/vpc?topic=vpc-nlb-health-checks) for NLB.  Why isn't there a procedure for this for ALB?**
-
+ 
 Health check definitions are mandatory for back-end pools. Health checks can be configured on back-end ports, or on a separate health check port based on the application.
 
 An application load balancer conducts periodic health checks to monitor the health of the back-end ports, and it forwards client traffic to them. If a back-end server port is found to be unhealthy, no new connections are forwarded to it. The load balancer continues to monitor the health of unhealthy ports, and it resumes their use if they become healthy again, which means that they successfully pass two consecutive health check attempts.
