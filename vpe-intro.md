@@ -39,7 +39,7 @@ A VPE is the equivalent to a [Cloud Service Endpoint (CSE)](/docs/account?topic=
 * Beta users can connect to service instances deployed in IBM Cloud service regions: Dallas, Washington D.C., London, Frankfurt, and Tokyo.
 * A reserved IP address bound to an endpoint gateway can receive traffic from another zone of the same VPC.
 * You can bind more than one IP address to an endpoint gateway; however, the current limit is one IP address per zone.
-* You can access IBM Cloud services by using either CSEs or VPEs. However, if you want your VPC to enforce a certain behavior or discipline, it is recommended to block direct access to CSE IP addresses using network ACLs (NACLs).
+* You can access IBM Cloud services by using either CSEs or VPEs. However, if you want your VPC to enforce a certain behavior or discipline, it is recommended to block direct access to CSE IP addresses using network ACLs (NACLs). For more information, see [Configuring ACLs for use with virtual private endpoints](/docs/vpc?topic=vpc-vpe-configuring-acls).
 
 ## Overview of features
 {: #vpe-feature-overview}
@@ -89,6 +89,6 @@ These links provide additional information about the {{site.data.keyword.cloud}}
 
 * [VPE CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpe-clis)
 * [VPE API reference (for allowlisted Beta participants only)](https://{DomainName}/apidocs/vpe-beta)
-* [VPE Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-vpe)
 * [FAQs for virtual private endpoints](/docs/vpc?topic=vpc-faqs-vpe)
 * [Troubleshooting virtual private endpoints](/docs/vpc?topic=vpc-vpc-troubleshooting-vpe)
+* [VPE Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-vpe)
