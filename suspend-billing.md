@@ -3,7 +3,7 @@
 copyright:
   years: 2017, 2020
 
-lastupdated: "2020-09-02"
+lastupdated: "2020-09-10"
 
 keywords: pricing, billing, data, instance, suspend 
 
@@ -45,7 +45,6 @@ Review the following table for details on how suspend billing impacts various re
 | ----------------------------- | ----------------- | ---------------- |
 | vCPU                          |          X        |                  |
 | RAM                           |          X        |                  |
-| Bandwidth upgrades            |          X        |                  |
 | Operating system licenses     |          X        |                  |
 | Floating IPs, Load balancers, or other attached networking offerings |                   |         X        |
 | Storage                       |                   |         X        |
@@ -53,7 +52,6 @@ Review the following table for details on how suspend billing impacts various re
 
 Usage times are calculated per second, for both the in use time and suspended time of your virtual server instance. Even if you never initiate the suspend billing feature by powering off your instance, the billing is calculated per second of the instance's lifecycle.
 {:note}
-
 
 ### Suspend billing and sustained usage discounts
 {: #suspend-billing-and-sustained-usage-discounts}
