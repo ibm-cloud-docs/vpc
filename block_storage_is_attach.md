@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2019-11-06"
+lastupdated: "2020-09-09"
 
 keywords:  block storage, block storage volume, volume, volume attachment
 subcollection: vpc
@@ -19,6 +19,8 @@ subcollection: vpc
 {:table: .aria-labeledby="caption"}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
+{:help: data-hd-content-type='help'}
+{:support: data-reuse='support'}
 
 # Attaching a block storage volume by using the UI
 {: #attaching-block-storage}
@@ -29,13 +31,18 @@ When you create a {{site.data.keyword.block_storage_is_short}} volume for a virt
 ## Volume attachment limits
 {: #vol-attach-limits}
 
-Although you can attach only one block storage volume to a virtual server instance at a time, you can attach several different block storage volumes to a single instance. The following limits apply:
+You can attach only one block storage volume to a virtual server instance at a time, but you can attach several different block storage volumes to a single instance. 
 
-* Instances with less than 4 virtual CPUs can attach up to 4 block storage secondary volumes, plus the boot volume.
-* Instances with 4 or more virtual CPUs can attach up to 12 block storage secondary volumes, plus the boot volume.
+The following limits apply:
+
+* When you create a new instance, you can create and attach up to 4 secondary block storage volumes, plus the boot volume. 
+* For instances with less than 4 virtual CPUs, you can attach up to 4 block storage secondary volumes, plus the boot volume.
+* For instances with 4 or more virtual CPUs, you can initially create and attach the 4 secondary volumes, plus the boot volume. You can later attach up to a total of 12 block storage secondary volumes.
 
 ## Attach a block storage volume to a virtual server instance
 {: #attach}
+{: help}
+{: support}
 
 From the list of all block storage volumes, follow these steps.
 
