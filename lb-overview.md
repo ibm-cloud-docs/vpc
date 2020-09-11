@@ -119,7 +119,7 @@ When an HTTPS listener is configured with an HTTP pool, the HTTPS request is ter
 
 SSL offloading requires you to provide an SSL certificate for the application load balancer to perform SSL offloading tasks. You can manage the SSL certificates through the [IBM Certificate Manager](/docs/certificate-manager?topic=certificate-manager-getting-started).
 
-To give an application load balancer access to your SSL certificate, you must enable **service-to-service authorization**, which grants your load balancer service instance access to your certificate manager instance. For more information, see [Granting access between services](/docs/account?topic=account-serviceauth#create-auth). Make sure to choose **Infrastructure Service** as the source service, **Application Load Balancer** as the resource type, **Certificate Manager** as the target service, and assign the **Writer** service access role.
+To give an application load balancer access to your SSL certificate, you must enable **service-to-service authorization**, which grants your load balancer service instance access to your certificate manager instance. For more information, see [Granting access between services](/docs/account?topic=account-serviceauth#create-auth). Make sure to choose **Infrastructure Services** as the source service, **Application Load Balancer** as the resource type, **Certificate Manager** as the target service, and assign the **Writer** service access role.
 
 The required authorization between the load balancer and certificate manager must be set to prevent errors in your load balancer.
 {: important}
