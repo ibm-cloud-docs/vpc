@@ -25,7 +25,7 @@ subcollection: vpc
 # Connecting to a Check Point Security Gateway peer
 {: #check-point-config}
 
-You can use {{site.data.keyword.cloud}} VPN for VPC to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your Check Point Securit Gateway to connect to VPN for VPC.
+You can use {{site.data.keyword.cloud}} VPN for VPC to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your Check Point Security Gateway to connect to VPN for VPC.
 {: shortdesc}
 
 These instructions are based on Check Point Security Gateway, Software Release [R80.40]. Check Point software release [R77.30] is not supported.
