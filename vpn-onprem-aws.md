@@ -78,12 +78,3 @@ If you have multiple subnets with contiguous address range, you can create conne
    Because AWS requires PFS to be _enabled_ in Phase 2, you must create a custom IPsec policy to replace the default policy for the VPN in your VPC. For more information, see [Creating a custom IPsec policy in VPN for VPC](#custom-ipsec-policy).
    {: important}
 1. After status for both connections show **Active**, verify traffic between your subnets.
-
-
-## Connecting an IBM policy-based VPN to an AWS peer
-{: #aws-config-static-route-based}
-
-Currently, VPN for VPC static, route-based VPN does not support an AWS peer.
-{: important}
-
-An IBM Cloud custom route does not allow more than one static route for a given destination using a VPN connection. Only one AWS tunnel IP can be used as peer IP. However, a single AWS tunnel cannot be used to communicate with both active members of IBM static route-based VPN, so traffic is disrupted when either side performs maintenance operations causing fail-over from the only active tunnel to the other unusable tunnel.  
