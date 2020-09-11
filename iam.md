@@ -26,7 +26,7 @@ subcollection: vpc
 
 Access to {{site.data.keyword.vpc_full}} (VPC) resources for users in your account is controlled by {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM). Every user that accesses infrastructure services resources in your account must be assigned one or more access policies that define their IAM roles. The policies determine what actions a user can perform within the context of the service or instance that you select. The allowable actions are customized and defined by the {{site.data.keyword.cloud_notm}} service as operations that are allowed to be performed on the service. The actions are then mapped to IAM user roles.
 
-Each user must also have access to the resource group that contains the VPC infrastructure resources. A _resource group_ organizes account resources in customizable groupings so that you can quickly assign access to more than one resource at a time. Every resource that is managed by IAM belongs to a resource group within your account.
+Each user must also have access to the resource group that contains the infrastructure resources. A _resource group_ organizes account resources in customizable groupings so that you can quickly assign access to more than one resource at a time. Every resource that is managed by IAM belongs to a resource group within your account.
 
 Policies enable access to be granted at different levels, for example:
 
@@ -40,7 +40,7 @@ assign a role that determines the user's level of access.
 ## IAM roles and actions
 {: #iam-roles}
 
-The following table details what actions are mapped to platform management roles within the VPC Infrastructure service. Platform management roles enable users to perform tasks on resources at the platform level, for example assign user access for the service, create or delete resources, and bind instances to applications.
+The following table details what actions are mapped to platform management roles within infrastructure services. Platform management roles enable users to perform tasks on resources at the platform level, for example assign user access for the service, create or delete resources, and bind instances to applications.
 
 | Platform management role | Description of actions | Example actions                                                 |
 |--------------------------|------------------------|-----------------------------------------------------------------|
