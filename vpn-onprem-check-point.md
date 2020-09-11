@@ -36,7 +36,7 @@ Because Check Point Security Gateway uses IKEv1 by default, you must create a cu
 To support these functions, the following general configuration steps must be performed on the Check Point Security Gateway:
 
 1. Configure the security gateways that are internally managed:
-  * Go to **SmartConsole\>Securitys & Services**, click the name of security gateway to open the Security Gateway configuration page.
+  * Go to **SmartConsole \> Securitys & Services**, click the name of security gateway to open the Security Gateway configuration page.
   * Go to **Network Management** page to define the Topology.
   * Go to the **Network Management \> VPN Domain** page to define the VPN Domain.
 2. Create an `Interoperable Device` on the Check Point SmartConsole:
