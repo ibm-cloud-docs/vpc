@@ -227,7 +227,7 @@ The following example steps are specific to {{site.data.keyword.keymanagementser
 Ensure that you have created the required authorizations in IBM {{site.data.keyword.iamshort}}. 
 
 1. From IBM {{site.data.keyword.iamshort}} (IAM), [create an authorization](/docs/iam?topic=iam-serviceauth) between **Cloud Block Storage** (source service) and **your key management service** (target service). The authorization permits the {{site.data.keyword.cloud_notm}} backplane services to use your WDEK for data encryption.
-2. Ensure that you have created an IAM authorization between the **Image Service for VPC** and **IBM Cloud Object Storage**. Specify **Infrastructure Service** as the source service. Specify **Image Service for VPC** as the resource type. Specify **Cloud Object Storage** as the target service. The authorization is so that the Image Service for VPC can access images in IBM Cloud Object Storage. For more information, see [Granting access to IBM Cloud Object Storage to import images](/docs/vpc?topic=vpc-object-storage-prereq).
+2. Ensure that you have created an IAM authorization between the **Image Service for VPC** and **IBM Cloud Object Storage**. Specify **Infrastructure Services** as the source service. Specify **Image Service for VPC** as the resource type. Specify **Cloud Object Storage** as the target service. The authorization is so that the Image Service for VPC can access images in IBM Cloud Object Storage. For more information, see [Granting access to IBM Cloud Object Storage to import images](/docs/vpc?topic=vpc-object-storage-prereq).
 
 
 ## Next steps

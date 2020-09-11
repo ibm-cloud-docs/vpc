@@ -47,7 +47,7 @@ To give a new user access to all VPC infrastructure resources:
 1. Go to the [IAM Users ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/iam/users){: new_window} page in the IBM Cloud console and click **Invite users**.
 1. Enter the email addresses of the users that you want to invite in the **Enter Email addresses** section.
 1. In the **Assign users additional access** section, select **IAM services** and complete the following tasks:
-  * From the **What type of access do you want to assign?** list, select **Infrastructure Service**.
+  * From the **What type of access do you want to assign?** list, select **Infrastructure Services**.
   * From the **in** list, select **All resource groups**.
   * From the **Resource type** list, select **All resource types**.
   * In the **Platform access** area, select **Editor**.
@@ -63,7 +63,7 @@ This scenario shows how to give an existing user permission to create and manage
 1. Go to the [IAM Users ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/iam/users){: new_window} page in the IBM Cloud console and select the user whose access you want to configure.
 1. On the **Access policies** tab, click **Assign access**.
 1. In the **Assign users additional access** section, select **IAM services** and complete the following tasks:
-  * From the **What type of access do you want to assign?** list, select **Infrastructure Service**.
+  * From the **What type of access do you want to assign?** list, select **Infrastructure Services**.
   * From the **in** list, select **Resource group: default**. 
   * From the **Resource type** list, select **All resource types**.
   * In the **Platform access** area, select **Operator**.
@@ -130,7 +130,7 @@ Add the necessary VPC access policies for each access group. For example, add a 
 1. Select an access group. Let's start with the `test_team_manage_vpcs` access group.
 1. On the **Access policies** tab, click **Assign access**.
 1. In the **Assign access group additional access** section, select **IAM services**
-1. From the **What type of access do you want to assign?** list, select **Infrastructure Service**.
+1. From the **What type of access do you want to assign?** list, select **Infrastructure Services**.
 1. From the **in** list, select **Resource group: test_team**. 
 1. From the **Resource type** list, select **All resource types**.
 1. In the **Platform access** area, select **Editor**.

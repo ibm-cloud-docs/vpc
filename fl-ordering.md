@@ -53,7 +53,7 @@ Prior to creating a flow log collector, ensure that you have met the following p
    * In the IBM Cloud console, click **Manage > Access (IAM)**, then select **Authorizations** from the navigation pane.
    * Click **Create** and complete the following information:
 
-      - For Source service, select **Infrastructure Service** in **Account**.
+      - For Source service, select **Infrastructure Services** in **Account**.
       - For Resource type, select **Flow Logs for VPC**.
       - For Source resource instance, select **All resource instances**.
       - For Target service, select **Cloud Object Storage** in **Account**.
