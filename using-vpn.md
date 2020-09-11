@@ -144,7 +144,7 @@ The following encryption and authentication options detailed in Table 5 might be
 ## Architecture
 {: #vpn-architecture-diagram}
 
-* The architecture shown in Figure 2 displays the control and data flow of the VPN for VPC service.
+The architecture shown in Figure 2 displays the control and data flow of the VPN for VPC service.
 
 ![Figure showing VPN for VPC architecture](images/vpn-architecture-diagram.png){: caption="Figure 2: VPN for VPC Architecture " caption-side="top"}
 
