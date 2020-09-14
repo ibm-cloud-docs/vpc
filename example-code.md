@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-03-23"
+lastupdated: "2020-09-14"
 
 keywords: create, API, IAM, token, permissions, endpoint, region, zone, profile, status, subnet, gateway, floating IP, delete, resource, provision
 
@@ -151,8 +151,16 @@ curl -X PUT "$vpc_api_endpoint/v1/subnets/$subnet/public_gateway?version=$api_ve
 ```
 {: pre}
 
-Only one public gateway per zone is allowed in a VPC, but that public gateway can be attached to multiple subnets in the zone. To find the public gateway for a zone, run the 'ibmcloud is public-gateways` command and look for the particular VPC and Zone values.
+Only one public gateway per zone is allowed in a VPC, but that public gateway can be attached to multiple subnets in the zone. To find the public gateway for a zone, run the `ibmcloud is public-gateways` command and look for the particular VPC and Zone values.
 {: tip}
+
+You can then retrieve and view the public gateway that is attached to the subnet by running the following command.
+
+```bash
+curl -X GET "$vpc_api_endpoint/v1/subnets/$subnet/public_gateway?version=$api_version&generation=2" \
+  -H "Authorization: $iam_token"
+```
+{: pre}
 
 ## Add an SSH key
 {: #add-ssh-key-api-tutorial}
