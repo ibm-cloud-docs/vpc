@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-27"
+lastupdated: "2020-09-15"
 
 keywords: vpc network, VRF, router, hypervisor, address prefixes, classic access, implicit router, packet flows, NAT, data flows
 
@@ -43,6 +43,11 @@ A packet leaving a zone has the VNI stripped off. When the packet reaches its de
 {: #address-prefixes}
 
 Address prefixes are the summary information used by a VPC's implicit routing function to locate a _destination VSI_, regardless of the availability zone in which the destination VSI is located. The primary function of address prefixes is to optimize routing over the MPLS VPN, while avoiding pathological routing cases. All subnets created in a VPC must be contained in an address prefix, so that all VSIs in a VPC are reachable from all other VSIs in the VPC.
+
+## Cloud Service Endpoint source addresses 
+{: #cse-source-addresses}
+
+Cloud Service Endpoint source addresses are the IP addresses that identify a VPC and zone combination outside of the VPC. For example, a source address is used when a service outside of the VPC is called through a cloud service endpoint. The IP address of the virtual server instance is replaced with an IPv4 address, the source address, that identifies the VPC to the cloud service endpoint. 
 
 ## Data packet flows and the implicit router
 {: #data-packet-flows-and-the-implicit-router}
