@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020 
-lastupdated: "2020-08-24"
+lastupdated: "2020-09-16"
 
 keywords: auto scale, autoscale, virtual server instance, creating, UI, console
 
@@ -427,7 +427,7 @@ Max Membership Count   20
 ```
 {:screen}
 
-For more examples of the `ibmcloud is instance-group-manager-create` command, see the [VPC CLI reference](docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#???).
+For more examples of the `ibmcloud is instance-group-manager-create` command, see the [VPC CLI reference](docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-group-manager-create).
 
 Need more help? You can always run `ibmcloud is instance-group-manager-create --help` to display help for creating an instance group manager.
 {: tip}
@@ -516,7 +516,7 @@ Policy Type    target
 
 The response indicates that the auto scale manager should scale up the number of instances in your group when the average CPU utilization reaches 50 percent. Likewise, the auto scale maanger will also scale down the number of instances in your group when the average CPU utilization drops below 50 percent. 
 
-For more examples of the `ibmcloud is instance-group-manager-policy-create` command, see the [VPC CLI reference](docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#???).
+For more examples of the `ibmcloud is instance-group-manager-policy-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-group-manager-policy-create).
 
 You can define more than one target metric policy, but only one policy for each type of metric. Need more help? You can always run `ibmcloud is instance-group-manager-policy-create --help` to display help for creating a scaling policy.
 {: tip}
