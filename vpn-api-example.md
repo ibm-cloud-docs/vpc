@@ -4,7 +4,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-12"
+lastupdated: "2020-09-09"
 
 keywords: VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies, gateway, api example
 
@@ -25,17 +25,17 @@ subcollection: vpc
 {:DomainName: data-hd-keyref="DomainName"}
 {:external: target="_blank" .external}
 
-# API example: Connecting two VPCs using VPN
-{: #vpn-example}
+# API example - Connecting two VPCs using VPN
+{: #vpn-example} 
 
-The following API example describes how to connect two VPCs by creating a VPN gateway in each VPC. A VPN gateway can connect all the subnets in the zone where it is deployed so having a VPN gateway in each zone that you want to interconnect makes the subnets in both zones act as if they were a single network. The IP addresses of the subnets in the two VPCs must not overlap.
+The following API example describes how to connect two VPCs by creating a VPN gateway in each VPC. A VPN gateway can connect all the subnets in the zone where it is deployed. Therefore, having a VPN gateway in each zone that you want to interconnect makes the subnets in both zones act as if they were a single network. The IP addresses of the subnets in the two VPCs must not overlap.
 {: shortdesc}
 
-You can use a VPN gateway to connect two VPCs. However, it is recommended to use IBM Cloud Transit Gateway for VPC-to-VPC connectivity. For more information, see [Getting Started with IBM Cloud Transit Gateway](/docs/transit-gateway).
+You can use a VPN gateway to connect two VPCs. However, it is recommended to use IBM Cloud Transit Gateway for VPC-to-VPC connectivity. For more information, see [Getting started with IBM Cloud Transit Gateway](/docs/transit-gateway).
 {: important}
 
-The following diagram shows how to interconnect three VPCs, but the example that follows shows you how to connect only the first two. You can repeat the steps to connect more VPCs.
-
+The following diagram shows how to interconnect three VPCs; the following example shows you how to connect only the first two. You can repeat the steps to connect more VPCs.
+ 
 ![Interconnecting VPCs by using VPN gateways](images/vpc-vpn.svg){: caption="Figure 1: Interconnecting VPCs by using VPN gateways" caption-side="top"}
 
 The following example assumes that:
@@ -43,13 +43,13 @@ The following example assumes that:
 1. You already created VPCs, subnets, and virtual server instances. For more information about creating VPC resources, see [Getting started](/docs/vpc?topic=vpc-getting-started).
 1. You set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) and initialized all the variables needed.
 
-You can also create a VPN gateway and add VPN connections using the UI. For instructions, see [Creating a VPN gateway using the UI](/docs/vpc?topic=vpc-vpn-create-gateway#vpn-create-ui).
+You can also create a VPN gateway and add VPN connections by using the UI. For instructions, see [Creating a VPN gateway using the UI](/docs/vpc?topic=vpc-vpn-create-gateway#vpn-create-ui).
 {: tip}
 
 ## Step 1. Create a VPN gateway in the first VPC
 {: #step-1-create-a-vpn-gateway-in-your-vpc-subnet}
 
-The VPN gateway is created in the zone that is associated with the subnet you select. For best performance, create the VPN gateway in a subnet without any other VPC resources to ensure that there are enough available private IPs for the gateway. A VPN gateway needs 8 private IP addresses to accommodate high availability and rolling upgrades.
+The VPN gateway is created in the zone that is associated with the subnet you select. For best performance, create the VPN gateway in a subnet without any other VPC resources to ensure that enough private IPs are available for the gateway. A VPN gateway needs 8 private IP addresses to accommodate high availability and rolling upgrades.
 
 The VPN gateway can connect only to virtual server instances in the zone it is deployed. Instances in other zones can't use this VPN gateway to communicate with the other network. For zone fault tolerance, deploy one VPN gateway per zone.
 {: tip}
@@ -61,10 +61,10 @@ export SubnetId1=<your_subnet_id>
 ```
 {: pre}
 
-The following command deploys the VPN gateway in the `Default` resource group.
+The following command deploys the VPN gateway in the `Default` resource group. 
 
 ```bash
-curl -X POST  "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=2" \
+curl -X POST "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=2" \
     -H "Authorization: $iam_token" \
     -d '{
             "name": "vpn-gateway-1",
@@ -113,7 +113,7 @@ You can check the gateway's status with the following command:
 
 ```bash
 curl -X GET "$vpc_api_endpoint/v1/vpn_gateways/$gwid1?version=$api_version&generation=2" \
-     -H "Authorization: $iam_token"
+     -H "Authorization: $iam_token" 
 ```
 {: codeblock}
 
@@ -134,7 +134,7 @@ export SubnetId2=<your_subnet_id>
 ```
 {: pre}
 
-The following command deploys the VPN gateway in the `Default` resource group. If the second VPC belongs to a different region,
+The following command deploys the VPN gateway in the `Default` resource group. If the second VPC belongs to a different region, 
 make sure to update the variable `vpc_api_endpoint`. See the list of [API endpoints](https://{DomainName}/apidocs/vpc#endpoint-url).
 
 ```bash
@@ -188,7 +188,7 @@ You can check the gateway's status with the following command:
 
 ```bash
 curl -X GET "$vpc_api_endpoint/v1/vpn_gateways/$gwid2?version=$api_version&generation=2" \
-     -H "Authorization: $iam_token"
+     -H "Authorization: $iam_token" 
 ```
 {: codeblock}
 
@@ -272,6 +272,7 @@ curl -X POST "$vpc_api_endpoint/v1/vpn_gateways/$gwid2/connections?version=$api_
 {: codeblock}
 
 Sample output:
+
 ```
 {
     "id": "0738-1d4dbacq-673d-2qed-hf68-858961739gf0",
@@ -312,6 +313,7 @@ curl  -X GET "$vpc_api_endpoint/v1/vpn_gateways/$gwid1/connections?version=$api_
 {: codeblock}
 
 Sample output:
+
 ```
 {
     "first": {
@@ -345,6 +347,6 @@ Sample output:
     ]
 }
 ```
-{: codeblock}
+{: screen}
 
 After the VPN connection is established, you can reach your virtual server instances from the subnets in VPC 1 to the ones in VPC 2, and vice versa.

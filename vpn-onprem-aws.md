@@ -28,7 +28,7 @@ subcollection: vpc
 You can use {{site.data.keyword.cloud}} VPN for VPC to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your AWS VPN gateway to connect to VPN for VPC.
 {: shortdesc}
 
-Because AWS requires PFS to be _enabled_ in Phase 2, you must create a custom IPsec policy to replace the default policy for the VPN in your VPC. See [Creating a custom IPsec policy in VPN for VPC](#custom-ipsec-policy) for more details.
+Because AWS requires PFS to be _enabled_ in Phase 2, you must create a custom IPsec policy to replace the default policy for the VPN in your VPC. See [Creating a custom IPsec policy in VPN for VPC](/docs/vpc?topic=vpc-creating-ipsec-policy) for more details.
 {: important}
 
 When the AWS VPN receives a connection request from VPN for VPC, AWS VPN uses IPsec Phase 1 parameters to establish a secure connection and authenticate the VPN for VPC gateway. Then, if the security policy permits the connection, the AWS VPN establishes the tunnel by using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
@@ -47,9 +47,10 @@ VPN for VPC policy-based VPN can be used to connect to AWS route-based VPN. Howe
 If you have multiple subnets with contiguous address range, you can create connection with a CIDR that is a superset of your subnets. For example: `192.168.0.0/24` and `192.168.1.0/24` are covered by CIDR `192.168.0.0/23`
 {: tip}
 
-
-### AWS configuration
+### Configuring AWS
 {: #aws-to-policy-based-aws-config}
+
+To configure an AWS peer, follow these steps:
 
 1. Create an AWS Customer Gateway using the IBM policy-based VPN IP address.
 1. Create an AWS Virtual Private Gateway and attach it to the AWS VPC that must send traffic to the IBM VPC.
@@ -70,11 +71,12 @@ If you have multiple subnets with contiguous address range, you can create conne
 1. Verify connection status on the **Site-to-Site Connection** page.
 1. Verify traffic. Ensure that AWS ACL and security group rules are adjusted to allow the traffic you need.
 
-### IBM policy-based VPN configuration
+### Configuring the policy-based IBM Cloud VPN
 {: #aws-to-policy-based-ibm-config}
 
-1. Create a policy-based VPN.
+To configure an IBM Cloud policy-based VPN for an AWS peer:
+
 1. Create two new connections, one for each AWS tunnel IP. Use single CIDR for both **Local Subnets** and **Peer Subnets**.
-   Because AWS requires PFS to be _enabled_ in Phase 2, you must create a custom IPsec policy to replace the default policy for the VPN in your VPC. For more information, see [Creating a custom IPsec policy in VPN for VPC](#custom-ipsec-policy).
+   Because AWS requires PFS to be _enabled_ in Phase 2, you must create a custom IPsec policy to replace the default policy for the VPN in your VPC. For more information, see [Creating a custom IPsec policy in VPN for VPC](/docs/vpc?topic=vpc-creating-ipsec-policy).
    {: important}
 1. After status for both connections show **Active**, verify traffic between your subnets.
