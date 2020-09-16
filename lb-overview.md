@@ -26,7 +26,7 @@ subcollection: vpc
 # About {{site.data.keyword.cloud_notm}} Application Load Balancer for VPC
 {: #load-balancers}
 
-Use {{site.data.keyword.cloud}} application load balancer to distribute traffic among multiple server instances within the same region of your VPC.
+Use {{site.data.keyword.cloud}} Application Load Balancer for VPC to distribute traffic among multiple server instances within the same region of your VPC.
 {:shortdesc}
 
 The following diagram illustrates the deployment architecture for the application load balancer.
@@ -49,7 +49,7 @@ You can create a public or private application load balancer. Table 1 shows a co
 ### Public application load balancer
 {: #public-load-balancer}
 
-A public application load balancer service instance is assigned a publicly accessible Fully Qualified Domain Name (FQDN), which you must use to access your applications that are hosted behind the load balancer. This domain name can be registered with one or more public IP addresses.
+A public application load balancer service instance is assigned a publicly accessible fully qualified domain name (FQDN), which you must use to access your applications that are hosted behind the load balancer. This domain name can be registered with one or more public IP addresses.
 
 Over time, the number and value of these public IP addresses might change due to maintenance and scaling activities. The back-end virtual server instances (VSIs) hosting your application must run in the same region and under the same VPC.
 
@@ -156,39 +156,17 @@ An application load balancer adjusts its capacity automatically according to the
 ## MZR support
 {: #mzr-support}
 
-{{site.data.keyword.cloud_notm}} Application Load Balancer supports Multi-Zone-Regions (MZRs). You can achieve high availability and redundancy by deploying an application load balancer with subnets from different zones. When subnets from multiple zones are used to provision an application load balancer, the load balancer appliances get deployed to multiple zones.
+{{site.data.keyword.cloud_notm}} Application Load Balancer for VPC supports Multi-Zone-Regions (MZRs). You can achieve high availability and redundancy by deploying an application load balancer with subnets from different zones. When subnets from multiple zones are used to provision an application load balancer, the load balancer appliances get deployed to multiple zones.
 
 ## Data storage and encryption
 {: #load-balancer-data-stored-encrypted-alb}
 
 IBM Db2-on-Cloud Service serves as the database for the application load balancer. It has high-availability (HA) enabled, and SSL connections are enforced. SSL certificates are also used for the load balancer RESTful APIs. When you create a load balancer, a workflow activity creates a VSI. Before the VSI is created, a request is made to the Certificate Manager to obtain the server SSL certificate to be injected into the appliance.
 
-## Application load balancer data flow path
-{: #alb-data-flow}
-
-![ALB traffic flow](images/alb-datapath.png)
-
 ## Integration with instance groups
 {: #lbaas-integration-with-instance-groups-overview}
 
-IBM Cloud Application Load Balancer integrates with instance groups, which can `auto scale` your back-end members. Pool members are dynamically added and deleted based on your usage and requirements.
-
-## Health checks
-{: #health-checks}
- 
-Health check definitions are mandatory for back-end pools. Health checks can be configured on back-end ports, or on a separate health check port based on the application.
-
-An application load balancer conducts periodic health checks to monitor the health of the back-end ports, and it forwards client traffic to them. If a back-end server port is found to be unhealthy, no new connections are forwarded to it. The load balancer continues to monitor the health of unhealthy ports, and it resumes their use if they become healthy again, which means that they successfully pass two consecutive health check attempts.
-
-The health checks for HTTP, HTTPS, and TCP ports are conducted as follows:
-
-* **HTTP:** An `HTTP GET` request against a pre-specified URL is sent to the back-end server health check port. The server port is marked healthy after receiving a `200 OK` response. The default `GET` health path is "/".
-
-* **HTTPS:** Similar to an HTTP health check, an `HTTPS GET` request is sent to the configured health check port and URL path. Health checks use HTTPS to encrypt traffic to back-end servers. A back-end server is deemed healthy after receiving a `200 OK` response. The default `GET` health path is "/".
-
-* **TCP:** The load balancer attempts to open a TCP connection with the back-end server on the specified TCP port. The server port is marked healthy if the connection attempt is successful, and the connection is closed.
-
-By default, health checks are sent every 5 seconds on the same port on which traffic is sent to the instance. By default, the load balancer waits 2 seconds for a response to the health check, and an instance is no longer considered healthy after two failed health checks.
+{{site.data.keyword.cloud_notm}} Application Load Balancer for VPC integrates with instance groups, which can `auto scale` your back-end members. Pool members are dynamically added and deleted based on your usage and requirements.
 
 ## Application load balancer limitation
 {: #alb-limitations}
@@ -200,7 +178,7 @@ There is one limitation for an application load balancer:
 ## Related links
 {: #permissions-related-links-alb}
 
-* [Application load balancer CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#alb-anchor)
+* [Load balancer CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#alb-anchor)
 * [Load balancer API reference](https://{DomainName}/apidocs/vpc#list-load-balancer-profiles)
 * [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
 * [Activity Tracker with LogDNA events](/docs/vpc?topic=vpc-at-events#events-load-balancers)
