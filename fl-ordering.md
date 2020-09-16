@@ -64,7 +64,7 @@ Prior to creating a flow log collector, ensure that you have met the following p
 
       ![Grant a service authorization](/images/fl-iam.png "Grant a service authorization")
 
-    For more information, see [Using authorizations to grant access between services](/docs/iam?topic=iam-serviceauth#create-auth).
+    For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth#create-auth).
    {: note}
 
 
@@ -81,7 +81,7 @@ To create a flow log collector by using the IBM Cloud console, follow these step
 3. Enter values for the following fields:
 
   * **Name** - Type a unique name for your flow log collector.
-  * **Resource group** - Select a resource group for your flow log collector. You can use the default group for this flow log, or choose from the list (if defined). For more information, see [Best practices for organizing resources in a resource group](/docs/resources?topic=resources-bp_resourcegroups).
+  * **Resource group** - Select a resource group for your flow log collector. You can use the default group for this flow log, or choose from the list (if defined). For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup).
 
 4. From the **Attach the flow log connector to** menu, choose a target type for the flow log. Depending on your selection, additional fields might be required.   
 

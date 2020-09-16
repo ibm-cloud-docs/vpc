@@ -48,7 +48,7 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | Viewer | Read flow log collectors |
 {: caption="Table 1. IAM user roles and actions" caption-side="top"}
 
-For information about assigning user roles in the console, see [Managing access to resources](/docs/iam?topic=iam-iammanidaccser#iammanidaccser).
+For information about assigning user roles in the console, see [Managing access to resources](/docs/account?topic=account-assign-access-resources#iammanidaccser).
 
 Only one operator role is needed, as determined by the scope of your flow log collector.
 {: important}

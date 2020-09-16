@@ -72,7 +72,7 @@ To create an endpoint gateway by using the IBM Cloud console, follow these steps
       If the intended service or service instance is not displayed, revalidate your IAM permissions. You can also choose to allocate a reserved IP address to bind to the gateway, or specify a VPC subnet to allocate a reserved IP address from to bind to the gateway.
       {: note}
 
-   * **Resource group** - Select a resource group for the endpoint gateway. You can use the default group for this endpoint gateway, or choose from the list (if defined). For more information, see [Best practices for organizing resources in a resource group](/docs/resources?topic=resources-bp_resourcegroups).
+   * **Resource group** - Select a resource group for the endpoint gateway. You can use the default group for this endpoint gateway, or choose from the list (if defined). For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup).
 
 4. Select the IBM Cloud service you want to access using this endpoint gateway.  
 
@@ -94,13 +94,13 @@ To create an endpoint gateway by using the CLI, follow these steps:
 
 1. List the IBM Cloud service instances that are qualified to be set as endpoint gateway target:
 
-```
-ibmcloud is endpoint-gateway-targets
-```
+   ```sh
+   ibmcloud is endpoint-gateway-targets
+   ```
 
-2. Create an endpoint gateway by running the following command:
+1. Create an endpoint gateway by running the following command:
 
-  ```
+  ```sh
   ibmcloud is endpoint-gateway-create \
     --vpc-id VPC_ID \
     --target TARGET [--name NAME] [(--reserved-ip-id RESERVED_IP_ID1 --reserved-ip-id RESERVED_IP_ID2 ...) \

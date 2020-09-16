@@ -48,7 +48,7 @@ The following table describes IAM authorization actions for VPEs.
 
 <sup>1</sup> A user is required to have Operator privileges for a reserved IP resource to bind a reserved IP when an endpoint gateway is created. To create an endpoint gateway without binding a reserved IP, a user requires only Administrator or Editor privileges.
 
-For information about assigning user roles in the console, see [Managing access to resources](/docs/iam?topic=iam-iammanidaccser#iammanidaccser).
+For information about assigning user roles in the console, see [Managing access to resources](/docs/account?topic=account-assign-access-resources#iammanidaccser).
 
 ## Viewing VPE resources in the Resource list
 

@@ -57,7 +57,7 @@ Yes. The application load balancer automatically adjusts its capacity based on t
 
 Make sure that the proper ACL rules are in place to allow incoming traffic for configured listener ports and management ports. Traffic between the application load balancer and back-end instances should also be allowed.
 
-For detailed information on the ACLs configuration required, see [Configuring ACLs for use with application load balancers](/docs/vpc?topic=vpc-load-balancers#configuring-acls-alb).
+For detailed information on the ACLs configuration required, see [Configuring ACLs for use with application load balancers](/docs/vpc?topic=vpc-configuring-acls-for-use-with-load-balancers).
 
 ## Why am I receiving an error message: `certificate instance not found`?
 {: #error-certificate-instance}
@@ -87,7 +87,7 @@ The application load balancer is in `maintenance_pending` state during various m
 * Rolling upgrades to address vulnerabilities and apply security patches
 * ACLs blocking management traffic to the load balancer
 
-  This puts your load balancer in a `maintenance_pending` state. Ensure that the ACLs on your load balancer subnets are configured properly. Refer to [Configuring ACLs for use with load balancers](/docs/vpc?topic=vpc-load-balancers#configuring-acls-alb).
+  This puts your load balancer in a `maintenance_pending` state. Ensure that the ACLs on your load balancer subnets are configured properly. Refer to [Configuring ACLs for use with application load balancers](/docs/vpc?topic=vpc-configuring-acls-for-use-with-load-balancers).  
   {: note}
 
 ## Why do I need to choose multiple subnets during provisioning?
