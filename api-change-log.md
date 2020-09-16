@@ -322,12 +322,7 @@ See also [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-v
 ## 2020-06-30
 {: #2020-06-30}
 
-The Load balancers API was updated to support general availability of {{site.data.keyword.cloud_notm}} Network Load Balancers for VPC. This API is shared between {{site.data.keyword.cloud_notm}} application load balancers and network load balancers. 
- 
-See the following topics:
-
-- [Network load balancer API example](/docs/vpc?topic=vpc-nlbaas-apis) 
-- [Application load balancer API example](/docs/vpc?topic=vpc-lbaas-apis-available-alb)
+Load balancer API was updated to support a Beta release of {{site.data.keyword.cloud_notm}} Network Load Balancers for VPC. This API is shared between {{site.data.keyword.cloud_notm}} application load balancers and network load balancers.  
 
 ## 2020-06-19
 {: #2020-06-29}
