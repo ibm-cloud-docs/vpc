@@ -26,6 +26,11 @@ subcollection: vpc
 Use these release notes to learn about the latest changes to {{site.data.keyword.vpc_full}}.
 {:shortdesc}
 
+## 04 September 2020
+{: #september-04-2020}
+
+**Network load balancer (GA):** The IBM Cloud Network Load Balancer (NLB) for VPC is now generally available. You can use the network load balancer to distribute traffic among multiple server instances within the same region of your VPC. For more information, see [About IBM Cloud Network Load Balancer for VPC](/docs/vpc?topic=vpc-network-load-balancers).
+
 ## 01 September 2020
 {: #september-01-2020}
 
@@ -36,8 +41,8 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 - **Large Profiles (GA):** The following two 48-core profiles are now generally available:
     * cx2-48x96
-    * mx2-48x384 
-  
+    * mx2-48x384
+
   For more information, see [Profiles](/docs/vpc?topic=vpc-profiles).
 
 - **UI enhancements:**
@@ -52,7 +57,7 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 ## 12 August 2020
 {: #august-12-2020}
 
--  **New image support:** {{site.data.keyword.redhat_full}} Enterprise Linux 8 is now available in all regions. 
+-  **New image support:** {{site.data.keyword.redhat_full}} Enterprise Linux 8 is now available in all regions.
 
 ## 07 August 2020
 {: #august-07-2020}
@@ -62,7 +67,7 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 - **UI enhancements:**  
    - Improved name validation on provisioning pages.
    - Eliminated polling on data tables.
-   - Enhanced look and feel of data tables. 
+   - Enhanced look and feel of data tables.
 
 ## 30 July 2020
 {: #july-30-2020}
@@ -71,7 +76,7 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 - **Expanding Block Storage for VPC volume capacity** For new block storage volumes you create and attach to a virtual server instance on Gen 2 Compute resources, you can expand the size of the volumes. You indicate capacity in GB increments up to 16 TB capacity, depending on your volume profile limits. For more information, see [Expanding block storage volume capacity (Beta)](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 
-- **Encrypted images beta** You can import an encrypted custom image with beta support for the feature. For more information, see [Creating an encrypted custom image (Beta)](/docs/vpc?topic=vpc-create-encrypted-custom-image). 
+- **Encrypted images beta** You can import an encrypted custom image with beta support for the feature. For more information, see [Creating an encrypted custom image (Beta)](/docs/vpc?topic=vpc-create-encrypted-custom-image).
 
 ## 23 July 2020
 {: #july-23-2020}
@@ -96,12 +101,12 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 ## 26 June 2020
 {: #june-26-2020}
 
-- **Dedicated Hosts Beta:** Dedicated hosts are available in a limited beta. With dedicated hosts, you can carve out a single-tenant compute node. For more information, see [Creating dedicated hosts and groups (Beta)](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances). 
+- **Dedicated Hosts Beta:** Dedicated hosts are available in a limited beta. With dedicated hosts, you can carve out a single-tenant compute node. For more information, see [Creating dedicated hosts and groups (Beta)](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances).
 
 ## 19 June 2020
 {: #june-19-2020}
 
-- **Updated custom images information:** A new [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images) checklist is available. The migration procedure for migrating a virtual server instance from classic infrastructure to IBM Cloud VPC is enhanced. For more information, see [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc). 
+- **Updated custom images information:** A new [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images) checklist is available. The migration procedure for migrating a virtual server instance from classic infrastructure to IBM Cloud VPC is enhanced. For more information, see [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc).
 
 - **User interface updates:**
   - Added pagination for the security groups list table.
@@ -117,7 +122,7 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 ## 21 May 2020
 {: #may-21-2020}
 
-- **Auto Scale for VPC Beta:** Auto scale is now available in a limited beta. With auto scale, you can improve performance and costs by dynamically creating virtual server instances to meet the demands of your environment. For more information, see [Creating an instance group for auto scaling (Beta)](/docs/vpc?topic=vpc-creating-auto-scale-instance-group). 
+- **Auto Scale for VPC Beta:** Auto scale is now available in a limited beta. With auto scale, you can improve performance and costs by dynamically creating virtual server instances to meet the demands of your environment. For more information, see [Creating an instance group for auto scaling (Beta)](/docs/vpc?topic=vpc-creating-auto-scale-instance-group).
 
 
 ## 15 May 2020
@@ -132,17 +137,17 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 - **Flow logs beta:** Flow logs are now available in beta. Flow logs allow you to collect, store, and present the Internet Protocol (IP) traffic going to and from networks within your VPC. For more information, see [About flow logs (Beta)](/docs/vpc?topic=vpc-flow-logs).
 
-- **UI enhancement:** You can now create a new subnet directly from the page where you create a new instance. 
+- **UI enhancement:** You can now create a new subnet directly from the page where you create a new instance.
 
 ## 22 April 2020
 {: #apr-22-2020}
 
 **New region:** The Frankfurt region is now available. For more information, see [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region).
-  
+
 ## 03 April 2020
 {: #apr-03-2020}
 
-- **Load Balancer for VPC Update:** You can now access load balancer monitoring metrics (throughput, active connections, connection rate) using [IBM Cloud Monitoring with Sysdig](/docs/vpc?topic=vpc-monitoring-metrics-sysdig). 
+- **Load Balancer for VPC Update:** You can now access load balancer monitoring metrics (throughput, active connections, connection rate) using [IBM Cloud Monitoring with Sysdig](/docs/vpc?topic=vpc-monitoring-metrics-sysdig).
 - The following cipher suites are supported for load balancer HTTPS listeners:
     - `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
     - `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
@@ -154,7 +159,7 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 ## 27 March 2020
 {: #mar-27-2020}
 
-- **{{site.data.keyword.mon_full_notm}} monitoring:** You can now monitor virtual server instances using {{site.data.keyword.mon_full_notm}}. Use the new **Add monitoring** button on the instance's **Monitoring** page to provision an instance of the monitoring service. If a monitoring instance is already provisioned for the region, use the **Launch monitoring** button to view metrics associated with the instance. For more information, see [Sysdig monitoring metrics](/docs/vpc?topic=virtual-servers-sysdig-monitoring-metrics). 
+- **{{site.data.keyword.mon_full_notm}} monitoring:** You can now monitor virtual server instances using {{site.data.keyword.mon_full_notm}}. Use the new **Add monitoring** button on the instance's **Monitoring** page to provision an instance of the monitoring service. If a monitoring instance is already provisioned for the region, use the **Launch monitoring** button to view metrics associated with the instance. For more information, see [Sysdig monitoring metrics](/docs/vpc?topic=virtual-servers-sysdig-monitoring-metrics).
 - **Updated styling:** VPC pages in {{site.data.keyword.IBM_notm}} console now use [Carbon 10](https://www.carbondesignsystem.com/){: external}, IBM's open-source design system, which improves consistency and quality.
 
 ## 09 March 2020
@@ -176,7 +181,7 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 The following VPC network services are now generally available:
 
 - **Virtual Private Network (VPN)**: Use VPN to set up an IPsec site-to-site tunnel between your VPC and your on-premises private network or another VPC. For details, see [Using VPN](/docs/vpc?topic=vpc-using-vpn).
-- **Load balancers**: Create public and private load balancers to distribute traffic among multiple server instances within the same region of your VPC. For details, see [Using load balancers](/docs/vpc?topic=vpc-load-balancers). 
+- **Load balancers**: Create public and private load balancers to distribute traffic among multiple server instances within the same region of your VPC. For details, see [Using load balancers](/docs/vpc?topic=vpc-load-balancers).
 
 
 ## 13 February 2020
