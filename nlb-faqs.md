@@ -65,7 +65,7 @@ No. A network load balancer is not horizontally scalable. However, it comes with
 Make sure that the proper ACL rules are in place to allow incoming traffic for configured listener ports and management ports (ports in the range of 56500 - 56520). Traffic between a network load balancer and back-end instances should also be allowed.
 
 ## Why am I receiving a `401 Unauthorized Error` code?
-{: #401-unauthorized-error}
+{: #nlb-401-unauthorized-error}
 {: faq}
 
 If you are receiving a `401` error code for your network load balancer, check the following access policies for your user:

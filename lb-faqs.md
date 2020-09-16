@@ -67,7 +67,7 @@ For detailed information on the ACLs configuration required, see [Configuring AC
 * You might not have granted service-to-service authorization. See [SSL offloading](#ssl-offloading-and-required-authorizations) for details.
 
 ## Why am I receiving a `401 Unauthorized Error` code?
-{: #401-unauthorized-error}
+{: #alb-401-unauthorized-error}
 {: faq}
 
 Check the following access policies for your user:

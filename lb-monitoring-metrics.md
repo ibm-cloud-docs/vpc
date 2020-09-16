@@ -99,7 +99,7 @@ You can split the data that Sysdig presents into various visualizations in the S
 As an example, you can segment the `active connections` by `Application load balancer listener port` to show how many active users are connected to the load balancer through each listener type. To illustrate this, let's assume that your load balancer has two different listener protocols one HTTP on port 80 and another for TCP on port 8080. The dashboard would contain different lines showing 10 users who are connected through HTTP on Port 80 in one color, and 6 users connected through TCP on port 8080 in another color.
 
 ### Global attributes
-{: global-attributes}
+{: alb-global-attributes}
 
 The following attributes are available for segmenting the three Sysdig metrics.
 
@@ -111,7 +111,7 @@ The following attributes are available for segmenting the three Sysdig metrics.
 {: caption="Table 4: Sysdig global attributes" caption-side="top"}
 
 ### Additional attributes
-{: additional-attributes}
+{: alb-additional-attributes}
 
 The following attributes are available to segment one or more of the global attributes. See the individual metrics for any segmentation options.
 
@@ -144,7 +144,7 @@ You can also specify the time interval over which to report your metrics. Time i
 The number of data points you can report is roughly the same for each time interval. For example, if the interval is 1 hour, then each data point represents 5 minutes of data. If the interval is 2 weeks, then each data point represents 24 hours of data.
 
 ## Enabling metrics monitoring
-{: #enable-metrics-monitoring}
+{: #alb-enable-metrics-monitoring}
 
 To receive monitoring metrics, you must set up your {{site.data.keyword.cloud}} Monitoring with Sysdig instance.
 

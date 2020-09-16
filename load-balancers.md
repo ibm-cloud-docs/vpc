@@ -78,7 +78,7 @@ The application load balancer can be configured to span multiple zones. The back
 {{site.data.keyword.cloud_notm}} Application Load Balancer and Network Load Balancer both integrate with private catalogs to centrally manage access to products in the {{site.data.keyword.cloud_notm}} catalog and your own catalogs. You can customize your private catalogs to allow or disallow load balancer provisioning to specific users in your account. For more information, see [Customizing what's available in your private catalogs](/docs/account?topic=account-restrict-by-user).
 
 ## Application load balancer data flow
-{: #alb-data-flow}
+{: #a-lb-data-flow}
 
 A client makes a request by using the FQDN that is registered to the load balancer instance. A DNS server handles the request and distributes the traffic in a round robin fashion to the appliances. The appliances then accept the request and route it to a back-end server. Eventually the back-end server responds, and the response flows back through the load balancer, then back to the client.
 
