@@ -37,7 +37,7 @@ This document shows examples of how the account administrator can use the {{site
 * **Limited access scenario:** Assign an access policy so an existing user can create and use only virtual server instances.
 * **Team access scenario:** Set up resource groups and access groups to allow two separate teams to create and use the VPC resources that are assigned to their team.
 
-You can also manage permissions through the CLI or API. For more information, see [How do I use IBM Cloud IAM](/docs/iam?topic=iam-iamoverview#howto).
+You can also manage permissions through the CLI or API. For more information, see [How do I use IBM Cloud IAM](/docs/account?topic=account-iamoverview#howto).
 {: tip}
 
 ## Full-access scenario
@@ -114,7 +114,7 @@ Create four access groups with the following names, and assign the appropriate u
 * `production_team_manage_vpcs`
 * `production_team_view_vpcs`
 
-For more information about how to create access groups and assign users to the access groups, see [Create access groups](/docs/iam?topic=iam-groups#create_ag).
+For more information about how to create access groups and assign users to the access groups, see [Create access groups](/docs/account?topic=account-groups#create_ag).
 
 ### Step 3: Add IAM policies to the access groups
 {: #step-3-add-iam-policies-to-the-access-groups}
@@ -188,7 +188,7 @@ Changes to IAM access policies for VPC can take up to 10 minutes to take effect.
 ## Related links
 {: #permissions-related-links}
 
-* [Managing identity and access](/docs/iam?topic=iam-getstarted)
-* [Managing users and access](/docs/iam?topic=iam-iamuserinv)
-* [What is IAM](/docs/iam?topic=iam-iamoverview)
+* [Managing identity and access](/docs/account?topic=account-getstarted)
+* [Managing users and access](/docs/account?topic=account-iamuserinv)
+* [What is IAM](/docs/account?topic=account-iamoverview)
 

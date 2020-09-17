@@ -74,7 +74,7 @@ The following example steps are specific to {{site.data.keyword.keymanagementser
    Plan ahead for importing keys by [reviewing your options for creating and encrypting key material](/docs/key-protect?topic=key-protect-importing-keys#plan-ahead). For added security, you can enable the secure import of the key material by using an [import token](/docs/key-protect?topic=key-protect-importing-keys#using-import-tokens) to encrypt your key material before you bring it to the cloud.
    {: tip}
 
-3. From IBM {{site.data.keyword.iamshort}} (IAM), [authorize access](/docs/iam?topic=iam-serviceauth#serviceauth) between **Cloud Block Storage** (source service) and **{{site.data.keyword.keymanagementserviceshort}}** (target service).
+3. From IBM {{site.data.keyword.iamshort}} (IAM), [authorize access](/docs/account?topic=account-serviceauth#serviceauth) between **Cloud Block Storage** (source service) and **{{site.data.keyword.keymanagementserviceshort}}** (target service).
 
 ## Provisioning virtual server instances with volumes that use customer-managed encryption
 {: #provision-byok-ui}
@@ -461,7 +461,7 @@ After you set up customer-managed encryption on a volume, you might decide to la
 
 You can take further steps to make your data inaccessible, but retain it on the cloud.
 
-When you [authorize use](/docs/iam?topic=iam-serviceauth#serviceauth) of your root key, you grant permission for IBM to use the key to encrypt your volume. Authorization is done at the key management service level through IAM, when you authorize service between Cloud Block Storage and the key management service you set up (for example, {{site.data.keyword.keymanagementserviceshort}}).
+When you [authorize use](/docs/account?topic=account-serviceauth#serviceauth) of your root key, you grant permission for IBM to use the key to encrypt your volume. Authorization is done at the key management service level through IAM, when you authorize service between Cloud Block Storage and the key management service you set up (for example, {{site.data.keyword.keymanagementserviceshort}}).
 
 You can remove any authorization between services in your account when you have the Administrator role on the target service (in this case, the key management service). If you remove any access policies created by the source service for its dependent services, the source service is unable to complete the workflow or access the target service.
 
@@ -469,7 +469,7 @@ Because they keys are under your control, you don't have to contact IBM to remov
 
 To make your data inaccessible, but retain it on the IBM Cloud:
 
-1. [Remove IAM authorization](/docs/iam?topic=iam-serviceauth#remove-auth) from the source Cloud Block Storage service to your target key management service instance.
+1. [Remove IAM authorization](/docs/account?topic=account-serviceauth#remove-auth) from the source Cloud Block Storage service to your target key management service instance.
 2. [Power off all virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances#stop-and-start) that have attached encrypted volumes secured by that root key.
 
 ## Next steps

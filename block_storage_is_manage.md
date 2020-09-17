@@ -111,7 +111,7 @@ To enable Auto Delete on a new data volume when you create an instance, see [Cre
 ## Assign access to a block storage volume
 {: #assign-volume-access}
 
-With Administrator privileges, you can assign volume-level user access to the {{site.data.keyword.block_storage_is_short}} service. The following table shows the information that you must provide in the [Identity and Access Management (IAM) UI](/docs/iam?topic=iam-account_setup#assigning-access).
+With Administrator privileges, you can assign volume-level user access to the {{site.data.keyword.block_storage_is_short}} service. The following table shows the information that you must provide in the [Identity and Access Management (IAM) UI](/docs/account?topic=account-account_setup#assigning-access).
 
 | IAM field | Action |
 |--------|-------------|
@@ -121,7 +121,7 @@ With Administrator privileges, you can assign volume-level user access to the {{
 | Select Roles | Assign platform access roles, typically, Operator |
 {: caption="Table 1. Information for IAM" caption-side="top"}
 
-For more information, see the [best practices for assigning access](/docs/iam?topic=iam-account_setup#account_setup). For the complete IAM process, which includes inviting users to your account and assigning Cloud IAM access, see the [IAM getting started tutorial](/docs/iam?topic=iam-getstarted#getstarted).
+For more information, see the [best practices for assigning access](/docs/account?topic=account-account_setup#account_setup). For the complete IAM process, which includes inviting users to your account and assigning Cloud IAM access, see the [IAM getting started tutorial](/docs/account?topic=account-getstarted#getstarted).
 
 ## Block storage volume status
 {: #status}

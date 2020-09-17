@@ -73,6 +73,6 @@ If you want to use multiple resource groups, it’s good to have a plan for how 
 
 For more information about IAM, resource groups, and access groups in general, refer to these {{site.data.keyword.cloud_notm}} topics:
 
-* [{{site.data.keyword.cloud_notm}} IAM](/docs/iam?topic=iam-getstarted)
+* [{{site.data.keyword.cloud_notm}} IAM](/docs/account?topic=account-getstarted)
 * [Resource Groups](/docs/resources?topic=resources-rgs)
-* [Access Groups](/docs/iam?topic=iam-cloudaccess)
+* [Access Groups](/docs/account?topic=account-cloudaccess)

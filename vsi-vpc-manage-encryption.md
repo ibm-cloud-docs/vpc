@@ -94,7 +94,7 @@ For more information about deleting root keys, see the [Key Protect](/docs/key-p
 
 You can make your data inaccessible but retain it on the cloud by removing authorization to use that root key. 
 
-When you [authorize use](/docs/iam?topic=iam-serviceauth#serviceauth) of your root key, you grant permission for IBM to use the key to encrypt your resource. Authorization is done at the key management service level through IAM, when you authorize service between **Cloud Block Storage** and the key management service you set up (for example, {{site.data.keyword.keymanagementserviceshort}}).
+When you [authorize use](/docs/account?topic=account-serviceauth#serviceauth) of your root key, you grant permission for IBM to use the key to encrypt your resource. Authorization is done at the key management service level through IAM, when you authorize service between **Cloud Block Storage** and the key management service you set up (for example, {{site.data.keyword.keymanagementserviceshort}}).
 
 You can remove any authorization between services in your account when you have the Administrator role on the target service (in this case, the key management service). If you remove any access policies created by the source service for its dependent services, the source service is unable to complete the workflow or access the target service.
 
@@ -102,7 +102,7 @@ Because they root keys are under your control, you don't have to contact IBM to 
 
 To make your data inaccessible, but retain it on the IBM Cloud:
 
-1. [Remove IAM authorization](/docs/iam?topic=iam-serviceauth#remove-auth) from the source Cloud Block Storage service to your target key management service instance.
+1. [Remove IAM authorization](/docs/account?topic=account-serviceauth#remove-auth) from the source Cloud Block Storage service to your target key management service instance.
 2. [Power off all virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances#stop-and-start) that have attached encrypted volumes secured by that root key.
 
 You can also disable a root key, which suspends the key and temporarily revokes access to the key's associated data on the cloud. For more information, see [Disabling root keys](/docs/key-protect?topic=key-protect-disable-keys)

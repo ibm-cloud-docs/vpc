@@ -47,7 +47,7 @@ From IBM {{site.data.keyword.iamshort}}, you must create an authorization so tha
 4. Select a role to assign access to the source service that accesses the target service.
 5. Click **Authorize**.
 
-For more information, see [Using authorizations to grant access between services](/docs/iam?topic=iam-serviceauth#serviceauth).
+For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth#serviceauth).
 
 ## Next steps
 {: #next-grant-icos-auth}
