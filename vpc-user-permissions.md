@@ -97,7 +97,7 @@ Create resource groups that contain each of your teams' VPC resources.
 1. Create a resource group called `test_team`.
 2. Create a resource group called `production_team`.
 
-For more information about how to create resource groups, see [Managing resource groups](/docs/resources?topic=resources-rgs).
+For more information about how to create resource groups, see [Managing resource groups](/docs/account?topic=account-rgs).
 
 By default, account administrators can create new resource groups. Other users must be assigned the **Editor** role for **All Account Management Services**, which allows them to create resource groups.
 {: tip}

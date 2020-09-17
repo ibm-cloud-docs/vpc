@@ -71,7 +71,7 @@ To create a dedicated group:
 |-------|-------|
 | Dedicated group name  | A unique resource name within the region is required for your dedicated group. If you don't specify a name, a name is generated and assigned to your dedicated group. |
 | Zone | Select the specific fault-tolerant data center within a region where you want to create the group. |
-| Resource group | Select the resource group that contains the account resources and users that you want to be able to access the dedicated hosts within this dedicated group. For more information about resource groups, see [Managing resource groups](/docs/resources?topic=resources-rgs).  |
+| Resource group | Select the resource group that contains the account resources and users that you want to be able to access the dedicated hosts within this dedicated group. For more information about resource groups, see [Managing resource groups](/docs/account?topic=account-rgs).  |
 {: caption="Table 1. Dedicated group creation selections" caption-side="top"}
 
 ## Creating dedicated hosts 
