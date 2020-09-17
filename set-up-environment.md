@@ -50,7 +50,7 @@ Before you can create an {{site.data.keyword.vpc_full}} (VPC) by using the API o
 
 Before you can use the CLI to create your VPC, you must install the IBM Cloud CLI and the VPC CLI plug-in.
 
-1. Install the [IBM Cloud CLI ![External link icon](../icons/launch-glyph.svg "External link icon")](/docs/cli?topic=cloud-cli-getting-started){: new_window}.
+1. Install the [IBM Cloud CLI ![External link icon](../icons/launch-glyph.svg "External link icon")](/docs/cli?topic=cli-getting-started){: new_window}.
 1. Install the VPC CLI plug-in.
 
    ```
