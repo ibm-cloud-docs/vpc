@@ -37,7 +37,7 @@ Complete the following prerequisites:
 1. Ensure that you downloaded, installed, and initialized the following CLI plug-ins:
     * {{site.data.keyword.cloud_notm}} CLI
     * The infrastructure-service plug-in
-   For more information, see [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
+    * For more information, see [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 1. Have Microsoft Remote Desktop client software available.
 1. Make sure the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
 1. Make sure that you reserve and associate a floating IP address to your Windows instance.
