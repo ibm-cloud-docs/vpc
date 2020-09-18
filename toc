@@ -28,7 +28,6 @@ Virtual Private Cloud
         vsi_is_profiles.md
         vsi_is_ssh_keys_about.md
         vsi_is_provisioning_scripts.md
-        vsi_is_instance_vnics.md
 
     {: .topicgroup}
     Storage
@@ -69,6 +68,7 @@ Virtual Private Cloud
         vsi_is_connecting_linux_gc.md
         vsi_is_connecting_windows.md
         vsi_is_manage_instances.md
+        vsi_is_instance_vnics.md
         /cloud-infrastructure/cloud-infrastructure-monitoring
         /cloud-infrastructure/cloud-infrastructure-sysdig-monitoring-metrics
 
