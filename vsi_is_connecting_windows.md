@@ -34,7 +34,11 @@ After you created your Windows instance, you can connect to it by completing the
 Complete the following prerequisites:
 
 1. Make sure that you have the private key that is associated with the public SSH key that was used to create the Windows instance. This private key must be stored locally, for example, in `~/.ssh/id_rsa`. The private key might also be named your `username`. For more information, see [Locating or generating your SSH key](/docs/vpc?topic=vpc-ssh-keys#locating-ssh-keys).
-4. Have Microsoft Remote Desktop client software available.
+1. Ensure that you downloaded, installed, and initialized the following CLI plug-ins:
+    * {{site.data.keyword.cloud_notm}} CLI
+    * The infrastructure-service plug-in
+   For more information, see [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
+1. Have Microsoft Remote Desktop client software available.
 1. Make sure the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
 1. Make sure that you reserve and associate a floating IP address to your Windows instance.
 
