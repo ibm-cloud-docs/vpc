@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-03"
+lastupdated: "2020-09-18"
 
 keywords: create virtual server with encryption, root key, encrypted volume, virtual server instance, create virtual server, provision virtual server, virtual machine, instance, virtual server, deploy virtual server, block storage volume
 
@@ -25,7 +25,7 @@ subcollection: vpc
 # Creating virtual server instances with customer-managed encryption volumes
 {: #creating-instances-byok}
 
-You can create {{site.data.keyword.vsi_is_full}} that use your encryption keys to protect data in your block storage volumes attached to the instance. When you provision an instance, you can specify customer-managed encryption for the boot and data volumes. Customer-managed encryption uses your customer root key, giving you complete control over your data. You can import your root key to a key management service (KMS) or create one in a KMS.  Customer-managed encryption protects your data while in transit and while at rest. For added security, enable the secure import of your root keys by using import tokens.
+You can create virtual servers for {{site.data.keyword.vpc_short}} that use your own encryption keys to protect data in the block storage volumes that are attached to your instance. When you provision an instance, you can specify customer-managed encryption for the boot and data volumes. Customer-managed encryption uses your customer root key, giving you complete control over your data. You can import your root key to a key management service (KMS) or create one in a KMS.  Customer-managed encryption protects your data while in transit and while at rest. For added security, enable the secure import of your root keys by using import tokens.
 {:shortdesc}
 
 Before you can create an instance, you need to [create an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
