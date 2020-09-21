@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-07-23"
+lastupdated: "2020-09-21"
 
 keywords: resource, resource authorizations, policies, authorization, resource type, resource groups, roles, API, CLI, editor, viewer, administrator, operator
 
@@ -57,7 +57,7 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | Instances | Create| Editor for Virtual Server for VPC and Block Storage for VPC resources<br />Editor for Floating IP for VPC resources, if a floating IP is to be associated<br />Operator for the VPC, subnet, and the security group |
 | Instances | Update, Delete | Editor for the instance |
 | Instances | View, List  | Viewer for the instance |
-| Instance actions | Create, Update, Delete | Editor for the instance|
+| Instance actions | Create, Update, Delete | Operator for the instance|
 | Instance actions | View, List  | Viewer for the instance |
 | Interfaces | View, List  | Viewer for the instance |
 | Interface's floating IP | View, List | Viewer for the instance and the floating IP |
