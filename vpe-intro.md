@@ -39,7 +39,6 @@ A VPE is the equivalent to a [Cloud Service Endpoint (CSE)](/docs/account?topic=
 * Beta users can connect to service instances deployed in IBM Cloud service regions: Dallas, Washington D.C., London, Frankfurt, and Tokyo.
 * A reserved IP address bound to an endpoint gateway can receive traffic from another zone of the same VPC.
 * You can bind only one IP address to an endpoint gateway per zone. For high availability and best practices, you should bind one IP address per VPC zone to your endpoint gateway.
-* You can access IBM Cloud services by using either CSEs or VPEs. However, if you want your VPC to enforce a certain behavior or discipline, it is recommended to block direct access to CSE IP addresses using network ACLs (NACLs). For more information, see [Configuring ACLs for use with virtual private endpoints](/docs/vpc?topic=vpc-vpe-configuring-acls). Accessing {{site.data.keyword.cloud_notm}} services using CSE and VPE simultaneously from the same virtual instance is not supported.
 
 ## Overview of features
 {: #vpe-feature-overview}
