@@ -33,7 +33,7 @@ create an authorization so that the Image Service for VPC can access images in {
 {: #migrate-prereq-icos-instance}
 
 If you need to create an instance of {{site.data.keyword.cos_full_notm}}, see 
-[Getting started with {{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started).
+[Getting started with {{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage).
 
 
 ## Granting access between services
