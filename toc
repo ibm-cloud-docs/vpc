@@ -246,7 +246,6 @@ Virtual Private Cloud
         [VPC API reference](https://{DomainName}/apidocs/vpc)
         api-change-log.md
 
-    vpc-dependencies.md
     vpc-responsibilities.md
     vpc-endpoints.md
     at-events.md
