@@ -96,7 +96,7 @@ Use these release notes to learn about the latest changes to {{site.data.keyword
 
 - **Network Load Balancer Beta:** Network load balancers are available in a limited beta. Use network load balancers to distribute traffic among multiple server instances within the same region of your VPC. For more information, see [Load balancers overview](/docs/vpc?topic=vpc-nlb-vs-elb) and [About network load balancers](/docs/vpc?topic=vpc-network-load-balancers).
 
-- **VPN for VPC update:** You can now access VPN monitoring metrics using [IBM Cloud Monitoring with Sysdig](/docs/vpc?topic=vpc-sysdig-monitoring-metrics).
+- **VPN for VPC update:** You can now access VPN monitoring metrics using [IBM Cloud Monitoring with Sysdig VPN metrics](/docs/vpc?topic=vpc-sysdig-monitoring-metrics).
 
 ## 26 June 2020
 {: #june-26-2020}
