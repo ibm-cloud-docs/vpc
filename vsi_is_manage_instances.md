@@ -36,7 +36,7 @@ The reboot action immediately powers off a running instance and then powers it b
 ## Stop and start
 
 The stop and start action remotely turns an instance off or on. If the instance is stopped, the instance remains in the 
-stopped state and must be started manually. Billing is [suspended](/docs/vpc?topic=vpc-pricing-for-vpc#suspend-billing) for 
+stopped state and must be started manually. Billing is [suspended](/docs/vpc?topic=vpc-suspend-billing) for 
 some compute resources while the instance is stopped. You cannot interact with an instance if it is stopped. If the instance is 
 started, normal interaction and billing continues.
 
