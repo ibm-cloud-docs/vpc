@@ -51,6 +51,6 @@ We are continually adding [new features and support](/docs/vpc?topic=vpc-api-cha
 
 
 See also the following pages:
-* [Comparing compute generations in VPC](/docs/overview?topic=overview-compare-vpc-vpcoc)
+* [Comparing compute generations in VPC](/docs/cloud-infrastructure?topic=cloud-infrastructure-compare-vpc-vpcoc)
 * [Virtual Private Cloud API](/apidocs/vpc) (for generation 2 virtual server profiles)
 * [Virtual Private Cloud API (Gen1 compute)](/apidocs/vpc-on-classic) (for generation 1 virtual server profiles)
