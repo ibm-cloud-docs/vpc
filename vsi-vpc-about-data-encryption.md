@@ -53,7 +53,7 @@ You can choose {{site.data.keyword.keymanagementserviceshort}} or {{site.data.ke
 
 After provisioning the key management service, you must authorize access between Cloud Block Storage (source service) and the KMS.
 
-Customer-managed encryption is available for creating custom images, boot voumes, and data volumes. Data in the instance's boot volume is encrypted using the [custom image encryption](/docs/vpc?topic=vpc-create-encrypted-custom-image). You can also encrypt the boot volume using a different root key. [Data volumes](/docs/vpc?topic=vpc-block-storage-vpc-byok-encryption) are encrypted using their own CRKs when you provision a virtual server instance or when you create a standalone volume.
+Customer-managed encryption is available for creating custom images, boot voumes, and data volumes. Data in the instance's boot volume is encrypted using the [custom image encryption](/docs/vpc?topic=vpc-create-encrypted-custom-image). You can also encrypt the boot volume using a different root key. [Data volumes](/docs/vpc?topic=vpc-block-storage-about#secondary-data-volumes) are encrypted using their own CRKs when you provision a virtual server instance or when you create a standalone volume.
 
 ### Advantages of customer-managed encryption
 {: #byok-advantages}
