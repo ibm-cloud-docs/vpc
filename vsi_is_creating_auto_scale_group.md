@@ -324,7 +324,7 @@ Primary Network Interface ID   Name      Subnet ID                              
 ```
 {:screen}
 
-For more examples of the `ibmcloud is instance-template-create` command, see the [VPC CLI reference](docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#???).
+For more examples of the `ibmcloud is instance-template-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-template-create).
 
 When you create an instance template, validation steps are performed that ensure you can use your template to provision a virtual server instance. Need more help? You can always run `ibmcloud is help instance-template-create` to display help for creating an instance template.
 {: tip}
