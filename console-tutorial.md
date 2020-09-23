@@ -298,7 +298,7 @@ To monitor your instance:
 1. Click the name of your instance.
 1. Click **Monitoring** in the navigation pane.
 
-Because the monitoring data is stored in {{site.data.keyword.monitoringlong_notm}}, you must be authenticated to an instance of the Monitoring service in your account. For more information, see [Setting up the monitoring service for VPC](/docs/vpc?topic=vpc-monitoring#setup-monitoring)
+Because the monitoring data is stored in {{site.data.keyword.mon_full_notm}}, you must be authenticated to an instance of {{site.data.keyword.mon_full_notm}} in your account. For more information, see [IBM Cloud monitoring services](/docs/cloud-infrastructure?topic=cloud-infrastructure-monitoring)
 {: important}
 
 ## Creating a load balancer
