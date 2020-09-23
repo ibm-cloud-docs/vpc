@@ -67,7 +67,7 @@ To configure an AWS peer, follow these steps:
    The following screen shows networks `10.240.128.0/27` and `10.240.128.32/27` on the IBM VPC side are routed with new destination `10.240.128.0/26`.
    ![AWS Connection Static Routes](images/vpn-aws-connection-static-routes.png)   
 1. Go to AWS **Route Tables** under **VIRTUAL PRIVATE CLOUD**, find the route table that is associated with the VPC where the VPN was attached. Click **Edit Routes** and add the same route to route table.
-   [AWS Route Table](images/vpn-aws-route-table.png)
+   ![AWS Route Table](images/vpn-aws-route-table.png)
 1. Verify connection status on the **Site-to-Site Connection** page.
 1. Verify traffic. Ensure that AWS ACL and security group rules are adjusted to allow the traffic you need.
 
