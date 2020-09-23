@@ -188,7 +188,7 @@ Changes to IAM access policies for VPC can take up to 10 minutes to take effect.
 ## Related links
 {: #permissions-related-links}
 
-* [Managing identity and access](/docs/account?topic=account-getstarted)
+* [Managing identity and access](/docs/vpc?topic=vpc-iam-getting-started#iam-roles)
 * [Managing users and access](/docs/account?topic=account-iamuserinv)
 * [What is IAM](/docs/account?topic=account-iamoverview)
 
