@@ -229,8 +229,11 @@ Virtual Private Cloud
             ordering-veeam-licenses.md
             using-veeam-agent.md
             using-veeam-backup-replication.md
-    {: .navgroup-end}
 
+    {: .topicgroup}
+    Enhancing security
+        architecture-workload-isolation.md
+    {: .navgroup-end}
 
     {: .navgroup id="reference"}
     {: .topicgroup}
