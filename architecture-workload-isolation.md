@@ -1,0 +1,98 @@
+---
+
+copyright:
+  years: 2020
+lastupdated: "2020-09-23"
+
+keywords: public isolation for VPC, compute isolation for VPC, VPC architecture, workload isolation in VPC
+
+---
+
+{:external: target="_blank" .external}
+{:shortdesc: .shortdesc}
+{:table: .aria-labeledby="caption"}
+{:tip: .tip}
+{:important: .important}
+{:note: .note}
+
+# Learning about VPC workload isolation architecture and dependencies
+{: #vpc-isolation}
+
+Review the following sample architecture for {{site.data.keyword.vpc_full}}, and learn more about different isolation levels. The architecture and isolation information helps you choose the solution that best meets your workload requirements.
+{: shortdesc}
+
+## VPC workload isolation architecture
+{: #vpc_architecture}
+
+To understand the isolation aspects of your workloads and data, the diagram shows the fundamental components of the VPC service. You can also review the table, which follows the diagram, for an explanation of those isolation characteristics. Currently, access to the VPC service is through regional public endpoints.
+
+For more information about network traffic isolation, see [VPC behind the curtain](/docs/vpc?topic=vpc-vpc-behind-the-curtain).
+{:note}
+
+![VPC Components](images/vpc-isolation-architecture.svg "VPC components"){: caption="Figure 1. Fundamental VPC components" caption-side="bottom"}
+
+| Component | Description
+| :---: | --- |
+| Control nodes | Most VPC control plane services run on control nodes. The VPC control plane data store is also hosted across a distributed set of control nodes. These nodes run a customized, hardened version of the Linux operating system. These nodes never run your workloads. |
+| Hypervisor nodes | Your virtual service instances run exclusively on hypervisor nodes. These nodes run a customized, hardened version of the Linux operating system. These nodes also run a small set of control plane agent services, as described in this table. |
+| VPC control plane services | Your VPC API requests are routed to services deployed across control nodes in the region. These services are replicated for availability and performance across multiple zones in the region whenever necessary. In addition to servicing API requests, these services monitor the region's hardware and capabilities, and perform orchestration to keep your VPC resources available and performing optimally. All communication between control plane services occurs over a secure, encrypted network. Since your instances do not run on control nodes, they are separated from these services. |
+| VPC control plane agent services | A small set of VPC control plane agents is deployed across hypervisor nodes in the region. For example, agents are used to create new VSIs on the nodes, and to forward logs, metrics, and alerts off the node for use by the broader VPC control plane services. All communication between control plane services occurs over a secure, encrypted network. |
+| VPC control plane data store | Your VPC resources are persisted in a data store that is replicated across all zones in the region. This store contains metadata about these resources only, and does not contain your data. For example, this store contains information about each VPC Image resource, such as its name, CRN, and creation date. However, it does not contain the image data itself, which is hosted on the storage devices. All communication between control plane services and the control plane data store is secure and encrypted. |
+| Storage | Each zone of each region contains a set of replicated storage devices, which host the data for your VPC volumes. Your data is always encrypted at rest, and is isolated to your account. In addition, you can use [Customer-managed encryption ](/docs/vpc?topic=vpc-creating-instances-byok) for end-to-end encryption of your boot and data volumes. Storage data flows between storage devices and hypervisor nodes only, and does not flow to control nodes. |
+{: caption="Table 1. VPC components" caption-side="top"}
+
+## VPC dependencies
+{: #vpc_workload-isolation}
+
+The {{site.data.keyword.vpc_full}} (VPC) depends upon various {{site.data.keyword.cloud_notm}} integrated services for purposes such as:
+
+* Hosting the internal microservices of the VPC service
+* Integrating with {{site.data.keyword.cloud_notm}} and its user interface
+* Storing and backing up service data (including VPC resource metadata)
+* Logging and auditing service events.
+{:shortdesc}
+
+
+The following table lists the main dependencies of the VPC service and the purpose of each one:
+
+| Service | Purpose |
+| ------- | ------- |
+| {{site.data.keyword.iamlong}} | Provides authentication and authorization for all VPC requests. For more information about required IAM permissions, see [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls). |
+| IBM Cloud Catalog | Provides structured, globally consistent metadata for VPC resource profiles. |
+| Private Catalog | Provides central access management to products in the global catalog and your own catalogs. |
+| Resource Controller and Resource Manager | Provides structured, globally consistent metadata for VPC resource profiles, resource quota, resource group information for VPC services. |
+| IBM Cloud Metering (Usage) | Collects usage metrics on the VPC services to generate bills for customer accounts. |
+| IBM Account Management | Provides information on customer accounts, including entitlements and user relationships within the account. |
+| {{site.data.keyword.registrylong}} | Hosts and validates the container images that are used by the internal components of the VPC microservices. |
+| {{site.data.keyword.containerlong_notm}} (IKS) | Hosts clusters of containers that run the regional microservices of the VPC service. |
+| Red Hat Licensing Service | Activates a compute instance that was provisioned with an IBM-provided RHEL image. |
+| Windows Licensing Service | Activates a compute instance that was provisioned with an IBM-provided Windows image. |
+| {{site.data.keyword.cos_full_notm}} | Provides interim storage of customer-provided VPC images, recent storage of LogDNA data, and backups of all VPC resource metadata. Also stores collected flow logs. |
+| Infrastructure Management Service (IMS) | Provisions, manages and shows information about storage volumes that are provisioned by VPC, and handles the management of our infrastructure racks. |
+| {{site.data.keyword.keymanagementservicelong_notm}} | Hosts customer root keys that wrap the data encryption keys for encrypted storage. |
+| {{site.data.keyword.hscrypto}} (HPCS) | Also hosts customer root keys that wrap the data encryption keys for encrypted storage. |
+| Global Search and Tagging - Search (GhoST) | Provides a global view of an account's IBM cloud resources, which is used by VPC to retrieve information such as which IBM KMS hosts a customer root key. |
+| {{site.data.keyword.cis_full_notm}} | Serves as the initial ingress layer for all VPC API requests, providing DNS, global load balancing, firewalling, DDoS, and other security features. |
+| Hypersync and Hyperwarp | Enables VPC resource and lifecycle events to be published to GhoST and other subscribers. |
+| IBM Event Streams | Enables VPC resource and lifecycle events to be published to GhoST and other subscribers. |
+| {{site.data.keyword.la_full_notm}} | Collects logs that are generated by the VPC service. Depending on the type of log, it might be consumed by IBM support and operations, customers, or both |
+| {{site.data.keyword.at_full_notm}} | Forwards service audit events to the IBM Cloud Activity Tracker with LogDNA instance that is set up in the region by the cloud account owner. For more information, see [Activity Tracker with LogDNA events](/docs/vpc?topic=vpc-at-events). |
+| Technical Integration Point (Tivoli Integrated Portal) | Notifies IBM's support and operations team of VPC service outages and incidents. |
+| Operational Support Systems Event Data Broker (OSS EDB) | Monitors the health of the internal components of the VPC service. |
+| Ops Dashboard | Allows IBM's operations team to track the inventory and consumption of VPC resources. |
+| {{site.data.keyword.databases-for-elasticsearch_full_notm}} | Houses tracing data that is used for debugging, troubleshooting, and performance monitoring of the internal components of the VPC service. |
+| {{site.data.keyword.mon_full_notm}} | Sends metrics to the IBM Cloud Monitoring with Sysdig. These metrics are used to debug, troubleshoot, and monitor performance of the VPC service. You can also use IBM Cloud Monitoring with Sysdig to monitor the health and performance of your virtual private cloud. For more information, see [Sysdig monitoring metrics](/docs/vpc?topic=virtual-servers-sysdig-monitoring-metrics). |
+| {{site.data.keyword.cloudcerts_full_notm}} | Stores and manages certificates that are used to securely deploy VPC components, and to secure communication between VPC components. |
+| Pulsar | Notifies of encryption key changes at IBM Key Protect or Hyper Protect Crypto Services that affect volumes, instances, or images in VPC. |
+| New Relic | Stores a set of metrics events that are used by IBM's internal infrastructure team. |
+{: caption="Table 2. VPC dependencies" caption-side="top"}
+
+The following diagram depicts and classifies the dependencies of the VPC service:
+
+![VPC Dependency Diagram](images/vpc-dependencies-architecture.svg "VPC dependency diagram"){: caption="Figure 2. VPC dependencies" caption-side="bottom"}
+
+For purposes of classification, a dependency is considered "hard" if a failure can impact the
+availability of some of or all of the VPC service. For example, failure of the Red Hat Licensing Service prevents activation of compute instances that are provisioned with {{site.data.keyword.cloud_notm}}-provided Red Hat Enterprise Linux images in that region.
+
+The data that you provide to the VPC service in your region is exchanged only with logging and
+data services in the same region. Data backups are stored in {{site.data.keyword.cloud_notm}} Object Storage in the same region.
