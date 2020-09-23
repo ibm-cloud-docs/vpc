@@ -116,7 +116,7 @@ You can use the rules quota for inbound rules, outbound rules, or both. For exam
 | Boot and secondary volumes | 300 total volumes per account in a region<sup>1</sup> |  
 {: caption="Table 7. Quotas for block storage volumes" caption-side="top"}
 
-<sup>1</sup> You can request to increase the block storage volume limit by submitting an [IBM Support](/docs/vpc?topic=vpc-getting-help) case.
+<sup>1</sup> You can request to increase the block storage volume limit by submitting an [IBM Support](/docs/get-support?topic=get-support-using-avatar) case.
 
 
 ## Service limits
