@@ -90,7 +90,7 @@ Use the instructions in [Creating a Linux custom image](/docs/vpc?topic=vpc-crea
 * For any secondary storage volumes that are mounted, you must include the fstab entry “nofail.”
 
 #### Customizing a Windows instance 
-{: #customize-linux-instance} 
+{: #customize-windows-instance} 
 
 Complete the following customizations on your Windows instance to prepare the image for {{site.data.keyword.vpc_short}}. 
 1. Use Remote Desktop to access your Windows server. 
