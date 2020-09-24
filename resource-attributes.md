@@ -48,7 +48,6 @@ See Table 1 for the full list of VPC resource attributes.
 | ------- | ------ |
 | Auto Scale for VPC | `instanceGroupId:<instance-group-id>` | 
 | Block Storage for VPC | `volumeId: <volume-id>` |  
-| Dedicated Host for VPC | `dedicatedHostId:<dedicated-host-id>` <!--(staging)--> | 
 | Floating IP for VPC | `floatingIpId: <fip-id>` |
 | Flow Logs for VPC | `flowLogCollectorId: <flc-id>` |
 | Image Service for VPC | `imageId:<image-id>` |
@@ -58,10 +57,12 @@ See Table 1 for the full list of VPC resource attributes.
 | Security Group for VPC | `securityGroupId: <default-sec-grp-id>` |
 | SSH Key for VPC | `keyId:<key-id>` |
 | Subnet | `subnetId: <subnet-id>` |
-| Virtual Private Endpoint for VPC | `endpointGatewayId:<endpoint-gateway-id>`<!--(staging)--> |
 | Virtual Private Cloud |  `vpcId: <vpc-id>`  |   
 | Virtual Server for VPC | `instanceId: <instance-id>` |   
 | VPN for VPC | `vpnId:<vpn-id>` |
 {: caption="Table 1. VPC resource attributes" caption-side="top"}
+
+<!--| Dedicated Host for VPC | `dedicatedHostId:<dedicated-host-id>` | -->
+<!--| Virtual Private Endpoint for VPC | `endpointGatewayId:<endpoint-gateway-id>` |--> 
 <!--Exclude "Snapshot snapshotId" and "Share shareId" as they are neither in production nor staging. Don't push those labeled with "staging" to production-->
 
