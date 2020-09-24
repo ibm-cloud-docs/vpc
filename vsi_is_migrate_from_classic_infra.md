@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-03"
+lastupdated: "2020-09-24"
 
 keywords: migrate virtual server from classic infrastructure, migrate to vpc, migrate image template, image template, import image to vpc infrastructure, migrate virtual server, migrate instance
 
@@ -24,7 +24,7 @@ subcollection: vpc
 # Migrating a virtual server from the classic infrastructure
 {: #migrate-vsi-to-vpc}
 
-You can migrate a Linux virtual server instance from the classic infrastructure by customizing a virtual server instance to meet the requirements of the {{site.data.keyword.vpc_short}} infrastructure. Next, create an image template from the instance, and export it to {{site.data.keyword.cos_full}}. After you convert the image to qcow2 format, you can import it to {{site.data.keyword.vpc_short}} and deploy it in the VPC environment. 
+You can migrate a virtual server instance from the classic infrastructure by customizing a backup version of the instance to meet the requirements of the {{site.data.keyword.vpc_short}} infrastructure. Next, create an image template from the instance, and export it to {{site.data.keyword.cos_full}}. After you convert the image to qcow2 format, you can import it to {{site.data.keyword.vpc_short}} and deploy it in the VPC environment. 
 {:shortdesc}
 
 To complete this task you must have an instance of {{site.data.keyword.cos_full}} available. You must also create an authorization so that the Image Service for VPC can access images in {{site.data.keyword.cos_full_notm}}. For more information, see [Granting access to IBM Cloud Object Storage to import images](/docs/vpc?topic=vpc-object-storage-prereq).
@@ -78,13 +78,27 @@ From the image template you just created, provision a new virtual server instanc
 ### Step 3 - Customize the virtual server instance for {{site.data.keyword.vpc_short}} 
 {: #migrate-customize-image-vpc} 
 
-Complete the required image customizations for {{site.data.keyword.vpc_short}} infrastructure. Follow the instructions for [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image), which describes the following customizations:
+Complete the required virtual server instance customizations to prepare your image to run in the {{site.data.keyword.vpc_short}} infrastructure. Some of the customization requirements might already be complete on your classic infrastructure virtual server instance.
+
+#### Customizing a Linux instance 
+{: #customize-linux-instance} 
+
+Use the instructions in [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image) to complete the following customizations on your Linux instance:
 * The following [arguments](/docs/vpc?topic=vpc-create-linux-custom-image#kernel-args) are present on the kernel command line: *nomodeset*, *nofb*, *vga=normal*, *console=ttyS0*. 
 * Your operating system image has [virtio drivers](/docs/vpc?topic=vpc-create-linux-custom-image#virtio-drivers) installed, along with any code that is needed by virtio.
 * Your image is [cloud-init enabled](/docs/vpc?topic=vpc-create-linux-custom-image#cloud-init).
 * For any secondary storage volumes that are mounted, you must include the fstab entry “nofail.”
 
-Some of the customization requirements might already be complete on your classic infrastructure virtual server instance. 
+#### Customizing a Windows instance 
+{: #customize-linux-instance} 
+
+Complete the following customizations on your Windows instance to prepare the image for {{site.data.keyword.vpc_short}}. 
+1. Use Remote Desktop to access your Windows server. 
+2. Download and install the Windows VirtIO drivers. 
+    1. Download the stable [virtio-win drivers ISO](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso){: external} from Fedora. 
+    2. Locate the downloaded ISO and double-click it to mount it.
+    3. From the mounted ISO run `virtio-win-guest-tools.exe` and complete the installation.
+3. Install and configure Cloudbase-Init by completing steps 4.d through 4.h in [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image). Make sure to modify the Cloudbase-Init configuration files and Unattend file according to the instructions and then run Sysprep.    
 
 ### Step 4 - Create a new image template of your customized virtual server instance 
 {: #migrate-new-image template} 
