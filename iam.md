@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2020-06-02"
+lastupdated: "2020-09-24"
 
 keywords: resource, policies, authorization, resource type, resource groups, roles, load balancer, VPN, operator, editor, viewer, admin
 
@@ -58,6 +58,8 @@ The following table details what actions are mapped to platform management roles
 - In general, to change the relationship between multiple resources, the user must have access to each resource. For example, to attach a network interface to a security group, the user must have access to both the network interface and the security group. For more information, see [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
 
 For more information about assigning user roles in the UI, see [Managing user permissions for VPC resources](/docs/vpc?topic=vpc-managing-user-permissions-for-vpc-resources).
+
+You can also assign user roles by using {{site.data.keyword.cloud}} Command Line Interface (CLI). You can select resource(s) by using resource attributes. For more information, see [VPC resource attributes](/docs/vpc?topic=vpc-resource-attributes).
  
 ## Resources and resource groups
 {: #resources-and-resource-groups}
