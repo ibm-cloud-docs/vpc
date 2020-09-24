@@ -36,7 +36,7 @@ This is a beta feature that is available for evaluation and testing purposes.
 {: #key-mgt-services-for-storage}
 
 The supported key management services for encrypting your block storage volumes are {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}} (available in certain [regions](/docs/hs-crypto?topic=hs-crypto-regions#regions)). {{site.data.keyword.cloud_notm}} data centers provide a dedicated hardware security module (HSM) to protect your keys.
-For more information about these services, see [Supported key management services for customer-managed encryption](/docs/vpc?topic=vpc-creating-instances-byok#kms-for-byok).
+For more information about these services, see [Supported key management services for customer-managed encryption](/docs/vpc?topic=vpc-creating-instances-byok).
 
 ## Before you begin
 {: #custom-managed-vol-prereqs}
