@@ -54,7 +54,7 @@ Service endpoints must be enabled in your account before they can be accessed. F
 
 For more information about service endpoints, see [Services that support service endpoints](/docs/account?topic=account-vrf-service-endpoint#use-service-endpoint). After you provision a service as a private endpoint, ping the endpoint from your virtual server instance to verify that the endpoint is reachable.
 
-You can also use VPN for VPC to access service endpoints. For more information, see [Access service endpoints through VPN](/docs/vpc?topic=vpc-using-vpn#build-se-connectivity-using-vpn).
+You can also use VPN for VPC to access service endpoints. For more information, see [Access service endpoints through VPN](/docs/vpc?topic=vpc-using-vpn).
 
 ## IaaS endpoints
 {: #infrastructure-as-a-service-iaas-endpoints}
