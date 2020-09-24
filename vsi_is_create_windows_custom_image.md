@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-08"
+lastupdated: "2020-09-24"
 
 keywords: creating a Windows custom image, cloudbase-init, qcow2
 
@@ -27,6 +27,9 @@ subcollection: vpc
 You can create your own custom Windows-based image to deploy a virtual server instance in the {{site.data.keyword.vpc_short}} 
 infrastructure. 
 {:shortdesc}
+
+You can begin with an image template from the {{site.data.keyword.cloud_notm}} classic infrastructure. For more information, see [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc).
+{: tip}
 
 Your image must adhere to the following custom image requirements:
 * Contains a single file or volume 
@@ -128,6 +131,9 @@ Complete the following steps to create a Windows custom image.
          C:\Windows\System32\Sysprep\Sysprep.exe /oobe /generalize /shutdown "/unattend:C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\Unattend.xml"
          ``` 
          {: codeblock}
+         
+         If you are customizing a virtual server instance to migrate from classic infrastructure, return to [Migrating a virtual    server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc#migrate-customize-image-vpc) and continue completing migration steps. 
+         {: tip}
     
 5. Convert the Windows VHD image to qcow2 by running the following command:
      ```
