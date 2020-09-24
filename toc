@@ -59,6 +59,7 @@ Virtual Private Cloud (VPC)
         iam.md
         vpc-user-permissions.md
         api-auth-correlation.md
+        resource-attributes.md
 
     {: .topicgroup}
     Virtual server instances
