@@ -38,7 +38,7 @@ To sign up, complete the following steps.
 ## Support tickets
 {: getting-help-tickets}
 
-For information about opening an IBM support ticket, or about support levels and ticket severities, see [Contacting support](/docs/get-support?topic=get-support-getting-customer-support).
+For information about opening an IBM support ticket, or about support levels and ticket severities, see [Contacting support](/docs/get-support?topic=get-support-using-avatar).
 {:shortdesc} 
 
 If you need to open a support ticket, collect as much information as possible to help Support analyze and diagnose your problem. 
