@@ -38,9 +38,6 @@ Your image must adhere to the following custom image requirements:
 * The operating system is supported as a stock image operating system
 * Size doesn't exceed 100 GB
 
-Encrypted images aren't supported for custom images.
-{: note}
-
 Complete the following steps to ensure that your own Linux custom image can be successfully deployed in the 
 {{site.data.keyword.vpc_short}} infrastructure environment.
 
