@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-07"
+lastupdated: "2020-10-01"
 
 keywords: custom image
 
@@ -41,9 +41,6 @@ Make sure that your image meets custom image requirements:
 * Is cloud-init enabled
 * The operating system is supported as a [stock image](/docs/vpc?topic=vpc-about-images#stock-images) operating system
 * Size doesn't exceed 100 GB
-
-Support for importing encrypted images is available in beta. For more information, see [Creating an encrypted custom image (Beta)](/docs/vpc?topic=vpc-create-encrypted-custom-image). 
-{: note}
 
 When you have an image available in {{site.data.keyword.cos_full_notm}}, you can import it to {{site.data.keyword.vpc_short}} infrastructure by using the {{site.data.keyword.cloud_notm}} console.
 
