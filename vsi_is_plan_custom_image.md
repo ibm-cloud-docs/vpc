@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-07-30"
+lastupdated: "2020-10-01"
 
 keywords: custom image, creating a custom image, migrating a custom image
 
@@ -40,7 +40,7 @@ migrate an instance to VPC.
 | 4. Create a Linux custom image. | For more information, see [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image). |
 | 5. Or create a Windows custom image. | For more information, see [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image). | 
 | 6. Or use an image template from IBM Cloud classic intrastructure. | For more information, see [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc). |
-| 7. Optionally, encrypt your custom image with LUKS encryption and your own passphrase. | For more information, see [Creating an encrypted custom image (Beta)](/docs/vpc?topic=vpc-create-encrypted-custom-image). |
+| 7. Optionally, encrypt your custom image with LUKS encryption and your own passphrase. | For more information, see [Creating an encrypted custom image](/docs/vpc?topic=vpc-create-encrypted-custom-image). |
 | 8. Upload your custom image to Cloud Object Storage. | On the **Objects** page of your IBM Cloud Object Storage bucket, click **Upload**. You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB. |
 | 9. Import your custom image to VPC. | When you have a supported custom image available in Cloud Object storage, you are ready to import. See [Importing a custom image](/docs/vpc?topic=vpc-managing-images#import-custom-image). |
 | 10. Create a virtual server by using your custom image. | For more information, see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers). |
