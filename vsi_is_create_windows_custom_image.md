@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-24"
+lastupdated: "2020-10-01"
 
 keywords: creating a Windows custom image, cloudbase-init, qcow2
 
@@ -37,9 +37,6 @@ Your image must adhere to the following custom image requirements:
 * Is cloud-init enabled
 * The operating system is supported as a stock image operating system
 * Size doesn't exceed 100 GB
-
-After your custom image is created, you can [encrypt](/docs/vpc?topic=vpc-create-encrypted-custom-image) it by using the encryption support that is available in beta.
-{: note}
 
 The following procedure describes how to create a Windows custom image that can be successfully deployed in the {{site.data.keyword.vpc_short}} infrastructure environment. The procedure encompasses these high-level tasks:
 * Use VirtualBox to create a Windows image in VHD format.
