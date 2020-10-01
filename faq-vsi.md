@@ -108,4 +108,8 @@ In limited cases a virtual server might need to be migrated to a different host.
     * The virtual server that was restarted is assigned the same floating IP, static IP, and dynamic IP addresses on the new node.  
     * If the virtual server cannot be scheduled to run on another compute node, it is placed in a `FAILED` state.
 
+## Can I use an encrypted image?
+{: #faq-vsi-14}
+{: faq}
 
+Yes, you can encrypt a supported custom image with LUKS encryption and your own passphrase. For more information, see [Creating an encrypted custom image](/docs/vpc?topic=vpc-create-encrypted-custom-image). When your image is encrypted and imported to {{site.data.keyword.vpc_short}}, you can use it to provision virtual server instances.
