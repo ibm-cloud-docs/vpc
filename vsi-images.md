@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-01"
+lastupdated: "2020-10-02"
 
 keywords: image, stock image, custom image, virtual server, power, generation 2, gen 2
 
@@ -41,8 +41,8 @@ The following operating systems are available as stock images when you create a 
 
 | Image | Architectures | Notes |
 |---------|---------|---------|
-| CentOS 7.x | x86-64 | |
-| Debian 9.x | x86-64 | |
+| CentOS 7.x, 8.x | x86-64 | |
+| Debian 9.x, 10.x | x86-64 | |
 | Red Hat Enterprise Linux 7.x, 8 | x86-64 | |
 | Ubuntu 16.04.x | x86-64 | <!--"xenial xerus"--> |
 | Ubuntu 18.04.x | x86-64 |  |
