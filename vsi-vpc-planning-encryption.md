@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2020
-lastupdated: "2020-08-04"
+lastupdated: "2020-10-02"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, planning, best practices
 
@@ -20,16 +20,12 @@ subcollection: vpc
 {:screen: .screen}
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
-{:beta: .beta}
 
 # Planning data encryption
 {: #vpc-encryption-planning}
 
 When you're planning a data encryption strategy for your {{site.data.keyword.block_storage_is_short}} volumes or custom images, you might find this checklist helpful to choose and set up your data encryption service.
 {:shortdesc}
-
-Encrypted custom image is a Beta feature available for testing and evaluation. Contact your IBM Sales representative if you are interested in getting access.
-{:beta}
 
 ## Planning for data encryption
 {: #planning-for-data-encryption}
@@ -40,7 +36,7 @@ Consider the following prerequisites before you set up data encryption for your 
 |-------------------|
 |__ Evaluate the amount of control you want over your data encryption. [IBM-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-provider-managed-encryption) is provided by default for boot and data volumes.  [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption) lets you control access to your data. |
 |__ Evaluate whether a combination of IBM-managed encrypted volumes and customer-managed encrypted volumes meets your needs.  |
-|__ For encrypted custom images (Beta), review the image requirements, supported operating systems, and learn about creating and importing QCOW2 custom image files. For additional planning tips for custom images, see [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images). |
+|__ For encrypted custom images, review the image requirements, supported operating systems, and learn about creating and importing QCOW2 custom image files. For additional planning tips for custom images, see [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images). |
 |__ Choose the UI, CLI, or API for provisioning customer-managed encryption. |
 |__ Evaluate which [key management service](#byok-encryption-prereqs) best meets your needs. Determine the availability of these services in your region and zone. | 
 |__ For customer-managed encryption, consider importing or creating multiple root keys and [rotating your keys](/docs/vpc?topic=vpc-vpc-key-rotation) for greater security. |
@@ -81,11 +77,11 @@ The following steps are specific to {{site.data.keyword.keymanagementserviceshor
 ### Encrypted custom image prerequisites
 {: #byok-custom-images-prereqs}
 
-If you plan to take advantage of beta functionality to import an encrypted custom image, there are several prerequisites you need to complete in addition to setting up your KMS and authorizations. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs).
+If you plan to take advantage of this functionality to import an encrypted custom image, there are several prerequisites you need to complete in addition to setting up your KMS and authorizations. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs).
 
 ## Next Steps
 {: #next-steps-planning}
 
 * [Creating virtual server instances with customer-managed encrypted volumes](/docs/vpc?topic=vpc-creating-instances-byok).
 * [Create standalone volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
-* [Create custom encrypted images (Beta)](/docs/vpc?topic=vpc-create-encrypted-custom-image).
+* [Create custom encrypted images](/docs/vpc?topic=vpc-create-encrypted-custom-image).

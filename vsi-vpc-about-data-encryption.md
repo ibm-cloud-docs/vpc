@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2020
-lastupdated: "2020-08-04"
+lastupdated: "2020-10-02"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
@@ -17,7 +17,6 @@ subcollection: vpc
 {:screen: .screen}
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
-{:beta: .beta}
 {:note: .note}
 
 # About data encryption for VPC
@@ -27,9 +26,6 @@ subcollection: vpc
 {:shortdesc}
 
 Customer-managed encryption for volumes and custom images lets you use root keys in the same region as you resources. You can also use root keys from another region to encrypt your resources. For more information, see [Root key regional and cross-regional considerations](#byok-cross-region-keys).
-
-Encrypted custom image is a Beta feature available for testing and evaluation. Contact your IBM Sales representative if you are interested in getting access.
-{:beta}
 
 ## IBM-managed encryption
 {: #vpc-provider-managed-encryption}
@@ -88,7 +84,7 @@ Cross-regional keys offer more key availability with the tradeoff of slightly hi
 
 As best practice, use root keys in the same region as your resources. Regional service uses private endpoints to multiple availability zones. If a given zone is unavailable, you can continue to access your root keys and encrypted resources from another zone.
 
-### About encrypted custom images (Beta)
+### About encrypted custom images
 {: #byok-about-encrypted-images}
 
 You can create a QCOW2 custom image that meets the requirements for {{site.data.keyword.vpc_short}} infrastructure and [encrypt it](/docs/vpc?topic=vpc-create-encrypted-custom-image#manually-encrypt-image) by using your own LUKS passphrase and root key (CRK). After you encrypt the custom image with your own passphrase, you upload it to {{site.data.keyword.cos_full_notm}}. 

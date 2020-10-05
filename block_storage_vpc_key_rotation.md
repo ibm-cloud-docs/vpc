@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2020
-lastupdated: "2020-08-05"
+lastupdated: "2020-10-02"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
@@ -24,9 +24,6 @@ subcollection: vpc
 
 For {{site.data.keyword.vpc_short}} resources such as volumes and encrypted images that are protected by your customer root key (CRK), you can rotate the root keys for additional security. When you rotate a root key by schedule or on demand, the original key material is replaced. The old key remains active to decrypt existing resources but can't be used to encrypt new ones. This feature is available on Gen 2 Compute resources only.
 {:shortdesc}
-
-Encrypted custom image is a Beta feature available for testing and evaluation. Contact your IBM Sales representative if you are interested in getting access.
-{:beta}
 
 ## Key rotation overview
 {: #vpc-key-rotation-overview}
