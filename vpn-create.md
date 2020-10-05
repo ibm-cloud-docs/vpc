@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-02"
+lastupdated: "2020-10-05"
 
 keywords: vpn for vpc, vpn, connection, on premise connection, on-premises connection, create
 
@@ -28,6 +28,15 @@ subcollection: vpc
 You can create a virtual private network (VPN) gateway to securely connect your VPC to another private network, such as an on-premises network or another VPC.
 {: shortdesc}
 
+
+## Planning considerations
+{: #planning-considerations-vpn}
+
+Review the following considerations before creating a VPN gateway:
+
+* The VPN gateway is created in the zone that is associated with the subnet that you select. Because the VPN gateway can connect to virtual server instances in this zone only, instances in other zones can't use this VPN gateway to communicate with the other network. For zone fault tolerance, deploy one VPN gateway per zone.
+* Make sure that there's enough space in the subnet for the gateway. To ensure VPN management and fail-over functions are able to function properly, create the VPN gateway in a subnet without any other VPC resources to guarantee that there are enough available private IPs for the gateway. A VPN gateway needs four private IP addresses to accommodate high availability and rolling upgrades. Since up to five private IPs in a subnet are reserved, the minimum subnet size that can be used to host a VPN gateway is 16 IPs (prefix `/28` or netmask `255.255.255.240`).
+
 ## Creating a VPN gateway using the UI
 {: #vpn-create-ui}
 
@@ -41,12 +50,7 @@ To create a VPN gateway using the UI:
     * **Name**: Enter a name for the VPN gateway, such as `my-vpn-gateway`.
     * **Virtual private cloud**: Select the VPC.
     * **Resource group**: Select a resource group for the VPN gateway.
-    * **Subnet**: Select the subnet in which to create the VPN gateway.
-
-      To ensure VPN management and fail-over functions are able to function properly, create the VPN gateway in a subnet without any other VPC resources to guarantee that there are enough available private IPs for the gateway. A VPN gateway needs 4 private IP addresses to accommodate high availability and rolling upgrades. Since up to 5 private IPs in a subnet are reserved, the minimum subnet size that can be used to host a VPN gateway is 16 IPs (prefix /28` or netmask `255.255.255.240`).
-
-      The VPN gateway is created in the zone that is associated with the subnet you select. Because the VPN gateway can connect to virtual server instances in this zone only, instances in other zones can't use this VPN gateway to communicate with the other network. For zone fault tolerance, deploy one VPN gateway per zone.
-      {: important}
+    * **Subnet**: Select the subnet in which to create the VPN gateway. See [Planning considerations](/docs/vpc?topic=vpc-vpn-create-gateway#planning-considerations-vpn) for important subnet information.
 
 1. Optionally, in the **New VPN connection for VPC** section, define a connection between this gateway and a network outside your VPC by specifying the following information.
     * **Connection name**: Enter a name for the connection, such as `my-connection`.
