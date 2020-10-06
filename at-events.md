@@ -309,7 +309,7 @@ The following tables list the actions related to compute resources and the gener
 | instance-group  | is.instance-group.instance.create     | Instance group instance was created |
 {: caption="Table 15. Actions that generate events for Instance Group" caption-side="top"}
 
-## Image resources
+### Image resources
 {: #events-images}
 
 The following table lists the actions related to image resources and the generation of events.
@@ -320,6 +320,10 @@ The following table lists the actions related to image resources and the generat
 | image  | is.image.image.delete   | Image was deleted |
 | image  | is.image.image.update   | Image was updated |
 {: caption="Table 16. Actions that generate events for image resources" caption-side="top"}
+
+For the image update event, if you are rotating the root key for an image, the CRN for the old key and new key remains the same. The ID for the new key that is rotated in is indicated in the `kmsKeyRefID` field of the image.
+{:note}
+
 
 ## Storage resources
 {: #events-storage}
