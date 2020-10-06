@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-01"
+lastupdated: "2020-10-06"
 
 keywords: release notes, changes, updates
 
@@ -25,6 +25,16 @@ subcollection: vpc
 
 Use these release notes to learn about the latest changes to {{site.data.keyword.vpc_full}}.
 {:shortdesc}
+
+## 02 October 2020
+{: #october-01-2020}
+
+- **Encrypted images (GA):** Support for encrypting and importing a custom image is now generally available. For more information, see [Creating an encrypted custom image](/docs/vpc?topic=vpc-create-encrypted-custom-image). 
+
+- **UI Enhancements**
+   - Improved name validation when an existing resource name is specified for a new resource.
+   - Added a new way to view and select instance profiles in a side panel when provisioning an instance.
+   - Enhanced security group details page to include attached network interfaces, with a link to manage the interfaces.
 
 ## 04 September 2020
 {: #september-04-2020}
