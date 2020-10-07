@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-09-25"
 
 keywords:  block storage, block storage volume, volume, volume attachment
 subcollection: vpc
@@ -16,6 +16,7 @@ subcollection: vpc
 {:external: target="_blank" .external}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
 {:table: .aria-labeledby="caption"}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
@@ -33,7 +34,10 @@ When you create a {{site.data.keyword.block_storage_is_short}} volume for a virt
 
 You can attach only one block storage volume to a virtual server instance at a time, but you can attach several different block storage volumes to a single instance. 
 
-The following limits apply:
+You can't use the UI to attach block storage volumes to IKS Cluster worker nodes. For information about using the CLI to attach volumes to cluster nodes, see [this information](/docs/containers?topic=containers-vpc-block).
+{: note}
+
+The following limits also apply:
 
 * When you create a new instance, you can create and attach up to 4 secondary block storage volumes, plus the boot volume. 
 * For instances with less than 4 virtual CPUs, you can attach up to 4 block storage secondary volumes, plus the boot volume.
