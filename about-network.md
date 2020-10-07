@@ -19,9 +19,8 @@ subcollection: vpc
 {:important: .important}
 {:download: .download}
 
-# About Networking for VPC
+# About networking
 {: #about-networking-for-vpc}
-
 
 {{site.data.keyword.vpc_full}} (VPC) is a virtual network that's tied to your customer account. It gives you cloud security, with the ability to scale dynamically, by providing fine-grained control over your virtual infrastructure and your network traffic segmentation.
 {:shortdesc}
@@ -58,8 +57,8 @@ A zone is an abstraction that refers to the physical data center that hosts the 
 
 Each subnet consists of a specified IP address range (CIDR block). Subnets are bound to a single zone, and they cannot span multiple zones or regions. Subnets in the same VPC are connected to each other.
 
-### Reserved IP addresses
-{: #reserved-ip-addresses}
+### Addresses reserved by the system
+{: #addresses-reserved-by-the-system}
 
 Certain IP addresses are reserved for use by IBM when operating the VPC. Here are the reserved addresses (these IP addresses assume that the subnet's CIDR range is 10.10.10.0/24):
 
@@ -95,7 +94,7 @@ The following figure summarizes the current scope of gateway services.
 
 | SNAT | DNAT | ACL | VPN |
 | ---- | ---- | --- | --- |
-| Instances can have outbound-only access to the Internet | Allow inbound connectivity from the Internet to a Private IP | Provide restricted inbound access from the Internet to instances or subnets | Site-to-Site VPN handles customers of any size, and single or multiple locations |
+| Instances can have outbound-only access to the Internet | Allow inbound connectivity from the Internet to a Private IP | Provide restricted inbound access from the Internet to instances or subnets | Site-to-site VPN handles customers of any size, and single or multiple locations |
 | Entire subnets share the same outbound public endpoint | Provides limited access to a single private server | Restrict access inbound from Internet, based on service, protocol, or port | High throughput (up to 10 Gbps) provides customers the ability to transfer large data files securely and quickly |
 | Protects instances; Cannot initiate access to instances through the public endpoint | DNAT service can be scaled up or down, based on requirements | Stateless ACLs allow for granular control of traffic | Create secure connections with industry standard encryption |
 
