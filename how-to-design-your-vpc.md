@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2019-10-05"
+lastupdated: "2020-10-08"
 
-keywords: subnet, address prefixes, design, addressing
+keywords: VPC, subnet, address prefixes, design, addressing
 
 subcollection: vpc
 
@@ -33,19 +33,26 @@ A properly designed addressing plan has two goals:
 
 This document gives an example of designing the addressing plan for a three-tiered web application, in which each tier is supported by multiple zones.
 
-Although each {{site.data.keyword.vpc_short}} is deployed to a specific region, the VPC can span all of the zones within that region. {{site.data.keyword.vpc_short}} defines a default address prefix for every zone. The address prefixes enable communication between VPC instances in different zones.
+Although each {{site.data.keyword.vpc_short}} deploys to a specific region, the VPC can span all of the zones within that region. {{site.data.keyword.vpc_short}} defines a default address prefix for every zone. The address prefixes enable communication between VPC instances in different zones.
 
 The same design steps are involved, no matter whether the application is contained completely on the cloud, or whether parts of the application are running in another location.
 {: tip}
 
+When creating VPC instances that you intend to interconnect using [IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started), avoid selecting **Default address prefixes** when creating multiple instances. Make sure to create your VPC instances with non-overlapping prefixes for [successful connectivity](/docs/transit-gateway?topic=transit-gateway-troubleshooting#overlapping-prefixes). 
+
+When creating VPC instances that you also intend to interconnect with your IBM Cloud classic infrastructure using [IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started), do not use IP addresses in your instances in the `10.0.0.0/14`, `10.200.0.0/14`, `10.198.0.0/15`, and `10.254.0.0/16` blocks. You should also avoid using IP addresses from your classic infrastructure subnets. 
+  
+  For further information on designing your VPC instances for use with IBM Cloud Transit Gateway, see [Planning for IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-helpful-tips).
+  {: important}
+
 ## Design considerations and assumptions
 {: #design-considerations-and-assumptions}
 
-When you design the addressing plan for an application, the primary consideration is to keep the CIDR blocks used for creating subnets within a single zone as contiguous as possible. By doing so, the designer allows them to be summarized in a single address prefix, leaving room for future growth.
+When you design the addressing plan for an application, the primary consideration is to keep the CIDR blocks used for creating subnets within a single zone as contiguous as possible. By doing so, you can summarize them in a single address prefix, leaving room for future growth.
 
 Another consideration is the number of available addresses a subnet might need for horizontal scaling. Table 1 lists the number of available addresses in a subnet, based on its specified CIDR block size:
 
-| CIDR block size | Available Addresses |
+| CIDR block size | Available addresses |
 | --------------- | ------------------- |
 |      /22        |        1019         |
 |      /23        |         507         |
@@ -58,7 +65,7 @@ Another consideration is the number of available addresses a subnet might need f
 
 Based on these two considerations, here are the assumptions that are made for this example:
 
-* For this example, CIDR ranges from the 172.16.0.0/12 block of RFC 1918 addresses are used for all subnets.
+* CIDR ranges from the `172.16.0.0/12` block of RFC 1918 addresses are used for all subnets.
 * The application's presentation layer is a thin layer above a REST API. Therefore, horizontal scaling affects the middle tier more than it affects the presentation tier.
 
 ## Determine each tier's subnet size
@@ -68,7 +75,7 @@ The next step is to determine each tier's subnet size (in terms of available add
 
 Take into account the following considerations when you plan each tier's subnet size:
 
-* The database tier (the back end) is the least likely one to need dynamic scaling, so these subnets can be the smallest. That is, these subnets can contain the least number of available addresses. 
+* The database tier (the back end) is the least likely to need dynamic scaling, so these subnets are the smallest. That is, these subnets can contain the least number of available addresses. 
     * _This example uses a `/27` CIDR block, which allows for 27 addresses in this tier._
 * The middle tier is the most likely to need dynamic scaling, so these subnets are the largest. That is, they must contain the greatest number of available addresses. 
     * _This example uses a `/25` CIDR block, which allows for 123 addresses in this tier._
@@ -82,16 +89,16 @@ To select an acceptable address prefix for each zone, you need a subnet size tha
 
 A `/24` address prefix is the smallest prefix into which these three subnets can be combined (27 + 123 + 59). Select the next larger subnet size, not the smallest. Assigning the next larger subnet size (`/23`) allows for horizontal scaling beyond the limits that were given previously because it allows for adding new subnets to each layer, from within the same address prefix.
 
-Now that you determined the correct subnet size, the actual address prefixes can be assigned, one for each zone:
+After you determine the correct subnet size, you can assign the actual address prefixes, one for each zone:
 
-|  Zone  | Address Prefix  |
+|  Zone  | Address prefix  |
 | ------ | --------------- |
 | Zone 1 | `172.16.0.0/23` |
 | Zone 2 | `172.16.2.0/23` |
 | Zone 3 | `172.16.4.0/23` |
 {: caption="Table 2. Zones assigned address prefixes" caption-side="top"}
 
-And from this basis, the three subnets within each zone can be assigned:
+And from this basis, you can also assign the three subnets within each zone:
 
 |  Zone  |   Tier   |    Subnet CIDR    |
 | ------ | -------- | ----------------- |
