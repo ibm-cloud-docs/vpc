@@ -38,6 +38,7 @@ Virtual Private Cloud (VPC)
 
     {: .navgroup id="tutorial"}
     {: .topicgroup}
+    console-tutorial.md
     Solution tutorials
         /solution-tutorials/solution-tutorials-vpc-public-app-private-backend
         /solution-tutorials/solution-tutorials-vpc-multi-region
@@ -48,7 +49,6 @@ Virtual Private Cloud (VPC)
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
-    console-tutorial.md
     set-up-environment.md
     hello-world-vpc.md
     example-code.md
