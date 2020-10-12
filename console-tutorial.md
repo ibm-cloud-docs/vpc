@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2019, 2020
+  years: 2018, 2020
 
-lastupdated: "2020-09-02"
+lastupdated: "2020-10-12"
 
 
 keywords: vpc, virtual private cloud, vpc ui, console, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range, generation 2, gen 2
@@ -13,24 +13,86 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:beta: .beta}
 {:codeblock: .codeblock}
-{:pre: .pre}
-{:note: .note}
-{:screen: .screen}
-{:tip: .tip}
-{:important: .important}
+{:curl: .ph data-hd-programlang='curl'}
+{:deprecated: .deprecated}
+{:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
 {:download: .download}
+{:external: target="_blank" .external}
+{:faq: data-hd-content-type='faq'}
+{:fuzzybunny: .ph data-hd-programlang='fuzzybunny'}
+{:generic: data-hd-operatingsystem="generic"}
+{:generic: data-hd-programlang="generic"}
+{:gif: data-image-type='gif'}
+{:go: .ph data-hd-programlang='go'}
 {:help: data-hd-content-type='help'}
+{:hide-dashboard: .hide-dashboard}
+{:hide-in-docs: .hide-in-docs}
+{:important: .important}
+{:ios: data-hd-operatingsystem="ios"}
+{:java: #java .ph data-hd-programlang='java'}
+{:java: .ph data-hd-programlang='java'}
+{:java: data-hd-programlang="java"}
+{:javascript: .ph data-hd-programlang='javascript'}
+{:javascript: data-hd-programlang="javascript"}
+{:new_window: target="_blank"}
+{:note: .note}
+{:objectc data-hd-programlang="objectc"}
+{:org_name: data-hd-keyref="org_name"}
+{:php: data-hd-programlang="php"}
+{:pre: .pre}
+{:preview: .preview}
+{:python: .ph data-hd-programlang='python'}
+{:python: data-hd-programlang="python"}
+{:route: data-hd-keyref="route"}
+{:row-headers: .row-headers}
+{:ruby: .ph data-hd-programlang='ruby'}
+{:ruby: data-hd-programlang="ruby"}
+{:runtime: architecture="runtime"}
+{:runtimeIcon: .runtimeIcon}
+{:runtimeIconList: .runtimeIconList}
+{:runtimeLink: .runtimeLink}
+{:runtimeTitle: .runtimeTitle}
+{:screen: .screen}
+{:script: data-hd-video='script'}
+{:service: architecture="service"}
+{:service_instance_name: data-hd-keyref="service_instance_name"}
+{:service_name: data-hd-keyref="service_name"}
+{:shortdesc: .shortdesc}
+{:space_name: data-hd-keyref="space_name"}
+{:step: data-tutorial-type='step'}
+{:subsection: outputclass="subsection"}
 {:support: data-reuse='support'}
+{:swift: #swift .ph data-hd-programlang='swift'}
+{:swift: .ph data-hd-programlang='swift'}
+{:swift: data-hd-programlang="swift"}
+{:table: .aria-labeledby="caption"}
+{:term: .term}
+{:tip: .tip}
+{:tooling-url: data-tooling-url-placeholder='tooling-url'}
+{:troubleshoot: data-hd-content-type='troubleshoot'}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
+{:tsSymptoms: .tsSymptoms}
+{:tutorial: data-hd-content-type='tutorial'}
+{:unity: .ph data-hd-programlang='unity'}
+{:url: data-credential-placeholder='url'}
+{:user_ID: data-hd-keyref="user_ID"}
+{:vb.net: .ph data-hd-programlang='vb.net'}
+{:video: .video}
 
 # Using the {{site.data.keyword.cloud_notm}} console to create VPC resources
 {: #creating-a-vpc-using-the-ibm-cloud-console}
+{: toc-content-type="tutorial"}
+{: toc-services="vpc"}
+{: toc-completion-time="30m"}
 
 You can create and configure an {{site.data.keyword.vpc_full}} (VPC) by using the {{site.data.keyword.cloud_notm}} console.
 {:shortdesc}
 
+## Objectives
+{: #vpc_tutorials_objectives}
 To create and configure your VPC and other attached resources, perform the steps in the sections that follow, in this order:
 
 1. Create a VPC and subnet to define the network. When you create your subnet, attach a public gateway if you want to allow all resources in the subnet to communicate with the public internet.
@@ -45,6 +107,11 @@ To create and configure your VPC and other attached resources, perform the steps
 After you enter data on the provisioning pages, you can click the **Get sample API call** button to view the sequence of API requests that correspond to your settings. Viewing the API calls is a good way to learn about the API and understand actions and their dependencies.
 {: tip}
 
+## Audience
+{: #vpc_tutorials_audience}
+This tutorial is intended for software developers and system administrators who are creating a VPC environment and deploying an instance for the first time. 
+{: shortdesc}
+
 ## Before you begin
 {: #before}
 
@@ -58,12 +125,16 @@ ssh-keygen -t rsa -C "user_ID"
 
 This command generates two files. The generated public key is in the `id_rsa.pub` file under an ``.ssh`` directory in your home directory, for example, ``/Users/<USERNAME>/.ssh/id_rsa.pub``. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
 
-If you plan to create a load balancer and use HTTPs for the listener, an SSL certificate is required. You can manage certificates with [IBM Certificate Manager](https://{DomainName}/catalog/services/certificate-manager){: external}. You must also create an authorization to allow your load balancer instance to access the Certificate Manager instance that contains the SSL certificate. You can create an authorization through [Identity and Access Authorizations](https://{DomainName}/iam/authorizations){: external}. For the source, select **VPC Infrastructure** as the Source service, **Load Balancer for VPC** as the Resource type, and **All resource instances** for the Source resource instance. Select **Certificate Manager** as the Target service and assign **Writer** for the service access role. Set the Target service instance to **All instances** or to your specific Certificate Manager instance. For more information, see [Using Load Balancers in IBM Cloud VPC](/docs/vpc?topic=vpc-load-balancers).
+If you plan to create an application load balancer and use HTTPs for the listener, an SSL certificate is required. You can manage certificates with [IBM Certificate Manager](https://{DomainName}/catalog/services/certificate-manager){: external}. You must also create an authorization to allow your load balancer instance to access the Certificate Manager instance that contains the SSL certificate. You can create an authorization through [Identity and Access Authorizations](https://{DomainName}/iam/authorizations){: external}. For the source, select **VPC Infrastructure** as the Source service, **Load Balancer for VPC** as the Resource type, and **All resource instances** for the Source resource instance. Select **Certificate Manager** as the Target service and assign **Writer** for the service access role. Set the Target service instance to **All instances** or to your specific Certificate Manager instance. For more information, see [Using Load Balancers in IBM Cloud VPC](/docs/vpc?topic=vpc-load-balancers).
+
+Allow extra time for completing any optional steps.
+{:note} 
 
 ## Creating a VPC and subnet
 {: #creating-a-vpc-and-subnet}
 {: help}
 {: support}
+{: step}
 
 To create a VPC and subnet:
 
@@ -106,6 +177,7 @@ To create a VPC and subnet:
 
 ## Configuring the ACL
 {: #configuring-the-acl}
+{: step}
 
 You can configure the ACL to limit inbound and outbound traffic to the subnet. By default, all traffic is allowed.
 
@@ -155,6 +227,7 @@ Then, configure the following outbound rules:
 {: #creating-a-vsi}
 {: help}
 {: support}
+{: step}
 
 To create a virtual server instance in the newly created subnet:
 
@@ -186,6 +259,7 @@ To create a virtual server instance in the newly created subnet:
 {: #creating-a-block-storage-volume}
 {: help}
 {: support}
+{: step}
 
 You can create a block storage volume and attach it to your virtual server instance if you want more storage.
 
@@ -206,8 +280,9 @@ To create and attach a block storage volume:
 
 ## Configuring the security group for the instance
 {: #configuring-the-security-group}
+{: step}
 
-You can configure the security group to define the inbound and outbound traffic that is allowed for the instance. For example, after you configure ACL rules for the subnet based on your company's security policies, you can further restrict traffic for specific instances depending on their workloads.
+You can configure the security group to define the inbound and outbound traffic that is allowed for the instance.  For example, after you configure ACL rules for the subnet based on your company's security policies, you can further restrict traffic for specific instances depending on their workloads.
 
 To configure the security group:
 
@@ -221,9 +296,10 @@ To configure the security group:
    **Tips:**  
   * All rules are evaluated, regardless of the order in which they're added.
   * Rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, you created a rule that allows inbound TCP traffic on port 80. That rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
-   * For Windows images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
+  * For Windows images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
 1. _Optional:_ To view interfaces that are attached to the security group, click **Attached interfaces** in the navigation pane.
 1. When you finish creating rules, click the **All security groups for VPC** breadcrumb at the beginning of the page.
+
 
 ### Example security group
 {: #example-security-group}
@@ -248,6 +324,7 @@ Then, configure outbound rules that allow all TCP traffic:
 
 ## Reserving a floating IP address
 {: #reserving-a-floating-ip-address}
+{: step}
 
 Reserve and associate a floating IP address if you want your instance to be reachable from the internet.  
 
@@ -265,6 +342,7 @@ If you later want to reassign this floating IP address to another instance in th
 
 ## Connecting to your instance
 {: #connecting-to-your-instance}
+{: step}
 
 Using the floating IP address that you created, ping your instance to make sure it's up and running:
 
@@ -289,6 +367,7 @@ To connect to a Windows image, log in using its decrypted password. For instruct
 
 ## Monitoring your instance
 {: #monitoring-your-instance}
+{: step}
 
 You can monitor the CPU, volume, memory, and network usage of your instance over time. Metrics are retained in the system for two weeks.
 
@@ -301,18 +380,21 @@ To monitor your instance:
 Because the monitoring data is stored in {{site.data.keyword.mon_full_notm}}, you must be authenticated to an instance of {{site.data.keyword.mon_full_notm}} in your account. For more information, see [IBM Cloud monitoring services](/docs/cloud-infrastructure?topic=cloud-infrastructure-monitoring)
 {: important}
 
-## Creating a load balancer
+## Creating a load balancer (optional)
 {: #load-balancer}
+{: step}
 
 There are two different types of {{site.data.keyword.cloud_notm}} load balancers that you can create: an application load balancer and a network load balancer. For comparison information and instructions on how to create an  {{site.data.keyword.cloud_notm}} load balancer, see [Load balancers overview](/docs/vpc?topic=vpc-nlb-vs-elb).
 
-## Creating a VPN gateway
+## Creating a VPN gateway (optional)
 {: #vpn-ui}
+{: step}
 
 You can create a virtual private network (VPN) so your VPC can connect securely to another private network, such as an on-premises network or another VPC. For more information, see [Creating a VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway).
 
 ## Viewing resources associated with a VPC
 {: #vpc-layout}
+{: step}
 
 You can quickly view the resources that are associated with a VPC by accessing the resource view: In the navigation, click **VPC layout**. You can select the VPC that you are interested in, if your account has multiple VPCs configured. For each VPC you can see the associated subnets, and within each subnet you can see how many instances are running, stopped, and failed. You can also see how many IP addresses are available in each subnet. From the lists of instances and associated IP addresses, you can click a specific instance to view its details.
 
@@ -320,3 +402,4 @@ You can quickly view the resources that are associated with a VPC by accessing t
 {: #congratulations}
 
 You've successfully created and configured your VPC by using the IBM Cloud console. You can continue to develop your VPC by adding more instances, subnets, and other resources.
+
