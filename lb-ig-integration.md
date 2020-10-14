@@ -23,10 +23,10 @@ subcollection: vpc
 {:DomainName: data-hd-keyref="DomainName"}
 {:external: target="_blank" .external}
 
-# Integrating a load balancer with instance groups
+# Integrating an {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}} with instance groups
 {: #lbaas-integration-with-instance-groups}
 
-IBM Cloud Application Load Balancer allows you to attach [instance groups](/docs/vpc?topic=vpc-creating-auto-scale-instance-group) to a load balancer pool.
+{{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) allows you to attach [instance groups](/docs/vpc?topic=vpc-creating-auto-scale-instance-group) to a load balancer pool.
 {: shortdesc}
 
 An instance group is a collection of virtual server instances. With them, you no longer need to manually manage your pool members. Attaching an instance group to a load balancer allows your pool backend members to automatically scale up/down depending upon your usage and requirements.

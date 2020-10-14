@@ -25,10 +25,10 @@ subcollection: vpc
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Configuring ACLs and security groups for use with network load balancers
+# Configuring ACLs and security groups for use with {{site.data.keyword.nlb_full}}
 {: #nlb-configuring-acls}
 
-You can use access control lists (ACLs) and security groups to control the traffic in your {{site.data.keyword.cloud}} Network Load Balancer (NLB) for VPC deployment. Use ACLs to filter traffic going to and from the NLB. For your NLB to function, you must configure ACL rules to allow the following traffic:
+You can use access control lists (ACLs) and security groups to control the traffic in your {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) deployment. Use ACLs to filter traffic going to and from the NLB. For your NLB to function, you must configure ACL rules to allow the following traffic:
 
 | Inbound/Outbound| Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
@@ -37,7 +37,7 @@ You can use access control lists (ACLs) and security groups to control the traff
 | Inbound |UDP| 161.26.0.0/16 | 53 | AnyIP | AnyPort|
 | Outbound | TCP | AnyIP | 56501| AnyIP | AnyPort|
 | Outbound | TCP | AnyIP | AnyPort| AnyIP |443, 10514, 8834 |
-| Outbound | UDP | AnyIP | AnyPort| 161.26.0.0/16 |53| 
+| Outbound | UDP | AnyIP | AnyPort| 161.26.0.0/16 |53|
 
 Additionally, if you configure listeners on your NLB, you must also configure the corresponding inbound and outbound ACL rules for traffic to go through.
 

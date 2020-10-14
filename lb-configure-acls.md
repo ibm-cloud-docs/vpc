@@ -23,7 +23,7 @@ subcollection: vpc
 {:DomainName: data-hd-keyref="DomainName"}
 {:external: target="_blank" .external}
 
-# Configuring ACLs for use with application load balancers
+# Configuring ACLs for use with {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}}
 {: #configuring-acls-for-use-with-load-balancers}
 
 If you use access control lists (ACLs) to block traffic on the subnets where a load balancer is deployed, make sure the following ACL rules are configured.

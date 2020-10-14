@@ -124,7 +124,7 @@ Virtual Private Cloud (VPC)
         load-balancers.md
 
         {: .topicgroup}
-        Application load balancers
+        Application Load Balancer for VPC
             lb-overview.md
             lb-create.md
             lb-update.md
@@ -138,7 +138,7 @@ Virtual Private Cloud (VPC)
             lb-api.md
 
         {: .topicgroup}
-        Network load balancers
+        Network Load Balancer for VPC
             nlb-about.md
             nlb-create.md
             nlb-update.md

@@ -23,12 +23,12 @@ subcollection: vpc
 {:DomainName: data-hd-keyref="DomainName"}
 {:external: target="_blank" .external}
 
-# FAQs for application load balancers
+# FAQs for {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}}
 {: #load-balancer-faqs}
 
-This section contains answers to some frequently asked questions about the {{site.data.keyword.cloud}} Application Load Balancer for VPC service.
+This section contains answers to some frequently asked questions about the {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB).
 
-## Can I use a different DNS name for my application load balancer?
+## Can I use a different DNS name for my ALB?
 {: #different-dns-name}
 {: faq}
 
@@ -38,7 +38,7 @@ The auto-assigned DNS name for the application load balancer is not customizable
 {: #max-number-listeners}
 {: faq}
 
-10 is the maximum number of front-end listeners that you can define with your application load balancer.
+10 is the maximum number of front-end listeners that you can define with your ALB.
 
 ## What's the maximum number of virtual server instances I can attach to my back-end pool?
 {: #server-instances-back-end-pool-alb}
@@ -50,7 +50,7 @@ The auto-assigned DNS name for the application load balancer is not customizable
 {: #horizontally-scalable}
 {: faq}
 
-Yes. The application load balancer automatically adjusts its capacity based on the load. When horizontal scaling takes place, the number of IP addresses associated with the application load balancer's DNS changes.
+Yes. The {{site.data.keyword.alb_full}} automatically adjusts its capacity based on the load. When horizontal scaling takes place, the number of IP addresses associated with the application load balancer's DNS changes.
 
 ## What should I do if I'm using ACLs on the subnets that are used to deploy the application load balancer?
 {: #using-acls-on-subnets}
@@ -67,12 +67,12 @@ For detailed information on the ACLs configuration required, see [Configuring AC
 * You might not have granted service-to-service authorization. See [SSL offloading](#ssl-offloading-and-required-authorizations) for details.
 
 ## Why am I receiving a `401 Unauthorized Error` code?
-{: #alb-401-unauthorized-error}
+{: #401-unauthorized-error}
 {: faq}
 
 Check the following access policies for your user:
 
-* The access policy for the application load balancer resource type
+* The access policy for the ALB resource type
 * The access policy for the resource group
 * If `HTTPS` listeners are used, also check the service-to-service authorization for the Certificate Manager instance.
 
@@ -94,7 +94,7 @@ The application load balancer is in `maintenance_pending` state during various m
 {: #subnets-during-provisioning}
 {: faq}
 
-The {{site.data.keyword.cloud_notm}} Application Load Balancer for VPC is Multi-Zone Region (MZR) ready. Load balancer appliances are deployed to the subnets you selected. To achieve higher availability and redundancy, deploy the application load balancer to subnets in different zones.
+The {{site.data.keyword.alb_full}} (ALB) is Multi-Zone Region (MZR) ready. Load balancer appliances are deployed to the subnets you selected. To achieve higher availability and redundancy, deploy the application load balancer to subnets in different zones.
 
 ## Do I need additional IPs in the subnet for application load balancer operations?
 {: #additional-ips-subnet}
@@ -131,7 +131,7 @@ See [Health Checks](#health-checks) section for additional information.
 The health check response timeout value must be less than the health check interval value.
 {:tip}
 
-## Are the application load balancer IP addresses fixed?
+## Are the ALB IP addresses fixed?
 {: #ip-addresses-fixed}
 {: faq}
 
@@ -155,7 +155,7 @@ Check for these possibilities:
 * The provided certificate CRN might not be valid.
 * The certificate instance in the Certificate Manager might not have an associated private key.
 
-### What is the role of load balancer front end listeners?
+### What is the role of application load balancer front end listeners?
 {: #role-load-balancer-listeners}
 {: faq}
 
@@ -165,7 +165,7 @@ Load balancer front end listeners are the application listening ports. They act 
 {: #why-only-2-ips}
 {: faq}
 
-The application load balancer operates in ACTIVE-ACTIVE mode, a configuration that makes it highly available. Horizontal scaling may further add extra appliances when your load increases. It's recommended that you choose subnets in different zones to make your load balancers support MZR. This way, if a zone is negatively impacted, a new load balancer will be provisioned in a different zone.
+The {{site.data.keyword.alb_full}} (ALB) operates in ACTIVE-ACTIVE mode, a configuration that makes it highly available. Horizontal scaling may further add extra appliances when your load increases. It's recommended that you choose subnets in different zones to make your load balancers support MZR. This way, if a zone is negatively impacted, a new load balancer will be provisioned in a different zone.
 
 ### Why am I receiving a 409 Conflict Error code when updating or deleting a load balancer?
 {: #409-lbaas-conflict-error}

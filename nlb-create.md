@@ -25,10 +25,10 @@ subcollection: vpc
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Creating a network load balancer
+# Creating a {{site.data.keyword.nlb_full}}
 {: #nlb-ui-creating-network-load-balancer}
 
-You can create a {{site.data.keyword.cloud}} Network Load Balancer (NLB) for VPC using the UI, CLI or API. To order and start using the Network Load Balancer for VPC, you need two main items:
+You can create an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) using the UI, CLI or API. To order and start using the Network Load Balancer for VPC, you need two main items:
 
    * An [IBMid](https://www.ibm.com/account/us-en/signup/register.html){:external} account.
    * A VPC in which to deploy the network load balancer.
@@ -37,7 +37,7 @@ You can create a {{site.data.keyword.cloud}} Network Load Balancer (NLB) for VPC
 ## Using the UI
 {: #nlb-ui}
 
-To create and configure a network load balancer by using the {{site.data.keyword.cloud_notm}} console, perform the following procedure:
+To create and configure {{site.data.keyword.nlb_full}} by using the {{site.data.keyword.cloud_notm}} console, perform the following procedure:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){:external} and log in to your account.
 1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**
@@ -85,7 +85,7 @@ Then, click **Create** to complete your order.
 ## Using the CLI
 {: #nlb-cli-creating-network-load-balancer}
 
-The following example illustrates using the CLI to create a network load balancer. In this example, it is in front of one VPC virtual server instance (id `0716_6acdd058-4607-4463-af08-d4999d983945`) running a TCP server that listens on port 9090. The load balancer has a front-end listener, which allows secure access to the TCP server. 
+The following example illustrates using the CLI to create a {{site.data.keyword.nlb_full}} (NLB). In this example, it is in front of one VPC virtual server instance (id `0716_6acdd058-4607-4463-af08-d4999d983945`) running a TCP server that listens on port 9090. The load balancer has a front-end listener, which allows secure access to the TCP server.
 
 To create a network load balancer by using the CLI, perform the following procedure:
 
@@ -101,15 +101,15 @@ To create a network load balancer by using the CLI, perform the following proced
 3. Create a load balancer:
 
   ```
-  ibmcloud is load-balancer-create nlb-test public --subnet 0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c --family network 
+  ibmcloud is load-balancer-create nlb-test public --subnet 0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c --family network
   ```
   {: pre}
-  
+
   Sample output:
 
   ```
   Creating load balancer nlb-test in resource group under account IBM Cloud Network Services as user test@ibm.com...
-                            
+
     ID                 r134-99b5ab45-6357-42db-8b32-5d2c8aa62776    
     Name               nlb-test   
     CRN                crn:v1:public:is:us-south-1:a/6266f0fbb7df487d8438b9b31d24cd96::load-balancer:r134-99b5ab45-6357-42db-8b32-5d2c8aa62776  
@@ -117,7 +117,7 @@ To create a network load balancer by using the CLI, perform the following proced
     Host name          99b5ab45-us-south.lb.test.appdomain.cloud   
     Subnets            ID                                          Name      
                        0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c   nlb      
-                          
+
     Public IPs            
     Private IPs           
     Provision status   create_pending   
@@ -125,75 +125,75 @@ To create a network load balancer by using the CLI, perform the following proced
     Is public          true   
     Listeners             
     Pools              ID   Name      
-                          
+
     Resource group     ID                                 Name      
                        3021f90279574ce287dd5fba82c08899   Default      
-                          
-    Created            2020-08-27T14:34:34.732-05:00 
+
+    Created            2020-08-27T14:34:34.732-05:00
   ```
   {: screen}
 
 4. Create a pool:
 
   ```
-  ibmcloud is load-balancer-pool-create nlb-pool r134-99b5ab45-6357-42db-8b32-5d2c8aa62776  weighted_round_robin tcp 10 
+  ibmcloud is load-balancer-pool-create nlb-pool r134-99b5ab45-6357-42db-8b32-5d2c8aa62776  weighted_round_robin tcp 10
   ```
   {: pre}
-  
+
   Sample output:
 
   ```
   Creating pool nlb-pool of load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776  under account IBM Cloud Network Services as user test@ibm.com...
-                              
+
   ID                         r134-3b66d605-6aa5-4166-9f66-b16054da3cb0   
   Name                       nlb-pool   
   Protocol                   tcp   
   Algorithm                  weighted_round_robin   
   Instance group             ID   Name      
                              -    -      
-                                 
+
   Health monitor             Type   Port   Health monitor URL   Delay   Retries   Timeout      
                              http   8080   /                    10      2         5      
-                                
+
   Session persistence type   source_ip   
   Members                       
   Provision status           active   
-  Created                    2020-08-27T14:45:42.038-05:00 
+  Created                    2020-08-27T14:45:42.038-05:00
   ```
   {: screen}
-  
+
 5. Create a member:
-  
+
   ```
   ibmcloud is load-balancer-pool-member-create r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 9090 0716_6acdd058-4607-4463-af08-d4999d983945 --weight 70
   ```
   {: pre}
-  
+
   Sample output:
   ```
   Creating member of pool r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 under account IBM Cloud Network Services as user test@ibm.com...
-                        
+
   ID                 r134-61f8b000-a90d-4abe-909e-c507dffec565   
   Port               9090   
   Target             0716_6acdd058-4607-4463-af08-d4999d983945   
   Weight             70   
   Health             unknown   
   Created            2020-08-27T14:59:55.446-05:00   
-  Provision status   create_pending 
+  Provision status   create_pending
   ```
   {: screen}
-  
+
 6. Create a listener:
-  
+
   ```
-  ibmcloud is load-balancer-listener-create r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 7070 tcp --default-pool r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 
+  ibmcloud is load-balancer-listener-create r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 7070 tcp --default-pool r134-3b66d605-6aa5-4166-9f66-b16054da3cb0
   ```
-  {: pre} 
-  
+  {: pre}
+
   Sample output:
   ```
   Creating listener of load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
-                          
+
   ID                     r134-2847a948-f9b6-4fc1-91c6-f1c49dac3eba   
   Certificate instance   -   
   Connection limit       -   
@@ -216,7 +216,7 @@ To create a network load balancer by using the CLI, perform the following proced
 
   ```
   Getting load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
-                         
+
   ID                 r134-99b5ab45-6357-42db-8b32-5d2c8aa62776   
   Name               nlb-test   
   CRN                crn:v1:public:is:us-south-1:a/6266f0fbb7df487d8438b9b31d24cd96::load-balancer:r134-99b5ab45-6357-42db-8b32-5d2c8aa62776   
@@ -224,7 +224,7 @@ To create a network load balancer by using the CLI, perform the following proced
   Host name          99b5ab45-us-south.lb.test.appdomain.cloud   
   Subnets            ID                                          Name      
                      0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c   nlb      
-                      
+
   Public IPs         150.238.50.78, 150.238.54.95   
   Private IPs        10.240.0.58, 10.240.0.59   
   Provision status   active   
@@ -233,11 +233,11 @@ To create a network load balancer by using the CLI, perform the following proced
   Listeners          r134-2847a948-f9b6-4fc1-91c6-f1c49dac3eba   
   Pools              ID                                          Name      
                      r134-3b66d605-6aa5-4166-9f66-b16054da3cb0   nlb-pool      
-                        
+
   Resource group     ID                                 Name      
                      3021f90279574ce287dd5fba82c08899   Default      
-                        
-  Created            2020-08-27T14:34:34.732-05:00 
+
+  Created            2020-08-27T14:34:34.732-05:00
   ```
   {: screen}
 
@@ -389,7 +389,7 @@ To create a network load balancer by using the API, perform the following proced
   Allow some time for provisioning. When the load balancer is ready, it is set to `online` and `active` status, as shown in the following sample output:
 
   ```
-  { 
+  {
     "id": "0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
     "crn": "crn:v1:staging:public:is:us-south:a/123456::load-balancer:dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
     "href": "https://us-south.iaas.cloud.ibm.com/v1/load_balancers/dd754295-e9e0-4c9d-bf6c-58fbc59e5727",

@@ -23,13 +23,13 @@ subcollection: vpc
 {:DomainName: data-hd-keyref="DomainName"}
 {:external: target="_blank" .external}
 
-# About {{site.data.keyword.cloud_notm}} Application Load Balancer for VPC
+# About {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}}
 {: #load-balancers}
 
-Use {{site.data.keyword.cloud}} Application Load Balancer for VPC to distribute traffic among multiple server instances within the same region of your VPC.
+Use {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) to distribute traffic among multiple server instances within the same region of your VPC.
 {:shortdesc}
 
-The following diagram illustrates the deployment architecture for the application load balancer.
+The following diagram illustrates the deployment architecture for the ALB.
 
 ![Application load balancer for VPC](images/alb_arc.png "Application load balancer")
 {: caption="Application load balancer" caption-side="top"}
@@ -37,7 +37,7 @@ The following diagram illustrates the deployment architecture for the applicatio
 ## Types of application load balancers
 {: #types-load-balancer}
 
-You can create a public or private application load balancer. Table 1 shows a comparison of public versus private features.
+You can create a public or private ALB. Table 1 shows a comparison of public versus private features.
 
 | Feature | Public load balancer | Private load balancer |
 |--------|-------|-------|
@@ -98,7 +98,7 @@ With this method, the back-end server instance that serves the least number of c
 
 You can define up to 10 front-end listeners (application ports) and map them to back-end pools on the back-end application servers. The FQDN assigned to your load balancer and the front-end listener ports are exposed to the public internet. Incoming user requests are received on these ports.
 
-Supported front-end listener and back-end pool protocols are HTTP, HTTPS, and TCP. You can configure an HTTP/HTTPS front-end listener with an HTTP/HTTPS back-end pool. HTTP and HTTPS listeners and pools are interchangeable. A TCP front-end listener can only be configured with a TCP back-end pool.
+Supported front-end listener and back-end pool protocols are HTTP, HTTPS, and TCP. You can configure an HTTP/HTTPS front-end listener with an HTTP/HTTPS back-end pool. HTTP and HTTPS listeners and pools are interchangeable. HTTP/2 is supported for listeners only. A TCP front-end listener can only be configured with a TCP back-end pool.
 
 You can attach up to 50 virtual server instances to a back-end pool. Traffic is sent to each instance on its specified data port. This data port doesn't need to be the same as the front-end listener port.
 
@@ -167,13 +167,6 @@ IBM Db2-on-Cloud Service serves as the database for the application load balance
 {: #lbaas-integration-with-instance-groups-overview}
 
 {{site.data.keyword.cloud_notm}} Application Load Balancer for VPC integrates with instance groups, which can `auto scale` your back-end members. Pool members are dynamically added and deleted based on your usage and requirements.
-
-## Application load balancer limitation
-{: #alb-limitations}
-
-There is one limitation for an application load balancer:
-
-* Two members with the same instance X and same port Y cannot exist at the same time for an application load balancer. This case is not supported and your traffic might not be routed correctly.
 
 ## Related links
 {: #permissions-related-links-alb}

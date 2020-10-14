@@ -28,7 +28,7 @@ subcollection: vpc
 # Working with pools
 {: #nlb-pools}
 
-The {{site.data.keyword.cloud}} Network Load Balancer (NLB) for VPC pool is a group of backend targets that receive the inbound customer traffic from the load balancer and provide your outbound traffic response. The pool has a protocol, a load balancing algorithm, the back end targets (VPC instances), the health checks for the back end targets, and the session stickiness.
+The {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) pool is a group of backend targets that receive the inbound customer traffic from the load balancer and provide your outbound traffic response. The pool has a protocol, a load balancing algorithm, the back end targets (VPC instances), the health checks for the back end targets, and the session stickiness.
 {: shortdesc}
 
 You can configure pools when [creating a network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer), or afterwards using the following procedure:

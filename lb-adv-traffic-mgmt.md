@@ -26,12 +26,11 @@ subcollection: vpc
 # Advanced traffic management
 {: #advanced-traffic-management}
 
-The following advanced traffic management features are available in {{site.data.keyword.cloud}} Application Load Balancer.
+The following advanced traffic management features are available in {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB).
 {:shortdesc}
 
 ## Max connections
 {: #max-connections}
-
 
 Use the `max connections` configuration to limit the maximum number of concurrent connections for a given front-end virtual port. If you do not configure a value, the default of `2000` concurrent connections is used. The maximum possible concurrent connections for a given front-end virtual port or system-wide across all front-end virtual ports is `15000`.
 
@@ -43,7 +42,7 @@ An application load balancer supports session persistence based on the source IP
 ## HTTP keep alive
 {: #http-keep-alive}
 
-An application load balancer supports `HTTP keep alive` as long as it is enabled on both the client and back-end servers. The application load balancer attempts to reuse the server-side HTTP connections to increase connection efficiency and reduce latency.
+An ALB supports `HTTP keep alive` as long as it is enabled on both the client and back-end servers. The application load balancer attempts to reuse the server-side HTTP connections to increase connection efficiency and reduce latency.
 
 ## Connection timeouts
 {: #connection-timeouts}
@@ -60,7 +59,7 @@ The following timeout values are used by an application load balancer. You canno
 ## Preserving end-client IP address (HTTP/HTTPS only)
 {: #preserving-end-client-ip-address}
 
-An application load balancer for VPC works as a reverse proxy, which terminates incoming traffic from the client. The load balancer establishes a separate connection to the back-end server instance, using its own IP address. For HTTP connections with the backend servers (against front-end HTTP or HTTPS connections), the load balancer preserves the original client IP address by including it inside the `X-Forwarded-For` HTTP header. For TCP connections, the original client IP information is not preserved.
+{{site.data.keyword.alb_full}} (ALB) works as a reverse proxy, which terminates incoming traffic from the client. The load balancer establishes a separate connection to the back-end server instance, using its own IP address. For HTTP connections with the backend servers (against front-end HTTP or HTTPS connections), the load balancer preserves the original client IP address by including it inside the `X-Forwarded-For` HTTP header. For TCP connections, the original client IP information is not preserved.
 
 ## Preserving end-client protocol (HTTP/HTTPS only)
 {: #preserving-end-client-protocol}

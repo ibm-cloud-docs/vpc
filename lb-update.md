@@ -25,15 +25,15 @@ subcollection: vpc
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Updating an application load balancer
+# Updating an {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}}
 {: #alb-updating}
 
-You can update an {{site.data.keyword.cloud}} Application Load Balancer (ALB) for VPC using the UI, CLI or API.
+You can update an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) using the UI, CLI or API.
 
 ## Using the UI
 {: #alb-updating-ui}
 
-To update an application load balancer by using the {{site.data.keyword.cloud_notm}} console, perform the following procedure:
+To update an ALB by using the {{site.data.keyword.cloud_notm}} console, perform the following procedure:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){:external} and log in to your account.
 1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
@@ -48,7 +48,7 @@ You should see that the **Active** button on the top left of your screen now sho
 ## Using the CLI
 {: #alb-updating-cli}
 
-The following example shows how to use the CLI to update your application load balancer pool to use the algorithm `least_connections` and the port of the member:
+The following example shows how to use the CLI to update your ALB pool to use the algorithm `least_connections` and the port of the member:
 
   ```
   ibmcloud is load-balancer-pool-update r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 --algorithm least_connections

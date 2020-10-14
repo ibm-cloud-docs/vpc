@@ -25,23 +25,23 @@ subcollection: vpc
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Updating a network load balancer
+# Updating an {{site.data.keyword.cloud_notm}} {{site.data.keyword.nlb_full}}
 {: #nlb-updating}
 
-You can update a {{site.data.keyword.cloud}} Network Load Balancer (NLB) for VPC using the UI, CLI or API. 
+You can update an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) using the UI, CLI or API.
 
 ## Using the UI
 {: #nlb-updating-ui}
 
-To update a network load balancer by using the {{site.data.keyword.cloud_notm}} console, perform the following procedure:
+To update an NLB by using the {{site.data.keyword.cloud_notm}} console, perform the following procedure:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){:external} and log in to your account.
-1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**
-1. Select the Region of your load balancer. 
+1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
+1. Select the Region of your load balancer.
 1. Select the load balancer you want to update.
 1. Select **Back-end pools** if you need to edit a pool or virtual server instance parameters.
 1. Select **Front-end listeners** if you need to edit listener parameters.
-1. Once you're done editing, select **Save** to save your changes.
+1. After you're done editing, select **Save** to save your changes.
 
 You should see that the **Active** button on the top left of your screen now shows as **Updating**. When **Updating** changes back to **Active**, the update is done and the new changes have been applied.
 
@@ -51,7 +51,7 @@ You should see that the **Active** button on the top left of your screen now sho
 The following example shows how to use the CLI to update your network load balancer pool to use the algorithm `least_connections` and the port of the member:
 
   ```
-  ibmcloud is load-balancer-pool-update r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 --algorithm least_connections 
+  ibmcloud is load-balancer-pool-update r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 --algorithm least_connections
   ```
   {: pre}
 
@@ -59,17 +59,17 @@ Sample output:
 
   ```
   Updating pool r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 of load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
-                                
+
   ID                         r134-3b66d605-6aa5-4166-9f66-b16054da3cb0   
   Name                       nlb-pool   
   Protocol                   tcp   
   Algorithm                  least_connections   
   Instance group             ID   Name      
                              -    -      
-                                
+
   Health monitor             Type   Port   Health monitor URL   Delay   Retries   Timeout      
                              http   8080   /                    10      2         5      
-                                
+
   Session persistence type   source_ip   
   Members                    r134-61f8b000-a90d-4abe-909e-c507dffec565   
   Provision status           update_pending   
@@ -78,14 +78,14 @@ Sample output:
   {: screen}
 
   ```
-  ibmcloud is load-balancer-pool-member-update r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 r134-61f8b000-a90d-4abe-909e-c507dffec565 --port 6060 
+  ibmcloud is load-balancer-pool-member-update r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 r134-61f8b000-a90d-4abe-909e-c507dffec565 --port 6060
   ```
   {: pre}
 
 Sample output:
   ```
   Updating member r134-61f8b000-a90d-4abe-909e-c507dffec565 of load balancer pool r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 under account IBM Cloud Network Services as user test@ibm.com...
-                        
+
   ID                 r134-61f8b000-a90d-4abe-909e-c507dffec565   
   Port               6060   
   Target             0716_6acdd058-4607-4463-af08-d4999d983945   
@@ -99,9 +99,9 @@ Sample output:
 ## Using the API
 {: #nlb-updating-frontend-listener-port-api}
 
-The following example illustrates using the API to update the front-end listener port of a network load balancer. For example, if the front-end listener port was set to 80 and you want to update the port value to 90.
+The following example illustrates using the API to update the front-end listener port of a {{site.data.keyword.nlb_full}} (NLB). For example, if the front-end listener port was set to 80 and you want to update the port value to 90.
 
-To update a network load balancer by using the API, perform the following procedure:
+To update an NLB by using the API, perform the following procedure:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
 2. Get the listener id that you will need for the update by doing the following:

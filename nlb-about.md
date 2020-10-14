@@ -27,10 +27,10 @@ subcollection: vpc
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# About {{site.data.keyword.cloud_notm}} Network Load Balancer for VPC
+# About {{site.data.keyword.cloud_notm}} {{site.data.keyword.nlb_full}}
 {: #network-load-balancers}
 
-You can use the {{site.data.keyword.cloud}} Network Load Balancer for VPC to distribute traffic among multiple server instances within the same region of your VPC. 
+You can use the {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) to distribute traffic among multiple server instances within the same region of your VPC.
 {:shortdesc}
 
 The following diagram illustrates the deployment architecture for a network load balancer.
@@ -38,26 +38,26 @@ The following diagram illustrates the deployment architecture for a network load
 ![Network load balancer for VPC](images/nlb_arc.png "Network load balancer")
 {: caption="Network load balancer" caption-side="top"}
 
-The network load balancer is zonal, which means that the members must be in the same zone as the load balancer. Refer to [Multi-zone](/docs/vpc?topic=vpc-nlb-vs-elb#nlb-mz-support) for information on setting up a multi-zone network load balancers deployment.
+The NLB is zonal, which means that the members must be in the same zone as the load balancer. Refer to [Multi-zone](/docs/vpc?topic=vpc-nlb-vs-elb#nlb-mz-support) for information on setting up a multi-zone network load balancers deployment.
 
 ## Getting started
 {: #nlb-getting-started}
 
 To configure a network load balancer, make sure that you have met the following prerequisites:
 
-* If you don't have a VPC, create a VPC in the region that you want to create your network load balancer.
+* If you don't have a VPC, create a VPC in the region that you want to create your NLB.
 * Create a subnet in your preferred zone in your VPC.
 * Create instances in the same zone as your network load balancer. Instances can be attached to your load balancer later.
 * Configure an ACL to allow your network load balancer to function.
 
   For more information, see [Configuring ACLs and security groups for use with network load balancers](/docs/vpc?topic=vpc-nlb-configuring-acls).
 
-After you've completed all prerequisites, you can create your network load balancer. For more information, see [Creating a network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer).
+After you've completed all prerequisites, you can create your NLB. For more information, see [Creating a network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer).
 
 ## Types of network load balancers
 {: #types-network-load-balancers}  
 
-The network load balancer supports only public load balancers. A public load balancer is a load balancer where a publicly accessible IP address is registered with DNS.  
+{{site.data.keyword.nlb_full}} supports only public load balancers. A public load balancer is a load balancer where a publicly accessible IP address is registered with DNS.  
 
 ## Load-balancing methods
 {: #network-load-balancing-methods}
@@ -98,9 +98,9 @@ Often times a client might submit a request that is fairly small with little per
 ## Use case: Multi-zone network load balancer reference architecture
 {: #nlb-use-case-2}
 
-The following diagram illustrates how you can deploy {{site.data.keyword.cloud_notm}} Network Load Balancer to support multiple zones. This deployment scenario requires the use of the global load balancer option in [IBM Cloud Internet Services (CIS)](/docs/cis?topic=cis-set-up-and-configure-your-load-balancers).
+The following diagram illustrates how you can deploy {{site.data.keyword.cloud_notm}} {{site.data.keyword.nlb_full}} (NLB) to support multiple zones. This deployment scenario requires the use of the global load balancer option in [IBM Cloud Internet Services (CIS)](/docs/cis?topic=cis-set-up-and-configure-your-load-balancers).
 
-A common deployment that you might want to leverage is the network load balancer’s performance through Direct Server Return (DSR) and deploy the workloads in multiple zones to increase their availability. Combining the network and global load balancers can provide this capability.
+A common deployment that you might want to leverage is the NLB’s performance through Direct Server Return (DSR) and deploy the workloads in multiple zones to increase their availability. Combining the network and global load balancers can provide this capability.
 
 ![Multi-zone network load balancer](images/nlb_glb.png)
 
@@ -117,14 +117,14 @@ Ports `56500 - 56520` cannot be used as front-end listener ports. These are rese
 ## VPC representation of a network load balancer
 {: #vpc-nlb-representation}
 
-The following diagram shows the VPC representation of a typical network load balancer setup. The network load balancer is provisioned on a VPC subnet. To configure the network data path on the network load balancer, a listener, a pool, and at least one member must be created. A listener is the front-end port that the network load balancer is listening on for customer requests. These requests are forwarded to the targets in the pool that is associated to the listener. A pool is a group of targets that are used to distribute the network requests coming into the network load balancer for a specific listener. A member is the back-end target and the port that the target is listening for request.
+The following diagram shows the VPC representation of a typical network load balancer setup. The NLB is provisioned on a VPC subnet. To configure the network data path on the network load balancer, a listener, a pool, and at least one member must be created. A listener is the front-end port that the network load balancer is listening on for customer requests. These requests are forwarded to the targets in the pool that is associated to the listener. A pool is a group of targets that are used to distribute the network requests coming into the network load balancer for a specific listener. A member is the back-end target and the port that the target is listening for request.
 
 ![Network load balancer work flow](images/nlb-workflow-customer-view.png "Network load balancer work flow"){: caption="Network load balancer work flow" caption-side="top"}
 
 ## Layer-4 load balancing
 {: #nlb-layer4}
 
-The network load balancer provides a Layer-4 (known as the transport layer) load-balancing service to user’s servers in VPC. It decides where traffic should be directed based on the source and destination IP addresses and the port in the packed header. The load balancer does not perform a check on the contents of the packet.
+{{site.data.keyword.nlb_full}} provides a Layer-4 (known as the transport layer) load-balancing service to user’s servers in VPC. It decides where traffic should be directed based on the source and destination IP addresses and the port in the packed header. The load balancer does not perform a check on the contents of the packet.
 
 Since Layer-4 load balancing requires fewer computations compared to more sophisticated load balancing, such as Layer-7, CPU usage and memory are more efficiently used.
 

@@ -25,10 +25,10 @@ subcollection: vpc
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Deleting a network load balancer
+# Deleting an {{site.data.keyword.cloud_notm}} {{site.data.keyword.nlb_full}}
 {: #nlb-deleting}
 
-You can delete a {{site.data.keyword.cloud}} Network Load Balancer (NLB) by using the UI, CLI, or API.
+You can delete an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) by using the UI, CLI, or API.
 {: shortdesc}
 
 ## Using the UI
@@ -37,16 +37,16 @@ You can delete a {{site.data.keyword.cloud}} Network Load Balancer (NLB) by usin
 To delete a network load balancer by using the IBM Cloud console, perform the following procedure:
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){:external}.
-1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg), then click **VPC Infrastructure > Load balancers** from the Network section. 
-1. Select the Region of your load balancer. 
+1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg), then click **VPC Infrastructure > Load balancers** from the Network section.
+1. Select the Region of your load balancer.
 1. Click the overflow ![overflow menu](images/overflow.png) menu next to the load balancer that you want to delete, then select **Delete**.
 
-The Status for the load balancer now shows **Deleting**. Refresh the page to confirm that the load balancer was deleted.
+The Status for the NLB now shows **Deleting**. Refresh the page to confirm that the load balancer was deleted.
 
 ## Using the CLI
 {: #nlb-deleting-cli}
 
-To delete a network load balancer by using the CLI, run the following command:
+To delete a {{site.data.keyword.nlb_full}} by using the CLI, run the following command:
 
   ```
   ibmcloud is load-balancer-delete <load_balancer_id> -f -q
@@ -75,7 +75,7 @@ Deletion request for load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 has
 To delete a network load balancer by using the API, perform the following procedure:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with
-the right variables. 
+the right variables.
 
 2. Run the following command to delete the load balancer:
 

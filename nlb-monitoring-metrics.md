@@ -21,10 +21,10 @@ subcollection: vpc
 {:note: .note}
 {:important: .important}
 
-# Monitoring metrics using {{site.data.keyword.cloud_notm}} Network Load Balancer for VPC with Sysdig
+# Monitoring metrics using {{site.data.keyword.cloud_notm}} {{site.data.keyword.nlb_full}} with Sysdig
 {: #nlb_monitoring-metrics-sysdig}
 
-{{site.data.keyword.cloud}} Network Load Balancer (NLB) for VPC monitoring metrics are provided with {{site.data.keyword.cloud_notm}} Monitoring with Sysdig, a third-party monitoring tool that specializes in data aggregation, usage alerts, and in-depth visualizations. For more information, see [IBM Cloud Monitoring with Sysdig](/docs/Monitoring-with-Sysdig).
+{{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} monitoring metrics are provided with {{site.data.keyword.cloud_notm}} Monitoring with Sysdig, a third-party monitoring tool that specializes in data aggregation, usage alerts, and in-depth visualizations. For more information, see [IBM Cloud Monitoring with Sysdig](/docs/Monitoring-with-Sysdig).
 
 Network load balancers calculate the metrics and send those metrics to your Sysdig instance, which reflects different types of use and traffic. You can visualize and analyze metrics from either the {{site.data.keyword.cloud_notm}} Monitoring with Sysdig dashboard, or its API.
 
@@ -36,7 +36,7 @@ The supported monitoring metrics include:
 * Active connections to your load balancer at a given time.
 * Connection rate, or an analysis of when more or less connections are made to your load balancer.
 
-These metrics help track the traffic and usage patterns for your network load balancers and can provide insight about peak traffic hours, usage drop-offs, and overall usage patterns.
+These metrics help track the traffic and usage patterns for your NLB and can provide insight about peak traffic hours, usage drop-offs, and overall usage patterns.
 
 Each metric is composed of the following metadata types:
 
@@ -82,7 +82,7 @@ You can split the data that Sysdig presents into various visualizations in the S
 For example, you can segment the `active connections` by `IBM Load Balancer for VPC listener port` to show how many active users are connected to the load balancer through each listener type. To illustrate this, let's assume that your network load balancer has listener protocol TCP on port 8080. The dashboard would contain different lines showing 10 users who are connected through HTTP on Port 80 in one color, and 6 users connected through TCP on port 8080 in another color.
 
 ### Global attributes
-{: #nlb-global-attributes}
+{: #global-attributes}
 
 The following attributes are available for segmenting the three Sysdig metrics.
 
@@ -94,7 +94,7 @@ The following attributes are available for segmenting the three Sysdig metrics.
 {: caption="Table 3: Sysdig global attributes" caption-side="top"}
 
 ### Additional attributes
-{: #nlb-additional-attributes}
+{: #additional-attributes}
 
 The following attributes are available to segment one or more of the global attributes. See the individual metrics for any segmentation options.
 
@@ -123,7 +123,7 @@ You can also specify the time interval over which to report your metrics. Time i
 The number of data points you can report is roughly the same for each time interval. For example, if the interval is 1 hour, then each data point represents 5 minutes of data. If the interval is 2 weeks, then each data point represents 24 hours of data.
 
 ## Enabling metrics monitoring
-{: #nlb-enable-metrics-monitoring}
+{: #enable-metrics-monitoring}
 
 To receive monitoring metrics, you must set up your {{site.data.keyword.cloud}} Monitoring with Sysdig instance.
 

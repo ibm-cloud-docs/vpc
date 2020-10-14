@@ -24,7 +24,7 @@ subcollection: vpc
 # Monitoring metrics using {{site.data.keyword.cloud_notm}} Application Load Balancer with Sysdig
 {: #monitoring-metrics-sysdig}
 
-{{site.data.keyword.cloud}} Application Load Balancer monitoring metrics are provided with {{site.data.keyword.cloud_notm}} Monitoring with Sysdig, a third-party monitoring tool that specializes in data aggregation, usage alerts, and in-depth visualizations. For more information, see [IBM Cloud Monitoring with Sysdig](/docs/Monitoring-with-Sysdig).
+{{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) monitoring metrics are provided with {{site.data.keyword.cloud_notm}} Monitoring with Sysdig, a third-party monitoring tool that specializes in data aggregation, usage alerts, and in-depth visualizations. For more information, see [IBM Cloud Monitoring with Sysdig](/docs/Monitoring-with-Sysdig).
 
 Load balancers calculate the metrics and send those metrics to your Sysdig instance, which reflects different types of use and traffic. You can visualize and analyze metrics from either the {{site.data.keyword.cloud_notm}} Monitoring with Sysdig dashboard, or its API.
 
@@ -99,7 +99,7 @@ You can split the data that Sysdig presents into various visualizations in the S
 As an example, you can segment the `active connections` by `Application load balancer listener port` to show how many active users are connected to the load balancer through each listener type. To illustrate this, let's assume that your load balancer has two different listener protocols one HTTP on port 80 and another for TCP on port 8080. The dashboard would contain different lines showing 10 users who are connected through HTTP on Port 80 in one color, and 6 users connected through TCP on port 8080 in another color.
 
 ### Global attributes
-{: alb-global-attributes}
+{: global-attributes}
 
 The following attributes are available for segmenting the three Sysdig metrics.
 
@@ -111,7 +111,7 @@ The following attributes are available for segmenting the three Sysdig metrics.
 {: caption="Table 4: Sysdig global attributes" caption-side="top"}
 
 ### Additional attributes
-{: alb-additional-attributes}
+{: additional-attributes}
 
 The following attributes are available to segment one or more of the global attributes. See the individual metrics for any segmentation options.
 
@@ -144,7 +144,7 @@ You can also specify the time interval over which to report your metrics. Time i
 The number of data points you can report is roughly the same for each time interval. For example, if the interval is 1 hour, then each data point represents 5 minutes of data. If the interval is 2 weeks, then each data point represents 24 hours of data.
 
 ## Enabling metrics monitoring
-{: #alb-enable-metrics-monitoring}
+{: #enable-metrics-monitoring}
 
 To receive monitoring metrics, you must set up your {{site.data.keyword.cloud}} Monitoring with Sysdig instance.
 

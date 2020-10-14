@@ -30,7 +30,7 @@ subcollection: vpc
 # Load balancers for VPC overview
 {: #nlb-vs-elb}
 
-{{site.data.keyword.cloud_notm}} provides two families of load balancers for VPC, Application Load Balancer and Network Load Balancer. There are several differences between the two that you should be aware of when choosing a load balancer.
+{{site.data.keyword.cloud_notm}} provides two families of load balancers for VPC, {{site.data.keyword.alb_full}} (ALB) and {{site.data.keyword.nlb_full}} (NLB). There are several differences between the two that you should be aware of when choosing a load balancer.
 {: shortdesc}
 
 {{site.data.keyword.cloud_notm}} provides public- and private-facing application load balancers. An application load balancer provides Layer-7 and Layer-4 load balancing on {{site.data.keyword.cloud_notm}} and supports SSL offloading. The incoming and outgoing packets flow through the load balancer.
@@ -78,7 +78,7 @@ The application load balancer can be configured to span multiple zones. The back
 {{site.data.keyword.cloud_notm}} Application Load Balancer and Network Load Balancer both integrate with private catalogs to centrally manage access to products in the {{site.data.keyword.cloud_notm}} catalog and your own catalogs. You can customize your private catalogs to allow or disallow load balancer provisioning to specific users in your account. For more information, see [Customizing what's available in your private catalogs](/docs/account?topic=account-restrict-by-user).
 
 ## Application load balancer data flow
-{: #a-lb-data-flow}
+{: #alb-data-flow}
 
 A client makes a request by using the FQDN that is registered to the load balancer instance. A DNS server handles the request and distributes the traffic in a round robin fashion to the appliances. The appliances then accept the request and route it to a back-end server. Eventually the back-end server responds, and the response flows back through the load balancer, then back to the client.
 
