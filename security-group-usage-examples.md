@@ -2,12 +2,11 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2019-09-30"
+lastupdated: "2020-10-12"
 
-keywords: security groups, api
+keywords:  
 
 subcollection: vpc
-
 
 ---
 
@@ -47,7 +46,7 @@ curl -X POST "$api_endpoint/v1/security_groups?version=$api_version&generation=2
 ```
 {: pre}
 
-Save the ID in a variable so you can use it later, for example, the variable `sg`:
+Save the ID in a variable so you can use it later; for example, the variable `sg`:
 
 ```
 sg=0738-2d364f0a-a870-42c3-a554-000000632953

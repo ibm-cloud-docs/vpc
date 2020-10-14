@@ -3,9 +3,9 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2019-09-30"
+lastupdated: "2020-10-12"
 
-keywords: security groups, traffic, firewall, stateful, filtering
+keywords:  
 
 subcollection: vpc
 
@@ -24,12 +24,12 @@ subcollection: vpc
 # Using security groups
 {: #using-security-groups}
 
-Security groups give you a convenient way to apply rules that establish filtering to each network interface of a virtual server instance, based on IP address. When you create a security group, you configure it to create the network traffic patterns you want.
+Security groups give you a convenient way to apply rules that establish filtering to each network interface of a virtual server instance, based on its IP address. When you create a security group, you configure it to create the network traffic patterns you want.
 {:shortdesc}
 
 By default, a security group denies all traffic. As rules are added to a security group, it defines the traffic that the security group permits.
 
-Rules are _stateful_, which means that reverse traffic in response to allowed traffic is automatically permitted. For example, you create a rule to allow inbound TCP traffic on port 80. The rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
+Rules are _stateful_, which means that reverse traffic in response to allowed traffic is automatically permitted. For example, if you create a rule to allow inbound TCP traffic on port 80, the rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
 
 Security groups are scoped to a single VPC. This scoping implies that a security group can be attached _only_ to network interfaces of instances within the same VPC.
 
@@ -40,4 +40,3 @@ You can set up security groups by using the UI, CLI, or REST API:
 * [Setting up security groups by using the UI](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#configuring-the-security-group)
 * [Setting up security groups by using the CLI](/docs/vpc?topic=vpc-setting-up-security-groups-using-the-cli#setting-up-security-groups-using-the-cli)
 * [Setting up security groups by using the API](/docs/vpc?topic=vpc-setting-up-security-groups-using-the-apis#setting-up-security-groups-using-the-apis)
-

@@ -3,12 +3,11 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2020-01-22"
+lastupdated: "2020-10-12"
 
-keywords: security group, ping, TCP, outbound, rules, metadata, setting up
+keywords:  
 
 subcollection: vpc
-
 
 ---
 
@@ -25,43 +24,42 @@ subcollection: vpc
 # Setting up security groups by using the CLI
 {: #setting-up-security-groups-using-the-cli}
 
-In this example, you create a virtual server instance (VSI) with a security group that is enabled by using the command-line interface (CLI). Figure 1 shows what the scenario looks like.
+In this example, you create a virtual server instance with a security group that is enabled by using the command-line interface (CLI). Figure 1 shows what this scenario looks like.
 {:shortdesc}
 
 ![Figure showing a virtual server instance with a security group enabled](/images/security-groups-schematic.svg "Figure showing a virtual server instance with a security group enabled"){: caption="Figure 1. Instance with security group enabled" caption-side="top"}
 
-Notice in Figure 1 that the instance named **SG4** has a floating IP `169.60.208.144` assigned to it, in addition to its internal VPC address `10.10.10.5`; therefore, it can talk to the public internet. The security group assigned to instance **SG4** is named "demosg".
+Notice in Figure 1 that the instance named **SG4** has the floating IP `169.60.208.144` assigned to it, in addition to its internal VPC address `10.10.10.5`; therefore, **SG4** can talk to the public internet. The security group assigned to instance **SG4** is named `demosg`.
 
-The instance **SG8** is internal-only to the VPC, with a private IP address. The security group assigned to instance **SG8** is named "my_vpc_sg". Both of these instances exist within the VPC named `sgvpc` and also on the same subnet `10.10.10.0/24` so they can communicate with each other.
+The instance **SG8** is internal-only to the VPC, with a private IP address. The security group assigned to instance **SG8** is named `my_vpc_sg`. Both of these instances exist within the VPC named `sgvpc` and also on the same subnet `10.10.10.0/24` so they can communicate with each other.
 
-## Steps for creating an instance with a security group attached
+## Creating an instance with a security group attached
 {: #steps-for-creating-a-vsi-with-a-security-group-attached}
 
-The security group rules for "my_vpc_sg" include basic functions of SSH, PING, and outbound TCP.
+The security group rules for `my_vpc_sg` include the basic functions of SSH, PING, and outbound TCP.
 
 Notice that you must create the security group first, with the `ibmcloud is sgc` command, and then create the instance that uses this security group.
 
-This example code skips a few steps, so here's where you can find more information:
+This example code skips a few steps. For detailed information about creating a VPC and subnet, see [Creating a VPC by using the CLI](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
+{: tip}
 
- * For instructions about creating a VPC and subnet, see [Creating a VPC by using the CLI](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
+You can copy and paste commands from this example CLI code to begin creating an instance with an attached security group. System responses are not shown completely in this sample code. You must update your commands with the correct resource IDs for your VPC, subnet, image, key, and the correct security group ID number.
 
-You can copy and paste commands from this example CLI code to get started creating an instance with a security group attached. System responses are not shown completely in this sample code. You need to update your commands with the correct resource IDs for your _VPC_, _subnet_, _image_, and _key_, and the correct _security group ID number_.
-
-1. Create a security group called “my_vpc_sg”
+1. Create a security group called `my_vpc_sg`:
 
    ```
    ibmcloud is security-group-create my_vpc_sg $vpc
    ```
    {: pre}
 
-   Save the ID in a variable so you can use it later, for example, in the variable named `sg`:
+   Save the ID in a variable so you can use it later; for example, in a variable named `sg`:
 
    ```
    sg=0738-2d364f0a-a870-42c3-a554-000000632953
    ```
    {: pre}
 
-2. Add rules to allow SSH, PING, and outbound TCP
+2. Add rules to allow SSH, PING, and outbound TCP:
 
    ```
    ibmcloud is security-group-rule-add $sg inbound tcp --port-min 22 --port-max 22
@@ -70,10 +68,10 @@ You can copy and paste commands from this example CLI code to get started creati
    ```
    {: codeblock}
 
-3. Create an instance with the security group.
+3. Finally, create an instance with the security group:
 
    ```
-   ibmcloud is instance-create test-instance $vpc us-south-2 b-4x16 $subnet 1000 \ 
+   ibmcloud is instance-create test-instance $vpc us-south-2 b-4x16 $subnet 1000 \
    --image $image --keys $key --security-groups $sg
    ```
    {: pre}
@@ -81,14 +79,14 @@ You can copy and paste commands from this example CLI code to get started creati
 ## Command list cheat sheet
 {: #command-list-cheat-sheet}
 
-For a complete list of the available VPC CLI commands for security groups, type:
+For a complete list of the available VPC CLI commands for security groups, enter:
 
 ```
 ibmcloud is help | grep sg
 ```
 {: pre}
 
-To see your security group and its metadata, including rules, you'd type (for the previous example):
+To see your security group and its metadata, including rules, you can enter (for the previous example):
 
 ```
 ibmcloud is sg $sg
