@@ -40,7 +40,7 @@ assign a role that determines the user's level of access.
 ## IAM roles and actions
 {: #iam-roles}
 
-The following table details what actions are mapped to platform management roles within infrastructure services. Platform management roles enable users to perform tasks on resources at the platform level, for example assign user access for the service, create or delete resources, and bind instances to applications.
+The following table details what actions are mapped to platform management roles within the `VPC Infrastructure Services` service. Platform management roles enable users to perform tasks on resources at the platform level, for example assign user access for the service, create or delete resources, and bind instances to applications.
 
 | Platform management role | Description of actions | Example actions                                                 |
 |--------------------------|------------------------|-----------------------------------------------------------------|
