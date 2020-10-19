@@ -37,7 +37,7 @@ The following profile families are available:
 | [Balanced](#balanced) | Best for midsize databases and common cloud applications with moderate traffic. |
 | [Compute](#compute)  | Best for moderate to high web traffic workloads. Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers. |
 | [Memory](#memory) | Best for memory caching and real-time analytics workloads. Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. |
-<!--| GPU | Best for artificial intelligence (AI) and deep learning workloads. Available for POWER processing architecture only. (deprecated) |-->
+<!-- | GPU | Best for artificial intelligence (AI) and deep learning workloads. Available for POWER processing architecture only. (deprecated) | -->
 {: caption="Table 1. Virtual server family selections" caption-side="top"}
 
 ## Balanced
@@ -93,7 +93,7 @@ The following memory profiles are available for x86_64 processors:
 | mx2-48x384 | 48 | 384 | 80 |
 {: caption="Table 4. x86-64 memory profile options" caption-side="top"}
 
-<!--## GPU (deprecated with POWER-based instances)
+<!-- ## GPU (deprecated with POWER-based instances)
 {: #gpu}
 
 GPU profiles are best for AI and deep learning workloads.
@@ -111,11 +111,11 @@ The following GPU profiles, available for POWER-based instances, are provisioned
 GPU profiles are supported by Ubuntu 18.04 only. For more information about supported operating systems, see [Images](/docs/vpc?topic=vpc-about-images). A few of the larger profile sizes might require you to increase your quota limit. To increase a quota for a particular resource, [contact support](/docs/get-support?topic=get-support-getting-customer-support).
 
 If you are using GPU profiles, you might need to install the NVIDA kernel driver, the CUDA toolkit, or both onto your virtual server instance. For more information, see [Setting up GPU drivers for POWER-based instances](/docs/vpc?topic=vpc-setup-gpus).
-{:tip}-->
+{:tip} -->
 
 For information about storage, see [Storage notes for profiles](#storage-notes-for-profiles). 
 
-The network bandwidth cap applies separately to egress (transmitted) and ingress (received) traffic. That is, even if an instance capped at 4 Gbps has reached its transmit cap of 4 Gbps, that will not impact its ability to receive up to its cap of 4 Gbps. <!-- For information about network performance, see [Network performance notes for profiles](#network-perf-notes-for-profiles). -->
+The network bandwidth cap applies separately to egress (transmitted) and ingress (received) traffic. That is, even if an instance capped at 4 Gbps has reached its transmit cap of 4 Gbps, that will not impact its ability to receive up to its cap of 4 Gbps. For information about network performance, see [Network performance notes for profiles](#network-perf-notes-for-profiles).
 
 ## Viewing profile configurations
 {: #popular-profiles}
