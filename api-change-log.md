@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-08"
+lastupdated: "2020-10-19"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -44,19 +44,13 @@ To minimize bugs caused by changes, use the following best practices when you ca
 <!--
 ## 2020-10-xx
 {: #2020-10-xx}
-The [Java SDK](https://{DomainName}/apidocs/vpc?code=java) is now generally available.
--->
-
-<!--
-## 2020-10-xx
-{: #2020-10-xx}
 The [Node SDK](https://{DomainName}/apidocs/vpc?code=node) is now generally available.
 -->
 
 <!--
-## 2020-10-16
-{: #2020-10-16}
-The [Virtual private endpoint](https://{DomainName}/apidocs/vpc#list-endpoint-gateways) (VPE) API is now generally available. Use VPE to connect to supported {{site.data.keyword.cloud_notm}} services from your VPC network by using the IP addresses of your choice, allocated from a subnet within your VPC. For details, see [About Virtual Private Endpoints](/docs/vpc?topic=vpc-about-vpe).
+## 2020-10-30
+{: #2020-10-30}
+Dedicated hosts are now supported in the VPC API. Learn more about using [dedicated hosts](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances) and explore [the new API operations](/apidocs/vpc#<TBD>).
 -->
 
 <!--
@@ -65,12 +59,44 @@ The [Virtual private endpoint](https://{DomainName}/apidocs/vpc#list-endpoint-ga
 Custom routing tables are now supported in the VPC API. This feature lets you control where network traffic is directed on a per-subnet basis. Explore new API operations for [routing tables](https://{DomainName}/apidocs/vpc#list-all-routing-tables-for-a-vpc) and [routes](https://{DomainName}/apidocs/vpc#create-a-vpc-route). This feature subsumes the [VPC routing API](https://{DomainName}/apidocs/vpc#list-all-routes-in-the-vpc-s-default-routing-table), which remains supported but is deprecated and might be removed in a future API release.
 -->
 
+<!--
+## 2020-10-23
+{: #2020-10-23}
+The [Virtual private endpoint](https://{DomainName}/apidocs/vpc#list-endpoint-gateways) (VPE) API is now generally available. Use VPE to connect to supported {{site.data.keyword.cloud_notm}} services from your VPC network by using the IP addresses of your choice, allocated from a subnet within your VPC. For details, see [About Virtual Private Endpoints](/docs/vpc?topic=vpc-about-vpe).
+-->
+
+## 2020-10-16
+{: #2020-10-16}
+
+For enhanced security, application load balancers will soon be associated with your security groups. You can specify one or more security groups when you create the application load balancer, and associate security groups with your existing application load balancers. If you omit security groups during load balancer creation, the default security group for your VPC is used.
+
+To prepare for this transition, we recommend that you update your default security group rules to minimize disruption in load balancer traffic on newly created application load balancers. 
+{: note}
+
+<!--
+The following methods return the new “security_groups” property:
+* `GET` /load_balancers
+* `GET` /load_balancers/{lb_id}
+* `POST` /load_balancers
+The following APIs are new in this release:
+* `GET` /security_groups/{security_group_id}/targets
+* `DELETE` /security_groups/{security_group_id}/targets/{id}
+* `GET` /security_groups/{security_group_id}/targets/{id}
+* `PUT` /security_groups/{security_group_id}/targets/{id}
+For more information, see {need link to core doc topic}
+-->
+
 ## 2020-10-05
 {: #2020-10-05}
 
 Encrypted images are now supported in the VPC API. Ceate your own image, encrypt it with your own key, and import it, encrypted, into {{site.data.keyword.cloud_notm}}. After you've imported the image, use it like any other image. If you use the image to provision an instance, its boot volume is encrypted using the image's root encryption key, or another root encryption key of your choosing.
 
 Dive into the APIs to [import an encrypted image](https://{DomainName}/apidocs/vpc#create-image) and [provision an instance](https://DomainName}/apidocs/vpc#create-instance) from that encrypted image. See also [Creating an encrypted custom image](/docs/vpc?topic=vpc-create-encrypted-custom-image).
+
+## 2020-09-24
+{: #2020-09-24}
+
+The [Java SDK](https://{DomainName}/apidocs/vpc?code=java) is now generally available.
 
 ## 2020-08-31
 {: #2020-08-31}
