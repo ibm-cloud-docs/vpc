@@ -49,7 +49,7 @@ If Acme Web Retailer has four virtual server instances running when the aggregat
 
 Based on this calculation, the instance group manager rounds **4.29** up to **5** and provisions another instance. Now Acme Web Retailer has a total of five instances and maintains their desired average CPU utilization across the instances in the group. 
 
-![Image showing an instance being added to an instance group](images/VPC_Autoscaling_Docs.svg "Image showing an instance being added to an instance group after computation"){: caption="Figure 1. Auto scale instance group adds new instance" caption-side="bottom"}
+![Image showing an instance being added to an instance group](images/VPC_Autoscaling_Docs.png "Image showing an instance being added to an instance group after computation"){: caption="Figure 1. Auto scale instance group adds new instance" caption-side="bottom"}
 
 When an instance group scales up to create an instance, a subnet is selected randomly from the subnets that are defined for the instance group. When an instance group scales down to remove instances, it uses a first in first out (FIFO) strategy. The oldest instances are deleted first.
 
