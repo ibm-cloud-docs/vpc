@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-19"
+lastupdated: "2020-10-20"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -65,13 +65,13 @@ Custom routing tables are now supported in the VPC API. This feature lets you co
 The [Virtual private endpoint](https://{DomainName}/apidocs/vpc#list-endpoint-gateways) (VPE) API is now generally available. Use VPE to connect to supported {{site.data.keyword.cloud_notm}} services from your VPC network by using the IP addresses of your choice, allocated from a subnet within your VPC. For details, see [About Virtual Private Endpoints](/docs/vpc?topic=vpc-about-vpe).
 -->
 
+<!--
 ## 2020-10-16
 {: #2020-10-16}
-
 For enhanced security, application load balancers will soon be associated with your security groups. You can specify one or more security groups when you create the application load balancer, and associate security groups with your existing application load balancers. If you omit security groups during load balancer creation, the default security group for your VPC is used.
-
 To prepare for this transition, we recommend that you update your default security group rules to minimize disruption in load balancer traffic on newly created application load balancers. 
 {: note}
+-->
 
 <!--
 The following methods return the new “security_groups” property:
