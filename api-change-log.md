@@ -89,7 +89,7 @@ For more information, see {need link to core doc topic}
 For enhanced security, application load balancers will soon be associated with your security groups. You can specify one or more security groups when you create the application load balancer, and associate security groups with your existing application load balancers. If you omit security groups during load balancer creation, the default security group for your VPC is used.
 
 To prepare for this transition, we recommend that you update your default security group rules to minimize disruption in load balancer traffic on newly created application load balancers. 
-{: note}
+{: tip}
 
 ## 2020-10-05
 {: #2020-10-05}
