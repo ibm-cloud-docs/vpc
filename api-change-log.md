@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-20"
+lastupdated: "2020-10-21"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -41,39 +41,36 @@ To minimize bugs caused by changes, use the following best practices when you ca
 * Consume only the resources and properties your application needs to function
 * Avoid depending on behavior that is not explicitly documented
 
-<!--
+<!--Placeholder
 ## 2020-10-xx
 {: #2020-10-xx}
 The [Node SDK](https://{DomainName}/apidocs/vpc?code=node) is now generally available.
 -->
 
-<!--
+<!--Placeholder
 ## 2020-10-30
 {: #2020-10-30}
 Dedicated hosts are now supported in the VPC API. Learn more about using [dedicated hosts](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances) and explore [the new API operations](/apidocs/vpc#<TBD>).
 -->
 
-<!--
+<!--Placeholder
 ## 2020-10-30
 {: #2020-10-30}
 Custom routing tables are now supported in the VPC API. This feature lets you control where network traffic is directed on a per-subnet basis. Explore new API operations for [routing tables](https://{DomainName}/apidocs/vpc#list-all-routing-tables-for-a-vpc) and [routes](https://{DomainName}/apidocs/vpc#create-a-vpc-route). This feature subsumes the [VPC routing API](https://{DomainName}/apidocs/vpc#list-all-routes-in-the-vpc-s-default-routing-table), which remains supported but is deprecated and might be removed in a future API release.
 -->
 
-<!--
+<!--Placeholder
 ## 2020-10-23
 {: #2020-10-23}
 The [Virtual private endpoint](https://{DomainName}/apidocs/vpc#list-endpoint-gateways) (VPE) API is now generally available. Use VPE to connect to supported {{site.data.keyword.cloud_notm}} services from your VPC network by using the IP addresses of your choice, allocated from a subnet within your VPC. For details, see [About Virtual Private Endpoints](/docs/vpc?topic=vpc-about-vpe).
 -->
 
-<!--
-## 2020-10-16
-{: #2020-10-16}
-For enhanced security, application load balancers will soon be associated with your security groups. You can specify one or more security groups when you create the application load balancer, and associate security groups with your existing application load balancers. If you omit security groups during load balancer creation, the default security group for your VPC is used.
+<!--Placeholder
+## 2020-10-30
+{: #2020-10-30}
+For enhanced security, application load balancers are now associated with your security groups. You can specify one or more security groups when you create the application load balancer, and associate security groups with your existing application load balancers. If you omit security groups during load balancer creation, the default security group for your VPC is used.
 To prepare for this transition, we recommend that you update your default security group rules to minimize disruption in load balancer traffic on newly created application load balancers. 
 {: note}
--->
-
-<!--
 The following methods return the new “security_groups” property:
 * `GET` /load_balancers
 * `GET` /load_balancers/{lb_id}
@@ -85,6 +82,14 @@ The following APIs are new in this release:
 * `PUT` /security_groups/{security_group_id}/targets/{id}
 For more information, see {need link to core doc topic}
 -->
+
+## Upcoming changes
+{: #upcoming-changes}
+
+For enhanced security, application load balancers will soon be associated with your security groups. You can specify one or more security groups when you create the application load balancer, and associate security groups with your existing application load balancers. If you omit security groups during load balancer creation, the default security group for your VPC is used.
+
+To prepare for this transition, we recommend that you update your default security group rules to minimize disruption in load balancer traffic on newly created application load balancers. 
+{: note}
 
 ## 2020-10-05
 {: #2020-10-05}
