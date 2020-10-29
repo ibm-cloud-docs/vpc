@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2020
 
-lastupdated: "2020-10-12"
+lastupdated: "2020-10-28"
 
 
 keywords: vpc, virtual private cloud, vpc ui, console, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range, generation 2, gen 2
@@ -97,7 +97,7 @@ To create and configure your VPC and other attached resources, perform the steps
 
 1. Create a VPC and subnet to define the network. When you create your subnet, attach a public gateway if you want to allow all resources in the subnet to communicate with the public internet.
 1. To limit the subnet's inbound and outbound traffic, you can configure an access control list (ACL). By default, all traffic is allowed.
-1. Create a generation 2 virtual server instance. By default, a 100 GB boot volume is attached to the instance.
+1. Create a virtual server instance. By default, a 100 GB boot volume is attached to the instance.
 1. If you want more storage, create a block storage volume and attach it to your instance.
 1. To define the inbound and outbound traffic that's allowed for the instance, configure its security group.
 1. If you want your instance to be reachable from the internet, reserve and associate a floating IP address.
@@ -141,10 +141,6 @@ To create a VPC and subnet:
 1. Open [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}).
 
 1. Click **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Network > VPCs** and click **New virtual private cloud**.
-
-    Make sure that you're creating a VPC with generation 2 compute resources.
-    {: important}
-
 1. Enter a name for the VPC, such as `my-vpc`.
 1. Select a resource group for the VPC. Use resource groups to organize your account resources for access control and billing purposes. For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup).
 1. _Optional:_ Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
