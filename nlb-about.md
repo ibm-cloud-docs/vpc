@@ -134,6 +134,7 @@ Since Layer-4 load balancing requires fewer computations compared to more sophis
 * [Network load balancer CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#nlb-anchor)
 * [Load balancer API reference](https://{DomainName}/apidocs/vpc#list-load-balancer-profiles)
 * [Network load balancer infrastructure resources for Terraform](https://cloud.ibm.com/docs/terraform?topic=terraform-vpc-gen2-resources#lb)
+* [Network load balancer in {{site.data.keyword.cloud}} Kubernetes Service](https://cloud.ibm.com/docs/containers?topic=containers-vpc-lbaas#nlb_vpc)
 * [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
 * [Activity Tracker with LogDNA events](/docs/vpc?topic=vpc-at-events#events-load-balancers)
 * [FAQs for network load balancers](/docs/vpc?topic=vpc-nlb-faqs)
