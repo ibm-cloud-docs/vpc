@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2020-09-01"
+lastupdated: "2020-10-30"
 
 keywords: CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
 
@@ -49,6 +49,8 @@ Although the addresses for these endpoints look as if they communicate through t
 {: #cloud-service-endpoints}
 
 Use service endpoints to securely connect to {{site.data.keyword.cloud_notm}} services over the {{site.data.keyword.cloud_notm}} private network. These endpoints are available through DNS (Domain Name System) names in the `cloud.ibm.com` domain and resolve to `166.9.x.x` addresses. 
+
+Traffic to and from service endpoints are subject to ACL and security group rules. This means that these mechanisms can be used in cases where you want to limit what virtual server instances use a particular service endpoint.
 
 Service endpoints must be enabled in your account before they can be accessed. For instructions, see [Enabling service endpoints](/docs/account?topic=account-vrf-service-endpoint#service-endpoint).
 
@@ -105,6 +107,10 @@ An NTP server is available from `time.adn.networklayer.com`, which resolves to `
 
 To reach Cloud Object Storage from a VPC see [Connecting to {{site.data.keyword.cloud_notm}} Object Storage from VPC](/docs/vpc?topic=vpc-connecting-vpc-cos).
 
+## Virtual private endpoints
+{: #virtual-private-endpoints}
+
+{{site.data.keyword.cloud_notm}} services available through {{site.data.keyword.cloud_notm}} Virtual Private Endpoints (VPE) for VPC are listed at [VPE supported services](/docs/vpc?topic=vpc-vpe-supported-services). VPE supports both service and IaaS endpoints. For more information about VPE, see [About virtual private endpoint gateways](/docs/vpc?topic=vpc-about-vpe). 
 
 
 
