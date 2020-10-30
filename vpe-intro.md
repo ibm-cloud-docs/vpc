@@ -12,8 +12,7 @@ subcollection: vpc
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
+{:pre: .pre} 
 {:tip: .tip}
 {:note: .note}
 {:important: .important}
@@ -42,7 +41,7 @@ The features of VPE for VPC include:
 * The endpoint IP deploys in a customer-defined, virtual network.
 * Includes platform integration to VPC - Identity and Access Management (IAM), Ghost, and ACLs.
 * Access to new endpoints is achieved through the UI, CLI, and API.
-* You can map a new endpoint to an existing service, as well as map to a shared endpoint. 
+* You can map a new endpoint to an existing service, as well as map to a shared endpoint.
 
 Currently, Network Time Protocol (NTP) is the only service supported.  
 {: note}
@@ -81,7 +80,7 @@ After you create the endpoint gateway, virtual server instances in the VPC can a
 These links provide additional information about {{site.data.keyword.cloud}} VPE for VPC:
 
 * [VPE CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpe-clis)
-* [VPE API reference](https://{DomainName}/apidocs/vpc)
+* [VPE API reference](https://{DomainName}/apidocs/vpc?code=java#list-endpoint-gateways)
 * [FAQs for virtual private endpoints](/docs/vpc?topic=vpc-faqs-vpe)
 * [Troubleshooting virtual private endpoints](/docs/vpc?topic=vpc-vpc-troubleshooting-vpe)
-* [VPE Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-vpe) 
+* [VPE Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-vpe)
