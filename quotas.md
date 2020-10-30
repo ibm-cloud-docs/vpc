@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-9-08"
+lastupdated: "2020-10-29"
 
-keywords: quotas, resources, limits
+keywords: quotas, vpc, resources, limits
 
 subcollection: vpc
 
@@ -43,13 +43,13 @@ To increase a quota for a particular resource, [contact support](/docs/get-suppo
 | RAM | 1600 GB per region |   
 | Floating IP addresses | 20 per zone |   
 | SSH keys | 200 per account |   
-<!--| GPUs (POWER only) | 16 per region |-->
+<!--| GPUs (POWER only) | 16 per region |-->   
 {: caption="Table 1. Quotas for virtual server instances" caption-side="top"}
 
 ### Dedicated hosts (Beta)
 {: #dedicated-host-quotas}
 
-If you provision dedicated hosts, the vCPU associated with your dedicated hosts counts toward the total vCPU for virtual server instances per region. For more information, see [Virtual server instances](/docs/vpc?topic=vpc-quotas#vsi-quotas).
+If you provision dedicated hosts, the vCPU associated with your dedicated hosts counts toward the total vCPU for virtual server instances per region. For more information, see [Virtual server instances](/docs/vpc?topic=vpc-quotas#vsi-quotas). 
 
 ### VPCs
 {: #vpc-quotas}
@@ -70,7 +70,7 @@ If you provision dedicated hosts, the vCPU associated with your dedicated hosts 
 |Rules|50 per ACL<sup>1</sup>|
 {: caption="Table 3. Quotas for access control lists" caption-side="top"}
 
-<sup>1</sup>
+<sup>1</sup> 
 You can use the rules quota for inbound rules, outbound rules, or both. For example, you might have 40 inbound rules and 10 outbound rules per ACL.
 
 ### Security groups
@@ -84,7 +84,7 @@ You can use the rules quota for inbound rules, outbound rules, or both. For exam
 |Network interfaces|5 per security group|    
 {: caption="Table 4. Quotas for security groups" caption-side="top"}
 
-### Virtual private networks
+### VPN gateways
 {: #vpn-quotas}
 
 |Resource|Quota|
@@ -106,7 +106,21 @@ You can use the rules quota for inbound rules, outbound rules, or both. For exam
 | Listeners | 10 per load balancer |  
 | Pools | 10 per load balancer |  
 | Members | 50 per pool |
+| Policies | 10 per listener |
+| Rules | 10 per policy |
 {: caption="Table 6. Quotas for load balancers" caption-side="top"}
+
+### Routing tables and routes
+{: #routing-tables-routes-quotas}
+
+|Resource|Quota|
+|--------|-----|
+| Routing tables per VPC | Default limit: 15<br />Maximum limit: 200 |  
+| Routes per routing table | Default limit: 100<br />Maximum limit: 400 |  
+{: caption="Table 7. Quotas for routing tables and routes" caption-side="top"}
+
+Each route has a destination property, which includes a prefix length (`/24` in `10.2.0.0/24`). The number of unique prefix lengths that are supported per custom route table is 14. Multiple routes with the same prefix count as only one unique prefix. 
+{: note}
 
 ### Block storage volumes
 {: #block-storage-quotas}
@@ -114,7 +128,7 @@ You can use the rules quota for inbound rules, outbound rules, or both. For exam
 |Resource|Quota|
 |--------|-----|
 | Boot and secondary volumes | 300 total volumes per account in a region<sup>1</sup> |  
-{: caption="Table 7. Quotas for block storage volumes" caption-side="top"}
+{: caption="Table 8. Quotas for block storage volumes" caption-side="top"}
 
 <sup>1</sup> You can request to increase the block storage volume limit by submitting an [IBM Support](/docs/get-support?topic=get-support-using-avatar) case.
 
@@ -130,6 +144,7 @@ The following table displays current VPC service limits. Unlike quotas, these li
 | Secondary volumes per instance, attached when creating an instance |  4 secondary volumes |
 | Secondary volumes per instance, for existing instances with fewer than 4 cores | 4 secondary volumes |
 | Secondary volumes per instance, for existing instances with 4 cores or more | Up to 12 secondary volumes |
-| Instance groups for auto scale and more  | 200 per account|
+| Instance groups for auto scale and more | 200 per account|
 | Instance group memberships  | 1000 per instance group|
-{: caption="Table 8. Limits for VPC resources" caption-side="top"}
+{: caption="Table 9. Limits for VPC resources" caption-side="top"}
+
