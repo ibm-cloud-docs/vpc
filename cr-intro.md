@@ -53,7 +53,7 @@ The following limitations and guidelines appy to {{site.data.keyword.cloud_notm}
 ## Related links
 {: #related-links-custom-routes}
 
-These links provide additional information about the {{site.data.keyword.cloud_notm}} Custom Routes for VPC.
+These links provide additional information about {{site.data.keyword.cloud_notm}} Custom Routes for VPC.
 
 * [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#custom-routes-section)
 * [VPC API reference](https://{DomainName}/apidocs/vpc)
