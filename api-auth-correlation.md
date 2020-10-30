@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-10-30"
 
 keywords: resource, resource authorizations, policies, authorization, resource type, resource groups, roles, API, CLI, editor, viewer, administrator, operator
 
@@ -35,6 +35,9 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | VPC default ACL and security group|  View, List | Viewer for the VPC |
 | VPC address prefixes |  Create, Update, Delete | Editor for the VPC |
 | VPC address prefixes |  View, List | Viewer for the VPC  |
+| VPC routing table | Create | Editor of a routing table for VPC resources |
+| VPC routing table | Update, Delete | Editor of a VPC routing table |
+| VPC routing table | View, List | Viewer of a VPC routing table |
 |——————|———————|————————|
 | ACL | Create | Editor for Network ACL and VPC resources |
 | ACL | Update, Delete | Editor for the ACL |
@@ -110,6 +113,8 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | Subnet's ACL | View, List | Viewer for the subnet and ACL|
 | Subnet's public gateway | Attach, Detach | Editor for the subnet<br />Operator for the public gateway |
 | Subnet's public gateway | View, List | Viewer for the subnet and public gateway|
+| Subnet's route | Create, Update, Delete | Editor for VPC routes |
+| Subnet's route | View, List | Viewer of VPC routes |
 |————————|—————————|————————|
 | Volumes | Create| Editor for Block Storage for VPC resources |
 | Volumes | Update, Delete | Editor for the volume |
