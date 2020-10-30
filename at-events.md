@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2020-08-26"
+lastupdated: "2020-10-30"
 
 keywords: activity tracker, events, logdna
 
@@ -116,6 +116,26 @@ Load balancer auditing events are recorded to {{site.data.keyword.at_full}} in t
 | public-gateway | is.public-gateway.public-gateway.read | One or more public gateway was retrieved  |
 {: caption="Table 5. Actions that generate events for Public Gateway" caption-side="top"}
 
+### Routing table events
+{: #events-custom-routes}
+
+The following table lists the actions that are related to VPC routing tables and routes.
+
+| Resource | Action | Description |
+|---|---|---|
+| routing table | is.vpc.routing-table.create  | Routing table was created |
+| routing table | is.vpc.routing-table.update  | Routing table was updated |
+| routing table | is.vpc.routing-table.delete | Routing table was deleted |
+| routing table | is.vpc.routing-table.read | Routing table was retrieved (get and list) |
+| route | is.vpc.routing-table_route.create | Routing table route was created |
+| route | is.vpc.routing-table_route.update | Routing table route was updated |
+| route | is.vpc.routing-table_route.delete | Routing table route was deleted |
+| route | is.vpc.routing-table_route.read | Routing table route was retrieved (get and list) |
+| subnet | is.subnet.routing-table.read | Subnets attached to a routing table were retrieved |
+| subnet | is.subnet.routing-table.attach | Routing table was attached to a subnet |
+
+{: caption="Table 6. Actions that generate events for VPC routing tables and routes" caption-side="top"}
+
 ### Security group events
 {: #events-network-security-group}
 
@@ -132,7 +152,7 @@ Load balancer auditing events are recorded to {{site.data.keyword.at_full}} in t
 | security-group | is.security-group.security-group-interface.attach | Interface was attached to Security Group   |
 | security-group | is.security-group.security-group-interface.detach | Interface was removed from Security Group   |
 | security-group | is.security-group.security-group-interface.read | One or more security group interface was retrieved |
-{: caption="Table 6. Actions that generate events for Security Group" caption-side="top"}
+{: caption="Table 7. Actions that generate events for Security Group" caption-side="top"}
 
 ### Subnet events
 {: #events-network-subnet}
@@ -147,19 +167,19 @@ Load balancer auditing events are recorded to {{site.data.keyword.at_full}} in t
 | subnet   | is.subnet.public-gateway.attach  | Public Gateway was attached to Subnet  |
 | subnet   | is.subnet.public-gateway.detach  | Public Gateway was detached from Subnet  |
 | subnet   | is.subnet.public-gateway.read | A subnet public-gateway attachment was retrieved |
-{: caption="Table 7. Actions that generate events for Subnet" caption-side="top"}
+{: caption="Table 8. Actions that generate events for Subnet" caption-side="top"}
 
-### Virtual private endpoints (Beta) events
+### Virtual private endpoint gateway events
 {: #events-vpe}
 
-The following table lists the actions that are related to Virtual Private Endpoints (VPEs) and the generation of events.
+The following table lists the actions that are related to virtual private endpoint gateways and the generation of events.
 
 | Resource | Action | Description |
 |---|---|---|
 | endpoint-gateway | is.endpoint-gateway.endpoint-gateway.create | Endpoint gateway was created |
 | endpoint-gateway | is.endpoint-gateway.endpoint-gateway.delete | Endpoint gateway was deleted |
 | endpoint-gateway | is.endpoint-gateway.endpoint-gateway.update | Endpoint gateway was updated |
-{: caption="Table 8. Actions that generate events for Virtual Private Endpoints (VPEs)" caption-side="top"}
+{: caption="Table 9. Actions that generate events for virtual private endpoint gateways" caption-side="top"}
 
 ### VPC events
 {: #events-network-vpc}
@@ -177,7 +197,7 @@ The following table lists the actions that are related to Virtual Private Endpoi
 | vpc  | is.vpc.vpc-route.create   | Route was added to VPC   |
 | vpc  | is.vpc.vpc-route.update   | VPC Route was updated  |
 | vpc  | is.vpc.vpc-route.delete   | Route was removed from VPC   |
-{: caption="Table 9. Actions that generate events for VPC" caption-side="top"}
+{: caption="Table 10. Actions that generate events for VPC" caption-side="top"}
 
 ### VPN events
 {: #events-vpns}
@@ -214,7 +234,7 @@ The following table lists the actions that are related to VPNs and the generatio
 | vpn  | is.vpn.ipsec-policy.update   | | IPsec policy was updated |
 | vpn  | is.vpn.ipsec-policy.read   | | IPsec policy was retrieved |
 | vpn  | is.vpn.ipsec-policy.list   | | IPsec policies were listed |
-{: caption="Table 10. Actions that generate events for VPNs" caption-side="top"}
+{: caption="Table 11. Actions that generate events for VPNs" caption-side="top"}
 
 ## Compute resources
 {: #events-compute}
@@ -226,7 +246,7 @@ The following tables list the actions related to compute resources and the gener
 
 | Resource  | Action  | Description  |
 |:----------------|:-----------------------|:-----------------------|
-| instance   | is.instance.instance.create   | Instance was created   |
+| instance   | is.instance.instance.create   | - Instance was created<br /> - Includes the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces created on the virtual server. When set to `false`, source IP spoofing is not allowed on the interface.  |
 | instance   | is.instance.instance.delete   | Instance was deleted   |
 | instance   | is.instance.instance.update   | Instance was updated   |
 | instance   | is.instance.instance.read | One or more instance was retrieved |
@@ -240,12 +260,12 @@ The following tables list the actions related to compute resources and the gener
 | instance   | is.instance.volume-attachment.delete   | Instance volume attachment was deleted  |
 | instance   | is.instance.volume-attachment.update   | Instance volume attachment was updated  |
 | instance   | is.instance.volume-attachment.read | One or more instance volume attachment was retrieved |
-| instance   | is.instance.network-interface.create   | Instance network interface was created (Instance was attached to a subnet)  |
-| instance   | is.instance.network-interface.update   | Instance network interface was updated |
+| instance   | is.instance.network-interface.create   | - Instance network interface was created (Instance was attached to a subnet)<br /> - Includes the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces created on the virtual server. When set to `false`, source IP spoofing is not allowed on the interface.  |
+| instance   | is.instance.network-interface.update   | - Instance network interface was updated (Instance was attached to a subnet)<br /> - Includes the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces created on the virtual server. When set to `false`, source IP spoofing is not allowed on the interface. |
 | instance   | is.instance.network-interface.delete   | Instance network interface was deleted (Instance was detached from a subnet)  |
 | instance | is.instance.network-interface.read | One or more instance network interface was retrieved |
-| instance | is.instance.network-interface_floating-ip.read | One or more floating ip under an instance network interface was retrieved |
-{: caption="Table 11. Actions that generate events for Instance" caption-side="top"}
+| instance | is.instance.network-interface_floating-ip.read | One or more floating IPs under an instance network interface was retrieved |
+{: caption="Table 12. Actions that generate events for Instance" caption-side="top"}
 
 ### Key events
 {: #events-compute-key}
@@ -256,7 +276,7 @@ The following tables list the actions related to compute resources and the gener
 | key  | is.key.key.delete   | Key was deleted  |
 | key  | is.key.key.update   | Key was updated  |
 | key | is.key.key.read | One or more key was retrieved |
-{: caption="Table 12. Actions that generate events for Key" caption-side="top"}
+{: caption="Table 13. Actions that generate events for Key" caption-side="top"}
 
 ### Dedicated host events
 {: #events-compute-dedicated-host}
@@ -267,7 +287,7 @@ The following tables list the actions related to compute resources and the gener
 | dedicated-host | is.dedicated-host.dedicated-host.update | Dedicated host was updated |
 | dedicated-host | is.dedicated-host.dedicated-host.delete  |Dedicated host was deleted |
 | dedicated-host | is.dedicated-host.dedicated-host.read | One or more dedicated host was retrieved |
-{: caption="Table 13. Actions that generate events for Dedicated Host" caption-side="top"}
+{: caption="Table 14. Actions that generate events for Dedicated Host" caption-side="top"}
 
 ### Dedicated host group events
 {: #events-compute-dedicated-host-group}
@@ -278,7 +298,7 @@ The following tables list the actions related to compute resources and the gener
 | dedicated-host-group  | is.dedicated-host.dedicated-host-group.update | Dedicated host group was updated |
 | dedicated-host-group  | is.dedicated-host.dedicated-host-group.delete | Dedicated host group was deleted |
 | dedicated-host-group  | is.dedicated-host.dedicated-host-group.read | One or more dedicated host group was retrieved |
-{: caption="Table 14. Actions that generate events for Dedicated Host Group" caption-side="top"}
+{: caption="Table 15. Actions that generate events for Dedicated Host Group" caption-side="top"}
 
 ### Instance group events
 {: #events-compute-instance-group}
@@ -307,7 +327,7 @@ The following tables list the actions related to compute resources and the gener
 | instance-group  | is.instance-group.membership.update   | Instance group membership was updated  |
 | instance-group  | is.instance-group.membership.read     | Instance group membership was retrieved |
 | instance-group  | is.instance-group.instance.create     | Instance group instance was created |
-{: caption="Table 15. Actions that generate events for Instance Group" caption-side="top"}
+{: caption="Table 16. Actions that generate events for Instance Group" caption-side="top"}
 
 ### Image resources
 {: #events-images}
@@ -319,11 +339,10 @@ The following table lists the actions related to image resources and the generat
 | image  | is.image.image.create   | Image was created |
 | image  | is.image.image.delete   | Image was deleted |
 | image  | is.image.image.update   | Image was updated |
-{: caption="Table 16. Actions that generate events for image resources" caption-side="top"}
+{: caption="Table 17. Actions that generate events for image resources" caption-side="top"}
 
 For the image update event, if you are rotating the root key for an image, the CRN for the old key and new key remains the same. The ID for the new key that is rotated in is indicated in the `kmsKeyRefID` field of the image.
 {:note}
-
 
 ## Storage resources
 {: #events-storage}
@@ -336,7 +355,7 @@ The following table lists the actions related to volume resources and the genera
 | volume  | is.volume.volume.update  | Volume was updated  |
 | volume  | is.volume.volume.delete  | Volume was deleted  |
 | volume  | is.volume.volume.read    | One or more volumes were retrieved  |
-{: caption="Table 17. Actions that generate events for storage resources" caption-side="top"}
+{: caption="Table 18. Actions that generate events for storage resources" caption-side="top"}
 
 An event will not contain a volume name if there was no information available at the time of the event. For example, when you make a request to create a volume but do not provide a volume name, the information will not be available and will not appear in the event.
 {:note}
@@ -351,7 +370,7 @@ An event will not contain a volume name if there was no information available at
 
 Events that are generated by VPC resources are automatically forwarded to the {{site.data.keyword.at_full_notm}} service instance that is available in the same location.
 
-{{site.data.keyword.at_full_notm}} can have only one instance per location. To view events, you must access the web UI of the {{site.data.keyword.at_full_notm}} service in the same location where your service instance is available. For more information, see [Launching the web UI through the IBM Cloud UI](/https://test.cloud.ibm.com/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-launch#launch_cloud_ui).
+{{site.data.keyword.at_full_notm}} can have only one instance per location. To view events, you must access the web UI of the {{site.data.keyword.at_full_notm}} service in the same location where your service instance is available. For more information, see [Launching the web UI through the IBM Cloud UI](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-launch#launch_cloud_ui).
 
 ## Analyzing events
 {: #at_events_iam_analyze}
