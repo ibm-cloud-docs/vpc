@@ -38,7 +38,7 @@ Virtual Private Cloud (VPC)
 
     {: .navgroup id="tutorial"}
     console-tutorial.md
-    
+
     {: .topicgroup}
     Solution tutorials
         /solution-tutorials/solution-tutorials-vpc-public-app-private-backend
@@ -151,15 +151,19 @@ Virtual Private Cloud (VPC)
             nlb-limitations.md
 
     {: .topicgroup}
-    Virtual Private Endpoints (Beta)
+    Virtual private endpoint gateways
         vpe-intro.md
+        vpe-planning.md
+        vpe-configure-acls.md
         vpe-create.md
-        vpe-view-details.md
         vpe-bind-unbind-reserved-ip.md
+        vpe-accessing-after-setup.md
+        vpe-view-details.md
         vpe-list.md
         vpe-delete.md
         vpe-iam.md
         vpe-limitations.md
+        vpe-supported-services.md
 
     {: .topicgroup}
     VPN gateways
