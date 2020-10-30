@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-10"
+lastupdated: "2020-10-30"
 
-keywords: virtual private endpoint, list, listing, vpe, endpoint gateways
+keywords: virtual private endpoints, list, listing, vpe, endpoint gateway
 
 subcollection: vpc
 
@@ -26,27 +26,27 @@ subcollection: vpc
 {:generic: data-hd-programlang="generic"}
 {:download: .download}
 
-# Listing endpoint gateways in the region (Beta)
+# Listing endpoint gateways in the region
 {: #vpe-listing-endpoint-gateways}
 
-You can list all {{site.data.keyword.cloud}} Virtual Private Endpoint (VPE) for VPC endpoint gateways in the region using the UI, CLI, or API.
+You can list all virtual private endpoint gateways in the region by using the UI, CLI, or API.
 {: shortdesc}
 
 ## Using the UI
 {: #vpe-listing-endpoint-gateways-ui}
 
-To list all endpoint gateways using the IBM Cloud console:
+To list all endpoint gateways by using the {{site.data.keyword.cloud_notm}} console:
 
-From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to Menu icon ![Menu icon](/images/menu_icon.png) > **VPC Infrastructure > Endpoint gateways** under the Network section.
+From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Virtual private endpoint gateways** in the Network section.
 
-The Endpoint gateways for VPC page appears. Use this table to view endpoint gateways in the region.
+The Virtual private endpoint gateways for VPC page appears. Use this table to view endpoint gateways in the region.
 
-  ![Endpoint gateways for VPC page](./images/vpe-dashboard.png "Endpoint gateways for VPC page")
+  ![Virtual private endpoint gateways for VPC page](./images/vpe-dashboard.png "Virtual private endpoint gateways for VPC page")
 
 ## Using the CLI
 {: #vpe-listing-endpoint-gateways-cli}
 
-To list all endpoint gateways in the region using the CLI, run the following command:
+To list all endpoint gateways in the region by using the CLI, run the following command:
 
 ```
 ibmcloud is endpoint-gateways \
@@ -62,10 +62,20 @@ Where:
 ## Using the API
 {: #vpe-listing-endpoint-gateways-api}
 
-To list endpoint gateways:
+To list endpoint gateways by using the API, follow these steps:
 
-```sh
-curl  -sH "Authorization:${iam_token}"
-"$vpc_api_endpoint/v1/endpoint_gateways?version=$api_version&generation=2"
-```
-{: pre}
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
+1. Store your `EndpointGatewayId` in a variable to be used in the API command:
+
+    ```sh
+    export EndpointGatewayId=<endpoint_gateway_id>
+    ```
+    {:pre}   
+
+1. List endpoint gateways:   
+
+   ```sh
+   curl  -sH "Authorization:${iam_token}"
+   "$vpc_api_endpoint/v1/endpoint_gateways?version=$api_version&generation=2"
+   ```
+   {: pre}

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-08-12"
+lastupdated: "2020-10-30"
 
-keywords: vpe, virtual private endpoint, troubleshoot, tips, error, problem, debug
+keywords: vpe, virtual private endpoints, troubleshoot, tips, error, problem, debug, endpoint gateway
 
 subcollection: vpc
 
@@ -20,16 +20,16 @@ subcollection: vpc
 {:download: .download}
 {:troubleshoot: .troubleshoot}
 
-# Troubleshooting virtual private endpoints (Beta)
+# Troubleshooting virtual private endpoints
 {: #vpc-troubleshooting-vpe}
 
-Describes common problems that you might encounter, troubleshooting steps, and helpful tips when using {{site.data.keyword.cloud}} Virtual Private Endpoint (VPE) for VPC.
+Describes common problems that you might encounter, troubleshooting steps, and helpful tips when using {{site.data.keyword.cloud}} Virtual Private Endpoints (VPE) for VPC.
 {:shortdesc}
 
 ## Cannot create a reserved IP
 {: #vpe-cannot-create-reserved-IP}
 
-When creating endpoint gateways, you can specify as many reserved IPs as there are availability zones (AZs) in the region, typically 3 (1 reserved IP per AZ). Also, you can have only 1 reserved IP per subnet because subnets don't span AZs.  
+When creating endpoint gateways, you can specify as many reserved IPs as there are availability zones (AZs) in the region, typically 3 (1 reserved IP per AZ). Also, you can have only one reserved IP per subnet because subnets don't span AZs.  
 
 So, why can't you create a reserved IP?
 
@@ -49,11 +49,6 @@ The DNS service was not able to change the default DNS server for the VSI trying
 
 The reserved IP associated with the endpoint gateway might have been automatically deleted with the subnet. A reserved IP is part of a subnet and if the subnet gets deleted, all reserved IPs belonging to the subnet get deleted.  
 
-## Authorization failure during endpoint gateway creation
-{: #vpe-eg-create-auth-failure}
-
-The most likely cause of this error is that your IBM Cloud account isn’t allowlisted for this Beta. If you are a participant of this limited Beta, contact IBM Offering Management, or post in the **ibmcloud-vpe** Slack channel for access.  
-
 ## Associated reserved IP shows address `0.0.0.0`
 {: #vpe-associated-reserved-ip-zeros}
 
@@ -69,7 +64,7 @@ If the IP address is not allocated within this timeframe, try the following:
 ## Cannot create multiple endpoint gateways for one service instance
 {: #vpe-cannot-create-multiple-egs}
 
-An endpoint gateway can only be associated with service instances that are created in your VPC. In addition, an endpoint gateway has a 1:1 association with a service instance. For example, if you purchase an instance of KeyProtect with a unique CRN, only one endpoint gateway can be associated with it. You can associate multiple reserved IPs with the endpoint gateway, one per AZ in the region. Your VSI in any AZ in the region has access to the endpoint gateway using any of the reserved IPs, provided no network ACL rules prevent access.
+An endpoint gateway can only be associated with service instances that are created in your VPC. In addition, an endpoint gateway has a 1:1 association with a service instance. For example, if you purchase an instance of KeyProtect with a unique CRN, only one endpoint gateway can be associated with it. You can associate multiple reserved IPs with the endpoint gateway, one per AZ in the region. Your VSI in any AZ in the region has access to the endpoint gateway by using any of the reserved IPs, provided no network ACL rules prevent access.
 
 ## Endpoint gateway is healthy, but cannot reach the target IBM Cloud service
 {: #vpe-epg-cannot-reach-cloud-service}

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-10"
+lastupdated: "2020-10-30"
 
-keywords: vpe, virtual private endpoint, limitations
+keywords: vpe, virtual private endpoints, limitations, endpoint gateway
 
 ---
 
@@ -18,12 +18,19 @@ keywords: vpe, virtual private endpoint, limitations
 {:important: .important}
 {:download: .download}
 
-# Virtual private endpoint limitations (Beta)
+# Virtual private endpoint limitations
 {: #limitations-vpe}
 
-The following items are not supported for {{site.data.keyword.cloud_notm}} Virtual Private Endpoint for VPC:
+The following items are not supported for {{site.data.keyword.cloud}} Virtual Private Endpoints for VPC:
+{: shortdesc}
 
-* IBM Cloud Security Groups and Flow Logs for VPC
-* VPE access over IBM Cloud Direct Link (2.0)
-* Integration with DNS Services
+* {{site.data.keyword.cloud_notm}} Security Groups and Flow Logs for VPC
+* VPE access over {{site.data.keyword.cloud_notm}} Direct Link (2.0)
+* VPE access over {{site.data.keyword.cloud_notm}} Transit Gateway  
 * Services that are in zones and regions other than [IBM Cloud Multi-Zone Regions (MZRs)](/docs/overview?topic=overview-locations#mzr-table)
+
+The following items are architectural restrictions:
+
+* Virtual private endpoints support only IPv4 addressing.
+* Each endpoint gateway is bound to a single VPC network.
+* Each endpoint gateway to a service mapping varies based on the service that you are enabling. For best practices, consult the documentation for the specific {{site.data.keyword.cloud_notm}} service that you are enabling.

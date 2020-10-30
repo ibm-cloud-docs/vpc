@@ -2,14 +2,13 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-10"
+lastupdated: "2020-10-30"
 
-keywords: virtual private endpoint, faq, faqs, frequently asked questions, vpe, endpoint gateway
+keywords: virtual private endpoint, faq, faqs, vpe, endpoint gateway
 
 subcollection: vpc
 
 ---
-
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
@@ -18,17 +17,16 @@ subcollection: vpc
 {:note: .note}
 {:screen: .screen}
 {:tip: .tip}
-{:beta: .beta}
 {:note: .note}
 {:important: .important}
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
 {:external: target="_blank" .external}
 
-# FAQs for virtual private endpoints (Beta)
+# FAQs for virtual private endpoints
 {: #faqs-vpe}
 
-You might encounter the following frequently asked questions when using {{site.data.keyword.cloud_notm}} Virtual Private Endpoint (VPE) for VPC.
+You might encounter the following frequently asked questions when using {{site.data.keyword.cloud_notm}} Virtual Private Endpoints (VPE) for VPC.
 
 ## Can I map IBM Cloud services to a VPE from the service catalog?
 {: #faq-cannot-map-services}
@@ -51,12 +49,12 @@ Public endpoints of IBM Cloud services are not eligible for VPE. VPE can only be
 
 A VPE is not created in high-availability (HA) mode, by default. HA comes primarily from the IBM Cloud services.
 
-## Can I access an IBM Cloud service using either a CSE or ADN IP address?
+## Can I access an IBM Cloud service using either a service endpoinbt or ADN IP address?
 {: #faq-access-using-cse-adn}
 {: faq}
 {: support}
 
-When a VPE project deploys, any IBM Cloud service that is mapped to an IP address on a VPC network cannot be accessed directly using either an IBM Cloud Service Endpoint (CSE) or Application Delivery Network (ADN) IP address. Failing to do so results in unexpected connectivity issues.
+When a VPE project deploys, any IBM Cloud service that is mapped to an IP address on a VPC network cannot be accessed directly using either an IBM Cloud service endpoint or Application Delivery Network (ADN) IP address. Failing to do so results in unexpected connectivity issues.
 
 ## Does mapping an IBM Cloud service to an IP address on a VPC network make the service private?
 {: #faq-map-cloud-service-make-service-private}
