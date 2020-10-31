@@ -151,6 +151,23 @@ Virtual Private Cloud (VPC)
             nlb-monitoring-metrics.md
             nlb-limitations.md
 
+    {: topicgroup}
+    Routing tables
+        cr-intro.md
+
+        {: .topicgroup}
+        VPC routing tables
+            cr-create-table.md
+            cr-view-table.md
+            cr-list-table.md
+            cr-delete-table.md
+
+        {: .topicgroup}
+        VPC routes
+            cr-create-route.md
+            cr-list-route.md
+            cr-delete-route.md
+
     {: .topicgroup}
     Virtual private endpoint gateways
         vpe-intro.md

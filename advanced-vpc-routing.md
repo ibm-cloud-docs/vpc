@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019. 2020
-lastupdated: "2020-10-08"
+lastupdated: "2020-10-30"
 
 keywords:
 
@@ -27,7 +27,7 @@ subcollection: vpc
 You can control the flow of network traffic in your VPC by configuring routes. Use VPC routes to specify the next hop for packets, based on their destination addresses.
 {:shortdesc}
 
-Separate routing tables exist for each zone in your VPC. When a packet leaves a subnet, it is evaluated against the routing table in the subnet's zone to determine where to send the packet next. Each routing table has a default route, but you can add custom static routes to your routing tables.
+Multiple route tables can exist for each zone in your VPC. When a packet leaves a subnet, it is evaluated against the routing table in the subnet's zone to determine where to send the packet next. Each routing table has a default route, but you can add custom static routes to your routing tables.
 
 A VPC route has three main components: the destination CIDR, the next hop to which to route packets, and the zone. Any traffic that originates in the specified zone of the VPC and has a destination address within the specified destination CIDR is routed to the next hop. If the destination address is within the destination CIDR for multiple VPC routes, the most specific route is used. If two or more equally specific routes exist, the traffic is round-robin distributed between each route.
 
@@ -78,7 +78,7 @@ Here is the virtual server setup:
 
    Alphabetic names are used here. The real gateway ID would be similar to `192.168.100.1`, the CIDR `192.168.100.0/24`, and the IP address `192.168.100.6`.
    {: note}
-   
+
 | Subnet | Gateway IP | Subnet CIDR | Interface IP |
 | --- | --- | --- | --- |
 | `net_1_0` | `gw_ip_1_0` | `cidr_1_0` | `ip_1_0` |
@@ -116,7 +116,7 @@ This solution makes one subnet the default gateway (automatically by virtual ser
    ip route add default via gw_1_1 dev eth1 table eth1tab
 ```
 {: codeblock}
-   
+
 * On `VSI-2`:
 
 ```

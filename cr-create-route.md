@@ -32,7 +32,7 @@ subcollection: vpc
 You can control the flow of network traffic in your VPC by configuring routes. Use VPC routes to specify the next hop for packets, based on their destination addresses.
 {: shortdesc}
 
-Separate route tables exist for each zone in your VPC. When a packet leaves a subnet, the system evaluates it against the route table in the subnet's zone to determine where to send the packet next. Each route table has a default route, but you can add custom static routes to your routing tables.
+Multiple route tables can exist for each zone in your VPC. When a packet leaves a subnet, the system evaluates it against the route table in the subnet's zone to determine where to send the packet next. Each route table has a default route, but you can add custom static routes to your routing tables.
 
 A VPC route has three main components:
 
