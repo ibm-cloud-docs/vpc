@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-10"
+lastupdated: "2020-10-30"
 
-keywords: virtual private endpoint, bind, unbind, reserved IP, vpe
+keywords: virtual private endpoints, bind, unbind, reserved IP, vpe, endpoint gateways
 
 subcollection: vpc
 
@@ -26,7 +26,7 @@ subcollection: vpc
 {:generic: data-hd-programlang="generic"}
 {:download: .download}
 
-# Binding and unbinding a reserved IP address (Beta)
+# Binding and unbinding a reserved IP address
 {: #bind-unbind-reserved-ip}
 {: help}
 {: support}
@@ -37,28 +37,27 @@ You can bind and unbind a reserved IP address to an endpoint gateway by using th
 ## Using the UI
 {: #bind-reserved-ip-ui}
 
-You can bind or unbind a reserved IP address to an endpoint gateway using the UI.
+You can bind or unbind a reserved IP address to an endpoint gateway by using the UI.
 
 ### Binding a reserved IP address
 {: #bind-reserved-ip}
 
-To reserve or bind an IP address by using the IBM Cloud console:
+To reserve or bind an IP address by using the {{site.data.keyword.dl_full}} console:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to Menu icon ![Menu icon](/images/menu_icon.png) > **VPC Infrastructure > Endpoint gateways** under the Network section. The Endpoint gateways for VPC page appears.
+1. From the [{{site.data.keyword.cloud}} console](https://{DomainName}/vpc-ext){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Virtual private endpoint gateways** in the Network section. The Virtual private endpoint gateways for VPC page appears.
+1. Highlight the row of the gateway in the table, then click **Reserve or bind IP** from the overflow menu ![overflow menu](images/overflow.png). Alternatively, you can click the gateway name and access this link from the endpoint gateway's details page.
 
-2. From the endpoint gateways for VPC page, highlight the row of the gateway in the table, then click **Reserve or bind IP** from the overflow ![overflow menu](images/overflow.png) menu. Alternatively, you can click on the gateway name and access this link from the endpoint gateway's details page.
-
-   If you have not reserved or bound an IP during endpoint gateway creation, this link appears under the IP Address column in the table.
+   If you did not reserve or bind an IP during endpoint gateway creation, this link appears in the IP Address column in the table.
    {: note}
 
    ![Binding a reserved IP address](./images/vpe-bind.png "Binding a reserved IP address")
 
-3. From the Reserved IP side panel, have IBM select an IP address for you from the subnet listed, or select from existing IPs.
+1. From the Reserved IP side panel, have IBM select an IP address for you from the subnet listed, or select from existing IPs.
 
-   Only one reserved IP is allowed to bind to one endpoint gateway from each zone. To bind a reserved IP to a endpoint gateway, you must have an existing subnet created. You must also make sure that there is no binding under the same zone from all subnets of the VPC.
+   You can bind only one reserved IP to one endpoint gateway from each zone. To bind a reserved IP to an endpoint gateway, you must have an existing subnet. You should also make sure that there are no subnets of the VPC that are bound to the same zone. **QUESTION**
    {: important}
 
-4. Specify whether or not you want to automatically delete the reserved IP if the endpoint gateway is deleted. Then, click **Reserve IP address** to bind the address to this endpoint gateway.
+1. Specify whether or not you want to automatically delete the reserved IP if the endpoint gateway is deleted. Then, click **Reserve IP address** to bind the address to this endpoint gateway.
 
 ### Unbinding a reserved IP address
 {: #unbind-reserved-ip}
@@ -68,9 +67,8 @@ Unbinding means that the selected reserved IP is no longer bound to the endpoint
 
 To unbind an IP address by using the IBM Cloud console, follow these steps:
 
-1. From the Endpoint gateways for VPC page, highlight the row of the gateway in the table, then click **Unbind IP** from the overflow ![overflow menu](images/overflow.png) menu. Alternatively, you can unbind a reserved IP from an endpoint gateway's details page.
-
-2. Click **Unbind IP** to confirm that you want to unbind this IP from the specified subnet.  
+1. From the Virtual private endpoint gateways for VPC page, highlight the row of the gateway in the table, then click **Unbind IP** from the overflow menu ![overflow menu](images/overflow.png). Alternatively, you can unbind a reserved IP from an endpoint gateway's details page.
+1. Click **Unbind IP** to confirm that you want to unbind this IP from the specified subnet.  
 
 ## Using the CLI
 {: #vpe-binding-unbinding-endpoint-gateway-cli}
@@ -106,7 +104,7 @@ Where:
 
 * **ENDPOINT_GATEWAY** is the ID of the endpoint gateway.
 * **--address** is the reserved IP address to be unbound.
-* **--reserved-ip-id** is the reserved IP identity to be used as the primary IP for the network interface. If not specified, an available address on the subnet is selected and reserved automatically.
+* **--reserved-ip-id** is the ID of the reserved IP address to be unbound.
 * **-f, --force** forces the operation without confirmation.
 
 ## Using the API
@@ -118,30 +116,14 @@ To bind or unbind a reserved IP address using the API, perform the following pre
 
 The following prerequisites must be met before using the API to bind or unbind reserved IP addresses:
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
+1. Store the following values in variables to be used in the API command:
 
-2. Store the following variables to be used in the API commands:
-
-   * `ResourceGroupId` - First, get your resource group and then populate the variable:
-
-    ```sh
-    export ResourceGroupId=<your_resourcegroup_id>
     ```
-    {: pre}
-
-   * `EndpointGatewayId` - The ID of the endpoint gateway that you want to get details about.
-
-    ```sh
     export EndpointGatewayId=<endpoint_gateway_id>
-    ```
-    {: pre}
-
-   * `ReservedIPId` -
-
-    ```sh
     export ReservedIPId=<reserved_ip_id>
     ```
-    {: pre}
+    {: codeblock}
 
 ### Binding a reserved IP to an endpoint gateway
 {: #vpe-binding-endpoint-gateway-api}
@@ -166,10 +148,3 @@ curl -X DELETE
   "$vpc_api_endpoint/v1/endpoint_gateways/$EndpointGatewayId/ips/$ReservedIPId?version=$api_version&generation=2"
 ```
 {: pre}
-
-## Next steps
-
-After an endpoint gateway is created for an IBM Cloud service, it presents the endpoints associated with the service. You can perform edits on the endpoint gateway, such as binding/unbinding IPs, changing the resource group, and updating tags.
-
-If you need to change the service endpoints for any reason, you must delete and recreate the endpoint gateway.
-{: important}

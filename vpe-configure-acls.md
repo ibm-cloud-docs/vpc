@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-03"
+lastupdated: "2020-10-30"
 
-keywords: network load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network
+keywords: vpe, acls, virtual private endpoints, endpoint gateways
 
 subcollection: vpc
 
@@ -25,13 +25,14 @@ subcollection: vpc
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Configuring ACLs for use with virtual private endpoints (Beta)
-{: #vpe-configuring-acls} 
+# Configuring ACLs for use with virtual private endpoints
+{: #vpe-configuring-acls}
 
-You can use access control lists (ACLs) to control the traffic in your IBM Cloud Virtual Private Endpoint (VPE) for VPC deployment. Use ACLs to filter traffic going to and from the VPE. 
+You can use access control lists (ACLs) to control the traffic in your Virtual Private Endpoint (VPE) for VPC deployment. Use ACLs to filter traffic going to and from the VPE.
+{: shortdesc}
 
-Ideally, you should configure the ACLs before an action is taken on virtual private endpoint, such as creation or update. For instructions, see [Setting up network ACLs](/docs/vpc?topic=vpc-using-acls#using-acls).
+Ideally, you should configure the ACLs before taking an action on a virtual private endpoint, such as creating or updating. For instructions, see [Setting up network ACLs](/docs/vpc?topic=vpc-using-acls#using-acls).
 
-The following screen capture shows outbound rules.
+The following screen capture shows an example of outbound rules.
 
-![Outbound rules](/images/vpe-outbound-rules.png "Outbound rules") 
+![Outbound rules](/images/vpe-outbound-rules.png "Outbound rules")
