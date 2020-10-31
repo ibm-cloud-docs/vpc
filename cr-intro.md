@@ -36,18 +36,17 @@ This VPC service also allows the use of Network Functions Virtualization (NFV) f
 ## Limitations and guidelines
 {: #limitations-custom-routes}
 
-The following limitations and guidelines appy to {{site.data.keyword.cloud_notm}} Custom Routes for VPC:
+The following limitations and guidelines apply to {{site.data.keyword.cloud_notm}} Custom Routes for VPC:
 
 * You can use a maximum of 14 unique prefix lengths per custom route table. You can have multiple routes with the same prefix that counts as only one unique prefix. For example, you could have multiple routes with a `/28` prefix and this would count as one unique prefix.
-* Network packets traverse the routes in a routing table as they leave subnets where they are attached (egress flows) and not as they enter subnets where they are attached (ingress flows).
+* Network packets traverse the routes in a routing table as they leave subnets where they are attached (egress flows), and not as they enter subnets where they are attached (ingress flows).
 * Currently, routes added to a routing table cannot be exported to Transit Gateway or Direct Link connections.
-* Reachability of a next hop IP address in a custom route is not a determining factor in whether or not the route is used for forward traffic. This can cause issues when multiple routes with the same prefix, but different next hop IP addresses are used, as traffic to unreachable next hop IP addresses might not be delivered.
+* Reachability of a next hop IP address in a custom route is not a determining factor in whether or not the route is used for forward traffic. This can cause issues when multiple routes with the same prefix (but different next hop IP addresses) are used, as traffic to unreachable next hop IP addresses might not be delivered.
 * Currently, the route's next hop must refer to an IP address (or VPN gateway connection ID) in the same zone as the route's zone.
 * When you add a destination route, you must select a zone. However, the next hop doesn't have to be in the same zone.
 * The implicit router will perform equal-cost multi-path (ECMP) routing (multiple routes with the same destination, but different next hop addresses), but with the following limitations:
-
    * This only applies to routes with an action of deliver.
-   * Only two routes per zone in a table can have the same destination.
+   * Only two identical destination routes are permitted per zone, and each must have different next hop address.
    * When ECMP is used, the return path might not take the same path.
 
 ## Related links
