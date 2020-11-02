@@ -246,7 +246,7 @@ The following tables list the actions related to compute resources and the gener
 
 | Resource  | Action  | Description  |
 |:----------------|:-----------------------|:-----------------------|
-| instance   | is.instance.instance.create   | - Instance was created<br /> - Includes the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces created on the virtual server. When set to `false`, source IP spoofing is not allowed on the interface.  |
+| instance   | is.instance.instance.create   | - Instance was created<br /> - Includes the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces created on the virtual server. When set to `false`, IP spoofing is not allowed on the interface.  |
 | instance   | is.instance.instance.delete   | Instance was deleted   |
 | instance   | is.instance.instance.update   | Instance was updated   |
 | instance   | is.instance.instance.read | One or more instance was retrieved |
@@ -260,8 +260,8 @@ The following tables list the actions related to compute resources and the gener
 | instance   | is.instance.volume-attachment.delete   | Instance volume attachment was deleted  |
 | instance   | is.instance.volume-attachment.update   | Instance volume attachment was updated  |
 | instance   | is.instance.volume-attachment.read | One or more instance volume attachment was retrieved |
-| instance   | is.instance.network-interface.create   | - Instance network interface was created (Instance was attached to a subnet)<br /> - Includes the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces created on the virtual server. When set to `false`, source IP spoofing is not allowed on the interface.  |
-| instance   | is.instance.network-interface.update   | - Instance network interface was updated (Instance was attached to a subnet)<br /> - Includes the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces created on the virtual server. When set to `false`, source IP spoofing is not allowed on the interface. |
+| instance   | is.instance.network-interface.create   | - Instance network interface was created (Instance was attached to a subnet)<br /> - Includes the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces created on the virtual server. When set to `false`, IP spoofing is not allowed on the interface.  |
+| instance   | is.instance.network-interface.update   | - Instance network interface was updated (Instance was attached to a subnet)<br /> - Includes the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces created on the virtual server. When set to `false`, IP spoofing is not allowed on the interface. |
 | instance   | is.instance.network-interface.delete   | Instance network interface was deleted (Instance was detached from a subnet)  |
 | instance | is.instance.network-interface.read | One or more instance network interface was retrieved |
 | instance | is.instance.network-interface_floating-ip.read | One or more floating IPs under an instance network interface was retrieved |
