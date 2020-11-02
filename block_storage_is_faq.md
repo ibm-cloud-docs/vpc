@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-17"
+lastupdated: "2020-11-20"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, IOPS, FAQ
 
@@ -141,6 +141,8 @@ You do not have to pre-warm a volume. You can see the specified throughput immed
 {: #faq-block-storage-11}
 
 While Block Storage for VPC stores your redundantly within a zone to provide a secure and stable environment, it does not manage multiple copies of your data. You are responsible for independently backing up your data.
+
+Consider using Veeam software to back up your volume data on a virtual server instance. For more information, see [Backup and recovery using Veeam](/docs/vpc?topic=vpc-about-veeam).
 
 You might also consider using [{{site.data.keyword.blockstoragefull}} - Classic](/docs/BlockStorage?topic=BlockStorage-getting-started), which provides disaster recovery features such as volume cloning, snapshots, and replication. In particular, see the topics under **Replication and Disaster Recovery**.
 
