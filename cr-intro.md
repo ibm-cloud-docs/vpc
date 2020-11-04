@@ -43,6 +43,7 @@ The following limitations and guidelines apply to {{site.data.keyword.cloud_notm
 * Currently, routes added to a routing table cannot be exported to Transit Gateway or Direct Link connections.
 * Reachability of a next hop IP address in a custom route is not a determining factor in whether or not the route is used for forward traffic. This can cause issues when multiple routes with the same prefix (but different next hop IP addresses) are used, as traffic to unreachable next hop IP addresses might not be delivered.
 * Currently, the route's next hop must refer to an IP address (or VPN gateway connection ID) in the same zone as the route's zone.
+* When creating a route for a VPN connection, you must enter an IP address for the next hop. The VPN gateway must be in the same zone as the source prefix. A VPN gateway as the next hop in a different zone than the source prefix is not supported.
 * When you add a destination route, you must select a zone. However, the next hop doesn't have to be in the same zone.
 * The implicit router will perform equal-cost multi-path (ECMP) routing (multiple routes with the same destination, but different next hop addresses), but with the following limitations:
    * This only applies to routes with an action of deliver.
