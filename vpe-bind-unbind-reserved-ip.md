@@ -54,7 +54,7 @@ To reserve or bind an IP address by using the {{site.data.keyword.dl_full}} cons
 
 1. From the Reserved IP side panel, have IBM select an IP address for you from the subnet listed, or select from existing IPs.
 
-   You can bind only one reserved IP to one endpoint gateway from each zone. To bind a reserved IP to an endpoint gateway, you must have an existing subnet. You should also make sure that there are no subnets of the VPC that are bound to the same zone. **QUESTION**
+   You can bind only one reserved IP to one endpoint gateway from each zone. To bind a reserved IP to an endpoint gateway, you must have an existing subnet. You should also make sure that there are no subnets of the VPC that are bound to the same zone.
    {: important}
 
 1. Specify whether or not you want to automatically delete the reserved IP if the endpoint gateway is deleted. Then, click **Reserve IP address** to bind the address to this endpoint gateway.
