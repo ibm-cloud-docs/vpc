@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-31"
+lastupdated: "2020-10-12"
 
-keywords: network load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, create
+keywords: network load balancer, public, listener, pool, round-robin
 
 subcollection: vpc
 
@@ -43,9 +43,13 @@ To create and configure {{site.data.keyword.nlb_full}} by using the {{site.data.
 1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**
 1. Click **New load balancer +** in the upper right of the page.
 1. In the order form, complete the following information:
-   * Type a unique name for your load balancer and select the VPC instance you created.
+   * Type a unique name for your load balancer and select a VPC.
    * Select a resource group. Use the default group, or select from the list (if defined for your account). Remember that you cannot change the resource group after the load balancer is created.
-   * Select the region, load balancer Network tile, and subnet where you want to deploy the load balancer.
+   * Select the **Network Load Balancer (NLB)** tile and the subnet where you want to deploy the load balancer.
+
+      Network load balancers are public load balancers. You cannot change the Type.
+      {: note}   
+
    * Optionally, add tags.
 
 1. Click on **New Pool** and specify the following information to create back-end
@@ -244,16 +248,16 @@ To create a network load balancer by using the CLI, perform the following proced
 ## Using the API
 {: #nlb-api-creating-network-load-balancer}
 
-The following example illustrates using the API to create a network load balancer in front of two VPC virtual server instances (`192.168.100.5` and `192.168.100.6`) running a web application that listens on port 80. The load balancer has a front-end listener, which allows secure access to the web application by using HTTPS. 
+The following example illustrates using the API to create a network load balancer in front of two VPC virtual server instances (`192.168.100.5` and `192.168.100.6`) running a web application that listens on port 80. The load balancer has a front-end listener, which allows secure access to the web application by using HTTPS.
 
 The example skips the [prerequisite steps](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis) for using the API to provision a VPC, subnets, and instances.
 {: note}
 
 To create a network load balancer by using the API, perform the following procedure:
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 
-2. Store the following variables to be used in the API commands:
+2. Store the following values in variables to be used in the API command:
 
    * `ResourceGroupId` - First, get your resource group and then populate the variable:
 
@@ -266,7 +270,7 @@ To create a network load balancer by using the API, perform the following proced
 
   ```bash
   curl -H "Authorization: $iam_token" -X POST
-  "$api_endpoint/v1/load_balancers?version=$api_version&generation=2" \
+  "$vpc_api_endpoint/v1/load_balancers?version=$api_version&generation=2" \
       -d '{
           "name": "example-balancer",
           "is_public": true,
@@ -382,7 +386,7 @@ To create a network load balancer by using the API, perform the following proced
 4. Get details about the load balancer
 
   ```bash
-  curl -H "Authorization: $iam_token" -X GET "$api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
+  curl -H "Authorization: $iam_token" -X GET "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
   ```
   {: codeblock}
 

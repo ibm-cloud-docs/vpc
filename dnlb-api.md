@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-06-29"
+lastupdated: "2020-09-01"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network
 
@@ -25,8 +25,8 @@ subcollection: vpc
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# {{site.data.keyword.nlb_full}} API example
-{: #nlbaas-apis}
+# Distributed network load balancer API example
+{: #dnlbaas-apis}
 
 For detailed information on APIs available for network load balancers in your VPC environment, see the load balancers section in the [VPC API reference](https://{DomainName}/apidocs/vpc#list-all-load-balancers).
 {: shortdesc}
@@ -39,7 +39,7 @@ You can also create a load balancer using the UI or CLI. For instructions, see [
 {: tip}
 
 ## Step 1. Create a load balancer with a listener, pool, and attached server instances (pool members)
-{: #step-1-create-a-load-balancer-nlb}
+{: #step-1-create-a-load-balancer-dnlb}
 
 ```
 bash

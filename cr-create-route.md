@@ -110,7 +110,7 @@ To create a destination route by using the API:
 3. Create a route:
 
    ```
-   curl -X POST "$api_endpoint/v1/vpcs/$VpcId/routing_tables/$RoutingTableId/routes?version=$api_version&generation=2" \
+   curl -X POST "$vpc_api_endpoint/v1/vpcs/$VpcId/routing_tables/$RoutingTableId/routes?version=$api_version&generation=2" \
   -H "Authorization: $iam_token" \
   -d '{
         "name": "my-new-route",

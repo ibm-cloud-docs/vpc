@@ -265,16 +265,16 @@ To create an application load balancer by using the CLI, perform the following p
 ## Using the API
 {: #nlb-api-creating-network-load-balancer}
 
-The following example illustrates using the API to create an applicatrion load balancer in front of two VPC virtual server instances (`192.168.100.5` and `192.168.100.6`) running a web application that listens on port 80. The load balancer has a front-end listener, which allows secure access to the web application by using HTTPS. 
+The following example illustrates using the API to create an applicatrion load balancer in front of two VPC virtual server instances (`192.168.100.5` and `192.168.100.6`) running a web application that listens on port 80. The load balancer has a front-end listener, which allows secure access to the web application by using HTTPS.
 
 The example skips the [prerequisite steps](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis) for using the API to provision a VPC, subnets, and instances.
 {: note}
 
 To create an application load balancer by using the API, perform the following procedure:
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 
-2. Store the following variables to be used in the API commands:
+2. Store the following values in variables to be used in the API command:
 
    * `ResourceGroupId` - First, get your resource group and then populate the variable:
 
@@ -287,7 +287,7 @@ To create an application load balancer by using the API, perform the following p
 
   ```bash
   curl -H "Authorization: $iam_token" -X POST
-  "$api_endpoint/v1/load_balancers?version=$api_version&generation=2" \
+  "$vpc_api_endpoint/v1/load_balancers?version=$api_version&generation=2" \
       -d '{
           "name": "example-balancer",
           "is_public": true,
@@ -403,7 +403,7 @@ To create an application load balancer by using the API, perform the following p
 4. Get details about the load balancer
 
   ```bash
-  curl -H "Authorization: $iam_token" -X GET "$api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
+  curl -H "Authorization: $iam_token" -X GET "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
   ```
   {: codeblock}
 
@@ -466,4 +466,3 @@ To create an application load balancer by using the API, perform the following p
   }
   ```
   {: screen}
-

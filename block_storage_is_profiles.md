@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-17"
+lastupdated: "2020-10-22"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, volume, profile, volume profile, data storage, storage profile, virtual server instance, instance
 
@@ -32,16 +32,19 @@ Data volumes are also available with capacities greater than 2000 GB. This is a 
 ## IOPs tiers
 {: #tiers}
 
-Block storage provides three predefined IOPS tiers you can select to specify optimal performance for your compute workloads and help avoid bottlenecks. Table 1 describes the IOPS performance you can expect when create volumes in your availability zone.
+Block storage data volumes have three predefined IOPS tiers you can select when creating a volume. Choose the profile that provides optimal performance for your compute workloads. Table 1 describes the IOPS performance you can expect when create volumes in your availability zone. 
 
-| IOPS Tier | Workload | Volume size | Min/Max IOPS |
+There are no guaranteed minimum IOPS for block storage IOPS tier profiles. However, boot volumes are guaranteed a minumum of 100 IOPS. Additional factors can affect your volume performance. For more information, see [Block Storage for VPC capacity and performance](/docs/vpc?topic=vpc-capacity-performance).
+{: note}
+
+| IOPS Tier | Workload | Volume size | Max IOPS |
 |-----------|----------|-------------|----------|
 | 3 IOPS/GB | General-purpose workloads - Workloads that host small databases for web applications or store virtual machine disk images for a hypervisor | 10 GB to 1 TB | 3,000 IOPS |
-| | | More than 1 TB to 2 TB | 3,000 to 6,000 IOPS |
+| | | More than 1 TB to 2 TB | 6,000 IOPS |
 | 5 IOPS/GB | High I/O intensity workloads - Workloads characterized by a large percentage of active data, such as transactional and other performance-sensitive databases| 10 GB to 600 GB | 3,000 IOPS |
-| | | More than 600 GB to 2 TB | 3,000 to 10,000 IOPS|
+| | | More than 600 GB to 2 TB | 10,000 IOPS|
 | 10 IOPS/GB | Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics | 10 GB to 300 GB | 3,000 IOPS |
-| | | More than 300 GB to 2 TB | 3,000 to 20,000 IOPS |
+| | | More than 300 GB to 2 TB | 20,000 IOPS |
 {: caption="Table 1. IOPS tier profiles and performance levels for each tier" caption-side="top"}
 
 ## Expanded capacity IOPs tiers (Beta)
@@ -49,11 +52,11 @@ Block storage provides three predefined IOPS tiers you can select to specify opt
 
 Expanded capacity IOPS tiers increases volume size up to 16 TB and 48,000 IOPS. This is a Beta feature that is available for evaluation and testing purposes. 
 
-| IOPS Tier | Workload | Volume size | Min/Max IOPS |
+| IOPS Tier | Workload | Volume size | Max IOPS |
 |-----------|----------|-------------|--------------|
-| 3 IOPS/GB | General-purpose workloads - Workloads that host small databases for web applications or store virtual machine disk images for a hypervisor | 10 GB to 16,000 GB | 3,000 to 48,000 IOPS |
-| 5 IOPS/GB | High I/O intensity workloads - Workloads characterized by a large percentage of active data, such as transactional and other performance-sensitive databases| 10 GB to 9,600 GB | 3,000 to 48,000 IOPS|
-| 10 IOPS/GB | Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics | 10 GB to 4,800 GB | 3,000 to 48,000 IOPS |
+| 3 IOPS/GB | General-purpose workloads - Workloads that host small databases for web applications or store virtual machine disk images for a hypervisor | 10 GB to 16,000 GB |  48,000 IOPS |
+| 5 IOPS/GB | High I/O intensity workloads - Workloads characterized by a large percentage of active data, such as transactional and other performance-sensitive databases| 10 GB to 9,600 GB | 48,000 IOPS|
+| 10 IOPS/GB | Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics | 10 GB to 4,800 GB | 48,000 IOPS |
 {: caption="Table 1. IOPS tier profiles and performance levels for each tier" caption-side="top"}
 
 ## Custom IOPS profile
@@ -121,7 +124,7 @@ The following cURL API request retrieves all volume profiles.
 
 ```
 curl -X GET \
-$api_endpoint/v1/volume/profiles?$api_version&generation=2 \
+$vpc_api_endpoint/v1/volume/profiles?$api_version&generation=2 \
 -H "Authorization: $iam_token"
 ```
 {:codeblock}

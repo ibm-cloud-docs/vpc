@@ -82,37 +82,21 @@ Where:
 To create a routing table by using the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
-1. Store the `VpcId` value in a variable to be used in the API command:
+1. Store the `VpcId` and `ResourceGroupId` values in a variable to be used in the API command:
 
-    ```sh
-    export VpcId=<your_vpc_id>
     ```
-    {: pre}
+    export VpcId=<your_vpc_id>
+    export ResourceGroupId=<your_resource_group_id>
+    ```
+    {: codeblock}
 
 1.  Create a routing table:
 
    ```
-   curl -X POST -sH "Authorization:${token}" \
-   "$api_endpoint/v1/vpcs/$vpc_id/routing_tables?version=2019-10-03&generation=2" \
-   -d '{"name": "testvpc","resource_group": {"id": "'$ResourceGroupId'"}}' | jq
+   curl -X POST -sH "Authorization:${iam_token}" \
+   "$vpc_api_endpoint/v1/vpcs/$VpcId/routing_tables?version=$api_version&generation=2" \
+   -d '{"name": "test-routing-table","resource_group": {"id": "'$ResourceGroupId'"}}' | jq
    ```
    {: codeblock}
 
-   For example, the following routing table is created on mzr05.
-
-   ```
-   curl -X POST "$api_endpoint/v1/vpcs/$VpcId/routing_tables?version=$api_version&generation=2" \
-     -H "Authorization: $iam_token" \
-     -d '{
-           "name": "my-routing-table",
-           "routes": [
-             { "name": "route-1", "zone": {"name": "us-south-2"},
-               "action": "deliver", "destination": "10.2.3.0/24", "next_hop": {"address": "10.0.0.1"}},
-             { "name": "route-2", "zone": {"name": "us-south-2"},
-               "action": "drop", "destination": "10.2.4.0/24"},
-             { "name": "route-3", "zone": {"name": "us-south-2"},
-               "action": "delegate", "destination": "10.2.5.0/24"}
-            ]
-         }'
-   ```
-   {: codeblock}
+   

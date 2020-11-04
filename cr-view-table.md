@@ -107,7 +107,7 @@ To view the details of a routing table by using the API, follow these steps:
 3. View details of a routing table:
 
    ```
-   curl -X GET "$api_endpoint/v1/vpcs/$VpcId/routing_tables/$RoutingTableId?version=$api_version&generation=2" \
+   curl -X GET "$vpc_api_endpoint/v1/vpcs/$VpcId/routing_tables/$RoutingTableId?version=$api_version&generation=2" \
         -H "Authorization: $iam_token"    	
    ```
    {: codeblock}
@@ -116,7 +116,7 @@ To view the routing table attached to a subnet:
 
 ```
 export SubnetId=<your_subnet_id>
-curl -X GET "$api_endpoint/v1/subnets/$SubnetId/routing_table?version=$api_version&generation=2" \
+curl -X GET "$vpc_api_endpoint/v1/subnets/$SubnetId/routing_table?version=$api_version&generation=2" \
      -H "Authorization: $iam_token"
 ```
 {: codeblock}

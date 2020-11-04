@@ -106,7 +106,7 @@ The following Layer-7 examples show how policies and rules are created and assoc
 ```
 bash
 curl -H "Authorization: $iam_token" -X POST
-"$api_endpoint/v1/load_balancers/$lbId/listeners" \
+"$vpc_api_endpoint/v1/load_balancers/$lbId/listeners" \
     -d '{
             "certificate_instance": {
                 "crn": "crn:v1:staging:public:cloudcerts:us-south:a/1111111111111111111111111111:22222222-3333-4444-5555-666666666666:certificate:77777777777777777777777777777777"
@@ -190,7 +190,7 @@ curl -H "Authorization: $iam_token" -X POST
 ```
 bash
 curl -H "Authorization: $iam_token" -X POST
-"$api_endpoint/v1/load_balancers/$lbId/listeners/$listenerId/policies" \
+"$vpc_api_endpoint/v1/load_balancers/$lbId/listeners/$listenerId/policies" \
     -d '{
             "policies": [
                 {

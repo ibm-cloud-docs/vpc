@@ -103,7 +103,7 @@ The following example illustrates using the API to update the front-end listener
 
 To update an application load balancer by using the API, perform the following procedure:
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 2. Get the listener id that you will need for the update by doing the following:
 
   Save the ID of the load balancer
@@ -115,7 +115,7 @@ To update an application load balancer by using the API, perform the following p
 
   ```bash
   curl -H "Authorization: $iam_token" -X GET
-  "$api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
+  "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
   ```
   {: codeblock}
 
@@ -198,7 +198,7 @@ To update an application load balancer by using the API, perform the following p
 
   ```bash
   curl -H "Authorization: $iam_token" -X PATCH
-  "$api_endpoint/v1/load_balancers/$lbid/listeners/$listenerid?version=$api_version&generation=2" \
+  "$vpc_api_endpoint/v1/load_balancers/$lbid/listeners/$listenerid?version=$api_version&generation=2" \
       -d '{"port": 200}'
   ```
   {: codeblock}

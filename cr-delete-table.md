@@ -80,7 +80,7 @@ To delete a routing table by using the API, do the following:
 3. Delete a routing table:
 
    ```sh
-   curl -X DELETE "$api_endpoint/v1/vpcs/$VpcId/routing_tables/$RoutingTableId?version=$api_version&generation=2" \
+   curl -X DELETE "$vpc_api_endpoint/v1/vpcs/$VpcId/routing_tables/$RoutingTableId?version=$api_version&generation=2" \
      -H "Authorization: $iam_token"
    ```
    {: codeblock}

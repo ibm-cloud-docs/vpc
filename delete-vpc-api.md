@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-26"
+lastupdated: "2020-08-25"
 
 
 keywords: delete, resources, api, 
@@ -51,7 +51,7 @@ Add ` | json_pp ` or ` | jq ` after the curl command to get a readable JSON stri
 {: tip}
 
 ```bash
-curl -X GET "$api_endpoint/v1/vpcs?version=$version&generation=2" \
+curl -X GET "$vpc_api_endpoint/v1/vpcs?version=$version&generation=2" \
      -H "Authorization:$iam_token"
 ```
 {: pre}
@@ -66,7 +66,7 @@ vpc="0738-3524fef5-da35-4622-bf9a-31614964649d"
 To get the list of all subnets in your account, run the following command:
 
 ```bash
-curl -X GET "$api_endpoint/v1/subnets?version=$version&generation=2" \     
+curl -X GET "$vpc_api_endpoint/v1/subnets?version=$version&generation=2" \     
      -H "Authorization:$iam_token"
 ```
 {: pre}
@@ -134,7 +134,7 @@ An instance can have multiple network interfaces, and those network interfaces c
 To list all network interfaces of an instance, run the following command:
 
 ```bash
-curl -X GET "$api_endpoint/v1/instances/$vsi/network_interfaces?version=$version&generation=2" \     
+curl -X GET "$vpc_api_endpoint/v1/instances/$vsi/network_interfaces?version=$version&generation=2" \     
      -H "Authorization:$iam_token"
 ```
 {: pre}
@@ -144,7 +144,7 @@ If a secondary network interface exists in the subnet you are trying to delete, 
 To list all instances in your account, run the following command:
 
 ```bash
-curl -X GET "$api_endpoint/v1/instances?version=$version&generation=2" \     
+curl -X GET "$vpc_api_endpoint/v1/instances?version=$version&generation=2" \     
      -H "Authorization:$iam_token"
 ```
 {: pre}
@@ -155,7 +155,7 @@ Instances must be stopped before you can delete them. For more information, see 
 {: tip}
 
 ```bash
-curl -X DELETE "$api_endpoint/v1/instances/$vsi?version=$version&generation=2" \     
+curl -X DELETE "$vpc_api_endpoint/v1/instances/$vsi?version=$version&generation=2" \     
      -H "Authorization:$iam_token"
 ```
 {: pre}
@@ -168,7 +168,7 @@ The status of the instance changes to `deleting` immediately, but it still might
 After all the resources inside the subnet are deleted and are not returned when you run a list query, run the following command to delete the subnet:
 
 ```bash
-curl -X DELETE "$api_endpoint/v1/subnets/$subnet?version=$version&generation=2" \     
+curl -X DELETE "$vpc_api_endpoint/v1/subnets/$subnet?version=$version&generation=2" \     
      -H "Authorization:$iam_token"
 ```
 {: pre}
@@ -181,7 +181,7 @@ The status of the subnet changes to `deleting` immediately, but it might take a 
 To list all public gateways in your account, run the following command:
 
 ```bash
-curl -X GET "$api_endpoint/v1/public_gateways?version=$version&generation=2" \     
+curl -X GET "$vpc_api_endpoint/v1/public_gateways?version=$version&generation=2" \     
      -H "Authorization:$iam_token"
 ```
 {: pre}
@@ -189,7 +189,7 @@ curl -X GET "$api_endpoint/v1/public_gateways?version=$version&generation=2" \
 For each public gateway in the VPC you want to delete, run the following command to delete the public gateway, where `$gateway` is the public gateway ID.
 
 ```bash
-curl -X DELETE "$api_endpoint/v1/public_gateways/$gateway?version=$version&generation=2" \     
+curl -X DELETE "$vpc_api_endpoint/v1/public_gateways/$gateway?version=$version&generation=2" \     
      -H "Authorization:$iam_token"
 ```
 {: pre}
@@ -201,7 +201,7 @@ curl -X DELETE "$api_endpoint/v1/public_gateways/$gateway?version=$version&gener
 After all subnets and public gateways in the VPC are deleted, run the following command to delete the VPC, where `$vpc` is the ID of the VPC you are deleting.
 
 ```bash
-curl -X DELETE "$api_endpoint/v1/vpcs/$vpc?version=$version&generation=2" \     
+curl -X DELETE "$vpc_api_endpoint/v1/vpcs/$vpc?version=$version&generation=2" \     
      -H "Authorization:$iam_token"
 ```
 {: pre}

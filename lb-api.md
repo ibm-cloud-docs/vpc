@@ -29,7 +29,7 @@ subcollection: vpc
 To make API calls, you must use a REST client. For example, you can use a `curl` command to retrieve all existing load balancers:
 
 ```
-curl -X GET "$api_endpoint/v1/load_balancers?version=$api_version&generation=2" -H "Authorization: $iam_token"
+curl -X GET "$vpc_api_endpoint/v1/load_balancers?version=$api_version&generation=2" -H "Authorization: $iam_token"
 ```
 
 For detailed information on APIs available for application load balancers in your VPC environment, see the load balancers section in the [VPC API reference](https://{DomainName}/apidocs/vpc#list-all-load-balancers).
@@ -46,7 +46,7 @@ You can also create a load balancer using the UI or CLI. For instructions, see [
 
 ```sh
 curl -H "Authorization: $iam_token" -X POST
-"$api_endpoint/v1/load_balancers?version=$api_version&generation=2" \
+"$vpc_api_endpoint/v1/load_balancers?version=$api_version&generation=2" \
     -d '{
         "name": "example-balancer",
         "is_public": true,
@@ -157,7 +157,7 @@ You can deploy load balancer appliances to multiple subnets. To achieve higher a
 {: #step-2-get-details-about-the-alb}
 
 ```sh
-curl -H "Authorization: $iam_token" -X GET "$api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
+curl -H "Authorization: $iam_token" -X GET "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
 ```
 {: pre}
 
@@ -223,6 +223,6 @@ Sample output:
 {: #step-3-delete-the-alb}
 
 ```sh
-curl -H "Authorization: $iam_token" -X DELETE "$api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
+curl -H "Authorization: $iam_token" -X DELETE "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
 ```
 {: pre}

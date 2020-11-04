@@ -81,7 +81,7 @@ To delete a route by using the API, do the following:
 3.  Delete a route:
 
    ```
-   curl -X GET "$api_endpoint/v1/vpcs/$VpcId/routing_tables/$RoutingTableId/routes/$RouteId?version=$api_version&generation=2" \
+   curl -X GET "$vpc_api_endpoint/v1/vpcs/$VpcId/routing_tables/$RoutingTableId/routes/$RouteId?version=$api_version&generation=2" \
       -H "Authorization: $iam_token"
    ```
    {: codeblock}

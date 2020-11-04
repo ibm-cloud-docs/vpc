@@ -37,7 +37,7 @@ For instructions about creating a VPC and subnet, see [Creating a VPC](/docs/vpc
 Create a security group named `my-security-group` in your {{site.data.keyword.vpc_short}}.
 
 ```
-curl -X POST "$api_endpoint/v1/security_groups?version=$api_version&generation=2" \
+curl -X POST "$vpc_api_endpoint/v1/security_groups?version=$api_version&generation=2" \
   -H "Authorization: $iam_token" \
   -d '{
         "name": "my-security-group",
@@ -59,7 +59,7 @@ sg=0738-2d364f0a-a870-42c3-a554-000000632953
 Create a rule on the security group to allow inbound connections on port 22.
 
 ```
-curl -X POST "$api_endpoint/v1/security_groups/$sg/rules?version=$api_version&generation=2" \
+curl -X POST "$vpc_api_endpoint/v1/security_groups/$sg/rules?version=$api_version&generation=2" \
   -H "Authorization: $iam_token" \
   -d '{
         "direction": "inbound",
@@ -76,7 +76,7 @@ curl -X POST "$api_endpoint/v1/security_groups/$sg/rules?version=$api_version&ge
 To clean up the security group, it cannot be associated with any network interfaces, and it cannot be referenced by a rule in a different security group.
 
 ```
-curl -X DELETE "$api_endpoint/v1/security_groups/$sg?version=$api_version&generation=2" \
+curl -X DELETE "$vpc_api_endpoint/v1/security_groups/$sg?version=$api_version&generation=2" \
   -H "Authorization: $iam_token"
 ```
 {: pre}
