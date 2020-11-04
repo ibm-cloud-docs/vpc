@@ -31,7 +31,7 @@ subcollection: vpc
 You can view details about a specific endpoint gateway, or see a summary of endpoint gateways for VPC by using the UI, CLI, or API.
 {: shortdesc}
 
-Only services that support Virtual Private Endpoints for VPC show up in the list of endpoint gateway targets. 
+Only services that support Virtual Private Endpoints for VPC show up in the list of endpoint gateway targets.
 {: note}
 
 ## Using the UI
@@ -60,7 +60,7 @@ Descriptions of the fields in the endpoint gateway details are:
 | Subnets | The bound reserved IP addresses's subnets to this endpoint gateway. |
 {: caption="Table 1. Details about your endpoint gateway" caption-side="top"}
 
-The Reserved IPs table shows all bound, reserved IPs to this endpoint gateway.  Descriptions of the fields in the Reserved IPs table are:
+The Reserved IPs table shows all bound, reserved IPs to this endpoint gateway. Descriptions of the fields in the Reserved IPs table are:
 
 | Field | Description |
 |-------|-------------|
