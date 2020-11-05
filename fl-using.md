@@ -51,6 +51,7 @@ Flow logs can help with a number of tasks, including:
 * Network-centric lifecycle and operations management
 * Suspend (stop) and resume (start) collector activity
 * Conveniently stores collector output in IBM Cloud Object Storage (COS)
+* No impact to network performance
 * Built-in fault tolerance
 * Pricing is metered per GB of metadata that is collected per flow log target
 
@@ -93,6 +94,9 @@ To get started using flow log collectors, follow these steps:
 1. Complete any [prerequisites](/docs/vpc?topic=vpc-ordering-flow-log-collector#fl-before-you-begin) before ordering IBM Cloud Flow Logs.
 2. Decide on the collection scope and [create one or more flow log collectors](/docs/vpc?topic=vpc-ordering-flow-log-collector).
 3. Review the flow logs that were generated. See [Viewing flow log objects](/docs/vpc?topic=vpc-fl-analyze) for details.
+
+Creating or deleting a flow log doesn't impact network performance. Flow log data is collected outside of the path of your network traffic so that it doesn't affect network latency or throughput.
+{: note}
 
 ## Flow logs use cases
 {: #flow-logs-use-cases}
