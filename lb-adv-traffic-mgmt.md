@@ -2,10 +2,9 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-07-07"
+lastupdated: "2020-11-05"
 
-keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, layer-7
-
+keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, layer-7
 subcollection: vpc
 
 ---
@@ -59,8 +58,33 @@ The following timeout values are used by an application load balancer. You canno
 ## Preserving end-client IP address (HTTP/HTTPS only)
 {: #preserving-end-client-ip-address}
 
-{{site.data.keyword.alb_full}} (ALB) works as a reverse proxy, which terminates incoming traffic from the client. The load balancer establishes a separate connection to the back-end server instance, using its own IP address. For HTTP connections with the backend servers (against front-end HTTP or HTTPS connections), the load balancer preserves the original client IP address by including it inside the `X-Forwarded-For` HTTP header. For TCP connections, the original client IP information is not preserved.
+{{site.data.keyword.alb_full}} (ALB) works as a reverse proxy, which terminates incoming traffic from the client. The load balancer establishes a separate connection to the back-end server instance, using its own IP address. For HTTP connections with the back-end servers (against front-end HTTP or HTTPS connections), the load balancer preserves the original client IP address by including it inside the `X-Forwarded-For` HTTP header. For TCP connections, the original client IP information is not preserved.
 
 ## Preserving end-client protocol (HTTP/HTTPS only)
 {: #preserving-end-client-protocol}
-An application load balancer for VPC preserves the original protocol used by the client for front-end HTTP and HTTPS connections. It does this by including it inside the `X-Forwarded-Proto` HTTP header. This does not apply to TCP protocols, since an application load balancer does not look at Layer-7 traffic when the TCP protocol is used.
+
+An application load balancer for VPC preserves the original protocol that is used by the client for front-end HTTP and HTTPS connections by including it inside the `X-Forwarded-Proto` HTTP header. This does not apply to TCP protocol since an application load balancer does not look at Layer-7 traffic when TCP protocol is used.
+
+## Enabling proxy protocol 
+{: #proxy-protocol-enablement}
+
+You can enable proxy protocol for TCP, HTTP and HTTPS listeners and back-end pools. Use cases are as follows.
+
+### Use case 1: Client connects to load balancer directly 
+{: #client-connects-directly-tcp}
+
+![Proxy Protocol Pool](images/VPC-LBaaS-Proxy-Protocol-Pool.png "Proxy Protocol Pool")
+{: caption="Proxy Protocol Pool" caption-side="top"}
+
+If the application load balancer is receiving traffic from a client directly, enabling the proxy protocol for the back-end pool of that listener configures the load balancer to attach the proxy protocol header to the TCP packets being sent to that back-end pool. 
+
+All back-end members of that pool must support proxy protocol for the data path to work. You can choose the version of proxy protocol header (version 1 or version 2) when enabling this setting. This setting is disabled by default if not specified. With this setting, the back-end servers can get the client IP and port information that the load balancer sets in the proxy protocol header.
+{: note}
+
+### Use case 2: Client connects to a proxy or proxy chain, which then connects to the load balancer using proxy protocol
+{: #client-connects-proxy}
+
+![Proxy Protocol Listener](images/VPC-LBaaS-Proxy-Protocol-Listener.png "Proxy Protocol Listener")
+{: caption="Proxy Protocol Listener" caption-side="top"}
+
+If the application load balancer is receiving traffic from a proxy (or a proxy chain) that uses proxy protocol, the listener must have proxy protocol enabled so that it can parse the origin client information contained in the proxy protocol headers. This setting is disabled by default, if not specified. Since the load balancer can detect the version of the proxy protocol header and parse it correctly, you don't have to specify which version of proxy protocol is being used to send traffic to the load balancer. Note that when proxy protocol is enabled for a front-end listener, all traffic coming to that frontend port is expected to be proxy protocol traffic. If any of the connections do not contain the proper proxy protocol headers, they won't be established. To forward this client information to the back-end server pool, you must enable proxy protocol for the pool. Similar to use case 1, you must select version 1 or version 2 depending on what version of proxy protocol the back-end servers are configured to use. You can also choose to not forward this client information to the back-end servers if they are not capable of processing this information, and this information will be dropped at the load balancer itself.
