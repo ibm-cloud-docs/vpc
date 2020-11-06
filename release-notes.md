@@ -277,4 +277,4 @@ The following VPC network services are now generally available:
 
 - **Classic access:** Set up access from a VPC to your {{site.data.keyword.cloud}} classic infrastructure, including Direct Link connectivity. For more information, see [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure).
 
-- **Advanced routing:** Control the flow of network traffic in your VPC by configuring VPC routes. For more information, see [Setting up advanced routing](/docs/vpc?topic=vpc-advanced-routing).
+- **Advanced routing:** Control the flow of network traffic in your VPC by configuring VPC routes. For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes).
