@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-10-29"
+lastupdated: "2020-11-06"
 
 keywords: quotas, vpc, resources, limits
 
@@ -81,7 +81,7 @@ You can use the rules quota for inbound rules, outbound rules, or both. For exam
 |Security groups|25 per VPC|  
 |Rules|25 per security group|   
 |Remote rules|5 per security group|  
-|Network interfaces|5 per security group|    
+|Network interfaces|1000 per security group|    
 {: caption="Table 4. Quotas for security groups" caption-side="top"}
 
 ### VPN gateways
