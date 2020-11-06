@@ -55,7 +55,7 @@ Field descriptions are as follows.
 | ID | The ID of this routing table. |
 {: caption="Table 1. Routing table details" caption-side="top"}
 
-For descriptions of the routing table columns, see [Viewing details of a route](/docs/vpc?topic=vpc-view-details-route).
+For descriptions of the routing table columns, see [Listing routes of a routing table](/docs/vpc?topic=vpc-list-routes-routing-table).
 {: note}
 
 ## Using the CLI
