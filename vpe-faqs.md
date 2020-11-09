@@ -49,7 +49,7 @@ Public endpoints of IBM Cloud services are not eligible for VPE. VPE can only be
 
 A VPE is not created in high-availability (HA) mode, by default. HA comes primarily from the IBM Cloud services.
 
-## Can I access an IBM Cloud service using either a service endpoinbt or ADN IP address?
+## Can I access an IBM Cloud service using either a service endpoint or ADN IP address?
 {: #faq-access-using-cse-adn}
 {: faq}
 {: support}
