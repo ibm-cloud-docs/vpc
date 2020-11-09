@@ -52,6 +52,6 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 
 ## Related links
 
-* [Managing identity and access](/docs/account?topic=account-getstarted)
+* [Managing identity and access](/docs/account?topic=account-groups)
 * [Managing users and access](/docs/account?topic=account-iamuserinv)
 * [What is IAM](/docs/account?topic=account-iamoverview)
