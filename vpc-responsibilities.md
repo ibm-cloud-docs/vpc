@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-22"
+lastupdated: "2020-11-10"
 
 keywords: vpc, responsibilities, ha, high availability, disaster recovery
 
@@ -21,17 +21,44 @@ subcollection: vpc
 {:deprecated: .deprecated}
 {:download: .download}
 {:preview: .preview}
+{:help: data-hd-content-type='help'}
+{:support: data-reuse='support'}
 
 
 # Understanding your responsibilities when using Virtual Private Cloud
 {: #responsibilities-vpc}
+{: help}
+{: support}
 
-Learn about the management responsibilities and terms and conditions that you have when using {{site.data.keyword.vpc_full}} (VPC). For a high-level view of the service types in {{site.data.keyword.Bluemix}} and the breakdown of responsibilities between the customer and {{site.data.keyword.IBM_notm}} for each type, see [Shared responsibilities for {{site.data.keyword.cloud_notm}} offerings](/docs/overview?topic=overview-shared-responsibilities).
+Learn about the management responsibilities that you have when you use {{site.data.keyword.vpc_full}} (VPC). {{site.data.keyword.vpc_short}} customer responsibilities apply across all VPC infrastructure services, unless otherwise noted. For overall terms of use, see [Cloud Services terms](/docs/overview/terms-of-use?topic=overview-terms#terms).
 {:shortdesc}
 
-Review the following sections for the specific responsibilities that apply to you and {{site.data.keyword.IBM_notm}} when using {{site.data.keyword.vpc_short}}. For the overall terms of use, see [{{site.data.keyword.Bluemix}} Terms and Notices](/docs/overview/terms-of-use?topic=overview-terms).
+## Overview of shared responsibilities
+{: #overview-by-resource}
 
-## Incident and operations management
+{{site.data.keyword.vpc_short}} is an infrastructure-as-a-service (IaaS) offering in the [{{site.data.keyword.cloud_notm}} shared responsibility model](/docs/overview/terms-of-use?topic=overview-shared-responsibilities). Review the following table of who is responsible for particular cloud resources when you use {{site.data.keyword.vpc_short}}. Then, you can view more granular tasks for shared responsibilities in [Tasks for shared responsibilities by area](#task-responsibilities).
+
+| Resource | Incident and Operations Management | Change Management | Identity and Access Management | Security and Regulation Compliance | Disaster Recovery |
+| - | - | - | - | - | - |
+| Data | Customer | Customer | Customer | Customer | Customer |
+| Application | Customer | Customer | Customer | Customer | Customer |
+| Operating system | Customer | Customer | Customer | Customer | Customer |
+| Virtual servers | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | Shared | Shared | Shared |
+| Virtual storage | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | Shared | Shared | Shared |
+| Virtual network | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | Shared | Shared | Shared |
+| Hypervisor | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} |
+| Physical servers and memory | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} |
+| Physical storage | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} |
+| Physical network and devices | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | Shared |
+| Facilities and data centers | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} |
+{:caption="Table 1. Responsibilities by resource" caption-side="top"}
+
+## Tasks for shared responsibilities by area
+{: #task-responsibilities}
+
+After reviewing the [overview](#overview-by-resource), see what tasks you and IBM share responsibility for when you use {{site.data.keyword.vpc_short}}.
+
+### Incident and operations management
 {: #incident-and-ops}
 
 Incident and operations management includes tasks such as monitoring, event management, high availability, problem determination, recovery, and full state backup and recovery.
@@ -45,9 +72,9 @@ Incident and operations management includes tasks such as monitoring, event mana
 | Logs | {{site.data.keyword.IBM_notm}} provides access to logs for debugging purposes. | The Customer uses LogDNA to check logs, as needed. |
 | Workloads | {{site.data.keyword.IBM_notm}} provides tools and features for customer use. | The Customer uses the provided tools and features to configure and deploy their highly available and resilient workloads by setting up permissions, integrating with other services, externally serving and monitoring health, as well as saving, backing up, and restoring data. |
 | Flow logs | {{site.data.keyword.IBM_notm}} provides the ability to collect flow log data from various endpoints. | The Customer understands the IBM Cloud Flow Logs for VPC data retention process and ensures that their destination COS bucket is properly secured and encrypted. |
-{: caption="Table 1. Responsibilities for incidents and operations" caption-side="top"}
+{: caption="Table 2. Responsibilities for incidents and operations" caption-side="top"}
 
-## Change management
+### Change management
 {: #change-management}
 
 Change management includes tasks such as deployment, configuration, upgrades, patching, configuration changes, and deletion.
@@ -55,19 +82,19 @@ Change management includes tasks such as deployment, configuration, upgrades, pa
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|-----------------------|
 | OS-based update repositories | {{site.data.keyword.IBM_notm}} provides private network access to OS-based update repositories. | The Customer maintains OS patches, version updates, and security updates. |
-{: caption="Table 2. Responsibilities for change management" caption-side="top"}
+{: caption="Table 3. Responsibilities for change management" caption-side="top"}
 
-## Identity and access management
+### Identity and access management
 {: #iam-responsibilities}
 
-Identity and access management includes tasks such as authentication, authorization, access control policies, as well as  approving, granting, and revoking access.
+Identity and access management includes tasks such as authentication, authorization, access control policies, as well as approving, granting, and revoking access.
 
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|-----------------------|
 | IBM Cloud IAM  | {{site.data.keyword.IBM_notm}} provides the function to restrict access to resources through the IBM Cloud console and REST APIs. | The Customer is responsible for managing access to resources through IBM Cloud Identity and Access Management (IAM). |
-{: caption="Table 3. Responsibilities for identity and access management" caption-side="top"}
+{: caption="Table 4. Responsibilities for identity and access management" caption-side="top"}
 
-## Security and regulation compliance
+### Security and regulation compliance
 {: #security-compliance}
 
 Security and regulation compliance includes tasks such as security control implementation and compliance certification.
@@ -83,9 +110,9 @@ Security and regulation compliance includes tasks such as security control imple
 | Access restriction | {{site.data.keyword.IBM_notm}} provides security measures for customers to restrict access to resources and resource groups. | The Customer restricts user access to the appropriate resources and resource groups.
 | Activity tracker | {{site.data.keyword.IBM_notm}} provides logging and monitoring tools. | The Customer integrates IBM Cloud Activity Tracker with LogDNA and IBM Cloud Monitoring with Sysdig data into their auditing and monitoring processes. |
 | Encryption |  IBM Cloud VPN for VPC supports encrypted traffic using IKE/IPsec policies. | The Customer ensures that their connection is encrypted end-to-end, if required.
-{: caption="Table 4. Responsibilities for security and regulation compliance" caption-side="top"}
+{: caption="Table 5. Responsibilities for security and regulation compliance" caption-side="top"}
 
-## Disaster recovery
+### Disaster recovery
 {: #disaster-recovery}
 
 Disaster recovery includes tasks such as providing dependencies on disaster recovery sites, provision disaster recovery environments, data and configuration backup, replicating data and configuration to the disaster recovery environment, and failover on disaster events.
@@ -93,4 +120,4 @@ Disaster recovery includes tasks such as providing dependencies on disaster reco
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|-----------------------|
 | Load balancer and VPN disaster recovery | IBM Cloud Load Balancer and VPN for VPC have off-site storage and replication of configuration data in an out-of-region disaster recovery node with daily backups. This data is fully managed by IBM Cloud and no customer input is required to ensure service recovery, although there can be up to a 24-hour loss of configuration data.| The Customer sets up their backup and recovery strategies for workload data. |
-{: caption="Table 5. Responsibilities for disaster recovery" caption-side="top"}
+{: caption="Table 6. Responsibilities for disaster recovery" caption-side="top"}
