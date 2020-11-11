@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-30"
+lastupdated: "2020-11-11"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -63,6 +63,13 @@ To prepare for this transition, we recommend that you update your default securi
 * [Virtual private endpoint gateways](https://{DomainName}/apidocs/vpc#list-endpoint-gateways) are now available. Use virtual private endpoint gateways to connect to supported {{site.data.keyword.cloud_notm}} services from your VPC network by using the IP addresses of your choice, allocated from a subnet within your VPC. For details, see [About virtual private endpoint gateways](/docs/vpc?topic=vpc-about-vpe).
 
 * **VPC network interfaces** have always provided IP anti-spoofing checks for enhanced security. However, certain use cases, such as having a virtual server instance act as a network gateway, require selective disabling of these checks. To accommodate these use cases, if you have the `is.instance.instance.ip-spoofing` IAM action, you can now enable the `allow_ip_spoofing` property when you [create a network interface](https://{DomainName}/apidocs/vpc#create-instance-network-interface). Alternatively, toggle the property when you [update an existing network interface](https://{DomainName}/apidocs/vpc#update-instance-network-interface). See also [About IP spoofing checks](/docs/vpc?topic=vpc-ip-spoofing-about).
+
+* **Proxy protocol for application load balancers for VPC** is now supported in the VPC API. Configure a load balancer [pool](/apidocs/vpc#create-load-balancer-pool) to use proxy protocol, which passes information about the client when a connection is opened to a back-end pool member.
+
+    You can also configure a load balancer [listener](/apidocs/vpc#create-load-balancer-listener) to accept proxy protocol information. This is useful when the client is, itself, a proxy (which, in turn, was connected to by the actual client) that supports the proxy protocol. This allows client information to be obtained and passed on to any pools that, themselves, have the proxy protocol enabled.
+
+    For more information, see [Enabling proxy protocol](/docs/vpc?topic=vpc-advanced-traffic-management#proxy-protocol-enablement).
+
 
 ## 5 October 2020
 {: #2020-10-05}

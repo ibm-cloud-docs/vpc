@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-03"
+lastupdated: "2020-11-11"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, IOPS, FAQ
 
@@ -76,7 +76,7 @@ For more information, see [Expanding block storage volume capacity (Beta)](/docs
 {: faq}
 {: #faq-block-storage-12}
 
-You can provision up to 750 block storage volumes per account in a region. You can request your quota to be increased by opening a [support case](https://cloud.ibm.com/unifiedsupport/cases/form){: external} and indicate in which zone you need more volumes.
+You can provision up to 750 block storage volumes per account in a region. You can request your quota to be increased by opening a [support case](https://cloud.ibm.com/unifiedsupport/cases/form){: external} and indicate in which zone you need more volumes. For information about creating a support case, see [Getting help and support](/docs/vpc?topic=vpc-getting-help).
 
 ### Can I set up shared storage in a multizone cluster?
 {: faq}
