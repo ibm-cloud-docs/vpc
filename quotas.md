@@ -49,7 +49,7 @@ To increase a quota for a particular resource, [contact support](/docs/get-suppo
 ### Dedicated hosts (Beta)
 {: #dedicated-host-quotas}
 
-If you provision dedicated hosts, the vCPU associated with your dedicated hosts counts toward the total vCPU for virtual server instances per region. For more information, see [Virtual server instances](/docs/vpc?topic=vpc-quotas#vsi-quotas). 
+If you provision dedicated hosts, the vCPU associated with your dedicated hosts counts toward the total vCPU for virtual server instances per region. For more information, see [Virtual server instances](/docs/vpc?topic=vpc-quotas#vsi-quotas).
 
 ### VPCs
 {: #vpc-quotas}
@@ -67,11 +67,11 @@ If you provision dedicated hosts, the vCPU associated with your dedicated hosts 
 |Resource|Quota|
 |--------|-----|
 |ACLs|50 per VPC |   
-|Rules|50 per ACL<sup>1</sup>|
+|Rules|50 per ACL|
 {: caption="Table 3. Quotas for access control lists" caption-side="top"}
 
-<sup>1</sup> 
 You can use the rules quota for inbound rules, outbound rules, or both. For example, you might have 40 inbound rules and 10 outbound rules per ACL.
+{: note}
 
 ### Security groups
 {: #security-group-quotas}
@@ -119,7 +119,7 @@ You can use the rules quota for inbound rules, outbound rules, or both. For exam
 | Routes per routing table | Default limit: 100<br />Maximum limit: 400 |  
 {: caption="Table 7. Quotas for routing tables and routes" caption-side="top"}
 
-Each route has a destination property, which includes a prefix length (`/24` in `10.2.0.0/24`). The number of unique prefix lengths that are supported per custom route table is 14. Multiple routes with the same prefix count as only one unique prefix. 
+Each route has a destination property, which includes a prefix length (`/24` in `10.2.0.0/24`). The number of unique prefix lengths that are supported per custom route table is 14. Multiple routes with the same prefix count as only one unique prefix.
 {: note}
 
 ### Block storage volumes
@@ -147,4 +147,3 @@ The following table displays current VPC service limits. Unlike quotas, these li
 | Instance groups for auto scale and more | 200 per account|
 | Instance group memberships  | 1000 per instance group|
 {: caption="Table 9. Limits for VPC resources" caption-side="top"}
-
