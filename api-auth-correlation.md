@@ -124,6 +124,9 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | VPN gateway | Create | Editor for VPN for VPC resources|
 | VPN gateway | Update, Delete | Editor for the VPN gateway|
 | VPN gateway | View, List  | Viewer for the VPN gateway |
+| VPN gateway (advertised CIDRs) | Create | Editor for VPN for VPC resources|
+| VPN gateway (advertised CIDRs) | Update, Delete | Editor for the VPN gateway|
+| VPN gateway (advertised CIDRs) | View, List  | Viewer for the VPN gateway |
 | VPN gateway connections | Create, Update, Delete | Editor for the VPN gateway |
 | VPN gateway connections | View, List  | Viewer for the VPN gateway |
 | VPN gateway ike_policies, ipsec_policies and connections | Create, Update, Delete | Editor for the VPN gateway |
