@@ -74,6 +74,8 @@ Virtual Private Cloud (VPC)
         vsi_is_instance_vnics.md
         /cloud-infrastructure/cloud-infrastructure-monitoring
         /cloud-infrastructure/cloud-infrastructure-sysdig-monitoring-metrics
+        vsi_is_create_instance_template.md
+        vsi_is_bulk_provision.md
 
     {: .topicgroup}
     Custom images
