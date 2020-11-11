@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-15"
+lastupdated: "2020-11-11"
 
-keywords: vpc network, VRF, router, hypervisor, address prefixes, classic access, implicit router, packet flows, NAT, data flows
+keywords: vpc, vpc network, VRF, router, hypervisor, address prefixes, classic access, implicit router, packet flows, NAT, data flows, Cloud Service Endpoint source addresses, source addresses
 
 subcollection: vpc
 
@@ -23,7 +23,8 @@ subcollection: vpc
 # VPC behind the curtain
 {: #vpc-behind-the-curtain}
 
-This page presents a more detailed conceptual picture of what's happening "behind the curtain" with respect to VPC networking. Readers are expected to have some networking background.
+This page presents a more detailed conceptual picture of what's happening "behind the curtain" with respect to VPC networking. Learn about network isolation, address prefixes, Cloud Service Endpoint source addresses, data packet flows, external IP address life cycle, and Classic infrastructure access. Readers are expected to have some networking background.
+{: shortdesc}
 
 ## Network isolation
 {: #network-isolation}
