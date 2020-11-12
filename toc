@@ -70,12 +70,12 @@ Virtual Private Cloud (VPC)
         vsi_is_create_instance_cli.md
         vsi_is_connecting_linux_gc.md
         vsi_is_connecting_windows.md
+        vsi_is_create_instance_template.md
+        vsi_is_bulk_provision.md
         vsi_is_manage_instances.md
         vsi_is_instance_vnics.md
         /cloud-infrastructure/cloud-infrastructure-monitoring
         /cloud-infrastructure/cloud-infrastructure-sysdig-monitoring-metrics
-        vsi_is_create_instance_template.md
-        vsi_is_bulk_provision.md
 
     {: .topicgroup}
     Custom images
