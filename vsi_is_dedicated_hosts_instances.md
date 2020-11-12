@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020 
-lastupdated: "2020-06-17"
+lastupdated: "2020-11-12"
 
 keywords: vpc, vsi, dedicated host, dedicated instance, virtual server instance, creating, UI, console
 
@@ -27,7 +27,7 @@ subcollection: vpc
 You can create one or more dedicated groups with dedicated hosts in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console.
 {:shortdesc}
 
-Dedicated hosts are only available to accounts with special approval to preview this beta feature. Contact your IBM Sales representative if you are interested in getting access.
+Dedicated hosts are only available to accounts with special approval to preview this beta feature. 
 {:beta}
 
 ## Dedicated hosts
