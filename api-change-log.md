@@ -52,6 +52,13 @@ For enhanced security, application load balancers will soon be associated with y
 To prepare for this transition, we recommend that you update your default security group rules to minimize disruption in load balancer traffic on newly created application load balancers.
 {: tip}
 
+## 13 November 2020
+{: #13-november-2020}
+
+### For version `2020-11-13` or later
+{: #version-2020-11-13}
+[Static-route-based VPN gateways](https://{DomainName}/apidocs/vpc#create-vpn-gateways) are now available. For a static-route-based VPN gateway, virtual tunnel interfaces are created and any traffic routed to these interfaces with [user-defined routes](/docs/vpc?topic=vpc-create-vpc-route) is encrypted. For details, see [About VPN gateways](/docs/vpc?topic=vpc-using-vpn).
+
 ## 30 October 2020
 {: #30-october-2020}
 
