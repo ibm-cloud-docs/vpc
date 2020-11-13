@@ -91,7 +91,7 @@ To create an IPsec policy by using the API, follow these steps:
 the right variables.
 1. Store any additional variables to be used in the API commands, for example:
 
-   * `ResourceGroupId` - Find the resource group ID by using the **get resource groups** command and then populate the variable:
+   `ResourceGroupId` - Find the resource group ID by using the **get resource groups** command and then populate the variable:
 
     ```sh
     export ResourceGroupId=<your_resourcegroup_id>
