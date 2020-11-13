@@ -52,7 +52,7 @@ The next step is configuring your on-premises VPN gateway peer to connect to you
 - [Connecting to a strongSwan peer](/docs/vpc?topic=vpc-strongswan-config)
 - [Connecting to a Vyatta peer](/docs/vpc?topic=vpc-vyatta-config)
 
-The configurations listed are fully tested and supported by IBM. If you plan to use an on-premises VPN gateway peer other than those listed, IBM Support can assist in troubleshooting your configuration, but cannot guarantee a resolution. 
+These configurations are fully tested and supported by IBM. If you plan to use an on-premises VPN gateway peer other than those listed, IBM Support can assist in troubleshooting your configuration, but cannot guarantee a resolution. 
 {: note}
 
 ## Checking the status of the secure connection

@@ -26,6 +26,9 @@ subcollection: vpc
 {: troubleshoot}
 {: support}
 
+If you notice that your connection is going up and down occasionally, it might be due to a rekey timing issue.
+{: shortdesc}
+
 {: tsSymptoms}
 My connection is not stable and keeps going down.
 

@@ -82,7 +82,7 @@ To configure an IBM Cloud policy-based VPN for an AWS peer:
 
 1. After the status for both connections shows **Active**, verify traffic between your subnets.
 
-## Connecting an IBM static-based VPN to an AWS peer
+## Connecting an IBM route-based VPN to an AWS peer
 {: #aws-config-static-route-based}
 
 Currently, a VPN for VPC static, route-based VPN does not support an AWS peer.
