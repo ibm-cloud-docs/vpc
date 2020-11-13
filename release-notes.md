@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-06"
+lastupdated: "2020-11-12"
 
 keywords: release notes, changes, updates
 
@@ -25,6 +25,15 @@ subcollection: vpc
 
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
+
+## 12 November 2020
+{: #november-12-2020}
+
+- **Route-based virtual private network (VPN) gateways for VPC:** Use route-based VPN for VPC gateways to manage large, on-premises or cloud-based networks that require the ability to statically route network and connectivity over a secure, encrypted connection. VPN for VPC provides UI, CLI, and API support in all MZRs. For more information, see [About VPN gateways](/docs/vpc?topic=vpc-using-vpn).
+
+- **UI enhancements:**
+   - You can now provision virtual server instances without first creating a VPC. Your virtual server instance is created in a default VPC. 
+   - The refresh data option is removed from all details pages. Instead, users can refresh by using the browser refresh.
 
 ## 6 November 2020
 {: #november-6-2020}
