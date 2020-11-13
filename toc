@@ -184,12 +184,15 @@ Virtual Private Cloud (VPC)
         vpe-delete.md
         vpe-iam.md
         vpe-limitations.md
-        vpe-supported-services.md
+        vpe-supported-services.md]
 
     {: .topicgroup}
     VPN gateways
-        using-vpn.md
+        vpn-using.md
         vpn-create.md
+        vpn-add-connection.md
+        vpn-create-ipsec-policy.md
+        vpn-create-ike-policy.md
 
         {: .topicgroup}
         Connecting to your on-premises network
@@ -204,8 +207,8 @@ Virtual Private Cloud (VPC)
 
         vpn-access-service-endpoint.md
         vpn-configure-acls-security-groups.md
-        vpc-vpn-view-logs-logdna.md
-        vpc-vpn-sysdig-monitoring-metrics.md
+        vpn-view-logs-logdna.md
+        vpn-sysdig-monitoring-metrics.md
         vpn-limitations.md
         vpn-api-example.md
 
@@ -303,6 +306,13 @@ Virtual Private Cloud (VPC)
     Troubleshooting
         troubleshooting.md
         vpe-troubleshooting.md
+
+        {: topicgroup}
+        Troubleshooting VPN gateways
+            vpn-ts-unable-establish-connection.md
+            vpn-ts-traffic-not-getting-through.md
+            vpn-ts-unstable-connection.md		
+				
         vsi_is_troubleshooting.md
         block_storage_is_troubleshoot.md
 

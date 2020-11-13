@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-19"
+lastupdated: "2020-11-13"
 
-keywords: vyatta, vra, vyatta peer, vra peer, vpn vyatta, vpn vra
+keywords: vyatta peer, vra peer, vpn vyatta
 
 subcollection: vpc
 
@@ -29,21 +29,24 @@ You can use {{site.data.keyword.cloud}} VPN for VPC to securely connect your VPC
 
 These instructions are based on Vyatta version: AT&T vRouter 5600 1801d.
 
-When the Vyatta VPN receives a connection request from VPN for VPC, Vyatta uses IPsec Phase 1 parameters to establish a secure connection and authenticate the VPN for VPC gateway. Then, if the security policy permits the connection, the Vyatta VPN establishes the tunnel using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
+When the Vyatta VPN receives a connection request from VPN for VPC, Vyatta uses IPsec Phase 1 parameters to establish a secure connection and authenticate the VPN for VPC gateway. Then, if the security policy permits the connection, the Vyatta VPN establishes the tunnel by using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
 
 To support these functions, the following general configuration steps must be performed on the Vyatta VPN:
 
-* Define the Phase 1 parameters that Vyatta requires to authenticate VPN for VPC and establish a secure connection.
+* Define the Phase 1 parameters that the Vyatta requires to authenticate VPN for VPC and establish a secure connection.
 * Define the Phase 2 parameters that the Vyatta requires to create a VPN tunnel with VPN for VPC.
+
+## Connecting an IBM policy-based VPN to a Vyatta peer
+{: #vyatta-config-policy-based}
 
 Use the following configuration:
 
 1. Choose `IKEv2` in authentication.
-2. Enable `DH-group 2` in the Phase 1 proposal.
-3. Set `lifetime = 36000` in the Phase 1 proposal.
-4. Disable PFS in the Phase 2 proposal.
-5. Set `lifetime = 10800` in the Phase 2 proposal.
-6. Input your peers and subnets information in the Phase 2 proposal.
+1. Enable `DH-group 2` in the Phase 1 proposal.
+1. Set `lifetime = 36000` in the Phase 1 proposal.
+1. Disable PFS in the Phase 2 proposal.
+1. Set `lifetime = 10800` in the Phase 2 proposal.
+1. Input your peers and subnets information in the Phase 2 proposal.
 
 The following commands use the following variables where:
 
@@ -52,10 +55,10 @@ The following commands use the following variables where:
 * `{{ vyatta_address }}` is the Vyatta public IP address.
 * `{{ vyatta_cidr }}` is the Vyatta subnet.
 
-## Before you begin
+### Before you begin
 {: #vyatta-preparation}
 
-To set up your remote Vyatta peer, make sure that the following prerequisites are met.
+To set up your remote Vyatta peer, make sure that the following prerequisites are created.
 
 * A VPC
 * A subnet in the VPC
@@ -66,13 +69,13 @@ To set up your remote Vyatta peer, make sure that the following prerequisites ar
 * The Vyatta public IP address
 * The Vyatta subnet that you want to connect using a VPN
 
-## Configuring the Vyatta
-{: #configure-vyatta-peer}
+### Configuring the Vyatta
+{: #configure-policy-based-vyatta-peer}
 
 There are two ways you can run the configuration on your Vyatta:
 
 1. Log in to the Vyatta and run the file `create_vpn.vcli` using the commands that follow.
-2. Run the following commands in the Vyatta console.
+1. Run the following commands in the Vyatta console.
 
 Remember to:
 * Choose `IKEv2` in authentication
@@ -179,9 +182,11 @@ Finally, make note of your `{{ psk }}` value, as you will need it to set up the 
 
 
 ## Troubleshooting
+{: #vyatta-troubleshooting}
 
-Remember to:
-* if you enable CPP firewall on Vyatta, you have to configure the rules to allow traffic from IBM gateway. For example, if your CPP firewall name is `GATEWAY_CPP`, add these rules to the firewall:
+Remember that:
+
+* If you enable CPP firewall on Vyatta, you must configure the rules to allow traffic from IBM gateway. For example, if your CPP firewall name is `GATEWAY_CPP`, add these rules to the firewall:
 
     ```
     # set security firewall name GATEWAY_CPP rule 250 source address 169.61.247.167
@@ -189,7 +194,7 @@ Remember to:
     ```
     {: codeblock}
 
-* If you are applying the firewall to the interface, you have to permit the traffic from IBM VPC. For example:
+* If you are applying the firewall to the interface, you must permit the traffic from IBM VPC. For example:
 
     ```
     # set security firewall name to-vpc rule 20 destination address 10.240.0.0/24
@@ -204,5 +209,3 @@ Remember to:
     You might need to add other rules according to your network requirement to allow other traffic.
 
 * If you are using a zone firewall with IPsec, see [Setting up an IPsec tunnel that works with zone firewalls](/docs/virtual-router-appliance?topic=virtual-router-appliance-setting-up-an-ipsec-tunnel-that-works-with-zone-firewalls).
-
-

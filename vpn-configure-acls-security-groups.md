@@ -2,14 +2,13 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-14"
+lastupdated: "2020-11-13"
 
-keywords:  VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies, gateway, ACLs, security groups
+keywords:  VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies, gateway
 
 subcollection: vpc
 
 ---
-
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
@@ -28,20 +27,18 @@ subcollection: vpc
 # Configuring ACLs and security groups for use with VPN
 {: #acls-security-groups-vpn}
 
-If you configure access control lists (ACLs) on the subnet in which the VPN gateway is deployed, make sure that the following rules are in place to allow management traffic and VPN tunnel traffic:
+If you configure access control lists (ACLs) on the subnet in which the VPN gateway is deployed, make sure that the following rules are in place to allow management traffic and VPN tunnel traffic. For more information, see [Setting up network ACLs](/docs/vpc?topic=vpc-using-acls).
 
-* **Inbound rules**
-    - Allow protocol TCP source port 10514
-    - Allow protocol TCP source port 443 
-    - Allow protocol TCP source port 53
-    - Allow protocol UDP source port 53
-    - Allow protocol ALL source IP is VPN peer gateway public IP
-    - Allow protocol TCP destination port 443
-    - Allow protocol TCP destination port 56500
-    - Allow traffic between virtual server instances in your VPC and your on-premises private network
-    - Allow ICMP traffic
+If you use ACLs or security groups on the subnets that communicate over the VPN tunnel, make sure that ACL or security group rules are in place to allow traffic between virtual server instances in your VPC and the other network.
+{: important}
 
-* **Outbound rules**
-   - Allow all traffic
+| Inbound/Outbound rules | Protocol | Source IP | Source Port | Destination IP | Destination port | 
+|--------------|------|------|------|------|------------------|
+| Inbound | All | Peer gateway public IP[^IP] | N/A | Any IP | N/A | 
+| Inbound | ICMP | Any IP | N/A | Any IP | N/A |
+| Inbound | All | VPC subnet | N/A | On-premises, private subnet | N/A |
+| Inbound | All | On-premises, private subnet | N/A | VPC subnet | N/A |
+| Outbound<br />Allow all traffic | | | | | |
+{: caption="Table 1. Inbound and outbound rules" caption-side="top"}
 
-If you use ACLs or security groups on the subnets that need to communicate over the VPN tunnel, make sure that ACL rules or security group rules are in place to allow traffic between virtual server instances in your VPC and the other network.
+[^IP]:Set the source IP to the peer gateway public IP address. This allows traffic from the VPC and on-premises subnets. 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-08-19"
+lastupdated: "2020-11-13"
 
 keywords: fortigate, fortigate peer, vpn fortigate
 
@@ -22,7 +22,7 @@ subcollection: vpc
 {:download: .download}
 
 
-# Connecting to a FortiGate peer 
+# Connecting to a FortiGate peer
 {: #fortigate-config}
 
 You can use {{site.data.keyword.cloud}} VPN for VPC to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your FortiGate VPN gateway to connect to VPN for VPC.
@@ -43,10 +43,9 @@ To support these functions, the following general configuration steps must be pe
 Use the following configuration:
 
 1. Choose IKEv2 in authentication.
-2. Enable `DH-group 2` in the Phase 1 proposal.
-3. Set `lifetime = 36000` in the Phase 1 proposal.
-4. Disable PFS in the Phase 2 proposal.
-5. Set `lifetime = 10800` in the Phase 2 proposal.
-6. Input your subnet's information in Phase 2.
-7. The remaining parameters keep their default values.
-
+1. Enable `DH-group 2` in the Phase 1 proposal.
+1. Set `lifetime = 36000` in the Phase 1 proposal.
+1. Disable PFS in the Phase 2 proposal.
+1. Set `lifetime = 10800` in the Phase 2 proposal.
+1. Input your subnet's information in Phase 2.
+1. The remaining parameters keep their default values.

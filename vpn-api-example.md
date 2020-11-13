@@ -4,9 +4,9 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-11-13"
 
-keywords: VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies, gateway, api example
+keywords: VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies
 
 subcollection: vpc
 
@@ -26,7 +26,7 @@ subcollection: vpc
 {:external: target="_blank" .external}
 
 # API example - Connecting two VPCs using VPN
-{: #vpn-example} 
+{: #vpn-example}
 
 The following API example describes how to connect two VPCs by creating a VPN gateway in each VPC. A VPN gateway can connect all the subnets in the zone where it is deployed. Therefore, having a VPN gateway in each zone that you want to interconnect makes the subnets in both zones act as if they were a single network. The IP addresses of the subnets in the two VPCs must not overlap.
 {: shortdesc}
@@ -35,12 +35,12 @@ You can use a VPN gateway to connect two VPCs. However, it is recommended to use
 {: important}
 
 The following diagram shows how to interconnect three VPCs; the following example shows you how to connect only the first two. You can repeat the steps to connect more VPCs.
- 
+
 ![Interconnecting VPCs by using VPN gateways](images/vpc-vpn.svg){: caption="Figure 1: Interconnecting VPCs by using VPN gateways" caption-side="top"}
 
 The following example assumes that:
 
-1. You already created VPCs, subnets, and virtual server instances. For more information about creating VPC resources, see [Getting started](/docs/vpc?topic=vpc-getting-started).
+1. You already created VPCs, subnets, and virtual server instances. For more information about creating VPC resources, see [Getting started with Virtual Private Cloud (VPC)](/docs/vpc?topic=vpc-getting-started).
 1. You set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) and initialized all the variables needed.
 
 You can also create a VPN gateway and add VPN connections by using the UI. For instructions, see [Creating a VPN gateway using the UI](/docs/vpc?topic=vpc-vpn-create-gateway#vpn-create-ui).
@@ -61,7 +61,7 @@ export SubnetId1=<your_subnet_id>
 ```
 {: pre}
 
-The following command deploys the VPN gateway in the `Default` resource group. 
+The following command deploys the VPN gateway in the `Default` resource group.
 
 ```bash
 curl -X POST "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=2" \
@@ -113,7 +113,7 @@ You can check the gateway's status with the following command:
 
 ```bash
 curl -X GET "$vpc_api_endpoint/v1/vpn_gateways/$gwid1?version=$api_version&generation=2" \
-     -H "Authorization: $iam_token" 
+     -H "Authorization: $iam_token"
 ```
 {: codeblock}
 
@@ -134,7 +134,7 @@ export SubnetId2=<your_subnet_id>
 ```
 {: pre}
 
-The following command deploys the VPN gateway in the `Default` resource group. If the second VPC belongs to a different region, 
+The following command deploys the VPN gateway in the `Default` resource group. If the second VPC belongs to a different region,
 make sure to update the variable `vpc_api_endpoint`. See the list of [API endpoints](https://{DomainName}/apidocs/vpc#endpoint-url).
 
 ```bash
@@ -188,7 +188,7 @@ You can check the gateway's status with the following command:
 
 ```bash
 curl -X GET "$vpc_api_endpoint/v1/vpn_gateways/$gwid2?version=$api_version&generation=2" \
-     -H "Authorization: $iam_token" 
+     -H "Authorization: $iam_token"
 ```
 {: codeblock}
 

@@ -95,6 +95,7 @@ You can use the rules quota for inbound rules, outbound rules, or both. For exam
 | IPSec policies | 20 per region |  
 | Peer subnets | 50 across all connections of a VPN gateway, 15 per individual VPN connection |  
 | Local subnets | 50 across all connections of a VPN gateway, 15 per individual VPN connection |  
+| Route-based VPN gateway | 1 per zone per VPC |
 {: caption="Table 5. Quotas for the VPN service" caption-side="top"}
 
 ### Load balancers
