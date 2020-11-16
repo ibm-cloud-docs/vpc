@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-11"
+lastupdated: "2020-11-16"
 
-keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, IOPS, HPCS, Key Protect
+keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, IOPS, HPCS, Key Protect
 
 subcollection: vpc
 
@@ -33,7 +33,7 @@ You can choose an [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles
 ## Block storage for VPC volumes
 {: #block-storage-vpc-volumes}
 
-{{site.data.keyword.block_storage_is_short}} offers block-level volumes that are attached to an instance as a boot volume when the instance is created, or attached as secondary data volumes. You can configure up to 750 block storage volumes per account in a region. You can request to increase this quota by [opening support case](/docs/vpc?topic=vpc-getting-help) and specifying in which zone you need more volumes.
+{{site.data.keyword.block_storage_is_short}} offers block-level volumes that are attached to an instance as a boot volume when the instance is created, or attached as secondary data volumes. You can configure up to 750 block storage volumes per account in a region. You can request to increase this quota by [opening support case](/docs/vpc?topic=vpc-manage-storage-limit) and specifying in which zone you need more volumes.
 
 You can attach several block storage data volumes to a single instance for extra capacity. The number of volumes you can attach to an instance depends on how many vCPUs that instance contains. For more information, see [Volume attachment limits](/docs/vpc?topic=vpc-attaching-block-storage#vol-attach-limits).
 

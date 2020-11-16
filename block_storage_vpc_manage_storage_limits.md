@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-03"
+lastupdated: "2020-11-12"
 
 keywords: volume, capacity, block storage
 
@@ -28,7 +28,10 @@ subcollection: vpc
 ## Overview
 {: #manage-storage-limit-overview}
 
-{{site.data.keyword.block_storage_is_short}} lets you create up to 750 boot and data block storage volumes per account in a region. You can request an increase of this quota by contacting [IBM Support](https://{DomainName}/unifiedsupport/cases/add){: external} and submitting a support ticket. 
+{{site.data.keyword.block_storage_is_short}} lets you create up to 750 Gen 2 boot and data block storage volumes per account in a region. You can request an increase of this quota by contacting [IBM Support](https://{DomainName}/unifiedsupport/cases/add){: external} and submitting a support ticket. 
+
+If you provisioned block storage volumes for Gen 1 Compute instances, you are limited to 300 total volumes across the Gen 1 and Gen 2 infrastructure. For example, if you have 200 Gen 1 block storage volumes, you can request 100 Gen 2 block storage volumes for a total of 300.
+{: note}
 
 Capacity for secondary volumes ranges from 10 to 2,000 GB. You can also request to increase this capacity for greater than 2,000 GB volumes. Also, when you participate in the Beta release, new volumes greater than 250 GB can be expanded in GB increments up to 16,000 GB capacity, depending on your profile. For more information, see [Expanding block storage volume capacity (Beta)](https://test.cloud.ibm.com).
 
