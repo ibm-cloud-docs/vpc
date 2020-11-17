@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-30"
+lastupdated: "2020-11-17"
 
 keywords: virtual private endpoint, faq, faqs, vpe, endpoint gateway
 
@@ -49,12 +49,12 @@ Public endpoints of IBM Cloud services are not eligible for VPE. VPE can only be
 
 A VPE is not created in high-availability (HA) mode, by default. HA comes primarily from the IBM Cloud services.
 
-## Can I access an IBM Cloud service using either a service endpoint or ADN IP address?
+## Can I access an IBM Cloud service using a private service endpoint IP address?
 {: #faq-access-using-cse-adn}
 {: faq}
 {: support}
 
-When a VPE project deploys, any IBM Cloud service that is mapped to an IP address on a VPC network cannot be accessed directly using either an IBM Cloud service endpoint or Application Delivery Network (ADN) IP address. Failing to do so results in unexpected connectivity issues.
+When a VPE is created, IBM Cloud DNS Services is automatically set up to resolve the IBM Cloud service FQDN to the VPE's private VPC IP address. Although direct access to the private service endpoint IP address is possible, it is recommended to use the DNS mapping that is set up automatically, rather than override with a mapping to the service endpoint IP address.
 
 ## Does mapping an IBM Cloud service to an IP address on a VPC network make the service private?
 {: #faq-map-cloud-service-make-service-private}
