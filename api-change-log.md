@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-11"
+lastupdated: "2020-11-19"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -47,10 +47,26 @@ To minimize bugs caused by changes, use the following best practices when you ca
 
 ### For all API version dates
 
-For enhanced security, application load balancers will soon be associated with your security groups. You can specify one or more security groups when you create the application load balancer, and associate security groups with your existing application load balancers. If you omit security groups during load balancer creation, the default security group for your VPC is used.
+**Application load balancers and security groups** For enhanced security, application load balancers will soon be associated with your security groups. You can specify one or more security groups when you create the application load balancer, and associate security groups with your existing application load balancers. If you omit security groups during load balancer creation, the default security group for your VPC is used.
 
 To prepare for this transition, we recommend that you update your default security group rules to minimize disruption in load balancer traffic on newly created application load balancers.
 {: tip}
+
+## 19 November 2020
+{: 19-november-2020}
+
+### For all API version dates
+{: 19-november-2020-all-version-dates}
+
+**Support for ingress routing** is included as part of [routing tables](/apidocs/vpc#list-vpc-routing-tables), released on 30 October 2020. Use ingress routing to control the policy for packets coming in to your VPC or one of its zones. The policy can vary, depending on the type of source and the destination IP address range.
+
+Routing tables for the VPC API are the same for both egress and ingress routing, with the following additional properties that you can specify for ingress routing:
+
+* `route_direct_link_ingress`
+* `route_transit_gateway_ingress`
+* `route_transit_gateway_ingress`
+
+For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes).
 
 ## 13 November 2020
 {: #13-november-2020}
