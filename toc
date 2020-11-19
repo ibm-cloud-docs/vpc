@@ -262,6 +262,7 @@ Virtual Private Cloud (VPC)
     {: .topicgroup}
     Enhancing security
         architecture-workload-isolation.md
+        manage-scc.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
