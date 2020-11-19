@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-30"
+lastupdated: "2020-11-19"
 
 keywords: custom routes
 
@@ -29,54 +29,64 @@ subcollection: vpc
 # Creating a routing table
 {: #create-vpc-routing-table}
 
-You can create a routing table for an IBM Cloud service by using the UI, CLI, or API.
+Create a routing table to define rules to forward network traffic along the best path towards its destination. For example, a routing table provides information for sending a data packet to the next hop on its route across the network.
 {: shortdesc}
 
-Prior to creating a routing table, ensure that you have at least one VPC.
-{: important}
+Ingress traffic from a particular traffic source is routed using the routes in the custom routing table that is associated with that traffic source. If no matching route is found in
+a custom routing table, routing continues using the VPC system routing table. You can avoid this behavior with a custom routing table's default route with an action of **drop**.
+{: note}
 
-## Using the UI
+Prior to creating a routing table, ensure that you have at least one VPC. 
+
+You can create a routing table for an IBM Cloud service by using the UI, CLI, or API. 
+
+## Creating a routing table using the UI
 {: #cr-using-the-ui}
 
-To create a routing table by using the {{site.data.keyword.cloud_notm}} console, follow these steps: 
+To create a routing table by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
 
      ![Routing tables for VPC page](./images/cr-routing-tables-page.png)
 
-2. Click **New routing table** in the upper right of the page.
-3. In the New routing table for VPC provisioning page, complete the following information:
+1. Click **Create** in the upper right of the page.
+1. In the New routing table for VPC provisioning page, complete the following information:
 
    * Enter a unique name for your routing table.
-   * Select a virtual private cloud.
+   * Select the Virtual Private Cloud that you want to associate with the routing table.
+   * Select a traffic type. You can choose **Egress** (default) or **Ingress**.
 
-  ![Routing table creation page](./images/cr-routing-table-create.png)
+      If you select **Ingress**, you must select one or more traffic sources. Ingress routing tables support networks for Transit Gateway and Direct Link 2.0 that are associated with the VPC that the routing table is being created in.
+      {: note}
 
-   A Summary panel shows the total estimated monthly cost for your review.
+      ![Routing table creation page](./images/cr-create-routing-table.png)
 
-   There is no charge for custom routing tables and associated routes.
-   {: note}
+1. Read and agree to the **Terms and Conditions**, then click **Create routing table**.  
 
-4. Read and agree to the **Terms and Conditions**, then click **Create** to create the routing table.  
-
-## Using the CLI
+## Creating a routing table using the CLI
 {: #cr-using-the-cli}
 
 To create a routing table by using the CLI, run the following command:
 
 ```
-ibmcloud is vpc-routing-table-create VPC \
-[--name NAME] \
-[--json]
+ibmcloud is vpc-routing-table-create VPC [--name NAME] [--direct-link-ingress false | true] [--transit-gateway-ingress false | true] [--vpc-zone-ingress false | true] [--output JSON] [-q, --quiet]
 ```
+{: pre}
 
 Where:
 
-* **VPC** is the ID of the VPC.
-* **--name** is the name of the VPC routing table.
-* **--json** formats the output in JSON.
+- **VPC** is the ID of the VPC.
+- **--name**: is the name of the VPC routing table.
+- **--direct-link-ingress** - If set to **true**, this routing table is used to route traffic that originates from {{site.data.keyword.cloud_notm}} Direct Link 2.0 to this VPC. One of: **false**, **true**.
+- **--transit-gateway-ingress** - If set to **true**, this routing table is used to route traffic that originates from {{site.data.keyword.cloud_notm}} Transit Gateway to this VPC. One of: **false**, **true**.
+- **--vpc-zone-ingress** - If set to **true**, this routing table is used to route traffic that originates from subnets in other zones in this VPC. One of: **false**, **true**.
+- **--output** is the output format. One of: **JSON**.
+- **-q, --quiet** suppresses verbose output.
 
-##Using the API
+You can only set a given ingress option to **true** on one routing table per VPC, and only if that routing table is not attached to any subnets.
+{: note}
+
+## Creating a routing table using the API
 {: #cr-using-the-api}
 
 To create a routing table by using the API, follow these steps:
@@ -84,19 +94,46 @@ To create a routing table by using the API, follow these steps:
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 1. Store the `VpcId` and `ResourceGroupId` values in a variable to be used in the API command:
 
-    ```
+    ```sh
     export VpcId=<your_vpc_id>
     export ResourceGroupId=<your_resource_group_id>
     ```
     {: codeblock}
 
-1.  Create a routing table:
+1.  Create a routing table.
 
-   ```
+   Egress routing table:
+
+   ```sh
    curl -X POST -sH "Authorization:${iam_token}" \
    "$vpc_api_endpoint/v1/vpcs/$VpcId/routing_tables?version=$api_version&generation=2" \
-   -d '{"name": "test-routing-table","resource_group": {"id": "'$ResourceGroupId'"}}' | jq
+   -d '{"name": "test-routing-table","resource_group": {"id": "'$ResourceGroupId'"}}'
    ```
    {: codeblock}
 
-   
+   Ingress routing table:   
+
+   ```sh
+      curl -X POST "$vpc_api_endpoint/v1/vpcs/$VpcId/routing_tables?version=$api_version&generation=2" \
+      -H "Authorization: $iam_token" \
+      -d '{
+             "name": "my-ingress-routing-table",
+             "route_direct_link_ingress": true
+           }'
+   ```
+
+   ```sh
+      curl -X POST "$vpc_api_endpoint/v1/vpcs/$VpcId/routing_tables/$RoutingTableId/routes?version=$api_version&generation=2" \
+      -H "Authorization: $iam_token" \
+      -d '{
+             "name": "my-ingress-routing-table",
+             "zone": {
+                       "name": "us-south-2"
+                     },
+             "action": "deliver",
+             "destination": "<destination ingress CIDR>",
+             "next_hop": {
+                           "address": "<instance next hop IP address>"
+                         }
+          }'
+   ```

@@ -32,7 +32,7 @@ subcollection: vpc
 You can list routing tables for a VPC by using the UI, CLI, or API.
 {: shortdesc}
 
-## Using the UI
+## Listing routing tables for a VPC using the UI
 {: #cr-list-tables-using-the-ui}
 
 To list the routing tables for a VPC by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
@@ -41,7 +41,7 @@ To list the routing tables for a VPC by using the {{site.data.keyword.cloud_notm
 
    ![Routing tables for VPC page](./images/cr-routing-tables-page.png)
 
-2. From the Virutal private cloud drop-down list, select the VPC that you want to list routing tables for.
+1. From the Virutal private cloud drop-down list, select the VPC that you want to list routing tables for.
 
    Column descriptions are as follows:
 
@@ -51,20 +51,20 @@ To list the routing tables for a VPC by using the {{site.data.keyword.cloud_notm
    * **Routes** - States the number of routes are attached to the routing table.
    * **Attached subnets** - Indicates the number of subnets attached to the routing table.
 
-2. From the Routing tables for VPC page, you can create, delete, and view the details of a routing table.
+1. From the Routing tables for VPC page, you can create, delete, and view the details of a routing table.
 
 The overflow menu ![overflow menu](images/overflow.png) allows you to delete a routing table. Keep in mind that you can only perform this action on routing tables that do not have attached subnets.
 {: note}
 
-## Using the CLI
+## Listing routing tables for a VPC using the CLI
 {: #cr-list-tables-using-the-cli}
 
 To list the routing tables for a VPC by using the CLI, run the following command:
 
 ```
-ibmcloud is vpc-routing-tables VPC \
-[--json]
+ibmcloud is vpc-routing-tables VPC [--json]
 ```
+{: pre}
 
 Where:
 
@@ -72,22 +72,22 @@ Where:
 * **--json** formats output in JSON.
 
 
-## Using the API
+## Listing routing tables for a VPC using the API
 {: #cr-list-tables-using-the-api}
 
 To list the routing tables for a VPC by using the API, do the following:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
-2. Store the `VpcId` value in a variable to be used in the API command:
+1. Store the `VpcId` value in a variable to be used in the API command:
 
     ```sh
     export VpcId=<your_vpc_id>
     ```
     {: pre}
 
-3. List the routing tables for a VPC:
+1. List the routing tables for a VPC:
 
-   ```
+   ```sh
    curl -X GET "$vpc_api_endpoint/v1/vpcs/$VpcId/routing_tables?version=$api_version&generation=2" \
      -H "Authorization: $iam_token"
 

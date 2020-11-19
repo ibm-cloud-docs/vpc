@@ -32,14 +32,14 @@ subcollection: vpc
 You can view details of a routing table by using the UI, CLI, or API. From the Routing table details page, you can also view details of attached routes and subnets, as well as navigate to other pages to view VPC details, manage address prefixes, and more.
 {: shortdesc}
 
-## Using the UI
+## Viewing details of a routing table using the UI
 {: #cr-routing-table-using-the-ui}
 
 To view the details of a routing table by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
 
-2. Click the name of the routing table that you want details for. The Routing table details page appears.
+1. Click the name of the routing table that you want details for. The Routing table details page appears.
 
     ![Routing table details](./images/cr-routing-table-details.png)
 
@@ -58,30 +58,27 @@ Field descriptions are as follows.
 For descriptions of the routing table columns, see [Listing routes of a routing table](/docs/vpc?topic=vpc-list-routes-routing-table).
 {: note}
 
-## Using the CLI
+## Viewing details of a routing table using the CLI
 {: #cr-routing-table-using-the-cli}
 
 To view details of a specific routing table:
 
 ```
-ibmcloud is vpc-routing-table VPC \
-ROUTING_TABLE \
-[--json]
+ibmcloud is vpc-routing-table VPC ROUTING_TABLE [--json]
 ```
 
 To view details of the default routing table:
 
 ```
-ibmcloud is vpc-default-routing-table VPC \
-[--json]
+ibmcloud is vpc-default-routing-table VPC [--json]
 ```
 
 To view details of a routing table that is attached to the subnet:
 
 ```
-ibmcloud is subnet-routing-table SUBNET \
-[--json]
+ibmcloud is subnet-routing-table SUBNET [--json]
 ```
+{: pre}
 
 Where:
 
@@ -90,7 +87,7 @@ Where:
 * **SUBNET** is the ID of the subnet.
 * **--json** formats output in JSON.
 
-## Using the API
+## Viewing details of a routing table using the API
 {: #cr-routing-table-using-the-api}
 
 To view the details of a routing table by using the API, follow these steps:
@@ -98,7 +95,7 @@ To view the details of a routing table by using the API, follow these steps:
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 2. Store the following values in variables to be used in the API command:
 
-    ```
+    ```sh
     export VpcId=<your_vpc_id>
     export RoutingTableId=<your_routing_table_id>
     ```
@@ -106,17 +103,17 @@ To view the details of a routing table by using the API, follow these steps:
 
 3. View details of a routing table:
 
-   ```
+   ```sh
    curl -X GET "$vpc_api_endpoint/v1/vpcs/$VpcId/routing_tables/$RoutingTableId?version=$api_version&generation=2" \
         -H "Authorization: $iam_token"    	
    ```
    {: codeblock}
 
-To view the routing table attached to a subnet:
+   To view the routing table attached to a subnet:
 
-```
-export SubnetId=<your_subnet_id>
-curl -X GET "$vpc_api_endpoint/v1/subnets/$SubnetId/routing_table?version=$api_version&generation=2" \
-     -H "Authorization: $iam_token"
-```
-{: codeblock}
+   ```sh
+   export SubnetId=<your_subnet_id>
+   curl -X GET "$vpc_api_endpoint/v1/subnets/$SubnetId/routing_table?version=$api_version&generation=2" \
+        -H "Authorization: $iam_token"
+   ```
+   {: codeblock}
