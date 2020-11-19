@@ -139,6 +139,7 @@ Virtual Private Cloud (VPC)
             lb-layer-7-policies-rules.md
             lb-monitoring-metrics.md
             lb-ig-integration.md
+            lb-datapath-logging.md
             lb-api.md
 
         {: .topicgroup}
