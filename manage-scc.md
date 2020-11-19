@@ -16,6 +16,7 @@ subcollection: vpc
 {:tip: .tip}
 {:important: .important}
 {:note: .note}
+{:term: .term}
 
 # Managing security and compliance with VPC
 {: #manage-security-compliance}
