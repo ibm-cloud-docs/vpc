@@ -90,9 +90,9 @@ To add a new network interface to your virtual server instance, complete the fol
 ## Configuring a virtual server instance with multiple interfaces
 {: #configure-multiple-interfaces}
 
-There are cases when virtual servers communicate with each other through multiple interfaces, for example, to use different subnets for different communication purposes: one subnet for data communication, and another subnet for control communication. Due to a single default route in routing and IP spoofing for security, the communication on interfaces other than the primary interface might not work.
+Sometimes virtual servers instances communicate with other instances through multiple network interfaces, for example, to use different subnets for different communication purposes. You might want one subnet for data communication and another subnet for control communication. Because a virtual server instance is configured with a single default route that is associated with the primary network interface, communication on other interfaces might not work initially. (IP spoofing checks for security purposes can also prevent the communication flow on non-primary network interfaces.)
 
-You can solve this problem, on a Linux platform such as `Ubuntu`, in two ways:
+You can establish communication for a secondary network interface by using one of the following options. These examples are for a Linux platform such as `Ubuntu`.
 
 * Add a static route for the second subnet.
 * Add a separate routing table for the second subnet.
