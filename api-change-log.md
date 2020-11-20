@@ -58,7 +58,7 @@ To prepare for this transition, we recommend that you update your default securi
 ### For all API version dates
 {: 19-november-2020-all-version-dates}
 
-**Support for ingress routing** is now included as part of routing tables, released on 30 October 2020. Use [ingress routing](/apidocs/vpc#create-vpc-routing-table) to control the policy for packets coming in to your VPC or one of its zones. The policy can vary, depending on the type of source and the destination IP address range.
+**Support for ingress routing** is included as part of [routing tables](/apidocs/vpc#list-vpc-routing-tables), released on 30 October 2020. Use [ingress routing](/apidocs/vpc#create-vpc-routing-table) to control the policy for packets coming in to your VPC or one of its zones. The policy can vary, depending on the type of source and the destination IP address range.
 
 Routing tables for the VPC API are the same for both egress and ingress routing, with the following additional properties that you can specify for ingress routing:
 
