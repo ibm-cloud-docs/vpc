@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-12"
+lastupdated: "2020-11-20"
 
 keywords: release notes, changes, updates
 
@@ -26,6 +26,13 @@ subcollection: vpc
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
 
+## 20 November 2020
+{: #november-20-2020}
+
+- **Support for ingress routing:** Ingress routing is included as part of custom routing tables, released on 30 October 2020. Ingress routing enables you to customize routes on incoming traffic to a VPC from traffic sources external to the VPC's availability zone (IBM Cloud Direct Link 2.0, IBM Cloud Transit Gateway, or another availability zone in the same VPC). For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes).
+- **Support for datapath log forwarding with LogDNA:** Datapath log forwarding with LogDNA is now available for IBM Cloud Application Load Balancer for VPC. Data and health check logs are valuable for debugging, analysis, and maintenance purposes. With the datapath logging feature enabled, your load balancer forwards these logs to your account's IBM Log Analysis with LogDNA dashboard. For more information, see [Datapath log forwarding with LogDNA](/docs/vpc?topic=vpc-datapath-logging#datapath-logging).
+- **UI enhancements:** You can now provision a VPC from the within the New virtual server for VPC page.
+
 ## 12 November 2020
 {: #november-12-2020}
 
@@ -34,6 +41,7 @@ Use the release notes to learn about new and changed {{site.data.keyword.vpc_ful
 - **UI enhancements:**
    - You can now provision virtual server instances without first creating a VPC. Your virtual server instance is created in a default VPC. 
    - The refresh data option is removed from all details pages. Instead, users can refresh by using the browser refresh.
+
 
 ## 6 November 2020
 {: #november-6-2020}
