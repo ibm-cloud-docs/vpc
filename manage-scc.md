@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-11-19"
+lastupdated: "2020-11-22"
 
 keywords: security and compliance, security, compliance
 
@@ -18,14 +18,14 @@ subcollection: vpc
 {:note: .note}
 {:term: .term}
 
-# Managing security and compliance with VPC
+# Managing security and compliance with VPC Infrastructure Services
 {: #manage-security-compliance}
 
 {{site.data.keyword.vpc_full}} is integrated with the {{site.data.keyword.compliance_short}} to help you manage security and compliance for your organization.
 {: shortdesc}
 
 
-With the {{site.data.keyword.compliance_short}}, you can monitor controls and goals that pertain to {{site.data.keyword.vpc_short}}.
+With the {{site.data.keyword.compliance_short}}, you can monitor controls and goals that pertain to {{site.data.keyword.vpc_short}} infrastructure.
 
 
 ## Monitoring security and compliance posture with VPC
