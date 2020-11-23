@@ -31,7 +31,7 @@ Use {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) to distribu
 
 The following diagram illustrates the deployment architecture for the ALB.
 
-![Application load balancer for VPC](images/alb_arc.png "Application load balancer")
+![Application load balancer for VPC](images/alb_arc.svg "Application load balancer")
 {: caption="Application load balancer" caption-side="top"}
 
 ## Types of application load balancers
