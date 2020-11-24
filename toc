@@ -241,6 +241,7 @@ Virtual Private Cloud (VPC)
         block_storage_vpc_byok_encryption.md
         block_storage_vpc_key_rotation.md
         vsi-vpc-manage-encryption.md
+        vpc-byok-api-remediation.md
 
     {: .topicgroup}
     Deleting a VPC

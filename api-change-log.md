@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-19"
+lastupdated: "2020-11-18"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -52,13 +52,19 @@ To minimize bugs caused by changes, use the following best practices when you ca
 To prepare for this transition, we recommend that you update your default security group rules to minimize disruption in load balancer traffic on newly created application load balancers.
 {: tip}
 
+**Customer-managed encryption changes** If you use customer-managed encryption to protect your VPC resources, deleting or disabling a customer root key (CRK) will soon result in those resources becoming unusable for normal operations. Block storage volume and custom image resources will show an `unusable` status in the API, along with associated reason codes, `encryption_key_deleted` or `encryption_key_disabled`. If you use the API, CLI, or Terraform, see the following:
+
+* [API changes for VPC resources using customer-managed encryption](/docs/vpc?topic=vpc-byok-api-remediation-plan)
+* [User actions that impact root key states and resource status](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-root-key-states)
+
+
 ## 19 November 2020
 {: 19-november-2020}
 
 ### For all API version dates
 {: 19-november-2020-all-version-dates}
 
-**Support for ingress routing** is included as part of [routing tables](/apidocs/vpc#list-vpc-routing-tables), released on 30 October 2020. Use [ingress routing](/apidocs/vpc#create-vpc-routing-table) to control the policy for packets coming in to your VPC or one of its zones. The policy can vary, depending on the type of source and the destination IP address range.
+**Support for ingress routing** is included as part of [routing tables](/apidocs/vpc#list-vpc-routing-tables), released on 30 October 2020. Use ingress routing to control the policy for packets coming in to your VPC or one of its zones. The policy can vary, depending on the type of source and the destination IP address range.
 
 Routing tables for the VPC API are the same for both egress and ingress routing, with the following additional properties that you can specify for ingress routing:
 
@@ -81,7 +87,7 @@ For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-
 ### For all API version dates
 {: #30-october-2020-all-version-dates}
 
-* **Custom routing tables** are now supported in the VPC API. This feature lets you control where network traffic is directed on a per-subnet basis. Explore new API operations for [routing tables](https://{DomainName}/apidocs/vpc#list-vpc-routing-tables) and [routes](https://{DomainName}/apidocs/vpc#create-vpc-routing-table-route). This feature subsumes the [VPC routing API](https://{DomainName}/apidocs/vpc#list-vpc-routes), which remains supported but is deprecated and might be removed in a future API release.
+* **Custom routing tables** are now supported in the VPC API. This feature lets you control where network traffic is directed on a per-subnet basis. Explore new API operations for [routing tables](https://{DomainName}/apidocs/vpc#list-all-routing-tables-for-a-vpc) and [routes](https://{DomainName}/apidocs/vpc#create-a-vpc-route). This feature subsumes the [VPC routing API](https://{DomainName}/apidocs/vpc#list-all-routes-in-the-vpc-s-default-routing-table), which remains supported but is deprecated and might be removed in a future API release.
 
 * [Virtual private endpoint gateways](https://{DomainName}/apidocs/vpc#list-endpoint-gateways) are now available. Use virtual private endpoint gateways to connect to supported {{site.data.keyword.cloud_notm}} services from your VPC network by using the IP addresses of your choice, allocated from a subnet within your VPC. For details, see [About virtual private endpoint gateways](/docs/vpc?topic=vpc-about-vpe).
 
