@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2020
-lastupdated: "2020-08-05"
+lastupdated: "2020-11-24"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
@@ -68,26 +68,156 @@ When you [create a customer-managed encryption volume](/docs/vpc?topic=vpc-block
 
 When a root key is [rotated](/docs/vpc?topic=vpc-vpc-key-rotation) manually or automatically based on a schedule, the version ID field and key version date change, indicating the key has been rotated. The rotated key retains its original name and ID in the list of KMS instances. 
 
+### User actions that impact root key states and resource status
+{: #byok-root-key-states}
+
+Root keys move to various states depending on the action you take and impacts resources differently. The following describes what happens to a resource when you disable, enable, delete, and restore a root key.
+
+The resource status _unusable_ is an upcoming API feature currently not available. The status you see will be different. The new statuses are provided in the following tables for customers who use the API to programatically manage their customer-managed encryption and to prepare accordingly. For more information, contact your IBM [customer support](/docs/get-support?topic=get-support-using-avatar) representative. Also see [API changes for VPC resources using customer-managed encryption](/docs/vpc?topic=vpc-byok-api-remediation-plan).
+{: important}
+
+| Resource type | Resource status | Result |
+|---------------|-----------------| -------|
+|<td colspan=4>Root key state = _suspended_<sup>1</sup></td> | | |
+| All | -- | The key can't be used to encrypt new resources or unwrap (decrypt) passphrases protecting existing resources, until you enable the key. For more information, see [Disabling root keys](#byok-disable-root-keys). |
+| Custom image | _unusable_ | Images cannot be used for creating boot volumes during instance provisioning. |
+| Boot volume | _available_ | Boot volumes remain encrypted with the suspended key. If you stop the instance using that boot volume, it won't restart. | 
+| Data volume |  _available_ | Data volumes remain encrypted, attached, and available until you stop the instance. Standalone data volumes that are encrypted by the suspended key can't be attached to an instance. |
+| Instance |  _available_ | Instance workloads remain running with an _available_ status in the CLI and API, and with a _running_ status in the UI. If you stop instances, they won't restart. |
+{: class="simple-tab-table"}
+{: caption="Table 1. Disable root key" caption-side="top"}
+{: #keystatetable1}
+{: tab-title="Disable root key"}
+{: tab-group="IAM-simple"}
+
+| Resource type | Resource status | Result |
+|---------------|-----------------| -------|
+|<td colspan=4>Root key state = _active_</td> | | |
+| All | -- | The root key is available to unwrap passphrases protecting existing resources and for encrypting new resources. |
+| Custom image | _active_ | Images can be used for creating virtual server instances. |
+| Boot volume | _available_ | Boot volumes are available for startng instances. |
+| Data volume | _available_ | Data volumes can be attached to instances. |
+| Instance | _available_ | Instances can be restarted. |
+{: caption="Table 2. Enable root key" caption-side="top"}
+{: #keystatetable2}
+{: tab-title="Enable root key"}
+{: tab-group="IAM-simple"}
+{: class="simple-tab-table"}
+
+| Resource type | Resource status | Result |
+|---------------|-----------------| -------|
+|<td colspan=4>Root key state = _destroyed_<sup>2</sup></td> | | |
+| All | _unusable_ | The key can't be used for any encryption actions. You have 30 days to restore a deleted root key that you imported, afterwhich the status changes to _failed_ and the resources are no longer recoverable. (KMS-generated root keys can't be restored.) Review the Activity Tracker events to see when you deleted the key. For more information, see [Deleting root keys](#byok-delete-root-keys) |
+| Custom image | _unusable_ | Images can't be used for creating boot volumes to provision a new virtual server instance. |
+| Boot volume | _unusable_ | Associated virtual server instances are stopped. The boot volume can't be used to boot up instances. | 
+| Data volume | _unusable_ | Instances are stopped and data volumes are detached. Standalone data volumes can't be attached to instances. You can delete the volume. |
+| Instance | _unusable_ | Instances with a deleted boot volume that were automatically stopped will not restart. |
+{: caption="Table 3. Delete root key" caption-side="top"}
+{: #keystatetable3}
+{: tab-title="Delete root key"}
+{: tab-group="IAM-simple"}
+{: class="simple-tab-table"}
+
+| Resource type | Resource status | Result |
+|---------------|-----------------| -------|
+|<td colspan=4>Root key state = _active_</td> | | |
+| All | -- | The previously-deleted key is moved from the _destroyed_ state back to the _active_ state where it can be used for all encryption actions. For more information, see [Restoring root keys](#byok-restore-root-key). |
+| Custom image | _active_ | Images can be used for creating virtual server instances. |
+| Boot volume | _available_ | Boot volumes are available for starting instances. |
+| Data volume | _available_ | Data volumes can be attached to instances. |
+| Instance | _available_ | Instances can be restarted. |
+{: caption="Table 4. Restore root key" caption-side="top"}
+{: #keystatetable4}
+{: tab-title="Restore root key"}
+{: tab-group="IAM-simple"}
+{: class="simple-tab-table"}
+
+<sup>1</sup> Volume and image status of _suspended_ is used for the fraud and abuse cases, where IBM has taken action to make the account resource inaccessible.
+
+<sup>2</sup> A root key can be deleted from three states, _active_, _suspended_, or _deactivated_. (The _deactivated_ state occurs automatically when a key's expiration date is reached.) Regardless of the state prior to deletion, keys can be restored.
+
+For more information about root key states from a KMS perspective see:
+
+* [Key Protect - Key states and transitions](/docs/key-protect?topic=key-protect-key-states#key-transitions)
+* [HPCS - Key states and transitions](/docs/hs-crypto?topic=hs-crypto-key-states#key-transitions)
+
 ### Disabling root keys
 {: #byok-disable-root-keys}
 
-[Disabling a key](/docs/key-protect?topic=key-protect-disable-keys) places it in a _suspended_ state, which revokes access to the key's associated data on the cloud. When you disable a root key, you suspend its encryption and decryption operations. Temporarily disabling a root key is good practice if you suspect a possible security exposure, compromise, or breach with your data. You can enable a disabled root key when the security risk is no longer active.
+When you disable a root key, you suspend its encryption and decryption operations. Disabling a root key in your KMS places the key in a _suspended_ state in the KMS, which makes it unusable for protecting a resource. The [statuses of your resources](#byok-root-key-states) change accordingly; the resources become unusable for normal operations. Temporarily disabling a root key is good practice if you suspect possible security exposure, compromise, or breach of your data. You can enable a disabled root key when the security risk is no longer active.
 
-When you suspend a root key in your key management service, your workloads remain running in your virtual server instance and volumes remain encrypted. However, if you power down the VM and then power it back on, any instances with encrypted boot volumes will not start. You can cancel the deletion if your key is in a suspended state. Look at the list of resources for the status of the key.
+When you disable a root key, workloads remain running in virtual server instances and boot volume volumes remain encrypted. Data volumes remain attached. However, if you stop the virtual server instance and then restart it, it won't restart. You also can't provision a new resource using a disabled key. As best practice, verify which resources are being protected by that root key before disabling it.
+
+You can [enable a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#enable-ui) that's in a _suspended_ state, which returns the key to an _active_ state. You can also [delete a suspended key](#byok-delete-root-keys) or restore the deleted key if necessary.
+
+For more information about disabling root keys, see:
+
+* [Key Protect - Disabling root keys](/docs/key-protect?topic=key-protect-disable-keys)
+* [HPCS - Disabling root keys](/docs/hs-crypto?topic=hs-crypto-disable-keys)
 
 ### Deleting root keys
 {: #byok-delete-root-keys}
 
-When you delete a root key, the key is no longer available to decrypt passphrases used to encrypt your resources. Therefore, your encrypted resources become unavailable.
+When you delete a root key, the key is no longer available to decrypt passphrases used to protect your resources. Deleting a root key places it in a _destoyed_ state in the KMS. All resources protected by the deleted root key can't be used for normal operations. 
 
-Deleting a root key places it in a _destoyed_ key state. The root key can't be recovered. 
-
-The KMS blocks the deletion of any key that's actively protecting a resource. Before you delete a key, review the resources that are associated with the key.
-
-As best practice, make sure the volume data is no longer needed before deleting any root key. Consider [temporarily disabling the key](#byok-disable-root-keys) instead of deleting it to suspend access to the key's associated data.
+Your data still exists. You have a 30-day grace period to [restore the deleted key](#byok-restore-root-key). Otherwise, your encrypted resources become inaccessible. After the 30-day grace period, your root key can't be restored and your resources are unrecoverable.
 {:important}
 
-For more information about deleting root keys, see the [Key Protect](/docs/key-protect?topic=key-protect-delete-keys) or [HPCS](/docs/hs-crypto?topic=hs-crypto-delete-keys) documentation.
+By default, the KMS prevents you from deleting a root key that's actively protecting a resource. Key Protect and HPCS let you **force delete** a root key. To force delete in HPCS, use the API only. Also, see [this troubleshooting issue](/docs/hs-crypto?topic=hs-crypto-troubleshoot-unable-to-delete-keys) for deleting root keys in HPCS. HPCS requires that you delete all resources before you delete a root key protecting those resources.
+
+Use caution when force deleting a root key. Force deleting a root key purges use of the key for all resources in the VPC. 
+{:important}
+
+Before you force delete a root key:
+
+* If the deleted root key is protecting boot volumes, stop the associated virtual server instance. 
+* If the deleted root key is protecting data volumes, detach the volume and stop the associated virtual server instance.
+
+Block storage volumes and custom images with a deleted root key result in the following things happening:
+
+* All instances with an unusable boot volume will not restart.
+* You can't attach unusable data volumes to an instance.
+* You can't provision new instances from unusable images.
+* Billing continues for unusable resources until you delete them.
+
+As a best practice, before you force delete a root key, review all resources that are associated with that root key. Consider [temporarily disabling the key](#byok-disable-root-keys) instead of deleting it to suspend using that the root key. Root keys can be restored within 30 days, but they must be imported root keys, not KMS generated.
+{:important}
+
+For more information about deleting root keys, see:
+
+* [Key Protect - Deleting keys](/docs/key-protect?topic=key-protect-delete-keys)
+* [HPCS - Deleting keys](/docs/hs-crypto?topic=hs-crypto-delete-keys)
+
+To see a list of deleted root keys and optionally take action to restore imported root keys, see [Restoring deleted root keys](#byok-restore-root-key).
+
+### Restoring deleted root keys
+{: #byok-restore-root-key}
+
+Restoring a previously-deleted root key that you imported to the KMS returns the key to an _active_ state from a _destroyed_ state and re-establishes access the key. (Root keys that were KMS generated can't be restored.) You can restore access to all resources previously protected by the root key. You can resume regular actions, such as restarting an instance and attaching data volumes.
+
+To see a list of deleted root keys for a KMS instance, you can filter by key state. For example, to filter a list of deleted root keys in Key Protect by using the UI:
+
+1. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc){: external} **Resource List**, under **Services**, locate and click on the KMS instance.
+1. Click **Manage keys**. A list of root keys for this instance displays.
+1. Click the **Filter icon![Filter icon](/images/filter-icon.png)** to see more information.
+1. Under **Key states**, the default is _Show all_. Click the down arrow for more key states.
+1. Select **Destroyed**. 
+
+The list of root keys is refreshed, showing all root keys in a _destroyed_ key state, most recently deleted key at the top of the list. 
+
+To restore a root key:
+
+1. Click the **overflow menu** (![Filter icon](/images/overflow.png)).
+1. Select **Restore key**.
+
+To complete the key restoration process, you need the key ID that was associated with the key and original key material that you imported. 
+
+You also need to create new volume attachments for your data volumes. The volume attachment IDs will be different than before you deleted the root key.
+
+For more information about restoring root keys in a KMS instance, see:
+
+* [Key protect - Restoring keys](/docs/key-protect?topic=key-protect-restore-keys)
+* [HPCS - Restoring keys](/docs/hs-crypto?topic=hs-crypto-restore-keys)
 
 ### Making your data inaccessible after setting up customer-managed encryption
 {: #instance-byok-inaccessible-data}
