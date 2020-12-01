@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-18"
+lastupdated: "2020-12-01"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -57,6 +57,20 @@ To prepare for this transition, we recommend that you update your default securi
 * [API changes for VPC resources using customer-managed encryption](/docs/vpc?topic=vpc-byok-api-remediation-plan)
 * [User actions that impact root key states and resource status](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-root-key-states)
 
+## 20 November 2020
+{: 20-november-2020}
+
+### For all API version dates
+{: 20-november-2020-all-version-dates}
+
+**Datapath log forwarding with LogDNA** is now available for [IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancers#load-balancers). Data and health check logs are valuable for debugging, analysis, and maintenance purposes. With the datapath logging feature enabled, your load balancer forwards these logs to your account's [IBM Log Analysis with LogDNA](https://cloud.ibm.com/observe/logging){:external} dashboard. 
+
+View the `logging` property in the following API methods:
+
+* [List all load balancers](/apidocs/vpc#list-load-balancers) (`GET /load_balancers`)
+* [Retrieve a load balancer](/apidocs/vpc#get-load-balancer) (`GET /load_balancers/{id}`)
+
+For more information, see [Datapath log forwarding with LogDNA](/docs/vpc?topic=vpc-datapath-logging#datapath-logging).
 
 ## 19 November 2020
 {: 19-november-2020}
@@ -64,7 +78,7 @@ To prepare for this transition, we recommend that you update your default securi
 ### For all API version dates
 {: 19-november-2020-all-version-dates}
 
-**Support for ingress routing** is included as part of [routing tables](/apidocs/vpc#list-vpc-routing-tables), released on 30 October 2020. Use ingress routing to control the policy for packets coming in to your VPC or one of its zones. The policy can vary, depending on the type of source and the destination IP address range.
+**Support for ingress routing** is included as part of [routing tables](/apidocs/vpc#list-vpc-routing-tables), released on 30 October 2020. Use [ingress routing](/apidocs/vpc#create-vpc-routing-table) to control the policy for packets coming in to your VPC or one of its zones. The policy can vary, depending on the type of source and the destination IP address range.
 
 Routing tables for the VPC API are the same for both egress and ingress routing, with the following additional properties that you can specify for ingress routing:
 
