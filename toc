@@ -308,14 +308,23 @@ Virtual Private Cloud (VPC)
     {: .topicgroup}
     Troubleshooting
         troubleshooting.md
-        vpe-troubleshooting.md
+
+        {: topicgroup}
+        Troubleshooting VPE gateways
+            vpe-ts-cannot-create-reserved.md
+            vpe-ts-cannot-access-url.md
+            vpe-ts-cannot-find-reserved.md
+            vpe-ts-reserved-address.md
+            vpe-ts-cannot-create-multiple.md
+            vpe-ts-cannot-reach-target.md
+            vpe-ts-cannot-communicate.md
 
         {: topicgroup}
         Troubleshooting VPN gateways
             vpn-ts-unable-establish-connection.md
             vpn-ts-traffic-not-getting-through.md
-            vpn-ts-unstable-connection.md		
-				
+            vpn-ts-unstable-connection.md
+
         vsi_is_troubleshooting.md
         block_storage_is_troubleshoot.md
 
@@ -324,4 +333,3 @@ Virtual Private Cloud (VPC)
     known-issues.md
     getting-help.md
     {: .navgroup-end}
-    
