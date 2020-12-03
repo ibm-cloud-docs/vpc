@@ -34,7 +34,7 @@ You can view details about a specific endpoint gateway, or see a summary of endp
 Only services that support Virtual Private Endpoints for VPC show up in the list of endpoint gateway targets.
 {: note}
 
-## Using the UI
+## Viewing details of an endpoint gateway using the UI
 
 To view details of an endpoint gateway by using the {{site.data.keyword.dl_full}} console, follow these steps:
 
@@ -57,7 +57,7 @@ Descriptions of the fields in the endpoint gateway details are:
 | Service private endpoint | The fully qualified domain name for the target service. |
 | Virtual Private Cloud | The VPC where the endpoint gateway is located. Click on the name to view details of the VPC.|
 | CRN | The service instance's CRN value. |
-| Subnets | The bound reserved IP addresses's subnets to this endpoint gateway. |
+| Subnets | The bound reserved IP addresses' subnets to this endpoint gateway. |
 {: caption="Table 1. Details about your endpoint gateway" caption-side="top"}
 
 The Reserved IPs table shows all bound, reserved IPs to this endpoint gateway. Descriptions of the fields in the Reserved IPs table are:
@@ -72,7 +72,7 @@ The Reserved IPs table shows all bound, reserved IPs to this endpoint gateway. D
 | Actions | Click the overflow menu ![overflow menu](images/overflow.png) to display a menu of context-specific actions that you can take. There are 4 actions in the menu (Rename, Release, Unbind and Copy UUID for this reserved IP). |
 {: caption="Table 2. Details about your endpoint gateway bound reserved IPs" caption-side="top"}
 
-## Using the CLI
+## Viewing details of an endpoint gateway using the CLI
 {: #vpe-viewing-details-cli}
 
 To view details of an endpoint gateway by using the CLI, enter the following command:
@@ -86,7 +86,7 @@ Where:
 * **ENDPOINT_GATEWAY** is the ID of the endpoint gateway.
 * **--json** formats the output in JSON format.
 
-## Using the API
+## Viewing details of an endpoint gateway using the API
 {: #vpe-viewing-details-api}
 
 To view details of an endpoint gateway by using the API, follow these steps:
