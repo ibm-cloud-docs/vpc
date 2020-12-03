@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-11-19"
+lastupdated: "2020-12-03"
 
 keywords: custom routes
 
@@ -38,7 +38,7 @@ This service also allows the use of Network Functions Virtualization (NFV) for a
 
 When you create a routing table, you can select one of the following traffic types:
 
-* **Egress** routes control traffic, which originates within a private network and travels towards the public internet, or to another VM in same zone in different subnet.
+* **Egress** routes control traffic, which originates within a private network and travels towards the public internet, or to another VM in same or different zone.
 * **Ingress** routes enable you to customize routes on incoming traffic to a VPC from traffic sources external to the VPC's availability zone (IBM Cloud Direct Link 2.0, IBM Cloud Transit Gateway, or another availability zone in same VPC). You must choose at least one traffic source to enable ingress routing.
 
    Only one custom routing table can be associated with a particular ingress traffic source. However, you can use different routing tables for different traffic sources. For example, routing table A might use Transit Gateway and VPC Zone, and routing table B use Direct Link 2.0.
