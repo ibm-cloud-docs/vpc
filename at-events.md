@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2020-10-30"
+lastupdated: "2020-12-01"
 
 keywords: activity tracker, events, logdna
 
@@ -20,7 +20,6 @@ subcollection: vpc
 {:tip: .tip}
 {:note: .note}
 {:download: .download}
-
 
 # Activity Tracker with LogDNA events
 {: #at-events}
@@ -51,72 +50,7 @@ The following tables list the actions related to network resources and the gener
 | network-acl  | is.network-acl.rule.read | One or more network ACL rule was retrieved |
 {: caption="Table 1. Actions that generate events for Network ACL" caption-side="top"}
 
-### Floating IP events
-{: #events-network-floatingIP}
-
-| Resource  | Action  | Description  |
-|:----------------|:-----------------------|:-----------------------|
-| floating-ip  | is.floating-ip.floating-ip.create   | Floating IP was created  |
-| floating-ip  | is.floating-ip.floating-ip.update   | Floating IP was updated  |
-| floating-ip  | is.floating-ip.floating-ip.delete   | Floating IP was deleted  |
-| floating-ip  | is.floating-ip.floating-ip.read | One or more floating IP was retrieved |
-{: caption="Table 2. Actions that generate events for Floating IP" caption-side="top"}
-
-### Flow log events
-{: #events-flow-logs}
-
-The following table lists the actions that are related to flow logs and the generation of events.
-
-| Resource | Action | Description |
-|---|---|---|
-| flow-log-collector | is.flow-log-collector.flow-log-collector.create | Flow log collector was created |
-| flow-log-collector | is.flow-log-collector.flow-log-collector.delete | Flow log collector was deleted |
-| flow-log-collector | is.flow-log-collector.flow-log-collector.read | Flow log collector was read |
-| flow-log-collector | is.flow-log-collector.flow-log-collector.update | Flow log collector was updated |
-{: caption="Table 3. Actions that generate events for flow log collectors" caption-side="top"}
-
-### Load balancer events
-{: #events-load-balancers}
-
-The following table lists the actions related to load balancers and the generation of events.
-
-| Resource  | Action  | Description  |
-|:----------------|:-----------------------|:-----------------------|
-| Load balancer |  is.load-balancer.load-balancer.create | Load balancer was created |
-| Load balancer |  is.load-balancer.load-balancer.update | Load balancer was updated |
-| Load balancer |  is.load-balancer.load-balancer.delete | Load balancer was deleted |
-| Listener |  is.load-balancer.load-balancer.listener.create | Listener was created |
-| Listener |  is.load-balancer.load-balancer.listener.update | Listener was updated |
-| Listener |  is.load-balancer.load-balancer.listener.delete | Listener was deleted |
-| Pool |  is.load-balancer.load-balancer.pool.create | Pool was created |
-| Pool |  is.load-balancer.load-balancer.pool.update | Pool was updated |
-| Pool |  is.load-balancer.load-balancer.pool.delete | Pool was deleted |
-| Member |  is.load-balancer.load-balancer.pool.member.create | Member was created |
-| Member |  is.load-balancer.load-balancer.pool.member.update | Member was updated |
-| Member |  is.load-balancer.load-balancer.pool.member.delete | Member was deleted |
-| Policy |  is.load-balancer.load-balancer.listener.policy.create | Policy was created |
-| Policy |  is.load-balancer.load-balancer.listener.policy.update | Policy was updated |
-| Policy |  is.load-balancer.load-balancer.listener.policy.delete | Policy was deleted |
-| Rule |  is.load-balancer.load-balancer.listener.policy.rule.create | Rule was created |
-| Rule |  is.load-balancer.load-balancer.listener.policy.rule.update | Rule was updated |
-| Rule |  is.load-balancer.load-balancer.listener.policy.rule.delete | Rule was deleted |
-{: caption="Table 4. Actions that generate events for load balancers" caption-side="top"}
-
-Load balancer auditing events are recorded to {{site.data.keyword.at_full}} in the `us-south` region. The region in which you provision the load balancer service does not matter.
-{:note}
-
-### Public gateway events
-{: #events-network-public-gateway}
-
-| Resource  | Action  | Description  |
-|:----------------|:-----------------------|:-----------------------|
-| public-gateway | is.public-gateway.public-gateway.create   | Public Gateway was created   |
-| public-gateway | is.public-gateway.public-gateway.update   | Public Gateway was updated   |
-| public-gateway | is.public-gateway.public-gateway.delete   | Public Gateway was deleted   |
-| public-gateway | is.public-gateway.public-gateway.read | One or more public gateway was retrieved  |
-{: caption="Table 5. Actions that generate events for Public Gateway" caption-side="top"}
-
-### Routing table events
+### Custom route events
 {: #events-custom-routes}
 
 The following table lists the actions that are related to VPC routing tables and routes.
@@ -134,7 +68,71 @@ The following table lists the actions that are related to VPC routing tables and
 | subnet | is.subnet.routing-table.read | Subnets attached to a routing table were retrieved |
 | subnet | is.subnet.routing-table.attach | Routing table was attached to a subnet |
 
-{: caption="Table 6. Actions that generate events for VPC routing tables and routes" caption-side="top"}
+{: caption="Table 2. Actions that generate events for VPC routing tables and routes" caption-side="top"}
+
+### Floating IP events
+{: #events-network-floatingIP}
+
+| Resource  | Action  | Description  |
+|:----------------|:-----------------------|:-----------------------|
+| floating-ip  | is.floating-ip.floating-ip.create   | Floating IP was created  |
+| floating-ip  | is.floating-ip.floating-ip.update   | Floating IP was updated  |
+| floating-ip  | is.floating-ip.floating-ip.delete   | Floating IP was deleted  |
+| floating-ip  | is.floating-ip.floating-ip.read | One or more floating IP was retrieved |
+{: caption="Table 3. Actions that generate events for Floating IP" caption-side="top"}
+
+### Flow log events
+{: #events-flow-logs}
+
+The following table lists the actions that are related to flow logs and the generation of events.
+
+| Resource | Action | Description |
+|---|---|---|
+| flow-log-collector | is.flow-log-collector.flow-log-collector.create | Flow log collector was created |
+| flow-log-collector | is.flow-log-collector.flow-log-collector.delete | Flow log collector was deleted |
+| flow-log-collector | is.flow-log-collector.flow-log-collector.read | Flow log collector was read |
+| flow-log-collector | is.flow-log-collector.flow-log-collector.update | Flow log collector was updated |
+{: caption="Table 4. Actions that generate events for flow log collectors" caption-side="top"}
+
+### Load balancer events
+{: #events-load-balancers}
+
+The following table lists the actions related to load balancers and the generation of events.
+
+| Resource  | Action  | Description  |
+|:----------------|:-----------------------|:-----------------------|
+| Load balancer |  is.load-balancer.load-balancer.create | Load balancer was created |
+| Load balancer |  is.load-balancer.load-balancer.update | Load balancer was updated |
+| Load balancer |  is.load-balancer.load-balancer.delete | Load balancer was deleted |
+| Listener |  is.load-balancer.load-balancer-listener.create | Listener was created |
+| Listener |  is.load-balancer.load-balancer-listener.update | Listener was updated |
+| Listener |  is.load-balancer.load-balancer-listener.delete | Listener was deleted |
+| Pool |  is.load-balancer.load-balancer-pool.create | Pool was created |
+| Pool |  is.load-balancer.load-balancer-pool.update | Pool was updated |
+| Pool |  is.load-balancer.load-balancer-pool.delete | Pool was deleted |
+| Member |  is.load-balancer.load-balancer-pool-member.create | Member was created |
+| Member |  is.load-balancer.load-balancer-pool-member.update | Member was updated |
+| Member |  is.load-balancer.load-balancer-pool-member.delete | Member was deleted |
+| Policy |  is.load-balancer.load-balancer-listener-policy.create | Policy was created |
+| Policy |  is.load-balancer.load-balancer-listener-policy.update | Policy was updated |
+| Policy |  is.load-balancer.load-balancer-listener-policy.delete | Policy was deleted |
+| Rule |  is.load-balancer.load-balancer-listener-policy-rule.create | Rule was created |
+| Rule |  is.load-balancer.load-balancer-listener-policy-rule.update | Rule was updated |
+| Rule |  is.load-balancer.load-balancer-listener-policy-rule.delete | Rule was deleted |
+{: caption="Table 5. Actions that generate events for load balancers" caption-side="top"}
+
+
+
+### Public gateway events
+{: #events-network-public-gateway}
+
+| Resource  | Action  | Description  |
+|:----------------|:-----------------------|:-----------------------|
+| public-gateway | is.public-gateway.public-gateway.create   | Public Gateway was created   |
+| public-gateway | is.public-gateway.public-gateway.update   | Public Gateway was updated   |
+| public-gateway | is.public-gateway.public-gateway.delete   | Public Gateway was deleted   |
+| public-gateway | is.public-gateway.public-gateway.read | One or more public gateway was retrieved  |
+{: caption="Table 6. Actions that generate events for Public Gateway" caption-side="top"}
 
 ### Security group events
 {: #events-network-security-group}
@@ -169,17 +167,17 @@ The following table lists the actions that are related to VPC routing tables and
 | subnet   | is.subnet.public-gateway.read | A subnet public-gateway attachment was retrieved |
 {: caption="Table 8. Actions that generate events for Subnet" caption-side="top"}
 
-### Virtual private endpoint gateway events
+### Virtual private endpoints events
 {: #events-vpe}
 
-The following table lists the actions that are related to virtual private endpoint gateways and the generation of events.
+The following table lists the actions that are related to virtual private endpoints and the generation of events.
 
 | Resource | Action | Description |
 |---|---|---|
 | endpoint-gateway | is.endpoint-gateway.endpoint-gateway.create | Endpoint gateway was created |
 | endpoint-gateway | is.endpoint-gateway.endpoint-gateway.delete | Endpoint gateway was deleted |
 | endpoint-gateway | is.endpoint-gateway.endpoint-gateway.update | Endpoint gateway was updated |
-{: caption="Table 9. Actions that generate events for virtual private endpoint gateways" caption-side="top"}
+{: caption="Table 9. Actions that generate events for virtual private endpoints" caption-side="top"}
 
 ### VPC events
 {: #events-network-vpc}
@@ -253,7 +251,10 @@ The following tables list the actions related to compute resources and the gener
 | instance   | is.instance.action.create   | Instance action was created  |
 | instance   | is.instance.action.delete   | Pending instance action was deleted  |
 | instance   | is.instance.instance.start  | Instance was started     |
-| instance   | is.instance.instance.stop   | Instance was stopped      |
+| instance   | is.instance.instance.stop   | Instance was stopped     |
+| instance   | is.instance.console-access-token.create   | A console access token was created   |
+| instance   | is.instance.console.read   | Connection to the console was retrieved   |
+| instance   | is.instance.instance.volume-stop | Instance was stopped because a volume was suspended when its encryption key was deleted  |
 | instance   | is.instance.network-interface_floating-ip.attach  | Floating IP was associated to instance network interface  |
 | instance   | is.instance.network-interface_floating-ip.detach  | Floating IP was disassociated from instance network interface |
 | instance   | is.instance.volume-attachment.create   | Instance volume attachment was created  |
@@ -370,7 +371,7 @@ An event will not contain a volume name if there was no information available at
 
 Events that are generated by VPC resources are automatically forwarded to the {{site.data.keyword.at_full_notm}} service instance that is available in the same location.
 
-{{site.data.keyword.at_full_notm}} can have only one instance per location. To view events, you must access the web UI of the {{site.data.keyword.at_full_notm}} service in the same location where your service instance is available. For more information, see [Launching the web UI through the IBM Cloud UI](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-launch#launch_cloud_ui).
+{{site.data.keyword.at_full_notm}} can have only one instance per location. To view events, you must access the web UI of the {{site.data.keyword.at_full_notm}} service in the same location where your service instance is available. For more information, see [Launching the web UI through the IBM Cloud UI](https://test.cloud.ibm.com/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-launch#launch_cloud_ui).
 
 ## Analyzing events
 {: #at_events_iam_analyze}
@@ -384,3 +385,13 @@ Refer to the following information when analyzing events:
 - The `target` field contains information about the top-level resources, e.g., VPC, subnets, and instances (virtual machine), etc. For sub-resources, such as volume-attachments, security-group rules, etc., their unique identifier can be found from the `responseData.responseURI` field. The mapping to the parent resources is reflected by the URI.
 
 - For events that are related to volume-attachments, the id of the volume that was attached can be found indirectly by getting the id of the volume-attachment from the `target.responseURI` field (which also contains the instance id), and using that to query the corresponding `GET /instance/{instance_id}/volume-attachment/{volume-attachment-id}` API. The volume id can be found from the response of the GET API call.
+
+- For events that are related to Load Balancer requests, consider the following information:
+
+    You can get additional data in the `requestData.requestPath` field. You can find details about a sub-resource such as a listener ID or rule ID.
+    
+    When you create resources, you can get IDs from the `responseData.responseContent` field.
+    
+    For update actions, the original value is not included. You can do a read action to get the value before you run an update on the resource.
+    
+
