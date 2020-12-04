@@ -47,10 +47,7 @@ To configure a network load balancer, make sure that you have met the following 
 
 * If you don't have a VPC, create a VPC in the region that you want to create your NLB.
 * Create a subnet in your preferred zone in your VPC.
-* Create instances in the same zone as your network load balancer. Instances can be attached to your load balancer later.
-* Configure an ACL to allow your network load balancer to function.
-
-  For more information, see [Configuring ACLs and security groups for use with network load balancers](/docs/vpc?topic=vpc-nlb-configuring-acls).
+* Create instances in the same zone as your network load balancer. Instances can be attached to your load balancer later. 
 
 After you've completed all prerequisites, you can create your NLB. For more information, see [Creating a network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer).
 

@@ -105,9 +105,3 @@ The health check response timeout value must be less than the health check inter
 {: faq}
 
 Yes. The NLB IP address is fixed.
-
-## Why is my NLB traffic flow not working?
-{: #why-is-my-nlb-or-traffic-flow-not-working?}
-{: faq}
-
-If the subnet your NLB is using has ACLs configured, check [Configuring ACLs and security groups for use with network load balancers](/docs/vpc?topic=vpc-nlb-configuring-acls) for more information and possible solutions.

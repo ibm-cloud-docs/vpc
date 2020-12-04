@@ -83,10 +83,6 @@ The application load balancer is in `maintenance_pending` state during various m
 * Horizontal scaling activities
 * Recovery activities
 * Rolling upgrades to address vulnerabilities and apply security patches
-* ACLs blocking management traffic to the load balancer
-
-  This puts your load balancer in a `maintenance_pending` state. Ensure that the ACLs on your load balancer subnets are configured properly. Refer to [Configuring ACLs for use with application load balancers](/docs/vpc?topic=vpc-configuring-acls-for-use-with-load-balancers).  
-  {: note}
 
 ## Why do I need to choose multiple subnets during provisioning?
 {: #subnets-during-provisioning}
