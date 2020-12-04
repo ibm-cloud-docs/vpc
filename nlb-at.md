@@ -118,4 +118,4 @@ bash
 ## Configuring ACLs for use with load balancers
 {: #acls-nlb}
 
-If you use access control lists (ACLs) to block traffic on the subnets in which the load balancer is deployed, make sure that ACL rules are in place to allow incoming traffic for the configured listener ports and management ports (ports 56500 - 56520). You must also allow traffic between the load balancer and back-end instances.
+If you use access control lists (ACLs) to block traffic on the subnets in which the load balancer is deployed, make sure that ACL rules are in place to allow incoming traffic for the configured listener ports and traffic between the load balancer and back-end instances.

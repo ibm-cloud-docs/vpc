@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-08-31"
+lastupdated: "2020-10-17"
 
-keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, layer-7
+keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, layer-7, datapath logging
 
 subcollection: vpc
 
@@ -42,7 +42,7 @@ You can create a public or private ALB. Table 1 shows a comparison of public ver
 | Feature | Public load balancer | Private load balancer |
 |--------|-------|-------|
 | Accessible on internet? |  Yes, with a fully qualified domain name (FQDN) | No, internal clients only, on same region and VPC |
-| Accepts all traffic? | Yes | No, RFC 1918 traffic only |
+| Accepts all traffic? | Yes | Yes |
 | How is domain name registered? | Public IP addresses | Private IP addresses |
 {: caption="Table 1. Comparison of public and private load balancers" caption-side="top"}
 
@@ -59,7 +59,7 @@ Use the assigned FQDN to send traffic to the public application load balancer to
 ### Private application load balancer
 {: #private-load-balancer}
 
-A private application load balancer is accessible only to internal clients on your private subnets, within the same region and VPC. The private load balancer accepts traffic only from [RFC1918](https://tools.ietf.org/html/rfc1918){: external} address spaces.
+A private application load balancer is accessible through your private subnets that you configured to create the load balancer.
 
 Similar to a public application load balancer, your private application load balancer service instance is assigned an FQDN. However, this domain name is registered with one or more private IP addresses.
 
@@ -102,7 +102,6 @@ Supported front-end listener and back-end pool protocols are HTTP, HTTPS, and TC
 
 You can attach up to 50 virtual server instances to a back-end pool. Traffic is sent to each instance on its specified data port. This data port doesn't need to be the same as the front-end listener port.
 
-Ports `56500 - 56520` can't be used as front-end listener ports because they are reserved for management purposes.
 {: important}
 
 ## Elasticity
@@ -167,6 +166,11 @@ IBM Db2-on-Cloud Service serves as the database for the application load balance
 {: #lbaas-integration-with-instance-groups-overview}
 
 {{site.data.keyword.cloud_notm}} Application Load Balancer for VPC integrates with instance groups, which can `auto scale` your back-end members. Pool members are dynamically added and deleted based on your usage and requirements.
+
+## Datapath log forwarding with LogDNA
+{: #datapath-logging}
+
+With datapath logging enabled, load balancer logs are forwarded to the [IBM Log Analysis with LogDNA](https://cloud.ibm.com/catalog/services/ibm-log-analysis-with-logdna){:external} service, where you can view your datapath logs.
 
 ## Related links
 {: #permissions-related-links-alb}

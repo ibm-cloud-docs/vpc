@@ -55,9 +55,7 @@ Yes. The {{site.data.keyword.alb_full}} automatically adjusts its capacity based
 ## What should I do if I'm using ACLs on the subnets that are used to deploy the application load balancer?
 {: #using-acls-on-subnets}
 
-Make sure that the proper ACL rules are in place to allow incoming traffic for configured listener ports and management ports. Traffic between the application load balancer and back-end instances should also be allowed.
-
-For detailed information on the ACLs configuration required, see [Configuring ACLs for use with application load balancers](/docs/vpc?topic=vpc-configuring-acls-for-use-with-load-balancers).
+Make sure that the proper ACL rules are in place to allow incoming traffic for configured listener ports. Traffic between the application load balancer and back-end instances should also be allowed.
 
 ## Why am I receiving an error message: `certificate instance not found`?
 {: #error-certificate-instance}

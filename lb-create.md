@@ -80,7 +80,7 @@ To create an ALB:
 
 1. Click **New listener** and specify the following information to create a listener. You can create one or more listeners.
    * **Protocol**: The protocol to use for receiving incoming requests.
-   * **Port**: The listening port on which requests are received. The port range of 56500 to 56520 is reserved for management purposes and can't be used.
+   * **Port**: The listening port on which requests are received.
    * **Back-end pool**: The default back-end pool to which this listener forwards traffic.
    * **Max connections** (optional): Maximum number of concurrent connections the listener allows.
    * **SSL certificate**: If HTTPS is the selected protocol for this listener, you must select an SSL certificate. Make sure that the load balancer is authorized to access the SSL certificate. For more information, see [Before you begin](#before).

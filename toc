@@ -133,7 +133,6 @@ Virtual Private Cloud (VPC)
             lb-create.md
             lb-update.md
             lb-delete.md
-            lb-configure-acls.md
             lb-health-checks.md
             lb-adv-traffic-mgmt.md
             lb-layer-7-policies-rules.md

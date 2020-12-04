@@ -111,9 +111,6 @@ You can define up to ten front-end listeners (application ports) and map them to
 
 You can attach up to 50 virtual server instances to a back-end pool. Traffic is sent to each instance on its specified data port. This data port does not need to be the same as the front-end listener port.
 
-Ports `56500 - 56520` cannot be used as front-end listener ports. These are reserved for load balancer management purposes.
-{: important}
-
 ## VPC representation of a network load balancer
 {: #vpc-nlb-representation}
 
