@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-20"
+lastupdated: "2020-12-03"
 
 keywords: release notes, changes, updates
 
@@ -25,6 +25,12 @@ subcollection: vpc
 
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
+
+## 1 December 2020
+{: #december-1-2020}
+
+**New SDK:** The [Node SDK](https://{DomainName}/apidocs/vpc?code=node) is now generally available.
+
 
 ## 20 November 2020
 {: #november-20-2020}
