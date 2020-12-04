@@ -213,6 +213,8 @@ Virtual Private Cloud (VPC)
         vpn-limitations.md
         vpn-api-example.md
 
+    dns-svcs-about.md
+
     {: .topicgroup}
     Setting IP ranges
         how-to-choose-ipv4.md
