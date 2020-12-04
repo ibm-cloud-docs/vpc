@@ -147,7 +147,6 @@ Virtual Private Cloud (VPC)
             nlb-create.md
             nlb-update.md
             nlb-delete.md
-            nlb-configure-acls-sgs.md
             nlb-health-checks.md
             nlb-listeners.md
             nlb-pools.md
