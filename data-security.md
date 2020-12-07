@@ -83,7 +83,7 @@ Encryption of the link between a customer's workload that's outside of {{site.da
 ### Deleting root keys
 {: #delete-root-keys}
 
-For information about deleting block storage volumes, see [Deleting root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys).
+For information about deleting root keys, see [Deleting root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys).
 
 ### Deleting a block storage volume
 {: #data-delete-volume}
