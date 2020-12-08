@@ -183,7 +183,7 @@ Virtual Private Cloud (VPC)
         vpe-delete.md
         vpe-iam.md
         vpe-limitations.md
-        vpe-supported-services.md]
+        vpe-supported-services.md
 
     {: .topicgroup}
     VPN gateways
