@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2019-11-06"
+lastupdated: "2019-12-08"
 
 subcollection: vpc
 
@@ -56,3 +56,93 @@ If your instance is not responding to an `instance-reboot` request, you can try 
 {: #troubleshooting-cant-add-ssh-key}
 
 If you try to add an SSH key to your account and get an error that the key can't be parsed, ensure there are no line breaks in the string. An SSH key is a continuous string of characters; sometimes line breaks are introduced when the SSH key is copied from a terminal. To avoid this issue, first paste your SSH key into a text editor and remove any line breaks. Then, copy the SSH key from the text editor and paste it into the VPC UI, CLI, or API.
+
+## How do I reregister a RHEL VSI? 
+{: #troubleshooting-reregister-RHEL-VSI}
+
+If you see this error message: 
+```
+This system is not registered with an entitlement server.
+```
+{:pre}
+
+Your REHL VSI has been unregistered from the capsule server. To resolve this issue, run the reregister-ng-rhel-vsi.sh script to reregister the vsi. 
+
+```
+#!/bin/bash
+##
+## =============================================================================
+## IBM Confidential
+## © Copyright IBM Corp. 2020
+##
+## The source code for this program is not published or otherwise divested of
+## its trade secrets, irrespective of what has been deposited with the
+## U.S. Copyright Office.
+## =============================================================================
+##
+#
+# Description: Reregister an RHEL VSI to its respective capsule server
+#
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+argumentsFound=false
+file="/var/lib/cloud/instance/scripts/vendor/part-003"
+
+if [ -f  "$file" ]; then
+    capsule="$(grep "REDHAT_CAPSULE_SERVER=" $file | cut -d\" -f2)"
+    organization="$(grep "OS_REDHAT_ORG_NAME=" $file | cut -d\" -f2)"
+    activationKey="$(grep "ACTIVATION_KEYS=" $file | cut -d\" -f2)"
+    profileName="$(grep "PROFILENAME=" $file | cut -d\" -f2)"
+    if [ ! -z "$capsule" ] && [ ! -z "$organization" ] && [ ! -z "activationKey" ] && [ ! -z "profileName" ]; then
+        argumentsFound=true
+    fi
+fi
+
+if [ "$argumentsFound" = false ]; then
+    if [ -z "$4" ]; then
+        echo Please provide capsule hostname, organization, activation key and profile name
+        exit
+    fi
+
+    capsule="$(echo $1 | cut -d. -f1).adn.networklayer.com"
+    organization=$2
+    activationKey=$3
+    profileName=$4
+fi
+echo "Cleaning metadata..."
+yum clean all
+
+echo "Unregistering system..."
+subscription-manager unregister
+subscription-manager clean
+
+echo "Removing any existing katello-ca RPMs..."
+rpm -qa | grep katello-ca | xargs rpm -e
+
+echo "Installing consumer RPM..."
+rpm -Uvh http://${capsule}/pub/katello-ca-consumer-latest.noarch.rpm
+
+subscription-manager config --server.hostname=${capsule}
+subscription-manager config --rhsm.baseurl=https://${capsule}/pulp/repos
+
+if [ -f /etc/rhsm/facts/katello.facts ]; then
+    mv /etc/rhsm/facts/katello.facts /etc/rhsm/facts/katello.facts.bak.$(date +%s)
+fi
+echo '{"network.hostname-override":"'${profileName}'"}' > /etc/rhsm/facts/katello.facts
+
+echo "Registering system..."
+subscription-manager register --org="${organization}" --activationkey="${activationKey}" --force
+```
+{:screen}
+
+
+To run the script:
+1. chmod +x reregister-ng-rhel-vsi.sh 
+2. ./reregister-ng-rhel-vsi.sh
+
+If the script fails, provide the following parameters: 
+*	capsule hostname
+*	organization
+*	activation key 
+*	profile name
