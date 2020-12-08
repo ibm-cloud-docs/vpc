@@ -44,7 +44,7 @@ The features of VPE for VPC include:
 * Access to new endpoints is achieved through the UI, CLI, and API.
 * You can map a new endpoint to an existing service, as well as map to a shared endpoint.
 
-Currently, Network Time Protocol (NTP) is the only service supported.  
+For supported {{site.data.keyword.cloud_notm}} services, see [VPE supported services](/docs/vpc?topic=vpc-vpe-supported-services).
 {: note}
 
 ## VPE connectivity patterns
