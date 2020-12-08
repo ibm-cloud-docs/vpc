@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-07"
+lastupdated: "2020-12-08"
 
 keywords: data encryption, data storage, bring your own keys, BYOK, key management, key encryption, personal data, data deletion, data security
 
@@ -33,7 +33,7 @@ The KMS stores your key and makes it available during volume and custom image en
 
 Customer-managed encryption is available for custom images, boot volumes, and data volumes. When an instance is provisioned from an encrypted custom image, its boot volume is encrypted by using the image’s root key. You can also choose a different root key. Data volumes are encrypted by using root keys when you provision a virtual server instance or when you create a stand-alone volume.
 
-Images and volumes are often referred to as being encrypted with a root key when, in fact, [envelope encryption](#x9860393){: term} is used. Internally, each image or volume is encrypted with a [data encryption key (DEK)](#x4791827){: term}, which is an open source QEMU technology that is used by the {{site.data.keyword.vpc_short}} Generation 2 infrastructure. A LUKS passphrase, also called a _key encryption key_, encrypts the DEK. The LUKS passphrase is then encrypted with a root key, creating what is called a wrapped DEK (WDEK). For more information about {{site.data.keyword.vpc_short}} key encryption technology, see [IBM's encryption technology - How your data is secured](/docs/vpc?topic=vpc-vpc-encryption-about#byok-technologies).
+Images and volumes are often referred to as being encrypted with a root key when, in fact, [envelope encryption](#x9860393){: term} is used. Internally, each image or volume is encrypted with a [data encryption key (DEK)](#x4791827){: term}, which is an open source QEMU technology that is used by the {{site.data.keyword.vpc_short}} Generation 2 infrastructure. A LUKS passphrase, also called a _key encryption key_, encrypts the DEK. The LUKS passphrase is then encrypted with a root key, creating what is called a wrapped DEK (WDEK). For more information about {{site.data.keyword.vpc_short}} key encryption technology, see [IBM Cloud VPC Generation 2 encryption technology](/docs/vpc?topic=vpc-vpc-encryption-about#byok-technologies).
 
 For example, if you provision two volumes by using the same root key, unique passphrases are generated for each volume, which are then encrypted with the root key. Envelope encryption provides more protection for your data, and ensures that the root key can be rotated without having to reencrypt the data. For more information about envelope encryption, see the following section.
 
@@ -42,7 +42,7 @@ For example, if you provision two volumes by using the same root key, unique pas
 
 {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} provide a higher level of protection called envelope encryption.
 
-Envelope encryption encrypts one encryption key with another encryption key. A DEK encrypts your actual data. The DEK is never stored. Rather, it's encrypted by a key encryption key. The LUKS passphrase is then encrypted by a root key, which creates a WDEK. To decrypt data, the WDEK is unwrapped so you can access the data that's stored on the volume. This process is possible only by accessing the root key that is stored in your KMS instance. Root keys in HPCS service instances are also protected by a [hardware security module (HSM)](#x6704988){: term} master key.
+[Envelope encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-envelope-ecryption-byok) encrypts one encryption key with another encryption key. A DEK encrypts your actual data. The DEK is never stored. Rather, it's encrypted by a key encryption key. The LUKS passphrase is then encrypted by a root key, which creates a WDEK. To decrypt data, the WDEK is unwrapped so you can access the data that's stored on the volume. This process is possible only by accessing the root key that is stored in your KMS instance. Root keys in HPCS service instances are also protected by a [hardware security module (HSM)](#x6704988){: term} master key.
 
 You control access to your root keys stored in KMS instances within {{site.data.keyword.cloud}} by using {{site.data.keyword.iamlong}} (IAM). You grant access to a service to use your keys. You can also revoke access at any time, for example, if you suspect your keys might be compromised, or [delete your root keys](#delete-root-keys).
 
