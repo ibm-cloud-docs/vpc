@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-11-22"
+lastupdated: "2020-12-09"
 
 keywords: security and compliance, security, compliance
 
@@ -38,8 +38,15 @@ All of the goals for {{site.data.keyword.vpc_short}} are added to the {{site.dat
 
 To start monitoring your resources, check out [Getting started with {{site.data.keyword.compliance_short}}](/docs/security-compliance?topic-security-compliance-getting-started).
 
-<!--
 ### Available goals for VPC
 {: #vpc-available-goals}
-* 
--->
+
+* Ensure no VPC security groups allow incoming traffic from IP 0.0.0.0/0 to SSH port 22
+* Ensure no VPC security groups allow incoming traffic from 0.0.0.0/0 to RDP ports 3389, 3390
+* Ensure the default security group of every VPC restricts all traffic
+* Ensure TLS 1.2 for all inbound traffic via load balancer for VPC
+* Ensure logging for VPC flow logs is enabled in all VPCs
+* Ensure no VPC security groups have inbound ports open to the internet (0.0.0.0/0)
+* Ensure no VPC security groups have outbound ports open to the internet (0.0.0.0/0)
+* Ensure a VSI has at least one VPC security group attached
+* Ensure all network interfaces of a VSI have at least one VPC security group attached 
