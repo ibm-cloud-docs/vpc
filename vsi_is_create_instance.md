@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020 
-lastupdated: "2020-10-28"
+lastupdated: "2020-12-09"
 
 keywords: instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, vpc, creating, UI, console, generation 2, gen 2
 
@@ -23,36 +23,35 @@ subcollection: vpc
 # Creating virtual server instances by using the UI
 {: #creating-virtual-servers}
 
-You can create one or more instances in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console.
+You can create one or more virtual server instances in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console.
 {:shortdesc}
 
-Before you can create an instance, you need to [create an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
-{:important}
-
-To create an instance:
+To create a virtual server instance:
 1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**. 
 
-Be sure to select VPC infrastructure from the Menu icon.   
-{: tip}
+   Be sure to select VPC infrastructure from the Menu icon.   
+   {: tip}
 
-2. Click **Create** and enter the information in Table 1. 
+2. Click **Create** and enter the information in Table 1.
 3. Click **Create virtual server instance** when you are ready to provision.
 
 | Field | Value |
 |-------|-------|
 | Name  | A name is required for your virtual server instance. |
-| Virtual private cloud | Specify the IBM Cloud VPC where you want to create your instance. |
 | Resource group | Select a resource group for the instance. |
+| Tags | You can assign a label to this resource so that you can easily filter resources in your resource list. |
 | Location | Locations are composed of regions (specific geographic areas) and zones (fault tolerant data centers within a region). Select the location where you want your virtual server instance to be created. |
-| Image | All images use cloud-init, which allows you to enter user metadata associated with the instance for post provisioning scripts. For more information about available stock images, and custom image requirements, see [Images](/docs/vpc?topic=vpc-about-images).|
+| Type of virtual server | A **Public** virtual server instance, created in a multi-tenant environment, is the default selection for a new instance. You can also select a **Dedicated** virtual server instance to create the instance in a single-tenant space. To provision a dedicated instance, you must have a dedicated host available or create one. |
+| Operating system | All operating system images use cloud-init, which allows you to enter user metadata associated with the instance for post provisioning scripts. For more information about available stock images, and custom image requirements, see [Images](/docs/vpc?topic=vpc-about-images).  |
 | Profile |  Select from popular profiles or all available vCPU and RAM combinations. The profile families are Balanced, Compute, and Memory. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles). |
 | SSH Key | You must select an existing SSH key or upload a new SSH key to use before you can create the instance. SSH keys are used to securely connect to the instance after it's running. |
 | | **Note:** Alpha-numeric combinations are limited to 100 characters. |
 | | For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | User data | You can add user data that automatically performs common configuration tasks or runs scripts. For more information, see [User data](/docs/vpc?topic=vpc-user-data). |
 | Boot volume | The default boot volume size for all profiles is 100 GB. |
-| Attached block storage volume | You can add one or more secondary data volumes to be included when you provision the instance. To add volumes, click **New block storage volume** |
-| Network interfaces | Assign networking options to connect into the IBM Cloud VPC. You can create and assign up to five network interfaces to each instance. |
+| Data volumes | You can add one or more secondary data volumes to be included when you provision the instance. To add volumes, click **Create** in the Data volumes section of the page. For information about provisioning the volume, see [Create and attach a block storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi). |
+| Virtual private cloud | Specify the IBM Cloud VPC where you want to create your instance. You can use the default VPC, another existing VPC, or you can create a new VPC. To create a new VPC, click **New VPC**. |
+| Network interfaces | By default the virtual server instance is created with a single primary network interface. You can click the pencil icon to edit the details of the network interface, for example, the subnet or security group that's associated with the interface. To include additional secondary network interfaces, click **New interface**. You can create and assign up to five network interfaces to each instance. For more information, see [About network interfaces](/docs/vpc?topic=vpc-using-instance-vnics#about-network-interfaces). |
 {: caption="Table 1. Instance provisioning selections" caption-side="top"}
 
 Do you prefer to create an instance by using the CLI? For more information, see [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli).
