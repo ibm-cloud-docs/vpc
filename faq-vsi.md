@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-01"
+lastupdated: "2020-12-09"
 
 subcollection: vpc
 
@@ -47,11 +47,12 @@ No, a virtual server instance must be provisioned in a subnet.
 
 No, a virtual server instance can be provisioned in only one VPC.
 
-## During floating IP assignment in a VPC, a customer must specify the vNIC of the instance, is that correct?
+
+## During floating IP assignment in a VPC, a customer must specify the network interface of the instance, is that correct?
 {: #faq-vsi-4}
 {: faq}
 
-Yes, and in fact, it must be the primary network interface of a server.
+Yes. Initially, assigning the floating IP to the primary network interface of a server helps establish the data path. Later, you can associate the floating IP to a different network interface if you desire. Alternatively, you can manually configure routing for the interface in the guest operating system. For more information, see [Adding or editing network interfaces](/docs/vpc?topic=vpc-using-instance-vnics#editing-network-interfaces). 
 
 ## Imagine that instance1 in a VPC has only vNIC1 and it is attached to Subnet1. Subnet1 is attached to a Public Gateway (PGW). Can a customer still assign a floating IP to instance1?
 {: #faq-vsi-6}
