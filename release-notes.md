@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-12-03"
+lastupdated: "2020-12-11"
 
 keywords: release notes, changes, updates
 
@@ -25,6 +25,11 @@ subcollection: vpc
 
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
+
+## 11 December 2020
+{: #dec-11-2020}
+
+**VPN logging and auditing:** The ability to monitor and audit your VPNs has been added to VPN for VPC. For more information, see [Using LogDNA to view VPN logs](/docs/vpc?topic=vpc-using-logdna-to-view-vpn-logs). 
 
 ## 1 December 2020
 {: #december-1-2020}
