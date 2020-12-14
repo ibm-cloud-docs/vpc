@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-09-09"
+lastupdated: "2020-12-14"
 
 keywords: vpc, limitations, restrictions
 
@@ -72,7 +72,6 @@ An {{site.data.keyword.vpc_short}} cannot be peered with other VPCs natively. It
 * Start/Stop actions are not registered under virtual server instance activity in the UI.
 * Activity Tracker logs (request logs and resource lifecycle event logs) are not available.
 * Updating the profile of a created instance is not supported.
-* Live migration is not supported.
 
 * We have temporarily suspended API support for creating new instances from an existing boot volume. For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-log).
 
