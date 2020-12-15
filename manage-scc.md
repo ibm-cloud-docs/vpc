@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-09"
+lastupdated: "2020-12-15"
 
 keywords: security and compliance, security, compliance
 
@@ -49,4 +49,6 @@ To start monitoring your resources, check out [Getting started with {{site.data.
 * Ensure no VPC security groups have inbound ports open to the internet (0.0.0.0/0)
 * Ensure no VPC security groups have outbound ports open to the internet (0.0.0.0/0)
 * Ensure a VSI has at least one VPC security group attached
-* Ensure all network interfaces of a VSI have at least one VPC security group attached 
+* Ensure all network interfaces of a VSI have at least one VPC security group attached
+* Ensure no public VPC application or network load balancers can be created
+* Ensure HTTPS protocol is configured for VPC application load balancer pools associated with HTTPS listeners
