@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-03"
+lastupdated: "2020-11-09"
 
-keywords: block storage, IBM Cloud, VPC, virtual private cloud, IBM CLoud, volume, data storage, volume capacity, classic, virtual server
+keywords: block storage, volume, data storage, volume capacity, classic, virtual server
 
 subcollection: vpc
 
@@ -20,12 +20,11 @@ subcollection: vpc
 {:table: .aria-labeledby="caption"}
 {:important: .important}
 {:note: .note}
-{:beta: .beta}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 {:external: target="_blank" .external}
 
-# {{site.data.keyword.block_storage_is_short}} capacity and performance
+# Block storage capacity and performance
 {: #capacity-performance}
 
 Choosing the optimal block storage volume size and performance level for your workloads is important. When you provision {{site.data.keyword.block_storage_is_short}}, you can specify the size of your volume and performance level you require.
@@ -48,7 +47,7 @@ When you provision {{site.data.keyword.block_storage_is_short}} volumes, you spe
 ## How block size affects performance
 {: #how-block-size-affects-performance}
 
-IOPS is based on a 16 KB block size with a 50-50 read/write 50% random workload. Each 16 KB of data read/written counts as one read/write operation; a single write of less than 16 KB counts as a single write operation.
+IOPS is based on a 16 KB block size with a 50-50 read/write random workload. Each 16 KB of data read/written counts as one read/write operation; a single write of less than 16 KB counts as a single write operation.
 
 Baseline throughput is determined by the amount of IOPS multiplied by the 16 KB block size. The higher the IOPS you specify, the higher the throughput. Maximum throughput for a block storage volume is 750 MB/s.
 
@@ -69,3 +68,20 @@ Maximum IOPS can still be obtained when you use smaller block sizes, but through
 * 16 KB * 6000 IOPS == ~93.75 MB/sec
 * 8 KB * 6000 IOPS == ~46.88 MB/sec
 * 4 KB * 6000 IOPS == ~23.44 MB/sec
+
+## Storage-compute performance metrics 
+{: #storage-performance-metrics}
+
+Network policies that control your block storage server and virtual server instance traffic are critical to ensuring optimal performance and avoiding bottlenecks. IBM Cloud VPC uses rate limiting at the hypervisor level to establish optimal bandwidth between the hypervisor and storage. You can expect IOPS, latency, and bandwidth performance within a predefined range that guarantees performance.
+
+Table 2 describes baseline metrics you can expect for read and write operations between your compute instances and block storage volume. These are averages; your performance might be slightly higher or lower. Wide swings from this mean might indicate issues with your environment. The table shows random reads and writes at different block sizes. For related information on how block size affects performance for typical 16 K block volumes, see [How block size affects performance](#how-block-size-affects-performance).
+
+| Block Size | IOPS | Latency | Bandwidth |
+|------------|------|---------|-----------|
+| Random read 4K | 2.5K | <.5 ms | 10 MBs |
+| Random write 4K | 1.5K | < 1 ms | < 10 MBs |
+| Random read 16K | 2.2K | < .5 ms| 35 MBs |
+| Random write 16K | 1.2K | < 1 ms| 17 MBs |
+| Random read 128K | 1.5K | < 1 ms | 162 MBs |
+| Random write 128K | < 1K | < 1.5 ms | 87 MBs |
+{: caption="Table 2. Performance metrics" caption-side="top"}

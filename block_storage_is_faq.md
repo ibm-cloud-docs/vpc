@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-16"
+lastupdated: "2020-12-16"
 
 keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, IOPS, FAQ
 
@@ -14,6 +14,7 @@ subcollection: vpc
 {:screen: .screen}
 {:support: data-reuse='support'}
 {:external: target="_blank" .external}
+{:note: .note}
 
 # FAQs for block storage
 {: #block-storage-vpc-faq}
@@ -88,7 +89,7 @@ If you provisioned block storage volumes for Gen 1 Compute instances, you are li
 
 In the IBM Cloud, storage options are limited to an availability zone. Do not manage shared storage across multiple zones.
 
-Instead, use an IBM Cloud data classic service option such as {{site.data.keyword.cos_full}} or {{site.data.keyword.cloudantfull}} if you must share your data across multiple zones and regions.
+Instead, use an IBM Cloud data classic service options outside a VPC such as {{site.data.keyword.cos_full}} or {{site.data.keyword.cloudantfull}} if you must share your data across multiple zones and regions. 
 
 ### I have volumes on the Classic infrastructure. Can I port them to the VPC?
 {: faq}
@@ -123,7 +124,7 @@ You can delete a block storage data volume only when it isn't attached to a virt
 {: faq}
 {: #faq-block-storage-16}
 
-When you delete a block storage data volume, all pointers to the data on that volume are removed and the data becomes inaccessible. If you later reprovision the physical storage to another account, a new set of pointers is assigned. The new account can't access any data that was on the physical storage because the pointers have been deleted. When new data is written to the volume, any inaccessible data is overwritten.
+When you delete a block storage volume, your data immediately becomes inaccessible. All pointers to the data on that volume are removed. The inaccessible data is eventually overwritten as new data is written to the data block. IBM guarantees that data deleted cannot be accessed and that deleted data is eventually overwritten. For more information, see [Block storage data eradication](/docs/vpc?topic=vpc-managing-block-storage#block-storage-data-eradication).
 
 ### What rules apply to volume names and can I rename a volume later on?
 {: faq}
@@ -147,7 +148,7 @@ While Block Storage for VPC stores your redundantly within a zone to provide a s
 
 Consider using Veeam software to back up your volume data on a virtual server instance. For more information, see [Backup and recovery using Veeam](/docs/vpc?topic=vpc-about-veeam).
 
-You might also consider using [{{site.data.keyword.blockstoragefull}} - Classic](/docs/BlockStorage?topic=BlockStorage-getting-started), which provides disaster recovery features such as volume cloning, snapshots, and replication. In particular, see the topics under **Replication and Disaster Recovery**.
+Outside of the VPC, you might consider using [{{site.data.keyword.blockstoragefull}} - Classic](/docs/BlockStorage?topic=BlockStorage-getting-started), which provides disaster recovery features such as volume cloning, snapshots, and replication. In particular, see the topics under **Replication and Disaster Recovery**. 
 
 
 ## Performance questions
@@ -177,11 +178,17 @@ Maximum IOPS for data volumes varies based on volume size and the type of profil
 IOPS is measured based on a load profile of 16 KB blocks with random 50% read and 50% writes. Workloads that differ from this profile might experience reduced performance. If you use a smaller block size, maximum IOPS can be obtained but throughput is less. For information, see
 [How block size affects performance](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
 
-### What performance latency can I expect from {{site.data.keyword.block_storage_is_short}}?
+### What typical network performance should I expect between my compute instances and the block storage service?
 {: faq}
 {: #faq-block-storage-17}
 
-Target latency within the storage is less than 1 millisecond. Block storage is connected to compute instances on a shared network, so the exact performance latency depends on the network traffic within a specific timeframe.
+Block storage is connected to compute instances on a shared network, so the exact performance latency depends on the network traffic within a specific timeframe. Target latency for a 16KB block size volume is under 1 millisecond for random reads and under 2 milliseconds for writes. For more performance metrics you can expect for your storage volumes and compute instances, see [Storage-compute performance metrics](/docs/vpc?topic=vpc-capacity-performance#storage-performance-metrics). 
+
+### What mechanisms are used to avoid data storage contention?
+{: faq}
+{: #faq-block-storage-17a}
+
+Data storage contention is a common issue when multiple instances compete for access to the same block storage volume. {{site.data.keyword.block_storage_is_short}} uses rate limiting at the hypervisor for optimal bandwidth between the hypervisor and block storage service. As a result, latency is guaranteed to be less than 1 millisecond for random reads and under 2 milliseconds for writes for a typical 16K block size. Latency outside these metrics might indicate a problem on the client side. For additional typical performance benchmarks, see[Storage-compute performance metrics](/docs/vpc?topic=vpc-capacity-performance#storage-performance-metrics).
 
 
 ## Data security and encryption questions
@@ -217,13 +224,15 @@ Virtual disk images for VPC Generation 2 use QEMU Copy On Write Version 2 (QCOW2
 {: faq}
 {: #faq-block-storage-23}
 
-Each volume is assigned a unique master encryption key generated by the instance's host hypervisor. The master key for each block storage volume is encrypted with a unique KMS-generated LUKS passphrase, which is then encrypted by your customer root key (CRK) and stored in the KMS. Passphrases are AES-256 cipher keys, which means they are 32 bytes long and not limited to printable characters. You can view the cloud resource name (CRN) for the CRK used to encrypt a volume. However, the CRK, LUKS passphrase, and the volume's master encryption key are never exposed.
+Each volume is assigned a unique master encryption key, called a data encryption key or DEK, that is generated by the instance's host hypervisor. The master key for each block storage volume is encrypted with a unique KMS-generated LUKS passphrase, which is then encrypted by your customer root key (CRK) and stored in the KMS. Passphrases are AES-256 cipher keys, which means they are 32 bytes long and not limited to printable characters. You can view the cloud resource name (CRN) for the CRK used to encrypt a volume. However, the CRK, LUKS passphrase, and the volume's master encryption key are never exposed. For more information about all the keys IBM VPC uses to secure your data, see [IBM's encryption technology - How your data is secured](/docs/vpc?topic=vpc-vpc-encryption-about#byok-technologies).
 
-### I use customer-managed encryption for my volumes. What happens when I delete my root key?
+### I use customer-managed encryption for my volumes. What happens when I disable or delete my root key?
 {: faq}
 {: #faq-block-storage-24}
 
-When you delete your root key or suspend it in your key management service, your workloads remain running in your virtual server instance and volumes remain encrypted.  However, if you power down the VM and then power it back on, any instances with encrypted boot volumes will not start. If your boot volume was encrypted with provider-managed encryption, the instance will start but all secondary volumes encrypted by root key you deleted will be inaccessible.  All volume attachments will fail during the boot process. You can cancel the deletion if your key is in a suspended state. Look at the list of resources for the status of the key.
+These are two separate actions. Disabling a root key in your KMS suspends its encryption and decryption operations, placing the key in a suspended state.  Workloads remain running in virtual server instances and boot volume volumes remain encrypted. Data volumes remain attached. However, if you power down the VM and then power it back on, any instances with encrypted boot volumes will not start. You can enable a root key in a suspended state and resume normal operations. For more information, see [Disabling root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-disable-root-keys).
+
+Deleting a root key has greater consequences. Deleting a root key purges usage of the key for all resources in the VPC. By default, the KMS prevents you from deleting a root key that's actively protecting a resource. However, you can still force delete a root key. You have limited time to [restore a deleted root key](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-restore-root-key) that you imported to the KMS. For more information, see [Deleting root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys).
 
 ### What should I do if my root key is compromised?
 {: faq}
