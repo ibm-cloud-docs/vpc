@@ -4,7 +4,7 @@ copyright:
   years: 2020
 lastupdated: "2020-12-15"
 
-keywords: security and compliance, security, compliance
+keywords: security and compliance, security, compliance, fortress
 
 subcollection: vpc
 
@@ -49,6 +49,20 @@ To start monitoring your resources, check out [Getting started with {{site.data.
 * Ensure no VPC security groups have inbound ports open to the internet (0.0.0.0/0)
 * Ensure no VPC security groups have outbound ports open to the internet (0.0.0.0/0)
 * Ensure a VSI has at least one VPC security group attached
-* Ensure all network interfaces of a VSI have at least one VPC security group attached
+* Ensure all network interfaces of a VSI have at least one VPC security group attached 
 * Ensure no public VPC application or network load balancers can be created
 * Ensure HTTPS protocol is configured for VPC application load balancer pools associated with HTTPS listeners
+
+### Available goals for VPN gateways
+{: #vpn-available-goals}
+
+* Ensure that application end-to-end traffic is encrypted
+* Ensure that IKE policy encryption is not `triple_des`
+* Ensure that IKE policy authentication is set to `sha256`
+* Ensure that IPSec policy encryption is not `triple_des`
+* Ensure that IPSec policy authentication is set to `sha256`
+* Ensure that IPSec policy does not have PFS disabled
+* Ensure that Diffie-Hellman group is at least group 14
+* Ensure that a strong pre-shared key is used for authentication with at least 24 alphanumeric characters
+* Ensure that local and remote CIDR ranges cover only devices that should be accessible through VPN
+* Ensure that Dead Peer Detection Action is set to `restart`
