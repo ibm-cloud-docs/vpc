@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-15"
+lastupdated: "2020-12-16"
 
 keywords: security and compliance, security, compliance, fortress
 
@@ -50,8 +50,16 @@ To start monitoring your resources, check out [Getting started with {{site.data.
 * Ensure no VPC security groups have outbound ports open to the internet (0.0.0.0/0)
 * Ensure a VSI has at least one VPC security group attached
 * Ensure all network interfaces of a VSI have at least one VPC security group attached 
+
+### Available goals for load balancers
+{: #lb-available-goals}
 * Ensure no public VPC application or network load balancers can be created
+* Ensure VPC load balancer is configured with multiple members in the pool
+* Ensure VPC load balancer listener is configured with default pool
+* Ensure application load balancer has health check configured when created
+* Ensure health check protocol is either HTTP or HTTPS
 * Ensure HTTPS protocol is configured for VPC application load balancer pools associated with HTTPS listeners
+* Ensure HTTPS (SSL and TLS) instead of HTTP is used for application load balancer
 
 ### Available goals for VPN gateways
 {: #vpn-available-goals}
