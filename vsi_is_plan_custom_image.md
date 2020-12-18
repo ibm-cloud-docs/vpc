@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-01"
+lastupdated: "2020-12-18"
 
 keywords: custom image, creating a custom image, migrating a custom image
 
@@ -41,9 +41,10 @@ migrate an instance to VPC.
 | 5. Or create a Windows custom image. | For more information, see [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image). | 
 | 6. Or use an image template from IBM Cloud classic intrastructure. | For more information, see [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc). |
 | 7. Optionally, encrypt your custom image with LUKS encryption and your own passphrase. | For more information, see [Creating an encrypted custom image](/docs/vpc?topic=vpc-create-encrypted-custom-image). |
-| 8. Upload your custom image to Cloud Object Storage. | On the **Objects** page of your IBM Cloud Object Storage bucket, click **Upload**. You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB. |
-| 9. Import your custom image to VPC. | When you have a supported custom image available in Cloud Object storage, you are ready to import. See [Importing a custom image](/docs/vpc?topic=vpc-managing-images#import-custom-image). |
-| 10. Create a virtual server by using your custom image. | For more information, see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers). |
+| 8. Optionally, generate a SHA256 checksum locally for validating your image. You can compare the output with the checksum that's generated for the image when it's imported.| Example Linux command: `sha256sum ubuntu_image.qcow2` <br> Example Mac command: `shasum -a 256 ubuntu_image.qcow2` <br> You receive output similar to: `6809606da67eb83670e6249e54e94043eb43c0471669fb96ea4050c4c07e2df7`.  |
+| 9. Upload your custom image to Cloud Object Storage. | On the **Objects** page of your IBM Cloud Object Storage bucket, click **Upload**. You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB. |
+| 10. Import your custom image to VPC. | When you have a supported custom image available in Cloud Object storage, you are ready to import. See [Importing a custom image](/docs/vpc?topic=vpc-managing-images#import-custom-image). |
+| 11. Create a virtual server by using your custom image. | For more information, see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers). |
 
 ## Next steps
 {: #next-plan-custom-images}
