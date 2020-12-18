@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2019-12-08"
+lastupdated: "2019-12-18"
 
 subcollection: vpc
 
@@ -87,8 +87,9 @@ Your REHL VSI has been unregistered from the capsule server. To resolve this iss
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 argumentsFound=false
-file="/var/lib/cloud/instance/scripts/vendor/part-003"
-
+FILE_DIR=/var/lib/cloud/instance/scripts/vendor
+file=$(grep -src -r -w 'REDHAT_CAPSULE_SERVER\|OS_INSTALL_CODE' $FILE_DIR | awk -F: '$2 == 6 {print $1}')
+echo "Processing $file..."
 if [ -f  "$file" ]; then
     capsule="$(grep "REDHAT_CAPSULE_SERVER=" $file | cut -d\" -f2)"
     organization="$(grep "OS_REDHAT_ORG_NAME=" $file | cut -d\" -f2)"
