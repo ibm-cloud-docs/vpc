@@ -26,6 +26,12 @@ subcollection: vpc
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
 
+## 17 December 2020
+{: #dec-17-2020}
+
+- **Checksum (SHA256) for imported images (Beta):** Now when you import a custom image, you can view the checksum that's generated for the image when it is imported to {{site.data.keyword.vpc_short}}. If you generate a checksum locally for your image before importing it, you can compare the two checksums to ensure that they are identical. For more information, see [Validating a custom image after importing (Beta)](/docs/vpc?topic=vpc-managing-images#validate-custom). 
+- **UI enhancements:** Default boot volume names are now appended with a millisecond timestamp.
+
 ## 11 December 2020
 {: #dec-11-2020}
 
