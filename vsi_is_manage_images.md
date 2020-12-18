@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-01"
+lastupdated: "2020-12-18"
 
 keywords: custom image
 
@@ -18,6 +18,7 @@ subcollection: vpc
 {:tip: .tip}
 {:important: .important}
 {:note: .note}
+{:beta: .beta}
 {:table: .aria-labeledby="caption"}
 {:external: target="_blank" .external}
 
@@ -66,6 +67,20 @@ navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastr
 | Key name | Select the customer root key (CRK) that you used to wrap your encryption passphrase. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs). |
 | Wrapped data encryption key | For an encrypted image, specify the ciphertext that is associated with the wrapped data encryption key (WDEK). The WDEK is produced by wrapping the passphrase that you used to encrypt your image with your customer root key. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs).|
 {: caption="Table 1. Import custom image user interface fields" caption-side="top"}
+
+## Validating a custom image after importing (Beta)
+{: #validate-custom images}
+
+After you import a custom image, you can view the checksum that's generated for the image when it is imported to {{site.data.keyword.vpc_short}}. If you generate a checksum locally for your image before importing it, you can compare the two checksums to ensure that they are identical. Matching checksums indicate that the image is unaltered. 
+
+The checksum feature is currently in beta. 
+{:beta}
+
+1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com/vpc-ext){: external}, 
+navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Custom Images**.
+2. From your list of custom images, click the name of the custom image that you want to validate. 
+3. In the image details side panel that displays, locate the **Checksum (SHA256)** field. You'll see content similar to, *6809606da67eb83670e6249e54e94043eb43c0471669fb96ea4050c4c07e2df7*. 
+4. Compare the Checksum (SHA256) value to the output that is generated when you calculate a checksum for the image locally. For more information, see [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images). 
 
 ## Managing custom images
 {: #managing-custom images}
