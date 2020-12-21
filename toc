@@ -86,6 +86,7 @@ Virtual Private Cloud (VPC)
         vsi_is_migrate_from_classic_infra.md
         vsi_is_encrypt_custom_image.md
         vsi_is_manage_images.md
+        vsi_is_byol_about.md
 
     {: .topicgroup}
     Block storage volumes

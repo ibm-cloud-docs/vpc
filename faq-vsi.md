@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-09"
+  years: 2018, 2020
+lastupdated: "2020-12-17"
 
 subcollection: vpc
 
@@ -46,7 +46,6 @@ No, a virtual server instance must be provisioned in a subnet.
 {: support}
 
 No, a virtual server instance can be provisioned in only one VPC.
-
 
 ## During floating IP assignment in a VPC, a customer must specify the network interface of the instance, is that correct?
 {: #faq-vsi-4}
@@ -114,3 +113,9 @@ In limited cases a virtual server might need to be migrated to a different host.
 {: faq}
 
 Yes, you can encrypt a supported custom image with LUKS encryption and your own passphrase. For more information, see [Creating an encrypted custom image](/docs/vpc?topic=vpc-create-encrypted-custom-image). When your image is encrypted and imported to {{site.data.keyword.vpc_short}}, you can use it to provision virtual server instances.
+
+## Can I use my own license for a custom image that I create?
+{: #faq-vsi-15}
+{: faq}
+
+Yes, for certain versions of RedHat Enterprise Linux (RHEL) and Windows operating systems, you can bring your own license (BYOL) to the IBM Cloud VPC when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. For more information, see [Bring your own license (Beta)](/docs/vpc?topic=vpc-byol-vpc-about).
