@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-12-21"
+lastupdated: "2020-12-22"
 
 keywords: release notes, changes, updates
 
@@ -17,6 +17,7 @@ subcollection: vpc
 {:screen: .screen}
 {:tip: .tip}
 {:important: .important}
+{:note: .note}
 {:download: .download}
 {:external: target="_blank" .external}
 
@@ -25,6 +26,14 @@ subcollection: vpc
 
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
+
+## 22 December 2020
+{: #dec-22-2020}
+
+**Customer-managed encryption (GA):** For block storage volumes and encrypted custom images, deleting or disabling a customer root key (CRK) is now managed by these VPC services. When you delete a root key, the resources become unusable for normal operations. A new `unusable` status and reason code `encryption_key_deleted` or `encryption_key_disabled` has been added to the API for `GET / volumes` and `GET / image` methods. These statuses also appear in the CLI and UI. For more information, see [Disabling root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-disable-root-keys) and [Deleting root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys). For information on key states and resource statuses, see [User actions that impact root key states and resource status](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-root-key-states).
+
+The Washington D.C. multi-zone region will be enabled in January 2021. This feature is available in all other multi-zone regions.
+{:note}
 
 ## 18 December 2020
 {: #dec-18-2020}
@@ -46,7 +55,6 @@ Use the release notes to learn about new and changed {{site.data.keyword.vpc_ful
 {: #december-1-2020}
 
 **New SDK:** The [Node SDK](https://{DomainName}/apidocs/vpc?code=node) is now generally available.
-
 
 ## 20 November 2020
 {: #november-20-2020}

@@ -4,10 +4,9 @@ Copyright:
   years: 2019, 2020
 lastupdated: "2020-11-24"
 
-keywords: block storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
+keywords: block storage, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
 subcollection: vpc
-
 
 ---
 
@@ -18,8 +17,9 @@ subcollection: vpc
 {:screen: .screen}
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
+{:tip: .tip}
 
-# Managing customer-managed encryption
+# Managing data encryption
 {: #vpc-encryption-managing}
 
 Take actions to manage your customer-managed encryption that secures your resources with your own root keys. View Activity Tracker events to verify key rotation. Disable or delete root keys that have been compromised or that you no longer need. Optionally, make your data inaccessible after setting up customer-managed encryption.
@@ -32,16 +32,18 @@ Manage your root keys by taking the following actions:
 
 * View the association of root keys to the resources they protect by [viewing root key registrations](#byok-root-key-registration).
 * View information showing your root keys have been rotated by looking at [root key registration](#byok-root-key-verify-rotation) in the KMS instance.
-* [Rotate your root keys](/docs/vpc?topic=vpc-vpc-key-rotation) at regular intervals, including imported keys that you rotate manually. Shortening the crypto period of a key reduces the possibility of a security breach.
+* [Rotate your root keys](/docs/vpc?topic=vpc-vpc-key-rotation) at regular intervals or manually rotate imported root keys. Shortening the crypto period of a key reduces the possibility of a security breach.
 * Decide whether importing your own root key or using a KMS-generated root key is preferable. If you want to set up a rotation policy for automatic key rotation, you must use KMS-generated root keys.
+* See what happens to your [root key state](#byok-root-key-states) when you take certain actions, such as disabling the key.
+* Decide when [disabling](#byok-disable-root-keys) or [deleting](#byok-delete-root-keys) a root key is necessary. When you rotate keys, the former key remains active and is still used to decrypt existing resources. Take precautions when disabling or deleting root keys.
+* Enable a key that's been disabled or [restore a deleted key](#byok-restore-root-key).
+* Decide whether you might want to make your data temporarily inaccessible by [removing service authorization](#instance-byok-inaccessible-data).
 * Review the [Activity Tracker](#byok-key-rotation-activity-tracker-events) to verify events as you manage the lifecycle of your keys.
-* Decide when you might want to make your data [temporarily inaccessible](#instance-byok-inaccessible-data) but retain it on the cloud.
-* Decide when [disabling](#byok-disable-root-keys) or [deleting](#byok-delete-root-keys) a root key is necessary. When you rotate keys, the former key remains active and is still used to decrypt existing resourcs. Take precautions when disabling or deleting root keys.
 
 ### Viewing root key registrations
 {: #byok-root-key-registration}
 
-Block storage volumes and custom images that are encrypted with your key are registered against the root key in the key management service (Key Protect or HPCS). Registration lets you map your volumes or encrypted custom images to their associated encryption keys. You can quickly see which resources are protected by a root key. You can also access the risk involved in disabling or deleting a key by viewing which keys are actively protecting data.
+Block storage volumes and custom images that are encrypted with your key are registered against the root key in the key management service (Key Protect or HPCS). Registration lets you map your resources to their associated encryption keys. You can quickly see which resources are protected by a root key. You can also access the risk involved in disabling or deleting a key by viewing which keys are actively protecting data.
 
 For more information, see: 
 
@@ -51,30 +53,31 @@ For more information, see:
 ### Verifying root key rotation by using the UI
 {: #byok-root-key-verify-rotation}
 
-When you [create a customer-managed encryption volume](/docs/vpc?topic=vpc-block-storage-vpc-encryption#data-vol-encryption-ui), your root key is automatically registered in the KMS instance. You can view this information to verify the key has been rotated by using the UI:
+When you create a customer-managed encryption volume or custom image, your root key is automatically registered in the KMS instance. You can view this information to verify the key has been rotated by using the UI. The following procedure shows how  to verify key rotation for a block storage volume, but steps are similar for other resources.
 
 1. From the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes** and click on the name of a volume to see its details.
-1. For Encryption, you'll see the name of the KMS and **customer-managed**, for example _Key Protect - Customer-managed_. 
-1. In the Encryption Instance field, click the link of the KMS instance you provisioned for the root key protecting this volume. Information about that KMS instance shows, which includes the name and ID of the root key.
-1. Click the overflow menu (hellipsis) and select **Key Associated Resource**. On this page, you'll see the following information for the root key in the KMS instance:
-  * Name
+1. For Encryption, you'll see the name of the KMS and **customer-managed**, for example _Key Protect - Customer-managed_.
+1. In the Encryption Instance field, click the link of the KMS instance you provisioned for the root key protecting this volume. Information about that KMS instance shows, which includes the name and ID of the root key. 
+
+  If you created your KMS instance using a private endpoint, these instances and associated root keys do not appear in the UI. Use the Key Protect or HPCS CLI or API to verify key rotation instead.
+  {:note}
+
+1. Click  **Associated Resources**. You'll see the following information for the root key in the KMS instance:
+  * Key Name
   * Key ID
+  * Cloud Resource Name (CRN) of the associated resource (i.e., volume or custom image). If you have more than one resource using this root key, they appear in the list.
+1. In the Details column, click the arrow to expand the information. You'll see:
+  * Description of the resource, if you provided one.
   * Key version ID
   * Key version date
-  
-   <br>You'll also see the CRN of the key associated resource of the volume.</br> 
+  * Retention policy
 
-1. Click the expansion icon for the volume CRN. You can see the key version ID and root key name, which match the preceding information.
-
-When a root key is [rotated](/docs/vpc?topic=vpc-vpc-key-rotation) manually or automatically based on a schedule, the version ID field and key version date change, indicating the key has been rotated. The rotated key retains its original name and ID in the list of KMS instances. 
+After you [rotate the key](/docs/vpc?topic=vpc-vpc-key-rotation), the version ID field and key version date change, indicating the key has been rotated. The rotated key retains its original name and ID in the list of KMS instances.
 
 ### User actions that impact root key states and resource status
 {: #byok-root-key-states}
 
-Root keys move to various states depending on the action you take and impacts resources differently. The following describes what happens to a resource when you disable, enable, delete, and restore a root key.
-
-The resource status _unusable_ is an upcoming API feature currently not available. The status you see will be different. The new statuses are provided in the following tables for customers who use the API to programatically manage their customer-managed encryption and to prepare accordingly. For more information, contact your IBM [customer support](/docs/get-support?topic=get-support-using-avatar) representative. Also see [API changes for VPC resources using customer-managed encryption](/docs/vpc?topic=vpc-byok-api-remediation-plan).
-{: important}
+Root keys move to various states depending on the action you take and impacts resources differently. The following describes what happens to a resource when you disable, enable, delete, and restore a root key. 
 
 | Resource type | Resource status | Result |
 |---------------|-----------------| -------|
@@ -148,6 +151,8 @@ When you disable a root key, you suspend its encryption and decryption operation
 
 When you disable a root key, workloads remain running in virtual server instances and boot volume volumes remain encrypted. Data volumes remain attached. However, if you stop the virtual server instance and then restart it, it won't restart. You also can't provision a new resource using a disabled key. As best practice, verify which resources are being protected by that root key before disabling it.
 
+To see which root keys are disabled, look in the UI list of resources. The status of the resource will be _unusable_. The UI tooltip displays "key suspended". In the API, you'll see an *encryption_key_disabled* reason code.
+
 You can [enable a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#enable-ui) that's in a _suspended_ state, which returns the key to an _active_ state. You can also [delete a suspended key](#byok-delete-root-keys) or restore the deleted key if necessary.
 
 For more information about disabling root keys, see:
@@ -158,22 +163,23 @@ For more information about disabling root keys, see:
 ### Deleting root keys
 {: #byok-delete-root-keys}
 
-When you delete a root key, the key is no longer available to decrypt passphrases used to protect your resources. Deleting a root key places it in a _destoyed_ state in the KMS. All resources protected by the deleted root key can't be used for normal operations. 
+When you delete a root key, the key is no longer available to decrypt passphrases used to protect your resources. Deleting a root key places it in a _destoyed_ state in the KMS. All resources protected by the deleted root key have an _unusable_ status and can't be used for normal operations. 
 
 Your data still exists. You have a 30-day grace period to [restore the deleted key](#byok-restore-root-key). Otherwise, your encrypted resources become inaccessible. After the 30-day grace period, your root key can't be restored and your resources are unrecoverable.
 {:important}
 
 By default, the KMS prevents you from deleting a root key that's actively protecting a resource. Key Protect and HPCS let you **force delete** a root key. To force delete in HPCS, use the API only. Also, see [this troubleshooting issue](/docs/hs-crypto?topic=hs-crypto-troubleshoot-unable-to-delete-keys) for deleting root keys in HPCS. HPCS requires that you delete all resources before you delete a root key protecting those resources.
 
-Use caution when force deleting a root key. Force deleting a root key purges use of the key for all resources in the VPC. 
-{:important}
+When you force delete a root key, the following actions happen automatically:
 
-Before you force delete a root key:
+* If the deleted root key is protecting boot volumes, the associated virtual server instance is stopped. 
+* If the deleted root key is protecting data volumes, the associated virtual server instance is stopped and the volume is detached.
+* Deleting a root key purges usage of the key for all resources in the VPC.
+* Events are logged in the Activity Tracker.
 
-* If the deleted root key is protecting boot volumes, stop the associated virtual server instance. 
-* If the deleted root key is protecting data volumes, detach the volume and stop the associated virtual server instance.
+Block storage volumes and custom images with a deleted root key appear in the list of resources with an _unusable_ status. The API reason code is *encryption_key_deleted*. 
 
-Block storage volumes and custom images with a deleted root key result in the following things happening:
+The following conditions result:
 
 * All instances with an unusable boot volume will not restart.
 * You can't attach unusable data volumes to an instance.
@@ -219,23 +225,54 @@ For more information about restoring root keys in a KMS instance, see:
 * [Key protect - Restoring keys](/docs/key-protect?topic=key-protect-restore-keys)
 * [HPCS - Restoring keys](/docs/hs-crypto?topic=hs-crypto-restore-keys)
 
-### Making your data inaccessible after setting up customer-managed encryption
+### Using the UI to manage root keys
+{: #byok-ui-root-key}
+
+You can use the UI to disable, enable, delete, or restore your root keys. Table 5 describes each action and links to detailed steps for performing the action using the UI in Key Protect and HPCS. For information about the relationship of user actons to key states, see [Root key states and user actions](#byok-root-key-states).
+
+| User action | Key Protect UI procedure | HPCS UI procedure |
+|-------------|--------------------------|-------------------|
+| Disable key | [Disabling a root key](/docs/key-protect?topic=key-protect-disable-keys#disable-ui) | [Disabling a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#disable-ui) |
+| Enable key | [Enabling a root key](/docs/key-protect?topic=key-protect-disable-keys#enable-ui) | [Enabling a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#enable-ui) |
+| Delete key | [Deleting keys in the console (single authorization)](/docs/key-protect?topic=key-protect-delete-keys#delete-key-gui) | [Deleting keys with the GUI (single authorization)](/docs/hs-crypto?topic=hs-crypto-delete-keys#delete-keys-gui) |
+| | [Deleting a key using dual authorization](/docs/key-protect?topic=key-protect-delete-dual-auth-keys#delete-dual-auth-keys-api) | [Authorize deletion for a key with the GUI (dual authorization)](/docs/hs-crypto?topic=hs-crypto-delete-dual-auth-keys#set-key-deletion-console) |
+| Restore key | [Restoring a deleted key with the console](/docs/key-protect?topic=key-protect-restore-keys#restore-ui) | [Restoring a deleted key with the GUI](https://test.cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-restore-keys#restore-ui) |
+{: caption="Table 5. UI procedures for managing root keys" caption-side="top"}
+
+### Using the API to manage root keys
+{: #byok-api-root-key}
+
+You can use the API to disable, enable, delete, or restore your root keys. Table 6 describes each action and links to detailed steps for performing the action using the Key Protect or HPCS API. For information about the relationship of user actons to key states, see [Root key states and user actions](#byok-root-key-states).
+
+Because deleting a root key makes all resources protected by it unusable (status = `unusable`), program your apps to check the status of the resource such as a volume or image before using it. If the root key is restorable, restore it for use or create and use a new root key.
+{: tip}
+
+| User action | Key Protect API procedure | HPCS API procedure |
+|-------------|---------------------------|--------------------|
+| Disable key | [Disabling a root key](/docs/key-protect?topic=key-protect-disable-keys#disable-api) | [Disabling a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#disable-api) |
+| Enable key | [Enabling a disabled root key](/docs/key-protect?topic=key-protect-disable-keys#enable-api) | [Enabling a disabled root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#enable-api) |
+| Delete key | [Deleting keys with the API (single authorization)](/docs/key-protect?topic=key-protect-delete-keys#delete-key-api) | [Deleting keys with the API (single authorization)](/docs/hs-crypto?topic=hs-crypto-delete-keys#delete-keys-api) |
+| | [Authorize deletion for a key with the API (dual authorization)](/docs/key-protect?topic=key-protect-delete-dual-auth-keys#set-key-deletion-api) | [Authorize deletion for a key with the API (dual authorization)](/docs/hs-crypto?topic=hs-crypto-delete-dual-auth-keys#set-key-deletion-api) |
+| Restore key | [Restoring a deleted key with the API](/docs/key-protect?topic=key-protect-restore-keys#restore-api) | [Restoring a deleted key with the API](/docs/hs-crypto?topic=hs-crypto-restore-keys#restore-api) |
+{: caption="Table 6. API procedures for managing root keys" caption-side="top"}
+
+### Removing service authorization to a root key
 {: #instance-byok-inaccessible-data}
 
 You can make your data inaccessible but retain it on the cloud by removing authorization to use that root key. 
 
-When you [authorize use](/docs/account?topic=account-serviceauth#serviceauth) of your root key, you grant permission for IBM to use the key to encrypt your resource. Authorization is done at the key management service level through IAM, when you authorize service between **Cloud Block Storage** and the key management service you set up (for example, {{site.data.keyword.keymanagementserviceshort}}).
+When you [authorize use](/docs/account?topic=account-serviceauth#serviceauth) of your root key, you grant permission for IBM to use the key to encrypt your resource. Authorization is done at the key management service level through IAM, when you authorize service between your service (for example, Cloud Block Storage) and the key management service you set up. (for example, {{site.data.keyword.keymanagementserviceshort}}).
 
 You can remove any authorization between services in your account when you have the Administrator role on the target service (in this case, the key management service). If you remove any access policies created by the source service for its dependent services, the source service is unable to complete the workflow or access the target service.
 
-Because they root keys are under your control, you don't have to contact IBM to remove authorization.
+Because the root keys are under your control, you don't have to contact IBM to remove authorization.
 
 To make your data inaccessible, but retain it on the IBM Cloud:
 
 1. [Remove IAM authorization](/docs/account?topic=account-serviceauth#remove-auth) from the source Cloud Block Storage service to your target key management service instance.
-2. [Power off all virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances#stop-and-start) that have attached encrypted volumes secured by that root key.
+2. [Stop all virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances#stop-and-start) that have attached encrypted volumes secured by that root key.
 
-You can also disable a root key, which suspends the key and temporarily revokes access to the key's associated data on the cloud. For more information, see [Disabling root keys](/docs/key-protect?topic=key-protect-disable-keys)
+You can also [disable a root key](#byok-disable-root-keys), which suspends the key and temporarily revokes access to it.
 
 ## Viewing events in the Activity Tracker 
 {: #byok-activity-tracker-events}
@@ -244,24 +281,24 @@ Use the Activity Tracker to verify user-initiated activities that change the sta
 
 Due to the sensitivity of the information for an encryption key, when an event is generated as a result of an API call to the key management service, the event that is generated does not include detailed information about the key. Instead, it includes a correlation ID that you can use to identify the key internally in your cloud environment. The correlation ID is a field that is returned as part of the `correlationId` field.
 
-### Important events for key rotation
+### Activity Tracker events for key rotation
 {: #byok-key-rotation-events}
 
-When you initiate activity in the KMS to rotate and manage your root keys, specific Activity Tracker events are generated. These events are particular to {{site.data.keyword.keymanagementserviceshort}}, but similar events are generated for HPCS.
+When you initiate activity in the KMS to rotate and manage your root keys, Activity Tracker events are generated. These events are particular to {{site.data.keyword.keymanagementserviceshort}}, but similar events are generated for HPCS.
 
 * When you list keys, a `kms.secrets.list` event is generated.
 * When you rotate a root key, a `kms.secrets.rotate` event is generated.
 * When you manually rewrap a data encryption key (DEK) using the new key material, a `kms.secrets.rewrap` event is generated.
-* If you initially imported a root key using an import token, and use the import token to rotate a key, a `kms.secrets.ack-rotate` event is generated.
+* If you initially imported a root key using an import token and use the import token to rotate a key, a `kms.secrets.ack-rotate` event is generated.
 * When you retrieve a key, the `requestData.keyType` field includes the type of key that was retrieved.
 * The `responseData.keyState` field includes the integer that correlates to the state of the key, which include these key state values: Pre-activation = 0, Active = 1, Suspended = 2, Deactivated = 3, and Destroyed = 5. For more information on key states, see [Key states and transitions](/docs/key-protect?topic=key-protect-key-states#key-transitions).
 * When you authorize that a key be deleted, a `kms.secrets.setkeyfordeletion` event is generated. The `responseData.keyState` field includes the integer that correlates to deleted state (5).
 * The `responseData.totalResources` field includes the total amount of key versions associated with the key.
 * The `responseData.eventAckData.newKeyVersionId ` field includes the unique identifier of the latest key version. 
 
-For additional key rotation events that indicate a successful rotation, see these [key rotation events](/docs/key-protect?topic=key-protect-at-events#rotate-key-registrations-success). For information about all Activity Tracker events in {{site.data.keyword.keymanagementserviceshort}}, see [Activity Tracker events](/docs/key-protecttopic=key-protect-at-events#rotate-key-registrations-success).
+For additional key rotation events that indicate a successful rotation, see these [key rotation events](/docs/key-protect?topic=key-protect-at-events#rotate-key-registrations-success). For information about all Activity Tracker events in {{site.data.keyword.keymanagementserviceshort}}, see [Activity Tracker events](/docs/vpc?topic=vpc-at-events).
 
-### Example
+### Example key rotation event
 {: #byok-activity-tracker-key-rotation-example}
 
 The following JSON example shows a `kms.secrets.rotate` event when a root key is rotated.
@@ -360,6 +397,18 @@ This event shows the updated volume after a successful key rotation:
 }
 ```
 {:codeblock}
+
+### Activity Tracker events for key suspension and deletion
+{: #byok-key-delete-suspend-events}
+
+When you initiate activity in the KMS to disable or delete a root key, specific Activity Tracker events are generated. These events are particular to {{site.data.keyword.keymanagementserviceshort}}, but similar events are generated for HPCS.
+
+* When you disable a key (key state changes from _active_ to _suspended_), a `kms.secrets.disable` event is generated.
+* When you enable a disabled key (key state changes from _suspended_ to _active_), a `kms.secrets.enable` event is generated.
+* When you delete a key (key state changes to _destroyed_), a `kms.secrets.delete` event is generated.
+* When you restore a deleted key (key state changes from _destroyed_ to _active_), a `kms.secrets.restore` event is generated.
+
+For more information, see all [Activity Tracker key events](/docs/key-protect?topic=key-protect-at-events#key-actions)
 
 ## Next Steps
 {: #next-steps-byok-manage}

@@ -2,12 +2,11 @@
 
 Copyright:
   years: 2019, 2020
-lastupdated: "2020-10-02"
+lastupdated: "2020-12-22"
 
-keywords: block storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, planning, best practices
+keywords: block storage, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, planning, best practices
 
 subcollection: vpc
-
 
 ---
 
@@ -20,6 +19,7 @@ subcollection: vpc
 {:screen: .screen}
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
+
 
 # Planning data encryption
 {: #vpc-encryption-planning}
@@ -77,7 +77,7 @@ The following steps are specific to {{site.data.keyword.keymanagementserviceshor
 ### Encrypted custom image prerequisites
 {: #byok-custom-images-prereqs}
 
-If you plan to take advantage of this functionality to import an encrypted custom image, there are several prerequisites you need to complete in addition to setting up your KMS and authorizations. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs).
+If you plan to import an encrypted custom image, there are several prerequisites you need to complete in addition to setting up your KMS and authorizations. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs).
 
 ## Next Steps
 {: #next-steps-planning}

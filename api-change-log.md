@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-12-01"
+lastupdated: "2020-12-22"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -49,10 +49,22 @@ compatible. To avoid any disruption from changes to the API, use the following b
 To prepare for this transition, we recommend that you update your default security group rules to minimize disruption in load balancer traffic on newly created application load balancers.
 {: tip}
 
-**Customer-managed encryption changes** If you use customer-managed encryption to protect your VPC resources, deleting or disabling a customer root key (CRK) will soon result in those resources becoming unusable for normal operations. Block storage volume and custom image resources will show an `unusable` status in the API, along with associated reason codes, `encryption_key_deleted` or `encryption_key_disabled`. If you use the API, CLI, or Terraform, see the following:
+## 16 December 2020
+{: 16-december-2020}
 
-* [API changes for VPC resources using customer-managed encryption](/docs/vpc?topic=vpc-byok-api-remediation-plan)
-* [User actions that impact root key states and resource status](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-root-key-states)
+### For all API version dates
+{: 16-december-2020-all-version-dates}
+
+**Customer-managed encryption for block storage volumes and encrypted custom images** - When you disable or delete a customer root key (CRK) that is encrypting your block storage or custom image resources, the API displays a status of `unusable` for these resources along with the reason codes, `encryption_key_deleted` or `encryption_key_disabled`. 
+
+The `unusable` status appears in the following API methods:
+
+* [List all volumes](/apidocs/vpc#list-volumes) (`GET /volumes`)
+* [Retrieve a specific volume](/apidocs/vpc#get-volume) (`GET /volume{id}`)
+* [List all images](/apidocs/vpc#list-volumes) (`GET /images`)
+* [Retrieve the specified image](/apidocs/vpc#get-image) (`GET /images{id}`)
+
+For more information on key states and resource statuses, see [User actions that impact root key states and resource status](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-root-key-states).
 
 ## 20 November 2020
 {: 20-november-2020}
