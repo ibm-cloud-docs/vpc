@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-07-07"
+lastupdated: "2020-12-22"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, volume, data storage, troubleshooting, troubleshoot
 
@@ -70,8 +70,8 @@ This condition might appear in the API or CLI:
 * In the API, when you send a PATCH request to rename the volume
 * In the CLI, when you specify the `ibmcloud is volume-update` command
 
-You might be renaming the volume with an invalid volume name. In this case, you'll see a 400 "validation_invalid_name" error.
-You might also be specifying a valid volume name, but one that already exists in the VPC. For example, if you create two volumes from Gen 1 and Gen 2 compute resources that are in the same account, the same region, and have the same name, you'll see a 400 "volume_name_duplicate" error.
+You might be renaming the volume with an invalid volume name. In this case, you see 400 "validation_invalid_name" error.
+You might also be specifying a valid volume name, but one that already exists in the VPC. For example, if you create two volumes from Gen 1 and Gen 2 compute resources that are in the same account, the same region, and have the same name, you see a 400 "volume_name_duplicate" error.
 {: tsCauses}
 
 **Note:** The UI prevents you are entering an invalid volume name.
@@ -104,8 +104,8 @@ Verify that the volume name or identifier is correct and that the volume is not 
 When you attempt to delete a virtual server instance with an attached volume that is being resized, the volume remains in an _updating_ state and won't be deleted.
 {: tsSymptoms}
 
-A volume is in the process of being resized and you tried to delete the instance to which it's attached, either manually or by auto-delete. The status of the volume remains _updating_ and the volume won't be deleted with the instance.
+A volume is in the process of being resized and you tried to delete the instance to which it's attached, either manually or by auto-delete. The status of the volume remains _updating_ and the volume isn't deleted with the instance.
 {: tsCauses}
 
-A volume must in an _available_ state for operations such as attach, detach, delete, and so on. When expanding a volume, wait for the volume resizing to complete before performing any operations. If you try to delete a volume that's resizing, the volume will remain in an _updating_ state and not be deleted with the instance.  To delete the volume, reattach the volume to a different instance, let the resizing complete (volume status becomes _available_, and then delete the volume.
+A volume must be in an _available_ state for operations such as attach, detach, delete. When expanding a volume, wait for the volume resizing to complete before performing any operations. If you try to delete a volume that's resizing, the volume remains in an _updating_ state and not be deleted with the instance.  To delete the volume, reattach the volume to a different instance, let the resizing complete (volume status becomes _available_, and then delete the volume.
 {: tsResolve}
