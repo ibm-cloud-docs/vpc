@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2020
 
-lastupdated: "2020-12-01"
+lastupdated: "2020-12-22"
 
 keywords: activity tracker, events, logdna
 
@@ -33,7 +33,7 @@ As a security officer, auditor, or manager, you can use the {{site.data.keyword.
 ## Network resources
 {: #events-network}
 
-The following tables list the actions related to network resources and the generation of events.
+The following tables list the actions that are related to network resources and the generation of events.
 
 ### ACL events
 {: #events-network-acl}
@@ -47,7 +47,7 @@ The following tables list the actions related to network resources and the gener
 | network-acl  | is.network-acl.rule.create  | Rule was added to Network ACL  |
 | network-acl  | is.network-acl.rule.update  | Network ACL Rule was updated   |
 | network-acl  | is.network-acl.rule.delete  | Rule was removed from Network ACL  |
-| network-acl  | is.network-acl.rule.read | One or more network ACL rule was retrieved |
+| network-acl  | is.network-acl.rule.read | One or more network ACL rules was retrieved |
 {: caption="Table 1. Actions that generate events for Network ACL" caption-side="top"}
 
 ### Custom route events
@@ -97,7 +97,7 @@ The following table lists the actions that are related to flow logs and the gene
 ### Load balancer events
 {: #events-load-balancers}
 
-The following table lists the actions related to load balancers and the generation of events.
+The following table lists the actions that related to load balancers and the generation of events.
 
 | Resource  | Action  | Description  |
 |:----------------|:-----------------------|:-----------------------|
@@ -131,7 +131,7 @@ The following table lists the actions related to load balancers and the generati
 | public-gateway | is.public-gateway.public-gateway.create   | Public Gateway was created   |
 | public-gateway | is.public-gateway.public-gateway.update   | Public Gateway was updated   |
 | public-gateway | is.public-gateway.public-gateway.delete   | Public Gateway was deleted   |
-| public-gateway | is.public-gateway.public-gateway.read | One or more public gateway was retrieved  |
+| public-gateway | is.public-gateway.public-gateway.read | One or more public gateways were retrieved  |
 {: caption="Table 6. Actions that generate events for Public Gateway" caption-side="top"}
 
 ### Security group events
@@ -142,14 +142,14 @@ The following table lists the actions related to load balancers and the generati
 | security-group | is.security-group.security-group.create   | Security Group was created   |
 | security-group | is.security-group.security-group.delete   | Security Group was deleted   |
 | security-group | is.security-group.security-group.update   | Security Group was updated   |
-| security-group | is.security-group.security-group.read | One or more security group was retrieved |
+| security-group | is.security-group.security-group.read | One or more security groups were retrieved |
 | security-group | is.security-group.security-group-rule.create  | Rule was added to Security Group  |
 | security-group | is.security-group.security-group-rule.delete  | Rule was removed from Security Group  |
 | security-group | is.security-group.security-group-rule.update  | Security Group Rule was updated  |
-| security-group | is.security-group.security-group-rule.read | One or more security group rule was retrieved |
+| security-group | is.security-group.security-group-rule.read | One or more security group rules was retrieved |
 | security-group | is.security-group.security-group-interface.attach | Interface was attached to Security Group   |
 | security-group | is.security-group.security-group-interface.detach | Interface was removed from Security Group   |
-| security-group | is.security-group.security-group-interface.read | One or more security group interface was retrieved |
+| security-group | is.security-group.security-group-interface.read | One or more security group interfaces was retrieved |
 {: caption="Table 7. Actions that generate events for Security Group" caption-side="top"}
 
 ### Subnet events
@@ -160,7 +160,7 @@ The following table lists the actions related to load balancers and the generati
 | subnet   | is.subnet.subnet.create   | Subnet was created   |
 | subnet   | is.subnet.subnet.update   | Subnet was updated   |
 | subnet   | is.subnet.subnet.delete   | Subnet was deleted   |
-| subnet   | is.subnet.subnet.read | One or more subnet was retrieved |
+| subnet   | is.subnet.subnet.read | One or more subnets was retrieved |
 | subnet   | is.subnet.network-acl.update  | Subnet's Network ACL was replaced   |
 | subnet   | is.subnet.public-gateway.attach  | Public Gateway was attached to Subnet  |
 | subnet   | is.subnet.public-gateway.detach  | Public Gateway was detached from Subnet  |
@@ -191,7 +191,7 @@ The following table lists the actions that are related to virtual private endpoi
 | vpc  | is.vpc.address-prefix.create  | Address Prefix was added to VPC  |
 | vpc  | is.vpc.address-prefix.update  | VPC Address Prefix was updated   |
 | vpc  | is.vpc.address-prefix.delete  | Address Prefix was removed from VPC  |
-| vpc  | is.vpc.address-prefix.read | One or more address prefix was retrieved |
+| vpc  | is.vpc.address-prefix.read | One or more address prefixes were retrieved |
 | vpc  | is.vpc.vpc-route.create   | Route was added to VPC   |
 | vpc  | is.vpc.vpc-route.update   | VPC Route was updated  |
 | vpc  | is.vpc.vpc-route.delete   | Route was removed from VPC   |
@@ -237,17 +237,17 @@ The following table lists the actions that are related to VPNs and the generatio
 ## Compute resources
 {: #events-compute}
 
-The following tables list the actions related to compute resources and the generation of events.
+The following tables list the actions that are related to compute resources and the generation of events.
 
 ### Instance events
 {: #events-compute-instance}
 
 | Resource  | Action  | Description  |
 |:----------------|:-----------------------|:-----------------------|
-| instance   | is.instance.instance.create   | - Instance was created<br /> - Includes the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces created on the virtual server. When set to `false`, IP spoofing is not allowed on the interface.  |
+| instance   | is.instance.instance.create   | - Instance was created<br /> - Includes the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces that are created on the virtual server. When set to `false`, IP spoofing is not allowed on the interface.  |
 | instance   | is.instance.instance.delete   | Instance was deleted   |
 | instance   | is.instance.instance.update   | Instance was updated   |
-| instance   | is.instance.instance.read | One or more instance was retrieved |
+| instance   | is.instance.instance.read | One or more instances was retrieved |
 | instance   | is.instance.action.create   | Instance action was created  |
 | instance   | is.instance.action.delete   | Pending instance action was deleted  |
 | instance   | is.instance.instance.start  | Instance was started     |
@@ -260,11 +260,11 @@ The following tables list the actions related to compute resources and the gener
 | instance   | is.instance.volume-attachment.create   | Instance volume attachment was created  |
 | instance   | is.instance.volume-attachment.delete   | Instance volume attachment was deleted  |
 | instance   | is.instance.volume-attachment.update   | Instance volume attachment was updated  |
-| instance   | is.instance.volume-attachment.read | One or more instance volume attachment was retrieved |
-| instance   | is.instance.network-interface.create   | - Instance network interface was created (Instance was attached to a subnet)<br /> - Includes the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces created on the virtual server. When set to `false`, IP spoofing is not allowed on the interface.  |
-| instance   | is.instance.network-interface.update   | - Instance network interface was updated (Instance was attached to a subnet)<br /> - Includes the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces created on the virtual server. When set to `false`, IP spoofing is not allowed on the interface. |
+| instance   | is.instance.volume-attachment.read | One or more instance volume attachments was retrieved |
+| instance   | is.instance.network-interface.create   | - Instance network interface was created (Instance was attached to a subnet)<br /> - Includes the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces that are created on the virtual server. When set to `false`, IP spoofing is not allowed on the interface.  |
+| instance   | is.instance.network-interface.update   | - Instance network interface was updated (Instance was attached to a subnet)<br /> - Includes the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces that are created on the virtual server. When set to `false`, IP spoofing is not allowed on the interface. |
 | instance   | is.instance.network-interface.delete   | Instance network interface was deleted (Instance was detached from a subnet)  |
-| instance | is.instance.network-interface.read | One or more instance network interface was retrieved |
+| instance | is.instance.network-interface.read | One or more instance network interfaces was retrieved |
 | instance | is.instance.network-interface_floating-ip.read | One or more floating IPs under an instance network interface was retrieved |
 {: caption="Table 12. Actions that generate events for Instance" caption-side="top"}
 
@@ -276,7 +276,7 @@ The following tables list the actions related to compute resources and the gener
 | key  | is.key.key.create   | Key was created  |
 | key  | is.key.key.delete   | Key was deleted  |
 | key  | is.key.key.update   | Key was updated  |
-| key | is.key.key.read | One or more key was retrieved |
+| key | is.key.key.read | One or more keys was retrieved |
 {: caption="Table 13. Actions that generate events for Key" caption-side="top"}
 
 ### Dedicated host events
@@ -287,7 +287,7 @@ The following tables list the actions related to compute resources and the gener
 | dedicated-host | is.dedicated-host.dedicated-host.create | Dedicated host was created |
 | dedicated-host | is.dedicated-host.dedicated-host.update | Dedicated host was updated |
 | dedicated-host | is.dedicated-host.dedicated-host.delete  |Dedicated host was deleted |
-| dedicated-host | is.dedicated-host.dedicated-host.read | One or more dedicated host was retrieved |
+| dedicated-host | is.dedicated-host.dedicated-host.read | One or more dedicated hosts were retrieved |
 {: caption="Table 14. Actions that generate events for Dedicated Host" caption-side="top"}
 
 ### Dedicated host group events
@@ -298,7 +298,7 @@ The following tables list the actions related to compute resources and the gener
 | dedicated-host-group  | is.dedicated-host.dedicated-host-group.create | Dedicated host group was created |
 | dedicated-host-group  | is.dedicated-host.dedicated-host-group.update | Dedicated host group was updated |
 | dedicated-host-group  | is.dedicated-host.dedicated-host-group.delete | Dedicated host group was deleted |
-| dedicated-host-group  | is.dedicated-host.dedicated-host-group.read | One or more dedicated host group was retrieved |
+| dedicated-host-group  | is.dedicated-host.dedicated-host-group.read | One or more dedicated host groups was retrieved |
 {: caption="Table 15. Actions that generate events for Dedicated Host Group" caption-side="top"}
 
 ### Instance group events
@@ -333,7 +333,7 @@ The following tables list the actions related to compute resources and the gener
 ### Image resources
 {: #events-images}
 
-The following table lists the actions related to image resources and the generation of events.
+The following table lists the actions that are related to image resources and the generation of events.
 
 | Resource  | Action  | Description  |
 |:----------------|:-----------------------|:-----------------------|
@@ -348,7 +348,7 @@ For the image update event, if you are rotating the root key for an image, the C
 ## Storage resources
 {: #events-storage}
 
-The following table lists the actions related to volume resources and the generation of events.
+The following table lists the actions that related to volume resources and the generation of events.
 
 | Resource  | Action  | Description  |
 |:----------------|:-----------------------|:-----------------------|
@@ -358,13 +358,13 @@ The following table lists the actions related to volume resources and the genera
 | volume  | is.volume.volume.read    | One or more volumes were retrieved  |
 {: caption="Table 18. Actions that generate events for storage resources" caption-side="top"}
 
-An event will not contain a volume name if there was no information available at the time of the event. For example, when you make a request to create a volume but do not provide a volume name, the information will not be available and will not appear in the event.
+An event does not contain a volume name if no information is available at the time of the event. For example, when you make a request to create a volume but do not provide a volume name, the information is not available and does not appear in the event.
 {:note}
 
 ## Supported locations
 {: #at-supported-locations}
 
-{{site.data.keyword.at_full}} support is currently available for the Dallas location.
+{{site.data.keyword.at_full}} support is available for the Dallas location.
 
 ## Viewing events
 {: #at_ui}
@@ -376,19 +376,19 @@ Events that are generated by VPC resources are automatically forwarded to the {{
 ## Analyzing events
 {: #at_events_iam_analyze}
 
-Refer to the following information when analyzing events:
+Refer to the following information when you are analyzing events:
 
-- Activity Tracker actions are set to `read` for both the GET and LIST calls, e.g., `is.instance.instance.read`. However, for the LIST calls, the `target.name` field is set to `*`, whereas for the GET calls, it is set to the name of the resource.
+- Activity Tracker actions are set to `read` for both the GET and LIST calls, for example, `is.instance.instance.read`. However, for the LIST calls, the `target.name` field is set to `*`, whereas for the GET calls, it is set to the name of the resource.
 
-- When a user triggers an instance action change, an Activity Tracker log should be generated. The action is specified to one of the following valid action types: `start`, `stop`, and `reboot`.
+- When a user triggers an instance action change, an Activity Tracker log is generated. The action is specified to one of the following valid action types: `start`, `stop`, and `reboot`.
 
-- The `target` field contains information about the top-level resources, e.g., VPC, subnets, and instances (virtual machine), etc. For sub-resources, such as volume-attachments, security-group rules, etc., their unique identifier can be found from the `responseData.responseURI` field. The mapping to the parent resources is reflected by the URI.
+- The `target` field contains information about the top-level resources, for exmaple, VPC, subnets, and instances (virtual machine), etc. For sub-resources, such as volume-attachments, security-group rules, etc., their unique identifier can be found from the `responseData.responseURI` field. The mapping to the parent resources is reflected by the URI.
 
-- For events that are related to volume-attachments, the id of the volume that was attached can be found indirectly by getting the id of the volume-attachment from the `target.responseURI` field (which also contains the instance id), and using that to query the corresponding `GET /instance/{instance_id}/volume-attachment/{volume-attachment-id}` API. The volume id can be found from the response of the GET API call.
+- For events that are related to volume-attachments, the ID of the volume that was attached can be found indirectly by getting the ID of the volume-attachment from the `target.responseURI` field (which also contains the instance ID), and by using that ID to query the corresponding `GET /instance/{instance_id}/volume-attachment/{volume-attachment-id}` API. The volume ID can be found from the response of the GET API call.
 
 - For events that are related to Load Balancer requests, consider the following information:
 
-    You can get additional data in the `requestData.requestPath` field. You can find details about a sub-resource such as a listener ID or rule ID.
+    You can get additional data in the `requestData.requestPath` field. You can find details about a subresource such as a listener ID or rule ID.
     
     When you create resources, you can get IDs from the `responseData.responseContent` field.
     
