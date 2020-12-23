@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-12-10"
+lastupdated: "2020-12-22"
 
 keywords: block storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
@@ -26,7 +26,7 @@ subcollection: vpc
 # Managing block storage volumes by using the UI
 {: #managing-block-storage}
 
-Manage {{site.data.keyword.block_storage_is_short}} from the UI. Detach a volume from a virtual server instance, transfer a volume from one instance to another, attach a previously attached volume, rename a volume, set automatic volume deletion, manually delete a volume, or assign access to a volume.
+Manage {{site.data.keyword.block_storage_is_short}} from the UI. Detach a volume from a virtual server instance or transfer a volume from one instance to another. Attach a previously attached volume or rename a volume. Set automatic volume deletion or manually delete a volume. Assign access to a volume.
 {:shortdesc}
 
 ## Detach a block storage volume from a virtual server instance
@@ -38,7 +38,7 @@ You can detach a block storage volume that is attached to a virtual server insta
 
 To detach a volume:
 
-1. Navigate to the list of all block storage volumes. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
+1. Go to the list of all block storage volumes. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
 1. Locate the volume and then click overflow icon (...) to open a list of options.
 1. From the options menu, click **Detach from instance**.
 1. Confirm by clicking **Detach instance** in the pop-up.
@@ -61,7 +61,7 @@ To transfer a block storage volume to another virtual server instance:
 
 A block storage data volume is attached by default when you create the volume during virtual server instance creation. When you detach a volume from an instance, it exists as an unattached volume and is displayed in the list of [all block storage volumes](/docs/vpc?topic=vpc-viewing-block-storage#viewvols). You can attach it to another instance from the list of block storage volumes.
 
-1. Navigate to the list of all block storage volumes. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
+1. Go to the list of all block storage volumes. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
 1. Locate the volume and then click overflow icon (...) to open a list of options.
 1. From the options menu, click **Attach to instance**.
 1. Select an available virtual server instance.
@@ -72,7 +72,7 @@ A block storage data volume is attached by default when you create the volume du
 
 You can change the name of an existing volume to make it more meaningful.
 
-1. Navigate to the list of all block storage volumes. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
+1. Go to the list of all block storage volumes. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
 1. Locate the volume and then click the name of the volume to go to the Volume Details page.
 1. Click the pencil icon after the name of the volume to edit the name. Provide a [valid volume name](/docs/vpc?topic=vpc-managing-block-storage#volume-name-conventions).
 1. Confirm your edit.
@@ -82,7 +82,7 @@ You can change the name of an existing volume to make it more meaningful.
 
 Valid volume names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Volume names must begin with a lowercase letter.
 
-Volume names must be unique across the entire VPC infrastructure. For example, if you create two volumes from Gen 1 and Gen 2 compute resources that are in the same account, the same region, and have the same name, a  "volume name duplicate" error is triggered.
+Volume names must be unique across the entire VPC infrastructure. For example, if you create two volumes from Gen 1 and Gen 2 compute resources that are in the same account, the same region, and have the same name, a "volume name duplicate" error is triggered.
 
 ## Delete a block storage data volume
 {: #delete}
@@ -94,14 +94,14 @@ Deleting a block storage volume completely removes its data. The volume cannot b
 You cannot delete an active block storage volume. To delete a volume, first [detach it](#detach) from the virtual server instance, then follow these steps:
 
 1. Navigate to the list of all block storage volumes. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
-1. Locate the volume you want to delete and then click the overflow icon (...) to open a list of options.
+1. Locate the volume that you want to delete and then click the overflow icon (...) to open a list of options.
 1. From the options menu, click **Delete**.
 1. Confirm the deletion.
 
 ## Automatic deletion of block storage data volumes
 {: #auto-delete}
 
-Using the Auto Delete feature, you can specify that a block storage data volume be automatically deleted when you delete an instance to which it is attached.
+Using the Auto Delete feature, you can specify that a block storage data volume is automatically deleted when you delete an instance to which it is attached.
 
 **Note**: You don't have to set automatic deletion for boot volumes. Boot volumes are created during instance creation and automatic deletion is enabled by default. When you delete the instance, the boot volume is also deleted.
 
