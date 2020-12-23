@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2020
-lastupdated: "2020-11-24"
+lastupdated: "2020-12-23"
 
 keywords: block storage, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
@@ -38,7 +38,7 @@ Manage your root keys by taking the following actions:
 * Decide when [disabling](#byok-disable-root-keys) or [deleting](#byok-delete-root-keys) a root key is necessary. When you rotate keys, the former key remains active and is still used to decrypt existing resources. Take precautions when disabling or deleting root keys.
 * Enable a key that's been disabled or [restore a deleted key](#byok-restore-root-key).
 * Decide whether you might want to make your data temporarily inaccessible by [removing service authorization](#instance-byok-inaccessible-data).
-* Review the [Activity Tracker](#byok-key-rotation-activity-tracker-events) to verify events as you manage the lifecycle of your keys.
+* Review the [Activity Tracker](#byok-activity-tracker-events) to verify events as you manage the lifecycle of your keys.
 
 ### Viewing root key registrations
 {: #byok-root-key-registration}
@@ -153,7 +153,7 @@ When you disable a root key, workloads remain running in virtual server instance
 
 To see which root keys are disabled, look in the UI list of resources. The status of the resource will be _unusable_. The UI tooltip displays "key suspended". In the API, you'll see an *encryption_key_disabled* reason code.
 
-You can [enable a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#enable-ui) that's in a _suspended_ state, which returns the key to an _active_ state. You can also [delete a suspended key](#byok-delete-root-keys) or restore the deleted key if necessary.
+You can enable a root key that's in a _suspended_ state from [Key Protect](/docs/key-protect?topic=key-protect-disable-keys#enable-ui) or [HPCS](/docs/hs-crypto?topic=hs-crypto-disable-keys#enable-ui). Enabling a root key returns the key to an _active_ state. You can also [delete a suspended key](#byok-delete-root-keys) or [restore the deleted key](#byok-restore-root-key) if necessary.
 
 For more information about disabling root keys, see:
 

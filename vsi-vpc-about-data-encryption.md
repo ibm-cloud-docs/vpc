@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2020
-lastupdated: "2020-12-09"
+lastupdated: "2020-12-23"
 
 keywords: block storage, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
@@ -36,7 +36,7 @@ By default, all boot and data volumes are encrypted at rest with IBM-managed enc
 ## Customer-managed encryption
 {: #vpc-customer-managed-encryption}
 
-Customer-managed encryption lets you bring your own customer root key (CRK) to the cloud or have a [key management service](#kms-for-byok) (KMS) generate a key for you. Supported key managment services are {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}} (HPCS). Root keys encrypt volume and custom image passphrases with [envelope encryption](#vpc-envelope-encryption-byok), a process that encrypts a key with another key. 
+Customer-managed encryption lets you bring your own customer root key (CRK) to the cloud or have a [key management service](#kms-for-byok) (KMS) generate a key for you. Supported key managment services are {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}} (HPCS). Root keys encrypt volume and custom image passphrases with [envelope encryption](#vpc-envelope-ecryption-byok), a process that encrypts a key with another key. 
 
 Customer-managed encryption for volumes and custom images lets you use root keys in the same region as you resources. You can also use root keys from another region to encrypt your resources. For best performance and security, collocate your KMS instance/root keys and your encrypted resources in the same region. For more information, see [Root key regional and cross-regional considerations](#byok-cross-region-keys).
 
