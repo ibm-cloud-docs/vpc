@@ -22,7 +22,7 @@ subcollection: vpc
 # About networking
 {: #about-networking-for-vpc}
 
-{{site.data.keyword.vpc_full}} (VPC) is a virtual network that's tied to your customer account. It gives you cloud security, with the ability to scale dynamically, by providing fine-grained control over your virtual infrastructure and your network traffic segmentation.
+{{site.data.keyword.vpc_full}} (VPC) is a virtual network that is linked to your customer account. It gives you cloud security, with the ability to scale dynamically, by providing fine-grained control over your virtual infrastructure and your network traffic segmentation.
 {:shortdesc}
 
 ## Overview
@@ -39,7 +39,7 @@ Subnets within the VPC offer private connectivity; they can talk to each other o
 ## Terminology
 {: #networking-terminology}
 
-When working with your VPC, you'll need to be familiar with the basic concepts of _region_ and _zone_ as they apply to your deployment.
+To work with your VPC, you need to be familiar with the basic concepts of region and zone as they apply to your deployment.
 
 ### Regions
 {: #networking-terms-regions}
