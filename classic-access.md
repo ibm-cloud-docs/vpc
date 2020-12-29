@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2020
-lastupdated: "2020-09-18"
+lastupdated: "2020-12-29"
 
 keywords: classic, access, classic access, VRF, peering
 
@@ -28,7 +28,7 @@ subcollection: vpc
 You can set up access from a VPC to your {{site.data.keyword.cloud}} classic infrastructure, including {{site.data.keyword.cloud_notm}} Direct Link connectivity. Only one VPC per region can communicate with classic resources.
 {: shortdesc}
 
-When you set up a VPC for classic access, every virtual server instance or bare metal server without a public interface in your classic account can send and receive packets to and from the classic access VPC. Firewalls, gateways, network ACLs, or security groups can filter some or all of this traffic. As a best practice, allow only traffic that's required for your applications to function properly.
+When you set up a VPC for classic access, every virtual server instance or bare metal server without a public interface in your classic account can send and receive packets to and from the classic access VPC. Firewalls, gateways, network ACLs, or security groups can filter some or all of this traffic. As a best practice, allow only traffic that is required for your applications to function properly.
 
 For virtual server instances and bare metal instances on the classic infrastructure that use a public interface, you must add a route that points back to your classic-enabled VPC. This route must include the subnets of your classic-enabled VPC as a destination. The route must also point to a gateway address for traffic that leaves the private interface of the host as the next hop.
 {: important}
@@ -46,7 +46,7 @@ All subnets in a classic access VPC are shared into the classic infrastructure V
 
 You can create a classic access VPC by using the {{site.data.keyword.cloud_notm}} console, CLI, or API.
 
-A VPC must be set up for classic access when it's created: you cannot update a VPC to add or remove classic access.
+A VPC must be set up for classic access when it is created: you cannot update a VPC to add or remove classic access.
 {: important}
 
 ### Using the {{site.data.keyword.cloud_notm}} console to create a classic access VPC
@@ -118,9 +118,9 @@ curl -H "Authorization:$iam_token" "$iaas_endpoint/v1/vpcs?generation=2&version=
 ## Converting your account to VRF
 {: #vrf-conversion}
 
-The VRF conversion process involves a network disruption while the VLANs and their subnets are detached from the ACL backbone and then attached to the _Customer VRF_. This process results in a few moments of packet loss for traffic entering or exiting the VLANs. Packets within the VLAN continue to flow. In the cases where a network gateway, such as a FortiGate Security Appliance or Virtual Router Appliance is involved, no disruption occurs among the VLANs attached to that gateway. The servers see no network outage themselves, and most workloads automatically recover when the traffic flow resumes. The total duration of the disruption depends on the extent of the tenant’s topology, that is, the number of subnets, VLANs, and pods that your tenancy includes.
+The VRF conversion process involves a network disruption while the VLANs and their subnets are detached from the ACL backbone and then attached to the _Customer VRF_. This process results in a few moments of packet loss for traffic that is entering or exiting the VLANs. Packets within the VLAN continue to flow. In the cases where a network gateway, such as a FortiGate Security Appliance or Virtual Router Appliance is involved, no disruption occurs among the VLANs attached to that gateway. The servers see no network outage themselves, and most workloads automatically recover when the traffic flow resumes. The total duration of the disruption depends on the extent of the tenant’s topology, that is, the number of subnets, VLANs, and pods that your tenancy includes.
 
-During migration, the VLANs are disconnected from the backbone and reconnected to the _Customer VRF_. The duration of disruption varies, depending on the quantity of VLANs, PODs, and data centers involved. Traffic among VLANs is disrupted, yet the servers stay connected to the network. The application may or may not be affected, depending on its sensitivity to packet loss.
+During migration, the VLANs are disconnected from the backbone and reconnected to the _Customer VRF_. The duration of disruption varies, depending on the quantity of VLANs, PODs, and data centers involved. Traffic among VLANs is disrupted, yet the servers stay connected to the network. The application might or might not be affected, depending on its sensitivity to packet loss.
 
 ### How to initiate VRF conversion
 {: #how-you-can-initiate-the-conversion}
