@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2020
 
-lastupdated: "2020-10-28"
+lastupdated: "2020-12-29"
 
 
 keywords: vpc, virtual private cloud, vpc ui, console, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range, generation 2, gen 2
@@ -93,13 +93,13 @@ You can create and configure an {{site.data.keyword.vpc_full}} (VPC) by using th
 
 ## Objectives
 {: #vpc_tutorials_objectives}
-To create and configure your VPC and other attached resources, perform the steps in the sections that follow, in this order:
+To create and configure your VPC and other attached resources, do the steps in the sections that follow, in this order:
 
 1. Create a VPC and subnet to define the network. When you create your subnet, attach a public gateway if you want to allow all resources in the subnet to communicate with the public internet.
 1. To limit the subnet's inbound and outbound traffic, you can configure an access control list (ACL). By default, all traffic is allowed.
 1. Create a virtual server instance. By default, a 100 GB boot volume is attached to the instance.
 1. If you want more storage, create a block storage volume and attach it to your instance.
-1. To define the inbound and outbound traffic that's allowed for the instance, configure its security group.
+1. To define the inbound and outbound traffic that is allowed for the instance, configure its security group.
 1. If you want your instance to be reachable from the internet, reserve and associate a floating IP address.
 1. To distribute requests over multiple instances, create a load balancer.
 1. To enable your VPC to connect securely to another private network, such as your on-premises network or another VPC, create a virtual private network (VPN).
@@ -117,7 +117,7 @@ This tutorial is intended for software developers and system administrators who 
 
 Set up your account to access VPC. Make sure that your account is [upgraded to a paid account](/docs/account?topic=account-accountfaqs#changeacct){: new_window}.
 
-Make sure that you have an SSH key. The key is used to connect to the virtual server instance. For example, generate an SSH key on your Linux server by running the following command:
+Make sure that you have an SSH key. The key is used to connect to the virtual server instance. For example, generate an SSH key on your Linux&reg server by running the following command:
 ```
 ssh-keygen -t rsa -C "user_ID"
 ```
@@ -148,7 +148,7 @@ To create a VPC and subnet:
 1. Select whether the default security group allows inbound SSH and ping traffic to virtual server instances in this VPC. We'll configure more rules for the default security group later.
 1. _Optional:_ Select whether you want to enable your VPC to access classic infrastructure resources. For more information, see [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure).
 
-    You can only enable a VPC for classic access while creating it. In addition, you can only have one classic access VPC in your account at any time.
+    You can only enable a VPC for classic access while creating the VPC. In addition, you can only have one classic access VPC in your account at any time.
     {: important}
 
 1. _Optional:_ Clear the **Default address prefixes** option if you don't want to assign default address prefixes to each zone in your VPC. After you create your VPC, you can go to its details page and set your own address prefixes.
@@ -160,7 +160,7 @@ To create a VPC and subnet:
     {: tip}
 1. Enter an IP range for the subnet in CIDR notation, for example: `10.240.0.0/24`. In most cases, you can use the default IP range. If you want to specify a custom IP range, you can use the IP range calculator to select a different address prefix or change the number of addresses.
 
-    A subnet cannot be resized after it has been created.
+    A subnet cannot be resized after it is created.
     {: important}
 
 1. Attach a public gateway to the subnet if you want to allow all attached resources to communicate with the public internet.  
@@ -239,8 +239,8 @@ To create a virtual server instance in the newly created subnet:
     After you create your instance, you can't update the profile.
     {: important}
 
-1. Select an existing SSH key or add an SSH key that will be used to access the virtual server instance. To add an SSH key, click **New key** and name the key. After you enter your previously generated public key value, click **Add SSH key**.
-1. _Optional:_ Enter user data to run common configuration tasks when your instance starts. For example, you can specify cloud-init directives or shell scripts for Linux images. For more information, see [User Data](/docs/vpc?topic=vpc-user-data).
+1. Select an existing SSH key or add an SSH key that is to be used to access the virtual server instance. To add an SSH key, click **New key** and name the key. After you enter your previously generated public key value, click **Add SSH key**.
+1. _Optional:_ Enter user data to run common configuration tasks when your instance starts. For example, you can specify cloud-init directives or shell scripts for Linux&reg images. For more information, see [User Data](/docs/vpc?topic=vpc-user-data).
 1. Note the boot volume. In the current release, 100 GB is allotted for the boot volume. *Auto Delete* is enabled for the volume; the boot volume is deleted automatically if the instance is deleted.
 1. In the **Data volumes** area, click **New volume** to attach a block storage volume to your instance if you want more storage. In this tutorial, we'll create a block storage volume and attach it to the instance later.
 1. In the **Network interfaces** area, you can edit the network interface and change its name. If you have more than one subnet in the selected zone and VPC, you can attach a different subnet to the interface. If you want the instance to exist in multiple subnets, you can create more interfaces.
@@ -278,7 +278,7 @@ To create and attach a block storage volume:
 {: #configuring-the-security-group}
 {: step}
 
-You can configure the security group to define the inbound and outbound traffic that is allowed for the instance.  For example, after you configure ACL rules for the subnet based on your company's security policies, you can further restrict traffic for specific instances depending on their workloads.
+You can configure the security group to define the inbound and outbound traffic that is allowed for the instance. For example, after you configure ACL rules for the subnet based on your company's security policies, you can further restrict traffic for specific instances depending on their workloads.
 
 To configure the security group:
 
@@ -292,7 +292,7 @@ To configure the security group:
    **Tips:**  
   * All rules are evaluated, regardless of the order in which they're added.
   * Rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, you created a rule that allows inbound TCP traffic on port 80. That rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
-  * For Windows images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
+  * For Windows&reg images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
 1. _Optional:_ To view interfaces that are attached to the security group, click **Attached interfaces** in the navigation pane.
 1. When you finish creating rules, click the **All security groups for VPC** breadcrumb at the beginning of the page.
 
@@ -333,7 +333,7 @@ To reserve and associate a floating IP address:
 1. Click your instance to view its details.
 1. In the **Network interfaces** section, click **Reserve** for the interface that you want to associate with a floating IP address.
 
-If you later want to reassign this floating IP address to another instance in the same zone, find the floating IP address on the **Network > Floating IPs** page, click its overflow menu (**...**), and click **Unassociate**. Then, click **Associate** to select the instance and network interface that you want to associate with the floating IP address.
+You can later reassign this floating IP address to another instance in the same zone. To do this, you can find the floating IP address on the **Network > Floating IPs** page, click its overflow menu (**...**), and click **Unassociate**. Then, click **Associate** to select the instance and network interface that you want to associate with the floating IP address.
 {: tip}
 
 ## Connecting to your instance
@@ -359,7 +359,7 @@ ssh -i <path-to-private-key-file> root@<public-ip-address>
 
 For more information about how to connect to your instance, see [Connecting to Linux instances](/docs/vpc?topic=vpc-vsi_is_connecting_linux).
 
-To connect to a Windows image, log in using its decrypted password. For instructions, see [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
+To connect to a Windows&reg image, log in using its decrypted password. For instructions, see [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
 
 ## Monitoring your instance
 {: #monitoring-your-instance}
@@ -380,7 +380,7 @@ Because the monitoring data is stored in {{site.data.keyword.mon_full_notm}}, yo
 {: #load-balancer}
 {: step}
 
-There are two different types of {{site.data.keyword.cloud_notm}} load balancers that you can create: an application load balancer and a network load balancer. For comparison information and instructions on how to create an  {{site.data.keyword.cloud_notm}} load balancer, see [Load balancers overview](/docs/vpc?topic=vpc-nlb-vs-elb).
+You can create two different types of {{site.data.keyword.cloud_notm}} load balancers: an application load balancer and a network load balancer. For comparison information and instructions on how to create an  {{site.data.keyword.cloud_notm}} load balancer, see [Load balancers overview](/docs/vpc?topic=vpc-nlb-vs-elb).
 
 ## Creating a VPN gateway (optional)
 {: #vpn-ui}
@@ -392,7 +392,7 @@ You can create a virtual private network (VPN) so your VPC can connect securely 
 {: #vpc-layout}
 {: step}
 
-You can quickly view the resources that are associated with a VPC by accessing the resource view: In the navigation, click **VPC layout**. You can select the VPC that you are interested in, if your account has multiple VPCs configured. For each VPC you can see the associated subnets, and within each subnet you can see how many instances are running, stopped, and failed. You can also see how many IP addresses are available in each subnet. From the lists of instances and associated IP addresses, you can click a specific instance to view its details.
+You can quickly view the resources that are associated with a VPC by accessing the resource view: In the navigation, click **VPC layout**. You can select the VPC that you are interested in, if multiple VPCs are configured for your account. For each VPC you can see the associated subnets, and within each subnet you can see how many instances are running, stopped, and failed. You can also see how many IP addresses are available in each subnet. From the lists of instances and associated IP addresses, you can click a specific instance to view its details.
 
 ## Congratulations!
 {: #congratulations}
