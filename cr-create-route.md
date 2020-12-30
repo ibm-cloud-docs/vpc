@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-30"
+lastupdated: "2020-12-30"
 
 keywords: custom routes
 
@@ -40,7 +40,7 @@ A VPC route has three main components:
 * The next hop where the packet will route
 * The zone
 
-Any traffic that originates in the specified zone of the VPC and has a destination address within the specified destination CIDR routes to the next hop. If the destination address is within the destination CIDR for multiple VPC routes, the most specific route is used. If there are two or more equally specific routes, the traffic is round-robin distributed between each route.
+Any traffic that originates in the specified zone of the VPC and has a destination address within the specified destination CIDR routes to the next hop. If the destination address is within the destination CIDR for multiple VPC routes, the most specific route is used. If there are two or more equally specific routes, the traffic is round-robin that is distributed between each route.
 
 Each route has a destination property, which includes a prefix length (`/24` in `10.2.0.0/24`). The number of unique prefix lengths that are supported per custom routing table is 14. Multiple routes with the same prefix count as only one unique prefix.
 {: important}
@@ -52,7 +52,7 @@ You can create a route for an IBM Cloud service by using the UI, CLI, or API.
 
 To create a route by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appear.
 1. Select the VPC associated with the routing table you want to view. Then, click the name of the routing table to show its details.
 1. Scroll to the Routes section and click **Create**.
 
@@ -61,10 +61,10 @@ To create a route by using the {{site.data.keyword.cloud_notm}} console, follow 
 1. In the New route side panel, enter the following information:
 
    * **Destination CIDR** - The destination CIDR of the route.
-   * **Action** - Values are:<ul><li>**Deliver** - Routes the packet to the next hop target. You can add multiple routes with the same address prefix. The virtual router performs equal-cost, multi-path routing (ECMP) using the different next hop IP addresses.</li><li>**Drop** - Drops the packet.</li><li>**Delegate** - Routes the packet using the system routing table.</li></ul>
+   * **Action** - Values are:<ul><li>**Deliver** - Routes the packet to the next hop target. You can add multiple routes with the same address prefix. The virtual router performs equal-cost, multi-path routing (ECMP) using the different next hop IP addresses.</li><li>**Drop** - Drops the packet.</li><li>**Delegate** - Routes the packet by using the system routing table.</li></ul>
    * Type - (Egress traffic type only) Choose either **IP Address** or **VPN connection**. If you select **IP Address**, enter the **Next hop**. If you choose **VPN Connection**, select from the list of available VPN gateways or connections.
 
-   Traffic egressing a subnet routes using the custom routing table associated with the subnet. If no matching route is found in a custom routing table, routing continues using the VPC system routing table. You can avoid this behavior with a custom routing table default route with an action of **Drop**.
+   Traffic egressing a subnet routes that use the custom routing table that is associated with the subnet. If no matching route is found in a custom routing table, routing continues using the VPC system routing table. You can avoid this behavior with a custom routing table default route with an action of **Drop**.
    {: note}
 
 1. Click **Save** to save the new route. The route appears on the Routing table details page.
