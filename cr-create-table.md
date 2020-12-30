@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-11-19"
+lastupdated: "2020-12-30"
 
 keywords: custom routes
 
@@ -29,14 +29,14 @@ subcollection: vpc
 # Creating a routing table
 {: #create-vpc-routing-table}
 
-Create a routing table to define rules to forward network traffic along the best path towards its destination. For example, a routing table provides information for sending a data packet to the next hop on its route across the network.
+Create a routing table to define rules to forward network traffic along the best path toward its destination. For example, a routing table provides information for sending a data packet to the next hop on its route across the network.
 {: shortdesc}
 
-Ingress traffic from a particular traffic source is routed using the routes in the custom routing table that is associated with that traffic source. If no matching route is found in
+Ingress traffic from a particular traffic source is routed by using the routes in the custom routing table that is associated with that traffic source. If no matching route is found in
 a custom routing table, routing continues using the VPC system routing table. You can avoid this behavior with a custom routing table's default route with an action of **drop**.
 {: note}
 
-Prior to creating a routing table, ensure that you have at least one VPC. 
+Before creating a routing table, ensure that you have at least one VPC. 
 
 You can create a routing table for an IBM Cloud service by using the UI, CLI, or API. 
 
@@ -45,7 +45,7 @@ You can create a routing table for an IBM Cloud service by using the UI, CLI, or
 
 To create a routing table by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appear.
 
      ![Routing tables for VPC page](./images/cr-routing-tables-page.png)
 
@@ -83,7 +83,7 @@ Where:
 - **--output** is the output format. One of: **JSON**.
 - **-q, --quiet** suppresses verbose output.
 
-You can only set a given ingress option to **true** on one routing table per VPC, and only if that routing table is not attached to any subnets.
+You can set an ingress option to **true** on only one routing table per VPC, and then only if that routing table is not attached to any subnets.
 {: note}
 
 ## Creating a routing table using the API
