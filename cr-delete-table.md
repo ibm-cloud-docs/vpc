@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-30"
+lastupdated: "2020-12-30"
 
 keywords: custom routes
 
@@ -37,12 +37,12 @@ You can delete a routing table for an IBM Cloud service by using the UI, CLI, or
 
 To delete a routing table by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The routing tables for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The routing tables for VPC page appear.
 2. Click the overflow menu ![overflow menu](images/overflow.png) next to the routing table that you want to delete, then click **Delete**. Click **Delete** again to confirm the deletion. Alternatively, you can click **Actions > Delete** from the routing table details page.
 
    ![Deleting routing tables for VPC](./images/cr-routing-table-delete.png)
 
-   You can only delete a routing table that does not have an attached subnet. If the routing table you want to delete has a subnet attached, you can detach it by either reassigning the routing table to another subnet (using the overflow menu ![overflow menu](images/overflow.png)), or by deleting the subnet (click the subnet name, then click **Delete** from the overflow menu ![overflow menu](images/overflow.png).
+   You can delete only a routing table that does not have an attached subnet. If the routing table you want to delete has a subnet attached, you can detach it by either reassigning the routing table to another subnet (using the overflow menu ![overflow menu](images/overflow.png)), or by deleting the subnet (click the subnet name, then click **Delete** from the overflow menu ![overflow menu](images/overflow.png).
    {: important}
 
 ## Deleting a routing table using the CLI
