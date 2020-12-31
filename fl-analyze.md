@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-07-23"
+lastupdated: "2020-12-31"
 
 keywords: flow logs, configure, viewing records
 
@@ -46,7 +46,7 @@ Flow logs are periodically written to Cloud Object Storage about every 5 minutes
 Flow log traffic summaries contain the following information:
 
 - Byte/packet counts, separately for RX (receive) and TX (transmit).
-- Whether a connection initiates or terminates in this time window.
+- Whether a connection starts or stops in this time window.
 
 Because a flow log reflects network traffic in a limited window of time, a long-running connection might cause multiple flow logs to be emitted. For every connection processed by a vNIC, a time-ordered sequence of flow logs emits (not including failures). These flow logs appear in one or more COS objects.
 
@@ -62,7 +62,7 @@ The `start_time` and `end_time` in a flow log reflects:
    - Capture time - The time that data path elements were queried for traffic counters.
    - Data path time - The time as maintained in the data path element itself.
 
-It's possible that the flow log does not reflect all traffic (for example, in the data path) between a flow log `start_time` and `end_time`. In other words, it might be that packets sent/received by the vNIC towards the end of the capture window are reflected only in a flow log with the later `start_time` window.
+It's possible that the flow log does not reflect all traffic (for example, in the data path) between a flow log `start_time` and `end_time`. In other words, it might be that packets sent/received by the vNIC toward the end of the capture window are reflected only in a flow log with the later `start_time` window.
 
 **Flow logs reflect actual traffic on connections**: If traffic does not occur on a connection in a capture window, no flow log appears for it in the COS object for that window. This means that the sequence of flow logs for a connection might be mapped to a sequence of non-consecutive COS objects.
 
