@@ -30,10 +30,10 @@ subcollection: vpc
 # About {{site.data.keyword.cloud_notm}} Flow Logs for VPC
 {: #flow-logs}
 
-{{site.data.keyword.cloud}} Flow Logs for VPC enables the collection, storage, and presentation of information about the Internet Protocol (IP) traffic going to and from network interfaces within your Virtual Private Cloud (VPC).
+{{site.data.keyword.cloud}} Flow Logs for VPC enable the collection, storage, and presentation of information about the Internet Protocol (IP) traffic going to and from network interfaces within your Virtual Private Cloud (VPC).
 {: shortdesc}
 
-23 July 2020: This service is now generally available. Starting August 23, all flow log collectors created during the beta period will be automatically converted to the standard paid plan (see [Pricing](https://www.ibm.com/cloud/vpc/pricing#product-faq-section){: external}). If you do not want these flow log collectors to incur fees, delete the collectors before this date by using the UI, CLI, or API.
+23 July 2020: This service is now generally available. Starting 23 August 2020, all flow log collectors created during the beta period will be automatically converted to the standard paid plan (see [Pricing](https://www.ibm.com/cloud/vpc/pricing#product-faq-section){: external}). If you do not want these flow log collectors to incur fees, delete the collectors before this date by using the UI, CLI, or API.
 {: important}
 
 Flow logs can help with a number of tasks, including:
@@ -84,7 +84,7 @@ Each flow log target can have a single flow log collector, which can lead to ove
 * The subnet that the VSI is attached to might have its own flow log collector.
 * The VPC that the subnet is part of might have its own flow log collector.
 
-If there is an overlap, the most targeted flow log collector takes precedence. This is important because each flow log collector might log to a different COS bucket, and where flow log data is stored, can change over the lifetime of a virtual server instance.
+If an overlap exists, the most targeted flow log collector takes precedence. This precendence is important because each flow log collector might log to a different COS bucket, and where flow log data is stored, can change over the lifetime of a virtual server instance.
 
 ## Getting started
 {: #fl-getting-started}  
@@ -130,7 +130,7 @@ Scenario:
 2. A VSI on Subnet 2 (NACL 1 allows ingress and egress) tries to query the web server that you are running on Subnet 3.
 3. The query gets through and you see that the traffic is accepted on the ingress path to Subnet 3 into VSI 31.  
 4. When VSI 31 receives the request, it generates a reply and tries to send it. Unfortunately, the response cannot be returned and your connection hangs on Subnet 2 until it times out.
-5. Flow logs will show that the request was sent and that it was accepted on VSI 31. Flow logs show that the response traffic was rejected.
+5. Flow logs show that the request was sent and that it was accepted on VSI 31. Flow logs show that the response traffic was rejected.
 
 ![Troubleshooting security groups and network ACLs](/images/fl-sc-acls.png "Troubleshooting security groups and network ACLs")
 
