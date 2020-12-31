@@ -34,7 +34,7 @@ Yes, you can set up access to your {{site.data.keyword.cloud}} classic infrastru
 {: #faq-vpc-1}
 {: faq}
 
-No, a subnet cannot be resized after it has been created.
+No, a subnet cannot be resized after it is created.
 
 ## What is the limit on the number of characters in a VPC name?
 {: #faq-vpc-2}
