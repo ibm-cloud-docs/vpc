@@ -30,20 +30,20 @@ subcollection: vpc
 {: help}
 {: support}
 
-You can order and provision a flow log collector for a specific Virtual Private Cloud (VPC), subnet, instance, or interface. Before you begin, make sure that you review the use cases listed in [About flow logs](/docs/vpc?topic=vpc-flow-logs) and satisfy the following prerequisites.
+You can order and provision a flow log collector for a specific Virtual Private Cloud (VPC), subnet, instance, or interface. Before you begin, make sure that you review the use cases that are listed in [About flow logs](/docs/vpc?topic=vpc-flow-logs) and satisfy the following prerequisites.
 
-When provisioning a flow log collector, keep in mind that [the finest granularity wins](/docs/vpc?topic=vpc-flow-logs#flow-logs-granularity-wins).
+When you are provisioning a flow log collector, keep in mind that [the finest granularity wins](/docs/vpc?topic=vpc-flow-logs#flow-logs-granularity-wins).
 {: tip}
 
 ## Prerequisites
 {: #fl-before-you-begin}
 
-Prior to creating a flow log collector, ensure that you have met the following prerequisites:
+Befre creating a flow log collector, ensure that you meet the following prerequisites:
 
 1. Make sure that at least one VPC, a subnet, and a virtual server instance exist. For instructions, see [Creating a VPC and subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vpc-and-subnet) and [Creating a virtual server instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vsi).
 2. Make sure that a COS instance with a bucket exists for your flow logs. To create a COS bucket, see the [Cloud Object Storage](https://cloud.ibm.com/catalog/services/cloud-object-storage) ordering page.  
 
-   The COS bucket must be a single-region bucket in the same region as the target resource. Additionally, it is  recommended that you secure the bucket via IAM access groups and audit logging.
+   The COS bucket must be a single-region bucket in the same region as the target resource. Additionally, it is  recommended that you secure the bucket through IAM access groups and audit logging.
    {: important}
 
 3. Authorize resources of type **Flow Logs for VPC** to use the COS instance created in Step 2.
