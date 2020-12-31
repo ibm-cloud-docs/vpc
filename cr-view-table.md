@@ -109,7 +109,7 @@ To view the details of a routing table by using the API, follow these steps:
    ```
    {: codeblock}
 
-   To view the routing table attached to a subnet:
+   To view the routing table that is attached to a subnet:
 
    ```sh
    export SubnetId=<your_subnet_id>
