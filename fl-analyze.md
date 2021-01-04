@@ -4,7 +4,7 @@ copyright:
   years: 2020
 lastupdated: "2020-12-31"
 
-keywords: flow logs, configure, viewing records
+keywords: flow logs, configure, viewing records, sql, analyze
 
 subcollection: vpc
 ---
@@ -26,27 +26,42 @@ subcollection: vpc
 
 # Viewing flow log objects
 {: #fl-analyze}
-A flow log is a summary of the network traffic that is uniquely identified by a connection between two virtual network interface cards (vNICs), within a certain time window. A flow log describes traffic the firewall either accepts (relevant security groups or network ACLs) or rejects, but not both.
+
+A flow log is a summary of the network traffic that is uniquely identified by a connection between two virtual network interface cards (vNICs), within a certain time window. A flow log describes traffic the firewall either accepts (relevant security groups or network ACLs) or rejects, but not both. It contains header information and
+payload statistics.
 {:shortdesc}
 
 Currently, flow logs collect Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) traffic, but not Internet Control Message Protocol (ICMP) traffic.
 {: note}
 
-Each flow log object contains individual flow logs. To view the flow logs, follow these steps.
+Each flow log object contains individual flow logs. To view or analyze the flow logs, follow these steps.
 
-1. Download the objects from your designated Cloud Object Storage (COS) bucket by using the COS UI, CLI, or API.
-1. Extract and view the downloaded flow log objects in JSON format.
-1. Use command-line tools, such as **jq** or **grep**, to search the downloaded flow log objects.
+1. Ensure that you created an instance of {{site.data.keyword.sqlquery_full}}.
+1. Launch {{site.data.keyword.sqlquery_full}}.
+1. Start querying flow logs from the bucket that you specified when [Creating a flow log collector](https://test.cloud.ibm.com/docs/vpc?topic=vpc-ordering-flow-log-collector).
 
-Flow logs are periodically written to Cloud Object Storage about every 5 minutes. Flow logs are published more frequently in cases where the flow log collector reaches 100 KB flows.
+    To view the most frequent flow object, run this query:
+    ```
+    SELECT * FROM cos://<region>/<bucket>/ibm_vpc_flowlogs_v1/ STORED AS JSON ORDER BY `stream-id` LIMIT 1 INTO cos://<region>/<target_bucket>/result/ STORED AS JSON
+    ```
+Where:
+
+    * **bucket** - The bucket where your flow logs are stored.
+    * **region** - The [region alias](/docs/sql-query#endpoints) of the bucket that holds your flow logs.
+    * **target_bucket** - A bucket different from the bucket that is used to write the results of your query. It is recommended to use the bucket that was created by {{site.data.keyword.sqlquery_full}}.
+1. Use the preview to inspect the content of the object.
+1. Refine your query to analyze specific aspects of your flow logs by using [SQL](/docs/sql-query?topic=sql-query-sql-reference "SQL Query Language Reference").
+
+Flow logs are periodically written to Cloud Object Storage (COS) about every 5 minutes. Flow logs are published more frequently in cases where the flow log collector reaches 100 KB flows.
 {: note}
 
 ## Flow log data format
+{: #flow-log-data-format}
 
 Flow log traffic summaries contain the following information:
 
 - Byte/packet counts, separately for RX (receive) and TX (transmit).
-- Whether a connection starts or stops in this time window.
+- Whether a connection starts or stops in the time window.
 
 Because a flow log reflects network traffic in a limited window of time, a long-running connection might cause multiple flow logs to be emitted. For every connection processed by a vNIC, a time-ordered sequence of flow logs emits (not including failures). These flow logs appear in one or more COS objects.
 
@@ -59,8 +74,8 @@ If both the connection initiator vNIC and connection target vNIC enable flow log
 
 The `start_time` and `end_time` in a flow log reflects:
 
-   - Capture time - The time that data path elements were queried for traffic counters.
-   - Data path time - The time as maintained in the data path element itself.
+   * Capture time - The time that data path elements were queried for traffic counters.
+   * Data path time - The time as maintained in the data path element itself.
 
 It's possible that the flow log does not reflect all traffic (for example, in the data path) between a flow log `start_time` and `end_time`. In other words, it might be that packets sent/received by the vNIC toward the end of the capture window are reflected only in a flow log with the later `start_time` window.
 
@@ -81,28 +96,33 @@ Flows are tagged as rejected if their packets were blocked by security group or 
 {: note}
 
 ## Flow log object format
+{: #flow-log-object-format}
 
-Flow logs are written to the user-specified COS bucket in the following path:
+Flow logs are written to the user-specified COS bucket in the following naming convention:
 
 ```
 ibm_vpc_flowlogs_v1/account={account}/region={region}/vpc-id={vpc-id}/subnet-id={subnet-id}/endpoint-type=vnics/instance-id={vsi-id}/vnic-id={vnic-id}/record-type={all|ingress|egress|internal}/year={xxxx}/month={yy}/day={zz}/hour={hh}/stream-id={stream-id}/{sequence-number}.gz
 ```
 
 Where:
+
 * `{stream_id}` is a date and time string in ISO 8601 format `yyyymmddThhmmssZ` (Coordinated Universal Time), defined as the time the first object in this `directory` was created.
 * `{sequence-number}` is a running counter of objects within the stream, represented as an eight-character, zero-filled field (`%08d`).
-* `{all|ingress|egress|internal}` shows the type of traffic the flow includes,
-* `{xxxx}` is the year in four digit format,
-* `{yy}` is the month in two digit, zero-leading format,
-* `{zz}` is the day of the month in two digit, zero-leading format, and
-* `{hh}` is the hour in zero-leading format (for example, 00-24)
-* Any instances of URL-unsafe characters in the path are URL-encoded.
+* `{all|ingress|egress|internal}` shows the type of traffic the flow includes.
+* `{xxxx}` is the year in four-digit format.
+* `{yy}` is the month in two-digit, zero-leading format.
+* `{zz}` is the day of the month in two-digit, zero-leading format.
+* `{hh}` is the hour in zero-leading format (for example, 00-24).
+
+Any instances of URL-unsafe characters in the path are URL-encoded.
+{: note}
 
 A flow log's COS object contains a single valid JSON object. The COS object is `.gz` compressed.
 
 The object header fields that are specified in the following table are written to the COS object metadata.
 
 ### Flow logs object header fields (per COS object)
+{: #flow-logs-object-header-fields}
 
 | Field                  | Type   | Description       |
 | ---------------------- | ------ | ----------------- |
@@ -114,11 +134,12 @@ The object header fields that are specified in the following table are written t
 | `vpc_crn`                | string | The CRN of the VPC that the flow log collector is a member of. |
 | `capture_start_time`     | string | RFC 3339 Date and Time (Coordinated Universal Time) |
 | `capture_end_time`       | string | RFC 3339 Date and Time (Coordinated Universal Time) |
-| `state`                  | string |  Indicates the operational state of the flow log collector. `OK` means that data is being collected and shipped without any errors. `skip data` indicates that there was data lost during this collection interval (for example, because of high rate of rejected SYN packets). |
+| `state`                  | string |  Indicates the operational state of the flow log collector. `OK` means that data is being collected and shipped without any errors. `skip data` indicates that there was data that was lost during this collection interval (for example, because of high rate of rejected SYN packets). |
 | `number_of_flow_logs`    | uin32  | The number of elements in a `flow_logs` array. Since this number is highly variable, it's useful as a quick reference of the number of flow logs contained in a single COS object, without needing to download the object first. |
-| `flow_logs`              | array of JSON objects | This may be an empty array, which indicates `no traffic`.|
+| `flow_logs`              | array of JSON objects | This can be an empty array, which indicates `no traffic`.|
 
 ### Flow log fields
+{: #flow-log-fields}
 
 | Field                  | Type   | Description       |
 | ---------------------- | ------ | ----------------- |
@@ -147,7 +168,8 @@ The object header fields that are specified in the following table are written t
 In most cases, you can find the direction field by comparing the vNIC’s private IP with the source and destination IPs. However, the field is convenient for queries.
 {: note}
 
-### Example flow logs object
+### Example flow log object
+{: #example-flow-logs-object}
 
 ```
 
@@ -190,7 +212,199 @@ In most cases, you can find the direction field by comparing the vNIC’s privat
 
 ```
 
+### Analyzing flow logs using IBM Cloud SQL Query
+{: #analyzing-flow-logs-for-vpc-using-sql}
+
+You can analyze flow logs with SQL that uses {{site.data.keyword.sqlquery_full}} by using the path to the objects on COS in the FROM clause of your SQL query. (For an example, see Step 3 in [Viewing flow log objects](/docs/vpc?topic=vpc-fl-analyze). However, for a more convenient way of querying, it is recommended that you create table and view definitions that give you a flattened view on your flows. For more information about table catalog functions and benefits, see [Catalog management]/docs/sql-query?topic=sql-query-hivemetastore).
+
+The view flattens the flow log data structure; thus, making it easier to analyze your flows.
+
+For more elaborate and repeatable analysis, such as when you want to collaborate and share your log analysis, it is recommended that you use {{site.data.keyword.sqlquery_full}} through Jupyter Notebooks (for example, through IBM Watson Studio). For a generic starter and demo notebook for {{site.data.keyword.sqlquery_full}} that you can use as basis for your work, see [Using IBM Cloud SQL Query](https://dataplatform.cloud.ibm.com/exchange/public/entry/view/4a9bb1c816fb1e0f31fec5d580e4e14d).
+{: note}
+
+**Important**: Replace these variables in the following steps:
+
+ * **bucket** - The bucket where your flow logs are stored.
+ * **region** - The [region alias](/docs/sql-query#endpoints) of the bucket that holds your flow logs.
+
+To analyze flow logs, follow these steps:
+
+1. Define a table for flow logs:
+
+   ```
+   -- Table definition for flow logs
+   CREATE TABLE FLOW(
+   	version string,
+   	collector_crn string,
+   	attached_endpoint_type string,
+   	network_interface_id string,
+   	instance_crn string,
+   	capture_start_time timestamp,
+   	capture_end_time timestamp,
+   	number_of_flow_logs int,
+  	flow_logs array<struct<
+         start_time: string,
+         end_time: string,
+         connection_start_time: string,
+         direction: string,
+         action: string,
+         initiator_ip: string,
+         target_ip: string,
+         initiator_port: int,
+         target_port: int,
+         transport_protocol: int,
+         ether_type: string,
+         was_initiated: boolean,
+         was_termined: boolean,
+         bytes_from_initiator: long,
+         packets_from_initiator: long,
+         bytes_from_target: long,
+         packets_from_target: long,
+         cumulative_bytes_from_initiator: long,
+         cumulative_packets_from_initiator: long,
+         cumulative_bytes_from_target: long,
+         cumulative_packets_from_target: long
+       >>,
+  	   account string,
+  	   region string,
+       `vpc-id` string,
+     	`subnet-id` string,
+     	`endpoint-type` string,
+     	`instance-id` string,
+     	`vnic-id` string,
+     	`record-type` string,
+     	year int,
+     	month int,
+     	day int,
+     	hour int,
+     	`stream-id` string
+   ) USING JSON
+   LOCATION cos://<region>/<bucket>/ibm_vpc_flowlogs_v1/
+   ```
+
+1. Define a view for convenient flow log queries:
+
+   ```
+   CREATE VIEW FLOW_FLAT AS
+   WITH EXPLODED_FLOW as (
+       SELECT version,collector_crn,attached_endpoint_type,network_interface_id, instance_crn, capture_start_time, capture_end_time, `vnic-id`, `record-type`, year, month, day, hour, `stream-id`, explode(flow_logs) as flow FROM FLOW)
+   SELECT version, collector_crn, attached_endpoint_type, network_interface_id, instance_crn, capture_start_time, capture_end_time, `vnic-id`, `record-type`, year, month, day, hour, `stream-id`, flow.*
+   FROM EXPLODED_FLOW
+   ```
+
+#### Optimizing flow logs layout with {{site.data.keyword.sqlquery_full}}
+{: #optimizing-flow-logs-layout}
+
+When analyzing large amounts of flow logs, it is recommended to convert flow logs to a layout optimal for queries. This improves query execution time by at least one order of magnitude. For more information on data optimization on COS refer [here](https://www.ibm.com/cloud/blog/big-data-layout).
+
+The following SQL statement is an ETL job addresses two aspects that contribute significantly to query execution time:
+
+ * object size - Flow logs have a maximum size of 100 KB. An optimal object size for a query is approximately 128 MB.
+ * data format - Flow logs are stored as compressed JSON. The optimal format for queries is parquet, which allows to read only the columns that a query needs, not the whole object.  
+
+ Note the INTO clause, which defines the target location and partitioning layout of the data that is produced by this ETL job.
+
+**Important**: Replace these variables in the following steps:
+
+ * **bucket** - The bucket where you want to store the optimized flow logs.
+ * **region** - The [region alias](/docs/sql-query#endpoints) of the bucket that holds your flow logs.
+
+To optimize flow logs layout with {{site.data.keyword.sqlquery_full}}, follow these steps:
+
+1. Convert all flow logs for a specific date to parquet, writing one parquet object per hour:
+
+   ```
+   SELECT * FROM FLOW_FLAT
+   WHERE
+   	   day = day(DATE("2020-07-24")) AND
+   	   month = month(DATE("2020-07-24")) AND
+	   year = year(DATE("2020-07-24"))
+   INTO cos://<region>/<bucket>/ibm_vpc_flowlogs_v1_parquet/ JOBPREFIX NONE STORED AS PARQUET PARTITIONED BY (year,month,day,hour)
+   ```
+
+1. Create a table for conveniently working with the optimized data:
+
+   ```
+   CREATE TABLE FLOW_PARQUET
+   USING PARQUET
+   LOCATION cos://<region>/<bucket>/ibm_vpc_flowlogs_v1_parquet/
+   ```
+
+   Replace the following place holders in the following steps:
+
+    * **bucket** - The bucket where you stored the optimized flow logs.
+    * **region** - The [region alias](/docs/sql-query#endpoints) of the bucket that holds your flow logs.
+
+1. Use the table `FLOW_PARQUET` instead of `FLOW_FLAT`.  
+
+   For more details about how data layout influences query execution times, see [How to Layout Big Data in IBM Cloud Object Storage for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout "data layout").
+
+#### Example queries for flow logs with {{site.data.keyword.sqlquery_full}}
+{: #example-queries-for-flow-logs-with-sql}
+
+The following example queries a maximum of 100 individual flows for the date specified:
+
+```
+SELECT * FROM FLOW_FLAT WHERE CAST(capture_start_time AS date) = DATE("2020-07-24") LIMIT 100
+```
+
+The following query lists all accepted TCP connection for the specified date, extracting the hour that the connection was made:
+
+```
+SELECT hour(capture_start_time) as hour,
+    network_interface_id,
+    initiator_ip,
+    target_port
+FROM FLOW_FLAT
+WHERE
+    transport_protocol = 6 AND
+    action = "accepted" AND
+    CAST(capture_start_time AS date) = DATE("2020-07-24")
+SORT BY hour
+LIMIT 100
+```
+
+To see which of your vNICs received the most HTTPS traffic in the last seven days, use this query. It counts the number of packets that are sent and groups them by `target_ip`, and returns the top 10. You can check which vNIC sent the most traffic by sorting by `packets_sent`.
+The `where` condition maps to columns that are part of the object names. By restricting columns that are encoded in the object name,
+the query can be run quickly because objects can be pruned before reading their content.
+
+You should always include a similar clause when querying large amounts of flow logs.
+{: note}
+
+
+```
+SELECT target_ip,
+    SUM(packets_from_initiator) AS `packets_received`,
+    SUM(packets_from_target) AS `packets_sent`
+FROM
+    FLOW_FLAT
+WHERE
+	target_port = 443 AND
+	day = day(current_date() - INTERVAL 7 days) AND
+	month = month(current_date() - INTERVAL 7 days) AND
+	year = year(current_date() - INTERVAL 7 days)
+GROUP BY target_ip
+ORDER BY `packets_received` DESC LIMIT 10
+```
+
+To see which vNIC received the most traffic in the last hour, use this query. This query counts the number of bytes sent, groups them by `target_ip`, and returns the top 5.
+
+```
+SELECT target_ip,
+    SUM(bytes_from_initiator) AS `bytes`
+FROM
+    FLOW_FLAT
+WHERE
+    capture_start_time > current_timestamp() - INTERVAL 1 hours AND
+    hour = hour(current_date() - INTERVAL 1 hours) AND
+    day = day(current_date() - INTERVAL 1 hours) AND
+	month = month(current_date() - INTERVAL 1 hours) AND
+	year = year(current_date() - INTERVAL 1 hours)
+GROUP BY target_ip
+ORDER BY `bytes` DESC LIMIT 5
+```
+
 ### Example solution: Analyzing flow Logs for VPC using LogDNA
 {: #example-analyzing-flow-logs-using-logdna}
 
-You can download an example solution of how to use LogDNA to analyze flow logs from [https://github.com/IBM-Cloud/vpc-flowlogs-logdna](https://github.com/IBM-Cloud/vpc-flowlogs-logdna). This project ([Readme file](https://github.com/IBM-Cloud/vpc-flowlogs-logdna/blob/master/README.md)) shows how to use a trigger function to read a flow log COS object and write it to LogDNA.
+You can download an example solution of how to use LogDNA to analyze flow logs from [https://github.com/IBM-Cloud/vpc-flowlogs-logdna](https://github.com/IBM-Cloud/vpc-flowlogs-logdna). This project ([Readme file](https://github.ibm.com/portfolio-solutions/vpc-flowlogs-logdna/blob/master/README.md)) shows how to use a trigger function to read a flow log COS object and write it to LogDNA.

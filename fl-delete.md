@@ -37,7 +37,7 @@ You can delete a flow log collector by using the UI, the CLI, or the API.
 ## Using the UI
 {: #fl-deleting-ui}
 
-To delete a flow log collector, click the overflow ![overflow menu](images/overflow.png) menu next to the collector that you want to delete, then click **Delete**. Click **Delete** again to confirm the deletion.
+To delete a flow log collector, click the overflow menu ![overflow menu](images/overflow.png) next to the collector that you want to delete, then click **Delete**. Click **Delete** again to confirm the deletion.
 
 ## Using the CLI
 {: #fl-deleting-cli}
@@ -60,7 +60,7 @@ To delete a flow log collector by using the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with
 the right variables.
-2. Store your `FlowLogID01` in a variable to be used in the command. For example:
+2. Store your `FlowLogID01` in a variable to be used in the API command:
     ```sh
     export FlowLogID01="<your_flow_log_id>"
     ```

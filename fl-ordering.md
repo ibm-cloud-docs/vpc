@@ -38,12 +38,12 @@ When you are provisioning a flow log collector, keep in mind that [the finest gr
 ## Prerequisites
 {: #fl-before-you-begin}
 
-Befre creating a flow log collector, ensure that you meet the following prerequisites:
+Before creating a flow log collector, ensure that you meet the following prerequisites:
 
 1. Make sure that at least one VPC, a subnet, and a virtual server instance exist. For instructions, see [Creating a VPC and subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vpc-and-subnet) and [Creating a virtual server instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vsi).
 2. Make sure that a COS instance with a bucket exists for your flow logs. To create a COS bucket, see the [Cloud Object Storage](https://cloud.ibm.com/catalog/services/cloud-object-storage) ordering page.  
 
-   The COS bucket must be a single-region bucket in the same region as the target resource. Additionally, it is  recommended that you secure the bucket through IAM access groups and audit logging.
+   The COS bucket must be a single-region bucket in the same region as the target resource. Additionally, it is recommended that you secure the bucket through IAM access groups and audit logging.
    {: important}
 
 3. Authorize resources of type **Flow Logs for VPC** to use the COS instance created in Step 2.
@@ -73,17 +73,19 @@ Befre creating a flow log collector, ensure that you meet the following prerequi
 
 To create a flow log collector by using the IBM Cloud console, follow these steps:
 
-1. Log in to your IBM Cloud account and go to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){:external}. Select the Menu icon ![Menu icon](./images/menu_icon.png) on the upper left of the page, then select **VPC Infrastructure** > **Flow Logs**. The Flow logs for VPC dashboard appears.
+1. Go to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){:external} and log in to your account.
+
+1. Select the Menu icon ![Menu icon](./images/menu_icon.png), then click **VPC Infrastructure** > **Flow Logs**. The Flow logs for VPC dashboard appears.
 
   ![Flow log collector dashboard](./images/list-view-01.png "Flow Log Collector dashboard")
 
-2. Click **Create flow log collector** to go to the flow logs provisioning page.
-3. Enter values for the following fields:
+1. Click **Create flow log collector** to go to the flow logs provisioning page.
+1. Enter values for the following fields:
 
   * **Name** - Type a unique name for your flow log collector.
   * **Resource group** - Select a resource group for your flow log collector. You can use the default group for this flow log, or choose from the list (if defined). For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup).
 
-4. From the **Attach the flow log connector to** menu, choose a target type for the flow log. Depending on your selection, additional fields might be required.   
+1. From the **Attach the flow log connector to** menu, choose a target type for the flow log. Depending on your selection, additional fields might be required.   
 
   * **VPC** - Select a VPC. All network traffic within the selected VPC is logged.
   * **Subnet** -  Select a VPC and a subnet within the selected VPC. All traffic within the selected subnet is logged.
@@ -94,7 +96,7 @@ To create a flow log collector by using the IBM Cloud console, follow these step
 
   ![Example Network Subnet Target](./images/flow-log-provision-subnet-target-example.png "Example Network Subnet Target")
 
-5. Specify where the logs are written. Flow logs are written to a COS bucket, which must be created as a single-region bucket in the same region as the target resource.
+1. Specify where the logs are written. Flow logs are written to a COS bucket, which must be created as a single-region bucket in the same region as the target resource.
 
   * **Cloud Object Storage Instance** - The COS instance that the wanted bucket resides in.
   * **Location** - This input is unavailable because it is directly tied to the region the target resource resides in.
@@ -131,7 +133,7 @@ To create a flow log collector by using the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with
 the right variables.
-2. Store the following variables to be used in the API commands:
+2. Store the following values in variables to be used in the API command:
 
    * `ResourceGroupId` - First, get your resource group and then populate the variable:
 

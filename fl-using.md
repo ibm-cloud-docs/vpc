@@ -33,7 +33,7 @@ subcollection: vpc
 {{site.data.keyword.cloud}} Flow Logs for VPC enable the collection, storage, and presentation of information about the Internet Protocol (IP) traffic going to and from network interfaces within your Virtual Private Cloud (VPC).
 {: shortdesc}
 
-23 July 2020: This service is now generally available. Starting 23 August 2020, all flow log collectors created during the beta period will be automatically converted to the standard paid plan (see [Pricing](https://www.ibm.com/cloud/vpc/pricing#product-faq-section){: external}). If you do not want these flow log collectors to incur fees, delete the collectors before this date by using the UI, CLI, or API.
+23 July 2020: This service is now generally available. Starting 23 August 2020, all flow log collectors that are created during the beta period will be automatically converted to the standard paid plan (see [Pricing](https://www.ibm.com/cloud/vpc/pricing#product-faq-section){: external}). If you do not want these flow log collectors to incur fees, delete the collectors before this date by using the UI, CLI, or API.
 {: important}
 
 Flow logs can help with a number of tasks, including:
@@ -84,7 +84,7 @@ Each flow log target can have a single flow log collector, which can lead to ove
 * The subnet that the VSI is attached to might have its own flow log collector.
 * The VPC that the subnet is part of might have its own flow log collector.
 
-If an overlap exists, the most targeted flow log collector takes precedence. This precendence is important because each flow log collector might log to a different COS bucket, and where flow log data is stored, can change over the lifetime of a virtual server instance.
+If an overlap exists, the most targeted flow log collector takes precedence. This precedence is important because each flow log collector might log to a different COS bucket, and where flow log data is stored, can change over the lifetime of a virtual server instance.
 
 ## Getting started
 {: #fl-getting-started}  

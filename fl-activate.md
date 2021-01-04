@@ -35,11 +35,11 @@ After you create a flow log collector, its default state is `Active`.
 ## Using the UI
 {: #fl-managing-ui}
 
-To suspend an `Active` flow log collector, click the overflow ![overflow menu](images/overflow.png) menu and select **Suspend**. Suspending the flow log stops the flow log from writing to the Cloud Object Storage (COS) bucket.  
+To suspend an `Active` flow log collector, click the overflow menu ![overflow menu](images/overflow.png) and select **Suspend**. Suspending the flow log stops the flow log from writing to the Cloud Object Storage (COS) bucket.  
 
 ![Suspend](/images/flow-log-suspend.png)
 
-To resume a suspended flow log, select **Resume** from the overflow ![overflow menu](images/overflow.png) menu.
+To resume a suspended flow log, select **Resume** from the overflow menu ![overflow menu](images/overflow.png).
 
 ![Resume](/images/flow-log-resume.png)
 
@@ -65,7 +65,7 @@ To suspend and resume flow log collectors by using the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with
 the right variables.
-2. Store your `FlowLogID01` in a variable to be used in the command. For example:
+2. Store your `FlowLogID01` in a variable to be used in the API command:
     ```sh
     export FlowLogID01="<your_flow_log_id>"
     ```
