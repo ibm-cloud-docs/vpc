@@ -41,6 +41,10 @@ Make sure that your image meets custom image requirements:
 * Is in qcow2 format
 * Is cloud-init enabled
 * The operating system is supported as a [stock image](/docs/vpc?topic=vpc-about-images#stock-images) operating system
+
+  For Red Hat and Windows, there are BYOL operating system versions you can choose when you import a custom image including your own license. For more information, see [Bring your own license (Beta)](https://test.cloud.ibm.com/docs/vpc?topic=vpc-byol-vpc-about).
+  {: note}
+
 * Size doesn't exceed 100 GB
 
 When you have an image available in {{site.data.keyword.cos_full_notm}}, you can import it to {{site.data.keyword.vpc_short}} infrastructure by using the {{site.data.keyword.cloud_notm}} console.
@@ -61,7 +65,7 @@ navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastr
 | Location | Select the specific geographic region where your image is stored. |
 | Bucket | Select the {{site.data.keyword.cos_full_notm}} bucket where your image is stored.|
 | Name | Select the image file in the {{site.data.keyword.cos_full_notm}} service instance that you want to import. Supported image files are in qcow2 format. If you are importing an encrypted image, the image must be encrypted with LUKS encryption by using QEMU and your own passphrase. For more information, see [Encrypting the image](/docs/vpc?topic=vpc-create-encrypted-custom-image#manually-encrypt-image). |
-| Operating System | Select the operating system that is included in your image. |
+| Operating System | Select the operating system that is included in your image. For [BYOL custom images](/docs/vpc?topic=vpc-byol-vpc-about), select the OS with with `-byol` appended to the name. |
 | Encryption | The default selection is **No encryption**. If you have not encrypted your image by using QEMU, use the default value, No encryption. If you are importing an image that you have encrypted by using QEMU and your own passphrase, select the key management service where your customer root key (CRK) that protects your passphrase is stored. Select either **Key Protect** or **Hyper Protect Crypto Services** |
 | Encryption service instance | For an encrypted image, select the specific instance of the key management service where your CRK that wraps your encryption passphrase is stored. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs). |
 | Key name | Select the customer root key (CRK) that you used to wrap your encryption passphrase. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs). |
