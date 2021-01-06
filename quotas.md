@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-11-06"
+  years: 2018, 2021
+lastupdated: "2021-01-06"
 
 keywords: quotas, vpc, resources, limits
 
