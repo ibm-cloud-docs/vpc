@@ -142,6 +142,7 @@ The following table displays current VPC service limits. Unlike quotas, these li
 | VPCs with classic access | 1 per region|
 | Network interfaces | 5 per instance |   
 | Public Gateways | 1 per zone per VPC |
+| Remote rules for security groups |5 per security group|  
 | Secondary volumes per instance, attached when creating an instance |  4 secondary volumes |
 | Secondary volumes per instance, for existing instances with fewer than 4 cores | 4 secondary volumes |
 | Secondary volumes per instance, for existing instances with 4 cores or more | Up to 12 secondary volumes |
