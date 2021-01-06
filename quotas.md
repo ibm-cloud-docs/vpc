@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-11-06"
+  years: 2018, 2021
+lastupdated: "2021-01-06"
 
 keywords: quotas, vpc, resources, limits
 
@@ -67,11 +67,10 @@ If you provision dedicated hosts, the vCPU associated with your dedicated hosts 
 |Resource|Quota|
 |--------|-----|
 |ACLs|50 per VPC |   
-|Rules|50 per ACL|
+|Rules|50 per ACL[^ACL]|
 {: caption="Table 3. Quotas for access control lists" caption-side="top"}
 
-You can use the rules quota for inbound rules, outbound rules, or both. For example, you might have 40 inbound rules and 10 outbound rules per ACL.
-{: note}
+[^ACL]:You can use the rules quota for inbound rules, outbound rules, or both. For example, you might have 40 inbound rules and 10 outbound rules per ACL.
 
 ### Security groups
 {: #security-group-quotas}
@@ -80,7 +79,6 @@ You can use the rules quota for inbound rules, outbound rules, or both. For exam
 |--------|-----|
 |Security groups|25 per VPC|  
 |Rules|25 per security group|   
-|Remote rules|5 per security group|  
 |Network interfaces|1000 per security group|    
 {: caption="Table 4. Quotas for security groups" caption-side="top"}
 
@@ -120,7 +118,7 @@ You can use the rules quota for inbound rules, outbound rules, or both. For exam
 | Routes per routing table | Default limit: 100<br />Maximum limit: 400 |  
 {: caption="Table 7. Quotas for routing tables and routes" caption-side="top"}
 
-Each route has a destination property, which includes a prefix length (`/24` in `10.2.0.0/24`). The number of unique prefix lengths that are supported per custom route table is 14. Multiple routes with the same prefix count as only one unique prefix.
+Each route has a destination property, which includes a prefix length (`/24` in `10.2.0.0/24`). The number of unique prefix lengths that are supported per custom routing table is 14. Multiple routes with the same prefix count as only one unique prefix.
 {: note}
 
 ### Block storage volumes
@@ -128,11 +126,13 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 
 |Resource|Quota|
 |--------|-----|
-| Boot and secondary volumes | 300 total volumes per account in a region<sup>1</sup> |  
+| Boot and secondary volumes | 750 total Gen 2 volumes per account in a region |  
 {: caption="Table 8. Quotas for block storage volumes" caption-side="top"}
 
-<sup>1</sup> You can request to increase the block storage volume limit by submitting an [IBM Support](/docs/get-support?topic=get-support-using-avatar) case.
+You can increase this quota by opening a [support case](/docs/vpc?topic=vpc-getting-help) and specifying in which zone you need more volumes. Use this [support form](/docs/get-support?topic=get-support-using-avatar).
 
+If you already have block storage volumes for Gen 1 Compute instances, you are limited to 300 total volumes for Gen 1 and Gen 2. For example, if you have 200 Gen 1 block storage volumes, you can request 100 Gen 2 block storage volumes for a total of 300.
+{: note}
 
 ## Service limits
 The following table displays current VPC service limits. Unlike quotas, these limits can't be adjusted.
@@ -142,6 +142,7 @@ The following table displays current VPC service limits. Unlike quotas, these li
 | VPCs with classic access | 1 per region|
 | Network interfaces | 5 per instance |   
 | Public Gateways | 1 per zone per VPC |
+| Remote rules |5 per security group|  
 | Secondary volumes per instance, attached when creating an instance |  4 secondary volumes |
 | Secondary volumes per instance, for existing instances with fewer than 4 cores | 4 secondary volumes |
 | Secondary volumes per instance, for existing instances with 4 cores or more | Up to 12 secondary volumes |
