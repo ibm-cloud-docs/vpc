@@ -24,7 +24,7 @@ subcollection: vpc
 # Creating a VPN gateway
 {: #vpn-create-gateway}
 
-You can create a {{site.data.keyword.cloud}} Virtual Private Network (VPN) for VPC gateway to securely connect your VPC to another private network, such as an on-premises network or another VPC.
+You can create an {{site.data.keyword.cloud}} Virtual Private Network (VPN) for VPC gateway to securely connect your VPC to another private network, such as an on-premises network or another VPC.
 {: shortdesc}
 
 ## Planning considerations

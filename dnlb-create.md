@@ -28,7 +28,7 @@ subcollection: vpc
 # Creating a distributed network load balancer
 {: #dnlb-ui-creating-distributed-network-load-balancer}
 
-You can create a {{site.data.keyword.cloud}} Distributed Network Load Balancer (DNLB) for VPC using the API. To order and start using a DNLB, you need two main items:
+You can create an {{site.data.keyword.cloud}} Distributed Network Load Balancer (DNLB) for VPC using the API. To order and start using a DNLB, you need two main items:
 
    * An [IBMid](https://www.ibm.com/account/us-en/signup/register.html){:external} account
    * A VPC in which to deploy the network load balancer
@@ -171,7 +171,7 @@ To create a distributed network load balancer using the API, perform the followi
 
       IP{...}]
       profile*	LoadBalancerProfileReference{
-      description:	
+      description:
       The profile to use for this load balancer
 
       family*	string
@@ -201,7 +201,7 @@ To create a distributed network load balancer using the API, perform the followi
 
       IP{...}]
       resource_group*	ResourceGroupReference{
-      description:	
+      description:
       The resource group for this load balancer
 
       href*	string
@@ -231,7 +231,7 @@ To create a distributed network load balancer using the API, perform the followi
 
       SubnetReference{...}]
       vpc	VPCReference{
-      description:	
+      description:
       The VPC this load balancer belongs to
 
       crn*	string
