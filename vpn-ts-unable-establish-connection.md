@@ -30,14 +30,14 @@ subcollection: vpc
 To establish a VPN connection, the right configurations must be in place.
 {: shortdesc}
 
-{: tsSymptoms}
 Cannot establish a VPN connection.
+{: tsSymptoms}
 
-{: tsCauses}
 One or more of your VPN for VPC configurations might be incorrect.
+{: tsCauses}
 
-{: tsResolve}
 Follow these steps to verify your configurations:
+{: tsResolve}
 
 1. Verify that the IKE Phase 1 and Phase 2 configurations match on both sides.
 

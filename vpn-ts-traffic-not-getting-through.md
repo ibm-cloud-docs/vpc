@@ -29,14 +29,14 @@ subcollection: vpc
 For application traffic to flow through a connection, the right configurations must be in place, including ACLs configured on both sides.
 {: shortdesc}
 
-{: tsSymptoms}
 Your connection is active, but traffic is not getting through.
+{: tsSymptoms}
 
-{: tsCauses}
 There might be an interoperability issue.
+{: tsCauses}
 
-{: tsResolve}
 Follow these steps to resolve this issue:
+{: tsResolve}
 
 1. Make sure NAT-Traversal is enabled on the peer, if it is a configurable option.
 1. Make sure ACLs are configured properly on both sides to allow application traffic.

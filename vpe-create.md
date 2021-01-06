@@ -44,7 +44,7 @@ Prior to creating an endpoint gateway, ensure that you review [Planning for virt
   * Appropriate [IAM permissions](/docs/vpc?topic=vpc-vpe-iam) to create an endpoint gateway, create or bind a reserved IP, and view or list the target service
   * Verification that the service you are configuring supports VPE 
 
-## Using the UI
+## Creating an endpoint gateway using the UI
 {: #vpe-creating-ui}
 
 To create an endpoint gateway by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
@@ -74,7 +74,7 @@ To create an endpoint gateway by using the {{site.data.keyword.cloud_notm}} cons
 
 1. The order Summary shows pricing estimates for your review. Review and click **Create endpoint gateway**.
 
-## Using the CLI
+## Creating an endpoint gateway using the CLI
 {: #vpe-ordering-cli}
 
 To create an endpoint gateway by using the CLI, follow these steps:
@@ -107,7 +107,7 @@ Where:
 * **--resource-group-name** is the name of the resource group. This option is mutually exclusive with **--resource-group-id**.
 * **--json** is the format output in JSON.
 
-## Using the API
+## Creating an endpoint gateway using the API
 {: #vpe-ordering-api}
 
 To create an endpoint gateway by using the API, follow these steps:
@@ -147,37 +147,35 @@ To create an endpoint gateway by using the API, follow these steps:
 
    * To create an endpoint gateway for the specific VPC:   
 
-      ```
-      curl -X POST\
-      -sH "Authorization:${iam_token}"
+      ```sh
+      curl -X POST -sH "Authorization:${iam_token}" \
       "$vpc_api_endpoint/v1/endpoint_gateways?version=$api_version&generation=2" \
-      -d { \
-      "name": endpoint-gateway-1", \
-      "vpc": {"id":"'$VpcId'"}, \
-      "target": { \
-      "crn": "$TargetCrn", \
-      "resource_type": "provider_cloud_service" \
-      }, \
+      -d {  
+      "name": endpoint-gateway-1",  
+      "vpc": {"id":"'$VpcId'"}, 
+      "target": { 
+      "crn": "$TargetCrn", 
+      "resource_type": "provider_cloud_service" 
+      }, 
       }'
       ```
       {: codeblock}
 
    * To create an endpoint gateway with an associated reserved IP address:
 
-      ```
-      curl -X POST
-      -sH "Authorization:${iam_token}"
+      ```sh
+      curl -X POST -sH "Authorization:${iam_token}" \
       "$vpc_api_endpoint/v1/endpoint_gateways?version=$api_version&generation=2" \
-      -d { \
-      "name": endpoint-gateway-1", \
-      "vpc": {"id":"'$VpcId'"}, \
-      "target": { \
-      "crn": "$TargetCrn", \
-      "resource_type": "provider_cloud_service" \
-      }, \
-      "ips": [ \
-      {"subnet": { "id": "$SubnetId" } } \
-      ], \
+      -d { 
+      "name": endpoint-gateway-1", 
+      "vpc": {"id":"'$VpcId'"}, 
+      "target": { 
+      "crn": "$TargetCrn", 
+      "resource_type": "provider_cloud_service" 
+      }, 
+      "ips": [ 
+      {"subnet": { "id": "$SubnetId" } } 
+      ], 
       }'
       ```
       {: codeblock}

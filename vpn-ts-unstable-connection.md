@@ -29,14 +29,14 @@ subcollection: vpc
 If you notice that your connection is going up and down occasionally, it might be due to a rekey timing issue.
 {: shortdesc}
 
-{: tsSymptoms}
 My connection is not stable and keeps going down.
+{: tsSymptoms}
 
-{: tsCauses}
 There might be a rekey timing conflict.  
+{: tsCauses}
 
-{: tsResolve}
 Follow the steps to resolve any timing issues:
+{: tsResolve}
 
 1. Make sure NAT-Traversal is enabled on the peer, if it is a configurable option.
 1. If you are using IKEv2, try using different lifetimes so that the side with the shorter lifetime always initiates the rekeying process. 

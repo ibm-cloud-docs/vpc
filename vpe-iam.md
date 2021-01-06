@@ -4,7 +4,7 @@ copyright:
   years: 2019
 lastupdated: "2020-10-30"
 
-keywords: virtual private endpoint, IAM, vpe permissions, vpe, endpoint gateway
+keywords: virtual private endpoint, IAM, vpe endpoint gateway
 
 subcollection: vpc
 

@@ -32,7 +32,7 @@ subcollection: vpc
 You can list all virtual private endpoint gateways in the region by using the UI, CLI, or API.
 {: shortdesc}
 
-## Using the UI
+## Listing endpoint gateways using the UI
 {: #vpe-listing-endpoint-gateways-ui}
 
 To list all endpoint gateways by using the {{site.data.keyword.cloud_notm}} console:
@@ -43,7 +43,7 @@ The Virtual private endpoint gateways for VPC page appears. Use this table to vi
 
   ![Virtual private endpoint gateways for VPC page](./images/vpe-dashboard.png "Virtual private endpoint gateways for VPC page")
 
-## Using the CLI
+## Listing endpoint gateways using the CLI
 {: #vpe-listing-endpoint-gateways-cli}
 
 To list all endpoint gateways in the region by using the CLI, run the following command:
@@ -59,7 +59,7 @@ Where:
 * **--resource-group-name** is the name of the resource group. This option is mutually exclusive with **--resource-group-id**.
 * **--json** formats output in JSON.
 
-## Using the API
+## Listing endpoint gateways using the API
 {: #vpe-listing-endpoint-gateways-api}
 
 To list endpoint gateways by using the API, follow these steps:
