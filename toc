@@ -52,9 +52,6 @@ Virtual Private Cloud (VPC)
 
     {: .navgroup id="howto"}
     set-up-environment.md
-    hello-world-vpc.md
-    example-code.md
-    vpc-regions.md
 
     {: .topicgroup}
     Managing access
@@ -62,6 +59,29 @@ Virtual Private Cloud (VPC)
         vpc-user-permissions.md
         api-auth-correlation.md
         resource-attributes.md
+        
+    {: .topicgroup}
+    Managing a VPC
+        hello-world-vpc.md
+        example-code.md
+        vpc-regions.md
+
+        {: .topicgroup}
+        Setting IP ranges
+            how-to-choose-ipv4.md
+            how-to-design-your-vpc.md
+            vpc-regions-and-subnets.md
+
+        classic-access.md
+        connect-to-cos.md
+        dns-svcs-about.md
+
+        {: .topicgroup}
+        Deleting a VPC
+            delete-vpc.md
+            delete-vpc-ui.md
+            delete-vpc-cli.md
+            delete-vpc-api.md        
 
     {: .topicgroup}
     Virtual server instances
@@ -212,17 +232,6 @@ Virtual Private Cloud (VPC)
         vpn-limitations.md
         vpn-api-example.md
 
-    dns-svcs-about.md
-
-    {: .topicgroup}
-    Setting IP ranges
-        how-to-choose-ipv4.md
-        how-to-design-your-vpc.md
-        vpc-regions-and-subnets.md
-
-    classic-access.md
-    connect-to-cos.md
-
     {: .topicgroup}
     Dedicated hosts (Beta)
         vsi_is_dedicated_hosts_instances.md
@@ -242,13 +251,6 @@ Virtual Private Cloud (VPC)
         block_storage_vpc_byok_encryption.md
         block_storage_vpc_key_rotation.md
         vsi-vpc-manage-encryption.md
-
-    {: .topicgroup}
-    Deleting a VPC
-        delete-vpc.md
-        delete-vpc-ui.md
-        delete-vpc-cli.md
-        delete-vpc-api.md
 
     {: .topicgroup}
     High availability and disaster recovery
