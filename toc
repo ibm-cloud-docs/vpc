@@ -98,6 +98,11 @@ Virtual Private Cloud (VPC)
         /cloud-infrastructure/cloud-infrastructure-sysdig-monitoring-metrics
 
     {: .topicgroup}
+    Dedicated hosts (Beta)
+        vsi_is_dedicated_hosts_instances.md
+        vsi_is_manage_dedicated_host_group.md
+
+    {: .topicgroup}
     Custom images
         vsi_is_plan_custom_image.md
         vsi_is_object_storage_auth.md
@@ -109,19 +114,23 @@ Virtual Private Cloud (VPC)
         vsi_is_byol_about.md
 
     {: .topicgroup}
-    Block storage volumes
-        block_storage_is_create.md
-        block_storage_is_create_cli.md
-        block_storage_is_attach.md
-        block_storage_is_attach_cli.md
-        block_storage_is_manage.md
-        block_storage_is_manage_cli.md
-        block_storage_is_view.md
-        block_storage_is_view_cli.md
-        block_storage_vpc_monitor.md
-        block_storage_vpc_expandable_volumes.md
-        block_storage_vpc_manage_storage_limits.md
-        block_storage_is_use_volume_cli.md
+    Virtual private endpoint gateways
+        vpe-intro.md
+        vpe-planning.md
+        vpe-configure-acls.md
+        vpe-create.md
+        vpe-bind-unbind-reserved-ip.md
+        vpe-accessing-after-setup.md
+        vpe-view-details.md
+        vpe-list.md
+        vpe-delete.md
+        vpe-iam.md
+        vpe-limitations.md
+        vpe-supported-services.md
+
+    {: .topicgroup}
+    Access control lists
+        using-acls.md
 
     {: .topicgroup}
     Security groups
@@ -130,19 +139,48 @@ Virtual Private Cloud (VPC)
         security-groups-example.md
         security-group-usage-examples.md
 
-    {: .topicgroup}
-    Access control lists
-        using-acls.md
+    {: topicgroup}
+    Routing tables
+        cr-intro.md
+
+        {: .topicgroup}
+        VPC routing tables
+            cr-create-table.md
+            cr-view-table.md
+            cr-list-table.md
+            cr-delete-table.md
+
+        {: .topicgroup}
+        VPC routes
+            cr-create-route.md
+            cr-list-route.md
+            cr-delete-route.md
 
     {: .topicgroup}
-    Flow logs
-        fl-using.md
-        fl-ordering.md
-        fl-analyze.md
-        fl-iam.md
-        fl-managing.md
-        fl-activate.md
-        fl-delete.md
+    VPN gateways
+        vpn-using.md
+        vpn-create.md
+        vpn-add-connection.md
+        vpn-create-ipsec-policy.md
+        vpn-create-ike-policy.md
+
+        {: .topicgroup}
+        Connecting to your on-premises network
+            vpn-onprem.md
+            vpn-onprem-aws.md
+            vpn-onprem-check-point.md
+            vpn-onprem-cisco.md
+            vpn-onprem-fortigate.md
+            vpn-onprem-juniper.md
+            vpn-onprem-strongswan.md
+            vpn-onprem-vyatta.md
+
+        vpn-access-service-endpoint.md
+        vpn-configure-acls-security-groups.md
+        vpn-view-logs-logdna.md
+        vpn-sysdig-monitoring-metrics.md
+        vpn-limitations.md
+        vpn-api-example.md
 
     {: topicgroup}
     Load balancers
@@ -174,68 +212,30 @@ Virtual Private Cloud (VPC)
             nlb-monitoring-metrics.md
             nlb-limitations.md
 
-    {: topicgroup}
-    Routing tables
-        cr-intro.md
-
-        {: .topicgroup}
-        VPC routing tables
-            cr-create-table.md
-            cr-view-table.md
-            cr-list-table.md
-            cr-delete-table.md
-
-        {: .topicgroup}
-        VPC routes
-            cr-create-route.md
-            cr-list-route.md
-            cr-delete-route.md
+    {: .topicgroup}
+    Flow logs
+        fl-using.md
+        fl-ordering.md
+        fl-analyze.md
+        fl-iam.md
+        fl-managing.md
+        fl-activate.md
+        fl-delete.md
 
     {: .topicgroup}
-    Virtual private endpoint gateways
-        vpe-intro.md
-        vpe-planning.md
-        vpe-configure-acls.md
-        vpe-create.md
-        vpe-bind-unbind-reserved-ip.md
-        vpe-accessing-after-setup.md
-        vpe-view-details.md
-        vpe-list.md
-        vpe-delete.md
-        vpe-iam.md
-        vpe-limitations.md
-        vpe-supported-services.md
-
-    {: .topicgroup}
-    VPN gateways
-        vpn-using.md
-        vpn-create.md
-        vpn-add-connection.md
-        vpn-create-ipsec-policy.md
-        vpn-create-ike-policy.md
-
-        {: .topicgroup}
-        Connecting to your on-premises network
-            vpn-onprem.md
-            vpn-onprem-aws.md
-            vpn-onprem-check-point.md
-            vpn-onprem-cisco.md
-            vpn-onprem-fortigate.md
-            vpn-onprem-juniper.md
-            vpn-onprem-strongswan.md
-            vpn-onprem-vyatta.md
-
-        vpn-access-service-endpoint.md
-        vpn-configure-acls-security-groups.md
-        vpn-view-logs-logdna.md
-        vpn-sysdig-monitoring-metrics.md
-        vpn-limitations.md
-        vpn-api-example.md
-
-    {: .topicgroup}
-    Dedicated hosts (Beta)
-        vsi_is_dedicated_hosts_instances.md
-        vsi_is_manage_dedicated_host_group.md
+    Block storage volumes
+        block_storage_is_create.md
+        block_storage_is_create_cli.md
+        block_storage_is_attach.md
+        block_storage_is_attach_cli.md
+        block_storage_is_manage.md
+        block_storage_is_manage_cli.md
+        block_storage_is_view.md
+        block_storage_is_view_cli.md
+        block_storage_vpc_monitor.md
+        block_storage_vpc_expandable_volumes.md
+        block_storage_vpc_manage_storage_limits.md
+        block_storage_is_use_volume_cli.md
 
     {: .topicgroup}
     Auto scale
@@ -244,7 +244,7 @@ Virtual Private Cloud (VPC)
         vsi_is_managing_instance_template.md
 
     {: .topicgroup}
-    Data Encryption
+    Data encryption
         vsi-vpc-about-data-encryption.md
         vsi-vpc-planning-encryption.md
         vsi_vpc_instance_byok_encryption.md
