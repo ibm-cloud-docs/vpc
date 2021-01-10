@@ -209,6 +209,7 @@ Virtual Private Cloud (VPC)
             nlb-health-checks.md
             nlb-listeners.md
             nlb-pools.md
+            nlb-privatelb.md
             nlb-monitoring-metrics.md
             nlb-limitations.md
 

@@ -65,18 +65,28 @@ The following timeout values are used by an application load balancer. You canno
 
 An application load balancer for VPC preserves the original protocol that is used by the client for front-end HTTP and HTTPS connections by including it inside the `X-Forwarded-Proto` HTTP header. This does not apply to TCP protocol since an application load balancer does not look at Layer-7 traffic when TCP protocol is used.
 
-## Enabling proxy protocol 
+## Enabling private load balancer enforcement
+{: #private-alb-enforcement}
+
+Private load balancer enforcement prevents public load balancers from being created. This ensures only non-internet clients, or clients from within your network environment, can access your load balancers. When enabled, a restriction is placed on your account to prevent the creation of floating IPs on all application load balancers.
+
+To implement private load balancer enforcement, open an [IBM Support case](/docs/get-support?topic=get-support-using-avatar) and reference your need to alter your account to restrict the creation of floating IPs. After IBM processes the change, you will no longer be able to create public load balancers.
+
+Private load balancer enforcement applies for all regions when enabled.
+{: note}
+
+## Enabling proxy protocol
 {: #proxy-protocol-enablement}
 
 You can enable proxy protocol for TCP, HTTP and HTTPS listeners and back-end pools. Use cases are as follows.
 
-### Use case 1: Client connects to load balancer directly 
+### Use case 1: Client connects to load balancer directly
 {: #client-connects-directly-tcp}
 
 ![Proxy Protocol Pool](images/VPC-LBaaS-Proxy-Protocol-Pool.png "Proxy Protocol Pool")
 {: caption="Proxy Protocol Pool" caption-side="top"}
 
-If the application load balancer is receiving traffic from a client directly, enabling the proxy protocol for the back-end pool of that listener configures the load balancer to attach the proxy protocol header to the TCP packets being sent to that back-end pool. 
+If the application load balancer is receiving traffic from a client directly, enabling the proxy protocol for the back-end pool of that listener configures the load balancer to attach the proxy protocol header to the TCP packets being sent to that back-end pool.
 
 All back-end members of that pool must support proxy protocol for the data path to work. You can choose the version of proxy protocol header (version 1 or version 2) when enabling this setting. This setting is disabled by default if not specified. With this setting, the back-end servers can get the client IP and port information that the load balancer sets in the proxy protocol header.
 {: note}
