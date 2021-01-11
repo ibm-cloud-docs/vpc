@@ -29,7 +29,7 @@ Use the release notes to learn about new and changed {{site.data.keyword.vpc_ful
 ## 11 January 2021
 {: #jan-11-2021}
 
-**Customer-managed encryption (GA)**, which supports deleting or disabling customer root key (CRK)s and provides new statuses, is now available in the Washington DC (WDC) region. All VPC service regions now support this feature.
+**Customer-managed encryption (GA)**, which supports deleting or disabling customer root keys and provides new statuses, is now available in the Washington DC (WDC) region. All VPC service regions now support this feature.
 
 ## 22 December 2020
 {: #dec-22-2020}
