@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-01-06"
+lastupdated: "2021-01-11"
 
 keywords: virtual private endpoints, endpoint gateway, vpe, services
 subcollection: vpc
@@ -22,5 +22,12 @@ subcollection: vpc
 # VPE supported services
 {: #vpe-supported-services}
 
-Currently, Virtual Private Endpoints (VPE) for VPC supports {{site.data.keyword.cloud}} Object Storage and Network Time Protocol (NTP) services. This topic will be updated as additional {{site.data.keyword.cloud_notm}} services are supported.
+{{site.data.keyword.cloud}} Virtual Private Endpoints (VPE) for VPC supports the following {{site.data.keyword.cloud_notm}} services. 
 {: shortdesc}
+
+* Network Time Protocol
+* {{site.data.keyword.cloud_notm}} Object Storage
+* {{site.data.keyword.cloud_notm}} Databases ([Instructions](/docs/cloud-databases?topic=cloud-databases-vpes))
+
+This topic will be updated as additional services are supported.
+{: note}
