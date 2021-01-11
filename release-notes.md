@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-22"
+  years: 2019 - 2021
+lastupdated: "2021-01-11"
 
 keywords: release notes, changes, updates
 
@@ -17,7 +17,6 @@ subcollection: vpc
 {:screen: .screen}
 {:tip: .tip}
 {:important: .important}
-{:note: .note}
 {:download: .download}
 {:external: target="_blank" .external}
 
@@ -26,6 +25,11 @@ subcollection: vpc
 
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
+
+## 11 January 2021
+{: #jan-11-2021}
+
+**Customer-managed encryption (GA)**, which supports deleting or disabling customer root key (CRK)s and provides new statuses, is now available in the Washington DC (WDC) region. All VPC service regions now support this feature.
 
 ## 22 December 2020
 {: #dec-22-2020}
@@ -43,13 +47,13 @@ The Washington D.C. multi-zone region will be enabled in January 2021. This feat
 ## 17 December 2020
 {: #dec-17-2020}
 
-- **Checksum (SHA256) for imported images (Beta):** Now when you import a custom image, you can view the checksum that's generated for the image when it is imported to {{site.data.keyword.vpc_short}}. If you generate a checksum locally for your image before importing it, you can compare the two checksums to ensure that they are identical. For more information, see [Validating a custom image after importing (Beta)](/docs/vpc?topic=vpc-managing-images#validate-custom). 
+- **Checksum (SHA256) for imported images (Beta):** Now when you import a custom image, you can view the checksum that's generated for the image when it is imported to {{site.data.keyword.vpc_short}}. If you generate a checksum locally for your image before importing it, you can compare the two checksums to ensure that they are identical. For more information, see [Validating a custom image after importing (Beta)](/docs/vpc?topic=vpc-managing-images#validate-custom).
 - **UI enhancements:** Default boot volume names are now appended with a millisecond timestamp.
 
 ## 11 December 2020
 {: #dec-11-2020}
 
-**VPN logging and auditing:** The ability to monitor and audit your VPNs has been added to VPN for VPC. For more information, see [Using LogDNA to view VPN logs](/docs/vpc?topic=vpc-using-logdna-to-view-vpn-logs). 
+**VPN logging and auditing:** The ability to monitor and audit your VPNs has been added to {{site.data.keyword.vpn_vpc_short}}. For more information, see [Using LogDNA to view VPN logs](/docs/vpc?topic=vpc-using-logdna-to-view-vpn-logs).
 
 ## 1 December 2020
 {: #december-1-2020}
@@ -66,10 +70,10 @@ The Washington D.C. multi-zone region will be enabled in January 2021. This feat
 ## 12 November 2020
 {: #november-12-2020}
 
-- **Route-based virtual private network (VPN) gateways for VPC:** Use route-based VPN for VPC gateways to manage large, on-premises or cloud-based networks that require the ability to statically route network and connectivity over a secure, encrypted connection. VPN for VPC provides UI, CLI, and API support in all MZRs. For more information, see [About VPN gateways](/docs/vpc?topic=vpc-using-vpn).
+- **Route-based virtual private network (VPN) gateways for VPC:** Use route-based {{site.data.keyword.vpn_vpc_short}} gateways to manage large, on-premises or cloud-based networks that require the ability to statically route network and connectivity over a secure, encrypted connection. {{site.data.keyword.vpn_vpc_short}} provides UI, CLI, and API support in all MZRs. For more information, see [About VPN gateways](/docs/vpc?topic=vpc-using-vpn).
 
 - **UI enhancements:**
-   - You can now provision virtual server instances without first creating a VPC. Your virtual server instance is created in a default VPC. 
+   - You can now provision virtual server instances without first creating a VPC. Your virtual server instance is created in a default VPC.
    - The refresh data option is removed from all details pages. Instead, users can refresh by using the browser refresh.
 
 
@@ -177,7 +181,7 @@ The Washington D.C. multi-zone region will be enabled in January 2021. This feat
 
 - **Network load balancer (beta):** Network load balancers are available in a limited beta. Use network load balancers to distribute traffic among multiple server instances within the same region of your VPC. For more information, see [Load balancers overview](/docs/vpc?topic=vpc-nlb-vs-elb) and [About network load balancers](/docs/vpc?topic=vpc-network-load-balancers).
 
-- **VPN for VPC update:** Access VPN monitoring metrics by using [IBM Cloud Monitoring with Sysdig VPN metrics](/docs/vpc?topic=vpc-sysdig-monitoring-metrics).
+- **{{site.data.keyword.vpn_vpc_short}} update:** Access VPN monitoring metrics by using [IBM Cloud Monitoring with Sysdig VPN metrics](/docs/vpc?topic=vpc-sysdig-monitoring-metrics).
 
 ## 26 June 2020
 {: #june-26-2020}
@@ -322,7 +326,7 @@ The following VPC network services are now generally available:
 
 - **Load balancer (beta):** Use the {{site.data.keyword.cloud}} Load balancer for VPC service to distribute traffic among multiple server instances within the same region of your VPC. For more information, see [Using load balancers (Beta)](/docs/vpc?topic=vpc-load-balancers).
 
-- **VPN (beta):** Use the {{site.data.keyword.cloud}} VPN for VPC service to securely connect your VPC to another private network. For more information, see [Using VPN (Beta)](/docs/vpc?topic=vpc-using-vpn).
+- **VPN (beta):** Use the {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_short}} service to securely connect your VPC to another private network. For more information, see [Using VPN (Beta)](/docs/vpc?topic=vpc-using-vpn).
 
 ## 31 October 2019
 {: #oct-31-2019}
