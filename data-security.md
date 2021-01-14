@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-08"
+  years: 2020, 2021
+lastupdated: "2021-01-14"
 
 keywords: data encryption, data storage, bring your own keys, BYOK, key management, key encryption, personal data, data deletion, data security
 
@@ -19,17 +19,17 @@ keywords: data encryption, data storage, bring your own keys, BYOK, key manageme
 # Securing your data in VPC
 {: #mng-data}
 
-To ensure that you can securely manage your data when you use {{site.data.keyword.vpc_full}}, it's important to know exactly what data is stored and encrypted and how you can delete any stored personal data. Data encryption using your own root keys is available by using a supported key management service (KMS). 
+To ensure that you can securely manage your data when you use {{site.data.keyword.vpc_full}}, it's important to know exactly what data is stored and encrypted and how you can delete any stored personal data. Data encryption using your own root keys is available by using a supported key management service (KMS).
 {: shortdesc}
 
-VPN for VPC does not store any customer data other than what is required to configure VPN gateways, connections, and policies. Data transmitted through a VPN gateway is not encrypted by IBM. Data about your specific VPN and policy configurations are encrypted in transit and at rest. VPN configuration data is deleted upon your request through API or User Interface.  
+{{site.data.keyword.vpn_vpc_short}} does not store any customer data other than what is required to configure VPN gateways, connections, and policies. Data transmitted through a VPN gateway is not encrypted by IBM. Data about your specific VPN and policy configurations are encrypted in transit and at rest. VPN configuration data is deleted upon your request through API or User Interface.  
 
 ## How your data is stored and encrypted in VPC
 {: #data-storage}
 
-All block storage volumes are encrypted by default with IBM-managed encryption. {{site.data.keyword.IBM}}-managed keys are generated and securely stored in a block storage vault that is backed by Consul and maintained by {{site.data.keyword.cloud}} operations. 
+All block storage volumes are encrypted by default with IBM-managed encryption. {{site.data.keyword.IBM}}-managed keys are generated and securely stored in a block storage vault that is backed by Consul and maintained by {{site.data.keyword.cloud}} operations.
 
-For more security and control, you can protect your data by using your own root keys (also called a customer root key or CRK). This feature is commonly called Bring Your Own Key, or BYOK. Root keys encrypt the keys that safeguard your data. You can import your root keys to {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}, or have either key management service create one for you. 
+For more security and control, you can protect your data by using your own root keys (also called a customer root key or CRK). This feature is commonly called Bring Your Own Key, or BYOK. Root keys encrypt the keys that safeguard your data. You can import your root keys to {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}, or have either key management service create one for you.
 
 The KMS stores your key and makes it available during volume and custom image encryption. Key Protect provides FIPS 140-2 Level 3 compliance. Hyper Protect Crypto Services offers the highest level of security with FIPS 140-2 Level 4 compliance. Your key material is protected in transit (when it's transported) and at rest (when it is stored).
 
@@ -37,11 +37,11 @@ Customer-managed encryption is available for custom images, boot volumes, and da
 
 Images and volumes are often referred to as being encrypted with a root key when, in fact, [envelope encryption](#x9860393){: term} is used. Internally, each image or volume is encrypted with a [data encryption key (DEK)](#x4791827){: term}, which is an open source QEMU technology that is used by the {{site.data.keyword.vpc_short}} Generation 2 infrastructure. A LUKS passphrase, also called a _key encryption key_, encrypts the DEK. The LUKS passphrase is then encrypted with a root key, creating what is called a wrapped DEK (WDEK). For more information about {{site.data.keyword.vpc_short}} key encryption technology, see [IBM Cloud VPC Generation 2 encryption technology](/docs/vpc?topic=vpc-vpc-encryption-about#byok-technologies).
 
-All interaction with VPN for VPC from clients is encrypted. For example, when a client uses an API or interacts with the service via User Interface to configure VPN gateways and VPN connections, all such interactions are encrypted end-to-end. Likewise, data elements related to the clients' configuration are encrypted in transit and at rest. No personal or sensitive data is stored, processed, or transmitted. Data at rest is stored in an encrypted database.
+For example, if you provision two volumes by using the same root key, unique passphrases are generated for each volume, which are then encrypted with the root key. Envelope encryption provides more protection for your data, and ensures that the root key can be rotated without having to reencrypt the data. For more information about envelope encryption, see [Protecting your sensitive data in VPC](#data-encryption).
 
-After the VPN for VPC is provisioned and the network connections are created, the encryption of data that clients choose to transmit across the network is the client's responsibility.
+All your interaction with {{site.data.keyword.vpn_vpc_short}} is encrypted. For example, when you use an API or interact with the service through the User Interface to configure VPN gateways and VPN connections, all such interactions are encrypted end-to-end. Likewise, data elements related to your configuration are encrypted in transit and at rest. No personal or sensitive data is stored, processed, or transmitted. Data at rest is stored in an encrypted database.
 
-For example, if you provision two volumes by using the same root key, unique passphrases are generated for each volume, which are then encrypted with the root key. Envelope encryption provides more protection for your data, and ensures that the root key can be rotated without having to reencrypt the data. For more information about envelope encryption, see the following section.
+After the {{site.data.keyword.vpn_vpc_short}} is provisioned and the network connections are created, the encryption of data that you choose to transmit across the network is your responsibility.
 
 ## Protecting your sensitive data in VPC
 {: #data-encryption}
@@ -52,7 +52,7 @@ For example, if you provision two volumes by using the same root key, unique pas
 
 You control access to your root keys stored in KMS instances within {{site.data.keyword.cloud}} by using {{site.data.keyword.iamlong}} (IAM). You grant access to a service to use your keys. You can also revoke access at any time, for example, if you suspect your keys might be compromised, or [delete your root keys](#delete-root-keys).
 
-VPN for VPC: Customer-provided preshared keys are encrypted before being stored in database. All other data VPN gateway and VPN policy configuration is encrypted at rest at the database level.
+{{site.data.keyword.vpn_vpc_short}}: Customer-provided preshared keys are encrypted before being stored in database. All other data VPN gateway and VPN policy configuration is encrypted at rest at the database level.
 
 ### About customer-managed keys
 {: #about-encryption}
@@ -116,14 +116,14 @@ The VPN and VPN policy configurations are deleted on request through the API or 
 You can restore deleted root keys that you imported to the KMS within 30 days of deletion. For more information, see
 [Restoring deleted root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-restore-root-key).
 
+{{site.data.keyword.vpn_vpc_short}} does not support the restoration of deleted data.
+
 ### Deleting all VPC data
 {: #delete-all-data}
 To delete all persisted data that {{site.data.keyword.vpc_short}} stores, choose one of the following options.
 
 Removing your personal and sensitive information requires all of your {{site.data.keyword.vpc_short}} resources to be deleted as well. Make sure that you back up your data before you proceed.
 {: note}
-
-VPN for VPC does not support the restoration of deleted data.
 
 * Open an {{site.data.keyword.cloud_notm}} support case. Contact IBM Support to remove your personal and sensitive information from {{site.data.keyword.vpc_short}}. For more information, see [Getting support](https://cloud.ibm.com/docs/get-support?topic=get-support-getting-customer-support).
 * End your {{site.data.keyword.cloud_notm}} subscription. After you end your {{site.data.keyword.cloud_notm}} subscription, {{site.data.keyword.vpc_short}} deletes all service resources that you created, which includes all persisted data that is associated with those resources.
