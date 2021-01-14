@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-03-24"
+  years: 2019, 2021
+lastupdated: "2021-01-14"
 
 keywords: create authorization for IBM Cloud Object storage, import image to vpc infrastructure, migrate virtual server, migrate instance
 
@@ -43,7 +43,7 @@ From IBM {{site.data.keyword.iamshort}}, you must create an authorization so tha
 
 1. From the [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com/vpc){: external} menu bar, click **Manage** &gt; **Access (IAM)**, and select **Authorizations**.
 2. Click **Create**.
-3. Select a source and target service for the authorization. Specify **Infrastructure Services** as the source service. Specify **Image Service for VPC** as the resource type. Specify **Cloud Object Storage** as the target service.
+3. Select a source and target service for the authorization. Specify **VPC Infrastructure Services** as the source service. Specify **Image Service for VPC** as the resource type. Specify **Cloud Object Storage** as the target service.
 4. Select a role to assign access to the source service that accesses the target service.
 5. Click **Authorize**.
 
