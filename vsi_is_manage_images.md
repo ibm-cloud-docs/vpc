@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-18"
+  years: 2019, 2021
+lastupdated: "2021-01-19"
 
 keywords: custom image
 
@@ -52,7 +52,7 @@ When you have an image available in {{site.data.keyword.cos_full_notm}}, you can
 1. Make sure that your compatible custom image is available in {{site.data.keyword.cos_full_notm}}. To upload an image to {{site.data.keyword.cos_full_notm}}, on the **Objects** page of your bucket, click **Upload**. You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB. For more information, see [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image) or [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image) and [Uploading data](/docs/cloud-object-storage?topic=cloud-object-storage-upload) to {{site.data.keyword.cos_full_notm}}.
 2. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com/vpc-ext){: external}, 
 navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Custom Images**.
-3. Click **Import Custom Image**. 
+3. Click **Create**. 
 4. Complete the required fields described in Table 1 and click **Create Custom Image**.
 
 | Field | Value |
