@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-23"
+  years: 2019, 2021
+lastupdated: "2021-01-19"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -46,6 +46,21 @@ Some changes, such as new response properties or new optional request parameters
 
 To prepare for this transition, it is recommended that you update your default security group rules to minimize disruption in load balancer traffic on newly created application load balancers.
 {: tip}
+
+## 19 January 2021
+{: #19-january-2021}
+
+### For all API version dates
+{: #19-january-2021-all-version-dates}
+
+The quantity of memory for virtual server instance profiles is now provisioned in gibibytes (GiB), instead of gigabytes (GB). For example, creating a new `bx2-4x16` virtual server instance provisions the instance with 16 GiB (17,179,869,184 bytes), instead of 16 GB (16,000,000,000 bytes). Virtual server instances that have already been provisioned are not
+affected.
+
+### For version `2021-01-19` or later
+{: #version-2021-01-19}
+
+Memory for virtual server instances is now expressed in gibibytes (GiB), instead of gigabytes (GB). For example, the `memory` property returned from `GET /instances/{id}` now reports in GiB (truncated to a whole number).
+
 
 ## 16 December 2020
 {: 16-december-2020}
