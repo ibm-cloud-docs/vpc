@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-23"
+  years: 2019, 2021
+lastupdated: "2021-01-20"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -24,13 +24,14 @@ subcollection: vpc
 # Change log
 {: #api-change-log}
 
-Read this change log to learn about updates and improvements to the {{site.data.keyword.vpc_full}} (VPC) [API](https://{DomainName}/apidocs/vpc). The change log lists changes ordered by the date they were released. Changes to existing API versions are designed to be compatible with existing client applications.
+Read this change log to learn about updates and improvements to the {{site.data.keyword.vpc_full}} (VPC) [API](https://{DomainName}/apidocs/vpc). The change log lists changes that are ordered by the date they were released. Changes to existing API versions are designed to be compatible with existing client applications.
 {:shortdesc}
 
 By design, new features with backward-incompatible changes apply only to version dates on and after the feature's release. Changes that apply to older versions of the API are designed to maintain compatibility with existing applications and code. If backward-incompatible changes require non-trivial client code changes to use an API version, the API change log might provide links to instructions, tips, or best practices for updating client code. See also [API application migration considerations](/docs/vpc?topic=vpc-api-integration-migration).
 {:note}
 
-Some changes, such as new response properties or new optional request parameters, are considered compatible with an earlier version. Others, such as new required request parameters, are not considered compatible with an earlier version. To avoid any disruption from changes to the API, use the following best practices when you call the API:
+Some changes, such as new response properties or new optional request parameters, are considered
+compatible with an earlier version. Others, such as new required request parameters, are not considered compatible with an earlier version. To avoid any disruption from changes to the API, use the following best practices when you call the API:
 
 * Catch and log any `4xx` or `5xx` HTTP status code, along with the included `trace` property
 * Follow HTTP redirect rules for any `3xx` HTTP status code
@@ -47,11 +48,43 @@ Some changes, such as new response properties or new optional request parameters
 To prepare for this transition, it is recommended that you update your default security group rules to minimize disruption in load balancer traffic on newly created application load balancers.
 {: tip}
 
+**Block storage volumes** are adding a new enumeration status to the volume APIs. The new status occurs when you expand an existing data volume. Your block storage volume will go into an updating state and show the API status code `updating`. You can still access the data while the volume is being resized. For more information on this feature, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
+
+## 19 January 2021
+{: #19-january-2021}
+
+### For all API version dates
+{: #19-january-2021-all-version-dates}
+
+The quantity of memory for virtual server instance profiles will now be provisioned in gibibytes
+(GiB) instead of gigabytes (GB). For example, creating a new `bx2-4x16` virtual server instance
+will now provision the instance with 16 GiB (17,179,869,184 bytes), instead of 16 GB
+(16,000,000,000 bytes). Virtual server instances that have already been provisioned will not be
+affected.
+
+### For version `2021-01-19` or later
+{: #version-2021-01-19}
+
+Memory for virtual server instances is now expressed in gibibytes (GiB) instead of gigabytes (GB).
+For example, the `memory` property for returned from `GET /instances/{id}` will now report in GiB
+(truncated to a whole number).
+ 
+## 18 December 2020
+{: 18-december-2020}
+
+**Checksum (SHA256) for imported images** is now available. When you import a custom image, you can view the checksum that is  generated for the image when it is imported to {{site.data.keyword.vpc_short}}. If you generate a checksum locally for your image before the image is imported, you can compare the two checksums to ensure that they are identical. For more information, see [Validating a custom image after importing](/docs/vpc?topic=vpc-managing-images#validate-custom). 
+
+The `sha256` checksum is available in the `file` details for the stored image file in the following API method:
+
+* [Retrieve the specified image](/apidocs/vpc#get-image) (`GET /image{id}`)
+
 ## 16 December 2020
 {: 16-december-2020}
 
 ### For all API version dates
 {: 16-december-2020-all-version-dates}
+
+**Dedicated hosts** are now supported in the VPC API. Learn more about using [dedicated hosts](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances) and explore [the new API operations](/apidocs/vpc#list-dedicated-host-groups).
 
 **Customer-managed encryption for block storage volumes and encrypted custom images** - When you disable or delete a customer root key (CRK) that is encrypting your block storage or custom image resources, the API displays a status of `unusable` for these resources along with the reason codes, `encryption_key_deleted` or `encryption_key_disabled`. 
 
@@ -62,7 +95,7 @@ The `unusable` status appears in the following API methods:
 * [List all images](/apidocs/vpc#list-volumes) (`GET /images`)
 * [Retrieve the specified image](/apidocs/vpc#get-image) (`GET /images{id}`)
 
-For more information on key states and resource statuses, see [User actions that impact root key states and resource status](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-root-key-states).
+For more information about key states and resource statuses, see [User actions that impact root key states and resource status](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-root-key-states).
 
 ## 20 November 2020
 {: 20-november-2020}
@@ -85,7 +118,7 @@ For more information, see [Datapath log forwarding with LogDNA](/docs/vpc?topic=
 ### For all API version dates
 {: 19-november-2020-all-version-dates}
 
-**Support for ingress routing** is included as part of [routing tables](/apidocs/vpc#list-vpc-routing-tables), which are released on 30 October 2020. Use [ingress routing](/apidocs/vpc#create-vpc-routing-table) to control the policy for packets that are coming in to your VPC or one of its zones. The policy can vary, depending on the type of source and the destination IP address range.
+**Support for ingress routing** is included as part of [routing tables, which are released on 30 October 2020. Use [ingress routing](/apidocs/vpc#create-vpc-routing-table) to control the policy for packets that are coming in to your VPC or one of its zones. The policy can vary, depending on the type of source and the destination IP address range.
 
 Routing tables for the VPC API are the same for both egress and ingress routing, with the following additional properties that you can specify for ingress routing:
 
@@ -127,7 +160,7 @@ For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-
 ### For all API version dates
 {: #2020-10-05-all-version-dates}
 
-Encrypted images are now supported in the VPC API. Ceate your own image, encrypt it with your own key, and import it, encrypted, into {{site.data.keyword.cloud_notm}}. After you import the image, use it like any other image. If you use the image to provision an instance, its boot volume is encrypted using the image's root encryption key, or another root encryption key of your choosing.
+Encrypted images are now supported in the VPC API. Create your own image, encrypt it with your own key, and import it, encrypted, into {{site.data.keyword.cloud_notm}}. After you import the image, use it like any other image. If you use the image to provision an instance, its boot volume is encrypted using the image's root encryption key, or another root encryption key of your choosing.
 
 Dive into the APIs to [import an encrypted image](https://{DomainName}/apidocs/vpc#create-image) and [provision an instance](https://DomainName}/apidocs/vpc#create-instance) from that encrypted image. See also [Creating an encrypted custom image](/docs/vpc?topic=vpc-create-encrypted-custom-image).
 
