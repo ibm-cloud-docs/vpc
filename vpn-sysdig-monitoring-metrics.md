@@ -464,4 +464,4 @@ You can view individual VPN gateway metrics and launch the Sysdig dashboard from
     The page displays a VPN gateway's throughput and packets in a time range.
    ![VPN Monitoring](images/vpn_monitoring.png "VPN Monitoring")
 
-   Similarly, you can also launch the VPN gateway's default Sysdig dashboard by clicking **Launch monitoring**
+   Similarly, you can also launch the VPN gateway's default Sysdig dashboard by clicking **Launch monitoring**.
