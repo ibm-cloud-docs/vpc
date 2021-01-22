@@ -4,7 +4,7 @@ copyright:
   years: 2020
 lastupdated: "2020-11-13"
 
-keywords: vyatta peer, vra peer, vpn vyatta
+keywords: vyatta peer
 
 subcollection: vpc
 
@@ -24,17 +24,17 @@ subcollection: vpc
 # Connecting to a Vyatta peer
 {: #vyatta-config}
 
-You can use {{site.data.keyword.cloud}} VPN for VPC to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your Vyatta VPN gateway to connect to VPN for VPC.
+You can use {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_short}} to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your Vyatta VPN gateway to connect to {{site.data.keyword.vpn_vpc_short}}.
 {: shortdesc}
 
 These instructions are based on Vyatta version: AT&T vRouter 5600 1801d.
 
-When the Vyatta VPN receives a connection request from VPN for VPC, Vyatta uses IPsec Phase 1 parameters to establish a secure connection and authenticate the VPN for VPC gateway. Then, if the security policy permits the connection, the Vyatta VPN establishes the tunnel by using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
+When the Vyatta VPN receives a connection request from {{site.data.keyword.vpn_vpc_short}}, Vyatta uses IPsec Phase 1 parameters to establish a secure connection and authenticate the {{site.data.keyword.vpn_vpc_short}} gateway. Then, if the security policy permits the connection, the Vyatta VPN establishes the tunnel by using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
 
 To support these functions, the following general configuration steps must be performed on the Vyatta VPN:
 
-* Define the Phase 1 parameters that the Vyatta requires to authenticate VPN for VPC and establish a secure connection.
-* Define the Phase 2 parameters that the Vyatta requires to create a VPN tunnel with VPN for VPC.
+* Define the Phase 1 parameters that the Vyatta requires to authenticate {{site.data.keyword.vpn_vpc_short}} and establish a secure connection.
+* Define the Phase 2 parameters that the Vyatta requires to create a VPN tunnel with {{site.data.keyword.vpn_vpc_short}}.
 
 ## Connecting an IBM policy-based VPN to a Vyatta peer
 {: #vyatta-config-policy-based}

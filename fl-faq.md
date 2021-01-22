@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2020
 lastupdated: "2020-07-23"
 
-keywords: flow logs, faqs, cos bucket
+keywords: flow logs, FAQs
 
 subcollection: vpc
 ---

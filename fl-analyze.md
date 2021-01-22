@@ -4,7 +4,7 @@ copyright:
   years: 2020
 lastupdated: "2020-12-31"
 
-keywords: flow logs, configure, viewing records, sql, analyze
+keywords: flow logs, viewing objects, SQL, analyze
 
 subcollection: vpc
 ---

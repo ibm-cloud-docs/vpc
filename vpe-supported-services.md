@@ -4,7 +4,7 @@ copyright:
   years: 2020, 2021
 lastupdated: "2021-01-11"
 
-keywords: virtual private endpoints, endpoint gateway, vpe, services
+keywords: virtual private endpoints, endpoint gateway, VPE, supported services
 subcollection: vpc
 
 ---
@@ -22,7 +22,7 @@ subcollection: vpc
 # VPE supported services
 {: #vpe-supported-services}
 
-{{site.data.keyword.cloud}} Virtual Private Endpoints (VPE) for VPC supports the following {{site.data.keyword.cloud_notm}} services. 
+{{site.data.keyword.cloud}} Virtual Private Endpoints (VPE) for VPC supports the following {{site.data.keyword.cloud_notm}} services.
 {: shortdesc}
 
 * Network Time Protocol

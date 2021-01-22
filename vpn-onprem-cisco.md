@@ -4,7 +4,7 @@ copyright:
   years: 2020
 lastupdated: "2020-11-13"
 
-keywords: cisco peer, vpn cisco
+keywords: cisco peer, ASAv
 
 subcollection: vpc
 
@@ -25,7 +25,7 @@ subcollection: vpc
 # Connecting to a Cisco ASAv peer
 {: #cisco-asav-config}
 
-You can use {{site.data.keyword.cloud}} VPN for VPC to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your Cisco ASAv VPN gateway to connect to VPN for VPC.
+You can use {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_short}} to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your Cisco ASAv VPN gateway to connect to {{site.data.keyword.vpn_vpc_short}}.
 {: shortdesc}
 
 
@@ -37,19 +37,19 @@ Cisco ASAv uses IKEv2 when you have multiple subnets either on IBM VPC or your o
 
 These instructions are based on Cisco ASAv, Cisco Adaptive Security Appliance Software Version 9.10(1).
 
-The first step in configuring your Cisco ASAv for use with VPN for VPC is to ensure that the following prerequisite conditions are met:
+The first step in configuring your Cisco ASAv for use with {{site.data.keyword.vpn_vpc_short}} is to ensure that the following prerequisite conditions are met:
 
 * Cisco ASAv is online and functional with a proper license.
 * A password for the Cisco ASAv is enabled.
 * There's at least one configured and verified functional internal interface.
 * There's at least one configured and verified functional external interface.
 
-When a Cisco ASAv VPN receives a connection request from VPN for VPC, it uses IKE Phase 1 parameters to establish a secure connection and authenticate to VPN for VPC. Then, if the security policy permits the connection, the Cisco ASAv establishes the tunnel using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
+When a Cisco ASAv VPN receives a connection request from {{site.data.keyword.vpn_vpc_short}}, it uses IKE Phase 1 parameters to establish a secure connection and authenticate to {{site.data.keyword.vpn_vpc_short}}. Then, if the security policy permits the connection, the Cisco ASAv establishes the tunnel using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
 
 To support these functions, the following general configuration steps must be performed on the Cisco ASAv VPN:
 
-* Define the Phase 1 parameters that the Cisco ASAv VPN requires to authenticate VPN for VPC and establish a secure connection.
-* Define the Phase 2 parameters that the Cisco ASAv VPN requires to create a VPN tunnel with VPN for VPC.
+* Define the Phase 1 parameters that the Cisco ASAv VPN requires to authenticate {{site.data.keyword.vpn_vpc_short}} and establish a secure connection.
+* Define the Phase 2 parameters that the Cisco ASAv VPN requires to create a VPN tunnel with {{site.data.keyword.vpn_vpc_short}}.
 
 Create an IKE version 2 proposal object. IKEv2 proposal objects contain the parameters that are required for creating IKEv2 proposals when defining remote access and site-to-site VPN policies. IKE is a key management protocol that facilitates the management of
 IPsec-based communications. It is used to authenticate IPsec peers, negotiate and distribute IPsec encryption keys, and automatically establish IPsec security associations (SAs).
@@ -104,7 +104,5 @@ nat (any,outside) source static NETWORK_OBJ_192.168.236.0_24 NETWORK_OBJ_192.168
 ## Connecting an IBM static, route-based VPN to a Cisco ASAv peer
 {: #cisco-asav-config-static-route-based}
 
-Currently, a VPN for VPC static, route-based VPN does not support a Cisco ASAv peer. 
+Currently, a {{site.data.keyword.vpn_vpc_short}} static, route-based VPN does not support a Cisco ASAv peer.
 {: important}
-
-

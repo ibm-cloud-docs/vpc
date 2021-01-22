@@ -4,7 +4,7 @@ copyright:
   years: 2020
 lastupdated: "2020-10-30"
 
-keywords: virtual private endpoints, view details, vpe, endpoint gateway
+keywords: virtual private endpoints, view details, VPE, endpoint gateway
 subcollection: vpc
 
 ---

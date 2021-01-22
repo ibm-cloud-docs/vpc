@@ -32,7 +32,7 @@ You can use custom Internet Key Exchange (IKE) policies to define security param
 
 To create an IKE policy using the UI, follow these steps:
 
-1. From the **VPN for VPC** gateway list page, switch to the **IKE Policies** tab.
+1. From the **{{site.data.keyword.vpn_vpc_short}}** gateway list page, switch to the **IKE Policies** tab.
 1. Click **Create +** to begin creating custom IKE policy.
 1. Define the new IKE policy by specifying the following information:
    * **Name** - Enter a name for the IKE policy.

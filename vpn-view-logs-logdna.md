@@ -19,7 +19,7 @@ subcollection: vpc
 # Using LogDNA to view VPN logs
 {: #using-logdna-to-view-vpn-logs}
 
-You can use {{site.data.keyword.la_full_notm}} to view application and connection logs from your {{site.data.keyword.cloud}} VPN for VPC gateway.
+You can use {{site.data.keyword.la_full_notm}} to view application and connection logs from your {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_short}} gateway.
 {: shortdesc}
 
 ## Before you begin
@@ -28,7 +28,7 @@ You can use {{site.data.keyword.la_full_notm}} to view application and connectio
 To initiate sending VPN logs to LogDNA, you need the following first:
 
 * An {{site.data.keyword.la_full_notm}} instance (log retention is recommended)
-* A VPN gateway 
+* A VPN gateway
 
    After the VPN gateway gets provisioned, note the ID and region.
    {: tip}
@@ -36,7 +36,7 @@ To initiate sending VPN logs to LogDNA, you need the following first:
 ## Sending VPN logs to IBM Log Analysis with a LogDNA instance
 {: #sending-vpn-logs-logdna}
 
-To send {{site.data.keyword.cloud_notm}} VPN for VPC logs in to an instance of {{site.data.keyword.la_full_notm}}, complete the following steps:
+To send {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} logs in to an instance of {{site.data.keyword.la_full_notm}}, complete the following steps:
 
 1. From the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) &gt; **Observability** to access the Observability dashboard.
 1. Select **Logging**. The list of logging instances appears.
@@ -47,7 +47,7 @@ To send {{site.data.keyword.cloud_notm}} VPN for VPC logs in to an instance of {
 ## Viewing VPN logs in the IBM Log Analysis with LogDNA instance
 {: #viewing-vpn-logs-logdna}
 
-View the {{site.data.keyword.cloud_notm}} VPN for VPC logs in the {{site.data.keyword.la_full_notm}} instance. You can apply the source filter for **is.vpn** to filter logs from VPN for VPC.
+View the {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} logs in the {{site.data.keyword.la_full_notm}} instance. You can apply the source filter for **is.vpn** to filter logs from {{site.data.keyword.vpn_vpc_short}}.
 
 ![LogDNA Source filter](images/vpc-vpn-logdna-source-filter.png)
 

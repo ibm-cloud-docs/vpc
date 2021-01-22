@@ -24,7 +24,7 @@ subcollection: vpc
 # Adding connections to a VPN gateway
 {: #vpn-adding-connections}
 
-You can add connections when you create an {{site.data.keyword.cloud}} VPN for VPC gateway, or after you provision a VPN gateway. When you configure a VPN connection, you can choose to connect with auto-negotiation or use a pre-defined custom IKE or IPsec policy. For more information, see [About policy negotiation](/docs/vpc?topic=vpc-using-vpn#policy-negotiation).
+You can add connections when you create an {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_short}} gateway, or after you provision a VPN gateway. When you configure a VPN connection, you can choose to connect with auto-negotiation or use a pre-defined custom IKE or IPsec policy. For more information, see [About policy negotiation](/docs/vpc?topic=vpc-using-vpn#policy-negotiation).
 {: shortdesc}
 
 The IKE Phase 1 and Phase 2 (IPsec) security options that you specify for the connection must be the same options that are set on the peer gateway for the network outside your VPC.

@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2020
 lastupdated: "2020-11-13"
 
-keywords: virtual private network, VPN, vpn gateway, troubleshooting
+keywords: virtual private network, VPN, VPN gateway, troubleshooting
 
 subcollection: vpc
 

@@ -4,7 +4,7 @@ copyright:
   years: 2020
 lastupdated: "2020-10-30"
 
-keywords: virtual private endpoints, bind, unbind, reserved IP, vpe, endpoint gateways
+keywords: virtual private endpoints, bind, unbind, reserved IP, VPE, endpoint gateways
 
 subcollection: vpc
 

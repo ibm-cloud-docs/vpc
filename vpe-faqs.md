@@ -4,7 +4,7 @@ copyright:
   years: 2020
 lastupdated: "2020-11-17"
 
-keywords: virtual private endpoint, faq, faqs, vpe, endpoint gateway
+keywords: virtual private endpoint, FAQs, VPE, endpoint gateway
 
 subcollection: vpc
 

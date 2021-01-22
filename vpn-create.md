@@ -24,7 +24,7 @@ subcollection: vpc
 # Creating a VPN gateway
 {: #vpn-create-gateway}
 
-You can create an {{site.data.keyword.cloud}} Virtual Private Network (VPN) for VPC gateway to securely connect your VPC to another private network, such as an on-premises network or another VPC.
+You can create an {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_full}} gateway to securely connect your VPC to another private network, such as an on-premises network or another VPC.
 {: shortdesc}
 
 ## Planning considerations
@@ -34,8 +34,8 @@ Review the following considerations before creating a VPN gateway:
 
 * The VPN gateway is created in the zone that is associated with the subnet that you select. Because the VPN gateway can connect to virtual server instances in this zone only, instances in other zones can't use this VPN gateway to communicate with the other network. For zone fault tolerance, deploy one VPN gateway per zone.
 * Make sure that there's enough space in the subnet for the gateway. To ensure VPN management and fail-over functions are able to function properly, create the VPN gateway in a subnet without any other VPC resources to guarantee that there are enough available private IPs for the gateway. A VPN gateway needs four private IP addresses to accommodate high availability and rolling upgrades. Since up to five private IPs in a subnet are reserved, the minimum subnet size that can be used to host a VPN gateway is 16 IPs (prefix `/28` or netmask `255.255.255.240`).
-* By default, PFS (Perfect Forward Secrecy) is disabled for VPN for VPC. Some vendors require PFS enablement for Phase 2. Check your vendor instruction and use custom policies if PFS is required.
-* VPN for VPC supports only one route-based VPN per zone per VPC.
+* By default, PFS (Perfect Forward Secrecy) is disabled for {{site.data.keyword.vpn_vpc_short}}. Some vendors require PFS enablement for Phase 2. Check your vendor instruction and use custom policies if PFS is required.
+* {{site.data.keyword.vpn_vpc_short}} supports only one route-based VPN per zone per VPC.
 
 
 ## Creating a VPN gateway using the UI
@@ -46,10 +46,10 @@ To create a VPN gateway using the UI:
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){:external} and log in to your account.
 1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) on the upper left of the page, then click **VPC Infrastructure > VPNs** in the Network section.
 
-    If starting from the VPC Infrastructure menu, click **VPN gateways** in the Network section to open the VPN for VPC page.
+    If starting from the VPC Infrastructure menu, click **VPN gateways** in the Network section to open the {{site.data.keyword.vpn_vpc_short}} page.
     {: tip}
 
-1. {: #subnet-assoc}On the VPN for VPC page, click **Create** and specify the following information:
+1. {: #subnet-assoc}On the {{site.data.keyword.vpn_vpc_short}} page, click **Create** and specify the following information:
    * **VPN gateway name** - Enter a name for the VPN gateway, such as `my-vpn-gateway`.
    * **Virtual Private Cloud** - Select the VPC for the VPN gateway.
    * **Resource group** - Select a resource group for the VPN gateway.
@@ -115,7 +115,7 @@ Where:
 ## Creating a VPN gateway using the API
 {: #vpn-create-api}
 
-To create a policy-based VPN for VPC by using the API, follow these steps:
+To create a policy-based {{site.data.keyword.vpn_vpc_short}} by using the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with
 the right variables.

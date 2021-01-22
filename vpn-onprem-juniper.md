@@ -4,7 +4,7 @@ copyright:
   years: 2020
 lastupdated: "2020-11-13"
 
-keywords: juniper, juniper peer, vpn juniper, vsrx, juniper vsrx, vsrx peer
+keywords: juniper, juniper peer, vSRX peer
 
 subcollection: vpc
 
@@ -25,7 +25,7 @@ subcollection: vpc
 # Connecting an IBM policy-based VPN to a Juniper vSRX peer
 {: #juniper-vsrx-config}
 
-You can use {{site.data.keyword.cloud}} VPN for VPC to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance on how to configure your Juniper VPN gateway to connect to VPN for VPC.
+You can use {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_short}} to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance on how to configure your Juniper VPN gateway to connect to {{site.data.keyword.vpn_vpc_short}}.
 {: shortdesc}
 
 Because Juniper vSRX requires Perfect Forward Secrecy (PFS) to be enabled in Phase 2, you must create a custom IPsec policy to replace the default policy for the VPN in your VPC. For more information, see [Creating a custom IPsec policy for Juniper vSRX](#custom-ipsec-policy-with-vsrx).
@@ -33,16 +33,16 @@ Because Juniper vSRX requires Perfect Forward Secrecy (PFS) to be enabled in Pha
 
 These instructions are based on Juniper vSRX, JUNOS Software Release [15.1X49-D123.3].
 
-When the Juniper VPN receives a connection request from VPN for VPC, Juniper uses IPsec Phase 1 parameters to establish a secure connection and authenticate the VPN for VPC gateway. Then, if the security policy permits the connection, the Juniper VPN establishes the tunnel using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
+When the Juniper VPN receives a connection request from {{site.data.keyword.vpn_vpc_short}}, Juniper uses IPsec Phase 1 parameters to establish a secure connection and authenticate the {{site.data.keyword.vpn_vpc_short}} gateway. Then, if the security policy permits the connection, the Juniper VPN establishes the tunnel using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
 
 To support these functions, you must do the following on the Juniper vSRX unit:
 
 * Define the Phase 1 parameters that the Juniper vSRX VPN requires to authenticate the remote peer and establish a secure connection.
-* Define the Phase 2 parameters that the Juniper vSRX VPN requires to create a VPN tunnel with VPN for VPC.
+* Define the Phase 2 parameters that the Juniper vSRX VPN requires to create a VPN tunnel with {{site.data.keyword.vpn_vpc_short}}.
 
 General configuration steps are as follows.
 
-1. Choose `IKEv1` in Phase 1. 
+1. Choose `IKEv1` in Phase 1.
 2. Set up policy-based mode.
 3. Enable `DH-group 2` in the Phase 1 proposal.
 4. Set `lifetime = 36000` in the Phase 1 proposal.
@@ -151,25 +151,25 @@ After the configuration file finishes running, you can check the connection stat
 ## Creating a custom IPsec policy for Juniper vSRX
 {: #custom-ipsec-policy-with-vsrx}
 
-By default, VPN for VPC disables PFS in Phase 2, and Juniper vSRX requires PFS to be enabled in Phase 2. Therefore, you must create a custom IPsec policy to replace the default policy for the VPN in your VPC.
+By default, {{site.data.keyword.vpn_vpc_short}} disables PFS in Phase 2, and Juniper vSRX requires PFS to be enabled in Phase 2. Therefore, you must create a custom IPsec policy to replace the default policy for the VPN in your VPC.
 
-To use a custom IPsec policy in VPN for VPC, follow these steps:
+To use a custom IPsec policy in {{site.data.keyword.vpn_vpc_short}}, follow these steps:
 
-1. On the VPN for VPC page in the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, select the **IPsec policies** tab.
+1. On the {{site.data.keyword.vpn_vpc_short}} page in the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, select the **IPsec policies** tab.
 1. Click **New IPsec policy** and specify the following values:
   * For the **Authentication** field, select **MD5**.
   * For the **Encryption** field, select **aes256**.
   * Select the **PFS** option.
   * For the **DH Group** field, select **2**.
-  * For the **Key lifetime** field, specify **1200**. 
+  * For the **Key lifetime** field, specify **1200**.
 1. When you create the VPN connection in your VPC, select this custom IPsec policy.
 
 ## Route-based configuration for Juniper vSRX
 {: #route-based-setup-vsrx}
 
-The following configuration shows how to set up two route-based tunnels between the Juniper vSRX VPN and VPN for VPC using a weighted preference for two tunnels.
+The following configuration shows how to set up two route-based tunnels between the Juniper vSRX VPN and {{site.data.keyword.vpn_vpc_short}} using a weighted preference for two tunnels.
 
-The VPN for VPC gateway should have a connection where the peer address is the vSRX public IP.
+The {{site.data.keyword.vpn_vpc_short}} gateway should have a connection where the peer address is the vSRX public IP.
 {: note}
 
 Set the vSRX configuration as follows:
@@ -182,7 +182,7 @@ ike {
         authentication-algorithm sha1;
         encryption-algorithm aes-128-cbc;
         lifetime-seconds 28800;
-    } 
+    }
     policy ike-policy-vpnaas {
         mode main;
         proposals ike-proposal-vpnaas;
@@ -190,7 +190,7 @@ ike {
     }
     gateway ike-gate-vpnaas {
         ike-policy ike-policy-vpnaas;
-        address <VPN for VPC Gateway Public IP #1>;
+        address <{{site.data.keyword.vpn_vpc_short}} Gateway Public IP #1>;
         dead-peer-detection {
             inactive: probe-idle-tunnel;
             interval 10;
@@ -203,7 +203,7 @@ ike {
     }
     gateway ike-gate-vpnaas2 {
         ike-policy ike-policy-vpnaas;   
-        address <VPN for VPC Gateway Public IP #2>;          
+        address <{{site.data.keyword.vpn_vpc_short}} Gateway Public IP #2>;          
         dead-peer-detection {           
             inactive: probe-idle-tunnel;
             interval 10;                
@@ -257,7 +257,7 @@ st0 {
         description IBM_VPC2;           
         family inet;                    
     }                                   
-} 
+}
 ```
 {: codeblock}
 
@@ -286,5 +286,5 @@ Follow these steps to verify the configuration:
 `run show security ike sa`
 2. Verify IKE Phase 2 is working for both tunnels:
 `run show security ipsec sa`
-3. Show the route: 
+3. Show the route:
 `run show route <static route>`

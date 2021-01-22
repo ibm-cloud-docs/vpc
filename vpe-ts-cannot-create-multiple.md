@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2020
 lastupdated: "2020-12-30"
 
-keywords: vpe, virtual private endpoint, troubleshooting
+keywords: VPE, virtual private endpoint, troubleshooting
 
 subcollection: vpc
 

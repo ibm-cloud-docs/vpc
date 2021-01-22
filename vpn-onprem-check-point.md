@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2020
 lastupdated: "2020-11-13"
 
-keywords: check point peer, vpn check point
+keywords: check point peer
 
 subcollection: vpc
 
@@ -25,7 +25,7 @@ subcollection: vpc
 # Connecting to a Check Point Security Gateway peer
 {: #check-point-config}
 
-You can use {{site.data.keyword.cloud}} VPN for VPC to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your Check Point Security Gateway to connect to VPN for VPC.
+You can use {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_short}} to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your Check Point Security Gateway to connect to {{site.data.keyword.vpn_vpc_short}}.
 {: shortdesc}
 
 These instructions are based on Check Point Security Gateway, Software Release [R80.40]. Check Point software release [R77.30] is not supported.
@@ -64,8 +64,8 @@ To support these functions, the following general configuration steps must be pe
 
 By default, Check Point Security Gateway uses IKEv1; therefore, you must create a custom IKE policy to replace the default policy for the VPN in your VPC.
 
-To use a custom IKE policy in VPN for VPC:
-1. On the VPN for VPC page in the IBM Cloud console, select the **IKE policies** tab.
+To use a custom IKE policy in {{site.data.keyword.vpn_vpc_short}}:
+1. On the {{site.data.keyword.vpn_vpc_short}} page in the IBM Cloud console, select the **IKE policies** tab.
 1. Click **New IKE policy** and specify the following values:
   * For the **IKE Version** field, select **1**.
   * For the **Authentication** field, select **sha1**.
@@ -77,8 +77,8 @@ To use a custom IKE policy in VPN for VPC:
 ## Creating a custom IPsec policy for Check Point Security Gateway
 {: #custom-ipsec-policy-with-cp}
 
-To use a custom IPsec policy in VPN for VPC:
-1. On the VPN for VPC page in the IBM Cloud console, select the **IPsec policies** tab.
+To use a custom IPsec policy in {{site.data.keyword.vpn_vpc_short}}:
+1. On the {{site.data.keyword.vpn_vpc_short}} page in the IBM Cloud console, select the **IPsec policies** tab.
 1. Click **New IPsec policy** and specify the following values:
   * For the **Authentication** field, select **sha1**.
   * For the **Encryption** field, select **aes128**.

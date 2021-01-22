@@ -33,7 +33,7 @@ Create a routing table to define rules to forward network traffic along the best
 {: shortdesc}
 
 Ingress traffic from a particular traffic source is routed by using the routes in the custom routing table that is associated with that traffic source. If no matching route is found in
-a custom routing table, routing continues using the VPC system routing table. You can avoid this behavior with a custom routing table's default route with an action of **drop**.
+a custom routing table, routing continues by using the VPC system routing table. You can avoid this behavior with a custom routing table's default route with an action of **drop**.
 {: note}
 
 Before creating a routing table, ensure that you have at least one VPC. 

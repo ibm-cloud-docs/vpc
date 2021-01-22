@@ -4,7 +4,7 @@ copyright:
   years: 2020
 lastupdated: "2020-10-30"
 
-keywords: virtual private endpoints, delete, deleting, vpe, endpoint gateway
+keywords: virtual private endpoints, delete, VPE, endpoint gateway
 
 subcollection: vpc
 

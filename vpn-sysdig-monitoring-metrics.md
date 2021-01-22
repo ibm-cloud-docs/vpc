@@ -4,7 +4,7 @@ copyright:
   years:  2020
 lastupdated: "2020-11-13"
 
-keywords: VPN metrics
+keywords:
 
 subcollection: vpc
 
@@ -21,7 +21,7 @@ subcollection: vpc
 {:important: .important}
 {:note: .note}
 
-# Monitoring metrics for {{site.data.keyword.cloud_notm}} VPN for VPC by using {{site.data.keyword.mon_full_notm}}
+# Monitoring metrics for {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} by using {{site.data.keyword.mon_full_notm}}
 {: #sysdig-monitoring-metrics}
 
 {{site.data.keyword.mon_full}} is operated by Sysdig in partnership with {{site.data.keyword.IBM_notm}} and collects basic VPN metrics on {{site.data.keyword.cloud_notm}} for VPC, such as VPN gateway status, VPN gateway packets input/output, and VPN connection bytes input/output. These metrics are stored in Sysdig. If you have a Sysdig account, then metrics are displayed for that Sysdig instance. You can access metrics through the prebuilt dashboard.
@@ -203,7 +203,7 @@ Status of a VPN gateway connection (for example, `1`=up, `0`=down)
 
 You can split the metrics that Sysdig presents into various visualizations in the Sysdig dashboard, allowing views of different metrics based on your preference. For example, if you have multiple VPN gateways or accounts with different VPN gateways in each account, you might want to focus on a particular gateway by name.
 
-As an example, you can segment the `VPN Gateway Bytes Input` by `IBM VPN for VPC gateway name` to show how many bytes per minute are received for a VPN gateway. The dashboard shows different lines in different colors where each line represents received bytes per minute for a VPN gateway.
+As an example, you can segment the `VPN Gateway Bytes Input` by `IBM {{site.data.keyword.vpn_vpc_short}} gateway name` to show how many bytes per minute are received for a VPN gateway. The dashboard shows different lines in different colors where each line represents received bytes per minute for a VPN gateway.
 
 
 ### Global attributes
@@ -229,12 +229,12 @@ The following attributes are available for segmenting one or more attributes as 
 
 | Attribute | Attribute name | Attribute description |
 |-----------|----------------|-----------------------|
-| `Connection ID` | `ibm_is_vpn_connection_id` | IBM VPN for VPC gateway connection ID |
-| `Connection name` | `ibm_is_vpn_connection_name` | IBM VPN for VPC gateway connection name |
+| `Connection ID` | `ibm_is_vpn_connection_id` | IBM {{site.data.keyword.vpn_vpc_short}} gateway connection ID |
+| `Connection name` | `ibm_is_vpn_connection_name` | IBM {{site.data.keyword.vpn_vpc_short}} gateway connection name |
 | `IBM IS generation 2` | `ibm_is_generation` | IBM IS Generation; for example, 2  |
 | `Service instance` | `ibm_service_instance` | Identifies the instance that the metric is associated with |
 | `Service instance name` | `ibm_service_instance_name` | Provides the user-provided name of the service instance. This name isn't necessarily a unique value that depends on the name that is provided. |
-| `VPN gateway name` | `ibm_is_vpn_gateway_name` | IBM VPN for VPC gateway name |
+| `VPN gateway name` | `ibm_is_vpn_gateway_name` | IBM {{site.data.keyword.vpn_vpc_short}} gateway name |
 {: caption="Table 12: VPN segmentation metric attributes" caption-side="top"}
 
 The displayed metrics contain a timestamp in UNIX epoch time and the metric value for the time intervals that end at that timestamp. You can specify different scopes, and the time interval over which to report the metrics.
@@ -305,7 +305,7 @@ To view and work with your Sysdig metrics, follow these steps:
    The first time that you access your Sysdig instance, several windows display as part of the internal setup. Keep the default entries, and click through the pages until you reach the main Sysdig page.
    {: note}
 
-3. Open the IBM VPN for VPC Monitoring Metrics dashboard by selecting **Dashboards**.
+3. Open the IBM {{site.data.keyword.vpn_vpc_short}} Monitoring Metrics dashboard by selecting **Dashboards**.
 
 4. Click **Default Dashboards > IBM > VPC Gen 2 VPN**. The default dashboard is not editable.
 
@@ -339,7 +339,7 @@ To customize your dashboard, use the following steps:
 
 5. Configure your custom dashboard.
 
-   * In the **Metrics** field, enter `ibm_is` to display the ten IBM Sysdig VPN for VPC metrics: `ibm_is_vpn_gateway_status`, `ibm_is_vpn_connection_status`, `ibm_is_vpn_gateway_bytes_in`, `ibm_is_vpn_gateway_bytes_out`, `ibm_is_vpn_gateway_packets_in`, `ibm_is_vpn_gateway_packets_out`, `ibm_is_vpn_connection_bytes_in`, `ibm_is_vpn_connection_bytes_out`, `ibm_is_vpn_connection_packets_in`, and `ibm_is_vpn_connection_packets_out`.
+   * In the **Metrics** field, enter `ibm_is` to display the ten IBM Sysdig {{site.data.keyword.vpn_vpc_short}} metrics: `ibm_is_vpn_gateway_status`, `ibm_is_vpn_connection_status`, `ibm_is_vpn_gateway_bytes_in`, `ibm_is_vpn_gateway_bytes_out`, `ibm_is_vpn_gateway_packets_in`, `ibm_is_vpn_gateway_packets_out`, `ibm_is_vpn_connection_bytes_in`, `ibm_is_vpn_connection_bytes_out`, `ibm_is_vpn_connection_packets_in`, and `ibm_is_vpn_connection_packets_out`.
 
    * You can choose a scope to display in your dashboard by clicking **Override Dashboard Scope**. For example, you can display the metrics for a particular VPN gateway.
 
@@ -445,7 +445,7 @@ To collect this information and work with your Sysdig instance by using metric q
 ```
 {: codeblock}
 
-## Working with {{site.data.keyword.mon_full_notm}} using VPN for VPC UI
+## Working with {{site.data.keyword.mon_full_notm}} using {{site.data.keyword.vpn_vpc_short}} UI
 
 You can view individual VPN gateway metrics and launch the Sysdig dashboard from the VPN UI.
 

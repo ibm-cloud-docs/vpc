@@ -24,7 +24,7 @@ subcollection: vpc
 # Connecting to your on-premises network  
 {: #vpn-onprem-example}
 
-You can use VPN for VPC to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your VPN for VPC gateway to connect to your on-premises network.
+You can use {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_short}} to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your {{site.data.keyword.vpn_vpc_short}} gateway to connect to your on-premises network.
 {:shortdesc}
 
 Create a VPN gateway in your VPC and create a VPN connection between the VPC and the peer gateway of the on-premises network by specifying the following information.
@@ -42,7 +42,7 @@ The gateway status appears as **Pending** while the VPN gateway is being created
 ## Configuring the on-premises VPN gateway
 {: #configuring-onprem-gateway}
 
-The next step is configuring your on-premises VPN gateway peer to connect to your IBM VPN for VPC gateway. The configuration depends on the type of VPN gateway. See the following topics for details.
+The next step is configuring your on-premises VPN gateway peer to connect to your IBM {{site.data.keyword.vpn_vpc_short}} gateway. The configuration depends on the type of VPN gateway. See the following topics for details.
 
 - [Connecting to an AWS peer](/docs/vpc?topic=vpc-aws-config)
 - [Connecting to a Check Point Security Gateway peer](/docs/vpc?topic=vpc-check-point-config)
@@ -52,12 +52,12 @@ The next step is configuring your on-premises VPN gateway peer to connect to you
 - [Connecting to a strongSwan peer](/docs/vpc?topic=vpc-strongswan-config)
 - [Connecting to a Vyatta peer](/docs/vpc?topic=vpc-vyatta-config)
 
-These configurations are fully tested and supported by IBM. If you plan to use an on-premises VPN gateway peer other than those listed, IBM Support can assist in troubleshooting your configuration, but cannot guarantee a resolution. 
+These configurations are fully tested and supported by IBM. If you plan to use an on-premises VPN gateway peer other than those listed, IBM Support can assist in troubleshooting your configuration, but cannot guarantee a resolution.
 {: note}
 
 ## Checking the status of the secure connection
 {: #check-connection-status}
 
-You can check the status of your connection in the {{site.data.keyword.cloud_notm}} console. On the VPN for VPC page, select your VPN gateway and click **Connections** from the navigation pane on the left of the page.
+You can check the status of your connection in the {{site.data.keyword.cloud_notm}} console. On the {{site.data.keyword.vpn_vpc_short}} page, select your VPN gateway and click **Connections** from the navigation pane on the left of the page.
 
 You can also test the connection by doing a ping from a virtual server instance in your VPC to a server in the on-premises network.

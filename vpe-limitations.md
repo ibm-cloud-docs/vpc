@@ -4,7 +4,7 @@ copyright:
   years: 2020
 lastupdated: "2020-10-30"
 
-keywords: vpe, virtual private endpoints, limitations, endpoint gateway
+keywords: VPE, virtual private endpoints, limitations, endpoint gateway
 
 ---
 

@@ -25,7 +25,7 @@ subcollection: vpc
 # VPN gateway limitations
 {: #vpn-limitations}
 
-Lists known limitations for an {{site.data.keyword.cloud}} VPN for VPC gateway.
+Lists known limitations for an {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_short}} gateway.
 {: shortdesc}
 
 * An {{site.data.keyword.cloud_notm}} policy-based VPN gateway resides in the zone that is associated with the subnet that you select during provisioning. The VPN gateway serves only the virtual server instances in the same zone of the VPC. Therefore, instances in other zones can't use the VPN gateway to communicate with an on-premises private network. For zone fault tolerance, you must deploy one VPN gateway per zone.
@@ -39,7 +39,7 @@ Lists known limitations for an {{site.data.keyword.cloud}} VPN for VPC gateway.
 
 * An {{site.data.keyword.cloud_notm}} static, route-based VPN does not support an AWS route-based VPN as a peer device. Because an {{site.data.keyword.cloud_notm}} custom route does not allow more than one route for a destination using a VPN connection, only one AWS tunnel IP can be used as the peer IP. However, a single AWS tunnel cannot be used to communicate with both active members of an {{site.data.keyword.cloud_notm}} static, route-based VPN, so traffic is disrupted when either side performs maintenance operations causing fail-over from the only active tunnel to the other unusable tunnel.
 
-* An {{site.data.keyword.cloud_notm}} static, route-based VPN does not support a Cisco ASAv peer device. ASAv traffic zones do not support virtual tunnel interfaces. ECMP over multiple interfaces is also not supported. Request and response traffic between Cisco ASAv and {{site.data.keyword.cloud_notm}} VPN for VPC that travel through different tunnels might be dropped. A single tunnel configuration works, but traffic is disrupted during maintenance events, or other single member outages.
+* An {{site.data.keyword.cloud_notm}} static, route-based VPN does not support a Cisco ASAv peer device. ASAv traffic zones do not support virtual tunnel interfaces. ECMP over multiple interfaces is also not supported. Request and response traffic between Cisco ASAv and {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} that travel through different tunnels might be dropped. A single tunnel configuration works, but traffic is disrupted during maintenance events, or other single member outages.
 * Peer subnets of a VPN gateway connection cannot overlap.
 * VPN gateways are supported as the next hop only in the same VPC as the source prefix in the custom routing table. Selecting a VPN gateway as the next hop of a different zone than the source prefix does not work. Though the custom routing table might allow you to select this configuration, it is not supported.
 * An {{site.data.keyword.cloud_notm}} static, route-based VPN does not support redundant peer devices that are associated with the same set of peer networks. For each peer network, VPC allows only one custom route by using a VPN connection as the next hop. Therefore, all traffic to the designated peer network must be routed through the single peer device that is specified in the VPN connection that is used in the static route.

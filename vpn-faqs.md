@@ -28,7 +28,7 @@ subcollection: vpc
 # FAQs for VPN gateways
 {: #faqs-vpn}
 
-You might encounter these frequently asked questions when you use {{site.data.keyword.cloud}} VPN for VPC.
+You might encounter these frequently asked questions when you use {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_short}}.
 {: #vpn-faq}
 
 ### When I create a VPN gateway, can I create VPN connections at the same time?
@@ -79,7 +79,7 @@ Make sure that ACL rules are in place to allow management traffic and VPN tunnel
 
 Make sure that ACL rules are in place to allow traffic between virtual server instances in your VPC and your on-premises private network. For more information, see [Configuring ACLs and security groups for use with VPN](/docs/vpc?topic=vpc-acls-security-groups-vpn).
 
-### Does VPN for VPC support high-availability configurations?
+### Does {{site.data.keyword.vpn_vpc_short}} support high-availability configurations?
 {: #faq-vpn-8}
 {: faq}
 
@@ -103,17 +103,17 @@ Up to 650 Mbps of throughput is supported.
 
 Only PSK authentication is supported.
 
-### Can you use VPN for VPC as a VPN gateway for your {{site.data.keyword.cloud_notm}} classic infrastructure?
+### Can you use {{site.data.keyword.vpn_vpc_short}} as a VPN gateway for your {{site.data.keyword.cloud_notm}} classic infrastructure?
 {: #faq-vpn-12}
 {: faq}
 
 No. To set up a VPN gateway in your classic environment, you must use an [IPsec VPN](https://{DomainName}/catalog/infrastructure/ipsec-vpn){: external}.
 
-### What {{site.data.keyword.cloud_notm}} infrastructure classic resources can be accessed with VPN for VPC?
+### What {{site.data.keyword.cloud_notm}} infrastructure classic resources can be accessed with {{site.data.keyword.vpn_vpc_short}}?
 {: #faq-vpn-13}
 {: faq}
 
-Virtual server instances are the only classic resources that can be accessed with VPN for VPC along with a classic access VPC.
+Virtual server instances are the only classic resources that can be accessed with {{site.data.keyword.vpn_vpc_short}} along with a classic access VPC.
 
 ### What does rekey collision cause?
 {: #faq-vpn-14}

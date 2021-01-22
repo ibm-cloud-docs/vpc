@@ -33,7 +33,7 @@ You can use custom IPsec policies to define security parameters to use during Ph
 
 To create an IPsec policy by using the UI, follow these steps:
 
-1. From the **VPN for VPC** gateway list page, switch to the **IPsec Policies** tab.
+1. From the **{{site.data.keyword.vpn_vpc_short}}** gateway list page, switch to the **IPsec Policies** tab.
 1. Click the **Create +** button to begin creating custom IPsec policy.
 1. Define the new IPsec policy by specifying the following information:
    * **Name** - Enter a name for the IPsec policy.

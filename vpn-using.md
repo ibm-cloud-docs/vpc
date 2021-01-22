@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2020
 lastupdated: "2020-11-13"
 
-keywords: VPN, VPN gateways, encryption, IKE, IPsec, gateway, auto-negotiation
+keywords: VPN, VPN gateways, encryption, IKE, IPsec, gateway, auto-negotiation, Diffie-Hellman, dead peer detection, PFS
 
 subcollection: vpc
 
@@ -26,7 +26,7 @@ subcollection: vpc
 {: #using-vpn}
 [comment]: # (linked help topic)
 
-You can use the {{site.data.keyword.cloud}} VPN for VPC service to securely connect your Virtual Private Cloud (VPC) to another private network. Use a static, route-based VPN or a policy-based VPN to set up an IPsec site-to-site tunnel between your VPC and your on-premises private network, or another VPC.
+You can use the {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_short}} service to securely connect your Virtual Private Cloud (VPC) to another private network. Use a static, route-based VPN or a policy-based VPN to set up an IPsec site-to-site tunnel between your VPC and your on-premises private network, or another VPC.
 {: shortdesc}
 
 Route-based VPN is now available in addition to policy-based VPN. To get started, select **Route-based** as the mode when creating a VPN gateway and [create routes](/docs/vpc?topic=vpc-create-vpc-route) using the VPN connection type.
@@ -35,17 +35,17 @@ Route-based VPN is now available in addition to policy-based VPN. To get started
 ## VPN features
 {: #vpn-features}
 
-The {{site.data.keyword.cloud_notm}} VPN for VPC service includes the following features:
+The {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} service includes the following features:
 
-* **IPsec** - Protocol suite that provides secure communication between devices. {{site.data.keyword.cloud_notm}} VPN for VPC uses Encapsulating Security Protocol (ESP) in tunnel mode, which offers authentication and entire packet encryption.
-* **Internet Key Exchange (IKE)** - IKE is a part of the IPsec protocol used to establish VPN connections. In IKE Phase 1, VPN peers use Diffie-Hellman (DH) key exchange to create a secure, authenticated communication channel. In IKE Phase 2, the peers use the secure channel from Phase 1 to negotiate parameters for IPsec tunnel. {{site.data.keyword.cloud_notm}} VPN for VPC supports both IKEv1 (main mode) and IKEv2. See [About policy negotiation](#policy-negotiation) for the supported combinations.
-* **Authentication** - {{site.data.keyword.cloud_notm}} VPN for VPC supports a pre-shared key for Phase 1 peer authentication. Supported authentication algorithms for both phases include MD-5, SHA-1, and SHA-256.
-* **Encryption** - {{site.data.keyword.cloud_notm}} VPN for VPC supports 3-DES, AES-128, and AES-256 for data encryption during both IKE Phase 1 and Phase 2.
-* **Diffie-Hellman (DH)** - Key exchange protocol used in Phase 1 to generate a shared secret key between VPN peers. Optionally, users can enable Perfect Forward Secrecy (PFS) and a DH Group for Phase 2 IPsec negotiation. {{site.data.keyword.cloud_notm}} VPN for VPC supports DH Groups 2, 5, and 14.
+* **IPsec** - Protocol suite that provides secure communication between devices. {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} uses Encapsulating Security Protocol (ESP) in tunnel mode, which offers authentication and entire packet encryption.
+* **Internet Key Exchange (IKE)** - IKE is a part of the IPsec protocol used to establish VPN connections. In IKE Phase 1, VPN peers use Diffie-Hellman (DH) key exchange to create a secure, authenticated communication channel. In IKE Phase 2, the peers use the secure channel from Phase 1 to negotiate parameters for IPsec tunnel. {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} supports both IKEv1 (main mode) and IKEv2. See [About policy negotiation](#policy-negotiation) for the supported combinations.
+* **Authentication** - {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} supports a pre-shared key for Phase 1 peer authentication. Supported authentication algorithms for both phases include MD-5, SHA-1, and SHA-256.
+* **Encryption** - {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} supports 3-DES, AES-128, and AES-256 for data encryption during both IKE Phase 1 and Phase 2.
+* **Diffie-Hellman (DH)** - Key exchange protocol used in Phase 1 to generate a shared secret key between VPN peers. Optionally, users can enable Perfect Forward Secrecy (PFS) and a DH Group for Phase 2 IPsec negotiation. {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} supports DH Groups 2, 5, and 14.
 * **Perfect Forward Secrecy (PFS)** - PFS ensures DH-generated keys are not used again during IPsec renegotiation. If a key is compromised, only data in transit during the protected security association's lifetime is accessible.
 * **Dead Peer Detection** - Configurable mechanism to detect availability of an IPsec peer.
-* **Modes** - {{site.data.keyword.cloud_notm}} VPN for VPC offers static, route-based and policy-based VPN modes. With a policy-based VPN, traffic that matches negotiated CIDR ranges are encrypted. For a static, route-based VPN, virtual tunnel interfaces are created and any traffic that is routed towards these logical interfaces with custom routes is encrypted. Both VPN flavors provide the same features.  
-* **High availability** - {{site.data.keyword.cloud_notm}} VPN for VPC is built on two VPN devices to provide appliance-level redundancy. A policy-based VPN operates in Active-Standby mode with a single VPN gateway IP shared between the members, while a route-based VPN offers Active-Active redundancy with two VPN gateway IPs.
+* **Modes** - {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} offers static, route-based and policy-based VPN modes. With a policy-based VPN, traffic that matches negotiated CIDR ranges are encrypted. For a static, route-based VPN, virtual tunnel interfaces are created and any traffic that is routed towards these logical interfaces with custom routes is encrypted. Both VPN flavors provide the same features.  
+* **High availability** - {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} is built on two VPN devices to provide appliance-level redundancy. A policy-based VPN operates in Active-Standby mode with a single VPN gateway IP shared between the members, while a route-based VPN offers Active-Active redundancy with two VPN gateway IPs.
 
   Currently, a static, route-based VPN does not support redundant connections to peer networks through multiple peer IPs. You can create multiple VPN connections for different peer IPs for each set of peer networks. However, only one connection can be used as next hop for each peer CIDR block.
   {: important}
@@ -64,8 +64,8 @@ To get started creating a VPN gateway, follow these general steps:
 1. Ensure that your peer device supports NAT Traversal and is enabled on the peer device. For more information, see [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations).
 1. Review planning considerations and [create your VPN gateway](/docs/vpc?topic=vpc-vpn-create-gateway).
 1. [Create VPN connections](/docs/vpc?topic=vpc-vpn-adding-connections).
-   
-   VPN for VPC supports only one route-based VPN per zone per VPC. 
+
+   {{site.data.keyword.vpn_vpc_short}} supports only one route-based VPN per zone per VPC.
    {: note}
 
 1. For static, route-based VPNs, select or [create a routing table for static routing](/docs/vpc?topic=vpc-create-vpc-routing-table), then [create routes](/docs/vpc?topic=vpc-create-vpc-route) using the **VPN connection** type.
@@ -79,7 +79,7 @@ This diagram illustrates an example VPN setup with multiple on-premise networks.
 
 ![VPN setup example](images/vpn-setup.png)
 
-## VPN for VPC use cases
+## {{site.data.keyword.vpn_vpc_short}} use cases
 {: #vpn-use-cases}
 
 ### Use case 1: VPN connection to single remote peer device of the same type associated with one or more peer networks
@@ -100,7 +100,7 @@ Both policy-based and route-based VPNs allow users to connect to multiple remote
 ## About policy negotiation
 {: #policy-negotiation}
 
-For both phases of IKE negotiation, the IPsec peers must exchange proposals of security parameters that each is configured to support, and to reach an agreement on a set of configurations to use. The custom IKE and IPsec policies allow VPN for VPC users to configure these security parameters used during this negotiation.
+For both phases of IKE negotiation, the IPsec peers must exchange proposals of security parameters that each is configured to support, and to reach an agreement on a set of configurations to use. The custom IKE and IPsec policies allow {{site.data.keyword.vpn_vpc_short}} users to configure these security parameters used during this negotiation.
 
 The use of IKE and IPsec policies to configure a VPN connection is optional. When a policy is not selected, default proposals are chosen automatically through a process that is known as _auto-negotiation_.
 
@@ -130,7 +130,7 @@ You can use the following encryption, authentication, and Diffie-Hellman Group o
 
 You can use the following encryption and authentication options in any combination:
 
-By default, PFS is disabled for VPN for VPC. Some vendors require PFS enablement for Phase 2. Check your vendor instructions and use custom policies if PFS is required.
+By default, PFS is disabled for {{site.data.keyword.vpn_vpc_short}}. Some vendors require PFS enablement for Phase 2. Check your vendor instructions and use custom policies if PFS is required.
 {: important}
 
 |    | Encryption | Authentication | DH Group |
@@ -143,7 +143,7 @@ By default, PFS is disabled for VPN for VPC. Some vendors require PFS enablement
 ## Related links
 {: #vpn-related-links}
 
-These links provide additional information about {{site.data.keyword.cloud_notm}} VPN for VPC.
+These links provide additional information about {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}}.
 
 * [VPN CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpn-clis)
 * [VPN API reference](https://{DomainName}/apidocs/vpc#list-ike-policies)
