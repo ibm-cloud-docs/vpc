@@ -54,7 +54,7 @@ No, although the name can contain numbers, it must begin with a letter.
 
 Yes, the UI blocks consecutive double dashes, underscores, and periods from being part of a VSI name.
 
-## During the PGW creation, do I need to reserve the FIP, or does the system automatically reserve the FIP? Will I see that Floating IP when I query all of the Floating IPs?
+## During the public gateway creation, do I need to reserve the floating IP, or does the system automatically reserve it? Will I see that floating IP when I query all of the floating IPs?
 {: #faq-vpc-6}
 {: faq}
 
