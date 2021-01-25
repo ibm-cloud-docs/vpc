@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-10-08"
+  years: 2019, 2021
+lastupdated: "2021-01-25"
 
 keywords: address prefixes, regions, subnets, zones, IP, ranges, CIDR
 
@@ -52,6 +52,9 @@ Zone         | Address prefix
 `au-syd-1`     | `10.245.0.0/18`
 `au-syd-2`     | `10.245.64.0/18`
 `au-syd-3`     | `10.245.128.0/18`
+`jp-osa-1`     | `10.248.0.0/18`
+`jp-osa-2`     | `10.248.64.0/18`
+`jp-osa-3`     | `10.248.128.0/18`
 {: caption="Table 1. Address prefixes assigned to a zone in a region" caption-side="top"}
 
 If you don't want these default address prefixes, you can choose to not assign them when you create your VPC. For example, add the `"address_prefix_management": "manual"` parameter when you create the VPC by using the API.
