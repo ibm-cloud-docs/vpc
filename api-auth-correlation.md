@@ -60,6 +60,7 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | Instances | Create| Editor for Virtual Server for VPC and Block Storage for VPC resources<br />Editor for Floating IP for VPC resources, if a floating IP is to be associated<br />Operator for the VPC, subnet, and the security group |
 | Instances | Update, Delete | Editor for the instance |
 | Instances | View, List  | Viewer for the instance |
+| Instances | Post | IP Spoofing Operator for instance |
 | Instance actions | Create, Update, Delete | Operator for the instance|
 | Instance actions | View, List  | Viewer for the instance |
 | Interfaces | View, List  | Viewer for the instance |
@@ -80,6 +81,7 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | Instance group manager | View | Viewer for the instance group |
 | Instance group manager policy | Create, Update, Delete  | Editor for the instance group |
 | Instance group manager policy | View  | Viewer for the instance group |
+| Instance network interface | Create, Update | IP Spoofing Operator for instance |
 | Instance template | Create, Update, Delete  | Editor for instance |
 | Instance template | View  | Viewer for instance |
 |————————|—————————|————————|
