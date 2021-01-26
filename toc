@@ -65,6 +65,7 @@ Virtual Private Cloud (VPC)
         hello-world-vpc.md
         example-code.md
         vpc-regions.md
+        connectivity-options.md
 
         {: .topicgroup}
         Setting IP ranges
