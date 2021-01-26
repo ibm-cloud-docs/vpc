@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019 - 2021
-lastupdated: "2021-01-11"
+  years: 2019, 2021
+lastupdated: "2021-01-26"
 
 keywords: release notes, changes, updates
 
@@ -25,6 +25,11 @@ subcollection: vpc
 
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
+
+## 26 January 2021
+{: #jan-26-2021}
+
+**New region:** The Osaka region endpoint is now in service at `https://jp-osa.iaas.cloud.ibm.com`. For more information, see [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region). See also [Endpoint URLs](https://{DomainName}/apidocs/vpc#endpoint-url) in the {{site.data.keyword.vpc_short}} API.
 
 ## 11 January 2021
 {: #jan-11-2021}
