@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-19"
+lastupdated: "2021-01-26"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -46,6 +46,8 @@ Some changes, such as new response properties or new optional request parameters
 
 To prepare for this transition, it is recommended that you update your default security group rules to minimize disruption in load balancer traffic on newly created application load balancers.
 {: tip}
+
+**Block storage volumes**  In an upcoming release, a new value in the `status` enumeration will be added to the [volume](/apidocs/vpc#list-volume-profiles) APIs. When you expand an existing data volume, the volume goes into an updating state and shows a new API status `updating`. You can still access the data while the volume is being resized. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 
 ## 19 January 2021
 {: #19-january-2021}
