@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-26"
+lastupdated: "2021-01-27"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -48,6 +48,16 @@ To prepare for this transition, it is recommended that you update your default s
 {: tip}
 
 **Block storage volumes**  In an upcoming release, a new value in the `status` enumeration will be added to the [volume](/apidocs/vpc#list-volume-profiles) APIs. When you expand an existing data volume, the volume goes into an updating state and shows a new API status `updating`. You can still access the data while the volume is being resized. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
+
+## 27 January 2021
+{: #27-january-2021}
+
+### For all API version dates
+{: #27-january-2021-all-version-dates}
+
+**Checksum (SHA256) for imported images.** When you import a custom image to {{site.data.keyword.vpc_short}}, you can now view the checksum that was generated for the image during the import operation. By generating a checksum for the image locally, and checking that the checksums match, you can verify the integrity of the imported image. For more information, see [Validating a custom image after importing](/docs/vpc?topic=vpc-managing-images#validate-custom). 
+
+The `sha256` checksum is available in the `file` details in API method `GET /images/{id}`. See [Retrieve an image](/apidocs/vpc#get-image).
 
 ## 19 January 2021
 {: #19-january-2021}
