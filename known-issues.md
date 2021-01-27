@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-07-27"
+  years: 2018, 2021
+lastupdated: "2021-01-27"
 
 keywords: vpc, known issues, bugs, defects
 
@@ -25,12 +25,16 @@ subcollection: vpc
 Known issues might change over time, so check back occasionally.
 {:shortdesc}
 
+## RIOS-1410: Checksum not available for some public images
+{: #RIOS-1410}
+
+- **Symptom:** When you use the API or CLI to list images, some public stock images might not include a checksum. 
+- **Fix:** The checksum is for informational purposes only for stock images. No fix is available at this time.
 
 ## API-1144: Virtual server instances (VSIs) must be stopped before they can be deleted
 {: #API-1144}
 - **Symptom:** The VSI cannot be deleted.
 - **Workaround:** Stop the instance before you attempt to delete it.
-
 
 ## RIOS-129: Inconsistent image names between VPC generation 1 and 2
 {: #RIOS-129}
