@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-22"
+  years: 2019, 2021
+lastupdated: "2021-02-01"
 
 keywords: block storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
@@ -151,6 +151,7 @@ The following table shows statuses that you might see when you create, view, or 
 | Failed  | A volume failed to create |
 | Pending | A volume is being created |
 | Pending deletion | A volume is being deleted. If you're unsure the volume is deleted, verify this state. Attempting to delete a volume again while in this state results in a conflict error. |
+| Unusable | A volume is unusable because the customer root key (CRK) has been [deleted](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys) or [disabled](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-disable-root-keys). |
 {: caption="Table 2. Block storage statuses" caption-side="top"}
 
 Do you prefer to manage block storage volumes by using the CLI? For information, see [Managing block storage volumes (CLI)](/docs/vpc?topic=vpc-managing-block-storage-cli).
