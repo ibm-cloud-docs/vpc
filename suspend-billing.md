@@ -1,11 +1,11 @@
 ---
 
 copyright:
-  years: 2017, 2020
+  years: 2017, 2021
 
-lastupdated: "2020-09-10"
+lastupdated: "2021-02-01"
 
-keywords: pricing, billing, data, instance, suspend 
+keywords: vpc, pricing, billing, data, instance, VSI, suspend 
 
 subcollection: vpc
 
@@ -26,9 +26,9 @@ subcollection: vpc
 # Suspend billing for VPC
 {: #suspend-billing}
 
-When you power off an instance, you don't accrue costs for certain compute resources. Billing stops automatically when you stop the instance. The suspend billing feature helps you reduce cost and prevents you from having to re-create an instance when you need its resources again.
+When you stop a virtual server instance by using the {{site.data.keyword.cloud_notm}} console, CLI, or API, you don't accrue costs for certain compute resources. Billing stops automatically when you stop the instance. The suspend billing feature helps you reduce cost and prevents you from having to re-create an instance when you need its resources again.
 
-In situations where you want to scale your infrastructure up and down in response to workload needs, you can use the suspend billing feature as a faster alternative to creating and deleting instances.
+In situations where you want to scale your infrastructure up and down in response to workload needs, you can stop an instance  (and suspend billing) as a faster alternative to creating and deleting instances.
 {:tip}
 
 ## Billing details
@@ -36,7 +36,7 @@ In situations where you want to scale your infrastructure up and down in respons
 
 It's important to understand what costs stop accruing and what costs persist when your virtual server instance is powered off.
 
-Billing is suspended only when you power off your virtual server instance through the {{site.data.keyword.cloud_notm}} console, CLI, or API. If you power off your virtual server instance directly through the OS, billing isn't suspended for that instance.
+Billing is suspended only when you stop your virtual server instance through the {{site.data.keyword.cloud_notm}} console, CLI, or API. If you power off your virtual server instance directly through the OS, billing isn't suspended for that instance.
 {:note}
 
 Review the following table for details on how suspend billing impacts various resource charges.
@@ -50,7 +50,7 @@ Review the following table for details on how suspend billing impacts various re
 | Storage                       |                   |         X        |
 {: caption="Table 7. Resource billing details" caption-side="top"}
 
-Usage times are calculated per second, for both the in use time and suspended time of your virtual server instance. Even if you never initiate the suspend billing feature by powering off your instance, the billing is calculated per second of the instance's lifecycle.
+Usage times are calculated per second, for both the in use time and suspended time of your virtual server instance. Even if you never initiate the suspend billing feature by powering off your instance, the billing is calculated per second of the instance's lifecycle. No minimum usage requirement exists for an instance. 
 {:note}
 
 ### Suspend billing and sustained usage discounts
@@ -89,4 +89,3 @@ You can use the [Activity Tracker](/docs/vpc?topic=vpc-at-events) to check the s
 {: #suspend-billing-limitations}
 
 Suspended virtual servers continue to count towards your account-wide device quota.
-
