@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-17"
+  years: 2020, 2021
+lastupdated: "2021-01-27"
 
 keywords: license, virtual private cloud, BYOL, virtual server instance, instance, custom image, encryption
 subcollection: vpc
@@ -38,7 +38,7 @@ There are no additional licensing charges for any virtual server instances you c
 
 You can use your own license for a [custom RHEL image](/docs/vpc?topic=vpc-create-linux-custom-image) you create on premesis. This BYOL custom image is a single QCOW2 file that you upload to Cloud Object Storage (COS) and then import to the VPC. When you import your BYOL custom image, you select a _BYOL_ operating system from the list of OS versions. Supported Linux versions are 64-bit RHEL 7 and RHEL 8. 
 
-To see all OS versions from the API, make a`GET \ operating_systems` call. In the response, you would see RHEL BYOL OS versions among the list of operatng systems. This example response shows information returned for RHEL 7:
+To see all OS versions from the API, make a`GET /operating_systems` call. In the response, you would see RHEL BYOL OS versions among the list of operatng systems. This example response shows information returned for RHEL 7:
 
 ```
 {
@@ -66,7 +66,7 @@ For more information about creating and importing Linux custom images, see:
 
 You can create a Windows custom image using your own license, upload it to COS, and then import it to the VPC. The Windows BYOL custom image runs on a dedicated host, a single-tenant compute node for privileged users within your account. When you import your BYOL custom image, you select a _BYOL_ operating system from the list of OS versions. Supported Windows versions are Windows 2012 and Windows 2012 R2, 64-bit.
 
-To see all OS versions from the API, make a`GET \ operating_systems` call. In the response, you will see Windows BYOL OS versions among the list of operatng systems. This example response shows information returned for Windows 2012:
+To see all OS versions from the API, make a`GET /operating_systems` call. In the response, you will see Windows BYOL OS versions among the list of operatng systems. This example response shows information returned for Windows 2012:
 
 ```
 {
