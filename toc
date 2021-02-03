@@ -95,8 +95,7 @@ Virtual Private Cloud (VPC)
         vsi_is_bulk_provision.md
         vsi_is_manage_instances.md
         vsi_is_instance_vnics.md
-        /cloud-infrastructure/cloud-infrastructure-monitoring
-        /cloud-infrastructure/cloud-infrastructure-sysdig-monitoring-metrics
+        sysdig-vpc-metrics.md
 
     {: .topicgroup}
     Dedicated hosts (Beta)
