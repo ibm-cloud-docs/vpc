@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-10-30"
+  years: 2020, 2021
+lastupdated: "2021-01-19"
 
-keywords: virtual private endpoints, endpoint gateway, vpe
+keywords: virtual private endpoints, endpoint gateway, VPE
 subcollection: vpc
 
 ---
@@ -43,9 +43,15 @@ The features of VPE for VPC include:
 * Includes platform integration to VPC - Identity and Access Management (IAM), Ghost, and ACLs.
 * Access to new endpoints is achieved through the UI, CLI, and API.
 * You can map a new endpoint to an existing service, as well as map to a shared endpoint.
+* Integrates with DNS Services.
+
+   When creating an endpoint gateway, a DNS zone and records are created. The VPE service automatically upgrades your virtual server instances to use the private DNS as the default DNS resolver. For more information, see [DNS Services](/docs/dns-svcs?topic=dns-svcs-getting-started).
+   {: note}
+
+## Supported services
+{: #supported_services}
 
 For supported {{site.data.keyword.cloud_notm}} services, see [VPE supported services](/docs/vpc?topic=vpc-vpe-supported-services).
-{: note}
 
 ## VPE connectivity patterns
 {: #vpe-connectivity patterns}
@@ -83,5 +89,6 @@ These links provide additional information about {{site.data.keyword.cloud}} VPE
 * [VPE CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpe-clis)
 * [VPE API reference](https://{DomainName}/apidocs/vpc?code=java#list-endpoint-gateways)
 * [FAQs for virtual private endpoints](/docs/vpc?topic=vpc-faqs-vpe)
+* [VPE for VPC infrastructure resources for Terraform](https://cloud.ibm.com/docs/terraform?topic=terraform-vpc-gen2-resources#virtual-endpoint-gwy)
 * [Troubleshooting VPE gateways](/docs/vpc?topic=vpc-troubleshoot-create-reserved-ip)
 * [VPE Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-vpe)

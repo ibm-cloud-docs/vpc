@@ -21,10 +21,10 @@ subcollection: vpc
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Using security groups
+# About security groups
 {: #using-security-groups}
 
-Security groups give you a convenient way to apply rules that establish filtering to each network interface of a virtual server instance, based on its IP address. When you create a security group, you configure it to create the network traffic patterns you want.
+IBM Cloud Security Groups for VPC give you a convenient way to apply rules that establish filtering to each network interface of a virtual server instance, based on its IP address. When you create a security group, you configure it to create the network traffic patterns you want.
 {:shortdesc}
 
 By default, a security group denies all traffic. As rules are added to a security group, it defines the traffic that the security group permits.
@@ -35,8 +35,14 @@ Security groups are scoped to a single VPC. This scoping implies that a security
 
 When an instance is created and no security groups are specified, the instance's primary network interface is attached to the _default_ security group of that instance's VPC. For more information, see [Updating the default security group](/docs/vpc?topic=vpc-updating-the-default-security-group#updating-the-default-security-group).
 
-You can set up security groups by using the UI, CLI, or REST API:
+## Related links
+{: #sg-related-links}
 
-* [Setting up security groups by using the UI](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#configuring-the-security-group)
-* [Setting up security groups by using the CLI](/docs/vpc?topic=vpc-setting-up-security-groups-using-the-cli#setting-up-security-groups-using-the-cli)
-* [Setting up security groups by using the API](/docs/vpc?topic=vpc-setting-up-security-groups-using-the-apis#setting-up-security-groups-using-the-apis)
+These links provide additional information about IBM Cloud Security Groups for VPC:
+
+* [Security Groups CLI reference](https://test.cloud.ibm.com/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#security-groups-cli-ref)
+* [Security Groups API reference](https://test.cloud.ibm.com/apidocs/vpc#list-security-groups)
+* [Security Groups required permissions](https://test.cloud.ibm.com/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls#sg-authorizations-required-for-api-and-cli-calls)
+* [Security Groups for VPC infrastructure resources for Terraform](https://cloud.ibm.com/docs/terraform?topic=terraform-vpc-gen2-resources#sec-group)
+* [Security Groups Activity Tracker events](https://test.cloud.ibm.com/docs/vpc?topic=vpc-at-events#events-network-security-group)
+* [Security Groups quotas](https://test.cloud.ibm.com/docs/vpc?topic=vpc-quotas#security-group-quotas)
