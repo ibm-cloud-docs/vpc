@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-23"
+  years: 2019, 2021
+lastupdated: "2021-02-01"
 
 keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, IOPS, FAQ
 
@@ -233,6 +233,12 @@ Each volume is assigned a unique master encryption key, called a data encryption
 These actions are two separate actions. Disabling a root key in your KMS suspends its encryption and decryption operations, placing the key in a suspended state. Workloads remain running in virtual server instances and boot volumes remain encrypted. Data volumes remain attached. However, if you power down the VM and then power it back on, any instances with encrypted boot volumes do not start. You can enable a root key in a suspended state and resume normal operations. For more information, see [Disabling root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-disable-root-keys).
 
 Deleting a root key has greater consequences. Deleting a root key purges usage of the key for all resources in the VPC. By default, the KMS prevents you from deleting a root key that's actively protecting a resource. However, you can still force the deletion of a root key. You have limited time to [restore a deleted root key](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-restore-root-key) that you imported to the KMS. For more information, see [Deleting root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys).
+
+### Can I remove IAM authorization from Cloud Block Storage to the KMS and still delete my block storage volumes with customer-managed encryption?
+{: faq}
+{: #faq_block_storage_remove_iam}
+
+If you remove IAM authorization before deleting your BYOK volume (or image), the delete operation completes but the root keys protecting these resources will not deregister in the KMS instance. This means the root key remains registered for a resource that doesn't exist. Always delete a BYOK resource before you remove IAM authorization. For more information about safely removing service authorization, see [Removing service authorization to a root key](/docs/vpc?topic=vpc-vpc-encryption-managing#instance-byok-inaccessible-data).
 
 ### What should I do if my root key is compromised?
 {: faq}

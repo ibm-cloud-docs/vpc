@@ -1,8 +1,8 @@
 ---
 
 Copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-23"
+  years: 2019, 2021
+lastupdated: "2021-01-28"
 
 keywords: block storage, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
@@ -266,6 +266,9 @@ When you [authorize use](/docs/account?topic=account-serviceauth#serviceauth) of
 You can remove any authorization between services in your account when you have the Administrator role on the target service (in this case, the key management service). If you remove any access policies created by the source service for its dependent services, the source service is unable to complete the workflow or access the target service.
 
 Because the root keys are under your control, you don't have to contact IBM to remove authorization.
+
+Do not remove IAM authorization between Cloud Block Storage and the KMS instance and then delete a block storage or image resource. This causes the root key in the KMS instance to remain registered with the deleted resource. You must delete all BYOK volumes and images before removing IAM authorization.
+{: important}
 
 To make your data inaccessible, but retain it on the IBM Cloud:
 

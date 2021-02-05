@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-22"
+  years: 2019, 2021
+lastupdated: "2021-02-01"
 
-keywords: block storage, IBM Cloud, VPC, virtual private cloud, volume, data storage, troubleshooting, troubleshoot
+keywords: block storage, virtual private cloud, volume, data storage, troubleshooting, troubleshoot
 
 subcollection: vpc
 
@@ -108,4 +108,17 @@ A volume is in the process of being resized and you tried to delete the instance
 {: tsCauses}
 
 A volume must be in an _available_ state for operations such as attach, detach, delete. When expanding a volume, wait for the volume resizing to complete before performing any operations. If you try to delete a volume that's resizing, the volume remains in an _updating_ state and not be deleted with the instance.  To delete the volume, reattach the volume to a different instance, let the resizing complete (volume status becomes _available_, and then delete the volume.
+{: tsResolve}
+
+## Removing IAM authorization from the storage service to the KMS causes root key deregistration failure
+{: #troubleshoot-topic-5}
+{: troubleshoot}
+
+The root keys in the Key management service (KMS) instance remain registered to the deleted block storage volume or image resources.
+{: tsSymptoms}
+
+If you remove IAM authorization from Cloud Block Storage to the KMS before you delete all BYOK volumes or images, the root key fails to deregister from the resource.
+{: tsCauses}
+
+As best practice, delete all storage or image resources before you remove IAM authorization. If you have already removed authorization, you must restore the IAM authorization between Cloud Block Storage Cloud Block Storage (source service) and your KMS (target service). For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth) to establish IAM service-to-service authorizations using the UI, CLI, or API.
 {: tsResolve}
