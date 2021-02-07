@@ -106,12 +106,13 @@ Before you can use the API requests to connect to a VNC or serial console, you n
   1. Create a console access token for the instance, specify `"console_type": "serial"` and `"force": true` in the payload.
 
     ```
-    curl -X POST \
-    "$vpc_api_endpoint/v1/instances/$instance_id/console_access_token?version=2021-01-26&generation=2" \
-    -H "Authorization: $iam_token" \
-    -d '{ "console_type": "serial",
-        "force": true 
-      }'
+      curl -X POST \
+      "$vpc_api_endpoint/v1/instances/$instance_id/console_access_token?version=2020-01-26&generation=2" \
+      -H "Authorization: $token" \
+      -d '{
+         "console_type":"serial",
+         "force": true
+      }' 
     ```
     {:pre}
 
