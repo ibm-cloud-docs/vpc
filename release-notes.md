@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-26"
+lastupdated: "2021-02-07"
 
 keywords: release notes, changes, updates
 
@@ -25,6 +25,11 @@ subcollection: vpc
 
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
+
+## 7 February 2021
+{: #feb-07-2021}
+
+**Virtual server instance console (Beta)**: You can now access your VSIs by connecting to a VNC or serial console. This feature provides a quick-and-easy way for you to interact with the VSI without using a Secure Shell. This is a Beta feature that requires special approval. Contact your IBM Sales representative if you are interested in getting access. For more information, see [Accessing VSI instances by using VNC or serial consoles (Beta)](/docs/vpc?topic=vpc-vsi_is_connecting_console)
 
 ## 26 January 2021
 {: #jan-26-2021}
