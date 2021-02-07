@@ -80,7 +80,7 @@ Before you can use the API requests to connect to a VNC or serial console, you n
 
     ```
       curl -X POST \
-      "$vpc_api_endpoint/v1/instances/$instance_id/console_access_token?version=2020-09-08&generation=2" \
+      "$vpc_api_endpoint/v1/instances/$instance_id/console_access_token?version=2021-01-26&generation=2" \
       -H "Authorization: $iam_token" \
       -d '{
             "console_type": "vnc" 
@@ -107,7 +107,7 @@ Before you can use the API requests to connect to a VNC or serial console, you n
 
     ```
     curl -X POST \
-    "$vpc_api_endpoint/v1/instances/$instance_id/console_access_token?version=2020-12-06&generation=2" \
+    "$vpc_api_endpoint/v1/instances/$instance_id/console_access_token?version=2021-01-26&generation=2" \
     -H "Authorization: $iam_token" \
     -d '{ "console_type": "serial",
         "force": true 
@@ -121,7 +121,7 @@ Before you can use the API requests to connect to a VNC or serial console, you n
   2. Save the value of "href" in the response.
   3. Start your serial console program by using the above URL.
   
-   If you use websocat, specify the `--binary` flag in your command. For example: `websocat --binary "wss://us-south.iaas.cloud.ibm.com/v1/instances/<instance_id>/console?access_token=<access_token>&version=2020-12-06&generation=2"`
+   If you use websocat, specify the `--binary` flag in your command. For example: `websocat --binary "wss://us-south.iaas.cloud.ibm.com/v1/instances/<instance_id>/console?access_token=<access_token>&version=2021-01-26&generation=2"`
    {: tip}
   
   4. Enter the credentials following the prompts to log in to your VSI intsances.
