@@ -281,7 +281,6 @@ Virtual Private Cloud (VPC)
     {: .topicgroup}
     VPC API reference
         [VPC API reference](https://{DomainName}/apidocs/vpc)
-        api-change-log.md
 
     vpc-responsibilities.md
     vpc-endpoints.md
@@ -334,6 +333,7 @@ Virtual Private Cloud (VPC)
         block_storage_is_troubleshoot.md
 
     release-notes.md
+    api-change-log.md
     limitations.md
     known-issues.md
     getting-help.md
