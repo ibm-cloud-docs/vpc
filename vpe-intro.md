@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-01-19"
+lastupdated: "2021-02-08"
 
 keywords: virtual private endpoints, endpoint gateway, VPE
 subcollection: vpc
@@ -40,7 +40,7 @@ The features of VPE for VPC include:
 * A VPE lives in your network address space, extending your private and multicloud into the {{site.data.keyword.cloud_notm}}.
 * You can apply security through Network Access Control Lists (NACLs).
 * The endpoint IP deploys in a customer-defined, virtual network.
-* Includes platform integration to VPC - Identity and Access Management (IAM), Ghost, and ACLs.
+* Includes platform integration to VPC - Identity and Access Management (IAM), network ACLs, and tagging.
 * Access to new endpoints is achieved through the UI, CLI, and API.
 * You can map a new endpoint to an existing service, as well as map to a shared endpoint.
 * Integrates with DNS Services.
