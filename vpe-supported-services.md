@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-01-11"
+lastupdated: "2021-02-07"
 
-keywords: virtual private endpoints, endpoint gateway, VPE, supported services
+keywords: virtual private endpoints, endpoint gateway, VPE
 subcollection: vpc
 
 ---
@@ -28,6 +28,7 @@ subcollection: vpc
 * Network Time Protocol
 * {{site.data.keyword.cloud_notm}} Object Storage
 * {{site.data.keyword.cloud_notm}} Databases ([Instructions](/docs/cloud-databases?topic=cloud-databases-vpes))
+* {{site.data.keyword.cloud_notm}} Key Protect ([Instructions](/docs/key-protect?topic=key-protect-virtual-private-endpoints))
 
 This topic will be updated as additional services are supported.
 {: note}
