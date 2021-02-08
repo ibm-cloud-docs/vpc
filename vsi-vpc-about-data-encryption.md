@@ -1,8 +1,8 @@
 ---
 
 Copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-23"
+  years: 2019, 2021
+lastupdated: "2021-02-08"
 
 keywords: block storage, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
@@ -36,7 +36,7 @@ By default, all boot and data volumes are encrypted at rest with IBM-managed enc
 ## Customer-managed encryption
 {: #vpc-customer-managed-encryption}
 
-Customer-managed encryption lets you bring your own customer root key (CRK) to the cloud or have a [key management service](#kms-for-byok) (KMS) generate a key for you. Supported key managment services are {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}} (HPCS). Root keys encrypt volume and custom image passphrases with [envelope encryption](#vpc-envelope-ecryption-byok), a process that encrypts a key with another key. 
+Customer-managed encryption lets you bring your own customer root key (CRK) to the cloud or have a [key management service](#kms-for-byok) (KMS) generate a key for you. Supported key managment services are {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}} (HPCS). Root keys encrypt volume and custom image passphrases with [envelope encryption](#vpc-envelope-encryption-byok), a process that encrypts a key with another key. 
 
 Customer-managed encryption for volumes and custom images lets you use root keys in the same region as you resources. You can also use root keys from another region to encrypt your resources. For best performance and security, collocate your KMS instance/root keys and your encrypted resources in the same region. For more information, see [Root key regional and cross-regional considerations](#byok-cross-region-keys).
 
@@ -85,7 +85,7 @@ Customer-managed encryption gives you the following advantages over IBM-managed 
 
 Encryption is handled by IBM Cloud VPC's host/hypervisor technology for your instances. This feature provides greater level of security over solutions that only provide storage node encryption. Data is always encrypted with your root key outside the host/hypervisor. Your data is protected while in transit between the host system and IBM's storage systems, and while at rest in IBM's storage system.
 
-Virtual disk images for VPC Generation 2 use QEMU Copy On Write Version 2 (QCOW2) file format. (VPC Generation 1 uses VHD file format.) LUKS encryption format secures the QCOW2 format files. IBM uses the ASE-256 cipher suite and XTS cipher mode options with LUKS. This combination provides you a much greater level of security than AES-CBC, along with better management of passphrases for key rotation, and provides key replacement options in case your keys are compromised.
+Virtual disk images for VPC Generation 2 use QEMU Copy On Write Version 2 (QCOW2) file format. (VPC Generation 1 uses VHD file format.) LUKS encryption format secures the QCOW2 format files. IBM uses the AES-256 cipher suite and XTS cipher mode options with LUKS. This combination provides you a much greater level of security than AES-CBC, along with better management of passphrases for key rotation, and provides key replacement options in case your keys are compromised.
 
 In total, four keys protect your data:
 
