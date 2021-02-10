@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-06-29"
+  years: 2019, 2021
+lastupdated: "2021-02-08"
 
 keywords: load balancer, network, faqs,
 
@@ -34,6 +34,12 @@ This section contains answers to some frequently asked questions about the {{sit
 {: faq}
 
 The auto-assigned DNS name for the load balancer is not customizable. However, you can add a CNAME (Canonical Name) record that points your preferred DNS name to the auto-assigned load balancer DNS name. For example, if your load balancer in `us-south` has the ID `dd754295-e9e0-4c9d-bf6c-58fbc59e5727`, and the auto-assigned load balancer DNS name is `dd754295-us-south.lb.appdomain.cloud`, then your preferred DNS name is `www.myapp.com`. You can add a CNAME record (through the DNS provider that you use to manage `myapp.com`) pointing `www.myapp.com` to the load balancer DNS name `dd754295-us-south.lb.appdomain.cloud`.
+
+## How are DNS names for my load balancer registered?
+{: #how-are-dns-names-for-my-load-balancer-registered}
+{: faq}
+
+DNS hostnames for your load balancers are automatically assigned by the load balancer service under the common DNS zone `lb.appdomain.cloud`. For maximum portability, these DNS names are registered publicly, even for private load balancers. The hostname has a portion of the randomly generated load balancer ID and does not expose any identifying information. Private load balancer names can be resolved publicly, but the addresses they resolve to are not routable from the internet, and can only be reached from inside your own private network environment.
 
 ## Does the NLB support Layer-7 switching?
 {: #does-the-load-balancer-support-layer-7-switching}
