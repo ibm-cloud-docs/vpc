@@ -59,7 +59,7 @@ Virtual Private Cloud (VPC)
         vpc-user-permissions.md
         api-auth-correlation.md
         resource-attributes.md
-        
+
     {: .topicgroup}
     Managing a VPC
         hello-world-vpc.md
@@ -82,7 +82,7 @@ Virtual Private Cloud (VPC)
             delete-vpc.md
             delete-vpc-ui.md
             delete-vpc-cli.md
-            delete-vpc-api.md        
+            delete-vpc-api.md
 
     {: .topicgroup}
     Virtual server instances
@@ -312,6 +312,12 @@ Virtual Private Cloud (VPC)
     {: .topicgroup}
     Troubleshooting
         troubleshooting.md
+
+        {: topicgroup}
+        Troubleshooting flow log collectors
+            fl-ts-failed-write.md
+            fl-ts-cos-bucket.md
+            fl-ts-unauth-access-cos.md
 
         {: topicgroup}
         Troubleshooting VPE gateways
