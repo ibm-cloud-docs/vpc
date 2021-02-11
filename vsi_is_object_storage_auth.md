@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-14"
+lastupdated: "2021-02-11"
 
 keywords: create authorization for IBM Cloud Object storage, import image to vpc infrastructure, migrate virtual server, migrate instance
 
@@ -35,11 +35,74 @@ create an authorization so that the Image Service for VPC can access images in {
 If you need to create an instance of {{site.data.keyword.cos_full_notm}}, see 
 [Getting started with {{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage).
 
+From IBM {{site.data.keyword.iamshort}}, you must create an authorization so that the Image Service for VPC can access images in {{site.data.keyword.cos_full_notm}}. 
 
-## Granting access between services
+### Granting access with the CLI
 {: #migrate-prereq-create-service-authorization}
 
-From IBM {{site.data.keyword.iamshort}}, you must create an authorization so that the Image Service for VPC can access images in {{site.data.keyword.cos_full_notm}}. 
+To authorize the image source service to access the target service, a specific instance of {{site.data.keyword.cos_full_notm}}, run the `ibmcloud iam authorization-policy-create` command. 
+
+Before you run the command you need to know the GUID for the {{site.data.keyword.cos_full_notm}}. 
+1. Go to Resource list > Storage. 
+1. Select the {{site.data.keyword.cos_full_notm}} instance where your images are stored. 
+1. From the right panel, copy the GUID. For example, `f7d4676f-f298-4cb3-8390-2fe258a5d6df`.
+1. Run the following command and replace $COS_INSTANCE_CRN with the GUID. 
+```
+ibmcloud iam authorization-policy-create is cloud-object-storage Writer --source-resource-type image --target-service-instance-id $COS_INSTANCE_CRN
+```
+
+For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_authorization_policy_create).
+
+<!-- ### Granting access with the API
+
+```
+curl --location --request POST 'https://iam.cloud.ibm.com/v1/policies' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: <iam token>' \
+--data-raw '{
+    "type": "authorization",
+    "subjects": [
+        {
+            "attributes": [
+                {
+                    "name": "accountId",
+                    "value": "$ACCOUNT_ID"
+                },
+                {
+                    "name": "serviceName",
+                    "value": "is"
+                },
+                {
+                    "name": "resourceType",
+                    "value": "image"
+                }
+            ]
+        }
+    ],
+    "roles": [
+        {
+            "role_id": "crn:v1:bluemix:public:iam::::serviceRole:Writer"
+        }
+    ],
+    "resources": [
+        {
+            "attributes": [
+                {
+                    "name": "accountId",
+                    "value": "$ACCOUNT_ID"
+                },
+                {
+                    "name": "serviceName",
+                    "value": "cloud-object-storage"
+                }
+            ]
+        }
+    ]
+}'
+``` -->
+
+  
+<!--- ### Granting access with the UI
 
 1. From the [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com/vpc){: external} menu bar, click **Manage** &gt; **Access (IAM)**, and select **Authorizations**.
 2. Click **Create**.
@@ -47,7 +110,8 @@ From IBM {{site.data.keyword.iamshort}}, you must create an authorization so tha
 4. Select a role to assign access to the source service that accesses the target service.
 5. Click **Authorize**.
 
-For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth#serviceauth).
+For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth#serviceauth). -->
+
 
 ## Next steps
 {: #next-grant-icos-auth}
