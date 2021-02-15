@@ -33,9 +33,6 @@ subcollection: vpc
 {{site.data.keyword.cloud}} Flow Logs for VPC enable the collection, storage, and presentation of information about the Internet Protocol (IP) traffic going to and from network interfaces within your Virtual Private Cloud (VPC).
 {: shortdesc}
 
-23 July 2020: This service is now generally available. Starting 23 August 2020, all flow log collectors that are created during the beta period will be automatically converted to the standard paid plan (see [Pricing](https://www.ibm.com/cloud/vpc/pricing#product-faq-section){: external}). If you do not want these flow log collectors to incur fees, delete the collectors before this date by using the UI, CLI, or API.
-{: important}
-
 Flow logs can help with a number of tasks, including:
 
 * Troubleshooting why specific traffic isn't reaching an instance, which helps to diagnose restrictive security group rules
@@ -150,7 +147,7 @@ These links provide additional information about {{site.data.keyword.cloud_notm}
 * [Flow logs API reference](https://{DomainName}/apidocs/vpc#list-flow-log-collectors)
 * [FAQs for flow log collectors](/docs/vpc?topic=vpc-fl-faq)
 * [Activity Tracker with LogDNA events](/docs/vpc?topic=vpc-at-events#events-flow-logs)
-* [Flow Logs for VPC infrastructure resources for Terraform](https://cloud.ibm.com/docs/terraform?topic=terraform-vpc-gen2-resources#ibm_is_flow_log)
+* [Flow Logs for VPC infrastructure resources for Terraform](/docs/terraform?topic=terraform-vpc-gen2-resources#ibm_is_flow_log)
 * [Blog: Use IBM Log Analysis with LogDNA to Analyze VPC Network Traffic from IBM Cloud Flow Logs for VPC](https://www.ibm.com/cloud/blog/use-ibm-log-analysis-with-logdna-to-analyze-vpc-network-traffic-from-ibm-cloud-flow-logs-for-vpc)
 * [Blog: Indexing and Searching VPC Flow Logs in IBM Cloud Databases for Elasticsearch](https://www.ibm.com/cloud/blog/indexing-and-searching-vpc-flow-logs-in-ibm-cloud-databases-for-elasticsearch)
 * [Article: Provisioning VPC Flow Logs in IBM Cloud using Terraform](https://developer.ibm.com/recipes/tutorials/provisioning-vpc-flow-logs-in-ibm-cloud-using-terraform/)
