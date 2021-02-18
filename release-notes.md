@@ -26,6 +26,11 @@ subcollection: vpc
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
 
+## 18 February 2021
+{: #feb-18-2021}
+
+**UI enhancement:** You can now provision a VPN gateway or load balancer without first creating a VPC. If you don't have an existing VPC you can provision the VPN gateway or load balancer in the default VPC. The new VPN gateway or load balancer is created along with a default VPC that includes a default security group, access control list, and subnet. 
+
 ## 7 February 2021
 {: #feb-07-2021}
 
