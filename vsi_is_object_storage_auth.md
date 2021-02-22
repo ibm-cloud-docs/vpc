@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-02-11"
+lastupdated: "2021-02-22"
 
 keywords: create authorization for IBM Cloud Object storage, import image to vpc infrastructure, migrate virtual server, migrate instance
 
@@ -48,17 +48,25 @@ Before you run the command you need to know the GUID for the {{site.data.keyword
 1. From the right panel, copy the GUID. For example, `f7d4676f-f298-4cb3-8390-2fe258a5d6df`.
 1. Run the following command and replace $COS_INSTANCE_CRN with the GUID. 
 ```
-ibmcloud iam authorization-policy-create is cloud-object-storage Writer --source-resource-type image --target-service-instance-id $COS_INSTANCE_CRN
+ibmcloud iam authorization-policy-create is cloud-object-storage Reader --source-resource-type image --target-service-instance-id $COS_INSTANCE_CRN
 ```
 
 For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_authorization_policy_create).
 
-<!-- ### Granting access with the API
+### Granting access with the API
+{: #auth-api}
+
+To authorize a source service access to a target service, use the [IAM Policy Management API](/apidocs/iam-policy-management#create-a-policy). See the following API example for Create a policy method with the `type=authorization` specified. All of the possible attributes are listed.
+
+The supported attributes for creating an authorization policy depend on what each service supports. For more information about the supported attributes for each service, refer to the documentation for the services that you're using.
+{: note}
+
+The example shows an authorization policy for the image service to access IBM Cloud Object Storage.
 
 ```
 curl --location --request POST 'https://iam.cloud.ibm.com/v1/policies' \
 --header 'Content-Type: application/json' \
---header 'Authorization: <iam token>' \
+--header 'Authorization: Bearer <iam token>' \
 --data-raw '{
     "type": "authorization",
     "subjects": [
@@ -81,7 +89,7 @@ curl --location --request POST 'https://iam.cloud.ibm.com/v1/policies' \
     ],
     "roles": [
         {
-            "role_id": "crn:v1:bluemix:public:iam::::serviceRole:Writer"
+            "role_id": "crn:v1:bluemix:public:iam::::serviceRole:Reader"
         }
     ],
     "resources": [
@@ -99,7 +107,7 @@ curl --location --request POST 'https://iam.cloud.ibm.com/v1/policies' \
         }
     ]
 }'
-``` -->
+```
 
   
 <!--- ### Granting access with the UI
