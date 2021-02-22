@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-10-17"
+  years: 2018, 2021
+lastupdated: "2021-02-15"
 
-keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, layer-7, datapath logging
+keywords: listener, pool, round-robin, weighted, layer-7, datapath logging
 
 subcollection: vpc
 
@@ -42,7 +42,7 @@ You can create a public or private ALB. Table 1 shows a comparison of public ver
 | Feature | Public load balancer | Private load balancer |
 |--------|-------|-------|
 | Accessible on internet? |  Yes, with a fully qualified domain name (FQDN) | No, internal clients only, on same region and VPC |
-| Accepts all traffic? | Yes | Yes |
+| Accepts all traffic? | Yes | Yes <br>(The restriction to accept traffic only from the RFC-1918 address space has been removed) |
 | How is domain name registered? | Public IP addresses | Private IP addresses |
 {: caption="Table 1. Comparison of public and private load balancers" caption-side="top"}
 
