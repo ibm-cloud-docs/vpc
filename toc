@@ -308,6 +308,7 @@ Virtual Private Cloud (VPC)
         faq-vpc.md
         lb-faqs.md
         faq-auto-scale.md
+        faq-dedicated-host.md
         block_storage_is_faq.md
         fl-faq.md
         nlb-faqs.md
