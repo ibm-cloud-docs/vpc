@@ -101,6 +101,7 @@ Virtual Private Cloud (VPC)
     {: .topicgroup}
     Dedicated hosts (Beta)
         vsi_is_dedicated_hosts_instances.md
+        vsi_is_create_dh_instance.md
         vsi_is_manage_dedicated_host_group.md
 
     {: .topicgroup}
