@@ -25,7 +25,12 @@ Virtual Private Cloud (VPC)
         vsi_is_about_vpc.md
         suspend-billing.md
         vsi-images.md
-        vsi_is_profiles.md
+        
+        {: .topicgroup}
+        Profiles
+            vsi_is_profiles.md
+            vsi_is_dh_profile.md
+        
         vsi_is_ssh_keys_about.md
         vsi_is_provisioning_scripts.md
         ip-spoofing-about.md
@@ -99,7 +104,7 @@ Virtual Private Cloud (VPC)
         sysdig-vpc-metrics.md
 
     {: .topicgroup}
-    Dedicated hosts (Beta)
+    Dedicated hosts
         vsi_is_dedicated_hosts_instances.md
         vsi_is_create_dh_instance.md
         vsi_is_manage_dedicated_host_group.md
