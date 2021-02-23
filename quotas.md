@@ -34,22 +34,19 @@ The following tables show the quotas for various VPC resources.
 To increase a quota for a particular resource, [contact support](/docs/get-support?topic=get-support-getting-customer-support).
 {:note}
 
-### Virtual server instances
+### Compute resources
 {: #vsi-quotas}
 
 |   Resource     | Quota |
 | ------- | ------ |
-| vCPU |  200 per region  |   
-| RAM | 1600 GB per region |   
-| Floating IP addresses | 20 per zone |   
-| SSH keys | 200 per account |   
-<!--| GPUs (POWER only) | 16 per region |-->   
+| vCPU |  200 per region  |
+| RAM | 1600 GB per region |
+| Floating IP addresses | 20 per zone |
+| SSH keys | 200 per account |
+<!--| GPUs (POWER only) | 16 per region |-->
 {: caption="Table 1. Quotas for virtual server instances" caption-side="top"}
 
-### Dedicated hosts (Beta)
-{: #dedicated-host-quotas}
-
-If you provision dedicated hosts, the vCPU associated with your dedicated hosts counts toward the total vCPU for virtual server instances per region. For more information, see [Virtual server instances](/docs/vpc?topic=vpc-quotas#vsi-quotas).
+When you provision virtual server instances and dedicated hosts, the vCPU and RAM associated with these resources counts toward the vCPU and RAM quotas per region. Instances that are provisioned on dedicated hosts do not count against the vCPU or RAM quota.
 
 ### VPCs
 {: #vpc-quotas}
