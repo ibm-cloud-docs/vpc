@@ -36,7 +36,7 @@ Security groups are a convenient way to secure your ALB instances. With a securi
 
 The following tables provide best practices for inbound and outbound traffic for both public and private application load balancers.
 
-### Public Application Load Balanacer
+### Public Application Load Balancer
 
 #### Inbound rules
 
@@ -52,7 +52,7 @@ In a typical use case, it is common to allow inbound traffic from all sources to
 | TCP| IP Address | 209.173.53.167/20 | `Listener port` |
 {: caption="Table 2. Configuration information for inbound rules of public load balancers from a specific CIDR" caption-side="top"}
 
-However, if your requirements need to restrict inbound traffic, you may specific a source CIDR, such as `209.173.53.167/20`. This will allow all public IP addresses within the IP range to reach the public load balancer.
+However, if your requirements need to restrict inbound traffic, you may specify a source CIDR, such as `209.173.53.167/20`. This will allow all public IP addresses within the IP range to reach the public load balancer.
 
 #### Outbound rules
 | Protocol | Destination type | Destination | Value |
