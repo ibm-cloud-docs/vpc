@@ -47,6 +47,9 @@ Some changes, such as new response properties or new optional request parameters
 ## 23 February 2021
 {: #23-february-2021}
 
+### For all API version dates
+{: 23-february-2021-all-version-dates}
+
 **Application load balancer security group integration**
 For enhanced security, application load balancers can now be associated with security groups. You can specify one or more security groups when you create the application load balancer, and associate security groups with your existing application load balancers. If you omit security groups during load balancer creation, the default security group for the VPC is used.
 
@@ -83,9 +86,6 @@ The following API methods have been updated:
 
 * View the `delegate_vpc` property in the requests and responses for `/vpcs/{vpc_id}/routing_tables/{routing_table_id}/routes`.
 * View reserved IP ranges in `POST /vpcs/{vpc_id}/address_prefixes`, which creates an address pool prefix. 
-
-### For all API version dates
-{: 27-february-2021-all-version-dates}
 
 ## 27 January 2021
 {: #27-january-2021}
