@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-27"
+lastupdated: "2021-02-24"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -42,12 +42,50 @@ Some changes, such as new response properties or new optional request parameters
 
 ### For all API version dates
 
-**Application load balancers and security groups** For enhanced security, application load balancers are associated with your security groups. You can specify one or more security groups when you create the application load balancer, and associate security groups with your existing application load balancers. If you omit security groups during load balancer creation, the default security group for your VPC is used.
-
-To prepare for this transition, it is recommended that you update your default security group rules to minimize disruption in load balancer traffic on newly created application load balancers.
-{: tip}
-
 **Block storage volumes**  In an upcoming release, a new value in the `status` enumeration will be added to the [volume](/apidocs/vpc#list-volume-profiles) APIs. When you expand an existing data volume, the volume goes into an updating state and shows a new API status `updating`. You can still access the data while the volume is being resized. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
+
+## 23 February 2021
+{: #23-february-2021}
+
+### For all API version dates
+{: 23-february-2021-all-version-dates}
+
+**Application load balancer security group integration**
+For enhanced security, application load balancers can now be associated with security groups. You can specify one or more security groups when you create the application load balancer, and associate security groups with your existing application load balancers. If you omit security groups during load balancer creation, the default security group for the VPC is used.
+
+If you plan to use default security groups for new application load balancers, review your default security group rules. If necessary, edit the rules to accommodate your expected application load balancer traffic.
+{: tip}   
+   
+Existing load balancer methods were updated as follows:
+
+   * [Create a load balancer](/apidocs/vpc#create-load-balancer) (`POST /load_balancers`) can now accept a list of security groups
+   * [Get load balancer details](/apidocs/vpc#get-load-balancer) (`GET /load_balancers/{id}`) now returns references to the security groups to which a load balancer is attached
+    
+New security group methods were added for managing security group targets:
+
+   * [Attach a security group to a target network interface or load balancer](/apidocs/vpc#create-security-group-target-binding) (`PUT /security_groups/{security_group_id}/targets/{id}`).
+   * [List targets attached to a security group](/apidocs/vpc#list-security-group-targets) (`GET /security_groups/{security_group_id}/targets`).
+   * [Retrieve a target in a security group](/apidocs/vpc#get-security-group-target) (`GET /security_groups/{security_group_id}/targets/{id}`).
+   * [Delete targets from a security group](/apidocs/vpc#delete-security-group-target-binding) (`DELETE /security_groups/{security_group_id}/targets/{id}`). 
+  
+The security group target methods can be used to manage security group attachments to both load balancers and network interfaces. The original methods specific to network interfaces are now deprecated:
+
+   * `GET /security_groups/{security_group_id}/network_interfaces`
+   * `DELETE /security_groups/{security_group_id}/network_interfaces/{id}`
+   * `GET /security_groups/{security_group_id}/network_interfaces/{id}`
+   * `PUT /security_groups/{security_group_id}/network_interfaces/{id}`
+
+For more information, see [Integrating an IBM Cloud Application Load Balancer for VPC with security groups](/docs/vpc?topic=vpc-alb-integration-with-security-groups).
+
+**Bring Your Own IP (BYOIP) support for VPC** is now available. VPC address prefixes are no longer restricted to [RFC-1918](https://tools.ietf.org/html/rfc1918) addresses. You must now configure VPCs that use both non-RFC-1918 addresses and have public connectivity (floating IPs or public gateways) using a custom route that contains the new `delegate_vpc` property. You must specify this property for destination CIDRs that are non-RFC-1918 compliant and outside of the VPC, such as for destinations that are reachable through {{site.data.keyword.dl_full}}, {{site.data.keyword.cloud_notm}} Transit Gateway, or VPC classic access.
+
+The `delegate_vpc` property is not required if a VPC uses only RFC-1918 addresses, or has no public connectivity.
+{: note}
+
+The following API methods have been updated:
+
+* View the `delegate_vpc` property in the requests and responses for `/vpcs/{vpc_id}/routing_tables/{routing_table_id}/routes`.
+* View reserved IP ranges in `POST /vpcs/{vpc_id}/address_prefixes`, which creates an address pool prefix. 
 
 ## 27 January 2021
 {: #27-january-2021}
@@ -90,6 +128,8 @@ The `unusable` status appears in the following API methods:
 * [Retrieve the specified image](/apidocs/vpc#get-image) (`GET /images{id}`)
 
 For more information on key states and resource statuses, see [User actions that impact root key states and resource status](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-root-key-states).
+
+**Dedicated hosts** are now supported in the VPC API. Learn more about using [dedicated hosts](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances) and explore the new [API operations](/apidocs/vpc#list-dedicated-host-groups).
 
 ## 20 November 2020
 {: 20-november-2020}
