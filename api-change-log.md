@@ -166,7 +166,7 @@ For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-
 ### For version `2020-11-13` or later
 {: #version-2020-11-13}
 
-**Static-route-based VPN gateways** are now available. For a [static-route-based VPN gateways](/apidocs/vpc#create-vpn-gateways), virtual tunnel interfaces are created. Any traffic that is routed to these interfaces with [user-defined routes](/docs/vpc?topic=vpc-create-vpc-route) is encrypted. For more information, see [About VPN gateways](/docs/vpc?topic=vpc-using-vpn).
+**Static-route-based VPN gateways** are now available. For a [static-route-based VPN gateway](/apidocs/vpc#create-vpn-gateways), virtual tunnel interfaces are created. Any traffic that is routed to these interfaces with [user-defined routes](/docs/vpc?topic=vpc-create-vpc-route) is encrypted. For more information, see [About VPN gateways](/docs/vpc?topic=vpc-using-vpn).
 
 ## 30 October 2020
 {: #30-october-2020}
@@ -180,7 +180,7 @@ For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-
 
 * **VPC network interfaces.** IP anti-spoofing checks had already been provided for enhanced security. However, certain use cases, such as having a virtual server instance act as a network gateway, require selective disabling of these checks. To accommodate these use cases, if you have the `is.instance.instance.ip-spoofing` IAM action, you can now enable the `allow_ip_spoofing` property when you [create a network interface](/apidocs/vpc#create-instance-network-interface). Alternatively, toggle the property when you [update an existing network interface](/apidocs/vpc#update-instance-network-interface). See also [About IP spoofing checks](/docs/vpc?topic=vpc-ip-spoofing-about).
 
-* **Proxy protocol for application load balancers for VPC.** Configure a load balancer [pool](/apidocs/vpc#create-load-balancer-pool) to use proxy protocol. The pool passes information about the client when a connection is opened to a back-end pool member.
+* **Proxy protocol for application load balancers for VPC.** * **Proxy protocol for application load balancers for VPC.** When you configure a load balancer [pool](/apidocs/vpc#create-load-balancer-pool) to use proxy protocol, the pool will pass information about the client to a back-end pool member when a connection is opened.
 
     You can also configure a load balancer [listener](/apidocs/vpc#create-load-balancer-listener) to accept proxy protocol information. This feature is useful when the client is, itself, a proxy (which, in turn, was connected to by the actual client) that supports the proxy protocol. This allows client information to be obtained and passed on to any pools that, themselves, have the proxy protocol enabled.
 
@@ -193,7 +193,7 @@ For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-
 ### For all API version dates
 {: #2020-10-05-all-version-dates}
 
-**Encrypted images.** Use the VPC API to ceate your own image, encrypt it with your own key, and import it, encrypted, into {{site.data.keyword.cloud_notm}}. After you import the image, use it like any other image. If you use the image to provision an instance, its boot volume is encrypted using the image's root encryption key or another root encryption key of your choosing.
+**Encrypted images.** Use the VPC API to create your own image, encrypt it with your own key, and import it, encrypted, into {{site.data.keyword.cloud_notm}}. After you import the image, use it like any other image. If you use the image to provision an instance, its boot volume is encrypted using the image's root encryption key or another root encryption key of your choosing.
 
 Dive into the APIs to [import an encrypted image](/apidocs/vpc#create-image) and [provision an instance](/apidocs/vpc#create-instance) from that encrypted image. See also [Creating an encrypted custom image](/docs/vpc?topic=vpc-create-encrypted-custom-image).
 
