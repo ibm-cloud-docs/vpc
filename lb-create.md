@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-08-21"
+  years: 2021
+lastupdated: "2021-02-07"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network
 
@@ -47,14 +47,17 @@ To create an ALB:
       * A private load balancer has a private IP address, which means that it is accessible only to internal clients on your private subnets, within the same region and VPC.
     * **Region**: Indicates the region in which the load balancer will be created; that is, the region selected for your VPC.
     * **Subnets**: Select the subnets in which to create your load balancer. To maximize the availability of your application, select subnets in different zones.
+    * **Security groups**: Select the security groups that you want to attach to your load balancer.
+      Ensure that the security group allows for load balancing traffic (listener, backend, and health check ports). If you do not specify a security group, the default security group from your VPC attaches instead. 
+      {: note}
 1. Click **New pool** and specify the following information to create a back-end pool. You can create one or more pools.
     * **Name**: Enter a name for the pool, such as `my-pool`.
     * **Protocol**: Select the protocol for your instances in this pool. The protocol of the pool must match the protocol of its associated listener. For example, if an HTTPS or HTTP protocol is selected for the listener, the protocol of the pool must be HTTP. Similarly, if the listener protocol is TCP, the protocol of the pool must be TCP.
-    * **Method**:  Select how you want the load balancer to distribute traffic across the instances in the pool:
+    * **Method**: Select how you want the load balancer to distribute traffic across the instances in the pool:
       * **Round robin:** Forward requests to each instance in turn. All instances receive approximately an equal number of client connections.
       * **Weighted round robin:** Forward requests to each instance in proportion to its assigned weight. For example, you have instances A, B, and C, and their weights are set to 60, 60 and 30. Instances A and B receive an equal number of connections, and instance C receives half as many connections.
-      * **Least connections:** Forward requests to the instance with the least number of connections at the current time.  
-    * **Session stickiness**: Select whether all requests during a user's session are sent to the same instance.  
+      * **Least connections:** Forward requests to the instance with the least number of connections at the current time.
+    * **Session stickiness**: Select whether all requests during a user's session are sent to the same instance.
     * **Health checks**: Configure how the load balancer checks the health of the instances.
       * **Health check path**: Health path is applicable only if HTTP is selected as the health check protocol. The health path specifies the URL used by the load balancer to send the HTTP health check requests to the instances in the pool. By default, health checks are sent to the root path (`/`).
       * **Health protocol**: The protocol used by the load balancer to send health check messages to the instances in the pool.
@@ -73,7 +76,7 @@ To create an ALB:
    * Select one or more subnets from which to select an instance.
    * Select an instance. If an instance has multiple interfaces, make sure that you select the correct IP address.
    * Specify the port on which traffic is sent to the instance.
-   * If your pool uses the **Weighted round robin** method, assign a weight for each instance.  
+   * If your pool uses the **Weighted round robin** method, assign a weight for each instance.
 
       Assigning '0' weight to an instance means that no new connections are forwarded to that instance, but any existing traffic continues to flow while the current connection is active. Using a weight of '0' can help bring down an instance gracefully and remove it from service rotation.
       {: tip}
@@ -131,24 +134,24 @@ To create an application load balancer by using the CLI, perform the following p
   ```
   Creating load balancer nlb-test in resource group under account IBM Cloud Network Services as user test@ibm.com...
 
-    ID                 r134-99b5ab45-6357-42db-8b32-5d2c8aa62776    
-    Name               alb-test   
-    CRN                crn:v1:public:is:us-south-1:a/6266f0fbb7df487d8438b9b31d24cd96::load-balancer:r134-99b5ab45-6357-42db-8b32-5d2c8aa62776  
-    Family             Network   
-    Host name          99b5ab45-us-south.lb.test.appdomain.cloud   
-    Subnets            ID                                          Name      
-                       0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c   nlb      
+    ID                 r134-99b5ab45-6357-42db-8b32-5d2c8aa62776
+    Name               alb-test
+    CRN                crn:v1:public:is:us-south-1:a/6266f0fbb7df487d8438b9b31d24cd96::load-balancer:r134-99b5ab45-6357-42db-8b32-5d2c8aa62776
+    Family             Network
+    Host name          99b5ab45-us-south.lb.test.appdomain.cloud
+    Subnets            ID                                          Name
+                       0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c   nlb
 
-    Public IPs            
-    Private IPs           
-    Provision status   create_pending   
-    Operating status   offline   
-    Is public          true   
-    Listeners             
-    Pools              ID   Name      
+    Public IPs
+    Private IPs
+    Provision status   create_pending
+    Operating status   offline
+    Is public          true
+    Listeners
+    Pools              ID   Name
 
-    Resource group     ID                                 Name      
-                       3021f90279574ce287dd5fba82c08899   Default      
+    Resource group     ID                                 Name
+                       3021f90279574ce287dd5fba82c08899   Default
 
     Created            2020-08-27T14:34:34.732-05:00
   ```
@@ -166,19 +169,19 @@ To create an application load balancer by using the CLI, perform the following p
   ```
   Creating pool nlb-pool of load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776  under account IBM Cloud Network Services as user test@ibm.com...
 
-  ID                         r134-3b66d605-6aa5-4166-9f66-b16054da3cb0   
-  Name                       alb-pool   
-  Protocol                   tcp   
-  Algorithm                  weighted_round_robin   
-  Instance group             ID   Name      
-                             -    -      
+  ID                         r134-3b66d605-6aa5-4166-9f66-b16054da3cb0
+  Name                       alb-pool
+  Protocol                   tcp
+  Algorithm                  weighted_round_robin
+  Instance group             ID   Name
+                             -    -
 
-  Health monitor             Type   Port   Health monitor URL   Delay   Retries   Timeout      
-                             http   8080   /                    10      2         5      
+  Health monitor             Type   Port   Health monitor URL   Delay   Retries   Timeout
+                             http   8080   /                    10      2         5
 
-  Session persistence type   source_ip   
-  Members                       
-  Provision status           active   
+  Session persistence type   source_ip
+  Members
+  Provision status           active
   Created                    2020-08-27T14:45:42.038-05:00
   ```
   {: screen}
@@ -194,12 +197,12 @@ To create an application load balancer by using the CLI, perform the following p
   ```
   Creating member of pool r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 under account IBM Cloud Network Services as user test@ibm.com...
 
-  ID                 r134-61f8b000-a90d-4abe-909e-c507dffec565   
-  Port               9090   
-  Target             0716_6acdd058-4607-4463-af08-d4999d983945   
-  Weight             70   
-  Health             unknown   
-  Created            2020-08-27T14:59:55.446-05:00   
+  ID                 r134-61f8b000-a90d-4abe-909e-c507dffec565
+  Port               9090
+  Target             0716_6acdd058-4607-4463-af08-d4999d983945
+  Weight             70
+  Health             unknown
+  Created            2020-08-27T14:59:55.446-05:00
   Provision status   create_pending
   ```
   {: screen}
@@ -215,14 +218,14 @@ To create an application load balancer by using the CLI, perform the following p
   ```
   Creating listener of load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
 
-  ID                     r134-2847a948-f9b6-4fc1-91c6-f1c49dac3eba   
-  Certificate instance   -   
-  Connection limit       -   
-  Port                   7070   
-  Protocol               tcp   
-  Default pool           r134-3b66d605-6aa5-4166-9f66-b16054da3cb0   
-  Provision status       create_pending   
-  Created                2020-08-27T15:16:08.643-05:00  
+  ID                     r134-2847a948-f9b6-4fc1-91c6-f1c49dac3eba
+  Certificate instance   -
+  Connection limit       -
+  Port                   7070
+  Protocol               tcp
+  Default pool           r134-3b66d605-6aa5-4166-9f66-b16054da3cb0
+  Provision status       create_pending
+  Created                2020-08-27T15:16:08.643-05:00
   ```
   {: screen}
 
@@ -238,25 +241,25 @@ To create an application load balancer by using the CLI, perform the following p
   ```
   Getting load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
 
-  ID                 r134-99b5ab45-6357-42db-8b32-5d2c8aa62776   
-  Name               nlb-test   
-  CRN                crn:v1:public:is:us-south-1:a/6266f0fbb7df487d8438b9b31d24cd96::load-balancer:r134-99b5ab45-6357-42db-8b32-5d2c8aa62776   
-  Family             Network   
-  Host name          99b5ab45-us-south.lb.test.appdomain.cloud   
-  Subnets            ID                                          Name      
-                     0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c   nlb      
+  ID                 r134-99b5ab45-6357-42db-8b32-5d2c8aa62776
+  Name               nlb-test
+  CRN                crn:v1:public:is:us-south-1:a/6266f0fbb7df487d8438b9b31d24cd96::load-balancer:r134-99b5ab45-6357-42db-8b32-5d2c8aa62776
+  Family             Network
+  Host name          99b5ab45-us-south.lb.test.appdomain.cloud
+  Subnets            ID                                          Name
+                     0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c   nlb
 
-  Public IPs         150.238.50.78, 150.238.54.95   
-  Private IPs        10.240.0.58, 10.240.0.59   
-  Provision status   active   
-  Operating status   online   
-  Is public          true   
-  Listeners          r134-2847a948-f9b6-4fc1-91c6-f1c49dac3eba   
-  Pools              ID                                          Name      
-                     r134-3b66d605-6aa5-4166-9f66-b16054da3cb0   nlb-pool      
+  Public IPs         150.238.50.78, 150.238.54.95
+  Private IPs        10.240.0.58, 10.240.0.59
+  Provision status   active
+  Operating status   online
+  Is public          true
+  Listeners          r134-2847a948-f9b6-4fc1-91c6-f1c49dac3eba
+  Pools              ID                                          Name
+                     r134-3b66d605-6aa5-4166-9f66-b16054da3cb0   nlb-pool
 
-  Resource group     ID                                 Name      
-                     3021f90279574ce287dd5fba82c08899   Default      
+  Resource group     ID                                 Name
+                     3021f90279574ce287dd5fba82c08899   Default
 
   Created            2020-08-27T14:34:34.732-05:00
   ```

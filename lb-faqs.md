@@ -2,7 +2,8 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-07-30"  
+lastupdated: "2021-02-05"
+
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, layer-7, auto scale, managed pool, instance group
 
@@ -178,3 +179,20 @@ If you are receiving the HTTP status code `409`, it could be for one of the foll
 {: faq}
 
 The maximum number of backend members allowed in a pool is 50. So if an instance group is attached to a pool, the number of instances in the group will not scale up beyond this limit.
+
+### Why is my listener not receiving traffic?
+{: #lbaas-listener-security-group}
+{: faq}
+
+Ensure the security group rule(s) attached to your load balancer allow incoming ingress and outgoing egress traffic on your listener's port. Security groups attached to your load balancer can be found on your load balancer's overview page. Locate the `Attached security groups` tab from the load balancer overview, then select the security groups you want to view and modify their rules.
+
+### Why is no traffic reaching my backend members?
+{: #lbaas-member-security-group}
+{: faq}
+
+Ensure that:
+
+* Your backend pool health checks are succeeding
+* Your backend member application is up and running
+* Your load balancer security group rules allow outgoing traffic from load balancers on your backend member port
+* Your backend member's security group rules, if any, allow all incoming traffic from the load balancer
