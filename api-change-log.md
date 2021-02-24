@@ -76,7 +76,7 @@ For more information, see [Integrating an IBM Cloud Application Load Balancer fo
 
 **Bring Your Own IP (BYOIP) support for VPC** is now available. VPC address prefixes are no longer restricted to [RFC-1918](https://tools.ietf.org/html/rfc1918) addresses. You must now configure VPCs that use both non-RFC-1918 addresses and have public connectivity (floating IPs or public gateways) using a custom route that contains the new `delegate_vpc` property. You must specify this property for destination CIDRs that are non-RFC-1918 compliant and outside of the VPC, such as for destinations that are reachable through {{site.data.keyword.dl_full}}, {{site.data.keyword.cloud_notm}} Transit Gateway, or VPC classic access.
 
-The `delegate_vpc` property is not required if a VPC uses only RFC-1918 addresses, or has no public connectivity. For more information, see [Routing considerations for IANA-registered IP assignments](/docs/vpc?topic=vpc-interconnectivity#routing-considerations-iana).  
+The `delegate_vpc` property is not required if a VPC uses only RFC-1918 addresses, or has no public connectivity.
 {: note}
 
 The following API methods have been updated:
