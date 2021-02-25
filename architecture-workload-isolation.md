@@ -100,7 +100,7 @@ availability of some of or all of the VPC service. For example, failure of the R
 The data that you provide to the VPC service in your region is exchanged only with logging and
 data services in the same region. Data backups are stored in {{site.data.keyword.cloud_notm}} Object Storage in the same region.
 
-### Working with Approved Scanning Vendors (ASV)
-{: #approved-scanning-vendors)
+## Working with Approved Scanning Vendors (ASVs)
+{: #approved-scanning-vendors}
 
-It is solely the responsibility of the customer to have ASV scans of LBaaS and VPN data-plane appliances completed on a quarterly basis (a PCI requirement). IBM does not use ASVs to scan data-plane appliances because the scans can negatively impact customer workload functions and performance. 
+It is solely the responsibility of the customer to have ASV scans of LBaaS and VPN data-plane appliances completed on a quarterly basis (a PCI requirement). IBM does not use ASVs to scan data-plane appliances because the scans can negatively impact customer workload functions and performance.
