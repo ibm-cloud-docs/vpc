@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-12-14"
+  years: 2018, 2020, 2021
+lastupdated: "2021-02-25"
 
 keywords: vpc, limitations, restrictions
 
@@ -37,6 +37,8 @@ The following features are not supported, including all properties associated wi
   * Virtual server instance name change: If you update the name of a virtual server, the name change might not appear consistently in different areas of the {{site.data.keyword.cloud}} console. For example, the virtual server name change might not be reflected in the {{site.data.keyword.cloud_notm}} console, or on the billing invoice, yet it appears correctly in the user's list of running instances.
 
   * Direct Link on Classic access to VPC is supported through [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure) only. Direct Link (release 2.0) does not have this limitation.
+  
+  * Nested virtualization on virtual server instances is disabled for now. But you can try enabling it manually. However, this feature may not work properly in scenarios such as live migration of virtual server instances.
 
 ### Billing note
 When the VPC billing system reports network traffic from load balancers and VPNs, the resources are identified with a nonstandard name. The resource is identified using the prefix `instance-`, followed by the last 16 digits of the back-end virtual server instance.
