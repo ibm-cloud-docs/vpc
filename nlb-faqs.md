@@ -116,5 +116,4 @@ Yes. The NLB IP address is fixed.
 {: #lbaas-asv}
 {: faq}
 
-Approved Scanning Vendor (ASV) quarterly scanning is a requirement of the Payment Card Industry (PCI) Security Standards Council.
-ASV quarterly scanning of LBaaS data-plane appliances is solely a customer responsibility. IBM does not ASV-scan appliances because these scans can impact customer workload function and performance.
+Approved Scanning Vendor (ASV) quarterly scanning is a requirement of the Payment Card Industry (PCI) Security Standards Council. ASV scanning of LBaaS data-plane appliances is solely a customer responsibility. IBM does not use ASVs to scan data-plane appliances because these scans can negatively impact customer workload functions and performance.
