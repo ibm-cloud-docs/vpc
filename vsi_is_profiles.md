@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2020
-lastupdated: "2020-08-27"
+lastupdated: "2021-02-25"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, GPU, power, generation 2, gen 2
 
@@ -131,7 +131,7 @@ The following information describes the naming rule of the profiles.
 The first character represents the profile families. Different profile families have different ratios of CPU to memory, which is designed for different workloads.
 -	"b": balanced family, 1:4 ratio
 -	"c": compute family (higher on the CPUs), 1:2 ratio
--	"m": memory family (higher on the memory), 1:16 ratio
+-	"m": memory family (higher on the memory), 1:8 ratio
 
 The second character represents the CPU architecture.
 - "x": x86_64
