@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2021-02-07"
+  years: 2018, 2021
+lastupdated: "2021-02-25"
 
 keywords: resource, resource authorizations, policies, authorization, resource type, resource groups, roles, API, CLI, editor, viewer, administrator, operator
 
@@ -86,23 +86,24 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | Instance template | Create, Update, Delete  | Editor for instance |
 | Instance template | View  | Viewer for instance |
 |————————|—————————|————————|
-| Load balancer | Create| Editor for the Load Balancer for VPC resources |
-| Load balancer | Update, Delete | Editor for the load balancer |
+| Load balancer | Create | Editor for load balancer for VPC resources<br />Operator for security groups<br />Viewer for VPC |
+| Load balancer | Update | Editor for the load balancer |
+| Load balancer | Delete | Editor for the load balancer<br />Operator for security groups |
 | Load balancer | View, List  | Viewer for the load balancer |
 | Load balancer pools and listeners | Create, Update, Delete | Editor for the load balancer |
 | Load balancer pools and listeners | View, List  | Viewer for the load balancer |
 |————————|—————————|————————|
 | Public gateway | Create |  Editor for Public Gateway resources<br />Operator for the VPC and Floating IP resources |
-| Public gateway | Update, Delete |  Editor for the public gateway |
+| Public gateway | Update, Delete | Editor for the public gateway |
 | Public gateway | View, List | Viewer for the public gateway |
 |——————|———————|————————|
-| Security group | View, List    | Viewer for the security group |
-| Security group | Create  | Viewer for the VPC and the resource group of the security group<br />Editor for Security Group for VPC resources|
-| Security group | Update, Delete  | Editor for the security group|
+| Security group | View, List | Viewer for the security group |
+| Security group | Create  | Viewer for the VPC and the resource group of the security group<br />Editor for security group for VPC resources |
+| Security group | Update, Delete | Editor for the security group|
 | Security group rule | View, List | Viewer for the security group|
 | Security group rule | Create, Update, Delete | Editor for the security group|
-| Security group network interface | View, List | Viewer for the security group and the instance.|
-| Security group network interface | Attach, Detach | Operator for the security group.<br />Editor for the instance to which the network interface belongs.|
+| Security group target | View, List | Viewer for the security group |
+| Security group target | Attach, Detach | Operator for the security group<br />Editor for instance if the target is a network interface<br />Editor for load balancer if the target is a load balancer |
 |————————|—————————|————————|
 | SSH key | Create| Editor for SSH Key for VPC resources |
 | SSH key | Update, Delete | Editor for the SSH key |
