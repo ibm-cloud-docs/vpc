@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-02-08"
+lastupdated: "2021-02-24"
 
-keywords: load balancer, network, faqs,
+keywords: load balancer, network, faqs
 
 subcollection: vpc
 
@@ -111,3 +111,10 @@ The health check response timeout value must be less than the health check inter
 {: faq}
 
 Yes. The NLB IP address is fixed.
+
+## Does IBM complete quarterly ASV scans of data-plane LBaaS appliances?  
+{: #lbaas-asv}
+{: faq}
+
+Approved Scanning Vendor (ASV) quarterly scanning is a requirement of the Payment Card Industry (PCI) Security Standards Council.
+ASV quarterly scanning of LBaaS data-plane appliances is solely a customer responsibility. IBM does not ASV-scan appliances because these scans can impact customer workload function and performance.

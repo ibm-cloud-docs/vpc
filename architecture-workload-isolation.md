@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-09-23"
+  years: 2020, 2021
+lastupdated: "2021-02-24"
 
 keywords: public isolation for VPC, compute isolation for VPC, VPC architecture, workload isolation in VPC
 
@@ -38,7 +38,10 @@ For more information about network traffic isolation, see [VPC behind the curtai
 | VPC control plane services | Your VPC API requests are routed to services deployed across control nodes in the region. These services are replicated for availability and performance across multiple zones in the region whenever necessary. In addition to servicing API requests, these services monitor the region's hardware and capabilities, and perform orchestration to keep your VPC resources available and performing optimally. All communication between control plane services occurs over a secure, encrypted network. Since your instances do not run on control nodes, they are separated from these services. |
 | VPC control plane agent services | A small set of VPC control plane agents is deployed across hypervisor nodes in the region. For example, agents are used to create new VSIs on the nodes, and to forward logs, metrics, and alerts off the node for use by the broader VPC control plane services. All communication between control plane services occurs over a secure, encrypted network. |
 | VPC control plane data store | Your VPC resources are persisted in a data store that is replicated across all zones in the region. This store contains metadata about these resources only, and does not contain your data. For example, this store contains information about each VPC Image resource, such as its name, CRN, and creation date. However, it does not contain the image data itself, which is hosted on the storage devices. All communication between control plane services and the control plane data store is secure and encrypted. |
-| Storage | Each zone of each region contains a set of replicated storage devices, which host the data for your VPC volumes. Your data is always encrypted at rest, and is isolated to your account. In addition, you can use [Customer-managed encryption ](/docs/vpc?topic=vpc-creating-instances-byok) for end-to-end encryption of your boot and data volumes. Storage data flows between storage devices and hypervisor nodes only, and does not flow to control nodes. |
+| Storage | Each zone of each region contains a set of replicated storage devices, which host the data for your VPC volumes. Your data is always encrypted at rest, and is isolated to your account. In addition, you can use [Customer-managed encryption ](/docs/vpc?topic=vpc-vpc-encryption-about) and your own root keys for end-to-end encryption of your boot and data volumes. Snapshots that you create of your volumes share a single Cloud Object Storage (COS) instance bucket. Regional buckets use Key Protect for data encrytion at rest.
+
+Storage data flows between storage devices and hypervisor nodes only, and does not flow to control nodes.
+|
 {: caption="Table 1. VPC components" caption-side="top"}
 
 ## VPC dependencies
@@ -96,3 +99,8 @@ availability of some of or all of the VPC service. For example, failure of the R
 
 The data that you provide to the VPC service in your region is exchanged only with logging and
 data services in the same region. Data backups are stored in {{site.data.keyword.cloud_notm}} Object Storage in the same region.
+
+### Working with Approved Scanning Vendors (ASV)
+{: #approved-scanning-vendors)
+
+It is solely the responsibility of the customer to have ASV scans of LBaaS and VPN data-plane appliances completed on a quarterly basis (a PCI requirement). IBM does not use ASVs to scan data-plane appliances because the scans can negatively impact customer workload functions and performance. 

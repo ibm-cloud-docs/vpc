@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2021-02-05"
+  years: 2018, 2021
+lastupdated: "2021-02-24"
 
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, layer-7, auto scale, managed pool, instance group
@@ -196,3 +196,10 @@ Ensure that:
 * Your backend member application is up and running
 * Your load balancer security group rules allow outgoing traffic from load balancers on your backend member port
 * Your backend member's security group rules, if any, allow all incoming traffic from the load balancer
+
+## Does IBM complete quarterly ASV scans of data-plane LBaaS appliances?  
+{: #alb-asv}
+{: faq}
+
+Approved Scanning Vendor (ASV) quarterly scanning is a requirement of the Payment Card Industry (PCI) Security Standards Council.
+ASV quarterly scanning of LBaaS data-plane appliances is solely a customer responsibility. IBM does not ASV-scan appliances because these scans can impact customer workload function and performance.
