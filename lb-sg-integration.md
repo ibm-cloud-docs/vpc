@@ -157,11 +157,10 @@ Make sure your security group rules allow for load balancer traffic. Ensure your
 ## Attaching and detaching security groups
 {: #attaching-detaching-sg-to-alb}
 
-By default, your load balancers allow all inbound and outbound traffic. You can attach a security group, which allows you to apply security group rules to your load balancer. After you attach a security group, you cannot revert to having no security groups.
-
-You can revert to the previous "allow all inbound and outbound traffic" behavior by attaching a security group with rules for allowing all inbound and outbound traffic. However, such a rule is inherently less secure than having a more restrictive security group in place, and is not recommended.
-
 To attach a security group to an existing load balancer, follow these steps:
+
+Load balancers created prior to 25 February 2021 do not have a security group attached and allow all inbound and outbound traffic. If you attach a security group to a load balancer that does not have a security group, you cannot revert back to having no security groups. You can revert to the previous "allow all inbound and outbound traffic" behavior by attaching a security group with rules for allowing all inbound and outbound traffic. However, such a rule is inherently less secure than having a more restrictive security group in place, and is not recommended.
+{: important}
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){:external} and log in to your account.
 1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers** in the Network section.
