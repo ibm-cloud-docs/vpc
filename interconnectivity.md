@@ -41,7 +41,7 @@ IBM has the following offerings that can help you interconnect a VPC with an on-
 
    * **{{site.data.keyword.dl_full_notm}} Dedicated** provides low-latency, high-throughput connections between {{site.data.keyword.cloud_notm}} VPC networks direct to a service provider-managed WAN, or a client-managed cloud backbone. You can optimize egress traffic from your VPC network and reduce your egress costs. If you can’t connect at an {{site.data.keyword.cloud_notm}} data center, or don’t need more than 5 Gbps of bandwidth on a Virtual Network Connection, you can use {{site.data.keyword.dl_full_notm}} Connect to connect to {{site.data.keyword.cloud_notm}} through a supported service provider.
 
-      With {{site.data.keyword.dl_full_notm}} Global Routing capabilities, you can connect to all {{site.data.keyword.cloud_notm}} regions worldwide from a single {{site.data.keyword.dl_full_notm}} connection. You can also take advantage of {{site.data.keyword.dl_full_notm}} service provider partners to establish more secure hybrid connections for your workloads across the globe, as well sa easily provision multiple connections as your capacity requirements increase.   
+      With {{site.data.keyword.dl_full_notm}} Global Routing capabilities, you can connect to all {{site.data.keyword.cloud_notm}} regions worldwide from a single {{site.data.keyword.dl_full_notm}} connection. You can also take advantage of {{site.data.keyword.dl_full_notm}} service provider partners to establish more secure hybrid connections for your workloads across the globe, as well as easily provision multiple connections as your capacity requirements increase.   
 
    ![Sample Direct Link on-premises interconnect use case](images/direct-link-dedicated.png "Example Direct Link on-premises interconnect use case")
 
@@ -258,7 +258,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 
 ### Use case 3: VPC-to-classic and BCR peering with {{site.data.keyword.cloud_notm}} Transit Gateway
 {: #use-case-vpc-classic-transit-gateway}
- 
+
 ![VPC-to-classic and BCR peering with Transit Gateway use case](images/vpc-classic-transit-gateway.png "VPC-to-classic and BCR peering with Transit Gateway use case")
 
 | IP | Origin |
