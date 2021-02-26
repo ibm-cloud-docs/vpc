@@ -43,8 +43,8 @@ A VPC route has three main components:
 Any traffic that originates in the specified zone of the VPC and has a destination address within the specified destination CIDR routes to the next hop. If the destination address is within the destination CIDR for multiple VPC routes, the most specific route is used. If there are two or more equally specific routes, the traffic is round-robin that is distributed between each route.
 
 Each route has a destination property, which includes a prefix length (`/24` in `10.2.0.0/24`). The number of unique prefix lengths that are supported per custom routing table is 14. Multiple routes with the same prefix count as only one unique prefix.
-   
-VPC address prefixes are no longer restricted to RFC-1918 addresses. You must now configure VPCs that use both non-RFC-1918 addresses and have public connectivity (floating IPs or public gateways) using a custom route that contains the new `Delegate-VPC` action. You must specify this action for destination CIDRs that are non-RFC-1918 compliant and also outside of the VPC, such as for destinations that are reachable through Direct Link (2.0), Transit Gateway, or VPC classic access. For more information about when to use the **Delegate-VPC** action, see [Routing considerations for IANA-registered IP assignments](/docs/vpc?topic=vpc-interconnectivity#routing-considerations-iana). 
+
+VPC address prefixes are no longer restricted to RFC-1918 addresses. You must now configure VPCs that use both non-RFC-1918 addresses and have public connectivity (floating IPs or public gateways) using a custom route that contains the new `Delegate-VPC` action. You must specify this action for destination CIDRs that are non-RFC-1918 compliant and also outside of the VPC, such as for destinations that are reachable through Direct Link (2.0), Transit Gateway, or VPC classic access. For more information about when to use the `Delegate-VPC` action, see [Routing considerations for IANA-registered IP assignments](/docs/vpc?topic=vpc-interconnectivity#routing-considerations-iana). 
 {: note}
 
 The `Delegate-VPC` action is required if both are true:
@@ -71,11 +71,11 @@ To create a route by using the {{site.data.keyword.cloud_notm}} console, follow 
 
    * **Destination CIDR** - The destination CIDR of the route.
    * **Action** - Values are:
-   
+
       * **Delegate-VPC** - Delegates to the system's built-in routes, ignoring internet-bound routes. Required if the VPC uses non-RFC-1918 addresses and also has public connectivity. See [Routing considerations for IANA-registered IP assignments](/docs/vpc?topic=vpc-interconnectivity#routing-considerations-iana) for details.
       * **Delegate** - Routes the packet by using the system routing table.
       * **Deliver** - Routes the packet to the next hop target. You can add multiple routes with the same address prefix. The virtual router performs equal-cost, multi-path routing (ECMP) using the different next hop IP addresses.
-      * **Drop** - Drops the packet. 
+      * **Drop** - Drops the packet.
 
    * Type - (Egress traffic type only) Choose either **IP Address** or **VPN connection**. If you select **IP Address**, enter the **Next hop**. If you choose **VPN Connection**, select from the list of available VPN gateways or connections.
 
