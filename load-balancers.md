@@ -4,7 +4,7 @@ copyright:
   years: 2020
 lastupdated: "2020-09-10"
 
-keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network
+keywords: public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies
 
 subcollection: vpc
 
@@ -48,8 +48,10 @@ The following table provides a comparison of the two types of load balancers.
 |                             | Network load balancer    | Application load balancer            |
 |-----------------------------|------------------|--------------------|
 | HA mode                     | Active-standby (with single VIP)   |  Active-active (with multiple VIPs assigned to a DNS name) |
+| Instance group support | No | Yes (see [Integrating an ALB for VPC with instance groups](/docs/vpc?topic=vpc-lbaas-integration-with-instance-groups)) |
 | Monitoring metrics with Sysdig | Yes | Yes |
-| Multi-zone support | No (see [Multi-zone support](/docs/vpc?topic=vpc-network-load-balancers#nlb-use-case-2)) | Yes |     
+| Multi-zone support | No (see [Multi-zone support](/docs/vpc?topic=vpc-network-load-balancers#nlb-use-case-2)) | Yes |  
+| Security group support | No | Yes (see [Integrating an ALB for VPC with security groups](/docs/vpc?topic=vpc-alb-integration-with-security-groups)) |   
 | Source IP address is preserved | Yes | No |
 | SSL offloading              | No              | Yes |
 | Supported protocols         | TCP | HTTPS, HTTP, TCP  |
@@ -57,7 +59,7 @@ The following table provides a comparison of the two types of load balancers.
 | Types of load balancers | Public | Public and private |
 | Virtual IP Address (VIP)    | Single    | Multiple |
 {: caption="Table 1. Comparison of network and application load balancers" caption-side="top"}
-
+|
 ## High Availability mode
 {: #nlb-ha-mode}
 The application load balancer is configured in active-active mode. All compute resources of the load balancer are actively involved in forwarding traffic.
