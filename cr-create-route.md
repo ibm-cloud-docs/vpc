@@ -75,8 +75,7 @@ To create a route by using the {{site.data.keyword.cloud_notm}} console, follow 
 To create a VPC route by using the CLI, run the following command:
 
 ```
-ibmcloud is vpc-routing-table-route-create VPC ROUTING_TABLE --zone ZONE_NAME --destination DESTINATION_CIDR
---next-hop NEXT_HOP [--action delegate | deliver | drop] [--name NAME] [--json]
+ibmcloud is vpc-routing-table-route-create VPC ROUTING_TABLE --zone ZONE_NAME --destination DESTINATION_CIDR --next-hop NEXT_HOP [--action delegate | deliver | drop] [--name NAME] [--json]
 ```
 {: pre}
 

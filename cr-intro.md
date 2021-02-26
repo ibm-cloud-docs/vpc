@@ -39,12 +39,14 @@ This service also allows the use of Network Functions Virtualization (NFV) for a
 When you create a routing table, you can select one of the following traffic types:
 
 * **Egress** routes control traffic, which originates within a private network and travels towards the public internet, or to another VM in same or different zone.
+
 * **Ingress** routes enable you to customize routes on incoming traffic to a VPC from traffic sources external to the VPC's availability zone (IBM Cloud Direct Link 2.0, IBM Cloud Transit Gateway, or another availability zone in same VPC). You must choose at least one traffic source to enable ingress routing.
 
    Only one custom routing table can be associated with a particular ingress traffic source. However, you can use different routing tables for different traffic sources. For example, routing table A might use Transit Gateway and VPC Zone, and routing table B use Direct Link 2.0.
    {: note}
 
 ## System routing table
+{: #system-routing-table}
 
 Use the system routing table for routing traffic when no matching route is found in the custom routing table that is associated with the subnet where the traffic is egressing. A system routing table is maintained for each VPC. A VPC can have a presence in multiple zones, and the VPC's system routing table is different in each zone. For ingress routing, the system routing table contains only routes to each network interface in the VPC’s zone.
 
@@ -67,16 +69,17 @@ The following limitations and guidelines apply to {{site.data.keyword.cloud_notm
 * Custom routes in a custom routing table associated with an ingress traffic source, and with an action of **deliver**, must have a next hop IP contained by one of the root prefixes of the VPC in the availability zone where the route is added. In addition, the next hop IP must be configured on a virtual server interface in the VPC and availability zone.  
 * Ingress traffic from a particular traffic source is routed using the routes in the custom routing table that is associated with that traffic source.
 * Currently, you cannot use a custom routing table for both ingress (attached to a traffic source) and egress (attached to a subnet) traffic. In addition, the default custom routing table cannot be associated with an ingress traffic source.
+* {{site.data.keyword.cloud_notm}} VPC permits the use of RFC-1918 and IANA-registered IPv4 address space, privately within your VPC, with some exceptions in the IANA special-purpose ranges, and select ranges assigned to {{site.data.keyword.cloud_notm}} services. When using IANA-registered ranges within your enterprise, and within VPCs in conjunction with {{site.data.keyword.cloud_notm}} Transit Gateway or {{site.data.keyword.cloud_notm}} Direct Link, custom routes must be installed in each VPC (Gen2 only). For more information, see [Routing considerations for IANA-registered IP assignments](/docs/vpc?topic=vpc-interconnectivity#routing-considerations-iana).
 
 ## Related links
 {: #related-links-custom-routes}
 
-These links provide additional information about {{site.data.keyword.cloud_notm}} Custom Routes for VPC.
+These links provide additional information about {{site.data.keyword.cloud_notm}} routing tables and routes for VPC.
 
 * [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#custom-routes-section)
 * [VPC API reference](https://{DomainName}/apidocs/vpc)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-custom-routes)
-* [Routing Tables for VPC infrastructure resources for Terraform](/docs/terraform?topic=terraform-vpc-gen2-resources#vpc-routing-table)
+* [Routing tables for VPC infrastructure resources for Terraform](https://cloud.ibm.com/docs/terraform?topic=terraform-vpc-gen2-resources#vpc-routing-table)
 * [Required permissions for routing tables and routes](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas#routing-tables-routes-quotas)
-* Ingress traffic sources: IBM Cloud [Direct Link 2.0](/docs/dl?topic=dl-get-started-with-ibm-cloud
+* Ingress traffic sources: IBM Cloud [Direct Link 2.0](/docs/dl?topic=dl-get-started-with-ibm-cloud-dl) and [Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started)

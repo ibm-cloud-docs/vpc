@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-12-31"
+lastupdated: "2020-10-30"
 
 keywords: custom routes
 
@@ -53,7 +53,7 @@ To list the routing tables for a VPC by using the {{site.data.keyword.cloud_notm
 
 1. From the Routing tables for VPC page, you can create, delete, and view the details of a routing table.
 
-The overflow menu ![overflow menu](images/overflow.png) allows you to delete a routing table. Keep in mind that you can only perform this action on routing tables without attached subnets.
+The overflow menu ![overflow menu](images/overflow.png) allows you to delete a routing table. Keep in mind that you can perform this action only on routing tables without attached subnets.
 {: note}
 
 ## Listing routing tables for a VPC using the CLI
@@ -75,7 +75,7 @@ Where:
 ## Listing routing tables for a VPC using the API
 {: #cr-list-tables-using-the-api}
 
-To list the routing tables for a VPC by using the API, do the following steps:
+To list the routing tables for a VPC by using the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 1. Store the `VpcId` value in a variable to be used in the API command:
