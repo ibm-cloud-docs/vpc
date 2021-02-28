@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-11-17"
+  years: 2020, 2021
+lastupdated: "2020-02-28"
 
 keywords: virtual private endpoint, FAQs, VPE, endpoint gateway
 
@@ -28,46 +28,48 @@ subcollection: vpc
 
 You might encounter the following frequently asked questions when using {{site.data.keyword.cloud_notm}} Virtual Private Endpoints (VPE) for VPC.
 
-## Can I map IBM Cloud services to a VPE from the service catalog?
+## Can I map {{site.data.keyword.cloud_notm}} services to a VPE from the service catalog?
 {: #faq-cannot-map-services}
 {: faq}
 {: support}
 
-IBM Cloud services cannot be mapped to a VPE from the service catalog during the time of purchase.
+{{site.data.keyword.cloud_notm}} services cannot be mapped to a VPE from the service catalog during the time of purchase.
 
-## Can I map an IBM Cloud service to a Public endpoint?
+## Can I map an {{site.data.keyword.cloud_notm}} service to a Public endpoint?
 {: #faq-map-cloud-service-public-endpoint}
 {: faq}
 {: support}
 
-Public endpoints of IBM Cloud services are not eligible for VPE. VPE can only be mapped to a private endpoint of IBM Cloud services.
+Public endpoints of {{site.data.keyword.cloud_notm}} services are not eligible for VPE. VPE can only be mapped to a private endpoint of {{site.data.keyword.cloud_notm}} services.
 
 ## Is a VPE created in high-availability mode?
 {: #faq-vpe-ha-mode}
 {: faq}
 {: support}
 
-A VPE is not created in high-availability (HA) mode, by default. HA comes primarily from the IBM Cloud services.
+A VPE is not created in high-availability (HA) mode, by default. HA comes primarily from the {{site.data.keyword.cloud_notm}} service.
 
 ## Can I access an IBM Cloud service using a private service endpoint IP address?
 {: #faq-access-using-cse-adn}
 {: faq}
 {: support}
 
-When a VPE is created, IBM Cloud DNS Services is automatically set up to resolve the IBM Cloud service FQDN to the VPE's private VPC IP address. Although direct access to the private service endpoint IP address is possible, it is recommended to use the DNS mapping that is set up automatically, rather than override with a mapping to the service endpoint IP address.
+When an {{site.data.keyword.cloud_notm}} service is created, {{site.data.keyword.cloud_notm}} DNS Services is automatically set up to resolve the IBM Cloud service FQDN to the {{site.data.keyword.cloud_notm}} private service address.
+
+When a VPE is created, VPE assigns a reserved IP with which you can access the {{site.data.keyword.cloud_notm}} service. It is recommended to use the reserved IP instead of the {{site.data.keyword.cloud_notm}} private service endpoint.
 
 ## Does mapping an IBM Cloud service to an IP address on a VPC network make the service private?
 {: #faq-map-cloud-service-make-service-private}
 {: faq}
 
-Mapping an IBM Cloud service to an IP address on a VPC network does not make the service private. For example, if a service has
+Mapping an {{site.data.keyword.cloud_notm}} service to an IP address on a VPC network does not make the service private. For example, if a service has
 a public endpoint, you can still access the public endpoint after the service is mapped.
 
 ## Does controlling access to an IP on a VPC network mapped to a service control access to the mapped service?
 {: #faq-access-mapped-service}
 {: faq}
 
-Controlling access to an IP address on a VPC network mapped to an IBM Cloud service does not control the access to the mapped service itself.
+Controlling access to an IP address on a VPC network mapped to an {{site.data.keyword.cloud_notm}} service does not control the access to the mapped service itself.
 
 ## Is there a limit to the number of IP addresses I can bind to an endpoint gateway?
 {: #faq-reserved-ips-and-number-ports}
