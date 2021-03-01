@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-11-13"
+  years: 2019, 2021
+lastupdated: "2021-03-01"
 
 keywords: VPN, VPN gateways, encryption, IKE, IPsec, gateway, auto-negotiation, Diffie-Hellman, dead peer detection, PFS
 
@@ -47,8 +47,8 @@ The {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} service
 * **Modes** - {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} offers static, route-based and policy-based VPN modes. With a policy-based VPN, traffic that matches negotiated CIDR ranges are encrypted. For a static, route-based VPN, virtual tunnel interfaces are created and any traffic that is routed towards these logical interfaces with custom routes is encrypted. Both VPN flavors provide the same features.  
 * **High availability** - {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} is built on two VPN devices to provide appliance-level redundancy. A policy-based VPN operates in Active-Standby mode with a single VPN gateway IP shared between the members, while a route-based VPN offers Active-Active redundancy with two VPN gateway IPs.
 
-  Currently, a static, route-based VPN does not support redundant connections to peer networks through multiple peer IPs. You can create multiple VPN connections for different peer IPs for each set of peer networks. However, only one connection can be used as next hop for each peer CIDR block.
-  {: important}
+A static, route-based VPN is deployed in Active-Active redundancy mode; however, only one tunnel can be used for active tunnel traffic. The other tunnel acts as hot standby so that traffic can be easily diverted to the second tunnel in the event that the first tunnel goes down. Both tunnels are always up on the IBM Cloud side, which gives the peer side the advantage to control the traffic on their end. The peer side should either use only one tunnel, or keep the status of the other tunnel down and only activate it if the first tunnel goes down. Using both tunnels simultaneously can cause connectivity issues.
+{: important}
 
 ## Getting started with VPN gateways
 {: #vpn-getting-started}
