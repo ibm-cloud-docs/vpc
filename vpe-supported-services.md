@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-10"
+lastupdated: "2021-03-02"
 
 keywords: virtual private endpoints, endpoint gateway, VPE
 subcollection: vpc
@@ -26,6 +26,7 @@ subcollection: vpc
 {: shortdesc}
 
 * Network Time Protocol
+* {{site.data.keyword.cloud_notm}} {{site.data.keyword.hscrypto}} ([Instructions](/docs/hs-crypto?topic=hs-crypto-virtual-private-endpoints-for-vpc))
 * {{site.data.keyword.cloud_notm}} Object Storage
 * {{site.data.keyword.cloud_notm}} Databases ([Instructions](/docs/cloud-databases?topic=cloud-databases-vpes))
 * {{site.data.keyword.cloud_notm}} Key Protect ([Instructions](/docs/key-protect?topic=key-protect-virtual-private-endpoints))
