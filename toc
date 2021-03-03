@@ -25,12 +25,12 @@ Virtual Private Cloud (VPC)
         vsi_is_about_vpc.md
         suspend-billing.md
         vsi-images.md
-        
+
         {: .topicgroup}
         Profiles
             vsi_is_profiles.md
             vsi_is_dh_profile.md
-        
+
         vsi_is_ssh_keys_about.md
         vsi_is_provisioning_scripts.md
         ip-spoofing-about.md
@@ -277,6 +277,11 @@ Virtual Private Cloud (VPC)
         architecture-workload-isolation.md
         data-security.md
         manage-scc.md
+
+    {: .topicgroup}
+    Logging and monitoring
+        at-events.md
+        logging.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
@@ -291,7 +296,6 @@ Virtual Private Cloud (VPC)
 
     vpc-responsibilities.md
     vpc-endpoints.md
-    at-events.md
     api-integration-migration.md
     [Go and Python example code](https://github.com/IBM-Cloud/vpc-api-samples)
 
