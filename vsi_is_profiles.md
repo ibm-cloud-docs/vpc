@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2019, 2020
-lastupdated: "2021-02-25"
+  years: 2019, 2021
+lastupdated: "2021-03-03"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, GPU, power, generation 2, gen 2
 
@@ -144,19 +144,33 @@ The field after "-" represents the number of vCPU and the size of RAM (GB), e.g.
 
 Take “bx2-4x16” as an example, you can know from the name that it is a balanced profile with a 1:4 CPU to memory ratio (4 vCPU and 16 GB RAM). The CPU architecture is x86_64 and this profile is for VPC.
 
-### Using the IBM Cloud console
+### Viewing instance profiles in the UI
 {: #profiles-using-console}
 
 1. In the {{site.data.keyword.cloud_notm}} console, navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
 2. From the Virtual server instances page, click **New instance**.
 3. You can either select a profile configuration from **Popular profiles** or click **All profiles** to view more configurations.
 
-### Using the CLI
+### Viewing instance profiles from the CLI
 {: #profiles-using-cli}
 
-To view the list of available profiles using the CLI, run the following command:
+To view the list of available instance profiles by using the CLI, run the following command:
 ```
 $ ibmcloud is instance-profiles
+```
+{:codeblock}
+
+### Viewing instance profiles with the API
+{: #profiles-using-api}
+
+To view the list of available instance profiles by using the API, you can call the [List all instance profiles API](/apidocs/vpc#list-instance-profiles). 
+
+The following request example lists the available instance profiles. When you call the API, replace the API endpoint and IAM token with the values from your enterprise. For details about the `$vpc_api_endpoint` and `$iam_token` variables, see the Authentication and Endpoint URLs sections in [Virtual Private Cloud API Introduction](/apidocs/vpc#about-vpc-api).
+
+```
+curl -X GET \
+"$vpc_api_endpoint/v1/instance/profiles?version=2021-02-23&generation=2" \
+-H "Authorization: $iam_token"
 ```
 {:codeblock}
 
@@ -184,3 +198,4 @@ After you choose a profile, it's time to create an instance.
 
 * [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers)
 * [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli)
+* [Creating an instance by using the API](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis#select-profile-and-image)
