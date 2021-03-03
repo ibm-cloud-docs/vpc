@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-01-14"
+lastupdated: "2021-03-03"
 
 keywords: data encryption, data storage, bring your own keys, BYOK, key management, key encryption, personal data, data deletion, data security
 
@@ -100,6 +100,11 @@ For information about deleting root keys, see [Deleting root keys](/docs/vpc?top
 {: #data-delete-volume}
 
 For information about deleting block storage volumes, see this FAQ: [What happens to my data when I delete a block storage data volume?](/docs/vpc?topic=vpc-block-storage-vpc-faq#faq-block-storage-16).
+
+### Deleting a custom image
+{: #delete-custom-images}
+
+For information about deleting custom images, see [Managing custom images](/docs/vpc?topic=vpc-managing-images#managing-custom). Be aware of any virtual server instances that you provisioned with a custom image. To remove all data associated with a specific custom image, make sure that you also delete any instances provisioned from the custom image, along with associated boot volumes.
 
 ### Deleting VPC instances
 {: #service-delete}
