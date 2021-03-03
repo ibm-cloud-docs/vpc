@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-19"
+lastupdated: "2021-03-03"
 
 keywords: custom image
 
@@ -89,9 +89,9 @@ navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastr
 ## Managing custom images
 {: #managing-custom images}
 
-After you import custom images, you can deploy and manage them from the Custom images page. 
+After you import custom images, you can deploy and manage them from the Custom images page. On the Custom images page you can rename an image, create a new virtual server from the image, copy the UUID of the image, view the checksum for the image, or delete a custom image.
 
 You can manage an image by using the {{site.data.keyword.cloud_notm}} console.
 1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com/vpc-ext){: external}, 
 navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Custom Images**.
-2. From your list of custom images, you can click **...** and select from the available options. Encrypted custom images are identified by a lock icon after the image name.
+2. From your list of custom images, you can click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for a specific image and select from the available options. Encrypted custom images are identified by a lock icon after the image name.
