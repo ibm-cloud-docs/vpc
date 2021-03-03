@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-02-23"
+lastupdated: "2021-03-03"
 
 subcollection: vpc
 
@@ -49,4 +49,4 @@ To increase your vCPU quota, [contact Support](/docs/get-support?topic=get-suppo
 {: #faq-dedicated-host-3}
 {: faq}
 
-Provisioning instances on a dedicated group allows your instances to move between hosts if the need ever occurs. For example, if you want to decrease the size of your dedicated host group, you can stop instances on one of the hosts and disable placement for the host that you want to decomission. Then, when you restart the instances they are started on another host in the group if capacity is available. 
+Provisioning instances on a dedicated group allows your instances to move between hosts if the need ever occurs. For example, if you want to decrease the size of your dedicated host group, you can stop instances on one of the hosts and disable placement for the host that you want to decommission. Then, when you restart the instances they are started on another host in the group if capacity is available. 
