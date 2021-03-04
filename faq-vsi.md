@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-03-03"
+lastupdated: "2021-03-04"
 
 subcollection: vpc
 
@@ -124,4 +124,4 @@ Yes, for certain versions of RedHat Enterprise Linux (RHEL) and Windows operatin
 {: #faq-vsi-18}
 {: faq}
 
-When you provision a Windows virtual server instance with a stock image, disk manager might show unexpected disks. After a new Windows instance is provisioned from a stock image, a cloud-init disk and a swap disk are present. The cloud-init disk might display a size of 378 KB. The swap disk might display a size of 44 KB; the swap disk is turned off eventually. These small disks are working as designed. You should not attempt to delete either of these disks that are associated with your new Windows virtual server instance. 
+When you provision a Windows virtual server instance with a stock image, disk manager might show unexpected disks. After a new Windows instance is provisioned from a stock image, a cloud-init disk and a swap disk are present. The cloud-init disk might display a size of 378 KB. The swap disk might display a size of 44 KB; the swap disk is turned off eventually. These small disks are working as designed. You should not attempt to delete or format either of these disks that are associated with your new Windows virtual server instance. 
