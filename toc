@@ -103,6 +103,7 @@ Virtual Private Cloud (VPC)
         vsi_is_manage_instances.md
         vsi_is_instance_vnics.md
         sysdig-vpc-metrics.md
+        vsi_is_instance_resize.md
 
     {: .topicgroup}
     Dedicated hosts
