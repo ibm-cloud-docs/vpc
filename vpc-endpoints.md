@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-01-25"
+lastupdated: "2021-03-05"
 
 keywords: CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
 
@@ -25,11 +25,11 @@ subcollection: vpc
 # Endpoints available
 {: #service-endpoints-for-vpc}
 
-Before you can run workloads in an {{site.data.keyword.vpc_short}}, you must first set up your environment to access the VPC API. That is, if you choose to manage your VPC resources programmatically. The following information lists the regional API endpoints you can use to access your VPC resources. 
+Before you can run workloads in an {{site.data.keyword.vpc_short}}, you must first set up your environment to access the VPC API. That is, if you choose to manage your VPC resources programmatically. The following information lists the regional API endpoints you can use to access your VPC resources.
 
-For more information about setting up your VPC API environment or referencing methods to access your VPC resources, see [Setting up your CLI or API environment](/docs/vpc?topic=vpc-set-up-environment) or the [Virtual Private Cloud API reference](https://cloud.ibm.com/apidocs/vpc). 
+For more information about setting up your VPC API environment or referencing methods to access your VPC resources, see [Setting up your CLI or API environment](/docs/vpc?topic=vpc-set-up-environment) or the [Virtual Private Cloud API reference](https://cloud.ibm.com/apidocs/vpc).
 
-Use one of the following public endpoints to connect to the VPC infrastructure API. The endpoints are based on the region of the service. 
+Use one of the following public endpoints to connect to the VPC infrastructure API. The endpoints are based on the region of the service.
 
 | Region            | Endpoint                              |
 |-------------------|---------------------------------------|
@@ -41,15 +41,15 @@ Use one of the following public endpoints to connect to the VPC infrastructure A
 | Tokyo             | `https://jp-tok.iaas.cloud.ibm.com`   |
 | Osaka             | `https://jp-osa.iaas.cloud.ibm.com`   |
 {: caption="Table 1. VPC API Regional Endpoints" caption-side="top"}
- 
-After you've created and are accessing the resources in your VPC, you're ready to run workloads. From inside the VPC infrastructure, you can access two types of {{site.data.keyword.cloud_notm}} endpoints: platform as a service (PaaS) endpoints, also known as service endpoints, and infrastructure as a service (IaaS) endpoints. 
+
+After you've created and are accessing the resources in your VPC, you're ready to run workloads. From inside the VPC infrastructure, you can access two types of {{site.data.keyword.cloud_notm}} endpoints: platform as a service (PaaS) endpoints, also known as service endpoints, and infrastructure as a service (IaaS) endpoints.
 
 Although the addresses for these endpoints look as if they communicate through the public internet, traffic to and from these endpoints does not leave {{site.data.keyword.cloud_notm}}. Therefore, this traffic avoids the bandwidth charges associated with traffic that exits the cloud and goes onto the public internet.
 
 ## Service endpoints
 {: #cloud-service-endpoints}
 
-Use service endpoints to securely connect to {{site.data.keyword.cloud_notm}} services over the {{site.data.keyword.cloud_notm}} private network. These endpoints are available through DNS (Domain Name System) names in the `cloud.ibm.com` domain and resolve to `166.9.x.x` addresses. 
+Use service endpoints to securely connect to {{site.data.keyword.cloud_notm}} services over the {{site.data.keyword.cloud_notm}} private network. These endpoints are available through DNS (Domain Name System) names in the `cloud.ibm.com` domain and resolve to `166.8.x.x` addresses. 
 
 Traffic to and from service endpoints are subject to ACL and security group rules. This means that these mechanisms can be used in cases where you want to limit what virtual server instances use a particular service endpoint.
 
@@ -111,8 +111,4 @@ To reach Cloud Object Storage from a VPC see [Connecting to {{site.data.keyword.
 ## Virtual private endpoints
 {: #virtual-private-endpoints}
 
-{{site.data.keyword.cloud_notm}} services available through {{site.data.keyword.cloud_notm}} Virtual Private Endpoints (VPE) for VPC are listed at [VPE supported services](/docs/vpc?topic=vpc-vpe-supported-services). VPE supports both service and IaaS endpoints. For more information about VPE, see [About virtual private endpoint gateways](/docs/vpc?topic=vpc-about-vpe). 
-
-
-
-
+{{site.data.keyword.cloud_notm}} services available through {{site.data.keyword.cloud_notm}} Virtual Private Endpoints (VPE) for VPC are listed at [VPE supported services](/docs/vpc?topic=vpc-vpe-supported-services). VPE supports both service and IaaS endpoints. For more information about VPE, see [About virtual private endpoint gateways](/docs/vpc?topic=vpc-about-vpe).
