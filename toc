@@ -156,6 +156,7 @@ Virtual Private Cloud (VPC)
         VPC routing tables
             cr-create-table.md
             cr-view-table.md
+            cr-attach-subnet.md
             cr-list-table.md
             cr-delete-table.md
 
