@@ -64,7 +64,7 @@ Where:
 ## Deleting a routing table using the API
 {: #cr-delete-table-using-the-api}
 
-To delete a routing table by using the API, do the following:
+To delete a routing table by using the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 2. Store the following values in variables to be used in the API command:

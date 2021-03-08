@@ -63,7 +63,7 @@ Where:
 ## Deleting a route using the API
 {: #cr-delete-using-the-api}
 
-To delete a route by using the API, do the following steps:
+To delete a route by using the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 2. Store the following values in variables to be used in the API command:

@@ -108,7 +108,7 @@ Where:
 ## Creating a route using the API
 {: #cr-route-using-the-api}
 
-To create a destination route by using the API:
+To create a destination route by using the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 2. Store values for the following variables to be used in the API command:

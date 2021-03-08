@@ -81,7 +81,7 @@ Where:
 ## Listing routes of a routing table using the API
 {: #cr-view-details-route-using-the-api}
 
-To view details of a route by using the API, do the following steps:
+To view details of a route by using the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 1. Store the following values in variables to be used in the API command:

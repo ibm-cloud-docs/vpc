@@ -48,12 +48,12 @@ To list the routing tables for a VPC by using the {{site.data.keyword.cloud_notm
    * **Name** - Indicates the name of the routing table. Click this link to see the details of the routing table. You can also edit and change this name.
    * **Default** - Specifies the default routing table of the specified VPC.
    * **Date created** - Shows the date that the routing table was created.
-   * **Routes** - States the number of routes are attached to the routing table.
+   * **Routes** - States the number of routes attached to the routing table.
    * **Attached subnets** - Indicates the number of subnets that are attached to the routing table.
 
 1. From the Routing tables for VPC page, you can create, delete, and view the details of a routing table.
 
-The overflow menu ![overflow menu](images/overflow.png) allows you to delete a routing table. Keep in mind that you can perform this action only on routing tables without attached subnets.
+The overflow menu ![overflow menu](images/overflow.png) allows you to delete a routing table. Keep in mind that you can do this action only on routing tables without attached subnets.
 {: note}
 
 ## Listing routing tables for a VPC using the CLI
