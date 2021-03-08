@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-01-27"
+lastupdated: "2021-03-08"
 
 keywords: license, virtual private cloud, BYOL, virtual server instance, instance, custom image, encryption
 subcollection: vpc
@@ -30,6 +30,8 @@ BYOL is a beta feature that is available for evaluation and testing purposes. Co
 ## BYOL concepts
 {: #byol-vpc-concepts}
 With this service, you can use your own license for a custom image you create at your site and then upload to Cloud Object Storage (COS). When you import your custom image from COS to the VPC, IBM provides Red Hat Linux and Windows BYOL operating system options you can choose. You use your BYOL custom images to create virtual server instances, just as you would from a stock image. 
+
+Images with a Red Hat Linux BYOL operating system can be used to provision any instance; public or on a dedicated host. Images with a Windows BYOL operating system can be provisioned only on instances on a dedicated host or in a dedicated host group.
 
 There are no additional licensing charges for any virtual server instances you create using your BYOL custom image. For audit and reporting, IBM retains information for virtual server instances you create from BYOL custom images.
 
@@ -64,7 +66,11 @@ For more information about creating and importing Linux custom images, see:
 ## BYOL for Windows operating systems
 {: #byol-vpc-linux}
 
-You can create a Windows custom image using your own license, upload it to COS, and then import it to the VPC. The Windows BYOL custom image runs on a dedicated host, a single-tenant compute node for privileged users within your account. When you import your BYOL custom image, you select a _BYOL_ operating system from the list of OS versions. Supported Windows versions are Windows 2012 and Windows 2012 R2, 64-bit.
+You can create a Windows custom image using your own license, upload it to COS, and then import it to the VPC. The Windows BYOL custom image runs on a dedicated host, a single-tenant compute node for privileged users within your account. When you import your BYOL custom image, you select a _BYOL_ operating system from the list of OS versions. Supported Windows versions are:
+
+* Windows 2012 and Windows 2012 R2 64-bit
+* Windows 2016 and Windows 2016 64-bit
+* Windows 2019 and Windows 2019 64-bit
 
 To see all OS versions from the API, make a`GET /operating_systems` call. In the response, you will see Windows BYOL OS versions among the list of operatng systems. This example response shows information returned for Windows 2012:
 
@@ -88,6 +94,6 @@ After you create a dedicated host, you can create virtual server instances using
 
 For information about creating a Windows custom image, see [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image).
 
-For information on creating a dedicated host, see [Dedicated hosts](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances#dedicated-hosts).
+For information on creating dedicated hosts and groups, see [Creating dedicated hosts and groups](./docs/vpc?topic=vpc-creating-dedicated-hosts-instances).
 
 For information about importing your BYOL custom image to the VPC, see [Import a custom image](/docs/vpc?topic=vpc-managing-images#import-custom-image).

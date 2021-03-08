@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-05"
+lastupdated: "2021-02-17"
 
 keywords: custom image
 
@@ -22,11 +22,14 @@ subcollection: vpc
 {:table: .aria-labeledby="caption"}
 {:external: target="_blank" .external}
 
-# Importing and managing custom images
+# Importing and managing custom images 
 {: #managing-images}
 
-You can create your own custom image, and import it to {{site.data.keyword.vpc_full}} infrastructure from {{site.data.keyword.cos_full_notm}}. Then, you can use your custom image to create new virtual server instances that run on the KVM hypervisor.
+You can create your own custom image on premesis and then import it to {{site.data.keyword.vpc_full}} infrastructure from {{site.data.keyword.cos_full_notm}}. Then, you can use your custom image to create new virtual server instances that runs on the KVM hypervisor.
 {:shortdesc}
+
+You can also create a custom image of a boot volume attached to an instance at import time. For more information, see [About creating an image from volume (Beta)](/docs/vpc?topic=vpc-image-from-volume-vpc).
+{:note}
 
 ## Importing a custom image
 {: #import-custom-image}
@@ -61,7 +64,7 @@ navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastr
 | Resource group | Select a resource group for the instance. |
 | Tags |  You can assign a label to this resource so that you can easily filter resources in your resource list. |
 | Region | Select the location, or specific geographic area, where you want your custom image to be available for provisioning.|
-| Cloud Object Storage instances | Select the {{site.data.keyword.cos_full_notm}} service instance where the image that you want to import is stored.|
+| Source | Select **Cloud Object Storage** as the source. A list displays from which you select a COS service instance where the image that you want to import is stored. |
 | Location | Select the specific geographic region where your image is stored. |
 | Bucket | Select the {{site.data.keyword.cos_full_notm}} bucket where your image is stored.|
 | Name | Select the image file in the {{site.data.keyword.cos_full_notm}} service instance that you want to import. Supported image files are in qcow2 format. If you are importing an encrypted image, the image must be encrypted with LUKS encryption by using QEMU and your own passphrase. For more information, see [Encrypting the image](/docs/vpc?topic=vpc-create-encrypted-custom-image#manually-encrypt-image). |
@@ -89,9 +92,9 @@ navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastr
 ## Managing custom images
 {: #managing-custom images}
 
-After you import custom images, you can deploy and manage them from the Custom images page. On the Custom images page you can rename an image, create a new virtual server from the image, copy the UUID of the image, view the checksum for the image, or delete a custom image.
+After you import custom images, you can deploy and manage them from the Custom images page. 
 
 You can manage an image by using the {{site.data.keyword.cloud_notm}} console.
 1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com/vpc-ext){: external}, 
 navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Custom Images**.
-2. From your list of custom images, you can click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for a specific image and select from the available options. Encrypted custom images are identified by a lock icon after the image name.
+2. From your list of custom images, you can click **...** and select from the available options. Encrypted custom images are identified by a lock icon after the image name.
