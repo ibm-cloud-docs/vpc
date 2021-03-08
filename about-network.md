@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2019-12-22"
+lastupdated: "2020-12-21"
 
-keywords: secure, region, zone, subnet, public gateway, floating IP, NAT, lbaas, vpnaas, lb, vpn, load balancer, virtual private network
+keywords: secure, region, zone, subnet, public gateway, floating IP, NAT
 subcollection: vpc
 
 ---
@@ -32,14 +32,14 @@ Each VPC is deployed to a single region. Within that region, the VPC can span mu
 
 Subnets in your VPC can connect to the public internet through an optional public gateway. You can assign floating IP addresses to any virtual server instance to enable it to be reachable from the internet, independent of whether its subnet is attached to a public gateway.
 
-Subnets within the VPC offer private connectivity; they can talk to each other over a private link through the implicit router. Setting up routes is not necessary. Figure 1 shows how you can subdivide a Virtual Private Cloud with subnets and each subnet can reach the public internet.
+Subnets within the VPC offer private connectivity; they can talk to each other over a private link through the implicit router. Setting up routes is not necessary. Figure 1 shows how you can subdivide a virtual private cloud with subnets and each subnet can reach the public internet.
 
 ![Figure showing how a VPC can be subdivided with subnets](images/vpc-connectivity-and-security.svg "Figure showing how a VPC can be subdivided with subnets"){: caption="Figure 1. IBM VPC connectivity and security" caption-side="top"}
 
 ## Terminology
 {: #networking-terminology}
 
-To work with your VPC, you need to be familiar with the basic concepts of region and zone as they apply to your deployment.
+To work with your VPC, you need to be familiar with the basic concepts of _region_ and _zone_ as they apply to your deployment.
 
 ### Regions
 {: #networking-terms-regions}
@@ -49,7 +49,7 @@ A region is an abstraction that is related to the geographic area in which a VPC
 ### Zones
 {: #networking-terms-zones}
 
-A zone is an abstraction that refers to the physical data center that hosts the compute, network, and storage resources, as well as the related cooling and power, which provides services and applications. Zones are isolated from each other, so to create no shared single point of failure, improved fault tolerance, and reduced latency. Each zone is assigned a default address prefix, which specifies the address range in which subnets can be created. If the default address scheme does not suit your requirements, such as if you want to bring your own public IPv4 address range, you can customize the address prefixes.
+A zone is an abstraction that refers to the physical data center that hosts the compute, network, and storage resources, as well as the related cooling and power, which provides services and applications. Zones are isolated from each other to create no shared single point of failure, improved fault tolerance, and reduced latency. Each zone is assigned a default address prefix, which specifies the address range in which subnets can be created. If the default address scheme does not suit your requirements, such as if you want to bring your own public IPv4 address range, you can customize the address prefixes.
 
 ## Characteristics of subnets in the VPC
 {: #subnets-in-the-vpc}
@@ -60,13 +60,13 @@ Each subnet consists of a specified IP address range (CIDR block). Subnets are b
 ### Addresses reserved by the system
 {: #addresses-reserved-by-the-system}
 
-Certain IP addresses are reserved for use by IBM when operating the VPC. Here are the reserved addresses (these IP addresses assume that the subnet's CIDR range is 10.10.10.0/24):
+Certain IP addresses are reserved for use by IBM when operating the VPC. Here are the reserved addresses (these IP addresses assume that the subnet's CIDR range is `10.10.10.0/24`):
 
-  * First address in the CIDR range (10.10.10.0): Network address
-  * Second address in the CIDR range (10.10.10.1): Gateway address
-  * Third address in the CIDR range (10.10.10.2): reserved by IBM
-  * Fourth address in the CIDR range (10.10.10.3): reserved by IBM for future use
-  * Last address in the CIDR range (10.10.10.255): Network broadcast address
+  * First address in the CIDR range (`10.10.10.0`): Network address
+  * Second address in the CIDR range (`10.10.10.1`): Gateway address
+  * Third address in the CIDR range (`10.10.10.2`): reserved by IBM
+  * Fourth address in the CIDR range (`10.10.10.3`): reserved by IBM for future use
+  * Last address in the CIDR range (`10.10.10.255`): Network broadcast address
 
 ## External connectivity
 {: #external-connectivity}
@@ -83,7 +83,7 @@ Table 1 summarizes the differences between the options:
 
 For secure external connectivity, use the VPN service to connect your VPC to another network. For more information about VPNs, see [Using VPN with your VPC](/docs/vpc?topic=vpc-using-vpn).
 
-### Use a Public gateway for external connectivity of a subnet
+### Use a public gateway for external connectivity of a subnet
 {: #public-gateway-for-external-connectivity}
 
 A **Public Gateway** enables a subnet and all its attached virtual server instances to connect to the internet. Subnets are private by default. After a subnet is attached to the public gateway, all instances in that subnet can connect to the internet. Although each zone has only one public gateway, the public gateway can be attached to multiple subnets.
