@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-07-23"
+  years: 2020, 2021
+lastupdated: "2021-03-10"
 
 keywords: flow logs, ordering, getting started
 
@@ -41,7 +41,7 @@ When you are provisioning a flow log collector, keep in mind that [the finest gr
 Before creating a flow log collector, ensure that you meet the following prerequisites:
 
 1. Make sure that at least one VPC, a subnet, and a virtual server instance exist. For instructions, see [Creating a VPC and subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vpc-and-subnet) and [Creating a virtual server instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vsi).
-2. Make sure that a COS instance with a bucket exists for your flow logs. To create a COS bucket, see the [Cloud Object Storage](https://cloud.ibm.com/catalog/services/cloud-object-storage) ordering page.  
+2. Make sure that a Cloud Object Storage (COS) instance with a bucket exists for your flow logs. To create a COS bucket, see the [Cloud Object Storage](https://cloud.ibm.com/catalog/services/cloud-object-storage) ordering page.  
 
    The COS bucket must be a single-region bucket in the same region as the target resource. Additionally, it is recommended that you secure the bucket through IAM access groups and audit logging.
    {: important}
@@ -53,20 +53,23 @@ Before creating a flow log collector, ensure that you meet the following prerequ
    * In the IBM Cloud console, click **Manage > Access (IAM)**, then select **Authorizations** from the navigation pane.
    * Click **Create** and complete the following information:
 
-      - For Source service, select **Infrastructure Services** in **Account**.
-      - For Resource type, select **Flow Logs for VPC**.
-      - For Source resource instance, select **All resource instances**.
-      - For Target service, select **Cloud Object Storage** in **Account**.
-      - For Target service instance, select **string equals** for **All instances**.
+      - For Source service:
+         * Select **VPC Infrastructure Services**. 
+         * Select **Services based on attributes**.
+         * For Resource type, select **Flow Logs for VPC**. 
+         * For Source service instance, select **All instances**.
+
+      - For Target service:
+         * Select **Cloud Object Storage**.
+         * Select **Services based on attributes**.
+         * For Service instance, select **string equals > All instances**.
+
       - For Service access, select the **Writer** role to assign access to the source service that accesses the target service.
 
    * Click **Authorize**.   
 
-      ![Grant a service authorization](/images/fl-iam.png "Grant a service authorization")
-
     For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth#create-auth).
    {: note}
-
 
 ## Using the UI
 {: #fl-ordering-ui}
