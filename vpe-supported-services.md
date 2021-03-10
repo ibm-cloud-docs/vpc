@@ -25,14 +25,23 @@ subcollection: vpc
 {{site.data.keyword.cloud}} Virtual Private Endpoints (VPE) for VPC supports the following {{site.data.keyword.cloud_notm}} services.
 {: shortdesc}
 
+* Billing
+* Cloud Object Storage
+* Databases ([Instructions](/docs/cloud-databases?topic=cloud-databases-vpes))
+* Direct Link (2.0) ([Instructions](/docs/dl?topic=dl-vpe-for-ibm-cloud-direct-link))
+* DNS Services ([Instructions](/docs/dns-svcs?topic=dns-svcs-vpe-for-dns-svcs#vpe-for-dns-svcs))
+* Enterprise
+* Global Resource Catalog
+* Global Search Service
+* {{site.data.keyword.hscrypto}} ([Instructions](/docs/hs-crypto?topic=hs-crypto-virtual-private-endpoints-for-vpc))
+* Identity and Access Management
+* Key Protect ([Instructions](/docs/key-protect?topic=key-protect-virtual-private-endpoints))
 * Network Time Protocol
-* {{site.data.keyword.cloud_notm}} Databases ([Instructions](/docs/cloud-databases?topic=cloud-databases-vpes))
-* {{site.data.keyword.cloud_notm}} Direct Link (2.0) ([Instructions](/docs/dl?topic=dl-vpe-for-ibm-cloud-direct-link))
-* {{site.data.keyword.dns_full_notm}} ([Instructions](/docs/dns-svcs?topic=dns-svcs-vpe-for-dns-svcs#vpe-for-dns-svcs))
-* {{site.data.keyword.cloud_notm}} Key Protect ([Instructions](/docs/key-protect?topic=key-protect-virtual-private-endpoints))
-* {{site.data.keyword.cloud_notm}} Object Storage
-* {{site.data.keyword.cloud_notm}} Schematics ([Instructions](/docs/schematics?topic=schematics-private-endpoints#endpoint-setup))
-* {{site.data.keyword.cloud_notm}} Transit Gateway ([Instructions](/docs/transit-gateway?topic=transit-gateway-vpe-for-ibm-cloud-transit-gateway))
+* Resource Controller
+* Schematics ([Instructions](/docs/schematics?topic=schematics-private-endpoints#endpoint-setup))
+* Tagging Service
+* Transit Gateway ([Instructions](/docs/transit-gateway?topic=transit-gateway-vpe-for-ibm-cloud-transit-gateway))
+* User Management
 
 This topic will be updated as additional services are supported.
 {: note}
