@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-02-24"
+lastupdated: "2021-03-09"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -43,6 +43,23 @@ Some changes, such as new response properties or new optional request parameters
 ### For all API version dates
 
 **Block storage volumes**  In an upcoming release, a new value in the `status` enumeration will be added to the [volume](/apidocs/vpc#list-volume-profiles) APIs. When you expand an existing data volume, the volume goes into an updating state and shows a new API status `updating`. You can still access the data while the volume is being resized. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
+
+## 09 March 2021
+{: #09-march-2021}
+
+### For all API version dates
+
+**Additional VPN for VPC IKEv2 encryption/hash/Diffie Hellman (DH) group support.** For enhanced security, VPN for VPC now supports SHA2-512 (a Secure Hash Algorithm) and DH group 19 (a 256-bit elliptic curve algorithm) to generate a symmetric key.
+
+If you use these new algorithms, be aware that existing client applications will be exposed to those new values in the existing `authentication_algorithm` and `dh_group` properties. Be sure to check that those client applications are written to gracefully handle unexpected values for these properties prior to using these new algorithms.
+{: important}
+
+Existing VPN for VPC methods were updated as follows:
+
+* In IKE policies, the `authentication_algorithm` property now includes a `sha512` value, and the `dh_group` property includes a `19` value.  
+* In IPsec policies, the `authentication_algorithm` property now includes a `sha512` value, and the `pfs` property includes a `group_19` value. 
+
+**New VPN gateway property.** Each element of the existing VPN gateway `members` array now includes a `private_ip` property, which provides the IP address assigned to that VPN gateway member. 
 
 ## 23 February 2021
 {: #23-february-2021}
