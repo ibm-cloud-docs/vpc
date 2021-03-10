@@ -56,8 +56,8 @@ If you use these new algorithms, be aware that existing client applications will
 
 Existing VPN for VPC methods were updated as follows:
 
-* In IKE policies, the `authentication_algorithm` property now includes a `sha512` option, and the `dh_group` property includes a `19` option.  
-* In IPsec policies, the `authentication_algorithm` property now includes a `sha512` option, and the `pfs` property includes a `group_19` option. 
+* In IKE policies, the `authentication_algorithm` property now includes a `sha512` value, and the `dh_group` property includes a `19` value.  
+* In IPsec policies, the `authentication_algorithm` property now includes a `sha512` value, and the `pfs` property includes a `group_19` value. 
 
 **New VPN gateway property.** Each element of the existing VPN gateway `members` array now includes a `private_ip` property, which provides the IP address assigned to that VPN gateway member. 
 
