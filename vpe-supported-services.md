@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-04"
+lastupdated: "2021-03-10"
 
 keywords: virtual private endpoints, endpoint gateway, VPE
 subcollection: vpc
@@ -28,6 +28,7 @@ subcollection: vpc
 Network Time Protocol
 * {{site.data.keyword.cloud_notm}} Databases ([Instructions](/docs/cloud-databases?topic=cloud-databases-vpes))
 * {{site.data.keyword.cloud_notm}} Direct Link (2.0) ([Instructions](/docs/dl?topic=dl-vpe-for-ibm-cloud-direct-link))
+* {{site.data.keyword.dns_full_notm}} ([Instructions](/docs/dns-svcs?topic=dns-svcs-vpe-for-dns-svcs#vpe-for-dns-svcs))
 * {{site.data.keyword.cloud_notm}} Key Protect ([Instructions](/docs/key-protect?topic=key-protect-virtual-private-endpoints))
 * {{site.data.keyword.cloud_notm}} Object Storage
 * {{site.data.keyword.cloud_notm}} Schematics ([Instructions](/docs/schematics?topic=schematics-private-endpoints#endpoint-setup))
