@@ -25,7 +25,7 @@ subcollection: vpc
 {{site.data.keyword.cloud}} Virtual Private Endpoints (VPE) for VPC supports the following {{site.data.keyword.cloud_notm}} services.
 {: shortdesc}
 
-Network Time Protocol
+* Network Time Protocol
 * {{site.data.keyword.cloud_notm}} Databases ([Instructions](/docs/cloud-databases?topic=cloud-databases-vpes))
 * {{site.data.keyword.cloud_notm}} Direct Link (2.0) ([Instructions](/docs/dl?topic=dl-vpe-for-ibm-cloud-direct-link))
 * {{site.data.keyword.dns_full_notm}} ([Instructions](/docs/dns-svcs?topic=dns-svcs-vpe-for-dns-svcs#vpe-for-dns-svcs))
