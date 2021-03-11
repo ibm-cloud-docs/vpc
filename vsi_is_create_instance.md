@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020 
-lastupdated: "2020-12-09"
+  years: 2018, 2021
+lastupdated: "2021-03-11"
 
 keywords: instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, vpc, creating, UI, console, generation 2, gen 2
 
@@ -32,7 +32,7 @@ To create a virtual server instance:
    Be sure to select VPC infrastructure from the Menu icon.   
    {: tip}
 
-2. Click **Create** and enter the information in Table 1.
+2. Click **Create** and enter the information in Table 1. 
 3. Click **Create virtual server instance** when you are ready to provision.
 
 | Field | Value |
@@ -42,7 +42,8 @@ To create a virtual server instance:
 | Tags | You can assign a label to this resource so that you can easily filter resources in your resource list. |
 | Location | Locations are composed of regions (specific geographic areas) and zones (fault tolerant data centers within a region). Select the location where you want your virtual server instance to be created. |
 | Type of virtual server | A **Public** virtual server instance, created in a multi-tenant environment, is the default selection for a new instance. You can also select a **Dedicated** virtual server instance to create the instance in a single-tenant space. To provision a dedicated instance, you must have a dedicated host available or create one. |
-| Operating system | All operating system images use cloud-init, which allows you to enter user metadata associated with the instance for post provisioning scripts. For more information about available stock images, and custom image requirements, see [Images](/docs/vpc?topic=vpc-about-images).  |
+| Operating system | Image - All operating system images use cloud-init, which allows you to enter user metadata associated with the instance for post provisioning scripts. For more information about available stock images, and custom image requirements, see [Images](/docs/vpc?topic=vpc-about-images). |
+| | Snapshot - Optionally, select a snapshot of a boot volume that includes an operating system. If you created a boot volume from a bootable snapshot, it appears under Boot Volume. If you want to use another bootable snapshot and create a new boot volume, click **Change** to select a different snapshot from the list of snapshots. For more information, see [Restoring a volume from a snapshot (Beta)](/docs/vpc?topic=vpc-snapshots-vpc-restore). |
 | Profile |  Select from popular profiles or all available vCPU and RAM combinations. The profile families are Balanced, Compute, and Memory. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles). |
 | SSH Key | You must select an existing SSH key or upload a new SSH key to use before you can create the instance. SSH keys are used to securely connect to the instance after it's running. |
 | | **Note:** Alpha-numeric combinations are limited to 100 characters. |
