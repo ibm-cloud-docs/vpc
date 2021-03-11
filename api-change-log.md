@@ -44,6 +44,14 @@ Some changes, such as new response properties or new optional request parameters
 
 **Block storage volumes**  In an upcoming release, a new value in the `status` enumeration will be added to the [volume](/apidocs/vpc#list-volume-profiles) APIs. When you expand an existing data volume, the volume goes into an updating state and shows a new API status `updating`. You can still access the data while the volume is being resized. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 
+## 11 March 2021
+{: #11-march-2021}
+
+### For all version dates
+{: #11-march-2021-all-version-dates}
+
+**Instance resize.** You can now resize an instance by providing the `profile` property in the API method `PATCH /instances/{id}` ([Update an instance](/apidocs/vpc#update-instance)). For more information, see [Resizing an instance](/docs/vpc?topic=vpc-resizing-an-instance).
+
 ## 09 March 2021
 {: #09-march-2021}
 
