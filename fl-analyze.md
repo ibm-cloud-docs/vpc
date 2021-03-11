@@ -106,7 +106,7 @@ ibm_vpc_flowlogs_v1/account={account}/region={region}/vpc-id={vpc-id}/subnet-id=
 
 Where:
 
-* `{stream_id}` is a date and time string in ISO 8601 format `yyyymmddThhmmssZ` (Coordinated Universal Time), defined as the time the first object in this `directory` was created.
+* `{stream-id}` is a date and time string in ISO 8601 format `yyyymmddThhmmssZ` (Coordinated Universal Time), defined as the time the first object in this `directory` was created.
 * `{sequence-number}` is a running counter of objects within the stream, represented as an eight-character, zero-filled field (`%08d`).
 * `{all|ingress|egress|internal}` shows the type of traffic the flow includes.
 * `{xxxx}` is the year in four-digit format.
