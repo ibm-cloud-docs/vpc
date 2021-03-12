@@ -38,7 +38,7 @@ Each flow log object contains individual flow logs. To view or analyze the flow 
 
 1. Ensure that you created an instance of {{site.data.keyword.sqlquery_full}}.
 1. Launch {{site.data.keyword.sqlquery_full}}.
-1. Start querying flow logs from the bucket that you specified when [Creating a flow log collector](https://test.cloud.ibm.com/docs/vpc?topic=vpc-ordering-flow-log-collector).
+1. Start querying flow logs from the bucket that you specified when [Creating a flow log collector](/docs/vpc?topic=vpc-ordering-flow-log-collector).
 
     To view the most frequent flow object, run this query:
     ```
