@@ -31,6 +31,10 @@ Use the release notes to learn about new and changed {{site.data.keyword.vpc_ful
 
 - **New profiles:** The Balanced, Compute, and Memory profile families now include three new profiles with 64, 96, and 128 vCPUs. Profiles with 64 or more vCPUs are deployed exclusively on 2nd generation Intel Xeon Platinum 8260 (Cascade Lake) running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz.
 
+- **VPN for VPC:**
+  * For high-security standards, VPN now supports SHA-512 authentication and Diffie-Hellman Group 19.
+  * Gateway private IP addresses are now visible for gateway members.
+
 ## 05 March 2021
 {: #march-05-2021}
 
