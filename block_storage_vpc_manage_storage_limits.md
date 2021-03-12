@@ -22,18 +22,18 @@ subcollection: vpc
 # Managing volume count and capacity limits
 {: #manage-storage-limit}
 
-{{site.data.keyword.block_storage_is_short}} offers block-level data storage volumes that can be attached to an instance as either a boot volume or as a data volume. Answer the questions in this topic when you're ordering block storage volumes or requesting an increase in your volume or capacity limits. 
+{{site.data.keyword.block_storage_is_short}} offers block-level data storage volumes that can be attached to an instance as either a boot volume or as a data volume. Answer the questions in this topic when you're ordering block storage volumes or requesting an increase in your volume or capacity limits.
 {:shortdesc}
 
 ## Overview
 {: #manage-storage-limit-overview}
 
-{{site.data.keyword.block_storage_is_short}} lets you create up to 750 Gen 2 boot and data block storage volumes per account in a region. You can request an increase of this quota by contacting [IBM Support](https://{DomainName}/unifiedsupport/cases/add){: external} and submitting a support ticket. 
+{{site.data.keyword.block_storage_is_short}} lets you create up to 750 Gen 2 boot and data block storage volumes per account in a region. You can request an increase of this quota by contacting [IBM Support](https://{DomainName}/unifiedsupport/cases/add){: external} and submitting a support ticket.
 
 If you provisioned block storage volumes for Gen 1 Compute instances, you are limited to 300 total volumes across the Gen 1 and Gen 2 infrastructure. For example, if you have 200 Gen 1 block storage volumes, you can request 100 Gen 2 block storage volumes for a total of 300.
 {: note}
 
-Capacity for secondary volumes ranges from 10 to 2,000 GB. You can also request to increase this capacity for greater than 2,000 GB volumes. Also, when you participate in the Beta release, new volumes greater than 250 GB can be expanded in GB increments up to 16,000 GB capacity, depending on your profile. For more information, see [Expanding block storage volume capacity (Beta)](https://test.cloud.ibm.com).
+Capacity for secondary volumes ranges from 10 to 2,000 GB. You can also request to increase this capacity for greater than 2,000 GB volumes. Also, when you participate in the Beta release, new volumes greater than 250 GB can be expanded in GB increments up to 16,000 GB capacity, depending on your profile. For more information, see [Expanding block storage volume capacity (Beta)](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 
 Expandable volumes and volume capacity greater than 2,000 GB are Beta features available for evaluation and testing purposes. These features are available in the US South, US East, London, and France regions. Contact your IBM Sales representative if you are interested in getting access.
 {:beta}
@@ -52,7 +52,7 @@ Review the following checklist items and record your answers. Provide this infor
   For example, *"50% primary volumes, 50% secondary volumes" or "100 primary volumes, 100 secondary volumes".*
 
 - **Of the secondary volumes, how many secondary volumes do you need that are under 250 GB?**
-  For example, *"75% of the secondary volumes are under 250 GB.* 
+  For example, *"75% of the secondary volumes are under 250 GB.*
 
 - **For secondary volumes over 250 GB, estimate the number of volumes and capacity you need.**
   For example, *"25 volumes (or 25%) will be up to 2,000 GB."* Note that you can request volumes over 2,000 GB capacity by participating in the Beta program. You must contact IBM support for access.

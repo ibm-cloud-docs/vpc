@@ -22,7 +22,7 @@ subcollection: vpc
 {:table: .aria-labeledby="caption"}
 {:external: target="_blank" .external}
 
-# Importing and managing custom images 
+# Importing and managing custom images
 {: #managing-images}
 
 You can create your own custom image on premesis and then import it to {{site.data.keyword.vpc_full}} infrastructure from {{site.data.keyword.cos_full_notm}}. Then, you can use your custom image to create new virtual server instances that runs on the KVM hypervisor.
@@ -40,12 +40,12 @@ To complete this task you must have an instance of {{site.data.keyword.cos_full}
 {:important}
 
 Make sure that your image meets custom image requirements:
-* Contains a single file or volume 
+* Contains a single file or volume
 * Is in qcow2 format and the file extension is `.qcow2`.
 * Is cloud-init enabled
 * The operating system is supported as a [stock image](/docs/vpc?topic=vpc-about-images#stock-images) operating system
 
-  For Red Hat and Windows, there are BYOL operating system versions you can choose when you import a custom image including your own license. For more information, see [Bring your own license (Beta)](https://test.cloud.ibm.com/docs/vpc?topic=vpc-byol-vpc-about).
+  For Red Hat and Windows, there are BYOL operating system versions you can choose when you import a custom image including your own license. For more information, see [Bring your own license (Beta)](/docs/vpc?topic=vpc-byol-vpc-about).
   {: note}
 
 * Size doesn't exceed 100 GB
@@ -53,9 +53,9 @@ Make sure that your image meets custom image requirements:
 When you have an image available in {{site.data.keyword.cos_full_notm}}, you can import it to {{site.data.keyword.vpc_short}} infrastructure by using the {{site.data.keyword.cloud_notm}} console.
 
 1. Make sure that your compatible custom image is available in {{site.data.keyword.cos_full_notm}}. To upload an image to {{site.data.keyword.cos_full_notm}}, on the **Objects** page of your bucket, click **Upload**. You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB. For more information, see [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image) or [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image) and [Uploading data](/docs/cloud-object-storage?topic=cloud-object-storage-upload) to {{site.data.keyword.cos_full_notm}}.
-2. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com/vpc-ext){: external}, 
+2. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com/vpc-ext){: external},
 navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Custom Images**.
-3. Click **Create**. 
+3. Click **Create**.
 4. Complete the required fields described in Table 1 and click **Create Custom Image**.
 
 | Field | Value |
@@ -78,23 +78,23 @@ navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastr
 ## Validating a custom image after importing (Beta)
 {: #validate-custom images}
 
-After you import a custom image, you can view the checksum that's generated for the image when it is imported to {{site.data.keyword.vpc_short}}. If you generate a checksum locally for your image before importing it, you can compare the two checksums to ensure that they are identical. Matching checksums indicate that the image is unaltered. 
+After you import a custom image, you can view the checksum that's generated for the image when it is imported to {{site.data.keyword.vpc_short}}. If you generate a checksum locally for your image before importing it, you can compare the two checksums to ensure that they are identical. Matching checksums indicate that the image is unaltered.
 
-The checksum feature is currently in beta. 
+The checksum feature is currently in beta.
 {:beta}
 
-1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com/vpc-ext){: external}, 
+1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com/vpc-ext){: external},
 navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Custom Images**.
-2. From your list of custom images, click the name of the custom image that you want to validate. 
-3. In the image details side panel that displays, locate the **Checksum (SHA256)** field. You'll see content similar to, *6809606da67eb83670e6249e54e94043eb43c0471669fb96ea4050c4c07e2df7*. 
-4. Compare the Checksum (SHA256) value to the output that is generated when you calculate a checksum for the image locally. For more information, see [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images). 
+2. From your list of custom images, click the name of the custom image that you want to validate.
+3. In the image details side panel that displays, locate the **Checksum (SHA256)** field. You'll see content similar to, *6809606da67eb83670e6249e54e94043eb43c0471669fb96ea4050c4c07e2df7*.
+4. Compare the Checksum (SHA256) value to the output that is generated when you calculate a checksum for the image locally. For more information, see [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images).
 
 ## Managing custom images
 {: #managing-custom images}
 
-After you import custom images, you can deploy and manage them from the Custom images page. 
+After you import custom images, you can deploy and manage them from the Custom images page.
 
 You can manage an image by using the {{site.data.keyword.cloud_notm}} console.
-1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com/vpc-ext){: external}, 
+1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com/vpc-ext){: external},
 navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Custom Images**.
 2. From your list of custom images, you can click **...** and select from the available options. Encrypted custom images are identified by a lock icon after the image name.
