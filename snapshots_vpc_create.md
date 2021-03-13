@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-03-05"
+lastupdated: "2021-03-12"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 subcollection: vpc
@@ -25,7 +25,7 @@ subcollection: vpc
 Using the UI, CLI, or API, you can create a snapshot of a {{site.data.keyword.block_storage_is_short}} volume that is attached to a virtual server instance. You can create a snapshot of a boot or data volume.
 {:shortdesc}
 
-This beta feature is available only to accounts with special approval.
+Snapshots for VPC is available only to accounts with special approval to preview this beta feature. 
 {:beta}
 
 ## Create a snapshot by using the UI
@@ -33,7 +33,12 @@ This beta feature is available only to accounts with special approval.
 
 In the UI, you can create a snapshot of a {{site.data.keyword.block_storage_is_short}} volume that's attached to a running virtual server instance. 
 
-Follow these steps:
+The snapshots UI is available only in these regions:  Sydney (au-syd), France (eu-fr2), and Japan (jp-osa).
+
+### Create a snapshot from the list of snapshots
+{: #snapshots-vpc-create-from-list}
+
+Follow these steps to create a snapshot from the list of snapshots.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Snapshots**.
 
@@ -54,6 +59,23 @@ Follow these steps:
 | Region | The default region for the volume that you selected. |
 | Encryption | Encryption information for the volume you selected, either IBM-managed or customer-managed. The snapshot inherits the encryption of the source volume. You can't change the encryption type.
 {: caption="Table 1. Selections for creating a snapshot" caption-side="top"}
+
+### Create a snapshot from the list of block storage volumes
+{: #snapshots-vpc-create-from-volume-list}
+
+Follow these steps to create a snapshot from the list of block storage volumes. 
+
+1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
+
+  Be sure to select VPC infrastructure from the Menu icon. If necessary, click the *Switch to Gen 2 compute* link in the top banner to ensure you are creating generation 2 resources.  
+  {: tip}
+
+1. From the list of volumes, locate a boot or data volume attached to an instance.
+
+1. Click the overflow menu (...) and select  **Create snapshot**.
+
+1.  On the snapshots list page, messages display while snapshot is being created. When ready, the snapshot displays first in the list of snapshots. You can then [view details of your snapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui).
+
 
 ## Gathering information to create a snapshot by using the CLI
 {: #gather-info-to-create-virtual-servers-cli}
