@@ -34,6 +34,7 @@ Snapshots for VPC is available only to accounts with special approval to preview
 In the UI, you can create a snapshot of a {{site.data.keyword.block_storage_is_short}} volume that's attached to a running virtual server instance. 
 
 The snapshots UI is available only in these regions:  Sydney (au-syd), France (eu-fr2), and Japan (jp-osa).
+{:note}
 
 ### Create a snapshot from the list of snapshots
 {: #snapshots-vpc-create-from-list}
