@@ -75,12 +75,12 @@ Where:
 ### Command examples
 {: #command-examples-vpn-create-ike-policy}
 
-- Create an IKE policy using MD5 authentication and AES 128 encryption:<br />
-   - `ibmcloud is ike-policy-create my-ike-policy md5 2 aes128 2`
-- Create an IKE policy with the same parameters and a 28000-seconds lifetime:<br />
-   - `ibmcloud is ike-policy-create my-ike-policy md5 2 aes128 2 --key-lifetime 28000`
-- Create an IKE policy with the same parameters and a resource group ID:<br />
-   - `ibmcloud is ike-policy-create my-ike-policy md5 2 aes128 2 --resource-group-id fee82deba12e4c0fb69c3b09d1f12345 --output JSON`
+- Create an IPsec policy using MD5 authentication, AES 128 encryption, and PFS with DH Group 2:<br />
+   - `ibmcloud is ipsec-policy-create my-ipsec-policy md5 aes128 group_2`
+- Create an IPsec policy with the same parameters and a 3600-seconds lifetime:<br />
+   - `ibmcloud is ipsec-policy-create my-ipsec-policy md5 aes128 group_2 --key-lifetime 3600`
+- CCreate an IPsec policy with the same parameters and a resource group ID:<br />
+   - `ibmcloud is ipsec-policy-create my-ipsec-policy md5 aes128 group_2 --resource-group-id fee82deba12e4c0fb69c3b09d1f12345 --output JSON`
 
 ## Creating an IKE policy using the API
 {: #vpn-using-api-create-ike-policy}
