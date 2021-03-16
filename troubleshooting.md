@@ -108,6 +108,7 @@ For more information, see [Deleting a VPC](/docs/vpc?topic=vpc-deleting).
 Usually, when the Trace ID is blank, it is because the JSON returned doesn't match what is expected from the API. Try running the command `RIAAS_DEBUG=yes ibmcloud is server-rm 3fb7c1eb-45fd-4c85-962e-617f216e7393` (substitute your correct server ID token) and check the output.
 
 ## How to manually enable nested virtualization on a virtual server instance?
+{: #troubleshoot-enable-nested-virtualization}
 
 Nested virtualization on virtual server instances is disabled by default for now. But you can try enabling it manually by taking the following steps.
 
