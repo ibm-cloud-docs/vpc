@@ -76,6 +76,7 @@ When you provision virtual server instances and dedicated hosts, the vCPU and RA
 |--------|-----|
 |Security groups|25 per VPC|  
 |Rules|25 per security group|   
+|Remote rules |5 per security group|
 |Network interfaces|1000 per security group|    
 {: caption="Table 4. Quotas for security groups" caption-side="top"}
 
