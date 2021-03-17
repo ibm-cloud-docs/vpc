@@ -37,7 +37,8 @@ subcollection: vpc
 * Global Tagging: [Endpoint URLs](https://{DomainName}/apidocs/tagging#endpoint-url)
 * {{site.data.keyword.hscrypto}} ([Instructions](/docs/hs-crypto?topic=hs-crypto-virtual-private-endpoints-for-vpc))
 * IAM Access Groups: [Endpoint URLs](https://{DomainName}/apidocs/iam-access-groups#endpoint-urls)
-* IAM Identity Services: [Endpoint URLs](https://{DomainName}/apidocs/iam-identity-token-api#endpoints) 
+* IAM Identity Services: [Endpoint URLs](https://{DomainName}/apidocs/iam-identity-token-api#endpoints)
+* IAM Policy Management: [Endpoint URLs](https://{DomainName}/apidocs/iam-policy-management#endpoint-urls) 
 * Key Protect ([Instructions](/docs/key-protect?topic=key-protect-virtual-private-endpoints))
 * Network Time Protocol
 * Resource Manager: [Endpoint URLs](https://{DomainName}/apidocs/resource-controller/resource-manager#endpoint-urls)
