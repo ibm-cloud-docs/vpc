@@ -110,7 +110,7 @@ When you create an instance template, validation steps are performed to ensure t
 An instance group is a collection of like virtual server instances. You define how many instances to maintain in the group. 
 You can set a static number of instances or choose to dynamically scale instances according to your requirements.
 
-If you want to include a load balancer for your instance group to balance incoming requests across instances, you must create the load balancer before you create the instance group. For more information, see [About application load balancers](/docs/vpc?topic=vpc-load-balancers) and [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancer). For more information about health checks for load balancer pools, see [Working with health checks](/docs/vpc?topic=vpc-alb-health-checks).
+If you want to include a load balancer for your instance group to balance incoming requests across instances and configure specific health checks, you must create the load balancer before you create the instance group. For more information, see [About application load balancers](/docs/vpc?topic=vpc-load-balancers) and [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancer). For more information about health checks for load balancer pools, see [Working with health checks](/docs/vpc?topic=vpc-alb-health-checks).
 {:important}
 
 1. Make sure that you have the required IBM {{site.data.keyword.iamshort}} (IAM) permissions to create an instance group. For more information, see [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls). 
@@ -334,7 +334,7 @@ When you create an instance template, validation steps are performed that ensure
 
 Once you have your instance template in hand, your next step is to create an instance group. Before you can run the `instance-group-create` command, you must specify a name for the instance group and determine values for the command options, such as what instance template you want to use.  
 
-If you want to include a load balancer for your instance group to balance incoming requests across instances, you must create the load balancer before you create the instance group. For more information, see [About application load balancers](/docs/vpc?topic=vpc-load-balancers) and [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancer). For more information about health checks for load balancer pools, see [Working with health checks](/docs/vpc?topic=vpc-alb-health-checks).
+If you want to include a load balancer for your instance group to balance incoming requests across instances and configure specific health checks, you must create the load balancer before you create the instance group. For more information, see [About application load balancers](/docs/vpc?topic=vpc-load-balancers) and [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancer). For more information about health checks for load balancer pools, see [Working with health checks](/docs/vpc?topic=vpc-alb-health-checks).
 {:important}
 
 Gather the following information.
