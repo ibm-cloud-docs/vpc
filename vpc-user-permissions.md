@@ -140,13 +140,13 @@ Because floating IP resources and the boot volume that's automatically attached 
 
 | Access group | Resource group |  Resource type | Platform access role|  Service access role |
 |--------------------------|------------------------|----------------------------------------------------------------|--------------------------|------------------------|-----------------------------------------------------------------|
-|test_team_manage_vpcs|Default|Block Storage for VPC| Editor|
-|test_team_manage_vpcs|Default|Floating IP for VPC| Editor|
+|test_team_manage_vpcs|Default|Block Storage for VPC| Editor|      |
+|test_team_manage_vpcs|Default|Floating IP for VPC| Editor|      |
 {: caption="Table 1. Access policies for the default resource group" caption-side="top"}
 
 Repeat the previous steps to add access policies for the remaining three access groups.
 
-| Access group | Resource group |  Resource type | Platform access role|
+| Access group | Resource group |  Resource type | Platform access role|  Service access role |
 |--------------------------|------------------------|----------------------------------------------------------------|--------------------------|------------------------|-----------------------------------------------------------------|
 |test_team_view_vpcs|test_team| All resource types| Viewer|      |
 |test_team_view_vpcs|Default| Block Storage for VPC| Viewer|      |
