@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020 
-lastupdated: "2020-09-16"
+  years: 2020, 2021 
+lastupdated: "2021-03-17"
 
 keywords: auto scale, autoscale, virtual server instance, creating, UI, console
 
@@ -51,7 +51,9 @@ Based on this calculation, the instance group manager rounds **4.29** up to **5*
 
 ![Image showing an instance being added to an instance group](images/VPC_Autoscaling_Docs.png "Image showing an instance being added to an instance group after computation"){: caption="Figure 1. Auto scale instance group adds new instance" caption-side="bottom"}
 
-When an instance group scales up to create an instance, a subnet is selected randomly from the subnets that are defined for the instance group. When an instance group scales down to remove instances, it uses a first in first out (FIFO) strategy. The oldest instances are deleted first.
+When an instance group scales up to create an instance, a subnet is selected randomly from the subnets that are defined for the instance group. When an instance group scales down to remove instances, it uses a first in first out (FIFO) strategy. The oldest instances are deleted first. If at any time an instance in the instance group fails, it is replaced with a new, healthy instance.
+
+You have the option to configure your instance group with a load balancer to balance incoming requests across instances. With a load balancer you can configure specific health checks for the pool members that are associated with instances in your instance group. If an instance fails health checks, a new instance is created in the instance group to replace the failed membership. When the new instance is available, the instance that failed health checks is deleted. 
 
 
 ## Setting up auto scale with the UI
@@ -108,7 +110,7 @@ When you create an instance template, validation steps are performed to ensure t
 An instance group is a collection of like virtual server instances. You define how many instances to maintain in the group. 
 You can set a static number of instances or choose to dynamically scale instances according to your requirements.
 
-If you want to include a load balancer for your instance group to balance incoming requests across instances, you must create the load balancer before you create the instance group. For more information, see [About application load balancers](/docs/vpc?topic=vpc-load-balancers). 
+If you want to include a load balancer for your instance group to balance incoming requests across instances, you must create the load balancer before you create the instance group. For more information, see [About application load balancers](/docs/vpc?topic=vpc-load-balancers) and [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancer). For more information about health checks for load balancer pools, see [Working with health checks](/docs/vpc?topic=vpc-alb-health-checks).
 {:important}
 
 1. Make sure that you have the required IBM {{site.data.keyword.iamshort}} (IAM) permissions to create an instance group. For more information, see [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls). 
@@ -152,7 +154,6 @@ You can create an instance group in your {{site.data.keyword.vpc_short}} to auto
 {: #before-cli-tutorial}
 
 Make sure that you set up your [{{site.data.keyword.cloud}} CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup) and your [{{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
-
 {:important}
 
 To create an auto scale instance group using the CLI, you must complete the following tasks:
@@ -333,7 +334,7 @@ When you create an instance template, validation steps are performed that ensure
 
 Once you have your instance template in hand, your next step is to create an instance group. Before you can run the `instance-group-create` command, you must specify a name for the instance group and determine values for the command options, such as what instance template you want to use.  
 
-If you want to include a load balancer for your instance group to balance incoming requests across instances, you must create the load balancer before you create the instance group. For more information, see [About application load balancers](/docs/vpc?topic=vpc-load-balancers). 
+If you want to include a load balancer for your instance group to balance incoming requests across instances, you must create the load balancer before you create the instance group. For more information, see [About application load balancers](/docs/vpc?topic=vpc-load-balancers) and [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancer). For more information about health checks for load balancer pools, see [Working with health checks](/docs/vpc?topic=vpc-alb-health-checks).
 {:important}
 
 Gather the following information.
