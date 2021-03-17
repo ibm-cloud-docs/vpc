@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-08-31"
+  years: 2020, 2021
+lastupdated: "2021-03-17"
 
 subcollection: vpc
 
@@ -115,4 +115,4 @@ You can update all of the instances in an instance group by deleting the existin
 {: #faq-auto-scale-11}
 {: faq}
 
-You can add health checking by associating a load balancer when you create your instance group. For more information about load balancers, see [About IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancers). For more information about creating a load balancer, a load balancer pool, and configuring health checks, see [Creating an application load balancer](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#load-balancer), and [Integrating a load balancer with instance groups](/docs/vpc?topic=vpc-lbaas-integration-with-instance-groups).
+You can add health checking by associating a load balancer when you create your instance group. For more information about load balancers, see [About IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancers). For more information about creating a load balancer, a load balancer pool, and configuring health checks, see [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancer). For additional information, see [Integrating a load balancer with instance groups](/docs/vpc?topic=vpc-lbaas-integration-with-instance-groups) and [Working with health checks](/docs/vpc?topic=vpc-alb-health-checks).
