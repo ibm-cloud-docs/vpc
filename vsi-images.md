@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-12"
+lastupdated: "2021-03-17"
 
 keywords: image, stock image, custom image, virtual private cloud, virtual server, power, generation 2, gen 2
 
@@ -39,14 +39,12 @@ The following operating systems are available as stock images when you create a 
 * Ubuntu 16.04, 18.04
 * Windows 2012, 2012 R2, 2016 -->
 
-| Image | Architectures | Notes |
-|---------|---------|---------|
-| CentOS 7.x, 8.x | x86-64 | |
-| Debian 9.x, 10.x | x86-64 | |
-| Red Hat Enterprise Linux 7.x, 8 | x86-64 |  |
-| Ubuntu 16.04.x | x86-64 | <!--"xenial xerus"--> |
-| Ubuntu 18.04.x | x86-64 |   |
-| Ubuntu 20.04.x | x86-64 |   |
+| Image | Architectures | 
+|---------|---------|
+| CentOS 7.x, 8.x | x86-64 |
+| Debian 9.x, 10.x | x86-64 | 
+| Red Hat Enterprise Linux 7.x, 8.x | x86-64 |
+| Ubuntu 16.04.x, 18.04.x, 20.04.x | x86-64 | 
 | Windows 2012, 2012 R2, 2016, 2019 | x86-64 |  |
 {: caption="Table 1. Stock boot images provided" caption-side="top"}
 
