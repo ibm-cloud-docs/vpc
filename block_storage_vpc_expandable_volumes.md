@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-23"
+  years: 2020, 2021
+lastupdated: "2021-03-17"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -23,10 +23,10 @@ subcollection: vpc
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Expanding block storage volume capacity (Beta)
+# Expanding block storage volume capacity (beta)
 {: #expanding-block-storage-volumes}
 
-For {{site.data.keyword.block_storage_is_short}} volumes, you create and attach to a virtual server instance on Gen 2 Compute resources, you can expand the size of your data volumes. You indicate capacity in GB increments up to 16,000 GB capacity, depending on your volume profile. This process doesn't require you to perform manual steps. For example, you don't need to migrate your data to a larger volume. There's no outage or lack of access to the storage while the volume is being resized.
+For {{site.data.keyword.block_storage_is_short}} volumes, when you create and attach to a virtual server instance on Gen 2 Compute resources, you can expand the size of your data volumes. You indicate capacity in GB increments up to 16,000 GB capacity, depending on your volume profile. This process doesn't require you to perform manual steps. For example, you don't need to migrate your data to a larger volume. There's no outage or lack of access to the storage while the volume is being resized.
 {:shortdesc}
 
 Billing for the volume is automatically updated to add the pro-rated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
