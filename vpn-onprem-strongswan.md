@@ -30,6 +30,9 @@ You can use {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_short}} to s
 
 These instructions are based on Linux strongSwan U5.3.5/K4.4.0-133-generic.
 
+Read [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before continuing to connect to your on-premises peer. 
+{:note}
+
 Go to the **/etc** directory and create a new custom tunnel configuration file with a name such as `ipsec.abc.conf`. Edit the `/etc/ipsec.conf` file to include the new `ipsec.abc.conf` file by adding the following line:
 
 ```
@@ -43,7 +46,6 @@ To support these functions, the following general configuration steps must be pe
 
 * Define the Phase 1 parameters that the strongSwan requires to authenticate {{site.data.keyword.vpn_vpc_short}} and establish a secure connection.
 * Define the Phase 2 parameters that the strongSwan requires to create a VPN tunnel with {{site.data.keyword.vpn_vpc_short}}.
-
 
 ## Connecting an IBM policy-based VPN to a strongSwan peer
 {: #strongswan-config-policy-based}

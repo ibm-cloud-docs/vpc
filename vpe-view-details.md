@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-10-30"
+  years: 2020, 2021
+lastupdated: "2021-03-15"
 
 keywords: virtual private endpoints, view details, VPE, endpoint gateway
 subcollection: vpc
@@ -24,6 +24,9 @@ subcollection: vpc
 {:term: .term}
 {:generic: data-hd-programlang="generic"}
 {:download: .download}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Viewing details of an endpoint gateway
 {: #vpe-viewing-details-of-an-endpoint-gateway}
@@ -35,6 +38,7 @@ Only services that support Virtual Private Endpoints for VPC show up in the list
 {: note}
 
 ## Viewing details of an endpoint gateway using the UI
+{: ui}
 
 To view details of an endpoint gateway by using the {{site.data.keyword.cloud}} console, follow these steps:
 
@@ -74,6 +78,7 @@ The Reserved IPs table shows all bound, reserved IPs to this endpoint gateway. D
 
 ## Viewing details of an endpoint gateway using the CLI
 {: #vpe-viewing-details-cli}
+{: cli}
 
 To view details of an endpoint gateway by using the CLI, enter the following command:
 
@@ -88,6 +93,7 @@ Where:
 
 ## Viewing details of an endpoint gateway using the API
 {: #vpe-viewing-details-api}
+{: api}
 
 To view details of an endpoint gateway by using the API, follow these steps:
 

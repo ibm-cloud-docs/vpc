@@ -20,6 +20,9 @@ subcollection: vpc
 {:note: .note}
 {:table: .aria-labeledby="caption"}
 {:download: .download}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 
 # Creating an IPsec policy
@@ -30,6 +33,7 @@ You can use custom IPsec policies to define security parameters to use during Ph
 
 ## Creating an IPsec policy using the UI
 {: #vpn-using-ui-create-ipsec-policy}
+{: ui}
 
 To create an IPsec policy by using the UI, follow these steps:
 
@@ -49,6 +53,7 @@ To create an IPsec policy by using the UI, follow these steps:
 
 ## Creating an IPsec policy using the CLI
 {: #vpn-using-cli-create-ipsec-policy}
+{: cli}
 
 To create an IPsec policy by using the CLI, enter the following command:
 
@@ -84,6 +89,7 @@ Where:
 
 ## Creating an IPsec policy using the API
 {: #vpn-using-api-create-ipsec-policy}
+{: api}
 
 To create an IPsec policy by using the API, follow these steps:
 

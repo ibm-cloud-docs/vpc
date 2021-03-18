@@ -20,6 +20,9 @@ subcollection: vpc
 {:note: .note}
 {:table: .aria-labeledby="caption"}
 {:download: .download}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Creating an IKE policy
 {: #creating-ike-policy}
@@ -29,6 +32,7 @@ You can use custom Internet Key Exchange (IKE) policies to define security param
 
 ## Creating an IKE policy using the UI
 {: #vpn-using-ui-create-ike-policy}
+{: ui}
 
 To create an IKE policy using the UI, follow these steps:
 
@@ -48,6 +52,7 @@ To create an IKE policy using the UI, follow these steps:
 
 ## Creating an IKE policy using the CLI
 {: #vpn-using-cli-create-ike-policy}
+{: cli}
 
 To create an IKE policy using the CLI, enter the following command:
 
@@ -84,6 +89,7 @@ Where:
 
 ## Creating an IKE policy using the API
 {: #vpn-using-api-create-ike-policy}
+{: api}
 
 To create an IKE policy using the API, follow these steps:
 

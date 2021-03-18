@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2020-02-28"
+lastupdated: "2021-02-28"
 
 keywords: virtual private endpoint, FAQs, VPE, endpoint gateway
 

@@ -20,6 +20,9 @@ subcollection: vpc
 {:note: .note}
 {:table: .aria-labeledby="caption"}
 {:download: .download}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Adding connections to a VPN gateway
 {: #vpn-adding-connections}
@@ -32,6 +35,7 @@ The IKE Phase 1 and Phase 2 (IPsec) security options that you specify for the co
 
 ## Adding a connection using the UI
 {: #vpn-using-ui-add-connection}
+{: ui}
 
 To add a VPN connection to an existing VPN gateway, follow these steps:
 
@@ -52,6 +56,7 @@ To add a VPN connection to an existing VPN gateway, follow these steps:
 
 ## Adding a connection using the CLI
 {: #vpn-using-cli-add-connection}
+{: cli}
 
 To create a VPN connection by using the CLI, enter the following command:
 
@@ -94,6 +99,7 @@ Where:
 
 ## Adding a connection using the API
 {: #vpn-using-api-add-connection}
+{: api}
 
 
 To create a VPN connection by using the API, follow these steps:

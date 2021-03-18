@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-10-30"
+  years: 2020, 2021
+lastupdated: "2021-03-15"
 
 keywords: virtual private endpoints, bind, unbind, reserved IP, VPE, endpoint gateways
 
@@ -25,6 +25,9 @@ subcollection: vpc
 {:term: .term}
 {:generic: data-hd-programlang="generic"}
 {:download: .download}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Binding and unbinding a reserved IP address
 {: #bind-unbind-reserved-ip}
@@ -36,6 +39,7 @@ You can bind and unbind a reserved IP address to an endpoint gateway by using th
 
 ## Using the UI
 {: #bind-reserved-ip-ui}
+{: ui}
 
 You can bind or unbind a reserved IP address to an endpoint gateway by using the UI.
 
@@ -72,6 +76,7 @@ To unbind an IP address by using the IBM Cloud console, follow these steps:
 
 ## Using the CLI
 {: #vpe-binding-unbinding-endpoint-gateway-cli}
+{: cli}
 
 You can bind or unbind a reserved IP address using the CLI.
 
@@ -109,6 +114,7 @@ Where:
 
 ## Using the API
 {: #vpe-bind-unbind-api}
+{: api}
 
 To bind or unbind a reserved IP address using the API, perform the following prerequisites and procedures.
 

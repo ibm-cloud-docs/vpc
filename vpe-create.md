@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-10-30"
+  years: 2020, 2021
+lastupdated: "2021-03-15"
 
-keywords: virtual private endpoints, vpe, endpoint gateway
+keywords: virtual private endpoints, VPE, endpoint gateway
 
 subcollection: vpc
 ---
@@ -24,6 +24,9 @@ subcollection: vpc
 {:DomainName: data-hd-keyref="DomainName"}
 {:help: data-hd-content-type='help'}
 {:support: data-reuse='support'}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Creating an endpoint gateway
 {: #ordering-endpoint-gateway}
@@ -42,10 +45,11 @@ Prior to creating an endpoint gateway, ensure that you review [Planning for virt
   * A subnet in at least one availability zone if you intend on binding an IP address at the same time you provision the endpoint gateway
   * An instance of the service
   * Appropriate [IAM permissions](/docs/vpc?topic=vpc-vpe-iam) to create an endpoint gateway, create or bind a reserved IP, and view or list the target service
-  * Verification that the service you are configuring supports VPE 
+  * Verification that the service you are configuring supports VPE  
 
 ## Creating an endpoint gateway using the UI
 {: #vpe-creating-ui}
+{: ui}
 
 To create an endpoint gateway by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
 {: shortdesc}
@@ -76,6 +80,7 @@ To create an endpoint gateway by using the {{site.data.keyword.cloud_notm}} cons
 
 ## Creating an endpoint gateway using the CLI
 {: #vpe-ordering-cli}
+{: cli}
 
 To create an endpoint gateway by using the CLI, follow these steps:
 
@@ -109,6 +114,7 @@ Where:
 
 ## Creating an endpoint gateway using the API
 {: #vpe-ordering-api}
+{: api}
 
 To create an endpoint gateway by using the API, follow these steps:
 
@@ -152,11 +158,11 @@ To create an endpoint gateway by using the API, follow these steps:
       "$vpc_api_endpoint/v1/endpoint_gateways?version=$api_version&generation=2" \
       -d {  
       "name": endpoint-gateway-1",  
-      "vpc": {"id":"'$VpcId'"}, 
-      "target": { 
-      "crn": "$TargetCrn", 
-      "resource_type": "provider_cloud_service" 
-      }, 
+      "vpc": {"id":"'$VpcId'"},
+      "target": {
+      "crn": "$TargetCrn",
+      "resource_type": "provider_cloud_service"
+      },
       }'
       ```
       {: codeblock}
@@ -166,20 +172,20 @@ To create an endpoint gateway by using the API, follow these steps:
       ```sh
       curl -X POST -sH "Authorization:${iam_token}" \
       "$vpc_api_endpoint/v1/endpoint_gateways?version=$api_version&generation=2" \
-      -d { 
-      "name": endpoint-gateway-1", 
-      "vpc": {"id":"'$VpcId'"}, 
-      "target": { 
-      "crn": "$TargetCrn", 
-      "resource_type": "provider_cloud_service" 
-      }, 
-      "ips": [ 
-      {"subnet": { "id": "$SubnetId" } } 
-      ], 
+      -d {
+      "name": endpoint-gateway-1",
+      "vpc": {"id":"'$VpcId'"},
+      "target": {
+      "crn": "$TargetCrn",
+      "resource_type": "provider_cloud_service"
+      },
+      "ips": [
+      {"subnet": { "id": "$SubnetId" } }
+      ],
       }'
       ```
       {: codeblock}
-      
+
 ## Next steps
 {: #next-steps-create}
 

@@ -20,6 +20,9 @@ subcollection: vpc
 {:table: .aria-labeledby="caption"}
 {:download: .download}
 {:external: target="_blank" .external}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Creating a VPN gateway
 {: #vpn-create-gateway}
@@ -40,6 +43,7 @@ Review the following considerations before creating a VPN gateway:
 
 ## Creating a VPN gateway using the UI
 {: #vpn-create-ui}
+{: ui}
 
 To create a VPN gateway using the UI:
 
@@ -81,6 +85,7 @@ To create a VPN gateway using the UI:
 
 ## Creating a VPN gateway using the CLI
 {: #vpn-create-cli}
+{: cli}
 
 To create a VPN gateway by using the CLI, enter the following command:
 
@@ -114,6 +119,7 @@ Where:
 
 ## Creating a VPN gateway using the API
 {: #vpn-create-api}
+{: api}
 
 To create a policy-based {{site.data.keyword.vpn_vpc_short}} by using the API, follow these steps:
 

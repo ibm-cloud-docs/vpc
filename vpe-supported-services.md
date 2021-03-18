@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-16"
+lastupdated: "2021-03-17"
 
 keywords: virtual private endpoints, endpoint gateway, VPE
 subcollection: vpc
@@ -26,6 +26,7 @@ subcollection: vpc
 {: shortdesc}
 
 * Cloud Object Storage
+* {{site.data.keyword.registryshort_notm}} ([Instructions](/docs/Registry?topic=Registry-registry_vpe))
 * Databases ([Instructions](/docs/cloud-databases?topic=cloud-databases-vpes))
 * Direct Link (2.0) ([Instructions](/docs/dl?topic=dl-vpe-for-ibm-cloud-direct-link))
 * DNS Services ([Instructions](/docs/dns-svcs?topic=dns-svcs-vpe-for-dns-svcs#vpe-for-dns-svcs))

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-10-30"
+  years: 2020, 2021
+lastupdated: "2021-03-15"
 
 keywords: virtual private endpoints, list, VPE, endpoint gateway
 
@@ -25,6 +25,10 @@ subcollection: vpc
 {:term: .term}
 {:generic: data-hd-programlang="generic"}
 {:download: .download}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
+
 
 # Listing endpoint gateways in the region
 {: #vpe-listing-endpoint-gateways}
@@ -34,6 +38,7 @@ You can list all virtual private endpoint gateways in the region by using the UI
 
 ## Listing endpoint gateways using the UI
 {: #vpe-listing-endpoint-gateways-ui}
+{: ui}
 
 To list all endpoint gateways by using the {{site.data.keyword.cloud_notm}} console:
 
@@ -45,6 +50,7 @@ The Virtual private endpoint gateways for VPC page appears. Use this table to vi
 
 ## Listing endpoint gateways using the CLI
 {: #vpe-listing-endpoint-gateways-cli}
+{: cli}
 
 To list all endpoint gateways in the region by using the CLI, run the following command:
 
@@ -61,6 +67,7 @@ Where:
 
 ## Listing endpoint gateways using the API
 {: #vpe-listing-endpoint-gateways-api}
+{: api}
 
 To list endpoint gateways by using the API, follow these steps:
 
