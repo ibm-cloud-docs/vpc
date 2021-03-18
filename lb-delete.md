@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-08-31"
+  years: 2020, 2021
+lastupdated: "2021-03-15"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, delete
 
@@ -24,6 +24,9 @@ subcollection: vpc
 {:generic: data-hd-programlang="generic"}
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Deleting an {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}}
 {: #alb-deleting}
@@ -31,8 +34,9 @@ subcollection: vpc
 You can delete an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) by using the UI, CLI, or API.
 {: shortdesc}
 
-## Using the UI
+## Deleting an application load balancer using the UI
 {: #alb-deleting-ui}
+{: ui}
 
 To delete an ALB by using the IBM Cloud console, perform the following procedure:
 
@@ -43,8 +47,9 @@ To delete an ALB by using the IBM Cloud console, perform the following procedure
 
 The Status for the load balancer now shows **Deleting**. Refresh the page to confirm that the load balancer was deleted.
 
-## Using the CLI
+## Deleting an application load balancer using the CLI
 {: #alb-deleting-cli}
+{: cli}
 
 To delete an ALB by using the CLI, run the following command:
 
@@ -69,8 +74,9 @@ Deletion request for load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 has
 ```
 {: screen}
 
-## Using the API
+## Deleting an application load balancer using the API
 {: #alb-deleting-api}
+{: api}
 
 To delete an ALB by using the API, perform the following procedure:
 

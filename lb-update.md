@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-08-31"
+  years: 2020, 2021
+lastupdated: "2021-03-15"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, update
 
@@ -24,14 +24,18 @@ subcollection: vpc
 {:generic: data-hd-programlang="generic"}
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Updating an {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}}
 {: #alb-updating}
 
 You can update an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) using the UI, CLI or API.
 
-## Using the UI
+## Updating an application load balancer using the UI
 {: #alb-updating-ui}
+{: ui}
 
 To update an ALB by using the {{site.data.keyword.cloud_notm}} console, perform the following procedure:
 
@@ -45,8 +49,9 @@ To update an ALB by using the {{site.data.keyword.cloud_notm}} console, perform 
 
 You should see that the **Active** button on the top left of your screen now shows as **Updating**. When **Updating** changes back to **Active**, the update is done and the new changes have been applied.
 
-## Using the CLI
+## Updating an application load balancer using the CLI
 {: #alb-updating-cli}
+{: cli}
 
 The following example shows how to use the CLI to update your ALB pool to use the algorithm `least_connections` and the port of the member:
 
@@ -96,8 +101,9 @@ Sample output:
   ```
   {: screen}
 
-## Using the API
+## Updating an application load balancer using the API
 {: #alb-updating-frontend-listener-port-api}
+{: api}
 
 The following example illustrates using the API to update the front-end listener port of an application load balancer. For example, if the front-end listener port was set to 80 and you want to update the port value to 90.
 
