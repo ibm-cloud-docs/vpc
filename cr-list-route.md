@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-30"
+  years: 2020, 2021
+lastupdated: "2021-03-15"
 
 keywords: custom routes
 
@@ -25,6 +25,9 @@ subcollection: vpc
 {:term: .term}
 {:generic: data-hd-programlang="generic"}
 {:download: .download}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Listing routes of a routing table
 {: #list-routes-routing-table}
@@ -34,6 +37,7 @@ You can list the routes of a VPC routing table by using the UI, CLI, or API.
 
 ## Listing routes of a routing table using the UI
 {: #cr-list-using-the-ui}
+{: ui}
 
 To list the routes of a VPC routing table by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
@@ -63,6 +67,7 @@ Descriptions of these columns are as follows:
 
 ## Listing routes of a routing table using the CLI
 {: #cr-view-details-route-using-the-cli}
+{: cli}
 
 To view details of a route by using the CLI, run the following command:
 
@@ -80,6 +85,7 @@ Where:
 
 ## Listing routes of a routing table using the API
 {: #cr-view-details-route-using-the-api}
+{: api}
 
 To view details of a route by using the API, follow these steps:
 

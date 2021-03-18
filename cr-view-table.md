@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-10-30"
+  years: 2020, 2021
+lastupdated: "2021-03-15"
 
 keywords: custom routes
 
@@ -25,6 +25,9 @@ subcollection: vpc
 {:term: .term}
 {:generic: data-hd-programlang="generic"}
 {:download: .download}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Viewing details of a routing table
 {: #view-details-routing-table}
@@ -34,6 +37,7 @@ You can view details of a routing table by using the UI, CLI, or API. From the R
 
 ## Viewing details of a routing table using the UI
 {: #cr-routing-table-using-the-ui}
+{: ui}
 
 To view the details of a routing table by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
@@ -60,6 +64,7 @@ For descriptions of the routing table columns, see [Listing routes of a routing 
 
 ## Viewing details of a routing table using the CLI
 {: #cr-routing-table-using-the-cli}
+{: cli}
 
 To view details of a specific routing table:
 
@@ -89,6 +94,7 @@ Where:
 
 ## Viewing details of a routing table using the API
 {: #cr-routing-table-using-the-api}
+{: api}
 
 To view the details of a routing table by using the API, follow these steps:
 
