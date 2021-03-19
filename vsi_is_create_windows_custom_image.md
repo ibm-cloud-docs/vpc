@@ -54,7 +54,7 @@ Complete the following steps to start creating a Windows custom image.
     ``` 
     {: codeblock}
     
-     Virtual Box doesn't support qcow2 format.
+     IBM Cloud supports custom image import with VHD or qcow2.  However, Virtual Box does not support the qcow2 format.
      {: note}
     
     
