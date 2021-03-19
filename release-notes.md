@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-12"
+lastupdated: "2021-03-19"
 
 keywords: release notes, changes, updates
 
@@ -25,6 +25,11 @@ subcollection: vpc
 
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
+
+## 19 March 2021
+{: #march-19-2021}
+
+**Virtual server instance console**: The virtual server instance console feature has now become generally available in the Dallas, Frankfurt, London, Osaka, and Washington DC regions. For more information, see [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console).
 
 ## 12 March 2021
 {: #march-12-2021}
