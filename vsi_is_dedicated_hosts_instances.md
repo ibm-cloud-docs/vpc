@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021 
-lastupdated: "2021-02-23"
+lastupdated: "2021-03-19"
 
 keywords: vpc dedicated host, dedicated host, dedicated host group 
 
@@ -24,7 +24,7 @@ subcollection: vpc
 # Creating dedicated hosts and groups
 {: #creating-dedicated-hosts-instances}
 
-You can create one or more dedicated hosts with associated dedicated host groups in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console, the CLI, or the API. You can create dedicated hosts in the following locations: Dallas, Washington DC, London, Tokyo, and Osaka. 
+You can create one or more dedicated hosts with associated dedicated host groups in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console, the CLI, or the API. 
 {:shortdesc}
 
 ## Dedicated hosts
