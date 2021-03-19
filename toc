@@ -122,6 +122,7 @@ Virtual Private Cloud (VPC)
         vsi_is_manage_images.md
         vsi_is_byol_about.md
         image-rbac-permissions.md
+        building-custom-os.md
 
     {: .topicgroup}
     Virtual private endpoint gateways
