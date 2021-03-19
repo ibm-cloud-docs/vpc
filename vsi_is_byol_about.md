@@ -89,6 +89,6 @@ After you create a dedicated host, you can create virtual server instances using
 
 For information about creating a Windows custom image, see [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image).
 
-For information on creating dedicated hosts and groups, see [Creating dedicated hosts and groups](./docs/vpc?topic=vpc-creating-dedicated-hosts-instances).
+For information on creating dedicated hosts and groups, see [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances).
 
 For information about importing your BYOL custom image to the VPC, see [Import a custom image](/docs/vpc?topic=vpc-managing-images#import-custom-image).
