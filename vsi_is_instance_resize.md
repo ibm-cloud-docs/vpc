@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-03-05"
+lastupdated: "2021-03-19"
 
 subcollection: virtual-servers
 
@@ -25,7 +25,7 @@ subcollection: virtual-servers
 Instance resize allows you to vertically scale virtual server instances to any supported profile size in minutes. You can increase or decrease the amount of vCPU and RAM available for greater flexibility in workload management to address resource requirement changes, optimize cost or workload performance. 
 {:shortdesc}
 
-Instance resize is only available to accounts with special approval to preview this beta feature. 
+Instance resize is only available to accounts with special approval to preview this beta feature. Contact your IBM Sales representative if you are interested in getting access.
 {:beta}
 
 Virtual servers are configured using profiles, or a combination of instance attributes, such as the number of vCPUs, amount of RAM, network bandwidth, and more that define the size and capabilities of the virtual server instance. 
