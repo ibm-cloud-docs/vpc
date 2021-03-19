@@ -29,7 +29,9 @@ Use the release notes to learn about new and changed {{site.data.keyword.vpc_ful
 ## 19 March 2021
 {: #march-19-2021}
 
-**Virtual server instance console**: The virtual server instance console feature has now become generally available in the Dallas, Frankfurt, London, Osaka, and Washington DC regions. For more information, see [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console).
+- **Virtual server instance console**: The virtual server instance console feature is now generally available in the following regions: Dallas, Frankfurt, London, Osaka, and Washington DC. For more information, see [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console).
+- **Bring you own license (GA)**: You can bring your own license (BYOL) when you import a RedHat Enterprise Linux (RHEL) or Windows custom image to IBM Cloud VPC. Because these images are registered and licensed by you, you maintain control over your licenses and with no additional cost. Acquisition and activation of the license is between you and and the OS vendor. For more information, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about).
+- **Dedicated hosts (GA)**: Dedicated hosts are available in all regions. Use a dedicated host to carve out a single-tenant compute node for {{site.data.keyword.vpc_short}}. For more information, see [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances)
 
 ## 12 March 2021
 {: #march-12-2021}
