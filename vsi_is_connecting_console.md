@@ -36,7 +36,7 @@ It applies to situations where a boot failure or kernel crash occurred, especial
 This feature has become generally available in the Dallas, Frankfurt, London, Osaka, and Washington DC regions. It will be available in the other regions soon.
 {:note}
 
-Limitation for the Beta release: For instances that were created before 2/13/2021, you must stop and re-start (not reboot) the instance before a console can be opened. Opening consoles for instances created after this time doesn't require the above operation.
+For instances that were created before 2/13/2021, you must stop and re-start (not reboot) the instance before a console can be opened. Opening consoles for instances created after this time doesn't require the above operation.
 {:important}
 
 ## Before you begin
