@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-18"
+lastupdated: "2021-03-19"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -48,6 +48,18 @@ Some changes, such as new response properties or new optional request parameters
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+## 19 March 2021
+{: #19-march-2021}
+
+### For all version dates
+{: #19-march-2021-all-version-dates}
+
+**Bring your own license**: You can now [bring your own license](/docs/vpc?topic=vpc-byol-vpc-about) (BYOL) for custom images that you create and import to IBM Cloud VPC. When you import a custom image, you can choose from new `byol` Red Hat Enterprise Linux (RHEL) and Windows operating systems.
+
+A new `dedicated_host_only` property has been added to operating system resources. Any instance with a boot volume created from an image with `operating_system.dedicated_host_only` set to `true` must be placed on a dedicated host (or into a dedicated host group). Because Windows BYOL images have `dedicated_host_only` set to `true`, they must be placed on a dedicated host (or into a dedicated host group). There are no restrictions on placing instances using RHEL BYOL images.
+
+Every operation that returns an `OperatingSystem` resource now includes a `dedicated_host_only` property.
 
 ## 09 March 2021
 {: #09-march-2021}
