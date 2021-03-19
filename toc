@@ -210,6 +210,7 @@ Virtual Private Cloud (VPC)
             lb-sg-integration.md
             lb-datapath-logging.md
             lb-api.md
+            lb-limitations.md
 
         {: .topicgroup}
         Network Load Balancer for VPC
