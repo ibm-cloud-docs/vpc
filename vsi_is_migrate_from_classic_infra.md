@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-09-24"
+  years: 2019, 2021
+lastupdated: "2021-03-09"
 
 keywords: migrate virtual server from classic infrastructure, migrate to vpc, migrate image template, image template, import image to vpc infrastructure, migrate virtual server, migrate instance
 
@@ -24,7 +24,7 @@ subcollection: vpc
 # Migrating a virtual server from the classic infrastructure
 {: #migrate-vsi-to-vpc}
 
-You can migrate a virtual server instance from the classic infrastructure by customizing a backup version of the instance to meet the requirements of the {{site.data.keyword.vpc_short}} infrastructure. Next, create an image template from the instance, and export it to {{site.data.keyword.cos_full}}. After you convert the image to qcow2 format, you can import it to {{site.data.keyword.vpc_short}} and deploy it in the VPC environment. 
+You can migrate a virtual server instance from the classic infrastructure by customizing a backup version of the instance to meet the requirements of the {{site.data.keyword.vpc_short}} infrastructure. Next, create an image template from the instance and deploy it in the VPC environment.
 {:shortdesc}
 
 To complete this task you must have an instance of {{site.data.keyword.cos_full}} available. You must also create an authorization so that the Image Service for VPC can access images in {{site.data.keyword.cos_full_notm}}. For more information, see [Granting access to IBM Cloud Object Storage to import images](/docs/vpc?topic=vpc-object-storage-prereq).
@@ -40,11 +40,10 @@ Here is an overview of the steps:
 1. For the virtual server that you want to migrate to {{site.data.keyword.vpc_short}} infrastructure, create an image template.
 2. From the image template, provision a new virtual server instance, a backup instance.
 3. Customize the backup virtual server instance to ensure that you meet the requirements for deploying in {{site.data.keyword.vpc_short}}.
-4. Create an image template of your modified virtual server instance. 
+4. Create an image template of your modified virtual server instance.
 5. Export the image template to {{site.data.keyword.cos_full_notm}}.
-6. Download the image file from {{site.data.keyword.cos_full_notm}}, then convert VHD file to qcow2 format. After the image is converted to qcow2 format, upload it to {{site.data.keyword.cos_full_notm}}.
-7. Import the custom image to the {{site.data.keyword.vpc_short}} infrastructure.
-8. Use the custom image to create a virtual server instance in {{site.data.keyword.vpc_short}}.
+6. Import the custom image to the {{site.data.keyword.vpc_short}} infrastructure.
+7. Use the custom image to create a virtual server instance in {{site.data.keyword.vpc_short}}.
 
 For an example of using shell scripts to migrate a classic instance to an {{site.data.keyword.vpc_short}} instance, see [Automate the Migration of a Workload Based on Virtual Servers from Classic Infrastructure to VPC](https://www.ibm.com/cloud/blog/automate-the-migration-of-a-workload-based-on-virtual-servers){: external} and [vpc-tutorials](https://github.com/IBM-Cloud/vpc-tutorials/tree/master/vpc-migrate-from-classic){: external}. 
 {: tip}
@@ -52,7 +51,7 @@ For an example of using shell scripts to migrate a classic instance to an {{site
 ### Step 1 - Identify the virtual server instance to migrate and create an image template
 {: #migrate-create-template}
 
-You can create an image template from a virtual server in the classic infrastructure that you want to migrate to the {{site.data.keyword.vpc_short}} infrastructure. The image template captures an image of the existing virtual server so that you can create a new one based on the captured image. Make sure you understand the following information about image templates. 
+You can create an image template from a virtual server in the classic infrastructure that you want to migrate to the {{site.data.keyword.vpc_short}} infrastructure. The image template captures an image of the existing virtual server so that you can create a new one based on the captured image. Make sure you understand the following information about image templates.
 
 * Only image templates with a single primary boot volume (or disk) and associated file can be imported to {{site.data.keyword.vpc_short}} infrastructure. 
 * The image template includes the operating system on the primary boot disk along with items you might have installed, such as PHP or Python, up to 100 GB of data. 
@@ -116,23 +115,13 @@ To export the new image template that you created from the modified virtual serv
 1. Locate the new image template you created on the **Image Templates** page by selecting **Devices > Manage > Images**. 
 2. From the **Image Templates** page, click **...** for the image template that you want to export and select **Export to IBM COS**. For more information, see [Exporting an image to {{site.data.keyword.cos_full_notm}}](/docs/image-templates?topic=image-templates-exporting-an-image-to-ibm-cloud-object-storage).  
 
-### Step 6 - Convert VHD file to qcow2 format
-{: #migrate-convert-image} 
-
-A custom image must be in qcow2 format in the {{site.data.keyword.vpc_short}}. You must convert the classic infrastructure VHD image template to be in qcow2 format. Complete the following steps to download the file from {{site.data.keyword.cos_full_notm}}, convert it from VHD to qcow2 format, and upload it again to {{site.data.keyword.cos_full_notm}}.
-
-1. Download the image file from {{site.data.keyword.cos_full_notm}} to a secure local machine. On the **Objects** page of your {{site.data.keyword.cos_full_notm}} bucket, locate your image, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg), and select **Download**. You can use the Aspera high-speed transfer plug-in to download images larger than 200 MB.
-2. Convert the VHD image file to qcow2 format by using the `qemu-img convert` command. (Make sure that your [QEMU](https://www.qemu.org/){: external} version is at version 2.12 or later.) For example, you can run the following command to convert a VHD image to qcow2 format, `qemu-img convert -f vpc -O qcow2 -o cluster_size=512k <filename>.vhd <filename>.qcow2`
-3. Verify that the qcow2 image is valid by running the following commands: `qemu-img info <filename>.qcow2` and `qemu-img check <filename>.qcow2`. If the commands return no errors, continue to the next step.  
-4. Upload the qcow2 image to {{site.data.keyword.cos_full_notm}}. Make sure that your customized image file has a descriptive name so that you can easily identify it later. On the **Objects** page of your {{site.data.keyword.cos_full_notm}} bucket, click **Upload**. You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB.
-
-### Step 7 - Import the custom image to the {{site.data.keyword.vpc_short}} infrastructure
+### Step 6 - Import the custom image to the {{site.data.keyword.vpc_short}} infrastructure
 {: #migrate-import-image} 
 
 1. In {{site.data.keyword.cloud_notm}} console, navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Custom Images**. 
 2. Click **Import Custom Image**. For more information, see [Importing a custom image](/docs/vpc?topic=vpc-managing-images#import-custom-image).
 
-### Step 8 - Use the custom image to create a virtual server instance in {{site.data.keyword.vpc_short}}
+### Step 7 - Use the custom image to create a virtual server instance in {{site.data.keyword.vpc_short}}
 {: #migrate-create-virtual-server} 
 
 1. When the image that you imported is available on the **Custom Images for VPC** page, you can use it to create a virtual server instance in the {{site.data.keyword.vpc_short}} infrastructure. 
