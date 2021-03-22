@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-19"
+lastupdated: "2021-03-21"
 
 keywords: license, virtual private cloud, BYOL, virtual server instance, instance, custom image, encryption
 subcollection: vpc
@@ -15,12 +15,17 @@ subcollection: vpc
 {:screen: .screen}
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
+{:note: .note}
+{:beta: .beta}
 
 # Bring your own license
 {: #byol-vpc-about}
 
 For RedHat Enterprise Linux (RHEL) and Windows operating systems, you can bring your own license (BYOL) to the IBM Cloud VPC when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. Acquisition and activation of the license is between you and and the OS vendor.
 {:shortdesc}
+
+BYOL is a beta feature that is available for evaluation and testing purposes. Contact your IBM Sales representative if you are interested in getting access.
+{:beta}
 
 ## BYOL concepts
 {: #byol-vpc-concepts}
@@ -59,7 +64,7 @@ For more information about creating and importing Linux custom images, see:
 * [Import a custom image](/docs/vpc?topic=vpc-managing-images#import-custom-image)
 
 ## BYOL for Windows operating systems
-{: #byol-vpc-linux}
+{: #byol-vpc-windows}
 
 You can create a Windows custom image using your own license, upload it to COS, and then import it to the VPC. The Windows BYOL custom image runs on a dedicated host, a single-tenant compute node for privileged users within your account. When you import your BYOL custom image, you select a _BYOL_ operating system from the list of OS versions. Supported Windows versions are:
 
@@ -85,10 +90,12 @@ To see all OS versions from the API, make a`GET /operating_systems` call. In the
 ```
 {:codeblock}
 
-After you create a dedicated host, you can create virtual server instances using a BYOL custom image and your license. 
+After you create a dedicated host, you can create virtual server instances using a BYOL custom image and your license. For the UI procedure, see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
 
 For information about creating a Windows custom image, see [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image).
 
-For information on creating dedicated hosts and groups, see [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances).
+For information on creating dedicated hosts and groups, see [Creating dedicated hosts and groups](./docs/vpc?topic=vpc-creating-dedicated-hosts-instances).
 
 For information about importing your BYOL custom image to the VPC, see [Import a custom image](/docs/vpc?topic=vpc-managing-images#import-custom-image).
+
+For the UI procedure for creating a new instance and specifying a BYOL custom image, see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
