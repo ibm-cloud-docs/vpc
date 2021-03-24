@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-19"
+lastupdated: "2021-03-23"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -48,6 +48,22 @@ Some changes, such as new response properties or new optional request parameters
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
+
+**Load balancer pools.** In an upcoming release, new values will be added to the `session_persistence` enumeration returned by the [load balancer pool](/apidocs/vpc#list-load-balancer-pools) methods. When available, if you use the options made possible by these new values, existing client applications will be exposed to these values. To avoid disruption of client applications, check that they are written to gracefully handle unexpected values for the `session_persistence` property.
+
+## 23 March 2021
+{: #23-march-2021}
+
+### For all version dates
+{: #23-march-2021-all-version-dates}
+ 
+**New parameter-based rule types for an application load balancer.** When creating a load balancer listener policy rule, the `field` property may now be set to `query` or `body` to perform additional forms of layer 7 load balancing: 
+
+   * `query` - Write layer 7 rules that use the query string to route traffic to a specific target. For a `query` type rule, `field` and `value` must be percent-encoded, same as the query string in the URL.
+   * `body` - If the body of the `POST` request uses form encoding (UTF-8), then you can create layer 7 rules to route traffic based on the parameter name and value in the body. The `Content-Type` in the request is ignored.
+
+If you use these new rule types, be aware that existing client applications will be exposed to those new values in the existing  properties. Be sure to check that those client applications are written to gracefully handle unexpected values for these properties prior to using these new rule types for an application load balancer.
+{: important}
 
 ## 19 March 2021
 {: #19-march-2021}
