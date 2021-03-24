@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-11-05"
+  years: 2018, 2021
+lastupdated: "2021-03-23"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, layer-7
 subcollection: vpc
@@ -31,7 +31,7 @@ The following advanced traffic management features are available in {{site.data.
 ## Max connections
 {: #max-connections}
 
-Use the `max connections` configuration to limit the maximum number of concurrent connections for a given front-end virtual port. If you do not configure a value, the default of `2000` concurrent connections is used. The maximum possible concurrent connections for a given front-end virtual port or system-wide across all front-end virtual ports is `15000`.
+Use the `max connections` configuration to limit the maximum number of concurrent connections for a given front-end virtual port. If you do not configure a value, the default of `2000` concurrent connections is used. The maximum concurrent connections for a given front-end virtual port or system-wide across all front-end virtual ports is `15000`.
 
 ## Session persistence
 {: #session-persistence}
@@ -41,24 +41,32 @@ An ALB supports session persistence based on the source IP of the connection. As
 ## HTTP keep alive
 {: #http-keep-alive}
 
-{{site.data.keyword.alb_full}} supports `HTTP keep alive` as long as it is enabled on both the client and back-end servers. The application load balancer attempts to reuse the server-side HTTP connections to increase connection efficiency and reduce latency.
+{{site.data.keyword.alb_full}} supports `HTTP keep alive` when it is enabled on both the client and back-end servers. The application load balancer attempts to reuse the server-side HTTP connections to increase connection efficiency and reduce latency.
+
+## TCP keep alive
+{: #tcp-keep-alive}
+
+{{site.data.keyword.alb_full}} supports `TCP keep alive`. With this setting, the load balancer sends TCP-keep-alive packets to both client and back-end servers every 5 seconds. 
+
+   This is a socket-level packet with no data that is sent to the peer to notify it that the host is alive. As such, it is seen only at the network layer, and not at the application level. This setting also helps to prevent the disconnection of TCP connections by an intermediate proxy or firewall that might have policies that discard connections after a certain period of inactivity.
+   {: note}
 
 ## Connection timeouts
 {: #connection-timeouts}
 
-The following timeout values are used by an ALB. You cannot customize these values at this time.
+The following timeout values are used by an ALB. Currently, you cannot customize these values.
 
 | Name | Description | Timeout |
 | ------------------------------------------ | --------------------------------------------------- | ------------------- |
 | Server-side connection attempt    | The maximum time window that the load balancer can use to establish TCP connection with the back-end server. If the connection attempt is unsuccessful, the load balancer tries the next available server, according to the load-balancing method configured. | 5 seconds   |
-| Client-side idle connection  | The maximum idle time, after which the load balancer brings down the client-side connection, if the client has failed to close its connection properly.| 50 seconds  |
-| Server-side idle connection | The maximum idle time (with back-end protocol configuration of TCP), after which the load balancer closes the server-side connection. With the back-end protocol configuration of HTTP, if the load balancer fails to receive a response to its HTTP request within the idle timeout window, it returns an error message to the end client.                                | 50 seconds |
+| Client-side idle connection  | The maximum idle time after which the load balancer brings down the client-side connection, if the client failed to close its connection properly.| 50 seconds  |
+| Server-side idle connection | The maximum idle time (with back-end protocol configuration of TCP) after which the load balancer closes the server-side connection. With the back-end protocol configuration of HTTP, if the load balancer fails to receive a response to its HTTP request within the idle timeout window, it returns an error message to the end client.                                | 50 seconds |
 {: caption="Table 1. Application load balancer timeout values" caption-side="top"}
 
 ## Preserving end-client IP address (HTTP/HTTPS only)
 {: #preserving-end-client-ip-address}
 
-{{site.data.keyword.alb_full}} works as a reverse proxy, which terminates incoming traffic from the client. The load balancer establishes a separate connection to the back-end server instance, using its own IP address. For HTTP connections with the back-end servers (against front-end HTTP or HTTPS connections), the load balancer preserves the original client IP address by including it inside the `X-Forwarded-For` HTTP header. For TCP connections, the original client IP information is not preserved.
+{{site.data.keyword.alb_full}} works as a reverse proxy, which terminates incoming traffic from the client. The load balancer establishes a separate connection to the back-end server instance by using its own IP address. For HTTP connections with the back-end servers (against front-end HTTP or HTTPS connections), the load balancer preserves the original client IP address by including it inside the `X-Forwarded-For` HTTP header. For TCP connections, the original client IP information is not preserved.
 
 ## Preserving end-client protocol (HTTP/HTTPS only)
 {: #preserving-end-client-protocol}
@@ -77,12 +85,12 @@ Private load balancer enforcement applies for all regions when enabled.
 
 ## HTTP/2 support for clients connecting to HTTPS listeners
 {: #http2-support}
-{{site.data.keyword.alb_full}} uses Application-Layer Protocol Negotiation (ALPN) to negotiate with clients connecting to HTTPS listeners, and supports both HTTP/1.1 and HTTP/2. If the client connecting to the ALB is using HTTP/2, then the ALB also uses HTTP/2 as its preferred protocol, and processes the request to the backend pool. Otherwise, HTTP/1.1 will be chosen by default.
+{{site.data.keyword.alb_full}} uses Application-Layer Protocol Negotiation (ALPN) to negotiate with clients connecting to HTTPS listeners, and supports both HTTP/1.1 and HTTP/2. If the client connecting to the ALB is using HTTP/2, then the ALB also uses HTTP/2 as its preferred protocol, and processes the request to the back-end pool. Otherwise, HTTP/1.1 is chosen by default.
 
 ## Enabling proxy protocol
 {: #proxy-protocol-enablement}
 
-You can enable proxy protocol for TCP, HTTP and HTTPS listeners and back-end pools. Use cases are as follows.
+You can enable proxy protocol for TCP, HTTP, and HTTPS listeners and back-end pools. Use cases are as follows.
 
 ### Use case 1: Client connects to load balancer directly
 {: #client-connects-directly-tcp}
@@ -101,4 +109,6 @@ All back-end members of that pool must support proxy protocol for the data path 
 ![Proxy Protocol Listener](images/VPC-LBaaS-Proxy-Protocol-Listener.png "Proxy Protocol Listener")
 {: caption="Proxy Protocol Listener" caption-side="top"}
 
-If the {{site.data.keyword.alb_full}} is receiving traffic from a proxy (or a proxy chain) that uses proxy protocol, the listener must have proxy protocol enabled so that it can parse the origin client information contained in the proxy protocol headers. This setting is disabled by default, if not specified. Since the load balancer can detect the version of the proxy protocol header and parse it correctly, you don't have to specify which version of proxy protocol is being used to send traffic to the ALB. Note that when proxy protocol is enabled for a front-end listener, all traffic coming to that frontend port is expected to be proxy protocol traffic. If any of the connections do not contain the proper proxy protocol headers, they won't be established. To forward this client information to the back-end server pool, you must enable proxy protocol for the pool. Similar to use case 1, you must select version 1 or version 2 depending on what version of proxy protocol the back-end servers are configured to use. You can also choose to not forward this client information to the back-end servers if they are not capable of processing this information, and this information will be dropped at the load balancer itself.
+If the {{site.data.keyword.alb_full}} is receiving traffic from a proxy (or a proxy chain) that uses proxy protocol, the listener must have proxy protocol that is enabled so that it can parse the origin client information that is contained in the proxy protocol headers. This setting is disabled by default, if not specified. Because the load balancer can detect the version of the proxy protocol header and parse it correctly, you don't have to specify which version of proxy protocol is being used to send traffic to the ALB. 
+
+When proxy protocol is enabled for a front-end listener, all traffic coming to that frontend port is expected to be proxy protocol traffic. If any of the connections do not contain the proper proxy protocol headers, they won't be established. To forward this client information to the back-end server pool, you must enable proxy protocol for the pool. Similar to use case 1, you must select version 1 or version 2 depending on what version of proxy protocol the back-end servers are configured to use. You can also choose to not forward this client information to the back-end servers if they are not capable of processing this information, and this information is dropped at the load balancer.

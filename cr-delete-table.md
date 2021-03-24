@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-30"
+  years: 2020, 2021
+lastupdated: "2020-03-15"
 
 keywords: custom routes
 
@@ -25,6 +25,9 @@ subcollection: vpc
 {:term: .term}
 {:generic: data-hd-programlang="generic"}
 {:download: .download}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Deleting a routing table
 {: #delete-routing-table}
@@ -34,6 +37,7 @@ You can delete a routing table for an IBM Cloud service by using the UI, CLI, or
 
 ## Deleting a routing table using the UI
 {: #cr-delete-table-using-the-ui}
+{: ui}
 
 To delete a routing table by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
@@ -47,6 +51,7 @@ To delete a routing table by using the {{site.data.keyword.cloud_notm}} console,
 
 ## Deleting a routing table using the CLI
 {: #cr-delete-table-using-the-cli}
+{: cli}
 
 To delete a routing table by using the CLI, run the following command:
 
@@ -63,6 +68,7 @@ Where:
 
 ## Deleting a routing table using the API
 {: #cr-delete-table-using-the-api}
+{: api}
 
 To delete a routing table by using the API, follow these steps:
 

@@ -33,7 +33,6 @@ You can begin with an image template from the {{site.data.keyword.cloud_notm}} c
 
 Your image must adhere to the following custom image requirements:
 * Contains a single file or volume 
-* Is in qcow2 format
 * Is cloud-init enabled
 * The operating system is supported as a stock image operating system
 * Size doesn't exceed 100 GB
@@ -41,12 +40,12 @@ Your image must adhere to the following custom image requirements:
 Complete the following steps to ensure that your own Linux custom image can be successfully deployed in the 
 {{site.data.keyword.vpc_short}} infrastructure environment.
 
-## Step 1 - Start with a single image file in qcow2 format
+## Step 1 - Start with a single image file in qcow2 or VHD format
 {: #single-image-qcow2}
 
-If you're creating your own custom Linux-based image, begin with a single image file in qcow2 format. You can convert an image to qcow2 format by using the `qemu-img convert` command. (Make sure that your [QEMU](https://www.qemu.org/){: external} version is at version 2.12 or later.) For example, you can run the following command to convert a VHD image to qcow2 format, `qemu-img convert -f vpc -O qcow2 -o cluster_size=512k <filename>.vhd <filename>.qcow2`
+If you're creating your own custom Linux-based image, begin with a single image file in qcow2 or VHD format.
 
-It might be helpful to begin with a cloud-enabled vendor image. 
+It might be helpful to begin with a cloud-enabled vendor image.
 {: tip}
 
 ## Step 2 - Check kernel arguments

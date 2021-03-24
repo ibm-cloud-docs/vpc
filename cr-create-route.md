@@ -25,6 +25,9 @@ subcollection: vpc
 {:term: .term}
 {:generic: data-hd-programlang="generic"}
 {:download: .download}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Creating a route
 {: #create-vpc-route}
@@ -59,6 +62,7 @@ You can create a route for an IBM Cloud service by using the UI, CLI, or API.
 
 ## Creating a route using the UI
 {: #cr-route-using-the-ui}
+{: ui}
 
 To create a route by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
@@ -86,6 +90,7 @@ To create a route by using the {{site.data.keyword.cloud_notm}} console, follow 
 
 ## Creating a route using the CLI
 {: #cr-route-using-the-cli}
+{: cli}
 
 To create a VPC route by using the CLI, run the following command:
 
@@ -107,6 +112,7 @@ Where:
 
 ## Creating a route using the API
 {: #cr-route-using-the-api}
+{: api}
 
 To create a destination route by using the API, follow these steps:
 

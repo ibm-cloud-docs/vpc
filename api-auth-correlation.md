@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-02-25"
+lastupdated: "2021-03-15"
 
 keywords: resource, resource authorizations, policies, authorization, resource type, resource groups, roles, API, CLI, editor, viewer, administrator, operator
 
@@ -71,6 +71,14 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | Volume attachments | View, List | Viewer for the instance |
 | Volume attachments | Create | Editor for the Instance and volume |
 | Volume attachments | Update, Delete | Editor for the instance |
+|————————|—————————|————————|
+| Dedicated host group | Create, Update, Delete | Editor for the dedicated host group |
+| Dedicated host group | View, List | Viewer for the dedicated host group |
+| Dedicated host group | Create an instance in | Operator for the dedicated host group |
+| Dedicated host | Create | Editor for the dedicated host<br />Editor for the dedicated host group |
+| Dedicated host | Update, Delete | Editor for the dedicated host |
+| Dedicated host | View, List | Viewer for the dedicated host |
+| Dedicated host | Create an instance on | Operator for the dedicated host |
 |————————|—————————|————————|
 | Instance group | Create | Editor for Virtual Server for VPC and Block Storage for VPC resources<br />Operator for the VPC and subnet<br />Viewer for the instance template<br />Editor for the load balancer, if a load balancer is to be associated |
 | Instance group | Update | Editor for the instance group<br />Operator for the subnet<br />Viewer for the instance template<br />Editor for the load balancer, if a load balancer is specified |

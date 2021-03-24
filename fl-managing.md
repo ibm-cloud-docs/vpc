@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-07-23"
+  years: 2020, 2021
+lastupdated: "2020-03-15"
 
 keywords:  
 
@@ -23,6 +23,9 @@ subcollection: vpc
 {:generic: data-hd-programlang="generic"}
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Listing flow log collectors
 {: #listing-all-flow-log-collectors}
@@ -31,6 +34,7 @@ You can list your flow log collectors by using the UI, the CLI, or the API.
 
 ## Using the UI
 {: #fl-list-ui}
+{: ui}
 
 To list your flow log collectors using the IBM Cloud console:
 
@@ -61,6 +65,7 @@ Flow log collector attributes shown in the table are as follows:
 
 ## Using the CLI
 {: #fl-list-cli}
+{: cli}
 
 To list all your flow logs, run the following command:
 
@@ -78,6 +83,7 @@ Where:
 
 ## Using the API
 {: #fl-list-api}
+{: api}
 
 To list flow log collectors by using the API, follow these steps:
 

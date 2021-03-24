@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2019, 2020
+  years: 2019, 2020, 2021
 
-lastupdated: "2020-10-10"
+lastupdated: "2021-03-17"
 
 keywords: resource, access, role, role-based, authorization, policy, access group, resource group, permission, assign, administrator, operator, editor, viewer, user, team, scenario, manage, create, IAM
 
@@ -55,6 +55,7 @@ To give a new user access to all VPC infrastructure resources:
   * From the **Resource type** list, select **All resource types**.
   * In the **Platform access** area, select **Editor**.
   * In the **Resource group access** area, select **Viewer**.
+  * In the **Service access** area, select **Console Administrator**.
   * Scroll to the end of the page and click **Add**.
   * In the **Access summary** side panel, review the details and click **Invite**.
 
@@ -71,6 +72,7 @@ This scenario shows how to give an existing user permission to create and manage
   * From the **Resource type** list, select **All resource types**.
   * In the **Platform access** area, select **Editor**.
   * Make sure that the **Assign access to a resource group** option is set to **Viewer**.
+  * In the **Service access** area, select **Console Administrator**.
   * Scroll to the end of the page and click **Add**.
   * Review the **Access summary** side pane, and click **Assign**.
 
@@ -130,30 +132,31 @@ Add the necessary VPC access policies for each access group. For example, add a 
 1. From the **Resource type** list, select **All resource types**.
 1. In the **Platform access** area, select **Editor**.
 1. In the **Resource group access** area, select **Viewer**.
+1. In the **Service access** area, select **Console Administrator**.
 1. Scroll to the end of the page and click **Add**.
 1. In the **Access summary** side panel, review the details and click **Assign**.
 
 Because floating IP resources and the boot volume that's automatically attached to an instance are created in the Default resource group, you must also add access policies for the Default resource group.
 
-| Access group | Resource group |  Resource type | Platform access role|
+| Access group | Resource group |  Resource type | Platform access role|  Service access role |
 |--------------------------|------------------------|----------------------------------------------------------------|--------------------------|------------------------|-----------------------------------------------------------------|
-|test_team_manage_vpcs|Default|Block Storage for VPC| Editor|
-|test_team_manage_vpcs|Default|Floating IP for VPC| Editor|
+|test_team_manage_vpcs|Default|Block Storage for VPC| Editor|      |
+|test_team_manage_vpcs|Default|Floating IP for VPC| Editor|      |
 {: caption="Table 1. Access policies for the default resource group" caption-side="top"}
 
 Repeat the previous steps to add access policies for the remaining three access groups.
 
-| Access group | Resource group |  Resource type | Platform access role|
+| Access group | Resource group |  Resource type | Platform access role|  Service access role |
 |--------------------------|------------------------|----------------------------------------------------------------|--------------------------|------------------------|-----------------------------------------------------------------|
-|test_team_view_vpcs|test_team| All resource types| Viewer|
-|test_team_view_vpcs|Default| Block Storage for VPC| Viewer|
-|test_team_view_vpcs|Default| Floating IP for VPC| Viewer|
-|production_team_manage_vpcs|production_team| All resource types| Editor|
-|production_team_manage_vpcs|Default| Block Storage for VPC| Editor|
-|production_team_manage_vpcs|Default| Floating IP for VPC| Editor|
-|production_team_view_vpcs|production_team| All resource types| Viewer|
-|production_team_view_vpcs|Default| Block Storage for VPC| Viewer|
-|production_team_view_vpcs|Default| Floating IP for VPC| Viewer|
+|test_team_view_vpcs|test_team| All resource types| Viewer|      |
+|test_team_view_vpcs|Default| Block Storage for VPC| Viewer|      |
+|test_team_view_vpcs|Default| Floating IP for VPC| Viewer|      |
+|production_team_manage_vpcs|production_team| All resource types| Editor| Console Administrator |
+|production_team_manage_vpcs|Default| Block Storage for VPC| Editor|      |
+|production_team_manage_vpcs|Default| Floating IP for VPC| Editor|      |
+|production_team_view_vpcs|production_team| All resource types| Viewer|      |
+|production_team_view_vpcs|Default| Block Storage for VPC| Viewer|      |
+|production_team_view_vpcs|Default| Floating IP for VPC| Viewer|      |
 {: caption="Table 2. Access policies for the remaining access groups" caption-side="top"}
  
 The teams are now set up to use VPCs. Members of the `test_team_manage_vpcs` and `production_team_manage_vpcs` access groups can now create VPCs in their assigned resource groups (that is, in the `test_team` and `production_team` resource groups).

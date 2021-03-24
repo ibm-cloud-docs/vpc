@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-24"
+lastupdated: "2021-02-25"
 
 keywords: public isolation for VPC, compute isolation for VPC, VPC architecture, workload isolation in VPC
 
@@ -61,7 +61,9 @@ The following table lists the main dependencies of the VPC service and the purpo
 | Service | Purpose |
 | ------- | ------- |
 | {{site.data.keyword.iamlong}} | Provides authentication and authorization for all VPC requests. For more information about required IAM permissions, see [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls). |
+| IBM Cloud Kubernetes Service (IKS) | Hosts clusters of containers which run the regional microservices of the VPC service. |
 | IBM Cloud Catalog | Provides structured, globally consistent metadata for VPC resource profiles. |
+| IBM Cloud CLI (ibmcloud) | Provides access to the VPC APIs via a command line interface. The plugin is is available for VPC Infrastructure. |
 | Private Catalog | Provides central access management to products in the global catalog and your own catalogs. |
 | Resource Controller and Resource Manager | Provides structured, globally consistent metadata for VPC resource profiles, resource quota, resource group information for VPC services. |
 | IBM Cloud Metering (Usage) | Collects usage metrics on the VPC services to generate bills for customer accounts. |
@@ -70,6 +72,9 @@ The following table lists the main dependencies of the VPC service and the purpo
 | {{site.data.keyword.containerlong_notm}} (IKS) | Hosts clusters of containers that run the regional microservices of the VPC service. |
 | Red Hat Licensing Service | Activates a compute instance that was provisioned with an IBM-provided RHEL image. |
 | Windows Licensing Service | Activates a compute instance that was provisioned with an IBM-provided Windows image. |
+| Ubuntu Package Update Service | Provides OS packages to a compute instance provisioned with an IBM-provided CentOS image. |
+| CentOS Package Update Service | Provides OS packages to a compute instance provisioned with an IBM-provided CentOS image. |
+| Debian Package Update Service | Provides OS packages to a compute instance provisioned with an IBM-provided Debian image. |
 | {{site.data.keyword.cos_full_notm}} | Provides interim storage of customer-provided VPC images, recent storage of LogDNA data, and backups of all VPC resource metadata. Also stores collected flow logs. |
 | Infrastructure Management Service (IMS) | Provisions, manages and shows information about storage volumes that are provisioned by VPC, and handles the management of our infrastructure racks. |
 | {{site.data.keyword.keymanagementservicelong_notm}} | Hosts customer root keys that wrap the data encryption keys for encrypted storage. |
@@ -86,8 +91,11 @@ The following table lists the main dependencies of the VPC service and the purpo
 | {{site.data.keyword.databases-for-elasticsearch_full_notm}} | Houses tracing data that is used for debugging, troubleshooting, and performance monitoring of the internal components of the VPC service. |
 | {{site.data.keyword.mon_full_notm}} | Sends metrics to the IBM Cloud Monitoring with Sysdig. These metrics are used to debug, troubleshoot, and monitor performance of the VPC service. You can also use IBM Cloud Monitoring with Sysdig to monitor the health and performance of your virtual private cloud. For more information, see [Sysdig monitoring metrics](/docs/vpc?topic=virtual-servers-sysdig-monitoring-metrics). |
 | {{site.data.keyword.cloudcerts_full_notm}} | Stores and manages certificates that are used to securely deploy VPC components, and to secure communication between VPC components. |
+| Digicert | Issuer of cloud.ibm.com SSL certificates. |
+| DNS Services | Maps IBM Cloud services FQDN to IP addresses that provides access to those services within the customer's VPC. |
 | Pulsar | Notifies of encryption key changes at IBM Key Protect or Hyper Protect Crypto Services that affect volumes, instances, or images in VPC. |
 | New Relic | Stores a set of metrics events that are used by IBM's internal infrastructure team. |
+| LaunchDarkly | Manages the rollout of new features in VPC Infrastructure Services. LaunchDarkly provides feature flags used to control visibility and availability of a feature to a selected user base. |
 {: caption="Table 2. VPC dependencies" caption-side="top"}
 
 The following diagram depicts and classifies the dependencies of the VPC service:

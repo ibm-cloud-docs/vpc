@@ -25,6 +25,9 @@ subcollection: vpc
 {:term: .term}
 {:generic: data-hd-programlang="generic"}
 {:download: .download}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Attaching subnets to a routing table
 {: #attach-subnets-routing-table}
@@ -37,6 +40,7 @@ You can attach a subnet to a routing table, or reassign a routing table to a par
 
 ## Attaching subnets to a routing table using the UI
 {: #cr-attach-subnet-ui}
+{: ui}
 
 To attach a routing table to a subnet by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
@@ -59,6 +63,7 @@ To reassign a routing table to a subnet, follow these steps:
    
 ## Attaching subnets to a routing table using the CLI
 {: #cr-attach-subnets-using-the-cli}
+{: cli}
 
 To attach subnets to a routing table by using the CLI, run the following command:
 
@@ -74,6 +79,7 @@ Where:
 
 ## Attaching subnets to a routing table using the API
 {: #cr-attach-subnets-using-the-api}
+{: api}
 
 To attach subnets to a routing table by using the API, follow these steps:
 

@@ -24,6 +24,9 @@ subcollection: vpc
 {:DomainName: data-hd-keyref="DomainName"}
 {:help: data-hd-content-type='help'}
 {:support: data-reuse='support'}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Creating a flow log collector
 {: #ordering-flow-log-collector}
@@ -71,8 +74,9 @@ Before creating a flow log collector, ensure that you meet the following prerequ
     For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth#create-auth).
    {: note}
 
-## Using the UI
+## Creating a flow log collector using the UI
 {: #fl-ordering-ui}
+{: ui}
 
 To create a flow log collector by using the IBM Cloud console, follow these steps:
 
@@ -105,8 +109,9 @@ To create a flow log collector by using the IBM Cloud console, follow these step
   * **Location** - This input is unavailable because it is directly tied to the region the target resource resides in.
   * **Bucket** - The wanted Cloud Object Storage (COS) bucket that the flow log collector service writes to.
 
-## Using the CLI
+## Creating a flow log collector using the CLI
 {: #fl-ordering-cli}
+{: cli}
 
 To create a flow log collector by using the CLI, run the following command:
 
@@ -129,8 +134,9 @@ Where:
 * **--resource-group-name** is the name of the resource group. This option is mutually exclusive with **--resource-group-id**.
 * **--json** formats the output in JSON.
 
-## Using the API
+## Creating a flow log collector using the API
 {: #fl-ordering-api}
+{: api}
 
 To create a flow log collector by using the API, follow these steps:
 

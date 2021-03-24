@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-01-06"
+lastupdated: "2021-03-16"
 
 keywords: quotas, vpc, resources, limits
 
@@ -31,7 +31,7 @@ This document covers quotas and limits for {{site.data.keyword.vpc_full}} and th
 
 The following tables show the quotas for various VPC resources.
 
-To increase a quota for a particular resource, [contact support](/docs/get-support?topic=get-support-getting-customer-support).
+To increase a quota for a particular resource, [contact IBM Support](/docs/get-support?topic=get-support-getting-customer-support).
 {:note}
 
 ### Compute resources
@@ -63,19 +63,19 @@ When you provision virtual server instances and dedicated hosts, the vCPU and RA
 
 |Resource|Quota|
 |--------|-----|
-|ACLs|50 per VPC |   
-|Rules|50 per ACL[^ACL]|
+|ACLs| 25 per VPC |
+|Rules| 25 per ACL[^ACL] |
 {: caption="Table 3. Quotas for access control lists" caption-side="top"}
 
-[^ACL]:You can use the rules quota for inbound rules, outbound rules, or both. For example, you might have 40 inbound rules and 10 outbound rules per ACL.
+[^ACL]:Newer accounts might have an increased limit of 50 rules per resource. You can use the rules quota for inbound rules, outbound rules, or both. For example, you might have 20 inbound rules and 5 outbound rules per ACL.
 
 ### Security groups
 {: #security-group-quotas}
 
 |Resource|Quota|
 |--------|-----|
-|Security groups|25 per VPC|  
-|Rules|25 per security group|   
+|Security groups|50 per VPC|  
+|Rules|50 per security group|   
 |Network interfaces|1000 per security group|    
 {: caption="Table 4. Quotas for security groups" caption-side="top"}
 
@@ -104,6 +104,7 @@ When you provision virtual server instances and dedicated hosts, the vCPU and RA
 | Members | 50 per pool |
 | Policies | 10 per listener |
 | Rules | 10 per policy |
+| Security Groups | 5 per load balancer |
 {: caption="Table 6. Quotas for load balancers" caption-side="top"}
 
 ### Routing tables and routes

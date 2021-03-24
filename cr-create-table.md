@@ -25,6 +25,9 @@ subcollection: vpc
 {:term: .term}
 {:generic: data-hd-programlang="generic"}
 {:download: .download}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Creating a routing table
 {: #create-vpc-routing-table}
@@ -42,6 +45,7 @@ You can create a routing table for an IBM Cloud service by using the UI, CLI, or
 
 ## Creating a routing table using the UI
 {: #cr-using-the-ui}
+{: ui}
 
 To create a routing table by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
@@ -65,6 +69,7 @@ To create a routing table by using the {{site.data.keyword.cloud_notm}} console,
 
 ## Creating a routing table using the CLI
 {: #cr-using-the-cli}
+{: cli}
 
 To create a routing table by using the CLI, run the following command:
 
@@ -88,6 +93,7 @@ You can set an ingress option to **true** on only one routing table per VPC, and
 
 ## Creating a routing table using the API
 {: #cr-using-the-api}
+{: api}
 
 To create a routing table by using the API, follow these steps:
 

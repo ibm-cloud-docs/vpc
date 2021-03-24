@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-03-04"
+lastupdated: "2021-03-19"
 
 subcollection: vpc
 
@@ -118,7 +118,7 @@ Yes, you can encrypt a supported custom image with LUKS encryption and your own 
 {: #faq-vsi-15}
 {: faq}
 
-Yes, for certain versions of RedHat Enterprise Linux (RHEL) and Windows operating systems, you can bring your own license (BYOL) to the IBM Cloud VPC when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. For more information, see [Bring your own license (Beta)](/docs/vpc?topic=vpc-byol-vpc-about).
+Yes, for certain versions of RedHat Enterprise Linux (RHEL) and Windows operating systems, you can bring your own license (BYOL) to the IBM Cloud VPC when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. For more information, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about).
 
 ## What are the disks that I see associated with my new Windows virtual server instance?
 {: #faq-vsi-18}

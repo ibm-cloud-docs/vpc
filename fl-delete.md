@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-07-23"
+  years: 2020, 2021
+lastupdated: "2021-03-15"
 
 keywords: flow logs, delete
 
@@ -23,6 +23,9 @@ subcollection: vpc
 {:generic: data-hd-programlang="generic"}
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Deleting a flow log collector
 {: #deleting-a-flow-log-collector}
@@ -36,11 +39,13 @@ You can delete a flow log collector by using the UI, the CLI, or the API.
 
 ## Using the UI
 {: #fl-deleting-ui}
+{: ui}
 
 To delete a flow log collector, click the overflow menu ![overflow menu](images/overflow.png) next to the collector that you want to delete, then click **Delete**. Click **Delete** again to confirm the deletion.
 
 ## Using the CLI
 {: #fl-deleting-cli}
+{: cli}
 
 To delete a flow log collector by using the CLI, run the following command:
 
@@ -55,6 +60,7 @@ Where:
 
 ## Using the API
 {: #fl-deleting-api}
+{: api}
 
 To delete a flow log collector by using the API, follow these steps:
 

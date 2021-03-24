@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-06-08"
+  years: 2017, 2021
+lastupdated: "2021-03-23"
 
 keywords: l7, Layer-7, monitor, metrics, connection
 
@@ -33,11 +33,17 @@ Load balancers calculate the metrics and send those metrics to your Sysdig insta
 
 The supported monitoring metrics include:
 
-* Active connections to your application load balancer at a given time.
-* Throughput of data passing through your load balancer over a given time.
-* Connection rate, or an analysis of when more or less connections are made to your load balancer.
+* Active connections to your application load balancer at a given time
+* Throughput of data passing through your load balancer over a given time
+* Connection rate, or an analysis of when more or less connections are made to your load balancer
+* Total number of HTTP/HTTPS requests received by the back-end
+* Average response time for HTTP/HTTPS requests
+* Count of responses with the HTTP 2xx back-end response code
+* Count of responses with the HTTP 3xx back-end response code
+* Count of responses with the HTTP 4xx back-end response code
+* Count of responses with the HTTP 5xx back-end response code
 
-These metrics help track the traffic and usage patterns for your load balancers and can provide insight about peak traffic hours, usage dropoffs, and overall usage patterns.
+These metrics help track the traffic and usage patterns for your load balancers and can provide insight about peak traffic hours, usage drop offs, and overall usage patterns.
 
 Each metric is composed of the following metadata types:
 
@@ -61,13 +67,13 @@ The active connection metric contains the following metadata:
 | Metric type | `gauge` |
 | Value type | `none`  |
 | Segment by | `Application load balancer appliance metrics` and `Application load balancer listener metrics` |
-{: caption="Table 1: Application Load Balancer active connections metrics metadata" caption-side="top"}
+{: caption="Table 1: Application load balancer active connections metrics metadata" caption-side="top"}
 
 
 ### Connection rate
 {: #ibm_is_load_balancer_connection_rate}
 
-Connection rate is the number of new, incoming active connections per second to your load balancer.
+Connection rate is the number of new incoming active connections per second to your load balancer.
 
 | Metadata | Description |
 |----------|-------------|
@@ -75,7 +81,7 @@ Connection rate is the number of new, incoming active connections per second to 
 | Metric type | `gauge` |
 | Value type  | `none` |
 | Segment by | `Application load balancer appliance metrics` and `Application load balancer listener metrics` |
-{: caption="Table 2: Application Load Balancer connection rate metric metadata" caption-side="top"}
+{: caption="Table 2: Application load balancer connection rate metric metadata" caption-side="top"}
 
 
 ### Throughput
@@ -89,7 +95,92 @@ Throughput is the amount of data that passes in and out of a load balancer over 
 | Metric type | `gauge` |
 | Value type  | `byte` |
 | Segment by | `Application load balancer appliance metrics` and `Application load balancer listener metrics` |
-{: caption="Table 3: Application Load Balancer throughput metric metadata" caption-side="top"}
+{: caption="Table 3: Application load balancer throughput metric metadata" caption-side="top"}
+
+### Request Count
+{: #ibm_is_load_balancer_request_count}
+
+The request count is the total number of HTTP/HTTPS requests that are sent by the load balancer to the back-end servers per minute.
+This metric is only available for HTTP and HTTPS listeners.
+
+| Metadata | Description |
+|----------|-------------|
+| Metric name | `ibm_is_load_balancer_request_count`|
+| Metric type | `gauge` |
+| Value type  | `none` |
+| Segment by | `Application load balancer appliance metrics` and `Application load balancer listener metrics` |
+{: caption="Table 4: Application load balancer request count metric metadata" caption-side="top"}
+
+### Request Latency
+{: #ibm_is_load_balancer_request_latency}
+
+Request latency is the average of the response time of the last 1024 requests as seen by the load balancer for
+a given HTTP/HTTPS listener. This metric requires at least 1024 responses to be received from the back-end for a
+given listener for an accurate value to be reported. This metric is only available for HTTP and HTTPS listeners.
+
+| Metadata | Description |
+|----------|-------------|
+| Metric name | `ibm_is_load_balancer_request_latency`|
+| Metric type | `gauge` |
+| Value type  | `milliseconds` |
+| Segment by | `Application load balancer appliance metrics` and `Application load balancer listener metrics` |
+{: caption="Table 5: Application load balancer request latency metric metadata" caption-side="top"}
+
+### HTTP 2xx response code count
+{: #ibm_is_load_balancer_backend_http_2xx}
+
+The HTTP 2xx response code count is the count of all HTTP response codes in the 200-299 range that is received
+from the back-end per minute. This metric is only available for HTTP and HTTPS listeners.
+
+| Metadata | Description |
+|----------|-------------|
+| Metric name | `ibm_is_load_balancer_backend_http_2xx`|
+| Metric type | `gauge` |
+| Value type  | `none` |
+| Segment by | `Application load balancer appliance metrics` and `Application load balancer listener metrics` |
+{: caption="Table 6: Application load balancer HTTP 2xx response count metric metadata" caption-side="top"}
+
+### HTTP 3xx response code count
+{: #ibm_is_load_balancer_backend_http_3xx}
+
+The HTTP 3xx response code count is the count of all HTTP response codes in the 300-399 range received
+from the back-end per minute. This metric is only available for HTTP and HTTPS listeners.
+
+| Metadata | Description |
+|----------|-------------|
+| Metric name | `ibm_is_load_balancer_backend_http_3xx`|
+| Metric type | `gauge` |
+| Value type  | `none` |
+| Segment by | `Application load balancer appliance metrics` and `Application load balancer listener metrics` |
+{: caption="Table 7: Application load balancer HTTP 3xx response count metric metadata" caption-side="top"}
+
+### HTTP 4xx response code count
+{: #ibm_is_load_balancer_backend_http_4xx}
+
+The HTTP 4xx response code count is the count of all HTTP response codes in the 400-499 range that is received
+from the back-end per minute. This metric is only available for HTTP and HTTPS listeners.
+
+| Metadata | Description |
+|----------|-------------|
+| Metric name | `ibm_is_load_balancer_backend_http_4xx`|
+| Metric type | `gauge` |
+| Value type  | `none` |
+| Segment by | `Application load balancer appliance metrics` and `Application load balancer listener metrics` |
+{: caption="Table 8: Application load balancer HTTP 4xx response count metric metadata" caption-side="top"}
+
+### HTTP 5xx response code count
+{: #ibm_is_load_balancer_backend_http_5xx}
+
+The HTTP 5xx response code count is the count of all HTTP response codes in the 500-599 range that is received
+from the back-end per minute. This metric is only available for HTTP and HTTPS listeners.
+
+| Metadata | Description |
+|----------|-------------|
+| Metric name | `ibm_is_load_balancer_backend_http_5xx`|
+| Metric type | `gauge` |
+| Value type  | `none` |
+| Segment by | `Application load balancer appliance metrics` and `Application load balancer listener metrics` |
+{: caption="Table 9: Application load balancer HTTP 5xx response count metric metadata" caption-side="top"}
 
 ## Metric segmentation
 {: attributes}
@@ -108,7 +199,7 @@ The following attributes are available for segmenting the three Sysdig metrics.
 | `Resource` | `ibm_resource` | A load balancer's unique ID |
 | `Scope` | `ibm_scope` | The account that is associated with a given load balancer |
 | `Service name` | `ibm_service_name` | ibm-is-load-balancer |
-{: caption="Table 4: Sysdig global attributes" caption-side="top"}
+{: caption="Table 10: Sysdig global attributes" caption-side="top"}
 
 ### Additional attributes
 {: additional-attributes}
@@ -117,9 +208,9 @@ The following attributes are available to segment one or more of the global attr
 
 | Attribute | Attribute Name | Attribute Description |
 |-----------|----------------|-----------------------|
-| Application load balancer appliance metrics | `ibm_is_load_balancer_appliance_ip` | The metrics coming from the load balancer backend. Because the load balancer is highly available, multiple appliances support each load balancer for redundancy.  |
+| Application load balancer appliance metrics | `ibm_is_load_balancer_appliance_ip` | The metrics coming from the load balancer back-end. Because the load balancer is highly available, multiple appliances support each load balancer for redundancy.  |
 | Application load balancer listener metrics | `ibm_is_load_balancer_listener_port` | The metrics that are gathered from individual listeners and their ports. Configure the listeners in your load balancer settings. The monitoring metrics reflect the metrics coming from those listeners. |
-{: caption="Table 5: Sysdig additional attributes" caption-side="top"}
+{: caption="Table 11: Sysdig additional attributes" caption-side="top"}
 
 The displayed metrics contain a timestamp in UNIX epoch time and the metric value for the time interval ending at that timestamp. You can specify different scopes, as well as the time interval over which to report the metrics.
 
@@ -200,16 +291,16 @@ To view and work with your Sysdig metrics, follow these steps:
 
 3. Select **Dashboards** on the left sidebar to open the IBM Load Balancer Monitoring Metrics dashboard. Then, click **Default Dashboards > IBM > Load Balancer Monitoring Metrics**. The default dashboard is not editable.
 
-4. Three main metrics in the dashboard are shown: Throughput, Active Connections, and Connection Rate. To modify parameters and segment your metrics by load balancer ID or listener port, you must create a custom dashboard.
+4. Nine main metrics in the dashboard are shown: Throughput, Active Connections, Connection Rate, Request Count, Request Latency, HTTP_2xx Response Count, HTTP_3xx Response Count, HTTP_4xx Response Count, and HTTP_5xx Response Count. To modify parameters and segment your metrics by load balancer ID or listener port, you must create a custom dashboard.
 
   ![Sysdig dashboard](images/metrics_3.png "Sysdig dashboard")
 
-  You can choose what time window you'd like to see your metrics displayed for, using the bar on the bottom.
+  You can choose what time window you'd like to see your metrics displayed for, using the bar at the end.
   {: tip}
 
 ## Creating a custom metrics dashboard
 
-You can create your own dashboard to customize your monitoring metrics, such as viewing information about particular load balancers, or seeing traffic that only comes through particular listeners.
+You can create your own dashboard to customize your monitoring metrics, such as viewing information about particular load balancers, or seeing traffic that  comes only through particular listeners.
 
 To customize your dashboard, follow these steps:
 
@@ -237,7 +328,7 @@ To customize your dashboard, follow these steps:
 
   * You can choose a scope to display in your dashboard by clicking **Override Dashboard Scope**. For example, you can display the metrics for a particular load balancer.
 
-  * You can also set a segment to compare metrics across the scope you have defined. For example, you can look at throughput for a particular load balancer segmented by listener port.
+  * You can also set a segment to compare metrics across the scope that you defined. For example, you can look at throughput for a particular load balancer segmented by listener port.
 
 6. Click **Save** for your new custom dashboard to be accessible.
 
@@ -288,7 +379,7 @@ To collect this information and work with your Sysdig instance using metric quer
   * The `from` and `to` attributes define the times to focus the scan, set in Epoch Time and in microseconds.
   * The `sampling` and `value` attributes set the granularity of which data is returned in the POST request.
 
-      Because a large volume of data is stored in Sysdig, choosing the specific level of granularity is important. Sysdig can return only 600 data points at any time with a given request. As a result, the `sampling` and `value` attributes are important. Leaving these two lines out of your request will return an aggregate sum over that time period instead.
+      Because a large volume of data is stored in Sysdig, choosing the specific level of granularity is important. Sysdig can return only 600 data points at any time with a given request. As a result, the `sampling` and `value` attributes are important. Leaving these two lines out of your request returns an aggregate sum over that time period instead.
 
       If the time range specified by `from` and `to` is large (for example, 4 days), but you define a `sampling` and `value` of 10 seconds, this means that you receive 4 days worth of data that is split into 10-second chunks. This is not a useful sampling due to the large amount of data returned. Specifying a larger chunk is recommended (for example, 1 hour instead of 10 seconds).
       {: tip}

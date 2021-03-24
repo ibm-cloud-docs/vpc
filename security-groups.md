@@ -40,9 +40,9 @@ When an instance is created and no security groups are specified, the instance's
 
 These links provide additional information about IBM Cloud Security Groups for VPC:
 
-* [Security Groups CLI reference](https://test.cloud.ibm.com/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#security-groups-cli-ref)
-* [Security Groups API reference](https://test.cloud.ibm.com/apidocs/vpc#list-security-groups)
-* [Security Groups required permissions](https://test.cloud.ibm.com/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls#sg-authorizations-required-for-api-and-cli-calls)
-* [Security Groups for VPC infrastructure resources for Terraform](https://cloud.ibm.com/docs/terraform?topic=terraform-vpc-gen2-resources#sec-group)
-* [Security Groups Activity Tracker events](https://test.cloud.ibm.com/docs/vpc?topic=vpc-at-events#events-network-security-group)
-* [Security Groups quotas](https://test.cloud.ibm.com/docs/vpc?topic=vpc-quotas#security-group-quotas)
+* [Security Groups CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#security-groups-cli-ref)
+* [Security Groups API reference](https://{DomainName}/apidocs/vpc#list-security-groups)
+* [Security Groups required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls#sg-authorizations-required-for-api-and-cli-calls)
+* [Security Groups for VPC infrastructure resources for Terraform](/docs/terraform?topic=terraform-vpc-gen2-resources#sec-group)
+* [Security Groups Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-network-security-group)
+* [Security Groups quotas](/docs/vpc?topic=vpc-quotas#security-group-quotas)

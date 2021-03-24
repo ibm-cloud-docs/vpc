@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-01"
+lastupdated: "2021-03-15"
 
 keywords: VPN, VPN gateways, encryption, IKE, IPsec, gateway, auto-negotiation, Diffie-Hellman, dead peer detection, PFS
 
@@ -39,9 +39,9 @@ The {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} service
 
 * **IPsec** - Protocol suite that provides secure communication between devices. {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} uses Encapsulating Security Protocol (ESP) in tunnel mode, which offers authentication and entire packet encryption.
 * **Internet Key Exchange (IKE)** - IKE is a part of the IPsec protocol used to establish VPN connections. In IKE Phase 1, VPN peers use Diffie-Hellman (DH) key exchange to create a secure, authenticated communication channel. In IKE Phase 2, the peers use the secure channel from Phase 1 to negotiate parameters for IPsec tunnel. {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} supports both IKEv1 (main mode) and IKEv2. See [About policy negotiation](#policy-negotiation) for the supported combinations.
-* **Authentication** - {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} supports a pre-shared key for Phase 1 peer authentication. Supported authentication algorithms for both phases include MD-5, SHA-1, and SHA-256.
+* **Authentication** - {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} supports a pre-shared key for Phase 1 peer authentication. Supported authentication algorithms for both phases include MD-5, SHA-1, SHA-256, and SHA-512.
 * **Encryption** - {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} supports 3-DES, AES-128, and AES-256 for data encryption during both IKE Phase 1 and Phase 2.
-* **Diffie-Hellman (DH)** - Key exchange protocol used in Phase 1 to generate a shared secret key between VPN peers. Optionally, users can enable Perfect Forward Secrecy (PFS) and a DH Group for Phase 2 IPsec negotiation. {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} supports DH Groups 2, 5, and 14.
+* **Diffie-Hellman (DH)** - Key exchange protocol used in Phase 1 to generate a shared secret key between VPN peers. Optionally, users can enable Perfect Forward Secrecy (PFS) and a DH Group for Phase 2 IPsec negotiation. {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} supports DH Groups 2, 5, 14, and 19.
 * **Perfect Forward Secrecy (PFS)** - PFS ensures DH-generated keys are not used again during IPsec renegotiation. If a key is compromised, only data in transit during the protected security association's lifetime is accessible.
 * **Dead Peer Detection** - Configurable mechanism to detect availability of an IPsec peer.
 * **Modes** - {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} offers static, route-based and policy-based VPN modes. With a policy-based VPN, traffic that matches negotiated CIDR ranges are encrypted. For a static, route-based VPN, virtual tunnel interfaces are created and any traffic that is routed towards these logical interfaces with custom routes is encrypted. Both VPN flavors provide the same features.  

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-05"
+lastupdated: "2021-03-19"
 
 keywords: release notes, changes, updates
 
@@ -25,6 +25,22 @@ subcollection: vpc
 
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
+
+## 19 March 2021
+{: #march-19-2021}
+
+- **Virtual server instance console**: The virtual server instance console feature is now generally available in the following regions: Dallas, Frankfurt, London, Osaka, and Washington DC. For more information, see [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console).
+- **Bring you own license (GA)**: You can bring your own license (BYOL) when you import a RedHat Enterprise Linux (RHEL) or Windows custom image to IBM Cloud VPC. Because these images are registered and licensed by you, you maintain control over your licenses and with no additional cost. Acquisition and activation of the license is between you and and the OS vendor. For more information, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about).
+- **Dedicated hosts (GA)**: Dedicated hosts are available in all regions. Use a dedicated host to carve out a single-tenant compute node for {{site.data.keyword.vpc_short}}. For more information, see [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances)
+
+## 12 March 2021
+{: #march-12-2021}
+
+- **New profiles:** The Balanced, Compute, and Memory profile families now include three new profiles with 64, 96, and 128 vCPUs. Profiles with 64 or more vCPUs are deployed exclusively on 2nd generation Intel Xeon Platinum 8260 (Cascade Lake) running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz.
+
+- **VPN for VPC:**
+  * For high-security standards, VPN now supports SHA-512 authentication and Diffie-Hellman Group 19.
+  * Gateway private IP addresses are now visible for gateway members.
 
 ## 05 March 2021
 {: #march-05-2021}

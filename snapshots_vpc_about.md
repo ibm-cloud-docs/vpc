@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-03-05"
+lastupdated: "2021-03-12"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 subcollection: vpc
@@ -24,7 +24,7 @@ subcollection: vpc
 Snapshots for VPC is a regional offering that lets you create a point-in-time copy of your block storage boot or data volume. The initial snapshot you take is a full backup of the volume. Subsequent snapshots of the same volume are incremental; only the changes since the last snapshot are captured. You can select a snapshot during instance provisioning, and restore a new, fully-provisioned boot volume to start the instance. You can also create and attach a data volume from a snapshot within a running virtual server instance.
 {:shortdesc}
 
-This beta feature is available only to accounts with special approval.
+Snapshots for VPC is available only to accounts with special approval to preview this beta feature.
 {:beta}
 
 ## Snapshots concepts
@@ -75,6 +75,7 @@ These limitations are specific to the Beta release and expected to be resolved f
 * Deleting a snapshot that is used to restore a volume is not supported.
 * A restored volume will likely have lower IOPS.
 * Simultaneous restoration of a boot and data volume is not supported. Separate actions must be performed.
+* The UI is available only in the following regions for the beta release: Sydney (au-syd), France (eu-fr2), and Japan (jp-osa).
 
 ## General procedure for creating and using snapshots
 {: #snapshots-vpc-procedure-overview}

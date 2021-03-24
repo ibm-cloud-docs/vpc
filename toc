@@ -2,7 +2,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="vpc" category="network_vpc,storage_vpc,compute" audience="compute" href="/docs/vpc?topic=vpc-getting-started" console-page="/vpc-ext/overview" product-page="https://www.ibm.com/cloud/vpc" path="vpc"}
+{: .toc subcollection="vpc" category="network_vpc,storage_vpc,compute" audience="service" href="/docs/vpc?topic=vpc-getting-started" console-page="/vpc-ext/overview" product-page="https://www.ibm.com/cloud/vpc" path="vpc"}
 Virtual Private Cloud (VPC)
 
     {: .navgroup id="learn"}
@@ -121,6 +121,8 @@ Virtual Private Cloud (VPC)
         vsi_is_encrypt_custom_image.md
         vsi_is_manage_images.md
         vsi_is_byol_about.md
+        image-rbac-permissions.md
+        building-custom-os.md
 
     {: .topicgroup}
     Virtual private endpoint gateways
@@ -210,6 +212,7 @@ Virtual Private Cloud (VPC)
             lb-sg-integration.md
             lb-datapath-logging.md
             lb-api.md
+            lb-limitations.md
 
         {: .topicgroup}
         Network Load Balancer for VPC

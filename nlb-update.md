@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-08-31"
+  years: 2020, 2021
+lastupdated: "2021-03-15"
 
 keywords: network load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, update
 
@@ -24,14 +24,18 @@ subcollection: vpc
 {:generic: data-hd-programlang="generic"}
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Updating an {{site.data.keyword.cloud_notm}} {{site.data.keyword.nlb_full}}
 {: #nlb-updating}
 
 You can update an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) using the UI, CLI or API.
 
-## Using the UI
+## Updating a network load balancer using the UI
 {: #nlb-updating-ui}
+{: ui}
 
 To update an NLB by using the {{site.data.keyword.cloud_notm}} console, perform the following procedure:
 
@@ -45,8 +49,9 @@ To update an NLB by using the {{site.data.keyword.cloud_notm}} console, perform 
 
 You should see that the **Active** button on the top left of your screen now shows as **Updating**. When **Updating** changes back to **Active**, the update is done and the new changes have been applied.
 
-## Using the CLI
+## Updating a network load balancer using the CLI
 {: #nlb-updating-cli}
+{: cli}
 
 The following example shows how to use the CLI to update your network load balancer pool to use the algorithm `least_connections` and the port of the member:
 
@@ -96,8 +101,9 @@ Sample output:
   ```
   {: screen}
 
-## Using the API
+## Updating a network load balancer using the API
 {: #nlb-updating-frontend-listener-port-api}
+{: api}
 
 The following example illustrates using the API to update the front-end listener port of a {{site.data.keyword.nlb_full}} (NLB). For example, if the front-end listener port was set to 80 and you want to update the port value to 90.
 

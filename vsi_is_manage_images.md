@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-02-17"
+lastupdated: "2021-03-19"
 
 keywords: custom image
 
@@ -28,7 +28,7 @@ subcollection: vpc
 You can create your own custom image on premesis and then import it to {{site.data.keyword.vpc_full}} infrastructure from {{site.data.keyword.cos_full_notm}}. Then, you can use your custom image to create new virtual server instances that runs on the KVM hypervisor.
 {:shortdesc}
 
-You can also create a custom image of a boot volume attached to an instance at import time. For more information, see [About creating an image from volume (Beta)](/docs/vpc?topic=vpc-image-from-volume-vpc).
+You can also create a custom image of a boot volume attached to an instance at import time. For more information, see [About creating an image from volume](/docs/vpc?topic=vpc-image-from-volume-vpc).
 {:note}
 
 ## Importing a custom image
@@ -41,11 +41,11 @@ To complete this task you must have an instance of {{site.data.keyword.cos_full}
 
 Make sure that your image meets custom image requirements:
 * Contains a single file or volume 
-* Is in qcow2 format and the file extension is `.qcow2`.
+* Is in qcow2 or VHD format.
 * Is cloud-init enabled
 * The operating system is supported as a [stock image](/docs/vpc?topic=vpc-about-images#stock-images) operating system
 
-  For Red Hat and Windows, there are BYOL operating system versions you can choose when you import a custom image including your own license. For more information, see [Bring your own license (Beta)](https://test.cloud.ibm.com/docs/vpc?topic=vpc-byol-vpc-about).
+  For Red Hat and Windows, there are BYOL operating system versions you can choose when you import a custom image including your own license. For more information, see [Bring your own license](https://test.cloud.ibm.com/docs/vpc?topic=vpc-byol-vpc-about).
   {: note}
 
 * Size doesn't exceed 100 GB
@@ -67,9 +67,9 @@ navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastr
 | Source | Select **Cloud Object Storage** as the source. A list displays from which you select a COS service instance where the image that you want to import is stored. |
 | Location | Select the specific geographic region where your image is stored. |
 | Bucket | Select the {{site.data.keyword.cos_full_notm}} bucket where your image is stored.|
-| Name | Select the image file in the {{site.data.keyword.cos_full_notm}} service instance that you want to import. Supported image files are in qcow2 format. If you are importing an encrypted image, the image must be encrypted with LUKS encryption by using QEMU and your own passphrase. For more information, see [Encrypting the image](/docs/vpc?topic=vpc-create-encrypted-custom-image#manually-encrypt-image). |
+| Name | Select the image file in the {{site.data.keyword.cos_full_notm}} service instance that you want to import. If you are importing an encrypted image, the image must be encrypted with LUKS encryption by using QEMU and your own passphrase. For more information, see [Encrypting the image](/docs/vpc?topic=vpc-create-encrypted-custom-image#manually-encrypt-image). |
 | Operating System | Select the operating system that is included in your image. For [BYOL custom images](/docs/vpc?topic=vpc-byol-vpc-about), select the OS with with `-byol` appended to the name. |
-| Encryption | The default selection is **No encryption**. If you have not encrypted your image by using QEMU, use the default value, No encryption. If you are importing an image that you have encrypted by using QEMU and your own passphrase, select the key management service where your customer root key (CRK) that protects your passphrase is stored. Select either **Key Protect** or **Hyper Protect Crypto Services** |
+| Encryption | The default selection is **No encryption**. If you have not encrypted your image by using QEMU, use the default value, **No encryption**. If you are importing an image that you have encrypted by using QEMU and your own passphrase, select the key management service where your customer root key (CRK) that protects your passphrase is stored. Select either **Key Protect** or **Hyper Protect Crypto Services**. VHD format images are not suported for encryption. |
 | Encryption service instance | For an encrypted image, select the specific instance of the key management service where your CRK that wraps your encryption passphrase is stored. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs). |
 | Key name | Select the customer root key (CRK) that you used to wrap your encryption passphrase. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs). |
 | Wrapped data encryption key | For an encrypted image, specify the ciphertext that is associated with the wrapped data encryption key (WDEK). The WDEK is produced by wrapping the passphrase that you used to encrypt your image with your customer root key. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs).|
@@ -92,9 +92,9 @@ navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastr
 ## Managing custom images
 {: #managing-custom images}
 
-After you import custom images, you can deploy and manage them from the Custom images page. 
+After you import custom images, you can deploy and manage them from the Custom images page. On the Custom images page you can rename an image, create a new virtual server from the image, copy the UUID of the image, view the checksum for the image, or delete a custom image.
 
 You can manage an image by using the {{site.data.keyword.cloud_notm}} console.
 1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com/vpc-ext){: external}, 
 navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Custom Images**.
-2. From your list of custom images, you can click **...** and select from the available options. Encrypted custom images are identified by a lock icon after the image name.
+2. From your list of custom images, you can click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for a specific image and select from the available options. Encrypted custom images are identified by a lock icon after the image name.

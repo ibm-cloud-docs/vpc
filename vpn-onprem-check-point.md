@@ -30,6 +30,9 @@ You can use {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_short}} to s
 
 These instructions are based on Check Point Security Gateway, Software Release [R80.40]. Earlier versions of Check Point software are not supported.
 
+Read [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before continuing to connect to your on-premises peer. 
+{:note}
+
 Because Check Point Security Gateway uses IKEv1 by default, you must create a custom IKE and IPsec policy to replace the default auto-negotiation policy for the VPN in your VPC.
 {: important}
 
@@ -88,7 +91,7 @@ To use a custom IPsec policy in {{site.data.keyword.vpn_vpc_short}}:
 ## Ensuring NAT-T is always on
 {: #checkpoint-defaults}
 
-Make sure that the NAT-T feature is enabled on your on-premises VPN device. An {{site.data.keyword.cloud_notm}} VPN gateway accepts VPN packets with [NAT-Traversal Encapsulation (NAT-T)](https://tools.ietf.org/html/rfc3947){:external} only. The [IP Encapsulating Security Payload (ESP)](https://tools.ietf.org/html/rfc4303){:external} is not accepted. The following list shows the default behaviors:
+Make sure that the NAT-T feature is enabled on your on-premises VPN device. The following list shows the default behaviors:
 
   * NAT-T is enabled when a NAT device is detected.
   * **offer_nat_t_initator** is set to `false` (initiator sends NAT-T traffic).
@@ -99,5 +102,3 @@ It is recommended to change these default settings to the following:
   * Enable NAT-T
   * Set **offer_nat_t_initator** to `true` 
   * If you know that there's no NAT device in the environment, then set **force_nat_t** to `true`
-
-Also, make sure that UDP ports `500` and `4500` are allowed for both IBM VPC NACL and peer networks.

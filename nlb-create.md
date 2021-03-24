@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-10-12"
+  years: 2020, 2021
+lastupdated: "2021-03-15"
 
 keywords: network load balancer, public, listener, pool, round-robin
 
@@ -24,6 +24,9 @@ subcollection: vpc
 {:generic: data-hd-programlang="generic"}
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Creating a {{site.data.keyword.nlb_full}}
 {: #nlb-ui-creating-network-load-balancer}
@@ -34,8 +37,9 @@ You can create an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NL
    * A VPC in which to deploy the network load balancer.
 
 
-## Using the UI
+## Creating a network load balancer using the UI
 {: #nlb-ui}
+{: ui}
 
 To create and configure {{site.data.keyword.nlb_full}} by using the {{site.data.keyword.cloud_notm}} console, perform the following procedure:
 
@@ -86,8 +90,9 @@ pool. You can create one or more pools.
 1. An order summary shows pricing estimates. Review the Cloud Services terms.
 Then, click **Create** to complete your order.
 
-## Using the CLI
+## Creating a network load balancer using the CLI
 {: #nlb-cli-creating-network-load-balancer}
+{: cli}
 
 The following example illustrates using the CLI to create a {{site.data.keyword.nlb_full}} (NLB). In this example, it is in front of one VPC virtual server instance (id `0716_6acdd058-4607-4463-af08-d4999d983945`) running a TCP server that listens on port 9090. The load balancer has a front-end listener, which allows secure access to the TCP server.
 
@@ -245,8 +250,9 @@ To create a network load balancer by using the CLI, perform the following proced
   ```
   {: screen}
 
-## Using the API
+## Creating a network load balancer using the API
 {: #nlb-api-creating-network-load-balancer}
+{: api}
 
 The following example illustrates using the API to create a network load balancer in front of two VPC virtual server instances (`192.168.100.5` and `192.168.100.6`) running a web application that listens on port 80. The load balancer has a front-end listener, which allows secure access to the web application by using HTTPS.
 

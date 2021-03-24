@@ -30,6 +30,9 @@ You can use {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_short}} to s
 
 These instructions are based on FortiGate 300C, Firmware Version v5.2.13, build762 (GA).
 
+Read [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before continuing to connect to your on-premises peer. 
+{:note}
+
 Go to **VPN \> IPsec \> Tunnels** and create a new custom tunnel or edit an existing tunnel.
 
 When a FortiGate VPN receives a connection request from {{site.data.keyword.vpn_vpc_short}}, FortiGate uses IPsec Phase 1 parameters to establish a secure connection and authenticate {{site.data.keyword.vpn_vpc_short}}. Then, if the security policy permits the connection, the FortiGate VPN establishes the tunnel using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.

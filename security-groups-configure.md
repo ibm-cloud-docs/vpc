@@ -20,16 +20,20 @@ subcollection: vpc
 {:note: .note}
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
-# Setting up the security groups for your VSI
+# Setting up the security groups for your virtual server instance
 {: #configuring-the-security-group}
 {: step}
 
 You can configure security groups to define the inbound and outbound traffic that they allow for your instance. For example, after you configure ACL rules for the subnet based on your company's security policies, you can further restrict traffic for specific instances depending on their workloads.
 {: shortdesc}
 
-## Using the UI
+## Setting up the security groups for your virtual server instance using the UI
 {: sgg-using-ui}
+{: ui}
 
 To configure your security group using the UI:
 
@@ -68,8 +72,9 @@ Then, configure outbound rules that allow all TCP traffic:
 | TCP| Any | 0.0.0.0/0 | Any port|
 {: caption="Table 2. Configuration information for outbound rules" caption-side="top"}
 
-## Using the CLI
+## Setting up the security groups for your virtual server instance using the CLI
 {: #sg-using-cli}
+{: cli}
 
 In this example, you create a virtual server instance with a security group that is enabled by using the command-line interface (CLI). Figure 1 shows what this scenario looks like.
 
@@ -147,8 +152,9 @@ ibmcloud is security-group-rule-add $sg inbound icmp --icmp-type 8 --icmp-code 0
 ```
 {: pre}
 
-## Using the APIs
+## Setting up the security groups for your virtual server instance using the API
 {: #sg-using-api}
+{: api}
 
 The following example demonstrates how to create and manage security groups by using the {{site.data.keyword.vpc_short}} APIs.
 
