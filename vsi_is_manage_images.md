@@ -25,7 +25,7 @@ subcollection: vpc
 # Importing and managing custom images 
 {: #managing-images}
 
-You can create your own custom image on premesis and then import it to {{site.data.keyword.vpc_full}} infrastructure from {{site.data.keyword.cos_full_notm}}. Then, you can use your custom image to create new virtual server instances that runs on the KVM hypervisor.
+You can create your own custom image on premises and then import it to {{site.data.keyword.vpc_full}} infrastructure from {{site.data.keyword.cos_full_notm}}. Then, you can use your custom image to create new virtual server instances that runs on the KVM hypervisor.
 {:shortdesc}
 
 You can also create a custom image of a boot volume attached to an instance at import time. For more information, see [About creating an image from volume](/docs/vpc?topic=vpc-image-from-volume-vpc).
