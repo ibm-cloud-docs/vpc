@@ -19,6 +19,7 @@ Virtual Private Cloud (VPC)
         vpc-security.md
         vpc-networking-concepts.md
         interconnectivity.md
+        private-wan.md
 
     {: .topicgroup}
     Compute
