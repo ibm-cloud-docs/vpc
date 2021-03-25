@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-23"
+lastupdated: "2021-03-25"
 
 subcollection: vpc
 
@@ -122,3 +122,9 @@ You can add health checking by associating a load balancer when you create your 
 {: faq}
 
 During an auto-scaling event, auto scale dynamically allocates instances according to the instance template defined in the instance group. Instance templates do not support  data volumes or a secondary network interface. If you want to include those resources as part of an instance provisioned by auto scale, you must create those resources separately and attach them to the instances after they are provisioned. 
+
+## Can I include instance groups in my private catalog? 
+{: #faq-auto-scale-13}
+{: faq}
+
+Instance groups are currently not supported in private catalogs.
