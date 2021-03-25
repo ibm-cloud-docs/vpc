@@ -57,7 +57,7 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 ### For all version dates
 {: #30-march-2021-all-version-dates}
 
-**Instance resize.** You can now resize an instance by providing the `profile` property in the API method `PATCH /instances/{id}` ([Update an instance](/apidocs/vpc#update-instance)). For more information, see [Resizing an instance](/docs/vpc?topic=vpc-resizing-an-instance).
+**Instance resize.** You can now resize an instance by providing the `profile` property in the API method `PATCH /instances/{id}` ([Update an instance](/apidocs/vpc#update-instance)). For more information, see [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance).
 
 ## 23 March 2021
 {: #23-march-2021}
