@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-31"
+lastupdated: "2021-03-30"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -51,11 +51,11 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Load balancer pools.** In an upcoming release, new values will be added to the `session_persistence` enumeration returned by the [load balancer pool](/apidocs/vpc#list-load-balancer-pools) methods. When available, if you use the options made possible by these new values, existing client applications will be exposed to these values. To avoid disruption of client applications, check that the client applications are written to gracefully handle unexpected values for the `session_persistence` property.
 
-## 31 March 2021
-{: #31-march-2021}
+## 30 March 2021
+{: #30-march-2021}
 
 ### For all version dates
-{: #31-march-2021-all-version-dates}
+{: #30-march-2021-all-version-dates}
 
 **Instance resize.** You can now resize an instance by providing the `profile` property in the API method `PATCH /instances/{id}` ([Update an instance](/apidocs/vpc#update-instance)). For more information, see [Resizing an instance](/docs/vpc?topic=vpc-resizing-an-instance).
 
