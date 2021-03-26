@@ -38,10 +38,10 @@ The supported monitoring metrics include:
 * Connection rate, or an analysis of when more or less connections are made to your load balancer
 * Total number of HTTP/HTTPS requests received by the back-end
 * Average response time for HTTP/HTTPS requests
-* Count of responses with the HTTP 2xx back-end response code
-* Count of responses with the HTTP 3xx back-end response code
-* Count of responses with the HTTP 4xx back-end response code
-* Count of responses with the HTTP 5xx back-end response code
+* Count of responses with the HTTP 2xx back-end response code (successful request)
+* Count of responses with the HTTP 3xx back-end response code (redirect)
+* Count of responses with the HTTP 4xx back-end response code (client side failure)
+* Count of responses with the HTTP 5xx back-end response code (server side error)
 
 These metrics help track the traffic and usage patterns for your load balancers and can provide insight about peak traffic hours, usage drop offs, and overall usage patterns.
 
