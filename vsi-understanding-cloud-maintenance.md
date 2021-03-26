@@ -46,7 +46,7 @@ Most updates are done transparently to the host and the virtual servers running 
 
 Some of these changes may require that a virtual server be live migrated to resolve an underlying issue on the hypervisor or host, such as a firmware update or a rare event where we cannot live patch the hypervisor kernel. When live migration occurs, the virtual server will experience a brief pause of around 10 seconds, and in some cases up to 30 seconds. The VSI is not rebooted as part of this process.
 
-In limited cases a virtual server restart may be required to complete the host or data center maintenance. This scenario can occur when specialized hardware is used or if the virtual server encounters a problem when migrating. In this case, a scheduled maintenance event will occur.
+In limited cases a virtual server restart may be required to complete the host or data center maintenance. This scenario can occur when specialized VMs are used or if the virtual server encounters a problem when migrating. In this case, a scheduled maintenance event will occur.
 
 ## What to expect during a Scheduled Maintenance Event
 {: #about-scheduled-maintenance}
