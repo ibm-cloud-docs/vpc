@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-19"
+lastupdated: "2021-03-25"
 
 keywords: release notes, changes, updates
 
@@ -25,6 +25,35 @@ subcollection: vpc
 
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
+
+## 25 March 2021
+{: #march-25-2021}
+
+- **New parameter-based rule types for application load balancers:** When creating policy rules for {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB), the `field` property may now be set to `query` or `body` to perform additional forms of layer 7 load balancing.
+
+	* `query` - Write layer 7 rules that use the query string to route traffic to a specific target. 
+
+	* `body` - If the body of the `POST` request uses form encoding (UTF-8), then you can create layer 7 rules to route traffic based on the parameter name and value in the body. 
+
+  For more information, refer to [Layer 7 load balancing](/docs/vpc?topic=vpc-layer-7-load-balancing).
+- **TCP keep alive support for application load balancers:** {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) now supports `TCP keep alive`. With this setting, the ALB sends TCP-keep-alive packets to both client and back-end servers every five seconds. 
+
+  For more information, refer to [Advanced traffic management](/docs/vpc?topic=vpc-advanced-traffic-management#tcp-keep-alive).
+- **New monitoring metrics:** {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) now has additional monitoring metrics to help track the traffic and usage patterns for your load balancers. These new metrics can provide insight about peak traffic hours, usage dropoffs, and overall usage patterns. The new metrics are:
+
+	* Total number of HTTP/HTTPS requests received by the back-end
+	* Average response time for HTTP/HTTPS requests
+	* Count of responses with the HTTP 2xx back-end response code
+	* Count of responses with the HTTP 3xx back-end response code
+	* Count of responses with the HTTP 4xx back-end response code
+	* Count of responses with the HTTP 5xx back-end response code
+
+  For more information, refer to [Monitoring metrics using IBM Cloud Application Load Balancer with Sysdig](/docs/vpc?topic=vpc-monitoring-metrics-sysdig).
+- **Private network load balancers:** {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) now supports the creation of private network load balancers. A private NLB is a load balancer only accessible from within the VPC network and/or where the client has reachability to the VPC network (for example, through Direct Link or a transit gateway).
+
+  To create private load balancers, you must have a dedicated subnet with no custom routes configured for the subnet. 
+
+  For information on creating a private NLB, refer to [Creating a Network Load Balancer for VPC](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer).
 
 ## 19 March 2021
 {: #march-19-2021}
