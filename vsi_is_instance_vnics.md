@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-11-03"
+  years: 2018, 2021
+lastupdated: "2021-03-26"
 
 keywords:
 
@@ -35,7 +35,7 @@ The following list highlights how network interfaces work with your instance.
 
 * You can create and assign up to 5 network interfaces for each virtual server instance.
 * You can attach each network interface to a different subnet in the same zone.
-* Each network interface receives a private IP address from the subnet range.
+* Each network is assigned a unique and immutable Media Access Control (MAC) address and receives a private IP address from the subnet range.
 * You can attach one floating IP address to the virtual server instance. Initially, the floating IP address must be attached to the primary network interface to establish the data path. By default the primary interface is `eth0` in {{site.data.keyword.cloud_notm}} console.
 * You can associate and unassociate a single floating IP address for the instance to and from each network interface.
 * You can assign security groups to each network interface.
