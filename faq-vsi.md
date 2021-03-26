@@ -100,7 +100,7 @@ Edit the file "`/boot/grub/menu.lst`" by changing `# groot=LABEL...` into `# gro
 
 In limited cases a virtual server might need to be migrated to a different host. If a migration is required, the virtual server is shut down, migrated, and then restarted. A virtual server might be migrated in the following cases:
 
-* Infrastructure maintenance. You might receive an email indicating that maintenance is required on a system that is hosting your virtual server. Your virtual server might need to be migrated as part of the infrastructure maintenance.
+* Infrastructure [maintenance](/docs/vpc?topic=vpc-about-cloud-maintenance). You might receive an email indicating that [maintenance](/docs/vpc?topic=vpc-about-cloud-maintenance) is required on a system that is hosting your virtual server. Your virtual server might need to be migrated as part of the infrastructure [maintenance](/docs/vpc?topic=vpc-about-cloud-maintenance).
 * An unplanned host outage. The following actions apply if there is an unexpected host failure:
     * The virtual servers that were running on the host are stopped when the outage is detected. 
     * The virtual servers are automatically reassigned and restarted on a different compute host in the same multi-region zone. 
