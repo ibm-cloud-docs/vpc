@@ -31,25 +31,25 @@ subcollection: vpc
 # Private network connectivity within {{site.data.keyword.cloud_notm}}
 {: #private-network-connectivity}
 
-For technical, cost, regulatory and/or compliance reasons, you might require all connectivity to, within, and between your VPC infrastructures to be isolated from all public backbone and the internet. 
+For technical, cost, regulatory and/or compliance reasons, you might require all connectivity to, within, and between your VPC infrastructures to be isolated from all public backbone and the internet.
 
 Example use cases of private connectivity include:
 
 1. Instance to instance within an Availability Zone (AZ)
 1. Instance to instance between AZs within a single region
-1. Instance to instances region to region
+1. Instance to instances, region to region
 1. Connection from a remote network (on-premises) to {{site.data.keyword.cloud}}
 
 
 {{site.data.keyword.cloud_notm}} supports these topologies with:
 
-* A private backbone for all connectivity between resources deployed in your VPC virtual networks with an AZ and between AZs (this backbone is separate from the public backbone for connectivity using public addressing). IP addressing on the private backbone are non-internet routable, or not announced toward the public backbone or the internet. The private backbone is owned, managed, and operated exclusively by IBM Cloud.
+* A private backbone for all connectivity between resources deployed in your VPC virtual networks with an AZ and between AZs (this backbone is separate from the public backbone for connectivity using public addressing). IP addressing on the private backbone is non-internet routable, or not announced toward the public backbone or the internet. The private backbone is owned, managed, and operated exclusively by IBM Cloud.
 * IBM Cloud Transit Gateway, which meets use cases 1 through 3 by using this private backbone exclusively for connectivity between your virtual networks within a single region, across multiple regions, and to your IBM Cloud classic workloads.
 * IBM Direct Link (2.0), which meets use case 4 by providing the ability to attach your remote networks (on-premises) to your virtual
-networks within IBM Cloud VPC or IBM Cloud Classic via this same private backbone. 
+networks within IBM Cloud VPC or IBM Cloud Classic via this same private backbone.
 
 By default, a VPC is private, and remains private until it is configured to enable public connectivity. For instance, a VPC might be connected to a public gateway or associated with floating IPs.
-{: note} 
+{: note}
 
 ## Architecture
 {: #private-network-arch}
