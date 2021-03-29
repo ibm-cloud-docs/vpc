@@ -62,7 +62,7 @@ Target | The back-end pool of virtual server instances to which the request is f
 ## Rules
 {: #layer-7-rules}
 
-A Layer-7 rule defines how a request should be matched. Five types of rules are supported, described in Table 2.
+A Layer-7 rule defines how a request should be matched. Both URI based routing and parameter based routing are supported. Five types of rules are supported, described in Table 2.
 
 Type      |  Description
 ----------| -----------------------
@@ -98,9 +98,9 @@ Property  | Description
 
 **Notes**:
 
-* If the rule type is `header`, the following characters are not allowed for `field` and `value`: `"(),/:;<=>?@[\]{}'`. 
-* If the rule type is `body`, the following characters are not allowed for `field` and `value`: `"'=,()&` and space. 
-* If the rule type is `query`, `field` and `value` must be a percent-encoded string. 
+* If the rule type is `header`, the following characters are not allowed for `field` and `value`: `"(),/:;<=>?@[\]{}'`.
+* If the rule type is `body`, the following characters are not allowed for `field` and `value`: `"'=,()&` and space.
+* If the rule type is `query`, `field` and `value` must be a percent-encoded string.
 
 ## Examples: Creating policies and rules
 {: #layer-7-examples-create-policy-and-rules}
