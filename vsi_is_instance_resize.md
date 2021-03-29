@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-03-19"
+lastupdated: "2021-03-29"
 
 subcollection: virtual-servers
 
@@ -75,7 +75,9 @@ Complete the following steps to resize an existing virtual server instance.
 
 Use the `instance-update` command to resize a virtual server. 
 
-```ibmcloud is instance-update instance-id --profile profile-id  ```
+```
+ibmcloud is instance-update instance-id --profile profile-id  
+```
 {:pre}
    
 Where: 
@@ -84,7 +86,9 @@ Where:
   
 For example, if you want to resize an instance to the bx2-16x64 profile, the command would look similar to the following sample: 
 
-```ibmcloud is instance-update 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --profile bx2-16x64```
+```
+ibmcloud is instance-update 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --profile bx2-16x64
+```
 
 ## Resizing a virtual server using the API
 {: #resizing-a-virtual-server-API}
@@ -94,12 +98,17 @@ Use the `instance-update` command to resize a virtual server.
 
 
 1. Run the following command to find the name of the profile you want to use: 
-   ```curl  -s -X GET "<api_endpoint>/v1/instance/profiles?generation=2&version=2021-02-01" -H "Authorization: Bearer <IAM token>" ```
+
+   ```
+   curl  -s -X GET "<api_endpoint>/v1/instance/profiles?generation=2&version=2021-02-01" -H "Authorization: Bearer <IAM token>" 
+   ```
+   
 2. Select a profile that will work with your instance. 
     * For a dedicated virtual server, chose a profile that the dedicated host supports
     * If you use instance storage, choose a profile that has instance profile
     * For data volumes, choose a profile that has data volumes
 3. Run the following command: 
+
    ```
    curl -k -sS -X PATCH "<api_endpoint>/v1/instances/<instance id>?generation=2&version=2021-02-01" \
        -H "Authorization: Bearer <IAM token>" \
@@ -110,6 +119,7 @@ Use the `instance-update` command to resize a virtual server.
        }
    } '
    ```
+   
    Where: 
       * `instance-id` is the ID of the instance you want to resize
       * `profile-id` is the ID of the profile you want to use
