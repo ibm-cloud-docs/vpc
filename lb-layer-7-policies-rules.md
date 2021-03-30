@@ -24,10 +24,10 @@ subcollection: vpc
 {:external: target="_blank" .external}
 
 
-# Layer-7 load balancing
+# Layer 7 load balancing
 {: #layer-7-load-balancing}
 
-Both public and private application load balancers support Layer-7 load balancing. Data traffic is distributed based on configured policies and rules. A policy defines the action to take, which means how the traffic is distributed, when the incoming request matches the rules that are associated with the policy.
+Both public and private application load balancers support layer 7 load balancing. Data traffic is distributed based on configured policies and rules. A policy defines the action to take, which means how the traffic is distributed, when the incoming request matches the rules that are associated with the policy.
 
 ## Policies
 {: #layer-7-policy}
@@ -38,7 +38,7 @@ You can attach more than one policy to a listener. In general, a policy with the
 
 If the incoming request does not match the rules for any of the policies, the request is redirected to the default pool of the listener.
 
-The following actions are supported for a Layer-7 policy:
+The following actions are supported for a layer 7 policy:
 
 * **Reject** - The request is denied with a 403 response.
 * **Redirect** - The request is redirected to a configured URL and response code.
@@ -62,7 +62,7 @@ Target | The back-end pool of virtual server instances to which the request is f
 ## Rules
 {: #layer-7-rules}
 
-A Layer-7 rule defines how a request should be matched. Both URI based routing and parameter based routing are supported. Five types of rules are supported, described in Table 2.
+A layer 7 rule defines how a request should be matched. Both URI based routing and parameter based routing are supported. Five types of rules are supported, described in Table 2.
 
 Type      |  Description
 ----------| -----------------------
@@ -71,7 +71,7 @@ Type      |  Description
 `path`     | The request matches the `path` in the URL after the `hostname`, such as `/index.html`.
 `query`    | The request matches the `query` in the URL, for example `x=y`. The `query` string must be percent-encoded, and it is case sensitive.
 `body`     | If the request `body` of the `POST` request is form encoding. The request matches the body, for example `key=value`. It is case sensitive.
-{: caption="Table 2. Layer-7 rules" caption-side="top"}
+{: caption="Table 2. Layer 7 rules" caption-side="top"}
 
 To match a request, a `condition` statement must be defined in a rule. Three conditions are supported, described in Table 3.
 
@@ -85,7 +85,7 @@ Condition |  Type of evaluation
 ## Rule properties
 {: #layer-7-rule-properties}
 
-Table 4 describes Layer-7 policy rule properties.
+Table 4 describes layer 7 policy rule properties.
 
 Property  | Description
 ------------- | -------------
@@ -105,7 +105,7 @@ Property  | Description
 ## Examples: Creating policies and rules
 {: #layer-7-examples-create-policy-and-rules}
 
-The following Layer-7 examples show how policies and rules are created and associated with a listener.
+The following layer 7 examples show how policies and rules are created and associated with a listener.
 
 ### Example 1: Create an HTTPS listener with redirect policies
 

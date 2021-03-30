@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2021
 lastupdated: "2021-02-15"
 
-keywords: listener, pool, round-robin, weighted, layer-7, datapath logging
+keywords: listener, pool, round-robin, weighted, layer 7, datapath logging
 
 subcollection: vpc
 

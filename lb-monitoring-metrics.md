@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2021
 lastupdated: "2021-03-23"
 
-keywords: l7, Layer-7, monitor, metrics, connection
+keywords: l7, layer 7, monitor, metrics, connection
 
 subcollection: vpc
 
