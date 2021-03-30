@@ -49,7 +49,7 @@ Some changes, such as new response properties or new optional request parameters
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
 
-**Load balancer pools.** In an upcoming release, new values will be added to the `session_persistence` enumeration returned by the [load balancer pool](/apidocs/vpc#list-load-balancer-pools) methods. When available, if you use the options made possible by these new values, existing client applications will be exposed to these values. To avoid disruption of client applications, check that they are written to gracefully handle unexpected values for the `session_persistence` property.
+**Load balancer pools.** In an upcoming release, new values will be added to the `session_persistence` enumeration returned by the [load balancer pool](/apidocs/vpc#list-load-balancer-pools) methods. If you use the options made possible by these new values, existing client applications will be exposed to these values. To avoid disruption of client applications, check that they are written to gracefully handle unexpected values for the `session_persistence` property.
 
 ## 30 March 2021
 {: #30-march-2021}
