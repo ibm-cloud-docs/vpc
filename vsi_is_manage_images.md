@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-19"
+lastupdated: "2021-03-30"
 
 keywords: custom image
 
@@ -45,7 +45,7 @@ Make sure that your image meets custom image requirements:
 * Is cloud-init enabled
 * The operating system is supported as a [stock image](/docs/vpc?topic=vpc-about-images#stock-images) operating system
 
-  For custom images with Red Hat Enterprise Linux (RHEL) or Windows operating systems, you must select the bring your own license (BYOL) operating system version when you import the custom image. For example, if you have a Windows 2019 custom image, select *Windows-2019-amd64-byol* for the operating system when you import the custom image. For more information, see [Bring your own license (Beta)](/docs/vpc?topic=vpc-byol-vpc-about). 
+  For custom images with Red Hat Enterprise Linux (RHEL) or Windows operating systems, you must select the bring your own license (BYOL) operating system version when you import the custom image. For example, if you have a Windows 2019 custom image, select *Windows-2019-amd64-byol* for the operating system when you import the custom image. For more information, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about). 
   {: important}
 
 * Size doesn't exceed 100 GB

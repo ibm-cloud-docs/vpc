@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-21"
+lastupdated: "2021-03-30"
 
 keywords: license, virtual private cloud, BYOL, virtual server instance, instance, custom image, encryption
 subcollection: vpc
@@ -16,16 +16,12 @@ subcollection: vpc
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
 {:note: .note}
-{:beta: .beta}
 
 # Bring your own license
 {: #byol-vpc-about}
 
 For RedHat Enterprise Linux (RHEL) and Windows operating systems, you can bring your own license (BYOL) to the IBM Cloud VPC when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. Acquisition and activation of the license is between you and and the OS vendor.
 {:shortdesc}
-
-BYOL is a beta feature that is available for evaluation and testing purposes. Contact your IBM Sales representative if you are interested in getting access.
-{:beta}
 
 ## BYOL concepts
 {: #byol-vpc-concepts}
