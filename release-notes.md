@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-25"
+lastupdated: "2021-03-30"
 
 keywords: release notes, changes, updates
 
@@ -129,7 +129,10 @@ The Washington D.C. multi-zone region will be enabled in January 2021. This feat
 ## 11 December 2020
 {: #dec-11-2020}
 
-**VPN logging and auditing:** The ability to monitor and audit your VPNs has been added to {{site.data.keyword.vpn_vpc_short}}. For more information, see [Using LogDNA to view VPN logs](/docs/vpc?topic=vpc-using-logdna-to-view-vpn-logs).
+## 11 December 2020
+{: #dec-11-2020}
+
+**VPN logging and auditing:** The ability to monitor and audit your VPNs has been added to {{site.data.keyword.vpn_vpc_short}}. For more information, see [Using IBM Log Analysis to view VPN logs](/docs/vpc?topic=vpc-using-logdna-to-view-vpn-logs).
 
 ## 1 December 2020
 {: #december-1-2020}
@@ -140,7 +143,7 @@ The Washington D.C. multi-zone region will be enabled in January 2021. This feat
 {: #november-20-2020}
 
 - **Support for ingress routing:** Ingress routing is included as part of custom routing tables, released on 30 October 2020. Ingress routing enables you to customize routes on incoming traffic to a VPC from traffic sources external to the VPC's availability zone (IBM Cloud Direct Link 2.0, IBM Cloud Transit Gateway, or another availability zone in the same VPC). For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes).
-- **Support for datapath log forwarding with LogDNA:** Datapath log forwarding with LogDNA is now available for IBM Cloud Application Load Balancer for VPC. Data and health check logs are valuable for debugging, analysis, and maintenance purposes. With the datapath logging feature enabled, your load balancer forwards these logs to your account's IBM Log Analysis with LogDNA dashboard. For more information, see [Datapath log forwarding with LogDNA](/docs/vpc?topic=vpc-datapath-logging#datapath-logging).
+- **Support for datapath log forwarding with Log Analysis:** Datapath log forwarding with {{site.data.keyword.la_full_notm}} is now available for IBM Cloud Application Load Balancer for VPC. Data and health check logs are valuable for debugging, analysis, and maintenance purposes. With the datapath logging feature enabled, your load balancer forwards these logs to your account's {{site.data.keyword.la_full_notm}} dashboard. For more information, see [Datapath log forwarding with Log Analysis](/docs/vpc?topic=vpc-datapath-logging#datapath-logging).
 - **UI enhancements:** You can now provision a VPC from the within the New virtual server for VPC page.
 
 ## 12 November 2020
