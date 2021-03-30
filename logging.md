@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-02"
+lastupdated: "2021-03-30"
 
-keywords: flow logs, ordering, logging, LogDNA, log analysis
+keywords: flow logs, ordering, logging, log analysis
 
 subcollection: vpc
 
@@ -35,7 +35,7 @@ After you provision {{site.data.keyword.la_full}} to add log management capabili
 ## Platform logs
 {: #logging_ov}
 
-Platform logs are logs that are exposed by enabled-LogDNA services and the platform in {{site.data.keyword.cloud_notm}}. You must configure a LogDNA instance in a region to monitor these logs.
+Platform logs are logs that are exposed by logging-enabled services and the platform in {{site.data.keyword.cloud_notm}}. You must configure a {{site.data.keyword.la_short}} instance in a region to monitor these logs.
 
 For more information, see [Configuring IBM Cloud platform logs](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-config_svc_logs).
 
@@ -44,7 +44,7 @@ For more information, see [Configuring IBM Cloud platform logs](/docs/Log-Analys
 
 VPC services generate platform logs in the same region where they are available. You can view, monitor, and manage VPC logs through the {{site.data.keyword.la_full_notm}} instance that is marked as **platform logs** in the region.
 
-To launch the LogDNA web UI to view these logs, see [Navigating to the web UI](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-launch).
+To launch the {{site.data.keyword.la_short}} web UI to view these logs, see [Navigating to the web UI](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-launch).
 
 For information about the locations where VPC logs are available, see [VPC infrastructure services locations](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-cloud_services_locations#cloud_services_locations_vpc_infrastructure).
 

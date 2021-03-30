@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-03-19"
+lastupdated: "2021-03-30"
 
 keywords: custom os, creating a custom os, custom operating system, creating a custom operating system, kernel, custom kernel
 
@@ -35,16 +35,16 @@ Hardware supported by every virtual machine in IBM's VPC is detailed below in th
 {:shortdesc}
 
 - **Host bridge**:
-  - Intel Corporation 440FX - 82441FX PMC [Natoma] (rev 02)
+  - Intel Corporation 440FX - 82441FX PMC [Natoma] - (rev 02)
 - **ISA bridge**:
   - Intel Corporation 82371SB PIIX3 ISA [Natoma/Triton II]
 - **IDE interface**:
-  - Intel Corporation 82371SB PIIX3 IDE [Natoma/Triton II] (prog-if 80 [ISA Compatibility mode-only controller, supports bus mastering])
+  - Intel Corporation 82371SB PIIX3 IDE [Natoma/Triton II]
     - Subsystem: XenSource, Inc. Device 0001
     - Kernel driver in use: ata_piix
     - Kernel modules: ata_piix, pata_acpi, ata_generic
 - **USB controller**:
-  - USB controller: Intel Corporation 82371SB PIIX3 USB [Natoma/Triton II] (rev 01) (prog-if 00 [UHCI])
+  - USB controller: Intel Corporation 82371SB PIIX3 USB [Natoma/Triton II] - (rev 01)
     - **Subsystem**: XenSource, Inc. Device 0001
     - **Kernel driver in use**: uhci_hcd
 - **Bridge**:

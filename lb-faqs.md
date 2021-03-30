@@ -5,7 +5,7 @@ copyright:
 lastupdated: "2021-02-24"
 
 
-keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, layer-7, auto scale, managed pool, instance group
+keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, layer 7, auto scale, managed pool, instance group
 
 subcollection: vpc
 
@@ -135,11 +135,11 @@ Application load balancer IP addresses are not guaranteed to be fixed. During sy
 Use FQDN, rather than cached IP addresses.
 {:important}
 
-## Does the load balancer support Layer-7 switching?
+## Does the load balancer support layer 7 switching?
 {: #layer-7-switching-alb}
 {: faq}
 
-Yes, the load balancer supports Layer-7 switching.
+Yes, the load balancer supports layer 7 switching.
 
 ## Why does HTTPS listener creation or update tell me that my certificate is invalid?
 {: #why-does-https-listener-creation-or-update-tell-me-that-my-certificate-is-invalid}

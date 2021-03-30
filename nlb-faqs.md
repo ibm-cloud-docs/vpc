@@ -41,11 +41,11 @@ The auto-assigned DNS name for the load balancer is not customizable. However, y
 
 DNS hostnames for your load balancers are automatically assigned by the load balancer service under the common DNS zone `lb.appdomain.cloud`. For maximum portability, these DNS names are registered publicly, even for private load balancers. The hostname has a portion of the randomly generated load balancer ID and does not expose any identifying information. Private load balancer names can be resolved publicly, but the addresses they resolve to are not routable from the internet, and can only be reached from inside your own private network environment.
 
-## Does the NLB support Layer-7 switching?
+## Does the NLB support layer 7 switching?
 {: #does-the-load-balancer-support-layer-7-switching}
 {: faq}
 
-No. The network load balancer does not support Layer-7 switching.
+No. The network load balancer does not support layer 7 switching.
 
 ## What's the maximum number of front-end listeners I can define with my load balancer?
 {: #what-s-the-maximum-number-of-front-end-listeners-i-can-define-with-my-load-balancer}

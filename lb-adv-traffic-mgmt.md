@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2021
 lastupdated: "2021-03-23"
 
-keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, layer-7
+keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, layer 7
 subcollection: vpc
 
 ---
@@ -46,7 +46,7 @@ An ALB supports session persistence based on the source IP of the connection. As
 ## TCP keep alive
 {: #tcp-keep-alive}
 
-{{site.data.keyword.alb_full}} supports `TCP keep alive`. With this setting, the load balancer sends TCP-keep-alive packets to both client and back-end servers every 5 seconds. 
+{{site.data.keyword.alb_full}} supports `TCP keep alive`. With this setting, the load balancer sends TCP-keep-alive packets to both client and back-end servers every 5 seconds.
 
    This is a socket-level packet with no data that is sent to the peer to notify it that the host is alive. As such, it is seen only at the network layer, and not at the application level. This setting also helps to prevent the disconnection of TCP connections by an intermediate proxy or firewall that might have policies that discard connections after a certain period of inactivity.
    {: note}
@@ -109,6 +109,6 @@ All back-end members of that pool must support proxy protocol for the data path 
 ![Proxy Protocol Listener](images/VPC-LBaaS-Proxy-Protocol-Listener.png "Proxy Protocol Listener")
 {: caption="Proxy Protocol Listener" caption-side="top"}
 
-If the {{site.data.keyword.alb_full}} is receiving traffic from a proxy (or a proxy chain) that uses proxy protocol, the listener must have proxy protocol that is enabled so that it can parse the origin client information that is contained in the proxy protocol headers. This setting is disabled by default, if not specified. Because the load balancer can detect the version of the proxy protocol header and parse it correctly, you don't have to specify which version of proxy protocol is being used to send traffic to the ALB. 
+If the {{site.data.keyword.alb_full}} is receiving traffic from a proxy (or a proxy chain) that uses proxy protocol, the listener must have proxy protocol that is enabled so that it can parse the origin client information that is contained in the proxy protocol headers. This setting is disabled by default, if not specified. Because the load balancer can detect the version of the proxy protocol header and parse it correctly, you don't have to specify which version of proxy protocol is being used to send traffic to the ALB.
 
 When proxy protocol is enabled for a front-end listener, all traffic coming to that frontend port is expected to be proxy protocol traffic. If any of the connections do not contain the proper proxy protocol headers, they won't be established. To forward this client information to the back-end server pool, you must enable proxy protocol for the pool. Similar to use case 1, you must select version 1 or version 2 depending on what version of proxy protocol the back-end servers are configured to use. You can also choose to not forward this client information to the back-end servers if they are not capable of processing this information, and this information is dropped at the load balancer.

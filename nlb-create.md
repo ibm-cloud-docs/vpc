@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-03-15"
+  years: 2020, 2021 
+lastupdated: "2021-03-23"
 
 keywords: network load balancer, public, listener, pool, round-robin
 
@@ -31,7 +31,7 @@ subcollection: vpc
 # Creating a {{site.data.keyword.nlb_full}}
 {: #nlb-ui-creating-network-load-balancer}
 
-You can create an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) using the UI, CLI or API. To order and start using the Network Load Balancer for VPC, you need two main items:
+You can create an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) by using the UI, CLI, or API. To order and start using the Network Load Balancer for VPC, you require two main items:
 
    * An [IBMid](https://www.ibm.com/account/us-en/signup/register.html){:external} account.
    * A VPC in which to deploy the network load balancer.
@@ -41,40 +41,36 @@ You can create an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NL
 {: #nlb-ui}
 {: ui}
 
-To create and configure {{site.data.keyword.nlb_full}} by using the {{site.data.keyword.cloud_notm}} console, perform the following procedure:
+To create and configure {{site.data.keyword.nlb_full}} by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){:external} and log in to your account.
-1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**
+1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
 1. Click **New load balancer +** in the upper right of the page.
 1. In the order form, complete the following information:
    * Type a unique name for your load balancer and select a VPC.
-   * Select a resource group. Use the default group, or select from the list (if defined for your account). Remember that you cannot change the resource group after the load balancer is created.
+   * Select a resource group. Use the default group, or select from the list (if defined for your account). You cannot change the resource group after the load balancer is created.
    * Select the **Network Load Balancer (NLB)** tile and the subnet where you want to deploy the load balancer.
+   * Select type: public or private
 
-      Network load balancers are public load balancers. You cannot change the Type.
-      {: note}   
-
+      Private NLB is available in certain regions. For more information, see [NLB limitations](/docs/vpc?topic=vpc-nlb-limitations).
+      {: note} 
    * Optionally, add tags.
 
-1. Click on **New Pool** and specify the following information to create back-end
-pool. You can create one or more pools.
-   * Type a name for the pool, such as my-pool.
-   * Enter a protocol for your instances in this pool. The protocol of the pool
-   must match the protocol of its associated listener. For example, if the
-   listener is TCP, the protocol of the pool must be TCP.
-   * Select the method: the load balancing algorithm. Options are round robin, weighted round
-   robin, and least connections.
-     * **Round robin**: Forward requests to each instance in turn. All instances receive approximately an equal number of client connections.
-     * **Weighted round robin**: Forward requests to each instance in proportion to its assigned weight. For example, you have instances A, B, and C, and their weights are set to 60, 60 and 30. Instances A and B receive an equal number of connections, and instance C receives half as many connections.
-     * **Least connections**: Forward requests to the instance with the least number of connections at the current time.
+1. Click **New Pool** and specify the following information to create a back-end pool. You can create one or more pools.
+   * Type a name for the pool, such as `my-pool`.
+   * Enter a protocol for your instances in this pool. The protocol of the pool must match the protocol of its associated listener. For example, if the listener is TCP, the protocol of the pool must be TCP.
+   * Select the method, which is the load-balancing algorithm. The follow options are shown.
+      * **Round robin** - Forward requests to each instance in turn. All instances receive approximately an equal number of client connections.
+      * **Weighted round robin** - Forward requests to each instance in proportion to its assigned weight. For example, you have instances A, B, and C, and their weights are set to 60, 60 and 30. Instances A and B receive an equal number of connections, and instance C receives half as many connections.
+      * **Least connections** - Forward requests to the instance with the least number of connections at the current time.
    * Choose session stickiness and select None or Source IP.
    * Under the health checks, the following options are shown.
-     * **Health check path**: Health path is applicable only if HTTP is selected as the health check protocol. The health path specifies the URL used by the load balancer to send the HTTP health check requests to the instances in the pool. By default, health checks are sent to the root path (/).
-     * **Health protocol**: The protocol used by the load balancer to send health check messages to the instances in the pool.
-     * **Health port**: The port on which to send health check requests. By default, health checks are sent on the same port on which traffic is sent to the instance.
-     * **Interval**: Interval in seconds between two consecutive health check attempts. By default, health checks are sent every 5 seconds.
-     * **Timeout**: Maximum amount of time the system waits for a response from a health check request. By default, the load balancer waits 2 seconds for a response.
-     * **Max retries**: Maximum number of health check attempts that the load balancer makes before an instance is declared unhealthy. By default, an instance is no longer considered healthy after two failed health checks.
+     * **Health check path** - Health path is applicable only if HTTP is selected as the health check protocol. The health path specifies the URL used by the load balancer to send the HTTP health check requests to the instances in the pool. By default, health checks are sent to the root path (/).
+     * **Health protocol** - The protocol used by the load balancer to send health check messages to the instances in the pool.
+     * **Health port** - The port on which to send health check requests. By default, health checks are sent on the same port on which traffic is sent to the instance.
+     * **Interval** - Interval in seconds between two consecutive health check attempts. By default, health checks are sent every 5 seconds.
+     * **Timeout** - Maximum amount of time the system waits for a response from a health check request. By default, the load balancer waits 2 seconds for a response.
+     * **Max retries** - Maximum number of health check attempts that the load balancer makes before an instance is declared unhealthy. By default, an instance is no longer considered healthy after two failed health checks.
 
        Although the load balancer stops sending connections to unhealthy instances, the load balancer continues monitoring the health of these instances and resumes their use if they're found healthy again (that is, if they successfully pass two consecutive health check attempts).
 
@@ -82,10 +78,10 @@ pool. You can create one or more pools.
      {: tip}
 
 1. Click **New listener** and specify the following information to create a listener. You can create one or more listeners.
-   * **Protocol**: The protocol to use for receiving incoming requests.
-   * **Port**: The listening port on which requests are received.
-   * **Back-end pool**: The default back-end pool to which this listener forwards traffic.
-   * **Max connections** (optional): Maximum number of concurrent connections the listener allows.
+   * **Protocol** - The protocol to use for receiving incoming requests.
+   * **Port** - The listening port on which requests are received.
+   * **Back-end pool** - The default back-end pool to which this listener forwards traffic.
+   * **Max connections** (optional) - Maximum number of concurrent connections the listener allows.
 
 1. An order summary shows pricing estimates. Review the Cloud Services terms.
 Then, click **Create** to complete your order.
@@ -94,20 +90,22 @@ Then, click **Create** to complete your order.
 {: #nlb-cli-creating-network-load-balancer}
 {: cli}
 
-The following example illustrates using the CLI to create a {{site.data.keyword.nlb_full}} (NLB). In this example, it is in front of one VPC virtual server instance (id `0716_6acdd058-4607-4463-af08-d4999d983945`) running a TCP server that listens on port 9090. The load balancer has a front-end listener, which allows secure access to the TCP server.
+The following example illustrates using the CLI to create a {{site.data.keyword.nlb_full}} (NLB). In this example, it is in front of one VPC virtual server instance (ID `0716_6acdd058-4607-4463-af08-d4999d983945`) running a TCP server that listens on port `9090`. The load balancer has a front-end listener, which allows secure access to the TCP server.
 
-To create a network load balancer by using the CLI, perform the following procedure:
+To create a network load balancer by using the CLI, follow these steps:
 
 1. Set up your [CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
-2. Use the terminal to log in to your account using the CLI. After you enter the password, the system prompts which account and region you want to use:
+1. Log in to your account using the CLI. After you enter the password, the system prompts which account and region that you want to use:
 
     ```
     ibmcloud login --sso
     ```
     {: pre}
 
-3. Create a load balancer:
+1. Create a load balancer:
+
+  Create public network load balancer
 
   ```
   ibmcloud is load-balancer-create nlb-test public --subnet 0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c --family network
@@ -141,8 +139,42 @@ To create a network load balancer by using the CLI, perform the following proced
     Created            2020-08-27T14:34:34.732-05:00
   ```
   {: screen}
+  
+  Create private network load balancer
+  
+  ```
+  ibmcloud is load-balancer-create nlb-test private --subnet 07a7-37b4dcfc-841e-4d4a-9f9f-9e45ffbd0285 --family network
+  ```
+  {: pre}
+  
+  Sample output:
+  ```  
+  Creating load balancer nlb-test in resource group  under account CNS Development Account - netsvs as user test@us.ibm.com...
 
-4. Create a pool:
+  ID                 r018-8a994baa-21ba-428c-ac3f-e3fd91fa92c9
+  Name               nlb-test
+  CRN                crn:v1:bluemix:public:is:eu-gb-3:a/be636a7a6e4d4b6296bedf669ce8f757::load-balancer:r018-8a994baa-21ba-428c-ac3f-e3fd91fa92c9
+  Family             Network
+  Host name          8a994baa-eu-gb.lb.appdomain.cloud
+  Subnets            ID                                          Name
+                     07a7-37b4dcfc-841e-4d4a-9f9f-9e45ffbd0285   nlb1
+
+  Public IPs
+  Private IPs
+  Provision status   create_pending
+  Operating status   offline
+  Is public          false
+  Listeners
+  Pools              ID   Name
+
+  Resource group     ID                                 Name
+                     42c4f51adc3147b4b4049ad9826c30a1   Default
+
+  Created            2021-03-22T11:34:57.34-05:00
+  ```
+  {: screen}
+
+1. Create a pool:
 
   ```
   ibmcloud is load-balancer-pool-create nlb-pool r134-99b5ab45-6357-42db-8b32-5d2c8aa62776  weighted_round_robin tcp 10
@@ -171,7 +203,7 @@ To create a network load balancer by using the CLI, perform the following proced
   ```
   {: screen}
 
-5. Create a member:
+1. Create a member:
 
   ```
   ibmcloud is load-balancer-pool-member-create r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 9090 0716_6acdd058-4607-4463-af08-d4999d983945 --weight 70
@@ -192,7 +224,7 @@ To create a network load balancer by using the CLI, perform the following proced
   ```
   {: screen}
 
-6. Create a listener:
+1. Create a listener:
 
   ```
   ibmcloud is load-balancer-listener-create r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 7070 tcp --default-pool r134-3b66d605-6aa5-4166-9f66-b16054da3cb0
@@ -214,7 +246,7 @@ To create a network load balancer by using the CLI, perform the following proced
   ```
   {: screen}
 
-7. Get details about your load balancer:
+1. Get details about your load balancer:
 
   ```
   ibmcloud is load-balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776
@@ -254,16 +286,16 @@ To create a network load balancer by using the CLI, perform the following proced
 {: #nlb-api-creating-network-load-balancer}
 {: api}
 
-The following example illustrates using the API to create a network load balancer in front of two VPC virtual server instances (`192.168.100.5` and `192.168.100.6`) running a web application that listens on port 80. The load balancer has a front-end listener, which allows secure access to the web application by using HTTPS.
+The following example illustrates using the API to create a network load balancer in front of two VPC virtual server instances (`192.168.100.5` and `192.168.100.6`) running a web application that listens on port `80`. The load balancer has a front-end listener, which allows secure access to the web application by using HTTPS.
 
 The example skips the [prerequisite steps](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis) for using the API to provision a VPC, subnets, and instances.
 {: note}
 
-To create a network load balancer by using the API, perform the following procedure:
+To create a network load balancer by using the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 
-2. Store the following values in variables to be used in the API command:
+1. Store the following values in variables to be used in the API command:
 
    * `ResourceGroupId` - First, get your resource group and then populate the variable:
 
@@ -272,7 +304,7 @@ To create a network load balancer by using the API, perform the following proced
     ```
     {: pre}
 
-3. Create a load balancer with a listener, pool, and attached server instances (pool members)
+1. Create a load balancer with a listener, pool, and attached server instances (pool members):
 
   ```bash
   curl -H "Authorization: $iam_token" -X POST
@@ -389,7 +421,7 @@ To create a network load balancer by using the API, perform the following proced
   ```
   {: pre}
 
-4. Get details about the load balancer
+1. Get details about the load balancer:
 
   ```bash
   curl -H "Authorization: $iam_token" -X GET "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"

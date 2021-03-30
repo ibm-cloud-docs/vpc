@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2021
 lastupdated: "2021-02-15"
 
-keywords: listener, pool, round-robin, weighted, layer-7, datapath logging
+keywords: listener, pool, round-robin, weighted, layer 7, datapath logging
 
 subcollection: vpc
 
@@ -167,10 +167,10 @@ IBM Db2-on-Cloud Service serves as the database for the application load balance
 
 {{site.data.keyword.cloud_notm}} Application Load Balancer for VPC integrates with instance groups, which can `auto scale` your back-end members. Pool members are dynamically added and deleted based on your usage and requirements.
 
-## Datapath log forwarding with LogDNA
+## Datapath log forwarding
 {: #datapath-logging}
 
-With datapath logging enabled, load balancer logs are forwarded to the [IBM Log Analysis with LogDNA](https://cloud.ibm.com/catalog/services/ibm-log-analysis-with-logdna){:external} service, where you can view your datapath logs.
+With datapath logging enabled, load balancer logs are forwarded to the [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/catalog/services/ibm-log-analysis-with-logdna){:external} service, where you can view your datapath logs.
 
 ## Related links
 {: #permissions-related-links-alb}
@@ -179,6 +179,6 @@ With datapath logging enabled, load balancer logs are forwarded to the [IBM Log 
 * [Load balancer API reference](https://{DomainName}/apidocs/vpc#list-load-balancer-profiles)
 * [ALB for VPC infrastructure resources for Terraform](https://cloud.ibm.com/docs/terraform?topic=terraform-vpc-gen2-resources#lb)
 * [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
-* [Activity Tracker with LogDNA events](/docs/vpc?topic=vpc-at-events#events-load-balancers)
+* [{{site.data.keyword.cloudaccesstraillong_notm}} events](/docs/vpc?topic=vpc-at-events#events-load-balancers)
 * [FAQs for application load balancers](/docs/vpc?topic=vpc-load-balancer-faqs)
 * [Quotas](/docs/vpc?topic=vpc-quotas#load-balancer-quotas)

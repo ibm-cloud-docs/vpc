@@ -1,11 +1,11 @@
 ---
 
 copyright:
-  years: 2019, 2020
+  years: 2019, 2021
 
-lastupdated: "2020-12-22"
+lastupdated: "2021-03-30"
 
-keywords: activity tracker, events, logdna
+keywords: activity tracker, events 
 
 subcollection: vpc
 
@@ -21,7 +21,7 @@ subcollection: vpc
 {:note: .note}
 {:download: .download}
 
-# Activity Tracker with LogDNA events
+# Activity Tracker events
 {: #at-events}
 
 As a security officer, auditor, or manager, you can use the {{site.data.keyword.at_full}} service to track how users and applications interact with {{site.data.keyword.cloud}} Virtual Private Cloud (VPC).

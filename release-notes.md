@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-19"
+lastupdated: "2021-03-30"
 
 keywords: release notes, changes, updates
 
@@ -25,6 +25,35 @@ subcollection: vpc
 
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
+
+## 25 March 2021
+{: #march-25-2021}
+
+- **New parameter-based rule types for application load balancers:** When creating policy rules for {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB), the `field` property may now be set to `query` or `body` to perform additional forms of layer 7 load balancing.
+
+	* `query` - Write layer 7 rules that use the query string to route traffic to a specific target. 
+
+	* `body` - If the body of the `POST` request uses form encoding (UTF-8), then you can create layer 7 rules to route traffic based on the parameter name and value in the body. 
+
+  For more information, refer to [Layer 7 load balancing](/docs/vpc?topic=vpc-layer-7-load-balancing).
+- **TCP keep alive support for application load balancers:** {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) now supports `TCP keep alive`. With this setting, the ALB sends TCP-keep-alive packets to both client and back-end servers every five seconds. 
+
+  For more information, refer to [Advanced traffic management](/docs/vpc?topic=vpc-advanced-traffic-management#tcp-keep-alive).
+- **New monitoring metrics:** {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) now has additional monitoring metrics to help track the traffic and usage patterns for your load balancers. These new metrics can provide insight about peak traffic hours, usage dropoffs, and overall usage patterns. The new metrics are:
+
+	* Total number of HTTP/HTTPS requests received by the back-end
+	* Average response time for HTTP/HTTPS requests
+	* Count of responses with the HTTP 2xx back-end response code
+	* Count of responses with the HTTP 3xx back-end response code
+	* Count of responses with the HTTP 4xx back-end response code
+	* Count of responses with the HTTP 5xx back-end response code
+
+  For more information, refer to [Monitoring metrics using IBM Cloud Application Load Balancer with {{site.data.keyword.mon_full_notm}}](/docs/vpc?topic=vpc-monitoring-metrics-sysdig).
+- **Private network load balancers:** {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) now supports the creation of private network load balancers. A private NLB is a load balancer only accessible from within the VPC network and/or where the client has reachability to the VPC network (for example, through Direct Link or a transit gateway).
+
+  To create private load balancers, you must have a dedicated subnet with no custom routes configured for the subnet. 
+
+  For information on creating a private NLB, refer to [Creating a Network Load Balancer for VPC](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer).
 
 ## 19 March 2021
 {: #march-19-2021}
@@ -100,7 +129,10 @@ The Washington D.C. multi-zone region will be enabled in January 2021. This feat
 ## 11 December 2020
 {: #dec-11-2020}
 
-**VPN logging and auditing:** The ability to monitor and audit your VPNs has been added to {{site.data.keyword.vpn_vpc_short}}. For more information, see [Using LogDNA to view VPN logs](/docs/vpc?topic=vpc-using-logdna-to-view-vpn-logs).
+## 11 December 2020
+{: #dec-11-2020}
+
+**VPN logging and auditing:** The ability to monitor and audit your VPNs has been added to {{site.data.keyword.vpn_vpc_short}}. For more information, see [Using IBM Log Analysis to view VPN logs](/docs/vpc?topic=vpc-using-logdna-to-view-vpn-logs).
 
 ## 1 December 2020
 {: #december-1-2020}
@@ -111,7 +143,7 @@ The Washington D.C. multi-zone region will be enabled in January 2021. This feat
 {: #november-20-2020}
 
 - **Support for ingress routing:** Ingress routing is included as part of custom routing tables, released on 30 October 2020. Ingress routing enables you to customize routes on incoming traffic to a VPC from traffic sources external to the VPC's availability zone (IBM Cloud Direct Link 2.0, IBM Cloud Transit Gateway, or another availability zone in the same VPC). For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes).
-- **Support for datapath log forwarding with LogDNA:** Datapath log forwarding with LogDNA is now available for IBM Cloud Application Load Balancer for VPC. Data and health check logs are valuable for debugging, analysis, and maintenance purposes. With the datapath logging feature enabled, your load balancer forwards these logs to your account's IBM Log Analysis with LogDNA dashboard. For more information, see [Datapath log forwarding with LogDNA](/docs/vpc?topic=vpc-datapath-logging#datapath-logging).
+- **Support for datapath log forwarding with Log Analysis:** Datapath log forwarding with {{site.data.keyword.la_full_notm}} is now available for IBM Cloud Application Load Balancer for VPC. Data and health check logs are valuable for debugging, analysis, and maintenance purposes. With the datapath logging feature enabled, your load balancer forwards these logs to your account's {{site.data.keyword.la_full_notm}} dashboard. For more information, see [Datapath log forwarding with Log Analysis](/docs/vpc?topic=vpc-datapath-logging#datapath-logging).
 - **UI enhancements:** You can now provision a VPC from the within the New virtual server for VPC page.
 
 ## 12 November 2020
@@ -228,7 +260,7 @@ The Washington D.C. multi-zone region will be enabled in January 2021. This feat
 
 - **Network load balancer (beta):** Network load balancers are available in a limited beta. Use network load balancers to distribute traffic among multiple server instances within the same region of your VPC. For more information, see [Load balancers overview](/docs/vpc?topic=vpc-nlb-vs-elb) and [About network load balancers](/docs/vpc?topic=vpc-network-load-balancers).
 
-- **{{site.data.keyword.vpn_vpc_short}} update:** Access VPN monitoring metrics by using [IBM Cloud Monitoring with Sysdig VPN metrics](/docs/vpc?topic=vpc-sysdig-monitoring-metrics).
+- **{{site.data.keyword.vpn_vpc_short}} update:** Access VPN monitoring metrics by using [{{site.data.keyword.mon_full_notm}} VPN metrics](/docs/vpc?topic=vpc-sysdig-monitoring-metrics).
 
 ## 26 June 2020
 {: #june-26-2020}
@@ -284,7 +316,7 @@ The Washington D.C. multi-zone region will be enabled in January 2021. This feat
 ## 3 April 2020
 {: #april-03-2020}
 
-**Load balancer for VPC update:** Access load balancer monitoring metrics (throughput, active connections, connection rate) using [IBM Cloud Monitoring with Sysdig](/docs/vpc?topic=vpc-monitoring-metrics-sysdig).
+**Load balancer for VPC update:** Access load balancer monitoring metrics (throughput, active connections, connection rate) using [{{site.data.keyword.mon_full_notm}}](/docs/vpc?topic=vpc-monitoring-metrics-sysdig).
 
 The following cipher suites are supported for load balancer HTTPS listeners:
 - `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
@@ -297,7 +329,7 @@ The following cipher suites are supported for load balancer HTTPS listeners:
 ## 27 March 2020
 {: #march-27-2020}
 
-- **{{site.data.keyword.mon_full_notm}} monitoring:** Monitor virtual server instances using {{site.data.keyword.mon_full_notm}}. Use the new **Add monitoring** button on the instance's **Monitoring** page to provision an instance of the monitoring service. If a monitoring instance is already provisioned for the region, use the **Launch monitoring** button to view metrics associated with the instance. For more information, see [Sysdig monitoring metrics](/docs/vpc?topic=virtual-servers-sysdig-monitoring-metrics).
+- **{{site.data.keyword.mon_full_notm}} monitoring:** Monitor virtual server instances using {{site.data.keyword.mon_full_notm}}. Use the new **Add monitoring** button on the instance's **Monitoring** page to provision an instance of the monitoring service. If a monitoring instance is already provisioned for the region, use the **Launch monitoring** button to view metrics associated with the instance. For more information, see [{{site.data.keyword.mon_full_notm}} metrics](/docs/vpc?topic=virtual-servers-sysdig-monitoring-metrics).
 - **Updated styling:** VPC pages in {{site.data.keyword.IBM_notm}} console now use [Carbon 10](https://www.carbondesignsystem.com/){: external}, the IBM open source design system, which improves consistency and quality.
 
 ## 9 March 2020

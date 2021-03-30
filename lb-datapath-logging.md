@@ -23,10 +23,10 @@ subcollection: vpc
 {:DomainName: data-hd-keyref="DomainName"}
 {:external: target="_blank" .external}
 
-# Datapath log forwarding with LogDNA
+# Datapath log forwarding
 {: #datapath-logging}
 
-Data and health check logs are valuable for debugging and maintenance purposes. With the datapath logging feature enabled, {{site.data.keyword.vpc_full}} {{site.data.keyword.alb_full}} (ALB) forwards these logs to your account's [IBM Log Analysis with LogDNA](https://cloud.ibm.com/observe/logging){:external} dashboard. 
+Data and health check logs are valuable for debugging and maintenance purposes. With the datapath logging feature enabled, {{site.data.keyword.vpc_full}} {{site.data.keyword.alb_full}} (ALB) forwards these logs to your account's [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/observe/logging){:external} dashboard.
 {:shortdesc}
 
 To enable or disable the datapath logging feature, you can:
@@ -35,23 +35,23 @@ To enable or disable the datapath logging feature, you can:
 
    ![Datapath Logging](images/lb-datapath-logging.png "Datapath Logging")
 
-* Use the CLI to set the `--logging-datapath-active` property to `true` for existing load balancers. 
+* Use the CLI to set the `--logging-datapath-active` property to `true` for existing load balancers.
 
 * Use the API to enable the datapath logging.
 
-If you do not have a LogDNA instance, you must create one before you enable datapath logging.
+If you do not have a {{site.data.keyword.la_short}} instance, you must create one before you enable datapath logging.
 {: note}
 
-## Viewing logs in the IBM Cloud Log Analysis service
+## Viewing logs in the IBM Log Analysis service
 {: #viewing-logs-in-the-ibm-cloud-log-analysis-service}
 
-Log in to [IBM Log Analysis with LogDNA](https://cloud.ibm.com/observe/logging){:external} with your IBM Cloud account. You can view logs from the LogDNA instance. For more information, see [Getting started with IBM Log Analysis with LogDNA](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-getting-started#getting-started). 
+Log in to [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/observe/logging){:external} with your IBM Cloud account. You can view logs from the {{site.data.keyword.la_short}} instance. For more information, see [Getting started with {{site.data.keyword.la_full_notm}}](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-getting-started#getting-started). 
 
-To create a LogDNA instance, follow these steps:
+To create a {{site.data.keyword.la_short}} instance, follow these steps:
 
 1. Select **Create a logging instance**. The logging instance creation page shows.
 
-2. Choose the region from the menu list that corresponds to the data center where you provisioned the load balancer. For example, for a load balancer in SYD01, choose the region of Sydney. 
+2. Choose the region from the menu list that corresponds to the data center where you provisioned the load balancer. For example, for a load balancer in SYD01, choose the region of Sydney.
 
   The following table shows the mapping between regions and data centers:
 
@@ -90,8 +90,8 @@ The datapath log is a JSON string, containing the following fields:
 | MSG_timestamp | string | The timestamp that indicates when the log was generated. |
 | SentByHost | string | The IP address of the host. |
 | MESSAGE | string | Description about the log file. |
-| logSourceCRN | string | Where the log file is saved in the LogDNA instance of the account indicated in the CRN. |
-| saveServiceCopy | bool | Indicates whether to save a log in the LogDNA STS; the default value is `false`. |
+| logSourceCRN | string | Where the log file is saved in the {{site.data.keyword.la_short}} instance of the account indicated in the CRN. |
+| saveServiceCopy | bool | Indicates whether to save a log in the {{site.data.keyword.la_short}} STS; the default value is `false`. |
 
 The following is an example of the JSON schema of a datapath log:
 
@@ -127,7 +127,7 @@ Note that:
 * `MSG_timestamp` is the timestamp in Coordinated Universal Time.
 * `SentByHost` is the VIP of the appliance. For public load balancers, this is the floating IP; for private load balancers, this is a private IP.
 * `MESSAGE` is the content of the log message.
-* `logSourceCRN` indicates which LogDNA instance to use to save the logs for the account.
+* `logSourceCRN` indicates which {{site.data.keyword.la_short}} instance to use to save the logs for the account.
 * `saveServiceCopy` is `false` (by default) and cannot be changed.
 
 The format of the logs can be impacted by internal upgrades. It is recommended to use these messages only for debugging purposes, not for build automation.
@@ -136,6 +136,6 @@ The format of the logs can be impacted by internal upgrades. It is recommended t
 ## Related links
 {: #permissions-related-links-alb}
 
-* [IBM Log Analysis with LogDNA](https://cloud.ibm.com/observe/logging){:external} 
-* [Getting started with IBM Log Analysis with LogDNA](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-getting-started#getting-started) 
-* [Activity Tracker with LogDNA events](/docs/vpc?topic=vpc-at-events#events-load-balancers)
+* [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/observe/logging){:external}
+* [Getting started with {{site.data.keyword.la_full_notm}}](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-getting-started#getting-started)
+* [Activity Tracker with {{site.data.keyword.la_short}} events](/docs/vpc?topic=vpc-at-events#events-load-balancers)

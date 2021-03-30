@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2020
 lastupdated: "2020-06-16"
 
-keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, layer-7
+keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, layer 7
 
 subcollection: vpc
 
@@ -49,6 +49,11 @@ curl -H "Authorization: $iam_token" -X POST
 "$vpc_api_endpoint/v1/load_balancers?version=$api_version&generation=2" \
     -d '{
         "name": "example-balancer",
+        "logging": {
+            "datapath": {
+                "active": true
+            }
+        },
         "is_public": true,
         "listeners": [
             {
@@ -115,6 +120,11 @@ Sample output:
     "href": "https://us-south.iaas.cloud.ibm.com/v1/load_balancers/dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
     "id": "0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
     "is_public": true,
+    "logging": {
+        "datapath": {
+            "active": true
+        }
+    },
     "listeners": [
         {
             "id": "0738-70294e14-4e61-11e8-bcf4-0242ac110004",
@@ -174,6 +184,11 @@ Sample output:
   "created_at": "2018-07-13T22:22:24.489Z",
   "hostname": "dd754295-e9e0-4c9d-bf6c-58fbc59e5727.lb.appdomain.cloud",
   "is_public": true,
+  "logging": {
+      "datapath": {
+          "active": true
+      }
+  },
   "listeners": [
     {
       "id": "0738-70294e14-4e61-11e8-bcf4-0242ac110004",

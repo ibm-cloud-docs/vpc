@@ -19,6 +19,7 @@ Virtual Private Cloud (VPC)
         vpc-security.md
         vpc-networking-concepts.md
         interconnectivity.md
+        private-wan.md
 
     {: .topicgroup}
     Compute
@@ -309,6 +310,7 @@ Virtual Private Cloud (VPC)
         [VPC API reference](https://{DomainName}/apidocs/vpc)
 
     vpc-responsibilities.md
+    vsi-understanding-cloud-maintenance.md
     vpc-endpoints.md
     api-integration-migration.md
     [Go and Python example code](https://github.com/IBM-Cloud/vpc-api-samples)

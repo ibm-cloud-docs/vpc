@@ -52,7 +52,7 @@ To create an ALB:
     * **Region**: Indicates the region in which the load balancer will be created; that is, the region selected for your VPC.
     * **Subnets**: Select the subnets in which to create your load balancer. To maximize the availability of your application, select subnets in different zones.
     * **Security groups**: Select the security groups that you want to attach to your load balancer.
-      Ensure that the security group allows for load balancing traffic (listener, backend, and health check ports). If you do not specify a security group, the default security group from your VPC attaches instead. 
+      Ensure that the security group allows for load balancing traffic (listener, backend, and health check ports). If you do not specify a security group, the default security group from your VPC attaches instead.
       {: note}
 1. Click **New pool** and specify the following information to create a back-end pool. You can create one or more pools.
     * **Name**: Enter a name for the pool, such as `my-pool`.
@@ -94,17 +94,17 @@ To create an ALB:
 1. Click **Create**.
 1. After you finish creating pools and listeners, click **Create load balancer**.
 1. To view details of an existing load balancer, click the name of your load balancer on the **Load balancers** page.
-1. If you want to redirect, forward, or reject particular incoming traffic for an HTTP or HTTPS front-end listener based on certain criteria, configure layer-7 policies.
-    1. After the status of the load balancer changes to **Active**, click **Front-end listeners** in the navigation and click the value in the **Policies** column for the listener you created.
-    2. On the Policies page, click **Add policy** and specify the following information to create a policy. You can create multiple policies.
+1. If you want to redirect, forward, or reject particular incoming traffic for an HTTP or HTTPS front-end listener based on certain criteria, configure layer 7 policies.
+   *  After the status of the load balancer changes to **Active**, click **Front-end listeners** in the navigation and click the value in the **Policies** column for the listener you created.
+   *  On the Policies page, click **Add policy** and specify the following information to create a policy. You can create multiple policies.
         * **Name**: Enter a name for the policy, such as `my-policy`. The name must be unique within the listener.
         * **Action**: The action to take when all the rules for the policy match. You can reject a request with a 403 response, redirect the request to a configured URL and response code, or forward the request to a specific back-end pool. If an incoming request does not match the rules for any policies, the request is forwarded to the default back-end pool of the listener.
         * **Priority**: Within each action type, policies are evaluated in ascending order of priority. Policies to reject traffic are always evaluated first, regardless of their priority. Policies to redirect traffic are evaluated next, followed by policies to forward traffic.
         * **Redirect**: The URL to which the request is redirected, if the action is set to **Redirect**.
         * **Status Code**: The status code of the response returned by the load balancer, if the action is set to **Redirect**.
         * **Forward**: The back-end pool of virtual server instances to which the request is forwarded, if the action is set to **Forward to pool**.
-    3. On the Policies page, click **Add rule** for your policy. If rules exist for the policy, click the value in the **Rules** column to add more rules.
-    4. In the Rules window, click **Add rule** and specify the following information to create a rule. If you create multiple rules for a policy, the policy is applied only when all its rules are matched.
+   * On the Policies page, click **Add rule** for your policy. If rules exist for the policy, click the value in the **Rules** column to add more rules.
+   * In the Rules window, click **Add rule** and specify the following information to create a rule. If you create multiple rules for a policy, the policy is applied only when all its rules are matched.
         * **Condition**: Specifies the condition with which a rule is evaluated.
         * **Type**: The type of information to be evaluated by the rule: the name of the host from which the request originated, an HTTP header field, or a path in the URL.
         * **Value**: The value to be matched.

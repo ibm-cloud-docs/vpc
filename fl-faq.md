@@ -81,7 +81,7 @@ Flow Logs for VPC collects at the VSI-level of the VPC instance. Virtual Applian
 {: faq}
 {: support}
 
-Flow Logs for VPC does not have a native viewer or filter. However, LogDNA and SQL Query are viable options.
+Flow Logs for VPC does not have a native viewer or filter. However, SQL Query is a viable option.
 
 ## Can I modify the target scope for a flow log collector?
 {: #faq-modify-target-scope-flow-log-collector}

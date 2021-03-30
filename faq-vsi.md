@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-03-19"
+lastupdated: "2021-03-26"
 
 subcollection: vpc
 
@@ -100,7 +100,7 @@ Edit the file "`/boot/grub/menu.lst`" by changing `# groot=LABEL...` into `# gro
 
 In limited cases a virtual server might need to be migrated to a different host. If a migration is required, the virtual server is shut down, migrated, and then restarted. A virtual server might be migrated in the following cases:
 
-* Infrastructure maintenance. You might receive an email indicating that maintenance is required on a system that is hosting your virtual server. Your virtual server might need to be migrated as part of the infrastructure maintenance.
+* Infrastructure [maintenance](/docs/vpc?topic=vpc-about-cloud-maintenance). You might receive an email indicating that [maintenance](/docs/vpc?topic=vpc-about-cloud-maintenance) is required on a system that is hosting your virtual server. Your virtual server might need to be migrated as part of the infrastructure [maintenance](/docs/vpc?topic=vpc-about-cloud-maintenance).
 * An unplanned host outage. The following actions apply if there is an unexpected host failure:
     * The virtual servers that were running on the host are stopped when the outage is detected. 
     * The virtual servers are automatically reassigned and restarted on a different compute host in the same multi-region zone. 
@@ -119,6 +119,18 @@ Yes, you can encrypt a supported custom image with LUKS encryption and your own 
 {: faq}
 
 Yes, for certain versions of RedHat Enterprise Linux (RHEL) and Windows operating systems, you can bring your own license (BYOL) to the IBM Cloud VPC when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. For more information, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about).
+
+## How does IBM handle maintenance?
+{: #faq-vsi-16}
+{: faq}
+
+For more information, see [Understanding Cloud Maintenance Operations](/docs/vpc?topic=vpc-about-cloud-maintenance).
+
+## What happens if my virtual server host fails?
+{: #faq-vsi-17}
+{: faq}
+
+For more information, see [Understanding Cloud Maintenance Operations](/docs/vpc?topic=vpc-about-cloud-maintenance).
 
 ## What are the disks that I see associated with my new Windows virtual server instance?
 {: #faq-vsi-18}

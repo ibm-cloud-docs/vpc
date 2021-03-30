@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-09-10"
+  years: 2020, 2021
+lastupdated: "2021-03-30"
 
-keywords: public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies
+keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network
 
 subcollection: vpc
 
@@ -33,9 +33,9 @@ subcollection: vpc
 {{site.data.keyword.cloud_notm}} provides two families of load balancers for VPC, {{site.data.keyword.alb_full}} (ALB) and {{site.data.keyword.nlb_full}} (NLB). There are several differences between the two that you should be aware of when choosing a load balancer.
 {: shortdesc}
 
-{{site.data.keyword.cloud_notm}} provides public- and private-facing application load balancers. An application load balancer provides Layer-7 and Layer-4 load balancing on {{site.data.keyword.cloud_notm}} and supports SSL offloading. The incoming and outgoing packets flow through the load balancer.
+{{site.data.keyword.cloud_notm}} provides public- and private-facing application load balancers. An application load balancer provides layer 7 and layer 4 load balancing on {{site.data.keyword.cloud_notm}} and supports SSL offloading. The incoming and outgoing packets flow through the load balancer.
 
-In contrast, a network load balancer provides only Layer-4 load balancing on {{site.data.keyword.cloud_notm}}, and does not support SSL offloading. Currently, {{site.data.keyword.cloud_notm}} provides public facing network load balancers only. The client sends public network traffic to the network load balancer, which forwards it to target virtual machines (VMs). Then, the target VMs respond directly to the client by using Direct Server Return (DSR).
+In contrast, a network load balancer provides only layer 4 load balancing on {{site.data.keyword.cloud_notm}}, and does not support SSL offloading. Currently, {{site.data.keyword.cloud_notm}} provides public facing network load balancers only. The client sends public network traffic to the network load balancer, which forwards it to target virtual machines (VMs). Then, the target VMs respond directly to the client by using Direct Server Return (DSR).
 
 This gives network load balancers an advantage over application load balancers by enhancing performance in the following ways:
 
@@ -43,36 +43,38 @@ This gives network load balancers an advantage over application load balancers b
 * The network load balancer is only required to process incoming traffic, which allows it to be a fast distributor of traffic/load.
 * The network load balancer has a single highly available VIP that can be used directly, instead of through the assigned fully qualified domain name (FQDN). This helps clients that must use an IP to access the application/service served by the load balancer. It also helps with faster recovery in the event of failures compared to a DNS-based availability that the application load balancer uses.
 
-The following table provides a comparison of the two types of load balancers.
+The following table provides a comparison of the types of load balancers.
 
-|                             | Network load balancer    | Application load balancer            |
-|-----------------------------|------------------|--------------------|
-| HA mode                     | Active-standby (with single VIP)   |  Active-active (with multiple VIPs assigned to a DNS name) |
-| Instance group support | No | Yes (see [Integrating an ALB for VPC with instance groups](/docs/vpc?topic=vpc-lbaas-integration-with-instance-groups)) |
-| Monitoring metrics with Sysdig | Yes | Yes |
-| Multi-zone support | No (see [Multi-zone support](/docs/vpc?topic=vpc-network-load-balancers#nlb-use-case-2)) | Yes |  
-| Security group support | No | Yes (see [Integrating an ALB for VPC with security groups](/docs/vpc?topic=vpc-alb-integration-with-security-groups)) |   
-| Source IP address is preserved | Yes | No |
-| SSL offloading              | No              | Yes |
-| Supported protocols         | TCP | HTTPS, HTTP, TCP  |
-| Transport layer             | Layer-4         | Layer-4, Layer-7 |
-| Types of load balancers | Public | Public and private |
-| Virtual IP Address (VIP)    | Single    | Multiple |
+|                             | Service distributed network load balancer | Network load balancer | Application load balancer            |
+|-----------------------------|---------------------------------- |--------------------------|--------------------|
+| HA mode                     | Active-active                     | Active-standby (with single VIP)   |  Active-active (with multiple VIPs assigned to a DNS name) |
+| Instance group support | | No | Yes (see [Integrating an ALB for VPC with instance groups](/docs/vpc?topic=vpc-lbaas-integration-with-instance-groups)) |
+| Monitoring metrics| Yes                            | Yes | Yes |
+| Multi-zone support          | Yes                               | No (see [Multi-zone support](/docs/vpc?topic=vpc-network-load-balancers#nlb-use-case-2)) | Yes |     
+| Security group support | No | No | Yes (see [Integrating an ALB for VPC with security groups](/docs/vpc?topic=vpc-alb-integration-with-security-groups)) |
+| Source IP address is preserved | Yes (see [Service distributed load balancer data flow](#sdnlb-data-flow)) | Yes | No |
+| SSL offloading              | No | No              | Yes |
+| Supported protocols         | TCP | TCP | HTTPS, HTTP, TCP  |
+| Transport layer             | Layer 4 |  Layer 4  | Layer 4, Layer 7 |
+| Types of load balancers | Service | Public | Public and private |
+| Virtual IP Address (VIP)    | Multiple | Single    | Multiple |
 {: caption="Table 1. Comparison of network and application load balancers" caption-side="top"}
-|
+
 ## High Availability mode
 {: #nlb-ha-mode}
 The application load balancer is configured in active-active mode. All compute resources of the load balancer are actively involved in forwarding traffic.
 
 High Availability (HA) is achieved by using a Domain Name Service (DNS). VIP of each compute resource is registered with DNS. If any of the compute resources go down, the other resources continue to forward traffic.
 
-Network load balancer is configured in active-standby mode. A single VIP is registered with DNS, and traffic is forwarded through that compute resource. If an active compute resource goes down, the standby takes over and the VIP is transferred to the standby.
+An NLB is configured in active-standby mode. A single VIP is registered with DNS, and traffic is forwarded through that compute resource. If an active compute resource goes down, the standby takes over and the VIP is transferred to the standby.
+
+Distributed network load balancers run in an active-active mode. There are many DNLB machines in every AZ and failover does not depend on DNS (which makes it quicker).
 
 ## Multi-zone support
 {: #nlb-mz-support}
 The network load balancer is limited to a single zone. All back-end servers must be in the same zone. A zone is identified by the subnet that is selected when a load balancer is created. Cloud Internet Services (CIS) Global Load Balancer can be used with multiple zonal network load balancers for multi-zone availability.
 
-The application load balancer can be configured to span multiple zones. The back-end servers can be in any zone within a region.
+The service distributed network load balancer and the application load balancer can be configured to span multiple zones. The back-end servers can be in any zone within a region.
 
 ## Integration with private catalogs
 {: #load-balancer-integration-with-private-catalog}
@@ -96,10 +98,17 @@ Return).
 
 ![Network load balancer traffic flow](images/nlb-datapath.png)
 
+## Service distributed load balancer data flow
+{: #sdnlb-data-flow}
+
+The Service DNLB is accessed using VPE. The source-IP of packets received by it will be that of the VPE's service gateway.
+
+![Service distributed network load balancer traffic flow](images/dnlb-datapath.png)
+
 ## Related links
 {: #lb-related-links}
 
 * [Load balancer API reference](https://{DomainName}/apidocs/vpc#list-load-balancers)
 * [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
-* [Activity Tracker with LogDNA events](/docs/vpc?topic=vpc-at-events#events-load-balancers)
+* [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-load-balancers)
 * [Quotas](/docs/vpc?topic=vpc-quotas#load-balancer-quotas)
