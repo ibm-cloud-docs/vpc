@@ -4,7 +4,7 @@ copyright:
   years:  2020, 2021
 lastupdated: "2020-09-09"
 
-keywords: Sysdig, IBM Cloud monitoring, platform metrics, metrics, vpc Sysdig metrics, vpc monitoring metrics
+keywords: keywords: IBM Cloud monitoring, platform metrics, metrics, vpc metrics, vpc monitoring metrics, virutal public cloud metrics, virutal private cloud monitoring metrics, vpc virtual server metrics
 
 subcollection: cloud-infrastructure
 
