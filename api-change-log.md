@@ -185,14 +185,14 @@ For more information on key states and resource statuses, see [User actions that
 ### For all API version dates
 {: 20-november-2020-all-version-dates}
 
-**Datapath log forwarding with LogDNA** is now available for [IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancers#load-balancers). Data and health check logs are valuable for debugging, analysis, and maintenance purposes. With the datapath logging feature enabled, your load balancer forwards these logs to your account's [IBM Log Analysis with LogDNA](https://cloud.ibm.com/observe/logging){:external} dashboard. 
+**Datapath log forwarding with {{site.data.keyword.la_full_notm}}** is now available for [IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancers#load-balancers). Data and health check logs are valuable for debugging, analysis, and maintenance purposes. With the datapath logging feature enabled, your load balancer forwards these logs to your account's [IBM Log Analysis](https://cloud.ibm.com/observe/logging){:external} dashboard. 
 
 View the `logging` property in the following API methods:
 
 * [List all load balancers](/apidocs/vpc#list-load-balancers) (`GET /load_balancers`)
 * [Retrieve a load balancer](/apidocs/vpc#get-load-balancer) (`GET /load_balancers/{id}`)
 
-For more information, see [Datapath log forwarding with LogDNA](/docs/vpc?topic=vpc-datapath-logging#datapath-logging).
+For more information, see [Datapath log forwarding with IBM Log Analysis](/docs/vpc?topic=vpc-datapath-logging#datapath-logging).
 
 ## 19 November 2020
 {: 19-november-2020}
