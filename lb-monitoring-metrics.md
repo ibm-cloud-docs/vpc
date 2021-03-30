@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-23"
+lastupdated: "2021-03-30"
 
 keywords: l7, layer 7, monitor, metrics, connection
 
@@ -21,12 +21,12 @@ subcollection: vpc
 {:note: .note}
 {:important: .important}
 
-# Monitoring metrics using {{site.data.keyword.cloud_notm}} Application Load Balancer with Sysdig
-{: #monitoring-metrics-sysdig}
+# Monitoring Application Load Balancer for VPC metrics
+{: #monitoring-metrics-alb}
 
-{{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) monitoring metrics are provided with {{site.data.keyword.cloud_notm}} Monitoring with Sysdig, a third-party monitoring tool that specializes in data aggregation, usage alerts, and in-depth visualizations. For more information, see [IBM Cloud Monitoring with Sysdig](/docs/Monitoring-with-Sysdig).
+{{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) monitoring metrics are provided with {{site.data.keyword.mon_full}}, a service that specializes in data aggregation, usage alerts, and in-depth visualizations. For more information, see [IBM Cloud Monitoring](/docs/Monitoring-with-Sysdig).
 
-Load balancers calculate the metrics and send those metrics to your Sysdig instance, which reflects different types of use and traffic. You can visualize and analyze metrics from either the {{site.data.keyword.cloud_notm}} Monitoring with Sysdig dashboard, or its API.
+Load balancers calculate the metrics and send those metrics to your monitoring instance, which reflects different types of use and traffic. You can visualize and analyze metrics from either the {{site.data.keyword.mon_full_notm}} dashboard, or its API.
 
 ## Metrics available by service plan
 {: metrics-by-plan}
@@ -50,7 +50,7 @@ Each metric is composed of the following metadata types:
 * Metric name - The name for the collected metric.
 * Metric type - Metric type determines whether the metric value is a counter metric or a gauge metric. Each of these metrics is of the type `gauge`, which represents a single numerical value that can arbitrarily fluctuate over time.
 * Value type - A unit of measurement for a specific metric. Examples include bytes or counts. A value type of `none` means that the metric value represents individual occurrences of that metric type.
-* Segment - How you want Sysdig to divide and display the monitoring metrics.
+* Segment - How you want to divide and display the monitoring metrics.
 
 Only the resources in the same zone as the selected subnet can connect through this VPN gateway.
 
@@ -185,21 +185,21 @@ from the back-end per minute. This metric is only available for HTTP and HTTPS l
 ## Metric segmentation
 {: attributes}
 
-You can split the data that Sysdig presents into various visualizations in the Sysdig dashboard, allowing views of different metrics based on your preferences. For example, if you have multiple load balancers or accounts with different load balancers in each account, you might want to focus on a particular listener port.
+You can split the data into various visualizations in the {{site.data.keyword.mon_full_notm}} dashboard, allowing views of different metrics based on your preferences. For example, if you have multiple load balancers or accounts with different load balancers in each account, you might want to focus on a particular listener port.
 
 As an example, you can segment the `active connections` by `Application load balancer listener port` to show how many active users are connected to the load balancer through each listener type. To illustrate this, let's assume that your load balancer has two different listener protocols one HTTP on port 80 and another for TCP on port 8080. The dashboard would contain different lines showing 10 users who are connected through HTTP on Port 80 in one color, and 6 users connected through TCP on port 8080 in another color.
 
 ### Global attributes
 {: global-attributes}
 
-The following attributes are available for segmenting the three Sysdig metrics.
+The following attributes are available for segmenting the three metrics.
 
 | Attribute | Attribute Name | Attribute Description |
 |-----------|----------------|-----------------------|
 | `Resource` | `ibm_resource` | A load balancer's unique ID |
 | `Scope` | `ibm_scope` | The account that is associated with a given load balancer |
 | `Service name` | `ibm_service_name` | ibm-is-load-balancer |
-{: caption="Table 10: Sysdig global attributes" caption-side="top"}
+{: caption="Table 10: Global attributes" caption-side="top"}
 
 ### Additional attributes
 {: additional-attributes}
@@ -210,7 +210,7 @@ The following attributes are available to segment one or more of the global attr
 |-----------|----------------|-----------------------|
 | Application load balancer appliance metrics | `ibm_is_load_balancer_appliance_ip` | The metrics coming from the load balancer back-end. Because the load balancer is highly available, multiple appliances support each load balancer for redundancy.  |
 | Application load balancer listener metrics | `ibm_is_load_balancer_listener_port` | The metrics that are gathered from individual listeners and their ports. Configure the listeners in your load balancer settings. The monitoring metrics reflect the metrics coming from those listeners. |
-{: caption="Table 11: Sysdig additional attributes" caption-side="top"}
+{: caption="Table 11: Additional attributes" caption-side="top"}
 
 The displayed metrics contain a timestamp in UNIX epoch time and the metric value for the time interval ending at that timestamp. You can specify different scopes, as well as the time interval over which to report the metrics.
 
@@ -220,9 +220,9 @@ The supported listener protocols for IBM Cloud Application Load Balancer include
 * HTTPS
 * TCP
 
-Specifying a listener port filters the metric by that listener. For example, if you don't specify a port, and the metric is `Throughput`, then Sysdig reports the total throughput for all listener protocols. However, if the protocol is HTTP on port 80, then Sysdig reports the throughput for HTTP traffic only.
+Specifying a listener port filters the metric by that listener. For example, if you don't specify a port, and the metric is `Throughput`, then {{site.data.keyword.mon_full_notm}} reports the total throughput for all listener protocols. However, if the protocol is HTTP on port 80, then {{site.data.keyword.mon_full_notm}} reports the throughput for HTTP traffic only.
 
-You can also specify the time interval over which to report your metrics. Time intervals that are supported in the Sysdig dashboard are:
+You can also specify the time interval over which to report your metrics. Time intervals that are supported in the dashboard are:
 
 * 10 seconds
 * 1 minute
@@ -237,13 +237,13 @@ The number of data points you can report is roughly the same for each time inter
 ## Enabling metrics monitoring
 {: #enable-metrics-monitoring}
 
-To receive monitoring metrics, you must set up your {{site.data.keyword.cloud}} Monitoring with Sysdig instance.
+To receive monitoring metrics, you must set up {{site.data.keyword.mon_full_notm}} with a monitoring instance.
 
 To do so, follow these steps:
 
 1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring), then click **Create a monitoring instance**.
 
-2. Select a region for your Sysdig instance.
+2. Select a region for your monitoring instance.
 
   If you do not have an existing load balancer, see [Creating an application load balancer](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#load-balancer) to provision one.
   {: tip}
@@ -259,7 +259,7 @@ To do so, follow these steps:
 
 4. Provide a service name for your instance. It can be any name that you want, and has no impact on functionality.
 
-  Do not create multiple Sysdig instances with the same name.
+  Do not create multiple monitoring instances with the same name.
   {: important}
 
 5. Optionally, select a resource group. A resource group is a way to organize account resources in customizable groupings. Any account resource that is managed by using IBM Cloud Identity and Access Management (IAM) access control belongs to a resource group within your account.
@@ -269,44 +269,44 @@ To do so, follow these steps:
   If you do not have any pre-configured resource groups, or no reason to share this resource selectively, use the default selection.
   {: note}
 
-  If your account has multiple resource groups, you can choose which one has access to this Sysdig instance. This allows you to have metrics available to some resource groups and not to others.
+  If your account has multiple resource groups, you can choose which one has access to this monitoring instance. This allows you to have metrics available to some resource groups and not to others.
   {: tip}
 
 6. Select the **Enable Platform Metrics** checkbox. You must select this to receive metrics from your load balancer.
 
 7. Click **Create**. You are taken back to the monitoring metrics home page.
 
-Within a few minutes, your new Sysdig instance is displayed with several configurations. You might have to refresh your browser to see it.  
+Within a few minutes, your new monitoring instance is displayed with several configurations. You might have to refresh your browser to see it.  
 
-## Working with the Sysdig dashboard
+## Working with the {{site.data.keyword.mon_full_notm}} dashboard
 
-To view and work with your Sysdig metrics, follow these steps:
+To view and work with your metrics, follow these steps:
 
 1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring).
 
-2. Click **View Sysdig** next to the service name of the Sysdig instance you want to work with.
+2. Click **Open Dashboard** next to the service name of the monitoring instance that you want to work with.
 
-  The first time that you access your Sysdig instance, several windows display as part of the internal setup. Leave these selections with their default entries, and click through the pages until you reach the Sysdig main page.
+  The first time that you access your monitoring instance, several windows display as part of the internal setup. Leave these selections with their default entries, and click through the pages until you reach the main page.
   {: note}
 
 3. Select **Dashboards** on the left sidebar to open the IBM Load Balancer Monitoring Metrics dashboard. Then, click **Default Dashboards > IBM > Load Balancer Monitoring Metrics**. The default dashboard is not editable.
 
 4. Nine main metrics in the dashboard are shown: Throughput, Active Connections, Connection Rate, Request Count, Request Latency, HTTP_2xx Response Count, HTTP_3xx Response Count, HTTP_4xx Response Count, and HTTP_5xx Response Count. To modify parameters and segment your metrics by load balancer ID or listener port, you must create a custom dashboard.
 
-  ![Sysdig dashboard](images/metrics_3.png "Sysdig dashboard")
+  ![{{site.data.keyword.mon_full_notm}} dashboard](images/metrics_3.png "{{site.data.keyword.mon_full_notm}} dashboard")
 
   You can choose what time window you'd like to see your metrics displayed for, using the bar at the end.
   {: tip}
 
 ## Creating a custom metrics dashboard
 
-You can create your own dashboard to customize your monitoring metrics, such as viewing information about particular load balancers, or seeing traffic that  comes only through particular listeners.
+You can create your own dashboard to customize your monitoring metrics, such as viewing information about particular load balancers, or seeing traffic that comes only through particular listeners.
 
 To customize your dashboard, follow these steps:
 
 1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring).
 
-2. Click **View Sysdig** next to the service name of the Sysdig instance you want to work with. The dashboard displays.
+2. Click **Open Dashboard** next to the service name of the monitoring instance you want to work with. The dashboard displays.
 
 3. On the left sidebar, select **Dashboards**. Then, click the green **+** sign in the panel.
 
@@ -314,14 +314,14 @@ To customize your dashboard, follow these steps:
 
 4. Select **Blank dashboard**, then select the type of visual representation you want.
 
-  Sysdig offers eight different visualizations for your dashboard. Read the description for each visualization, then choose the one that best meets your requirements.
+  {{site.data.keyword.mon_full_notm}} offers eight different visualizations for your dashboard. Read the description for each visualization, then choose the one that best meets your requirements.
 
   **Line** ("View trends over time") is the easiest and most basic option. It is also the most frequently selected option. The examples in this topic show a Line-based visualization.
   {: note}
 
 5. Configure your custom dashboard.
 
-  * In the **Metrics** field, enter `ibm_is` to display the three IBM Sysdig load balancer metrics: `ibm_is_load_balancer_active_connections`, `ibm_is_load_balancer_connection_rate`, and `ibm_is_load_balancer_throughput`.
+  * In the **Metrics** field, enter `ibm_is` to display the three load balancer metrics: `ibm_is_load_balancer_active_connections`, `ibm_is_load_balancer_connection_rate`, and `ibm_is_load_balancer_throughput`.
 
   You can monitor listener port traffic by enabling the `ibm_is_load_balancer_listener_port` metric.
   {: tip}
@@ -335,30 +335,30 @@ To customize your dashboard, follow these steps:
   By default, the dashboard begins with the name "blank dashboard". You can change the name by selecting **Dashboards** from the sidebar, then clicking the Pencil icon next to the name.
   {: tip}
 
-To return to the default Sysdig dashboard at any time, select **Dashboards > Default Dashboards > IBM > Load Balancer Monitoring Metrics**.
+To return to the default dashboard at any time, select **Dashboards > Default Dashboards > IBM > Load Balancer Monitoring Metrics**.
 
-## Working with Sysdig using the APIs
+## Working with {{site.data.keyword.mon_full_notm}} using the APIs
 {: #metric-query-api}
 
-You can also work with the Sysdig instance by using the metric query APIs. You might want to do this if you need raw data points or want to consume your metrics from a command-line interface rather than using the Sysdig dashboard.
+You can also work with the monitoring instance by using the metric query APIs. You might want to do this if you need raw data points or want to consume your metrics from a command-line interface rather than using the {{site.data.keyword.mon_full_notm}} dashboard.
 
-After creating your IBM Cloud Monitoring Sysdig instance, you must collect the following two pieces of information.
+After creating your monitoring instance, you must collect the following two pieces of information.
 
-* The Sysdig Monitor API token
-* The endpoint of your IBM Cloud Monitoring Sysdig instance
+* The Monitor API token
+* The endpoint of your {{site.data.keyword.mon_full_notm}} instance
 
-To collect this information and work with your Sysdig instance using metric query API, follow these steps:
+To collect this information and work with your monitoring instance using metric query API, follow these steps:
 
-1. Access the [Monitoring home page](https://cloud.ibm.com/observe/monitoring), and click **View Sysdig** next to the instance you want to work with. After the Sysdig dashboard displays, select your Account Profile icon on the left sidebar, then select **Settings**. Your account settings display.
+1. Access the [Monitoring home page](https://cloud.ibm.com/observe/monitoring), and click **Open Dashboard** next to the instance you want to work with. After the dashboard displays, select your Account Profile icon on the left sidebar, then select **Settings**. Your account settings display.
 
   ![Settings](images/metrics_settings.png "Settings")
 
-2. Your Sysdig Monitor API token is an alphanumeric string that is located in the **Sysdig Monitor API Token** field. Click the **Copy** button to the right of the key to transfer it to your clipboard.
+2. Your Monitor API token is an alphanumeric string that is located in the **Monitor API Token** field. Click the **Copy** button to the right of the key to transfer it to your clipboard.
 
 	Do not share this API token. Anyone who has this API token has full access to your metrics.
 	{: important}
 
-3. To get the endpoint of your IBM Cloud Monitoring Sysdig instance, navigate to your main Sysdig dashboard in your browser. Then, select the URL to the dashboard, which appears similar to:
+3. To get the endpoint of your {{site.data.keyword.mon_full_notm}} instance, navigate to your main dashboard in your browser. Then, select the URL to the dashboard, which appears similar to:
 
   ```
   https://us-south.monitoring.cloud.ibm.com/#/default-dashboard/ibm_is_load_balancer?last=3600
@@ -368,8 +368,8 @@ To collect this information and work with your Sysdig instance using metric quer
 
 4. After you have both the API token and the endpoint, you can format your POST request. The following POST request is an example, with all the parameters that you can modify. These parameters are:
 
-  * The Sysdig Monitor API token.
-  * The endpoint of your Sysdig instance.
+  * The Monitor API token.
+  * The endpoint of your monitoring instance.
   * The value for `ibm_resource` (this is the load balancer ID you want to see metrics for).
 
      If you want to see this metric for all of your load balancers, do not enter a value for the `scope` attribute. For example, use `"scope" : ""`.
@@ -379,7 +379,7 @@ To collect this information and work with your Sysdig instance using metric quer
   * The `from` and `to` attributes define the times to focus the scan, set in Epoch Time and in microseconds.
   * The `sampling` and `value` attributes set the granularity of which data is returned in the POST request.
 
-      Because a large volume of data is stored in Sysdig, choosing the specific level of granularity is important. Sysdig can return only 600 data points at any time with a given request. As a result, the `sampling` and `value` attributes are important. Leaving these two lines out of your request returns an aggregate sum over that time period instead.
+      Because a large volume of data is stored in {{site.data.keyword.mon_full_notm}}, choosing the specific level of granularity is important. {{site.data.keyword.mon_full_notm}} can return only 600 data points at any time with a given request. As a result, the `sampling` and `value` attributes are important. Leaving these two lines out of your request returns an aggregate sum over that time period instead.
 
       If the time range specified by `from` and `to` is large (for example, 4 days), but you define a `sampling` and `value` of 10 seconds, this means that you receive 4 days worth of data that is split into 10-second chunks. This is not a useful sampling due to the large amount of data returned. Specifying a larger chunk is recommended (for example, 1 hour instead of 10 seconds).
       {: tip}

@@ -21,7 +21,7 @@ subcollection: vpc
 {:important: .important}
 {:note: .note}
 
-# Monitoring metrics for {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}} by using {{site.data.keyword.mon_full_notm}}
+# Monitoring {{site.data.keyword.vpn_vpc_short}} metrics
 {: #sysdig-monitoring-metrics}
 
 {{site.data.keyword.mon_full}} collects basic VPN metrics on {{site.data.keyword.cloud_notm}} for VPC, such as VPN gateway status, VPN gateway packets input/output, and VPN connection bytes input/output. These metrics are stored in {{site.data.keyword.mon_full_notm}}. <!--If you have a Sysdig account, then metrics are displayed for that Sysdig instance.--> You can access metrics through the prebuilt dashboard.
@@ -43,7 +43,7 @@ Before you enable {{site.data.keyword.mon_full_notm}} on your platform, keep the
 
 Metrics available by plan names are as follows:
 
-* [VPN gateway bytes received](#ibm_is_vpn_gateway_bytes_in)  
+* [VPN gateway bytes received](#ibm_is_vpn_gateway_bytes_in)
 * [VPN gateway bytes sent](#ibm_is_vpn_gateway_bytes_out)
 * [VPN gateway packets received](#ibm_is_vpn_gateway_packets_in)
 * [VPN gateway packets sent](#ibm_is_vpn_gateway_packets_out)
@@ -207,7 +207,7 @@ As an example, you can segment the `VPN Gateway Bytes Input` by `IBM {{site.data
 
 
 ### Global attributes
-{: global-attributes-sysdig-vpn}
+{: global-attributes-vpn}
 
 The following attributes are available for segmenting all of the VPN metrics:
 
@@ -223,7 +223,7 @@ The following attributes are available for segmenting all of the VPN metrics:
 {: caption="Table 11: VPN metric attributes" caption-side="top"}
 
 ### Additional attributes
-{: #additional-attributes-sysdig}
+{: #additional-attributes-vpn}
 
 The following attributes are available for segmenting one or more attributes as described in the previous reference. See the individual metrics for segmentation options.
 
@@ -292,7 +292,7 @@ To receive monitoring metrics, use the following steps:
 
 7. Click **Create**. You are taken back to the monitoring metrics home page.
 
-Within a few minutes, your new {{site.data.keyword.mon_full_notm}} instance displays with several configurations. You might have to refresh your browser to see it.  
+Within a few minutes, your new {{site.data.keyword.mon_full_notm}} instance displays with several configurations. You might have to refresh your browser to see it.
 
 ## Working with the {{site.data.keyword.mon_full_notm}} dashboard
 
@@ -300,7 +300,7 @@ To view and work with your {{site.data.keyword.mon_full_notm}} metrics, follow t
 
 1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring).
 
-2. Click **View {{site.data.keyword.mon_full_notm}}** next to the service name of the {{site.data.keyword.mon_full_notm}} instance that you want to work with.
+2. Click **Open Dashboard** next to the service name of the {{site.data.keyword.mon_full_notm}} instance that you want to work with.
 
    The first time that you access your {{site.data.keyword.mon_full_notm}} instance, several windows display as part of the internal setup. Keep the default entries, and click through the pages until you reach the main {{site.data.keyword.mon_full_notm}} page.
    {: note}
@@ -324,7 +324,7 @@ To customize your dashboard, use the following steps:
 
 1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring).
 
-2. Click **View {{site.data.keyword.mon_full_notm}}** next to the service name of the {{site.data.keyword.mon_full_notm}} instance you want to work with. You now see the dashboard.
+2. Click **Open Dashboard** next to the service name of the {{site.data.keyword.mon_full_notm}} instance you want to work with. You now see the dashboard.
 
 3. Select **Dashboards** and click the **+** in the panel.
 
@@ -359,20 +359,20 @@ You can also work with the {{site.data.keyword.mon_full_notm}} instance by using
 
 After you create your {{site.data.keyword.mon_full_notm}} instance, you must collect the following two pieces of information.
 
-* The {{site.data.keyword.mon_full_notm}} API token
+* The Monitor API token
 * The endpoint of your {{site.data.keyword.mon_full_notm}} instance
 
 To collect this information and work with your {{site.data.keyword.mon_full_notm}} instance by using metric query API, follow these steps:
 
 1. Access the [Monitoring home page](https://cloud.ibm.com/observe/monitoring).
 
-2. Click **View {{site.data.keyword.mon_full_notm}}** next to the instance that you want to work with.
+2. Click **Open Dashboard** next to the instance that you want to work with.
 
 3. After the {{site.data.keyword.mon_full_notm}} dashboard is displayed, select your Account Profile icon on the sidebar and select **Settings**. You now see your account settings.
 
   ![Settings](images/metrics_settings.png "Settings")
 
-4. Your {{site.data.keyword.mon_full_notm}} Monitor API token is an alphanumeric string that is located in the **{{site.data.keyword.mon_full_notm}} API Token** field. Click the **Copy** button to copy the token to your clipboard.
+4. Your Monitor API token is an alphanumeric string that is located in the **Monitor API Token** field. Click the **Copy** button to copy the token to your clipboard.
 
     Do not share this API token. Anyone who has this API token has full access to your metrics.
     {: important}
@@ -387,7 +387,7 @@ To collect this information and work with your {{site.data.keyword.mon_full_notm
 
 6. After you have both the API token and the endpoint, you can format your POST request. The following POST request is an example, with all the parameters that you can modify. The following are parameters:
 
-  * The {{site.data.keyword.mon_full_notm}} API token.
+  * The Monitor API token.
   * The endpoint of your {{site.data.keyword.mon_full_notm}} instance.
   * The value for `ibm_is_vpn_gateway_name` (the VPN gateway name that you want to see metrics for).
 
@@ -415,7 +415,7 @@ To collect this information and work with your {{site.data.keyword.mon_full_notm
              "format": {
                  "type": "data"
              },
-             "scope": "ibm_is_vpn_gateway_name = \"test-sysdig-001\"",
+             "scope": "ibm_is_vpn_gateway_name = \"test-001\"",
              "metrics": {
                  "k0": "timestamp",
                  "v1": "ibm_is_vpn_gateway_status"

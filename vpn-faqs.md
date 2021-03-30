@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-24"
+lastupdated: "2021-03-30"
 
 keywords: virtual private network, faq, faqs, frequently asked questions, vpn, vpn gateway
 
@@ -131,7 +131,7 @@ If you use IKEv1, rekey collision deletes the IKE/IPsec security association (SA
 {: #faq-vpn-15}
 {: faq}
 
-Yes. You can find more information in [Using LogDNA to view VPN logs](/docs/vpc?topic=vpc-using-logdna-to-view-vpn-logs).
+Yes. You can find more information in [Using IBM Log Analysis to view VPN logs](/docs/vpc?topic=vpc-using-logdna-to-view-vpn-logs).
 
 ## Does IBM complete quarterly ASV scans of data-plane VPN appliances?  
 {: #vpn-asv}
