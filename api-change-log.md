@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-23"
+lastupdated: "2021-03-30"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -50,6 +50,17 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Load balancer pools.** In an upcoming release, new values will be added to the `session_persistence` enumeration returned by the [load balancer pool](/apidocs/vpc#list-load-balancer-pools) methods. When available, if you use the options made possible by these new values, existing client applications will be exposed to these values. To avoid disruption of client applications, check that they are written to gracefully handle unexpected values for the `session_persistence` property.
+
+## 30 March 2021
+{: #30-march-2021}
+
+### For all version dates
+{: #30-march-2021-all-version-dates}
+
+**Virtual server instance console.** You can now access your instances by connecting to a VNC or serial console. Learn about [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console), and explore the new instance console API methods:
+
+* [Create a console access token for an instance](/apidocs/vpc#create-instance-console-access-token) (`POST /instances/{instance_id}/console_access_token`)
+* [Retrieve the console WebSocket for an instance](/apidocs/vpc#get-instance-console) (`GET /instances/{instance_id}/console`)
 
 ## 23 March 2021
 {: #23-march-2021}
