@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-12"
+lastupdated: "2021-03-31"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, generation 2, gen 2
 
@@ -30,6 +30,7 @@ subcollection: vpc
 {: #profiles}
 
 When you provision {{site.data.keyword.vsi_is_full}}, you can select from three families of profiles: Balanced, Compute, and Memory.
+<!-- add Ultra High Memory after 3/26--->
 
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, and network bandwidth. The attributes define the size and capabilities of the virtual server instance that is provisioned. In the {{site.data.keyword.Bluemix_notm}} console, you can select the most recently used profile or click **View All Profiles** to choose the profile that best fits your needs.
 {: shortdesc}
@@ -42,40 +43,20 @@ The following profile families are available:
 | [Compute](#compute)  | Best for moderate to high web traffic workloads. Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers. |
 | [Memory](#memory) | Best for memory caching and real-time analytics workloads. Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. |
 
-<!---| [Ultra High Memory](#uhmemory) | Ultra High Memory profiles offer the highest vCPU to memory ratios to serve two groups of in-memory databases: OLTP and OLAP. |--->
+<!---| [Ultra High Memory](#uhmemory) | Ultra High Memory profiles offer the highest vCPU to memory ratios with 1 vCPU to 28 GiB of RAM to serve in-memory OLTP databases, such as SAP. |--->
+
 <!---| [GPU](#gpu) | Best for artificial intelligence (AI) and deep learning workloads. Available for POWER processing architecture only. | -->
 {: caption="Table 1. Virtual server family selections" caption-side="top"}
-
-{: #instance-storage}
-
-<!--Instance storage disks are only available to accounts with special approval to preview this beta feature. Contact your IBM Sales representative if you are interested in getting access. For more information about instance storage, see [About instance storage?](/docs/vpc?topic=vpc-instance-storage).  
-{:beta}-->
 
 ## Balanced
 {: #balanced}
 
 Balanced profiles provide a mix of performance and scalability for more common workloads with a ratio of 4 GiB of memory for every 1 vCPU of compute. 
 
-<!--The Balanced profile family includes both profiles provisioned with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).--> 
+The Balanced profile family includes both profiles that are provisioned with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
 
 The following Balanced profiles are available for x86_64 processors:
 
-| Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) |
-|---------|---------|---------|---------|
-| bx2-2x8 | 2 | 8 | 4 | 
-| bx2-4x16 | 4 | 16 | 8 |
-| bx2-8x32 | 8 | 32 | 16 |
-| bx2-16x64 | 16 | 64 | 32 |
-| bx2-32x128 | 32  | 128 | 64 | 
-| bx2-48x192 | 48 | 192 | 80 | 
-| bx2-64x256 | 64 | 256| 80 |
-| bx2-96x384 | 96 | 384 | 80 |
-| bx2-128x512 | 128 | 512 | 80 | 
-{: caption="Table 2. Balance profiles options for x86-64 instances" caption-side="top"}
-
-<!-- Below table includes all the instance storage information. Delete above table and replace it with this one -->
-
-<!--
 | Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|
 | bx2-2x8 | 2 | 8 | 4 | - |
@@ -96,33 +77,17 @@ The following Balanced profiles are available for x86_64 processors:
 | bx2d-96x384 | 96 | 384 | 80 | 2x1800 |
 | bx2-128x512 | 128 | 512 | 80 | - |
 | bx2d-128x512 | 128 | 512 | 80 | 2x400 |
-{: caption="Table 2. Balance profiles options for x86-64 instances" caption-side="top"}-->
+{: caption="Table 2. Balance profiles options for x86-64 instances" caption-side="top"}
 
 ## Compute
 {: #compute}
 
 Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers that can benefit from 2 GiB of memory for every 1 vCPU of compute.
 
-<!--The Compute profile family includes both profiles provisioned with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).--> 
+The Compute profile family includes both profiles that are provisioned with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
 
 The following Compute profiles are available for instances with x86_64 processors:
 
-| Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) |
-|---------|---------|---------|---------|
-| cx2-2x4 | 2 | 4 | 4 |
-| cx2-4x8 | 4 | 8 | 8 |
-| cx2-8x16 | 8 | 16 | 16 |
-| cx2-16x32 | 16 | 32 | 32 |
-| cx2-32x64 | 32  | 64 | 64 |
-| cx2-48x96 | 48  | 96 | 80 |
-| cx2-64x128 | 64 | 128 | 80 |
-| cx2-96x192 | 96 | 192 | 80 |
-| cx2-128x256 | 128 | 256 | 80 |
-{: caption="Table 4. Compute profile options for x86-64 instances" caption-side="top"}
-
-<!-- Below table includes all the instance storage information. Delete above table and replace it with this one -->
-
-<!--
 | Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|
 | cx2-2x4 | 2 | 4 | 4 | - |
@@ -144,33 +109,16 @@ The following Compute profiles are available for instances with x86_64 processor
 | cx2-128x256 | 128 | 256 | 80 | - |
 | cx2d-128x256 | 128 | 256 | 80 | 2x2400 |
 {: caption="Table 4. Compute profile options for x86-64 instances" caption-side="top"}
--->
 
 ## Memory
 {: #memory}
 
 Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads with 8 GiB of memory for every 1 vCPU of compute.
 
-<!--The Memory profile family includes both profiles provisioned with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).-->
+The Memory profile family includes both profiles that are provisioned with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
 
 The following memory profiles are available for instances with x86_64 processors:
 
-| Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) |
-|---------|---------|---------|---------|
-| mx2-2x16 | 2 | 16 | 4 |
-| mx2-4x32 | 4 | 32 | 8 | 
-| mx2-8x64 | 8 | 64 | 16 |
-| mx2-16x128 | 16 | 128 | 32 |
-| mx2-32x256 | 32 | 256 | 64 |
-| mx2-48x384 | 48 | 384 | 80 |
-| mx2-64x512| 64 | 512 | 80 |
-| mx2-96x768| 96 | 768 | 80 |
-| mx2-128x1024| 128 | 1024 | 80 |
-{: caption="Table 5. Memory profile options for x86-64 instances " caption-side="top"}
-
-<!-- Below table includes all the instance storage information. Delete above table and replace it with this one -->
-
-<!--
 | Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|
 | mx2-2x16 | 2 | 16 | 4 | - |
@@ -192,7 +140,6 @@ The following memory profiles are available for instances with x86_64 processors
 | mx2-128x1024| 128 | 1024 | 80 | - |
 | mx2d-128x1024| 128 | 1024 | 80 | 2x2400|
 {: caption="Table 5. Memory profile options for x86-64 instances " caption-side="top"}
--->
 
 {: #callout-note}
 
@@ -204,9 +151,7 @@ Profiles with 64 or more vCPUs are deployed exclusively on the second-generation
 <!---## Ultra High Memory--->
 {: #uhmemory}
 
-<!---Ultra High Memory profiles offers the highest vCPU to memory ratios with 28 GiB of memory for every 1 vCPU of compute.--->
-
-<!--The Ultra High Memory profile family includes both profiles provisioned with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).--> 
+<!---Ultra High Memory profiles offers the highest vCPU to memory ratios with 28 GiB of memory for every 1 vCPU of compute. All Ultra High Memory profiles are provisioned with [instance storage](/docs/vpc?topic=vpc-instance-storage).--->
 
 <!---The following Ultra High Memory profiles are available for x86_64 processors:--->
 
@@ -225,7 +170,7 @@ Profiles with 64 or more vCPUs are deployed exclusively on the second-generation
 {: caption="Table 2. Ultra High Memory profiles options for x86-64 instances" caption-side="top"}
 {:beta}--->
 
-<!---{: #callout-note}--->
+{: #callout-note}
 
 <!---Ultra High Memory Profiles are deployed exclusively on the second-generation Intel&reg; Xeon&reg; Platinum 8280L (Cascade Lake) with 6 TB of RAM and 112 physical cores (8280L hosts).  
 {: note}--->
@@ -345,4 +290,3 @@ After you choose a profile, it's time to create an instance.
 * [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers)
 * [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli)
 * [Creating an instance by using the API](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis#select-profile-and-image)
-
