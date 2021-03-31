@@ -190,7 +190,7 @@ Virtual Private Cloud (VPC)
 
         vpn-access-service-endpoint.md
         vpn-configure-acls-security-groups.md
-        vpn-view-logs-logdna.md
+        vpn-view-logs.md
         vpn-monitoring-metrics.md
         vpn-limitations.md
         vpn-api-example.md
