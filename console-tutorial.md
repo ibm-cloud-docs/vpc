@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2018, 2020
+  years: 2018, 2020, 2021
 
-lastupdated: "2020-12-29"
+lastupdated: "2021-03-21"
 
 
 keywords: vpc, virtual private cloud, vpc ui, console, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range, generation 2, gen 2
@@ -360,6 +360,9 @@ ssh -i <path-to-private-key-file> root@<public-ip-address>
 For more information about how to connect to your instance, see [Connecting to Linux instances](/docs/vpc?topic=vpc-vsi_is_connecting_linux).
 
 To connect to a Windows&reg image, log in using its decrypted password. For instructions, see [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
+
+You can now access your virtual server instance by connecting to a VNC or serial console. This is a quick-and-easy way for you to interact with the instance without using a Secure Shell. For more information about this feature, see [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console)
+{:note}
 
 ## Monitoring your instance
 {: #monitoring-your-instance}
