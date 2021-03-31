@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-23"
+lastupdated: "2021-03-30"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -50,6 +50,8 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Load balancer pools.** In an upcoming release, new values will be added to the `session_persistence` enumeration returned by the [load balancer pool](/apidocs/vpc#list-load-balancer-pools) methods. When available, if you use the options made possible by these new values, existing client applications will be exposed to these values. To avoid disruption of client applications, check that they are written to gracefully handle unexpected values for the `session_persistence` property.
+
+**Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption of client applications, check that they are written to gracefully handle unexpected resource types in a security group's targets.
 
 ## 23 March 2021
 {: #23-march-2021}
