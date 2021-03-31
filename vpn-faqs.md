@@ -131,7 +131,7 @@ If you use IKEv1, rekey collision deletes the IKE/IPsec security association (SA
 {: #faq-vpn-15}
 {: faq}
 
-Yes. You can find more information in [Using IBM Log Analysis to view VPN logs](/docs/vpc?topic=vpc-using-logdna-to-view-vpn-logs).
+Yes. You can find more information in [Using IBM Log Analysis to view VPN logs](/docs/vpc?topic=vpc-using-log-analysis-to-view-vpn-logs).
 
 ## Does IBM complete quarterly ASV scans of data-plane VPN appliances?  
 {: #vpn-asv}

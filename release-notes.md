@@ -137,7 +137,7 @@ The Washington D.C. multi-zone region will be enabled in January 2021. This feat
 ## 11 December 2020
 {: #dec-11-2020}
 
-**VPN logging and auditing:** The ability to monitor and audit your VPNs has been added to {{site.data.keyword.vpn_vpc_short}}. For more information, see [Using IBM Log Analysis to view VPN logs](/docs/vpc?topic=vpc-using-logdna-to-view-vpn-logs).
+**VPN logging and auditing:** The ability to monitor and audit your VPNs has been added to {{site.data.keyword.vpn_vpc_short}}. For more information, see [Using IBM Log Analysis to view VPN logs](/docs/vpc?topic=vpc-using-log-analysis-to-view-vpn-logs).
 
 ## 1 December 2020
 {: #december-1-2020}
