@@ -39,6 +39,7 @@ Virtual Private Cloud (VPC)
     {: .topicgroup}
     Storage
         block_storage_vpc_about.md
+        vsi_instance_storage.md
         snapshots_vpc_about.md
         block_storage_vpc_capacity_performance.md
         block_storage_is_profiles.md
@@ -103,6 +104,7 @@ Virtual Private Cloud (VPC)
         vsi_is_connecting_console.md
         vsi_is_manage_instances.md
         vsi_is_instance_vnics.md
+        vsi_instance_storage_how_to.md
         sysdig-vpc-metrics.md
         vsi_is_instance_resize.md
 
