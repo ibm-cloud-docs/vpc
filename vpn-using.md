@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-15"
+lastupdated: "2021-03-30"
 
 keywords: VPN, VPN gateways, encryption, IKE, IPsec, gateway, auto-negotiation, Diffie-Hellman, dead peer detection, PFS
 
@@ -148,7 +148,7 @@ These links provide additional information about {{site.data.keyword.cloud_notm}
 * [VPN CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpn-clis)
 * [VPN API reference](https://{DomainName}/apidocs/vpc#list-ike-policies)
 * [Required permissions for VPN resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
-* [Activity Tracker with LogDNA events](/docs/vpc?topic=vpc-at-events#events-vpns)
+* [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-vpns)
 * [VPN for VPC infrastructure resources for Terraform](https://cloud.ibm.com/docs/terraform?topic=terraform-vpc-gen2-resources#vpn-gateway)
 * [FAQs for VPN gateways](/docs/vpc?topic=vpc-faqs-vpn)
 * [Troubleshooting VPN gateways](/docs/vpc?topic=vpc-troubleshoot-unable-to-establish-vpn-connection)

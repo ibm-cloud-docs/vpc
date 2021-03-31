@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-31"
+  years: 2020, 2021
+lastupdated: "2021-03-30"
 
 keywords: flow logs, viewing objects, SQL, analyze
 
@@ -404,7 +404,7 @@ GROUP BY target_ip
 ORDER BY `bytes` DESC LIMIT 5
 ```
 
-### Example solution: Analyzing flow Logs for VPC using LogDNA
+### Example solution: Analyzing flow Logs for VPC
 {: #example-analyzing-flow-logs-using-logdna}
 
-You can download an example solution of how to use LogDNA to analyze flow logs from [https://github.com/IBM-Cloud/vpc-flowlogs-logdna](https://github.com/IBM-Cloud/vpc-flowlogs-logdna). This project ([Readme file](https://github.ibm.com/portfolio-solutions/vpc-flowlogs-logdna/blob/master/README.md)) shows how to use a trigger function to read a flow log COS object and write it to LogDNA.
+You can download an example solution of how to use IBM Log Analysis to analyze flow logs from [https://github.com/IBM-Cloud/vpc-flowlogs-logdna](https://github.com/IBM-Cloud/vpc-flowlogs-logdna). This project ([Readme file](https://github.ibm.com/portfolio-solutions/vpc-flowlogs-logdna/blob/master/README.md)) shows how to use a trigger function to read a flow log COS object and write it to IBM Log Analysis.

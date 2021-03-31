@@ -61,5 +61,5 @@ Be cautious when assigning the **IP Spoofing Operator** role to users.
 
 Any time IP spoofing is modified on a network interface, an Activity Tracker log is generated.
 
-For more information, see the [Getting started tutorial](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-getting-started) for Activity Tracker with LogDNA.
+For more information, see the [Getting started tutorial](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-getting-started) for Activity Tracker.
 For information about setting up alerts, see [Managing alerts](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-alerts).
