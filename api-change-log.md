@@ -49,9 +49,9 @@ Some changes, such as new response properties or new optional request parameters
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
 
-**Load balancer pools.** In an upcoming release, new values will be added to the `session_persistence` enumeration returned by the [load balancer pool](/apidocs/vpc#list-load-balancer-pools) methods. When available, if you use the options made possible by these new values, existing client applications will be exposed to these values. To avoid disruption of client applications, check that the client applications are written to gracefully handle unexpected values for the `session_persistence` property.
+**Load balancer pools.** In an upcoming release, new values will be added to the `session_persistence` enumeration returned by the [load balancer pool](/apidocs/vpc#list-load-balancer-pools) methods. If you use the options made possible by these new values, existing client applications will be exposed to these values. To avoid disruption, check that client applications are written to gracefully handle unexpected values for the `session_persistence` property.
 
-**Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption of client applications, check that they are written to gracefully handle unexpected resource types in a security group's targets.
+**Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
 ## 30 March 2021
 {: #30-march-2021}
@@ -77,7 +77,7 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
    * `query` - Write layer 7 rules that use the query string to route traffic to a specific target. For a `query` type rule, `field` and `value` must be percent-encoded, same as the query string in the URL.
    * `body` - If the body of the `POST` request uses form encoding (UTF-8), then you can create layer 7 rules to route traffic based on the parameter name and value in the body. The `Content-Type` in the request is ignored.
 
-If you use these new rule types, be aware that existing client applications will be exposed to those new values in the existing properties. Before you use these new rule types for an application load balancer, be sure that those client applications are written to gracefully handle unexpected values for these properties.
+If you use these new rule types, be aware that existing client applications will be exposed to those new values in the existing  properties. To avoid disruption, check that client applications are written to gracefully handle unexpected values for these properties before using these new rule types for an application load balancer.
 {: important}
 
 ## 19 March 2021
@@ -99,10 +99,10 @@ Every operation that returns an `OperatingSystem` resource now includes a `dedic
 
 **Additional VPN for VPC IKEv2 encryption/hash/Diffie Hellman (DH) group support.** For enhanced security, VPN for VPC now supports SHA2-512 (a Secure Hash Algorithm) and DH group 19 (a 256-bit elliptic curve algorithm) to generate a symmetric key.
 
-If you use these new algorithms, be aware that existing client applications will be exposed to those new values in the existing `authentication_algorithm` and `dh_group` properties. Be sure to check that those client applications are written to gracefully handle unexpected values for these properties prior to using these new algorithms.
+If you use these new algorithms, be aware that existing client applications will be exposed to those new values in the existing `authentication_algorithm` and `dh_group` properties. To avoid disruption, check that client applications are written to gracefully handle unexpected values for these properties before using these new algorithms.
 {: important}
 
-Existing VPN for VPC methods were updated as follows:
+The following VPN for VPC methods have been updated:
 
 * In IKE policies, the `authentication_algorithm` property now includes a `sha512` value, and the `dh_group` property includes a `19` value.  
 * In IPsec policies, the `authentication_algorithm` property now includes a `sha512` value, and the `pfs` property includes a `group_19` value. 
@@ -120,12 +120,12 @@ Existing VPN for VPC methods were updated as follows:
 If you plan to use default security groups for new application load balancers, review your default security group rules. If necessary, edit the rules to accommodate your expected application load balancer traffic.
 {: tip}   
    
-Existing load balancer methods were updated as follows:
+The following load balancer methods have been updated:
 
    * [Create a load balancer](/apidocs/vpc#create-load-balancer) (`POST /load_balancers`) can now accept a list of security groups
    * [Get load balancer details](/apidocs/vpc#get-load-balancer) (`GET /load_balancers/{id}`) now returns references to the security groups to which a load balancer is attached
     
-New security group methods were added for managing security group targets:
+New security group methods have been added for managing security group targets:
 
    * [Attach a security group to a target network interface or load balancer](/apidocs/vpc#create-security-group-target-binding) (`PUT /security_groups/{security_group_id}/targets/{id}`)
    * [List targets attached to a security group](/apidocs/vpc#list-security-group-targets) (`GET /security_groups/{security_group_id}/targets`)
