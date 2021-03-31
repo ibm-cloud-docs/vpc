@@ -36,12 +36,12 @@ Use the release notes to learn about new and changed {{site.data.keyword.vpc_ful
 
 - **New parameter-based rule types for application load balancers:** When creating policy rules for {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB), the `field` property may now be set to `query` or `body` to perform additional forms of layer 7 load balancing.
 
-	* `query` - Write layer 7 rules that use the query string to route traffic to a specific target. 
+	* `query` - Write layer 7 rules that use the query string to route traffic to a specific target.
 
-	* `body` - If the body of the `POST` request uses form encoding (UTF-8), then you can create layer 7 rules to route traffic based on the parameter name and value in the body. 
+	* `body` - If the body of the `POST` request uses form encoding (UTF-8), then you can create layer 7 rules to route traffic based on the parameter name and value in the body.
 
   For more information, refer to [Layer 7 load balancing](/docs/vpc?topic=vpc-layer-7-load-balancing).
-- **TCP keep alive support for application load balancers:** {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) now supports `TCP keep alive`. With this setting, the ALB sends TCP-keep-alive packets to both client and back-end servers every five seconds. 
+- **TCP keep alive support for application load balancers:** {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) now supports `TCP keep alive`. With this setting, the ALB sends TCP-keep-alive packets to both client and back-end servers every five seconds.
 
   For more information, refer to [Advanced traffic management](/docs/vpc?topic=vpc-advanced-traffic-management#tcp-keep-alive).
 - **New monitoring metrics:** {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) now has additional monitoring metrics to help track the traffic and usage patterns for your load balancers. These new metrics can provide insight about peak traffic hours, usage dropoffs, and overall usage patterns. The new metrics are:
@@ -56,7 +56,7 @@ Use the release notes to learn about new and changed {{site.data.keyword.vpc_ful
   For more information, refer to [Monitoring metrics using IBM Cloud Application Load Balancer with {{site.data.keyword.mon_full_notm}}](/docs/vpc?topic=vpc-monitoring-metrics-sysdig).
 - **Private network load balancers:** {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) now supports the creation of private network load balancers. A private NLB is a load balancer only accessible from within the VPC network and/or where the client has reachability to the VPC network (for example, through Direct Link or a transit gateway).
 
-  To create private load balancers, you must have a dedicated subnet with no custom routes configured for the subnet. 
+  To create private load balancers, you must have a dedicated subnet with no custom routes configured for the subnet.
 
   For information on creating a private NLB, refer to [Creating a Network Load Balancer for VPC](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer).
 
@@ -80,7 +80,7 @@ Use the release notes to learn about new and changed {{site.data.keyword.vpc_ful
 {: #march-05-2021}
 
 - **Instance resize (Beta):** Beta users can now resize a virtual server instance by selecting a different profile to assign to the instance. Profiles are a combination of instance attributes, such as the number of vCPUs, amount of RAM, network bandwidth, and more that define the size and capablilities of the virtual server instance. For more information, see [Resizing an instance (Beta)](/docs/vpc?topic=vpc-resizing-an-instance).
-- **Snapshots for VPC (Beta)** - Select Beta users can now create snapshots of their block storage boot and data volumes attached to a running virtual server instance. These snapshots can be used to create new volumes, which function like the original volume. For more information, see [About Snapshots for VPC (Beta)](/docs/vpc?topic=vpc-snapshots-vpc-about). 
+- **Snapshots for VPC (Beta)** - Select Beta users can now create snapshots of their block storage boot and data volumes attached to a running virtual server instance. These snapshots can be used to create new volumes, which function like the original volume. For more information, see [About Snapshots for VPC (Beta)](/docs/vpc?topic=vpc-snapshots-vpc-about).
 - **UI enhancement:** When creating or editing a VPN policy (IKE or IPsec), a new authentication option is available, SHA512. Additionally, a new Diffie-Hellman key exchange group is supported: group 19.
 
 
@@ -265,7 +265,7 @@ The Washington D.C. multi-zone region will be enabled in January 2021. This feat
 
 - **Network load balancer (beta):** Network load balancers are available in a limited beta. Use network load balancers to distribute traffic among multiple server instances within the same region of your VPC. For more information, see [Load balancers overview](/docs/vpc?topic=vpc-nlb-vs-elb) and [About network load balancers](/docs/vpc?topic=vpc-network-load-balancers).
 
-- **{{site.data.keyword.vpn_vpc_short}} update:** Access VPN monitoring metrics by using [{{site.data.keyword.mon_full_notm}} VPN metrics](/docs/vpc?topic=vpc-sysdig-monitoring-metrics).
+- **{{site.data.keyword.vpn_vpc_short}} update:** Access VPN monitoring metrics by using [{{site.data.keyword.mon_full_notm}} VPN metrics](/docs/vpc?topic=vpc-monitoring-metrics).
 
 ## 26 June 2020
 {: #june-26-2020}
