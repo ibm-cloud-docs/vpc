@@ -59,6 +59,23 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 ### For all version dates
 {: #30-march-2021-all-version-dates}
 
+**Instance storage.** New instance profiles can now optionally include a set of solid state disks. These instance storage disks provide temporary storage to improve the performance of cloud-native workloads that need scratch space, large data caches, or data replicated across availability zones.
+
+The following API methods have been added:
+
+* [List all disks on an instance](/apidocs/vpc#list-instance-disks) (`GET /instances/{instance_id}/disks`)
+* [Retrieve an instance disk](/apidocs/vpc#get-instance-disk) (`GET /instances/{instance_id}/disks/{id}`)
+* [Update an instance disk](/apidocs/vpc#update-instance-disk) (`PATCH /instances/{instance_id}/disks/{id}`)
+* [List all disks on a dedicated host](/apidocs/vpc#list-dedicated-host-disks) (`GET /dedicated_hosts/{dedicated_host_id}/disks`)
+* [Retrieve a dedicated host disk](/apidocs/vpc#get-dedicated-host-disk) (`GET /dedicated_hosts/{dedicated_host_id}/disks/{id}`)
+* [Update a dedicated host disk](/apidocs/vpc#update-dedicated-host-disk) (`PATCH /dedicated_hosts/{dedicated_host_id}/disks/{id}`)
+
+API methods that return instance and dedicated host profiles now include a `disks` property with information about the storage capability (where present) of resources provisioned with those profiles.
+
+API methods that return instances and dedicated hosts now include a `disks` property with information about the disks configured for those resources.
+
+For more information, see [About instance storage](/docs/vpc?topic=vpc-instance-storage).
+
 **Virtual server instance console.** You can now access your instances by connecting to a VNC or serial console. Learn about [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console), and explore the new instance console API methods:
 
 * [Create a console access token for an instance](/apidocs/vpc#create-instance-console-access-token) (`POST /instances/{instance_id}/console_access_token`)
