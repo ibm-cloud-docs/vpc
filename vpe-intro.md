@@ -89,6 +89,6 @@ These links provide additional information about {{site.data.keyword.cloud}} VPE
 * [VPE CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpe-clis)
 * [VPE API reference](https://{DomainName}/apidocs/vpc?code=java#list-endpoint-gateways)
 * [FAQs for virtual private endpoints](/docs/vpc?topic=vpc-faqs-vpe)
-* [VPE for VPC infrastructure resources for Terraform](https://cloud.ibm.com/docs/terraform?topic=terraform-vpc-gen2-resources#virtual-endpoint-gwy)
+* [VPE for VPC infrastructure resources for Terraform](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-vpc-gen2-resources#virtual-endpoint-gwy)
 * [Troubleshooting VPE gateways](/docs/vpc?topic=vpc-troubleshoot-create-reserved-ip)
 * [VPE Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-vpe)

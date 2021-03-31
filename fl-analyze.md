@@ -405,6 +405,6 @@ ORDER BY `bytes` DESC LIMIT 5
 ```
 
 ### Example solution: Analyzing flow Logs for VPC
-{: #example-analyzing-flow-logs-using-logdna}
+{: #example-analyzing-flow-logs}
 
 You can download an example solution of how to use IBM Log Analysis to analyze flow logs from [https://github.com/IBM-Cloud/vpc-flowlogs-logdna](https://github.com/IBM-Cloud/vpc-flowlogs-logdna). This project ([Readme file](https://github.ibm.com/portfolio-solutions/vpc-flowlogs-logdna/blob/master/README.md)) shows how to use a trigger function to read a flow log COS object and write it to IBM Log Analysis.

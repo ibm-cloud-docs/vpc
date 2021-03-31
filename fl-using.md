@@ -101,7 +101,7 @@ Creating or deleting a flow log doesn't impact network performance. Flow log dat
 With IBM Cloud Flow Logs for VPC, you can validate that network connections and data are arriving to destination targets successfully, and troubleshoot if it is not. This is useful when diagnosing security group rules, denied flows, and so on.
 
 ### Use case 1: Analyzing flow logs
-{: #analyzing-flow-logs-using-logdna-example}
+{: #analyzing-flow-logs-example}
 
 You can review and download a [flow log example solution](https://github.com/IBM-Cloud/vpc-flowlogs-logdna){: external} of how to use a trigger function to read a flow log COS object and write it to IBM Log Analysis.
 
@@ -147,7 +147,7 @@ These links provide additional information about {{site.data.keyword.cloud_notm}
 * [Flow logs API reference](https://{DomainName}/apidocs/vpc#list-flow-log-collectors)
 * [FAQs for flow log collectors](/docs/vpc?topic=vpc-fl-faq)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-flow-logs)
-* [Flow Logs for VPC infrastructure resources for Terraform](/docs/terraform?topic=terraform-vpc-gen2-resources#ibm_is_flow_log)
+* [Flow Logs for VPC infrastructure resources for Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-vpc-gen2-resources#ibm_is_flow_log)
 * [Blog: Use IBM Log Analysis to Analyze VPC Network Traffic from IBM Cloud Flow Logs for VPC](https://www.ibm.com/cloud/blog/use-ibm-log-analysis-with-logdna-to-analyze-vpc-network-traffic-from-ibm-cloud-flow-logs-for-vpc)
 * [Blog: Indexing and Searching VPC Flow Logs in IBM Cloud Databases for Elasticsearch](https://www.ibm.com/cloud/blog/indexing-and-searching-vpc-flow-logs-in-ibm-cloud-databases-for-elasticsearch)
 * [Article: Provisioning VPC Flow Logs in IBM Cloud using Terraform](https://developer.ibm.com/recipes/tutorials/provisioning-vpc-flow-logs-in-ibm-cloud-using-terraform/)

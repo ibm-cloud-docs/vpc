@@ -43,6 +43,6 @@ These links provide additional information about IBM Cloud Security Groups for V
 * [Security Groups CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#security-groups-cli-ref)
 * [Security Groups API reference](https://{DomainName}/apidocs/vpc#list-security-groups)
 * [Security Groups required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls#sg-authorizations-required-for-api-and-cli-calls)
-* [Security Groups for VPC infrastructure resources for Terraform](/docs/terraform?topic=terraform-vpc-gen2-resources#sec-group)
+* [Security Groups for VPC infrastructure resources for Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-vpc-gen2-resources#sec-group)
 * [Security Groups Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-network-security-group)
 * [Security Groups quotas](/docs/vpc?topic=vpc-quotas#security-group-quotas)
