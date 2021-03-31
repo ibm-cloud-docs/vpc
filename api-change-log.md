@@ -59,6 +59,8 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Instance resize.** You can now resize an instance by providing the `profile` property in the API method `PATCH /instances/{id}` ([Update an instance](/apidocs/vpc#update-instance)). For more information, see [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance).
 
+**Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption of client applications, check that they are written to gracefully handle unexpected resource types in a security group's targets.
+
 ## 23 March 2021
 {: #23-march-2021}
 
