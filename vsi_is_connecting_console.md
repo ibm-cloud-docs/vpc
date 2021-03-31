@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2020
+  years: 2020, 2021
 
-lastupdated: "2021-03-18"
+lastupdated: "2021-03-31"
 
 keywords: vnc console, serial console, virtual server instance
 
@@ -32,9 +32,6 @@ You can access your IBM Cloud virtual server instance by connecting to a VNC or 
 {:shortdesc}
 
 It applies to situations where a boot failure or kernel crash occurred, especially when you use a custom image. When these situations happen, you can use the console service to examine the issue.
-
-This feature has become generally available in the Dallas, Frankfurt, London, Osaka, and Washington DC regions. It will be available in the other regions soon.
-{:note}
 
 For instances that were created before 2/13/2021, you must stop and re-start (not reboot) the instance before a console can be opened. Opening consoles for instances created after this time doesn't require the above operation.
 {:important}
@@ -133,14 +130,7 @@ Before you can use the API requests to connect to a VNC or serial console, you n
 
 Make sure you have set up the CLI environment following [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 
-1. Enable virtual server instance console CLI command by setting the following environment variable:
-
-  ```
-  export IBMCLOUD_IS_FEATURE_INSTANCE_CONSOLE=true
-  ```
-  {:pre}
-
-2. Run the following command to connect to a console:
+1. Run the following command to connect to a console:
 
   ```
   ibmcloud is instance-console $instance_id [-q, --quiet]
@@ -150,7 +140,7 @@ Make sure you have set up the CLI environment following [CLI prerequisites](/doc
   This command will open a serial console by default. To open a VNC console, add the `[--vnc]` flag to the command to retrieve URL of the console.
   {: note}
 
-3. Next:
+2. Next:
   * For VNC consoles, follow **Step 2** to **Step 7** in [Using API to connect to a VNC console](/docs/vpc?topic=vpc-vsi_is_connecting_console#vsi_is_connecting_console_api_vnc).
   * For serial consoles, enter the credentials following the prompts to log in to your instances.
 
