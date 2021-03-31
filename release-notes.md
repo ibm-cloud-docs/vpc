@@ -53,7 +53,7 @@ Use the release notes to learn about new and changed {{site.data.keyword.vpc_ful
 	* Count of responses with the HTTP 4xx back-end response code
 	* Count of responses with the HTTP 5xx back-end response code
 
-  For more information, refer to [Monitoring metrics using IBM Cloud Application Load Balancer with {{site.data.keyword.mon_full_notm}}](/docs/vpc?topic=vpc-monitoring-metrics-sysdig).
+  For more information, refer to [Monitoring metrics using IBM Cloud Application Load Balancer with {{site.data.keyword.mon_full_notm}}](/docs/vpc?topic=vpc-monitoring-metrics).
 - **Private network load balancers:** {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) now supports the creation of private network load balancers. A private NLB is a load balancer only accessible from within the VPC network and/or where the client has reachability to the VPC network (for example, through Direct Link or a transit gateway).
 
   To create private load balancers, you must have a dedicated subnet with no custom routes configured for the subnet.
@@ -321,7 +321,7 @@ The Washington D.C. multi-zone region will be enabled in January 2021. This feat
 ## 3 April 2020
 {: #april-03-2020}
 
-**Load balancer for VPC update:** Access load balancer monitoring metrics (throughput, active connections, connection rate) using [{{site.data.keyword.mon_full_notm}}](/docs/vpc?topic=vpc-monitoring-metrics-sysdig).
+**Load balancer for VPC update:** Access load balancer monitoring metrics (throughput, active connections, connection rate) using [{{site.data.keyword.mon_full_notm}}](/docs/vpc?topic=vpc-monitoring-metrics).
 
 The following cipher suites are supported for load balancer HTTPS listeners:
 - `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
