@@ -22,9 +22,9 @@ subcollection: vpc
 {:note: .note}
 
 # Monitoring {{site.data.keyword.vpn_vpc_short}} metrics
-{: #sysdig-monitoring-metrics}
+{: #vpn-monitoring-metrics}
 
-{{site.data.keyword.mon_full}} collects basic VPN metrics on {{site.data.keyword.cloud_notm}} for VPC, such as VPN gateway status, VPN gateway packets input/output, and VPN connection bytes input/output. These metrics are stored in {{site.data.keyword.mon_full_notm}}. <!--If you have a Sysdig account, then metrics are displayed for that Sysdig instance.--> You can access metrics through the prebuilt dashboard.
+{{site.data.keyword.mon_full}} collects basic VPN metrics on {{site.data.keyword.cloud_notm}} for VPC, such as VPN gateway status, VPN gateway packets input/output, and VPN connection bytes input/output. These metrics are stored in {{site.data.keyword.mon_full_notm}}. You can access metrics through the prebuilt dashboard.
 {:shortdesc}
 
 ## Platform metrics overview
