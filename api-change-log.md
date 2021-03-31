@@ -51,15 +51,20 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Load balancer pools.** In an upcoming release, new values will be added to the `session_persistence` enumeration returned by the [load balancer pool](/apidocs/vpc#list-load-balancer-pools) methods. When available, if you use the options made possible by these new values, existing client applications will be exposed to these values. To avoid disruption of client applications, check that the client applications are written to gracefully handle unexpected values for the `session_persistence` property.
 
+**Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption of client applications, check that they are written to gracefully handle unexpected resource types in a security group's targets.
+
 ## 30 March 2021
 {: #30-march-2021}
 
 ### For all version dates
 {: #30-march-2021-all-version-dates}
 
-**Instance resize.** You can now resize an instance by providing the `profile` property in the API method `PATCH /instances/{id}` ([Update an instance](/apidocs/vpc#update-instance)). For more information, see [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance).
+**Virtual server instance console.** You can now access your instances by connecting to a VNC or serial console. Learn about [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console), and explore the new instance console API methods:
 
-**Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption of client applications, check that they are written to gracefully handle unexpected resource types in a security group's targets.
+* [Create a console access token for an instance](/apidocs/vpc#create-instance-console-access-token) (`POST /instances/{instance_id}/console_access_token`)
+* [Retrieve the console WebSocket for an instance](/apidocs/vpc#get-instance-console) (`GET /instances/{instance_id}/console`)
+
+**Instance resize.** You can now resize an instance by providing the `profile` property in the API method `PATCH /instances/{id}` ([Update an instance](/apidocs/vpc#update-instance)). For more information, see [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance).
 
 ## 23 March 2021
 {: #23-march-2021}
