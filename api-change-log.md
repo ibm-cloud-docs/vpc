@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-23"
+lastupdated: "2021-03-30"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -42,14 +42,22 @@ Some changes, such as new response properties or new optional request parameters
 
 ### For all API version dates
 
-**Block storage volumes**  In an upcoming release, a new value in the `status` enumeration will be added to the [volume](/apidocs/vpc#list-volume-profiles) APIs. When you expand an existing data volume, the volume goes into an updating state and shows a new API status `updating`. You can still access the data while the volume is being resized. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
+**Block storage volumes.**  In an upcoming release, a new value in the `status` enumeration will be added to the [volume](/apidocs/vpc#list-volume-profiles) APIs. When you expand an existing data volume, the volume goes into an updating state and shows a new API status `updating`. You can still access the data while the volume is being resized. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 
 **Asynchronous `DELETE` response code change.** In an upcoming release, the response code output for asynchronous `DELETE` operations will change from `204` to `202`. A response code of `204` implies the action is completed, which could be misleading for operations that are still processing. A response code of `202` is more appropriate. This behavior change will occur only for an API version date after its release. A response code of `204` will continue to be returned for API versions up to this version date.
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
 
-**Load balancer pools.** In an upcoming release, new values will be added to the `session_persistence` enumeration returned by the [load balancer pool](/apidocs/vpc#list-load-balancer-pools) methods. When available, if you use the options made possible by these new values, existing client applications will be exposed to these values. To avoid disruption of client applications, check that they are written to gracefully handle unexpected values for the `session_persistence` property.
+**Load balancer pools.** In an upcoming release, new values will be added to the `session_persistence` enumeration returned by the [load balancer pool](/apidocs/vpc#list-load-balancer-pools) methods. When available, if you use the options made possible by these new values, existing client applications will be exposed to these values. To avoid disruption of client applications, check that the client applications are written to gracefully handle unexpected values for the `session_persistence` property.
+
+## 30 March 2021
+{: #30-march-2021}
+
+### For all version dates
+{: #30-march-2021-all-version-dates}
+
+**Instance resize.** You can now resize an instance by providing the `profile` property in the API method `PATCH /instances/{id}` ([Update an instance](/apidocs/vpc#update-instance)). For more information, see [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance).
 
 ## 23 March 2021
 {: #23-march-2021}
@@ -62,7 +70,7 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
    * `query` - Write layer 7 rules that use the query string to route traffic to a specific target. For a `query` type rule, `field` and `value` must be percent-encoded, same as the query string in the URL.
    * `body` - If the body of the `POST` request uses form encoding (UTF-8), then you can create layer 7 rules to route traffic based on the parameter name and value in the body. The `Content-Type` in the request is ignored.
 
-If you use these new rule types, be aware that existing client applications will be exposed to those new values in the existing  properties. Be sure to check that those client applications are written to gracefully handle unexpected values for these properties prior to using these new rule types for an application load balancer.
+If you use these new rule types, be aware that existing client applications will be exposed to those new values in the existing properties. Before you use these new rule types for an application load balancer, be sure that those client applications are written to gracefully handle unexpected values for these properties.
 {: important}
 
 ## 19 March 2021
@@ -71,7 +79,7 @@ If you use these new rule types, be aware that existing client applications will
 ### For all version dates
 {: #19-march-2021-all-version-dates}
 
-**Bring your own license**: You can now [bring your own license](/docs/vpc?topic=vpc-byol-vpc-about) (BYOL) for custom images that you create and import to IBM Cloud VPC. When you import a custom image, you can choose from new `byol` Red Hat Enterprise Linux (RHEL) and Windows operating systems.
+**Bring your own license.** You can now [bring your own license](/docs/vpc?topic=vpc-byol-vpc-about) (BYOL) for custom images that you create and import to IBM Cloud VPC. When you import a custom image, you can choose from new `byol` Red Hat Enterprise Linux (RHEL) and Windows operating systems.
 
 A new `dedicated_host_only` property has been added to operating system resources. Any instance with a boot volume created from an image with `operating_system.dedicated_host_only` set to `true` must be placed on a dedicated host (or into a dedicated host group). Because Windows BYOL images have `dedicated_host_only` set to `true`, they must be placed on a dedicated host (or into a dedicated host group). There are no restrictions on placing instances using RHEL BYOL images.
 
