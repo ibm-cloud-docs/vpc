@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-03-03"
+lastupdated: "2021-03-31"
 
 subcollection: vpc
 
@@ -50,3 +50,10 @@ To increase your vCPU quota, [contact Support](/docs/get-support?topic=get-suppo
 {: faq}
 
 Provisioning instances on a dedicated group allows your instances to move between hosts if the need ever occurs. For example, if you want to decrease the size of your dedicated host group, you can stop instances on one of the hosts and disable placement for the host that you want to decommission. Then, when you restart the instances they are started on another host in the group if capacity is available. 
+
+## How much instance storage is available on my dedicated host? 
+{: #faq-dedicated-host-4}
+{: faq}
+
+In IBM Cloud console, if you look at the details page of a dedicated host that was provisioned with an instance storage profile, you see 6.4 TBs of instance storage. The description of the dedicated host shows 5.7 TBs. Because of the way virtual server instances and their associated profiles are packed on dedicated hosts, the most instance storage you can use on a dedicated host is 5.7 TBs. You are charged for 5.7 TBs of instance storage. 
+
