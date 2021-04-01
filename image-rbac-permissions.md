@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-03-19"
+lastupdated: "2021-04-01"
 
 keywords: custom image, creating a custom image, migrating a custom image, rbac, permissions, granular, granular permissions, rbac role-based access control
 
@@ -25,7 +25,7 @@ subcollection: vpc
 # Using granular RBAC permissions for custom images
 {: #using-granular-RBAC-permissions-for-custom-images}
 
-The VPC image service allows the [creation of custom images](/docs/vpc?topic=vpc-managing-images). These images are only visible and useable within a single account. Custom images are assigned to a [Resource group](/docs/account?topic=account-rgs) when created. Users can have multiple resource groups to host custom images with different access control rights or assign permissions directly to an image, restricting their access to specific users.
+The VPC image service allows the [creation of custom images](/docs/vpc?topic=vpc-managing-images). These images are only visible and useable within a single account. Custom images are assigned to a [Resource group](/docs/account?topic=account-rgs) when created. Users can have multiple resource groups to host custom images with different access control rights or assign permissions directly to an image, restricting their access to specific users. These access rights are reffered to as role based access control, or RBAC.
 
 The custom resource group that hosts the images can contain a set of images. The resource group can
 control either a single image or multiple images. It is common for a family of images to be hosted within a resource group. This makes management of the control of the images easier as the access rules are attached to the resource group.
@@ -55,7 +55,7 @@ Now that an access group has been created. A policy must be applied to set permi
 4. UnderAdd attributes, select **Resource group**.
 5. From the dropdown, select the resource group you want to use.
 6. Select **Resource type** under **Add attributes** and select the resource type **Image Service for VPC**. Optionally you may choose a particular image ID for the policy.
-7. Select an RBAC permission role. Roles are displayed in Yable 1.
+7. Select an RBAC permission role. Roles are displayed in Table 1.
 8. Click **Add**.
 9. Click **Assign**.
 
