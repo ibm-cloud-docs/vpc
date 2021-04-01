@@ -160,7 +160,7 @@ the right variables.
    {: codeblock}
 
 ## Next steps
-{: #vpn-next-steps}
+{: #vpn-create-next-steps}
 
 After you create a VPN gateway, you can:
 

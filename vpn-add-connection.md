@@ -160,6 +160,6 @@ the right variables.
    {: codeblock}
 
 ## Next steps
-{: #vpn-next-steps}
+{: #vpn-next-steps_add-connection}
 
 For a route-based VPN, select or [create a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table). Then, [create a route using the VPN connection type](/docs/vpc?topic=vpc-create-vpc-route).

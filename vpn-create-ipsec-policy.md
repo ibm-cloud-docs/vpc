@@ -122,7 +122,7 @@ the right variables.
    {: codeblock}
 
 ## Next steps
-{: #vpn-next-steps}
+{: #vpn-next-steps-ipsec}
 
 * [Create an IKE policy](/docs/vpc?topic=vpc-creating-ipsec-policy) if you decide to use custom IKE policy instead of auto-negotiation.
 * Create a VPN connection if you have not already done so when creating your VPN gateway. If you did not create the VPN connection, you can do so after the VPN gateway is provisioned. For more information, see [Adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections).  
