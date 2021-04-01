@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021 
-lastupdated: "2021-02-23"
+lastupdated: "2021-03-31"
 
-keywords: dedicated host instance, instance on vpc dedicated host, dedicated instance
+keywords: dedicated host instance, instance on vpc dedicated host, create instance on dedicated host
 
 subcollection: vpc
 
@@ -20,6 +20,9 @@ subcollection: vpc
 {:important: .important}
 {:beta: .beta}
 {:table: .aria-labeledby="caption"}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Creating instances on dedicated hosts 
 {: #creating-instance-on-dh}
@@ -29,8 +32,11 @@ When you have a dedicated host created in your {{site.data.keyword.vpc_short}}, 
 
 ## Creating instances on dedicated hosts by using the console
 {: #creating-dedicated-instance}
+{: ui}
 
 When you have a dedicated host created, you can start provisioning virtual server instances on the dedicated host by using the {{site.data.keyword.cloud_notm}} console. 
+
+Remember that the profile family and class must match for the dedicated host or dedicated group and instances that are provisioned on them. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles).
 
 To create an instance on a dedicated host:
 1. In the [{{site.data.keyword.cloud_notm}} console]](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Dedicated hosts**. 
@@ -40,6 +46,7 @@ To create an instance on a dedicated host:
 
 ## Creating instances on dedicated hosts by using the CLI
 {: #creating-dedicated-instance-cli}
+{: cli}
 
 When you have a dedicated host created, you can start provisioning virtual server instances on the dedicated host by using the command-line interface (CLI). 
 
@@ -70,6 +77,8 @@ Gather the following information:
 | Dedicated group       | `ibmcloud is dedicated-host-groups`|  
 {: caption="Table 1. Required instance details" caption-side="top"} 
 
+Remember that the profile family and class must match for the dedicated host and instances that are provisioned on the host. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles).
+
 For more information, see [Gathering information to create an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli#gather-info-to-create-virtual-servers-cli). 
 
 ### Creating an instance on a dedicated host by using the CLI
@@ -86,6 +95,7 @@ The following example command creates a dedicated host with the following parame
 * Image: `r006-72b27b5c-f4b0-48bb-b954-5becc7c1dcb8` 
 * Key ID: `r006-c23faac2-5983-428c-91b8-2959620e1b96`
 * Dedicated group `0076-edf611ff-0fd6-44bf-b5f3-102eeb3cf928` 
+
 ```
 ibmcloud is instance-create my-instance-name r006-e49dbfc6-03b5-4609-b680-684311be5457 us-south-1 mx2-2x16 0076-2249dabc-8c71-4a54-bxy7-953701ca3999 --image-id r006-72b27b5c-f4b0-48bb-b954-5becc7c1dcb8 --key-ids r006-c23faac2-5983-428c-91b8-2959620e1b96 --dedicated-host-group 0076-edf611ff-0fd6-44bf-b5f3-102eeb3cf928
 ```
@@ -95,8 +105,11 @@ For a full list of command options, see [ibmcloud is instance-create](/docs/vpc?
 
 ## Creating instances on dedicated hosts by using the API
 {: #creating-dedicated-instance-api}
+{: api}
 
 The following request example creates an instance on a dedicated host with a dedicated group specified as the placement target. You can specify your desired dedicated group (or dedicated host) as the `placement_target`. When you specify a dedicated group for the `placement_target`, the instance is provisioned to an available dedicated host within the group.
+
+Remember that the profile family and class must match for the dedicated host or dedicated group and instances that are provisioned on them. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles).
 
 ```
 curl -X POST \
