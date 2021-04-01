@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021 
-lastupdated: "2021-03-23"
+lastupdated: "2021-03-31"
 
-keywords: vpc dedicated host, dedicated host, dedicated host group 
+keywords: vpc dedicated host, dedicated host, dedicated host group
 
 subcollection: vpc
 
@@ -20,6 +20,9 @@ subcollection: vpc
 {:important: .important}
 {:beta: .beta}
 {:table: .aria-labeledby="caption"}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Creating dedicated hosts and groups
 {: #creating-dedicated-hosts-instances}
@@ -53,6 +56,7 @@ When you provision an instance, you can provision it to either a dedicated host 
 
 ## Creating dedicated hosts and groups by using the console
 {: #creating-dedicated-host}
+{: ui}
 
 You can create one or more dedicated hosts in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console. 
 
@@ -74,7 +78,7 @@ To create a dedicated host:
 | Location | Locations are composed of regions (specific geographic areas) and zones (fault tolerant data centers within a region). Select the location where you want your dedicated host to be created. |
 | vCPU architecture | x86 architecture is selected by default. | 
 | Instance placement | Select whether you want to enable the placement of instances on this dedicated host. The default value of instance placement is set to *On*. If you set the instance placement value to *Off*, no instances can be created on this dedicated host until the value is changed to *On*.|
-| Profile | Select a profile to define the vCPU and memory for the dedicated host. The profile family that you select for the dedicated host determines the profile family that must be used when you provision virtual server instances on the host. If you choose a memory profile for your dedicated host, all instances that are provisioned on the host must also be created with a memory profile.   |
+| Profile | Select a profile to define the vCPU and memory for the dedicated host. The profile family that you select for the dedicated host determines the profile family that must be used when you provision virtual server instances on the host. If you choose a memory profile for your dedicated host, all instances that are provisioned on the host must also be created with a memory profile. If you choose an [instance storage](/docs/vpc?topic=vpc-instance-storage) profile for the dedicated host (a profile that includes *d* in the prefix, such as *mx2d*), all instances that are provisioned on the dedicated host must be provisioned with an instance storage profile in the corresponding family. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles).  |
 | Dedicated group | Select the dedicated group where you want this dedicated host created. Or you can [create a new dedicated group](#creating-dedicated-groups). |
 {: caption="Table 1. Dedicated host provisioning selections" caption-side="top"}
 
@@ -95,6 +99,7 @@ If you don't have a dedicated group, or if you want to create a new dedicated gr
 
 ## Creating dedicated hosts and groups by using the CLI
 {: #creating-dedicated-host-CLI}
+{: cli}
 
 You can create one or more dedicated groups and hosts in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
 
@@ -151,7 +156,7 @@ Use the following commands to determine the required information for creating a 
    ```
    {:screen}
    
-3. List the profiles that are available for creating a dedicated host to determine what profile family and class you want to assign to the dedicated host group. The family and class that you assign to the group when it is created determines the profiles that can be used to provision dedicated hosts and instances in the group. All dedicated hosts and virtual server instances that are provisioned to the dedicated host group must be from the same family and class of profiles.
+3. List the profiles that are available for creating a dedicated host to determine what profile family and class you want to assign to the dedicated host group. The family and class that you assign to the group when it is created determines the profiles that can be used to provision dedicated hosts and instances in the group. All dedicated hosts and virtual server instances that are provisioned to the dedicated host group must be from the same family and class of profiles. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles).
 
    ```
    ibmcloud is dedicated-host-profiles
@@ -227,6 +232,7 @@ For a full list of command options, see [ibmcloud is dedicated-host-create](/doc
 
 ## Creating dedicated hosts and groups by using the API
 {: #creating-dedicated-host-API}
+{: api}
 
 When you created a dedicated host by using the API, you can create the host in a specific dedicated host group, or you can simply specify a zone (such as us-south-1) where you want it created. If you specify a zone instead of a group, a new group is created automatically for your dedicated host. 
 
