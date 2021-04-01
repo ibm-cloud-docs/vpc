@@ -32,7 +32,7 @@ Known limitations for {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}}
 * There is a one-to-one mapping between listener and pool.
 * All members that are associated with a network load balancer must be in the same zone as the load balancer.
 * Two members with the same instance X and same port Y cannot exist at the same time for an NLB. This case is not supported and your traffic might not be routed correctly.
-* Currently, the creation of private network load balancers is supported in LON, TOK, and OSA. 
+* Currently, the creation of private network load balancers is supported in LON, OSA, TOK, and WDC. 
 * For Private NLB, the NLB service might add rules to custom routing tables to ensure service availability for some failure conditions. As a result, if the client is outside the zone and/or VPC of the NLB, you must add an ingress custom routing table to the VPC where the NLB resides with the proper traffic source selected.
 
    For Private NLB, depending on the location of the clients, you must ensure that ingress routing tables exist (as described in Table 1).
