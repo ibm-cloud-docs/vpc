@@ -69,7 +69,7 @@ For more Linux&reg; user data examples and information, see [Cloud config exampl
 ### Configuring a single disk instance storage by using cloud-config script
 {: #configure-instance-storage-cloud-config}
 
-Instance storage is a Beta feature of VPC where you can request virtual server instances with fast, local storage attached. For more information about instance storage, refer to [About instance storage](/docs/vpc?topic=vpc-instance-storage). 
+Instance storage is a feature of VPC where you can request virtual server instances with fast, local storage attached. For more information about instance storage, refer to [About instance storage](/docs/vpc?topic=vpc-instance-storage). 
 
 By default, when you provision a virtual server instance with instance storage and then log in to that server for the first time, the instance storage disks are not configured. They show up as block devices (for example `/dev/vdb`), and need the following done before you can use them with a file system: 
 
@@ -138,7 +138,7 @@ The CLI and API also supports the **User Data** field.
 
 This cloud-config script example automatically configures an instance storage `/dev/vdb` block device. If you only reboot your virtual server, this configuration continues to work since the configuration and data persists. However, if you start a virtual server that was previously stopped, then the virtual server has a fresh set of instance storage disks when it boots up. This situation would require the cloud-init steps to be manually run again. By default, the clould-config script is only run on first boot. You can also edit the cloud-init section of the cloud.config file so that the cloud-init steps are automatically run on each boot. For the steps, see the [Edit the cloud_cloud_init_modules section of the cloud.config file to run on each boot](#edit-cloud-init-run-cloud-config-each-boot) section.
 
-### Configuring a two disk instance storage by using cloud-config script (Beta)
+### Configuring a two disk instance storage by using cloud-config script
 {: #configure-two-disk}
 
 The following example shows user data that automatically configures an instance storage disk. This example can be used with an instance profile that specifies two disks.
