@@ -55,7 +55,7 @@ Each metric is composed of the following metadata types:
 Only the resources in the same zone as the selected subnet can connect through this VPN gateway.
 
 ### Active connections
-{: #ibm_is_load_balancer_active_connections}
+{: #lb_is_load_balancer_active_connections}
 
 Active connections are the number of connections that are established on a load balancer at a specific time.
 
@@ -71,7 +71,7 @@ The active connection metric contains the following metadata:
 
 
 ### Connection rate
-{: #ibm_is_load_balancer_connection_rate}
+{: #lb_is_load_balancer_connection_rate}
 
 Connection rate is the number of new incoming active connections per second to your load balancer.
 
@@ -202,7 +202,7 @@ The following attributes are available for segmenting the three metrics.
 {: caption="Table 10: Global attributes" caption-side="top"}
 
 ### Additional attributes
-{: additional-attributes}
+{: lb-additional-attributes}
 
 The following attributes are available to segment one or more of the global attributes. See the individual metrics for any segmentation options.
 
@@ -279,6 +279,7 @@ To do so, follow these steps:
 Within a few minutes, your new monitoring instance is displayed with several configurations. You might have to refresh your browser to see it.  
 
 ## Working with the {{site.data.keyword.mon_full_notm}} dashboard
+{: #working-with-monitoring-dashboard-alb}
 
 To view and work with your metrics, follow these steps:
 
@@ -299,6 +300,7 @@ To view and work with your metrics, follow these steps:
   {: tip}
 
 ## Creating a custom metrics dashboard
+{: #creating-custom-metrics-dashboard-lb}
 
 You can create your own dashboard to customize your monitoring metrics, such as viewing information about particular load balancers, or seeing traffic that comes only through particular listeners.
 

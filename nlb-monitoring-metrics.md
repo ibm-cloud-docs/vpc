@@ -82,7 +82,7 @@ You can split the data that {{site.data.keyword.mon_full_notm}} presents into va
 For example, you can segment the `active connections` by `IBM Load Balancer for VPC listener port` to show how many active users are connected to the load balancer through each listener type. To illustrate this, let's assume that your network load balancer has listener protocol TCP on port 8080. The dashboard would contain different lines showing 10 users who are connected through HTTP on Port 80 in one color, and 6 users connected through TCP on port 8080 in another color.
 
 ### Global attributes
-{: #global-attributes}
+{: #nlb-global-attributes}
 
 The following attributes are available for segmenting the three metrics.
 
@@ -94,7 +94,7 @@ The following attributes are available for segmenting the three metrics.
 {: caption="Table 3: Global attributes" caption-side="top"}
 
 ### Additional attributes
-{: #additional-attributes}
+{: #nlb-additional-attributes}
 
 The following attributes are available to segment one or more of the global attributes. See the individual metrics for any segmentation options.
 
@@ -123,7 +123,7 @@ You can also specify the time interval over which to report your metrics. Time i
 The number of data points you can report is roughly the same for each time interval. For example, if the interval is 1 hour, then each data point represents 5 minutes of data. If the interval is 2 weeks, then each data point represents 24 hours of data.
 
 ## Enabling metrics monitoring
-{: #enable-metrics-monitoring}
+{: #nlb-enable-metrics-monitoring}
 
 To receive monitoring metrics, you must set up {{site.data.keyword.mon_full_notm}} with a monitoring instance.
 

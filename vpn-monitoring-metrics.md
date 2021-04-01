@@ -250,7 +250,7 @@ You can also specify the time interval over which to report your metrics. The fo
 * Custom
 
 ## Enabling metrics monitoring
-{: #enable-metrics-monitoring}
+{: #vpn-enable-metrics-monitoring}
 
 To receive monitoring metrics, you must set up your {{site.data.keyword.mon_full_notm}} instance.
 
@@ -295,6 +295,7 @@ To receive monitoring metrics, use the following steps:
 Within a few minutes, your new {{site.data.keyword.mon_full_notm}} instance displays with several configurations. You might have to refresh your browser to see it.
 
 ## Working with the {{site.data.keyword.mon_full_notm}} dashboard
+{: #vpn-working-with-monitoring-dashboard}
 
 To view and work with your {{site.data.keyword.mon_full_notm}} metrics, follow these steps:
 
@@ -317,6 +318,7 @@ To view and work with your {{site.data.keyword.mon_full_notm}} metrics, follow t
    {: tip}
 
 ## Creating a custom metrics dashboard
+{: #creating-custom-metrics-dashboard-vpn}
 
 You can create your own dashboard to customize your monitoring metrics, such as viewing information about particular VPN gateways, or seeing traffic that comes through only a VPN connection.
 

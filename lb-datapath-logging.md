@@ -45,7 +45,7 @@ If you do not have a {{site.data.keyword.la_short}} instance, you must create on
 ## Viewing logs in the IBM Log Analysis service
 {: #viewing-logs-in-the-ibm-cloud-log-analysis-service}
 
-Log in to [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/observe/logging){:external} with your IBM Cloud account. You can view logs from the {{site.data.keyword.la_short}} instance. For more information, see [Getting started with {{site.data.keyword.la_full_notm}}](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-getting-started#getting-started). 
+Log in to [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/observe/logging){:external} with your IBM Cloud account. You can view logs from the {{site.data.keyword.la_short}} instance. For more information, see [Getting started with {{site.data.keyword.la_full_notm}}](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-getting-started#getting-started).
 
 To create a {{site.data.keyword.la_short}} instance, follow these steps:
 
@@ -134,7 +134,7 @@ The format of the logs can be impacted by internal upgrades. It is recommended t
 {: note}
 
 ## Related links
-{: #permissions-related-links-alb}
+{: #datapath-logging-related-links}
 
 * [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/observe/logging){:external}
 * [Getting started with {{site.data.keyword.la_full_notm}}](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-getting-started#getting-started)

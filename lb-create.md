@@ -111,7 +111,7 @@ To create an ALB:
         * **Key**: The name of the HTTP header field to evaluate, if the rule type is **Header**. For example, to match a cookie in the HTTP header, enter **Cookie** for the key.
 
 ## Creating an application load balancer using the CLI
-{: #nlb-cli-creating-network-load-balancer}
+{: #lb-cli-creating-network-load-balancer}
 {: cli}
 
 The following example illustrates using the CLI to create an {{site.data.keyword.alb_full}} (ALB). In this example, it is in front of one VPC virtual server instance (id `0716_6acdd058-4607-4463-af08-d4999d983945`) running a TCP server that listens on port 9090. The load balancer has a front-end listener, which allows secure access to the TCP server.
@@ -271,7 +271,7 @@ To create an application load balancer by using the CLI, perform the following p
   {: screen}
 
 ## Creating an application load balancer using the API
-{: #nlb-api-creating-network-load-balancer}
+{: #lb-api-creating-network-load-balancer}
 {: api}
 
 The following example illustrates using the API to create an applicatrion load balancer in front of two VPC virtual server instances (`192.168.100.5` and `192.168.100.6`) running a web application that listens on port 80. The load balancer has a front-end listener, which allows secure access to the web application by using HTTPS.

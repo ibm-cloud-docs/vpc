@@ -109,7 +109,7 @@ After you enter data on the provisioning pages, you can click the **Get sample A
 
 ## Audience
 {: #vpc_tutorials_audience}
-This tutorial is intended for software developers and system administrators who are creating a VPC environment and deploying an instance for the first time. 
+This tutorial is intended for software developers and system administrators who are creating a VPC environment and deploying an instance for the first time.
 {: shortdesc}
 
 ## Before you begin
@@ -128,7 +128,7 @@ This command generates two files. The generated public key is in the `id_rsa.pub
 If you plan to create an application load balancer and use HTTPs for the listener, an SSL certificate is required. You can manage certificates with [IBM Certificate Manager](https://{DomainName}/catalog/services/certificate-manager){: external}. You must also create an authorization to allow your load balancer instance to access the Certificate Manager instance that contains the SSL certificate. You can create an authorization through [Identity and Access Authorizations](https://{DomainName}/iam/authorizations){: external}. For the source, select **VPC Infrastructure** as the Source service, **Load Balancer for VPC** as the Resource type, and **All resource instances** for the Source resource instance. Select **Certificate Manager** as the Target service and assign **Writer** for the service access role. Set the Target service instance to **All instances** or to your specific Certificate Manager instance. For more information, see [Using Load Balancers in IBM Cloud VPC](/docs/vpc?topic=vpc-load-balancers).
 
 Allow extra time for completing any optional steps.
-{:note} 
+{:note}
 
 ## Creating a VPC and subnet
 {: #creating-a-vpc-and-subnet}
@@ -380,7 +380,7 @@ Because the monitoring data is stored in {{site.data.keyword.mon_full_notm}}, yo
 {: important}
 
 ## Creating a load balancer (optional)
-{: #load-balancer}
+{: #creating-load-balancer}
 {: step}
 
 You can create two different types of {{site.data.keyword.cloud_notm}} load balancers: an application load balancer and a network load balancer. For comparison information and instructions on how to create an  {{site.data.keyword.cloud_notm}} load balancer, see [Load balancers overview](/docs/vpc?topic=vpc-nlb-vs-elb).
@@ -401,4 +401,3 @@ You can quickly view the resources that are associated with a VPC by accessing t
 {: #congratulations}
 
 You've successfully created and configured your VPC by using the IBM Cloud console. You can continue to develop your VPC by adding more instances, subnets, and other resources.
-
