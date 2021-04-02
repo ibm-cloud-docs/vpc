@@ -351,7 +351,7 @@ To connect to a Windows image, log in using its decrypted password. For instruct
 ## Monitoring your instance
 {: #monitoring-your-instance-cli-tutorial}
 
-You can monitor the CPU, volume, memory, and network usage of your instance over time in the {{site.data.keyword.cloud_notm}} console. Because the monitoring data is stored in {{site.data.keyword.monitoringlong_notm}}, you must be authenticated to an instance of the Monitoring service in your account. For more information, see [Monitoring services](/docs/vpc?topic=cloud-infrastructure-sysdig-monitoring-metrics).
+You can monitor the CPU, volume, memory, and network usage of your instance over time in the {{site.data.keyword.cloud_notm}} console. Because the monitoring data is stored in {{site.data.keyword.monitoringlong_notm}}, you must be authenticated to an instance of the Monitoring service in your account. For more information, see [Getting started with monitoring](/docs/monitoring?topic=monitoring-getting-started).
 
 ## Create a VPN gateway
 {: #create-a-vpn-gateway}
