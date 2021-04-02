@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2018, 2020
+  years: 2018, 2021
 lastupdated: "2019-11-10"
 
 keywords: security, groups, encryption, traffic, rules, subnet, instance, VSI, firewall, encryption, vpc, vpc network
@@ -33,9 +33,9 @@ You can keep {{site.data.keyword.vpc_full}} and workloads secure by controlling 
 Security groups and access control lists (ACLs) provide ways to control the traffic across the subnets and instances in your {{site.data.keyword.vpc_full}}, using rules that you specify. Security groups and ACLs add security to your subnets and instances:
 
 * Traffic to and from a subnet can be controlled by Access Control Lists (ACLs).
-* Security Groups can control the traffic at the virtual server instance (VSI) level.
+* Security Groups can control the traffic at the virtual server instance level.
 * Allow you to set up a public gateway for subnet access to the internet, guarded by ACLs.
-* Allow you to implement a floating IP for VSI access to the internet, guarded by SGs.
+* Allow you to implement a floating IP for virtual server instance access to the internet, guarded by SGs.
 
 ![Figure showing how a VPC can be subdivided with subnets](images/vpc-connectivity-and-security.svg "Figure showing how a VPC can be subdivided with subnets"){: caption="Figure 1. IBM VPC connectivity and security" caption-side="top"}
 
