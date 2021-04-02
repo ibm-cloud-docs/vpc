@@ -105,7 +105,7 @@ Virtual Private Cloud (VPC)
         vsi_is_manage_instances.md
         vsi_is_instance_vnics.md
         vsi_instance_storage_how_to.md
-        sysdig-vpc-metrics.md
+        monitoring-vpc-metrics.md
         vsi_is_instance_resize.md
 
     {: .topicgroup}
