@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2021
-lastupdated: "2021-01-28"
+lastupdated: "2021-04-02"
 
 keywords: block storage, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
@@ -38,7 +38,7 @@ Manage your root keys by taking the following actions:
 * Decide when [disabling](#byok-disable-root-keys) or [deleting](#byok-delete-root-keys) a root key is necessary. When you rotate keys, the former key remains active and is still used to decrypt existing resources. Take precautions when disabling or deleting root keys.
 * Enable a key that's been disabled or [restore a deleted key](#byok-restore-root-key).
 * Decide whether you might want to make your data temporarily inaccessible by [removing service authorization](#instance-byok-inaccessible-data).
-* Review the [Activity Tracker](#byok-activity-tracker-events) to verify events as you manage the lifecycle of your keys.
+* Review the [Activity Tracker](#byok-key-rotation-activity-tracker-events) to verify events as you manage the lifecycle of your keys.
 
 ### Viewing root key registrations
 {: #byok-root-key-registration}
@@ -153,7 +153,7 @@ When you disable a root key, workloads remain running in virtual server instance
 
 To see which root keys are disabled, look in the UI list of resources. The status of the resource will be _unusable_. The UI tooltip displays "key suspended". In the API, you'll see an *encryption_key_disabled* reason code.
 
-You can enable a root key that's in a _suspended_ state from [Key Protect](/docs/key-protect?topic=key-protect-disable-keys#enable-ui) or [HPCS](/docs/hs-crypto?topic=hs-crypto-disable-keys#enable-ui). Enabling a root key returns the key to an _active_ state. You can also [delete a suspended key](#byok-delete-root-keys) or [restore the deleted key](#byok-restore-root-key) if necessary.
+You can [enable a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#enable-ui) that's in a _suspended_ state, which returns the key to an _active_ state. You can also [delete a suspended key](#byok-delete-root-keys) or restore the deleted key if necessary.
 
 For more information about disabling root keys, see:
 
@@ -236,7 +236,7 @@ You can use the UI to disable, enable, delete, or restore your root keys. Table 
 | Enable key | [Enabling a root key](/docs/key-protect?topic=key-protect-disable-keys#enable-ui) | [Enabling a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#enable-ui) |
 | Delete key | [Deleting keys in the console (single authorization)](/docs/key-protect?topic=key-protect-delete-keys#delete-key-gui) | [Deleting keys with the GUI (single authorization)](/docs/hs-crypto?topic=hs-crypto-delete-keys#delete-keys-gui) |
 | | [Deleting a key using dual authorization](/docs/key-protect?topic=key-protect-delete-dual-auth-keys#delete-dual-auth-keys-api) | [Authorize deletion for a key with the GUI (dual authorization)](/docs/hs-crypto?topic=hs-crypto-delete-dual-auth-keys#set-key-deletion-console) |
-| Restore key | [Restoring a deleted key with the console](/docs/key-protect?topic=key-protect-restore-keys#restore-ui) | [Restoring a deleted key with the GUI](/docs/hs-crypto?topic=hs-crypto-restore-keys#restore-ui) |
+| Restore key | [Restoring a deleted key with the console](/docs/key-protect?topic=key-protect-restore-keys#restore-ui) | [Restoring a deleted key with the GUI](https://test.cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-restore-keys#restore-ui) |
 {: caption="Table 5. UI procedures for managing root keys" caption-side="top"}
 
 ### Using the API to manage root keys
@@ -259,7 +259,7 @@ Because deleting a root key makes all resources protected by it unusable (status
 ### Removing service authorization to a root key
 {: #instance-byok-inaccessible-data}
 
-You can make your data inaccessible but retain it on the cloud by removing authorization to use that root key.
+You can make your data inaccessible but retain it on the cloud by removing IAM authorization to use that root key.
 
 When you [authorize use](/docs/account?topic=account-serviceauth#serviceauth) of your root key, you grant permission for IBM to use the key to encrypt your resource. Authorization is done at the key management service level through IAM, when you authorize service between your service (for example, Cloud Block Storage) and the key management service you set up. (for example, {{site.data.keyword.keymanagementserviceshort}}).
 
@@ -277,7 +277,7 @@ To make your data inaccessible, but retain it on the IBM Cloud:
 
 You can also [disable a root key](#byok-disable-root-keys), which suspends the key and temporarily revokes access to it.
 
-## Viewing events in the Activity Tracker
+## Viewing events in the {{site.data.keyword.at_full_notm}}
 {: #byok-activity-tracker-events}
 
 Use the Activity Tracker to verify user-initiated activities that change the state of your key management service.
@@ -299,7 +299,7 @@ When you initiate activity in the KMS to rotate and manage your root keys, Activ
 * The `responseData.totalResources` field includes the total amount of key versions associated with the key.
 * The `responseData.eventAckData.newKeyVersionId ` field includes the unique identifier of the latest key version.
 
-For additional key rotation events that indicate a successful rotation, see these [key rotation events](/docs/key-protect?topic=key-protect-at-events#rotate-key-registrations-success). For information about all Activity Tracker events in {{site.data.keyword.keymanagementserviceshort}}, see [Activity Tracker events](/docs/vpc?topic=vpc-at-events).
+For additional key rotation events that indicate a successful rotation, see these [key rotation events](/docs/key-protect?topic=key-protect-at-events#rotate-key-registrations-success). For information about all Activity Tracker events in {{site.data.keyword.keymanagementserviceshort}}, see [{{site.data.keyword.at_full_notm}} events](/docs/vpc?topic=vpc-at-events).
 
 ### Example key rotation event
 {: #byok-activity-tracker-key-rotation-example}
