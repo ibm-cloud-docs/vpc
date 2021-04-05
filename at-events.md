@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-03-30"
+lastupdated: "2021-04-05"
 
 keywords: activity tracker, events 
 
@@ -266,6 +266,9 @@ The following tables list the actions that are related to compute resources and 
 | instance   | is.instance.network-interface.delete   | Instance network interface was deleted (Instance was detached from a subnet)  |
 | instance | is.instance.network-interface.read | One or more instance network interfaces was retrieved |
 | instance | is.instance.network-interface_floating-ip.read | One or more floating IPs under an instance network interface was retrieved |
+| instance | is.instance.disk.read | One or more instance storage disks was retrieved |
+| instance | is.instance.disk.update | Instance storage disk name was updated |
+| instance | is.instance.disk.wipe | Instance storage disk was wiped clean |
 {: caption="Table 12. Actions that generate events for Instance" caption-side="top"}
 
 ### Key events
