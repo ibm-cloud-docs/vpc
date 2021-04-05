@@ -37,16 +37,16 @@ After you provision {{site.data.keyword.la_full}} to add log management capabili
 
 Platform logs are logs that are exposed by logging-enabled services and the platform in {{site.data.keyword.cloud_notm}}. You must configure a {{site.data.keyword.la_short}} instance in a region to monitor these logs.
 
-For more information, see [Configuring IBM Cloud platform logs](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-config_svc_logs).
+For more information, see [Configuring IBM Cloud platform logs](/docs/log-analysis?topic=log-analysis-config_svc_logs).
 
 ## Viewing logs
 {: #logging_view}
 
 VPC services generate platform logs in the same region where they are available. You can view, monitor, and manage VPC logs through the {{site.data.keyword.la_full_notm}} instance that is marked as **platform logs** in the region.
 
-To launch the {{site.data.keyword.la_short}} web UI to view these logs, see [Navigating to the web UI](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-launch).
+To launch the {{site.data.keyword.la_short}} web UI to view these logs, see [Navigating to the web UI](/docs/log-analysis?topic=log-analysis-launch).
 
-For information about the locations where VPC logs are available, see [VPC infrastructure services locations](/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-cloud_services_locations#cloud_services_locations_vpc_infrastructure).
+For information about the locations where VPC logs are available, see [VPC infrastructure services locations](/docs/log-analysis?topic=log-analysis-cloud_services_locations#cloud_services_locations_vpc_infrastructure).
 
 ## Fields per log type
 {: #logging_fields}

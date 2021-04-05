@@ -170,14 +170,14 @@ IBM Db2-on-Cloud Service serves as the database for the application load balance
 ## Datapath log forwarding
 {: #datapath-logging}
 
-With datapath logging enabled, load balancer logs are forwarded to the [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/catalog/services/ibm-log-analysis-with-logdna){:external} service, where you can view your datapath logs.
+With datapath logging enabled, load balancer logs are forwarded to the [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/catalog/services/ibm-log-analysis){:external} service, where you can view your datapath logs.
 
 ## Related links
 {: #permissions-related-links-alb}
 
 * [Load balancer CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#alb-anchor)
 * [Load balancer API reference](https://{DomainName}/apidocs/vpc#list-load-balancer-profiles)
-* [ALB for VPC infrastructure resources for Terraform](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-vpc-gen2-resources#lb)
+* [ALB for VPC infrastructure resources for Terraform](https://cloud.ibm.com/docs/terraform?topic=terraform-vpc-gen2-resources#lb)
 * [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
 * [{{site.data.keyword.cloudaccesstraillong_notm}} events](/docs/vpc?topic=vpc-at-events#events-load-balancers)
 * [FAQs for application load balancers](/docs/vpc?topic=vpc-load-balancer-faqs)

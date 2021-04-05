@@ -52,7 +52,7 @@ To provision an {{site.data.keyword.cloudaccesstrailfull_notm}} instance:
 6. Choose a plan other than `lite` if you have a paid account.
 7. Click **Create**.
 
-For more information, see the [getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-getting-started).
+For more information, see the [getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/activity-tracker?topic=activity-tracker-getting-started).
 
 Here is the sample activity tracker message for a **Create Listener** operation:
 

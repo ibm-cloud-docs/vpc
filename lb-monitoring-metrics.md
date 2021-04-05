@@ -24,7 +24,7 @@ subcollection: vpc
 # Monitoring Application Load Balancer for VPC metrics
 {: #monitoring-metrics-alb}
 
-{{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) monitoring metrics are provided with {{site.data.keyword.mon_full}}, a service that specializes in data aggregation, usage alerts, and in-depth visualizations. For more information, see [IBM Cloud Monitoring](/docs/Monitoring-with-Sysdig).
+{{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) monitoring metrics are provided with {{site.data.keyword.mon_full}}, a service that specializes in data aggregation, usage alerts, and in-depth visualizations. For more information, see [IBM Cloud Monitoring](/docs/monitoring?topic=monitoring-getting-started).
 
 Load balancers calculate the metrics and send those metrics to your monitoring instance, which reflects different types of use and traffic. You can visualize and analyze metrics from either the {{site.data.keyword.mon_full_notm}} dashboard, or its API.
 
@@ -245,7 +245,7 @@ To do so, follow these steps:
 
 2. Select a region for your monitoring instance.
 
-  If you do not have an existing load balancer, see [Creating an application load balancer](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#load-balancer) to provision one.
+  If you do not have an existing load balancer, see [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancer) to provision one.
   {: tip}
 
   ![Region](images/metrics_1.png "Region")

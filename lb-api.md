@@ -38,7 +38,7 @@ In the following example, use the API to create an application load balancer in 
 
 The example steps that follow skip the prerequisite steps of using the [IBM Cloud console](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console), [CLI](/docs/vpc?topic=vpc-creating-a-vpc-using-cli), or [API](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis) to provision a VPC, subnets, and instances.
 
-You can also create a load balancer using the UI or CLI. For instructions, see [Creating a load balancer using the IBM Cloud console](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#load-balancer) or the [CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+You can also create a load balancer using the UI or CLI. For instructions, see [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancer) or the [CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 {: tip}
 
 ## Step 1. Create a load balancer with a listener, pool, and attached server instances (pool members)
