@@ -4,7 +4,7 @@ copyright:
   years: 2021
 lastupdated: "2021-03-30"
 
-subcollection: virtual-servers
+subcollection: vpc
 
 ---
 
