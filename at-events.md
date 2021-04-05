@@ -288,9 +288,9 @@ The following tables list the actions that are related to compute resources and 
 | Resource  | Action  | Description  |
 |:----------------|:-----------------------|:-----------------------|
 | dedicated-host | is.dedicated-host.dedicated-host.create | Dedicated host was created |
-| dedicated-host | is.dedicated-host.dedicated-host.update | Dedicated host was updated |
+| dedicated-host | is.dedicated-host.dedicated-host.update | Dedicated host or host disk was updated |
 | dedicated-host | is.dedicated-host.dedicated-host.delete  |Dedicated host was deleted |
-| dedicated-host | is.dedicated-host.dedicated-host.read | One or more dedicated hosts were retrieved |
+| dedicated-host | is.dedicated-host.dedicated-host.read | One or more dedicated hosts or host disks were retrieved |
 {: caption="Table 14. Actions that generate events for Dedicated Host" caption-side="top"}
 
 ### Dedicated host group events
