@@ -39,6 +39,7 @@ The following tables provide best practices for inbound and outbound traffic for
 ### Public Application Load Balancer
 
 #### Inbound rules
+{: #lb-inbound-rules}
 
 | Protocol | Source Type | Source | Value |
 |-----------|------|------|-------|
@@ -55,6 +56,7 @@ In a typical use case, it is common to allow inbound traffic from all sources to
 However, if your requirements need to restrict inbound traffic, you may specify a source CIDR, such as `209.173.53.167/20`. This will allow all public IP addresses within the IP range to reach the public load balancer.
 
 #### Outbound rules
+{: #lb-outbound-rules}
 | Protocol | Destination type | Destination | Value |
 |-----------|------|------|-------|
 | TCP | Security group |  `Back-end target` | `Back-end target port` |
@@ -69,6 +71,8 @@ You can configure the outbound rule to be more permissive than shown (for exampl
 ### Private Application Load Balancer
 
 #### Inbound rules
+{: #lb-inbound-rules-private}
+
 | Protocol | Source type | Source | Value |
 |-----------|------|------|-------|
 | TCP| IP address | `Subnet CIDR or VPC security group` | `Listener port` |
@@ -80,6 +84,7 @@ A nested security group is an option only when clients are in the same VPC. If t
 {: note}
 
 #### Outbound rules
+
 | Protocol | Destination type | Destination | Value |
 |-----------|------|------|-------|
 | TCP | Security group |  `Back-end target security group` | `Back-end target port` |

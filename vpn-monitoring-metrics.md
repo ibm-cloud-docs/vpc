@@ -39,7 +39,7 @@ Before you enable {{site.data.keyword.mon_full_notm}} on your platform, keep the
 * Metrics are collected automatically and are available for monitoring through the {{site.data.keyword.mon_full_notm}}-enabled instance.
 
 ## Metrics available by service plan
-{: metrics-by-plan}
+{: vpn-metrics-by-plan}
 
 Metrics available by plan names are as follows:
 
@@ -199,7 +199,7 @@ Status of a VPN gateway connection (for example, `1`=up, `0`=down)
 {: caption="Table 10: VPN connection status" caption-side="top"}
 
 ## Metric segmentation
-{: attributes}
+{: #vpn-metric-segmentation}
 
 You can split the metrics that {{site.data.keyword.mon_full_notm}} presents into various visualizations in the {{site.data.keyword.mon_full_notm}} dashboard, allowing views of different metrics based on your preference. For example, if you have multiple VPN gateways or accounts with different VPN gateways in each account, you might want to focus on a particular gateway by name.
 
@@ -355,7 +355,7 @@ To customize your dashboard, use the following steps:
 To return to the default {{site.data.keyword.mon_full_notm}} dashboard at any time, select **Dashboards > Default Dashboards > IBM > VPC Gen 2 VPN**.
 
 ## Working with {{site.data.keyword.mon_full_notm}} by using APIs
-{: #metric-query-api}
+{: #vpn-metric-query-api}
 
 You can also work with the {{site.data.keyword.mon_full_notm}} instance by using metric query APIs. You might want to use APIs if you need raw data points or want to consume your metrics from a command-line interface rather than using the {{site.data.keyword.mon_full_notm}} dashboard.
 

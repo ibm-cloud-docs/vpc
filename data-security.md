@@ -64,7 +64,7 @@ There are also regional and cross-regional considerations to take into account w
 With Key Protect or HPCS you can create, import, and manage your root keys. You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service. The first 20 keys are free.
 
 ### About customer-managed encrypted volumes and images
-{: #about-encryption}
+{: #about-encryption_volumes-images}
 
 With customer-managed encryption, you provision root keys to protect your encrypted resources in the cloud. Root keys serve as key-wrapping keys that encrypt the encryption keys that protect your data. You decide whether to import your existing root keys, or have a supported KMS create one for you.
 

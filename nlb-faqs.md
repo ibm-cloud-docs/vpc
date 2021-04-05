@@ -71,7 +71,7 @@ No. A network load balancer is not horizontally scalable. However, it comes with
 Make sure that the proper ACL rules are in place to allow incoming traffic for configured listener ports and traffic between a network load balancer and back-end instances should also be allowed.
 
 ## Why am I receiving a `401 Unauthorized Error` code?
-{: #401-unauthorized-error}
+{: #nlb-401-unauthorized-error}
 {: faq}
 
 If you are receiving a `401` error code for your network load balancer, check the following access policies for your user:
@@ -79,7 +79,7 @@ If you are receiving a `401` error code for your network load balancer, check th
 * The access policy for the resource group
 
 ## Why is my network load balancer in `maintenance_pending` state?
-{: #maintenance-pending}
+{: #nlb-maintenance-pending}
 {: faq}
 
 An NLB enters a `maintenance_pending` state during various maintenance activities, such as:

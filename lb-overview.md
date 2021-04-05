@@ -168,7 +168,7 @@ IBM Db2-on-Cloud Service serves as the database for the application load balance
 {{site.data.keyword.cloud_notm}} Application Load Balancer for VPC integrates with instance groups, which can `auto scale` your back-end members. Pool members are dynamically added and deleted based on your usage and requirements.
 
 ## Datapath log forwarding
-{: #datapath-logging}
+{: #datapath-log-forwarding}
 
 With datapath logging enabled, load balancer logs are forwarded to the [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/catalog/services/ibm-log-analysis){:external} service, where you can view your datapath logs.
 

@@ -29,7 +29,7 @@ subcollection: vpc
 Network load balancers calculate the metrics and send those metrics to your monitoring instance, which reflects different types of use and traffic. You can visualize and analyze metrics from either the {{site.data.keyword.mon_full_notm}}  dashboard, or its API.
 
 ## Metrics available by service plan
-{: #metrics-by-plan}
+{: #nlb-metrics-by-plan}
 
 The supported monitoring metrics include:
 
@@ -75,7 +75,7 @@ Connection rate is the number of new, incoming active connections per second to 
 {: caption="Table 2: IBM Load Balancer for VPC connection rate metric metadata" caption-side="top"}
 
 ## Metric segmentation
-{: attributes}
+{: #nlb-metric-segmentation}
 
 You can split the data that {{site.data.keyword.mon_full_notm}} presents into various visualizations in the dashboard, allowing views of different metrics based on your preferences. For example, if you have multiple load balancers or accounts with different load balancers in each account, you might want to focus on a particular listener port.
 
@@ -223,7 +223,7 @@ To customize your dashboard, follow these steps:
 To return to the default dashboard at any time, select **Dashboards > Default Dashboards > IBM > Load Balancer Monitoring Metrics**.
 
 ## Working with {{site.data.keyword.mon_full_notm}} using the APIs
-{: #metric-query-api}
+{: #nlb-metric-query-api}
 
 You can also work with the monitoring instance by using the metric query APIs. You might want to do this if you need raw data points or want to consume your metrics from a command-line interface rather than using the dashboard.
 
