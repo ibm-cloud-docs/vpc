@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-03-15"
+lastupdated: "2021-04-05"
 
 keywords: resource, resource authorizations, policies, authorization, resource type, resource groups, roles, API, CLI, editor, viewer, administrator, operator
 
@@ -64,6 +64,8 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | Instances | Create console | Operator and Console Administrator for the instance |
 | Instance actions | Create, Update, Delete | Operator for the instance|
 | Instance actions | View, List  | Viewer for the instance |
+| Instance storage | View, List  | Viewer for the instance |
+| Instance storage | Update name  | Editor for the instance |
 | Interfaces | View, List  | Viewer for the instance |
 | Interface's floating IP | View, List | Viewer for the instance and the floating IP |
 | Instance's floating IP | Associate | Editor for the instance<br />Operator for the floating IP|
