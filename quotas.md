@@ -47,7 +47,7 @@ To increase a quota for a particular resource, [contact IBM Support](/docs/get-s
 <!--| GPUs (POWER only) | 16 per region |-->
 {: caption="Table 1. Quotas for virtual server instances" caption-side="top"}
 
-When you provision virtual server instances and dedicated hosts, the vCPU and RAM associated with these resources counts toward the vCPU and RAM quotas per region. Instances that are provisioned on dedicated hosts do not count against the vCPU or RAM quota.
+When you provision virtual server instances and dedicated hosts, the vCPU, RAM, and Instance storage associated with these resources counts toward the vCPU, RAM and Instance storage quotas per region. Instances that are provisioned on dedicated hosts do not count against the vCPU, RAM, or Instance storage quota.
 
 ### VPCs
 {: #vpc-quotas}
