@@ -4,7 +4,7 @@ copyright:
   years:  2020, 2021
 lastupdated: "2021-04-01"
 
-keywords: keywords: IBM Cloud monitoring, platform metrics, metrics, vpc metrics, vpc monitoring metrics, virutal public cloud metrics, virutal private cloud monitoring metrics, vpc virtual server metrics
+keywords: IBM Cloud monitoring, platform metrics, metrics, vpc metrics, vpc monitoring metrics
 
 subcollection: cloud-infrastructure
 
