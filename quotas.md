@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-03-16"
+lastupdated: "2021-04-05"
 
 keywords: quotas, vpc, resources, limits
 
