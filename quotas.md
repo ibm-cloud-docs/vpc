@@ -41,6 +41,7 @@ To increase a quota for a particular resource, [contact IBM Support](/docs/get-s
 | ------- | ------ |
 | vCPU |  200 per region  |
 | RAM | 1600 GB per region |
+| Instance storage | 18 TB per region |
 | Floating IP addresses | 20 per zone |
 | SSH keys | 200 per account |
 <!--| GPUs (POWER only) | 16 per region |-->
