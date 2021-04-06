@@ -47,6 +47,7 @@ Virtual Private Cloud (VPC)
 
     {: .navgroup id="tutorial"}
     console-tutorial.md
+    user-access-to-dedicated-hosts-and-groups.md
 
     {: .topicgroup}
     Solution tutorials
