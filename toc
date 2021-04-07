@@ -41,8 +41,12 @@ Virtual Private Cloud (VPC)
         block_storage_vpc_about.md
         vsi_instance_storage.md
         snapshots_vpc_about.md
+        file_storage_vpc_about.md
         block_storage_vpc_capacity_performance.md
-        block_storage_is_profiles.md
+        {: .topicgroup}
+        Profiles
+            block_storage_is_profiles.md
+            file_storage_vpc_profiles.md
     {: .navgroup-end}
 
     {: .navgroup id="tutorial"}
@@ -265,6 +269,16 @@ Virtual Private Cloud (VPC)
         snapshots_vpc_manage.md
 
     {: .topicgroup}
+    File Storage (Beta)
+        file_storage_vpc_plan.md
+        file_storage_vpc_create.md
+        file_storage_vpc_view.md
+        file_storage_vpc_manage.md
+        file_storage_vpc_mount_rhel.md
+        file_storage_vpc_mount_centos.md
+        file_storage_vpc_mount_ubuntu.md
+
+    {: .topicgroup}
     Auto scale
         vsi_is_creating_auto_scale_group.md
         vsi_is_managing_auto_scale_group.md
@@ -335,6 +349,7 @@ Virtual Private Cloud (VPC)
         faq-dedicated-host.md
         block_storage_is_faq.md
         snapshots_vpc_faqs.md
+        file_storage_vpc_faqs.md
         fl-faq.md
         nlb-faqs.md
         vpe-faqs.md
