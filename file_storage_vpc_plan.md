@@ -24,7 +24,7 @@ subcollection: vpc
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Planning your file shares (Beta)
+# Planning your file shares (beta)
 {: #file-storage-planning}
 
 When you're planning a to create file shares on your VPC, you might find this checklist helpful to set up and use the file service.

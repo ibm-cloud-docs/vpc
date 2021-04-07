@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-23"
+lastupdated: "2021-04-07"
 
-keywords: block storage, VPC, virtual private cloud, volume, profile, volume profile, data storage, storage profile, virtual server instance, instance
+keywords: block storage, virtual private cloud, volume, profile, volume profile, data storage, storage profile, virtual server instance, instance
 
 subcollection: vpc
 
@@ -20,7 +20,7 @@ subcollection: vpc
 {:note: .note}
 {:beta: .beta}
 
-# Profiles
+# Block storage profiles
 {: #block-storage-profiles}
 
 When you provision {{site.data.keyword.block_storage_is_short}} secondary volumes by using the {{site.data.keyword.cloud_notm}} console, CLI, or API, you specify an IOPS profile that best meets your storage requirements. Profiles are available as three predefined IOPS tiers or as custom IOPS. IOPS tiers provide reliable IOPS/GB performance for volumes up to 2 TB capacity. You can also specify a custom IOPS profile and define volume capacity and IOPS within a range.

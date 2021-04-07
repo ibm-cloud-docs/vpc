@@ -23,7 +23,7 @@ subcollection: vpc
 {:support: data-reuse='support'}
 
 
-# File Storage for VPC FAQs (Beta)
+# FAQs for file storage (beta)
 {: #file-storage-vpc-faqs}
 
 The following questions often arise about File Storage for VPC. If you have other questions you'd like to see addressed here, provide feedback by using the **Open Issue** or **Edit Topic** links.
