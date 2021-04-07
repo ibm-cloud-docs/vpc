@@ -57,9 +57,9 @@ Before creating a flow log collector, ensure that you meet the following prerequ
    * Click **Create** and complete the following information:
 
       - For Source service:
-         * Select **VPC Infrastructure Services**. 
+         * Select **VPC Infrastructure Services**.
          * Select **Services based on attributes**.
-         * For Resource type, select **Flow Logs for VPC**. 
+         * For Resource type, select **Flow Logs for VPC**.
          * For Source service instance, select **All instances**.
 
       - For Target service:
@@ -201,6 +201,7 @@ the right variables.
    {: pre}
 
 ## Next steps
+{: #fl-next-steps}
 
 * [Viewing flow log objects](/docs/vpc?topic=vpc-fl-analyze)
 * Working with flow logs

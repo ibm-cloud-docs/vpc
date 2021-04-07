@@ -9,7 +9,7 @@ keywords: dedicated host, dedicated hosts, dedicated host group, access, user ac
 subcollection: vpc
 
 content-type: tutorial
-account-plan: paid 
+account-plan: paid
 completion-time: 6m
 
 ---
@@ -28,7 +28,7 @@ completion-time: 6m
 {: toc-content-type="tutorial"}
 {: toc-completion-time="6m"}
 
-This tutorial demonstrates how to use resource groups and access groups to give users access to resources on dedicated hosts without allowing them to see or interact with these hosts directly. 
+This tutorial demonstrates how to use resource groups and access groups to give users access to resources on dedicated hosts without allowing them to see or interact with these hosts directly.
 {:shortdesc}
 
 The fictional user profile Employee Example is used to show how to give a user access to resources in a dedicated host group without giving them the ability to interact directly with the dedicated hosts in the group. For example, users can provision an instance on the dedicated host group, and the instance is automatically assigned to a dedicated host within the group. However, in this example of resource group configuration, users don't have authority to create or delete a dedicated host.
@@ -36,12 +36,12 @@ The fictional user profile Employee Example is used to show how to give a user a
 ## Objectives
 {: objectives}
 
-- Assign users the required permissions in a dedicated host group toprovision instances.
+- Assign users the required permissions in a dedicated host group to provision instances.
 - Restrict users from interacting directly with the dedicated hosts.
 - Allow a user to provision instances through a dedicated host group without interacting directly with dedicated hosts.
 
 ## Before you begin
-{: before-you-begin}
+{: dedicated-before-you-begin}
 
 This tutorial requires the following prerequisites.
 - An IBM Cloud billable account.
@@ -57,7 +57,7 @@ You use resource groups to organize dedicated hosts and dedicate host groups. Th
 ### Creating a dedicated host resource group
 {: creating-a-dedicated-host-resource-group}
 
-The following steps explain how to create a resource group. This group will be used to organize the dedicated host. 
+The following steps explain how to create a resource group. This group will be used to organize the dedicated host.
 
 1. Login to the [{{site.data.keyword.Bluemix_notm}} console](https://{DomainName}){: external}.
 2. Click **Manage** > **Account**. ![**Manage** dropdown menu](/images/click manage.png){: caption="Figure 1. Manage dropdown menu" caption-side="bottom"}
@@ -100,7 +100,7 @@ To simplify changes in permissions, you can add users to an access group. Access
 2. On the *Access (IAM)* page, click **Access groups** > **Create**.
 3. On the pop-up window, enter a unique name for the access group such as *User access*.
 4. Enter *Provides access to resources on the dedicated host group.* in the description text box.
-5. On the *User access* page, click the **Access policies** tab > **Assign access**. 
+5. On the *User access* page, click the **Access policies** tab > **Assign access**.
 6. On the *Assign access to User access*, click **IAM services**. ![Access policies](/images/user access.png){: caption="Figure 4. Access policies" caption-side="bottom"}
 7. In *Which service do you want to assign access to?*, click **VPC Infrastructure Services**.
 8. In *How do you want to scope the access?*, select **Resources based on selected attributes**.

@@ -85,7 +85,7 @@ Valid volume names can include a combination of lowercase alpha-numeric characte
 Volume names must be unique across the entire VPC infrastructure. For example, if you create two volumes from Gen 1 and Gen 2 compute resources that are in the same account, the same region, and have the same name, a "volume name duplicate" error is triggered.
 
 ## Delete a block storage data volume
-{: #delete}
+{: #block-storage-delete}
 {: help}
 {: support}
 
@@ -119,7 +119,7 @@ To enable Auto Delete on a new data volume when you create an instance, see [Cre
 ## Block storage data eradication
 {: #block-storage-data-eradication}
 
-When you delete a block storage volume, that data immediately becomes inaccessible. All pointers to the data on the physical disk are removed. If you later create a new volume in the same or another account, a new set of pointers is assigned. The account can't access any data that was on the physical storage because those pointers are deleted. When new data is written to the disk, any inaccessible data from the deleted volume is overwritten. 
+When you delete a block storage volume, that data immediately becomes inaccessible. All pointers to the data on the physical disk are removed. If you later create a new volume in the same or another account, a new set of pointers is assigned. The account can't access any data that was on the physical storage because those pointers are deleted. When new data is written to the disk, any inaccessible data from the deleted volume is overwritten.
 
 IBM guarantees that data deleted cannot be accessed and that deleted data is eventually overwritten and eradicated. Further, when you delete a block storage volume, those blocks must be overwritten before that block storage is made available again, either to you or to another customer.
 

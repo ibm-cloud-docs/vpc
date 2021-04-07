@@ -29,7 +29,7 @@ Use the release notes to learn about new and changed {{site.data.keyword.vpc_ful
 ## 01 April 2021
 {: #april-01-2021}
 
-- **Instance storage:** You can now provision a virtual server instance with instance storage, a set of one or more solid state drives directly attached to your instance. An instance storage disk provides fast, affordable, temporary storage to improve the performance of cloud native workloads with scratch space, caching buffers, or a place for replicated data. To provision a virtual server instance with instance storage, you must select an instance storage [profile](/docs/vpc?topic=vpc-profiles). For more information, see [About instance storage](/docs/vpc?topic=vpc-instance-storage). 
+- **Instance storage:** You can now provision a virtual server instance with instance storage, a set of one or more solid state drives directly attached to your instance. An instance storage disk provides fast, affordable, temporary storage to improve the performance of cloud native workloads with scratch space, caching buffers, or a place for replicated data. To provision a virtual server instance with instance storage, you must select an instance storage [profile](/docs/vpc?topic=vpc-profiles). For more information, see [About instance storage](/docs/vpc?topic=vpc-instance-storage).
 
 - **Dedicated hosts support instance storage:** You can now provision a dedicated host with an instance storage profile, providing the capability to host virtual server instances that include instance storage. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles).
 
@@ -139,9 +139,6 @@ The Washington D.C. multi-zone region will be enabled in January 2021. This feat
 
 - **Checksum (SHA256) for imported images (Beta):** Now when you import a custom image, you can view the checksum that's generated for the image when it is imported to {{site.data.keyword.vpc_short}}. If you generate a checksum locally for your image before importing it, you can compare the two checksums to ensure that they are identical. For more information, see [Validating a custom image after importing (Beta)](/docs/vpc?topic=vpc-managing-images#validate-custom).
 - **UI enhancements:** Default boot volume names are now appended with a millisecond timestamp.
-
-## 11 December 2020
-{: #dec-11-2020}
 
 ## 11 December 2020
 {: #dec-11-2020}

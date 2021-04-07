@@ -29,7 +29,7 @@ subcollection: vpc
 Load balancers calculate the metrics and send those metrics to your monitoring instance, which reflects different types of use and traffic. You can visualize and analyze metrics from either the {{site.data.keyword.mon_full_notm}} dashboard, or its API.
 
 ## Metrics available by service plan
-{: metrics-by-plan}
+{: lb-metrics-by-plan}
 
 The supported monitoring metrics include:
 
@@ -190,7 +190,7 @@ You can split the data into various visualizations in the {{site.data.keyword.mo
 As an example, you can segment the `active connections` by `Application load balancer listener port` to show how many active users are connected to the load balancer through each listener type. To illustrate this, let's assume that your load balancer has two different listener protocols one HTTP on port 80 and another for TCP on port 8080. The dashboard would contain different lines showing 10 users who are connected through HTTP on Port 80 in one color, and 6 users connected through TCP on port 8080 in another color.
 
 ### Global attributes
-{: global-attributes}
+{: lb-global-attributes}
 
 The following attributes are available for segmenting the three metrics.
 
