@@ -73,6 +73,12 @@ In this release, you can:
 *	List shares and mount targets.
 *	Update share and mount target name.
 
+## Will I have access to my shares when the Beta release ends?
+{: faq}
+{: #faq-fs-6}
+
+Yes.
+
 ## Who do I contact to help with any issues? What information should I provide?
 {: faq}
 {: #faq-fs-7}
