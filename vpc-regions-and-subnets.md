@@ -55,6 +55,9 @@ Zone         | Address prefix
 `jp-osa-1`     | `10.248.0.0/18`
 `jp-osa-2`     | `10.248.64.0/18`
 `jp-osa-3`     | `10.248.128.0/18`
+`ca-tor-1`     | `10.249.0.0/18`
+`ca-tor-2`     | `10.249.64.0/18`
+`ca-tor-3`     | `10.249.128.0/18`
 {: caption="Table 1. Address prefixes assigned to a zone in a region" caption-side="top"}
 
 If you don't want these default address prefixes, you can choose to not assign them when you create your VPC. For example, add the `"address_prefix_management": "manual"` parameter when you create the VPC by using the API.
