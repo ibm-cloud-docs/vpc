@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-03-30"
+lastupdated: "2021-04-07"
 
 subcollection: vpc
 
@@ -26,7 +26,7 @@ Instance resize allows you to vertically scale virtual server instances to any s
 {:shortdesc}
 
 Virtual servers are configured using profiles, or a combination of instance attributes, such as the number of vCPUs, amount of RAM, network bandwidth, and more that define the size and capabilities of the virtual server instance.
-When you upgrade or downgrade an existing server, you choose another profile that has the pre-defined specifications that you need. You cannot customize the configuration of a virtual server. The virtual server profile that you select determines the valid cores, RAM, and disk sizes on the resized instance. For more information on profiles, see [Instance Profiles](/docs/vpc?topic=vpc-profiles).
+When you upgrade or downgrade an existing server, you choose another profile that has the pre-defined specifications that you need. You cannot customize the configuration of a virtual server. The virtual server profile that you select determines the valid cores, RAM, bandwidth and disk sizes on the resized instance. For more information on profiles, see [Instance Profiles](/docs/vpc?topic=vpc-profiles).
 
 When you resize an instance:
 * you are required to stop, update and start the instance being resized
@@ -53,7 +53,7 @@ When you stop a virtual server instance with an instance storage profile, that s
 ## Resizing with data volumes
 {: #resizing-with-data-volumes}
 
-Virtual servers using data volumes can only be resized to profiles that also have data volumes.
+Any attached data volume remains intact and attached in the resized instance.
 
 ## Resizing a virtual server instance using the UI
 {: #resizing-a-virtual-server-UI}
