@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-03-26"
+lastupdated: "2021-04-07"
 
 subcollection: vpc
 
@@ -64,7 +64,7 @@ Yes, a server can be on a subnet that is attached to a public gateway and also h
 {: faq}
 {: support}
 
-You can create virtual server instances for {{site.data.keyword.vpc_full}} in Dallas (us-south), Washington DC (us-east), London (eu-gb), Sydney (au-syd), Tokyo (jp-tok), Osaka (jp-osa), and Frankfurt (eu-de).
+You can create virtual server instances for {{site.data.keyword.vpc_full}} in Dallas (us-south), Washington DC (us-east), London (eu-gb), Sydney (au-syd), Tokyo (jp-tok), Osaka (jp-osa), Frankfurt (eu-de), and Toronto (ca-tor).
 
 ## Can I use existing virtual server instances from my classic infrastructure with an {{site.data.keyword.vpc_short}}?
 {: #faq-vsi-8}
