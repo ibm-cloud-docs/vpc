@@ -41,7 +41,7 @@ The fictional user profile *Employee Example* is used to show how to give a user
 - Create the dedicated host's associated dedicated host group in the *Users resources* resource group. 
 - Create an access group to assign the Operator role to the resource group, *Users resources*.  
 - Invite your user, *Employee Example*, to the access group so that they can provision instances to the dedicated host group.
-- Restrict *Employee Example* from interacting directly with the dedicated hosts by excluding *Employee Example* from the *Admin resources* resource group.
+- Restrict *Employee Example* from interacting directly with the dedicated hosts by excluding *Employee Example* from access to the *Admin resources* resource group.
 
 ## Before you begin
 {: dedicated-before-you-begin}
