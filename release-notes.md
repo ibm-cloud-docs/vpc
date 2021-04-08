@@ -26,6 +26,11 @@ subcollection: vpc
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
 
+## 07 April 2021
+{: #april-07-2021}
+
+**File Storage for VPC (beta).** NFS-based file shares for a zone within a region are available in a limited, allow-listed beta. You can share file storage over multiple virtual service instances within the same zone across multiple VPCs. For more information about this service, see [About File Storage for VPC (beta)](/docs/vpc?topic=vpc-file-storage-vpc-about).
+
 ## 06 April 2021
 {: #april-06-2021}
 
