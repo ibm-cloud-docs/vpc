@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-30"
+lastupdated: "2021-04-09"
 
 keywords: custom image
 
@@ -42,7 +42,7 @@ To complete this task you must have an instance of {{site.data.keyword.cos_full}
 Make sure that your image meets custom image requirements:
 * Contains a single file or volume 
 * Size of the boot disk doesn't exceed 100 GB
-* Is in qcow2 or VHD format
+* Is in qcow2 format
 * Is cloud-init enabled
 * The operating system is supported as a [stock image](/docs/vpc?topic=vpc-about-images#stock-images) operating system
 
