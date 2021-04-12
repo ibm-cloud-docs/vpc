@@ -29,3 +29,5 @@ subcollection: vpc
 Known limitations for {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) are as follows:
 
 * Two members with the same instance X and same port Y cannot exist at the same time for an ALB. This case is not supported and your traffic might not be routed correctly.
+
+* The HTTP/2 protocol is not yet supported for backend pools. However, HTTP and HTTPS protocols are supported.
