@@ -45,19 +45,19 @@ This gives network load balancers an advantage over application load balancers b
 
 The following table provides a comparison of the types of load balancers.
 
-|                             | Service distributed network load balancer | Network load balancer | Application load balancer            |
-|-----------------------------|---------------------------------- |--------------------------|--------------------|
-| HA mode                     | Active-active                     | Active-standby (with single VIP)   |  Active-active (with multiple VIPs assigned to a DNS name) |
-| Instance group support | | No | Yes (see [Integrating an ALB for VPC with instance groups](/docs/vpc?topic=vpc-lbaas-integration-with-instance-groups)) |
-| Monitoring metrics| Yes                            | Yes | Yes |
-| Multi-zone support          | Yes                               | No (see [Multi-zone support](/docs/vpc?topic=vpc-network-load-balancers#nlb-use-case-2)) | Yes |     
-| Security group support | No | No | Yes (see [Integrating an ALB for VPC with security groups](/docs/vpc?topic=vpc-alb-integration-with-security-groups)) |
-| Source IP address is preserved | Yes (see [Service distributed load balancer data flow](#sdnlb-data-flow)) | Yes | No |
-| SSL offloading              | No | No              | Yes |
-| Supported protocols         | TCP | TCP | HTTPS, HTTP, TCP  |
-| Transport layer             | Layer 4 |  Layer 4  | Layer 4, Layer 7 |
-| Types of load balancers | Service | Public | Public and private |
-| Virtual IP Address (VIP)    | Multiple | Single    | Multiple |
+|                             |  Network load balancer | Application load balancer            |
+|-----------------------------|--------------------------|--------------------|
+| HA mode                     | Active-standby (with single VIP)   |  Active-active (with multiple VIPs assigned to a DNS name) |
+| Instance group support | No | Yes (see [Integrating an ALB for VPC with instance groups](/docs/vpc?topic=vpc-lbaas-integration-with-instance-groups)) |
+| Monitoring metrics| Yes | Yes |
+| Multi-zone support          |  No (see [Multi-zone support](/docs/vpc?topic=vpc-network-load-balancers#nlb-use-case-2)) | Yes |     
+| Security group support | No | Yes (see [Integrating an ALB for VPC with security groups](/docs/vpc?topic=vpc-alb-integration-with-security-groups)) |
+| Source IP address is preserved | Yes | No |
+| SSL offloading              |  No              | Yes |
+| Supported protocols         |  TCP | HTTPS, HTTP, TCP  |
+| Transport layer             |   Layer 4  | Layer 4, Layer 7 |
+| Types of load balancers |  Public | Public and private |
+| Virtual IP Address (VIP)   |  Single    | Multiple |
 {: caption="Table 1. Comparison of network and application load balancers" caption-side="top"}
 
 ## High Availability mode
@@ -68,13 +68,11 @@ High Availability (HA) is achieved by using a Domain Name Service (DNS). VIP of 
 
 An NLB is configured in active-standby mode. A single VIP is registered with DNS, and traffic is forwarded through that compute resource. If an active compute resource goes down, the standby takes over and the VIP is transferred to the standby.
 
-Distributed network load balancers run in an active-active mode. There are many DNLB machines in every AZ and failover does not depend on DNS (which makes it quicker).
-
 ## Multi-zone support
 {: #nlb-mz-support}
 The network load balancer is limited to a single zone. All back-end servers must be in the same zone. A zone is identified by the subnet that is selected when a load balancer is created. Cloud Internet Services (CIS) Global Load Balancer can be used with multiple zonal network load balancers for multi-zone availability.
 
-The service distributed network load balancer and the application load balancer can be configured to span multiple zones. The back-end servers can be in any zone within a region.
+The application load balancer can be configured to span multiple zones. The back-end servers can be in any zone within a region.
 
 ## Integration with private catalogs
 {: #load-balancer-integration-with-private-catalog}
@@ -97,13 +95,6 @@ generates the response, the response is sent directly to the client that uses DS
 Return).
 
 ![Network load balancer traffic flow](images/nlb-datapath.png)
-
-## Service distributed load balancer data flow
-{: #sdnlb-data-flow}
-
-The Service DNLB is accessed using VPE. The source-IP of packets received by it will be that of the VPE's service gateway.
-
-![Service distributed network load balancer traffic flow](images/dnlb-datapath.png)
 
 ## Related links
 {: #lb-related-links}
