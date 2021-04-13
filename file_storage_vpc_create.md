@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-07"
+lastupdated: "2021-04-13"
 
 keywords: file storage, virtual private cloud, file share, mount target
 
@@ -371,5 +371,5 @@ Mount and use your file shares:
 * [Viewing file shares and mount targets (beta)](/docs/vpc?topic=vpc-file-storage-vpc-view)
 * [Mounting file shares on Red Hat Linux (beta)](/docs/vpc?topic=vpc-file-storage-vpc-mount-rhel)
 * [Mounting file shares in CentOS (beta)](/docs/vpc?topic=vpc-file-storage-mount-centos)
-* [Mounting file shares on Ubuntu](/docs/vpc?topic=vpc-file-storage-vpc-mount-ubuntu)
-* [Manage your file shares](/docs/vpc?topic=vpc-file-storage-managing)
+* [Mounting file shares on Ubuntu (beta)](/docs/vpc?topic=vpc-file-storage-vpc-mount-ubuntu)
+* [Manage your file shares (beta)](/docs/vpc?topic=vpc-file-storage-managing)

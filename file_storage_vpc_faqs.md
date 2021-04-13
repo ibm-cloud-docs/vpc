@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-07"
+lastupdated: "2021-04-13"
 
 keywords: file storage, virtual private cloud, file share, troubleshooting
 
@@ -67,19 +67,19 @@ You can use the UI, CLI, or API to create and manage your file shares.
 In this release, you can:
 
 *	Create a file share.
-*	Mount a file share to one or multiple virtual server instances across multiple VPCs within the same region.
+*	Mount a file share to one or multiple virtual server instances across multiple VPCs within the same zone.
 *	Delete a file share.
 *	Delete all mount targets or delete a single mount target. When you delete one or several mount targets, the instance(s) mounting the share for the VPC(s) where the mount target is deleted will not be able to access the share.
 *	List shares and mount targets.
 *	Update share and mount target name.
 
-## Will I have access to my shares when the Beta release ends?
+### Will I have access to my shares when the Beta release ends?
 {: faq}
 {: #faq-fs-6}
 
 Yes.
 
-## Who do I contact to help with any issues? What information should I provide?
+### Who do I contact to help with any issues? What information should I provide?
 {: faq}
 {: #faq-fs-7}
 
@@ -89,38 +89,38 @@ For information about who to contact, see [Getting help and support](/docs/vpc?t
 ## File share management questions
 {: #file-storage-vpc-management-questions}
 
-## Can I mount the same file share in different zones in my region?
+### Can I mount the same file share in different zones in my region?
 {: faq}
 {: #faq-fs-mgt-1}
 {: support}
 
 No. As a zonal shared file service, file shares created for a zone are accessible to instances only within that zone. For this release, File Storage for VPC is available in single zones in the Dallas (us-south), Frankfurt (eu-de) and Washington DC (us-east) regions for allow-listed IBM Cloud customer accounts. 
 
-## Can I mount file shares for my Kube containers?
+### Can I mount file shares for my Kube containers?
 {: faq}
 {: #faq-fs-mgt-3}
 
 Yes. You can mount file shares using the NFSv4.1 protocol.
 
-## Can I mount same file shares between two virtual server instances?
+### Can I mount same file shares between two virtual server instances?
 {: faq}
 {: #faq-fs-mgt-4}
 
 Yes, when the virtual server instances are in the same zone. A file share can't be mounted to resources in two separate zones.
 
-## I use a load balancer across zones. Is there a way to copy the file share?
+### I use a load balancer across zones. Is there a way to copy the file share?
 {: faq}
 {: #faq-fs-mgt-5}
 
 No.
 
-## Are there any options for backup for data retention?
+### Are there any options for backup for data retention?
 {: faq}
 {: #faq-fs-mgt-6}
 
 No, there is no mechanism for backups in this release. As best practice, independently back up your data. When your share data is deleted, it can't be restored.
 
-## Are file shares elastic?
+### Are file shares elastic?
 {: faq}
 {: #faq-fs-mgt-7}
 
@@ -130,7 +130,7 @@ File shares are not elastic. Currently, you can provision minimum of 10 GB to ma
 ## performance questions
 {: #file-storage-vpc-performance-questions}
 
-## What read-write latency can I expect?
+### What read-write latency can I expect?
 {: faq}
 {: #faq-fs-perf-1}
 {: support}
@@ -140,20 +140,20 @@ You can expect an average latency less than 100 ms for writes and less than  50 
 ## Data security and encryption questions
 {: #file-storage-vpc-security-questions}
 
-## How secure is my data?
+### How secure is my data?
 {: faq}
 {: #faq-fs-sec-1}
 {: support}
 
 All data-at-rest is encrypted using IBM-managed encryption. Data-in-transit and customer-managed encryption are not supported in this release.
 
-## Is there support for security groups and network ACLs?
+### Is there support for security groups and network ACLs?
 {: faq}
 {: #faq-fs-sec-2}
 
 No.
 
-## How is my data protected in a file share? Can I use my own encryption keys?
+### How is my data protected in a file share? Can I use my own encryption keys?
 {: faq}
 {: #faq-fs-sec-3}
 
