@@ -3,7 +3,7 @@
 copyright:
   years: 2020, 2021
 
-lastupdated: "2021-03-31"
+lastupdated: "2021-04-14"
 
 keywords: vnc console, serial console, virtual server instance
 
@@ -32,6 +32,12 @@ You can access your IBM Cloud virtual server instance by connecting to a VNC or 
 {:shortdesc}
 
 It applies to situations where a boot failure or kernel crash occurred, especially when you use a custom image. When these situations happen, you can use the console service to examine the issue.
+
+The VNC console provides a graphical user interface and accepts both mouse and keyboard input. The serial console provides a text-based console that accepts keyboard input.
+
+You can use the console to access OS load/boot procedures, e.g., GNU GRand Unified Bootloader (GRUB). 
+
+The console can be opened using any of the [supported browsers](/docs/overview?topic=overview-prereqs-platform#browsers-platform).
 
 For instances that were created before 2/13/2021, you must stop and re-start (not reboot) the instance before a console can be opened. Opening consoles for instances created after this time doesn't require the above operation.
 {:important}
