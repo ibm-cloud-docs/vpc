@@ -94,7 +94,7 @@ To delete a mount target, the share must be in a `stable` state.
 
 2. On the File share details page, select a mount target you want to delete.
 
-3. Click delete icon (-) for the target.
+3. Click the overflow menu (hellipsis) and select **Delete**.
 
 ### Delete a file share
 {: #delete-file-share-ui}
