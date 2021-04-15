@@ -23,21 +23,18 @@ subcollection: vpc
 # Block storage profiles
 {: #block-storage-profiles}
 
-When you provision {{site.data.keyword.block_storage_is_short}} secondary volumes by using the {{site.data.keyword.cloud_notm}} console, CLI, or API, you specify an IOPS profile that best meets your storage requirements. Profiles are available as three predefined IOPS tiers or as custom IOPS. IOPS tiers provide reliable IOPS/GB performance for volumes up to 2 TB capacity. You can also specify a custom IOPS profile and define volume capacity and IOPS within a range. 
+When you provision {{site.data.keyword.block_storage_is_short}} secondary volumes by using the {{site.data.keyword.cloud_notm}} console, CLI, or API, you specify an IOPS profile that best meets your storage requirements. Profiles are available as three predefined IOPS tiers or as custom IOPS. All profiles are backed by solid-state drives (SSDs). IOPS tiers provide reliable IOPS/GB performance for volumes up to 2 TB capacity. You can also specify a custom IOPS profile and define volume capacity and IOPS within a range. 
 {:shortdesc}
 
-Data volumes are also available with capacities greater than 2000 GB. This is a beta feature that is available for evaluation and testing purposes. See [Expanded capacity IOPs tiers (Beta)](#tiers-beta) for more information.
+Data volumes are also available with capacities greater than 2000 GB. This is a beta feature that is available for evaluation and testing purposes. See [Expanded capacity IOPS tiers (Beta)](#tiers-beta) for more information.
 {:beta}
 
-All profiles are backed by solid-state drives (SSDs).
-
-## IOPs tiers
+## IOPS tiers
 {: #tiers}
 
-Block storage data volumes have three predefined IOPS tiers you can select when creating a volume. Choose the profile that provides optimal performance for your compute workloads. Table 1 describes the IOPS performance you can expect when create volumes in your availability zone. 
+Block storage data volumes have three predefined IOPS tiers you can select when creating a volume. These profiles are backed by solid-state drives (SSDs). 
 
-There are no guaranteed minimum IOPS for block storage IOPS tier profiles. However, boot volumes are guaranteed a minumum of 100 IOPS. Additional factors can affect your volume performance. For more information, see [Block Storage for VPC capacity and performance](/docs/vpc?topic=vpc-capacity-performance).
-{: note}
+Choose the profile that provides optimal performance for your compute workloads. Table 1 describes the IOPS performance you can expect when create volumes in your availability zone. 
 
 | IOPS Tier | Workload | Volume size | Max IOPS |
 |-----------|----------|-------------|----------|
@@ -49,7 +46,7 @@ There are no guaranteed minimum IOPS for block storage IOPS tier profiles. Howev
 | | | More than 300 GB to 2 TB | 20,000 IOPS |
 {: caption="Table 1. IOPS tier profiles and performance levels for each tier" caption-side="top"}
 
-## Expanded capacity IOPs tiers (Beta)
+## Expanded capacity IOPS tiers (Beta)
 {: #tiers-beta}
 
 Expanded capacity IOPS tiers increases volume size up to 16 TB and 48,000 IOPS. This is a Beta feature that is available for evaluation and testing purposes. 
@@ -64,7 +61,7 @@ Expanded capacity IOPS tiers increases volume size up to 16 TB and 48,000 IOPS. 
 ## Custom IOPS profile
 {: #custom}
 
-Custom IOPS is a good option when you have well-defined performance requirements that do not fall within a predefined IOPS tier. You can customize the IOPS by specifying the total IOPS for the volume within the range for its volume size. You can provision volumes with IOPS performance from 100 IOPS to 48,000 IOPS, based on volume size.
+Custom IOPS is a good option when you have well-defined performance requirements that do not fall within a predefined IOPS tier. You can customize the IOPS by specifying the total IOPS for the volume within the range for its volume size. You can provision volumes with IOPS performance from 100 IOPS to 48,000 IOPS, based on volume size. Custom IOPS profiles are backed by solid-state drives (SSDs).
 
 Table 2 shows the available IOPS ranges based on volume size.
 
