@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2018, 2020
+  years: 2018, 2021
 lastupdated: "2021-04-15"
 
 keywords: Getting started with Virtual Private Cloud (VPC), VPC, vpc, virtual private cloud, IBM Cloud, Virtual Private Cloud, getting started, permissions, infrastructure, iaas, IaaS, Infrastructure as a Service, SSH key, CLI, API, console, public gateway, floating IP, IP ranges, BYoIP, generation 2, gen 2, gen2, virtual servers, virtual server instances, instances. vsi, virtual machines, server, get started
