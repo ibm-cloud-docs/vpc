@@ -26,7 +26,7 @@ subcollection: vpc
 {{site.data.keyword.block_storage_is_short}} provides hypervisor-mounted, high-performance data storage for your virtual server instances that you can provision within an {{site.data.keyword.vpc_full}} (VPC). The [VPC](/docs/vpc?topic=vpc-about-vpc) infrastructure provides rapid scaling across zones and extra performance and security. 
 {:shortdesc}
 
-{{site.data.keyword.block_storage_is_short}} volume data is stored redundantly across multiple physical disks in an Availability Zone to prevent [data loss due to failure of any single component](/docs/vpc?topic=vpc-block-storage-vpc-faq#faq-block-storage-durability).
+{{site.data.keyword.block_storage_is_short}} volume data is stored redundantly across multiple physical disks in an Availability Zone to prevent data loss due to failure of any single component.
 
 {{site.data.keyword.block_storage_is_short}} provides primary boot volumes and secondary data volumes. Boot volumes are automatically created and attached during instance provisioning. Data volumes can be created and attached during instance provisioning as well, or as stand-alone volumes that you can later attach to an instance. To protect your data, you can use your own encryption keys or choose IBM-managed encryption. 
 

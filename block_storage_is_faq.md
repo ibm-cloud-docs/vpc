@@ -29,7 +29,7 @@ The following questions often arise about the {{site.data.keyword.block_storage_
 {: faq}
 {: #faq-block-storage-durability}
 
-{{site.data.keyword.block_storage_is_short}} achieves data durability by storing volume data behind highly available, active-active storage controllers. Each controller pair receives write I/O that is synchronously mirrored between the storage nodes, then passed to the drive layer that's protected by multiple RAID groups. The RAID groups have multiple parity drives, which protect against data loss in case a drive fails. If there's an outage on one storage node, the partner node takes over from the failed node and I/O continues to be served. Failure of a single component will not result in data loss. 
+{{site.data.keyword.block_storage_is_short}} volume data is stored redundantly across multiple physical disks in an Availability Zone to prevent data loss due to failure of any single component.
 
 ### How are volumes created and attached to an instance?
 {: faq}
