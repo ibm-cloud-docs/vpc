@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-11-16"
+  years: 2019, 2021
+lastupdated: "2021-04-15"
 
 keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, IOPS, HPCS, Key Protect
 
@@ -23,8 +23,10 @@ subcollection: vpc
 {: #block-storage-about}
 [comment]: # (linked help topic)
 
-{{site.data.keyword.block_storage_is_short}} provides hypervisor-mounted, high-performance data storage for your virtual server instances (instances) that you can provision within an {{site.data.keyword.vpc_full}} (VPC). The VPC infrastructure provides rapid scaling across zones and extra performance and security. For more information, see the [overview](/docs/vpc?topic=vpc-about-vpc) about {{site.data.keyword.vpc_short}}.
+{{site.data.keyword.block_storage_is_short}} provides hypervisor-mounted, high-performance data storage for your virtual server instances that you can provision within an {{site.data.keyword.vpc_full}} (VPC). The [VPC](/docs/vpc?topic=vpc-about-vpc) infrastructure provides rapid scaling across zones and extra performance and security. 
 {:shortdesc}
+
+{{site.data.keyword.block_storage_is_short}} volume data is stored redundantly across multiple physical disks in an Availability Zone to prevent [data loss due to failure of any single component](/docs/vpc?topic=vpc-block-storage-vpc-faq#faq-block-storage-durability).
 
 {{site.data.keyword.block_storage_is_short}} provides primary boot volumes and secondary data volumes. Boot volumes are automatically created and attached during instance provisioning. Data volumes can be created and attached during instance provisioning as well, or as stand-alone volumes that you can later attach to an instance. To protect your data, you can use your own encryption keys or choose IBM-managed encryption. 
 

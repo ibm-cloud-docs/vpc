@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019 - 2021
-lastupdated: "2021-04-14"
+lastupdated: "2021-04-15"
 
 keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, image, IOPS, FAQ
 
@@ -24,6 +24,12 @@ The following questions often arise about the {{site.data.keyword.block_storage_
 
 ## Offering questions
 {: #block-storage-vpc-offering-questions}
+
+### How does Block Storage for VPC prevent a single point of failure? What mechanism assures data durability?
+{: faq}
+{: #faq-block-storage-durability}
+
+{{site.data.keyword.block_storage_is_short}} achieves data durability by storing volume data behind highly available, active-active storage controllers. Each controller pair receives write I/O that is synchronously mirrored between the storage nodes, then passed to the drive layer that's protected by multiple RAID groups. The RAID groups have multiple parity drives, which protect against data loss in case a drive fails. If there's an outage on one storage node, the partner node takes over from the failed node and I/O continues to be served. Failure of a single component will not result in data loss. 
 
 ### How are volumes created and attached to an instance?
 {: faq}
@@ -140,16 +146,6 @@ You can change the name of an existing volume by using the UI. See [this informa
 {: #faq-block-storage-10}
 
 You do not have to pre-warm a volume. You can see the specified throughput immediately upon provisioning the volume.
-
-### What can I do about data backups for disaster recovery?
-{: faq}
-{: #faq-block-storage-11}
-
-While Block Storage for VPC stores your redundantly within a zone to provide a secure and stable environment, it does not manage multiple copies of your data. You are responsible for independently backing up your data.
-
-Consider using Veeam software to back up your volume data on a virtual server instance. For more information, see [Backup and recovery using Veeam](/docs/vpc?topic=vpc-about-veeam).
-
-Outside of the VPC, you might consider using [{{site.data.keyword.blockstoragefull}} - Classic](/docs/BlockStorage?topic=BlockStorage-getting-started), which provides disaster recovery features such as volume cloning, snapshots, and replication. In particular, see the topics under **Replication and Disaster Recovery**.
 
 ## Performance questions
 {: #block-storage-vpc-performance-questions}
