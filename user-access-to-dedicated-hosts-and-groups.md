@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-08"
+lastupdated: "2021-04-15"
 
 keywords: dedicated host, dedicated hosts, dedicated host group, access, user access,
 
@@ -10,7 +10,7 @@ subcollection: vpc
 
 content-type: tutorial
 account-plan: paid
-completion-time: 6m
+completion-time: 20m
 
 ---
 
