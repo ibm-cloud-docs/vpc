@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-06"
+lastupdated: "2021-04-15"
 
 keywords: file Storage, NFS, mounting file Storage, mounting file shares on Linux, mounting file shares on RHEL
 
@@ -101,7 +101,7 @@ SSH into the virtual server instance where you want to mount the file share, the
    ```
    {:codeblock}
 
-4. Go to the mount point and the read/write files.
+5. Go to the mount point and the read/write files.
 
    ```
    $ touch /mnt/test/test.txt
