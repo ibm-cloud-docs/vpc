@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-02-01"
+  years: 2019 - 2021
+lastupdated: "2021-04-14"
 
-keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, IOPS, FAQ
+keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, image, IOPS, FAQ
 
 subcollection: vpc
 
@@ -53,11 +53,13 @@ Instances with four or more cores can attach up to 12 block storage secondary vo
 
 Block Storage for VPC is calculated hourly. The calculation is based on the total number of hours that the block storage volume exists on the account. It exists on the account until you delete the volume or you reach the end of a billing cycle, whichever comes first. For more information, see [Pricing](https://www.ibm.com/cloud/vpc/pricing).
 
-### Are there quota limits?
+### Are there limits on the number of volumes I can create?
 {: faq}
 {: #faq-block-storage-7}
 
-The quota limits for your block storage volumes based on the number of cores per instance. For more information about quotas and limits for your {{site.data.keyword.cloud}} Virtual Private Cloud and the resources available within it, see [Quotas](/docs/vpc?topic=vpc-quotas#quotas).
+You can create up to 750 total Gen 2 block storage volumes (data and boot) per account in a region. To increase this [quota](/docs/vpc?topic=vpc-quotas#block-storage-quotas), open a [support case](/docs/vpc?topic=vpc-getting-help) and specifying in which zone you need more volumes.
+
+There are also service limits for your block storage volumes based on the number of cores per instance. For more information, see [Service limits](/docs/vpc?topic=vpc-quotas#service-limits).
 
 ### After creating a data volume with specific capacity, can the capacity later be increased?
 {: faq}
@@ -71,7 +73,7 @@ You might consider participating in the Beta release of larger-size and expandab
 * Volumes under 250 GB can expand up to 250 GB.
 * Volumes 250 GB and greater can expand up to 16 TB, depending on the volume profile.
 
-For more information, see [Expanding block storage volume capacity (Beta)](/docs/vpc?topic=vpc-expanding-block-storage-volumes) and [Expanded capacity IOPs tiers (Beta)](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta).
+For more information, see [Expanding block storage volume capacity (Beta)](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 
 ### How many volumes can I provision on my account?
 {: faq}
@@ -89,7 +91,7 @@ If you provisioned block storage volumes for Gen 1 Compute instances, you are li
 
 In the IBM Cloud, storage options are limited to an availability zone. Do not manage shared storage across multiple zones.
 
-Instead, use an IBM Cloud data classic service options outside a VPC such as {{site.data.keyword.cos_full}} or {{site.data.keyword.cloudantfull}} if you must share your data across multiple zones and regions.
+Instead, use an IBM Cloud data classic service options outside a VPC such as {{site.data.keyword.cos_full}} or {{site.data.keyword.cloudantfull}} if you must share your data across multiple zones and regions
 
 ### I have volumes on the Classic infrastructure. Can I port them to the VPC?
 {: faq}
@@ -97,7 +99,6 @@ Instead, use an IBM Cloud data classic service options outside a VPC such as {{s
 {: support}
 
 No. The VPC provides access to new availability zones in multi-zone regions. Compute, network, and storage resources are designed to function in the VPC.
-
 
 ## Volume management questions
 {: #block-storage-vpc-volume-questions}
@@ -107,12 +108,6 @@ No. The VPC provides access to new availability zones in multi-zone regions. Com
 {: #faq-block-storage-14}
 
 The boot disk, also called a boot volume, is created when you provision a virtual server instance. The boot disk of an instance is a cloned image of the virtual machine image. The boot volume is deleted when you delete the instance to which it is attached.
-
-### What strategy can I use to manage {{site.data.keyword.block_storage_is_short}} volumes?
-{: faq}
-{: #faq-block-storage-13}
-
-Determine the capacity that you need based on anticipated growth. Volume size cannot be expanded after provisioning. However, you can create new volumes as needed. Also, if you have well-defined performance requirements, you might consider choosing a [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles#custom) profile that provides a specific range of IOPS per volume size.
 
 ### When can I delete a block storage data volume?
 {: faq}
@@ -125,6 +120,12 @@ You can delete a block storage data volume only when it isn't attached to a virt
 {: #faq-block-storage-16}
 
 When you delete a block storage volume, your data immediately becomes inaccessible. All pointers to the data on that volume are removed. The inaccessible data is eventually overwritten as new data is written to the data block. IBM guarantees that data deleted cannot be accessed and that deleted data is eventually overwritten. For more information, see [Block storage data eradication](/docs/vpc?topic=vpc-managing-block-storage#block-storage-data-eradication).
+
+### I have compliance requirements. What can I do to ensure my data is inaccessible?
+{: faq}
+{: #faq-block-storage-nist}
+
+IBM guarantees that your data is completely inaccessible on the physical disk and is eventually [eradicated](/docs/vpc?topic=vpc-managing-block-storage#block-storage-data-eradication). If you have additional compliance requirements such as NIST 800-88 Guidelines for Media Sanitization, you must perform data sanitation procedures before you delete your volumes. For information, see the [NIST 800-88 Guidelines for Media Sanitation](https://csrc.nist.gov/publications/detail/sp/800-88/rev-1/final){: external}.
 
 ### What rules apply to volume names and can I rename a volume later on?
 {: faq}
@@ -150,7 +151,6 @@ Consider using Veeam software to back up your volume data on a virtual server in
 
 Outside of the VPC, you might consider using [{{site.data.keyword.blockstoragefull}} - Classic](/docs/BlockStorage?topic=BlockStorage-getting-started), which provides disaster recovery features such as volume cloning, snapshots, and replication. In particular, see the topics under **Replication and Disaster Recovery**.
 
-
 ## Performance questions
 {: #block-storage-vpc-performance-questions}
 
@@ -173,23 +173,23 @@ IOPS is enforced at the volume level.
 
 IOPS profiles define IOPS/GB performance for volumes of various capacities. There are three predefined [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) that you can select that offer reliable IOPS performance for your workload requirements. You can also define [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles#custom) and specify a range of IOPS for a volume size you choose. Custom IOPS is a good option when you have well-defined performance requirements that do not fall within a predefined IOPS tier. If you choose a custom IOPS profile, also define a minimum and maximum range for the volume size.
 
-Maximum IOPS for data volumes varies based on volume size and the type of profile you select. For example, the max IOPS for a general-purpose volume up to 1 TB is 3,000 IOPS.
+Maximum IOPS for data volumes varies based on volume size and the type of profile you select.
 
-IOPS is measured based on a load profile of 16 KB blocks with random 50% read and 50% writes. Workloads that differ from this profile might experience reduced performance. If you use a smaller block size, maximum IOPS can be obtained but throughput is less. For information, see
+IOPS is measured based on a load profile of 16 KB blocks with random 50% read and 50% writes. Workloads that differ from this profile might experience reduced performance. If you use a smaller block size, maximum IOPS can be obtained but throughput is less. For information, see 
 [How block size affects performance](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
 
 ### What typical network performance might I expect between my compute instances and the block storage service?
 {: faq}
 {: #faq-block-storage-17}
 
-Block storage is connected to compute instances on a shared network, so the exact performance latency depends on the network traffic within a specific timeframe. Target latency for a 16KB block size volume is under 1 millisecond for random reads and under 2 milliseconds for writes. For more performance metrics you can expect for your storage volumes and compute instances, see [Storage-compute performance metrics](/docs/vpc?topic=vpc-capacity-performance#storage-performance-metrics).
+Block storage is connected to compute instances on a shared network, so the exact performance latency depends on the network traffic within a specific timeframe. Target latency for a 16KB block size volume is under 1 millisecond for random reads and under 2 milliseconds for writes. For more performance metrics you can expect for your storage volumes and compute instances, see [Storage-compute performance metrics](/docs/vpc?topic=vpc-capacity-performance#storage-performance-metrics). 
+
 
 ### What mechanisms are used to avoid data storage contention?
 {: faq}
 {: #faq-block-storage-17a}
 
 Data storage contention is a common issue when multiple instances compete for access to the same block storage volume. {{site.data.keyword.block_storage_is_short}} uses rate limiting at the hypervisor for optimal bandwidth between the hypervisor and block storage service. As a result, latency is guaranteed to be less than 1 millisecond for random reads and under 2 milliseconds for writes for a typical 16K block size. Latency outside these metrics might indicate a problem on the client side. For additional typical performance benchmarks, see[Storage-compute performance metrics](/docs/vpc?topic=vpc-capacity-performance#storage-performance-metrics).
-
 
 ## Data security and encryption questions
 {: #block-storage-vpc-security-questions}
