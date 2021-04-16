@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-31"
+lastupdated: "2021-04-16"
 
 keywords: user data
 
@@ -27,7 +27,7 @@ subcollection: vpc
 When you create an {{site.data.keyword.vsi_is_full}} instance, you can specify optional user data that automatically performs common configuration tasks or runs scripts.
 {:shortdesc}
 
-VPC uses Cloud-init technology to configure virtual server instances. The **User Data** field on the Create VIS menu allows users to put in custom configuration options by using cloud-init. Cloud-iniit supports several formats for configuration data, including yaml in a cloud-config file.
+VPC uses Cloud-init technology to configure virtual server instances. The **User Data** field on the Create VIS menu allows users to put in custom configuration options by using cloud-init. Cloud-init supports several formats for configuration data, including yaml in a cloud-config file.
 
 You can specify cloud-config data directly in the **User Data** field, or you can include the cloud-config data in a text file and specify the file name when you create your instance. For example, if you save the cloud-config data in `userdata.blob`, specify `-user-data @userdata.blob` when you create an instance by using the CLI.
 
@@ -136,7 +136,7 @@ Here are some details about items that are found in the cloud-config script: 
 The CLI and API also supports the **User Data** field.
 {: note}
 
-This cloud-config script example automatically configures an instance storage `/dev/vdb` block device. If you only reboot your virtual server, this configuration continues to work since the configuration and data persists. However, if you start a virtual server that was previously stopped, then the virtual server has a fresh set of instance storage disks when it boots up. This situation would require the cloud-init steps to be manually run again. By default, the clould-config script is only run on first boot. You can also edit the cloud-init section of the cloud.config file so that the cloud-init steps are automatically run on each boot. For the steps, see the [Edit the cloud_cloud_init_modules section of the cloud.config file to run on each boot](#edit-cloud-init-run-cloud-config-each-boot) section.
+This cloud-config script example automatically configures an instance storage `/dev/vdb` block device. If you only reboot your virtual server, this configuration continues to work since the configuration and data persists. However, if you start a virtual server that was previously stopped, then the virtual server has a fresh set of instance storage disks when it boots up. This situation would require the cloud-init steps to be manually run again. By default, the cloud-config script is only run on first boot. You can also edit the cloud-init section of the cloud.config file so that the cloud-init steps are automatically run on each boot. For the steps, see the [Edit the cloud_cloud_init_modules section of the cloud.config file to run on each boot](#edit-cloud-init-run-cloud-config-each-boot) section.
 
 ### Configuring a two disk instance storage by using cloud-config script
 {: #configure-two-disk}
@@ -182,7 +182,7 @@ mounts:
 
 mount_default_fields: [ None, None, "auto", "defaults,nofail", "0", "2" ]
 ```
-This cloud-config script example automatically configures both the instance storage `/dev/vdb` and `dev/vdc` block devices. If you only reboot your virtual server, this configuration continues to work since the configuration and data persists. However, if you start a virtual server that was previously stopped, then the virtual server has a fresh set of instance storage disks when it boots up. This situation would require the cloud-init steps to be manually run again. By default, the clould-config script is only run on first boot. You can also edit the cloud-init section of the cloud.config file so that the cloud-init steps are automatically run on each boot. For the steps, see the [Edit the cloud_cloud_init_modules section of the cloud.config file to run on each boot](#edit-cloud-init-run-cloud-config-each-boot) section.
+This cloud-config script example automatically configures both the instance storage `/dev/vdb` and `dev/vdc` block devices. If you only reboot your virtual server, this configuration continues to work since the configuration and data persists. However, if you start a virtual server that was previously stopped, then the virtual server has a fresh set of instance storage disks when it boots up. This situation would require the cloud-init steps to be manually run again. By default, the cloud-config script is only run on first boot. You can also edit the cloud-init section of the cloud.config file so that the cloud-init steps are automatically run on each boot. For the steps, see the [Edit the cloud_cloud_init_modules section of the cloud.config file to run on each boot](#edit-cloud-init-run-cloud-config-each-boot) section.
 
 #### Edit the cloud_cloud_init_modules section of the cloud.config file to run on each boot
 {: #edit-cloud-init-run-cloud-config-each-boot}
