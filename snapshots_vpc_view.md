@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-03-05"
+lastupdated: "2021-04-15"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 subcollection: vpc
@@ -18,19 +18,26 @@ subcollection: vpc
 {:table: .aria-labeledby="caption"}
 {:note: .note}
 {:beta: .beta}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 ---
 
-# Viewing Snapshots (Beta)
+# Viewing Snapshots (beta)
 {: #snapshots-vpc-view}
 
 You can view a list of all snapshots and drill down to see information about a particular snapshot. Choose the UI, CLI, or API to retrieve this information.
 {:shortdesc}
 
-This beta feature is available only to accounts with special approval.
+Snapshots for VPC is available only to accounts with special approval to preview this beta feature. 
 {:beta}
 
-## List all snapshots by using the UI
+## List snapshots by using the UI
+{: #snapshots-vpc-view-list-ui}
+{:ui}
+
+### List all snapshots by using the UI
 {: #snapshots-vpc-view-list-ui}
 
 View a list of all snapshots you created, with the most recent one at the top of the list. You can filter the list to view specific snapshots. Follow these steps:
@@ -46,22 +53,22 @@ Table 1 describes the information for all snapshots in the list of snapshots.
 | Field | Value |
 |-------|-------|
 | Status | Status of the snapshot, depending on whether it's usable (_active_ status), unusable, being created, and so on. For more information, see [Snapshot statuses](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-status). |
-| Name  | The name you provided when you created the snapshot. Click on the name of the snapshot to see its [details](#snapshots-vpc-view-details-ui). |
+| Name  | The name you provided when you created the snapshot. Click on the name of the snapshot to see its [details](#snapshots-vpc-view-snapshot-ui). |
 | Size | Size of the snapshot in GBs, inherited from the source volume. |
 | Encryption | Encryption inherited from the source volume, either IBM-managed or customer-managed encryption. |
 | Source volume | The boot or data volume from which the snapshot was created. Click the name of the volume to see its [details](/docs/vpc?topic=vpc-viewing-block-storage). |
 | Created | The date you created the snapshot. The list order is newest to oldest snapshots. |
-| Actions (hellipsis) | Click the overflow icon to display a menu of context-specific actions you can take: 
-<br> Copy the UUID - Useful when identifying snapshots in SDKs, the CLI, or Terraform
-<br> Copy the Cloud Resource Name (CRN) 
-<br> Copy the snapshot ID
-<br> [Delete the snapshot](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete)
-<br> [Delete all snapshots for a volume](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete-all-ui) | 
+| Actions (hellipsis) | Click the overflow icon to display a menu of context-specific actions you can take: | 
+| | Copy the UUID - Useful when identifying snapshots in SDKs, the CLI, or Terraform  |
+| | Copy the Cloud Resource Name (CRN) |
+| | Copy the snapshot ID |
+| | [Delete the snapshot](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete) |
+| | [Delete all snapshots for a volume](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete-all-ui) | 
 {: caption="Table 1. List of all snapshots" caption-side="top"}
 
 You can also list all snapshots created from a block storage volume from the volume details page. For more information, see [List all snapshots for a volume](/docs/vpc?topic=vpc-view-snapshots-for-volume).
 
-## View snapshot details by using the UI
+### View snapshot details by using the UI
 {: #snapshots-vpc-view-snapshot-ui}
 
 To see details about a snapshot:
@@ -86,10 +93,11 @@ To see details about a snapshot:
 
 ## View snapshots by using the CLI
 {: #snapshots-vpc-view-cli}
+{:cli}
 
 You can list all snapshots, all snapshots for a volume, and details about a particular snapshot.
 
-## View all snapshots
+### View all snapshots
 {: #snapshots-vpc-view-all-cli}
 
 Run the `snapshots` command to list all snapshots.
@@ -113,7 +121,7 @@ ID                                          Name         Status    Progress   So
 {:screen}
 
 
-## View details of a snapshot by using the CLI
+### View details of a snapshot by using the CLI
 {: #snapshots-vpc-view-cli}
 
 Run the `snapshots {id)` command to see the details of a particular snapshot.
@@ -136,7 +144,11 @@ b2168769-a4dc-4cb8-9fc6-e62d45918858   t2b1   stable   -          728b2d3c-2165-
 ```
 {:screen}
 
-## List all snapshots by from the API
+## List snapshots by from the API
+{: #snapshots-vpc-view-all-api}
+{:api}
+
+### List all snapshots by from the API
 {: #snapshots-vpc-view-all-api}
 
 Using the [VPC API](https://{DomainName}/apidocs/vpc), make a `GET/snapshots` request to list all snapshots of your volumes. By default, the list shows the most recent snapshots first, followed by older snapshots in descending order. 
@@ -275,7 +287,7 @@ A successful response will look like this:
 ```
 {:codeblock}
 
-## List details of a snapshot from the API
+### List details of a snapshot from the API
 {: #snapshots-vpc-view-api}
 
 For details about a single snapshot, use the VPC API to make a `GET/snapshots` call and specify the snapshot ID.

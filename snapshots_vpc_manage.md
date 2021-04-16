@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-03-05"
+lastupdated: "2021-04-15"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
@@ -19,13 +19,13 @@ subcollection: vpc
 {:note: .note}
 {:beta: .beta}
 
-# Managing Snapshots (Beta)
+# Managing Snapshots (beta)
 {: #snapshots-vpc-manage}
 
 Delete snapshots you no longer need. Rename existing snapshots to make them easier to identify. Verify IAM access to take action on snapshots. Verify snapshot statuses.
 {:shortdesc}
 
-This beta feature is available only to accounts with special approval.
+Snapshots for VPC is available only to accounts with special approval to preview this beta feature. 
 {:beta}
 
 ## Deleting snapshots
@@ -140,7 +140,7 @@ You can delete the most recently created snapshot from the list of snapshots fro
 ## Naming snapshots
 {: #snapshots-vpc-naming}
 
-Consider naming the snapshot to indicate the volume you copied. For example, _my-volume_ would be _my-volume-snapshot1_. Also, for quick identification, consider naming boot volumes you appending _boot_, such as _boot-my-volume-snapshot1_. As your list of snapshots grows, you can quickly identify the name and type of volume from which you created the snapshot.
+Consider naming the snapshot to indicate the volume you copied. For example, _my-volume_ would be _my-volume-snapshot1_. Also, for quick identification, consider naming boot volumes by adding _boot_ as a prefix, such as _boot_my-volume-snapshot1_. As your list of snapshots grows, you can quickly identify the name and type of volume from which you created the snapshot.
 
 Snapshot names adhere to the same requirements as volume names. Valid names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Snapshot names must begin with a lowercase letter and must be unique across the VPC. The UI provides name checking as a convenience. For example, if you end a snapshot name with a hyphen (-), the UI notifies you of the error. It also checks for duplicate names.
 
@@ -213,7 +213,7 @@ curl -X PATCH \
 ## IAM roles for creating and managing snaphots
 {: #snapshots-vpc-iam}
 
-Snapshots require IAM permissions for role-based access control. Table 1 describes these roles are they pertain to snapshots actions.
+Snapshots require IAM permissions for role-based access control. Table 1 describes these roles as they pertain to snapshots actions.
 
 | Snapshot action | IAM role |
 |-----------------|----------|

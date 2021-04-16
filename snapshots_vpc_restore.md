@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-03-05"
+lastupdated: "2021-04-15"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 subcollection: vpc
@@ -18,14 +18,17 @@ subcollection: vpc
 {:table: .aria-labeledby="caption"}
 {:note: .note}
 {:beta: .beta}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
-# Restoring a volume from a snapshot (Beta)
+# Restoring a volume from a snapshot (beta)
 {: #snapshots-vpc-restore}
 
 Now that you created a snapshot, how do you use it? By restoring from a snapshot, you create a new, fully-provisioned boot or data volume. Restoring from a snapshot of a boot volume creates a new boot volume that you can use when you provision a new instance. Restoring from a snapshot of a data volume creates a secondary volume that's attached to the instance.
 {:shortdesc}
 
-This beta feature is available only to accounts with special approval.
+Snapshots for VPC is available only to accounts with special approval to preview this beta feature. 
 {:beta}
 
 ## About restoring a volume from a snapshot
@@ -43,9 +46,15 @@ You can't simultaneously restore a boot and data volume.
 
 You can also create and attach a boot volume in the same manner on existing instances. It appears in the list of block storage volumes as a boot volume.
 
+When you restore a data volume from a snapshopt, you choose the capacity and IOPS tier profile for a new data volume created from a snapshot. When you restore a boot volume, it's always has a general-purpose profile and 100 GB capacity.
+
 When you select a snapshot as the source for the volume, the service immediately creates the new volume. The volume appears as _pending_ while it's being created. After the volume is hydrated (that is, fully provisioned), it contains all the data and metadata of the original volume. It retains the same capacity and IOPS performance. You can then use the boot volume to start a new instance or write data to the new attached data volume.
 
-## Create a volume from a snapshot when you provision a new instance by using the UI
+## Restore a volume from a snapshot using the UI
+{: #snapshots-vpc-restore-UI}
+{:ui}
+
+### Create a volume from a snapshot when you provision a new instance using the UI
 {: #snapshots-vpc-restore-vol-UI}
 
 Follow these steps to create a boot and data volume from snapshots when you provision a new virtual server instance.
@@ -79,7 +88,7 @@ Follow these steps to create a boot and data volume from snapshots when you prov
 
 After the instance is created, you can click on the instance name to see the instance details. The boot volume you restored from a snapshot is listed under **Storage volumes**. The camera icon indicates the volume was created from a snapshot.
 
-## Create a volume from a snapshot from an existing virtual server instance
+### Create a volume from a snapshot from an existing virtual server instance using the UI
 {: #snapshots-vpc-create-from-vol-ui}
 
 You can also create a snapshot from the list of virtual server instances.
@@ -100,8 +109,9 @@ You can also create a snapshot from the list of virtual server instances.
 
 The new volume appears in the list of Storage volumes. Hover over the camera icon to see the name of the snapshot from which it was created. 
 
-## Create a volume from a snapshot by using the CLI
+## Restore a volume from a snapshot using the CLI
 {: #snapshots-vpc-restore-CLI}
+{:cli}
 
 Use the CLI to create a boot or data volume from a snapshot.
 
@@ -120,7 +130,7 @@ After you install the vpc-infrastructure plug-in, set the target to generation 2
 
 Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-getting-started).
 
-### Create a boot volume from a snapshot
+### Create a boot volume from a snapshot using the CLI
 {: #snapshots-vpc-restore-boot-CLI}
 
 Specify the `source_snapshot` parameter and snapshot ID when using the `instance-create` command to create a new instance.
@@ -172,7 +182,7 @@ Boot volume      ID                                   Name                  Atta
 ```
 {:screen}
 
-### Create a data volume from a snapshot
+### Create a data volume from a snapshot using the CLI
 {: #snapshots-vpc-restore-data-CLI}
 
 Specify the `source_snapshot` parameter and snapshot ID in the volume attachment.
@@ -201,6 +211,7 @@ bmcloud is instance-create my-instance-restore1 ea002578-ff10-41fe-9652-e63f7e0e
 
 ## Restore a volume from a snapshot from the API
 {: #snapshots-vpc-restore-API}
+{:api}
 
 To restore a boot volume from a bootable snapshot using the snapshot ID, use this call:
 
@@ -236,7 +247,7 @@ curl -X POST \
         "name": "us-south-1"
       },
       "vpc": {
-        "id": "r134-3b717398-de15-45a2-8922-100f982e87e3"
+        "id": "4d27c489-8ad7-4d09-bcf4-2103d8f8da93"
       },
           "profile": {
         "name": "cx2-2x4"
@@ -247,13 +258,10 @@ curl -X POST \
           "id": ""
         }
       },
-    "image": {
-       "id": "r134-6f153a5d-6a9a-496d-8063-5c39932f6ded"
-      },   
      "volume_attachments": [{
         "volume": {
           "source_snapshot": {
-              "id": "r130-2ab1d4e1-8bf7-4431-b4ac-6dbe2e72a810"
+              "id": "b60f5cfd-295c-486d-bb9d-6f28dc8ea0dc"
             }
         }
       }],
