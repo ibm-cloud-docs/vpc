@@ -27,7 +27,7 @@ subcollection: vpc
 When you create an {{site.data.keyword.vsi_is_full}} instance, you can specify optional user data that automatically performs common configuration tasks or runs scripts.
 {:shortdesc}
 
-VPC uses Cloud-init technology to configure virtual server instances. The **User Data** field on the Create VIS menu allows users to put in custom configuration options by using cloud-init. Cloud-init supports several formats for configuration data, including yaml in a cloud-config file.
+VPC uses Cloud-init technology to configure virtual server instances. The **User Data** field on the *New virtual server for VPC* page allows users to put in custom configuration options by using cloud-init. Cloud-init supports several formats for configuration data, including yaml in a cloud-config file.
 
 You can specify cloud-config data directly in the **User Data** field, or you can include the cloud-config data in a text file and specify the file name when you create your instance. For example, if you save the cloud-config data in `userdata.blob`, specify `-user-data @userdata.blob` when you create an instance by using the CLI.
 
@@ -38,7 +38,7 @@ The size limit of the **User Data** field (or file) is 64 K bytes.
 {: #user-data-examples-for-linux}
 
 ### Adding a user and SSH key
-The following cloud-init example shows how a Linux&reg; user can add a user and provide the user with an authorized SSH key. The **Name** field has the public key that is added to `~/.ssh/authorized_keys`. 
+The following cloud-init example shows how a Linux user can add a user and provide the user with an authorized SSH key. The **Name** field has the public key that is added to `~/.ssh/authorized_keys`. 
 
 
 <pre class="codeblock"><code class="hljs">#cloud-config
@@ -53,7 +53,7 @@ users:
         - &lt;ssh public key&gt;
 </code></pre>
 
-The following shell script example shows how a Linux&reg; user can add an SSH key for the current user.
+The following shell script example shows how a Linux user can add an SSH key for the current user.
 
 <pre class="codeblock"><code class="hljs">#!/bin/sh
 echo &lt;sshKey&gt; &gt; ~/.ssh/authorized_keys
@@ -64,7 +64,7 @@ You can paste one of these examples directly into the **User Data** field. The u
 If you specify to include a file and have spaces preceding the file name, the data isn't interpreted correctly. Verify that `#!/bin/sh` or `#!/bin/bash` are the first characters on the line immediately following the end of file designation (`<<EOF`). The characters can't be indented. 
 {: tip}
 
-For more Linux&reg; user data examples and information, see [Cloud config examples ![External link icon](../icons/launch-glyph.svg "External link icon")](https://cloudinit.readthedocs.io/en/latest/topics/examples.html){:new_window}.
+For more Linux user data examples and information, see [Cloud config examples ![External link icon](../icons/launch-glyph.svg "External link icon")](https://cloudinit.readthedocs.io/en/latest/topics/examples.html){:new_window}.
 
 ### Configuring a single disk instance storage by using cloud-config script
 {: #configure-instance-storage-cloud-config}
@@ -73,9 +73,9 @@ Instance storage is a feature of VPC where you can request virtual server instan
 
 By default, when you provision a virtual server instance with instance storage and then log in to that server for the first time, the instance storage disks are not configured. They show up as block devices (for example `/dev/vdb`), and need the following done before you can use them with a file system: 
 
-* Partition the device
+* Partition the device.
 * Format the partition with a file system.
-* Mounts the file system.
+* Mount the file system.
 
 These activities can also be performed automatically when you use the **User Data** field to provision the virtual instance. The `cloud-config` script defines these actions:
 
@@ -92,7 +92,7 @@ The following example shows user data that automatically configures an instance 
 ```
 #cloud-config
 # Cloud-init supports simple partition and file system config.
-# This user data yaml will create a full partion on the first
+# This user data yaml will create a full partition on the first
 # block device after the boot device, initialize ext4 on it and
 # mount it on a folder matching the label.
 #
@@ -121,9 +121,9 @@ mount_default_fields: [ None, None, "auto", "defaults,nofail", "0", "2" ]
 This script configures /dev/vdb, the first instance storage device available on the virtual instance. This script can be pasted into the **User Data** field or imported by using the Import user data link on the UI. 
 
 
-This script was tested with a stock image of `Ubuntu 20.04 LTS Focal Fossa`. While the script might be appropriate for other Linux&reg; stock and custom images, it is possible that adjustments to the script might be required. 
+This script was tested with a stock image of `Ubuntu 20.04 LTS Focal Fossa`. While the script might be appropriate for other Linux stock and custom images, it is possible that adjustments to the script might be required. 
 
-The cloud-config script is not appropriate for Windows&reg; virtual servers. If your instance does not contain instance storage, do not use this script. It might configure an unintended device. 
+The cloud-config script is not appropriate for Windows virtual servers. If your instance does not contain instance storage, do not use this script. It might configure an unintended device. 
 {: note}
 
 Here are some details about items that are found in the cloud-config script: 
@@ -224,14 +224,14 @@ To run the cloud-config script on each successive boot, follow this procedure:
 ## User data example for Windows
 {: #user-data-example-for-windows}
 
-The following example shows user data that can be passed to a Windows&reg; instance. This sample user data sets the time zone.
+The following example shows user data that can be passed to a Windows instance. This sample user data sets the time zone.
 
 ```
 "user_data": "Content-Type: multipart/mixed; boundary=MIMEBOUNDARY\nMIME-Version: 1.0\n\n--MIMEBOUNDARY\nContent-Type: text/cloud-config; charset=\"us-ascii\"\nMIME-Version: 1.0\nContent-Transfer-Encoding: 7bit\nContent-Disposition: attachment; filename=\"cloud-config\"\n#cloud-config\n\nset_timezone: America/Detroit\n\n--MIMEBOUNDARY--\n"
 ```
 {:codeblock}
 
-For more Windows&reg; user data examples and information, see [Cloudbase-init 1.0 documentation ![External link icon](../icons/launch-glyph.svg "External link icon")](https://cloudbase-init.readthedocs.io/en/latest/userdata.html){:new_window}.
+For more Windows user data examples and information, see [Cloudbase-init 1.0 documentation ![External link icon](../icons/launch-glyph.svg "External link icon")](https://cloudbase-init.readthedocs.io/en/latest/userdata.html){:new_window}.
 
 ## Next steps
 {: #next-steps-user}
