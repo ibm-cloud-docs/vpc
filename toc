@@ -310,6 +310,7 @@ Virtual Private Cloud (VPC)
         architecture-workload-isolation.md
         data-security.md
         manage-scc.md
+        load-balancer-security.md
 
     {: .topicgroup}
     Logging and monitoring
