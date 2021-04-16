@@ -26,7 +26,7 @@ completion-time: 20m
 # Assigning separate user access to dedicated hosts and dedicated groups
 {: #user-access-to-dedicated-hosts-and-groups}
 {: toc-content-type="tutorial"}
-{: toc-completion-time="6m"}
+{: toc-completion-time="20m"}
 
 This tutorial demonstrates how to use resource groups and access groups to give users access to resources on dedicated hosts without allowing them to see or interact with these hosts directly.
 {:shortdesc}
