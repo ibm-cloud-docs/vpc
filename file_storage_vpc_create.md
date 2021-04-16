@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-13"
+lastupdated: "2021-04-15"
 
 keywords: file storage, virtual private cloud, file share, mount target
 
@@ -187,7 +187,12 @@ A good way to learn more about the API is to click **Get sample API call** on th
 ### Create a file share from the API
 {: #fs-create-file-share-api}
 
-Use the `POST/shares` request to create a file share. Specify the size of the share, a name, the IOPS profile, and zone. For example:
+Use the `POST/shares` request to create a file share. Specify the size of the share, a name, the IOPS profile, and zone. 
+
+You must provide `generation` parameter with the API request and specify `generation=2`. Do not use `generation=1` for the  file storage service. For more information, see **Generation** in the [Virtual Private Cloud API reference](https://{DomainName}/apidocs/vpc#api-generation-parameter).
+{: note}
+
+For example:
 
 ```curl
 curl -X POST \
@@ -239,9 +244,6 @@ A successful response will look like this:
 }
 ```
 {: pre}
-
-You must send the `generation` parameter with every API request to specify which generation to use. Use generation 2 for file service, i.e. specify `generation=2` because `generation=1` is not a valid option for VPC File Storage service. For more information, see **Generation** in the [Virtual Private Cloud API](https://{DomainName}/apidocs/vpc#api-generation-parameter)
-{: important}
 
 ### Create a file share and mount target together from the API
 {: #fs-create-share-target-api}

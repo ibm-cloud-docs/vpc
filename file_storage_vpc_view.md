@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-07"
+lastupdated: "2021-04-15"
 
 keywords: file storage, virtual private cloud, file share, mount target
 
@@ -35,6 +35,9 @@ View all file shares and mount targets by using the UI, CLI, or API. Also view d
 
 This service is available only to accounts with a special approval to preview this beta feature. 
 {:beta}
+
+Before you get started, make sure that you created a [VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
+{:important}
 
 ## View file shares and mount targets using the UI
 {: #file-storage-view-shares-targets-ui}
@@ -125,7 +128,7 @@ ibmcloud is shares [--resource-group-id RESOURCE_GROUP_ID | --resource-group-nam
 ### View all file shares from the API
 {: #fs-view-all-shares-api}
 
-This request lists all shares for a region. 
+Use the `GET /shares` request list all shares for a region. 
 
 ```curl
 curl -X GET \ 
@@ -193,7 +196,7 @@ A successful response will look like this:
 ### View a single file share from the API
 {: #fs-single-file-shares-api}
 
-This request gets the information of a single file share.
+Use the `GET /shares/{share_id}` request to get details about a single file share.
 
 ```curl
 curl -X GET \ 
@@ -248,12 +251,12 @@ A successful response will look like this:
   }
 }
 ```
-{:codeblock}
+{: pre}
 
 ### List all mount targets of a share from the API
 {: #fs-list-targets-api}
 
-This request lists all mount targets of a share.
+Use the `GET /shares/{share_id}/targets` request to list all mount targets of a share.
 
 Example:
 
@@ -298,7 +301,7 @@ A successful response will look like this:
 ### ### View a single mount target from the API
 {: #fs-get-target-api}
 
-This request gets the information of a single mount target of a share. This call will have the mount path information. Use the mount path to attach a file share to VSIs.
+Use the `GET /shares/{share_id}/targets/{target_id}` request to information of a single mount target of a share. This call includes mount path information. Use the mount path to attach a file share to an instance.
 
 Example:
 

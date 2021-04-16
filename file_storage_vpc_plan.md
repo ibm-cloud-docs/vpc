@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-07"
+lastupdated: "2021-04-15"
 
 keywords: file storage, virtual private cloud, file share, mount target
 
@@ -24,7 +24,7 @@ subcollection: vpc
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Planning your file shares (beta)
+# Planning your file shares (Beta)
 {: #file-storage-planning}
 
 When you're planning a to create file shares on your VPC, you might find this checklist helpful to set up and use the file service.
@@ -33,7 +33,7 @@ When you're planning a to create file shares on your VPC, you might find this ch
 This service is available only to accounts with special approval to preview this beta feature.
 {:beta}
 
-Before you get started, make sure that you created a [VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
+Before you get started, to create mount targets for file shares, make sure that you created a [VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
 {:important}
 
 ## Planning for creating file shares
