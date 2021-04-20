@@ -38,16 +38,19 @@ Virtual Private Cloud (VPC)
 
     {: .topicgroup}
     Storage
-        block_storage_vpc_about.md
         vsi_instance_storage.md
-        snapshots_vpc_about.md
-        file_storage_vpc_about.md
-        block_storage_vpc_capacity_performance.md
-        
+
         {: .topicgroup}
-        Profiles
-            block_storage_is_profiles.md
+        File storage
+            file_storage_vpc_about.md
             file_storage_vpc_profiles.md
+
+        {: .topicgroup}
+        Block storage
+            block_storage_vpc_about.md
+            snapshots_vpc_about.md
+            block_storage_vpc_capacity_performance.md
+            block_storage_is_profiles.md
     {: .navgroup-end}
 
     {: .navgroup id="tutorial"}
