@@ -366,6 +366,10 @@ Virtual Private Cloud (VPC)
         troubleshooting.md
 
         {: topicgroup}
+        Troubleshooting dedicated host
+            dedicated-host-failed.md
+
+        {: topicgroup}
         Troubleshooting flow log collectors
             fl-ts-failed-write.md
             fl-ts-cos-bucket.md
