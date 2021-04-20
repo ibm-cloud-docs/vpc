@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-13"
+lastupdated: "2021-04-20"
 
 keywords: file storage, virtual private cloud, file share, troubleshooting
 
@@ -21,6 +21,7 @@ subcollection: vpc
 {:important: .important}
 {:screen: .screen}
 {:support: data-reuse='support'}
+{:beta: .beta}
 
 
 # FAQs for file storage (beta)

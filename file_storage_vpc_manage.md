@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-14"
+lastupdated: "2021-04-20"
 
 keywords: file storage, virtual private cloud, file share
 
@@ -116,9 +116,6 @@ Using the CLI, you can:
 * Rename a mount target of a file share
 * Delete mount target of a file share
 * Delete a file share
-
-The CLI is not available for this beta.
-{:note}
 
 ### Rename a file share
 {: #ename-file-share-cli}
