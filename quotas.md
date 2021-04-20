@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-04-05"
+lastupdated: "2021-04-20"
 
 keywords: quotas, vpc, resources, limits
 
@@ -65,10 +65,8 @@ When you provision virtual server instances and dedicated hosts, the vCPU, RAM, 
 |Resource|Quota|
 |--------|-----|
 |ACLs| 25 per VPC |
-|Rules| 25 per ACL[^ACL] |
+|Rules| 100 per ACL |
 {: caption="Table 3. Quotas for access control lists" caption-side="top"}
-
-[^ACL]:Newer accounts might have an increased limit of 50 rules per resource. You can use the rules quota for inbound rules, outbound rules, or both. For example, you might have 20 inbound rules and 5 outbound rules per ACL.
 
 ### Security groups
 {: #security-group-quotas}
