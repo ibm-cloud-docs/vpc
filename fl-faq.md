@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2019, 2020
+  years: 2019, 2021
 lastupdated: "2020-07-23"
 
 keywords: flow logs, FAQs
@@ -74,7 +74,7 @@ You cannot change the COS bucket location for an existing flow log collector. Yo
 {: faq}
 {: support}
 
-Flow Logs for VPC collects at the VSI-level of the VPC instance. Virtual Appliances (IKS workers, LBaaS, VPN Gateway) are currently not included in flow log collector data output.
+Flow Logs for VPC collects at the virtual server-level of the VPC instance. Virtual Appliances (IKS workers, LBaaS, VPN Gateway) are currently not included in flow log collector data output.
 
 ## Is there a viewer or filter for flow logs?
 {: viewer-filter}
