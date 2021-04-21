@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2018, 2020
+  years: 2018, 2021
 lastupdated: "2019-09-30"
 
 keywords: troubleshoot, tips, error, bearer, API, CLI, problem, debug, token, trace
@@ -91,7 +91,7 @@ If the API is no longer returning any JSON, it is likely your IAM token has expi
 ## Cannot delete resources
 {: #troubleshoot-cannot-delete}
 
-Certain operations--creating and deleting VSIs, and creating and deleting subnets, for example--are completed asynchronously through the API. Because of this fact, it is recommended to poll the resources you're deleting, to check for deletion before proceeding. 
+Certain operations--creating and deleting virtual server instances, and creating and deleting subnets, for example--are completed asynchronously through the API. Because of this fact, it is recommended to poll the resources you're deleting, to check for deletion before proceeding. 
 
 It can take several minutes for resources to be deleted from the system, due to these asynchronous operations. To facilitate deletion, the best practice is to do things in this order:
 
