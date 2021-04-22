@@ -37,10 +37,10 @@ Use these instructions to connect a Red Hat Enterprise Linux&reg;-based {{site.d
 This service is available only to accounts with a special approval to preview this beta feature. 
 {:beta}
 
-## Before you begin - Create a VSI
+## Before you begin - Create a virtual server instance
 {: #fs-rhel-create-vsi}
 
-Before you begin to mount File Storage for VPC file shares, you must create a [virtual server instance](/docs/vpc?topic=vpc-about-advanced-virtual-servers) in the same zone as the file share. After creating an instance, get the mount path of the file share from the mount target created. You need a mount path for mounting file shares. 
+Before you begin to mount File Storage for VPC file shares, you must create a [virtual server instance](/docs/vpc?topic=vpc-about-advanced-virtual-servers) in the same zone as the file share. After you create an instance, get the mount path of the file share from the mount target created. You need a mount path for mounting file shares. 
 
 Mount path information can be obtained from the File share details page in the UI, or through an API or CLI call to get the mount target information.
 {:tip}
