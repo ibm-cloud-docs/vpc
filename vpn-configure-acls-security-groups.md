@@ -34,7 +34,7 @@ If you configure ACLs on the VPN gateway's subnet, make sure that the following 
 | Inbound/Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port | 
 |--------------|------|------|------|------|------------------|
 | Inbound | All | Peer gateway public IP[^IP] | N/A | VPN gateway's subnet | N/A
-| Outbound | All  | VPN gateway's subnet | N/A | Peer gateway public IP[^IP] | N/A
+| Outbound | All  | VPN gateway's subnet | N/A | Peer gateway public IP[^IP2] | N/A
 | Inbound | All | On-premises, private subnet | N/A | VPC subnet | N/A
 | Outbound | All  | VPC subnet | N/A | On-premises, private subnet | N/A
 | Inbound (optional) | ICMP | Any | N/A | Any | N/A
@@ -50,4 +50,6 @@ If you use ACLs or security groups on the VPC subnets that communicate over the 
 {: caption="Table 2. Inbound and outbound rules on VPC subnets" caption-side="top"}
 
 [^IP]:Set the source IP to the peer gateway public IP address. This allows traffic from the VPC and the on-premises subnets. 
+
+[^IP2]:Set the source IP to the peer gateway public IP address. This allows traffic from the VPC and the on-premises subnets. 
 
