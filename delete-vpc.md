@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2019, 2020
+  years: 2019, 2021
 lastupdated: "2019-12-05"
 
 keywords: delete, resources
@@ -56,7 +56,7 @@ After you request to delete a resource, the resource enters a transient state of
 ## Follow this order when you delete a VPC
 {: #deleting-order}
 
-A VPC contains subnets and public gateways. A public gateway can be attached to one or more subnets in the VPC. A subnet also can contain virtual server instances (VSIs), and one VSI can have multiple network interfaces in different subnets within the VPC. Before a subnet can be deleted, any network interfaces in the subnet must first be deleted. A VPC contains security groups as well, but they are deleted automatically when the VPC is deleted. Address prefixes are attributes of a VPC, and they are deleted automatically, when the VPC is deleted.
+A VPC contains subnets and public gateways. A public gateway can be attached to one or more subnets in the VPC. A subnet also can contain virtual server instances, and one virtual server instance can have multiple network interfaces in different subnets within the VPC. Before a subnet can be deleted, any network interfaces in the subnet must first be deleted. A VPC contains security groups as well, but they are deleted automatically when the VPC is deleted. Address prefixes are attributes of a VPC, and they are deleted automatically, when the VPC is deleted.
 
 Follow this order when you delete a VPC:
 
