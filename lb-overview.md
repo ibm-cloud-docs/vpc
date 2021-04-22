@@ -51,7 +51,7 @@ You can create a public or private ALB. Table 1 shows a comparison of public ver
 
 A public application load balancer service instance is assigned a publicly accessible fully qualified domain name (FQDN), which you must use to access your applications that are hosted behind the load balancer. This domain name can be registered with one or more public IP addresses.
 
-Over time, the number and value of these public IP addresses might change due to maintenance and scaling activities. The back-end virtual server instances (VSIs) hosting your application must run in the same region and under the same VPC.
+Over time, the number and value of these public IP addresses might change due to maintenance and scaling activities. The back-end virtual server instances hosting your application must run in the same region and under the same VPC.
 
 Use the assigned FQDN to send traffic to the public application load balancer to avoid connectivity problems to your applications during system maintenance or scaling down activities.
 {: important}
@@ -63,7 +63,7 @@ A private application load balancer is accessible through your private subnets t
 
 Similar to a public application load balancer, your private application load balancer service instance is assigned an FQDN. However, this domain name is registered with one or more private IP addresses.
 
-{{site.data.keyword.cloud_notm}} operations might change the number and value of your assigned private IP addresses over time, based on maintenance and scaling activities. The back-end virtual server instances (VSIs) hosting your application must run in the same region, and under the same VPC.
+{{site.data.keyword.cloud_notm}} operations might change the number and value of your assigned private IP addresses over time, based on maintenance and scaling activities. The back-end virtual server instances hosting your application must run in the same region, and under the same VPC.
 
 Use the assigned FQDN to send traffic to the private application load balancer to avoid connectivity problems to your applications during system maintenance or scaling down activities.
 {: important}
@@ -160,7 +160,7 @@ An application load balancer adjusts its capacity automatically according to the
 ## Data storage and encryption
 {: #load-balancer-data-stored-encrypted-alb}
 
-IBM Db2-on-Cloud Service serves as the database for the application load balancer. It has high-availability (HA) enabled, and SSL connections are enforced. SSL certificates are also used for the load balancer RESTful APIs. When you create a load balancer, a workflow activity creates a VSI. Before the VSI is created, a request is made to the Certificate Manager to obtain the server SSL certificate to be injected into the appliance.
+IBM Db2-on-Cloud Service serves as the database for the application load balancer. It has high-availability (HA) enabled, and SSL connections are enforced. SSL certificates are also used for the load balancer RESTful APIs. When you create a load balancer, a workflow activity creates a virtual server instance. Before the virtual server instance is created, a request is made to the Certificate Manager to obtain the server SSL certificate to be injected into the appliance.
 
 ## Integration with instance groups
 {: #lbaas-integration-with-instance-groups-overview}
