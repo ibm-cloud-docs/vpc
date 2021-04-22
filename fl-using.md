@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2020
+  years: 2020, 2021
 lastupdated: "2020-07-23"
 
 keywords: flow logs, getting started
@@ -57,7 +57,7 @@ Flow logs can help with a number of tasks, including:
 
 ## Configuring flow log collectors
 
-You can configure flow log collectors with different collection scopes. For example, a collector that targets a VPC and aggregates in-transit data from _all_ network interfaces within that VPC. Or, a collector that targets a virtual server instance (VSI) and aggregates in-transit data from _only_ that VSI's network interfaces. After data is collected, flow logs are stored in a Cloud Object Storage (COS) bucket, which you configure when you create the flow log collector.
+You can configure flow log collectors with different collection scopes. For example, a collector that targets a VPC and aggregates in-transit data from _all_ network interfaces within that VPC. Or, a collector that targets a virtual server instance and aggregates in-transit data from _only_ that virtual server instance's network interfaces. After data is collected, flow logs are stored in a Cloud Object Storage (COS) bucket, which you configure when you create the flow log collector.
 
 You can set the granularity of a flow log collector for the following target scopes. Keep in mind that if you create a flow log for a subnet or VPC, each network interface in that subnet or VPC is monitored.
 
@@ -76,9 +76,9 @@ During each collector upload interval, there are two flow logs (ingress and egre
 
 Each flow log target can have a single flow log collector, which can lead to overlaps. Here are examples, with the finest granularity listed first:
 
-* A VSI interface might have a flow log collector.
-* The VSI that the interface is attached to might have a separate flow log collector.
-* The subnet that the VSI is attached to might have its own flow log collector.
+* A virtual server instance interface might have a flow log collector.
+* The virtual server instance that the interface is attached to might have a separate flow log collector.
+* The subnet that the virtual server instance is attached to might have its own flow log collector.
 * The VPC that the subnet is part of might have its own flow log collector.
 
 If an overlap exists, the most targeted flow log collector takes precedence. This precedence is important because each flow log collector might log to a different COS bucket, and where flow log data is stored, can change over the lifetime of a virtual server instance.
@@ -119,15 +119,15 @@ The following diagram shows possible ways that you can configure flow log collec
 ### Use case 3: Troubleshooting security groups and network ACLs
 {: #troubleshooting-perf-problems-example}
 
-Similar to use case 2, this use case illustrates how to set the granularity of flow log collectors for different target scopes. It also goes one step further to depict how flow logs can help you troubleshoot using security groups and network ACLs (NACLs).  
+Similar to use case 2, this use case illustrates how to set the granularity of flow log collectors for different target scopes. It also goes one step further to depict how flow logs can help you troubleshoot by using security groups and network ACLs (NACLs).  
 
 Scenario:
 
 1. NACL 2 on Subnet 3 is preventing you from running a web server there. Notice that this network ACL allows ingress, but denies egress.  
-2. A VSI on Subnet 2 (NACL 1 allows ingress and egress) tries to query the web server that you are running on Subnet 3.
-3. The query gets through and you see that the traffic is accepted on the ingress path to Subnet 3 into VSI 31.  
-4. When VSI 31 receives the request, it generates a reply and tries to send it. Unfortunately, the response cannot be returned and your connection hangs on Subnet 2 until it times out.
-5. Flow logs show that the request was sent and that it was accepted on VSI 31. Flow logs show that the response traffic was rejected.
+2. A virtual server instance on Subnet 2 (NACL 1 allows ingress and egress) tries to query the web server that you are running on Subnet 3.
+3. The query gets through and you see that the traffic is accepted on the ingress path to Subnet 3 into virtual server instance 31.  
+4. When virtual server instance 31 receives the request, it generates a reply and tries to send it. Unfortunately, the response cannot be returned and your connection hangs on Subnet 2 until it times out.
+5. Flow logs show that the request was sent and that it was accepted on virtual server instance 31. Flow logs show that the response traffic was rejected.
 
 ![Troubleshooting security groups and network ACLs](/images/fl-sc-acls.png "Troubleshooting security groups and network ACLs")
 
@@ -150,4 +150,4 @@ These links provide additional information about {{site.data.keyword.cloud_notm}
 * [Flow Logs for VPC infrastructure resources for Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-vpc-gen2-resources#ibm_is_flow_log)
 * [Blog: Use IBM Log Analysis to Analyze VPC Network Traffic from IBM Cloud Flow Logs for VPC](https://www.ibm.com/cloud/blog/use-ibm-log-analysis-with-logdna-to-analyze-vpc-network-traffic-from-ibm-cloud-flow-logs-for-vpc)
 * [Blog: Indexing and Searching VPC Flow Logs in IBM Cloud Databases for Elasticsearch](https://www.ibm.com/cloud/blog/indexing-and-searching-vpc-flow-logs-in-ibm-cloud-databases-for-elasticsearch)
-* [Article: Provisioning VPC Flow Logs in IBM Cloud using Terraform](https://developer.ibm.com/recipes/tutorials/provisioning-vpc-flow-logs-in-ibm-cloud-using-terraform/)
+* [Article: Provisioning VPC Flow Logs in IBM Cloud by using Terraform](https://developer.ibm.com/recipes/tutorials/provisioning-vpc-flow-logs-in-ibm-cloud-using-terraform/)
