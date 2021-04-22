@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2019, 2020
+  years: 2019, 2021
 lastupdated: "2020-02-24"
 
 subcollection: vpc
@@ -52,7 +52,7 @@ No, although the name can contain numbers, it must begin with a letter.
 {: #faq-vpc-4}
 {: faq}
 
-Yes, the UI blocks consecutive double dashes, underscores, and periods from being part of a VSI name.
+Yes, the UI blocks consecutive double dashes, underscores, and periods from being part of a virtual server instance name.
 
 ## During the public gateway creation, do I need to reserve the floating IP, or does the system automatically reserve it? Will I see that floating IP when I query all of the floating IPs?
 {: #faq-vpc-6}
