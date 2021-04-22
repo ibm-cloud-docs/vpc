@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017, 2020
+  years: 2017, 2021
 lastupdated: "2020-11-11"
 
 keywords: vpc, vpc network, VRF, router, hypervisor, address prefixes, classic access, implicit router, packet flows, NAT, data flows, Cloud Service Endpoint source addresses, source addresses
@@ -31,9 +31,9 @@ This page presents a more detailed conceptual picture of what's happening "behin
 
 VPC network isolation takes place at three levels:
 
-* **Hypervisor**: The VSIs (virtual server instances) are isolated by the hypervisor itself. A VSI can not directly reach other VSIs hosted by the same hypervisor if they are not in the same VPC.
+* **Hypervisor**: The virtual server instances are isolated by the hypervisor itself. A virtual server instance can not directly reach other virtual server instances that are hosted by the same hypervisor if they are not in the same VPC.
 
-* **Network**: Isolation occurs at the network level through the use of **virtual network identifiers** (VNIs). These identifiers are assigned to each subnet and scoped to a single zone. A VNI is added to all data packets entering any zone of the VPC: entering either from the hypervisor, when sent by a VSI, or entering the zone from the cloud, when sent by the implicit routing function.
+* **Network**: Isolation occurs at the network level through the use of **virtual network identifiers** (VNIs). These identifiers are assigned to each subnet and scoped to a single zone. A VNI is added to all data packets entering any zone of the VPC: entering either from the hypervisor, when sent by a virtual server instance, or entering the zone from the cloud, when sent by the implicit routing function.
 
 A packet leaving a zone has the VNI stripped off. When the packet reaches its destination zone, entering through the implicit routing function, the implicit router always adds the proper VNI for that zone.
 {: note}
@@ -43,7 +43,7 @@ A packet leaving a zone has the VNI stripped off. When the packet reaches its de
 ## Address prefixes
 {: #address-prefixes}
 
-Address prefixes are the summary information used by a VPC's implicit routing function to locate a _destination VSI_, regardless of the availability zone in which the destination VSI is located. The primary function of address prefixes is to optimize routing over the MPLS VPN, while avoiding pathological routing cases. All subnets created in a VPC must be contained in an address prefix, so that all VSIs in a VPC are reachable from all other VSIs in the VPC.
+Address prefixes are the summary information used by a VPC's implicit routing function to locate a _destination VSI_, regardless of the availability zone in which the destination virtual server instance is located. The primary function of address prefixes is to optimize routing over the MPLS VPN, while avoiding pathological routing cases. All subnets created in a VPC must be contained in an address prefix, so that all virtual server instances that are in a VPC are reachable from all other virtual server instances in the VPC.
 
 ## Cloud Service Endpoint source addresses 
 {: #cse-source-addresses}
@@ -53,7 +53,7 @@ Cloud Service Endpoint source addresses are the IP addresses that identify a VPC
 ## Data packet flows and the implicit router
 {: #data-packet-flows-and-the-implicit-router}
 
-Six different types of VSI data packet flows occur in a VPC. In ascending order of complexity, these flows are:
+Six different types of virtual server instance data packet flows occur in a VPC. In ascending order of complexity, these flows are:
 
 * Intra-subnet, intra-host (same hypervisor)
 * Intra-subnet, inter-host
@@ -62,22 +62,22 @@ Six different types of VSI data packet flows occur in a VPC. In ascending order 
 * Extra-VPC service (for IaaS or CSE access)
 * Extra-VPC internet (for internet access)
 
-**Intra-subnet, intra-host** data flows: These are the simplest. Packets flow between the VSIs on the hypervisor, and no packets are leaving the hypervisor.
+**Intra-subnet, intra-host** data flows: These are the simplest. Packets flow between the virtual server instances on the hypervisor, and no packets are leaving the hypervisor.
 
-**Intra-subnet, inter-host** data flows: These flows involve packets leaving the hypervisor. Each packet is tagged with the proper VNI (virtualized network identifier) to ensure data isolation, and then it's sent to the destination hypervisor, which hosts the destination VSI. The destination hypervisor strips off the VNI and forwards the data packet to the destination VSI.
+**Intra-subnet, inter-host** data flows: These flows involve packets leaving the hypervisor. Each packet is tagged with the proper VNI (virtualized network identifier) to ensure data isolation, and then it's sent to the destination hypervisor, which hosts the destination virtual server instance. The destination hypervisor strips off the VNI and forwards the data packet to the destination virtual server instance.
 
-**Inter-subnet, intra-zone** data flows: These flows involve packets that utilize the VPC's implicit router function, which connects all subnets created in the VPC. It routes the data packet to the correct destination hypervisor. If the destination hypervisor is different from the source hypervisor, the data packet is tagged with the proper VNI and sent to the destination hypervisor. There, the VNI is stripped off and the data packet is forwarded to the destination VSI. (These last steps are the same as described in the previous type of data flow.)
+**Inter-subnet, intra-zone** data flows: These flows involve packets that utilize the VPC's implicit router function, which connects all subnets created in the VPC. It routes the data packet to the correct destination hypervisor. If the destination hypervisor is different from the source hypervisor, the data packet is tagged with the proper VNI and sent to the destination hypervisor. There, the VNI is stripped off and the data packet is forwarded to the destination virtual server instance. (These last steps are the same as described in the previous type of data flow.)
 
-**Inter-subnet, inter-zone** data flows: For these flows, the implicit router function removes the VNI and forwards the packet in the VPC's MPLS VPN for transit across the cloud backbone. At the destination zone, the implicit router function tags the data packet with the appropriate VNI. Then the packet is forwarded to the destination hypervisor, where the VNI is (as previously described) stripped off again so that the data packet can be forwarded to the destination VSI.
+**Inter-subnet, inter-zone** data flows: For these flows, the implicit router function removes the VNI and forwards the packet in the VPC's MPLS VPN for transit across the cloud backbone. At the destination zone, the implicit router function tags the data packet with the appropriate VNI. Then the packet is forwarded to the destination hypervisor, where the VNI is (as previously described) stripped off again so that the data packet can be forwarded to the destination virtual server instance.
 
-**Extra-vpc service** data flows: Packets destined for IaaS or IBM Cloud Service Endpoint (CSE) services utilize the VPC's implicit router function, and they also utilize a network address translation (NAT) function. The translation function replaces the VSI address with an IPv4 address, which identifies the VPC to the IaaS or CSE service that's being requested.
+**Extra-vpc service** data flows: Packets destined for IaaS or IBM Cloud Service Endpoint (CSE) services utilize the VPC's implicit router function, and they also utilize a network address translation (NAT) function. The translation function replaces the virtual server instance address with an IPv4 address, which identifies the VPC to the IaaS or CSE service that's being requested.
 
 **Extra-vpc internet** data flows: Packets destined for the internet are the most complex. Besides utilizing the VPC's implicit router function, each of these flows also relies on one of the implicit router's two network address translation (NAT) functions:
 
   * an explicit one-to-many NAT through a public gateway function that serves all subnets connected to it.
-  * one-to-one NAT assigned to individual VSIs.
+  * one-to-one NAT assigned to individual virtual server instances.
 
-After NAT translation, the implicit router forwards these internet-destined packets to the internet, using the cloud backbone.
+After NAT translation, the implicit router forwards these internet-destined packets to the internet, by using the cloud backbone.
 
 ## Life cycle of external IPs associated with public gateway functions
  {: #pgw-external-IP-lifecycle}
