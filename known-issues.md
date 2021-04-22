@@ -31,12 +31,7 @@ Known issues might change over time, so check back occasionally.
 - **Symptom:** When you use the API or CLI to list images, some public stock images might not include a checksum. 
 - **Fix:** The checksum is for informational purposes only for stock images. No fix is available at this time.
 
-## API-1144: Virtual server instances (VSIs) must be stopped before they can be deleted
+## API-1144: Virtual server instances must be stopped before they can be deleted
 {: #API-1144}
-- **Symptom:** The VSI cannot be deleted.
+- **Symptom:** The virtual server instances cannot be deleted.
 - **Workaround:** Stop the instance before you attempt to delete it.
-
-## RIOS-129: Inconsistent image names between VPC generation 1 and 2
-{: #RIOS-129}
-- **Symptom:** The names of stock images are different in VPC generation 1 and VPC generation 2 environments. The expected behavior is that names are consistent across VPC unified images.
-- **Fix:** The image service is being rolled out in VPC generation 1 first. When the service is deployed in VPC generation 2, unified image names will match, as the same image service will be running in both environments.
