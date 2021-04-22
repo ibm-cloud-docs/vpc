@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-19"
+lastupdated: "2021-04-22"
 
 keywords: creating a Windows custom image, cloudbase-init, qcow2
 
@@ -35,7 +35,7 @@ Your image must adhere to the following custom image requirements:
 * Contains a single file or volume 
 * Is cloud-init enabled
 * The operating system is supported as a stock image operating system
-* Size doesn't exceed 100 GB
+* Size of the boot disk doesn't exceed 100 GB
 
 The following procedure describes how to create a Windows custom image that can be successfully deployed in the {{site.data.keyword.vpc_short}} infrastructure environment. The procedure encompasses these high-level tasks:
 * Use VirtualBox to create a Windows image in VHD format.
@@ -57,10 +57,36 @@ Complete the following steps to start creating a Windows custom image.
      IBM Cloud supports custom image import with VHD or qcow2.  However, Virtual Box does not support the qcow2 format.
      {: note}
     
+3. Obtain the required virtio-win drivers by [provisioning](/docs/vpc?topic=vpc-creating-virtual-servers) or accessing an existing Red Hat Enterprise Linux virtual server instance in {{site.data.keyword.vpc_short}}. Then install the virtio-win package on the instance. Finally, copy the virtio-win ISO file, for example, *virtio-win-1.9.15.iso*, to use for your Windows custom image creation.
+  
+   1. On your Red Hat Enterprise Linux virtual server instance in {{site.data.keyword.vpc_short}}, install the virtio-win package by running the following command:
     
-3. Download the [virtio-win drivers](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso){: external}. For more information, see the Fedora user documentation, [Creating Windows virtual machines using virtIO drivers](https://docs.fedoraproject.org/en-US/quick-docs/creating-windows-virtual-machines-using-virtio-drivers/){: external}.
+     ```
+     yum install virtio-win
+     ```
+     {: codeblock}
+     
+     In this example, the virtio-win package is being installed on Red Hat Enterprise Linux version 8. You should see output similar to the following:
+   
+     ```
+     Installed:
+       virtio-win-1.9.15-0.el8.noarch
+     ```
+     {: screen}
+  
+   2. Access the virtio-win ISO in the `/usr/share/virtio-win` directory.  
+   
+     ```
+     cd /usr/share/virtio-win/
+     ```
+     {: codeblock}
+     
+   3. Use SCP to copy the virtio-win ISO file, for example `virtio-win-1.9.15.iso` to use for your Windows custom image creation.  
 
 4. Use VirtualBox to create a virtual machine with the VHD image that you created in step 2. For more information, see [Oracle VM VirtualBox User Manual](https://www.virtualbox.org/manual/){: external}. 
+
+If you choose to use a method other than VirtualBox to create the custom image, such as VMware, you must remove all drivers that are specific to that hypervisor from the custom image.
+{: important} 
 
 ## Customize the virtual machine
 {: #customize-virtual-machine}
