@@ -60,8 +60,16 @@ Flow log collector attributes shown in the table are as follows:
 
    * **VPC** - Shows flow log collectors that are attached directly to a VPC.
    * **Subnet** - Shows flow log collectors that are attached directly to a subnet within the specified VPC.
-   * **Instance** - Shows all flow log collectors that are attached directly to a VSI within the specified VPC.
-   * **Interface** - Shows all flow log collectors that are attached directly to a network interface of a VSI within the specified VPC.
+   * **Instance** - Shows all flow log collectors that are attached directly to a 
+   * **VPC** - Shows flow log collectors that are attached directly to a VPC.
+   * **Subnet** - Shows flow log collectors that are attached directly to a subnet within the specified VPC.
+   * **Instance** - Shows all flow log collectors that are attached directly to a virtual server instance within the specified VPC.
+   * **Interface** - Shows all flow log collectors that are attached directly to a network interface of a virtual server instance within the specified VPC. within the specified VPC.
+   * **Interface** - Shows all flow log collectors that are attached directly to a network interface of a 
+   * **VPC** - Shows flow log collectors that are attached directly to a VPC.
+   * **Subnet** - Shows flow log collectors that are attached directly to a subnet within the specified VPC.
+   * **Instance** - Shows all flow log collectors that are attached directly to a virtual server instance within the specified VPC.
+   * **Interface** - Shows all flow log collectors that are attached directly to a network interface of a virtual server instance within the specified VPC. within the specified VPC.
 
 ## Using the CLI
 {: #fl-list-cli}
