@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2020
+  years: 2020, 2021
 lastupdated: "2020-07-23"
 
 keywords: flow logs, IAM
@@ -60,7 +60,7 @@ In addition, you also require the following actions and operations that are not 
 | Write on COS bucket  | Create flow log collector |
 | Operator on Subnet     | Create flow log collector with Subnet scope    |
 | Operator on VPC    | Create flow log collector with VPC scope    |
-| Operator on VSI | Create flow log collector with Instance or Interface scope  |
+| Operator on virtual server instance | Create flow log collector with Instance or Interface scope  |
 {: caption="Table 2. Additional IAM user roles and actions" caption-side="top"}
 
 Operator roles in the following table are required only if the target scope is being changed.
@@ -71,7 +71,7 @@ Operator roles in the following table are required only if the target scope is b
 | Write on COS bucket            | (Change COS bucket)         |  
 | Operator on Subnet     | (to Subnet scope)           |  
 | Operator on VPC           | (to VPC scope)              |  
-| Operator on VSI | (to Instance or Interface scope) |
+| Operator on virtual server instance | (to Instance or Interface scope) |
 {: caption="Table 3. IAM roles only if the target scope is being changed" caption-side="top"}
 
 Each aggregator creates a separate stream of data to COS. Since you can create a flow log collector that associates data that is captured from multiple interface IDs with a single COS bucket, each bucket needs a folder structure for holding data.
