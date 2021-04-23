@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2018, 2020, 2021
+  years: 2018, 2021
 lastupdated: "2021-03-16"
 
 subcollection: vpc
@@ -51,14 +51,14 @@ You can't create certain instance actions if the status of your instance is in c
 ## Instance not responding to `instance-reboot` request
 {: #troubleshooting-instance-not-responding}
 
-If your instance is not responding to an `instance-reboot` request, you can try an `instance-reset` request. The `instance-reboot` request sends an OS-reboot request to the instance, while an `instance-reset` request performs a hard reset of the VSI instance. You can think of the difference as typing "ctrl-alt-delete" on your computer's keyboard versus pressing the reset or power button. Remember that the `instance-reset` request takes longer to complete than the `instance-reboot` request.
+If your instance is not responding to an `instance-reboot` request, you can try an `instance-reset` request. The `instance-reboot` request sends an OS-reboot request to the instance, while an `instance-reset` request performs a hard reset of the virtual server instance. You can think of the difference as typing "ctrl-alt-delete" on your computer's keyboard versus pressing the reset or power button. Remember that the `instance-reset` request takes longer to complete than the `instance-reboot` request.
 
 ## Why can't I add my SSH key?
 {: #troubleshooting-cant-add-ssh-key}
 
 If you try to add an SSH key to your account and get an error that the key can't be parsed, ensure there are no line breaks in the string. An SSH key is a continuous string of characters; sometimes line breaks are introduced when the SSH key is copied from a terminal. To avoid this issue, first paste your SSH key into a text editor and remove any line breaks. Then, copy the SSH key from the text editor and paste it into the VPC UI, CLI, or API.
 
-## How do I reregister a RHEL VSI? 
+## How do I reregister a RHEL virtual server instance? 
 {: #troubleshooting-reregister-RHEL-VSI}
 
 If you see this error message: 
@@ -67,7 +67,7 @@ This system is not registered with an entitlement server.
 ```
 {:pre}
 
-Your REHL VSI has been unregistered from the capsule server. To resolve this issue, run the reregister-ng-rhel-vsi.sh script to reregister the vsi. 
+Your REHL virtual server instance was unregistered from the capsule server. To resolve this issue, run the `reregister-ng-rhel-vsi.sh` script to reregister the virtual server instance. 
 
 ```
 #!/bin/bash
@@ -82,7 +82,7 @@ Your REHL VSI has been unregistered from the capsule server. To resolve this iss
 ## =============================================================================
 ##
 #
-# Description: Reregister an RHEL VSI to its respective capsule server
+# Description: Reregister an RHEL virtual server instance to its respective capsule server
 #
 
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
