@@ -13,6 +13,7 @@ subcollection: vpc
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:screen: .screen}
@@ -31,7 +32,7 @@ This document covers quotas and limits for {{site.data.keyword.vpc_full}} and th
 
 The following tables show the quotas for various VPC resources.
 
-To increase a quota for a particular resource, [contact IBM Support](/docs/get-support?topic=get-support-using-avatar).
+To increase a quota for a particular resource, [contact IBM Support](https://{DomainName}/unifiedsupport/cases/form){: external}.
 {:note}
 
 ### Compute resources
