@@ -43,7 +43,7 @@ A packet leaving a zone has the VNI stripped off. When the packet reaches its de
 ## Address prefixes
 {: #address-prefixes}
 
-Address prefixes are the summary information used by a VPC's implicit routing function to locate a _destination VSI_, regardless of the availability zone in which the destination virtual server instance is located. The primary function of address prefixes is to optimize routing over the MPLS VPN, while avoiding pathological routing cases. All subnets created in a VPC must be contained in an address prefix, so that all virtual server instances that are in a VPC are reachable from all other virtual server instances in the VPC.
+Address prefixes are the summary information used by a VPC's implicit routing function to locate a _destination virtual server instance_, regardless of the availability zone in which the destination virtual server instance is located. The primary function of address prefixes is to optimize routing over the MPLS VPN, while avoiding pathological routing cases. All subnets created in a VPC must be contained in an address prefix, so that all virtual server instances that are in a VPC are reachable from all other virtual server instances in the VPC.
 
 ## Cloud Service Endpoint source addresses 
 {: #cse-source-addresses}
