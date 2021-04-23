@@ -101,10 +101,10 @@ The following sections describe these solutions in more detail.
 
 Here is the virtual server setup:
 
-* There are two virtual servers (`VSI-1` and `VSI-2`) where both virtual servers belong to the same VPC.
+* There are two virtual servers (`Virtual-server-1` and `Virtual-server-2`) where both virtual servers belong to the same VPC.
 * Each virtual server has two interfaces from two subnets:
-  * VSI-1 has interface `eth0` from `net_1_0`, and interface `eth1` from `net_1_1`.
-  * VSI-2 has interface `eth0` from `net_2_0`, and interface `eth1` from `net_2_1`.
+  * _Virtual-server-1_ has interface `eth0` from `net_1_0`, and interface `eth1` from `net_1_1`.
+  * _Virtual-server-2_ has interface `eth0` from `net_2_0`, and interface `eth1` from `net_2_1`.
 * Each virtual server's `net_*_0` is set up with a default route.
 * Each subnet's gateway IP and CIDR are known.
 
@@ -123,14 +123,14 @@ Here is the virtual server setup:
 
 This solution makes one subnet the default gateway (automatically by virtual server instance creation), and adds a static route for the second subnet:
 
-* On `VSI-1`:
+* On `Virtual-server-1`:
 
    ```
    ip route add cidr_2_1 via gw_ip_1_1 dev eth1
    ```
    {: pre}
 
-* On `VSI-2`:
+* On `Virtual-server-2`:
 
    ```
    ip route add cidr_1_1 via gw_ip_2_1 dev eth1
@@ -140,7 +140,7 @@ This solution makes one subnet the default gateway (automatically by virtual ser
 ### Adding a separate routing table for the second interface
 {: #adding-route-table-second-interface}
 
-* On `VSI-1`:
+* On `Virtual-server-1`:
 
 ```
    echo 201 eth1tab >> /etc/iproute2/rt_tables
@@ -149,7 +149,7 @@ This solution makes one subnet the default gateway (automatically by virtual ser
 ```
 {: codeblock}
 
-* On `VSI-2`:
+* On `Virtual-server-2`:
 
 ```
 echo 201 eth1tab >> /etc/iproute2/rt_tables
