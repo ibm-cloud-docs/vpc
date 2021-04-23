@@ -35,11 +35,11 @@ To complete this task you must have an instance of {{site.data.keyword.cos_full}
 
 Complete the following steps to migrate an image template that is associated with a virtual server instance in the classic infrastructure to the {{site.data.keyword.vpc_short}} infrastructure. When the custom image is available in {{site.data.keyword.vpc_short}}, you can use it to create a virtual server. 
 
-Here is an overview of the steps:
+The following is an overview of the migration steps:
 
 1. For the virtual server that you want to migrate to {{site.data.keyword.vpc_short}} infrastructure, create an image template.
 2. From the image template, provision a new virtual server instance, a backup instance.
-3. Customize the backup virtual server instance to ensure that you meet the requirements for deploying in {{site.data.keyword.vpc_short}}.
+3. Customize the backup virtual server instance to make sure that you meet the requirements for deploying in {{site.data.keyword.vpc_short}}.
 4. Create an image template of your modified virtual server instance.
 5. Export the image template to {{site.data.keyword.cos_full_notm}}.
 6. Import the custom image to the {{site.data.keyword.vpc_short}} infrastructure.
@@ -51,10 +51,10 @@ For an example of using shell scripts to migrate a classic instance to an {{site
 ### Step 1 - Identify the virtual server instance to migrate and create an image template
 {: #migrate-create-template}
 
-You can create an image template from a virtual server in the classic infrastructure that you want to migrate to the {{site.data.keyword.vpc_short}} infrastructure. The image template captures an image of the existing virtual server so that you can create a new one based on the captured image. Make sure you understand the following information about image templates.
+You can create an image template from a virtual server in the classic infrastructure that you want to migrate to the {{site.data.keyword.vpc_short}} infrastructure. The image template captures an image of the existing virtual server so that you can create a new one based on the captured image. Make sure that you understand the following information about image templates.
 
 * Only image templates with a single primary boot volume (or disk) and associated file can be imported to {{site.data.keyword.vpc_short}} infrastructure. 
-* The image template includes the operating system on the primary boot disk along with items you might have installed, such as PHP or Python, up to 100 GB of data. 
+* The image template includes the operating system on the primary boot disk and the items that you installed, such as PHP or Python, up to 100 GB of data. 
 * When you use the imported custom image in {{site.data.keyword.vpc_short}} to create a new virtual server, you can select a new profile, assign an SSH key, specify user data, and configure network interfaces. 
 
 Secondary disks and their associated files for an image template are not supported when importing an image template as a custom image to {{site.data.keyword.vpc_short}}.  
@@ -64,20 +64,20 @@ Complete the following steps to create an image template for the virtual server 
 
 1. From the Dashboard in [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com/){: external}, create an image template by clicking **Menu** ![Menu icon](../../icons/icon_hamburger.svg) > **Classic Infrastructure** > **Devices** > **Device List**. 
 2. Click the virtual server that you want to use to create an image template. 
-3. From the **Actions** menu, select **Create Image Template**. Make sure to name it something you will easily recognize. For more information, see [Creating an image template](/docs/image-templates?topic=image-templates-creating-an-image-template).
+3. From the **Actions** menu, select **Create Image Template**. Make sure to name it something you can easily recognize. For more information, see [Creating an image template](/docs/image-templates?topic=image-templates-creating-an-image-template).
     
 ### Step 2 - Locate the image template and provision a new virtual server instance
 {: #migrate-locate-template}
 
-From the image template you just created, provision a new virtual server instance, a backup instance. You can customize this backup virtual server to meet the requirements of {{site.data.keyword.vpc_short}}. Complete the following steps to create a new instance from the image template.  
+From the image template that you created, provision a new virtual server instance, a backup instance. You can customize this backup virtual server to meet the requirements of {{site.data.keyword.vpc_short}}. Complete the following steps to create a new instance from the image template.  
 
-1. Locate the image template you created on the **Image Templates** page by selecting **Devices > Manage > Images**. 
-2. Provision a backup virtual server instance from the image template by clicking the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the image template and selecting **Order Public VSI**.  
+1. Locate the image template that you created on the **Image Templates** page by selecting **Devices > Manage > Images**. 
+2. Provision a backup virtual server instance from the image template by clicking the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the image template and selecting **Order Public virtual server instance**.  
 
 ### Step 3 - Customize the virtual server instance for {{site.data.keyword.vpc_short}} 
 {: #migrate-customize-image-vpc} 
 
-Complete the required virtual server instance customizations to prepare your image to run in the {{site.data.keyword.vpc_short}} infrastructure. Some of the customization requirements might already be complete on your classic infrastructure virtual server instance.
+Complete the required virtual server instance customizations to prepare your image to run in the {{site.data.keyword.vpc_short}} infrastructure. Some of the customization requirements might be complete on your classic infrastructure virtual server instance.
 
 #### Customizing a Linux instance 
 {: #customize-linux-instance} 
@@ -86,7 +86,7 @@ Use the instructions in [Creating a Linux custom image](/docs/vpc?topic=vpc-crea
 * The following [arguments](/docs/vpc?topic=vpc-create-linux-custom-image#kernel-args) are present on the kernel command line: *nomodeset*, *nofb*, *vga=normal*, *console=ttyS0*. 
 * Your operating system image has [virtio drivers](/docs/vpc?topic=vpc-create-linux-custom-image#virtio-drivers) installed, along with any code that is needed by virtio.
 * Your image is [cloud-init enabled](/docs/vpc?topic=vpc-create-linux-custom-image#cloud-init).
-* For any secondary storage volumes that are mounted, you must include the fstab entry “nofail.”
+* For any auxiliary storage volumes that are mounted, you must include the fstab entry “nofail.”
 
 #### Customizing a Windows instance 
 {: #customize-windows-instance} 
