@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2019, 2020
+  years: 2019, 2021
 lastupdated: "2019-10-17"
 
 keywords: block storage, CLI, block storage volume, volume, volume attachment
@@ -48,11 +48,11 @@ To attach a volume to a virtual server instance in the current resource group, r
 ibmcloud is instance-volume-attachment-add NAME INSTANCE_ID VOLUME_ID [--auto-delete true | false] [--json]
 ```
 
-`NAME` is the name that you provide for the volume attachment and INSTANCE_ID is the ID of the VSI.
+`NAME` is the name that you provide for the volume attachment and INSTANCE_ID is the ID of the virtual server instance.
 
 The `VOLUME_ID `specifies the volume that you are attaching.
 
-Specify `--auto-delete true` if you want the volume to be automatically deleted when the VSI is deleted.
+Specify `--auto-delete true` if you want the volume to automatically delete when the virtual server instance is deleted.
 
 To see a list of available virtual server instances, run the `ibmcloud is instances` command.
 
