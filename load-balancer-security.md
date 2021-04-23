@@ -16,7 +16,7 @@ subcollection: vpc
 {:table: .aria-labeledby="caption"}
 
 # Managing security and compliance with load balancers for VPC
-{: #manage-security-compliance}
+{: #manage-security-compliance-lb}
 
 {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}} (ALB) and {{site.data.keyword.nlb_full}} (NLB) are integrated with the {{site.data.keyword.compliance_short}} to help you manage security and compliance for your organization.
 {: shortdesc}
