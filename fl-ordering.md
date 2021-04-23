@@ -41,7 +41,7 @@ When you are provisioning a flow log collector, keep in mind that [the finest gr
 ## Prerequisites
 {: #fl-before-you-begin}
 
-Before creating a flow log collector, ensure that you meet the following prerequisites:
+Before you create a flow log collector, make sure that you meet the following prerequisites:
 
 1. Make sure that at least one VPC, a subnet, and a virtual server instance exist. For instructions, see [Creating a VPC and subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vpc-and-subnet) and [Creating a virtual server instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vsi).
 2. Make sure that a Cloud Object Storage (COS) instance with a bucket exists for your flow logs. To create a COS bucket, see the [Cloud Object Storage](https://cloud.ibm.com/catalog/services/cloud-object-storage) ordering page.  
@@ -74,7 +74,7 @@ Before creating a flow log collector, ensure that you meet the following prerequ
     For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth#create-auth).
    {: note}
 
-## Creating a flow log collector using the UI
+## Creating a flow log collector by using the UI
 {: #fl-ordering-ui}
 {: ui}
 
@@ -96,8 +96,8 @@ To create a flow log collector by using the IBM Cloud console, follow these step
 
   * **VPC** - Select a VPC. All network traffic within the selected VPC is logged.
   * **Subnet** -  Select a VPC and a subnet within the selected VPC. All traffic within the selected subnet is logged.
-  * **Instance** - Select a VPC and a VSI that exists within the selected VPC. All traffic for the VSI is logged.
-  * **Interface** - Select a VPC, a VSI within the selected VPC, and a specific network interface for the selected VSI. All traffic for the selected network interface is logged.
+  * **Instance** - Select a VPC and a virtual server instance that exists within the selected VPC. All traffic for the virtual server instance is logged.
+  * **Interface** - Select a VPC, a virtual server instance within the selected VPC, and a specific network interface for the selected virtual server instance. All traffic for the selected network interface is logged.
 
   For example:
 
@@ -109,7 +109,7 @@ To create a flow log collector by using the IBM Cloud console, follow these step
   * **Location** - This input is unavailable because it is directly tied to the region the target resource resides in.
   * **Bucket** - The wanted Cloud Object Storage (COS) bucket that the flow log collector service writes to.
 
-## Creating a flow log collector using the CLI
+## Creating a flow log collector by using the CLI
 {: #fl-ordering-cli}
 {: cli}
 
@@ -134,11 +134,11 @@ Where:
 * **--resource-group-name** is the name of the resource group. This option is mutually exclusive with **--resource-group-id**.
 * **--json** formats the output in JSON.
 
-## Creating a flow log collector using the API
+## Creating a flow log collector by using the API
 {: #fl-ordering-api}
 {: api}
 
-To create a flow log collector by using the API, follow these steps:
+To create a flow log collector by using the API, use the following steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with
 the right variables.
@@ -180,7 +180,7 @@ the right variables.
    ```
    {: pre}
 
-3. To provision a collector that targets a subnet, VSI, or VNIC, you must provide a subnet ID, VSI ID, or VNIC ID as a collector target. For example, the following request creates a collector that targets a VSI ID:
+3. To provision a collector that targets a subnet, virtual server instance, or VNIC, you must provide a subnet ID, virtual server instance ID, or VNIC ID as a collector target. For example, the following request creates a collector that targets a virtual server instance ID:
 
    ```sh
    export VsiId=<your_vsi_id>
