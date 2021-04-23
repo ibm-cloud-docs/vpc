@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-04-20"
+lastupdated: "2021-04-23"
 
 keywords: quotas, vpc, resources, limits
 
@@ -31,7 +31,7 @@ This document covers quotas and limits for {{site.data.keyword.vpc_full}} and th
 
 The following tables show the quotas for various VPC resources.
 
-To increase a quota for a particular resource, [contact IBM Support](/docs/get-support?topic=get-support-getting-customer-support).
+To increase a quota for a particular resource, [contact IBM Support](/docs/get-support?topic=get-support-using-avatar).
 {:note}
 
 ### Compute resources
