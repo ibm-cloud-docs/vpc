@@ -2,7 +2,7 @@
 
 copyright:
 years: 2021
-lastupdated: "2021-04-07"
+lastupdated: "2021-04-23"
 
 keywords: file storage, virtual private cloud, shares, profile
 
@@ -40,27 +40,6 @@ File shares are based on IOPS tiers you can select when creating a share. Choose
 | 5 IOPS/GB | High I/O intensity workloads - Workloads characterized by a large percentage of active data, such as transactional and other performance-sensitive databases| 10 GB to 9,600 GB | 48,000 IOPS|
 | 10 IOPS/GB | Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics | 10 GB to 4,800 GB | 48,000 IOPS |
 {: caption="Table 1. IOPS tier profiles and performance levels for each tier" caption-side="top"}
-
-## Custom IOPS profile
-{: #fs-custom}
-
-Custom IOPS is a good option when you have well-defined performance requirements that do not fall within a predefined IOPS tier. You can customize the IOPS by specifying the total IOPS for the file share within the range for its size. You can provision shares with IOPS performance from 100 IOPS to 48,000 IOPS, based on the size.
-
-Table 2 shows the available IOPS ranges based on file share size.
-
-| File Share size (GB) | IOPS range |
-|-------------|--------------|
-| 10 -39   | 100 - 1,000 |
-| 40 - 79 | 100 -2,000 |
-| 80 - 99 | 100 - 4,000 |
-| 100 - 499 | 100 - 6,000 |
-| 500 - 999 | 100 - 10,000 |
-| 1,000 - 1,999 | 100 - 20,000 |
-| 2000 - 3999 GB |200	- 40000 |
-| 4000 - 7999 GB |300	- 40000 |
-| 8000 - 9999 GB |500	- 48000 |
-| 10,000 - 16,000 GB | 1000	- 48000 |
-{: caption="Table 2. Available IOPS based on file share size" caption-side="top"}
 
 ### Profile Block size
 {: #fs-profiles-block-size}
