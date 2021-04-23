@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-05"
+lastupdated: "2021-04-23"
 
 keywords: virtual private cloud, file storage, file share, mount point
 
@@ -40,15 +40,11 @@ You pay for only the capacity you need. The capacity ranges from 10 GB up to 16 
 ### File storage IOPS profiles
 {: #fs-profiles-intro}
 
-You have two options for creating file shares, by using an IOPS tier profile or by using a custom IOPS profile.
-
-IOPS tiers provide a guaranteed level of performance for your workloads. You can select from three tiers:
+For this release, you can select an IOPS tier profile that provides a guaranteed level of performance for your workloads. You can select from three tiers:
 
 * 3 IOPS/GB
 * 5 IOPS/GB
 * 10 IOPS/GB
-
-Custom IOPS profile let you select the performance you want, by selecting custom allocated I/O operations per second (IOPS).
 
 For more information about these options, see [File storage profiles](/docs/vpc?topic=vpc-file-storage-profiles#fs-tiers).
 
@@ -78,7 +74,7 @@ The following limitations apply to this release of File Storage for VPC:
 
 * File share size cannot be increased after the share is created.
 * File share profile cannot be changed after the share is created.
-* Granular Host Authorization for virtual server instance level access control in not supported.
+* Granular Host Authorization for VSI level access control in not supported.
 * Minimum capacity is 10 GB per share.
 * Maximum capacity is 16 TB per share.
 * Customer-managed encryption is not available. File share data is encrypted using IBM-managed encryption for data-at-rest.

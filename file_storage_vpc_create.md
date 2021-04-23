@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-15"
+lastupdated: "2021-04-23"
 
 keywords: file storage, virtual private cloud, file share, mount target
 
@@ -127,7 +127,7 @@ Review the following information:
 | Share details           | `ibmcloud is share SHARE_ID`        | Review details of a share. |
 | Mount targets             | `ibmcloud is share-targets SHARE_ID` | List all mount targets for a file share. |
 | Share profiles         | `ibmcloud is share-profiles`     | List all file share profiles in a region. |
-| Share profile details | `ibmcloud is share-profile PROFILE_NAME`     | List details of a file share profile. Profile names are `tier-3iops`, `tier-5iops`, `tier-10iops`, and `custom`. |
+| Share profile details | `ibmcloud is share-profile PROFILE_NAME`     | List details of a file share profile. Profile names are `tier-3iops`, `tier-5iops`, and `tier-10iops`. |
 {: caption="Table 1. Details for creating file shares" caption-side="top"}
 
 ### Create a file share and add a mount target using the CLI
