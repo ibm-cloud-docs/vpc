@@ -38,7 +38,7 @@ Use these instructions to connect an Ubuntu Linux&reg;-based {{site.data.keyword
 This service is available only to accounts with a special approval to preview this beta feature. 
 {:beta}
 
-## Before you begin - Create a VSI
+## Before you begin - Create a virtual server instance
 {: #fs-ubuntu-create-vsi}
 
 Before you begin to mount File Storage for VPC file shares, you must create a [virtual server instance](/docs/vpc?topic=vpc-about-advanced-virtual-servers) in the same zone as the file share. After creating an instance, get the mount path of the file share from the mount target created. You need a mount path for mounting file shares. 
