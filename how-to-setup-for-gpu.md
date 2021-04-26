@@ -83,7 +83,7 @@ The NVIDIA CUDA Toolkit provides sample utilities and other developer tools that
    ```
    {: pre}
 
-4. On your VSI, update package management with the Debian information.
+4. On your virtual server instance, update package management with the Debian information.
    The following commands assume Ubuntu 18.04 and driver release 418.116.
    ```
    sudo dpkg -i nvidia-driver-local-repo-ubuntu1804-418.116.00_1.0-1_ppc64el.deb
