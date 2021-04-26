@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017, 2020
+  years: 2017, 2021
 
 lastupdated: "2020-03-17"
 
@@ -68,7 +68,7 @@ If you have a public gateway or floating IP, you might still see some minimal eg
 ## Pricing for floating IPs
 {: #floating-ip-pricing}
 
-A floating IP is charged at the rate of $1 (US) per month, starting when it is reserved. The fee is charged even if the floating IP is not associated to a VSI or not in use. The $1 for the monthly fee is charged even if the floating IP is reserved for only a few days.
+A floating IP is charged at the rate of $1 (US) per month, starting when it is reserved. The fee is charged even if the floating IP is not associated to a virtual server instance or not in use. The $1 for the monthly fee is charged even if the floating IP is reserved for only a few days.
 
 ## Pricing for load balancers
 {: #lb-prices}
