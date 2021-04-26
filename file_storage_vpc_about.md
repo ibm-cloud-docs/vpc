@@ -74,7 +74,7 @@ The following limitations apply to this release of File Storage for VPC:
 
 * File share size cannot be increased after the share is created.
 * File share profile cannot be changed after the share is created.
-* Granular Host Authorization for VSI level access control in not supported.
+* Granular Host Authorization for virtual server instance level access control in not supported.
 * Minimum capacity is 10 GB per share.
 * Maximum capacity is 16 TB per share.
 * Customer-managed encryption is not available. File share data is encrypted using IBM-managed encryption for data-at-rest.
