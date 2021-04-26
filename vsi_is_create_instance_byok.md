@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2019, 2020
+  years: 2019, 2021
 lastupdated: "2020-05-28"
 
 keywords: create virtual server with encryption, data encryption key, dek, encrypted volume, virtual server instance, create virtual server, provision virtual server, virtual machine, instance, virtual server, deploy virtual server, block storage volume
@@ -189,7 +189,7 @@ The `encryption_key` parameter in the JSON file must include a valid CRN for the
 ## Creating a customer-managed encryption volume in JSON format
 {: #vsi-vol-attachment-json}
 
-When you create either a boot volume or data volume during VSI provisioning, you must specify a JSON file to define the customer-managed encryption volume parameters. The `encryption_key` parameter in the JSON file must include a valid CRN for the root key in the Key Protect service.
+When you create either a boot volume or data volume during virtual server instance provisioning, you must specify a JSON file to define the customer-managed encryption volume parameters. The `encryption_key` parameter in the JSON file must include a valid CRN for the root key in the Key Protect service.
 
 See the following examples for a boot or data volume attachment. You can copy the example replace the information with your volume information. Your root key CRN is show as `crn:[...key:...]` in the examples.
 
