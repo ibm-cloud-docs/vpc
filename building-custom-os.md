@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-03-30"
+lastupdated: "2021-04-26"
 
 keywords: custom os, creating a custom os, custom operating system, creating a custom operating system, kernel, custom kernel
 
@@ -25,13 +25,13 @@ subcollection: vpc
 # Configuration Requirements for Custom Linux Kernels
 {: #configuration-requirements-for-custom-linux-kernels}
 
-Custom Linux kernels can be used in IBM Cloud VPC. You can build a custom kernel locally on your VSI or on-premises.
+Custom Linux kernels can be used in IBM Cloud VPC. You can build a custom kernel locally on your virtual server instance or on-premises.
 
-When building your own custom Linux kernel for use in the IBM Cloud, please refer to these mandatory requirements.  It is also recommended that you [enable VSI console access](/docs/vpc?topic=vpc-vsi_is_connecting_console) when building your own custom kernel, it will help facilitate debugging any boot issues that may occur.
+When you build your own custom Linux kernel for use in the IBM Cloud, refer to the following requirements. It is also recommended that you [enable virtual server instance console access](/docs/vpc?topic=vpc-vsi_is_connecting_console) when you build your own custom kernel to help facilitate debugging any boot issues that can occur.
 {: shortdesc}
 
 ## Hardware Requirements
-Hardware supported by every virtual machine in IBM's VPC is detailed below in the device list. These devices are currently consistent for every virtual machine in the VPC and are subject to change as new features become available in the IBM Cloud. Custom kernels should support these devices to run in IBM Cloud VPC. Failure to include these may result in loss of features or capabilities in the IBM cloud.
+The following list details the supported hardware by every virtual machine in IBM's VPC. These devices are consistent for every virtual machine in the VPC and are subject to change as new features become available in the IBM Cloud. Custom kernels need to support these devices to run in IBM Cloud VPC. Failure to include these devices can result in loss of features or capabilities in the {{site.data.keyword.cloud}}.
 {:shortdesc}
 
 - **Host bridge**:
@@ -73,7 +73,7 @@ Hardware supported by every virtual machine in IBM's VPC is detailed below in th
     - Tx-checksum is supported
 
 ## Linux Kernel Build Options
-The following kernel options are required when building a Linux operating system for IBM Cloud.
+The following kernel options are required when you build a Linux operating system for {{site.data.keyword.cloud}}.
 
 - CONFIG_ETHERNET = y
   - Ethernet driver support
