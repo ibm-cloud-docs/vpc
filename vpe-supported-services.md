@@ -47,7 +47,7 @@ subcollection: vpc
 * Schematics ([Instructions](/docs/schematics?topic=schematics-private-endpoints#endpoint-setup))
 * Transit Gateway ([Instructions](/docs/transit-gateway?topic=transit-gateway-vpe-for-ibm-cloud-transit-gateway))
 * Usage Metering ([Endpoint URLs](https://{DomainName}/apidocs/usage-metering#endpoint))
-* Usage Reports ([Endpoint URLs](https://{DomainName}/apidocs/metering-reporting#endpoint)
+* Usage Reports ([Endpoint URLs](https://{DomainName}/apidocs/metering-reporting#endpoint))
 * User Management ([Endpoint URLs](https://{DomainName}/apidocs/user-management#endpoint-urls))
 
 This topic will be updated as additional services are supported.
