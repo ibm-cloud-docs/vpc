@@ -3,7 +3,7 @@
 copyright:
   years: 2020, 2021
 
-lastupdated: "2021-04-26"
+lastupdated: "2021-04-29"
 
 keywords: vnc console, serial console, virtual server instance
 
@@ -38,9 +38,6 @@ The VNC console provides a graphical user interface and accepts both mouse and k
 You can use the console to access OS load/boot procedures, e.g., GNU GRand Unified Bootloader (GRUB). 
 
 The console can be opened using any of the [supported browsers](/docs/overview?topic=overview-prereqs-platform#browsers-platform).
-
-For instances that were created before 2/13/2021, you must stop and re-start (not reboot) the instance before a console can be opened. Opening consoles for instances created after this time doesn't require the above operation.
-{:important}
 
 ## Before you begin
 {: #vsi_is_connecting_console_prereq}
