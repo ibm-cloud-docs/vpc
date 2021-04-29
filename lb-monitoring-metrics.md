@@ -202,7 +202,7 @@ The following attributes are available for segmenting the three metrics.
 {: caption="Table 10: Global attributes" caption-side="top"}
 
 ### Additional attributes
-{: lb-additional-attributes}
+{: alb-additional-attributes}
 
 The following attributes are available to segment one or more of the global attributes. See the individual metrics for any segmentation options.
 
