@@ -21,7 +21,7 @@ subcollection: vpc
 {:note:.deprecated}
 {:troubleshoot: data-hd-content-type='troubleshoot'}
 
-# What can't I create more than one endpoint gateway for a service instance?
+# Why can't I create more than one endpoint gateway for a service instance?
 {: #troubleshoot-cannot-create-multiple}
 {: troubleshoot}
 {: support}
