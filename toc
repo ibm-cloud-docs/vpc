@@ -273,14 +273,17 @@ Virtual Private Cloud (VPC)
         snapshots_vpc_manage.md
 
     {: .topicgroup}
-    File Storage (Beta)
+    File Storage
         file_storage_vpc_plan.md
         file_storage_vpc_create.md
         file_storage_vpc_view.md
         file_storage_vpc_manage.md
-        file_storage_vpc_mount_rhel.md
-        file_storage_vpc_mount_centos.md
-        file_storage_vpc_mount_ubuntu.md
+
+        {: .topicgroup}
+        Mounting on Linux
+            file_storage_vpc_mount_rhel.md
+            file_storage_vpc_mount_centos.md
+            file_storage_vpc_mount_ubuntu.md
 
     {: .topicgroup}
     Auto scale
