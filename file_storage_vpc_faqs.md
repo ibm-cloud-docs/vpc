@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-20"
+lastupdated: "2021-04-30"
 
 keywords: file storage, virtual private cloud, file share, troubleshooting
 
@@ -21,17 +21,16 @@ subcollection: vpc
 {:important: .important}
 {:screen: .screen}
 {:support: data-reuse='support'}
-{:beta: .beta}
 
 
-# FAQs for file storage (beta)
+# FAQs for file storage
 {: #file-storage-vpc-faqs}
 
 The following questions often arise about File Storage for VPC. If you have other questions you'd like to see addressed here, provide feedback by using the **Open Issue** or **Edit Topic** links.
 {:shortdesc}
 
-This service is available only to accounts with special approval to preview this beta feature.
-{:beta}
+File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions. Contact your IBM Sales representative if you are interested in getting access.
+{:note}
 
 ## Offering questions
 {: #file-storage-vpc-offering-questions}
@@ -73,12 +72,6 @@ In this release, you can:
 *	Delete all mount targets or delete a single mount target. When you delete one or several mount targets, the instance(s) mounting the share for the VPC(s) where the mount target is deleted will not be able to access the share.
 *	List shares and mount targets.
 *	Update share and mount target name.
-
-### Will I have access to my shares when the Beta release ends?
-{: faq}
-{: #faq-fs-6}
-
-Yes.
 
 ### Who do I contact to help with any issues? What information should I provide?
 {: faq}
@@ -128,7 +121,7 @@ No, there is no mechanism for backups in this release. As best practice, indepen
 File shares are not elastic. Currently, you can provision minimum of 10 GB to maximum of 16 TB file shares.
 
 
-## performance questions
+## Performance questions
 {: #file-storage-vpc-performance-questions}
 
 ### What read-write latency can I expect?

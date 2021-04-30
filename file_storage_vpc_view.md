@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-15"
+lastupdated: "2021-04-30"
 
 keywords: file storage, virtual private cloud, file share, mount target
 
@@ -19,7 +19,6 @@ subcollection: vpc
 {:tip: .tip}
 {:table: .aria-labeledby="caption"}
 {:note: .note}
-{:beta: .beta}
 {:external: target="_blank" .external}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
@@ -27,16 +26,16 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Viewing file shares and mount targets (beta)
+# Viewing file shares and mount targets
 {: #file-storage-view}
 
 View all file shares and mount targets by using the UI, CLI, or API. Also view details of a single file share or mount target.
 {:shortdesc}
 
-This service is available only to accounts with a special approval to preview this beta feature. 
-{:beta}
+File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions. Contact your IBM Sales representative if you are interested in getting access.
+{:note}
 
-Before you get started, make sure that you created a [VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
+Before you get started, to create mount targets for file shares, make sure that you created a [VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
 {:important}
 
 ## View file shares and mount targets using the UI

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-06"
+lastupdated: "2021-04-30"
 
 keywords: file Storage, NFS, mounting file Storage, mounting file shares on Ubuntu,
 
@@ -20,7 +20,6 @@ subcollection: FileStorage
 {:tip: .tip}
 {:table: .aria-labeledby="caption"}
 {:note: .note}
-{:beta: .beta}
 {:external: target="_blank" .external}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
@@ -29,16 +28,16 @@ subcollection: FileStorage
 {:api: .ph data-hd-interface='api'}
 
 
-# Mounting file shares on Ubuntu (beta)
+# Mounting file shares on Ubuntu
 {: #file-storage-vpc-mount-ubuntu}
 
 Use these instructions to connect an Ubuntu Linux&reg;-based {{site.data.keyword.cloud}} Compute instance to a Network file system (NFS) share.
 {:shortdesc}
 
-This service is available only to accounts with a special approval to preview this beta feature. 
-{:beta}
+File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions. Contact your IBM Sales representative if you are interested in getting access.
+{:note}
 
-## Before you begin - Create a virtual server instance
+## Before you begin - Create a VSI
 {: #fs-ubuntu-create-vsi}
 
 Before you begin to mount File Storage for VPC file shares, you must create a [virtual server instance](/docs/vpc?topic=vpc-about-advanced-virtual-servers) in the same zone as the file share. After creating an instance, get the mount path of the file share from the mount target created. You need a mount path for mounting file shares. 
@@ -46,76 +45,89 @@ Before you begin to mount File Storage for VPC file shares, you must create a [v
 Mount path information can be obtained from the File share details page in the UI, or through an API or CLI call to get the mount target information.
 {:tip}
 
-## Mounting the file share
+## Mount the file share
 {: #fs-Ubuntu-mount}
 
-Follow these steps to mount a file share on an Ubuntu host. Examples are based on Ubuntu 18.04. 
+SSH into the virtual server instance where you want to mount the file share, then continue with these steps to mount a file share. This example procedure is based on Ubuntu 20.04. 
 
 VPC File Storage service requires NFS versions v4.1 or higher.
 {:note}
 
-SSH into the virtual server instance where you want to mount the file share, then continue with these steps:
+1. Update and upgrade the distribution:
 
-1. Install the required tools.
+    ```
+    apt update && apt upgrade
+    ```
+    {:pre}
+
+2. Create a `/mnt/nfs` directory.
+
+    ```
+    mkdir -p /mnt/nfs
+    ```
+    {:pre}
+
+3. Install `nfs-common`: 
+
+    ```
+    apt install nfs-common
+    ```
+    {:pre}
+
+4. Reboot your instance:
+
+    ```
+    reboot
+    ```
+    {:pre}
+
+5. Mount the remote file share:
 
    ```
-   apt-get install nfs-common
-   ```
-   {:pre}
-
-2. Create a directory in your instance.
-
-   ```
-   mkdir /mnt/test
-   ```
-   {:pre}
-
-
-3. Mount the remote file share.
-
-   ```
-   mount -t nfs4 -o <options> <host:/mount_target> /mnt
+   mount -t nfs4 -o <options> <host:/mount_target> /mnt/nfs
    ```
    {:pre}
 
    For example:
 
    ```
-   mount -t nfs4 -o sec=sys,nfsvers=4.1 fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_mz0726_c391f0ba-50ed-4460-8704-a36032c96a4c /mnt/test
+   mount -t nfs4 -o sec=sys,nfsvers=4.1 fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_mz0726_c391f0ba-50ed-4460-8704-a36032c96a4c /mnt/nfs
    ```
    {:pre}
 
-4. Verify that the mount was successful by using the disk file system command.
+6. Verify that the mount was successful by using the disk file system command:
+
+    ```
+    $ df -h
+    Filesystem                                                                                    Size  Used Avail Use% Mounted on
+    /dev/root                                                                                      97G  1.6G   96G   2% /
+    devtmpfs                                                                                      3.9G     0  3.9G   0% /dev
+    tmpfs                                                                                         3.9G     0  3.9G   0% /dev/shm
+    tmpfs                                                                                         798M  508K  797M   1% /run
+    tmpfs                                                                                         5.0M     0  5.0M   0% /run/lock
+    tmpfs                                                                                         3.9G     0  3.9G   0% /sys/fs/cgroup
+    /dev/vda15                                                                                    105M  9.2M   96M   9% /boot/efi
+    /dev/loop0                                                                                     56M   56M     0 100% /snap/core18/1885
+    /dev/loop1                                                                                     71M    71M     0 100% /snap/lxd/16922
+    /dev/loop2                                                                                     31M   31M     0 100% /snap/snapd/9279
+    tmpfs                                                                                         798M     0  798M   0% /run/user/0
+    fsf-dal1099a-fz.adn.networklayer.com:/voll_58fd55a_685c_4ccd_b42e_25d5b61129e2   95G  256K   95G   1% /mnt/nfs{code}
+    ```
+    {:codeblock}
+
+7. Go to the mount point and read/write files.
 
    ```
-   $ df -h
-   Filesystem                                                                                    Size  Used Avail Use% Mounted on
-   udev                                                                                          3.9G     0  3.9G   0% /dev
-   tmpfs                                                                                         798M  660K  798M   1% /run
-   /dev/vda2                                                                                      99G  1.6G   93G   2% /
-   tmpfs                                                                                         3.9G     0  3.9G   0% /dev/shm
-   tmpfs                                                                                         5.0M     0  5.0M   0% /run/lock
-   tmpfs                                                                                         3.9G     0  3.9G   0% /sys/fs/cgroup
-   /dev/vda1                                                                                     240M   73M  155M  33% /boot
-   fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_mz0726_c391f0ba-50ed-4460-8704-a36032c96a4c  190G  384K  190G   1% /mnt/test
-   tmpfs                                                                                         798M     0  798M   0% /run/user/0
-   ```
-   {:codeblock}
-
-
-5. Go to the mount point and read/write files.
-
-   ```
-   touch /mnt/test/test.txt
-   ls -al /mnt/test
+   touch /mnt/nfs/test.txt
+   ls -al /mnt/nfs
    total 12
-   drwxr-xr-x   2 nobody nobody 4096 Apr 8 15:52 .
-   dr-xr-xr-x. 22 root   root   4096 Apr 8 14:30 ..
-   -rw-r--r--   1 nobody nobody    0 Apr 8 15:52 test.txt
+   drwxr-xr-x   2 nobody nobody 4096 Apr 28 15:52 .
+   dr-xr-xr-x. 22 root   root   4096 Apr 28 14:30 ..
+   -rw-r--r--   1 nobody nobody    0 Apr 28 15:52 test.txt
    ```
    {:pre}
 
-6. Mount the remote share on start. To complete the setup, you must edit the file systems table (`/etc/fstab`) and add the remote share to the list of entries that are automatically mounted on startup. Before creating an entry in the `fstab`, perform the following steps to add the mount path hostname to `/etc/hosts`. 
+8. Mount the remote share on start. To complete the setup, you must edit the file systems table (`/etc/fstab`) and add the remote share to the list of entries that are automatically mounted on startup. Before creating an entry in the `fstab`, perform the following steps to add the mount path hostname to `/etc/hosts`. 
 
    a. Get the `hostname.com` portion of mount path, `for example: fsf-dal2433a-dz.adn.networklayer.com` and get the IP address. Run the following command from inside the instance to get the IP address.
 
@@ -130,9 +142,6 @@ SSH into the virtual server instance where you want to mount the file share, the
       fsf-dal2433a-dz.adn.networklayer.com has address 203.0.113.0
       ```
       {:pre}
-
-      If you get command not found error when you run `host` command, use `yum install bind-utils` to install it.
-      {:tip}
 
    b. Edit `/etc/hosts` and add an IP to the hostname entry.
 
@@ -158,11 +167,11 @@ SSH into the virtual server instance where you want to mount the file share, the
       For example:
 
       ```
-      fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_246a9cb9-4679-4dc5-9522-4a7ed2575136 /mnt/test nfs4 nfsvers=4.1,sec=sys,_netdev 0 0
+      fsf-dal2433a-dz.adn.networklayer.com:/vol2_f866ceaf-7654-4a09-866d-f78f1d86908e /mnt/nfs nfs4 nfsvers=4.1,sec=sys,_netdev 0 0
       ```
       {:pre}
   
-7. Verify that the configuration file has no errors.
+9. Verify that the configuration file has no errors.
 
    ```
    mount -fav
@@ -185,6 +194,6 @@ umount /dev/sdb
 {:pre}
 
 ```
-umount /mnt/test
+umount /mnt/nfs
 ```
 {:pre}

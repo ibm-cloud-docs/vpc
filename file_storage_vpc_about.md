@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-23"
+lastupdated: "2021-04-30"
 
 keywords: virtual private cloud, file storage, file share, mount point
 
@@ -19,28 +19,29 @@ subcollection: vpc
 {:tip: .tip}
 {:table: .aria-labeledby="caption"}
 {:note: .note}
-{:beta: .beta}
 
-# About File Storage for VPC (beta)
+# About File Storage for VPC
 {: #file-storage-vpc-about}
 
 {{site.data.keyword.cloud}} File Storage for {{site.data.keyword.vpc_full}} (VPC) is a zonal file storage offering that provides NFS-based file storage services for VPC customers. File shares are created in an availability zone within a region. File shares can be shared with multiple virtual service instances within the same zone across multiple VPCs.
 {:shortdesc}
 
-This service is available only to accounts with special approval to preview this beta feature.
-{:beta}
+File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions. Contact your IBM Sales representative if you are interested in getting access.
+{:note}
 
 ## Overview
 {: #file-storage-overview}
 
 File Storage for VPC provides a shared file service that operates within the bounds of a VPC. You create a shared file storage in an availability zone. You then mount the shared file system by creating mount targets.
 
-You pay for only the capacity you need. The capacity ranges from 10 GB up to 16 TB for all available profiles.
+You pay for only the capacity you need. The capacity ranges from 10 GB up to 32 TB for all available profiles.
+
+File share data is encrypted by default using IBM-managed encryption for data-at-rest. For added security, you can also use your own root keys to protect your file shares. For more information, see [File share encryption](#FS-encryption).
 
 ### File storage IOPS profiles
 {: #fs-profiles-intro}
 
-For this release, you can select an IOPS tier profile that provides a guaranteed level of performance for your workloads. You can select from three tiers:
+You can select an IOPS tier profile that provides a guaranteed level of performance for your workloads. You can select from three tiers:
 
 * 3 IOPS/GB
 * 5 IOPS/GB
@@ -65,21 +66,24 @@ To mount a share to an instance using the API, you create a mount target by prov
 ### NFS version
 {: #fs-nfs-version}
 
-File Storage for VPC requires NFS versions v4.1 or higher. You can mount file shares on all windows and Linux operating systems that support NFSv4.
+File Storage for VPC requires NFS versions v4.1 or higher.
 
-## Limitations in the Beta release
-{: #fs-limitations-beta}
+## Limitations in this release
+{: #fs-limitations}
 
 The following limitations apply to this release of File Storage for VPC:
 
 * File share size cannot be increased after the share is created.
 * File share profile cannot be changed after the share is created.
-* Granular Host Authorization for virtual server instance level access control in not supported.
+* Granular Host Authorization for VSI level access control in not supported.
 * Minimum capacity is 10 GB per share.
-* Maximum capacity is 16 TB per share.
-* Customer-managed encryption is not available. File share data is encrypted using IBM-managed encryption for data-at-rest.
-* Customer-managed data-in-transit is not available. Data-in-transit is encrypted using IBM-managed encryption for data-in-transit.
+* Maximum capacity is 32 TB per share.
 * There is no data retention policy for deleted file shares. You cannot undelete a file share after you delete it.
+
+## File share encryption
+{: #FS-encryption}
+
+By default, file share data are encrypted at rest with IBM-managed encryption.
 
 ## Related information
 {: #related-info-file-storage-vpc}

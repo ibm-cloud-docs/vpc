@@ -2,7 +2,7 @@
 
 copyright:
 years: 2021
-lastupdated: "2021-04-23"
+lastupdated: "2021-04-30"
 
 keywords: file storage, virtual private cloud, shares, profile
 
@@ -18,16 +18,15 @@ subcollection: vpc
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
 {:note: .note}
-{:beta: .beta}
 
-# File storage profiles (beta)
+# File storage profiles
 {: #file-storage-profiles}
 
 When you provision File Storage for VPC shares by using the {{site.data.keyword.cloud_notm}} console, CLI, or API, you specify a profile that best meets your storage requirements. Profiles are available as three predefined IOPS tiers.
 {:shortdesc}
 
-This service is available only to accounts with special approval to preview this beta feature.
-{:beta}
+File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions. Contact your IBM Sales representative if you are interested in getting access.
+{:note}
 
 ## IOPS tiers
 {: #fs-tiers}

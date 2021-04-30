@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-23"
+lastupdated: "2021-04-30"
 
 keywords: file storage, virtual private cloud, file share, mount target
 
@@ -19,7 +19,6 @@ subcollection: vpc
 {:tip: .tip}
 {:table: .aria-labeledby="caption"}
 {:note: .note}
-{:beta: .beta}
 {:external: target="_blank" .external}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
@@ -27,14 +26,14 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Creating file shares and mount targets (beta)
+# Creating file shares and mount targets
 {: #file-storage-create}
 
 Create file shares and mount targets by using the UI, CLI, or API. 
 {:shortdesc}
 
-This service is available only to accounts with special approval to preview this beta feature.
-{:beta}
+File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions. Contact your IBM Sales representative if you are interested in getting access.
+{:note}
 
 Before you get started, to create mount targets for file shares, make sure that you created a [VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
 {:important}
@@ -370,8 +369,8 @@ A successful response will look like this:
 
 Mount and use your file shares:
 
-* [Viewing file shares and mount targets (beta)](/docs/vpc?topic=vpc-file-storage-vpc-view)
-* [Mounting file shares on Red Hat Linux (beta)](/docs/vpc?topic=vpc-file-storage-vpc-mount-rhel)
-* [Mounting file shares in CentOS (beta)](/docs/vpc?topic=vpc-file-storage-mount-centos)
-* [Mounting file shares on Ubuntu (beta)](/docs/vpc?topic=vpc-file-storage-vpc-mount-ubuntu)
-* [Manage your file shares (beta)](/docs/vpc?topic=vpc-file-storage-managing)
+* [Viewing file shares and mount targets](/docs/vpc?topic=vpc-file-storage-vpc-view)
+* [Mounting file shares on Red Hat Linux](/docs/vpc?topic=vpc-file-storage-vpc-mount-rhel)
+* [Mounting file shares in CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos)
+* [Mounting file shares on Ubuntu](/docs/vpc?topic=vpc-file-storage-vpc-mount-ubuntu)
+* [Manage your file shares](/docs/vpc?topic=vpc-file-storage-managing)

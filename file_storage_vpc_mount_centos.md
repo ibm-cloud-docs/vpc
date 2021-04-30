@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-06"
+lastupdated: "2021-04-30"
 
 keywords: file Storage, mounting file storage, Linux, CentOS, NFS
 
@@ -20,7 +20,6 @@ subcollection: vpc
 {:tip: .tip}
 {:table: .aria-labeledby="caption"}
 {:note: .note}
-{:beta: .beta}
 {:external: target="_blank" .external}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
@@ -29,19 +28,19 @@ subcollection: vpc
 {:api: .ph data-hd-interface='api'}
 
 
-# Mounting file shares in CentOS (beta)
+# Mounting file shares in CentOS
 {: #file-storage-mount-centos}
 
 Use these instructions to connect a CentOS Linux&reg;-based {{site.data.keyword.cloud}} Compute Instance to a Network File System (NFS) share.
 {:shortdesc}
 
-This service is available only to accounts with a special approval to preview this beta feature.
-{:beta}
+File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions. Contact your IBM Sales representative if you are interested in getting access.
+{:note}
 
-## Before you begin - Create a virtual server instance
+## Before you begin - Create a VSI
 {: #fs-centos-create-vsi}
 
-Before you begin to mount File Storage for VPC file shares, you must create a [virtual server instance](/docs/vpc?topic=vpc-about-advanced-virtual-servers) in the same zone as the file share. After you create an instance, get the mount path of the file share from the mount target created. You need a mount path for mounting file shares. 
+Before you begin to mount File Storage for VPC file shares, you must create a [virtual server instance](/docs/vpc?topic=vpc-about-advanced-virtual-servers) in the same zone as the file share. After creating an instance, get the mount path of the file share from the mount target created. You need a mount path for mounting file shares. 
 
 Mount path information can be obtained from the File share details page in the UI, or through an API or CLI call to get the mount target information.
 {:tip}

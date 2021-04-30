@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-20"
+lastupdated: "2021-04-30"
 
 keywords: file storage, virtual private cloud, file share
 
@@ -19,7 +19,6 @@ subcollection: vpc
 {:tip: .tip}
 {:table: .aria-labeledby="caption"}
 {:note: .note}
-{:beta: .beta}
 {:external: target="_blank" .external}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
@@ -27,14 +26,14 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Managing file shares (beta)
+# Managing file shares
 {: #file-storage-managing}
 
-Manage file shares you've created. For this Beta release, you can rename a file share, delete a file share, add mount targets to a file share, mount and unmount a file share from virtual server instances, rename a mount target and, delete a mount target.
+Manage file shares you've created. For this release, you can rename a file share, delete a file share, add mount targets to a file share, mount and unmount a file share from virtual server instances, rename a mount target and, delete a mount target.
 {:shortdesc}
 
-This service is available only to accounts with a special approval to preview this beta feature. 
-{:beta}
+File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions. Contact your IBM Sales representative if you are interested in getting access.
+{:note}
 
 ## Use the UI to manage file shares and mount points
 {: #file-storage-manage-ui}
@@ -399,9 +398,9 @@ The file share is deleted in background. Confirm the deletion by trying to view 
 
 To mount a file share to a virtual server instance, [locate the share mount path information](vpc?topic=vpc-file-storage-view#fs-get-target-api). The mount path is created when you created mount target for a file share. See the following information for mounting on these Linux operating systems. Other Linux distributions follow similar procedures.
 
-* [Mounting file shares on Red Hat Linux (beta)](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHEL)
-* [Mounting file shares in CentOS (beta)](/docs/vpc?topic=vpc-file-storage-mount-centos)
-* [Mounting file shares on Ubuntu (beta)](/docs/vpc?topic=vpc-file-storage-vpc-mount-ubuntu)
+* [Mounting file shares on Red Hat Linux](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHEL)
+* [Mounting file shares in CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos)
+* [Mounting file shares on Ubuntu](/docs/vpc?topic=vpc-file-storage-vpc-mount-ubuntu)
 
 ## IAM Roles for creating and managing file shares
 {: #file-storage-vpc-iam}
@@ -441,6 +440,6 @@ Table 1 describes the states in the file share lifecycle.
 
 Mount and use your file shares:
 
-* [Mounting file shares on Red Hat Linux (beta)](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHEL)
-* [Mounting file shares in CentOS (beta)](/docs/vpc?topic=vpc-file-storage-mount-centos)
-* [Mounting file shares on Ubuntu (beta)](/docs/vpc?topic=vpc-file-storage-vpc-mount-ubuntu)
+* [Mounting file shares on Red Hat Linux](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHEL)
+* [Mounting file shares in CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos)
+* [Mounting file shares on Ubuntu](/docs/vpc?topic=vpc-file-storage-vpc-mount-ubuntu)
