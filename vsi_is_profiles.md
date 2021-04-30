@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-31"
+lastupdated: "2021-04-30"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, generation 2, gen 2
 
@@ -147,34 +147,6 @@ Profiles with 64 or more vCPUs are deployed exclusively on the second-generation
 {: note}
 
 {: #callout-beta}
-
-<!---## Ultra High Memory--->
-{: #uhmemory}
-
-<!---Ultra High Memory profiles offers the highest vCPU to memory ratios with 28 GiB of memory for every 1 vCPU of compute. All Ultra High Memory profiles are provisioned with [instance storage](/docs/vpc?topic=vpc-instance-storage).--->
-
-<!---The following Ultra High Memory profiles are available for x86_64 processors:--->
-
-<!---| Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
-|---------|---------|---------|---------|---------|
-| ux2d-2x56 | 2 | 56 | 2 | 1x60 | 
-| ux2d-4x112 | 4 | 112 | 4 | 1x120 | 
-| ux2d-8x224 | 8 | 224 | 8 | 1x240 | 
-| ux2d-16x448 | 16 | 448 | 16 | 1x480 |
-| ux2d-36x1008 | 36 | 1008 | 36 | 1x1080 |
-| ux2d-56x1568 | 56 | 1568 | 56 | 1x1680 |
-| ux2d-72x2016 | 72 | 2016 | 72 | 2x1080 |
-| ux2d-108x3024 | 108 | 3024 | 80 | 2x1620 |
-| ux2d-144x4032 | 144 | 4032 | 80 | 2x2160 |
-| ux2d-204x5712 | 204 | 5712 | 80 | 2x3060 |
-{: caption="Table 2. Ultra High Memory profiles options for x86-64 instances" caption-side="top"}
-{:beta}--->
-
-{: #callout-note}
-
-<!---Ultra High Memory Profiles are deployed exclusively on the second-generation Intel&reg; Xeon&reg; Platinum 8280L (Cascade Lake) with 6 TB of RAM and 112 physical cores (8280L hosts).  
-{: note}--->
-
 
 <!-- ## GPU
 {: #gpu}
