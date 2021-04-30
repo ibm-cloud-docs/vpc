@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-31"
+lastupdated: "2021-04-30"
 
 keywords: instance storage, local disk, storage, temporary storage, generation 2, gen 2
 
@@ -122,7 +122,9 @@ vdc         558.8G disk    8192    4096
 {:screen}
 
 Due to the ephemeral nature of instance storage, it is recommended that you configure the mount entry in the Linux&reg; VM’s /etc/fstab file with the "nofail” option (or leave the entry out entirely) to avoid a mount failure during boot. Here is an example mount entry with the "nofail" option:
-```/dev/vdb1 /mnt/inststg1 ext4 defaults,nofail 0 0```
+```
+/dev/vdb1 /mnt/inststg1 ext4 defaults,nofail 0 0
+```
 {:important}
 
 ### Looking up instance storage details
