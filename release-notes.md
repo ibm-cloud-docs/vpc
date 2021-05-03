@@ -26,6 +26,11 @@ subcollection: vpc
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
 
+## 03 May 2021
+{: #may-03-2021}
+
+**Red Hat Enterprise Linux (RHEL) now available on IBM Power Virtual Servers For SAP (GA)**: You can now use RHEL operating system on your IBM Power Virtual Server for SAP. For more information, see [Deploying your infrastructure](https://test.cloud.ibm.com/docs/sap?topic=sap-power-vs-set-up-infrastructure) and [Preparing Linux OS on IBM Power VS For SAP HANA](https://test.cloud.ibm.com/docs/sap?topic=sap-power-vs-sles-hana#power-vs-rhel-hana-register_system).
+
 ## 30 April 2021
 {: #april-30-2021}
 
