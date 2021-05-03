@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-02"
+lastupdated: "2021-05-03"
 
 keywords: file storage, virtual private cloud, file share, mount target
 
@@ -72,7 +72,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file shares an
 | Size | Specify the size for the file share. |
 {: caption="Table 1. Values for creating a file share and mount target" caption-side="top"}
 
-To see the REST API call, click the **Create with REST API </>** link. To create file shares and mount targets using the API, see [Create a file share and mount target using the API](#file-storage-create-api). When you view a previously-created file share, you can click the **</>** view the sequence of API requests that correspond to your settings. Viewing the API calls is a good way to learn about the API and understand actions and their dependencies.
+When you create file share, you can click the **</>** icon to view the sequence of API requests. Viewing the API calls is a good way to learn about the API and understand actions and their dependencies.
 {: tip}
 
 ### Create a mount target using the UI
@@ -173,7 +173,10 @@ ibmcloud is share-target-create 78ff9c4c97d013fb2a95b21abcde7758 --vpc 55251a2e-
 {: #file-storage-create-api}
 {: api}
 
-You can create file shares and mount targets by directly calling the [REST APIs](https://{DomainName}/apidocs/vpc){:external}. For more information the file shares VPC API, see the [VPC API reference](https://cloud.ibm.com/apidocs/vpc).
+You can create file shares and mount targets by directly calling the REST APIs. For more information about the File Storage VPC API methods to create a file share, see the [VPC API reference](/apidocs/vpc-beta#create-share).
+
+File Storage for VPC regional API is a beta-level release for customers with special approval to preview this feature. 
+{:note}
 
 ### Before you begin – Set up your API environment
 {: #fs-api-prereqs}

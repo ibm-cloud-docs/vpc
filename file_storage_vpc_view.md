@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-02"
+lastupdated: "2021-05-03"
 
 keywords: file storage, virtual private cloud, file share, mount target
 
@@ -123,6 +123,11 @@ ibmcloud is shares [--resource-group-id RESOURCE_GROUP_ID | --resource-group-nam
 ## View file shares and mount targets from the API
 {: #file-storage-view-shares-targets-api}
 {: api}
+
+You can view file shares and mount targets by directly calling the REST APIs. For more information about File Storage VPC API methods to view file shares, see the [VPC API reference](/apidocs/vpc-beta#list-shares).
+
+File Storage for VPC regional API is a beta-level release for customers with special approval to preview this feature. 
+{:note}
 
 ### View all file shares from the API
 {: #fs-view-all-shares-api}

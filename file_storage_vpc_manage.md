@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-02"
+lastupdated: "2021-05-03"
 
 keywords: file storage, virtual private cloud, file share
 
@@ -175,6 +175,11 @@ Using the API, you can:
 * [Rename a mount target of a file share](#rename-mount-target-api)
 * [Delete mount target of a file share](#delete-mount-target-api)
 * [Delete a file share](#delete-file-share-api)
+
+To see information about the File Storage for VPC API methods, see this section in the [API reference](/apidocs/vpc-beta#list-share-profiles).
+
+File Storage for VPC regional API is a beta-level release for customers with special approval to preview this feature. 
+{:note}
 
 ### Rename a file share
 {: #rename-file-share-api}
