@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-30"
+lastupdated: "2021-05-02"
 
 keywords: file storage, virtual private cloud, file share
 
@@ -41,17 +41,17 @@ File Storage for VPC is available to customers with special approval to preview 
 
 Using the UI, you can:
 
-* Rename a file share
-* Add mount target to a file share
-* Rename a mount target of a file share
-* Delete mount target of a file share
-* Delete a file share
+* [Rename a file share](#rename-file-share-ui)
+* [Add mount target to a file share](#add-mount-target-ui)
+* [Rename a mount target of a file share](#rename-mount-target-ui)
+* [Delete mount target of a file share](#delete-mount-target-ui)
+* [Delete a file share](#delete-file-share-ui)
 
 
 ### Rename a file share
 {: #rename-file-share-ui}
 
-1. On the [file shares details](/docs/vpc?topic=vpc-file-storage-view#fs-view-single-share) page, click the pencil icon next to the file share name.
+1. On the [file shares details](/docs/vpc?topic=vpc-file-storage-view#fs-view-single-share-ui) page, click the pencil icon next to the file share name.
 
 2. Provide a new name for the share.
 
@@ -98,7 +98,7 @@ To delete a mount target, the share must be in a `stable` state.
 ### Delete a file share
 {: #delete-file-share-ui}
 
-Before deleting a file share, make sure that it's unmounted from virtual server instances and that all [mount targets belonging to the file share are deleted](#delete-mount-target-ui). To delete a file share, the it must be in a `stable` state or `failed` state (i.e., when provisioning fails).
+Before deleting a file share, make sure that it's unmounted from virtual server instances and that all mount targets belonging to the file share are [deleted](#delete-mount-target-ui). To delete a file share, the it must be in a `stable` state or `failed` state (i.e., when provisioning fails).
 
 1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view#file-storage-view-shares-targets-ui).
 
@@ -111,13 +111,13 @@ Before deleting a file share, make sure that it's unmounted from virtual server 
 
 Using the CLI, you can:
 
-* Rename a file share
-* Rename a mount target of a file share
-* Delete mount target of a file share
-* Delete a file share
+* [Rename a file share](#rename-file-share-cli)
+* [Rename a mount target of a file share](#rename-mount-target-cli)
+* [Delete mount target of a file share](#delete-mount-target-cli)
+* [Delete a file share](#delete-file-share-cli)
 
 ### Rename a file share
-{: #ename-file-share-cli}
+{: #rename-file-share-cli}
 
 Run the `share-update` command and spedify a new file share name:
 
@@ -168,11 +168,11 @@ ibmcloud is share-delete<SHARE_ID.
 
 Using the API, you can:
 
-* Rename a file share
-* [Add mount target to a file share](/docs/vpc?topic=vpc-file-storage-create#fs-create-mount-target-api)
-* Rename a mount target of a file share
-* Delete mount target of a file share
-* Delete a file share
+* [Rename a file share](#rename-file-share-api)
+* [Add mount target to a file share](#add-mount-target-api)
+* [Rename a mount target of a file share](#rename-mount-target-api)
+* [Delete mount target of a file share](#delete-mount-target-api)
+* [Delete a file share](#delete-file-share-api)
 
 ### Rename a file share
 {: #rename-file-share-api}

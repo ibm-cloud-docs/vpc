@@ -2,7 +2,7 @@
 
 copyright:
 years: 2021
-lastupdated: "2021-04-30"
+lastupdated: "2021-05-02"
 
 keywords: file storage, virtual private cloud, shares, profile
 
@@ -69,7 +69,7 @@ You can view available IOPS profiles the {{site.data.keyword.cloud_notm}} consol
 ### Using the UI
 {: #fs-using-ui-iops-profile}
 
-When you create a share using the UI, under **Profiles**, select an [**IOPS Tiers**](https://test.cloud.ibm.com/docs/vpc?topic=vpc-file-storage-create#fs-create-share-target-ui).
+When you create a share using the UI, under **Profiles**, select an **IOPS Tiers**.
 
 ### Using the CLI
 {: #fs-using-cli-iops-profiles}

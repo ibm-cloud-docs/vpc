@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-30"
+lastupdated: "2021-05-02"
 
 keywords: file storage, virtual private cloud, file share, mount target
 
@@ -42,8 +42,8 @@ Consider the following prerequisites before you set up File Storage for VPC.
 
 |        Considerations|
 |-------------------|
-|__ Evaluate your [IAM access permissions](/docs/vpc?topic=vpc-file-storage-managing) to create file shares. |
-|__ Evaluate the capacity and performance you need by [selecting a predefined IOPS tier and size](/docs/vpc?topic=vpc-file-storage-profiles). |
+|__ Evaluate your [IAM access permissions](/docs/vpc?topic=vpc-file-storage-managing#file-storage-vpc-iam) to create file shares. |
+|__ Evaluate the capacity and performance you need by selecting an [IOPS tier and size](/docs/vpc?topic=vpc-file-storage-profiles). |
 |__ Choose the UI, CLI, or API for creating and managing your file shares. |
 |__ Evaluate how you plan to use your file shares. |
 |__ Make sure you have a unique name for your file shares that easily identify the file share as your list of shares grows. Associate it with a resource group in your IBM Cloud customer account. |
