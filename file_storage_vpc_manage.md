@@ -78,9 +78,11 @@ To mount a share to an instance using the API, you create a mount target by prov
 
 1. Navigate to the [file shares details](/docs/vpc?topic=vpc-file-storage-view#fs-view-single-share) page.
 
-2. In the list of mount targets, click on the VPC name. Details for the VPC and mount target display.
+2. Click the overflow menu (hellipsis).
 
-3. Click the pencil icon after the Mount target name. Rename the mount target.
+3. Select **Rename**. 
+
+4. Enter a new name and click **Rename**.
 
 Valid mount target names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Mount target names must begin with a lowercase letter.
 
