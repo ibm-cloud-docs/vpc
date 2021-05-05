@@ -53,6 +53,13 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
+## 6 May 2021
+{: #6-may-2021}
+
+### For all version dates
+{: #6-may-2021-all-version-dates}
+Use scheduled scaling for VPC to schedule actions that automatically add or remove instance group capacity, based on daily, intermittent, or seasonal demand. You can create multiple scheduled actions that scale capacity monthly, weekly, daily, hourly, or even every set number of minutes. Explore the new [API methods](/apidocs/vpc#list-instance-group-managers).
+
 ## 30 March 2021
 {: #30-march-2021}
 
