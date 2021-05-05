@@ -343,7 +343,8 @@ Virtual Private Cloud (VPC)
     {: .topicgroup}
     Terraform
         [Terraform](/terraform/terraform-getting-started)
-        [Terraformer for VPC](https://github.com/ibm-cloud-architecture/terraformer)
+        [Terraformer for VPC](https://github.com/GoogleCloudPlatform/terraformer/blob/master/docs/ibmcloud.md)
+        [Tabular Terraform for VPC](https://github.com/ibm-cloud-architecture/tabular-terraform)
 
     [Exporter tool](https://github.com/l2fprod/vpc-diagram-exporter)
     {: .navgroup-end}
