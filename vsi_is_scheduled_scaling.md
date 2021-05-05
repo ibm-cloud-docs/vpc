@@ -2,11 +2,11 @@
 
 copyright:
   years:  2020, 2021
-lastupdated: "2021-04-28"
+lastupdated: "2021-05-06"
 
-keywords: scheduled scaling, instance scaling, virtual server instance scaling, Scheduled Scaling for VPC, scheduled actions,
+keywords: scheduled scaling, instance scaling, virtual server instance scaling, Scheduled Scaling for VPC, scheduled actions, 
 
-subcollection: cloud-infrastructure
+subcollection: vpc
 
 ---
 
@@ -21,7 +21,7 @@ subcollection: cloud-infrastructure
 {:important: .important}
 {:note: .note}
 
-# Scheduled scaling
+# Scheduled scaling 
 {: #scheduled-scaling-vpc}
 
 Use scheduled scaling for VPC to schedule actions that automatically add or remove instance group capacity, based on daily, intermittent, or seasonal demand. You can create multiple scheduled actions that scale capacity monthly, weekly, daily, hourly, or even every set number of minutes.
@@ -37,12 +37,12 @@ Scheduled scaling offers the following benefits:
 ## Example scenario for creating a scheduled action
 {: #scheduled-action-scenario}
 
-As an example, imagine that the fictitious company, Acme Web Retailer, experiences higher than normal levels of website traffic during Cyber Monday. To compensate for the increased traffic, they create a recurring scheduled action to scale up instance group capacity to 10 between the hours of 8:00 AM and 11:00 PM on Cyber Monday.
+As an example, imagine that the fictitious company, Acme Web Retailer, experiences higher than normal levels of website traffic during Cyber Monday. To compensate for the increased traffic, they create a recurring scheduled action to scale up instance group capacity to 10 between the hours of 8:00 AM and 11:00 PM on Cyber Monday. 
 
 ## Creating a scheduled action with the UI
 {: #set-up-scheduled-scaling-with-UI}
 
-A scheduled action that targets `membership_count` is incompatible with an instance group that uses auto scale because when enabled, the auto scale manager controls `membership_count`.
+A scheduled action that targets `membership_coun` is incompatible with an instance group that uses auto scale because when enabled, the auto scale manager controls `membership_count`.
 {: important}
 
 For more information about auto scale, see [Auto scale for VPC](/docs/vpc?topic=vpc-creating-auto-scale-instance-group#auto-scale-vpc)
@@ -51,9 +51,9 @@ For more information about auto scale, see [Auto scale for VPC](/docs/vpc?topic=
 
 To create a one-time scheduled action, use the following steps.
 
-1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Auto scale > Instance groups**.
+1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Auto scale > Instance groups**. 
 2. Select the instance group that you want to create a scheduled action for by clicking its name.
-3. Click **Scheduled actions**.
+3. Click **Scheduled actions**. 
 4. In the new screen, click **Create**
 5. Enter an appropriate name for the scheduled action.
 6. Select **One time**, then select the start date and time for your scheduled action.
@@ -64,9 +64,9 @@ To create a one-time scheduled action, use the following steps.
 
 To create a recurring scheduled action, use the following steps.
 
-1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Auto scale > Instance groups**.
+1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Auto scale > Instance groups**. 
 2. Select the instance group that you want to create a scheduled action for by clicking its name.
-3. Click **Scheduled actions**.
+3. Click **Scheduled actions**. 
 4. In the new screen, click **Create**
 5. Enter an appropriate name for the scheduled action.
 6. Click **Recurring**.
@@ -91,8 +91,8 @@ Make sure that you set up your {{site.data.keyword.cloud}} CLI environment and y
 
 To create a scheduled action by using the CLI, you must complete the following steps:
 
-1. Make sure that you have the required IBM {{site.data.keyword.iamshort}} (IAM) permissions to create instance group resources. For more information, see [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
-2. Create scaling policies to dynamically add or remove instances from your group based on the target utilization metrics that you define.
+1. Make sure that you have the required IBM {{site.data.keyword.iamshort}} (IAM) permissions to create instance group resources. For more information, see [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls). 
+2. Create scaling policies to dynamically add or remove instances from your group based on the target utilization metrics that you define. 
 
 ### Create a scheduled action
 {: #create-scheduled-action-cli}
@@ -180,15 +180,15 @@ expected output
 ```
 {:screen}-->
 
-## Creating schedule action with the API
+## Creating scheduled actions with the API
 {: #creating-scheduled-action-api}
 
 You can create a scheduled scaling action for your auto scaled instances by calling the VPC API.
 
-### Create a scheduled action
+### Create a scheduled action 
 {: #create-scheduled-action-api}
 
-The following example creates a scheduled action
+The following example creates a scheduled action 
 
 ```bash
 
