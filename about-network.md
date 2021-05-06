@@ -34,7 +34,7 @@ Subnets in your VPC can connect to the public internet through an optional publi
 
 Subnets within the VPC offer private connectivity; they can talk to each other over a private link through the implicit router. Setting up routes is not necessary. Figure 1 shows how you can subdivide a virtual private cloud with subnets and each subnet can reach the public internet.
 
-![Figure showing how a VPC can be subdivided with subnets](images/vpc-connectivity-and-security.svg "Figure showing how a VPC can be subdivided with subnets"){: caption="Figure 1. IBM VPC connectivity and security" caption-side="top"}
+![Figure showing how a VPC can be subdivided with subnets](images/vpc-experience-simple.svg "Figure showing how a VPC can be subdivided with subnets"){: caption="Figure 1. IBM VPC connectivity and security" caption-side="top"}
 
 ## Terminology
 {: #networking-terminology}
