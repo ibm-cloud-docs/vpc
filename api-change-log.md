@@ -58,7 +58,7 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 ### For all version dates
 {: #6-may-2021-all-version-dates}
-Use scheduled scaling for VPC to schedule actions that automatically add or remove instance group capacity, based on daily, intermittent, or seasonal demand. You can create multiple scheduled actions that scale capacity monthly, weekly, daily, hourly, or even every set number of minutes. Explore the instance group [managers methods](/apidocs/vpc#list-instance-group-managers) and the new [actions methods](/apidocs/vpc#list-instance-group-manager-actions).
+Use scheduled scaling for VPC to schedule actions that automatically add or remove instance group capacity, based on daily, intermittent, or seasonal demand. You can create multiple scheduled actions that scale capacity monthly, weekly, daily, hourly, or even every set number of minutes. Explore the instance group [managers methods](/apidocs/vpc#list-instance-group-managers) and the new [manager actions methods](/apidocs/vpc#list-instance-group-manager-actions).
 
 ## 30 March 2021
 {: #30-march-2021}
