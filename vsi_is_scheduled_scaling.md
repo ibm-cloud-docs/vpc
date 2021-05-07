@@ -2,9 +2,9 @@
 
 copyright:
   years:  2020, 2021
-lastupdated: "2021-05-06"
+lastupdated: "2021-05-07"
 
-keywords: scheduled scaling, instance scaling, virtual server instance scaling, Scheduled Scaling for VPC, scheduled actions, 
+keywords: scheduled scaling, instance scaling, virtual server instance scaling, scheduled actions, 
 
 subcollection: vpc
 
