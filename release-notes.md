@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-05-11"
+lastupdated: "2021-05-12"
 
 keywords: release notes, changes, updates
 
@@ -25,6 +25,13 @@ subcollection: vpc
 
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
+
+## 12 May 2021
+{: #may-12-2021}
+
+**Snapshots for VPC (GA)** - Snapshots for VPC is a regional offering that lets you create a point-in-time copy of your block storage boot or data volume. Select a snapshot during instance provisioning and restore a new, fully-provisioned boot volume to start the instance. You can also create and attach a data volume from a snapshot within a running virtual server instance.
+
+Learn more [about creating and using snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about) and explore the new [snapshots API methods](/apidocs/vpc#delete-snapshots).
 
 ## 06 May 2021
 {: #may-06-2021}
