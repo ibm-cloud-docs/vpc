@@ -41,11 +41,6 @@ Learn more [about creating and using snapshots](/docs/vpc?topic=vpc-snapshots-vp
 The Ultra High Memory family of profiles is currently available in the Dallas and Frankfurt multizone regions(MZRs). For more information, see the Multizone regions section in [Locations for resource deployment](https://cloud.ibm.com/docs/overview?topic=overview-locations#mzr-table). Contact your IBM Sales representative if you need Ultra High Memory profiles in a MZR other than Dallas or Frankfurt.
 {: note}
 
-## 03 May 2021
-{: #may-03-2021}
-
-**Red Hat Enterprise Linux (RHEL) now available on IBM Power Virtual Servers For SAP (GA)**: You can now use RHEL operating system on your IBM Power Virtual Server for SAP. For more information, see [Deploying your infrastructure](/docs/sap?topic=sap-power-vs-set-up-infrastructure) and [Preparing Linux OS on IBM Power VS For SAP HANA](/docs/sap?topic=sap-power-vs-sles-hana#power-vs-rhel-hana-register_system).
-
 ## 30 April 2021
 {: #april-30-2021}
 
