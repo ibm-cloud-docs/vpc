@@ -37,7 +37,6 @@ You can take up to 100 snapshots per volume in your region. Deleting a snapshot 
 
 You can create a new virtual server instance with a boot volume initialized from a snapshot. This process is called [restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore). The instance profile of the new instance doesn't have to match the original profile used to create the snapshot. 
 
-
 You can create a new virtual server instance with a boot volume initialized from a snapshot. The instance profile of the new instance is not required to match the instance used to create the snapshot. 
 
 Snapshots have their own lifecycle, independent of the block storage volume. You can delete the original volume and the snapshot persists. Do not detach the volume from the instance during or after snapshot creation. You won't be able to reattach the volume to the instance. Snapshots are also crash-consistent; if the virtual server stops for any reason, the snapshot data are safe on the disk.
@@ -52,11 +51,13 @@ Before you take a snapshot, make sure all cached data is present on disk. This a
 ## How snapshots work
 {: #snapshots-vpc-operation}
 
-When you take a snapshot, volume data is encrypted while in transit from the hypervisor to Cloud Object Storage (COS). Read and write operations resume normally on the volume during snapshot creation. After the snapshot is successfully created, you can resume full volume management activities, such as deleting, resizing, or detaching a volume. You can also take additional snapshots.
+When you take a snapshot, read and write operations from your virtual server instance to the volume continue uninterrupted. After volume data is retrieved, the snapshot enters a `pending` state until it's created. When the snapshot is successfully created and in a `stable` state, you can resume volume management activities, such as deleting, resizing, or detaching a volume. You can also take additional snapshots.
+
+Volume data retrieved for the requested snapshot is encrypted while in transit from the hypervisor to Cloud Object Storage (COS).
 
 The initial snapshot is the entire copy of your block storage volume. Subsequent snapshots copy only what's changed since the last snapshot.
 
-You restore a boot or data volume from a running viritual server instance using the UI, CLI, or API. Restoring a volume from a snapshot creates a new, fully-provisioned volume. Restoring from a snapshot of a boot volume creates a new boot volume that you can use when you provision a new instance. Restoring from a snapshot of a data volume creates a secondary volume attached to the instance.
+You restore a boot or data volume from a running virtual server instance using the UI, CLI, or API. Restoring a volume from a snapshot creates a new, fully-provisioned volume. Restoring from a snapshot of a boot volume creates a new boot volume that you can use when you provision a new instance. Restoring from a snapshot of a data volume creates a secondary volume attached to the instance.
 
 ## Limitations
 {: #snapshots-vpc-limitations}
