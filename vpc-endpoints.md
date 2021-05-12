@@ -40,7 +40,7 @@ Use one of the following public endpoints to connect to the VPC infrastructure A
 | Sydney            | `https://au-syd.iaas.cloud.ibm.com`   |
 | Tokyo             | `https://jp-tok.iaas.cloud.ibm.com`   |
 | Osaka             | `https://jp-osa.iaas.cloud.ibm.com`   |
-| Toronto           | `https://ca-tor.iaas.cloud.ibm.com`   | Not yet available |
+| Toronto           | `https://ca-tor.iaas.cloud.ibm.com`   | 
 {: caption="Table 1. VPC API Regional Endpoints" caption-side="top"}
 
 After you've created and are accessing the resources in your VPC, you're ready to run workloads. From inside the VPC infrastructure, you can access two types of {{site.data.keyword.cloud_notm}} endpoints: platform as a service (PaaS) endpoints, also known as service endpoints, and infrastructure as a service (IaaS) endpoints.
@@ -75,7 +75,7 @@ The following ports must be open to allow ADN network traffic to flow for the fo
 | UDP      | 53          | DNS         |
 | TCP      | 80          | HTTP      |
 | TCP      | 443         | HTTPS       |
-{: caption="Table 1. Ports required for network traffic" caption-side="top"}
+{: caption="Table 2. Ports required for network traffic" caption-side="top"}
 
 
 ### DNS resolver endpoints
