@@ -2,7 +2,7 @@
 
 Copyright:
   years:  2021
-lastupdated: "2021-04-02"
+lastupdated: "2021-05-11"
 
 keywords: block storage, virtual private cloud, volume, data storage, virtual server instance, instance, snapshots
 
