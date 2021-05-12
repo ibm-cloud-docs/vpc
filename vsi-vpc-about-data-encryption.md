@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2021
-lastupdated: "2021-03-30"
+lastupdated: "2021-05-10"
 
 keywords: block storage, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
@@ -30,7 +30,7 @@ subcollection: vpc
 
 By default, all boot and data volumes are encrypted at rest with IBM-managed encryption. There is no additional cost for this service.
 
-For end-to-end encryption in the Cloud, consider using customer-managed encryption. Your data is protected while in transit from the storage system to the host/hypervisor within the Cloud, and at rest in {{site.data.keyword.block_storage_is_short}}.
+For end-to-end encryption in the IBM Cloud, consider using customer-managed encryption. Your data is protected while in transit from block storage to the host/hypervisor and while at rest in block storage volumes.
 {:tip}
 
 IBM-managed encryption uses the following industry standard protocols:

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-15"
+lastupdated: "2021-05-11"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 subcollection: vpc
@@ -17,36 +17,32 @@ subcollection: vpc
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
 {:note: .note}
-{:beta: .beta}
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Restoring a volume from a snapshot (beta)
+# Restoring a volume from a snapshot
 {: #snapshots-vpc-restore}
 
 Now that you created a snapshot, how do you use it? By restoring from a snapshot, you create a new, fully-provisioned boot or data volume. Restoring from a snapshot of a boot volume creates a new boot volume that you can use when you provision a new instance. Restoring from a snapshot of a data volume creates a secondary volume that's attached to the instance.
 {:shortdesc}
 
-Snapshots for VPC is available only to accounts with special approval to preview this beta feature. 
-{:beta}
-
 ## About restoring a volume from a snapshot
 {: #snapshots-vpc-restore-concepts}
 
-Restoring a volume from a snapshot creates a new volume. The new volume has the same properties of the original volume. If you restore from a bootable snapshot, you create a boot volume. Similarly, you can create a new data volume from a snapshot of a data volume. The volume you create from the snapshot uses the same volume [profile](docs/vpc?topic=vpc-block-storage-profiles) and contains the same data and meta-data as the original volume. If the source volume used [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption), the volume created from the snapshot inherits that encryption.
+Restoring a volume from a snapshot creates a new volume. The new volume inherits properties from the original volume, but you can specify a larger volume size, different IOPS, and customer-managed encryption, if the source snapshot used provider-managed encryption. 
+
+When you restore from a bootable snapshot, you create a boot volume. Similarly, you can create a new data volume from a snapshot of a data volume. The volume you create from the snapshot uses the same volume [profile](docs/vpc?topic=vpc-block-storage-profiles) and contains the same data and meta-data as the original volume. If the source volume used [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption), the volume created from the snapshot inherits that encryption. 
 
 You restore a volume from a [virtual server instance when you provision a new instance](#snapshots-vpc-restore-vol-UI). You can also [restore a volume from an existing instance](#snapshots-vpc-create-from-vol-ui). The snapshot must be in a _stable_ state before you can restore a volume from it.
 
-When you create a new instance, you can select a snapshot for the operating system. From there, you select a _bootable snapshot_, a snapshot taken of a boot volume. This creates a new boot volume for that instance.
+When you create a new instance, you can select a snapshot for the operating system. You select a _bootable snapshot_, that is, a snapshot taken of a boot volume. This creates a new boot volume for that instance.
 
 You can create and attach a data volume to the new instance during instance provisioning or from an existing instance. During the create and attach process, you select a snapshot of the volume to restore the volume. A new volume is created and attached to the instance as secondary storage.
 
+When you restore a data volume from a snapshot, you choose the capacity and IOPS tier profile for a new data volume created from a snapshot. When you restore a boot volume, it's always has a general-purpose profile and 100 GB capacity.
+
 You can't simultaneously restore a boot and data volume.
-
-You can also create and attach a boot volume in the same manner on existing instances. It appears in the list of block storage volumes as a boot volume.
-
-When you restore a data volume from a snapshopt, you choose the capacity and IOPS tier profile for a new data volume created from a snapshot. When you restore a boot volume, it's always has a general-purpose profile and 100 GB capacity.
 
 When you select a snapshot as the source for the volume, the service immediately creates the new volume. The volume appears as _pending_ while it's being created. After the volume is hydrated (that is, fully provisioned), it contains all the data and metadata of the original volume. It retains the same capacity and IOPS performance. You can then use the boot volume to start a new instance or write data to the new attached data volume.
 
@@ -118,17 +114,18 @@ Use the CLI to create a boot or data volume from a snapshot.
 ### Before you begin
 {: #snapshots-vpc-restore-prereq-CLI}
 
-Make sure that you downloaded, installed, and initialized the following CLI plug-ins:
+1. Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 
-* {{site.data.keyword.cloud_notm}} CLI
-* The infrastructure-service plug-in
+2. To use the CLI, set the `IBMCLOUD_IS_FEATURE_SNAPSHOT` environment variable to `true`. Copy the following code:
 
-For more information, see the [CLI Reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+   ```
+   export IBMCLOUD_IS_FEATURE_SNAPSHOT=true
+   ```
+   {:pre}
+
+3. After you install the vpc-infrastructure plug-in, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
    
-After you install the vpc-infrastructure plug-in, set the target to generation 2 by running the command `ibmcloud is target --gen 2`.
-{:important}
-
-Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-getting-started).
+4. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli#create-a-vpc-cli).
 
 ### Create a boot volume from a snapshot using the CLI
 {: #snapshots-vpc-restore-boot-CLI}

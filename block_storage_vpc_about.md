@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-20"
+lastupdated: "2021-05-04"
 
 keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, IOPS, HPCS, Key Protect
 
@@ -44,9 +44,9 @@ You can attach several block storage data volumes to a single instance for extra
 ### Boot volumes
 {: #block-storage-vpc-boot-volumes}
 
-When you create an instance, a 100 GB boot volume is created and attached to the instance by default. The boot volume has a maximum IOPS of 3,000 IOPS.
+When you create an instance, a 100 GB boot volume is created and attached to the instance by default. The boot volume has a maximum IOPS of 300 IOPS.
 
-By default, boot volumes are encrypted by IBM-managed encryption. Optionally, you can use your own root keys (CRKs) by choosing customer-managed encryption during instance creation (see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption)). You can't detach and delete the boot volume. Boot volumes are always deleted when you when you delete the instance.
+By default, boot volumes are encrypted by IBM-managed encryption. Optionally, you can use your own root keys (CRKs) by choosing customer-managed encryption during instance creation (see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption)). You can't detach and delete the boot volume. Boot volumes are always deleted when you delete the instance.
 
 ### Data volumes
 {: #secondary-data-volumes}

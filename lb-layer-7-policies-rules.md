@@ -44,15 +44,13 @@ The following actions are supported for a layer 7 policy:
 * **Redirect** - The request is redirected to a configured URL and response code.
 * **Forward** - The request is sent to a specific back-end pool.
 
-Within each action category, the policies are evaluated in ascending order of priority (lowest to highest). Table 1 defines these policy properties.
-
 ## Policy properties
 {: #layer-7-policy-properties}
 
 Property  | Description
 ------------- | -------------
 Name | The name of the policy. The name must be unique within the listener.
-Action | The action to take when all policy rules match. The acceptable values are `reject`, `redirect`, and `forward`. A policy set to `reject` is always evaluated first, regardless of its priority. Policies with `redirect` actions are evaluated next, followed by policies with `forward` actions.
+Action | The action to take when all policy rules match. The acceptable values are `reject`, `redirect`, and `forward`.
 Priority | Policies are evaluated based on ascending order of priority.
 URL | The URL to which the request is redirected, if the action is set to `redirect`.
 HTTP status code | Status code of the response returned by the application load balancer when the action is set to `redirect`. The acceptable values are: `301`, `302`, `303`, `307`, or `308`.

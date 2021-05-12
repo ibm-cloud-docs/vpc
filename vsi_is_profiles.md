@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-30"
+lastupdated: "2021-05-06"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, generation 2, gen 2
 
@@ -42,8 +42,7 @@ The following profile families are available:
 | [Balanced](#balanced) | Best for midsize databases and common cloud applications with moderate traffic. |
 | [Compute](#compute)  | Best for moderate to high web traffic workloads. Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers. |
 | [Memory](#memory) | Best for memory caching and real-time analytics workloads. Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. |
-
-<!---| [Ultra High Memory](#uhmemory) | Ultra High Memory profiles offer the highest vCPU to memory ratios with 1 vCPU to 28 GiB of RAM to serve in-memory OLTP databases, such as SAP. |--->
+| [Ultra High Memory](#uhmemory) | Ultra High Memory profiles offer the highest vCPU to memory ratios with 1 vCPU to 28 GiB of RAM to serve in-memory OLTP databases, such as SAP. |
 
 <!---| [GPU](#gpu) | Best for artificial intelligence (AI) and deep learning workloads. Available for POWER processing architecture only. | -->
 {: caption="Table 1. Virtual server family selections" caption-side="top"}
@@ -148,6 +147,31 @@ Profiles with 64 or more vCPUs are deployed exclusively on the second-generation
 
 {: #callout-beta}
 
+## Ultra High Memory
+{: #uhmemory}
+
+Ultra High Memory profiles are hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts and are optimized for running memory intensive applications and in-memory database such as SAP HANA, Memcached, or Redis. This profile family offers our highest vCPU to memory ratio with 28 GiB of memory for every 1 vCPU of compute and up to 5.7 TiB of available RAM. All Ultra High Memory profiles are provisioned with temporary SSD-backed [Instance Storage](/docs/vpc?topic=vpc-instance-storage) at no additional charge.
+
+{: #callout-note}
+
+Ultra High Memory profiles are deployed exclusively on the second-generation Intel&reg; Xeon&reg; Platinum 8280L (Cascade Lake) running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz.  
+{: note}
+
+The following Ultra High Memory profiles are available for x86_64 processors:
+
+| Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
+|---------|---------|---------|---------|---------|
+| ux2d-2x56 | 2 | 56 | 2 | 1x60 | 
+| ux2d-4x112 | 4 | 112 | 4 | 1x120 | 
+| ux2d-8x224 | 8 | 224 | 8 | 1x240 | 
+| ux2d-16x448 | 16 | 448 | 16 | 1x480 |
+| ux2d-36x1008 | 36 | 1008 | 36 | 1x1080 |
+| ux2d-52x1456 | 52 | 1456 | 52 | 2x780 |
+| ux2d-72x2016 | 72 | 2016 | 72 | 2x1080 |
+| ux2d-104x2912 | 104 | 2912 | 80 | 2x1560 |
+| ux2d-200x5600 | 200 | 5600 | 80 | 2x3000 |
+{: caption="Table 6. Ultra High Memory profiles options for x86-64 instances" caption-side="top"}
+
 <!-- ## GPU
 {: #gpu}
 
@@ -171,8 +195,6 @@ If you are using GPU profiles, you might need to install the NVIDA kernel driver
 
 For information about storage, see [Storage notes for profiles](#storage-notes-for-profiles). 
 
-The network bandwidth cap applies separately to egress (transmitted) and ingress (received) traffic. That is, even if an instance capped at 4 Gbps reaches its transmit cap of 4 Gbps, that does not impact its ability to receive up to its cap of 4 Gbps. For information about network performance, see [Network performance notes for profiles](#network-perf-notes-for-profiles). 
-
 ## Viewing profile configurations
 {: #popular-profiles}
 
@@ -187,6 +209,7 @@ The first character represents the profile families. Different profile families 
 -	"b": balanced family of profiles, 1 vCPU to 4 GiB of memory ratio
 -	"c": compute family of profiles (higher on the CPUs), 1 vCPU to 2 GiB of memory ratio
 -	"m": memory family of profiles (higher on the memory), 1 vCPU to 8 GiB of memory ratio
+- "u": ultra high memory family of profiles, 1 vCPU to 28 GiB of memory ratio
 <!-- *  "g" is GPU, which is a 1:8 or 1:16 ratio -->
 
 The second character represents the CPU architecture.
@@ -253,6 +276,8 @@ as three predefined [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tier
 Every profile has a maximum network bandwidth of 2 Gbps per vCPU, with a cap of 80 Gbps. Network bandwidth is distributed evenly across network interfaces, and each network interface has a cap of 16 Gbps that might limit the overall performance. You might need to attach multiple network interfaces to your virtual server instance to optimize network performance.
 
 For example, if you choose a profile with 16 vCPU, the network cap for the profile is 32 Gbps. If you have just one network interface, the maximum network performance is 16 Gbps due to the network interface cap. You need to attach two network interfaces (16 Gbps each) to reach the profile cap of 32 Gbps.
+
+The network bandwidth cap applies separately to egress (transmitted) and ingress (received) traffic. That is, even if an instance capped at 4 Gbps reaches its transmit cap of 4 Gbps, that does not impact its ability to receive up to its cap of 4 Gbps. For information about network performance, see [Network performance notes for profiles](#network-perf-notes-for-profiles). 
 
 ## Next steps
 {: nextsteps-profiles}

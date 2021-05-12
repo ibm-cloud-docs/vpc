@@ -2,7 +2,8 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-05-04"
+
+lastupdated: "2021-05-12"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -53,15 +54,23 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
-## 4 May 2021
-{: #4-may-2021}
+## 12 May 2021
+{: #12-may-2021}
 
 ### For all version dates
-{: #4-may-2021-all-version-dates}
+{: #12-may-2021-all-version-dates}
 
 **Snapshots for VPC.** Use the new regional snapshot service to create point-in-time copies of your block storage boot or data volumes. Select a snapshot during instance provisioning and restore a new, fully-provisioned boot volume to start the instance. You can also create and attach a data volume from a snapshot within a running virtual server instance.
 
 Learn about [creating and using snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about) and explore the new [API methods](/apidocs/vpc#delete-snapshots).
+
+## 6 May 2021
+{: #6-may-2021}
+
+### For all version dates
+{: #6-may-2021-all-version-dates}
+
+**Scheduled scaling.** Use scheduled scaling for VPC to schedule actions that automatically add or remove instance group capacity, based on daily, intermittent, or seasonal demand. You can create multiple scheduled actions that scale capacity monthly, weekly, daily, hourly, or even every set number of minutes. Explore the instance group [managers methods](/apidocs/vpc#list-instance-group-managers) and the new [manager actions methods](/apidocs/vpc#list-instance-group-manager-actions).
 
 ## 30 March 2021
 {: #30-march-2021}

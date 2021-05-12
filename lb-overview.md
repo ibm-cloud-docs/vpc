@@ -96,7 +96,7 @@ With this method, the back-end server instance that serves the least number of c
 ## Front-end listeners and back-end pools
 {: #front-end-listeners-and-back-end-pools}
 
-You can define up to 10 front-end listeners (application ports) and map them to back-end pools on the back-end application servers. The FQDN assigned to your load balancer and the front-end listener ports are exposed to the public internet. Incoming user requests are received on these ports.
+Front-end listeners are application ports for load balancers to receive incoming requests while back-end pools are the application servers behind the load balancers. You can define up to 10 front-end listeners and map them to back-end pools on the back-end application servers. The FQDN assigned to your load balancer and the front-end listener ports are exposed to the public internet. Incoming user requests are received on these ports.
 
 Supported front-end listener and back-end pool protocols are HTTP, HTTPS, and TCP. You can configure an HTTP/HTTPS front-end listener with an HTTP/HTTPS back-end pool. HTTP and HTTPS listeners and pools are interchangeable. HTTP/2 is supported for listeners only. A TCP front-end listener can only be configured with a TCP back-end pool.
 

@@ -109,7 +109,7 @@ You may want to leverage the high throughput performance (and low latency) the N
 ## Front-end listeners and back-end pools
 {: #nlb-front-end-listeners-and-back-end-pools}
 
-You can define up to 10 front-end listeners (application ports) and map them to back-end pools on the back-end application servers. For a public NLB, the FQDN assigned to your load balancer and the front-end listener ports are exposed to the public internet. Incoming user requests are received on these ports. TCP is the supported protocol for front-end listeners and back-end pools.
+Front-end listeners are application ports for load balancers to receive incoming requests while back-end pools are the application servers behind the load balancers. You can define up to 10 front-end listeners and map them to back-end pools on the back-end application servers. For a public NLB, the FQDN assigned to your load balancer and the front-end listener ports are exposed to the public internet. Incoming user requests are received on these ports. TCP is the supported protocol for front-end listeners and back-end pools.
 
 You can attach up to 50 virtual server instances to a back-end pool. Traffic is sent to each instance on its specified data port. This data port does not need to be the same as the front-end listener port.
 

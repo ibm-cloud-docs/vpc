@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-15"
+lastupdated: "2021-05-11"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 subcollection: vpc
@@ -17,21 +17,17 @@ subcollection: vpc
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
 {:note: .note}
-{:beta: .beta}
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
 ---
 
-# Viewing Snapshots (beta)
+# Viewing Snapshots
 {: #snapshots-vpc-view}
 
 You can view a list of all snapshots and drill down to see information about a particular snapshot. Choose the UI, CLI, or API to retrieve this information.
 {:shortdesc}
-
-Snapshots for VPC is available only to accounts with special approval to preview this beta feature. 
-{:beta}
 
 ## List snapshots by using the UI
 {: #snapshots-vpc-view-list-ui}
@@ -74,7 +70,7 @@ You can also list all snapshots created from a block storage volume from the vol
 To see details about a snapshot:
 
 1. Navigate to the list of all snapshots. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Snapshots**.
-1. Click on the name of a snapshot. The snapshot details pane displays with the information described in Table 2.
+1. Click on the name of a snapshot. The snapshot details page displays with the information described in Table 2.
 
 | Field | Value |
 |-------|-------|
