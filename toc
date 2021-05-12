@@ -265,7 +265,7 @@ Virtual Private Cloud (VPC)
         block_storage_vpc_api_remediation.md
 
     {: .topicgroup}
-    Snapshots (Beta)
+    Snapshots
         snapshots_vpc_planning.md
         snapshots_vpc_create.md
         snapshots_vpc_view.md
