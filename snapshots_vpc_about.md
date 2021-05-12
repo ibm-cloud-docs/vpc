@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-11"
+lastupdated: "2021-05-12"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 subcollection: vpc
@@ -52,7 +52,7 @@ Before you take a snapshot, make sure all cached data is present on disk. This a
 ## How snapshots work
 {: #snapshots-vpc-operation}
 
-When you take a snapshot, the volume is locked to prevent write operations. Volume data is encrypted while in transit from the hypervisor to Cloud Object Storage (COS). After the snapshot is successfully created, the volume is unlocked and resumes normal operation.
+When you take a snapshot, volume data is encrypted while in transit from the hypervisor to Cloud Object Storage (COS). Read and write operations resume normally on the volume during snapshot creation. After the snapshot is successfully created, you can resume full volume management activities, such as deleting, resizing, or detaching a volume. You can also take additional snapshots.
 
 The initial snapshot is the entire copy of your block storage volume. Subsequent snapshots copy only what's changed since the last snapshot.
 

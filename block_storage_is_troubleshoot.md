@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-02-01"
+lastupdated: "2021-05-06"
 
 keywords: block storage, virtual private cloud, volume, data storage, troubleshooting, troubleshoot
 
@@ -44,7 +44,7 @@ Any of the following causes might apply:
 
 * The volume name and information is missing in either the UI or CLI.
 * You might also be attempting to access a volume in a region other than your region.
-* You might be trying to access a generation 1 volume.
+* You might be trying to access an obsolete volume, created on a deprecated VPC infrastructure.
 
 Verify that the volume wasn't detached from a virtual server instance and deleted. Search for the instance to which you last attached the volume from the list of all virtual server instances:
 {: tsResolve}
@@ -70,7 +70,7 @@ This condition might appear in the API or CLI:
 * In the API, when you send a PATCH request to rename the volume
 * In the CLI, when you specify the `ibmcloud is volume-update` command
 
-You might be renaming the volume with an invalid volume name. In this case, you see 400 "validation_invalid_name" error.
+You might be renaming the volume with an invalid volume name. In this case, you see a 400 "validation_invalid_name" error.
 You might also be specifying a valid volume name, but one that already exists in the VPC. For example, if you create two volumes from Gen 1 and Gen 2 compute resources that are in the same account, the same region, and have the same name, you see a 400 "volume_name_duplicate" error.
 {: tsCauses}
 
@@ -107,7 +107,7 @@ When you attempt to delete a virtual server instance with an attached volume tha
 A volume is in the process of being resized and you tried to delete the instance to which it's attached, either manually or by auto-delete. The status of the volume remains _updating_ and the volume isn't deleted with the instance.
 {: tsCauses}
 
-A volume must be in an _available_ state for operations such as attach, detach, delete. When expanding a volume, wait for the volume resizing to complete before performing any operations. If you try to delete a volume that's resizing, the volume remains in an _updating_ state and not be deleted with the instance.  To delete the volume, reattach the volume to a different instance, let the resizing complete (volume status becomes _available_, and then delete the volume.
+A volume must be in an _available_ state for operations such as attach, detach, delete. When you are expanding a volume, wait for the volume resizing to complete before performing any operations. If you try to delete a volume that's resizing, the volume remains in an _updating_ state and not be deleted with the instance. To delete the volume, reattach the volume to a different instance, let the resizing complete (volume status becomes _available_, and then delete the volume.
 {: tsResolve}
 
 ## Removing IAM authorization from the storage service to the KMS causes root key deregistration failure
@@ -121,4 +121,16 @@ If you remove IAM authorization from Cloud Block Storage to the KMS before you d
 {: tsCauses}
 
 As best practice, delete all storage or image resources before you remove IAM authorization. If you have already removed authorization, you must restore the IAM authorization between Cloud Block Storage Cloud Block Storage (source service) and your KMS (target service). For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth) to establish IAM service-to-service authorizations using the UI, CLI, or API.
+{: tsResolve}
+
+## Resolving issues when resizing a volume while taking a snapshot
+{: #troubleshoot-topic-6}
+
+If you take a snapshot of a volume and resize the source volume while the snapshot is being created, you'll get an error.
+{: tsSymptoms}
+
+While the snapshot is in a _pending_ state, a volume resize error displays with the message "The resize validation failed." The correct message should say, "volume is locked."
+{: tsCauses}
+
+Wait until the snapshot is created and in an _available_ state before resizing the source volume.
 {: tsResolve}
