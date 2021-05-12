@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-03-05"
+lastupdated: "2021-05-11"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, faqs
 subcollection: vpc
@@ -16,14 +16,13 @@ subcollection: vpc
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
 {:note: .note}
-{:beta: .beta}
 {:faq: data-hd-content-type='faq'}
 
-# FAQs for snapshots (Beta)
+# FAQs for snapshots
 {: #snapshots-vpc-faqs}
 
-This beta feature is available only to accounts with special approval.
-{:beta}
+The following questions often arise about the Snapshot for VPC offering. If you have other questions you'd like to see answered here, provide feedback by using the **Open Issue** or **Edit Topic** links.
+{:shortdesc}
 
 ## What is a snapshot?
 {: faq}
@@ -40,13 +39,13 @@ A bootable snapshot is a copy of a boot volume. You can use this new boot volume
 {: faq}
 {: #faq-snapshot-3}
 
-For the Beta release, you can take up to 100 snapshots per volume in a region. Deleting a snapshot does not increase this limit; after you take 100 snapshots, you can't take any more. 
+You can take up to 100 snapshots per volume in a region. Deleting a snapshot does not increase this limit; after you take 100 snapshots, you can't take any more. 
 
 ## Is there a limit on the size of a volume that I can snapshot?
 {: faq}
 {: #faq-snapshot-4}
 
-For the Beta release, the maximum size of a single snapshot is 10 TB, and the cumulative size of all snapshots for a given volume cannot exceed 10 TB. When the number of changed blocks in the volume exceeds the 10 TB snapshot limit, snapshot creation fails.
+The maximum size of a single snapshot is 10 TB, and the cumulative size of all snapshots for a given volume cannot exceed 10 TB. When the number of changed blocks in the volume exceeds the 10 TB snapshot limit, snapshot creation fails.
 
 ## How secure are snapshots?
 {: faq}
@@ -60,13 +59,13 @@ Snapshots retain the encryption from the original volume, IBM-managed or custome
 {: faq}
 {: #faq-snapshot-6}
 
-Restoring a volume from a snapshot creates an entirely new boot or data volume. The new volume has the same properties of the original volume, including encryption. If you restore from a bootable snapshot, you create a boot volume. Similarly, you can create a new data volume from a snapshot of a data volume. The volume you create from the snapshot uses the same volume profile and contains the same data and meta-data as the original volume. You restore a volume when you provision a new instance. For more information, see [Restoring a volume from a snapshot (Beta)](/docs/vpc?topic=vpc-snapshots-vpc-restore).
+Restoring a volume from a snapshot creates an entirely new boot or data volume. The new volume has the same properties of the original volume, including encryption. If you restore from a bootable snapshot, you create a boot volume. Similarly, you can create a new data volume from a snapshot of a data volume. The volume you create from the snapshot uses the same volume profile and contains the same data and meta-data as the original volume. You restore a volume when you provision a new instance. For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
 
 ## What happens to snapshots when I delete my volume?
 {: faq}
 {: #faq-snapshot-7}
 
-Deleting a volume from which you created a snapshot has no effect on the snapshot. Snapshots exist independently of the original source volume and have their own lifecycle.
+Deleting a volume from which you created a snapshot has no effect on the snapshot. Snapshots exist independently of the original source volume and have their own lifecycle. To delete a volume, all snapshots must be in a `stable` state.
 
 ## Can I set up a snapshot schedule?
 {: faq}
@@ -80,5 +79,5 @@ In the initial offering of Snapshots for VPC, you can only take a manual snapsho
 
 Snapshots have their own lifecycle, independent of the block storage volume. You can separately manage the source volume. However, when taking a snapshot, you must wait for the snapshot creation process to complete before detaching or deleting the volume.
 
-For Beta, detaching a volume from an instance after taking a snapshot is not supported. For more limitations of the Beta release, see [Snapshots limitations](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots-vpc-limitations).
+Detaching a volume from an instance after taking a snapshot is not supported. For more limitations of this release, see [Snapshots limitations](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots-vpc-limitations).
 {:note}

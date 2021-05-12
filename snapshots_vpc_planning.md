@@ -2,7 +2,7 @@
 
 Copyright:
   years:  2021
-lastupdated: "2021-03-05"
+lastupdated: "2021-04-02"
 
 keywords: block storage, virtual private cloud, volume, data storage, virtual server instance, instance, snapshots
 
@@ -19,16 +19,12 @@ subcollection: vpc
 {:screen: .screen}
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
-{:beta: .beta}
 
-# Planning for shapshot creation and use (Beta)
+# Planning for shapshot creation and use
 {: #snapshots-vpc-planning}
 
 When you're planning a snapshot strategy for your {{site.data.keyword.block_storage_is_short}} volumes, you might find this checklist helpful to set up and use the snapshot service.
 {:shortdesc}
-
-This beta feature is available only to accounts with special approval.
-{:beta}
 
 ## Planning for creating and using snapshots
 {: #planning-for-data-encryption}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-03-24"
+lastupdated: "2021-05-05"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 subcollection: vpc
@@ -17,19 +17,18 @@ subcollection: vpc
 {:tip: .tip}
 {:table: .aria-labeledby="caption"}
 {:note: .note}
-{:beta: .beta}
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Creating Snapshots (Beta)
+# Creating Snapshots
 {: #snapshots-vpc-create}
 
 Using the UI, CLI, or API, you can create a snapshot of a {{site.data.keyword.block_storage_is_short}} volume that is attached to a virtual server instance. You can create a snapshot of a boot or data volume.
 {:shortdesc}
 
-Snapshots for VPC is available only to accounts with special approval to preview this beta feature. 
-{:beta}
+Before you take a snapshot, make sure all cached data is present on disk. This applies to instances with Windows and Linux operating systems. For example, on Linux operating systems, run the `sync` command to force an immediate write of all cached data to disk.
+{:note}
 
 ## Create a snapshot by using the UI
 {: #snapshots-vpc-create-ui}
@@ -37,7 +36,7 @@ Snapshots for VPC is available only to accounts with special approval to preview
 
 In the UI, you can create a snapshot of a {{site.data.keyword.block_storage_is_short}} volume that's attached to a running virtual server instance. 
 
-The snapshots UI is available only in these regions:  Sydney (au-syd), France (eu-fr2), and Japan (jp-osa).
+The snapshots UI is available only in these regions:  Sydney (au-syd), and Japan (jp-osa).
 
 ### Create a snapshot from the list of snapshots
 {: #snapshots-vpc-create-from-list}
@@ -51,7 +50,7 @@ Follow these steps to create a snapshot from the list of snapshots.
 
 1. From the list of snapshots (initially empty), click **Create**.
 
-1. From the Create snapshot panel, enter the information in Table 1 to define your snapshot and select the block storage volume you'll be copying.
+1. Enter the information in Table 1 to define your snapshot and select the block storage volume you'll be copying.
 
 1. Click **Create snapshot**. You're returned to the list of snapshots. Messages display while snapshot is being created and when ready, the snapshot displays first in the list of snapshots. You can then [view details of your snapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui).
 
@@ -85,29 +84,25 @@ Follow these steps to create a snapshot from the list of block storage volumes.
 {: #snapshots-vpc-create-cli}
 {:cli}
 
-### Gathering information to create a snapshot by using the CLI
+### Gathering information to create a snapshot using the CLI
 {: #snapshots-vpc-getinfo-cli}
 
-Before you can run the `ibmcloud is snapshots-create` command, you can view the details about the volume and instance.
+Before you run the `ibmcloud is snapshots-create` command, you can view the details about the volume and instance.
 
 Gather the following information:
 
 |     Details   |  Listing options  | What it provides  |
 | --------------------- | --------------------------------|---------------------|
-| Volume                | `ibmcloud is volumes`           | Locate a volume from the list of volumes, verify the volume type, and whether it's attached to a instance. |
-| Volume {ID}           | `ibmcloud is volumes {ID}`      | Review details of a volume. |
-| Instances             | `ibmcloud is instances`         | List all instances. |
-| Instance {ID}         | `ibmcloud is instance {ID}`     | View details of an instance to see attached boot and data volumes. |
+| Volume | `ibmcloud is volumes` | Locate a volume from the list of volumes, verify the volume type, and whether it's attached to a instance. |
+| Volume VOLUME_ID  | `ibmcloud is volumes VOLUME_ID` | Review details of a volume. |
+| Instances | `ibmcloud is instances` | List all instances. |
+| Instance INSTANCE_ID  | `ibmcloud is instance INSTANCE_ID` | View details of an instance to see attached boot and data volumes. |
 {: caption="Table 1. Details for creating snapshots" caption-side="top"}  
 
 ### Procedure for creating a snapshot using the CLI
 {: #snapshots-vpc-create-procedure-cli}
 
-1. Make sure that you downloaded, installed, and initialized the following CLI plug-ins:
-    * {{site.data.keyword.cloud_notm}} CLI
-    * The infrastructure-service plug-in
-
-   For more information, see the [CLI Reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+1. Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 
 2. To use the CLI, set the `IBMCLOUD_IS_FEATURE_SNAPSHOT` environment variable to `true`. Copy the following code:
 
@@ -117,9 +112,8 @@ Gather the following information:
    {:pre}
 
 3. After you install the vpc-infrastructure plug-in, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
-   {:important}
    
-4. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-getting-started).
+4. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli#create-a-vpc-cli).
 
 5. Run the `snapshot-create` command to create a snapshot. 
 
