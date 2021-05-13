@@ -42,7 +42,7 @@ As an example, imagine that the fictitious company, Acme Web Retailer, experienc
 ## Creating a scheduled action with the UI
 {: #set-up-scheduled-scaling-with-UI}
 
-A scheduled action that targets `membership_coun` is incompatible with an instance group that uses auto scale because when enabled, the auto scale manager controls `membership_count`.
+A scheduled action that targets `membership_count` is incompatible with an instance group that uses auto scale because when enabled, the auto scale manager controls `membership_count`.
 {: important}
 
 For more information about auto scale, see [Auto scale for VPC](/docs/vpc?topic=vpc-creating-auto-scale-instance-group#auto-scale-vpc)
