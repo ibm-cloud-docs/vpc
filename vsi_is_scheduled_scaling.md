@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-07"
+lastupdated: "2021-05-13"
 
 keywords: scheduled scaling, instance scaling, virtual server instance scaling, scheduled actions, scaling actions
 
