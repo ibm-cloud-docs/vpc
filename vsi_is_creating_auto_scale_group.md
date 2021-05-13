@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021 
-lastupdated: "2021-03-23"
+lastupdated: "2021-05-13"
 
 keywords: auto scale, autoscale, virtual server instance, creating, UI, console
 
@@ -76,6 +76,9 @@ An instance template is required before you can create an instance group for aut
 details of the virtual server instances that are created for your instance group. For example, specify the profile (vCPU and 
 memory), image, attached volumes, and network interfaces for the image template. All of the virtual server instances that are 
 created for an instance group use the instance template that is defined in the instance group.
+
+All resources that are defined in an instance template must all be in the same resource group as the instance group.
+{: tip}
 
 To create an instance template, complete the following steps.
 1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Auto scale > Instance templates**. 
@@ -168,6 +171,9 @@ To create an auto scale instance group using the CLI, you must complete the foll
 
 ### Creating an instance template
 {: #creating-instance-template-cli}
+
+All resources that are defined in an instance template must all be in the same resource group as the instance group.
+{: tip}
 
 #### Gathering information to create an instance template
 {: #cli-command-options-instance-template-create}
