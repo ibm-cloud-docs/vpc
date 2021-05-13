@@ -290,6 +290,7 @@ Virtual Private Cloud (VPC)
         vsi_is_creating_auto_scale_group.md
         vsi_is_managing_auto_scale_group.md
         vsi_is_managing_instance_template.md
+        vsi_is_scheduled_scaling.md
 
     {: .topicgroup}
     Data encryption
