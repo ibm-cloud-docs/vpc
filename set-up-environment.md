@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-07-20"
+  years: 2018, 2021
+lastupdated: "2021-05-14"
 
 keywords: setup, environment, prerequisites, api, cli, command line interface, plugin, creating a vpc, iam, permissions, access, ssh key
 
@@ -22,6 +22,9 @@ subcollection: vpc
 {:download: .download}
 {:external: target="_blank" .external}
 {:DomainName: data-hd-keyref="DomainName"}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Setting up your API and CLI environment
 {: #set-up-environment}
@@ -47,6 +50,7 @@ Before you can create an {{site.data.keyword.vpc_full}} (VPC) by using the API o
 
 ## CLI prerequisites
 {: #cli-prerequisites-setup}
+{: cli}
 
 Before you can use the CLI to create your VPC, you must install the IBM Cloud CLI and the VPC CLI plug-in.
 
@@ -70,6 +74,7 @@ To learn how to create resources by using the CLI, see [Creating a VPC using the
 
 ## API prerequisites
 {: #api-prerequisites-setup}
+{: api}
 
 Before you can use the API to create your VPC, you must get an IAM token, store the endpoint as a variable, and verify that you have access to the VPC API service. 
 
