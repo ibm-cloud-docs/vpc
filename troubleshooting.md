@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2019-09-30"
+lastupdated: "2021-05-14"
 
 keywords: troubleshoot, tips, error, bearer, API, CLI, problem, debug, token, trace
 
@@ -19,6 +19,9 @@ subcollection: vpc
 {:tip: .tip}
 {:download: .download}
 {:troubleshoot: .troubleshoot}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Troubleshooting your VPC
 {: #troubleshooting-vpc}
@@ -29,6 +32,7 @@ This document covers common difficulties you might encounter, and offers some he
 
 ## Using DEBUG mode or `verbose` mode when using the API
 {: #troubleshoot-debug}
+{: api}
 
 For example, you can add `--verbose` to your `curl` command and send us the `X-Request-Id:` value so we can troubleshoot the problem. The `--verbose` flag is particularly helpful if you are experiencing connectivity problems.
 
@@ -36,12 +40,14 @@ Another option is to add the `-i` flag to your `curl` command so that the suppor
 
 ## API calls require a Bearer token
 {: #troubleshoot-api-calls}
+{: api}
 
 When you use the API with a cURL command, you might need to include "Bearer" in the Authorization header, depending on what is in the `$iam_token`. If it includes the word "Bearer", you don't include it again in the header. Most examples assume that "Bearer" is included in the header.
 
 
 ## Turning on `TRACE` mode when using the CLI
 {: #troubleshoot-trace}
+{: cli}
 
 To turn on `TRACE` (debug) mode when you use the CLI, set `IBMCLOUD_TRACE=true` before the CLI command.
 
@@ -53,6 +59,7 @@ IBMCLOUD_TRACE=true ibmcloud is pubgws
 
 ## Using a different endpoint for CLI
 {: #troubleshoot-endpoint-cli}
+{: cli}
 
 To change the VPC API endpoint that the {{site.data.keyword.cloud}} CLI uses by default, set the environment variable `IBMCLOUD_IS_API_ENDPOINT` before you use the CLI. For example,
 
@@ -84,6 +91,7 @@ If you cannot create a VPC or other resources, make sure that the owner of the a
 
 ### No response from API
 {: #troubleshoot-no-response}
+{: api}
 
 If the API is no longer returning any JSON, it is likely your IAM token has expired and needs to be refreshed. Log in to IBM Cloud again or refresh your token by running `iam_token=$(ibmcloud iam oauth-tokens | awk '/IAM/{ print $4; }')`.
 
