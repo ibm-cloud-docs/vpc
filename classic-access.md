@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2021
-lastupdated: "2021-04-07"
+lastupdated: "2021-05-14"
 
 keywords: classic, access, classic access, VRF, peering
 
@@ -20,6 +20,9 @@ subcollection: vpc
 {:table: .aria-labeledby="caption"}
 {:DomainName: data-hd-keyref="DomainName"}
 {:external: target="_blank" .external}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Setting up access to classic infrastructure
 {: #setting-up-access-to-classic-infrastructure}
@@ -51,11 +54,13 @@ A VPC must be set up for classic access when it is created: you cannot update a 
 
 ### Using the {{site.data.keyword.cloud_notm}} console to create a classic access VPC
 {: #create-a-classic-access-vpc-from-the-user-interface}
+{: ui}
 
 On the **New virtual private cloud** page, select **Enable access to classic resource** under **Classic access**.
 
 ### Using the CLI to create a classic access VPC
 {: #create-a-classic-access-vpc-using-the-cli}
+{: cli}
 
 Use the flag `--classic-access` when you create the VPC, for example:
 
@@ -67,6 +72,7 @@ ibmcloud is vpc-create my-access-vpc --classic-access
 
 ### Using the API to create a classic access VPC
 {: #create-a-classic-access-vpc-using-the-api}
+{: api}
 
 Pass in the `classic_access` parameter when you create the VPC, for example:
 
