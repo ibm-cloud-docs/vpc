@@ -4,7 +4,7 @@ copyright:
   years: 2020, 2021 
 lastupdated: "2021-05-13"
 
-keywords: auto scale, autoscale, virtual server instance, creating, UI, console
+keywords: auto scale, autoscale, virtual server instance, creating, UI, console, instance group
 
 subcollection: vpc
 
@@ -21,6 +21,8 @@ subcollection: vpc
 {:important: .important}
 {:preview: .preview}
 {:table: .aria-labeledby="caption"}
+{:ui: .ph data-hd-interface='ui'} 
+{:cli: .ph data-hd-interface='cli'} 
 
 # Creating an instance group for auto scaling 
 {: #creating-auto-scale-instance-group}
@@ -57,9 +59,9 @@ You have the option to configure your instance group with a load balancer to bal
 
 The monitoring service reflects the same health information for instances that health checks access.
 
-
 ## Setting up auto scale with the UI
 {: #setting-up-autoscale-overview}
+{: ui}
 
 Before you can create an instance group, you need to [create an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
 {:important}
@@ -70,7 +72,7 @@ To create an instance group for auto scale, you must complete the following task
 3. Choose a scaling method (static or dynamic) and create scaling policies. 
 
 ### Creating an instance template
-{: #creating-instance-template}
+{: #creating-instance-template-ui}
 
 An instance template is required before you can create an instance group for auto scaling. The instance template defines the 
 details of the virtual server instances that are created for your instance group. For example, specify the profile (vCPU and 
@@ -92,6 +94,7 @@ To create an instance template, complete the following steps.
 | Resource group | Select a resource group for the instance. | 
 | Tags |  You can assign a label to this resource so that you can easily filter resources in your resource list. | 
 | Location | Locations are composed of regions (specific geographic areas) and zones (fault tolerant data centers within a region). Select the location where you want your virtual server instance to be created. |
+| **Reviewers** Placement group | Select a placement group for the instance. If you add a placement group, the instance is placed according the the placement group policy. See [About placement groups](docs/vpc?topic=vpc-about-placement-groups-for-vpc) for more information. |
 | Image | All images use cloud-init, which allows you to enter user metadata associated with the instance for post provisioning scripts. |
 | Profile |  Select from popular profiles or all available vCPU and RAM combinations. The profile families are Balanced, Compute, and Memory. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles). |
 | SSH Key | You must select an existing SSH key or upload a new SSH key to use before you can create the instance. SSH keys are used to securely connect to the instance after it's running.<br />**Note:** Alpha-numeric combinations are limited to 100 characters.<br />For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
@@ -110,7 +113,7 @@ When you create an instance template, validation steps are performed to ensure t
 {: tip}
 
 ### Creating an instance group
-{: #creating-instance-group}
+{: #creating-instance-group-ui}
 
 An instance group is a collection of like virtual server instances. You define how many instances to maintain in the group. 
 You can set a static number of instances or choose to dynamically scale instances according to your requirements.
@@ -129,17 +132,18 @@ If you want to include a load balancer for your instance group to balance incomi
 | Name  | A name is required for your virtual server instance. |
 | Resource group | Select a resource group for the instance. |
 | Region | Select the location where you want your virtual server instance to be created. |
+| **Reviewers** Placement group | Select a placement group for the instance. If you add a placement group, the instance is placed according the the placement group policy. See [About placement groups](docs/vpc?topic=vpc-about-placement-groups-for-vpc) for more information. |
 | Subnets | Select the subnets where you want to create your instance group. To maximize the availability of your applications, select subnets in different zones. For the best performance of an auto scale instance group, ensure that you use a subnet size of 32 or greater. |
 | Use a load balancer | Select this checkbox if you plan to use a load balancer to balance incoming requests across instances in your instance group. The load balancer must already be configured, attached to the subnets that you select for this instance group, and have at least one back-end pool. |
 | Instance template |  Select the instance template that you want to use for provisioning the virtual server instances in your auto-scale instance group. All virtual server instances in the group are provisioned with the same instance template. |
 | Scaling method | Select whether you want to use a dynamic or static scaling method. With the dynamic scaling method, instances are added or removed based on the metric targets that you specify. With the static scaling method, you can specify a fixed number of instances that you always want to maintain. |
 | Instance group size | For a static group, enter the number of instances that you want to constantly have in this instance group. For a dynamic group, enter the minimum and maximum number of instances for your group. The number of instances will scale automatically within that range based on the target metrics that you define. |
-| Aggregation window (seconds) | For a dynamic group, this value determines the time period that the instance group manager monitors each instance and determines the average utilization. |
+| Aggregation window (seconds) | For a dynamic group this value determines the time period that the instance group manager monitors each instance and determines the average utilization. |
 | Cooldown period (seconds) | For a dynamic group, the period of time in seconds to pause further scaling actions after scaling has taken place. |
 {: caption="Table 2. Instance group selections" caption-side="top"}
 
 ### Creating scaling policies
-{: #creating-scaling-policies}
+{: #creating-scaling-policies-ui}
 
 For the dynamic scaling method, you define certain metrics (like CPU utilization percent) and the desired target utilization for that metric. Together, the metric and the average target utilization, determine when your instance group should dynamically add or remove virtual server instances from your group. 
 
@@ -152,6 +156,8 @@ To add scaling policies, complete the following fields on the **New instance gro
 {: caption="Table 3. Scaling policies selections" caption-side="top"}
 
 ## Setting up auto scale with the CLI
+{: #setting-up-autoscale-cli}
+{: cli}
 
 You can create an instance group in your {{site.data.keyword.vpc_short}} to auto scale according to your requirements by using the {{site.data.keyword.cloud_notm}} CLI.
 
@@ -339,6 +345,7 @@ When you create an instance template, validation steps are performed that ensure
 {: tip}
 
 ### Creating an instance group
+{: #creating-instance-group-cli}
 
 Once you have your instance template in hand, your next step is to create an instance group. Before you can run the `instance-group-create` command, you must specify a name for the instance group and determine values for the command options, such as what instance template you want to use.  
 
@@ -391,12 +398,13 @@ Resource group      ID                                 Name
 ```
 {:screen}
 
-For more examples of the `ibmcloud is instance-group-create` command, see the [VPC CLI reference](docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#???).
+For more examples of the `ibmcloud is instance-group-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-group-create).
 
 Need more help? You can always run `ibmcloud is instance-group-create --help` to display help for creating an instance group.
 {: tip}
 
 ### Creating an instance group manager
+{: #creating-instance-group-manager-cli}
 
 Now you can create an instance group manager so that you can apply your scaling policies in the next and final task.  Before you can run the `ibmcloud is instance-group-manager-create` command, you need to determine values for the command options, such as what instance group you want to manage.  
 
@@ -436,12 +444,13 @@ Max Membership Count   20
 ```
 {:screen}
 
-For more examples of the `ibmcloud is instance-group-manager-create` command, see the [VPC CLI reference](docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-group-manager-create).
+For more examples of the `ibmcloud is instance-group-manager-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-group-manager-create). 
 
 Need more help? You can always run `ibmcloud is instance-group-manager-create --help` to display help for creating an instance group manager.
 {: tip}
 
 ### Creating scaling policies
+{: #creating-scaling-policies-cli}
 
 Now you're ready to take full advantage of autoscaling! For the dynamic scaling method, you define certain metrics like CPU utilization percent and your desired target utilization for that metric. Together, the metric and the average target utilization determine when your instance group should dynamically add or remove virtual server instances from your group. This target value defines when the auto scale manager should scale up instances or scale down instances in your group. At the end of each aggregation window, the auto scale manager adds the current utilization of each instance and divides it by the target utilization value that you specify to determine the membership count.
 
@@ -529,5 +538,3 @@ For more examples of the `ibmcloud is instance-group-manager-policy-create` comm
 
 You can define more than one target metric policy, but only one policy for each type of metric. Need more help? You can always run `ibmcloud is instance-group-manager-policy-create --help` to display help for creating a scaling policy.
 {: tip}
-
-
