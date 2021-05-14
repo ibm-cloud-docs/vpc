@@ -112,6 +112,7 @@ Virtual Private Cloud (VPC)
         vsi_is_bulk_provision.md
         vsi_is_connecting_console.md
         vsi_is_manage_instances.md
+        vsi_is_ssh_keys.md
         vsi_is_instance_vnics.md
         vsi_instance_storage_how_to.md
         monitoring-vpc-metrics.md
@@ -343,7 +344,7 @@ Virtual Private Cloud (VPC)
 
     {: .topicgroup}
     Terraform
-        [Terraform](/terraform/terraform-getting-started)
+        [Terraform](/ibm-cloud-provider-for-terraform/ibm-cloud-provider-for-terraform-getting-started)
         [Terraformer for VPC](https://github.com/GoogleCloudPlatform/terraformer/blob/master/docs/ibmcloud.md)
         [Tabular Terraform for VPC](https://github.com/ibm-cloud-architecture/tabular-terraform)
 
@@ -403,5 +404,6 @@ Virtual Private Cloud (VPC)
     api-change-log.md
     limitations.md
     known-issues.md
+    errors.md
     getting-help.md
     {: .navgroup-end}
