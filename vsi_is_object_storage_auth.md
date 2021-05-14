@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-02-22"
+lastupdated: "2021-05-14"
 
 keywords: create authorization for IBM Cloud Object storage, import image to vpc infrastructure, migrate virtual server, migrate instance
 
@@ -20,6 +20,9 @@ subcollection: vpc
 {:note: .note}
 {:table: .aria-labeledby="caption"}
 {:external: target="_blank" .external}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Granting access to {{site.data.keyword.cos_full_notm}} to import images
 {: #object-storage-prereq}
@@ -39,6 +42,7 @@ From IBM {{site.data.keyword.iamshort}}, you must create an authorization so tha
 
 ### Granting access with the CLI
 {: #migrate-prereq-create-service-authorization}
+{: cli}
 
 To authorize the image source service to access the target service, a specific instance of {{site.data.keyword.cos_full_notm}}, run the `ibmcloud iam authorization-policy-create` command. 
 
@@ -55,6 +59,7 @@ For more information about all of the parameters that are available for this com
 
 ### Granting access with the API
 {: #auth-api}
+{: api}
 
 To authorize a source service access to a target service, use the [IAM Policy Management API](/apidocs/iam-policy-management#create-a-policy). See the following API example for Create a policy method with the `type=authorization` specified. All of the possible attributes are listed.
 
