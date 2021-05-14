@@ -1,8 +1,8 @@
 ---
 
 Copyright:
-  years: 2019, 2020
-lastupdated: "2020-08-03"
+  years: 2019, 2021
+lastupdated: "2021-05-14"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
@@ -19,6 +19,9 @@ subcollection: vpc
 {:pre: .pre}
 {:note: .note}
 {:table: .aria-labeledby="caption"}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Creating block storage volumes with customer-managed encryption
 {: #block-storage-vpc-encryption}
@@ -35,6 +38,7 @@ For information and prerequisite steps, see [Prerequisites for setting up custom
 
 ## Creating customer-managed encryption data volumes in the UI
 {: #data-vol-encryption-ui}
+{: ui}
 
 This procedure explains how to specify customer-managed encryption when you create a stand-alone block storage volume. You can also specify customer-managed encryption for volumes created during instance provisioning. For more information, see [Creating virtual server instances with customer-managed encryption](/docs/vpc?topic=vpc-creating-instances-byok).
 
@@ -55,11 +59,13 @@ Follow these steps to specify customer-managed encryption from the UI:
 
 ## Editing boot volumes to use customer-managed encryption in the UI
 {: #edit-boot-vol-byok-ui}
+{: ui}
 
 When you create an instance from the UI, you can specify customer-managed encryption by editing the boot volume properties. For more information, see [Provisioning virtual server instances with customer-managed encryption volumes in the UI](/docs/vpc?topic=vpc-creating-instances-byok#provision-byok-ui).
 
 ## Creating customer-managed encryption data volumes from the CLI
 {: #data-vol-encryption-cli}
+{: cli}
 
 To create a block storage volume with customer-managed encryption by using the CLI, use the `ibmcloud is volume-create` command with the `--encryption-key` parameter. The `encryption_key` parameter specifies a valid CRN for the root key in the key management service.
 
@@ -98,6 +104,7 @@ You can also create volumes with customer-managed encryption during instance pro
 
 ## Creating customer-managed encryption data volumes with the API
 {: #data-vol-encryption-api}
+{: api}
 
 You can create data volumes with customer-managed encryption by calling the Virtual Private Cloud (VPC) API.
 
