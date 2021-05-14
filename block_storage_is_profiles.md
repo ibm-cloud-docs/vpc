@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-15"
+lastupdated: "2021-05-14"
 
 keywords: block storage, virtual private cloud, volume, profile, volume profile, data storage, storage profile, virtual server instance, instance
 
@@ -19,6 +19,9 @@ subcollection: vpc
 {:table: .aria-labeledby="caption"}
 {:note: .note}
 {:beta: .beta}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Block storage profiles
 {: #block-storage-profiles}
@@ -102,6 +105,7 @@ You can view available IOPS profiles the {{site.data.keyword.cloud_notm}} consol
 
 ### Using the IBM Cloud console
 {: using-console-iops-profile}
+{: ui}
 
  When you [create a block storage volume from the {{site.data.keyword.cloud_notm}} console](/docs/vpc?topic=vpc-creating-block-storage), select **Tiers**.
 
@@ -109,6 +113,7 @@ You can view available IOPS profiles the {{site.data.keyword.cloud_notm}} consol
 
  ### Using the CLI
  {: using-cli-iops-profiles}
+ {: cli}
 
  To view the list of available profiles by using the CLI, run the following command:
 ```
@@ -118,6 +123,7 @@ $ ibmcloud is volume-profiles
 
 ### Using the API
 {: using-api-iops-profiles}
+{: api}
 
 The following cURL API request retrieves all volume profiles.
 
