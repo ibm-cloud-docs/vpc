@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-09-18"
+  years: 2019, 2021
+lastupdated: "2021-05-14"
 
 keywords: create virtual server with encryption, root key, encrypted volume, virtual server instance, create virtual server, provision virtual server, virtual machine, instance, virtual server, deploy virtual server, block storage volume
 
@@ -21,6 +21,9 @@ subcollection: vpc
 {:important: .important}
 {:preview: .preview}
 {:external: target="_blank" .external}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Creating virtual server instances with customer-managed encryption volumes
 {: #creating-instances-byok}
@@ -40,6 +43,7 @@ For information and prerequisite steps, see [Prerequisites for setting up custom
 
 ## Provisioning virtual server instances with customer-managed encryption volumes in the UI
 {: #provision-byok-ui}
+{: ui}
 
 When you provision a virtual server instance, you can specify customer-managed encryption for your boot volume and any data volumes that you want to add at that time. If you want, you can use a combination of provider-managed encryption and customer-managed encryption for the volumes that are associated with your instance.
 
@@ -60,6 +64,7 @@ Follow these steps to create an instance with a new block storage volume.
 
 ## Provisioning instances with customer-managed encrypted volumes from the CLI
 {: #provision-byok-cli}
+{: cli}
 
 To provision instances with customer-managed encryption volumes from the CLI, you need to create JSON files to define your boot and data volumes, and then specify the `ibmcloud is instance-create` command to reference the JSON files.
 
@@ -194,6 +199,7 @@ This example defines two general-purpose secondary (data) volumes with customer-
 
 ### Step 3 - Create a new instance with customer-managed encrypted volumes from the CLI
 {: #procedure-byok-cli}
+{: cli}
 
 Use the [ibmcloud is instance-create](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-create) command to create an instance with customer-managed encryption for your boot and data volumes. Specify the `--boot-volume` and `--volume-attach` parameters to reference JSON files that define volume encryption.
 
@@ -204,6 +210,7 @@ ibmcloud is instance-create INSTANCE_NAME VPC ZONE_NAME PROFILE_NAME SUBNET --im
 
 ## Provisioning instances with customer-managed encryption data volumes with the API
 {: #provision-byok-api}
+{: api}
 
 You can provision instances with customer-managed encryption data volumes by calling the Virtual Private Cloud (VPC) API.
 
