@@ -95,6 +95,7 @@ You can stop or reboot the instance by clicking **Shutdown instance** or **Reboo
 
 ## Using API to connect to a console
 {: #vsi_is_connecting_console_api}
+{: api}
 
 Before you can use the API requests to connect to a VNC or serial console, you need to get an IAM token, store the endpoint as a variable, and verify that you have access to the VPC API service. For more information, see [API prerequisites](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 
