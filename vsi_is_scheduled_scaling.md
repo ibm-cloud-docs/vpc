@@ -20,6 +20,9 @@ subcollection: vpc
 {:download: .download}
 {:important: .important}
 {:note: .note}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Scheduled scaling 
 {: #scheduled-scaling-vpc}
@@ -41,6 +44,7 @@ As an example, imagine that the fictitious company, Acme Web Retailer, experienc
 
 ## Creating a scheduled action with the UI
 {: #set-up-scheduled-scaling-with-UI}
+{: ui}
 
 A scheduled action that targets `membership_count` is incompatible with an instance group that uses auto scale because when enabled, the auto scale manager controls `membership_count`.
 {: important}
@@ -80,6 +84,7 @@ To create a recurring scheduled action, use the following steps.
 
 ## Creating a scheduled action with the CLI
 {: #set-up-scheduled-scaling-with-CLI}
+{: cli}
 
 You can create a scheduled scaling action for your auto scaled instances by using the {{site.data.keyword.cloud_notm}} CLI.
 
@@ -182,6 +187,7 @@ expected output
 
 ## Creating scheduled actions with the API
 {: #creating-scheduled-action-api}
+{: api}
 
 You can create a scheduled scaling action for your auto scaled instances by calling the VPC API.
 
