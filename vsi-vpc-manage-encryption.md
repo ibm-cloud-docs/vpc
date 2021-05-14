@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2021
-lastupdated: "2021-04-02"
+lastupdated: "2021-05-14"
 
 keywords: block storage, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
@@ -18,6 +18,9 @@ subcollection: vpc
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
 {:tip: .tip}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Managing data encryption
 {: #vpc-encryption-managing}
@@ -52,6 +55,7 @@ For more information, see:
 
 ### Verifying root key rotation by using the UI
 {: #byok-root-key-verify-rotation}
+{: ui}
 
 When you create a customer-managed encryption volume or custom image, your root key is automatically registered in the KMS instance. You can view this information to verify the key has been rotated by using the UI. The following procedure shows how  to verify key rotation for a block storage volume, but steps are similar for other resources.
 
@@ -227,6 +231,7 @@ For more information about restoring root keys in a KMS instance, see:
 
 ### Using the UI to manage root keys
 {: #byok-ui-root-key}
+{: ui}
 
 You can use the UI to disable, enable, delete, or restore your root keys. Table 5 describes each action and links to detailed steps for performing the action using the UI in Key Protect and HPCS. For information about the relationship of user actons to key states, see [Root key states and user actions](#byok-root-key-states).
 
@@ -241,6 +246,7 @@ You can use the UI to disable, enable, delete, or restore your root keys. Table 
 
 ### Using the API to manage root keys
 {: #byok-api-root-key}
+{: api}
 
 You can use the API to disable, enable, delete, or restore your root keys. Table 6 describes each action and links to detailed steps for performing the action using the Key Protect or HPCS API. For information about the relationship of user actons to key states, see [Root key states and user actions](#byok-root-key-states).
 
