@@ -3,7 +3,7 @@
 copyright:
   years: 2020, 2021
 
-lastupdated: "2021-04-29"
+lastupdated: "2021-05-14"
 
 keywords: vnc console, serial console, virtual server instance
 
@@ -22,8 +22,9 @@ subcollection: vpc
 {:screen: .screen}
 {:shortdesc: .shortdesc}
 {:tip: .tip}
-
-
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Accessing virtual server instances by using VNC or serial consoles
 {: #vsi_is_connecting_console}
@@ -80,8 +81,9 @@ To enable the serial console service for custom Linux images, you should make su
 
 ## Using the IBM Cloud UI to connect to a console
 {: #vsi_is_connecting_console_ui}
+{: ui}
 
-Follow the steps below to connect to a console by using IBM Cloud UI.
+Follow the steps below to connect to a console by using {{site.data.keyword.cloud_notm}} UI.
 
 1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instance**.
 2. In the **Virtual server instances for VPC** list, click the overflow button of the instance that you need to access, then click **Open VNC Console** or **Open serial Console**. Alternatively, on the instance details page, click **Action** on the upper right then click **Open VNC Console** or **Open Serial Console**.
@@ -98,6 +100,7 @@ Before you can use the API requests to connect to a VNC or serial console, you n
 
 ### Using API to connect to a VNC console
 {: #vsi_is_connecting_console_api_vnc}
+{: api}
 
   1. Create a console access token for the instance. Specify `"console_type"："VNC"` in the payload.
 
@@ -125,6 +128,7 @@ Before you can use the API requests to connect to a VNC or serial console, you n
 
 ### Using API to connect to a serial console
 {: #vsi_is_connecting_console_api_vnc}
+{: api}
 
   1. Create a console access token for the instance, specify `"console_type": "serial"` and `"force": true` in the payload.
 
@@ -152,6 +156,7 @@ Before you can use the API requests to connect to a VNC or serial console, you n
 
 ## Using CLI to connect to a console
 {: #vsi_is_connecting_console_cli}
+{: cli}
 
 Make sure you have set up the CLI environment following [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 
