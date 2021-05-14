@@ -1,8 +1,8 @@
 ---
 
 Copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-23"
+  years: 2019, 2021
+lastupdated: "2021-05-14"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
@@ -17,7 +17,9 @@ subcollection: vpc
 {:note: .note}
 {:screen: .screen}
 {:pre: .pre}
-{:table: .aria-labeledby="caption"}
+{:table: .aria-labeledby="caption"}{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Key rotation for VPC resources
 {: #vpc-key-rotation}
@@ -107,6 +109,7 @@ To perform key rotation:
 
 ## Using the key management service UI to rotate keys
 {: #vpc-key-rotation-ui}
+{: ui}
 
 This process rotates your root key to a new key version that you can use to reencrypt your data. These steps pertain to {{site.data.keyword.keymanagementserviceshort}}, but similar steps are available for [HPCS](/docs/hs-crypto?topic=hs-crypto-rotate-keys#rotate-root-key-gui).
 
@@ -125,6 +128,7 @@ You can also view Activity Tracker events for key rotation. For information, see
 
 ## Using the key management service CLI to rotate keys
 {: #vpc-key-rotation-cli}
+{: cli}
 
 This procedure describes how to rotate the root key that protects your data with a new root key using the CLI. This example uses a {{site.data.keyword.keymanagementserviceshort}} instance for rotating keys; HPCS steps are similar.  
 
@@ -214,6 +218,7 @@ This procedure describes creating a new root key with base64 key material. It st
 
 ## Using the key management service API to rotate keys
 {: #vpc-key-rotation-api}
+{: api}
 
 Using the API service, rotating a root key with new key material creates a new root key version that wraps (encrypts) the DEK used to rewrap (reencrypt) your data. The process for manually rotating a key using the {{site.data.keyword.keymanagementserviceshort}} API is described here, but the overall process is similar for HPCS.
 
