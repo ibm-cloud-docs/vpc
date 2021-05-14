@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-07"
+lastupdated: "2021-05-14"
 
 keywords: vpc, region, zone, deploy, datacenter, data, center, federated, CLI, API, account, failover, disaster, recovery, DR
 
@@ -20,6 +20,9 @@ subcollection: vpc
 {:important: .important}
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Creating a VPC in a different region
 {: #creating-a-vpc-in-a-different-region}
@@ -47,6 +50,7 @@ The Regional API (VPC) endpoint is automatically set by the IBM Cloud CLI when y
 
 ## Log in to a specific region using the CLI
 {: #log-in-to-a-specific-region-using-the-cli}
+{: cli}
 
 When you log in to IBM Cloud, you can specify a region or choose it later. For example, to log into the global API endpoint in the Dallas (`us-south`) region directly, run the following commands, which vary according to whether you have a federated account (SSO) or a non-federated account.
 
@@ -112,6 +116,7 @@ Space:
 
 ## Switch regions using the CLI
 {: #switch-regions-using-the-cli}
+{: cli}
 
 To get the latest status of the VPC regions, run the following command:
 
@@ -136,6 +141,7 @@ ibmcloud target
 
 ## Switch regions using the API  
 {: #switch-regions-using-the-api}
+{: api}
 
 To interact with the Regional VPC API using REST, direct your request to the API endpoint associated with the region in which you want to create resources. The region's API endpoint is shown in the previous table. You also can find the endpoints associated with the regions by running the following command:
 
@@ -153,8 +159,9 @@ curl "https://us-south.iaas.cloud.ibm.com/v1/vpcs?version=$api_version&generatio
 {: pre}
 
 
-## Get zones
-{: #get-zones}
+## Get zones using the CLI
+{: #get-zones-using-the-cli}
+{: cli}
 
 To get the list of zones available for each region, run the command `ibmcloud is zones <region>`. For example, to get the list of zones in region `us-south`, run the following command:
 
