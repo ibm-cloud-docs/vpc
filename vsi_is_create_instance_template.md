@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020 
-lastupdated: "2020-11-10"
+  years: 2020, 2021 
+lastupdated: "2021-05-17"
 
 keywords: create instance template, vsis, virtual server instance
 
@@ -21,6 +21,9 @@ subcollection: vpc
 {:important: .important}
 {:preview: .preview}
 {:table: .aria-labeledby="caption"}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Creating an instance template
 {: #create-instance-template}
@@ -31,6 +34,7 @@ at the same time as part of an instance group.
 
 ## Creating an instance template with the UI
 {: #instance-template-ui}
+{: ui}
 
 The instance template defines the details of the virtual server instances that are created from the template. For example, specify the profile (vCPU and memory), image, attached volumes, and network interfaces for the image template. 
 
@@ -45,6 +49,7 @@ virtual server instance.
 
 ## Creating an instance template with the CLI
 {: #solo-instance-template-cli}
+{: cli}
 
 You can create one or more instance templates in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
 
