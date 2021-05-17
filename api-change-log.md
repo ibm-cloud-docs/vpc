@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-05-12"
+lastupdated: "2021-05-18"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -54,11 +54,11 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
-## 12 May 2021
-{: #12-may-2021}
+## 18 May 2021
+{: #18-may-2021}
 
 ### For all version dates
-{: #12-may-2021-all-version-dates}
+{: #18-may-2021-all-version-dates}
 
 **Snapshots for VPC.** Use the new regional snapshot service to create point-in-time copies of your block storage boot or data volumes. Select a snapshot during instance provisioning and restore a new, fully-provisioned boot volume to start the instance. You can also create and attach a data volume from a snapshot within a running virtual server instance.
 
