@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-03"
+lastupdated: "2021-05-17"
 
 keywords: file storage, virtual private cloud, file share, mount target
 
@@ -305,7 +305,7 @@ A successful response will look like this:
 ### View a single mount target from the API
 {: #fs-get-target-api}
 
-Use the `GET /shares/{share_id}/targets/{target_id}` request to information of a single mount target of a share. This call includes mount path information. Use the mount path to attach a file share to an instance.
+Use the `GET /shares/{share_id}/targets/{target_id}` request to information of a single mount target of a share. This rquest includes mount path information. Use the mount path to attach a file share to an instance.
 
 Example:
 

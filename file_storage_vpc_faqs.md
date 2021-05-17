@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-03"
+lastupdated: "2021-05-17"
 
 keywords: file storage, virtual private cloud, file share, troubleshooting
 
@@ -39,12 +39,6 @@ File Storage for VPC is available to customers with special approval to preview 
 {:faq}
 {: #faq-fs-access}
 The REST API for this release is available to customers who are authorized to preview this service in the Washington, Dallas, and Frankfurt regions. If you're interested in getting access, contact your IBM Sales representative. Note that the REST API in this release is a beta-level offering. 
-
-### Does this release of File Storage for VPC support Gen 1 and Gen 2 VPC compute resources?
-{: faq}
-{: #faq-fs-1}
-
-No, file shares are provided for Gen 2 compute resources only. The Gen 1 infrastructure is deprecated.
 
 ### Do I have to create a VPC before I can create a file share?
 {: faq}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-30"
+lastupdated: "2021-05-17"
 
 keywords: virtual private cloud, file storage, file share, mount point
 
@@ -32,11 +32,11 @@ File Storage for VPC is available to customers with special approval to preview 
 ## Overview
 {: #file-storage-overview}
 
-File Storage for VPC provides a shared file service that operates within the bounds of a VPC. You create a shared file storage in an availability zone. You then mount the shared file system by creating mount targets.
+File Storage for VPC provides a shared file service that operates within the bounds of a VPC. You create a shared file storage in a single availability zone. You then mount the shared file system by creating mount targets.
 
 You pay for only the capacity you need. The capacity ranges from 10 GB up to 32 TB for all available profiles.
 
-File share data is encrypted by default using IBM-managed encryption for data-at-rest. For added security, you can also use your own root keys to protect your file shares. For more information, see [File share encryption](#FS-encryption).
+File share data is encrypted by default using IBM-managed encryption for data-at-rest.
 
 ### File storage IOPS profiles
 {: #fs-profiles-intro}
