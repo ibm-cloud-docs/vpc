@@ -90,7 +90,7 @@ To create an ALB:
    * **Port**: The listening port on which requests are received.
    * **Back-end pool**: The default back-end pool to which this listener forwards traffic.
    * **Max connections** (optional): Maximum number of concurrent connections the listener allows.
-   * **SSL certificate**: If HTTPS is the selected protocol for this listener, you must select an SSL certificate. Make sure that the load balancer is authorized to access the SSL certificate. For more information, see [Before you begin](#before).
+   * **SSL certificate**: If HTTPS is the selected protocol for this listener, you must select an SSL certificate. Make sure that the load balancer is authorized to access the SSL certificate. 
 1. Click **Create**.
 1. After you finish creating pools and listeners, click **Create load balancer**.
 1. To view details of an existing load balancer, click the name of your load balancer on the **Load balancers** page.
