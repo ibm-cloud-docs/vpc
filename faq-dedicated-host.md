@@ -61,6 +61,6 @@ In IBM Cloud console, if you look at the details page of a dedicated host that w
 {: #faq-dedicated-host-5}
 {: faq}
 
-If a dedicated host fails, it is replaced with a new dedicated host and instances running on the failed host are automatically assigned to and started on the new host.
+In case of a hardware failure, the dedicated host and instances running on it are migrated to a new node. 
 
-If you initially provisioned the instances to a dedicated host group, when a host failure occurs, the instances running on the host might be moved to another dedicated host in the group.
+If you initially provisioned the instances to a dedicated host group, when a host hardware failure occurs, the instances running on the host might be migrated to another dedicated host in the group. 
