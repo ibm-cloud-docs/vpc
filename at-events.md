@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-03-30"
+lastupdated: "2021-05-21"
 
 keywords: activity tracker, events
 
@@ -385,13 +385,13 @@ Refer to the following information when you are analyzing events:
 
 - When a user triggers an instance action change, an Activity Tracker log is generated. The action is specified to one of the following valid action types: `start`, `stop`, and `reboot`.
 
-- The `target` field contains information about the top-level resources, for example, VPC, subnets, and instances (virtual machine), etc. For subresources, such as volume-attachments, security-group rules, etc., their unique identifier can be found from the `responseData.responseURI` field. The mapping to the parent resources is reflected by the URI.
+- The `target` field contains information about the top-level resources, for example, VPC, subnets, and instances (virtual machine). For subresources, such as volume-attachments and security-group rules, their unique identifier can be found from the `responseData.responseURI` field. The mapping to the parent resources is reflected by the URI.
 
 - For events that are related to volume-attachments, the ID of the volume that was attached can be found indirectly by getting the ID of the volume-attachment from the `target.responseURI` field (which also contains the instance ID), and by using that ID to query the corresponding `GET /instance/{instance_id}/volume-attachment/{volume-attachment-id}` API. The volume ID can be found from the response of the GET API call.
 
 - For events that are related to Load Balancer requests, consider the following information:
 
-    You can get additional data in the `requestData.requestPath` field. You can find details about a subresource such as a listener ID or rule ID.
+    You can get more data in the `requestData.requestPath` field. You can find details about a subresource such as a listener ID or rule ID.
 
     When you create resources, you can get IDs from the `responseData.responseContent` field.
 
