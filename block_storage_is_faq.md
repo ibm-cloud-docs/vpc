@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019 - 2021
-lastupdated: "2021-04-15"
+lastupdated: "2021-05-21"
 
 keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, image, IOPS, FAQ
 
@@ -63,7 +63,7 @@ Block Storage for VPC is calculated hourly. The calculation is based on the tota
 {: faq}
 {: #faq-block-storage-7}
 
-You can create up to 750 total Gen 2 block storage volumes (data and boot) per account in a region. To increase this [quota](/docs/vpc?topic=vpc-quotas#block-storage-quotas), open a [support case](/docs/vpc?topic=vpc-getting-help) and specifying in which zone you need more volumes.
+You can create up to 750 total block storage volumes (data and boot) per account in a region. To increase this [quota](/docs/vpc?topic=vpc-quotas#block-storage-quotas), open a [support case](/docs/vpc?topic=vpc-getting-help) and specifying in which zone you need more volumes.
 
 There are also service limits for your block storage volumes based on the number of cores per instance. For more information, see [Service limits](/docs/vpc?topic=vpc-quotas#service-limits).
 
@@ -72,23 +72,15 @@ There are also service limits for your block storage volumes based on the number
 {: #faq-block-storage-8}
 {: support}
 
-For the current general availability release, you can't increase the capacity of a data volume (GBs) after provisioning. Estimate sufficient capacity for projected growth before you provision a block storage volume.
+You can increase the capacity of data volumes that you created after the expandable volumes Beta feature (released July 2020). For information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes). You can't increase capacity for volumes created before that date or on the Gen 1 infrastructure, which is deprecated.
 
-You might consider participating in the Beta release of larger-size and expandable volumes. The Beta can provision volumes up to 16 TB capacity. You can expand volume size as follows:
-
-* Volumes under 250 GB can expand up to 250 GB.
-* Volumes 250 GB and greater can expand up to 16 TB, depending on the volume profile.
-
-For more information, see [Expanding block storage volume capacity (Beta)](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
+As best practice, estimate sufficient capacity for projected growth before you provision a block storage volume.
 
 ### How many volumes can I provision on my account?
 {: faq}
 {: #faq-block-storage-12}
 
-You can provision up to 750 block storage Gen 2 volumes per account in a region. You can request your quota to be increased by opening a [support case](https://cloud.ibm.com/unifiedsupport/cases/form){: external} and specifying in which region you need more volumes. For more information about preparing a support ticket when you're ordering block storage volumes or requesting an increase to your volume or capacity limits, see [Managing volume count and capacity limits](/docs/vpc?topic=vpc-manage-storage-limit).
-
-If you provisioned block storage volumes for Gen 1 Compute instances, you are limited to 300 total volumes across the Gen 1 and Gen 2 infrastructure. For example, if you have 200 Gen 1 block storage volumes, you can request 100 Gen 2 block storage volumes for a total of 300.
-{: note}
+You can provision up to 750 block storage volumes per account in a region. You can request your quota to be increased by opening a [support case](https://cloud.ibm.com/unifiedsupport/cases/form){: external} and specifying in which region you need more volumes. For more information about preparing a support ticket when you're ordering block storage volumes or requesting an increase to your volume or capacity limits, see [Managing volume count and capacity limits](/docs/vpc?topic=vpc-manage-storage-limit).
 
 ### Can I set up shared storage in a multizone cluster?
 {: faq}
@@ -97,7 +89,7 @@ If you provisioned block storage volumes for Gen 1 Compute instances, you are li
 
 In the IBM Cloud, storage options are limited to an availability zone. Do not manage shared storage across multiple zones.
 
-Instead, use an IBM Cloud data classic service options outside a VPC such as {{site.data.keyword.cos_full}} or {{site.data.keyword.cloudantfull}} if you must share your data across multiple zones and regions
+Instead, use an IBM Cloud data classic service options outside a VPC such as {{site.data.keyword.cos_full}} or {{site.data.keyword.cloudantfull}} if you must share your data across multiple zones and regions. 
 
 ### I have volumes on the Classic infrastructure. Can I port them to the VPC?
 {: faq}
@@ -105,6 +97,12 @@ Instead, use an IBM Cloud data classic service options outside a VPC such as {{s
 {: support}
 
 No. The VPC provides access to new availability zones in multi-zone regions. Compute, network, and storage resources are designed to function in the VPC.
+
+### What is _image from volume_ and how does it relate to block storage volumes?
+{: faq}
+{: #faq-block-storage-ifv}
+Image from volume lets you create a custom image directly from a block storage boot volume. You then use the custom image to provision new virtual server instances. For more information, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc).
+
 
 ## Volume management questions
 {: #block-storage-vpc-volume-questions}
@@ -154,7 +152,7 @@ You do not have to pre-warm a volume. You can see the specified throughput immed
 {: faq}
 {: #faq-block-storage-4a}
 
-Input/Output Operations Per Second (IOPS) are used to measure the performance of your block storage volumes. A number of variables impact IOPS values, such as the balance of read/write operations, queue depth, and data block sizes. In general, the higher the IOPS of your block storage volumes, the better the performance. For information on expected IOPS for block storage profiles, see [Profiles](/docs/vpc?topic=vpc-block-storage-profiles). For information about how block size affects performance, see [this topic](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
+Input/output operations per second (IOPS) are used to measure the performance of your block storage volumes. A number of variables impact IOPS values, such as the balance of read/write operations, queue depth, and data block sizes. In general, the higher the IOPS of your block storage volumes, the better the performance. For information on expected IOPS for block storage profiles, see [Profiles](/docs/vpc?topic=vpc-block-storage-profiles). For information about how block size affects performance, see [this topic](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
 
 ### Are the allocated IOPS enforced by instance or by volume?
 {: faq}
@@ -180,12 +178,12 @@ IOPS is measured based on a load profile of 16 KB blocks with random 50% read an
 
 Block storage is connected to compute instances on a shared network, so the exact performance latency depends on the network traffic within a specific timeframe. Target latency for a 16KB block size volume is under 1 millisecond for random reads and under 2 milliseconds for writes. For more performance metrics you can expect for your storage volumes and compute instances, see [Storage-compute performance metrics](/docs/vpc?topic=vpc-capacity-performance#storage-performance-metrics). 
 
-
 ### What mechanisms are used to avoid data storage contention?
 {: faq}
 {: #faq-block-storage-17a}
 
 Data storage contention is a common issue when multiple instances compete for access to the same block storage volume. {{site.data.keyword.block_storage_is_short}} uses rate limiting at the hypervisor for optimal bandwidth between the hypervisor and block storage service. As a result, latency is guaranteed to be less than 1 millisecond for random reads and under 2 milliseconds for writes for a typical 16K block size. Latency outside these metrics might indicate a problem on the client side. For additional typical performance benchmarks, see[Storage-compute performance metrics](/docs/vpc?topic=vpc-capacity-performance#storage-performance-metrics).
+
 
 ## Data security and encryption questions
 {: #block-storage-vpc-security-questions}
@@ -195,16 +193,16 @@ Data storage contention is a common issue when multiple instances compete for ac
 {: #faq-block-storage-20}
 {: support}
 
-All block storage volumes are encrypted at rest with IBM-managed encryption. IBM-managed keys are generated and securely stored in a block storage vault that is backed by Consul and maintained by IBM Cloud operations.
+All block storage volumes are encrypted at rest with IBM-managed encryption. IBM-managed keys are generated and securely stored in a block storage vault that is backed by Consul and maintained by IBM Cloud operations. 
 
-For more security, you can protect your data by using your own customer root keys (CRKs). You import your root keys to, or create them in, a supported key management service (KMS). Your root keys are safely managed by the supported KMS, either {{site.data.keyword.keymanagementserviceshort}} (FIPS 140-2 Level 3 compliance) or {{site.data.keyword.hscrypto}}, which offer the highest level of security (FIPS 140-2 Level 4 compliance). Your key material is protected in transit and at rest.
+For more security, you can protect your data by using your own customer root keys (CRKs). You import your root keys to, or create them in, a supported key management service (KMS). Your root keys are safely managed by the supported KMS, either {{site.data.keyword.keymanagementserviceshort}} (FIPS 140-2 Level 3 compliance) or {{site.data.keyword.hscrypto}}, which offer the highest level of security (FIPS 140-2 Level 4 compliance). Your key material is protected in transit and at rest. 
 
-For more information, see [Supported key management services for customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok). To learn how to set up customer-managed encryption, see
+For more information, see [Supported key management services for customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok). To learn how to set up customer-managed encryption, see 
 [Creating block storage volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
 
-You control access to your root keys stored in KMS instances within IBM Cloud by using IBM Access Management (IAM). You grant access to the IBM Block Storage Service to use your keys. You can also revoke access at any time, for example, if you suspect your keys are compromised. You can also disable or delete a root key, or take temporarily revoke access to the key's associated data on the cloud. For more information, see [Managing root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-manage-root-keys).
+You control access to your root keys stored in KMS instances within IBM Cloud by using IBM Access Management (IAM). You grant access to the IBM Block Storage Service to use your keys. You can also revoke access at any time, for example, if you suspect your keys might are compromised. You can also disable or delete a root key, or temporarily revoke access to the key's associated data on the cloud. For more information, see [Managing root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-manage-root-keys).
 
-### What are the advantages of using customer-managed encryption over IBM-managed encryption?
+### What are the advantages of using customer-managed encryption over provider-managed encryption?
 {: faq}
 {: #faq-block-storage-21}
 
@@ -214,13 +212,13 @@ Customer-managed encryption encrypts your block storage volumes by using your ow
 {: faq}
 {: #faq-block-storage-22}
 
-Virtual disk images for VPC Generation 2 use QEMU Copy On Write Version 2 (QCOW2) file format. (VPC Generation 1 uses VHD file format.) LUKS encryption format secures the QCOW2 format files. IBM currently uses the ASE-256 cipher suite and XTS cipher mode options with LUKS. This combination provides you a much greater level of security than AES-CBC, along with better management of passphrases for key rotation, and provides key replacement options in case your keys are compromised. For more information, see [IBM Cloud VPC Generation 2 encryption technology](/docs/vpc?topic=vpc-vpc-encryption-about#byok-technologies).
+Virtual disk images for VPC use QEMU Copy On Write Version 2 (QCOW2) file format. LUKS encryption format secures the QCOW2 format files. IBM currently uses the ASE-256 cipher suite and XTS cipher mode options with LUKS. This combination provides you a much greater level of security than AES-CBC, along with better management of passphrases for key rotation, and provides key replacement options in case your keys are compromised.
 
 ### What are master encryption keys and how are they assigned to my block storage volumes?  
 {: faq}
 {: #faq-block-storage-23}
 
-Each volume is assigned a unique master encryption key, called a data encryption key or DEK, that is generated by the instance's host hypervisor. The master key for each block storage volume is encrypted with a unique KMS-generated LUKS passphrase, which is then encrypted by your customer root key (CRK) and stored in the KMS. Passphrases are AES-256 cipher keys, which means they are 32 bytes long and not limited to printable characters. You can view the cloud resource name (CRN) for the CRK used to encrypt a volume. However, the CRK, LUKS passphrase, and the volume's master encryption key are never exposed. For more information about the keys IBM VPC uses to secure your data, see [IBM Cloud VPC Generation 2 encryption technology](/docs/vpc?topic=vpc-vpc-encryption-about#byok-technologies).
+Each volume is assigned a unique master encryption key, called a data encryption key or DEK, that is generated by the instance's host hypervisor. The master key for each block storage volume is encrypted with a unique KMS-generated LUKS passphrase, which is then encrypted by your customer root key (CRK) and stored in the KMS. Passphrases are AES-256 cipher keys, which means they are 32 bytes long and not limited to printable characters. You can view the cloud resource name (CRN) for the CRK used to encrypt a volume. However, the CRK, LUKS passphrase, and the volume's master encryption key are never exposed. For more information about all the keys IBM VPC uses to secure your data, see [IBM's encryption technology - How your data is secured](/docs/vpc?topic=vpc-vpc-encryption-about#byok-technologies).
 
 ### I use customer-managed encryption for my volumes. What happens when I disable or delete my root key?
 {: faq}
@@ -240,7 +238,7 @@ If you remove IAM authorization before deleting your BYOK volume (or image), the
 {: faq}
 {: #faq-block-storage-25}
 
-Independently back up your data. Then, delete the compromised root key and power down the instance with volumes encrypted with that key.
+Independently back up your data. Then, delete the compromised root key and power down the instance with volumes encrypted with that key. 
 
 Also, consider setting up a key rotation policy that automatically rotates your keys based on a schedule. For more information, see [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).
 
@@ -252,21 +250,15 @@ For {{site.data.keyword.vpc_short}} resources such as block storage volumes that
 ### How does key rotation work?
 {: faq}
 {: #faq-block-storage-25b}
-Customer-managed encrypted resources such as block storage volumes use your root key as the root-of-trust key that encrypts a LUKS passphrase that encrypts a master key protecting the volume. You can import your root key to a key management service (KMS) instance or instruct the KMS to generate one for you. Root keys are rotated in your KMS instance.
+Customer-managed encrypted resources such as block storage volumes use your root key (CRK) as the root-of-trust key that encrypts a LUKS passphrase that encrypts a master key protecting the volume. You can import your CRK to a key management service (KMS) instance or instruct the KMS to generate one for you. Root keys are rotated in your KMS instance.
 
-When you rotate a root key, a new version of the key is created by generating or importing new cryptographic key material. The old root key is retired, which means its key material remains available for decrypting existing volumes, but not available for encrypting new ones. New resources are protected by the latest key. For more information, see [How key rotation works](/docs/vpc?topic=vpc-vpc-key-rotation#vpc-key-rotation-function).
-
-### I have volumes that are using Gen 1 and Gen 2 compute resources. Can I rotate my keys for all of these volumes?
-{: faq}
-{: #faq-block-storage-26}
-
-No, Gen 1 resources do not support key rotation. You can rotate keys only for Gen 2 resources, such as block storage volumes.
+When you rotate a root key, a new version of the key is created by generating or importing new cryptographic key material. The old root key is retired, which means its key material remains available for decrypting existing volumes, but not available for encrypting new ones. New resources are protected by the latest key. For more information, see [How key rotation works](https://test.cloud.ibm.com/docs/vpc?topic=vpc-vpc-key-rotation#vpc-key-rotation-function).
 
 ### Am I charged for using customer-managed encryption?
 {: faq}
 {: #faq-block-storage-27}
 
-You are not charged extra for creating volumes with customer-managed encryption. However, there is a charge for setting up a {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance to import, create, and manage your root keys. Contact your IBM customer service representative for details.
+You are not charged extra for creating volumes with customer-managed encryption.  However, there is a charge for setting up a {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance to import, create, and manage your root keys. Contact your IBM customer service representative for details.
 
 ### What's the difference between using Key Protect as my KMS compared to HPCS?  When would I use one over the other?
 {: faq}
@@ -274,8 +266,10 @@ You are not charged extra for creating volumes with customer-managed encryption.
 
 Both key management systems provide you complete control over your data, managed by your root keys. {{site.data.keyword.keymanagementserviceshort}} is a multi-tenant KMS that where you can import or create your root keys and securely manage them. {{site.data.keyword.hscrypto}} is a single-tenant KMS and hardware security module (HSM) that is controlled by you, which offers the highest level of security. For more information and links to documentation about these key management services, see [Supported key management services for customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok).
 
-### Can I convert my volume from provider-managed encryption to customer-managed encryption?
+### Can I convert my volume from provider-managed encryption to customer-managed encryption? 
 {: faq}
 {: #faq-block-storage-29}
 
 No, after you provision a volume and specify the encryption type, you can't change it.
+
+

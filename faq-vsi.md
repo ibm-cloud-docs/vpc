@@ -31,7 +31,7 @@ Yes, a vNIC on a virtual server instance has a private IP and can be attached to
 ## Instance1 has two vNICs, called vNIC1 and vNIC2. Can these two vNICs be attached to the same subnet?
 {: #faq-vsi-1}
 {: faq}
- 
+ 
 Yes, you can attach multiple network interfaces of an instance to the same subnet.
 
 ## Can an instance be created without a subnet, such as with only a floating IP address?
@@ -137,3 +137,8 @@ For more information, see [Understanding Cloud Maintenance Operations](/docs/vpc
 {: faq}
 
 When you provision a Windows virtual server instance with a stock image, disk manager might show unexpected disks. After a new Windows instance is provisioned from a stock image, a cloud-init disk and a swap disk are present. The cloud-init disk might display a size of 378 KB. The swap disk might display a size of 44 KB; the swap disk is turned off eventually. These small disks are working as designed. You should not attempt to delete or format either of these disks that are associated with your new Windows virtual server instance. 
+
+## What is _image from volume_ and how does it relate to virtual server instances?
+{: #faq-vsi-19}
+
+Image from volume lets you create a custom image from a boot volume attached to a virtual server instance. You then use the custom image to provision new virtual server instances. For more information, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc).

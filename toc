@@ -137,6 +137,12 @@ Virtual Private Cloud (VPC)
         image-rbac-permissions.md
         building-custom-os.md
 
+        {: .topicgroup}
+        Image from volume
+            vpc_image_from_volume.md
+            vpc_image_from_volume_create.md
+            vpc_image_from_volume_manage.md
+
     {: .topicgroup}
     Virtual private endpoint gateways
         vpe-intro.md
