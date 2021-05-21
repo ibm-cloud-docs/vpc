@@ -140,7 +140,7 @@ To use this image when you create a new instance, select it as operating system 
 
 1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
 
-2. Click **Create**. See [Creating virtual server instances by using the UI](docs/vpc?topic=vpc-creating-virtual-servers) for information on how to provision a new virtual server instance. For the **Operating system**, select the **Custom image** tile.
+2. Click **Create**. See [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers) for information on how to provision a new virtual server instance. For the **Operating system**, select the **Custom image** tile.
 
 3. Click **Select custom image** and select the image from volume that you created.
  
