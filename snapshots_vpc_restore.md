@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-11"
+lastupdated: "2021-05-21"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 subcollection: vpc
@@ -210,32 +210,13 @@ bmcloud is instance-create my-instance-restore1 ea002578-ff10-41fe-9652-e63f7e0e
 {: #snapshots-vpc-restore-API}
 {:api}
 
-To restore a boot volume from a bootable snapshot using the snapshot ID, use this call:
+To restore a boot volume from a bootable snapshot, specify the boot volume attachment and snapshhot ID in the `POST /instances` request.
 
-```
-POST /v1/instances boot_volume_attachments {snapshot_id}
-```
-{:pre}
-
-To restore a data volume from a snapshot and attach it at boot time, use this call:
-
-```
-POST /v1/instances volume_attachments {snapshot_id}
-```
-{:pre}
-
-To restore a data volume based based on the snapshot ID and attach it to an instance by instance ID, use this call:
-
-```
-POST /v1/instances/{instanceID} volume_attachments {snapshot_id}
-```
-{:pre}
-
-This example API request creates a new instance and restores a data volume from a snapshot. Notice that `source_snapshot` is listed for the `volume_attachments` parameter. If the restored volume were a boot volume, it would be listed under `boot_volume_attachment`. 
+For example:
 
 ```
 curl -X POST \
-"$vpc_api_endpoint/v1/instances?version=2020-10-12&generation=2" \
+"$vpc_api_endpoint/v1/instances?version=2021-05-21&generation=2" \
 -H "Authorization: $iam_token" \
 -H "Content-Type: application/json" \
 -d '{
@@ -244,26 +225,76 @@ curl -X POST \
         "name": "us-south-1"
       },
       "vpc": {
-        "id": "4d27c489-8ad7-4d09-bcf4-2103d8f8da93"
+        "id": "4d27c489-8ad7-3c18-cbf4-2103d9f8da93"
       },
           "profile": {
         "name": "cx2-2x4"
       },
       "primary_network_interface": {
-        "name": "region3130example-net1",
+        "name": "region1example-net1",
         "subnet": {
           "id": ""
         }
       },
-     "volume_attachments": [{
+      "boot_volume_attachment": {
+        "delete_volume_on_instance_delete": true,
         "volume": {
-          "source_snapshot": {
-              "id": "b60f5cfd-295c-486d-bb9d-6f28dc8ea0dc"
+            "profile": {
+                "name": "general-purpose"
+            },
+            "source_snapshot": {
+                "id": "eb373975-4171-4d91-81d2-c49efb033753"
             }
         }
-      }],
+     },
     "resource_group": {
-        "id": "a342dbfb-3ea7-48d1-96e8-2825ec5feab4"
+        "id": "2fab2c7f-c09d-4c64-baf7-1453b7461493"
+    }
+}'
+
+```
+{:codeblock}
+
+
+To restore a data volume from a snapshot and attach it at boot time, specify the data volume attachment and snapshot ID in the `POST /instances` request.
+
+```
+curl -X POST \
+"$vpc_api_endpoint/v1/instances?version=2021-05-21&generation=2" \
+-H "Authorization: $iam_token" \
+-H "Content-Type: application/json" \
+-d '{
+      "name": "my-server-name",
+      "zone": {
+        "name": "us-south-1"
+      },
+      "vpc": {
+        "id": "4d27c489-8ad7-3c18-cbf4-2103d9f8da93"
+      },
+          "profile": {
+        "name": "cx2-2x4"
+      },
+      "primary_network_interface": {
+        "name": "region1example-net1",
+        "subnet": {
+          "id": ""
+        }
+      },
+     "volume_attachments": [
+        {
+            "name": "restore-data-vol1",
+            "delete_volume_on_instance_delete": true,
+            "volume": {
+                "profile": {
+                    "name": "general-purpose"
+                },
+                "source_snapshot": {
+                    "id": "bdcdc984-ba4e-4aef-84fb-e8448c3116b1"
+                }
+            }
+        }
+    "resource_group": {
+        "id": "2fab2c7f-c09d-4c64-baf7-1453b7461493"
     }
 }'
 ```
