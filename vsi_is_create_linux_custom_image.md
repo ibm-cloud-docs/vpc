@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-06-19"
+  years: 2019, 2021
+lastupdated: "2021-05-21"
 
-keywords: creating a linux custom image for vpc, cloud-init, qcow2
+keywords: creating a linux custom image for vpc, cloud-init, qcow2, vhd
 
 subcollection: vpc
 
@@ -32,7 +32,7 @@ You can begin with an image template from the {{site.data.keyword.cloud_notm}} c
 {: tip}
 
 Your image must adhere to the following custom image requirements:
-* Contains a single file or volume 
+* Contains a single file or volume, qcow2 or VHD format 
 * Is cloud-init enabled
 * The operating system is supported as a stock image operating system
 * Size doesn't exceed 100 GB
