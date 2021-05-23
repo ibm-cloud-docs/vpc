@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2021
-lastupdated: "2021-05-20"
+lastupdated: "2021-05-23"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
 
@@ -103,11 +103,11 @@ You can create an image from a volume in several ways:
   
   * If you're creating an image from an encrypted boot volume on an existing instance, and that boot volume uses a CRK, then the image from that volume inherits that root key. 
 
-  * If you're creating an image from a boot volume by choosing a [block storage boot volume as the source](/docs/vpc?topic=vpc-image-from-volume-vpc-create#import-custom-image-source-UI), the new image inherits the encryption from the source volume.
+  * If you're creating an image from a boot volume by choosing a [block storage boot volume as the source](/docs/vpc?topic=vpc-create-ifv#import-custom-image-vol), the new image inherits the encryption from the source volume.
 
 ## Next Steps
 {: #ifv-next-steps}
 
 * Preview the end-to-end process for creating an image from volume, then using the image when creating a new virtual server instance. See the [Image from volume tutorial](/docs/vpc?topic=vpc-creating-and-using-an-image-from-volume).
 
-* [Create an image from volume](docs/vpc?topic=vpc-create-ifv).
+* [Create an image from volume](/docs/vpc?topic=vpc-create-ifv).
