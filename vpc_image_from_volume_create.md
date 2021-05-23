@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2021
-lastupdated: "2021-05-20"
+lastupdated: "2021-05-23"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
 
@@ -122,10 +122,12 @@ To complete your image from volume, select either IBM-managed encryption or cust
 | Field | Value |
 |-------|-------|
 | Encryption | The default selection is **No encryption**. If you have not encrypted your image by using QEMU, use the default value, No encryption. If you are importing an image that you have encrypted by using QEMU and your own passphrase, select the key management service where your customer root key (CRK) that protects your passphrase is stored. Select either **Key Protect** or **Hyper Protect Crypto Services** |
-| Encryption service instance | For an encrypted image, select the specific instance of the key management service where your CRK that wraps your encryption passphrase is stored. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs). |
-| Key name | Select the customer root key (CRK) that you used to wrap your encryption passphrase. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs). |
-| Wrapped data encryption key | For an encrypted image, specify the ciphertext that is associated with the wrapped data encryption key (WDEK). The WDEK is produced by wrapping the passphrase that you used to encrypt your image with your customer root key. For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs).|
+| Encryption service instance | For an encrypted image, select the specific instance of the key management service where your CRK that wraps your encryption passphrase is stored. |
+| Key name | Select the customer root key (CRK) that you used to wrap your encryption passphrase. |
+| Wrapped data encryption key | For an encrypted image, specify the ciphertext that is associated with the wrapped data encryption key (WDEK). The WDEK is produced by wrapping the passphrase that you used to encrypt your image with your customer root key. |
 {: caption="Table 2. Encryption types" caption-side="top"}
+
+For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs)
 
 ### View and use your image from volume
 {: #ifv-image-creation-completed}
@@ -301,11 +303,11 @@ $iam_token" -d
 ```
 {:codeblock}
 
-In the example response, `source_volume` indicates the boot volume used to create the image. Also notice that the image encryption appears as `none`, because the source volume used the default IBM-managed encryption. If you [used you own root key](#ifv-use-cr), the response would show `user-managed` instead.
+In the example response, `source_volume` indicates the boot volume used to create the image. Also notice that the image encryption appears as `none`, because the source volume used the default IBM-managed encryption. If you [used you own root key](#ifv-use-crk), the response would show `user-managed` instead.
 
 ```
 {
-  "created_at": "2019-06-26T00:05:13.873893Z",
+  "created_at": "2021-05-20T00:05:13.873893Z",
   "crn": "crn:[...]",
   "encryption": "none",
   "file": {},
@@ -367,7 +369,7 @@ The response would include information about the root key:
 
 ```
 {
-  "created_at": "2019-06-26T00:05:13.873893Z",
+  "created_at": "2021-05-20T00:05:13.873893Z",
   "crn": "crn:[...]",
   "encryption_key": {
     "crn": "crn:[...key:...]"
@@ -502,4 +504,4 @@ $iam_token" -d
 {: ifv-next-steps-api}
 
 [Use your image from a volume](#ifv-image-creation-completed) when creating a new instance.
-[Manage you image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc-manage).
+[Manage your image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc-manage).
