@@ -53,7 +53,6 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
-
 ## 25 May 2021
 {: #25-may-2021}
 
@@ -61,7 +60,6 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: #25-may-2021-all-version-dates}
 
 **Image from volume.** In a `POST /images` request, you can now specify `source_volume` with an instance boot volume identity. Specifying the `encryption_key` property in that request encrypts the image with a root key of your choosing. For details, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc) and the [Create an image](/apidocs/vpc#create-image) method.
-
 
 ## 18 May 2021
 {: #18-may-2021}
@@ -72,7 +70,6 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 **Snapshots for VPC.** Use the new regional snapshot service to create point-in-time copies of your block storage boot or data volumes. Select a snapshot during instance provisioning and restore a new, fully-provisioned boot volume to start the instance. You can also create and attach a data volume from a snapshot within a running virtual server instance.
 
 Learn about [creating and using snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about) and explore the new [API methods](/apidocs/vpc#delete-snapshots).
-
 
 ## 6 May 2021
 {: #6-may-2021}
