@@ -94,7 +94,6 @@ To create an instance template, complete the following steps.
 | Resource group | Select a resource group for the instance. | 
 | Tags |  You can assign a label to this resource so that you can easily filter resources in your resource list. | 
 | Location | Locations are composed of regions (specific geographic areas) and zones (fault tolerant data centers within a region). Select the location where you want your virtual server instance to be created. |
-| **Reviewers** Placement group | Select a placement group for the instance. If you add a placement group, the instance is placed according the the placement group policy. See [About placement groups](docs/vpc?topic=vpc-about-placement-groups-for-vpc) for more information. |
 | Image | All images use cloud-init, which allows you to enter user metadata associated with the instance for post provisioning scripts. |
 | Profile |  Select from popular profiles or all available vCPU and RAM combinations. The profile families are Balanced, Compute, and Memory. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles). |
 | SSH Key | You must select an existing SSH key or upload a new SSH key to use before you can create the instance. SSH keys are used to securely connect to the instance after it's running.<br />**Note:** Alpha-numeric combinations are limited to 100 characters.<br />For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
