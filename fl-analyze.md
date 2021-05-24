@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-30"
+lastupdated: "2021-05-24"
 
 keywords: flow logs, viewing objects, SQL, analyze
 
@@ -40,7 +40,7 @@ Each flow log object contains individual flow logs. To view or analyze the flow 
 1. Launch {{site.data.keyword.sqlquery_full}}.
 1. Start querying flow logs from the bucket that you specified when [Creating a flow log collector](/docs/vpc?topic=vpc-ordering-flow-log-collector).
 
-    To view the most frequent flow object, run this query:
+    To view the most frequent flow object, run the following query:
     ```
     SELECT * FROM cos://<region>/<bucket>/ibm_vpc_flowlogs_v1/ STORED AS JSON ORDER BY `stream-id` LIMIT 1 INTO cos://<region>/<target_bucket>/result/ STORED AS JSON
     ```
@@ -67,19 +67,19 @@ Because a flow log reflects network traffic in a limited window of time, a long-
 
 The `initiator_ip` in a flow log is defined to be the `source_ip` that appears in the first packet of its connection that reached the vNIC. At the implementation level, this packet is typically the one that causes the new connection to be added to the connection table. Similarly, the `target_ip` in the flow log is set to the `dest_ip` field in that same packet.
 
-If both the connection initiator vNIC and connection target vNIC enable flow logs, the initiator/target IP and ports fields are identical in the flow logs on both vNICs.
+If both the connection initiator vNIC and connection target vNIC enable flow logs, the initiator and target IP and ports fields are identical in the flow logs on both vNICs.
 {: note}
 
-**Example**: Consider a client sending an HTTP request to a web server. The flow log for this HTTP request on the client-side vNIC has the client’s IP address as `initiator_ip`. The corresponding flow log on the server-side vNIC has the same `initiator_ip`.
+**Example**: Consider a client that is sending an HTTP request to a web server. The flow log for this HTTP request on the client-side vNIC has the client’s IP address as `initiator_ip`. The corresponding flow log on the server-side vNIC has the same `initiator_ip`.
 
 The `start_time` and `end_time` in a flow log reflects:
 
    * Capture time - The time that data path elements were queried for traffic counters.
    * Data path time - The time as maintained in the data path element itself.
 
-It's possible that the flow log does not reflect all traffic (for example, in the data path) between a flow log `start_time` and `end_time`. In other words, it might be that packets sent/received by the vNIC toward the end of the capture window are reflected only in a flow log with the later `start_time` window.
+It's possible that the flow log does not reflect all traffic (for example, in the data path) between a flow log `start_time` and `end_time`. In other words, it might be that packets sent and received by the vNIC toward the end of the capture window are reflected only in a flow log with the later `start_time` window.
 
-**Flow logs reflect actual traffic on connections**: If traffic does not occur on a connection in a capture window, no flow log appears for it in the COS object for that window. This means that the sequence of flow logs for a connection might be mapped to a sequence of non-consecutive COS objects.
+**Flow logs reflect actual traffic on connections**: If traffic does not occur on a connection in a capture window, no flow log appears for it in the COS object for that window. Meaning that the sequence of flow logs for a connection might be mapped to a sequence of non-consecutive COS objects.
 
 The flow logs array within an object does not need to be sorted in any specific order.
 {: note}
@@ -106,7 +106,7 @@ ibm_vpc_flowlogs_v1/account={account}/region={region}/vpc-id={vpc-id}/subnet-id=
 
 Where:
 
-* `{stream-id}` is a date and time string in ISO 8601 format `yyyymmddThhmmssZ` (Coordinated Universal Time), defined as the time the first object in this `directory` was created.
+* `{stream-id}` is a date and time string in ISO 8601 format `yyyymmddThhmmssZ` (Coordinated Universal Time), defined as the time the first object in the `directory` was created.
 * `{sequence-number}` is a running counter of objects within the stream, represented as an eight-character, zero-filled field (`%08d`).
 * `{all|ingress|egress|internal}` shows the type of traffic the flow includes.
 * `{xxxx}` is the year in four-digit format.
@@ -129,12 +129,12 @@ The object header fields that are specified in the following table are written t
 | `version`                | string | The Semantic version. |
 | `collector_crn`          | string | The Cloud Resource Name (CRN) of the flow log collector. |
 | `attached_endpoint_type` | string | Currently, the only value is `vnic`. |
-| `network_interface_id`   | string | The `vnic` ID, as there is no vNIC CRN. |
+| `network_interface_id`   | string | The `vnic` ID, as it has no vNIC CRN. |
 | `instance_crn`           | string | The CRN of the instance that the network interface is attached to. |
 | `vpc_crn`                | string | The CRN of the VPC that the flow log collector is a member of. |
 | `capture_start_time`     | string | RFC 3339 Date and Time (Coordinated Universal Time) |
 | `capture_end_time`       | string | RFC 3339 Date and Time (Coordinated Universal Time) |
-| `state`                  | string |  Indicates the operational state of the flow log collector. `OK` means that data is being collected and shipped without any errors. `skip data` indicates that there was data that was lost during this collection interval (for example, because of high rate of rejected SYN packets). |
+| `state`                  | string |  Indicates the operational state of the flow log collector. `OK` means that data is being collected and shipped without any errors. `skip data` indicates data that was lost during this collection interval (for example, because of high rate of rejected SYN packets). |
 | `number_of_flow_logs`    | uin32  | The number of elements in a `flow_logs` array. Since this number is highly variable, it's useful as a quick reference of the number of flow logs contained in a single COS object, without needing to download the object first. |
 | `flow_logs`              | array of JSON objects | This can be an empty array, which indicates `no traffic`.|
 
@@ -148,8 +148,8 @@ The object header fields that are specified in the following table are written t
 | `connection_start_time`  | string | When the first byte in a flow log’s _connection_ was captured and seen in the data path (RFC 3339 Date and Time - Coordinated Universal Time). |
 | `direction`              | string | Values are `I` for inbound or `O` for outbound. If the first packet on the connection was _received_ by the vNIC, the direction is `I`. If the first packet was _sent_ by the vNIC, the direction is `O`. |
 | `action`                 | string | Values are `accepted` (traffic summarized by this flow was accepted) or `rejected` (traffic was rejected). |
-| `initiator_ip`           | string | (IPv4 address) Source-IP as it appears in the first packet that is processed by the vNIC on this connection. If `direction=="outbound"`, this is a private IP associated with the vNIC. |
-| `target_ip`              | string | (IPv4 address) Dest-IP as it appears in the first packet that is processed by the vNIC on this connection. If `direction=="inbound"`, this is a private IP associated with the vNIC. |
+| `initiator_ip`           | string | (IPv4 address) Source-IP as it appears in the first packet that is processed by the vNIC on this connection. If `direction=="outbound"`, a private IP associated with the vNIC. |
+| `target_ip`              | string | (IPv4 address) Dest-IP as it appears in the first packet that is processed by the vNIC on this connection. If `direction=="inbound"`, a private IP associated with the vNIC. |
 | `initiator_port`         | uint16 | The TCP/UDP source-port as it appears in first packet that is processed by this vNIC on this connection. |
 | `target_port`            | uint16 | The TCP/UDP dest-port as it appears in first packet that is processed by this vNIC on this connection. |
 | `transport_protocol`     | uint8  | The Internet Assigned Numbers Authority (IANA) protocol number (TCP or UDP). |
@@ -212,7 +212,7 @@ In most cases, you can find the direction field by comparing the vNIC’s privat
 
 ```
 
-### Analyzing flow logs using IBM Cloud SQL Query
+### Analyzing flow logs by using IBM Cloud SQL Query
 {: #analyzing-flow-logs-for-vpc-using-sql}
 
 You can analyze flow logs with SQL that uses {{site.data.keyword.sqlquery_full}} by using the path to the objects on COS in the FROM clause of your SQL query. (For an example, see Step 3 in [Viewing flow log objects](/docs/vpc?topic=vpc-fl-analyze). However, for a more convenient way of querying, it is recommended that you create table and view definitions that give you a flattened view on your flows. For more information about table catalog functions and benefits, see [Catalog management]/docs/sql-query?topic=sql-query-hivemetastore).
@@ -295,7 +295,7 @@ To analyze flow logs, follow these steps:
 #### Optimizing flow logs layout with {{site.data.keyword.sqlquery_full}}
 {: #optimizing-flow-logs-layout}
 
-When analyzing large amounts of flow logs, it is recommended to convert flow logs to a layout optimal for queries. This improves query execution time by at least one order of magnitude. For more information on data optimization on COS refer [here](https://www.ibm.com/cloud/blog/big-data-layout).
+When large amounts of flow logs are analyzed, it is recommended to convert flow logs to a layout optimal for queries. This conversion improves query execution time by at least one order of magnitude. For more information about data optimization on COS, see [How to Layout Big Data in IBM Cloud Object Storage for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout).
 
 The following SQL statement is an ETL job addresses two aspects that contribute significantly to query execution time:
 
@@ -337,7 +337,7 @@ To optimize flow logs layout with {{site.data.keyword.sqlquery_full}}, follow th
 
 1. Use the table `FLOW_PARQUET` instead of `FLOW_FLAT`.  
 
-   For more details about how data layout influences query execution times, see [How to Layout Big Data in IBM Cloud Object Storage for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout "data layout").
+   For more information about how data layout influences query execution times, see [How to Layout Big Data in IBM Cloud Object Storage for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout "data layout").
 
 #### Example queries for flow logs with {{site.data.keyword.sqlquery_full}}
 {: #example-queries-for-flow-logs-with-sql}
@@ -364,11 +364,11 @@ SORT BY hour
 LIMIT 100
 ```
 
-To see which of your vNICs received the most HTTPS traffic in the last seven days, use this query. It counts the number of packets that are sent and groups them by `target_ip`, and returns the top 10. You can check which vNIC sent the most traffic by sorting by `packets_sent`.
-The `where` condition maps to columns that are part of the object names. By restricting columns that are encoded in the object name,
-the query can be run quickly because objects can be pruned before reading their content.
+To see which of your vNICs received the most HTTPS traffic in the last seven days, use this query. It counts the number of packets that are sent and groups them by `target_ip`, and returns the first 10. You can check which vNIC sent the most traffic by sorting by `packets_sent`. 
 
-You should always include a similar clause when querying large amounts of flow logs.
+The `where` condition maps to columns that are part of the object names. By restricting columns that are encoded in the object name, the query can be run quickly because you can prune objects before you read their content.
+
+You need to include a similar clause when you query large amounts of flow logs.
 {: note}
 
 
@@ -387,7 +387,7 @@ GROUP BY target_ip
 ORDER BY `packets_received` DESC LIMIT 10
 ```
 
-To see which vNIC received the most traffic in the last hour, use this query. This query counts the number of bytes sent, groups them by `target_ip`, and returns the top 5.
+To see which vNIC received the most traffic in the last hour, use this query. This query counts the number of bytes sent, groups them by `target_ip`, and returns the first 5.
 
 ```
 SELECT target_ip,
