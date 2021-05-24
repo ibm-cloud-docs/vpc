@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-03-31"
+lastupdated: "2021-05-20"
 
 subcollection: vpc
 
@@ -57,3 +57,10 @@ Provisioning instances on a dedicated group allows your instances to move betwee
 
 In IBM Cloud console, if you look at the details page of a dedicated host that was provisioned with an instance storage profile, you see 6.4 TBs of instance storage. The description of the dedicated host shows 5.7 TBs. Because of the way virtual server instances and their associated profiles are packed on dedicated hosts, the most instance storage you can use on a dedicated host is 5.7 TBs. You are charged for 5.7 TBs of instance storage. 
 
+## What happens if my dedicated host fails? 
+{: #faq-dedicated-host-5}
+{: faq}
+
+In case of a hardware failure, the dedicated host and instances running on it are migrated to a new node. 
+
+If you initially provisioned the instances to a dedicated host group, when a host hardware failure occurs, the instances running on the host might be migrated to another dedicated host in the group. 

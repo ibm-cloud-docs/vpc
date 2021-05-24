@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-10-01"
+  years: 2018, 2021
+lastupdated: "2021-05-18"
 
 keywords: virtual server instances, VSI, planning, best practices
 
@@ -26,17 +26,17 @@ subcollection: vpc
 When you're planning to provision virtual server instances for {{site.data.keyword.vpc_short}}, you might find this configuration checklist helpful to get the most out of your deployment.
 {:shortdesc}
 
-Before you get started, make sure that you [created a VPC](/docs/vpc?topic=vpc-getting-started#getting-started).
-{:important}
-
 ## Planning for provisioning instances
 {: #planning-for-provisioning-instances}
 After you have a VPC available, consider the following before you provision your instance.
 
+The default VPC is selected automatically. If another VPC is not selected the default VPC will be attributd to the virtual server instance.
+{: tip}
+
 |        Considerations|
 |-------------------|
 |__ Make sure your account has the required user permissions. If you have authorization as an editor or admin on a VPC resource, then you also inherit authorization to create, delete, and modify virtual server instances within that virtual private cloud.|
-|__ Check your [account limits](/docs/vpc?topic=vpc-quotas#virtual-server-instances) for concurrent instances. |
+|__ Check your [account limits](/docs/vpc?topic=vpc-quotas) for concurrent instances. |
 |__ Make sure your [SSH key](/docs/vpc?topic=vpc-ssh-keys#ssh-keys) is available.
 |__ Determine what region and zone to select.|
 |__ Determine which subnets you want the instance to connect to.|
@@ -45,6 +45,7 @@ After you have a VPC available, consider the following before you provision your
 |__ Make sure you have a unique name for the instance. The instance name must be unique within an account and region. If you have a method to naming virtual server instances, it's much easier to filter and search on them later. |
 |__ Determine how many secondary storage [volumes](/docs/vpc?topic=vpc-block-storage-about#secondary-data-volumes) you need. |
 |__ Determine how many [network interfaces](/docs/vpc?topic=vpc-using-instance-vnics#about-network-interfaces) you need and which [security group](/docs/vpc?topic=vpc-using-security-groups) to attach to each interface.|
+|__ **Reviewers** Deteremine if you will use placement groups. If you add then instance to an existing placement group, the instance is placed according the the placement group policy. See [About placement groups](docs/vpc?topic=vpc-about-placement-groups-for-vpc) for more information. |
 {: caption="Table 1. Checklist for planning to provision instances" caption-side="top"}
 
 ## Next steps

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2020-03-15"
+lastupdated: "2021-05-21"
 
 keywords: custom routes
 
@@ -35,7 +35,7 @@ subcollection: vpc
 You can delete a routing table for an IBM Cloud service by using the UI, CLI, or API.
 {: shortdesc}
 
-## Deleting a routing table using the UI
+## Deleting a routing table by using the UI
 {: #cr-delete-table-using-the-ui}
 {: ui}
 
@@ -46,10 +46,10 @@ To delete a routing table by using the {{site.data.keyword.cloud_notm}} console,
 
    ![Deleting routing tables for VPC](./images/cr-routing-table-delete.png)
 
-   You can delete only a routing table that does not have an attached subnet. If the routing table you want to delete has a subnet attached, you can detach it by either reassigning the routing table to another subnet (using the overflow menu ![overflow menu](images/overflow.png)), or by deleting the subnet (click the subnet name, then click **Delete** from the overflow menu ![overflow menu](images/overflow.png).
+   You can delete only a routing table that does not have an attached subnet. If the routing table that you want to delete is attached to a subnet, you can detach it by either reassigning the routing table to another subnet (by using the overflow menu ![overflow menu](images/overflow.png)), or by deleting the subnet (click the subnet name, then click **Delete** from the overflow menu ![overflow menu](images/overflow.png).
    {: important}
 
-## Deleting a routing table using the CLI
+## Deleting a routing table by using the CLI
 {: #cr-delete-table-using-the-cli}
 {: cli}
 
@@ -66,7 +66,7 @@ Where:
 * **ROUTING_TABLE** is the ID of the VPC routing table.
 * **-f, --force** forces the operation without confirmation.
 
-## Deleting a routing table using the API
+## Deleting a routing table by using the API
 {: #cr-delete-table-using-the-api}
 {: api}
 

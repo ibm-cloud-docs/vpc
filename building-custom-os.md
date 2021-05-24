@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-26"
+lastupdated: "2021-05-21"
 
 keywords: custom os, creating a custom os, custom operating system, creating a custom operating system, kernel, custom kernel
 
@@ -22,16 +22,18 @@ subcollection: vpc
 {:external: target="_blank" .external}
 {:download: .download}
 
-# Configuration Requirements for Custom Linux Kernels
+# Configuration requirements for custom Linux kernels
 {: #configuration-requirements-for-custom-linux-kernels}
 
-Custom Linux kernels can be used in IBM Cloud VPC. You can build a custom kernel locally on your virtual server instance or on-premises.
+Custom Linux kernels can be used in IBM Cloud VPC. You can build a custom kernel locally on your virtual server instance or on-premises. Use Image from Volume to capture an image by using your custom kernel, or use [Custom Image Import](https://test.cloud.ibm.com/docs/vpc?topic=vpc-managing-images#import-custom-image) to bring your on-premises image into the account's image catalog.
 
-When you build your own custom Linux kernel for use in the IBM Cloud, refer to the following requirements. It is also recommended that you [enable virtual server instance console access](/docs/vpc?topic=vpc-vsi_is_connecting_console) when you build your own custom kernel to help facilitate debugging any boot issues that can occur.
+When you build your own custom Linux kernel for use in the IBM Cloud, refer to these requirements. It is also recommended that you [enable virtual server instance console access](/docs/vpc?topic=vpc-vsi_is_connecting_console) when you build your own custom kernel. Doing so helps facilitate debugging any potential boot issues.
 {: shortdesc}
 
-## Hardware Requirements
-The following list details the supported hardware by every virtual machine in IBM's VPC. These devices are consistent for every virtual machine in the VPC and are subject to change as new features become available in the IBM Cloud. Custom kernels need to support these devices to run in IBM Cloud VPC. Failure to include these devices can result in loss of features or capabilities in the {{site.data.keyword.cloud}}.
+## Hardware requirements
+{: #hardware-requirements-custom-linux-kernels}
+
+Hardware that is supported by every virtual machine in IBM's VPC is detailed in the following device list. These devices are currently consistent for every virtual machine in the VPC and are subject to change as new features become available in the IBM Cloud. Custom kernels need to support these devices to run in IBM Cloud VPC. Failure to include these kernels can result in loss of features or capabilities in the IBM cloud.
 {:shortdesc}
 
 - **Host bridge**:
@@ -72,8 +74,10 @@ The following list details the supported hardware by every virtual machine in IB
     - Rx-checksum is supported
     - Tx-checksum is supported
 
-## Linux Kernel Build Options
-The following kernel options are required when you build a Linux operating system for {{site.data.keyword.cloud}}.
+## Custom Linux kernel build options
+{: #custom-linux-kernel-build-options}
+
+The following kernel options are required when you build a Linux operating system for IBM Cloud.
 
 - CONFIG_ETHERNET = y
   - Ethernet driver support
@@ -84,13 +88,13 @@ The following kernel options are required when you build a Linux operating syste
 - CONFIG_NET = y
   - Networking support
 - CONFIG_KVM_GUEST = y
-  - Enables various optimizations for running under the KVM hypervisor. It includes a paravirtualized clock, so that instead of relying on a PIT (or probably other) emulation by the underlying device model
+  - Enables various optimizations to run under the KVM hypervisor - including a paravirtualized clock. So that instead of relying on a PIT (or other) emulation by the underlying device model
 - CONFIG_SCSI_MOD = y
   - SCSI device support
 - CONFIG_SCSI = y
   - To use a SCSI hard disk, SCSI tape drive, SCSI CD-ROM or any other SCSI device under Linux
 - CONFIG_VIRTIO_PCI = y
-  - This driver provides support for virtio based paravirtual device drivers over PCI
+  - This driver provides support for virtio-based paravirtual device drivers over PCI
 - CONFIG_SCSI_VIRTIO = y
   - The virtual HBA driver for virtio
 - CONFIG_VIRTIO_NET = y

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-17"
+lastupdated: "2021-05-21"
 
 keywords: file storage, virtual private cloud, file share, troubleshooting
 
@@ -35,18 +35,19 @@ File Storage for VPC is available to customers with special approval to preview 
 ## Offering questions
 {: #file-storage-vpc-offering-questions}
 
-### Can I get access to the File Storage for VPC API?
-{:faq}
-{: #faq-fs-access}
-The REST API for this release is available to customers who are authorized to preview this service in the Washington, Dallas, and Frankfurt regions. If you're interested in getting access, contact your IBM Sales representative. Note that the REST API in this release is a beta-level offering. 
+<!--### Does this release of File Storage for VPC support Gen 1 and Gen 2 VPC compute resources?
+{: faq}
+{: #faq-fs-1}-->
 
-### Do I have to create a VPC before I can create a file share?
+<!--No, file shares are provided for Gen 2 compute resources only. The Gen 1 infrastructure is deprecated.-->
+
+### Do I need to create a VPC before I can create a file share?
 {: faq}
 {: #faq-fs-2}
 
 No. You can create a file share independent of a VPC. However, to create a mount target, you must have a VPC available. To mount a share, you must provision a virtual server instance within that VPC.
 
-### I have existing VPCs.  Can I create a file share within that VPC?
+### I have existing VPCs. Can I create a file share within that VPC?
 {: faq}
 {: #faq-fs-3}
 
@@ -68,15 +69,15 @@ In this release, you can:
 *	Create a file share.
 *	Mount a file share to one or multiple virtual server instances across multiple VPCs within the same zone.
 *	Delete a file share.
-*	Delete all mount targets or delete a single mount target. When you delete one or several mount targets, the instance(s) mounting the share for the VPC(s) where the mount target is deleted will not be able to access the share.
+*	Delete all mount targets or delete a single mount target. When you delete one or several mount targets, the instances that are mounting the share for the VPCs where the mount target is deleted can't access the share.
 *	List shares and mount targets.
 *	Update share and mount target name.
 
-### Who do I contact to help with any issues? What information should I provide?
+### Who do I contact to help with any issues? What information do I need to provide?
 {: faq}
 {: #faq-fs-7}
 
-For information about who to contact, see [Getting help and support](/docs/vpc?topic=vpc-getting-help). Provide as much information as you can, including error messages, screenshots, and API error codes and responses. Include any messages from the VPC as well as the file storage service.
+For information about who to contact, see [Getting help and support](/docs/vpc?topic=vpc-getting-help). Provide as much information as you can, including error messages, screen captures, and API error codes and responses. Include any messages from the VPC and the file storage service.
 
 
 ## File share management questions
@@ -87,13 +88,13 @@ For information about who to contact, see [Getting help and support](/docs/vpc?t
 {: #faq-fs-mgt-1}
 {: support}
 
-No. As a zonal shared file service, file shares created for a zone are accessible to instances only within that zone. For this release, File Storage for VPC is available in single zones in the Dallas (us-south), Frankfurt (eu-de) and Washington DC (us-east) regions for allow-listed IBM Cloud customer accounts. 
+No. As a zonal shared file service, file shares that are created for a zone are accessible to instances only within that zone. For this release, File Storage for VPC is available in single zones in the Dallas (us-south), Frankfurt (eu-de), and Washington DC (us-east) regions for allow-listed IBM Cloud customer accounts. 
 
 ### Can I mount file shares for my Kube containers?
 {: faq}
 {: #faq-fs-mgt-3}
 
-Yes. You can mount file shares using the NFSv4.1 protocol.
+Yes. You can mount file shares by using the NFSv4.1 protocol.
 
 ### Can I mount same file shares between two virtual server instances?
 {: faq}
@@ -111,7 +112,7 @@ No.
 {: faq}
 {: #faq-fs-mgt-6}
 
-No, there is no mechanism for backups in this release. As best practice, independently back up your data. When your share data is deleted, it can't be restored.
+No. As a best practice, independently back up your data. When your share data is deleted, it can't be restored.
 
 ### Are file shares elastic?
 {: faq}
@@ -128,7 +129,7 @@ File shares are not elastic. Currently, you can provision minimum of 10 GB to ma
 {: #faq-fs-perf-1}
 {: support}
 
-You can expect an average latency less than 100 ms for writes and less than  50 ms for reads for block sizes less than 1 MB.
+You can expect an average latency less than 100 ms for writes and less than 50 ms for reads for block sizes less than one MB.
 
 ## Data security and encryption questions
 {: #file-storage-vpc-security-questions}
@@ -138,7 +139,7 @@ You can expect an average latency less than 100 ms for writes and less than  50 
 {: #faq-fs-sec-1}
 {: support}
 
-All data-at-rest is encrypted using IBM-managed encryption. Data-in-transit and customer-managed encryption are not supported in this release.
+All data-at-rest is encrypted by using IBM-managed encryption. Data-in-transit and customer-managed encryption are not supported in this release.
 
 ### Is there support for security groups and network ACLs?
 {: faq}
@@ -150,4 +151,4 @@ No.
 {: faq}
 {: #faq-fs-sec-3}
 
-Your data is protected at rest using IBM-managed encryption. You can't use your own keys for encrption. This feature will be available in a later release.
+Your data is protected at rest by using IBM-managed encryption. You can't use your own keys for encryption. This feature is planned in a later release.

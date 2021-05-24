@@ -35,7 +35,7 @@ subcollection: vpc
 You can delete a route for an IBM Cloud service by using the UI, CLI, or API.
 {: shortdesc}
 
-## Deleting a route using the UI
+## Deleting a route by using the UI
 {: #cr-delete-using-the-ui}
 {: ui}
 
@@ -47,7 +47,7 @@ To delete a route by using the {{site.data.keyword.cloud_notm}} console, follow 
 
    ![Deleting a route](./images/cr-routing-table-route-delete.png)
 
-## Deleting a route using the CLI
+## Deleting a route by using the CLI
 {: #cr-delete-using-the-cli}
 {: cli}
 
@@ -65,7 +65,7 @@ Where:
 * **ROUTE** is the ID of the VPC route.
 * **-f, --force** forces the operation without confirmation.
 
-## Deleting a route using the API
+## Deleting a route by using the API
 {: #cr-delete-using-the-api}
 {: api}
 

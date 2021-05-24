@@ -56,6 +56,7 @@ Virtual Private Cloud (VPC)
     {: .navgroup id="tutorial"}
     console-tutorial.md
     user-access-to-dedicated-hosts-and-groups.md
+    creating-and-using-an-image-from-volume.md
 
     {: .topicgroup}
     Solution tutorials
@@ -136,6 +137,12 @@ Virtual Private Cloud (VPC)
         vsi_is_byol_about.md
         image-rbac-permissions.md
         building-custom-os.md
+
+        {: .topicgroup}
+        Image from volume
+            vpc_image_from_volume.md
+            vpc_image_from_volume_create.md
+            vpc_image_from_volume_manage.md
 
     {: .topicgroup}
     Virtual private endpoint gateways
@@ -253,13 +260,9 @@ Virtual Private Cloud (VPC)
     {: .topicgroup}
     Block storage volumes
         block_storage_is_create.md
-        block_storage_is_create_cli.md
         block_storage_is_attach.md
-        block_storage_is_attach_cli.md
         block_storage_is_manage.md
-        block_storage_is_manage_cli.md
         block_storage_is_view.md
-        block_storage_is_view_cli.md
         block_storage_vpc_expandable_volumes.md
         block_storage_vpc_manage_storage_limits.md
         block_storage_is_use_volume_cli.md
@@ -339,7 +342,6 @@ Virtual Private Cloud (VPC)
     vpc-responsibilities.md
     vsi-understanding-cloud-maintenance.md
     vpc-endpoints.md
-    api-integration-migration.md
     [Go and Python example code](https://github.com/IBM-Cloud/vpc-api-samples)
 
     {: .topicgroup}

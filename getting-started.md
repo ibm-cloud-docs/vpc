@@ -25,7 +25,7 @@ subcollection: vpc
 # Getting started with Virtual Private Cloud (VPC)
 {: #getting-started}
 
-With {{site.data.keyword.vpc_full}} (VPC), you can use the UI, CLI, and API to quickly provision generation 2 virtual server instances for VPC with high network performance. VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers for VPC. Use the following information to understand a simple use case for planning, creating, and configuring resources for your VPC, and learn about additional VPC overviews and VPC tutorials.  
+With {{site.data.keyword.vpc_full}} (VPC), you can use the UI, CLI, and API to quickly provision virtual server instances for VPC with high network performance. VPC infrastructure contains a number of Infrastructure-as-a-Service (IaaS) offerings, including Virtual Servers for VPC. Use the following information to understand a simple use case for planning, creating, and configuring resources for your VPC, and learn about additional VPC overviews and VPC tutorials.  
 {:shortdesc}
 
 ## Before you begin
@@ -55,7 +55,7 @@ To create and configure your VPC and other attached resources:
 2. Create subnets in one or more zones. You can create subnets in suggested prefix ranges or in your own IP ranges that you bring to IBM Cloud.
 3. Attach a public gateway if you want to allow all resources in a subnet to communicate with the public internet.
 1. Configure an access control list (ACL) to limit the subnet's inbound and outbound traffic.
-4. Create generation 2 virtual server instances with the core and RAM configuration that's right for your workload. By default, a 100 GB boot volume is attached to each instance.
+4. Create virtual server instances with the core and RAM configuration that's right for your workload. By default, a 100 GB boot volume is attached to each instance.
 5. If you want more storage, create block storage volumes and attach them to your instances.
 1. To define the inbound and outbound traffic that's allowed for instances, configure their security groups.
 1. If you want instances to be reachable from the internet, reserve and associate floating IP addresses.
@@ -75,7 +75,7 @@ To learn how to create VPC resources, see these tutorials:
 
 For a general overview of the VPC infrastructure and related compute, networking and storage concepts, see the following topics:
 
-* [About Virtual Private Cloud](/docs/vpc?topic=vpc-about-vpc#about-vpc)
+* [VPC overview](/docs/vpc?topic=vpc-about-vpc#about-vpc)
 * [About networking for VPC](/docs/vpc?topic=vpc-about-networking-for-vpc)
 * [About virtual server instances for VPC](/docs/vpc?topic=vpc-about-advanced-virtual-servers)
 * [About storage for VPC](/docs/vpc?topic=vpc-block-storage-about)

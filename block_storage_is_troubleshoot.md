@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-05-06"
+lastupdated: "2021-05-21"
 
 keywords: block storage, virtual private cloud, volume, data storage, troubleshooting, troubleshoot
 
@@ -28,7 +28,7 @@ subcollection: vpc
 # Troubleshooting {{site.data.keyword.block_storage_is_short}}
 {: #troubleshooting-block-storage}
 
-When you create or manage {{site.data.keyword.block_storage_is_short}}, you might encounter issues. Often, you can recover by following a few easy steps. Issues, symptoms, likely causes, and resolutions are described in the following sections.
+When you create or manage {{site.data.keyword.block_storage_is_short}}, you might encounter issues. Often, you can recover by following a few steps. Issues, symptoms, likely causes, and resolutions are described in the following sections.
 {:shortdesc}
 
 ## Cannot retrieve a volume in a specified region
@@ -36,7 +36,7 @@ When you create or manage {{site.data.keyword.block_storage_is_short}}, you migh
 {: troubleshoot}
 {: support}
 
-Information about a block storage volume or volumes could not be retrieved for a region.
+Information about a block storage volume or volumes can't be retrieved for a region.
 {: tsSymptoms}
 
 Any of the following causes might apply:
@@ -57,7 +57,7 @@ If the volume is not attached as expected and does not appear in the list of vol
 
 If you use the CLI, verify that you entered the correct command syntax for viewing volumes. See [View all block storage volumes from the CLI](/docs/vpc?topic=vpc-viewing-block-storage-cli). Verify that you specified the correct resource group or zone.
 
-## Cannot update a volume name using the API or CLI
+## Cannot update a volume name by using the API or CLI
 {: #troubleshoot-topic-2}
 {: troubleshoot}
 {: support}
@@ -71,7 +71,7 @@ This condition might appear in the API or CLI:
 * In the CLI, when you specify the `ibmcloud is volume-update` command
 
 You might be renaming the volume with an invalid volume name. In this case, you see a 400 "validation_invalid_name" error.
-You might also be specifying a valid volume name, but one that already exists in the VPC. For example, if you create two volumes from Gen 1 and Gen 2 compute resources that are in the same account, the same region, and have the same name, you see a 400 "volume_name_duplicate" error.
+You might also be specifying a valid volume name, but one that exists in the VPC. For example, if you create two volumes from compute resources that are in the same account, the same region, and have the same name, you see a 400 "volume_name_duplicate" error.
 {: tsCauses}
 
 **Note:** The UI prevents you are entering an invalid volume name.
@@ -97,17 +97,17 @@ The volume name and ID are not accepted.
 Verify that the volume name or identifier is correct and that the volume is not attached to a virtual server instance. Also, verify that the volume is not in a _pending_ state.
 {: tsResolve}
 
-## Expandable volume remains in an updating state when deleting an instance
+## Expandable volume remains in an updating state when an attempt is made to delete an instance
 {: #troubleshoot-topic-4}
 {: troubleshoot}
 
-When you attempt to delete a virtual server instance with an attached volume that is being resized, the volume remains in an _updating_ state and won't be deleted.
+When you attempt to delete a virtual server instance with an attached volume that is being resized, the volume remains in an _updating_ state and can't be deleted.
 {: tsSymptoms}
 
-A volume is in the process of being resized and you tried to delete the instance to which it's attached, either manually or by auto-delete. The status of the volume remains _updating_ and the volume isn't deleted with the instance.
+A volume is being resized and you tried to delete the instance that the volume is attached to, either manually or by auto-delete. The status of the volume remains _updating_ and the volume isn't deleted with the instance.
 {: tsCauses}
 
-A volume must be in an _available_ state for operations such as attach, detach, delete. When you are expanding a volume, wait for the volume resizing to complete before performing any operations. If you try to delete a volume that's resizing, the volume remains in an _updating_ state and not be deleted with the instance. To delete the volume, reattach the volume to a different instance, let the resizing complete (volume status becomes _available_, and then delete the volume.
+A volume must be in an _available_ state for operations such as attach, detach, delete. When you are expanding a volume, wait for the volume resize to complete before you perform any operations. If you try to delete a volume that's resizing, the volume remains in an _updating_ state and not be deleted with the instance. To delete the volume, reattach the volume to a different instance, and make sure that the resizing is complete (volume status becomes _available_, and then delete the volume.
 {: tsResolve}
 
 ## Removing IAM authorization from the storage service to the KMS causes root key deregistration failure
@@ -117,20 +117,20 @@ A volume must be in an _available_ state for operations such as attach, detach, 
 The root keys in the Key management service (KMS) instance remain registered to the deleted block storage volume or image resources.
 {: tsSymptoms}
 
-If you remove IAM authorization from Cloud Block Storage to the KMS before you delete all BYOK volumes or images, the root key fails to deregister from the resource.
+If you remove IAM authorization from Cloud Block Storage to the KMS before you delete all BYOK volumes or images, the root key fails to unregister from the resource.
 {: tsCauses}
 
-As best practice, delete all storage or image resources before you remove IAM authorization. If you have already removed authorization, you must restore the IAM authorization between Cloud Block Storage Cloud Block Storage (source service) and your KMS (target service). For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth) to establish IAM service-to-service authorizations using the UI, CLI, or API.
+As best practice, delete all storage or image resources before you remove IAM authorization. If you already removed authorization, you must restore the IAM authorization between Cloud Block Storage Cloud Block Storage (source service) and your KMS (target service). For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth) to establish IAM service-to-service authorizations by using the UI, CLI, or API.
 {: tsResolve}
 
-## Resolving issues when resizing a volume while taking a snapshot
+## Resolving volume resize issues while a snapshot is taken
 {: #troubleshoot-topic-6}
 
-If you take a snapshot of a volume and resize the source volume while the snapshot is being created, you'll get an error.
+If you take a snapshot of a volume and resize the source volume while the snapshot is being created, you get an error.
 {: tsSymptoms}
 
-While the snapshot is in a _pending_ state, a volume resize error displays with the message "The resize validation failed." The correct message should say, "volume is locked."
+While the snapshot is in a _pending_ state, a volume resize error displays with the message "The resize validation failed." The correct message says, "volume is locked."
 {: tsCauses}
 
-Wait until the snapshot is created and in an _available_ state before resizing the source volume.
+Wait until the snapshot is created and in an _available_ state before you resize the source volume.
 {: tsResolve}
