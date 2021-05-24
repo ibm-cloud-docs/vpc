@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-17"
+lastupdated: "2021-05-24"
 
 keywords: file storage, virtual private cloud, file share, mount target
 
@@ -29,7 +29,7 @@ subcollection: vpc
 # Viewing file shares and mount targets
 {: #file-storage-view}
 
-View all file shares and mount targets by using the UI, CLI, or API. Also view details of a single file share or mount target.
+View all file shares and mount targets by using the UI, CLI, or API. Also, view details of a single file share or mount target.
 {:shortdesc}
 
 File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions. Contact your IBM Sales representative if you are interested in getting access.
@@ -38,39 +38,39 @@ File Storage for VPC is available to customers with special approval to preview 
 Before you get started, to create mount targets for file shares, make sure that you created a [VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
 {:important}
 
-## View file shares and mount targets using the UI
+## Viewing file shares and mount targets by using the UI
 {: #file-storage-view-shares-targets-ui}
 {: ui}
 
-### View all file shares using the UI
+### Viewing all file shares by using the UI
 {: #fs-view-all-shares-ui}
 
 1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**.
-1. The File Shares for VPC list page shows all file shares created in that zone. Overflow menu options let you manage the shares. Table 1 describes the information and actions on the list page.
+1. The File Shares for VPC list page shows all file shares that are created in that zone. Overflow menu options are used to manage the shares. The following table describes the information and actions on the list page.
 
 | Field | Value |
 |-------|-------|
 | Region | Account region for the file share. Select a different region to see file shares for zones in that region. |
-| Name  | The share name. Click on the name to see details about that share. |
+| Name  | The share name. Click the name to see details about that share. |
 | Status | For a list of statuses for file shares, see [File storage lifecycle states](/docs/vpc?topic=vpc-file-storage-managing#file-storage-vpc-status). |
 | Resource groups | Resource groups associated with the file share in your account. |
 | Zone | Zone in which the file share was created and resides (for example, _US South 2_). |
-| Mount targets | Number of mount targets associated with the file share.You can have one mount target per VPC per file share. |
+| Mount targets | Number of mount targets that are associated with the file share. You can have one mount target per VPC per file share. |
 | Size | Size of the file share, in GBs. |
 | Encryption Type | Shows encryption type of the file share. |
-| Overflow menu (hellipsis) | Options for managing the file share, depending on its state. For example, for a file share in a _stable_ state, you can Delete a file share. |
+| Overflow menu (ellipsis) | Options for managing the file share, depending on its state. For example, for a file share in a _stable_ state, you can Delete a file share. |
 {: caption="Table 1. File shares list page" caption-side="top"}
 
-### View details of a single file share using the UI
+### Viewing details of a single file share by using the UI
 {: #fs-view-single-share-ui}
 
-1. Navigate to the list of all file shares. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**.
+1. Go to the list of all file shares. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**.
 
-1. Click on the name of a file share to see the details page. The editable name and [status](/docs/vpc?topic=vpc-file-storage-managing#file-storage-vpc-status) of the file share is shown. Table 2 describes the information on this page.
+1. Click the name of a file share to see the details page. The editable name and [status](/docs/vpc?topic=vpc-file-storage-managing#file-storage-vpc-status) of the file share is shown. The following table describes the information on files shares details page.
 
 | Field | Value |
 |-------|-------|
-| Name  | The share name. Click on the pencil icon to change the name. |
+| Name  | The share name. Click the pencil icon to change the name. |
 | Resource group | Resource groups associated with the file share in your account. |
 | ID | The UUID generated when you created the share. |
 | Created | Date the file share was created. |
@@ -79,27 +79,27 @@ Before you get started, to create mount targets for file shares, make sure that 
 | IOPS tier | [IOPS tier profile](/docs/vpc?topic=vpc-file-storage-profiles#fs-tiers) defining the share performance (for example 3 IOPS/GB). |
 | Max IOPS | Maximum IOPS for the IOPS tier profile associated with the share. |
 | Mount targets | Number of mount targets associated with the file share. You can have one mount target per VPC per file share.<br> You can create more mount targets for other VPCs.<br>Click the **Virtual private cloud** to go to the details page for that VPC, where you can see a [list of file shares](#fs-view-shares-vpc) that have a mount target to the VPC]. |
-| Overflow menu (hellipsis) | Options for managing the file share, depending on its state. For example, for a file share in a _stable_ state, you can delete a file share. |
+| Overflow menu (ellipsis) | Options for managing the file share, depending on its state. For example, for a file share in a _stable_ state, you can delete a file share. |
 {: caption="Table 2. File shares details page" caption-side="top"}
 
-### View all file shares for a VPC using the UI
+### Viewing all file shares for a VPC by using the UI
 {: #fs-view-shares-vpc}
 
 You can see all file shares that have a mount target to a VPC by viewing the VPC details page.
 
-1. Navigate to a VPC:
+1. Go to a VPC:
 
   1. From the [file shares details page](#fs-view-single-share-ui), click the VPC link in the list of mount targets.
-  2. From the UI, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > > Network > VPCs**. Click on the name of a VPC in the list.
+  2. From the UI, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > > Network > VPCs**. Click the name of a VPC in the list.
 
 2. On the VPC details page, scroll to **File shares in this VPC**.
 
 
-## View file share and mount targets using the CLI
+## Viewing file share and mount targets by using the CLI
 {: #file-storage-view-shares-targets-cli}
 {: cli}
 
-### View mount targets for a file share from the CLI
+### Viewing mount targets for a file share by using the CLI
 {: #fs-view-targets-shares-cli}
 
 Run the `share-targets` command and specify the file share ID to see all mount targets for a file share.
@@ -110,7 +110,7 @@ ibmcloud is share-targets SHARE_ID [--output JSON] [-q, --quiet]
 {:pre}
 
 
-### View all file shares from the CLI
+### Viewing all file shares by using the CLI
 {: #fs-view-all-shares-cli}
 
 Run the `shares` command to list all file shares in a region.
@@ -120,16 +120,11 @@ ibmcloud is shares [--resource-group-id RESOURCE_GROUP_ID | --resource-group-nam
 ```
 {:pre}
 
-## View file shares and mount targets from the API
+## Viewing file shares and mount targets by using the API
 {: #file-storage-view-shares-targets-api}
 {: api}
 
-You can view file shares and mount targets by directly calling the REST APIs. For more information about File Storage VPC API methods to view file shares, see the [VPC API reference](/apidocs/vpc-beta#list-shares).
-
-File Storage for VPC regional API is a beta-level release for customers with special approval to preview this feature. 
-{:note}
-
-### View all file shares from the API
+### Viewing all file shares by using the API
 {: #fs-view-all-shares-api}
 
 Use the `GET /shares` request list all shares for a region. 
@@ -141,7 +136,7 @@ curl -X GET \
 ```
 {: pre}
 
-A successful response will look like this:
+A successful response looks like the following example:
 
 ```json
 {
@@ -197,7 +192,7 @@ A successful response will look like this:
 ```
 {:codeblock}
 
-### View a single file share from the API
+### Viewing a single file share by using the API
 {: #fs-single-file-shares-api}
 
 Use the `GET /shares/{share_id}` request to get details about a single file share.
@@ -209,7 +204,7 @@ curl -X GET \
 ```
 {:pre}
 
-A successful response will look like this:
+A successful response looks like the following example:
 
 ```json
 {
@@ -257,7 +252,7 @@ A successful response will look like this:
 ```
 {: pre}
 
-### List all mount targets of a share from the API
+### Listing all mount targets of a share by using the API
 {: #fs-list-targets-api}
 
 Use the `GET /shares/{share_id}/targets` request to list all mount targets of a share.
@@ -271,7 +266,7 @@ curl -X GET \
 ```
 {:pre}
 
-A successful response will look like this:
+A successful response looks like the following example:
 
 ```json
 {
@@ -302,10 +297,10 @@ A successful response will look like this:
 ```
 {:codeblock}
 
-### View a single mount target from the API
+### Viewing a single mount target by using the API
 {: #fs-get-target-api}
 
-Use the `GET /shares/{share_id}/targets/{target_id}` request to information of a single mount target of a share. This rquest includes mount path information. Use the mount path to attach a file share to an instance.
+Use the `GET /shares/{share_id}/targets/{target_id}` request to information of a single mount target of a share. This call includes mount path information. Use the mount path to attach a file share to an instance.
 
 Example:
 
@@ -316,7 +311,7 @@ curl -X GET \
 ```
 {:pre}
 
-A successful response will look like this:
+A successful response looks like the following example:
 
 ```json
 {
