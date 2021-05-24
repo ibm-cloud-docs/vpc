@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2020-03-15"
+lastupdated: "2021-05-24"
 
 keywords: flow logs, activate, deactivate, suspend, resume
 
@@ -76,7 +76,7 @@ the right variables.
     export FlowLogID01="<your_flow_log_id>"
     ```
     {:pre}
-3. Choose from the following:
+3. Choose either to suspend or resume a flow log:
 
    * To suspend a flow logs collector:
 
