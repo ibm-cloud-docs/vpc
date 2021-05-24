@@ -404,7 +404,7 @@ The file share is deleted in background. Confirm the deletion by trying to view 
 ## Mounting and unmounting a file share from a virtual server instance
 {: #fs-mount-unmount-vsi}
 
-To mount a file share to a virtual server instance, [locate the share mount path information](vpc?topic=vpc-file-storage-view#fs-get-target-api). The mount path is created when you created mount target for a file share. See the following information for mounting on these Linux operating systems. Other Linux distributions follow similar procedures.
+To mount a file share to a virtual server instance, [locate the share mount path information](/docs/vpc?topic=vpc-file-storage-view#fs-get-target-api). The mount path is created when you created mount target for a file share. See the following information for mounting on these Linux operating systems. Other Linux distributions follow similar procedures.
 
 * [Mounting file shares on Red Hat Linux](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHEL)
 * [Mounting file shares in CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos)

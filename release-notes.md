@@ -34,7 +34,7 @@ Use the release notes to learn about new and changed {{site.data.keyword.vpc_ful
 ## 13 May 2021
 {: #may-13-2021}
 
-**Scheduled Scaling for VPC (GA)** - Scheduled Scaling for VPC lets you set scheduled actions to automatically scale instance group capacity up or down based on daily, intermittent, or seasonal demand. You can set multiple, recurring scheduled action frequencies that can scale monthly, weekly, daily, hourly, or even every set number of minutes. For more information, see [Scheduled scaling](docs/vpc?topic=vpc-scheduled-scaling-vpc).
+**Scheduled Scaling for VPC (GA)** - Scheduled Scaling for VPC lets you set scheduled actions to automatically scale instance group capacity up or down based on daily, intermittent, or seasonal demand. You can set multiple, recurring scheduled action frequencies that can scale monthly, weekly, daily, hourly, or even every set number of minutes. For more information, see [Scheduled scaling](/docs/vpc?topic=vpc-scheduled-scaling-vpc).
 
 ## 06 May 2021
 {: #may-06-2021}
