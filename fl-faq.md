@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2020-07-23"
+lastupdated: "2021-05-24"
 
 keywords: flow logs, FAQs
 
@@ -29,23 +29,23 @@ subcollection: vpc
 # FAQs for flow log collectors
 {: #fl-faq}
 
-You might encounter the following frequently asked questions when using {{site.data.keyword.cloud_notm}} Flow Logs for VPC.
+You might encounter the following questions when you use {{site.data.keyword.cloud_notm}} Flow Logs for VPC.
 
-## Why don't I see any Cloud Object Storage (COS) buckets as options when creating a flow log collector?
+## Why don't I see any Cloud Object Storage (COS) buckets as options when I create a flow log collector?
 {: #faq-cos-buckets-as-options}
 {: faq}
 {: support}
 
-The most likely reasons why you might not see your COS buckets when ordering a flow log collector:
+The most likely reasons why you might not see your COS buckets when you order a flow log collector:
 
-   * You haven't provisioned a Cloud Object Storage (COS) service instance and a destination bucket for the flow logs to be collected in.
-   * You haven't configured an IAM authorization granting the flow logs service permission to write flow logs to their bucket.
+   * A Cloud Object Storage (COS) service instance isn't provisioned or a destination bucket to collect flow logs.
+   * An IAM authorization that grants the flow logs service permission to write flow logs to their bucket isn't configured.
 
       In this case, you receive prompts to create a COS service instance and bucket, and add the required Identity and Access Management (IAM) authorization when you are creating a flow log collector.
 
       See [Creating flow log collectors](/docs/vpc?topic=vpc-ordering-flow-log-collector) for information on how to remedy this issue.
 
-## Why am I getting a 403 error when provisioning a flow log collector?
+## Why am I getting a 403 error when I provision a flow log collector?
 {: #faq-403-flow-logs}
 {: faq}
 {: support}
@@ -60,7 +60,7 @@ Likely causes of this error include:
 {: faq}
 {: support}
 
-You can create multiple flow log collectors as long as they are on different targets. Keep in mind that flow log collectors with different target scopes might overlap. You cannot create multiple flow log collectors on one single target.
+You can create multiple flow log collectors on the condition that they are on different targets. Keep in mind that flow log collectors with different target scopes might overlap. You cannot create multiple flow log collectors on one single target.
 
 ## Can I modify the Cloud Object Storage location for a flow log collector?
 {: #faq-modify-cos-location}
@@ -90,7 +90,7 @@ Flow Logs for VPC does not have a native viewer or filter. However, SQL Query is
 
 You cannot change the target scope for an existing flow log collector. You can delete the existing collector and create a new one with the target scope that you want to use.
 
-## Do I need to suspend a flow log collector before deleting it?
+## Do I need to suspend a flow log collector before I delete it?
 {: #faq-suspend-before-you-delete-flow-log-collector}
 {: faq}
 {: support}
