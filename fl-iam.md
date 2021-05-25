@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2020-07-23"
+lastupdated: "2021-05-24"
 
 keywords: flow logs, IAM
 
@@ -29,7 +29,7 @@ subcollection: vpc
 
 Access to {{site.data.keyword.cloud}} Flow Logs service instances for users in your account is controlled by {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM). Every user that accesses the Flow Logs service in your account must be assigned an access policy with an IAM role defined. The policy determines what actions a user can perform within the context of the service or instance that you select. The allowable actions are customized and defined by the {{site.data.keyword.cloud_notm}} service as operations that are allowed to be performed on the service. The actions are then mapped to IAM user roles.
 
-Policies enable access to be granted at different levels. Some of the options include the following:
+Policies enable access to be granted at different levels. The following are some of the included options:
 
 * Access across all instances of the service in your account
 * Access to an individual service instance in your account   
