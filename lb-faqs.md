@@ -2,10 +2,10 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-02-24"
+lastupdated: "2021-05-25"
 
 
-keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, layer 7, auto scale, managed pool, instance group
+keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, layer 7, auto scale, managed pool, instance group
 
 subcollection: vpc
 
@@ -27,7 +27,7 @@ subcollection: vpc
 # FAQs for {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}}
 {: #load-balancer-faqs}
 
-This section contains answers to some frequently asked questions about the {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB).
+The following sections contain answers to some frequently asked questions about the {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB).
 
 ## Can I use a different DNS name for my ALB?
 {: #different-dns-name}
@@ -53,20 +53,20 @@ The auto-assigned DNS name for the application load balancer is not customizable
 
 Yes. The {{site.data.keyword.alb_full}} automatically adjusts its capacity based on the load. When horizontal scaling takes place, the number of IP addresses associated with the application load balancer's DNS changes.
 
-## What should I do if I'm using ACLs on the subnets that are used to deploy the application load balancer?
+## What do I do if I use ACLs on the subnets that are used to deploy the application load balancer?
 {: #using-acls-on-subnets}
 
-Make sure that the proper ACL rules are in place to allow incoming traffic for configured listener ports. Traffic between the application load balancer and back-end instances should also be allowed.
+Make sure that the proper ACL rules are in place to allow incoming traffic for configured listener ports. Traffic between the application load balancer and back-end instances need also be allowed.
 
 ## Why am I receiving an error message: `certificate instance not found`?
 {: #error-certificate-instance}
 {: faq}
 
 * The certificate instance CRN might not be valid.
-* You might not have granted service-to-service authorization. See [SSL offloading](#ssl-offloading-and-required-authorizations) for details.
+* You probably don't have authorization granted service-to-service. See [SSL offloading](#ssl-offloading-and-required-authorizations) for details.
 
 ## Why am I receiving a `401 Unauthorized Error` code?
-{: #401-unauthorized-error}
+{: #alb-401-unauthorized-error}
 {: faq}
 
 Check the following access policies for your user:
@@ -76,7 +76,7 @@ Check the following access policies for your user:
 * If `HTTPS` listeners are used, also check the service-to-service authorization for the Certificate Manager instance.
 
 ## Why is my application load balancer in `maintenance_pending` state?
-{: #maintenance-pending}
+{: #lb-maintenance-pending}
 {: faq}
 
 The application load balancer is in `maintenance_pending` state during various maintenance activities, such as:
@@ -91,29 +91,29 @@ The application load balancer is in `maintenance_pending` state during various m
 
 The {{site.data.keyword.alb_full}} (ALB) is Multi-Zone Region (MZR) ready. Load balancer appliances are deployed to the subnets you selected. To achieve higher availability and redundancy, deploy the application load balancer to subnets in different zones.
 
-## Do I need additional IPs in the subnet for application load balancer operations?
+## Do I need extra IPs in the subnet for application load balancer operations?
 {: #additional-ips-subnet}
 {: faq}
 
-It is recommended to allocate 8 additional IPs per zone/MZR to accommodate horizontal scaling and maintenance operations. If provisioning your application load balancer with one subnet, allocate 16 additional IPs.
+It is recommended to allocate 8 extra IPs per MZR to accommodate horizontal scaling and maintenance operations. If you provision your application load balancer with one subnet, allocate 16 extra IPs.
 
 ## Why is back-end member health under my pool `unknown`?
 {: #member-health-unknown}
 {: faq}
 
-Either the pool is not associated with any listeners, or configuration changes might have been made to the pool or its associated listener.
+Either the pool is not associated with any listeners, or configuration changes were made to the pool or its associated listener.
 
-## Why is back-end member health under my pool `faulted` ?
+## Why is back-end member health under my pool `faulted`?
 {: #member-health-failing}
 {: faq}
 
 Verify the following configurations:
 
-* Does the port of the configured back-end protocol match the port the application is listening on?
-* Does the configured health-check have the correct protocol (TCP or HTTP), port, and URL (for HTTP) information? For HTTP, ensure your application responds with `200 OK` for the configured health check URL.
-* Is the back-end server a virtual server with an enabled security group? If so, ensure that the security group rules allow traffic between the load balancer and the virtual server.
+* Does the port of the configured back-end protocol match the port that the application is listening on?
+* Does the configured health-check have the correct protocol (TCP or HTTP), port, and URL (for HTTP) information? For HTTP, make sure that your application responds with `200 OK` for the configured health check URL.
+* Is the back-end server a virtual server with an enabled security group? If so, make sure that the security group rules allow traffic between the load balancer and the virtual server.
 
-See [Health Checks](#health-checks) section for additional information.
+For more information, see[Health Checks](#health-checks).
 
 ## What are the default settings and allowed values for health check parameters?
 {: #alb-health-check-parameters}
@@ -130,7 +130,7 @@ The health check response timeout value must be less than the health check inter
 {: #ip-addresses-fixed}
 {: faq}
 
-Application load balancer IP addresses are not guaranteed to be fixed. During system maintenance or horizontal scaling, you will see changes in the available IPs associated with the FQDN of your load balancer.
+Application load balancer IP addresses are not guaranteed to be fixed. During system maintenance or horizontal scaling, you see changes in the available IPs associated with the FQDN of your load balancer.
 
 Use FQDN, rather than cached IP addresses.
 {:important}
@@ -150,52 +150,52 @@ Check for these possibilities:
 * The provided certificate CRN might not be valid.
 * The certificate instance in the Certificate Manager might not have an associated private key.
 
-### What is the role of application load balancer front end listeners?
+### What is the role of application load balancer front-end listeners?
 {: #role-load-balancer-listeners}
 {: faq}
 
-Load balancer front end listeners are the application listening ports. They act as proxies for backend pools.
+Load balancer front-end listeners are the listening ports for the application. They act as proxies for back-end pools.
 
 ### Why are there only 2 IPs instead of 3?
 {: #why-only-2-ips}
 {: faq}
 
-The {{site.data.keyword.alb_full}} (ALB) operates in ACTIVE-ACTIVE mode, a configuration that makes it highly available. Horizontal scaling may further add extra appliances when your load increases. It's recommended that you choose subnets in different zones to make your load balancers support MZR. This way, if a zone is negatively impacted, a new load balancer will be provisioned in a different zone.
+The {{site.data.keyword.alb_full}} (ALB) operates in ACTIVE-ACTIVE mode, a configuration that makes it highly available. Horizontal scaling might further add extra appliances when your load increases. The recommendation is that you choose subnets in different zones to make your load balancers support MZR. This way, if a zone is negatively impacted, a new load balancer is provisioned in a different zone.
 
-### Why am I receiving a 409 Conflict Error code when updating or deleting a load balancer?
+### Why am I receiving a 409 Conflict Error code when I update or delete a load balancer?
 {: #409-lbaas-conflict-error}
 {: faq}
 
-If you are receiving the HTTP status code `409`, it could be for one of the following reasons:
+If you are receiving the HTTP status code `409`, it might be for one of the following reasons:
 * You cannot `update` the load balancer configuration if the load balancer status is not `ACTIVE`.
 * You cannot `delete` a load balancer if the load balancer status is not `ACTIVE` or `ERROR`.
-* You cannot `delete` a load balancer which is already in `DELETE_PENDING` state.
+* You cannot `delete` a load balancer that is already in `DELETE_PENDING` state.
 * You cannot `delete` a load balancer if it has one or more pools that are attached to instance groups.
 * You cannot `delete` a load balancer pool if it is attached to an instance group.
 * You cannot `add`/`delete`/`update` members to a pool that is managed by an instance group.
 
-### If a pool is attached to an instance group, what is the maximum number of backend members I can have in a pool?
+### If a pool is attached to an instance group, what is the maximum number of back-end members that I can have in a pool?
 {: #lbaas-ig-pool-member}
 {: faq}
 
-The maximum number of backend members allowed in a pool is 50. So if an instance group is attached to a pool, the number of instances in the group will not scale up beyond this limit.
+The maximum number of back-end members that are allowed in a pool is 50. So if an instance group is attached to a pool, the number of instances in the group can't scale up beyond this limit.
 
 ### Why is my listener not receiving traffic?
 {: #lbaas-listener-security-group}
 {: faq}
 
-Ensure the security group rule(s) attached to your load balancer allow incoming ingress and outgoing egress traffic on your listener's port. Security groups attached to your load balancer can be found on your load balancer's overview page. Locate the `Attached security groups` tab from the load balancer overview, then select the security groups you want to view and modify their rules.
+Make sure that the security group rules that are attached to your load balancer allow incoming ingress and outgoing egress traffic on your listener's port. Security groups attached to your load balancer can be found on your load balancer's overview page. Locate the `Attached security groups` tab from the load balancer overview, then select the security groups that you want to view and modify their rules.
 
-### Why is no traffic reaching my backend members?
+### Why is traffic not reaching my back-end members?
 {: #lbaas-member-security-group}
 {: faq}
 
 Ensure that:
 
-* Your backend pool health checks are succeeding
-* Your backend member application is up and running
-* Your load balancer security group rules allow outgoing traffic from load balancers on your backend member port
-* Your backend member's security group rules, if any, allow all incoming traffic from the load balancer
+* Your back-end pool health checks are succeeding
+* Your back-end member application is up and running
+* Your load balancer security group rules allow outgoing traffic from load balancers on your back-end member port
+* Your back-end member's security group rules, if any, allow all incoming traffic from the load balancer
 
 ## Does IBM complete quarterly ASV scans of data-plane LBaaS appliances?  
 {: #alb-asv}
