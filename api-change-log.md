@@ -59,7 +59,7 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 ### For all version dates
 {: #25-may-2021-all-version-dates}
 
-**Image from volume.** In a `POST /images` request, you can now specify `source_volume` with an instance boot volume identity. Specifying the `encryption_key` property in that request encrypts the image with a root key of your choosing. For details, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc) and the [Create an image](/apidocs/vpc#create-image) method.
+**Image from volume.** In a `POST /images` request, you can now specify `source_volume` with an instance boot volume identity. Specifying the `encryption_key` property in that request encrypts the image with a root key of your choosing. For details, see [Create an image from a volume with the API](/docs/vpc?topic=vpc-create-ifv#image-from-volume-vpc-api).
 
 ## 18 May 2021
 {: #18-may-2021}
