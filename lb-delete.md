@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-15"
+lastupdated: "2021-05-25"
 
-keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, delete
+keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, delete
 
 subcollection: vpc
 
@@ -34,7 +34,7 @@ subcollection: vpc
 You can delete an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) by using the UI, CLI, or API.
 {: shortdesc}
 
-## Deleting an application load balancer using the UI
+## Deleting an application load balancer by using the UI
 {: #alb-deleting-ui}
 {: ui}
 
@@ -47,7 +47,7 @@ To delete an ALB by using the IBM Cloud console, perform the following procedure
 
 The Status for the load balancer now shows **Deleting**. Refresh the page to confirm that the load balancer was deleted.
 
-## Deleting an application load balancer using the CLI
+## Deleting an application load balancer by using the CLI
 {: #alb-deleting-cli}
 {: cli}
 
@@ -64,17 +64,17 @@ Where:
 * **--force, -f** forces the operation without confirmation.
 * **--quiet, -q** suppresses verbose output.
 
-Sample output:
+The following example is sample output:
 
 ```
-This will delete Load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 and cannot be undone. Continue [y/N] ?> y
+This command deletes Load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 and cannot be undone. Continue [y/n] ?> y
 Deleting load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
 OK
-Deletion request for load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 has been accepted.
+Deletion request for load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 was accepted.
 ```
 {: screen}
 
-## Deleting an application load balancer using the API
+## Deleting an application load balancer by using the API
 {: #alb-deleting-api}
 {: api}
 
