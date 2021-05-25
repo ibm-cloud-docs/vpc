@@ -257,6 +257,7 @@ Virtual Private Cloud (VPC)
         fl-managing.md
         fl-activate.md
         fl-delete.md
+        fl-monitoring.md
 
     {: .topicgroup}
     Block storage volumes
