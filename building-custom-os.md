@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-21"
+lastupdated: "2021-05-25"
 
 keywords: custom os, creating a custom os, custom operating system, creating a custom operating system, kernel, custom kernel
 
@@ -66,11 +66,11 @@ Hardware that is supported by every virtual machine in IBM's VPC is detailed in 
 - **System peripheral**:
   - XenSource, Inc. Citrix XenServer PCI Device for Windows Update (rev 01)
     - **Subsystem**: XenSource, Inc. Citrix XenServer PCI Device for Windows Update
-- **Ethernet Controller**:
+- **Ethernet controller**:
   - TSO is supported
   - GRO is supported
   - GSO is supported
-  - Checksum Offload
+  - Checksum offload
     - Rx-checksum is supported
     - Tx-checksum is supported
 
@@ -92,9 +92,9 @@ The following kernel options are required when you build a Linux operating syste
 - CONFIG_SCSI_MOD = y
   - SCSI device support
 - CONFIG_SCSI = y
-  - To use a SCSI hard disk, SCSI tape drive, SCSI CD-ROM or any other SCSI device under Linux
+  - To use a SCSI hard disk, SCSI tape drive, SCSI CD-ROM, or any other SCSI device under Linux
 - CONFIG_VIRTIO_PCI = y
-  - This driver provides support for virtio-based paravirtual device drivers over PCI
+  - This driver adds support for virtio-based para virtual device drivers over PCI
 - CONFIG_SCSI_VIRTIO = y
   - The virtual HBA driver for virtio
 - CONFIG_VIRTIO_NET = y
