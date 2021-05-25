@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-05-11"
+lastupdated: "2021-05-25"
 
 keywords: block storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
@@ -34,7 +34,7 @@ Use the UI, CLI, or API to manage your block storage volumes. Detach a volume fr
 {:shortdesc}
 
 
-## Manage block storage volumes by using the UI
+## Managing block storage volumes by using the UI
 {: #manage-block-storage-vol-UI}
 {:ui}
 
@@ -46,7 +46,7 @@ Use the UI to manage your block storage volumes. You can:
 * Rename a block storage volume
 * Delete a block storage data volume
 
-### Detach a block storage volume from a virtual server instance
+### Detaching a block storage volume from a virtual server instance
 {: #detach}
 {: help}
 {: support}
@@ -58,38 +58,38 @@ To detach a volume:
 1. Go to the list of all block storage volumes. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
 1. Locate the volume and then click overflow icon (...) to open a list of options.
 1. From the options menu, click **Detach from instance**.
-1. Confirm by clicking **Detach instance** in the pop-up.
+1. Confirm by clicking **Detach instance** in the open window.
 
-Alternatively, you can click an individual volume in the list of all block storage volumes and navigate to the  **Volume Details** page for that volume. Under **Attached instances**, click the minus sign next to the virtual server instance to detach the volume from that instance.
+Alternatively, you can click an individual volume in the list of all block storage volumes and go to the **Volume Details** page for that volume. Under **Attached instances**, click the minus sign next to the virtual server instance to detach the volume from that instance.
 
-### Transfer a block storage volume from one virtual server instance to another
+### Transfering a block storage volume from one virtual server instance to another
 {: #transfer}
 
 To transfer a block storage volume to another virtual server instance:
 
 1. [Detach the volume from its virtual server instance](#detach).
-1. Navigate to the virtual server instance to which you want to transfer the volume. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
+1. Go to the virtual server instance to which you want to transfer the volume. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
 1. Select a virtual server instance from the list.
 1. Under Attached Storage volumes, click the plus sign to add a volume. All block storage volumes are displayed.
 1. From the list of volumes, select the volume that you previously detached.
 
-### Attach a previously attached block storage data volume
+### Attaching a previously attached block storage data volume
 {: #reattach}
 
 A block storage data volume is attached by default when you create the volume during virtual server instance creation. When you detach a volume from an instance, it exists as an unattached volume and is displayed in the list of [all block storage volumes](/docs/vpc?topic=vpc-viewing-block-storage#viewvols). You can attach it to another instance from the list of block storage volumes.
 
-1. Go to to the list of all block storage volumes. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
+1. Go to the list of all block storage volumes. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
 1. Locate the volume and then click overflow icon (...) to open a list of options.
 1. From the options menu, click **Attach to instance**.
 1. Select an available virtual server instance.
 1. Confirm your selection.
 
-### Rename a block storage volume
+### Renaming a block storage volume
 {: #rename}
 
 You can change the name of an existing volume to make it more meaningful.
 
-1. Go to to the list of all block storage volumes. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
+1. Go to the list of all block storage volumes. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
 1. Locate the volume and then click the name of the volume to go to the Volume Details page.
 1. Click the pencil icon after the name of the volume to edit the name. Provide a [valid volume name](/docs/vpc?topic=vpc-managing-block-storage#volume-name-conventions).
 1. Confirm your edit.
@@ -101,7 +101,7 @@ Valid volume names can include a combination of lowercase alpha-numeric characte
 
 Volume names must be unique across the entire VPC infrastructure. For example, if you create two volumes with the same name in the same account and region, a "volume name duplicate" error is triggered.
 
-### Delete a block storage data volume
+### Deleting a block storage data volume
 {: #delete}
 {: help}
 {: support}
@@ -112,23 +112,24 @@ You cannot delete an active block storage volume. To delete a volume, first [det
 
 To delete a volume:
 
-1. Navigate to the list of all block storage volumes. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
+1. Go to the list of all block storage volumes. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
 1. Locate the volume that you want to delete and then click the overflow icon (...) to open a list of options.
 1. From the options menu, click **Delete**.
 1. Confirm the deletion.
 
-### Automatic deletion of block storage data volumes
+### Automatically deleting block storage data volumes
 {: #auto-delete}
 
 Using the Auto Delete feature, you can specify that a block storage data volume is automatically deleted when you delete an instance to which it is attached.
 
-**Note**: You don't have to set automatic deletion for boot volumes. Boot volumes are created during instance creation and automatic deletion is enabled by default. When you delete the instance, the boot volume is also deleted.
+You don't need to set automatic deletion for boot volumes. Boot volumes are created during instance creation and automatic deletion is enabled by default. When you delete the instance, the boot volume is also deleted.
+{: note}
 
 To enable Auto Delete for an existing block storage data volume that is attached to an instance, follow these steps:
 
 1. Locate the virtual server instance to which the data volume is attached. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
 1. Under **Attached block storage volumes**, select a volume.
-1. On the next page, click the Auto Delete button to enable.
+1. On the next page, click **Auto Delete** to enable.
 1. Confirm your selection.
 
 Alternatively, begin by selecting a data volume from the list of block storage volumes (**Storage > Block storage volumes**).
@@ -140,11 +141,11 @@ To enable Auto Delete on a new data volume when you create an instance, see [Cre
 {: #managing-block-storage-cli}
 {:cli}
 
-Manage your block storage volumes from the command line interface (CLI). You can update a volume name, update a volume attachment, detach a volume, and delete a volume.
+Manage your block storage volumes from the command-line interface (CLI). You can update a volume name, update a volume attachment, detach a volume, and delete a volume.
 
-Before you begin, [install the IBM Clous CLI and VPC CLI plugin](/docs/vpc?topic=vpc-creating-block-storage#before-creating-block-storage-cli).
+Before you begin, [install the IBM Cloud CLI and VPC CLI plug-in](/docs/vpc?topic=vpc-creating-block-storage#before-creating-block-storage-cli).
 
-### Update the name of a volume
+### Updating the name of a volume
 {: #update-vol-name-cli}
 
 To change a volume name, specify either the volume name or ID and then indicate the new name. The volume name can be up to 63 alpha-numeric characters and include special characters, and must begin with a lowercase letter. The volume name must be unique across the VPC infrastructure.
@@ -165,7 +166,7 @@ Capacity                                100
 IOPS                                    1000
 Profile                                 5iops-tier
 Encryption Key                          -
-Encryption                              provider managed
+Encryption                              provider-managed
 Status                                  available
 Created                                 2021-04-21 10:09:28
 Resource Group                          Default(c16d1edde3fd4a71a0130aed371405a0)
@@ -175,7 +176,7 @@ Volume Attachment Instance Reference    none
 ```
 {:screen}
 
-### Update a volume attachment by using CLI
+### Updating a volume attachment by using CLI
 {: #update-vol-attachment-cli}
 
 You can update the volume attachment name and change the default auto delete setting with the `instance-volume-attachment-update` command.
@@ -192,12 +193,12 @@ Specify`--auto-delete true` to automatically delete a volume that is attached to
 Example showing details for `Volume Attachment Instance Reference`:
 
 ```
-Vdisk Name    Vdisk ID                                    Vdisk Type   Auto Delete   Instance Name   Instance ID
-Vdisk-data1   0738-fd146b1f-e1bb-4eab-ba78-3109e6bc3a2d   data         true          vsi-test1       0738-8b56da93-7990-4ccf-9dc5-5aee6a5f08f9
+VDisk Name    VDisk ID                                    VDisk type   Auto delete   Instance name   Instance ID
+VDisk-data1   0738-fd146b1f-e1bb-4eab-ba78-3109e6bc3a2d   data         true          vsi-test1       0738-8b56da93-7990-4ccf-9dc5-5aee6a5f08f9
 ```
 {:screen}
 
-### Detach a volume by using the CLI
+### Detaching a volume by using the CLI
 {: #detach-vol-attachment-cli}
 {: help}
 {: support}
@@ -209,7 +210,7 @@ ibmcloud is instance-volume-attachment-detach INSTANCE_ID VOLUME_ATTACHMENT_ID [
 ```
 {:pre}
 
-### Delete a block storage volume by using the CLI
+### Deleting a block storage volume by using the CLI
 {: #delete-vol-cli}
 {: help}
 {: support}
@@ -227,7 +228,7 @@ Example:
 
 ```bash
 $ ibmcloud is volume-delete 64d85f0f-6c08-4188-9e9a-0057b3aa1b69
-This will delete volume 64d85f0f-6c08-4188-9e9a-0057b3aa1b69 and cannot be undone. Continue?> y
+This deletes volume 64d85f0f-6c08-4188-9e9a-0057b3aa1b69 and cannot be undone. Continue?> y
 Deleting volume 64d85f0f-6c08-4188-9e9a-0057b3aa1b69 under account MyAccount 01 as user user1@mycompany.com...
 OK
 Volume ID 0738-64d85f0f-6c08-4188-9e9a-0057b3aa1b69 is deleted.
@@ -241,7 +242,7 @@ Volume ID 0738-64d85f0f-6c08-4188-9e9a-0057b3aa1b69 is deleted.
 
 Manage your block storage volumes programically by making calls to the [VPC REST APIs](https://{DomainName}/apidocs/vpc){:external}. You can update a volume name, update a volume attachment, detach a volume, and delete a volume.
 
-### Update the name of a volume from the API
+### Updating the name of a volume from the API
 {: #update-vol-name-api}
 
 Make a `PATCH /volumes/{id}` call and specify a new name for the volume.
@@ -255,7 +256,7 @@ curl -X PATCH "$vpc_api_endpoint/v1/volumes?version=2021-04-20&generation=2" \
 ```
 {:pre}
 
-A successful response will look like this:
+A successful response looks like the following example:
 
 ```
 {
@@ -290,7 +291,7 @@ A successful response will look like this:
 ```
 {:codeblock}
 
-### Update a volume attachment from the API
+### Updating a volume attachment from the API
 {: #update-vol-attachment-api}
 
 Make a `PATCH /instances` call and specify the ID of the new volume attachment. 
@@ -299,8 +300,6 @@ Make a `PATCH /instances` call and specify the ID of the new volume attachment.
 PATCH /instances/{instance_id}/volume_attachments/{id}
 ```
 {:pre}
-
-For example:
 
 ```
 curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments/$volume_attachment_id?version=2021-04-20&generation=2" \
@@ -312,7 +311,7 @@ curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments/$v
 ```
 {:pre}
 
-A successful response will look like this:
+A successful response looks like the following example:
 
 ```
 {
@@ -334,7 +333,7 @@ A successful response will look like this:
 {:codeblock}
 
 
-### Detach a volume by using the API
+### Detaching a volume by using the API
 {: #detach-vol-attachment-api}
 
 Make a `DELETE /instances` request and specify the volume attachment ID to delete a volume attachment. Deleting a volume attachment detaches a volume from an instance.
@@ -343,8 +342,6 @@ Make a `DELETE /instances` request and specify the volume attachment ID to delet
 DELETE /instances/{instance_id}/volume_attachments/{id}
 ```
 {:pre}
-
-For example:
 
 ```
 curl -X DELETE "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments/$volume_attachment_id?version=2021-04-20&generation=2" \
@@ -356,10 +353,10 @@ curl -X DELETE "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments/$
 Verify that the volume is detached from the instance by making a `GET /instances/{instance_id}`
 call.
 
-### Delete a block storage volume using the API
+### Deleting a block storage volume by using the API
 {: #delete-vol-api
 
-Make a `DELETE /volumes/{id}` call. For example:
+Make a `DELETE /volumes/{id}` call. 
 
 ```
 curl -X DELETE "$vpc_api_endpoint/v1/volumes/$volume_id?version=2021-04-20&generation=2" \
@@ -367,7 +364,7 @@ curl -X DELETE "$vpc_api_endpoint/v1/volumes/$volume_id?version=2021-04-20&gener
 ```
 {:pre}
 
-To verify the volume is deleted, list the volumes by making a `GET /volumes` call.
+To verify that the volume is deleted, list the volumes by making a `GET /volumes` call.
 
 ## Block storage data eradication
 {: #block-storage-data-eradication}
@@ -376,12 +373,12 @@ When you delete a block storage volume, that data immediately becomes inaccessib
 
 IBM guarantees that data deleted cannot be accessed and that deleted data is eventually overwritten and eradicated. Further, when you delete a block storage volume, those blocks must be overwritten before that block storage is made available again, either to you or to another customer.
 
-Further, when IBM decomissions a physical drive, the drive is destroyed prior to disposal. Decomissioned drives are unusable and any data on them is completely inaccessible.
+Further, when IBM decommissions a physical drive, the drive is destroyed before disposal. Decomissioned drives are unusable and any data on them is inaccessible.
 
-## Sanitizing your data before deleting a volume
+## Sanitize your data before you delete a volume
 {: #block-storage-sanitization}
 
-When you delete a block storage volume, IBM guarantees that your data is completely inaccessible on the physical disk and is eventually [eradicated](#block-storage-data-eradication). If you have additional compliance requirements such as NIST 800-88 Guidelines for Media Sanitization, you must perform data sanitation procedures before you delete your volumes. For information, see the [NIST 800-88 Guidelines for Media Sanitation](https://csrc.nist.gov/publications/detail/sp/800-88/rev-1/final){: external}.
+When you delete a block storage volume, IBM guarantees that your data is inaccessible on the physical disk and is eventually [eradicated](#block-storage-data-eradication). If you have extra compliance requirements such as NIST 800-88 Guidelines for Media Sanitization, you must perform data sanitation procedures before you delete your volumes. For more information, see the [NIST 800-88 Guidelines for Media Sanitation](https://csrc.nist.gov/publications/detail/sp/800-88/rev-1/final){: external}.
 
 Sanitizing and deleting the volume means your data can't be restored.
 
@@ -410,11 +407,11 @@ The following table shows statuses that you might see when you create, view, or 
 | Available | A volume is available and can be attached to an instance |
 | | An attached data volume is available |
 | | A boot volume is available |
-| Failed  | A volume failed to create |
+| Failed  | A volume creation failed  |
 | Pending | A volume is being created |
 | Pending deletion | A volume is being deleted. If you're unsure the volume is deleted, verify this state. Attempting to delete a volume again while in this state results in a conflict error. |
-| Updating | A volume's capacity is being [expanded](/docs/vpc?topic=vpc-expanding-block-storage-volumes). |
-| Unusable | A volume is unusable because the customer root key (CRK) has been [deleted](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys) or [disabled](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-disable-root-keys). |
+| Updating | A volume's capacity is [expanding](/docs/vpc?topic=vpc-expanding-block-storage-volumes). |
+| Unusable | A volume is unusable because the customer root key (CRK) was [deleted](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys) or [disabled](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-disable-root-keys). |
 {: caption="Table 2. Block storage statuses" caption-side="top"}
 
 
