@@ -44,7 +44,7 @@ Before you begin, you must have a VPC, a subnet created in the VPC, and {{site.d
 
 1. [Create a VPE](/docs/vpc?topic=vpc-about-vpe#vpe-getting-started) for your VPC API endpoint in the VPC that you provisioned. You can do this using the VPC UI, CLI, API, or through a Terraform provider using the public endpoint. Also, you must create this VPE over a public network. 
 
-1. Provision a private load balancer in your VPC to make VPE accessible over a direct link. For instructions, see [Provisioning a private load balancer](/docs/vpc?topic=vpc-end-to-end-private-connectivity#provisioning_private-lb) to provision a private load balancer and configure your VPE as a back-end target to your private load balancer.
+1. [Provision a private load balancer](/docs/vpc?topic=vpc-end-to-end-private-connectivity#provisioning_private-lb) in your VPC to make VPE accessible over a direct link. Then, configure your VPE as a back-end target for it.
 
    Currently, a VPE is not accessible from an on-premises network over {{site.data.keyword.dl_full_notm}}.
    {: note}
@@ -98,10 +98,10 @@ The following table provides common API endpoints for use with {{site.data.keywo
 | VPC Infrastructure Services | Regional | `<region>.private.iaas.cloud.ibm.com` |
 | Global Resource Catalog | Global | `private.globalcatalog.cloud.ibm.com` |
 | Account Management| Global | `private.accounts.cloud.ibm.com` |
-| Identify and Access Management | Global | `private.iam.cloud.ibm.com` |  
+| Identity and Access Management | Global | `private.iam.cloud.ibm.com` |  
 | Tagging Service | Global | `private.global-search-tagging.cloud.ibm.com` |
 
-Available endpoints might be different in each VPC region. IBM continues to work to expand availability across all regions. To learn more about endpoint availability in your region, see [VPE supported services](/docs/vpc?topic=vpc-vpe-supported-services).
+Available endpoints might be different in each VPC region. IBM continues to expand availability across all regions. To learn more about endpoint availability in your region, see [VPE supported services](/docs/vpc?topic=vpc-vpe-supported-services).
 {: note}  
 
 ## Provisioning a private load balancer
@@ -121,7 +121,7 @@ To provision a private load balancer in your VPC, follow these steps:
 
    * Load balancer settings:
       * Type = `Private`
-      * Load balancer type = application load balancer
+      * Load balancer type = `application load balancer`
       * Subnet = Your defined subnet
 
    * Front-end listener settings:   
@@ -131,7 +131,7 @@ To provision a private load balancer in your VPC, follow these steps:
 
    * Back-end pool settings:
       * Protocol = `TCP`
-      * Algorithm = `Round Robin`   
+      * Algorithm = `Round robin`   
       * Heath delay = `60` seconds
       * Health retries = `5`
       * Health timeout = `30` seconds
@@ -206,6 +206,7 @@ To access the VPC API private endpoint using the CLI, follow these steps:
    {: pre}
 
    If you do not have the VPC infrastructure service plug-in installed, enter the following command:
+   
    ```
    ibmcloud plugin install vpc-infrastructure
    ```
@@ -268,7 +269,7 @@ To access the VPC API private endpoint using the CLI, follow these steps:
 
 To access the VPC API private endpoint using the API, follow these steps:
 
-1. Set the following environment variable for the region that you want to access. For example, for `us-south", enter:
+1. Set the following environment variable for the region that you want to access. For example, for `us-south`, enter:
 
    ```
    set rias_endpoint=https://us-south.private.iaas.cloud.ibm.com
