@@ -36,25 +36,25 @@ You can list your flow log collectors by using the UI, the CLI, or the API.
 {: #fl-list-ui}
 {: ui}
 
-To list your flow log collectors using the IBM Cloud console:
+To list your flow log collectors by using the IBM Cloud console:
 
-1. Navigate to the [Virtual Private Cloud console](https://cloud.ibm.com/vpc/).
+1. Go to the [Virtual Private Cloud console](https://cloud.ibm.com/vpc/).
 2. Select **Gen 2 Compute**.
 3. From the left navigation pane, click **Flow Log Collectors**. If available, a list of provisioned flow logs collectors shows.  
 
-For example, the following screen capture shows a flow log collector attached to a subnet within the `demo-vpc` VPC.
+For example, the following screen capture shows a flow log collector that is attached to a subnet within the `demo-vpc` VPC.
 
    ![Subnet Tab](./images/flow-log-subnet-tab-items.png "Subnet List View")   
 
 
 Flow log collector attributes shown in the table are as follows:
 
-   * **Status** - The status of the flow log collector (Stable, Failed, Pending, and so on).
+   * **Status** - The status of the flow log collector (Example: Stable, Failed, Pending).
    * **Active** - On/Off flag for the flow log. If Active, the flow log collector is set to write log files. If Suspended, the collector is deactivated and not writing log files.
    * **Name** - The flow log name.
    * **Target** - The specified resource the collector logs traffic for.
    * **Date Created** - The date the flow log collector was provisioned.
-   * **Object Storage Bucket** - The selected Cloud Object Storage (COS) bucket where the system saves flow log files.
+   * **Object Storage Bucket** - The selected Cloud Object Storage bucket where the system saves flow log files.
 
    Notice that the page includes tabbed views, which show flow log collectors that were created with that target type.  
 
@@ -64,12 +64,12 @@ Flow log collector attributes shown in the table are as follows:
    * **VPC** - Shows flow log collectors that are attached directly to a VPC.
    * **Subnet** - Shows flow log collectors that are attached directly to a subnet within the specified VPC.
    * **Instance** - Shows all flow log collectors that are attached directly to a virtual server instance within the specified VPC.
-   * **Interface** - Shows all flow log collectors that are attached directly to a network interface of a virtual server instance within the specified VPC. within the specified VPC.
+   * **Interface** - Shows all flow log collectors that are attached directly to a network interface of a virtual server instance within the specified VPC. 
    * **Interface** - Shows all flow log collectors that are attached directly to a network interface of a 
    * **VPC** - Shows flow log collectors that are attached directly to a VPC.
    * **Subnet** - Shows flow log collectors that are attached directly to a subnet within the specified VPC.
    * **Instance** - Shows all flow log collectors that are attached directly to a virtual server instance within the specified VPC.
-   * **Interface** - Shows all flow log collectors that are attached directly to a network interface of a virtual server instance within the specified VPC. within the specified VPC.
+   * **Interface** - Shows all flow log collectors that are attached directly to a network interface of a virtual server instance within the specified VPC.
 
 ## Using the CLI
 {: #fl-list-cli}
