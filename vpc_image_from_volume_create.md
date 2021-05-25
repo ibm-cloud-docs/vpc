@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2021
-lastupdated: "2021-05-23"
+lastupdated: "2021-05-25"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
 
@@ -463,7 +463,8 @@ The response shows the ID of the boot volume under `volume_attachments`:
 ```
 {:codeblock}
 
-You can tell whether the instance is running by making a `GET /volumes/{id}` call and specifying the boot volume ID. In the boot volume details, if `active = false`, the instance is running and you can use it to create an image from volume.
+You can tell whether the instance is running by retrieving the instance and locating its boot volume ID. Make a 
+`GET /volumes/{id}` call and specify the boot volume ID. If `active = true` in the response, the instance is running.
 {:tip}
 
 #### Step 2 - Stop the running instance
