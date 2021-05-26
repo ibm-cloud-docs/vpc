@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-30"
+  years: 2020, 2021
+lastupdated: "2021-05-26"
 
-keywords: network load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network
+keywords: network load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network
 
 subcollection: vpc
 
@@ -28,7 +28,7 @@ subcollection: vpc
 # Working with pools
 {: #nlb-pools}
 
-The {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) pool is a group of backend targets that receive the inbound customer traffic from the load balancer and provide your outbound traffic response. The pool has a protocol, a load balancing algorithm, the back end targets (VPC instances), the health checks for the back end targets, and the session stickiness.
+The {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) pool is a group of backend targets that receive the inbound customer traffic from the load balancer and provide your outbound traffic response. The pool has a protocol, a load-balancing algorithm, the back-end targets (VPC instances), the health checks for the back-end targets, and the session stickiness.
 {: shortdesc}
 
 You can configure pools when [creating a network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer), or afterward by using the following procedure:
@@ -37,7 +37,7 @@ You can configure pools when [creating a network load balancer](/docs/vpc?topic=
 
 2. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
 
-3. Click the network load balancer you want to change.
+3. Click the network load balancer that you want to change.
 
 4. On the network load balancer details page, click the back-end pools tab and select the pool that you want to edit.
 
@@ -45,6 +45,6 @@ You can configure pools when [creating a network load balancer](/docs/vpc?topic=
 
   * **Pool Name**: The name for your pool. Ideally, a name that describes the function that is performed by this pool.
   * **Protocol**: The network traffic protocol for your traffic.
-  * **Method**: The load balancing algorithm for the pool.
-  * **Session stickiness**: Whether or not all requests during a user's session are sent to the same instance.
-  * **Health check**: For information about configuring health checks, see [Working with health checks](/docs/vpc?topic=vpc-nlb-health-checks#nlb-health-checks).
+  * **Method**: The load-balancing algorithm for the pool.
+  * **Session stickiness**: Whether all requests during a user's session are sent to the same instance.
+  * **Health check**: For more information about configuring health checks, see [Working with health checks](/docs/vpc?topic=vpc-nlb-health-checks#nlb-health-checks).
