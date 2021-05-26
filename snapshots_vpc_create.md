@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-11"
+lastupdated: "2021-05-26"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 subcollection: vpc
@@ -24,33 +24,33 @@ subcollection: vpc
 # Creating Snapshots
 {: #snapshots-vpc-create}
 
-Using the UI, CLI, or API, you can create a snapshot of a {{site.data.keyword.block_storage_is_short}} volume that is attached to a virtual server instance. You can create a snapshot of a boot or data volume.
+With the UI, CLI, or API, you can create a snapshot of a {{site.data.keyword.block_storage_is_short}} volume that is attached to a virtual server instance. You can create a snapshot of a boot or data volume.
 {:shortdesc}
 
-Before you take a snapshot, make sure all cached data is present on disk. This applies to instances with Windows and Linux operating systems. For example, on Linux operating systems, run the `sync` command to force an immediate write of all cached data to disk.
+Before you take a snapshot, make sure that all cached data is present on disk - which applies to instances with Windows and Linux operating systems. For example, on Linux operating systems, run the `sync` command to force an immediate write of all cached data to disk.
 {:note}
 
-## Create a snapshot by using the UI
+## Creating a snapshot by using the UI
 {: #snapshots-vpc-create-ui}
 {:ui}
 
-In the UI, you can create a snapshot of a {{site.data.keyword.block_storage_is_short}} volume that's attached to a running virtual server instance. 
+In the UI, you can create a snapshot of a {{site.data.keyword.block_storage_is_short}} volume that you attached to a running virtual server instance. 
 
 The snapshots UI is available only in these regions:  Sydney (au-syd), and Japan (jp-osa).
 
-### Create a snapshot from the list of snapshots
+### Creating a snapshot from the list of snapshots
 {: #snapshots-vpc-create-from-list}
 
 Follow these steps to create a snapshot from the list of snapshots.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Snapshots**.
 
-  Be sure to select VPC infrastructure from the Menu icon. If necessary, click the *Switch to Gen 2 compute* link in the top banner to ensure you are creating generation 2 resources.  
+  Be sure to select VPC infrastructure from the Menu icon. If necessary, click the *Switch to Gen 2 compute* link in the banner to make sure that you are creating generation 2 resources.  
   {: tip}
 
 1. From the list of snapshots (initially empty), click **Create**.
 
-1. Enter the information in Table 1 to define your snapshot and select the block storage volume you'll be copying.
+1. Enter the information in Table 1 to define your snapshot and select the block storage volume that you want to copy.
 
 1. Click **Create snapshot**. You're returned to the list of snapshots. Messages display while snapshot is being created and when ready, the snapshot displays first in the list of snapshots. You can then [view details of your snapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui).
 
@@ -58,33 +58,33 @@ Follow these steps to create a snapshot from the list of snapshots.
 |-------|-------|
 | Name  | Provide a unique name for the snapshot. The UI verifies the name for proper conventions and identifies duplicate names. For suggestions about how to name your snapshots, see [Naming snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-naming). |
 | Resource group | Select a [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups) for the snapshot, or use the default. You can't change the resource group after the snapshot is created. |
-| Block storage volume | Select a volume from the drop down list. The boot or data volume must be attached to a running virtual server instance. |
+| Block storage volume | Select a volume from the drop-down list. The boot or data volume must be attached to a running virtual server instance. |
 | Region | The default region for the volume that you selected. |
-| Encryption | Encryption information for the volume you selected, either IBM-managed or customer-managed. The snapshot inherits the encryption of the source volume. You can't change the encryption type.
+| Encryption | Encryption information for the volume that you selected, either IBM-managed or customer-managed. The snapshot inherits the encryption of the source volume. You can't change the encryption type.
 {: caption="Table 1. Selections for creating a snapshot" caption-side="top"}
 
-### Create a snapshot from the list of block storage volumes
+### Creating a snapshot from the list of block storage volumes
 {: #snapshots-vpc-create-from-volume-list}
 
 Follow these steps to create a snapshot from the list of block storage volumes. 
 
 1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
 
-  Be sure to select VPC infrastructure from the Menu icon. If necessary, click the *Switch to Gen 2 compute* link in the top banner to ensure you are creating generation 2 resources.  
+  Be sure to select VPC infrastructure from the Menu icon. If necessary, click the *Switch to Gen 2 compute* link in the banner to make sure that you are creating generation 2 resources.  
   {: tip}
 
-1. From the list of volumes, locate a boot or data volume attached to an instance.
+1. From the list of volumes, locate a boot or data volume that is attached to an instance.
 
-1. Click the overflow menu (...) and select  **Create snapshot**.
+1. Click the overflow menu (...) and select **Create snapshot**.
 
-1.  On the snapshots list page, messages display while snapshot is being created. When ready, the snapshot displays first in the list of snapshots. You can then [view details of your snapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui).
+1. On the snapshots list page, messages display while snapshot is being created. When ready, the snapshot displays first in the list of snapshots. You can then [view details of your snapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui).
 
 
-## Create a snapshot using the CLI
+## Creating a snapshot by using the CLI
 {: #snapshots-vpc-create-cli}
 {:cli}
 
-### Gathering information to create a snapshot using the CLI
+### Gathering information to create a snapshot by using the CLI
 {: #snapshots-vpc-getinfo-cli}
 
 Before you run the `ibmcloud is snapshots-create` command, you can view the details about the volume and instance.
@@ -93,13 +93,13 @@ Gather the following information:
 
 |     Details   |  Listing options  | What it provides  |
 | --------------------- | --------------------------------|---------------------|
-| Volume | `ibmcloud is volumes` | Locate a volume from the list of volumes, verify the volume type, and whether it's attached to a instance. |
+| Volume | `ibmcloud is volumes` | Locate a volume from the list of volumes, verify the volume type, and whether it was attached to an instance. |
 | Volume VOLUME_ID  | `ibmcloud is volumes VOLUME_ID` | Review details of a volume. |
 | Instances | `ibmcloud is instances` | List all instances. |
 | Instance INSTANCE_ID  | `ibmcloud is instance INSTANCE_ID` | View details of an instance to see attached boot and data volumes. |
 {: caption="Table 1. Details for creating snapshots" caption-side="top"}  
 
-### Procedure for creating a snapshot using the CLI
+### Creating a snapshot by using the CLI
 {: #snapshots-vpc-create-procedure-cli}
 
 1. Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
@@ -153,7 +153,7 @@ Created            2021-02-22T16:18:56+08:00
 ```
 {:screen}
 
-## Create a snapshot from the API
+## Creating a snapshot by using the API
 {: #snapshots-vpc-create-api}
 {:api}
 
@@ -177,7 +177,7 @@ curl -X POST \
 ```
 {:codeblock}
 
-A successful response will look like this. The snapshot lifecycle state is `pending` while the snapshot is being created. When successfully created, the status changes to `stable`.
+A successful response looks like the following example. The snapshot lifecycle state is `pending` while the snapshot is created. When successfully created, the status changes to `stable`.
 
 ```
 {
