@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-30"
+lastupdated: "2021-05-26"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance, instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, vpc, creating, UI, console, generation 2, gen 2
 
@@ -39,6 +39,9 @@ This tutorial requires the following prerequisites.
 - An IBM Cloud [VPC](/docs/vpc?topic=vpc-getting-started)
 - An IBM Cloud [SSH key](/docs/vpc?topic=vpc-ssh-keys)
 - An IBM Cloud [virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers)
+
+Creating an image from volume in a different region than the account is not allowed.
+{:note}
 
 ## Objectives
 {: objectives}
@@ -137,6 +140,6 @@ You can create virtual server instances in your {{site.data.keyword.vpc_short}} 
 * [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc)
 * [Creating an image from a volume](/docs/vpc?topic=vpc-create-ifv)
 * [View and use your image from a volume](/docs/vpc?topic=vpc-create-ifv#ifv-image-creation-completed)
-* [resource group](/docs/account?topic=account-account_setup)
+* [Resource group](/docs/account?topic=account-account_setup)
 * [Best practices for organizing resources and assigning access](/docs/account?topic=account-account_setup)
 

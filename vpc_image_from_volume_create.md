@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2021
-lastupdated: "2021-05-25"
+lastupdated: "2021-05-26"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
 
@@ -193,7 +193,7 @@ Example:
 ```
 $ ibmcloud is image-create test-ifv-vol1 --source-volume ecc68c2f-96a1-4862-bc86-14f47e5d9ed8
 
-Creating image test-ifv-vol1 in resource group  under account VPCUI DEMO as user yaohaif@cn.ibm.com...
+Creating image test-ifv-vol1 in resource group  under account DEMO as user user1-mycompany.com...
 ID                 5b2fd4ee-c636-44c4-9673-453fca36832e   
 Name               test-ifv-vol1   
 CRN                crn:v1:staging:public:is:us-south:a/2d1bace7b46e4815a81e52c6ffeba5cf::image:5b2fd4ee-c636-44c4-9673-453fca36832e   
