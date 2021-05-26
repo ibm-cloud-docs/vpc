@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-30"
+lastupdated: "2021-05-26"
 
 keywords: virtual private network, faq, faqs, frequently asked questions, vpn, vpn gateway
 
@@ -69,7 +69,7 @@ When you create a VPN connection without referencing a policy ID (IKE or IPsec),
 {: faq}
 {: support}
 
-The VPN gateway must be deployed in the VPC to provide connectivity. The VPN gateway provides connectivity to the entire zone where it is deployed. A VPN gateway needs four available private IP addresses in the subnet to provide high availability and automatic maintenance. It is best if you use a dedicated subnet for the VPN gateway of size 16, where the length of the subnet prefix is shorter or equal to 28.
+The VPN gateway must be deployed in the VPC to provide connectivity. A route-based VPN can be configured to provide connectivity to all zones. A VPN gateway needs four available private IP addresses in the subnet to provide high availability and automatic maintenance. It is best if you use a dedicated subnet for the VPN gateway of size 16, where the length of the subnet prefix is shorter or equal to 28.
 
 ## What should I do if I am using ACLs on the subnet that is used to deploy the VPN gateway?
 {: #faq-vpn-6}
@@ -138,3 +138,17 @@ Yes. You can find more information in [Using IBM Log Analysis to view VPN logs](
 {: faq}
 
 Approved Scanning Vendor (ASV) quarterly scanning is a requirement of the Payment Card Industry (PCI) Security Standards Council. ASV scanning of VPN data-plane appliances is solely a customer responsibility. IBM does not use ASVs to scan data-plane appliances because these scans can negatively impact customer workload functions and performance.
+
+## What metrics will I be charged for if I am using VPN gateway for VPC?  
+{: #vpn-billing}
+{: faq}
+
+The following metrics are collected for VPN gateway billing on a monthly basis:
+
+* VPN Gateway Instance Hour: How much time your VPN gateway instance is up and running. 
+* VPN Connection Hour: How much time each of your VPN connections is established and maintained on the VPN gateway.  
+* Floating IP: The number of active floating IP addresses being used by the VPN gateway instance. 
+
+See the **IBM Cloud VPN** tab on the [Pricing](https://www.ibm.com/cloud/vpc/pricing) page for the unit pricing per hour in each region for VPN gateway.
+
+**Note:** While using a VPN gateway, you are also charged for all outbound public internet traffic billed at VPC data rates. See the *Data Transfer* tab on the [Pricing](https://www.ibm.com/cloud/vpc/pricing) page for details about the unit pricing for outbound data transfer. 
