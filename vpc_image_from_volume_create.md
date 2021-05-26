@@ -419,28 +419,16 @@ You can also create an image from a boot volume attached to an existing instance
 #### Step 1 - Locate the instance and boot volume ID
 {: #ifv-locate-instance}
 
-List all instances and locate the available, running instance you need.
-
-```
-GET/instances
-```
-{:pre}
-
-For example:
+Make a `GET /instances` call to list all instances and locate the available, running instance you need. For example:
 
 ```cURL
 curl -X GET \
-"$vpc_api_endpoint/v1/instances/$instance_id?version=2021-05-20&generation=2" \
+"$vpc_api_endpoint/v1/instances/version=2021-05-20&generation=2" \
 -H "Authorization: $iam_token"
 ```
 {:codeblock}
 
-View details of a single instance and locate it's boot volume ID.
-
-```
-GET/instances/{id}
-```
-{:pre}
+Make a `GET /instances/{id}` to view details of a single instance and locate it's boot volume ID.
 
 The response shows the ID of the boot volume under `volume_attachments`:
 
@@ -463,7 +451,7 @@ The response shows the ID of the boot volume under `volume_attachments`:
 ```
 {:codeblock}
 
-You can tell whether the instance is running by retrieving the instance and locating its boot volume ID. Make a 
+You can also tell whether the instance is running by making a 
 `GET /volumes/{id}` call and specify the boot volume ID. If `active = true` in the response, the instance is running.
 {:tip}
 
