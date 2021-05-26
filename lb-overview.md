@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-02-15"
+lastupdated: "2021-05-12"
 
 keywords: listener, pool, round-robin, weighted, layer 7, datapath logging
 
@@ -96,13 +96,18 @@ With this method, the back-end server instance that serves the least number of c
 ## Front-end listeners and back-end pools
 {: #front-end-listeners-and-back-end-pools}
 
-Front-end listeners are application ports for load balancers to receive incoming requests while back-end pools are the application servers behind the load balancers. You can define up to 10 front-end listeners and map them to back-end pools on the back-end application servers. The FQDN assigned to your load balancer and the front-end listener ports are exposed to the public internet. Incoming user requests are received on these ports.
+Front-end listeners are application ports for load balancers to receive incoming requests while back-end pools are the application servers behind the load balancers. 
 
-Supported front-end listener and back-end pool protocols are HTTP, HTTPS, and TCP. You can configure an HTTP/HTTPS front-end listener with an HTTP/HTTPS back-end pool. HTTP and HTTPS listeners and pools are interchangeable. HTTP/2 is supported for listeners only. A TCP front-end listener can only be configured with a TCP back-end pool.
+Guidelines are as follows:
 
-You can attach up to 50 virtual server instances to a back-end pool. Traffic is sent to each instance on its specified data port. This data port doesn't need to be the same as the front-end listener port.
-
-{: important}
+* You can define up to 10 front-end listeners and map them to back-end pools on the back-end application servers. 
+* The FQDN assigned to your load balancer and the front-end listener ports are exposed to the public internet. Incoming user requests are received on these ports.
+* Supported front-end listener and back-end pool protocols are HTTP, HTTPS, and TCP. 
+* You can configure an HTTP/HTTPS front-end listener with an HTTP/HTTPS back-end pool. 
+* HTTP/2 is supported for listeners only. 
+* HTTP and HTTPS listeners and pools are interchangeable. 
+* A TCP front-end listener can only be configured with a TCP back-end pool.
+* You can attach up to 50 virtual server instances to a back-end pool. Traffic is sent to each instance on its specified data port. This data port doesn't need to be the same as the front-end listener port.
 
 ## Elasticity
 {: #alb-elasticity}
@@ -118,7 +123,7 @@ When an HTTPS listener is configured with an HTTP pool, the HTTPS request is ter
 
 SSL offloading requires you to provide an SSL certificate for the application load balancer to perform SSL offloading tasks. You can manage the SSL certificates through the [IBM Certificate Manager](/docs/certificate-manager?topic=certificate-manager-getting-started).
 
-To give an application load balancer access to your SSL certificate, you must enable **service-to-service authorization**, which grants your load balancer service instance access to your certificate manager instance. For more information, see [Granting access between services](/docs/account?topic=account-serviceauth#create-auth). Make sure to choose **Infrastructure Services** as the source service, **Application Load Balancer** as the resource type, **Certificate Manager** as the target service, and assign the **Writer** service access role.
+To give an application load balancer access to your SSL certificate, you must enable **service-to-service authorization**, which grants your load balancer service instance access to your certificate manager instance. For more information, see [Granting access between services](/docs/account?topic=account-serviceauth#create-auth). Make sure to choose **VPC Infrastructure Services** as the source service, then click the **Resource type** checkbox to expose the dropdown menu. Select **Load Balancer for VPC** as the resource type from the dropdown, then **Certificate Manager** as the target service, and assign the **Writer** service access role.
 
 The required authorization between the load balancer and certificate manager must be set to prevent errors in your load balancer.
 {: important}
