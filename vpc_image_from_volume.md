@@ -29,7 +29,7 @@ You can create a custom image from a boot volume on a virtual server instance. T
 ## Image from volume overview
 {: #vpc-ifv-overview}
 
-With this service, you can create a custom image in your account and region from an instance's boot volume. The OS information for the custom image comes from the boot volume you select to create the image.
+With this service, you can create a custom image in your region from an instance's boot volume. The OS information for the custom image comes from the boot volume you select to create the image.
 
 From the UI and CLI, you select a virtual server instance and its boot volume or select an instance's boot volume from the list of block storage volumes. In the regional API, you create an image by making a `POST /images` call and passing the boot volume ID of the instance.
 
@@ -65,14 +65,13 @@ To create an image from a volume, you must meet these requirements:
 * Available, running instance must be stopped before creating an image from volume.
 * Volume must be attached to an instance.
 * Volume must be a primary boot volume.
-* Volume must be in the same region as the account. 
+* Volume must be in the same region. 
 
 ### Limitations
 {: #ifv-limitations}
 
 These limitations apply to the release:
 
-* Creating an image from volume in a different region than the account is not allowed. However, you can copy the image you created from a volume to another account in another region.
 * Creating from a running instance is not allowed. The instance must be stopped.
 * Instances must be in an available state. 
 * Unattached boot volumes are not supported.
