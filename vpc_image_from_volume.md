@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2021
-lastupdated: "2021-05-23"
+lastupdated: "2021-05-26"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
 
@@ -35,7 +35,7 @@ From the UI and CLI, you select a virtual server instance and its boot volume or
 
 The custom image you create is regional, inherited from the boot volume. All custom images are private to the account in which they are created and labeled as _custom_. The image is a full copy of the volume. It has the same capacity and contains identical data. The image also inherits the [encryption type](#ifv-encryption). If the volume used provider-managed encryption, you can specify customer-managed and provide your own root keys. If the original volume already used customer-managed encryption, the image inherits the root key, which you can change and use another key.
 
-Images from a volume have a lifecycle independent from the original volume. You can update the image and delete it as needed. You can share a custom image in your account and to other accounts and copy the image to a different region. Finally, you can use the custom image from a volume to create a new instance.
+Images from a volume have a lifecycle independent from the original volume. You can update the image and delete it as needed. Finally, you can use the custom image from a volume to create a new instance.
 
 ### Image from volume features
 {: #vpc-ifv-features}
