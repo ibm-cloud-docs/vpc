@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-15"
+lastupdated: "2021-05-25"
 
-keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network, update
+keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network, update
 
 subcollection: vpc
 
@@ -31,9 +31,9 @@ subcollection: vpc
 # Updating an {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}}
 {: #alb-updating}
 
-You can update an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) using the UI, CLI or API.
+You can update an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) by using the UI, CLI, or API.
 
-## Updating an application load balancer using the UI
+## Updating an application load balancer by using the UI
 {: #alb-updating-ui}
 {: ui}
 
@@ -42,14 +42,14 @@ To update an ALB by using the {{site.data.keyword.cloud_notm}} console, perform 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){:external} and log in to your account.
 1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
 1. Select the Region of your load balancer.
-1. Select the load balancer you want to update.
+1. Select the load balancer that you want to update.
 1. Select **Back-end pools** if you need to edit a pool or virtual server instance parameters.
 1. Select **Front-end listeners** if you need to edit listener parameters.
 1. After you're done editing, select **Save** to save your changes.
 
-You should see that the **Active** button on the top left of your screen now shows as **Updating**. When **Updating** changes back to **Active**, the update is done and the new changes have been applied.
+The **Active** button on the upper left of your screen now shows as **Updating**. When **Updating** changes back to **Active**, the update is done and the new changes are applied.
 
-## Updating an application load balancer using the CLI
+## Updating an application load balancer by using the CLI
 {: #alb-updating-cli}
 {: cli}
 
@@ -101,16 +101,16 @@ Sample output:
   ```
   {: screen}
 
-## Updating an application load balancer using the API
+## Updating an application load balancer by using the API
 {: #alb-updating-frontend-listener-port-api}
 {: api}
 
-The following example illustrates using the API to update the front-end listener port of an application load balancer. For example, if the front-end listener port was set to 80 and you want to update the port value to 90.
+The following example illustrates how to use the API to update the front-end listener port of an application load balancer. For example, if the front-end listener port was set to 80 and you want to update the port value to 90.
 
 To update an application load balancer by using the API, perform the following procedure:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
-2. Get the listener id that you will need for the update by doing the following:
+2. Use the following example to get the listener ID that you need for the update:
 
   Save the ID of the load balancer
 
@@ -193,7 +193,7 @@ To update an application load balancer by using the API, perform the following p
   ```
   {: screen}
 
-4. Save the listener id you want to update from the previous step. For example, save it in the variable `listenerid`.
+4. Save the listener ID that you want to update from the previous step. For example, save it in the variable `listenerid`.
 
   ```sh
     export listenerid="r018-3811d7ad-3bbe-4cb4-82de-8608f767866a"
