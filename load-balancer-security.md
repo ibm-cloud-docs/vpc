@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021
-lastupdated: "2021-04-08"
+lastupdated: "2021-05-25"
 
 keywords: security and compliance for *Load Balancer for VPC*, security for *Load Balancer for VPC*, compliance for *Load Balancer for VPC*,
 
@@ -39,22 +39,22 @@ To start monitoring your resources, check out [Getting started with {{site.data.
 ### Available goals for load balancers
 {: #available-goals-lb}
 
-* Ensure the application and network load balancer instances belong to a specific profile family, and are configured with no public access.
+* Make sure that the application and network load balancer instances belong to a specific profile family, and are configured with no public access.
 
 ## Governing load balancer resource configuration
 {: #govern-lb}
 
 As a security or compliance focal, you can use the {{site.data.keyword.compliance_short}} to define configuration rules for the ALB and NLB instances that you create.
 
-[Config rules](#x3084914){: term} are used to enforce the configuration standards that you want to implement across your accounts. To learn more about the about the data that you can use to create a rule for application and network load balancers, review the following table.
+[Config rules](#x3084914){: term} are used to enforce the configuration standards that you want to implement across your accounts. To learn more about the data that you can use to create a rule for application and network load balancers, review the following table.
 
 | Resource kind | Property | Operator | Value | Description |
 |---------------|----------|---------------|-------|-------------|
-| *instance* | *profile_family* | *string_equals* | *['application', 'network']* | *A list of strings matching load balancer profile family name from load balancer profile family. Ex: ['application', 'network']* |
-| *instance* | *load_balancer_type* | *string_equals* | *['private', 'public']* | *A list of strings indicating what type of the load balancer can be provisioned. Ex: ['public', 'private']* |
+| *instance* | *profile_family* | *string_equals* | *['application', 'network']* | *A list of strings that match load balancer profile family name from load balancer profile family. Ex: ['application', 'network']* |
+| *instance* | *load_balancer_type* | *string_equals* | *['private', 'public']* | *A list of strings that indicate what type of the load balancer can be provisioned. Ex: ['public', 'private']* |
 {: caption="Table 1. Rule properties for application and network load balancers*" caption-side="top"}
 
-The following is an example of rule configuration with only private access enabled:
+The following example is a rule configuration with only private access enabled:
 
 ```
 {
@@ -76,7 +76,7 @@ The following is an example of rule configuration with only private access enabl
 }
 ```
 
-The following is an example of a rule configuration which prevents users from creating public type application load balancers:
+The following example is a rule configuration that prevents users from creating public type application load balancers:
 
 ```
 {
@@ -112,7 +112,7 @@ The following is an example of a rule configuration which prevents users from cr
 }
 ```
 
-Ensure that *enforcement_actions* is set with *action: disallow* to apply the rule and meet the complaince criteria. For more information, see [How to configure Rules](/docs/security-compliance?topic=security-compliance-rules).
+Make sure that *enforcement_actions* is set with *action: disallow* to apply the rule and meet the compliance criteria. For more information, see [How to configure Rules](/docs/security-compliance?topic=security-compliance-rules).
 {: note}
 
 ## Checking results for load balancers
@@ -120,7 +120,7 @@ Ensure that *enforcement_actions* is set with *action: disallow* to apply the ru
 
 As a security or compliance focal, you can use the {{site.data.keyword.compliance_short}} to monitor compliance results for the application and network load balancer instances under your account against the configuration rules.
 
-The evaluation results are only available for a limited period of time and are updated once a day. It is recommended that reports are downloaded and organized to maintain a history of compliance for audit purposes. For more information on reporting results, see [View evaluation results](https://cloud.ibm.com/security-compliance/compliance-posture/rules).
+The evaluation results are only available for a limited time and are updated once a day. It is recommended that reports are downloaded and organized to maintain a history of compliance for audit purposes. For more information on reporting results, see [View evaluation results](https://cloud.ibm.com/security-compliance/compliance-posture/rules).
 {: note}
 
-To learn more about config rules, check out [What is a config rule?](/docs/security-compliance?topic=security-compliance-what-is-rule).
+For more information about config rules, check out [What is a config rule?](/docs/security-compliance?topic=security-compliance-what-is-rule).
