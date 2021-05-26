@@ -40,9 +40,6 @@ This tutorial requires the following prerequisites.
 - An IBM Cloud [SSH key](/docs/vpc?topic=vpc-ssh-keys)
 - An IBM Cloud [virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers)
 
-Creating an image from volume in a different region than the account is not allowed.
-{:note}
-
 ## Objectives
 {: objectives}
 - Create a resource group, *Image resources*.
