@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-14"
+lastupdated: "2021-05-27"
 
-keywords: vpc, region, zone, deploy, datacenter, data, center, federated, CLI, API, account, failover, disaster, recovery, DR
+keywords: region, zone, deploy, datacenter, data, center, federated, CLI, API, account, failover, disaster, recovery, DR, data center
 
 subcollection: vpc
 
@@ -27,9 +27,9 @@ subcollection: vpc
 # Creating a VPC in a different region
 {: #creating-a-vpc-in-a-different-region}
 
-A region is a specific geographical location where you can deploy apps, services, and other {{site.data.keyword.cloud}} resources. Regions consist of one or more zones, which are physical data centers that house the compute, network, and storage resources, with related cooling and power, for host services and applications. Zones are isolated from each other, which ensures that there is no shared single point of failure within a region.
+A region is a specific geographical location where you can deploy apps, services, and other {{site.data.keyword.cloud}} resources. Regions consist of one or more zones, which are physical data centers that house the compute, network, and storage resources, with related cooling and power, for host services and applications. Zones are isolated from each other, which makes sure that no shared single point of failure within a region occurs.
 
-The IBM Cloud VPC service is regional. To allow for disaster recovery (DR), you must provide the ability for recovery using failover to an alternate region, by establishing a VPC in one of our other regions.
+The {{site.data.keyword.cloud}} VPC service is regional. To allow for disaster recovery (DR), you must provide the ability for recovery by using failover to an alternative region, by establishing a VPC in one of our other regions.
 {: note}
 
 Virtual Private Cloud is available in the following {{site.data.keyword.cloud}} regions.
@@ -45,14 +45,14 @@ Virtual Private Cloud is available in the following {{site.data.keyword.cloud}} 
 | Australia (Sydney) | au-syd | `au-syd.iaas.cloud.ibm.com` |
 | Canada (Toronto) | ca-tor | `ca-tor.iaas.cloud.ibm.com` |
 
-The Regional API (VPC) endpoint is automatically set by the IBM Cloud CLI when you log in to a specific region.
+The Regional API (VPC) endpoint is automatically set by the {{site.data.keyword.cloud}} CLI when you log in to a specific region.
 {: note}
 
-## Log in to a specific region using the CLI
+## Logging in to a specific region by using the CLI
 {: #log-in-to-a-specific-region-using-the-cli}
 {: cli}
 
-When you log in to IBM Cloud, you can specify a region or choose it later. For example, to log into the global API endpoint in the Dallas (`us-south`) region directly, run the following commands, which vary according to whether you have a federated account (SSO) or a non-federated account.
+When you log in to {{site.data.keyword.cloud}}, you can specify a region or choose it later. For example, to log in to the global API endpoint in the Dallas (`us-south`) region directly, run the following commands. These commands vary according to whether you have a federated account (SSO) or a non-federated account.
 
 For a federated account,
 
@@ -68,7 +68,7 @@ ibmcloud login -a https://cloud.ibm.com -r us-south
 ```
 {: pre}
 
-To choose the region later, do not specify the `-r <region>` parameter and the CLI will prompt you to choose a region.
+To choose the region later, do not specify the `-r <region>` parameter and the CLI prompts you to choose a region.
 
 Example output:
 
@@ -114,7 +114,7 @@ Space:
 ```
 {: screen}
 
-## Switch regions using the CLI
+## Switch regions by using the CLI
 {: #switch-regions-using-the-cli}
 {: cli}
 
@@ -139,11 +139,11 @@ ibmcloud target
 ```
 {: pre}
 
-## Switch regions using the API  
+## Switch regions by using the API  
 {: #switch-regions-using-the-api}
 {: api}
 
-To interact with the Regional VPC API using REST, direct your request to the API endpoint associated with the region in which you want to create resources. The region's API endpoint is shown in the previous table. You also can find the endpoints associated with the regions by running the following command:
+To interact with the Regional VPC API by using REST, direct your request to the API endpoint that is associated with the region in which you want to create resources. The region's API endpoint is shown in the previous table. You also can find the endpoints that are associated with the regions by running the following command:
 
 ```
 ibmcloud is regions
@@ -159,7 +159,7 @@ curl "https://us-south.iaas.cloud.ibm.com/v1/vpcs?version=$api_version&generatio
 {: pre}
 
 
-## Get zones using the CLI
+## Get zones by using the CLI
 {: #get-zones-using-the-cli}
 {: cli}
 
