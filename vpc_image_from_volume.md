@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2021
-lastupdated: "2021-05-26"
+lastupdated: "2021-05-27"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
 
@@ -48,7 +48,6 @@ Image from volume features include:
 * Optionally specify resource groups and tags for your image.
 * Access images regionally. By default, the region for the custom image is inherited from the volume. All custom images are private to the account in which they're created and labeled as _custom_.
 * Specify your own encryption for the image and use your own root keys.
-* Share the custom image across accounts. Copy it to a different region.
 
 The custom image created from a volume:
 
