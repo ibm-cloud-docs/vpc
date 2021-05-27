@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-15"
+lastupdated: "2021-05-27"
 
 keywords: virtual private endpoints, bind, unbind, reserved IP, VPE, endpoint gateways
 
@@ -51,17 +51,17 @@ To reserve or bind an IP address by using the {{site.data.keyword.cloud}} consol
 1. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Virtual private endpoint gateways** in the Network section. The Virtual private endpoint gateways for VPC page appears.
 1. Highlight the row of the gateway in the table, then click **Reserve or bind IP** from the overflow menu ![overflow menu](images/overflow.png). Alternatively, you can click the gateway name and access this link from the endpoint gateway's details page.
 
-   If you did not reserve or bind an IP during endpoint gateway creation, this link appears in the IP Address column in the table.
+   If you did not reserve or bind an IP during endpoint gateway creation, this link appears in the IP address column in the table.
    {: note}
 
    ![Binding a reserved IP address](./images/vpe-bind.png "Binding a reserved IP address")
 
-1. From the Reserved IP side panel, have IBM select an IP address for you from the subnet listed, or select from existing IPs.
+1. From the Reserved IP side panel, have IBM select an IP address for you from the subnet that is listed, or select from existing IPs.
 
-   You can bind only one reserved IP to one endpoint gateway from each zone. To bind a reserved IP to an endpoint gateway, you must have an existing subnet. You should also make sure that there are no subnets of the VPC that are bound to the same zone.
+   You can bind only one reserved IP to one endpoint gateway from each zone. To bind a reserved IP to an endpoint gateway, you must have an existing subnet. You need to also make sure that no subnets of the VPC that are bound to the same zone.
    {: important}
 
-1. Specify whether or not you want to automatically delete the reserved IP if the endpoint gateway is deleted. Then, click **Reserve IP address** to bind the address to this endpoint gateway.
+1. Specify whether you want to automatically delete the reserved IP if the endpoint gateway is deleted. Then, click **Reserve IP address** to bind the address to this endpoint gateway.
 
 ### Unbinding a reserved IP address
 {: #unbind-reserved-ip}
@@ -78,7 +78,7 @@ To unbind an IP address by using the IBM Cloud console, follow these steps:
 {: #vpe-binding-unbinding-endpoint-gateway-cli}
 {: cli}
 
-You can bind or unbind a reserved IP address using the CLI.
+You can bind or unbind a reserved IP address by using the CLI.
 
 ### Binding a reserved IP to an endpoint gateway
 {: #vpe-binding-endpoint-gateway-cli}
@@ -116,14 +116,14 @@ Where:
 {: #vpe-bind-unbind-api}
 {: api}
 
-To bind or unbind a reserved IP address using the API, perform the following prerequisites and procedures.
+To bind or unbind a reserved IP address by using the API, perform the following prerequisites and procedures.
 
 ### Prerequisites
 
-The following prerequisites must be met before using the API to bind or unbind reserved IP addresses:
+The following prerequisites must be met before you can use the API to bind or unbind reserved IP addresses:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
-1. Store the following values in variables to be used in the API command:
+1. Store the following values in variables to use in the API command:
 
     ```
     export EndpointGatewayId=<endpoint_gateway_id>
@@ -134,7 +134,7 @@ The following prerequisites must be met before using the API to bind or unbind r
 ### Binding a reserved IP to an endpoint gateway
 {: #vpe-binding-endpoint-gateway-api}
 
-To bind an endpoint gateway for the specific VPC:
+To bind an endpoint gateway for the specific VPC, see the following example:
 
 ```sh
 curl -X PUT
@@ -146,7 +146,7 @@ curl -X PUT
 ### Unbinding a reserved IP to an endpoint gateway
 {: #vpe-unbinding-endpoint-gateway-api}
 
-To unbind an endpoint gateway for the specific VPC:
+To unbind an endpoint gateway for the specific VPC, see the following example:
 
 ```sh
 curl -X DELETE
