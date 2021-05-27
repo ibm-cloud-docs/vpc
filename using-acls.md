@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2019, 2020
+  years: 2019, 2021
 
-lastupdated: "2020-04-04"
+lastupdated: "2021-05-27"
 
 keywords: ACLs, network, CLI, example, tutorial, firewall, subnet, inbound, outbound, rule, vpc, vpc network
 
@@ -28,27 +28,27 @@ subcollection: vpc
 
 You can use an access control list (ACL) to control all incoming and outgoing traffic in {{site.data.keyword.vpc_full}}. An ACL is a built-in, virtual firewall, similar to a security group. In contrast to security groups, ACL rules control traffic to and from the _subnets_, rather than to and from the _instances_.
 
-For a comparison of the characteristics of security groups and ACLs, see this [comparison table](/docs/vpc?topic=vpc-security-in-your-vpc#compare-security-groups-and-access-control-lists).
+For a comparison of the characteristics of security groups and ACLs, see the [comparison table](/docs/vpc?topic=vpc-security-in-your-vpc#compare-security-groups-and-access-control-lists).
 {: tip}
 
-The example that is presented in this document shows how to create network ACLs in your VPC by using the CLI. For information about how to set up ACLs in the {{site.data.keyword.cloud_notm}} console, see [Configuring ACLs by using the UI](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#configuring-the-acl).
+The example that is presented in this document shows how to create network ACLs in your VPC by using the CLI. For more information about how to set up ACLs in the {{site.data.keyword.cloud_notm}} console, see [Configuring ACLs by using the UI](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#configuring-the-acl).
 
 ## Working with ACLs and ACL rules
 {: #working-with-acls-and-acl-rules}
 
-To make your ACLs effective, create rules that determine how to handle your inbound and outbound network traffic. You can create multiple inbound and outbound rules. For information about how many rules you can create, see [Quotas](/docs/vpc?topic=vpc-quotas#acl-quotas).
+To make your ACLs effective, create rules that determine how to handle your inbound and outbound network traffic. You can create multiple inbound and outbound rules. For more information about rules quotas, see [Quotas](/docs/vpc?topic=vpc-quotas#acl-quotas).
 
 * With inbound rules, you can allow or deny traffic from a source IP range, with specified protocols and ports. The destination IP range is determined by the attached subnet.
 * With outbound rules, you can allow or deny traffic to a destination IP range, with specified protocols and ports. The source IP range is determined by the attached subnet.
 * ACL rules are prioritized and considered in sequence. Higher priority rules are evaluated first and override lower priority rules.
 * Inbound rules are separated from outbound rules.
 
-For information about using ICMP, TCP, and UDP protocols in your ACL rules, see [Understanding internet communication protocols](/docs/vpc?topic=vpc-understanding-icp#understanding-icp).
+For more information about using ICMP, TCP, and UDP protocols in your ACL rules, see [Understanding internet communication protocols](/docs/vpc?topic=vpc-understanding-icp#understanding-icp).
 
 ### Attaching an ACL to a subnet
 {: #attaching-an-acl-to-a-subnet}
 
-There are two ways to attach an ACL to a subnet:
+You can attach an ACL to a subnet two different ways:
 
 * You can create a new subnet, and specify an ACL to attach. If you don't specify an ACL, a default network ACL is attached. The default ACL allows all inbound traffic to this subnet, and all outbound traffic from this subnet.
 * You can attach an ACL to an existing subnet. If another ACL is attached to this subnet already, that ACL is detached before the new ACL is attached.
@@ -268,33 +268,33 @@ ibmcloud is network-acl-rule-add --action allow --direction inbound --protocol i
 ## Understanding Internet Communication Protocols
 {:#understanding-icp}
 
-Generally speaking, a _communication protocol_ is a system of rules that allow two or more entities of a communications system to transmit information. The internet has a large suite of protocols to cover many situations. In creating web-based applications and programming interfaces, software developers commonly utilize three of these communication protocols to describe the state of the network and the ways that data packets are moved across the network:
+Generally speaking, a _communication protocol_ is a system of rules that allow two or more entities of a communications system to transmit information. The internet has a large suite of protocols to cover many situations. When software developers create web-based applications and programming interfaces, they commonly use three of these communication protocols to describe the state of the network and the ways that data packets are moved across the network:
 
 * ICMP, Internet Control Message Protocol, part of the internet protocol suite defined in RFC 792.
 * TCP, Transmission Control Protocol
 * UDP, User Datagram Protocol
 
-The protocols that are used for a particular implementation of, say, an API call, can influence the overall behavior of your network, so it is worthwhile to understand the basic differences between them. If you need more information, many good articles are available on the internet with detailed descriptions of the protocols.
+The protocols that are used for a particular implementation of, such as, an API call, can influence the overall behavior of your network. So, it is worthwhile to understand the basic differences between them. 
 
 ### ICMP
 {:#network-infrastructure-icmp}
 
-ICMP is a _control protocol_, meaning it is designed not to carry application data, but rather information about the status of the network itself. It is essentially a _network layer_ (OSI Layer-3) error-reporting and error-control protocol for the network. The best-known examples of ICMP in practice are the `ping` utility, which uses ICMP to probe remote hosts for responsiveness and overall round-trip time of the probe messages, and the `traceroute` utility.
+ICMP is a _control protocol_, meaning it is designed not to carry application data, but rather information about the status of the network itself. It is essentially a _network layer_ (OSI Layer-3) error-reporting and error-control protocol for the network. The best-known examples of ICMP in practice are the `ping` utility. The `ping` utility uses ICMP to probe remote hosts for responsiveness and overall round-trip time of the probe messages, and the `traceroute` utility.
 
-What developers need to know is that ICMP packets have no TCP or UDP port numbers associated with them, because port numbers are a Layer-4 (_transport layer_) construct.
+What developers need to know is that ICMP packets have no TCP or UDP port numbers that associated with them because port numbers are a Layer-4 (_transport layer_) construct.
 
 ### TCP and UDP
 {:#network-infrastructure-tcp-udp}
 
-Both Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) are OSI Layer-4 _transport protocols_; they are used to pass the actual data. The main difference between TCP and UDP, from a developer's perspective, is how they handle **packet order**.
+Both Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) are OSI Layer-4 _transport protocols_. These protocols are used to pass the actual data. The main difference between TCP and UDP, from a developer's perspective, is how they handle **packet order**.
 
-TCP is a connection-oriented protocol, it guarantees that all sent packets will reach the destination in the correct order.
+TCP is a connection-oriented protocol, it guarantees that all sent packets reach the destination in the correct order.
 
-UDP, on the other hand, is a connection-less protocol. Communication is datagram-oriented, so the integrity is guaranteed only on the single datagram. Datagrams reach a destination and can arrive out of order, or possibly they don't arrive at all.
+Alternatively, UDP is a connection-less protocol. Communication is datagram-oriented, so the integrity is guaranteed only on the single datagram. Datagrams reach a destination and can arrive out of order, or possibly they don't arrive at all.
 
-UDP  generally is used for real-time communication, where a little percentage of the packet loss rate is preferable to the overhead of a TCP connection.
+Typically, UDP is used for real-time communication, where a little percentage of the packet loss rate is preferable to the overhead of a TCP connection.
 
-### Additional information
+### Extra information
 {:#network-infrastructure-additional-information}
 
 An overview of the OSI 7-layer model with examples of internet protocols at each layer is available [here](https://www.webopedia.com/quick_ref/OSI_Layers.asp).
