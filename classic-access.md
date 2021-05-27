@@ -142,8 +142,11 @@ To request conversion of your account to VRF, follow these steps:
 1. [Open a support case](https://cloud.ibm.com/unifiedsupport/cases/add){: external} through the {{site.data.keyword.cloud_notm}} console.
 1. Select **All products**, then start typing **Virtual Private Cloud** and select it.
 1. Click **Next** in the lower right of the page to show the form.
-1. For the Subject, enter "Network Engineering: Convert account to VRF for VPC Classic Access".
-1. For the Description, enter the following text: "I are requesting that account _your account number_ is moved to its own VRF. I understand the risks and approve the change. Please reply with the scheduled window(s) of time where this change will be made so we can prepare for the migration."
+
+   * For the Subject, enter "Network Engineering: Convert account to VRF for VPC Classic Access".
+   * For the Description, enter the following text:
+
+      "I am requesting that account _your account number_ is moved to its own VRF. I understand the risks and approve the change. Please reply with the scheduled window(s) of time where this change will be made so we can prepare for the migration."
 
 Migration is completed by the {{site.data.keyword.cloud_notm}} Network Engineering team. No other information is required from you, except an agreed-to schedule. Typically, packet loss might last 15 - 30 minutes, depending on the complexity of your account. It might be longer if your account has legacy Direct Link connections.
 
