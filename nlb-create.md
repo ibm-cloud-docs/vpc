@@ -50,10 +50,7 @@ To create and configure {{site.data.keyword.nlb_full}} by using the {{site.data.
    * Type a unique name for your load balancer and select a VPC.
    * Select a resource group. Use the default group, or select from the list (if defined for your account). You cannot change the resource group after the load balancer is created.
    * Select the **Network Load Balancer (NLB)** tile and the subnet where you want to deploy the load balancer.
-   * Select type: public or private
-
-      Private NLB is available in certain regions. For more information, see [NLB limitations](/docs/vpc?topic=vpc-nlb-limitations).
-      {: note} 
+   * Select type: public or private.
    * Optionally, add tags.
 
 1. Click **New Pool** and specify the following information to create a back-end pool. You can create one or more pools.
@@ -83,8 +80,7 @@ To create and configure {{site.data.keyword.nlb_full}} by using the {{site.data.
    * **Back-end pool** - The default back-end pool to which this listener forwards traffic.
    * **Max connections** (optional) - Maximum number of concurrent connections the listener allows.
 
-1. An order summary shows pricing estimates. Review the Cloud Services terms.
-Then, click **Create** to complete your order.
+1. An order summary shows pricing estimates. Review the Cloud Services terms. Then, click **Create** to complete your order.
 
 ## Creating a network load balancer using the CLI
 {: #nlb-cli-creating-network-load-balancer}
