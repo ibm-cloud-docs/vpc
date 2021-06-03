@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2021
-lastupdated: "2021-05-14"
+lastupdated: "2021-05-19"
 
 keywords: block storage, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
@@ -18,9 +18,6 @@ subcollection: vpc
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
 {:tip: .tip}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
 
 # Managing data encryption
 {: #vpc-encryption-managing}
@@ -46,7 +43,7 @@ Manage your root keys by taking the following actions:
 ### Viewing root key registrations
 {: #byok-root-key-registration}
 
-Block storage volumes and custom images that are encrypted with your key are registered against the root key in the key management service (Key Protect or HPCS). Registration lets you map your resources to their associated encryption keys. You can quickly see which resources are protected by a root key. You can also access the risk involved in disabling or deleting a key by viewing which keys are actively protecting data.
+Block storage volumes, snapshots, and custom images that are encrypted with your key are registered against the root key in the key management service (Key Protect or HPCS). Registration lets you map your resources to their associated encryption keys. You can quickly see which resources are protected by a root key. You can also access the risk involved in disabling or deleting a key by viewing which keys are actively protecting data.
 
 For more information, see:
 
@@ -55,9 +52,8 @@ For more information, see:
 
 ### Verifying root key rotation by using the UI
 {: #byok-root-key-verify-rotation}
-{: ui}
 
-When you create a customer-managed encryption volume or custom image, your root key is automatically registered in the KMS instance. You can view this information to verify the key has been rotated by using the UI. The following procedure shows how  to verify key rotation for a block storage volume, but steps are similar for other resources.
+When you create a customer-managed encryption volume, snapshot, or custom image, your root key is automatically registered in the KMS instance. You can view this information to verify the key has been rotated by using the UI. The following procedure shows how  to verify key rotation for a block storage volume, but steps are similar for other resources.
 
 1. From the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes** and click on the name of a volume to see its details.
 1. For Encryption, you'll see the name of the KMS and **customer-managed**, for example _Key Protect - Customer-managed_.
@@ -69,7 +65,7 @@ When you create a customer-managed encryption volume or custom image, your root 
 1. Click  **Associated Resources**. You'll see the following information for the root key in the KMS instance:
   * Key Name
   * Key ID
-  * Cloud Resource Name (CRN) of the associated resource (i.e., volume or custom image). If you have more than one resource using this root key, they appear in the list.
+  * Cloud Resource Name (CRN) of the associated resource (i.e., volume, snapshot, or custom image). If you have more than one resource using this root key, they appear in the list.
 1. In the Details column, click the arrow to expand the information. You'll see:
   * Description of the resource, if you provided one.
   * Key version ID
@@ -90,6 +86,7 @@ Root keys move to various states depending on the action you take and impacts re
 | Custom image | _unusable_ | Images cannot be used for creating boot volumes during instance provisioning. |
 | Boot volume | _available_ | Boot volumes remain encrypted with the suspended key. If you stop the instance using that boot volume, it won't restart. |
 | Data volume |  _available_ | Data volumes remain encrypted, attached, and available until you stop the instance. Standalone data volumes that are encrypted by the suspended key can't be attached to an instance. |
+| Snapshot | _unusable_ | Snapshot cannot be used to restore a volume. |
 | Instance |  _available_ | Instance workloads remain running with an _available_ status in the CLI and API, and with a _running_ status in the UI. If you stop instances, they won't restart. |
 {: class="simple-tab-table"}
 {: caption="Table 1. Disable root key" caption-side="top"}
@@ -104,6 +101,7 @@ Root keys move to various states depending on the action you take and impacts re
 | Custom image | _active_ | Images can be used for creating virtual server instances. |
 | Boot volume | _available_ | Boot volumes are available for startng instances. |
 | Data volume | _available_ | Data volumes can be attached to instances. |
+| Snapshot | _stable_ | Snapshot can be used to restore a volume. |
 | Instance | _available_ | Instances can be restarted. |
 {: caption="Table 2. Enable root key" caption-side="top"}
 {: #keystatetable2}
@@ -118,6 +116,7 @@ Root keys move to various states depending on the action you take and impacts re
 | Custom image | _unusable_ | Images can't be used for creating boot volumes to provision a new virtual server instance. |
 | Boot volume | _unusable_ | Associated virtual server instances are stopped. The boot volume can't be used to boot up instances. |
 | Data volume | _unusable_ | Instances are stopped and data volumes are detached. Standalone data volumes can't be attached to instances. You can delete the volume. |
+| Snapshot | _unusable_ | Snapshot is inaccessible and can't be used to restore a volume. |
 | Instance | _unusable_ | Instances with a deleted boot volume that were automatically stopped will not restart. |
 {: caption="Table 3. Delete root key" caption-side="top"}
 {: #keystatetable3}
@@ -132,6 +131,7 @@ Root keys move to various states depending on the action you take and impacts re
 | Custom image | _active_ | Images can be used for creating virtual server instances. |
 | Boot volume | _available_ | Boot volumes are available for starting instances. |
 | Data volume | _available_ | Data volumes can be attached to instances. |
+| Snapshot | _stable_ | Snapshot using this root key can be used to restore a volume. |
 | Instance | _available_ | Instances can be restarted. |
 {: caption="Table 4. Restore root key" caption-side="top"}
 {: #keystatetable4}
@@ -181,12 +181,13 @@ When you force delete a root key, the following actions happen automatically:
 * Deleting a root key purges usage of the key for all resources in the VPC.
 * Events are logged in the Activity Tracker.
 
-Block storage volumes and custom images with a deleted root key appear in the list of resources with an _unusable_ status. The API reason code is *encryption_key_deleted*.
+Block storage volumes,snapshots, and custom images with a deleted root key appear in the list of resources with an _unusable_ status. The API reason code is *encryption_key_deleted*.
 
 The following conditions result:
 
 * All instances with an unusable boot volume will not restart.
 * You can't attach unusable data volumes to an instance.
+* You can't restore a volume from a snapshot.
 * You can't provision new instances from unusable images.
 * Billing continues for unusable resources until you delete them.
 
@@ -231,7 +232,6 @@ For more information about restoring root keys in a KMS instance, see:
 
 ### Using the UI to manage root keys
 {: #byok-ui-root-key}
-{: ui}
 
 You can use the UI to disable, enable, delete, or restore your root keys. Table 5 describes each action and links to detailed steps for performing the action using the UI in Key Protect and HPCS. For information about the relationship of user actons to key states, see [Root key states and user actions](#byok-root-key-states).
 
@@ -246,11 +246,10 @@ You can use the UI to disable, enable, delete, or restore your root keys. Table 
 
 ### Using the API to manage root keys
 {: #byok-api-root-key}
-{: api}
 
 You can use the API to disable, enable, delete, or restore your root keys. Table 6 describes each action and links to detailed steps for performing the action using the Key Protect or HPCS API. For information about the relationship of user actons to key states, see [Root key states and user actions](#byok-root-key-states).
 
-Because deleting a root key makes all resources protected by it unusable (status = `unusable`), program your apps to check the status of the resource such as a volume or image before using it. If the root key is restorable, restore it for use or create and use a new root key.
+Because deleting a root key makes all resources protected by it unusable (status = `unusable`), program your apps to check the status of the resource such as a volume, snapshot, or image before using it. If the root key is restorable, restore it for use or create and use a new root key.
 {: tip}
 
 | User action | Key Protect API procedure | HPCS API procedure |
@@ -273,7 +272,7 @@ You can remove any authorization between services in your account when you have 
 
 Because the root keys are under your control, you don't have to contact IBM to remove authorization.
 
-Do not remove IAM authorization between Cloud Block Storage and the KMS instance and then delete a block storage or image resource. This causes the root key in the KMS instance to remain registered with the deleted resource. You must delete all BYOK volumes and images before removing IAM authorization.
+Do not remove IAM authorization between Cloud Block Storage and the KMS instance and then delete a block storage volume, snapshot, or image resource. This causes the root key in the KMS instance to remain registered with the deleted resource. You must delete all BYOK volumes, snapshots, or images before removing IAM authorization.
 {: important}
 
 To make your data inaccessible, but retain it on the IBM Cloud:
