@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-05-18"
+lastupdated: "2021-06-03"
 
 keywords: release notes, changes, updates
 
@@ -26,27 +26,32 @@ subcollection: vpc
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
 
+## 03 June 2021
+{: #june-03-2021}
+
+**UI enhancement:** When deleting a virtual server, you must now confirm that you want to delete an instance by typing *delete*.
+
 ## 25 May 2021
 {: #may-25-2021}
 
-**Snapshots for VPC** - Snapshots for VPC is a regional offering that lets you create a point-in-time copy of your block storage boot or data volume. Select a snapshot during instance provisioning and restore a new, fully-provisioned boot volume to start the instance. You can also create and attach a data volume from a snapshot within a running virtual server instance.
+**Snapshots for VPC:** - Snapshots for VPC is a regional offering that lets you create a point-in-time copy of your block storage boot or data volume. Select a snapshot during instance provisioning and restore a new, fully-provisioned boot volume to start the instance. You can also create and attach a data volume from a snapshot within a running virtual server instance.
 
 Learn more [about creating and using snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about) and explore the new [snapshots API methods](/apidocs/vpc#delete-snapshots).
 
 ## 21 May 2021
 {: #may-21-2021}
 
-**Image from volume.** You can create a custom image from a boot volume on a virtual server instance. The image is a full copy of the source volume, including the operating system and any user data. You can create new virtual server instances from the image created from the volume. For more information, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc).
+**Image from volume:** You can create a custom image from a boot volume on a virtual server instance. The image is a full copy of the source volume, including the operating system and any user data. You can create new virtual server instances from the image created from the volume. For more information, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc).
 
 ## 13 May 2021
 {: #may-13-2021}
 
-**Scheduled Scaling for VPC (GA)** - Scheduled Scaling for VPC lets you set scheduled actions to automatically scale instance group capacity up or down based on daily, intermittent, or seasonal demand. You can set multiple, recurring scheduled action frequencies that can scale monthly, weekly, daily, hourly, or even every set number of minutes. For more information, see [Scheduled scaling](/docs/vpc?topic=vpc-scheduled-scaling-vpc).
+**Scheduled Scaling for VPC (GA):** - Scheduled Scaling for VPC lets you set scheduled actions to automatically scale instance group capacity up or down based on daily, intermittent, or seasonal demand. You can set multiple, recurring scheduled action frequencies that can scale monthly, weekly, daily, hourly, or even every set number of minutes. For more information, see [Scheduled scaling](/docs/vpc?topic=vpc-scheduled-scaling-vpc).
 
 ## 06 May 2021
 {: #may-06-2021}
 
-**New Ultra High Memory instance profile family (LA)**: Ultra High Memory profiles are hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts and are optimized for running memory intensive applications and in-memory database such as SAP HANA, Memcached, or Redis. This profile family offers our highest vCPU to memory ratio with 28 GiB of memory for every 1 vCPU of compute and up to 5.7 TiB of available RAM. For more information, see [Instance Profiles](/docs/vpc?topic=vpc-profiles).
+**New Ultra High Memory instance profile family (LA):** Ultra High Memory profiles are hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts and are optimized for running memory intensive applications and in-memory database such as SAP HANA, Memcached, or Redis. This profile family offers our highest vCPU to memory ratio with 28 GiB of memory for every 1 vCPU of compute and up to 5.7 TiB of available RAM. For more information, see [Instance Profiles](/docs/vpc?topic=vpc-profiles).
 
 The Ultra High Memory family of profiles is currently available in the Dallas and Frankfurt multizone regions(MZRs). For more information, see the Multizone regions section in [Locations for resource deployment](https://cloud.ibm.com/docs/overview?topic=overview-locations#mzr-table). Contact your IBM Sales representative if you need Ultra High Memory profiles in a MZR other than Dallas or Frankfurt.
 {: note}
@@ -54,7 +59,7 @@ The Ultra High Memory family of profiles is currently available in the Dallas an
 ## 30 April 2021
 {: #april-30-2021}
 
-**File Storage for VPC.** File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions. With this feature, you can create NFS-based file shares in a single zone in a region. You can share file storage over multiple virtual service instances within the same zone across multiple VPCs. For more information about this service, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about). Contact your IBM Sales representative if you are interested in getting access.
+**File Storage for VPC:** File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions. With this feature, you can create NFS-based file shares in a single zone in a region. You can share file storage over multiple virtual service instances within the same zone across multiple VPCs. For more information about this service, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about). Contact your IBM Sales representative if you are interested in getting access.
 
 ## 07 April 2021
 {: #april-07-2021}
