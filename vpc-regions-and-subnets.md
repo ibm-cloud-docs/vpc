@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-25"
+lastupdated: "2021-06-07"
 
 keywords: address prefixes, regions, subnets, zones, IP, ranges, CIDR
 
@@ -68,7 +68,7 @@ To bring your own subnets:
 2. For each zone in which you plan to create subnets, create one or more address prefixes.
 3. When you create subnets in each zone, specify IP ranges that are within one of the address prefixes that you created for that zone.
 
-If you use an IP range outside of those ranges [RFC 1918](https://tools.ietf.org/html/rfc1918) (`10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`) defined for a subnet, the instances that you attach to that subnet might be unable to reach parts of the public internet.
+If you use an IP range outside of those ranges [RFC 1918](https://tools.ietf.org/html/rfc1918) (`10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`) defined for a subnet, the instances that you attach to that subnet might be unable to reach parts of the public internet. If you plan to configure VPCs that use both non-RFC-1918 addresses and also have public connectivity (floating IPs or public gateways), make sure to use a custom route that contains the `Delegate-VPC` action. 
 {:tip}
 
 ### Address prefixes and the {{site.data.keyword.cloud_notm}} console
@@ -82,32 +82,29 @@ When you create a VPC by using the {{site.data.keyword.cloud_notm}} console, the
 The following example shows you how to use the CLI to bring your own IP addresses for subnets in the 'us-south-1' and 'us-south-2' zones of your VPC.
 
 1. Create an address prefix named `my-first-prefix` in the `us-south-1` zone:
-  
+
    ```
-   ibmcloud is vpc-address-prefix-create my-first-prefix $VPC us-south-1 172.16.0.0/23 
+   ibmcloud is vpc-address-prefix-create my-first-prefix $VPC us-south-1 172.16.0.0/23
    ```
    {: pre}
 
 1. Create an address prefix named `another-prefix` in the `us-south-2` zone:
-  
+
    ```
-   ibmcloud is vpc-address-prefix-create another-prefix $VPC us-south-2 172.16.2.0/23 
+   ibmcloud is vpc-address-prefix-create another-prefix $VPC us-south-2 172.16.2.0/23
    ```
    {: pre}
 
 1. Create a subnet named `my-subnet` within your new address prefix in the `us-south-1` zone:
-  
+
    ```
    ibmcloud is subnet-create my-subnet $vpc us-south-1 --ipv4-cidr-block "172.16.0.0/25"
    ```
    {: pre}
 
 1. Create a subnet named `another-subnet` within your new address prefix in the `us-south-2` zone:
-  
+
    ```
    ibmcloud is subnet-create another-subnet $vpc us-south-2 --ipv4-cidr-block "172.16.2.0/25"
    ```
    {: pre}
-
-
-
