@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-04-23"
+lastupdated: "2021-06-02"
 
 keywords: quotas, vpc, resources, limits
 
@@ -75,6 +75,7 @@ When you provision virtual server instances and dedicated hosts, the vCPU, RAM, 
 |Resource|Quota|
 |--------|-----|
 |Security groups|50 per VPC|  
+|Security groups| 5 per network interface (NIC) on a virtual server instance |
 |Rules|50 per security group|   
 |Network interfaces|1000 per security group|    
 {: caption="Table 4. Quotas for security groups" caption-side="top"}
