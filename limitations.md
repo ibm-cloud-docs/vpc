@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020, 2021
-lastupdated: "2021-03-23"
+  years: 2018, 2021
+lastupdated: "2021-06-07"
 
 keywords: vpc, limitations, restrictions
 
@@ -61,8 +61,6 @@ An {{site.data.keyword.vpc_short}} cannot be peered with other VPCs natively. It
 * Multi-zone regions:
   * A security group can be configured in a single zone only.
   * A security group can’t reference another security group in a different zone in the same region.
-
-* Bring your own subnet: Address prefixes must be within one of the "private" address ranges defined in RFC1918.
 
 * VPN: A VPN gateway serves only subnets that are in the zone in which the VPN is created. For more information, see [About VPN](/docs/vpc?topic=vpc-using-vpn).
 
