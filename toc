@@ -167,9 +167,8 @@ Virtual Private Cloud (VPC)
     {: .topicgroup}
     Security groups
         security-groups.md
+        security-groups-configure.md
         security-groups-default.md
-        security-groups-example.md
-        security-group-usage-examples.md
 
     {: topicgroup}
     Routing tables
