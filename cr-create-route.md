@@ -47,7 +47,7 @@ Any traffic that originates in the specified zone of the VPC and has a destinati
 
 Each route has a destination property, which includes a prefix length (`/24` in `10.2.0.0/24`). The number of unique prefix lengths that are supported per custom routing table is 14. Multiple routes with the same prefix count as only one unique prefix.
 
-VPC address prefixes are no longer restricted to RFC-1918 addresses. You must now configure VPCs that use both non-RFC-1918 addresses and have public connectivity (floating IPs or public gateways) using a custom route that contains the new `Delegate-VPC` action. You must specify this action for destination CIDRs that are non-RFC-1918 compliant and also outside of the VPC, such as for destinations that are reachable through Direct Link (2.0), Transit Gateway, or VPC classic access. For more information about when to use the `Delegate-VPC` action, see [Routing considerations for IANA-registered IP assignments](/docs/vpc?topic=vpc-interconnectivity#routing-considerations-iana). 
+VPC address prefixes are no longer restricted to RFC-1918 addresses. You must now configure VPCs that use both non-RFC-1918 addresses and have public connectivity (floating IPs or public gateways) using a custom route that contains the new `Delegate-VPC` action. You must specify this action for destination CIDRs that are non-RFC-1918 compliant and also outside of the VPC, such as for destinations that are reachable through Direct Link (2.0), Transit Gateway, or VPC classic access. For more information about when to use the `Delegate-VPC` action, see [Routing considerations for IANA-registered IP assignments](/docs/vpc?topic=vpc-interconnectivity#routing-considerations-iana).
 {: note}
 
 The `Delegate-VPC` action is required if both are true:
@@ -83,7 +83,7 @@ To create a route by using the {{site.data.keyword.cloud_notm}} console, follow 
 
    * Type - (Egress traffic type only) Choose either **IP Address** or **VPN connection**. If you select **IP Address**, enter the **Next hop**. If you choose **VPN Connection**, select from the list of available VPN gateways or connections.
 
-   Traffic egressing a subnet routes that use the custom routing table that is associated with the subnet. If no matching route is found in a custom routing table, routing continues using the VPC system routing table. You can avoid this behavior with a custom routing table default route with an action of **Drop**.
+   Traffic egressing a subnet uses the custom routing table that is associated with the subnet. If no matching route is found in a custom routing table, routing continues using the VPC system routing table. You can avoid this behavior with a custom routing table default route with an action of **Drop**.
    {: note}
 
 1. Click **Save** to save the new route. The route appears on the Routing table details page.
