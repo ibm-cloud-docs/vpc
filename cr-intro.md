@@ -48,7 +48,7 @@ When you create a routing table, you can select one of the following traffic typ
 ## System routing table
 {: #system-routing-table}
 
-Use the system routing table for routing traffic when no matching route is found in the custom routing table that is associated with the subnet where the traffic is egressing. If no match found, the packet is dropped.
+You cannot configure a routing table to use the system routing table; it is populated automatically. The system routing table is used when no matching route is found in the custom routing table that is associated with the subnet where the traffic is egressing. If no match is found, the packet is dropped.
 
 A system routing table is maintained for each VPC. A VPC can have a presence in multiple zones, and the VPC's system routing table is different in each zone. For ingress routing, the system routing table contains only routes to each network interface in the VPC’s zone.
 
@@ -57,12 +57,12 @@ A system routing table is maintained for each VPC. A VPC can have a presence in 
 
 The system route table contains:
 
-•Routes to the CIDR of each subnet in the VPC
-◦Routes to subnets within the zone are statically maintained
-◦Routes to subnets in other zones that are learned via BGP
-•Dynamic routes learned via BGP (for example, Direct Link)
-•Routes to the SoftLayer service network CIDRs (used when a service gateway is associated with the VPC)
-•Default route for internet traffic (used when a public gateway or floating IP is associated with the VPC)
+* Routes to the CIDR of each subnet in the VPC
+* Routes to subnets within the zone (statically maintained)
+* Routes to subnets in other zones that are learned via BGP
+* Dynamic routes learned via BGP (for example, Direct Link)
+* Routes to the SoftLayer service network CIDRs (used when a service gateway is associated with the VPC)
+* The default route for internet traffic (used when a public gateway or floating IP is associated with the VPC)
 
 ## Limitations and guidelines
 {: #limitations-custom-routes}
