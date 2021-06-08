@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-26"
+lastupdated: "2021-06-08"
 
 keywords: virtual private network, faq, faqs, frequently asked questions, vpn, vpn gateway
 
@@ -115,12 +115,6 @@ Only PSK authentication is supported.
 
 No. To set up a VPN gateway in your classic environment, you must use an [IPsec VPN](https://{DomainName}/catalog/infrastructure/ipsec-vpn){: external}.
 
-## What {{site.data.keyword.cloud_notm}} infrastructure classic resources can be accessed with {{site.data.keyword.vpn_vpc_short}}?
-{: #faq-vpn-13}
-{: faq}
-
-Virtual server instances are the only classic resources that can be accessed with {{site.data.keyword.vpn_vpc_short}} along with a classic access VPC.
-
 ## What does rekey collision cause?
 {: #faq-vpn-14}
 {: faq}
@@ -145,10 +139,10 @@ Approved Scanning Vendor (ASV) quarterly scanning is a requirement of the Paymen
 
 The following metrics are collected for VPN gateway billing on a monthly basis:
 
-* VPN Gateway Instance Hour: How much time your VPN gateway instance is up and running. 
+* VPN Gateway Instance Hour: How much time your VPN gateway instance is up and running.
 * VPN Connection Hour: How much time each of your VPN connections is established and maintained on the VPN gateway.  
-* Floating IP: The number of active floating IP addresses being used by the VPN gateway instance. 
+* Floating IP: The number of active floating IP addresses being used by the VPN gateway instance.
 
 See the **IBM Cloud VPN** tab on the [Pricing](https://www.ibm.com/cloud/vpc/pricing) page for the unit pricing per hour in each region for VPN gateway.
 
-**Note:** While using a VPN gateway, you are also charged for all outbound public internet traffic billed at VPC data rates. See the *Data Transfer* tab on the [Pricing](https://www.ibm.com/cloud/vpc/pricing) page for details about the unit pricing for outbound data transfer. 
+**Note:** While using a VPN gateway, you are also charged for all outbound public internet traffic billed at VPC data rates. See the *Data Transfer* tab on the [Pricing](https://www.ibm.com/cloud/vpc/pricing) page for details about the unit pricing for outbound data transfer.
