@@ -59,7 +59,8 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 ### For version `2021-06-08` or later
 {: #version 2021-06-08}
 
-**Load balancers.** Pagination has been added to the [List all load balancers](/apidocs/vpc#list-load-balancers) (`GET /load_balancers`) method. Requests using earlier version dates remain unpaginated, but may time out if you have many load balancers. If you have many load balancers on your account, migrate your applications to the paginated API to improve responsiveness and reliability. Contact [IBM support](/docs/get-support?topic=get-support-using-avatar) if you need help migrating your existing client applications.
+**Load balancers.** Pagination has been added to the [List all load balancers](/apidocs/vpc#list-load-balancers) (`GET /load_balancers`) method. Requests using earlier version dates remain unpaginated, but may time out if you have many load balancers.  
+If you expect to use many load balancers at once, migrate your applications to the paginated API to improve responsiveness and reliability. Contact [IBM support](/docs/get-support?topic=get-support-using-avatar) if you need help migrating your existing client applications.
 
 ## 25 May 2021
 {: #25-may-2021}
