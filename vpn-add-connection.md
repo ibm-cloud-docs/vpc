@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-11-13"
+  years: 2020, 2021
+lastupdated: "2021-06-07"
 
 keywords:
 
@@ -43,7 +43,10 @@ To add a VPN connection to an existing VPN gateway, follow these steps:
 1. Define a connection between this gateway and a network outside your VPC by specifying the following information.
    * **Connection name** - Enter a name for the connection, such as `my-connection`.
    * **Peer gateway address** - Specify the IP address of the VPN gateway for the network outside your VPC.
-   * **Preshared key** - Specify the authentication key of the VPN gateway for the network outside your VPC.
+   * **Preshared key** - Specify the authentication key of the VPN gateway for the network outside your VPC. The preshared key is a string of hexadecimal digits, or a passphrase of printable ASCII characters. To be compatible with most peer gateway types, this string must follow these rules:  
+		* Can be a combination of digits, lower or upper case characters, or the following special characters: `- + & ! @ # $ % ^ * ( ) . , :`  
+		* The length of the string must be 6 - 128 characters.
+		* Cannot start with `0x` or `0s`.
    * **Local subnets (Policy-based VPN only)** - Specify one or more subnets in the VPC you want to connect through the VPN tunnel.
    * **Peer subnets (Policy-based VPN only)** - Specify one or more subnets in the other network you want to connect through the VPN tunnel. Subnet range overlap between local and peer subnets is NOT allowed.
 1. To configure how the VPN gateway sends messages to check that the peer gateway is active, specify the following information in the **Dead peer detection** section.
@@ -160,6 +163,6 @@ the right variables.
    {: codeblock}
 
 ## Next steps
-{: #vpn-next-steps_add-connection}
+{: #vpn-add-connection-next-steps}
 
 For a route-based VPN, select or [create a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table). Then, [create a route using the VPN connection type](/docs/vpc?topic=vpc-create-vpc-route).
