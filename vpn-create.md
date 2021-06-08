@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-11-13"
+  years: 2019, 2021
+lastupdated: "2021-06-07"
 
 keywords:
 subcollection: vpc
@@ -64,7 +64,11 @@ To create a VPN gateway using the UI:
 
     * **VPN connection name** - Enter a name for the connection, such as `my-connection`.
     * **Peer gateway address** - Specify the IP address of the VPN gateway for the network outside your VPC.
-    * **Preshared key** - Specify the authentication key of the VPN gateway for the network outside your VPC.
+    * **Preshared key** - Specify the authentication key of the VPN gateway for the network outside your VPC. The preshared key is a string of hexadecimal digits, or a passphrase of printable ASCII characters. To be compatible with most peer gateway types, this string must follow these rules:  
+		* Can be a combination of digits, lower or upper case characters, or the following special characters: `- + & ! @ # $ % ^ * ( ) . , :`  
+		* The length of the string must be 6 - 128 characters.
+		* Cannot start with `0x` or `0s`.
+
     * **Local subnets (Policy-based VPN only)** - Specify one or more subnets in the VPC that you want to connect through the VPN tunnel.
     * **Peer subnets (Policy-based VPN only)** - Specify one or more subnets in the other network that you want to connect through the VPN tunnel.
 
