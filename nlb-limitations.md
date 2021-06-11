@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-04-12"
+lastupdated: "2021-06-07"
 
 keywords:  
 
@@ -33,6 +33,7 @@ Known limitations for {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}}
 * All members that are associated with a network load balancer must be in the same zone as the load balancer.
 * To ensure service availability, use a dedicated subnet with your NLBs. Clients and members should reside in an alternate subnet.
 * Two members with the same instance X and same port Y cannot exist at the same time for an NLB. This case is not supported and your traffic might not be routed correctly.
+* The default load balancer quota is 50 per region. To increase the number, you must [create a support case](/docs/get-support?topic=get-support-open-case).
 * For Private NLB, the NLB service might add rules to custom routing tables to ensure service availability for some failure conditions. As a result, if the client is outside the zone and/or VPC of the NLB, you must add an ingress custom routing table to the VPC where the NLB resides with the proper traffic source selected.
 
    For Private NLB, depending on the location of the clients, you must ensure that ingress routing tables exist (as described in Table 1).
