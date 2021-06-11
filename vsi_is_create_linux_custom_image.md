@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-05-21"
+lastupdated: "2021-06-11"
 
 keywords: creating a linux custom image for vpc, cloud-init, qcow2, vhd
 
@@ -29,6 +29,7 @@ infrastructure.
 {:shortdesc}
 
 You can begin with an image template from the {{site.data.keyword.cloud_notm}} classic infrastructure. For more information, see [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc).
+Did you know that your can also create a custom image of a boot volume attached to an instance at import time? For more information, see [About creating an image from volume](/docs/vpc?topic=vpc-image-from-volume-vpc).
 {: tip}
 
 Your image must adhere to the following custom image requirements:
