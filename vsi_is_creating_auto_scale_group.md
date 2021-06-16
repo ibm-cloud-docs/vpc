@@ -72,7 +72,7 @@ To create an instance group for auto scale, you must complete the following task
 3. Choose a scaling method (static or dynamic) and create scaling policies. 
 
 ### Creating an instance template
-{: #creating-instance-template-ui}
+{: #creating-instance-template}
 
 An instance template is required before you can create an instance group for auto scaling. The instance template defines the 
 details of the virtual server instances that are created for your instance group. For example, specify the profile (vCPU and 
@@ -112,7 +112,7 @@ When you create an instance template, validation steps are performed to ensure t
 {: tip}
 
 ### Creating an instance group
-{: #creating-instance-group-ui}
+{: #creating-instance-group}
 
 An instance group is a collection of like virtual server instances. You define how many instances to maintain in the group. 
 You can set a static number of instances or choose to dynamically scale instances according to your requirements.
@@ -142,7 +142,7 @@ If you want to include a load balancer for your instance group to balance incomi
 {: caption="Table 2. Instance group selections" caption-side="top"}
 
 ### Creating scaling policies
-{: #creating-scaling-policies-ui}
+{: #creating-scaling-policies}
 
 For the dynamic scaling method, you define certain metrics (like CPU utilization percent) and the desired target utilization for that metric. Together, the metric and the average target utilization, determine when your instance group should dynamically add or remove virtual server instances from your group. 
 
