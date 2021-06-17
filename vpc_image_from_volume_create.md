@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2021
-lastupdated: "2021-05-26"
+lastupdated: "2021-06-17"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
 
@@ -124,7 +124,7 @@ To complete your image from volume, select either IBM-managed encryption or cust
 | Encryption | The default selection is **No encryption**. If you have not encrypted your image by using QEMU, use the default value, No encryption. If you are importing an image that you have encrypted by using QEMU and your own passphrase, select the key management service where your customer root key (CRK) that protects your passphrase is stored. Select either **Key Protect** or **Hyper Protect Crypto Services** |
 | Encryption service instance | For an encrypted image, select the specific instance of the key management service where your CRK that wraps your encryption passphrase is stored. |
 | Key name | Select the customer root key (CRK) that you used to wrap your encryption passphrase. |
-| Wrapped data encryption key | For an encrypted image, specify the ciphertext that is associated with the wrapped data encryption key (WDEK). The WDEK is produced by wrapping the passphrase that you used to encrypt your image with your customer root key. |
+| Key ID | Shows the key ID that is associated with the data encryption key that you selected. |
 {: caption="Table 2. Encryption types" caption-side="top"}
 
 For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs)
