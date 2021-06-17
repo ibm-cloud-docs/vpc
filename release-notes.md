@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-06-03"
+lastupdated: "2021-06-17"
 
 keywords: release notes, changes, updates
 
@@ -25,6 +25,13 @@ subcollection: vpc
 
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
+
+## 17 June 2021
+{: #june-17-2021}
+
+**UI enhancement:** When provisioning a VPC, you can now create multiple subnets from the default address prefix. When you create a VPC, one subnet is created in each zone of the VPC region. You can add up to a maximum of 9 subnets.”
+
+**Application Load Balancer (ALB) support for cookie-based session persistence:** ALBs now supports HTTP-cookie persistence and application-cookie persistence. For more information, see [Advanced traffic management](/docs/vpc?topic=vpc-advanced-traffic-management#session-persistence).
 
 ## 03 June 2021
 {: #june-03-2021}
