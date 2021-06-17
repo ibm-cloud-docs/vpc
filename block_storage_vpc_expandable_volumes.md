@@ -22,11 +22,14 @@ subcollection: vpc
 {:table: .aria-labeledby="caption"}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Expanding block storage volume capacity (beta)
 {: #expanding-block-storage-volumes}
 
-For {{site.data.keyword.block_storage_is_short}} volumes, when you create and attach to a virtual server instance on Gen 2 Compute resources, you can expand the size of your data volumes. You indicate capacity in GB increments up to 16,000 GB capacity, depending on your volume profile. This process doesn't require you to perform manual steps. For example, you don't need to migrate your data to a larger volume. There's no outage or lack of access to the storage while the volume is being resized.
+For {{site.data.keyword.block_storage_is_short}} data volumes, when you create and attach a volume to a virtual server instance, you can later increase the size of the volume. You indicate capacity in GB increments up to 16,000 GB capacity, depending on your volume profile. This process doesn't require you to perform manual steps. For example, you don't need to migrate your data to a larger volume. There's no outage or lack of access to the storage while the volume is being resized.
 {:shortdesc}
 
 Billing for the volume is automatically updated to add the pro-rated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
@@ -37,9 +40,9 @@ Expandable volumes is a beta feature that is available for evaluation and testin
 ## Expandable volume concepts
 {: #expandable-volume-concepts}
 
-Volume capacity can be expanded for data volumes that are attached to a virtual server instance. The volume must be in an _available_ state and the instance must be running. Your user authorization is verified before you can expand the volume. You can use the [UI](#expand-vpc-volumes-ui), [CLI](#expand-vpc-volumes-cli), or [API](#expand-vpc-volumes-api) to expand volume capacity. You can expand the volume multiple times up to its [maximum capacity limit](#exp-vols-capacity-IOPS-limitations). After the volume expansion, you can't reduce the volume capacity.
+Volume capacity can be expanded for data volumes that are attached to a virtual server instance. The volume must be in an _available_ state and the instance must be running. Your user authorization is verified before expanding the volume. You can use the [UI](#expand-vpc-volumes-ui), [CLI](#expand-vpc-volumes-cli), or [API](#expand-vpc-volumes-api) to expand volume capacity. You can expand the volume multiple times up to its [maximum capacity limit](#exp-vols-capacity-IOPS-limitations). After the expanding volume, you can't reduce the volume capacity.
 
-Expanded capacity is determined by the maximum that is allowed by the volume's profile. Volumes that are created from a [Custom profile](/docs/vpc?topic=vpc-block-storage-profiles#custom) can be expanded within their custom IOPS range. Volumes that are created by using an [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta) can be expanded to the maximum size for its IOPS tier:
+Volumes created using an [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta) can be expanded to the maximum size for its IOPS tier:
 
 * A general-purpose, 3 IOPS/GB profile can be expanded up to 16,000 GB
 * A 5 IOPS/GB profile can be expanded up to 9,600 GB
@@ -48,11 +51,21 @@ Expanded capacity is determined by the maximum that is allowed by the volume's p
 For the Beta release, volumes with a capacity of 10 GB to 249 GB can be expanded up to 250 GB. Volumes 251 GB and over can potentially expand up to 16,000 GB, limited by the capacity range for an IOPS profile or custom range. For more information, see [Volume capacity and IOPS limitations](#exp-vols-capacity-IOPS-limitations).
 {:note}
 
-IOPS are automatically adjusted for tiered profiles, based on the size of the volume. For example, if you expand a volume that was created by using a 5 IOPS/GB profile from the original size of 250 GB to the expanded size of 1,000 GB, it has a max IOPS of 5,000 IOPS (1,000 GB capacity _x_ 5 IOPS). Because a 5 IOPS/GB volume can potentially expand to 9,600 GB, the max IOPS would adjust to 48,000 IOPS. While the volume capacity is immediately changed, to realize increased IOPS, you must restart the instance.
+IOPS are automatically adjusted for tiered profiles, based on the size of the volume. For example, if you expand a volume that was created by using a 5 IOPS/GB profile from the original size of 251 GB to the expanded size of 1,000 GB, it has a max IOPS of 5,000 IOPS (1,000 GB capacity _x_ 5 IOPS). Because a 5 IOPS/GB volume can potentially expand to 9,600 GB, the max IOPS would adjust to 48,000 IOPS. While the volume capacity is immediately changed, to realize increased IOPS, you must restart the instance.
 
-If you want larger volumes up to 16,000 GB at higher IOPS performance than provided by a general-purpose profile, you can create volume by using a [custom profile](/docs/vpc?topic=vpc-block-storage-profiles#custom) that allows expansion up to 16,000 GB. IOPS remain constant at the level you set when you created the custom volume and can't be increased.
+Volumes that are created from a [Custom profile](/docs/vpc?topic=vpc-block-storage-profiles#custom) can be expanded within their custom IOPS range. Depending on the range you originally set, this can be up to 16,000 GB. IOPS remain constant at the level you set when you created the custom volume and can't be increased.
 
 You can monitor the progress of your volume expansion from the UI or CLI. You can also use the [Activity Tracker](/docs/vpc?topic=vpc-at-events) to verify that the volume was expanded. After a volume is expanded, you can't reduce capacity. 
+
+## Expandable volume requirements
+{: #exp-vol-requirements}
+
+You must meet these requirements to increase a volume's capacity.
+
+* The volume must be a data volume, which are expanded based on their predefined IOPS profile or custom IOPS range. 
+* The volume must be attached to a virtual server instance.
+* The volume must be in an _available_ state.
+* The instance must be powered on and in a _running_ state.
 
 ## Limitations
 {: #expandable-volume-limitations}
@@ -64,8 +77,6 @@ The following limitations apply in this Beta release.
 
 To increase volume capacity, these limitations apply:
 
-* The volume must be on a Generation 2 Compute resource. Gen 1 is not supported.
-* You can't expand a volume that is on an older Gen 2 Compute resource, created before the expandable volume Beta release (July 2020).
 * You can expand data volumes only; boot volumes can't be expanded.
 * To expand volume capacity, the volume must be attached to a virtual server instance.
 * The volume must be in an _available_ state with the instance powered on and in a _running_ state.
@@ -96,24 +107,32 @@ To increase volume capacity, these limitations apply:
 
 ## Expand block storage volumes in the UI
 {: #expand-vpc-volumes-ui}
+{:ui}
 
 Follow these steps for expanding volume capacity in the UI:
 
-1. Navigate to the list of block storage volumes. In [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**. By default, block storage volumes display for all resource groups in your region.
-1. In the list of all **Block storage for VPC volumes**, click the name of the volume you want to expand to see the volume details. 
+Follow these steps for expanding volume capacity in the UI:
+
+1. Navigate to the list of block storage volumes. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**. By default, block storage volumes display for all resource groups in your region.
+
+2. In the list of all **Block storage for VPC volumes**, click the name of the volume you want to expand to see the volume details. 
 
    The volume that you select must be attached to a virtual server instance. In the list of volumes, its attachment type is _data_.
    {:note}
 
-1. Alternatively, go to a virtual server instance with an attached volume that you want to expand and select it from the list of attached volumes.
-1. On the volume details page, locate **Size**. The current IOPS profile and volume size are displayed.
-1. Click the pencil icon. 
-1. In the side pane, increase the volume size in GB up to 16,000 GB.
+3. Alternatively, go to to a virtual server instance with an attached volume that you want to expand and select it from the list of attached volumes.
+
+4. On the volume details page, locate **Size**. The current IOPS profile and volume size are displayed.
+
+5. Click the pencil icon. Alternatively, click the **Actions** menu and select **Expand block storage volume**.
+
+6. In the panel, increase the volume size in GB up to 16,000 GB.
 
    The maximum expansion size is based on the selected IOPS profile or custom volume settings. The UI indicates the maximum capacity for the selected profile. For a custom profile, you can expand the volume based on [sizing limits](#expandable-volume-limitations). When you increase the size of the volume, max IOPS and throughput are calculated for the expanded volume.
 
-1. Review the estimated monthly order summary for your geography and new pricing.
-1. If you're satisfied, click **Save and continue**.
+7. Review the estimated monthly order summary for your geography and new pricing.
+
+8. If you're satisfied, click **Save and continue**.
 
 Your new block storage allocation is available in a few minutes. 
 
@@ -121,6 +140,7 @@ Your new block storage allocation is available in a few minutes.
 
 ## Expand block storage volumes by using the CLI
 {: #expand-vpc-volumes-cli}
+{:cli}
 
 From the CLI, use the `volume-update` command with the `--capacity` parameter to indicate the new size of the volume in GBs.
 
@@ -142,7 +162,7 @@ Profile                                 5IOPS-tier
 Encryption Key                          -
 Encryption                              provider managed
 Status                                  available
-Created                                 2020-07-14 10:09:28
+Created                                 2021-06-14 10:09:28
 Resource Group                          Default(c16d1edde3fd4a71a0130aed371405a0)
 Zone                                    us-south-2
 Resource Group                          Default(c16d1edde3fd4a71a0130aed371405a0)
@@ -155,19 +175,20 @@ Volume Attachment Instance Reference    Vdisk Name    Vdisk ID                  
 
 ## Expand block storage volumes with the API
 {: #expand-vpc-volumes-api}
+{:api}
 
 You can expand existing data volumes by calling the Virtual Private Cloud (VPC) API.
 
-Make a `PATCH/volumes` request to increase the capacity of a volume that is attached to an instance. 
+Make a `PATCH /volumes` request to increase the capacity of a volume that is attached to an instance. 
 
-You can't update the name of the volume and expand capacity in the same `PATCH/volumes` request. Make two separate `PATCH/volumes` requests.
+You can't update the name of the volume and expand capacity in the same `PATCH /volumes` request. Make two separate `PATCH /volumes` requests.
 {:note}
 
 This example call expands a volume with a capacity of 50 GB to 250 GB.
 
 ```
 curl -X PATCH \
- "$vpc_api_endpoint/v1/volumes/$volume_id?version=2020-07-14&generation=2" \
+ "$vpc_api_endpoint/v1/volumes/$volume_id?version=2021-06-17&generation=2" \
  -H "Authorization: $iam_token" \
  -d '{
       "capacity": 250
@@ -180,7 +201,7 @@ The volume status shows `updating` while the volume is being expanded. The curre
 ```
 {
 	"capacity": 50,
-	"created_at": "2020-07-14T09:46:43.000Z",
+	"created_at": "2021-06-17T09:46:43.000Z",
 	"crn": "crn:v1:staging:public:is:us-south-1:a/<Acc id>::volume:<Volume ID>",
     .
     .
@@ -198,7 +219,7 @@ When the volume expansion completes, the new value displays and the volume statu
 ```
 {
 	"capacity": 250,
-	"created_at": "2020-07-14T09:46:43.000Z",
+	"created_at": "2021-06-17T09:46:43.000Z",
 	"crn": "crn:[...]",
 	"encryption": "provider_managed",
     "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/2d1bb5a8-40a8-447a-acf7-0eadc8aeb054",
