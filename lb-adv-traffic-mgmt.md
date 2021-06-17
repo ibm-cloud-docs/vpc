@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-03-23"
+lastupdated: "2021-06-17"
 
 keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, layer 7
 subcollection: vpc
@@ -31,17 +31,51 @@ The following advanced traffic management features are available in {{site.data.
 ## Max connections
 {: #max-connections}
 
-Use the `max connections` configuration to limit the maximum number of concurrent connections for a given front-end virtual port. If you do not configure a value, the default of `2000` concurrent connections is used. The maximum concurrent connections for a given front-end virtual port or system-wide across all front-end virtual ports is `15000`.
+Use the `max connections` configuration to limit the maximum number of concurrent connections for a given front-end virtual port. If you do not configure a value, the system uses a default of `2000` concurrent connections. The maximum concurrent connections for a given front-end virtual port, or system-wide across all front-end virtual ports, is `15000`.
 
 ## Session persistence
 {: #session-persistence}
 
-An ALB supports session persistence based on the source IP of the connection. As an example, if you have `source IP` type session persistence that is enabled for port 80 (HTTP), then subsequent HTTP connection attempts from the same source IP client are persistent on the same back-end server. This feature is available for all supported protocols (HTTP, HTTPS, and TCP).
+By default, an ALB forwards received requests to a back-end server based on the configured load-balancing method. You can enable session persistence to ensure that a client remains connected to the same back-end server throughout a session.
+
+### Source IP
+{: #source-ip}
+
+With this option, an ALB creates the affinity between a client and a back-end server based on the source IP of the connection. As an example, if you enable source IP type session persistence for port 80 (HTTP), then any subsequent HTTP connection attempts from the same source IP client are persistent on the same back-end server. This feature is available for all supported protocols (HTTP, HTTPS, and TCP).
+
+### Cookie-based session persistence
+{: #cookie}	
+
+With this option, an ALB creates the affinity between a client and a back-end server based on cookies. ALBs support two modes of cookie-based session persistence:
+
+  * HTTP cookie persistence
+  * Application-cookie persistence 
+
+For HTTP cookie persistence, a load balancer inserts a cookie with a predefined prefix, while application cookie persistence allows you to define your own cookie name. This feature supports only HTTP and HTTPS protocols.
+
+#### HTTP cookie persistence
+{: #http-cookie}
+
+When an ALB receives the first request, it forwards the request to a back-end server based on the configured load-balancing method. The load balancer inserts a cookie with a name prefixed by `IBMVPCALB` in the response from the back-end server sent to the client. If the client includes the cookie in subsequent requests, the load balancer forwards the requests to the same back-end server.
+
+#### Application cookie persistence
+{: #application-cookie}
+
+In addition to HTTP cookie persistence, you can also define your own application cookie to achieve session persistence. Your application is expected to generate a cookie and its name will match the application cookie name that is configured by the ALB. When an ALB receives the first request, it forwards the request to a back-end server based on the configured load-balancing method. The load balancer inserts a cookie with a name prefixed by `IBMVPCALB` in the response from the back-end server containing your application cookie. The client must include both the load-balancer-inserted cookie and your application cookie in subsequent requests for the ALB to maintain persistence to the same back-end server.
+
+#### Additional considerations for cookie-based session persistence
+{: #cookie-additional-considerations}
+
+* The `cookie name` value does not contain separator characters, such as `( ) < > @ , ; : \ " / [ ] ? = { }`. It can contain US-ASCII characters, except control characters, spaces, and tabs.
+* A user-defined application cookie name cannot start with the prefix `IBM`.
+* A user-defined cookie name is case-sensitive.
+* A secure cookie with the `SameSite=None` attribute is only sent to the client through the HTTPS protocol from the load balancer.
+* A client must accept cookies for cookie-based session persistence to work.
 
 ## HTTP keep alive
 {: #http-keep-alive}
 
-{{site.data.keyword.alb_full}} supports `HTTP keep alive` when it is enabled on both the client and back-end servers. The application load balancer attempts to reuse the server-side HTTP connections to increase connection efficiency and reduce latency.
+{{site.data.keyword.alb_full}} supports `HTTP keep alive` when it is enabled on both the client and back-end servers. The load balancer attempts to reuse the server-side HTTP connections to increase connection efficiency and reduce latency.
 
 ## TCP keep alive
 {: #tcp-keep-alive}
@@ -71,12 +105,12 @@ The following timeout values are used by an ALB. Currently, you cannot customize
 ## Preserving end-client protocol (HTTP/HTTPS only)
 {: #preserving-end-client-protocol}
 
-An application load balancer for VPC preserves the original protocol that is used by the client for front-end HTTP and HTTPS connections by including it inside the `X-Forwarded-Proto` HTTP header. This does not apply to TCP protocol since an ALB does not look at Layer-7 traffic when TCP protocol is used.
+An ALB preserves the original protocol that is used by the client for front-end HTTP and HTTPS connections by including it inside the `X-Forwarded-Proto` HTTP header. This does not apply to TCP protocol since an ALB does not look at Layer-7 traffic when TCP protocol is used.
 
 ## Enabling private load balancer enforcement
 {: #private-alb-enforcement}
 
-Private load balancer enforcement prevents public load balancers from being created. This ensures only non-internet clients, or clients from within your network environment, can access your load balancers. When enabled, a restriction is placed on your account to prevent the creation of floating IPs on all application load balancers.
+Private load balancer enforcement prevents public load balancers from being created. This ensures only non-internet clients, or clients from within your network environment, can access your load balancers. When enabled, a restriction is placed on your account to prevent the creation of floating IPs on all ALBs.
 
 To implement private load balancer enforcement, open an [IBM Support case](/docs/get-support?topic=get-support-using-avatar) and reference your need to alter your account to restrict the creation of floating IPs. After IBM processes the change, you will no longer be able to create public load balancers.
 
@@ -115,4 +149,4 @@ All back-end members of that pool must support proxy protocol for the data path 
 
 If the {{site.data.keyword.alb_full}} is receiving traffic from a proxy (or a proxy chain) that uses proxy protocol, the listener must have proxy protocol that is enabled so that it can parse the origin client information that is contained in the proxy protocol headers. This setting is disabled by default, if not specified. Because the load balancer can detect the version of the proxy protocol header and parse it correctly, you don't have to specify which version of proxy protocol is being used to send traffic to the ALB.
 
-When proxy protocol is enabled for a front-end listener, all traffic coming to that frontend port is expected to be proxy protocol traffic. If any of the connections do not contain the proper proxy protocol headers, they won't be established. To forward this client information to the back-end server pool, you must enable proxy protocol for the pool. Similar to use case 1, you must select version 1 or version 2 depending on what version of proxy protocol the back-end servers are configured to use. You can also choose to not forward this client information to the back-end servers if they are not capable of processing this information, and this information is dropped at the load balancer.
+When proxy protocol is enabled for a front-end listener, all traffic coming to that front-end port is expected to be proxy protocol traffic. If any of the connections do not contain the proper proxy protocol headers, they won't be established. To forward this client information to the back-end server pool, you must enable proxy protocol for the pool. Similar to use case 1, you must select version 1 or version 2 depending on what version of proxy protocol the back-end servers are configured to use. You can also choose to not forward this client information to the back-end servers if they are not capable of processing this information, and this information is dropped at the load balancer.
