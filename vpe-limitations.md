@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-10-30"
+  years: 2020, 2021
+lastupdated: "2021-06-16"
 
 keywords: VPE, virtual private endpoints, limitations, endpoint gateway
 
@@ -24,9 +24,7 @@ keywords: VPE, virtual private endpoints, limitations, endpoint gateway
 The following items are not supported for {{site.data.keyword.cloud}} Virtual Private Endpoints for VPC:
 {: shortdesc}
 
-* {{site.data.keyword.cloud_notm}} Security Groups and Flow Logs for VPC
-* VPE access over {{site.data.keyword.cloud_notm}} Direct Link (2.0)
-* VPE access over {{site.data.keyword.cloud_notm}} Transit Gateway  
+* {{site.data.keyword.cloud_notm}} Security Groups and Flow Logs for VPC 
 * Services that are in zones and regions other than [IBM Cloud Multi-Zone Regions (MZRs)](/docs/overview?topic=overview-locations#mzr-table)
 
 The following items are architectural restrictions:
