@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021 
-lastupdated: "2021-05-17"
+lastupdated: "2021-06-22"
 
 keywords: create instance template, vsis, virtual server instance
 
@@ -74,6 +74,7 @@ Gather the following required instance template details.
 | Profile | `ibmcloud is instance-profiles` |
 | Subnet | `ibmcloud is subnets` |
 | Image | `ibmcloud is images` |
+| Placement groups | `ibmcloud is placement-groups`   |
 {: caption="Table 1. Required instance template details" caption-side="top"}
 
 Use the following commands to determine the required information for creating a new instance template.
@@ -182,21 +183,30 @@ Use the following commands to determine the required information for creating a 
    r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1   ibm-windows-server-2016-full-standard-amd64-3      available    amd64
     ```
    {:screen}
+   
+7. List all the available placement groups that you can associate with your instance.
+    ```
+    ibmcloud is placement-groups
+    ```
+    {:pre}
 
-
-After you know these values, use them to run the `instance-template-create` command. In addition to the information that you 
-gathered, you must specify a name for the instance. 
-
-```
-ibmcloud is instance-template-create INSTANCE_TEMPLATE_NAME VPC ZONE_NAME PROFILE_NAME SUBNET --image-id IMAGE_ID
-```
-{: pre}
+    For this example, you'd see a response similar to the following output.
+    
+    ```
+    Listing placement groups for generation 2 compute in all resource groups and region us-east under account vpcdemo as user    yaohaif@cn.ibm.com...
+    ID                                            Name                             State    Strategy       Resource Group   
+    c5f1f366-b92a-4080-991a-aa5c2e33d96b          placement-group-region-us-east   stable   power_spread       5018a8564e8120570150b0764d39ebcc   
+    placement-group-cccc-cccc-cccc-cccccccccccc   vsi-placementGroup1              stable   host_spread    5018a8564e8120570150b0764d39ebcc   
+    placement-group-bbbb-bbbb-bbbb-bbbbbbbbbbbb   vsi-placementGroup2              stable   power_spread     5018a8564e8120570150b0764d39ebcc   
+    placement-group-aaaa-aaaa-aaaa-aaaaaaaaaaaa   vsi-placementGroup3              stable   power_spread   1d18e482b282409e80eff354c919c6a2
+    ```
+ {: pre}
 
 For example, if you create an instance template that is called _my-instance-template_ in _us-south-3_ and use the 
 _bx2-2x8_ profile, your `instance-template-create` command would look similar to the following sample.
 
 ```
-ibmcloud is instance-template-create my-instance-template 0738-xxx1xx23-4xx5-6789-12x3-456xx7xx123x us-south-3 bx2-2x8 0076-2249dabc-8c71-4a54-bxy7-953701ca3999 --image-id r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1
+ibmcloud is instance-template-create my-instance-template 0738-xxx1xx23-4xx5-6789-12x3-456xx7xx123x us-south-3 bx2-2x8 0076-2249dabc-8c71-4a54-bxy7-953701ca3999 --image-id r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1 --placement-group r134-953db18c-068c-4a11-9b07-645684b444b2
 ```
 {: pre}
 
@@ -207,8 +217,8 @@ Where:
    - `PROFILE_NAME` is _bx2-2x8_
    - `SUBNET_ID` is _0076-2249dabc-8c71-4a54-bxy7-953701ca3999_
    - `IMAGE_ID` is _r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1_
+   - `PLACEMENT_GROUP_ID` is _r134-953db18c-068c-4a11-9b07-645684b444b2
    
-
 For this example, you'd see a response similar to the following output 
 
 The following response varies depending on what values you use.
@@ -224,8 +234,11 @@ Image ID                       r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1
 Profile                        bx2-2x8   
 Primary Network Interface ID   Name      Subnet ID                                   Security Groups      
                                primary   0076-2249dabc-8c71-4a54-bxy7-953701ca3999   r134-9fd0b586-6876-4e8a-a0a1-586aeff5167c
+Placement         ID                                          Name    Resource type      
+                  r134-953db18c-068c-4a11-9b07-645684b444b2   mypg1   placement_group 
 ```
 {:screen}
+
 
 For more examples of the `ibmcloud is instance-template-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-template-create).
 
