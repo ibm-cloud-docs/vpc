@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-06-21"
+lastupdated: "2021-06-22"
 
 keywords: virtual server instances, VSI, planning, best practices
 
