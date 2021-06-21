@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-05-21"
+lastupdated: "2021-06-21"
 
 keywords: activity tracker, events
 
@@ -347,6 +347,21 @@ The following table lists the actions that are related to image resources and th
 
 For the image update event, if you are rotating the root key for an image, the CRN for the old key and new key remains the same. The ID for the new key that is rotated in is indicated in the `kmsKeyRefID` field of the image.
 {:note}
+
+### Placement group resources
+{: #events-placement-group}
+
+The following table lists the actions that are related to placement group resources and the generation of events.
+
+| Resource  | Action  | Description  |
+|:----------------|:-----------------------|:-----------------------|
+| placement_group | is.placement-group.placement-group.create | Placement group was created |
+| placement_group | is.placement-group.placement-group.delete | Placement group was deleted |
+| placement_group | is.placement-group.placement-group.update | Placement group was updated |
+| instance | is.instance.instance.create | Instance was created and includes a placement group reference |
+| instance | is.instance.instance.update | Instance was updated and includes updates to the placement group reference |
+{: caption="Table 20. Actions that generate events for placement group resources" caption-side="top"}
+
 
 ## Storage resources
 {: #events-storage}
