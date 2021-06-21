@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-06-02"
+lastupdated: "2021-06-21"
 
 keywords: quotas, vpc, resources, limits
 
@@ -157,8 +157,6 @@ You can increase this quota by opening a [support case](/docs/vpc?topic=vpc-gett
 
 If you already have block storage volumes for Gen 1 Compute instances, you are limited to 300 total volumes for Gen 1 and Gen 2. For example, if you have 200 Gen 1 block storage volumes, you can request 100 Gen 2 block storage volumes for a total of 300.
 {: note}
-
-*Reviewers*
 
 ### Placement groups
 {: #placement-group-quotas}
