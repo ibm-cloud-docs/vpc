@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-05-18"
+lastupdated: "2021-06-21"
 
 keywords: virtual server instances, VSI, planning, best practices
 
@@ -45,6 +45,7 @@ The default VPC is selected automatically. If another VPC is not selected the de
 |__ Make sure you have a unique name for the instance. The instance name must be unique within an account and region. If you have a method to naming virtual server instances, it's much easier to filter and search on them later. |
 |__ Determine how many secondary storage [volumes](/docs/vpc?topic=vpc-block-storage-about#secondary-data-volumes) you need. |
 |__ Determine how many [network interfaces](/docs/vpc?topic=vpc-using-instance-vnics#about-network-interfaces) you need and which [security group](/docs/vpc?topic=vpc-using-security-groups) to attach to each interface.|
+|__ Determine if you want to use placement groups. If you add an instance to an existing placement group, the instance is placed according to the placement group strategy. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc). |
 {: caption="Table 1. Checklist for planning to provision instances" caption-side="top"}
 
 ## Next steps
