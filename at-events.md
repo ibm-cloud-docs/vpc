@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-06-21"
+lastupdated: "2021-06-22"
 
 keywords: activity tracker, events
 
