@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-06-07"
+lastupdated: "2021-06-22"
 
 keywords: vpc, limitations, restrictions
 
@@ -72,6 +72,7 @@ An {{site.data.keyword.vpc_short}} cannot be peered with other VPCs natively. It
 * Start/Stop actions are not registered under virtual server instance activity in the UI.
 * Activity Tracker logs (request logs and resource lifecycle event logs) are not available.
 * Updating the profile of a created instance is not supported.
+* The placement group of the instance can't be changed after an instance is provisioned with a placement group. You must delete the instance to remove it from the placement group.
 
 * We have temporarily suspended API support for creating new instances from an existing boot volume. For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-log).
 
