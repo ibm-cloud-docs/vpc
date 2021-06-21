@@ -22,7 +22,7 @@ subcollection: vpc
 {:table: .aria-labeledby="caption"}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# DRAFT-About placement groups (Beta)
+# About placement groups (Beta)
 {: #about-placement-groups-for-vpc}
 
 ## Overview
