@@ -26,7 +26,7 @@ subcollection: vpc
 # FAQs: Placement groups
 {: #faqs-for-placement-groups}
 
-Placement groups are only available to accounts with special approval to preview this beta feature. Contact your IBM Sales representative if you are interested in getting access.
+Placement groups are available only to accounts with special approval to preview this beta feature. Contact your IBM Sales representative if you are interested in getting access.
 {: beta}
 
 ## Can I assign my instance to more than one placement group?  
@@ -73,7 +73,3 @@ No, placement groups and dedicated host are mutually exclusive. An instance can 
 {:faq}
 
 Yes, instances that are provisioned in different zones can be placed into the same placement group for both the host spread and power spread placement group strategies.
-
-
-
-
