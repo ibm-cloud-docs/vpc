@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-06-17"
+lastupdated: "2021-06-22"
 
 keywords: release notes, changes, updates
 
@@ -25,6 +25,11 @@ subcollection: vpc
 
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
+
+## 22 June 2021
+{: #june-22-2021}
+
+**Placement groups:** Placement groups for {{site.data.keyword.vpc_full}} are used to create placement group strategies for managing high availability workloads. A placement group contains virtual server instances that share a common placement strategy. Placement strategies influence the physical placement of select VPC resources to meet certain workload demands. For more information about placement groups, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups).
 
 ## 17 June 2021
 {: #june-17-2021}
