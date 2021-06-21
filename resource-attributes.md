@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-09-23"
+  years: 2020, 2021
+lastupdated: "2021-06-21"
 
 keywords: resource attribute, iam access policy, terraform, cli
 
@@ -53,6 +53,7 @@ See Table 1 for the full list of VPC resource attributes.
 | Image Service for VPC | `imageId:<image-id>` |
 | Load Balancer for VPC | `loadBalancerId: <load-balancer-id>` |
 | Network ACL | `networkAclId: <nacl-id>` |
+| Placement Group for VPC | `placementGroupId: <placement-group-id>` |
 | Public Gateway for VPC | `publicGatewayId: <pgw-id>` |
 | Security Group for VPC | `securityGroupId: <default-sec-grp-id>` |
 | SSH Key for VPC | `keyId:<key-id>` |
