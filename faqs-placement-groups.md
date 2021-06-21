@@ -23,7 +23,7 @@ subcollection: vpc
 {:support: data-reuse='support'}
 
 
-# DRAFT-FAQs: Placement groups
+# FAQs: Placement groups
 {: #faqs-for-placement-groups}
 
 Placement groups are only available to accounts with special approval to preview this beta feature. Contact your IBM Sales representative if you are interested in getting access.
