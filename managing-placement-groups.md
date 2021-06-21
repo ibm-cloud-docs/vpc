@@ -108,7 +108,7 @@ Gather the following required information:
 | **Name** | The placement group name |
 | **Resource group ID** | The ID of the resource group |
 | **Resource group name** | The name of the resource group |
-{: caption="Table 3. Information required to create a placement group using the CLI" caption-side="top"}
+{: caption="Table 3. Information that is required to create a placement group using the CLI" caption-side="top"}
 
 ## Creating the placement group with the CLI
 {: #creating-placement-group-cli-a}
@@ -138,7 +138,7 @@ curl -X POST "$vpc_api_endpoint/v1/placement_groups?version=2021-04-20&generatio
       "strategy": "host_spread"
     }'
 ```
-For more information on the `host_spread` and `power_spread` strategy variables, see [Create a placement group](https://test.cloud.ibm.com/apidocs/vpc-scoped#create-placement-group) in the Virtual Private Cloud API documentation.
+For more information about the `host_spread` and `power_spread` strategy variables, see [Create a placement group](https://test.cloud.ibm.com/apidocs/vpc-scoped#create-placement-group) in the Virtual Private Cloud API documentation.
 
 ## Changing the placement group name with the UI
 {: #changing-placement-group-name-ui}
@@ -287,6 +287,3 @@ The following example retrieves a single placement group that is specified by th
 ```
 curl -X GET "$vpc_api_endpoint/v1/placement_groups/$id?version=2021-04-20&generation=2" -H "Authorization: $iam_token"
 ```
-
-
-    
