@@ -36,14 +36,14 @@ Placement groups are only available to accounts with special approval to preview
 
 Placement groups and their assigned resources can be managed by using the UI, CLI, and API. A placement group can have 1 of 2 placement strategies: [host spread](#host-spread-placement-groups-for-vpc) or [power spread](#power-spread-placement-groups-for-vpc). With a VPC resource called `placement-groups`, you can create a policy for placing groups of instances together. The `placement-groups` resource is then added to the service `is.placement-groups`. For more information about actions that are related to placement group resources, see the placement group events section in [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-placement-group).
 
-After the placement group is created, a selected virtual server instance or a group of virtual server instances are assigned to the placement group. When you provision these virtual server instances, the virtual server instances are then placed on a compute host in the appropriate zone for the instance based on the placement group strategy. The same placement group can be used for instances provisioned on shared public servers in different VPCs.
+After the placement group is created, a selected virtual server instance or a group of virtual server instances are assigned to the placement group. When you provision these virtual server instances, the virtual server instances are then placed on a compute host in the appropriate zone for the instance based on the placement group strategy. The same placement group can be used for instances that are provisioned on shared public servers in different VPCs.
 
 ### Benefits
 {: #placement-groups-benefits}
 
 Placement groups give you a measure of control over the host on which a new public virtual server is placed in relation to other virtual servers in the same placement group. 
 
-They support high availability workloads by making sure that virtual server instances in the group do not share a physical host or power supply. This technology is an added layer of assuredness for the resiliency of your virtual server instances if an unexpected power disruption or host failure occurs.  
+Placement groups support high availability workloads by making sure that virtual server instances in the group do not share a physical host or power supply. This technology is an added layer of assurance for the resiliency of your virtual server instances if an unexpected power disruption or host failure occurs.  
 
 You can build a workload high availability application within a data center knowing that your virtual servers are isolated from each other. You can be assured that your applications are provisioned on the cloud data center infrastructure to maximize availability with unique host server hardware. 
 
@@ -74,7 +74,7 @@ If a placement group is not specified when the instance is provisioned, the defa
 
 Instance groups (also known as autoscale groups) support instances that are provisioned with a placement group specification. Instance templates (used by instance groups) inherit the new placement group attribute. Any instances that are started within an autoscale group with a specified placement group are placed according to the placement group strategy. The instance group size is limited to the maximum size of the placement group.
 
-Since placement groups for high availability strategies can use instances from multiple zones, you can use instance groups to support instances with subnets that span zones. For more information about instance groups, see [Creating an instance group for auto scaling](/docs/vpc?topic=vpc-creating-auto-scale-instance-group).
+Because placement groups for high availability strategies can use instances from multiple zones, you can use instance groups to support instances with subnets that span zones. For more information about instance groups, see [Creating an instance group for auto scaling](/docs/vpc?topic=vpc-creating-auto-scale-instance-group).
 
 ## Placement groups when an instance is resized
 {: #instance-resize-placement-groups-for-vpc}
@@ -107,7 +107,7 @@ The following are the restrictions for placement groups:
 The following are the restrictions for instances that are attached to a placement group:
 
 - An instance can be in only one placement group.
-- Instances provisioned with placement group strategies do not work with dedicated hosts. 
+- Instances that are provisioned with placement group strategies do not work with dedicated hosts. 
 - After an instance is placed, the assigned placement of that instance does not change based on placement of other instances.
 - After an instance is started, the associated placement group strategy can't be changed.
 - Instances can't be removed from a placement group or assigned to a different placement group. Instances must be deleted to remove the instance from the placement group.
