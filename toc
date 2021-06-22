@@ -119,6 +119,11 @@ Virtual Private Cloud (VPC)
         vsi_instance_storage_how_to.md
         monitoring-vpc-metrics.md
         vsi_is_instance_resize.md
+        
+    {: .topicgroup}
+    Placement groups (Beta)
+        about-placement-groups.md
+        managing-placement-groups.md    
 
     {: .topicgroup}
     Dedicated hosts
@@ -360,6 +365,7 @@ Virtual Private Cloud (VPC)
         lb-faqs.md
         faq-auto-scale.md
         faq-dedicated-host.md
+        faqs-placement-groups.md
         block_storage_is_faq.md
         snapshots_vpc_faqs.md
         file_storage_vpc_faqs.md
