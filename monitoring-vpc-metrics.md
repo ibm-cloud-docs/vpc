@@ -2,7 +2,7 @@
 
 copyright:
   years:  2020, 2021
-lastupdated: "2021-04-01"
+lastupdated: "2021-06-23"
 
 keywords: IBM Cloud monitoring, platform metrics, metrics, vpc metrics, vpc monitoring metrics
 
