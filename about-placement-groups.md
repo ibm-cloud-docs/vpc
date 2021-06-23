@@ -93,7 +93,11 @@ When an instance is resized, the instance is stopped, the profile is updated, an
    
 ## Beta limitation
 
-For the beta release, the VPC must exist before you create a placement group. If the VPC isn't created before you create a placement group, you receive an error and the placement group isn't created.
+For the beta release:
+
+* The VPC must exist before you create a placement group. If the VPC isn't created before you create a placement group, you receive an error and the placement group isn't created.
+* The quotas have a set limit and can't be adjusted. For information about placement group quotas, see the placement group quotas section in [Quotas and service limits](https://test.cloud.ibm.com/docs/vpc?topic=vpc-quotas#placement-group-quotas).
+
 
 ## Restrictions
 {: #restrictions-placement-groups-for-vpc}
