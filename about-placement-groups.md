@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021
-lastupdated: "2021-06-24"
+lastupdated: "2021-06-30"
 
 keywords: virtual private cloud, private cloud network, cloud-native, workloads, high availability, generation 2, placement group, host spread, power spread
 
