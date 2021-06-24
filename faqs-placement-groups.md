@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-06-22"
+lastupdated: "2021-06-24"
 
 keywords: virtual private cloud, private cloud network, placement group, placement group strategy, host spread, power spread, faq, faqs
 
