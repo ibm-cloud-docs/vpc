@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021 
-lastupdated: "2021-06-22"
+lastupdated: "2021-06-24"
 
 keywords: instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, vpc, creating, UI, console
 
