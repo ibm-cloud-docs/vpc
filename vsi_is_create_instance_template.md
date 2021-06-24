@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021 
-lastupdated: "2021-06-24"
+lastupdated: "2021-06-30"
 
 keywords: create instance template, vsis, virtual server instance
 
