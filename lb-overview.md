@@ -109,6 +109,9 @@ Guidelines are as follows:
 * A TCP front-end listener can only be configured with a TCP back-end pool.
 * You can attach up to 50 virtual server instances to a back-end pool. Traffic is sent to each instance on its specified data port. This data port doesn't need to be the same as the front-end listener port.
 
+Effective 31st July 2021, application load balancers will convert all HTTP request and response headers to lower case. This applies to all traffic handled by HTTP and HTTPS listeners. This is being done to provide support for HTTP2, but will be applied to older HTTP 1.x versions as well for uniformity. For most applications this will not require changes, but any application that depends on the case sensitivity of headers needs to be updated to handle them irrespective of capitalization. This is in accordance to networking standards (RFC 2616 Sec 4.2 and RFC 7230 Sec 3.2) which state that HTTP headers are case insensitive.
+{: important}
+
 ## Elasticity
 {: #alb-elasticity}
 
