@@ -2,7 +2,7 @@
 
 copyright:
 years: 2021
-lastupdated: "2021-05-02"
+lastupdated: "2021-06-29"
 
 keywords: file storage, virtual private cloud, shares, profile
 
@@ -51,8 +51,8 @@ Table 1 shows examples of how block size affects throughput, calculated as Avera
 
 | Block Size (KB) | IOPS | Throughput (MB/s) |
 |-----|-----|-----|
-| 4 | 1,000 | 16 |
-| 8 | 1,000 | 16 |
+| 4 | 1,000 | 4 |
+| 8 | 1,000 | 8 |
 | 16 | 1,000 | 16 |
 | 32 | 500 | 16 |
 | 64 | 250 | 16 |
