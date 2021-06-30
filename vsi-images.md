@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-17"
+lastupdated: "2021-06-30"
 
 keywords: image, stock image, custom image, virtual private cloud, virtual server, power, generation 2, gen 2
 
@@ -78,7 +78,7 @@ The following list explains the variables that make up the components of the ima
 * The `family` component provides the operating system family, such as *redhat*, *debian* or *windows-server*.
 * The `version` component provides the operating system version, such as *18-04* for Ubuntu 18.04, or *2012-r2* for Windows 2012 R2.
 * The `type` component provides the minimization level of the operating system image, such as *minimal* or *full*.
-* The `architecture` component provides the vCPU architecture that is supported by the operating system image, such as *amd64* or *ppc64*.
+* The `architecture` component provides the vCPU architecture that is supported by the operating system image, such as *amd64*.
 * The `build` component is a small, non-negative integer that is incremented each time a new build of the operating system is created. For image names that are otherwise identical, the image with the highest build value is the most recent image for that operating system.
 
 You can obtain the current list of images, including stock images, by running the following command in the command-line interface: [ibmcloud is images](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#images).
