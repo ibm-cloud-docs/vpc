@@ -54,7 +54,7 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
 ## 29 June 2021
-{: #June-29-2021}
+{: #29-june-2021}
 
 ### For all version dates
 {: #29-june-2021-all-version-dates}
