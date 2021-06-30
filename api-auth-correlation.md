@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-04-05"
+lastupdated: "2021-06-30"
 
 keywords: resource, resource authorizations, policies, authorization, resource type, resource groups, roles, API, CLI, editor, viewer, administrator, operator
 
@@ -102,6 +102,9 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | Load balancer | View, List  | Viewer for the load balancer |
 | Load balancer pools and listeners | Create, Update, Delete | Editor for the load balancer |
 | Load balancer pools and listeners | View, List  | Viewer for the load balancer |
+|————————|—————————|————————|
+| Placement group | View | Viewer for placement groups |
+| Placement group | Create, Delete | Editor for placement groups |
 |————————|—————————|————————|
 | Public gateway | Create |  Editor for Public Gateway resources<br />Operator for the VPC and Floating IP resources |
 | Public gateway | Update, Delete | Editor for the public gateway |

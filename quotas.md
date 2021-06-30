@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-06-02"
+lastupdated: "2021-06-30"
 
 keywords: quotas, vpc, resources, limits
 
@@ -158,8 +158,6 @@ You can increase this quota by opening a [support case](/docs/vpc?topic=vpc-gett
 If you already have block storage volumes for Gen 1 Compute instances, you are limited to 300 total volumes for Gen 1 and Gen 2. For example, if you have 200 Gen 1 block storage volumes, you can request 100 Gen 2 block storage volumes for a total of 300.
 {: note}
 
-*Reviewers*
-
 ### Placement groups
 {: #placement-group-quotas}
 
@@ -169,6 +167,9 @@ If you already have block storage volumes for Gen 1 Compute instances, you are l
 | Instances | 12 instances per placement group per region with host_spread placement policy. |
 | Instances | 4 instances per placement group per region with power_spread placement policy. |
 {: caption="Table 11. Quotas for placement groups" caption-side="top"}
+
+For the Beta release, the quotas for placement groups are set and can't be adjusted.
+{: note}
 
 ## Service limits
 The following table displays current VPC service limits. Unlike quotas, these limits can't be adjusted.

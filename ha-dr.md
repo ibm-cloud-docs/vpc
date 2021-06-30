@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-01-19"
+lastupdated: "2021-06-30"
 
 keywords: high availability, disaster recovery, SLA
 
@@ -37,3 +37,5 @@ For examples of deploying a highly available web application, see [Building a hi
 
 For more information about how you can use Veeam software to back up your storage data on a virtual server instance, see 
 [About Veeam](/docs/vpc?topic=vpc-about-veeam). 
+
+Placement Groups supports anti-affinity placement strategies for workload high availability. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc).
