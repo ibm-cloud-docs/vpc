@@ -62,7 +62,7 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 **Keys.** Pagination has been added to the [List all keys](/apidocs/vpc-aspirational#list-key) method. Pagination will not occur until your account includes more than 50 keys in a region, but we recommend that you update your existing client applications in preparation. Contact IBM support if you need assistance.
 
 ## 15 June 2021
-{: #15-June-2021}
+{: #15-june-2021}
 
 ### For all version dates
 {: #15-june-2021-all-version-dates}
