@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-26"
+lastupdated: "2021-07-02"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 subcollection: vpc
@@ -35,8 +35,6 @@ Before you take a snapshot, make sure that all cached data is present on disk - 
 {:ui}
 
 In the UI, you can create a snapshot of a {{site.data.keyword.block_storage_is_short}} volume that you attached to a running virtual server instance. 
-
-The snapshots UI is available only in these regions:  Sydney (au-syd), and Japan (jp-osa).
 
 ### Creating a snapshot from the list of snapshots
 {: #snapshots-vpc-create-from-list}
