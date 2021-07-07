@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-06-17"
+lastupdated: "2021-07-07"
 
 keywords: block storage, virtual private cloud, volume, profile, volume profile, data storage, storage profile, virtual server instance, instance
 
@@ -72,16 +72,16 @@ Table 2 shows the available IOPS ranges based on volume size.
 
 | Volume size (GB) | IOPS range |
 |-------------|--------------|
-| 10 -39   | 100 - 1,000 |
-| 40 - 79 | 100 -2,000 |
+| 10 - 39   | 100 - 1,000 |
+| 40 - 79 | 100 - 2,000 |
 | 80 - 99 | 100 - 4,000 |
 | 100 - 499 | 100 - 6,000 |
 | 500 - 999 | 100 - 10,000 |
 | 1,000 - 1,999 | 100 - 20,000 |
-| 2000 - 3999 GB |200	- 40000<sup>1</sup> |
-| 4000 - 7999 GB |300	- 40000<sup>1</sup> |
-| 8000 - 9999 GB |500	- 48000<sup>1</sup> |
-| 10,000 - 16,000 GB | 1000	- 48000<sup>1</sup> |
+| 2000 - 3999 | 200	- 40,000<sup>1</sup> |
+| 4000 - 7,999 | 300	- 40,000<sup>1</sup> |
+| 8000 - 9,999 | 500	- 48,000<sup>1</sup> |
+| 10,000 - 16,000 | 1,000	- 48,000<sup>1</sup> |
 <sup>1</sup> These options are available for Beta participants only. You can request to increase the block storage volume capacity and IOPS contacting you IBM sales representative.
 {: caption="Table 2. Available IOPS based on volume size" caption-side="top"}
 
