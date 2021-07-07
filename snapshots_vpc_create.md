@@ -41,7 +41,7 @@ In the UI, you can create a snapshot of a {{site.data.keyword.block_storage_is_s
 
 Follow these steps to create a snapshot from the list of snapshots.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Snapshots**.
+1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage snapshots**.
 
   Be sure to select VPC infrastructure from the Menu icon. If necessary, click the *Switch to Gen 2 compute* link in the banner to make sure that you are creating generation 2 resources.  
   {: tip}
