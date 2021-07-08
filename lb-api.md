@@ -22,9 +22,13 @@ subcollection: vpc
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
 {:external: target="_blank" .external}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}} API example
 {: #lbaas-apis-available-alb}
+{:api}
 
 To make API calls, you must use a REST client. For example, you can use a `curl` command to retrieve all existing load balancers:
 
