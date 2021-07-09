@@ -39,7 +39,7 @@ A bootable snapshot is a copy of a boot volume. You can use this new boot volume
 {: faq}
 {: #faq-snapshot-3}
 
-You can take up to 100 snapshots per volume in a region. Deleting a snapshot does not increase this limit; after you take 100 snapshots, you can't take any more. 
+You can take up to 100 snapshots per volume in a region.  Deleting snapshots from this quota frees up space for additional snapshots.
 
 ## Is there a limit on the size of a volume that I can snapshot?
 {: faq}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-26"
+lastupdated: "2021-0-08"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
@@ -33,7 +33,7 @@ The first time that you take a snapshot of a volume, all the volume's contents a
 
 When you take a second snapshot, only the change to the volume since the last snapshot is recorded. As such, the size of snapshots that you take can grow or shrink, depending on what is being uploaded to Cloud Object Storage. The chain of snapshots increases with each successive snapshot you take, up to a predefined limit.
 
-You can take up to 100 snapshots per volume in your region. Deleting a snapshot does not increase this limit; after you take 100 snapshots per volume, you can't take anymore. The cumulative size of all snapshots for a volume can't exceed 10 TB.
+You can take up to 100 snapshots per volume in your region. Deleting snapshots from this quota frees up space for additional snapshots. The cumulative size of all snapshots for a volume can't exceed 10 TB.
 {:note}
 
 You can create a new virtual server instance with a boot volume that is initialized from a snapshot. This process is called [restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore). The instance profile of the new instance doesn't need to match the original profile that was used to create the snapshot. 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-26"
+lastupdated: "2021-07-08"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
@@ -21,7 +21,7 @@ subcollection: vpc
 # Managing Snapshots
 {: #snapshots-vpc-manage}
 
-You can delete snapshots that you no longer need. Rename existing snapshots to make them easier to identify. Verify IAM access. Verify snapshot statuses.
+You can delete snapshots that you no longer need and free space for new snapshots. Rename existing snapshots to make them easier to identify. Verify IAM access. Verify snapshot statuses.
 {:shortdesc}
 
 ## Deleting snapshots
