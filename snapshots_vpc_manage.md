@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-08"
+lastupdated: "2021-07-12"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
@@ -239,14 +239,7 @@ Table 1 describes the snapshot states in the snapshot lifecycle.
 ## Activity Tracker events for snapshots
 {: #snapshots-vpc-at-events}
 
-When you initiate activity to create a snapshot, specific Activity Tracker events are generated. 
-
-* When you create a snapshot, an `is.snapshot.create` event is generated.
-* When you list all snapshots or a snapshot by ID, an `is.snapshot.list` event is generated. 
-* When you get details for a snapshot by ID, an `is.snapshot.read` event is generated. The name of the snapshot appears in the message when you list a single snapshot by ID.
-* When you modify a snapshot, an `is.snapshot.update` event is generated.
-* When you delete a snapshot, an `is.snapshot.delete` event is generated.
-* When you restore a volume from a snapshot, an `is.snapshot.restore` event is generated. You see an `is.volume.volume.create` event that indicates that the volume was successfully created.
+When you initiate activity on a snapshot, specific Activity Tracker events are generated. These activities include creating, listing, modifying, and deleting snapshots. For a list of these Activity Tracker events, see [Snapshots events](/docs/vpc?topic=vpc-at-events#events-snapshots).
 
 ## Activity Tracker JSON examples for snapshot events
 {: #snapshots-vpc-at-event-examples}

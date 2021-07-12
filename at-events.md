@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-06-30"
+lastupdated: "2021-07-12"
 
 keywords: activity tracker, events
 
@@ -362,9 +362,11 @@ The following table lists the actions that are related to placement group resour
 | instance | is.instance.instance.update | Instance was updated and includes updates to the placement group reference |
 {: caption="Table 20. Actions that generate events for placement group resources" caption-side="top"}
 
-
 ## Storage resources
 {: #events-storage}
+
+### Block storage events
+{: #events-block-storage}
 
 The following table lists the actions that are related to volume resources and the generation of events.
 
@@ -374,10 +376,23 @@ The following table lists the actions that are related to volume resources and t
 | volume  | is.volume.volume.update  | Volume was updated  |
 | volume  | is.volume.volume.delete  | Volume was deleted  |
 | volume  | is.volume.volume.read    | One or more volumes were retrieved  |
-{: caption="Table 18. Actions that generate events for storage resources" caption-side="top"}
+{: caption="Table 21. Actions that generate events for block storage resources" caption-side="top"}
 
 An event does not contain a volume name if no information is available at the time of the event. For example, when you make a request to create a volume but do not provide a volume name, the information is not available and does not appear in the event.
 {:note}
+
+### Snapshots events
+{: #events-snapshots}
+
+The following table lists the actions that are related to snapshots resources and the generation of events.
+
+| Resource  | Action  | Description  |
+|:----------------|:-----------------------|:-----------------------|
+| snapshot  | is.snapshot.snapshot.create  | Snapshot was created  |
+| snapshot  | is.snapshot.snapshot.update  | Snapshot was updated  |
+| snapshot  | is.snapshot.snapshot.delete  | Snapshot was deleted  |
+| snapshot  | is.snapshot.snapshot.read    | One or more snapshots were retrieved  |
+{: caption="Table 22. Actions that generate events for snapshot resources" caption-side="top"}
 
 ## Supported locations
 {: #at-supported-locations}
