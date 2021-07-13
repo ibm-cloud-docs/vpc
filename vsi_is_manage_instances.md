@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2019-12-05"
+  years: 2019,2021
+lastupdated: "2021-07-13"
 
 keywords: view instance details, restart, stop, instance details, delete
 
@@ -46,4 +46,43 @@ To delete an instance, the instance must have a powered off status. If the insta
 
 ## Viewing instance details
 You can interact with instances by viewing the summary of all instances on the *Virtual server instances* page, or by clicking an individual instance name to view details and make changes. From the instance details page, you can also view the associated network interface, access its subnet, and reserve or delete a floating IP address.
+
+## Retrieving the virtual server instance identifier
+{: #retrieve-VSI-instance-identifer}
+
+When a virtual server instance is created, that instance is automatically assigned an instance identifier (ID), which includes the SMBIOS system-uuid as a portion of the ID. The ID can be up to 64 bytes in length and it consists of digits, lower-case letters, underscores, and dashes. 
+
+IDs are immutable, globally unique, and never reused, so the ID uniquely identifies a particular instantiation of a virtual server instance across all of IBM Cloud. The ID, including the SMBIOS system-uuid portion, is static and persists for the lifecycle of the virtual server instance until that virtual server instance is deleted. 
+
+From within your virtual server, you can retrieve the instance identifier in one of the following ways:
+
+Linux
+
+```
+dmidecode -s system-family
+```
+{: pre}
+
+Windows
+
+```
+Get-WmiObject Win32_ComputerSystem | Select-Object -ExpandProperty SystemFamily
+```
+{: pre}
+
+From within your virtual server, you can retrieve the SMBIOS system-uuid in one of the following ways:
+
+Linux
+
+```
+dmidecode -s system-uuid
+```
+{: pre}
+
+Windows
+
+```
+ Get-WmiObject Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID
+ ```
+{: pre}
 
