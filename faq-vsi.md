@@ -143,7 +143,7 @@ When you provision a Windows virtual server instance with a stock image, disk ma
 
 Image from volume lets you create a custom image from a boot volume attached to a virtual server instance. You then use the custom image to provision new virtual server instances. For more information, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc).
 
-## What is the virtual server instance identifier and SMBIOS system-uuid?
+## What are the virtual server instance identifier and SMBIOS system-uuid?
 {: #faq-vsi-20}
 {: faq}
 
