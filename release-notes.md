@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-07-06"
+lastupdated: "2021-07-13"
 
 keywords: release notes, changes, updates
 
