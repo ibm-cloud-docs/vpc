@@ -94,15 +94,6 @@ When you provision virtual server instances and dedicated hosts, the vCPU, RAM, 
 | Route-based VPN gateway | 1 per zone per VPC |
 {: caption="Table 5. Quotas for the site-to-site VPN gateway service" caption-side="top"}
 
-### VPN servers (Beta)
-{: #vpn-server-quotas}
-
-|Resource|Quota|
-|--------|-----|
-| Active VPN clients per VPN server | 500 |
-| Active VPN client connections per VPN server | 2000 |
-{: caption="Table 6. Quotas for the client-to-site VPN server service" caption-side="top"}
-
 ### Load balancers
 {: #load-balancer-quotas}
 
