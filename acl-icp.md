@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2019, 2020
+  years: 2019, 2021
 
-lastupdated: "2020-04-04"
+lastupdated: "2021-07-14"
 
 keywords:  
 
@@ -35,7 +35,7 @@ The protocols that are used for a particular implementation of, say, an API call
 ## ICMP
 {:#network-infrastructure-icmp}
 
-ICMP is a _control protocol_, meaning it is designed not to carry application data, but rather information about the status of the network itself. It is essentially a _network layer_ (OSI layer 3) error-reporting and error-control protocol for the network. The best-known examples of ICMP in practice are the `ping` utility, which uses ICMP to probe remote hosts for responsiveness and overall round-trip time of the probe messages, and the `traceroute` utility.
+ICMP is a _control protocol_, meaning that it is designed to carry information about the status of the network itself. It is essentially a _network layer_ (OSI layer 3) error-reporting and error-control protocol for the network. The best-known examples of ICMP in practice are the `ping` and `traceroute` utilities. The `ping` utility uses ICMP to probe remote hosts for responsiveness and overall round-trip time of the probe messages. The `traceroute` utility uses ICMP to discover and trace network routes that the ICMP packets take when traveling to their destination.
 
 What developers need to know is that ICMP packets have no TCP or UDP port numbers associated with them, because port numbers are a layer 4 (_transport layer_) construct.
 
