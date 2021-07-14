@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-07-02"
+lastupdated: "2021-07-13"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -41,6 +41,10 @@ Some changes, such as new response properties or new optional request parameters
 {: #upcoming-changes}
 
 ### For all API version dates
+
+**Load balancer listeners.** In an upcoming release, new restrictions will be enforced when updating and deleting load balancer listeners. To avoid disruption, do not update an existing listener’s `protocol` or `accept_proxy_protocol` properties. Instead, delete the listener and create a new listener with the new property values. You cannot delete a listener if other resources are using it. Write your code so that resources are deleted in the opposite order from which they were created.
+
+New values will also be added to the `action` enumeration returned by load balancer listener methods. To avoid disruption when processing the `action` property, check for and log unknown values. Optionally halt processing and surface the error, or bypass the policy on which the unexpected property value was encountered.
 
 **Block storage volumes.**  In an upcoming release, a new value in the `status` enumeration will be added to the [volume](/apidocs/vpc#list-volume-profiles) APIs. When you expand an existing data volume, the volume goes into an updating state and shows a new API status `updating`. You can still access the data while the volume is being resized. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 
