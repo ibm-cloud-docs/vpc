@@ -18,6 +18,7 @@ subcollection: vpc
 {:screen: .screen}
 {:pre: .pre}
 {:note: .note}
+{:important .important}
 {:table: .aria-labeledby="caption"}
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
@@ -94,7 +95,7 @@ Follow these steps:
 2. Specify the `ibmcloud is volume-create` command with the `--encryption-key` parameter to a volume with customer-managed encryption. The `encryption_key` parameter specifies a valid CRN for the root key in the key management service.
 
 ```bash
-ibmcloud is volume-create VOLUME_NAME PROFILE_NAME ZONE_NAME [--encryption-key ENCRYPTION_KEY] [--capacity CAPACITY] [--iops IOPS] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--json]
+ibmcloud is volume-create VOLUME_NAME PROFILE_NAME ZONE_NAME [--encryption-key ENCRYPTION_KEY] [--capacity CAPACITY] [--iops IOPS] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON]
 ```
 {: pre}
 
@@ -124,7 +125,7 @@ You can also create volumes with customer-managed encryption during instance pro
 {: #data-vol-encryption-api}
 {: api}
 
-You can create data volumes with customer-managed encryption by calling the Virtual Private Cloud (VPC) API.
+You can create data volumes with customer-managed encryption by calling the [Virtual Private Cloud (VPC) API](https://{DomainName}/apidocs/vpc).
 
 Make a `POST/volumes` request to create a new volume encrypted using your own encryption keys. Use the `encryption_key` parameter to specify your customer root key (CRK), shown in the example as `crn:[...key:...]`.
 
