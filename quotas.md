@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-06-30"
+lastupdated: "2021-07-19"
 
 keywords: quotas, vpc, resources, limits
 
@@ -48,7 +48,9 @@ To increase a quota for a particular resource, [contact support](https://{Domain
 | SSH keys | 200 per account |
 {: caption="Table 1. Quotas for virtual server instances" caption-side="top"}
 
-When you provision virtual server instances and dedicated hosts, the vCPU, RAM, and Instance storage associated with these resources counts toward the vCPU, RAM, and Instance storage quotas per region. Instances that are provisioned on dedicated hosts do not count against the vCPU, RAM, or Instance storage quota.
+When you provision virtual server instances and dedicated hosts, the vCPU associated with these resources counts toward the vCPU quotas per region. Instances that are provisioned on dedicated hosts do not count against the vCPU quota. 
+
+When you provision virtual server instances, the RAM and instance storage, along with vCPU, that is associated with the instances count toward the vCPU, RAM, and instance storage quotas per region.
 
 ### VPCs
 {: #vpc-quotas}
