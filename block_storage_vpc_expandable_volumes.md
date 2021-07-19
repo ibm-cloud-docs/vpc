@@ -123,6 +123,7 @@ Your new block storage allocation is available in a few minutes.
 
 ## Expand block storage volumes by using the CLI
 {: #expand-vpc-volumes-cli}
+{:cli}
 
 From the CLI, use the `volume-update` command with the `--capacity` parameter to indicate the new size of the volume in GBs.
 
@@ -157,6 +158,7 @@ Volume Attachment Instance Reference    Vdisk Name    Vdisk ID                  
 
 ## Expand block storage volumes with the API
 {: #expand-vpc-volumes-api}
+{:api}
 
 You can expand existing data volumes by calling the Virtual Private Cloud (VPC) API.
 
