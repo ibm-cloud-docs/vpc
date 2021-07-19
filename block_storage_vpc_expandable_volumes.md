@@ -18,7 +18,6 @@ subcollection: vpc
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
-{:beta: .beta}
 {:table: .aria-labeledby="caption"}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
@@ -41,7 +40,7 @@ Volume capacity can be expanded for data volumes that are attached to a virtual 
 
 Expanded capacity is determined by the maximum that is allowed by the volume's profile. 
 
-Volumes created using an [IOPs tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta) can be expanded to the maximum size for its IOPs tier:
+Volumes created using an [IOPs tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers) can be expanded to the maximum size for its IOPs tier:
 
 * A general-purpose, 3 IOPs/GB profile can be expanded up to 16,000 GB
 * A 5 IOPs/GB profile can be expanded up to 9,600 GB
@@ -69,20 +68,20 @@ You must meet these requirements to increase a volume's capacity.
 Limitations apply in this release.
 
 * Boot volumes can't be expanded.
-* You can't expand a volume that is at its maximum capacity for its [IOPs tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta) or [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) volume range.
+* You can't expand a volume that is at its maximum capacity for its [IOPs tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers) or [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) volume range.
 
 ### Capacity and performance limitations:
 {: #exp-vol-cap-perf-limitations}
 
 * Volumes can expand to 16,000 GB, with the following limitations: 
-  * If the volume was created using an [IOPs tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta) that limits capacity to less than 16,000 GB, it can only expand to the allowed capacity for that tier.
+  * If the volume was created using an [IOPs tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers) that limits capacity to less than 16,000 GB, it can only expand to the allowed capacity for that tier.
   * If the volume is a [custom volume](/docs/vpc?topic=vpc-block-storage-profiles#custom) created in a lower range that doesn't allow expanding to 16,000 GB, it can only expand to its maximum capacity for that custom range.
   * Volumes can expand multiple times until maximum capacity is reached.
 * IOPs increase to the maximum allowed by the IOPs tier profile. While volume resizing does not incur downtime (that is, you don't need to restart the instance and reattach the volume), for the increased IOPs to take effect, you must restart the virtual server instance, or detach and reattach the volume from the instance.
 * After you create a volume, can't change a volume's IOPs tier profile.
 * You can't independently modify IOPs for a volume that is created from an IOPs tier profile. IOPs are adjusted when you expand a volume's capacity and then restart the instance, or attach and detach the volume from the instance.
 * When you expand a volume created from a custom profile, the capacity is increased but the IOPs remain the same. You  can't independently increase the IOPs.
-* Maximum IOPs for a volume is capped at [48,000 IOPs](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta).
+* Maximum IOPs for a volume is capped at [48,000 IOPs](/docs/vpc?topic=vpc-block-storage-profiles#tiers).
 * After a volume is expanded, you can't reduce the size of the volume.
 
 ### Additional limitations
