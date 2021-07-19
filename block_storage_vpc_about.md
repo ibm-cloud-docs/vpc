@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-05-04"
+lastupdated: "2021-07-19"
 
 keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, IOPS, HPCS, Key Protect
 
@@ -17,7 +17,6 @@ subcollection: vpc
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
 {:note: .note}
-{:beta: .beta}
 
 # About {{site.data.keyword.block_storage_is_short}}
 {: #block-storage-about}
@@ -51,11 +50,8 @@ By default, boot volumes are encrypted by IBM-managed encryption. Optionally, yo
 ### Data volumes
 {: #secondary-data-volumes}
 
-Block storage data volumes are secondary volumes with total capacity range of 10 GB to 2000 GB. Maximum IOPS for data volumes varies based on volume size and the IOPS tier profile that you selected. For example, the max IOPS for a 5 IOPS/GB volume up to 2 TBs is 10,000 IOPS. For more information, see
+Block storage data volumes are secondary volumes with total capacity range of 10 GB to 16,000 GB. Maximum IOPS for data volumes varies based on volume size and the IOPS tier profile that you selected. For example, the max IOPS for a 5 IOPS/GB volume up to 2 TBs is 10,000 IOPS. For more information, see
 [IOPs tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers).
-
-Data volumes are also available with capacities greater than 2000 GB. You can also expand the capacity of data volumes attached to an instance in GB increments up to 16 TB, depending on your volume profile. These are beta features available for evaluation and testing purposes. For information about creating volumes with greater capacity, see [Expanding block storage volume capacity (Beta)](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
-{:beta}
 
 You can create data volumes as stand-alone volumes or when you provision an instance. Stand-alone volumes exist in an unattached state until you attach the volume to an instance. When you create a data volume as part of instance provisioning, the volume is automatically attached to the instance.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-26"
+lastupdated: "2021-07-19"
 
 keywords: block storage, VPC, virtual private cloud, boot volume, data volume, volume, data storage, VSI, virtual server instance, instance, IOPS
 
@@ -81,7 +81,7 @@ Be sure to select VPC infrastructure from the Menu icon.
 | Profile | Select [Tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) and select the performance level that you require from the IOPS list. If your performance requirements don't fall within a predefined IOPS tier, select [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) and select an IOPS value within the range for that volume size. Click the **storage size** link to see a table of size and IOPS ranges. |
 | Auto Delete | Enable this feature to automatically delete this volume when the attached virtual server instance is deleted. You can change this setting later on the virtual server details page. |
 | IOPS | Select 3, 5, or 10 IOPS/GB for a Tiered profile |
-| Size | Enter a volume size in GBs. Volume sizes can be between 10 GB and 2 TBs. Expanded capacity IOPS tiers increases volume size up to 16 TB and 48,000 IOPS. This is a Beta feature that is available for evaluation and testing purposes. |
+| Size | Enter a volume size in GBs. Volume sizes can be between 10 GB and 16,000 GB. Expanded capacity IOPS tiers increases volume size up to 16 TB and 48,000 IOPS. |
 | Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also choose **Customer Managed** and use your own encryption key. For a one-time set-up procedure, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs). |
 {: caption="Table 2. Block storage volume values specified when provisioning an instance" caption-side="top"}
 
@@ -113,7 +113,7 @@ Be sure to select VPC infrastructure from the Menu icon.
 [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups). |
 | Tags | Specify a tag to organize your resources. A tag is a label that you assign to a resource for easy filtering of resources in your resource list. For more information about tags, see [Working with tags](/docs/account?topic=account-tag). |
 | Location | The availability zone, inherited from the VPC (for example, Dallas-1). You can select a different zone in your location from the dropdown menu. |
-| Size | Enter a volume size in GBs. Volume sizes can be between 10 GB - 2 TBs. Expanded capacity IOPS tiers increases volume size up to 16 TB and 48,000 IOPS. This is a Beta feature that is available for evaluation and testing purposes. |
+| Size | Enter a volume size in GBs. Volume sizes can be between 10 GB - 16,000 GB. |
 | IOPS | Select [IOPS Tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) and then select the tile with performance level you require. |
 | | Select [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) to specify a custom IOPS value based on the size of the volume you're creating. Click the **storage size** link to see a table of size and IOPS ranges. For more information, see [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom). |
 | Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also choose **Customer Managed** and use [your own encryption key](/docs/vpc?topic=vpc-block-storage-vpc-encryption). |
@@ -168,9 +168,7 @@ Volume Attachment Instance Reference    none
 ```
 {:screen}
 
-Capacity, indicated in megabytes, can range 10 - 2,000 GBs. If not specified, the default capacity is 100 GBs. IOPS values can be 1,000 - 20,000 IOPS, depending on volume size. If not specified, the IOPS value defaults to the valid configuration per volume profile. For more information, see the table of [IOPS ranges based on volume size](/docs/vpc?topic=vpc-block-storage-profiles#custom). 
-
-Expanded capacity IOPS tiers increases volume size up to 16 TB and 48,000 IOPS. This is a Beta feature that is available for evaluation and testing purposes.
+Capacity, indicated in megabytes, can range 10 - 16,000 GBs. If not specified, the default capacity is 100 GBs. IOPS values can be 1,000 - 48,000 IOPS, depending on volume size. If not specified, the IOPS value defaults to the valid configuration per volume profile. For more information, see the table of [IOPS ranges based on volume size](/docs/vpc?topic=vpc-block-storage-profiles#custom).
 
 The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter.
 Volume names must be unique across the entire VPC infrastructure.
