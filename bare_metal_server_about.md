@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-06-18"
+lastupdated: "2021-07-20"
 
 keywords: bare metal servers, vpc, baremetal, what is bare metal
 
