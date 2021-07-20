@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-06-22"
+lastupdated: "2021-07-20"
 
 keywords: bare metal servers, create, tutorial
 
@@ -27,7 +27,7 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Creating bare metal servers on VPC - draft
+# Creating bare metal servers on VPC
 {: #creating-bare-metal-servers}
 
 This tutorial walks through the procedure to create a bare metal server on the VPC with the configuration of your choice.
