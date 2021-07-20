@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-14"
+lastupdated: "2021-07-20"
 
 keywords: bare metal servers, connect, tutorial
 
@@ -27,7 +27,7 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Connecting to ESXi bare metal servers - draft
+# Connecting to ESXi bare metal servers
 {: #connect-to-ESXi-bare-metal-servers}
 
 After the state of the bare metal server turns to **Running**, you can connect to the ESXi direct console user interface (DCUI) and the ESXi web client. You can use the VNC or serial console to access ESXi DCUI. You can access the ESXi web client through a floating IP.
