@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-18"
+lastupdated: "2021-07-20"
 
 keywords: bare metal servers, faq
 
@@ -27,7 +27,7 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# FAQ for bare metal servers (beta) - draft
+# FAQ for bare metal servers (beta)
 {: #bare-metal-server-faq}
 
 ## What's the difference between bare metal servers (classic infrastructure) and Bare Metal Servers for VPC?
@@ -52,6 +52,8 @@ For beta, the offering provides two storage options that includes secondary loca
 
 ## What billing options are available?
 {: #billing-options}
+
+Beta of Bare Metal Servers for VPC is provided free of charge. {:important}
 
 You will be billed for Bare Metal Servers for VPC based on the server profile you've selected. Charging stops only when you delete the bare metal server. Power off will have no impact on billing. 
 
