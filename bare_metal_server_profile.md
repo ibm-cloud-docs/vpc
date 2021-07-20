@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-19"
+lastupdated: "2021-07-20"
 
 keywords: bare metal servers, profile, baremetal profile
 
@@ -27,7 +27,7 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Bare Metal Servers for VPC (beta) profiles - draft
+# Bare Metal Servers for VPC (beta) profiles
 {: #bare-metal-servers-profile}
 
 When you create a bare metal server, you can select a profile based on your specific need. Each profile provides a different combination of hardware configurations that include number of vCPU, amount of RAM, and size of local storage. 
