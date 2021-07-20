@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-06-23"
+lastupdated: "2021-07-20"
 
 keywords: bare metal servers, managing network interface, tutorial
 
@@ -27,7 +27,7 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Managing network interfaces for a bare metal server - draft
+# Managing network interfaces for a bare metal server
 {: #managing-nic-for-bare-metal-servers}
 
 This document walks through how to manage network interfaces of the bare metal servers. For information about the networking features of Bare Metal Server for VPC and how it supports VMware networking scenarios, see [Network of Bare Metal Server for VPC](/docs/vpc?topic=vpc-bare-metal-servers-network).
