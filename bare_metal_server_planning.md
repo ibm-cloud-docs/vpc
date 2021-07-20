@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-06"
+lastupdated: "2021-07-20"
 
 keywords: bare metal servers, planning, tutorial
 
@@ -27,7 +27,7 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Planning for bare metal servers - draft
+# Planning for bare metal servers
 {: #planning-for-bare-metal-servers}
 
 When you are planning to create the bare metal servers to host your VMware environments in VPC, go through the configuration checklist on this page.
