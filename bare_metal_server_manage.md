@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-14"
+lastupdated: "2021-07-20"
 
 keywords: bare metal servers, managing, operation, tutorial
 
@@ -27,7 +27,7 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Managing bare metal servers - draft
+# Managing bare metal servers
 {: #managing-bare-metal-servers}
 
 You can view your bare metal servers and perform lifecycle operations including reboot, stop, and start. When you finish using the bare metal server, you can delete it.
