@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-30"
+lastupdated: "2021-07-20"
 
 keywords: public isolation for VPC, compute isolation for VPC, VPC architecture, workload isolation in VPC
 
@@ -29,12 +29,13 @@ To understand the isolation aspects of your workloads and data, the diagram show
 For more information about network traffic isolation, see [VPC behind the curtain](/docs/vpc?topic=vpc-vpc-behind-the-curtain).
 {:note}
 
-![VPC Components](images/vpc-isolation-architecture.svg "VPC components"){: caption="Figure 1. Fundamental VPC components" caption-side="bottom"}
+![VPC Components](images/vpc-isolation-architecture-updated.png "VPC components"){: caption="Figure 1. Fundamental VPC components" caption-side="bottom"}
 
 | Component | Description
 | :---: | --- |
 | Control nodes | Most VPC control plane services run on control nodes. The VPC control plane data store is also hosted across a distributed set of control nodes. These nodes run a customized, hardened version of the Linux operating system. These nodes never run your workloads. |
 | Hypervisor nodes | Your virtual service instances run exclusively on hypervisor nodes. These nodes run a customized, hardened version of the Linux operating system. These nodes also run a small set of control plane agent services, as described in this table. |
+| Bare metal nodes | Bare metal nodes are delivered to you dedicatedly with VMware ESXi installed during provision. The bare metal nodes are equipped with SmartNIC and local storage to support VMware clusters on VPC. Your bare metal server API requests are routed to services deployed across control nodes in the region. All communication between control plane services occurs over a secure, encrypted network. |
 | VPC control plane services | Your VPC API requests are routed to services deployed across control nodes in the region. These services are replicated for availability and performance across multiple zones in the region whenever necessary. In addition to servicing API requests, these services monitor the region's hardware and capabilities, and perform orchestration to keep your VPC resources available and performing optimally. All communication between control plane services occurs over a secure, encrypted network. Since your instances do not run on control nodes, they are separated from these services. |
 | VPC control plane agent services | A small set of VPC control plane agents is deployed across hypervisor nodes in the region. For example, agents are used to create new virtual server instances on the nodes, and to forward logs, metrics, and alerts off the node for use by the broader VPC control plane services. All communication between control plane services occurs over a secure, encrypted network. |
 | VPC control plane data store | Your VPC resources are persisted in a data store that is replicated across all zones in the region. This store contains metadata about these resources only, and does not contain your data. For example, this store contains information about each VPC Image resource, such as its name, CRN, and creation date. However, it does not contain the image data itself, which is hosted on the storage devices. All communication between control plane services and the control plane data store is secure and encrypted. |

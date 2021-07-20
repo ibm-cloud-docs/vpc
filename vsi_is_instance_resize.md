@@ -40,10 +40,11 @@ Once resizing an instance is complete, you are billed the hourly rate of the new
 
 You can track the resizing of an instance in Activity Tracker and/or {{site.data.keyword.la_full}} for troubleshooting & audit purposes.
 
-## Resizing dedicated virtual servers
+## Resizing virtual servers on dedicated hosts
 {: #resizing-dedicated-virtual-servers}
 
-Dedicated virtual servers can only be resized to profiles supported by the dedicated host the instance is hosted on. For example, a virtual server provisioned with a profile from the Memory family, can resize to other profiles also belonging to the Memory family.
+Virtual servers that are running on dedicated hosts can only be resized to profiles that are supported by the dedicated host that the instance is hosted on. For example, a virtual server that is provisioned with a profile from the Memory family can resize to other profiles also belonging to the Memory family.
+
 
 ## Resizing with instance storage
 {: #resizing-with-instance-storage}
@@ -64,8 +65,8 @@ Complete the following steps to resize an existing virtual server instance.
 2. From the **Virtual server instances for VPC** list, find the virtual server you want to resize and verify that its status is Stopped or Stopping.
 3. Select the veritcal ellipsis, and select **Resize**.
 4. From the list of available profiles, select the profile you want to use.
-    * If you are resizing a dedicated virtual server, you will only see profiles that the dedicated host supports
-    * If you are resizing a profile that uses instance storage, you see only profiles that have instance profiles, you can not resize from a virtual server instance that has an instance storage profile to one that does not
+    * If you are resizing a virtual server that is running on a dedicated host, you see only profiles that the dedicated host supports.
+    * If you are resizing a profile that uses instance storage, you see only profiles that have instance storage. You cannot resize from a virtual server instance that has an instance storage profile to a profile that does not have instance storage.
 5. In the right column, review and check the Terms and Conditions.
 6. Select **Resize virutal server instance**.
 7. Start the virtual server instance.
@@ -102,9 +103,9 @@ Use the `instance-update` command to resize a virtual server.
    curl  -s -X GET "<api_endpoint>/v1/instance/profiles?generation=2&version=2021-02-01" -H "Authorization: Bearer <IAM token>" 
    ```
 2. Select a profile that will work with your instance.
-    * For a dedicated virtual server, chose a profile that the dedicated host supports
-    * If you use instance storage, choose a profile that has instance profile
-    * For data volumes, choose a profile that has data volumes
+    * For a virtual server that is running on a dedicated host, choose a profile that the dedicated host supports.
+    * If you use instance storage, choose a profile that has instance storage.
+    * For data volumes, choose a profile that has data volumes.
 3. Run the following command:
    ```
    curl -k -sS -X PATCH "<api_endpoint>/v1/instances/<instance id>?generation=2&version=2021-02-01" \

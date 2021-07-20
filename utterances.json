@@ -315,9 +315,7 @@
         "Does a maintence notice mean my vpc vsi is being migrated"
     ],
     "faq-block-storage-1": [
-        "attach vpc block storage",
         "create vpc storage volume",
-        "attach block storage to VPC",
         "does vpc have block storage",
         "does vpc include block storage",
         "vpc include file storage",
@@ -325,7 +323,9 @@
         "add storage to my vpc vsi",
         "add storage drive to vpc",
         "secondary vpc disk drive storage",
-        "secondary vpc block storage"
+        "secondary vpc block storage",
+	"mounting a data volume to VPC",
+	"how to attach a data volume"
     ],
     "faq-block-storage-2": [
         "share vpc storage volume",
@@ -335,15 +335,6 @@
 	"VPC sharing provisioned storage volume",    
         "cannot share vpc block storage ",
         "vpc block storage drive not being shared"
-    ],
-    "faq-block-storage-3": [
-        "attached vpc block storage secondary volumes",
-        "unable to attach secondary vpc block storage",
-	"can't attach secondary block storage for VPC",   
-	"not attach secondary block storage for VPC",      
-        "how many block storage secondary data volumes for VPC",
-        "more vpc secondary block storage volumes",
-        "order secondary vpc block storage volumes"
     ],
     "faq-block-storage-6": [
         "charged for vpc block storage",
@@ -403,12 +394,12 @@
     "faq-block-storage-15": [
         "delete vpc block storage data volume",
         "cancel vpc block storage data volume disk",
-        "delete a block storage data volume in VPC",
-	"remove storage data volume in VPC",
+        "delete a volume in VPC",
+	"remove storage in VPC",
 	"removing storage data volume from VPC",
-        "detach vpc block storage data volume",
+        "detach vpc block storage data",
         "deleting vpc block storage volume",
-        "remove vpc block storage data volume"
+        "remove vpc volume"
     ],
     "faq-block-storage-16": [
         "what happens to data from deleted vpc block storage",
@@ -464,5 +455,19 @@
         "vpc block storage key management service",
         "vpc block storage kms control",
         "vpc block storage audit"
+    ],
+    "troubleshoot-cannot-create": [
+        "cannot create a VPC resource",
+        "unable to create virtual private cloud resource",
+        "need permissions to create a VPC",
+        "access to create VPC",
+        "access for creating virtual private cloud",
+        "lack permissions to add a VPC resource",
+        "get permission to create VPC",
+        "how to access VPC",
+        "How can I get access to create a virtual private cloud",
+        "I do not have permission for creating VPC resource",
+        "accessing my virtual private cloud",
+        "permissions to create vpc"
     ]
 }

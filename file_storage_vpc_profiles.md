@@ -2,7 +2,7 @@
 
 copyright:
 years: 2021
-lastupdated: "2021-05-02"
+lastupdated: "2021-06-29"
 
 keywords: file storage, virtual private cloud, shares, profile
 
@@ -35,10 +35,12 @@ File shares are based on IOPS tiers you can select when creating a share. Choose
 
 | IOPS Tier | Workload | Share size | Max IOPS |
 |-----------|----------|-------------|--------------|
-| 3 IOPS/GB | General-purpose workloads - Workloads that host small databases for web applications or store virtual machine disk images for a hypervisor | 10 GB to 16,000 GB |  48,000 IOPS |
+| 3 IOPS/GB | General-purpose workloads - Workloads that host small databases for web applications or store virtual machine disk images for a hypervisor | 10 GB to 32,000 GB | 48,000/96,000<sup>1</sup> IOPS |
 | 5 IOPS/GB | High I/O intensity workloads - Workloads characterized by a large percentage of active data, such as transactional and other performance-sensitive databases| 10 GB to 9,600 GB | 48,000 IOPS|
 | 10 IOPS/GB | Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics | 10 GB to 4,800 GB | 48,000 IOPS |
 {: caption="Table 1. IOPS tier profiles and performance levels for each tier" caption-side="top"}
+
+<sup>1</sup>For 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share/instance is limited to 48,000 IOPS.
 
 ### Profile Block size
 {: #fs-profiles-block-size}
@@ -51,8 +53,8 @@ Table 1 shows examples of how block size affects throughput, calculated as Avera
 
 | Block Size (KB) | IOPS | Throughput (MB/s) |
 |-----|-----|-----|
-| 4 | 1,000 | 16 |
-| 8 | 1,000 | 16 |
+| 4 | 1,000 | 4 |
+| 8 | 1,000 | 8 |
 | 16 | 1,000 | 16 |
 | 32 | 500 | 16 |
 | 64 | 250 | 16 |

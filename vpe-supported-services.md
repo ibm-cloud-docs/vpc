@@ -38,6 +38,8 @@ subcollection: vpc
 * Global Search ([Endpoint URLs](https://{DomainName}/apidocs/search#endpoint-url))
 * Global Tagging ([Endpoint URLs](https://{DomainName}/apidocs/tagging#endpoint-url))
 * {{site.data.keyword.hscrypto}} ([Instructions](/docs/hs-crypto?topic=hs-crypto-virtual-private-endpoints-for-vpc))
+* {{site.data.keyword.ihsdbaas_mongodb_full}} ([Instructions](/docs/hyper-protect-dbaas-for-mongodb?topic=hyper-protect-dbaas-for-mongodb-virtual-private-endpoint))
+* {{site.data.keyword.ihsdbaas_postgresql_full}} ([Instructions](/docs/hyper-protect-dbaas-for-postgresql?topic=hyper-protect-dbaas-for-postgresql-virtual-private-endpoint))
 * IAM Access Groups ([Endpoint URLs](https://{DomainName}/apidocs/iam-access-groups#endpoint-urls))
 * IAM Identity Services ([Endpoint URLs](https://{DomainName}/apidocs/iam-identity-token-api#endpoints))
 * IAM Policy Management ([Endpoint URLs](https://{DomainName}/apidocs/iam-policy-management#endpoint-urls))

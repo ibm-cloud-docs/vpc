@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-06-22"
+lastupdated: "2021-07-13"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -42,6 +42,10 @@ Some changes, such as new response properties or new optional request parameters
 
 ### For all API version dates
 
+**Load balancer listeners.** In an upcoming release, new restrictions will be enforced when updating and deleting load balancer listeners. To avoid disruption, do not update an existing listener’s `protocol` or `accept_proxy_protocol` properties. Instead, delete the listener and create a new listener with the new property values. You cannot delete a listener if other resources are using it. Write your code so that resources are deleted in the opposite order from which they were created.
+
+New values will also be added to the `action` enumeration returned by load balancer listener methods. To avoid disruption, check for and log unknown values when processing the `action` property, or bypass the policy on which the unexpected property value was encountered.
+
 **Block storage volumes.**  In an upcoming release, a new value in the `status` enumeration will be added to the [volume](/apidocs/vpc#list-volume-profiles) APIs. When you expand an existing data volume, the volume goes into an updating state and shows a new API status `updating`. You can still access the data while the volume is being resized. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 
 **Asynchronous `DELETE` response code change.** In an upcoming release, the response code output for asynchronous `DELETE` operations will change from `204` to `202`. A response code of `204` implies the action is completed, which could be misleading for operations that are still processing. A response code of `202` is more appropriate. This behavior change will occur only for an API version date after its release. A response code of `204` will continue to be returned for API versions up to this version date.
@@ -49,20 +53,26 @@ Some changes, such as new response properties or new optional request parameters
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
 
-**Load balancer pools.** In an upcoming release, new values will be added to the `session_persistence` enumeration returned by the [load balancer pool](/apidocs/vpc#list-load-balancer-pools) methods. If you use the options made possible by these new values, existing client applications will be exposed to these values. To avoid disruption, check that client applications are written to gracefully handle unexpected values for the `session_persistence` property.
-
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
-## 22 June 2021
-{: #22-june-2021}
+## 27 July 2021
+{: #27-july-2021}
 
 ### For all version dates
-{: #22-june-2021-all-version-dates}
+{: #27-july-2021-all-version-dates}
 
 **Placement groups.** Placement groups for {{site.data.keyword.vpc_full}} are logical groupings of virtual server instances that can be configured to reduce the risk of correlated failures inherent in your physical environment, such as networking issues, power loss, or hardware failure. Define a placement group strategy for high-availability workloads, such as for host or power spread. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc) or dive into the new [API methods](/apidocs/vpc#list-placement-groups). 
 
+## 29 June 2021
+{: #29-june-2021}
+
+### For all version dates
+{: #29-june-2021-all-version-dates}
+
+**Keys.** Pagination has been added to the [List all keys](/apidocs/vpc#list-key) method. Pagination will not occur until your account includes more than 50 keys in a region, but we recommend that you update your existing client applications in preparation. Contact IBM support if you need assistance.
+
 ## 15 June 2021
-{: #15-June-2021}
+{: #15-june-2021}
 
 ### For all version dates
 {: #15-june-2021-all-version-dates}

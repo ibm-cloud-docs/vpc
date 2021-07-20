@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2018, 2020
+  years: 2018, 2021
 
-lastupdated: "2020-09-18"
+lastupdated: "2021-06-16"
 
 keywords: connecting, windows
 
@@ -45,15 +45,15 @@ Complete the following prerequisites:
 ## Connecting to your Windows instance
 {: #vsi_connecting_windows_instance}
 
-After you create your Windows instance and complete the prerequisites, complete the following steps to connect to your Windows instance. 
-  
+After you create your Windows instance and complete the prerequisites, complete the following steps to connect to your Windows instance.
+
 1. Query the status of your instance by running the following command. `INSTANCE_ID` is the ID for the instance that you want to connect:
-  
+
   ```
   $ ibmcloud is instance INSTANCE_ID
   ```
   {:codeblock}
-  
+
   When the instance shows that it's `running`, you are ready to retrieve the initialization values to get your password.
 
 2. Run the following command to initialize your instance and obtain your instance password. Specify your instance ID for the `INSTANCE_ID` variable and your private key for the `KEY` or `KEY_FILE` variable:
@@ -64,9 +64,9 @@ After you create your Windows instance and complete the prerequisites, complete 
     {:pre}
 
     This command decodes and decrypts your password, which is automatically generated when you create an instance using a Windows image. The password is decoded and decrypted based on the public SSH Key that you used at instance create time and the associated private SSH key that you specify in this `instance-initialization-values` command. For more information, see the [CLI command reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-initialization-values).
-    
+
     The following command shows example usage for the `instance-initialization-values` command where `0xx4e27x-33xx-4e7x-a08b-bexx2ac3xx0c` is the instance ID and `~/.ssh/id_rsa` is the location of the user's private key file:
-    
+
     ```
     ibmcloud is instance-initialization-values 0xx4e27x-33xx-4e7x-a08b-bexx2ac3xx0c --private-key @~/.ssh/id_rsa
     ```
@@ -75,7 +75,7 @@ After you create your Windows instance and complete the prerequisites, complete 
     You can also use the API to get the encrypted password, which returns the decoded and decrypted password. For more information, see [Retrieve configuration used to initialize the instance API](https://{DomainName}/apidocs/vpc#retrieve-configuration-used-to-initialize-the-inst).
     {:tip}
 
-3. After you obtain your instance password, you can optionally associate a floating IP address to your Windows instance so you can connect to it from an internet location. Run the following command to associate a floating IP address to your instance:
+3. After you obtain your instance password, you can optionally associate a floating IP address to your Windows instance so you can connect to it from an internet location. Run the following command to associate a floating IP address to your instance, where `NIC_ID` is the ID of the target network interface (for example, `eth0`).   
 
    ```
    ibmcloud is floating-ip-reserve <FLOATING_IP_NAME> --nic-id <NIC_ID>
@@ -87,7 +87,7 @@ After you create your Windows instance and complete the prerequisites, complete 
 ## Next steps
 {: #next-manage-vsi}
 
-After you are connected to your instance, you can [manage your instances](/docs/vpc?topic=vpc-managing-virtual-server-instances). 
+After you are connected to your instance, you can [manage your instances](/docs/vpc?topic=vpc-managing-virtual-server-instances).
 
 
 <!-- OLD METHOD 8/24/20 1. Retrieve the encrypted password of the instance:

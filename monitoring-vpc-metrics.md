@@ -2,7 +2,7 @@
 
 copyright:
   years:  2020, 2021
-lastupdated: "2021-04-01"
+lastupdated: "2021-06-23"
 
 keywords: IBM Cloud monitoring, platform metrics, metrics, vpc metrics, vpc monitoring metrics
 
@@ -337,7 +337,6 @@ The following attributes are available for segmenting all of the previously list
 | `Location` | `ibm_location` | Location of the monitored resource - this can be a region, data center, or global |
 | `Resource` | `ibm_resource` | Resource being measured by the service - typically an identifying name or GUID |
 | `Resource type` | `ibm_resource_type` | Type of resource measured by the service |
-| `Resource group` | `ibm_resource_group_name` | Resource group where the service instance was created |
 | `Scope` | `ibm_scope` | Scope of the account, organization, or space GUID that is associated with this metric |
 | `Service name` | `ibm_service_name` | Name of the service generating this metric |
 

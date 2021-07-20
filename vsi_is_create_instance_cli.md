@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-08-27"
+  years: 2018, 2021
+lastupdated: "2021-06-30"
 
 keywords: instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, vpc, creating, CLI, command line interface, generation 2, gen 2
 
@@ -51,7 +51,8 @@ Gather the following information:
 | Key                   | `ibmcloud is keys`              | 
 | VPC                   | `ibmcloud is vpcs`              | 
 | Subnet                | `ibmcloud is subnets`           | 
-| Zone                  | `ibmcloud is zones`             |    
+| Zone                  | `ibmcloud is zones`             |   
+| Placement groups      | `ibmcloud is placement-groups`  |
 {: caption="Table 1. Required instance details" caption-side="top"}   
 
 Use the following commands to determine the required information for creating a new instance.
@@ -163,10 +164,28 @@ Use the following commands to determine the required information for creating a 
    {:screen}
 
    If you do not have one available, you can create an SSH key by using the `ibmcloud is key-create` command. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
+   
+8. List all the available placement groups that you can associate with your instance.
+    ```
+    ibmcloud is placement-groups
+    ```
+    {:pre}
+
+    For this example, you'd see a response similar to the following output.
+    
+    ```
+    Listing placement groups for generation 2 compute in all resource groups and region us-east under account vpcdemo as user    yaohaif@cn.ibm.com...
+    ID                                            Name                             State    Strategy       Resource Group   
+    c5f1f366-b92a-4080-991a-aa5c2e33d96b          placement-group-region-us-east   stable   power_spread       5018a8564e8120570150b0764d39ebcc   
+    placement-group-cccc-cccc-cccc-cccccccccccc   vsi-placementGroup1              stable   host_spread    5018a8564e8120570150b0764d39ebcc   
+    placement-group-bbbb-bbbb-bbbb-bbbbbbbbbbbb   vsi-placementGroup2              stable   power_spread     5018a8564e8120570150b0764d39ebcc   
+    placement-group-aaaa-aaaa-aaaa-aaaaaaaaaaaa   vsi-placementGroup3              stable   power_spread   1d18e482b282409e80eff354c919c6a2
+    ```
 
 ## Creating an instance by using the CLI
 {: #create-instance-cli}
-After you know these values, use them to run the `instance-create` command. In addition to the information that you gathered, you must specify a name for the instance. 
+
+After you know these values, use them to run the `instance-create` command. In addition to the information that you gathered, you must specify a name for the instance.
 
 1. Create an instance.
    ```
@@ -179,11 +198,12 @@ After you know these values, use them to run the `instance-create` command. In a
        --image-id <IMAGE_ID> \
        --key-ids <KEY_IDS>
        --volume-attach <VOLUME_ATTACH_JSON or JSON file>
+       --placement-group <PLACEMENT_GROUP_NAME>
    ```
    {:pre}
-   
+
    For example, if you create an instance that is called _my-instance_ in _us-south-1_ and use the _b-2x4_ profile, your `instance-create` command would look similar to the following sample:
-   
+
    ```
    ibmcloud is instance-create \
        my-instance \
@@ -194,9 +214,10 @@ After you know these values, use them to run the `instance-create` command. In a
        --image-id 1xx2x34x-5678-12x3-x4xx-567x81234567 \
        --key-ids 1234xxxx-x12x-xxxx-34xx-xx1234xxxxxx
        --volume-attach @/Users/myname/myvolume-attachment_create.json
+       --placement-group r134-a812ff17-cac5-4e20-8d2b-95b587be6637
    ```
    {:pre}
-   
+
    Where:
    - `INSTANCE_NAME` is _my-instance_
    - `VPC_ID` is _VPC_ID_
@@ -206,8 +227,9 @@ After you know these values, use them to run the `instance-create` command. In a
    - `IMAGE_ID` is _IMAGE_ID_
    - `KEY_IDS` is _KEY_ID1, KEY_ID2, ..._
    - `VOLUME_ATTACH_JSON` is the volume attachment specification in JSON format, provided in the command or as a file. For an example volume attachment JSON file, see [Create a volume attachment JSON](/docs/vpc?topic=vpc-attaching-block-storage-cli#volume_attachment_json).
+   - `PLACEMENT_GROUP_ID` is _r134-a812ff17-cac5-4e20-8d2b-95b587be6637
 
-   For this example, you'd see the following responses. **Note:** The following response varies depending on what optional values you use. 
+   For this example, you'd see the following responses. **Note:** The following response varies depending on what optional values you use.
    ```
    ID                           0738-2x12xxx5-xx11-1234-x4x5-1xxx12345678
    Name                         my-instance
@@ -230,6 +252,8 @@ After you know these values, use them to run the `instance-create` command. In a
                                 -    PROVISIONING   0736-76436447-3262-4b3d-8b42-aa3fbb5927f6   volume-attachment
    Data volumes                 ID                                          Name        Attachment ID                               Attachment name
                                 r134-dd9cefce-8f3e-4a63-b92a-066c8505e25c   my-volume   0738-xx55xx44-3xx1-1234-42x1-234xx5x678xx   my-volume-attachment
+   Placement            ID                                          Name       Resource type      
+                     r134-a812ff17-cac5-4e20-8d2b-95b587be6637   mypg2-re   placement_group  
    ```
    {:screen}
    

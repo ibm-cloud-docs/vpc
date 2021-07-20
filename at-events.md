@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-05-21"
+lastupdated: "2021-07-20"
 
 keywords: activity tracker, events
 
@@ -120,8 +120,6 @@ The following table lists the actions that are related to load balancers and the
 | Rule |  is.load-balancer.load-balancer-listener-policy-rule.update | Rule was updated |
 | Rule |  is.load-balancer.load-balancer-listener-policy-rule.delete | Rule was deleted |
 {: caption="Table 5. Actions that generate events for load balancers" caption-side="top"}
-
-
 
 ### Public gateway events
 {: #events-network-public-gateway}
@@ -271,6 +269,36 @@ The following tables list the actions that are related to compute resources and 
 | instance | is.instance.disk.wipe | Instance storage disk was wiped clean |
 {: caption="Table 12. Actions that generate events for Instance" caption-side="top"}
 
+### Bare metal server events
+{: #events-compute-bm}
+
+Some fields for Bare Metal Servers for VPC AT events will be changing between the Beta and Limited Available (LA) releases. For more information, see [Analyzing events](/docs/vpc?topic=vpc-at-events#at_events_iam_analyze).
+{:note}
+
+| Resource  | Action  | Description  |
+|:----------------|:-----------------------|:-----------------------|
+| Bare Metal Server | is.bare-metal-server.bare-metal-server.read | One or more bare metal servers was retrieved |
+| Bare Metal Server | is.bare-metal-server.bare-metal-server.create | Bare metal server was created |
+| Bare Metal Server | is.bare-metal-server.bare-metal-server.update | Bare metal server was updated |
+| Bare Metal Server | is.bare-metal-server.bare-metal-server.delete | Bare metal server was deleted |
+| Bare Metal Server | is.bare-metal-server.bare-metal-server.restart | Bare metal server was restarted |
+| Bare Metal Server | is.bare-metal-server.bare-metal-server.start | Bare metal server was started |
+| Bare Metal Server | is.bare-metal-server.bare-metal-server.stop | Bare metal server was stopped |
+| Bare Metal Server | is.bare-metal-server.console.read | Bare metal server console connection was retrieved |
+| Bare Metal Server | is.bare-metal-server.console-access-token.create | Bare metal server console access token was created |
+| Bare Metal Server | is.bare-metal-server.disk.read | One or more disks on a bare metal server was retrieved |
+| Bare Metal Server | is.bare-metal-server.disk.update | Disk on a bare metal server was updated |
+| Bare Metal Server | is.bare-metal-server.initialization.read | Bare metal server's initialization data was retrieved |
+| Bare Metal Server | is.bare-metal-server.network-interface.read | One or more network interfaces on a bare metal server was retrieved |
+| Bare Metal Server | is.bare-metal-server.network-interface.create | Network interface was created on a bare metal server |
+| Bare Metal Server | is.bare-metal-server.network-interface.update | Network interface on a bare metal server was updated |
+| Bare Metal Server | is.bare-metal-server.network-interface.delete | Network interface on a bare metal server was deleted |
+| Bare Metal Server | is.bare-metal-server.network-interface-floating-ip.read | One or more floating IPs associated with a network interface was retrieved |
+| Bare Metal Server | is.bare-metal-server.network-interface-floating-ip.attach | Floating IP was associated with a network interface |
+| Bare Metal Server | is.bare-metal-server.network-interface-floating-ip.detach | Floating IP was disassociated from a network interface |
+| Bare Metal Server | is.bare-metal-server.profile.read | One or more bare metal server profiles was retrieved |
+{: caption="Table 13. Actions that generate events for Bare Metal Server" caption-side="top"}
+
 ### Key events
 {: #events-compute-key}
 
@@ -280,7 +308,7 @@ The following tables list the actions that are related to compute resources and 
 | key  | is.key.key.delete   | Key was deleted  |
 | key  | is.key.key.update   | Key was updated  |
 | key | is.key.key.read | One or more keys was retrieved |
-{: caption="Table 13. Actions that generate events for Key" caption-side="top"}
+{: caption="Table 14. Actions that generate events for Key" caption-side="top"}
 
 ### Dedicated host events
 {: #events-compute-dedicated-host}
@@ -291,7 +319,7 @@ The following tables list the actions that are related to compute resources and 
 | dedicated-host | is.dedicated-host.dedicated-host.update | Dedicated host or host disk was updated |
 | dedicated-host | is.dedicated-host.dedicated-host.delete  |Dedicated host was deleted |
 | dedicated-host | is.dedicated-host.dedicated-host.read | One or more dedicated hosts or host disks were retrieved |
-{: caption="Table 14. Actions that generate events for Dedicated Host" caption-side="top"}
+{: caption="Table 15. Actions that generate events for Dedicated Host" caption-side="top"}
 
 ### Dedicated host group events
 {: #events-compute-dedicated-host-group}
@@ -302,7 +330,7 @@ The following tables list the actions that are related to compute resources and 
 | dedicated-host-group  | is.dedicated-host.dedicated-host-group.update | Dedicated host group was updated |
 | dedicated-host-group  | is.dedicated-host.dedicated-host-group.delete | Dedicated host group was deleted |
 | dedicated-host-group  | is.dedicated-host.dedicated-host-group.read | One or more dedicated host groups was retrieved |
-{: caption="Table 15. Actions that generate events for Dedicated Host Group" caption-side="top"}
+{: caption="Table 16. Actions that generate events for Dedicated Host Group" caption-side="top"}
 
 ### Instance group events
 {: #events-compute-instance-group}
@@ -331,7 +359,7 @@ The following tables list the actions that are related to compute resources and 
 | instance-group  | is.instance-group.membership.update   | Instance group membership was updated  |
 | instance-group  | is.instance-group.membership.read     | Instance group membership was retrieved |
 | instance-group  | is.instance-group.instance.create     | Instance group instance was created |
-{: caption="Table 16. Actions that generate events for Instance Group" caption-side="top"}
+{: caption="Table 17. Actions that generate events for Instance Group" caption-side="top"}
 
 ### Image resources
 {: #events-images}
@@ -343,13 +371,30 @@ The following table lists the actions that are related to image resources and th
 | image  | is.image.image.create   | Image was created |
 | image  | is.image.image.delete   | Image was deleted |
 | image  | is.image.image.update   | Image was updated |
-{: caption="Table 17. Actions that generate events for image resources" caption-side="top"}
+{: caption="Table 18. Actions that generate events for image resources" caption-side="top"}
 
 For the image update event, if you are rotating the root key for an image, the CRN for the old key and new key remains the same. The ID for the new key that is rotated in is indicated in the `kmsKeyRefID` field of the image.
 {:note}
 
+### Placement group resources
+{: #events-placement-group}
+
+The following table lists the actions that are related to placement group resources and the generation of events.
+
+| Resource  | Action  | Description  |
+|:----------------|:-----------------------|:-----------------------|
+| placement_group | is.placement-group.placement-group.create | Placement group was created |
+| placement_group | is.placement-group.placement-group.delete | Placement group was deleted |
+| placement_group | is.placement-group.placement-group.update | Placement group was updated |
+| instance | is.instance.instance.create | Instance was created and includes a placement group reference |
+| instance | is.instance.instance.update | Instance was updated and includes updates to the placement group reference |
+{: caption="Table 19. Actions that generate events for placement group resources" caption-side="top"}
+
 ## Storage resources
 {: #events-storage}
+
+### Block storage events
+{: #events-block-storage}
 
 The following table lists the actions that are related to volume resources and the generation of events.
 
@@ -359,10 +404,23 @@ The following table lists the actions that are related to volume resources and t
 | volume  | is.volume.volume.update  | Volume was updated  |
 | volume  | is.volume.volume.delete  | Volume was deleted  |
 | volume  | is.volume.volume.read    | One or more volumes were retrieved  |
-{: caption="Table 18. Actions that generate events for storage resources" caption-side="top"}
+{: caption="Table 20. Actions that generate events for block storage resources" caption-side="top"}
 
 An event does not contain a volume name if no information is available at the time of the event. For example, when you make a request to create a volume but do not provide a volume name, the information is not available and does not appear in the event.
 {:note}
+
+### Snapshots events
+{: #events-snapshots}
+
+The following table lists the actions that are related to snapshots resources and the generation of events.
+
+| Resource  | Action  | Description  |
+|:----------------|:-----------------------|:-----------------------|
+| snapshot  | is.snapshot.snapshot.create  | Snapshot was created  |
+| snapshot  | is.snapshot.snapshot.update  | Snapshot was updated  |
+| snapshot  | is.snapshot.snapshot.delete  | Snapshot was deleted  |
+| snapshot  | is.snapshot.snapshot.read    | One or more snapshots were retrieved  |
+{: caption="Table 21. Actions that generate events for snapshot resources" caption-side="top"}
 
 ## Supported locations
 {: #at-supported-locations}
@@ -396,3 +454,17 @@ Refer to the following information when you are analyzing events:
     When you create resources, you can get IDs from the `responseData.responseContent` field.
 
     For update actions, the original value is not included. You can do a read action to get the value before you run an update on the resource.
+    
+- The following fields for Bare Metal Servers for VPC AT events will be changing between the Beta and LA releases:
+
+  1) The `severity` field in Beta events is not consistent with general practice within VPC and will be corrected in the LA release.
+  
+  2) The `target resourceGroupID` field in Beta events does not include the CRN prefix. This will be corrected in the LA release.
+  
+  3) Some Beta events include array data. If the array is too large, the event will not be recorded. For LA, these events will display an array element count rather than the actual data.
+  
+- Each time you open a console for a virtual server instance or bare metal server, two API calls are issued: the first one generates a console access token, the second one uses the generated token to open the console websocket.
+
+  This will generate two Activity Tracker events: `is.instance.console-access-token.create` and `is.instance.console.read`, or `is.bare-metal-server.console-access-token.create` and `is.bare-metal-server.console.read`.
+  
+  You cannot use `request id` to correlate console Activity Tracker events as each call will generate a unique `request id`. Instead, you can use `initiator id` to correlate console events that are generated from API calls issued by the same user.

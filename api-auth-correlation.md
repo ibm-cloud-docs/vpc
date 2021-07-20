@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-04-05"
+lastupdated: "2021-07-20"
 
 keywords: resource, resource authorizations, policies, authorization, resource type, resource groups, roles, API, CLI, editor, viewer, administrator, operator
 
@@ -82,6 +82,21 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | Dedicated host | View, List | Viewer for the dedicated host |
 | Dedicated host | Create an instance on | Operator for the dedicated host |
 |————————|—————————|————————|
+| Bare metal server | View, List | Viewer for the bare metal server |
+| Bare metal server | Update, Delete | Editor for the bare metal server |
+| Bare metal server | Create | Editor for the bare metal server<br><br>Bare Metal Advanced Network Operator<br><br>Subnet Editor<br><br>Operator for the security group<br><br>Operator for VPC<br><br>Operator for Key<br><br>Operator for Image |
+| Bare metal server | IP spoofing, Infrastructure NAT | Bare Metal Advanced Network Operator |
+| Bare metal server | Operate (Restart, Start, Stop, Retrieve initialization data) | Operator for the bare metal server |
+| Bare metal server | Create console access token | Bare Metal Console Administrator<br><br>Operator for the bare metal server |
+| Bare metal server disk | View, List | Viewer for the bare metal server |
+| Bare metal server disk | Update | Operator for the bare metal server |
+| Bare metal server network interface | Create | Editor for the bare metal server<br><br>Editor for subnet<br><br>Operator for the security group<br><br>Bare Metal Advanced Network Operator |
+| Bare metal server network interface | Update | Editor for the bare metal server<br><br>Bare Metal Advanced Network Operator |
+| Bare metal server network interface | Delete | Editor for the bare metal server |
+| Bare metal server network interface | View, List | Viewer for the bare metal server |
+| Bare metal server floating IP | View, List | Viewer for the bare metal server<br><br>Viewer for Floating IP |
+| Bare metal server floating IP | Operate (Associate, Detach) | Editor for the bare metal server<br><br>Operator for Floating IP |
+|————————|—————————|————————|
 | Instance group | Create | Editor for Virtual Server for VPC and Block Storage for VPC resources<br />Operator for the VPC and subnet<br />Viewer for the instance template<br />Editor for the load balancer, if a load balancer is to be associated |
 | Instance group | Update | Editor for the instance group<br />Operator for the subnet<br />Viewer for the instance template<br />Editor for the load balancer, if a load balancer is specified |
 | Instance group | Delete | Editor for the instance group<br />Editor for the associated instances<br />Editor for the load balancer, if a load balancer is specified |
@@ -102,6 +117,9 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | Load balancer | View, List  | Viewer for the load balancer |
 | Load balancer pools and listeners | Create, Update, Delete | Editor for the load balancer |
 | Load balancer pools and listeners | View, List  | Viewer for the load balancer |
+|————————|—————————|————————|
+| Placement group | View | Viewer for placement groups |
+| Placement group | Create, Delete | Editor for placement groups |
 |————————|—————————|————————|
 | Public gateway | Create |  Editor for Public Gateway resources<br />Operator for the VPC and Floating IP resources |
 | Public gateway | Update, Delete | Editor for the public gateway |

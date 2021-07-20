@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-11"
+lastupdated: "2021-07-09"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, faqs
 subcollection: vpc
@@ -39,7 +39,7 @@ A bootable snapshot is a copy of a boot volume. You can use this new boot volume
 {: faq}
 {: #faq-snapshot-3}
 
-You can take up to 100 snapshots per volume in a region. Deleting a snapshot does not increase this limit; after you take 100 snapshots, you can't take any more. 
+You can take up to 100 snapshots per volume in a region.  Deleting snapshots from this quota frees up space for additional snapshots.
 
 ## Is there a limit on the size of a volume that I can snapshot?
 {: faq}
@@ -78,6 +78,3 @@ In the initial offering of Snapshots for VPC, you can only take a manual snapsho
 {: #faq-snapshot-9}
 
 Snapshots have their own lifecycle, independent of the block storage volume. You can separately manage the source volume. However, when taking a snapshot, you must wait for the snapshot creation process to complete before detaching or deleting the volume.
-
-Detaching a volume from an instance after taking a snapshot is not supported. For more limitations of this release, see [Snapshots limitations](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots-vpc-limitations).
-{:note}
