@@ -3,7 +3,7 @@
 copyright:
   years: 2020, 2021
 
-lastupdated: "2021-05-31"
+lastupdated: "2021-07-20"
 
 keywords: troubleshooting bare metal servers, hardware issues 
 
@@ -49,12 +49,3 @@ You can delete the bare metal server that is in the **Maintenance** state.
 {: note}
 
 When the issues are fixed, the server will be handed back to you and the state will be turned back to **Stopped**.
-
-
-
-
-
-
-
-
-
