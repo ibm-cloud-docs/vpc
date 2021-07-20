@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-06-17"
+lastupdated: "2021-07-20"
 
 keywords: bare metal servers, esxi license, byol
 
@@ -27,7 +27,7 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Bare Metal Servers for VPC (beta) images - draft 
+# Bare Metal Servers for VPC (beta) images
 {: #bare-metal-image}
 
 You can license the ESXi hypervisor that is installed on a bare metal server with your own license (bring-your-own-license), or let IBM handle the licensing for you.
