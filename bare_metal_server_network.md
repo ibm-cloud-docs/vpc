@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-06-10"
+lastupdated: "2021-07-20"
 
 keywords: bare metal servers, network, nics, pci, vlan
 
@@ -27,7 +27,7 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Network of Bare Metal Servers for VPC (beta) - draft
+# Network of Bare Metal Servers for VPC (beta)
 {: #bare-metal-servers-network}
 
 This topic walks through the network of Bare Metal Servers for VPC and how it supports VMware vSphere networking use cases. We highly recommend you go through this topic before you start building a VMware network on the bare metal servers.
