@@ -30,7 +30,7 @@ subcollection: vpc
 # About Bare Metal Servers for VPC (beta)
 {: #about-bare-metal-servers}
 
-{{site.data.keyword.bm_is_short}} provides bare metal servers to host VMware clusters in the {{site.data.keyword.vpc_full}} (VPC). You can set up VMware management applications and create VMware virtual machines (VM) on the bare metal servers. As bare metal servers are fully integrated with the VPC platform, you can take advantage of the network, storage, and security capacity provided by the VPC.
+{{site.data.keyword.bm_is_short}} provides bare metal servers to host VMware clusters in the {{site.data.keyword.vpc_full}} (VPC). You can set up VMware management applications and create VMware virtual machines (VM) on the bare metal servers. As bare metal servers are integrated with the VPC platform, you can take advantage of the network, storage, and security capacity provided by the VPC.
 
 This is a Beta feature that requires special approval. Contact your IBM Sales representative if you are interested in getting access.
 {:beta}
