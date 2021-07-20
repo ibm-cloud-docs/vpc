@@ -27,7 +27,7 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Billing information of Bare Metal Servers for VPC (beta) - draft
+# Billing information of Bare Metal Servers for VPC (beta)
 {: #bare-metal-servers-billing}
 
 This page documents information related to billing and pricing for Bare Metal Servers for VPC.
