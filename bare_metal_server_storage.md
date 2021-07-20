@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-19"
+lastupdated: "2021-07-20"
 
 keywords: bare metal servers, storage, 
 
@@ -27,7 +27,7 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Storage of Bare Metal Servers for VPC (beta) - draft
+# Storage of Bare Metal Servers for VPC (beta)
 {: #bare-metal-servers-storage}
 
 All profiles of Bare Metal Servers for VPC provide one 0.96 TB SATA M.2 mirrored SSD as the bare metal server's boot disk. Profile `bx2d-metal-192x768` provide an extra set of NVMe (Non-Volatile Memory Express) U.2 solid-state drives (SSD) as secondary local storage. NVMe SSDs provide fast and affordable storage to support use cases such as VMware vSAN, or customer-managed RAID. 
