@@ -27,13 +27,13 @@ subcollection: vpc
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
 
-## 21 July 2021
+<!-- ## 21 July 2021 -->
 {: #july-21-2021}
 
-**Bare Metal Servers for VPC (closed beta):** If your account has been granted special approval to preview this feature, you can now create bare metal servers to host VMware clusters in VPC. You can set up VMware management applications and create VMware virtual machines (VM) on the bare metal servers. As bare metal servers are integrated with the VPC platform, you can take advantage of the network, storage, and security capabilities provided by the VPC. For more information, see [About Bare Metal Servers for VPC (beta)](/docs/vpc?topic=vpc-about-bare-metal-servers).
+<!-- **Bare Metal Servers for VPC (closed beta):** If your account has been granted special approval to preview this feature, you can now create bare metal servers to host VMware clusters in VPC. You can set up VMware management applications and create VMware virtual machines (VM) on the bare metal servers. As bare metal servers are integrated with the VPC platform, you can take advantage of the network, storage, and security capabilities provided by the VPC. For more information, see [About Bare Metal Servers for VPC (beta)](/docs/vpc?topic=vpc-about-bare-metal-servers). -->
 
-The bare metal console feature is temporarily unavailable. An "unauthorized" error will be returned if you try to connect to the console. The issue will be resolved in approximately one week.
-{:note}
+<!-- The bare metal console feature is temporarily unavailable. An "unauthorized" error will be returned if you try to connect to the console. The issue will be resolved in approximately one week.
+{:note} -->
 
 ## 6 July 2021
 {: #july-6-2021}
