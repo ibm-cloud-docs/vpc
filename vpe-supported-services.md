@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-25"
+lastupdated: "2021-06-25"
 
 keywords: virtual private endpoints, endpoint gateway, VPE
 subcollection: vpc
@@ -51,6 +51,7 @@ subcollection: vpc
 * Usage Metering ([Endpoint URLs](https://{DomainName}/apidocs/usage-metering#endpoint))
 * Usage Reports ([Endpoint URLs](https://{DomainName}/apidocs/metering-reporting#endpoint))
 * User Management ([Endpoint URLs](https://{DomainName}/apidocs/user-management#endpoint-urls))
+* {{site.data.keyword.messagehub_full}} ([Endpoint URLs](https://{DomainName}/apidocs/event-streams/adminrest))
 
 This topic will be updated as additional services are supported.
 {: note}
