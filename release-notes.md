@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-07-21"
+lastupdated: "2021-07-23"
 
 keywords: release notes, changes, updates
 
@@ -26,6 +26,11 @@ subcollection: vpc
 
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
+
+## 22 July 2021
+{: #july-22-2021}
+
+**Block Storage for VPC:** For secondary volumes attached to a virtual server instance, you can increase capacity in GB increments up to 16,000 GB, depending on the volume's profile. The volume capacity is immediately increased. For more information, see  [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 
 ## 21 July 2021
 {: #july-21-2021}
