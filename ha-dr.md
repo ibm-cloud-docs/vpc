@@ -2,12 +2,12 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-07-19"
+
+lastupdated: "2021-07-27"
 
 keywords: high availability, disaster recovery, SLA, placement group
 
 subcollection: vpc
-
 
 ---
 

@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-04-19"
+lastupdated: "2021-07-14"
 
 keywords: CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
 
@@ -41,6 +41,7 @@ Use one of the following public endpoints to connect to the VPC infrastructure A
 | Tokyo             | `https://jp-tok.iaas.cloud.ibm.com`   | Not yet available |
 | Osaka             | `https://jp-osa.iaas.cloud.ibm.com`   | Not yet available |
 | Toronto           | `https://ca-tor.iaas.cloud.ibm.com`   | Not yet available |
+| Sao Paulo         | `https://br-sao.iaas.cloud.ibm.com`   | `https://br-sao.private.iaas.cloud.ibm.com` |
 {: caption="Table 1. VPC API Regional Endpoints" caption-side="top"}
 
 After you've created and are accessing the resources in your VPC, you're ready to run workloads. From inside the VPC infrastructure, you can access two types of {{site.data.keyword.cloud_notm}} endpoints: platform as a service (PaaS) endpoints, also known as service endpoints, and infrastructure as a service (IaaS) endpoints.
