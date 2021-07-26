@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021 
-lastupdated: "2021-06-30"
+lastupdated: "2021-07-14"
 
 keywords: instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, vpc, creating, UI, console
 
@@ -45,6 +45,7 @@ To create a virtual server instance:
 | Tags | You can assign a label to this resource so that you can easily filter resources in your resource list. |
 | Location | Locations are composed of regions (specific geographic areas) and zones (fault tolerant data centers within a region). Select the location where you want your virtual server instance to be created. |
 | Placement group | Select a placement group for the instance. If you add a placement group, the instance is placed according to the placement group policy. See [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc) for more information. |
+| | **Note:** This field is only available if `Add instance to placement group` is selected during provisioning. |
 | Type of virtual server | A **Public** virtual server instance, created in a multi-tenant environment, is the default selection for a new instance. You can also select a **Dedicated** virtual server instance to create the instance in a single-tenant space. To provision a dedicated instance, you must have a dedicated host available or [create one](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances). A dedicated host is required if you are using a Windows custom image and [your own license](/docs/vpc?topic=vpc-byol-vpc-about#byol-vpc-windows). |
 | Operating system | Image - Select a stock image or a custom image for the operating system. A custom image can be one that you created externally and imported to COS, or a custom image created from a boot volume attached to an instance.<br>You can also select a RHEL or Windows custom image and bring your own license (BYOL).<br>All operating system images use cloud-init, which allows you to enter user metadata associated with the instance for post provisioning scripts.<br>For more information about available stock images, and custom image requirements, see [Images](/docs/vpc?topic=vpc-about-images). For information about creating BYOL custom images, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about). For information about creating an image from a volume, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc). |
 | | Snapshot - Optionally, select a snapshot of a boot volume that includes an operating system. If you created a boot volume from a bootable snapshot, it appears under Boot Volume. If you want to use another bootable snapshot and create a new boot volume, click **Change** to select a different snapshot from the list of snapshots. For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore). |

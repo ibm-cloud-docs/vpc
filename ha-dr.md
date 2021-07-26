@@ -2,12 +2,12 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-07-14"
 
-keywords: high availability, disaster recovery, SLA
+lastupdated: "2021-07-27"
+
+keywords: high availability, disaster recovery, SLA, placement group
 
 subcollection: vpc
-
 
 ---
 
@@ -39,3 +39,8 @@ For more information about how you can use Veeam software to back up your storag
 [About Veeam](/docs/vpc?topic=vpc-about-veeam). 
 
 Placement Groups supports anti-affinity placement strategies for workload high availability. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc).
+
+### IBM Cloud Load Balancer for VPC and VPN for VPC Backups
+{: #lb-vpn-backups}
+
+{{site.data.keyword.cloud_notm}} Load Balancer for VPC and VPN for VPC have off-site storage and replication of configuration data in an out-of-region disaster recovery node with daily backups. The disaster recovery location and backups are located within the regulatory boundary.

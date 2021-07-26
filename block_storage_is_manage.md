@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-05-25"
+lastupdated: "2021-07-19"
 
 keywords: block storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
@@ -132,10 +132,9 @@ To enable Auto Delete for an existing block storage data volume that is attached
 1. On the next page, click **Auto Delete** to enable.
 1. Confirm your selection.
 
-Alternatively, begin by selecting a data volume from the list of block storage volumes (**Storage > Block storage volumes**).
+Alternatively, select a data volume from the list of block storage volumes (**Storage > Block storage volumes**). On the volume details page, under **Attached instances**, click the **Auto delete** toggle to enable or disable automatic deletion. 
 
-To enable Auto Delete on a new data volume when you create an instance, see [Create and attach a block storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi).
-
+You can also enable Auto Delete on a new data volume when you create an instance. For information, see [Create and attach a block storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi).
 
 ## Managing block storage volumes by using the CLI
 {: #managing-block-storage-cli}

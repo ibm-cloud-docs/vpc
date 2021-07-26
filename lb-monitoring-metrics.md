@@ -202,7 +202,7 @@ The following attributes are available for segmenting the three metrics.
 {: caption="Table 10: Global attributes" caption-side="top"}
 
 ### Additional attributes
-{: alb-additional-attributes}
+{: lb-additional-attributes}
 
 The following attributes are available to segment one or more of the global attributes. See the individual metrics for any segmentation options.
 
@@ -285,7 +285,7 @@ To view and work with your metrics, follow these steps:
 
 1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring).
 
-2. Click **Open Dashboard** next to the service name of the monitoring instance that you want to work with.
+2. Click **View IBM Cloud Monitoring** next to the service name of the monitoring instance that you want to work with.
 
   The first time that you access your monitoring instance, several windows display as part of the internal setup. Leave these selections with their default entries, and click through the pages until you reach the main page.
   {: note}
@@ -308,7 +308,7 @@ To customize your dashboard, follow these steps:
 
 1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring).
 
-2. Click **Open Dashboard** next to the service name of the monitoring instance you want to work with. The dashboard displays.
+2. Click **View IBM Cloud Monitoring** next to the service name of the monitoring instance you want to work with. The dashboard displays.
 
 3. On the left sidebar, select **Dashboards**. Then, click the green **+** sign in the panel.
 
