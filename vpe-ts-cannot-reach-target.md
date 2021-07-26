@@ -29,7 +29,7 @@ subcollection: vpc
 Even though the endpoint gateway is healthy, it cannot reach the target {{site.data.keyword.cloud}} service.
 {: shortdesc}
 
-Check whether the cloud service instance is available to others by trying to access the public endpoint cloud service instance directly. If you cannot access the service’s public endpoint, open an IBM Support case.
+Verify that the cloud service instance is available to others by trying to access the public endpoint cloud service instance directly. If you cannot access the service’s public endpoint, open an IBM Support case.
 {: tsResolve}
 
 To check the `Health` and `Lifecycle` states of your VPE, you can use the UI, or enter the following command:

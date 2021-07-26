@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019 - 2021
-lastupdated: "2021-05-21"
+lastupdated: "2021-07-21"
 
 keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, image, IOPS, FAQ
 
@@ -72,9 +72,7 @@ There are also service limits for your block storage volumes based on the number
 {: #faq-block-storage-8}
 {: support}
 
-You can increase the capacity of data volumes that you created after the expandable volumes Beta feature (released July 2020). For information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes). You can't increase capacity for volumes created before that date or on the Gen 1 infrastructure, which is deprecated.
-
-As best practice, estimate sufficient capacity for projected growth before you provision a block storage volume.
+You can increase the capacity of data volumes attached to a virtual server instance. You can indicate capacity in GB increments up to 16,000 GB capacity, depending on your volume profile. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 
 ### How many volumes can I provision on my account?
 {: faq}
