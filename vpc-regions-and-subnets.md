@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-07-14"
+lastupdated: "2021-07-27"
 
 keywords: address prefixes, regions, subnets, zones, IP, ranges, CIDR
 
