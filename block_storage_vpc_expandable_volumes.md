@@ -87,7 +87,7 @@ Limitations apply in this release.
 ### Additional limitations
 {: #exp-vols-additional-limitations}
 
-* When a volume is in an _updating_ state: if the volume is detached while the volume expansion is in progress, the volume remains in an _updating_ state until you reattach it to an instance. The volume expansion the resumes and completes.
+* When a volume is in an _updating_ state: if the volume is detached while the volume expansion is in progress, the volume remains in an _updating_ state until you reattach it to an instance. The volume expansion then resumes and completes.
 * When you delete an instance, volumes marked for auto-deletion are not deleted when volume expansion is underway. For more information, see [troubleshooting](/docs/vpc?topic=vpc-troubleshooting-block-storage#troubleshoot-topic-4).
 
 ## Expand block storage volumes in the UI
