@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-31"
+lastupdated: "2021-07-28"
 
 keywords: instance storage, local disk, storage, temporary storage, generation 2, gen 2
 
@@ -39,7 +39,7 @@ The lifecycle of instance storage is critical to understand. Without a proper un
 
 The instance storage space is allocated and attached to the virtual server instance at the time of provisioning. It is an integral and inseparable element of the virtual server instance. If you reboot your instance (either from its operating system or through an IBM Cloud management interface), the instance storage data is retained and the instance is reconnected to its original disks.
 
-However, when an instance is stopped or shut down, the data is cryptographically erased and the disks that were attached to the virtual server are no longer available. For auditing purposes, when an instance that has one or more storage disks is shut down, an IBM Cloud Activity Tracker event is published for each disk indicating it was "wiped". The event action is `is.instance.disk.wipe`. Refer to the Compute Events table on the [Activity Tracker page](/docs/vpc?topic=vpc-at-events#events-compute) for listing of such events.
+However, when an instance is stopped or shut down, the instance storage attached to the virtual server instance is cryptographically erased and the instance storage is no longer available. For auditing purposes, when an instance that has one or more storage disks is shut down, an IBM Cloud Activity Tracker event is published for each disk indicating it was "wiped". The event action is `is.instance.disk.wipe`. Refer to the Compute Events table on the [Activity Tracker page](/docs/vpc?topic=vpc-at-events#events-compute) for listing of such events.
 
 In the event of a Host Failure, the data on the instance storage disk is lost. The instance is restarted on another host automatically, but the provisioned disks are empty. In rare cases, a physical disk error might occur. If this situation occurs, the instance fails to read/write to the failed disk. The instance is not automatically restarted in this scenario. You can stop and then start your instance to effectively place it on a different disk that is functional.
 
