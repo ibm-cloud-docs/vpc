@@ -225,10 +225,10 @@ ibmcloud is network-acl-rule-add my_web_acl_rule10e $webacl allow outbound tcp 0
 Create two subnets so that each of your ACLs is associated with one of the new subnets.
 
 ```
-ibmcloud is subnet-create my_web_subnet my_VPC my_region --ipv4_cidr_block 10.10.10.0/24 \
---generation gc --network-acl $webacl
-ibmcloud is subnet-create my_backend_subnet my_VPC my_region --ipv4_cidr_block 10.10.20.0/24 \
---generation gc --network-acl $bkacl
+ibmcloud is subnet-create my-web-subnet $vpc_id $zone --ipv4_cidr_block 10.10.10.0/24 \
+ --network-acl-id $webacl
+ibmcloud is subnet-create my-backend-subnet$vpc_id $zone --ipv4_cidr_block 10.10.20.0/24 \
+--network-acl-id $bkacl
 ```
 {: codeblock}
 
