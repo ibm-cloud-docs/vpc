@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017, 2020
-lastupdated: "2019-11-25"
+  years: 2017, 2020, 2021
+lastupdated: "2021-07-29"
 
 keywords: vpc, virtual private cloud, private cloud network, quick provisioning, logical isolation, security, cloud-native, workloads, BYOIP, high availability, ACL, Access control list, block storage volumes, generation 2, gen 2
 
@@ -39,6 +39,12 @@ You can quickly provision scalable generation 2 compute resources in your VPC by
 
 You can create instances with up to 80 Gbps network bandwidth per instance. Each instance can be multi-homed, that is, you can create multiple network interfaces per instance.
 
+##  Multi-architecture images
+{: #about-vpc-multiarchitecture-images}
+
+You can choose to create *virtual server instances* with different operating systems on x86_64 or LinuxONE (s390x processor architecture). For more information, see [Images](/docs/vpc?topic=vpc-about-images).
+
+
 ## Storage capabilities
 {: #about-vpc-storage-capabilities}
 
@@ -55,7 +61,7 @@ Several options are available for enabling your instances to communicate with th
 ## Security
 {: #about-vpc-security}
 
-For instance-level protection, use *security groups* that act as virtual firewalls to restrict traffic for one or more instances. For subnet-level protection, use *access control lists* (ACLs)  to limit a subnet's inbound and outbound traffic. 
+For instance-level protection, use *security groups* that act as virtual firewalls to restrict traffic for one or more instances. For subnet-level protection, use *access control lists* (ACLs)  to limit a subnet's inbound and outbound traffic.
 
 ## High availability
 {: #about-vpc-high-availability}

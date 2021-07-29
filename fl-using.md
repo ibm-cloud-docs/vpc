@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2020-07-23"
+lastupdated: "2020-07-29"
 
 keywords: flow logs, getting started
 
@@ -40,6 +40,9 @@ Flow logs can help with a number of tasks, including:
 * Determining source and destination traffic from the network interfaces
 * Adhering to compliance regulations
 * Assisting with root cause analysis
+
+Flow logs are currently not supported for LinuxONE (s390x processor architecture).  
+{:note}
 
 ## Overview of features
 {: #fl-overview-of-features}

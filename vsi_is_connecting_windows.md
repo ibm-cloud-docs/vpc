@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2021
 
-lastupdated: "2021-06-16"
+lastupdated: "2021-07-29"
 
 keywords: connecting, windows
 
@@ -27,6 +27,9 @@ subcollection: vpc
 
 After you created your Windows instance, you can connect to it by completing these steps.
 {:shortdesc}
+
+Windows instances are not supported for LinuxONE (s390x processor architecture).
+{:note}
 
 ## Before you begin
 {: #before_vsi_connecting_windows}
