@@ -54,6 +54,9 @@ Balanced profiles provide a mix of performance and scalability for more common w
 
 The Balanced profile family includes both profiles that are provisioned with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
 
+### Balanced profiles for x86_64 processors
+{: #balanced-x86-profiles}
+
 The following Balanced profiles are available for x86_64 processors:
 
 | Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
@@ -100,6 +103,9 @@ Compute profiles are best for workloads with intensive CPU demands, such as high
 
 The Compute profile family includes both profiles that are provisioned with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
 
+### Compute profiles for x86_64 processors
+{: #compute-x86-profiles}
+
 The following Compute profiles are available for instances with x86_64 processors:
 
 | Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
@@ -143,6 +149,9 @@ The following Compute profiles are available for LinuxONE (s390x processor archi
 Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads with 8 GiB of memory for every 1 vCPU of compute.
 
 The Memory profile family includes both profiles that are provisioned with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
+
+### Memory profiles for x86_64 processors
+{: #memory-x86-profiles}
 
 The following memory profiles are available for instances with x86_64 processors:
 
@@ -197,6 +206,9 @@ Ultra High Memory profiles are hosted exclusively on the latest generation Intel
 
 Ultra High Memory profiles are deployed exclusively on the second-generation Intel&reg; Xeon&reg; Platinum 8280L (Cascade Lake) running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz.  
 {: note}
+
+### Ultra High Memory profiles for x86_64 processors
+{: #uhmemory-x86-profiles}
 
 The following Ultra High Memory profiles are available for x86_64 processors:
 
@@ -256,8 +268,6 @@ The first character represents the profile families. Different profile families 
 The second character represents the CPU architecture.
 - "x": x86_64
 - "z": s390x
-<!-- * "z": System Z -->
-<!-- * POWER will deprecate on Aug. 22 -->
 
 The third character represents the generation of the IBM Cloud infrastructure where the profile is provisioned.
 -	"1": IBM Cloud Virtual Servers for Classic
