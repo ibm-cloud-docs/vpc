@@ -20,14 +20,14 @@ subcollection: vpc
 # Bring your own license
 {: #byol-vpc-about}
 
-For RedHat Enterprise Linux (RHEL) and Windows operating systems, you can bring your own license (BYOL) to the IBM Cloud VPC when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. Acquisition and activation of the license is between you and and the OS vendor.
+For Red Hat Enterprise Linux (RHEL) and Windows operating systems, you can bring your own license (BYOL) to the IBM Cloud VPC when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. Acquisition and activation of the license is between you and and the OS vendor.
 {:shortdesc}
 
 ## BYOL concepts
 {: #byol-vpc-concepts}
 With the BYOL feature, you can use your own license for a custom image that you create at your site and then upload to Cloud Object Storage (COS). When you import your custom image from COS to the VPC, IBM provides Red Hat Enterprise Linux and Windows *BYOL* operating system options that you must select to indicate that you are using a BYOL operating system. You use your BYOL custom images to create virtual server instances, just as you would from a stock image.
 
-The BYOL feature on LinuxONE (s390x processor architecture) supports RedHat Enterprise Linux (RHEL), and SUSE Linux Enterprise Server (SLES) operating systems.
+The BYOL feature on LinuxONE (s390x processor architecture) supports Red Hat Enterprise Linux (RHEL), and SUSE Linux Enterprise Server (SLES) operating systems.
 
 Images with a Red Hat Enterprise Linux BYOL operating system can be used to provision any instance; public or on a dedicated host. Images with a Windows BYOL operating system can be provisioned only to instances on a dedicated host or in a dedicated host group.
 
