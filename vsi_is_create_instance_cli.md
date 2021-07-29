@@ -226,7 +226,7 @@ After you know these values, use them to run the `instance-create` command. In a
    - `SUBNET_ID` is _SUBNET_ID_
    - `IMAGE_ID` is _IMAGE_ID_
    - `KEY_IDS` is _KEY_ID1, KEY_ID2, ..._
-   - `VOLUME_ATTACH_JSON` is the volume attachment specification in JSON format, provided in the command or as a file. For an example volume attachment JSON file, see [Create a volume attachment JSON](/docs/vpc?topic=vpc-attaching-block-storage-cli#volume_attachment_json).
+   - `VOLUME_ATTACH_JSON` is the volume attachment specification in JSON format, provided in the command or as a file. For an example volume attachment JSON file, see [Create a volume attachment JSON](/docs/vpc?topic=vpc-attaching-block-storage&interface=cli#volume_attachment_json).
    - `PLACEMENT_GROUP_ID` is _r134-a812ff17-cac5-4e20-8d2b-95b587be6637
 
    For this example, you'd see the following responses. **Note:** The following response varies depending on what optional values you use.
