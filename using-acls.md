@@ -284,19 +284,19 @@ Generally speaking, a _communication protocol_ is a system of rules that allow t
 * TCP, Transmission Control Protocol
 * UDP, User Datagram Protocol
 
-The protocols that are used for a particular implementation of, such as, an API call, can influence the overall behavior of your network. So, it is worthwhile to understand the basic differences between them.
+The protocols that are used for a particular implementation of, say, an API call, can influence the overall behavior of your network, so it is worthwhile to understand the basic differences between them. If you need more information, many good articles are available on the internet with detailed descriptions of the protocols.
 
 ### ICMP
 {:#network-infrastructure-icmp}
 
-ICMP is a _control protocol_, meaning it is designed not to carry application data, but rather information about the status of the network itself. It is essentially a _network layer_ (OSI Layer-3) error-reporting and error-control protocol for the network. The best-known examples of ICMP in practice are the `ping` utility. The `ping` utility uses ICMP to probe remote hosts for responsiveness and overall round-trip time of the probe messages, and the `traceroute` utility.
+ICMP is a _control protocol_, meaning that it is designed to carry information about the status of the network itself. It is essentially a _network layer_ (OSI layer 3) error-reporting and error-control protocol for the network. The best-known examples of ICMP in practice are the `ping` and `traceroute` utilities. The `ping` utility uses ICMP to probe remote hosts for responsiveness and overall round-trip time of the probe messages. The `traceroute` utility uses ICMP to discover and trace network routes that the ICMP packets take when traveling to their destination.
 
-What developers need to know is that ICMP packets have no TCP or UDP port numbers that associated with them because port numbers are a Layer-4 (_transport layer_) construct.
+What developers need to know is that ICMP packets have no TCP or UDP port numbers that are associated with them, because port numbers are a layer 4 (_transport layer_) construct.
 
 ### TCP and UDP
 {:#network-infrastructure-tcp-udp}
 
-Both Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) are OSI Layer-4 _transport protocols_. These protocols are used to pass the actual data. The main difference between TCP and UDP, from a developer's perspective, is how they handle **packet order**.
+Both Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) are OSI layer 4 _transport protocols_. These protocols are used to pass the actual data. The main difference between TCP and UDP, from a developer's perspective, is how they handle **packet order**.
 
 TCP is a connection-oriented protocol, it guarantees that all sent packets reach the destination in the correct order.
 
