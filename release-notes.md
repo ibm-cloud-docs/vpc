@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-07-27"
+lastupdated: "2021-07-29"
 
 keywords: release notes, changes, updates
 
@@ -28,6 +28,15 @@ subcollection: vpc
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
 
+
+## 30 July 2021
+
+{: #july-30-2021}
+
+- **LinuxONE (s390x processor architecture):** You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud™. For more information about available LinuxONE (s390x processor architecture) profiles, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
+For more information about some of the limitations of LinuxONE (s390x processor architecture), see [Service limitations](/docs/vpc?topic=vpc-limitations).
+
+
 ## 26 July 2021
 {: #july-26-2021}
 
@@ -43,7 +52,7 @@ Use the release notes to learn about new and changed {{site.data.keyword.vpc_ful
 
 **Bare Metal Servers for VPC (closed beta):** If your account has been granted special approval to preview this feature, you can now create bare metal servers to host VMware clusters in VPC. You can set up VMware management applications and create VMware virtual machines (VM) on the bare metal servers. As bare metal servers are integrated with the VPC platform, you can take advantage of the network, storage, and security capabilities provided by the VPC. For more information, see [About Bare Metal Servers for VPC (beta)](/docs/vpc?topic=vpc-about-bare-metal-servers).
 
-The bare metal console feature is temporarily unavailable. An "unauthorized" error will be returned if you try to connect to the console. 
+The bare metal console feature is temporarily unavailable. An "unauthorized" error will be returned if you try to connect to the console.
 {:note}
 
 ## 6 July 2021
@@ -107,7 +116,7 @@ The Ultra High Memory family of profiles is currently available in the Dallas an
 ## 06 April 2021
 {: #april-06-2021}
 
-**New region:** The Toronto region endpoint is now in service at `https://ca-tor.iaas.cloud.ibm.com`. For more information, see [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region). 
+**New region:** The Toronto region endpoint is now in service at `https://ca-tor.iaas.cloud.ibm.com`. For more information, see [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region).
 
 ## 01 April 2021
 {: #april-01-2021}

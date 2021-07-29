@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-30"
+lastupdated: "2021-07-29"
 
 subcollection: vpc
 
@@ -45,6 +45,8 @@ You can track the resizing of an instance in Activity Tracker and/or {{site.data
 
 Virtual servers that are running on dedicated hosts can only be resized to profiles that are supported by the dedicated host that the instance is hosted on. For example, a virtual server that is provisioned with a profile from the Memory family can resize to other profiles also belonging to the Memory family.
 
+Resizing virtual servers on dedicated hosts is not supported for LinuxONE (s390x processor architecture).  
+{: note}
 
 ## Resizing with instance storage
 {: #resizing-with-instance-storage}
@@ -100,7 +102,7 @@ Use the `instance-update` command to resize a virtual server.
 
 1. Run the following command to find the name of the profile you want to use:
    ```
-   curl  -s -X GET "<api_endpoint>/v1/instance/profiles?generation=2&version=2021-02-01" -H "Authorization: Bearer <IAM token>" 
+   curl  -s -X GET "<api_endpoint>/v1/instance/profiles?generation=2&version=2021-02-01" -H "Authorization: Bearer <IAM token>"
    ```
 2. Select a profile that will work with your instance.
     * For a virtual server that is running on a dedicated host, choose a profile that the dedicated host supports.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-25"
+lastupdated: "2021-07-29"
 
 keywords: custom os, creating a custom os, custom operating system, creating a custom operating system, kernel, custom kernel
 
@@ -99,3 +99,32 @@ The following kernel options are required when you build a Linux operating syste
   - The virtual HBA driver for virtio
 - CONFIG_VIRTIO_NET = y
   - The virtual network driver for virtio
+
+
+## Hardware requirements for LinuxONE (s390x processor architecture)   
+{: #hardware-requirements-linuxone}
+
+The following hardware is provided for LinuxONE (s390x processor architecture).
+
+- VIRTIO_BLK
+- VIRTIO_NET
+- IBM z15
+- Virtual ASCII console
+- Virtual channel subsystem
+
+
+## Custom Linux kernel build options
+{: #custom-linux-kernel-linuxone-options}
+
+The following kernel options are required for LinuxONE (s390x processor architecture).
+
+- CONFIG_VIRTIO_BLK=Y
+  - Block device support
+- CONFIG_VIRTIO_NET=Y
+  - Network device support
+- CONFIG_S390_GUEST=Y
+  - KVM guest handling including virtio-ccw
+- CONFIG_SCLP_VT220_TTY=Y
+  - tty on virtual ascii console
+- CONFIG_SCLP_VT220_CONSOLE=Y
+  - Boot console on virtual ascii console

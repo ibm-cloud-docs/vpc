@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-06-30"
+lastupdated: "2021-07-29"
 
 keywords: instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, vpc, creating, CLI, command line interface, generation 2, gen 2
 
@@ -27,6 +27,9 @@ subcollection: vpc
 You can create instances by using the command-line interface (CLI).
 {:shortdesc}
 
+{{site.data.keyword.cloud_notm}} CLI is not supported on LinuxONE (s390x processor architecture). However, you can install the CLI on another supported platform and use it with LinuxONE (s390x processor architecture) virtual server instances.
+{:note}
+
 ## Before you begin
 {: #vefore-creating-virtual-servers-cli}
 
@@ -36,7 +39,7 @@ You can create instances by using the command-line interface (CLI).
     For more information, see [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 
 2. Make sure that you already [created a VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
- 
+
 ## Gathering information to create an instance by using the CLI
 {: #gather-info-to-create-virtual-servers-cli}
 
@@ -46,11 +49,11 @@ Gather the following information:
 
 |    Instance details   |  Listing options                |
 | --------------------- | --------------------------------|
-| Image                 | `ibmcloud is images`            | 
+| Image                 | `ibmcloud is images`            |
 | Profile               | `ibmcloud is instance-profiles` |
-| Key                   | `ibmcloud is keys`              | 
-| VPC                   | `ibmcloud is vpcs`              | 
-| Subnet                | `ibmcloud is subnets`           | 
+| Key                   | `ibmcloud is keys`              |
+| VPC                   | `ibmcloud is vpcs`              |
+| Subnet                | `ibmcloud is subnets`           |
 | Zone                  | `ibmcloud is zones`             |   
 | Placement groups      | `ibmcloud is placement-groups`  |
 {: caption="Table 1. Required instance details" caption-side="top"}   
@@ -164,7 +167,7 @@ Use the following commands to determine the required information for creating a 
    {:screen}
 
    If you do not have one available, you can create an SSH key by using the `ibmcloud is key-create` command. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
-   
+
 8. List all the available placement groups that you can associate with your instance.
     ```
     ibmcloud is placement-groups
@@ -172,7 +175,7 @@ Use the following commands to determine the required information for creating a 
     {:pre}
 
     For this example, you'd see a response similar to the following output.
-    
+
     ```
     Listing placement groups for generation 2 compute in all resource groups and region us-east under account vpcdemo as user    yaohaif@cn.ibm.com...
     ID                                            Name                             State    Strategy       Resource Group   
@@ -256,7 +259,7 @@ After you know these values, use them to run the `instance-create` command. In a
                      r134-a812ff17-cac5-4e20-8d2b-95b587be6637   mypg2-re   placement_group  
    ```
    {:screen}
-   
+
    Information about the network interfaces that are created for the new instance is not returned after the instance is created. You can view it using the command provided in **Step 2**.
    {: note}
 
