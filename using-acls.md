@@ -22,7 +22,7 @@ subcollection: vpc
 {:external: target="_blank" .external}
 
 
-# Setting up network ACLs
+# About network ACLs
 {: #using-acls}
 [comment]: # (linked help topic)
 
