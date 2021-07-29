@@ -33,11 +33,8 @@ When you provision {{site.data.keyword.vsi_is_full}}, you can select from the su
 
 The following operating systems are available as stock images when you create a virtual server.
 
-<!-- * CentOS 7.x
-* Debian 8.x, 9.x
-* Red Hat Enterprise Linux 7.x-0
-* Ubuntu 16.04, 18.04
-* Windows 2012, 2012 R2, 2016 -->
+### Supported x86_64 stock image operating systems
+{: #x86-supported-os}
 
 | Image | Architectures |
 |---------|---------|
@@ -46,7 +43,7 @@ The following operating systems are available as stock images when you create a 
 | Red Hat Enterprise Linux 7.x, 8.x | x86-64 |
 | Ubuntu 16.04.x, 18.04.x, 20.04.x | x86-64 |
 | Windows 2012, 2012 R2, 2016, 2019 | x86-64 |  |
-{: caption="Table 1. Stock boot images provided" caption-side="top"}
+{: caption="Table 1. Supported x86_64 stock image operating systems" caption-side="top"}
 
 ### Supported LinuxONE (s390x processor architecture) stock image operating systems
 {: #s390x-supported-os}
@@ -63,11 +60,6 @@ When you order an instance, the images are cloud-init enabled to optimize creati
 You can access details about each operating system, such as the url for the operating system, by using the API call, [Retrieves all operating systems](https://cloud.ibm.com/apidocs/vpc#retrieves-all-operating-systems){: external}.  
 {: tip}
 
-<!---### Image support for GPUs
-{: #gpu-images}
-
-The only stock image that currently supports GPU profiles is the Ubuntu 18.04 image for the Power Architecture. The GPU profiles are available for the POWER architecture. The NVIDIA kernel driver for the Tesla V100 GPUs must be installed in your instance before use. For more information, see [Setting up GPU drivers for POWER-based instances](/docs/vpc?topic=vpc-setup-gpus).-->
-
 ### Stock image naming conventions
 {: #image-naming-conventions}
 
@@ -77,7 +69,7 @@ All IBM-provided stock, public images are named by using the following conventio
 ibm-<family>-<version>-<type>-<architecture>-<build>
 ```
 
-For example:
+For example,
 
 ```
 ibm-centos-7-6-minimal-amd64-2
@@ -88,7 +80,7 @@ The following list explains the variables that make up the components of the ima
 * The `family` component provides the operating system family, such as *redhat*, *debian* or *windows-server*.
 * The `version` component provides the operating system version, such as *18-04* for Ubuntu 18.04, or *2012-r2* for Windows 2012 R2.
 * The `type` component provides the minimization level of the operating system image, such as *minimal* or *full*.
-* The `architecture` component provides the vCPU architecture that is supported by the operating system image, such as *amd64*.
+* The `architecture` component provides the vCPU architecture that is supported by the operating system image, such as *amd64* or *s390x*.
 * The `build` component is a small, non-negative integer that is incremented each time a new build of the operating system is created. For image names that are otherwise identical, the image with the highest build value is the most recent image for that operating system.
 
 You can obtain the current list of images, including stock images, by running the following command in the command-line interface: [ibmcloud is images](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#images).
