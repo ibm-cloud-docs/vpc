@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-07-29"
+lastupdated: "2021-07-30"
 
 keywords: instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, vpc, creating, CLI, command line interface, generation 2, gen 2
 
@@ -127,14 +127,15 @@ Use the following commands to determine the required information for creating a 
 
    For this example, you'd see a response similar to the following output:
    ```
-   Name        CPU Arch   CPU Cores   CPU Frequency   Memory   GPU Model   GPU Cores   GPU Count   CPU Memory   Max Volumes   Max IOPS   Max Interfaces   Network Performance Cap   
-   B_2X4       amd64      2           2000            4                    0           0           0            25            0          0                0   
-   B_4X8       amd64      4           2000            8                    0           0           0            100           0          0                0   
-   M_16X128    amd64      16          2000            128                  0           0           0            25            0          0                0   
-   B_48X192    amd64      48          2000            192                  0           0           0            100           0          0                0   
-   B_8X32      amd64      8           2000            32                   0           0           0            100           0          0                0   
-   C_16X16     amd64      16          2000            16                   0           0           0            25            0          0                0   
-   M_4X32      amd64      4           2000            32                   0           0           0            100           0          0                0     
+   Name             Architecture   Family              vCPUs   Memory(GiB)   Network(Gbps)   GPUs   Storage(GB)   
+   bx2-2x8          amd64          balanced            2       8             4               -      -
+   bx2d-2x8         amd64          balanced            2       8             4               -      1x75
+   bx2-4x16         amd64          balanced            4       16            8               -      -
+   cx2-16x32        amd64          compute             16      32            32              -      -
+   mx2-4x32         amd64          memory              4       32            8               -      -   
+   mx2d-4x32        amd64          memory              4       32            8               -      1x150
+   gx2-16x128x1v00  amd64          gpu-v100            16      128           32              1      -
+   gx2-16x128x2v00  amd64          gpu-v100            16      128           32              2      -     
    ```
    {:screen}
 
