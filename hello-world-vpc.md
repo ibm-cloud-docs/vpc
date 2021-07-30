@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-08-27"
+  years: 2019, 2021
+lastupdated: "2021-07-30"
 
 keywords: cli, command line interface, tutorial, creating a vpc
 
@@ -232,6 +232,7 @@ From the output that's returned, save the ID of the primary network interface (`
 ```
 nic="0738-4d9b3a58-f796-4e6a-b5ac-84f4216e9b68-glhvl"
 ```
+{: pre}
 
 ## Create a block storage data volume
 {: #create-block-storage-data-volume-cli}
