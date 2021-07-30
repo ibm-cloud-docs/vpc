@@ -231,10 +231,10 @@ GPU profiles include attached NVIDIA 16 GB PCIe v100 GPUs. GPU profiles are avai
 
 | Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Number of GPUs |
 |---------|---------|---------|---------|---------|
-| gx2-8x64x1v00 | 8 | 64 | 16 | 1 |
-| gx2-16x128x1v00 | 16 | 128 | 32 | 1 |
-| gx2-16x128x2v00 | 16 | 128 | 32 | 2 |
-| gx2-32x256x2v00 | 32 | 256 | 64 | 2 |
+| gx2-8x64x1v100 | 8 | 64 | 16 | 1 |
+| gx2-16x128x1v100 | 16 | 128 | 32 | 1 |
+| gx2-16x128x2v100 | 16 | 128 | 32 | 2 |
+| gx2-32x256x2v100 | 32 | 256 | 64 | 2 |
 {: caption="Table 6. GPU profile options" caption-side="top"}
 
 If you are using GPU profiles, you might need to install the CUDA toolkit onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
