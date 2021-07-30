@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021
-lastupdated: "2021-06-30"
+lastupdated: "2021-07-30"
 
 keywords: virtual private cloud, private cloud network, placement group, placement group strategy, host spread, power spread, generation 2, gen 2
 
@@ -30,9 +30,6 @@ subcollection: vpc
 
 With placement groups for {{site.data.keyword.vpc_full}}, you can create policies for managing high availability workloads. You can specify a choice of placement policies for a group of provisioned instances. You can use these policies to influence the physical placement of select VPC virtual servers to meet certain workload demands. 
 {:shortdesc}
-
-Placement groups are only available to accounts with special approval to preview this beta feature. Contact your IBM Sales representative if you are interested in getting access.
-{: beta}
 
 After the placement group is created, you can assign a selected virtual server instance or a group of virtual server instances to the placement group. When you provision these instances, the instance is then placed on a computer host in the designated zone for the instance based on the placement group strategy. You can use the same placement group for instances across multiple VPCs.
 
@@ -123,6 +120,7 @@ The following example creates a placement group with a host spread strategy, nam
 ```
 ibmcloud is placement-group-create --strategy host_spread --name MyPlacementGroup --resource-group-id RESOURCE_GROUP_ID --resource-group-name RESOURCE_GROUP_NAME
 ```
+{: pre}
 
 ## Creating a placement group with the API
 {: #creating-placement-group-API}
@@ -138,6 +136,8 @@ curl -X POST "$vpc_api_endpoint/v1/placement_groups?version=2021-04-20&generatio
       "strategy": "host_spread"
     }'
 ```
+{: pre}
+
 For more information about the `host_spread` and `power_spread` strategy variables, see [Create a placement group](https://test.cloud.ibm.com/apidocs/vpc-scoped#create-placement-group) in the Virtual Private Cloud API documentation.
 
 ## Changing the placement group name with the UI
@@ -164,6 +164,7 @@ The following example updates the placement group with the ID `72251a2e-d6c5-42b
 ```
 ibmcloud is placement-group-update 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --name NEW_NAME
 ```
+{: pre}
 
 ## Changing the placement group name with the API
 {: #changing-placement-group-name-API}
@@ -176,6 +177,7 @@ curl -X PATCH "$vpc_api_endpoint/v1/placement_groups/$id?version=2021-05-04&gene
       "name": "my-updated-placement-group",
     }'
 ```
+{: pre}
 
 ## Deleting a placement group with the UI
 {: #deleting-placement-group-UI}
@@ -201,6 +203,7 @@ The following example deletes a placement group named `PLACEMENT_GROUP`.
 ```
 ibmcloud is placement-group-delete PLACEMENT_GROUP --output JSON
 ```
+{: pre}
 
 ## Deleting a placement group with the API
 {: #deleting-placement-group-API}
@@ -213,6 +216,7 @@ The following example deletes the placement group.
 ```
 curl -X DELETE "$vpc_api_endpoint/v1/placement_groups/$id?version=2021-04-20&generation=2" -H "Authorization: $iam_token"
 ```
+{: pre}
 
 ## Listing all placement groups with the UI
 {: #listing-placement-group-UI}
@@ -237,6 +241,7 @@ The following example lists all the existing placement groups for the resource g
 ```
 ibmcloud is placement-groups --resource-group-id RESOURCE_GROUP_ID --resource-group-name RESOURCE_GROUP_NAME --all-resource-groups --output JSON
 ```
+{: pre}
 
 ## Listing all placement groups with the API
 {: #listing-placement-group-API}
@@ -247,6 +252,7 @@ You can generate a list of placement groups for a region. The following example 
  ```
  curl -X GET "$vpc_api_endpoint/v1/placement_groups?version=2021-04-20&generation=2" -H "Authorization: $iam_token"
  ```
+ {: pre}
 
 ## Viewing placement group details with the UI
 {: #view-placement-group-details-UI}
@@ -274,6 +280,7 @@ The following example retrieves the details for a placement group named `PLACEME
 ```
 ibmcloud is placement-group PLACEMENT_GROUP --output JSON
 ```
+{: pre}
 
 ## Viewing placement group details with the API
 {: #view-placement-group-details-API}
@@ -287,3 +294,4 @@ The following example retrieves a single placement group that is specified by th
 ```
 curl -X GET "$vpc_api_endpoint/v1/placement_groups/$id?version=2021-04-20&generation=2" -H "Authorization: $iam_token"
 ```
+{: pre}
