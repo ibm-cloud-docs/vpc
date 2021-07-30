@@ -44,7 +44,6 @@ Use one of the following public endpoints to connect to the VPC infrastructure A
 | São Paulo         | `https://br-sao.iaas.cloud.ibm.com`   | `https://br-sao.private.iaas.cloud.ibm.com` |
 {: caption="Table 1. VPC API Regional Endpoints" caption-side="top"}
 
-
 LinuxONE (s390x processor architecture) profiles are supported on virtual server instances in Tokyo.   
 {:note}
 
