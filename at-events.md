@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-07-20"
+lastupdated: "2021-07-30"
 
 keywords: activity tracker, events
 
@@ -267,6 +267,7 @@ The following tables list the actions that are related to compute resources and 
 | instance | is.instance.disk.read | One or more instance storage disks was retrieved |
 | instance | is.instance.disk.update | Instance storage disk name was updated |
 | instance | is.instance.disk.wipe | Instance storage disk was wiped clean |
+| instance | is.instance.gpu.wipe | Memory was wiped on the GPU for the Instance |
 {: caption="Table 12. Actions that generate events for Instance" caption-side="top"}
 
 ### Bare metal server events
