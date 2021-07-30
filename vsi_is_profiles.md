@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2021
-lastupdated: "2021-07-29"
+lastupdated: "2021-07-30"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, generation 2, gen 2
 
@@ -43,8 +43,7 @@ The following profile families are available:
 | [Compute](#compute)  | Best for moderate to high web traffic workloads. Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers. |
 | [Memory](#memory) | Best for memory caching and real-time analytics workloads. Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. |
 | [Ultra High Memory](#uhmemory) | Ultra High Memory profiles offer the highest vCPU to memory ratios with 1 vCPU to 28 GiB of RAM to serve in-memory OLTP databases, such as SAP. |
-
-<!---| [GPU](#gpu) | Best for artificial intelligence (AI) and deep learning workloads. Available for POWER processing architecture only. | -->
+| [GPU](#gpu) | Best for artificial intelligence (AI) and deep learning workloads. Available for x86_64 processors only. |
 {: caption="Table 1. Virtual server family selections" caption-side="top"}
 
 ## Balanced
@@ -225,26 +224,23 @@ The following Ultra High Memory profiles are available for x86_64 processors:
 | ux2d-200x5600 | 200 | 5600 | 80 | 2x3000 |
 {: caption="Table 6. Ultra High Memory profiles options for x86-64 instances" caption-side="top"}
 
-<!-- ## GPU
+## GPU
 {: #gpu}
 
-GPU profiles are best for AI and deep learning workloads.
+GPU profiles include attached NVIDIA 16 GB PCIe v100 GPUs. GPU profiles are available for all images. The drivers must be installed separately. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus)
 
-The following GPU profiles, available for POWER-based instances, are provisioned with Ubuntu 18.04. The profiles feature NVLink 2.0 and PCIe Gen4 interconnects for faster CPU to GPU bandwidth and 50% faster networking I/O. Each GPU is a NVIDIA Tesla v100 and each includes 32 GBs of memory that contributes to the overall memory the VSI reports.
+| Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Number of GPUs |
+|---------|---------|---------|---------|---------|
+| gx2-8x64x1v00 | 8 | 64 | 16 | 1 |
+| gx2-16x128x1v00 | 16 | 128 | 32 | 1 |
+| gx2-16x128x2v00 | 16 | 128 | 32 | 2 |
+| gx2-32x256x2v00 | 32 | 256 | 64 | 2 |
+{: caption="Table 6. GPU profile options" caption-side="top"}
 
-** (GMW 10/20/20 - pulled out the table coding after the table header as it was causing a chkpii problem with the comment coding)
+If you are using GPU profiles, you might need to install the CUDA toolkit onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
+{:tip}
 
-| Profile | vCPU | GB RAM | Network Performance Cap (Gbps) | Number of GPUs |
-| gp2-24x224x2 | 24 |224 | 72 | 2 |
-| gp2-32x256x4 | 32 | 256 | 96 | 4 |
-| gp2-56x448x4 | 56 | 448 | 100 | 4 |
-| gp2-56x896x4 | 56 | 896 | 100 | 4 |
-{: caption="Table 6. Power GPU profile options" caption-side="top"}
-
-GPU profiles are supported by Ubuntu 18.04 only. For more information about supported operating systems, see [Images](/docs/vpc?topic=vpc-about-images). A few of the larger profile sizes might require you to increase your quota limit. To increase a quota for a particular resource, [contact support](/docs/get-support?topic=get-support-getting-customer-support).
-
-If you are using GPU profiles, you might need to install the NVIDA kernel driver, the CUDA toolkit, or both onto your virtual server instance. For more information, see [Setting up GPU drivers for POWER-based instances](/docs/vpc?topic=vpc-setup-gpus).
-{:tip} -->
+For more information about persistent storage options, see [Storage notes for profiles](#storage-notes-for-profiles).
 
 For information about storage, see [Storage notes for profiles](#storage-notes-for-profiles).
 
@@ -263,7 +259,7 @@ The first character represents the profile families. Different profile families 
 -	"c": compute family of profiles (higher on the CPUs), 1 vCPU to 2 GiB of memory ratio
 -	"m": memory family of profiles (higher on the memory), 1 vCPU to 8 GiB of memory ratio
 - "u": ultra high memory family of profiles, 1 vCPU to 28 GiB of memory ratio
-<!-- *  "g" is GPU, which is a 1:8 or 1:16 ratio -->
+-  "g" is GPU, which is a 1:8 or 1:16 ratio
 
 The second character represents the CPU architecture.
 - "x": x86_64
@@ -339,3 +335,4 @@ After you choose a profile, it's time to create an instance.
 * [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers)
 * [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli)
 * [Creating an instance by using the API](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis#select-profile-and-image)
+* [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus)
