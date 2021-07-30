@@ -32,9 +32,6 @@ You can begin with an image template from the {{site.data.keyword.cloud_notm}} c
 Did you know that your can also create a custom image of a boot volume attached to an instance at import time? For more information, see [About creating an image from volume](/docs/vpc?topic=vpc-image-from-volume-vpc).
 {: tip}
 
-Windows custom images are not supported for LinuxONE (s390x processor architecture).  
-{:note}
-
 Your image must adhere to the following custom image requirements:
 * Contains a single file or volume
 * Is cloud-init enabled

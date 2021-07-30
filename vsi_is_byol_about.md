@@ -27,8 +27,6 @@ For RedHat Enterprise Linux (RHEL) and Windows operating systems, you can bring 
 {: #byol-vpc-concepts}
 With the BYOL feature, you can use your own license for a custom image that you create at your site and then upload to Cloud Object Storage (COS). When you import your custom image from COS to the VPC, IBM provides Red Hat Enterprise Linux and Windows *BYOL* operating system options that you must select to indicate that you are using a BYOL operating system. You use your BYOL custom images to create virtual server instances, just as you would from a stock image.
 
-The BYOL feature on LinuxONE (s390x processor architecture) supports RedHat Enterprise Linux (RHEL), and SUSE Linux Enterprise Server (SLES) operating systems.
-
 Images with a Red Hat Enterprise Linux BYOL operating system can be used to provision any instance; public or on a dedicated host. Images with a Windows BYOL operating system can be provisioned only to instances on a dedicated host or in a dedicated host group.
 
 There are no additional licensing charges for any virtual server instances that you create by using your BYOL custom image. For auditing and reporting purposes, IBM retains information for virtual server instances that you create from BYOL custom images.
@@ -96,12 +94,6 @@ To see all of the operating system versions from the API, make a`GET /operating_
 After you create a dedicated host, you can create virtual server instances using a BYOL custom image and your license. For the UI procedure, see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
 
 For information about creating a Windows custom image, see [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image).
-
-## BYOL for SLES
-{: #byol-zvsi-sles}
-
-If you are running LinuxONE (s390x processor architecture) you can use an IBM provided SLES image and the `SUSEConnect` command line tool to add the license to your installation and perform all the activation steps. For the procedure, see [How to register SLES using the SUSEConnect command line tool](https://www.suse.com/support/kb/doc/?id=000018564).
-
 
 For information about creating dedicated hosts and groups, see [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances).
 

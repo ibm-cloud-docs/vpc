@@ -45,16 +45,6 @@ The following operating systems are available as stock images when you create a 
 | Windows 2012, 2012 R2, 2016, 2019 | x86-64 |  |
 {: caption="Table 1. Supported x86_64 stock image operating systems" caption-side="top"}
 
-### Supported LinuxONE (s390x processor architecture) stock image operating systems
-{: #s390x-supported-os}
-
-| Image | Architectures |
-|---------|---------|
-|  Ubuntu 20.04.x | s390x |
-|  SUSE Linux Enterprise server (SLES) 15 SP1 | s390x |
-|  Red Hat Enterprise Linux 8.x | s390x |
-{: caption="Table 2. Supported s390x stock image operating systems" caption-side="top"}
-
 When you order an instance, the images are cloud-init enabled to optimize creation times. With a cloud-init enabled image, you can provide user data. In the **User Data** field on the order form, you can enter optional cloud-init user data for the server. For more information about user data and automation, see [User data](/docs/vpc?topic=vpc-user-data).
 
 You can access details about each operating system, such as the url for the operating system, by using the API call, [Retrieves all operating systems](https://cloud.ibm.com/apidocs/vpc#retrieves-all-operating-systems){: external}.  
@@ -80,7 +70,7 @@ The following list explains the variables that make up the components of the ima
 * The `family` component provides the operating system family, such as *redhat*, *debian* or *windows-server*.
 * The `version` component provides the operating system version, such as *18-04* for Ubuntu 18.04, or *2012-r2* for Windows 2012 R2.
 * The `type` component provides the minimization level of the operating system image, such as *minimal* or *full*.
-* The `architecture` component provides the vCPU architecture that is supported by the operating system image, such as *amd64* or *s390x*.
+* The `architecture` component provides the vCPU architecture that is supported by the operating system image, such as *amd64*.
 * The `build` component is a small, non-negative integer that is incremented each time a new build of the operating system is created. For image names that are otherwise identical, the image with the highest build value is the most recent image for that operating system.
 
 You can obtain the current list of images, including stock images, by running the following command in the command-line interface: [ibmcloud is images](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#images).

@@ -26,9 +26,6 @@ subcollection: vpc
 When you plan a snapshot strategy for your {{site.data.keyword.block_storage_is_short}} volumes, you might find this checklist helpful to set up and use the snapshot service.
 {:shortdesc}
 
-Snapshots are currently not supported for LinuxONE (s390x processor architecture).  
-{:note}
-
 ## Planning to create and use snapshots
 {: #planning-for-data-encryption}
 

@@ -39,12 +39,6 @@ You can quickly provision scalable generation 2 compute resources in your VPC by
 
 You can create instances with up to 80 Gbps network bandwidth per instance. Each instance can be multi-homed, that is, you can create multiple network interfaces per instance.
 
-##  Multi-architecture images
-{: #about-vpc-multiarchitecture-images}
-
-You can choose to create *virtual server instances* with different operating systems on x86_64 or LinuxONE (s390x processor architecture). For more information, see [Images](/docs/vpc?topic=vpc-about-images).
-
-
 ## Storage capabilities
 {: #about-vpc-storage-capabilities}
 

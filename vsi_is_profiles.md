@@ -80,21 +80,6 @@ The following Balanced profiles are available for x86_64 processors:
 | bx2d-128x512 | 128 | 512 | 80 | 2x400 |
 {: caption="Table 2. Balance profiles options for x86-64 instances" caption-side="top"}
 
-### Balanced profiles for s390x processors
-{: #balanced-s390x-profiles}
-
-The following Balanced profiles are available for LinuxONE (s390x processor architecture):
-
-| Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
-|---------|---------|---------|---------|---------|
-| bz2-1x2 | 1 | 2 | 2 | - |
-| bz2-1x4 | 1 | 4 | 2 | - |
-| bz2-2x8 | 2 | 8 | 4 | -
-| bz2-4x16 | 4 | 16 | 8 | -
-| bz2-8x32 | 8 | 32 | 16 | - |
-| bz2-16x64 | 16 | 64 | 32 | - |
-{: caption="Table 3. Balance profiles options for s390x instances" caption-side="top"}
-
 ## Compute
 {: #compute}
 
@@ -129,19 +114,6 @@ The following Compute profiles are available for instances with x86_64 processor
 | cx2d-128x256 | 128 | 256 | 80 | 2x2400 |
 {: caption="Table 4. Compute profile options for x86-64 instances" caption-side="top"}
 
-### Compute profiles for s390x processors
-{: #compute-s390x-profiles}
-
-The following Compute profiles are available for LinuxONE (s390x processor architecture):
-
-| Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
-|---------|---------|---------|---------|---------|
-| cz2-2x4 | 2 | 4 | 2 | - |
-| cz2-4x8 | 4 | 8 | 8 | - |
-| cz2-8x16 | 8 | 16 | 16 | - |
-| cz2-16x32 | 16 | 32 | 32 | - |
-{: caption="Table 5. Balance profiles options for s390x instances" caption-side="top"}
-
 ## Memory
 {: #memory}
 
@@ -175,19 +147,6 @@ The following memory profiles are available for instances with x86_64 processors
 | mx2-128x1024| 128 | 1024 | 80 | - |
 | mx2d-128x1024| 128 | 1024 | 80 | 2x2400|
 {: caption="Table 5. Memory profile options for x86-64 instances " caption-side="top"}
-
-### Memory profiles for s390x processors
-{: #memory-s390x-profiles}
-
-The following Memory profiles are available for LinuxONE (s390x processor architecture):
-
-| Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
-|---------|---------|---------|---------|---------|
-| mz2-2x16 | 2 | 16 | 4 | - |
-| mz2-4x32 | 4 | 32 | 8 | - |
-| mz2-8x64 | 8 | 64 | 16 | - |
-| mz2-16x128 | 16 | 128 | 32 | - |
-{: caption="Table 5. Balance profiles options for s390x instances" caption-side="top"}
 
 {: #callout-note}
 
@@ -247,7 +206,6 @@ The first character represents the profile families. Different profile families 
 
 The second character represents the CPU architecture.
 - "x": x86_64
-- "z": s390x
 
 The third character represents the generation of the IBM Cloud infrastructure where the profile is provisioned.
 -	"1": IBM Cloud Virtual Servers for Classic

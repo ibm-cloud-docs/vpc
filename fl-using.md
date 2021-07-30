@@ -41,9 +41,6 @@ Flow logs can help with a number of tasks, including:
 * Adhering to compliance regulations
 * Assisting with root cause analysis
 
-Flow logs are currently not supported for LinuxONE (s390x processor architecture).  
-{:note}
-
 ## Overview of features
 {: #fl-overview-of-features}
 
