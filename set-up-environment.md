@@ -60,7 +60,7 @@ Before you can use the CLI to create your VPC, you must install the IBM Cloud CL
    ```
    ibmcloud plugin install vpc-infrastructure
    ```
-  {: pre}
+   {: pre}
 
 The VPC CLI actions use the extension `is`. To learn how to use the CLI commands, you can run:
 
