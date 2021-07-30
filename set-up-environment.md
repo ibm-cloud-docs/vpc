@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-07-29"
+lastupdated: "2021-07-30"
 
 keywords: setup, environment, prerequisites, api, cli, command line interface, plugin, creating a vpc, iam, permissions, access, ssh key
 
@@ -69,6 +69,7 @@ ibmcloud is help
 ibmcloud is help vpc-create
 ibmcloud is help instance-create
 ```
+{: pre}
 
 To learn how to create resources by using the CLI, see [Creating a VPC using the CLI](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
 
@@ -111,6 +112,7 @@ To view the IAM token, run ``echo $iam_token``. The result should look like this
 ```
 Bearer <your token>
 ```
+{: screen}
 
 The Authorization header expects the token to begin with "Bearer". If the result doesn't include "Bearer", update the `iam_token` variable to include it. These examples assume that "Bearer" is included in the `iam_token`.
 
