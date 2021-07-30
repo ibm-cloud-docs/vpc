@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-06-30"
+lastupdated: "2021-07-30"
 
 keywords: virtual private cloud, private cloud network, placement group, placement group strategy, host spread, power spread, faq, faqs
 
@@ -25,9 +25,6 @@ subcollection: vpc
 
 # FAQs: Placement groups
 {: #faqs-for-placement-groups}
-
-Placement groups are available only to accounts with special approval to preview this beta feature. Contact your IBM Sales representative if you are interested in getting access.
-{: beta}
 
 ## Can I assign my instance to more than one placement group?  
 {: #faq-placement-groups-0}
@@ -73,3 +70,7 @@ No, placement groups and dedicated host are mutually exclusive. An instance can 
 {:faq}
 
 Yes, instances that are provisioned in different zones can be placed into the same placement group for both the host spread and power spread placement group strategies.
+
+
+
+
