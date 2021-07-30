@@ -134,8 +134,6 @@ Use the following commands to determine the required information for creating a 
    cx2-16x32        amd64          compute             16      32            32              -      -
    mx2-4x32         amd64          memory              4       32            8               -      -   
    mx2d-4x32        amd64          memory              4       32            8               -      1x150
-   gx2-16x128x1v00  amd64          gpu-v100            16      128           32              1      -
-   gx2-16x128x2v00  amd64          gpu-v100            16      128           32              2      -     
    ```
    {:screen}
 
