@@ -43,7 +43,7 @@ The following profile families are available:
 | [Compute](#compute)  | Best for moderate to high web traffic workloads. Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers. |
 | [Memory](#memory) | Best for memory caching and real-time analytics workloads. Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. |
 | [Ultra High Memory](#uhmemory) | Ultra High Memory profiles offer the highest vCPU to memory ratios with 1 vCPU to 28 GiB of RAM to serve in-memory OLTP databases, such as SAP. |
-| [GPU](#gpu) | Best for artificial intelligence (AI) and deep learning workloads. Available for x86_64 processors only. |
+<!--- | [GPU](#gpu) | Best for artificial intelligence (AI) and deep learning workloads. Available for x86_64 processors only. | -->
 {: caption="Table 1. Virtual server family selections" caption-side="top"}
 
 ## Balanced
@@ -224,22 +224,6 @@ The following Ultra High Memory profiles are available for x86_64 processors:
 | ux2d-200x5600 | 200 | 5600 | 80 | 2x3000 |
 {: caption="Table 6. Ultra High Memory profiles options for x86-64 instances" caption-side="top"}
 
-## GPU
-{: #gpu}
-
-GPU profiles include attached NVIDIA 16 GB PCIe v100 GPUs. GPU profiles are available for all images. The drivers must be installed separately. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus)
-
-| Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Number of GPUs |
-|---------|---------|---------|---------|---------|
-| gx2-8x64x1v100 | 8 | 64 | 16 | 1 |
-| gx2-16x128x1v100 | 16 | 128 | 32 | 1 |
-| gx2-16x128x2v100 | 16 | 128 | 32 | 2 |
-| gx2-32x256x2v100 | 32 | 256 | 64 | 2 |
-{: caption="Table 6. GPU profile options" caption-side="top"}
-
-If you are using GPU profiles, you might need to install the CUDA toolkit onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
-{:tip}
-
 For more information about persistent storage options, see [Storage notes for profiles](#storage-notes-for-profiles).
 
 For information about storage, see [Storage notes for profiles](#storage-notes-for-profiles).
@@ -335,4 +319,3 @@ After you choose a profile, it's time to create an instance.
 * [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers)
 * [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli)
 * [Creating an instance by using the API](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis#select-profile-and-image)
-* [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus)
