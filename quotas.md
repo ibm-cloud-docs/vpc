@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-07-19"
+lastupdated: "2021-07-30"
 
 keywords: quotas, vpc, resources, limits
 
@@ -161,7 +161,7 @@ If you already have block storage volumes for Gen 1 Compute instances, you are l
 | Instances | 4 instances per placement group per region with power_spread placement policy. |
 {: caption="Table 11. Quotas for placement groups" caption-side="top"}
 
-For the Beta release, the quotas for placement groups are set and can't be adjusted.
+The quotas for placement groups are set and can't be adjusted.
 {: note}
 
 ## Service limits
