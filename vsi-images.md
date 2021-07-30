@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-07-29"
+lastupdated: "2021-07-30"
 
 keywords: image, stock image, custom image, virtual private cloud, virtual server, power, generation 2, gen 2
 
