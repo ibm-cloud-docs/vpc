@@ -439,6 +439,7 @@ Virtual Private Cloud (VPC)
         vsi_is_troubleshooting.md
         block_storage_is_troubleshoot.md
         bare_metal_server_troubleshoot.md
+        instance_metadata_vpc_troubleshoot.md
 
     release-notes.md
     api-change-log.md
