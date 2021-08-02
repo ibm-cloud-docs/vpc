@@ -36,7 +36,7 @@ This service is available only to accounts with special approval to preview this
 ## About trusted profiles for compute resource identities
 {: #imd-compute-res-identity}
 
-Trusted profiles for compute resource identities let you assign an IBM Cloud IAM identity to an individual compute resource. Instead of having to create a service ID, generate an API key, get the application to store and validate that key, you can assign IAM identity directly to the instance and acquire identity tokens.
+Trusted profiles for compute resource identities let you assign an IBM Cloud IAM identity to an individual compute resource. Instead of having to create a service ID, generate an API key, get the application to store and validate that key, you can assign IAM identity directly to the instance and acquire access tokens.
 
 The compute resource identity service creates IAM object called a **trusted profile**, against which you assign access rights to enable the instance to call IAM-enabled services, such as Cloud Object Storage and Key Protect. You create a trusted profile within the virtual server instance. Trusted profiles afford the benefit of defining authorization for all applications that are running on an instance.
 
@@ -69,7 +69,7 @@ The IAM token is obtained by exchanging the access token acquired through the me
 | 3    | IBM Cloud | VPC API | Make a call to create a new instance, configured with the [metadata service](/docs/vpc?topic=vpc-imd-configure-service) enabled. Specify any user data. Alternately, [enable an existing instance to use the metadata service](/docs/vpc?topic=vpc-imd-configure-service#imd-metadata-service-enable). |
 | 4    | IBM Cloud | IAM | Make a call to link the instance to the trusted profile. |
 | 5    | VPC instance | VPC | Make a call to the metadata token service and get an [access token](/docs/vpc?topic=vpc-imd-configure-service#imd-get-token). |
-| 6    | VPC instance | IAM |  Make a call to [exchange the JSON web token for an IAM token](/docs/vpc?topic=vpc-imd-configure-service#imd-token-exchange). The IAM token allows access to all IAM-enabled services. |
+| 6    | VPC instance | IAM |  Make a call to [exchange the metadata service access token for an IAM token](/docs/vpc?topic=vpc-imd-configure-service#imd-token-exchange). The IAM token allows access to all IAM-enabled services. |
 | 7    | VPC instance | IAM-enabled service | Pass the IAM token to call an IAM-enabled service API. The required access rights to the service exist in the trusted profile. |
 {: caption="Table 1. Procedure for using a trusted profile for accessing instance metadata" caption-side="top"}
 

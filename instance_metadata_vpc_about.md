@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-30"
+lastupdated: "2021-08-02"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -70,7 +70,10 @@ Metadata is obtained by calling REST APIs that provide instance, SSH key, and pl
 
 These endpoints are accessible only within a running virtual server instance.
 
-You [enable the metadata service](/docs/vpc?topic=vpc-imd-get-metadata#imd-metadata-service-enable) by setting a toggle in the VPC API when creating a new instance (`POST /instance`) or updating an existing instance (`PATCH /instance`).
+You [enable the metadata service](/docs/vpc?topic=vpc-imd-get-metadata#imd-metadata-service-enable) by setting a toggle in the VPC API when creating a new instance (`POST /instance`) or updating an existing instance (`PATCH /instance`). 
+
+Be default, the service is enabled for virtual server instances created on accounts participating in the Beta release. If you want to disable the service, see [Enable or disable the instance metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-metadata-service-enable).
+{:note}
 
 The metadata service intercepts all requests to the service's IP and then routes them to the specific services to handle these requests. As part of the request to the metadata service, you include the access token.
 

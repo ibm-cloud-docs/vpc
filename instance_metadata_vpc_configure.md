@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-30"
+lastupdated: "2021-08-02"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -27,7 +27,7 @@ subcollection: vpc
 # Configure the metadata service (Beta)
 {: #imd-configure-service}
 
-Configure the metadata service by obtaining a JSON web token to access the metadata service or IBM Cloud Identity and Access Management (IAM)-enabled services in the account. Optionally, exchange the web token for an IAM token. Create a trusted profile with these access rights to allow the instance to call the metadata service.
+Configure the metadata service by obtaining an access token the metadata service. Optionally, exchange this token with an IAM token to access IAM-enabled services in the account. Create a trusted profile with these access rights to allow the instance to call the metadata service.
 {:shortdesc}
 
 This service is available only to accounts with special approval to preview this beta feature.
@@ -44,7 +44,7 @@ Windows users have additional requirements to set up the metadata service. For i
 ### Access token concepts
 {: #imd-token-concepts}
 
-A JSON web token provides your security credential for accessing the metadata service. It's a signed JWT token with a set of claims based on information about the instance and information passed in the token request.
+An access token provides your security credential for accessing the metadata service. It's a signed token with a set of claims based on information about the instance and information passed in the token request.
 
 To interact with the token server, you make a REST API `PUT "http://169.254.169.254/instance_identity/v1/token` call that invokes a well-known, non-routable IP address. You access the token from within the instance. Communication between the instance and metadata service never leaves the host.
 
@@ -55,7 +55,7 @@ The response (a JSON payload) contains the token. Use the token to access the me
 ### Acquire an access token
 {: #imd-json-token}
 
-Make `PUT "http://169.254.169.254/instance_identity/v1/token` call to get a JSON web token from the metadata token service. The following example uses `jq` to parse the JSON API response and then extract the access token value. You can use your preferred tool.
+Make `PUT "http://169.254.169.254/instance_identity/v1/token` call to get an access token from the metadata token service. The following example uses `jq` to parse the JSON API response and then extract the access token value. You can use your preferred tool.
 
 In the example, the return value of the cURL command is the token, which is extracted by `jq` and placed in the `access_token` evironment variable. You use specify this variable in the `GET` call to the metadata service, to reach the metadata endpoint. For more information, see [Retrieve metadata from your running instances](/docs/vpc?topic=vpc-imd-get-metadata#imd-retrieve-instance-data).
 
@@ -89,12 +89,12 @@ ACCESS_TOKEN = <token_string>
 ```
 {:pre}
 
-## Exchange a JSON web token for an IAM token
+## Exchange a metadata service access token for an IAM token
 {: #imd-token-exchange}
 
 To access IBM Cloud IAM-enabled services in the account, you can exchange the access token for an IAM token using trusted profile information. After you exchange the token, it functions as the original token for the instance metadata service and can be used to access IAM-enabled services, such as Cloud Object Storage, Cloud Database Service, as well as the VPC APIs. You can re-use the token multiple times for either service.
 
-You exchange the token with an IAM token by invoking a `POST` request within the virtual machine. The request specifies the token variable and creates a [trusted profile](/docs/vpc?topic=vpc-imd-trusted-profile-metadata) within IAM. This exchanges the access token with an IAM token linked to the trusted profile.
+You exchange the access token with an IAM token by invoking a `POST` request within the virtual machine. The request specifies the token variable and creates a [trusted profile](/docs/vpc?topic=vpc-imd-trusted-profile-metadata) within IAM. This exchanges the access token with an IAM token linked to the trusted profile.
 
 To exchange a token, make a call like this:
 
