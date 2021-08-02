@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-07-29"
+lastupdated: "2021-07-30"
 
 keywords: release notes, changes, updates
 
@@ -27,6 +27,12 @@ subcollection: vpc
 
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
+
+## 30 July 2021 
+
+{: #july-30-2021}
+
+**Instance Metadata for VPC (closed Beta):** If your account is granted special approval to preview this feature, you can access metadata about your VPC compute resources. The metadata service is a REST API that you invoke using a well-known URI to retrieve instance-specific information from the metadata server. For more information, see [About Instance Metadata for VPC (Beta)](/docs/vpc?topic=vpc-imd-about).
 
 ## 26 July 2021
 {: #july-26-2021}
