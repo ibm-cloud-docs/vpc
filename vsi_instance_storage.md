@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-07-28"
+lastupdated: "2021-08-03"
 
 keywords: instance storage, local disk, storage, temporary storage, generation 2, gen 2
 
