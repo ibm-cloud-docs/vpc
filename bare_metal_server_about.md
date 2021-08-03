@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-20"
+lastupdated: "2021-08-03"
 
 keywords: bare metal servers, vpc, baremetal, what is bare metal
 
@@ -87,9 +87,13 @@ In addition, note the following differences regarding lifecycle operations:
 ## High-level architecture of Bare Metal Servers for VPC
 {: #architecture-diagram}
 
-Refer to the diagram below for a high-level overview of the architecture of Bare Metal Servers for VPC. For more information about VPC workload isolation architecture, see [VPC workload isolation architecture](/docs/vpc?topic=vpc-vpc-isolation#vpc_architecture).
+Figure 1 shows an example of how bare metal servers can utilize the VPC networking functionality. For more information about VPC networking, see [About networking](/docs/vpc?topic=vpc-about-networking-for-vpc).
 
-  ![Figure showing high-level architecture of Bare Metal Servers for VPC](images/bare_metal_server_archi_diagram.png "Figure showing high-level architecture of Bare Metal Servers for VPC"){: caption="Figure 1. High-level architecture of Bare Metal Servers for VPC" caption-side="top"}
+  ![Figure showing connectivity and security of Bare Metal Servers for VPC](images/bare_metal_server_network_diagram.png "Figure showing connectivity and security of Bare Metal Servers for VPC"){: caption="Figure 1. Bare Metal Servers for VPC connectivity and security" caption-side="top"}
+
+Refer to Figure 2 for the isolation architecture of Bare Metal Servers for VPC. For more information about VPC workload isolation architecture, see [VPC workload isolation architecture](/docs/vpc?topic=vpc-vpc-isolation#vpc_architecture).
+
+  ![Figure showing isolation architecture of Bare Metal Servers for VPC](images/bare_metal_server_archi_diagram.png "Figure showing isolation architecture of Bare Metal Servers for VPC"){: caption="Figure 2. Isolation architecture of Bare Metal Servers for VPC" caption-side="top"}
 
 ## Next steps
 {: #next-step}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-11-12"
+  years: 2019, 2021
+lastupdated: "2021-08-03"
 
 keywords: volume, capacity, block storage
 
@@ -17,7 +17,6 @@ subcollection: vpc
 {:important: .important}
 {:DomainName: data-hd-keyref="DomainName"}
 {:pre: .pre}
-{:beta: .beta}
 
 # Managing volume count and capacity limits
 {: #manage-storage-limit}
@@ -28,15 +27,9 @@ subcollection: vpc
 ## Overview
 {: #manage-storage-limit-overview}
 
-{{site.data.keyword.block_storage_is_short}} lets you create up to 750 Gen 2 boot and data block storage volumes per account in a region. You can request an increase of this quota by contacting [IBM Support](https://{DomainName}/unifiedsupport/cases/add){: external} and submitting a support ticket.
+{{site.data.keyword.block_storage_is_short}} lets you create up to 750 boot and data block storage volumes per account in a region. You can request an increase of this quota by contacting [IBM Support](https://{DomainName}/unifiedsupport/cases/add){: external} and submitting a support ticket.
 
-If you provisioned block storage volumes for Gen 1 Compute instances, you are limited to 300 total volumes across the Gen 1 and Gen 2 infrastructure. For example, if you have 200 Gen 1 block storage volumes, you can request 100 Gen 2 block storage volumes for a total of 300.
-{: note}
-
-Capacity for secondary volumes ranges from 10 to 2,000 GB. You can also request to increase this capacity for greater than 2,000 GB volumes. Also, when you participate in the Beta release, new volumes greater than 250 GB can be expanded in GB increments up to 16,000 GB capacity, depending on your profile. For more information, see [Expanding block storage volume capacity (Beta)](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
-
-Expandable volumes and volume capacity greater than 2,000 GB are Beta features available for evaluation and testing purposes. These features are available in the US South, US East, London, and France regions. Contact your IBM Sales representative if you are interested in getting access.
-{:beta}
+Capacity for secondary volumes ranges from 10 to 16,000 GB. You can also expand volume capacity within its IOPS tier profile or custom band. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 
 ## Volume count and storage limits checklist
 {: #manage-storage-limit-checklist}
@@ -51,11 +44,8 @@ Review the following checklist items and record your answers. Provide this infor
 - **How many volumes are primary boot volumes versus secondary data volumes?**
   For example, *"50% primary volumes, 50% secondary volumes" or "100 primary volumes, 100 secondary volumes".*
 
-- **Of the secondary volumes, how many secondary volumes do you need that are under 250 GB?**
-  For example, *"75% of the secondary volumes are under 250 GB.*
-
-- **For secondary volumes over 250 GB, estimate the number of volumes and capacity you need.**
-  For example, *"25 volumes (or 25%) will be up to 2,000 GB."* Note that you can request volumes over 2,000 GB capacity by participating in the Beta program. You must contact IBM support for access.
+- **Of the secondary volumes, how many secondary volumes do you need and of what capacity?**
+  For example, *"75% of the secondary volumes are under 250 GB and 25% will be up to 16,000 GB.*
 
 - **How many total volumes will use customer-managed encryption?**
   For example, *"100 volumes (or 50%) will use customer-managed encryption".*

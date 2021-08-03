@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2021
-lastupdated: "2021-07-30"
+lastupdated: "2021-08-03"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, generation 2, gen 2
 
@@ -29,8 +29,7 @@ subcollection: vpc
 # Instance Profiles
 {: #profiles}
 
-When you provision {{site.data.keyword.vsi_is_full}}, you can select from three families of profiles: Balanced, Compute, and Memory.
-<!-- add Ultra High Memory after 3/26--->
+When you provision {{site.data.keyword.vsi_is_full}}, you can select from four families of profiles: Balanced, Compute, Memory, and Ultra High Memory.
 
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, and network bandwidth. The attributes define the size and capabilities of the virtual server instance that is provisioned. In the {{site.data.keyword.Bluemix_notm}} console, you can select the most recently used profile or click **View All Profiles** to choose the profile that best fits your needs.
 {: shortdesc}
