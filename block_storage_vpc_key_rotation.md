@@ -25,7 +25,7 @@ subcollection: vpc
 # Key rotation for VPC resources
 {: #vpc-key-rotation}
 
-For {{site.data.keyword.vpc_short}} resources such as volumes and encrypted images that are protected by your customer root key (CRK), you can rotate the root keys for more security. When you rotate a root key by schedule or on demand, the original key material is replaced. The old key remains active to decrypt existing resources but can't be used to encrypt new ones. This feature is available on Gen 2 Compute resources only.
+For {{site.data.keyword.vpc_short}} resources such as volumes and encrypted images that are protected by your customer root key (CRK), you can rotate the root keys for more security. When you rotate a root key by schedule or on demand, the original key material is replaced. The old key remains active to decrypt existing resources but can't be used to encrypt new ones.
 {:shortdesc}
 
 ## Key rotation overview
@@ -41,7 +41,7 @@ You can set up a [rotation policy](#vpc-key-rotation-policies) to schedule autom
 
 For root keys that you import to the KMS instance, because you're providing new key material not already in the KMS, you can't set a rotation policy for automatic key rotation. Instead, you [manually rotate](#vpc-key-rotation-ui) your keys by using the new cryptographic key material that you imported.
 
-The key rotation feature is available for root keys and does not apply to standard encryption keys. Key rotation is available for encrypting resrouces on Gen 2 Compute resources only.
+The key rotation feature is available for root keys and does not apply to standard encryption keys.
 {:note}
 
 ### How key rotation works
