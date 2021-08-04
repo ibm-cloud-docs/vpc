@@ -107,13 +107,13 @@ Benefits of these interconnectivity offerings include:
 ## Routing considerations for IANA-registered IP assignments
 {: #routing-considerations-iana}
 
-{{site.data.keyword.cloud_notm}} VPC Gen2 supports the use of RFC-1918 and Regional Internet Registry (RIR) assigned addresses privately as VPC subnets. The following use cases require additional route configurations to designate the Internet Assigned Numbers Authority (IANA) assigned ranges for use in a Gen2 VPC when a floating IP or a public gateway is attached to a resource within the VPC.
+{{site.data.keyword.cloud_notm}} VPC supports the use of RFC-1918 and Regional Internet Registry (RIR) assigned addresses privately as VPC subnets. The following use cases require additional route configurations to designate the Internet Assigned Numbers Authority (IANA) assigned ranges for use in a VPC when a floating IP or a public gateway is attached to a resource within the VPC.
 
-* Use case 1: Gen2 VPC is connected to your Enterprise with {{site.data.keyword.cloud_notm}} Direct Link and requires communication with IANA-assigned networks on that Enterprise.
-* Use case 2: Gen2 VPC is connected to a Gen1 or Gen2 VPC through {{site.data.keyword.cloud_notm}} Transit Gateway and requires communication to IANA-assigned networks in the connected VPCs.  
-* Use case 3: Gen2 VPC is connected to a classic infrastructure network by using BCR peering to announce IANA-assigned ranges to the classic network.
+* Use case 1: VPC is connected to your Enterprise with {{site.data.keyword.cloud_notm}} Direct Link and requires communication with IANA-assigned networks on that Enterprise.
+* Use case 2: VPC is connected to another VPC through {{site.data.keyword.cloud_notm}} Transit Gateway and requires communication to IANA-assigned networks in the connected VPCs.  
+* Use case 3: VPC is connected to a classic infrastructure network by using BCR peering to announce IANA-assigned ranges to the classic network.
 
-In these scenarios, each subnet in the Gen2 VPC must have a routing table attached with routes designating the IANA-assigned ranges as targets for private routing, or all traffic to these publicly routable ranges is forwarded toward the public backbone, and not toward the intended private network destination. This applies to Gen2 VPC subnets using RFC-1918 "and" IANA assigned prefixes. As with all custom route additions, the routing table must include a route for each Availability Zone (AZ) requiring connectivity.
+In these scenarios, each subnet in the VPC must have a routing table attached with routes designating the IANA-assigned ranges as targets for private routing, or all traffic to these publicly routable ranges is forwarded toward the public backbone, and not toward the intended private network destination. This applies to VPC subnets using RFC-1918 "and" IANA assigned prefixes. As with all custom route additions, the routing table must include a route for each Availability Zone (AZ) requiring connectivity.
 
 Options include:
 
