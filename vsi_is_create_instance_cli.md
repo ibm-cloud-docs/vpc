@@ -180,6 +180,7 @@ Use the following commands to determine the required information for creating a 
     placement-group-bbbb-bbbb-bbbb-bbbbbbbbbbbb   vsi-placementGroup2              stable   power_spread     5018a8564e8120570150b0764d39ebcc   
     placement-group-aaaa-aaaa-aaaa-aaaaaaaaaaaa   vsi-placementGroup3              stable   power_spread   1d18e482b282409e80eff354c919c6a2
     ```
+    {:screen}
 
 ## Creating an instance by using the CLI
 {: #create-instance-cli}
@@ -215,7 +216,7 @@ After you know these values, use them to run the `instance-create` command. In a
        --volume-attach @/Users/myname/myvolume-attachment_create.json
        --placement-group r134-a812ff17-cac5-4e20-8d2b-95b587be6637
    ```
-   {:pre}
+   {:screen}
 
    Where:
    - `INSTANCE_NAME` is _my-instance_
