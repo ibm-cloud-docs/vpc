@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-30"
+lastupdated: "2021-08-04"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -27,7 +27,7 @@ subcollection: vpc
 # Accessing metadata from an instance (Beta)
 {: #imd-access-instance-metadata}
 
-Most often, you'll want to access metadata from a running instance and use that metadata to bootstrap an instance. This topic describes the general procedure for enabling the metadata service, creating an access token, and accessing the metadata. 
+Most often, you'll want to access metadata from a running instance and use that metadata to bootstrap an instance. This topic describes the general procedure for enabling the metadata service, creating an instance identity access token, and accessing the metadata. 
 
 {:shortdesc}
 
