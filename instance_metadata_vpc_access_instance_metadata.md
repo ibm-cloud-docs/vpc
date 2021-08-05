@@ -86,7 +86,6 @@ Table 1 describes the steps involved to access instance metadata. The informatio
    curl -X GET “http://169.254.169.254/instance_identity/v1/token/?version=06-29-21” \
        -H "Metadata-Flavor: IBM" \
        -H "Accept: application/json" \
-       -H "Content-Type: application/json" \
        -d '{ 
          "expires_in": 3600 
        }' | jq -r '(.access_token)'`

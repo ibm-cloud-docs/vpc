@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-02"
+lastupdated: "2021-08-04"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -27,7 +27,7 @@ subcollection: vpc
 # Use the instance metadata service (Beta)
 {: #imd-get-metadata}
 
-After obtaining an access token, you can access the metadata service and retrieve metadata about a virtual server instance. The topic describes how to make calls to the API to access metadata instance, SSH key, and placement group metadata.
+After obtaining an instance identity access token, you can access the metadata service and retrieve metadata about a virtual server instance. The topic describes how to make calls to the API to access metadata instance, SSH key, and placement group metadata.
 {:shortdesc}
 
 This service is available only to accounts with special approval to preview this beta feature.
@@ -36,7 +36,7 @@ This service is available only to accounts with special approval to preview this
 ## Before you begin
 {: #imd-md-prereqs}
 
-To access metadata service, you must have an access token. If you haven't already obtained one, see [Aquire an access token](/docs/vpc?topic=vpc-imd-configure-service#imd-json-token).
+To access metadata service, you must have an instance identity access token. If you haven't already obtained one, see [Aquire an access token](/docs/vpc?topic=vpc-imd-configure-service#imd-json-token).
 
 For detailed information and examples of the API calls described in this topic, see the [Metadata service Beta API reference](/apidocs/vpc-metadata-beta).
 

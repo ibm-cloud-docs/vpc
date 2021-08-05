@@ -39,7 +39,7 @@ There are no backward-compatibility guarantees as a feature progresses through i
 ## Metadata service concepts
 {: #imd-concepts}
 
-You can programmatically access metadata about a virtual server instance and use it to initialize new instances. Metadata provided by API services pertains only to the instance from which the request is made. Yuo can't use the metadata service within an instance to obtain information about another instance or to obtain information concerning resources not currently associated with the instance.
+You can programmatically access metadata about a virtual server instance and use it to initialize new instances. Metadata provided by API services pertains only to the instance from which the request is made. You can't use the metadata service within an instance to obtain information about another instance or to obtain information concerning resources not currently associated with the instance.
 
 The instance metadata service uses a REST API and well-known IP address to retrieve metadata such as the instance name, CRN, resource groups, user data, as well as SSH keys and placement groups. For a list of all metadata returned from the service, [Summary of data returned by the metadata service](/docs/vpc?topic=vpc-imd-metadata-summary).
 
