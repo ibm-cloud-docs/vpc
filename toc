@@ -405,6 +405,7 @@ Virtual Private Cloud (VPC)
         vpe-faqs.md
         vpn-faqs.md
         faq-vsi.md
+        instance_metadata_vpc_faqs.md
 
     {: .topicgroup}
     Troubleshooting
