@@ -307,8 +307,7 @@ After you know these values, use them to run the `instance-create` command. In a
    ```
    {: pre}
 
-   For this example, you'd see the following responses.
-   
+    For this example, you'd see the following responses.
    ```
      Address          xxx.xxx.xxx.xxx   
      Name             my-floatingip   
