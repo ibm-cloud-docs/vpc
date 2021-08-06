@@ -28,7 +28,7 @@ You can create instances by using the command-line interface (CLI).
 {:shortdesc}
 
 ## Before you begin
-{: #vefore-creating-virtual-servers-cli}
+{: #before-creating-virtual-servers-cli}
 
 1. Ensure that you downloaded, installed, and initialized the following CLI plug-ins:
     * {{site.data.keyword.cloud_notm}} CLI
@@ -308,6 +308,7 @@ After you know these values, use them to run the `instance-create` command. In a
    {: pre}
 
    For this example, you'd see the following responses.
+   
    ```
      Address          xxx.xxx.xxx.xxx   
      Name             my-floatingip   
