@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-07-29"
+lastupdated: "2021-08-06"
 
 keywords: vpc, limitations, restrictions
 
@@ -80,6 +80,14 @@ An {{site.data.keyword.vpc_short}} cannot be peered with other VPCs natively. It
 {: #storage-restrictions}
 
 Block storage volume names must be unique across the entire VPC infrastructure. A volume created on Generation 2 compute resources can't have the same name as a volume created on Generation 1. For more information on volume naming, see [Guidelines for naming volumes](/docs/vpc?topic=vpc-managing-block-storage#volume-name-conventions).
+
+## LinuxONE (s390x processor architecture) virtual server instance restrictions  
+{: #LinuxONE-vsi-restrictions}
+
+The following features are currently not supported:
+
+* Dedicated hosts
+* Snapshots
 
 ## API considerations
 {: #api-considerations}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-07-30"
+lastupdated: "2021-08-06"
 
 keywords: image, stock image, custom image, virtual private cloud, virtual server, power, generation 2, gen 2
 
@@ -44,6 +44,16 @@ The following operating systems are available as stock images when you create a 
 | Ubuntu 16.04.x, 18.04.x, 20.04.x | x86-64 |
 | Windows 2012, 2012 R2, 2016, 2019 | x86-64 |  |
 {: caption="Table 1. Supported x86_64 stock image operating systems" caption-side="top"}
+
+### Supported LinuxONE (s390x processor architecture) stock image operating systems
+{: #s390x-supported-os}
+
+| Image | Architectures |
+|---------|---------|
+|  Ubuntu 20.04.x | s390x |
+|  SUSE Linux Enterprise server (SLES) 15 SP1 | s390x |
+|  Red Hat Enterprise Linux 8.x | s390x |
+{: caption="Table 2. Supported s390x stock image operating systems" caption-side="top"}
 
 When you order an instance, the images are cloud-init enabled to optimize creation times. With a cloud-init enabled image, you can provide user data. In the **User Data** field on the order form, you can enter optional cloud-init user data for the server. For more information about user data and automation, see [User data](/docs/vpc?topic=vpc-user-data).
 
