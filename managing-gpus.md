@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2021
-lastupdated: "2021-07-27"
+lastupdated: "2021-07-30"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance, gpu, graphics processing unit, set up gpu
 
@@ -31,7 +31,7 @@ Certain instance profiles include GPU accelerators. You can use these instances 
 ## Provisioning a virtual server instance with a GPU
 {: #provision-gpu-on-vsi}
 
-1. Provision a [virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers) with a GPU profile in the **Instance profile** field. These include profiles with the _gx2_ prefix. For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles#gpu). Stock and custom images are supported.
+1. Provision a [virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers) with a GPU profile in the **Instance profile** field. <!--For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles#gpu).--> Stock and custom images are supported.
 2. Install the NVIDIA driver for Windows or Linux. For more information, see the [NVIDIA driver documentation](https://docs.nvidia.com/datacenter/tesla/index.html){: external}. A NVIDIA driver level of R440 or newer is recommended.
 
 ## Integrating the GPU driver into a custom image from volume

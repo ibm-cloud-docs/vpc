@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-07-29"
+lastupdated: "2021-07-30"
 
 keywords: setup, environment, prerequisites, api, cli, command line interface, plugin, creating a vpc, iam, permissions, access, ssh key
 
@@ -54,16 +54,13 @@ Before you can create an {{site.data.keyword.vpc_full}} (VPC) by using the API o
 
 Before you can use the CLI to create your VPC, you must install the IBM Cloud CLI and the VPC CLI plug-in.
 
-{{site.data.keyword.cloud_notm}} CLI is not supported on LinuxONE (s390x processor architecture). However, you can install the CLI on another supported platform and use it with LinuxONE (s390x processor architecture) virtual server instances.
-{:note}
-
 1. Install the [IBM Cloud CLI ![External link icon](../icons/launch-glyph.svg "External link icon")](/docs/cli?topic=cli-getting-started){: new_window}.
 1. Install the VPC CLI plug-in.
 
    ```
    ibmcloud plugin install vpc-infrastructure
    ```
-  {: pre}
+   {: pre}
 
 The VPC CLI actions use the extension `is`. To learn how to use the CLI commands, you can run:
 
@@ -72,6 +69,7 @@ ibmcloud is help
 ibmcloud is help vpc-create
 ibmcloud is help instance-create
 ```
+{: pre}
 
 To learn how to create resources by using the CLI, see [Creating a VPC using the CLI](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
 
@@ -114,6 +112,7 @@ To view the IAM token, run ``echo $iam_token``. The result should look like this
 ```
 Bearer <your token>
 ```
+{: screen}
 
 The Authorization header expects the token to begin with "Bearer". If the result doesn't include "Bearer", update the `iam_token` variable to include it. These examples assume that "Bearer" is included in the `iam_token`.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-07-29"
+lastupdated: "2021-07-30"
 
 keywords: image, stock image, custom image, virtual private cloud, virtual server, power, generation 2, gen 2
 
@@ -33,11 +33,8 @@ When you provision {{site.data.keyword.vsi_is_full}}, you can select from the su
 
 The following operating systems are available as stock images when you create a virtual server.
 
-<!-- * CentOS 7.x
-* Debian 8.x, 9.x
-* Red Hat Enterprise Linux 7.x-0
-* Ubuntu 16.04, 18.04
-* Windows 2012, 2012 R2, 2016 -->
+### Supported x86_64 stock image operating systems
+{: #x86-supported-os}
 
 | Image | Architectures |
 |---------|---------|
@@ -46,27 +43,12 @@ The following operating systems are available as stock images when you create a 
 | Red Hat Enterprise Linux 7.x, 8.x | x86-64 |
 | Ubuntu 16.04.x, 18.04.x, 20.04.x | x86-64 |
 | Windows 2012, 2012 R2, 2016, 2019 | x86-64 |  |
-{: caption="Table 1. Stock boot images provided" caption-side="top"}
-
-### Supported LinuxONE (s390x processor architecture) stock image operating systems
-{: #s390x-supported-os}
-
-| Image | Architectures |
-|---------|---------|
-|  Ubuntu 20.04.x | s390x |
-|  SUSE Linux Enterprise server (SLES) 15 SP1 | s390x |
-|  Red Hat Enterprise Linux 8.x | s390x |
-{: caption="Table 2. Supported s390x stock image operating systems" caption-side="top"}
+{: caption="Table 1. Supported x86_64 stock image operating systems" caption-side="top"}
 
 When you order an instance, the images are cloud-init enabled to optimize creation times. With a cloud-init enabled image, you can provide user data. In the **User Data** field on the order form, you can enter optional cloud-init user data for the server. For more information about user data and automation, see [User data](/docs/vpc?topic=vpc-user-data).
 
 You can access details about each operating system, such as the url for the operating system, by using the API call, [Retrieves all operating systems](https://cloud.ibm.com/apidocs/vpc#retrieves-all-operating-systems){: external}.  
 {: tip}
-
-<!---### Image support for GPUs
-{: #gpu-images}
-
-The only stock image that currently supports GPU profiles is the Ubuntu 18.04 image for the Power Architecture. The GPU profiles are available for the POWER architecture. The NVIDIA kernel driver for the Tesla V100 GPUs must be installed in your instance before use. For more information, see [Setting up GPU drivers for POWER-based instances](/docs/vpc?topic=vpc-setup-gpus).-->
 
 ### Stock image naming conventions
 {: #image-naming-conventions}
@@ -77,7 +59,7 @@ All IBM-provided stock, public images are named by using the following conventio
 ibm-<family>-<version>-<type>-<architecture>-<build>
 ```
 
-For example:
+For example,
 
 ```
 ibm-centos-7-6-minimal-amd64-2

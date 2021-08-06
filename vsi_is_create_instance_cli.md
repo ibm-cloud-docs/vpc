@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-07-29"
+lastupdated: "2021-07-30"
 
 keywords: instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, vpc, creating, CLI, command line interface, generation 2, gen 2
 
@@ -26,9 +26,6 @@ subcollection: vpc
 
 You can create instances by using the command-line interface (CLI).
 {:shortdesc}
-
-{{site.data.keyword.cloud_notm}} CLI is not supported on LinuxONE (s390x processor architecture). However, you can install the CLI on another supported platform and use it with LinuxONE (s390x processor architecture) virtual server instances.
-{:note}
 
 ## Before you begin
 {: #vefore-creating-virtual-servers-cli}
@@ -127,14 +124,13 @@ Use the following commands to determine the required information for creating a 
 
    For this example, you'd see a response similar to the following output:
    ```
-   Name        CPU Arch   CPU Cores   CPU Frequency   Memory   GPU Model   GPU Cores   GPU Count   CPU Memory   Max Volumes   Max IOPS   Max Interfaces   Network Performance Cap   
-   B_2X4       amd64      2           2000            4                    0           0           0            25            0          0                0   
-   B_4X8       amd64      4           2000            8                    0           0           0            100           0          0                0   
-   M_16X128    amd64      16          2000            128                  0           0           0            25            0          0                0   
-   B_48X192    amd64      48          2000            192                  0           0           0            100           0          0                0   
-   B_8X32      amd64      8           2000            32                   0           0           0            100           0          0                0   
-   C_16X16     amd64      16          2000            16                   0           0           0            25            0          0                0   
-   M_4X32      amd64      4           2000            32                   0           0           0            100           0          0                0     
+   Name             Architecture   Family              vCPUs   Memory(GiB)   Network(Gbps)   GPUs   Storage(GB)   
+   bx2-2x8          amd64          balanced            2       8             4               -      -
+   bx2d-2x8         amd64          balanced            2       8             4               -      1x75
+   bx2-4x16         amd64          balanced            4       16            8               -      -
+   cx2-16x32        amd64          compute             16      32            32              -      -
+   mx2-4x32         amd64          memory              4       32            8               -      -   
+   mx2d-4x32        amd64          memory              4       32            8               -      1x150
    ```
    {:screen}
 
@@ -184,6 +180,7 @@ Use the following commands to determine the required information for creating a 
     placement-group-bbbb-bbbb-bbbb-bbbbbbbbbbbb   vsi-placementGroup2              stable   power_spread     5018a8564e8120570150b0764d39ebcc   
     placement-group-aaaa-aaaa-aaaa-aaaaaaaaaaaa   vsi-placementGroup3              stable   power_spread   1d18e482b282409e80eff354c919c6a2
     ```
+    {:screen}
 
 ## Creating an instance by using the CLI
 {: #create-instance-cli}
@@ -219,7 +216,7 @@ After you know these values, use them to run the `instance-create` command. In a
        --volume-attach @/Users/myname/myvolume-attachment_create.json
        --placement-group r134-a812ff17-cac5-4e20-8d2b-95b587be6637
    ```
-   {:pre}
+   {:screen}
 
    Where:
    - `INSTANCE_NAME` is _my-instance_
@@ -229,7 +226,7 @@ After you know these values, use them to run the `instance-create` command. In a
    - `SUBNET_ID` is _SUBNET_ID_
    - `IMAGE_ID` is _IMAGE_ID_
    - `KEY_IDS` is _KEY_ID1, KEY_ID2, ..._
-   - `VOLUME_ATTACH_JSON` is the volume attachment specification in JSON format, provided in the command or as a file. For an example volume attachment JSON file, see [Create a volume attachment JSON](/docs/vpc?topic=vpc-attaching-block-storage-cli#volume_attachment_json).
+   - `VOLUME_ATTACH_JSON` is the volume attachment specification in JSON format, provided in the command or as a file. For an example volume attachment JSON file, see [Create a volume attachment JSON](/docs/vpc?topic=vpc-attaching-block-storage&interface=cli#volume_attachment_json).
    - `PLACEMENT_GROUP_ID` is _r134-a812ff17-cac5-4e20-8d2b-95b587be6637
 
    For this example, you'd see the following responses. **Note:** The following response varies depending on what optional values you use.

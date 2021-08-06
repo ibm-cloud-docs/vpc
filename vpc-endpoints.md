@@ -45,9 +45,6 @@ Use one of the following public endpoints to connect to the VPC infrastructure A
 {: caption="Table 1. VPC API Regional Endpoints" caption-side="top"}
 
 
-LinuxONE (s390x processor architecture) profiles are supported on virtual server instances in Tokyo.   
-{:note}
-
 After you've created and are accessing the resources in your VPC, you're ready to run workloads. From inside the VPC infrastructure, you can access two types of {{site.data.keyword.cloud_notm}} endpoints: platform as a service (PaaS) endpoints, also known as service endpoints, and infrastructure as a service (IaaS) endpoints.
 
 Although the addresses for these endpoints look as if they communicate through the public internet, traffic to and from these endpoints does not leave {{site.data.keyword.cloud_notm}}. Therefore, this traffic avoids the bandwidth charges associated with traffic that exits the cloud and goes onto the public internet.

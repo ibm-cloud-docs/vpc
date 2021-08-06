@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2021
-lastupdated: "2021-07-29"
+lastupdated: "2021-08-03"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, generation 2, gen 2
 
@@ -29,8 +29,7 @@ subcollection: vpc
 # Instance Profiles
 {: #profiles}
 
-When you provision {{site.data.keyword.vsi_is_full}}, you can select from three families of profiles: Balanced, Compute, and Memory.
-<!-- add Ultra High Memory after 3/26--->
+When you provision {{site.data.keyword.vsi_is_full}}, you can select from four families of profiles: Balanced, Compute, Memory, and Ultra High Memory.
 
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, and network bandwidth. The attributes define the size and capabilities of the virtual server instance that is provisioned. In the {{site.data.keyword.Bluemix_notm}} console, you can select the most recently used profile or click **View All Profiles** to choose the profile that best fits your needs.
 {: shortdesc}
@@ -43,8 +42,7 @@ The following profile families are available:
 | [Compute](#compute)  | Best for moderate to high web traffic workloads. Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers. |
 | [Memory](#memory) | Best for memory caching and real-time analytics workloads. Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. |
 | [Ultra High Memory](#uhmemory) | Ultra High Memory profiles offer the highest vCPU to memory ratios with 1 vCPU to 28 GiB of RAM to serve in-memory OLTP databases, such as SAP. |
-
-<!---| [GPU](#gpu) | Best for artificial intelligence (AI) and deep learning workloads. Available for POWER processing architecture only. | -->
+<!--- | [GPU](#gpu) | Best for artificial intelligence (AI) and deep learning workloads. Available for x86_64 processors only. | -->
 {: caption="Table 1. Virtual server family selections" caption-side="top"}
 
 ## Balanced
@@ -53,6 +51,9 @@ The following profile families are available:
 Balanced profiles provide a mix of performance and scalability for more common workloads with a ratio of 4 GiB of memory for every 1 vCPU of compute.
 
 The Balanced profile family includes both profiles that are provisioned with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
+
+### Balanced profiles for x86_64 processors
+{: #balanced-x86-profiles}
 
 The following Balanced profiles are available for x86_64 processors:
 
@@ -78,27 +79,15 @@ The following Balanced profiles are available for x86_64 processors:
 | bx2d-128x512 | 128 | 512 | 80 | 2x400 |
 {: caption="Table 2. Balance profiles options for x86-64 instances" caption-side="top"}
 
-### Balanced profiles for s390x processors
-{: #balanced-s390x-profiles}
-
-The following Balanced profiles are available for LinuxONE (s390x processor architecture):
-
-| Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
-|---------|---------|---------|---------|---------|
-| bz2-1x2 | 1 | 2 | 2 | - |
-| bz2-1x4 | 1 | 4 | 2 | - |
-| bz2-2x8 | 2 | 8 | 4 | -
-| bz2-4x16 | 4 | 16 | 8 | -
-| bz2-8x32 | 8 | 32 | 16 | - |
-| bz2-16x64 | 16 | 64 | 32 | - |
-{: caption="Table 3. Balance profiles options for s390x instances" caption-side="top"}
-
 ## Compute
 {: #compute}
 
 Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers that can benefit from 2 GiB of memory for every 1 vCPU of compute.
 
 The Compute profile family includes both profiles that are provisioned with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
+
+### Compute profiles for x86_64 processors
+{: #compute-x86-profiles}
 
 The following Compute profiles are available for instances with x86_64 processors:
 
@@ -124,25 +113,15 @@ The following Compute profiles are available for instances with x86_64 processor
 | cx2d-128x256 | 128 | 256 | 80 | 2x2400 |
 {: caption="Table 4. Compute profile options for x86-64 instances" caption-side="top"}
 
-### Compute profiles for s390x processors
-{: #compute-s390x-profiles}
-
-The following Compute profiles are available for LinuxONE (s390x processor architecture):
-
-| Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
-|---------|---------|---------|---------|---------|
-| cz2-2x4 | 2 | 4 | 2 | - |
-| cz2-4x8 | 4 | 8 | 8 | - |
-| cz2-8x16 | 8 | 16 | 16 | - |
-| cz2-16x32 | 16 | 32 | 32 | - |
-{: caption="Table 5. Balance profiles options for s390x instances" caption-side="top"}
-
 ## Memory
 {: #memory}
 
 Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads with 8 GiB of memory for every 1 vCPU of compute.
 
 The Memory profile family includes both profiles that are provisioned with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
+
+### Memory profiles for x86_64 processors
+{: #memory-x86-profiles}
 
 The following memory profiles are available for instances with x86_64 processors:
 
@@ -168,19 +147,6 @@ The following memory profiles are available for instances with x86_64 processors
 | mx2d-128x1024| 128 | 1024 | 80 | 2x2400|
 {: caption="Table 5. Memory profile options for x86-64 instances " caption-side="top"}
 
-### Memory profiles for s390x processors
-{: #memory-s390x-profiles}
-
-The following Memory profiles are available for LinuxONE (s390x processor architecture):
-
-| Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
-|---------|---------|---------|---------|---------|
-| mz2-2x16 | 2 | 16 | 4 | - |
-| mz2-4x32 | 4 | 32 | 8 | - |
-| mz2-8x64 | 8 | 64 | 16 | - |
-| mz2-16x128 | 16 | 128 | 32 | - |
-{: caption="Table 5. Balance profiles options for s390x instances" caption-side="top"}
-
 {: #callout-note}
 
 Profiles with 64 or more vCPUs are deployed exclusively on the second-generation Intel&reg; Xeon&reg; Platinum 8272 (Cascade Lake) running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz.  
@@ -198,6 +164,9 @@ Ultra High Memory profiles are hosted exclusively on the latest generation Intel
 Ultra High Memory profiles are deployed exclusively on the second-generation Intel&reg; Xeon&reg; Platinum 8280L (Cascade Lake) running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz.  
 {: note}
 
+### Ultra High Memory profiles for x86_64 processors
+{: #uhmemory-x86-profiles}
+
 The following Ultra High Memory profiles are available for x86_64 processors:
 
 | Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
@@ -213,26 +182,7 @@ The following Ultra High Memory profiles are available for x86_64 processors:
 | ux2d-200x5600 | 200 | 5600 | 80 | 2x3000 |
 {: caption="Table 6. Ultra High Memory profiles options for x86-64 instances" caption-side="top"}
 
-<!-- ## GPU
-{: #gpu}
-
-GPU profiles are best for AI and deep learning workloads.
-
-The following GPU profiles, available for POWER-based instances, are provisioned with Ubuntu 18.04. The profiles feature NVLink 2.0 and PCIe Gen4 interconnects for faster CPU to GPU bandwidth and 50% faster networking I/O. Each GPU is a NVIDIA Tesla v100 and each includes 32 GBs of memory that contributes to the overall memory the VSI reports.
-
-** (GMW 10/20/20 - pulled out the table coding after the table header as it was causing a chkpii problem with the comment coding)
-
-| Profile | vCPU | GB RAM | Network Performance Cap (Gbps) | Number of GPUs |
-| gp2-24x224x2 | 24 |224 | 72 | 2 |
-| gp2-32x256x4 | 32 | 256 | 96 | 4 |
-| gp2-56x448x4 | 56 | 448 | 100 | 4 |
-| gp2-56x896x4 | 56 | 896 | 100 | 4 |
-{: caption="Table 6. Power GPU profile options" caption-side="top"}
-
-GPU profiles are supported by Ubuntu 18.04 only. For more information about supported operating systems, see [Images](/docs/vpc?topic=vpc-about-images). A few of the larger profile sizes might require you to increase your quota limit. To increase a quota for a particular resource, [contact support](/docs/get-support?topic=get-support-getting-customer-support).
-
-If you are using GPU profiles, you might need to install the NVIDA kernel driver, the CUDA toolkit, or both onto your virtual server instance. For more information, see [Setting up GPU drivers for POWER-based instances](/docs/vpc?topic=vpc-setup-gpus).
-{:tip} -->
+For more information about persistent storage options, see [Storage notes for profiles](#storage-notes-for-profiles).
 
 For information about storage, see [Storage notes for profiles](#storage-notes-for-profiles).
 
@@ -251,13 +201,10 @@ The first character represents the profile families. Different profile families 
 -	"c": compute family of profiles (higher on the CPUs), 1 vCPU to 2 GiB of memory ratio
 -	"m": memory family of profiles (higher on the memory), 1 vCPU to 8 GiB of memory ratio
 - "u": ultra high memory family of profiles, 1 vCPU to 28 GiB of memory ratio
-<!-- *  "g" is GPU, which is a 1:8 or 1:16 ratio -->
+-  "g" is GPU, which is a 1:8 or 1:16 ratio
 
 The second character represents the CPU architecture.
 - "x": x86_64
-- "z": s390x
-<!-- * "z": System Z -->
-<!-- * POWER will deprecate on Aug. 22 -->
 
 The third character represents the generation of the IBM Cloud infrastructure where the profile is provisioned.
 -	"1": IBM Cloud Virtual Servers for Classic

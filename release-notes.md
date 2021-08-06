@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-07-29"
+lastupdated: "2021-07-30"
 
 keywords: release notes, changes, updates
 
@@ -28,14 +28,11 @@ subcollection: vpc
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
 
-
-## 30 July 2021
+## 30 July 2021 
 
 {: #july-30-2021}
 
-- **LinuxONE (s390x processor architecture):** You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud™. For more information about available LinuxONE (s390x processor architecture) profiles, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
-For more information about some of the limitations of LinuxONE (s390x processor architecture), see [Service limitations](/docs/vpc?topic=vpc-limitations).
-
+**Instance Metadata for VPC (closed Beta):** If your account is granted special approval to preview this feature, you can access metadata about your VPC compute resources. The metadata service is a REST API that you invoke using a well-known URI to retrieve instance-specific information from the metadata server. For more information, see [About Instance Metadata for VPC (Beta)](/docs/vpc?topic=vpc-imd-about).
 
 ## 26 July 2021
 {: #july-26-2021}

@@ -52,9 +52,6 @@ It might be helpful to begin with a cloud-enabled vendor image.
 ## Step 2 - Check kernel arguments
 {: #kernel-args}
 
-Skip these steps for LinuxONE (s390x processor architecture).  
-{: note}
-
 Make sure that the following arguments are present on the kernel command line:
 * `nomodeset`
 * `nofb`

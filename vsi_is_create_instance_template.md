@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021 
-lastupdated: "2021-06-30"
+lastupdated: "2021-08-05"
 
 keywords: create instance template, vsis, virtual server instance
 
@@ -200,7 +200,7 @@ Use the following commands to determine the required information for creating a 
     placement-group-bbbb-bbbb-bbbb-bbbbbbbbbbbb   vsi-placementGroup2              stable   power_spread     5018a8564e8120570150b0764d39ebcc   
     placement-group-aaaa-aaaa-aaaa-aaaaaaaaaaaa   vsi-placementGroup3              stable   power_spread   1d18e482b282409e80eff354c919c6a2
     ```
- {: pre}
+    {:screen}
 
 For example, if you create an instance template that is called _my-instance-template_ in _us-south-3_ and use the 
 _bx2-2x8_ profile, your `instance-template-create` command would look similar to the following sample.
@@ -208,7 +208,7 @@ _bx2-2x8_ profile, your `instance-template-create` command would look similar to
 ```
 ibmcloud is instance-template-create my-instance-template 0738-xxx1xx23-4xx5-6789-12x3-456xx7xx123x us-south-3 bx2-2x8 0076-2249dabc-8c71-4a54-bxy7-953701ca3999 --image-id r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1 --placement-group r134-953db18c-068c-4a11-9b07-645684b444b2
 ```
-{: pre}
+{:screen}
 
 Where:
    - `INSTANCE_TEMPLATE_NAME` is _my-instance-template_

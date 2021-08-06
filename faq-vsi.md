@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-07-27"
+lastupdated: "2021-07-30"
 
 subcollection: vpc
 
@@ -142,3 +142,8 @@ When you provision a Windows virtual server instance with a stock image, disk ma
 {: #faq-vsi-19}
 
 Image from volume lets you create a custom image from a boot volume attached to a virtual server instance. You then use the custom image to provision new virtual server instances. For more information, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc).
+
+## Can I access metadata about my virtual server instances?
+{: #faq-vsi-20}
+
+Yes, if your account has been granted special approval, you can access the instance metadata service to get information about your VPC compute resources. The metadata service is a REST API that you invoke using a well-known URI to retrieve instance-specific information from the metadata server. For more information, see For more information, see [About Instance Metadata for VPC (Beta)](/docs/vpc?topic=vpc-imd-about).

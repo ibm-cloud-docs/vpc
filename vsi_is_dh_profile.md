@@ -28,9 +28,6 @@ subcollection: vpc
 When you provision dedicated hosts, you can select from these families of profiles:  Balanced, Compute, Memory, Balanced Instance Storage, Compute Instance Storage, and Memory Instance Storage. All virtual server instances that are provisioned on the dedicated host are provisioned from the same family and class of profiles. If you choose a Memory profile for your dedicated host, all instances that are provisioned on the host must also be created with a Memory profile.
 {: shortdesc}
 
-Dedicated hosts are not supported for LinuxONE (s390x processor architecture).  
-{: note}
-
 A profile is a combination of attributes, such as the number of vCPUs, amount of RAM, and optionally instance storage that define a dedicated host or instance. In the {{site.data.keyword.Bluemix_notm}} console, you can select from a list of profiles that best fit your needs.
 
 
