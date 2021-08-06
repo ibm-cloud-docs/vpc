@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-29"
+lastupdated: "2021-08-06"
 
 subcollection: vpc
 
@@ -17,6 +17,10 @@ subcollection: vpc
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
 {:beta: .beta}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
+{:terraform: .ph data-hd-interface='terraform'}
 
 
 # Resizing a virtual server instance
@@ -57,6 +61,7 @@ Attached data volumes remain intact and are attached in the resized instance.
 
 ## Resizing a virtual server instance using the UI
 {: #resizing-a-virtual-server-UI}
+{: ui}
 
 Complete the following steps to resize an existing virtual server instance.
 
@@ -72,13 +77,14 @@ Complete the following steps to resize an existing virtual server instance.
 
 ## Resizing a virtual server by using the CLI
 {: #resizing-a-virtual-server-CLI}
+{: cli}
 
 Use the `instance-update` command to resize a virtual server.
 
 ```
 ibmcloud is instance-update instance-id --profile profile-id  
 ```
-{:pre}
+{: pre}
 
 Where:
 * `instance-id` is the ID of the instance that you want to resize
@@ -89,18 +95,20 @@ As an example, if you want to resize an instance to the _bx2-16x64_ profile, the
 ```
 ibmcloud is instance-update 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --profile bx2-16x64
 ```
+{: pre}
 
 ## Resizing a virtual server by using the API
 {: #resizing-a-virtual-server-API}
+{: api}
 
 Use the `instance-update` command to resize a virtual server.
-
-
 
 1. Run the following command to find the name of the profile you want to use:
    ```
    curl  -s -X GET "<api_endpoint>/v1/instance/profiles?generation=2&version=2021-02-01" -H "Authorization: Bearer <IAM token>"
    ```
+   {:pre}
+   
 2. Select a compatible profile for your instance.
     * For a virtual server that is running on a dedicated host, choose a profile that the dedicated host supports.
     * If you use instance storage, choose a profile that has instance storage.
@@ -116,6 +124,8 @@ Use the `instance-update` command to resize a virtual server.
        }
    } '
    ```
+   {: pre}
+   
    Where:
       * `instance-id` is the ID of the instance that you want to resize
       * `profile-id` is the ID of the profile that you want to use
