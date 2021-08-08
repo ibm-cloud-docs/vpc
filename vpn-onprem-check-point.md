@@ -94,15 +94,16 @@ To use a custom IPsec policy in {{site.data.keyword.vpn_vpc_short}}:
 
 Make sure that the NAT-T feature is enabled on your on-premises VPN device. The following list shows the default behaviors:
 
-  * NAT-T is enabled when a NAT device is detected.
-  * **offer_nat_t_initator** is set to `false` (initiator sends NAT-T traffic).
-  * **offer_nat_t_responder_for_known_gw** is set to `true` (responder accepts NAT-T traffic from known gateways).
-  * **force_nat_t** is set to `false` (forces NAT-T, even if there is no NAT-T device).
+* NAT-T is enabled when a NAT device is detected.
+* **offer_nat_t_initator** is set to `false` (initiator sends NAT-T traffic).
+* **offer_nat_t_responder_for_known_gw** is set to `true` (responder accepts NAT-T traffic from known gateways).
+* **force_nat_t** is set to `false` (forces NAT-T, even if there is no NAT-T device).
 
 It is recommended to change these default settings to the following:
-  * Enable NAT-T
-  * Set **offer_nat_t_initator** to `true` 
-  * If you know that there's no NAT device in the environment, then set **force_nat_t** to `true`.
+
+* Enable NAT-T.
+* Set **offer_nat_t_initator** to `true`.
+* If you know that there's no NAT device in the environment, set **force_nat_t** to `true`.
  
 **Note**: You can view and change these variables using the GuiDBedit Tool. (Refer to the Check Point documentation for your particular version to confirm these steps.)
 
