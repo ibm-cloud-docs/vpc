@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2018, 2020
+  years: 2018, 2021
 
-lastupdated: "2020-10-12"
+lastupdated: "2021-=08-07"
 
 keywords:  
 
@@ -91,7 +91,7 @@ The security group rules for `my_vpc_sg` include the basic functions of SSH, PIN
 
 Notice that you must create the security group first, with the `ibmcloud is sgc` command, and then create the instance that uses this security group.
 
-This example code skips a few steps. For detailed information about creating a VPC and subnet, see [Creating a VPC by using the CLI](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
+You must enter `ibmcloud plugin install vpc-infrastructure` to get access to `ibmcloud is`. For detailed information about creating a VPC and subnet, see [Creating a VPC by using the CLI](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
 {: tip}
 
 You can copy and paste commands from this example CLI code to begin creating an instance with an attached security group. System responses are not shown completely in this sample code. You must update your commands with the correct resource IDs for your VPC, subnet, image, key, and the correct security group ID number.
