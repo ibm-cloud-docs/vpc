@@ -78,7 +78,7 @@ To list endpoint gateways by using the API, follow these steps:
     ```sh
     export EndpointGatewayId=<endpoint_gateway_id>
     ```
-    {:pre}   
+    {: pre}   
 
 1. List endpoint gateways:   
 
