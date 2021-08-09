@@ -132,7 +132,7 @@ If you want to include a load balancer for your instance group to balance incomi
 | Name  | A name is required for your virtual server instance. |
 | Resource group | Select a resource group for the instance. |
 | Region | Select the location where you want your virtual server instance to be created. |
-| Placement group | Select a placement group for the instance. If you add a placement group, the instance is placed according the the placement group policy. For more information, see [About placement groups](docs/vpc?topic=vpc-about-placement-groups-for-vpc). |
+| Placement group | Select a placement group for the instance. If you add a placement group, the instance is placed according the the placement group policy. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc). |
 | Subnets | Select the subnets where you want to create your instance group. To maximize the availability of your applications, select subnets in different zones. For the best performance of an auto scale instance group, ensure that you use a subnet size of 32 or greater. |
 | Use a load balancer | Select this checkbox if you plan to use a load balancer to balance incoming requests across instances in your instance group. The load balancer must already be configured, attached to the subnets that you select for this instance group, and have at least one back-end pool. |
 | Instance template |  Select the instance template that you want to use for provisioning the virtual server instances in your auto-scale instance group. All virtual server instances in the group are provisioned with the same instance template. |
