@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-07-30"
+lastupdated: "2021-08-09"
 
 keywords: vpc dedicated host, dedicated host, dedicated host group
 
@@ -133,14 +133,14 @@ Use the following commands to determine the required information for creating a 
    ```
    ibmcloud is regions
    ```
-   {:pre}
+   {: pre}
 
    For this example, you'd see a response similar to the following output:
    ```
     Name       Endpoint               Status   
     us-south   /v1/regions/us-south   available
     ```
-    {:screen}
+    {: screen}
 
 2. List the zones that are associated with the region.
 
@@ -154,14 +154,14 @@ Use the following commands to determine the required information for creating a 
    Name         Region     Status   
    us-south-1   us-south   available
    ```
-   {:screen}
+   {: screen}
 
 3. List the profiles that are available for creating a dedicated host to determine what profile family and class you want to assign to the dedicated host group. The family and class that you assign to the group when it is created determines the profiles that can be used to provision dedicated hosts and instances in the group. All dedicated hosts and virtual server instances that are provisioned to the dedicated host group must be from the same family and class of profiles. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles).
 
    ```
    ibmcloud is dedicated-host-profiles
    ```
-   {:pre}
+   {: pre}
 
    For this example, you'd see a response similar to the following output. Check the Family and Class columns that are associated with the dedicated host profile that you want to provision in the dedicated host group. If you want to provision a memory profile for your host, note the associated family, `memory`, and associated class, `mx2`.
 
@@ -171,7 +171,7 @@ Use the following commands to determine the required information for creating a 
    bx2-host-152x608     amd64          4                  152     608      balanced        bx2     
    mx2-host-152x1216    amd64          4                  152     1216     memory          mx2   
    ```
-   {:screen}
+   {: screen}
 
 ### Creating a dedicated host group by using the CLI
 {: #creating-dedicated-group-cli}
@@ -185,7 +185,7 @@ The following example creates a dedicated host group named `myDedicatedHostGroup
 ```
 ibmcloud is dedicated-host-group-create --zone us-south-1 --family memory --class mx2 --name myDedicatedHostGroup
 ```
-{:pre}
+{: pre}
 
 In the output, be sure to note the ID for the dedicated host group that is created. In this example the ID for myDedicatedHostGroup is `0076-edf611ff-0fd6-44bf-b5f3-102eeb3cf928`.
 
@@ -201,7 +201,7 @@ List the profiles that are available for creating a dedicated host.
 ```
 ibmcloud is dedicated-host-profiles
 ```
-{:pre}
+{: pre}
 
 For this example, you'd see a response similar to the following output. The profile that you select must be from the same family and class as your dedicated host group where you plan to provision the host.
 
@@ -211,7 +211,7 @@ cx2-host-152x304     amd64          4                  152     304      compute 
 bx2-host-152x608     amd64          4                  152     608      balanced        bx2     
 mx2-host-152x1216    amd64          4                  152     1216     memory          mx2   
 ```
-{:screen}
+{: screen}
 
 ### Creating a dedicated host by using the CLI
 {: creating-dedicated-host-cli}
@@ -225,7 +225,7 @@ The following example creates a dedicated host named `myDedicatedHost` with the 
 ```
 ibmcloud is dedicated-host-create --profile mx2-host-152x1216 --host-group 0076-edf611ff-0fd6-44bf-b5f3-102eeb3cf928 --name myDedicatedHost
 ```
-{:pre}
+{: pre}
 
 For a full list of command options, see [ibmcloud is dedicated-host-create](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#dedicated-host-create).
 
@@ -252,7 +252,7 @@ curl -X POST \
       }
     }'
 ```
-{:pre}
+{: codeblock}
 
 
 The dedicated group information is optional. If you want a dedicated group to be created for you automatically, you can omit the group information and add a zone instead.
