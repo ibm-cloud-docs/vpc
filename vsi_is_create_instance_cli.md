@@ -27,6 +27,9 @@ subcollection: vpc
 You can create instances by using the command-line interface (CLI).
 {:shortdesc}
 
+{{site.data.keyword.cloud_notm}} CLI is not supported on LinuxONE (s390x processor architecture). However, you can install the CLI on another supported platform and use it with LinuxONE (s390x processor architecture) virtual server instances.
+{:note}
+
 ## Before you begin
 {: #before-creating-virtual-servers-cli}
 

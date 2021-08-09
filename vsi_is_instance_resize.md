@@ -49,6 +49,9 @@ You can track the instance resize in Activity Tracker and {{site.data.keyword.la
 
 Virtual servers that run on dedicated hosts can be resized only to profiles that are supported by the dedicated host that the instance is hosted on. For example, a virtual server that is provisioned with a profile from the Memory family can resize to other profiles that belong to the Memory family.
 
+Resizing virtual servers on dedicated hosts is not supported for LinuxONE (s390x processor architecture).  
+{: note}
+
 ## Resizing with instance storage
 {: #resizing-with-instance-storage}
 
