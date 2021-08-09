@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-15"
+lastupdated: "2021-08-09"
 
 keywords: virtual private endpoints, view details, VPE, endpoint gateway
 subcollection: vpc
@@ -85,6 +85,7 @@ To view details of an endpoint gateway by using the CLI, enter the following com
 ```
   ibmcloud is endpoint-gateway ENDPOINT_GATEWAY [--json]  
 ```
+{: pre}
 
 Where:
 
