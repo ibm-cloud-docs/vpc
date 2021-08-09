@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-07-19"
+lastupdated: "2021-08-09"
 
-keywords: quotas, vpc, resources, limits
+keywords: quotas, resources, limits
 
 subcollection: vpc
 
@@ -24,7 +24,7 @@ subcollection: vpc
 # Quotas and service limits
 {: #quotas}
 
-This document covers quotas and limits for {{site.data.keyword.vpc_full}} and the resources available within it.
+The following information shows quotas and limits for {{site.data.keyword.vpc_full}} and the resources available within it.
 {:shortdesc}
 
 ## Quotas
@@ -48,7 +48,7 @@ To increase a quota for a particular resource, [contact support](https://{Domain
 | SSH keys | 200 per account |
 {: caption="Table 1. Quotas for virtual server instances" caption-side="top"}
 
-When you provision virtual server instances and dedicated hosts, the vCPU associated with these resources counts toward the vCPU quotas per region. Instances that are provisioned on dedicated hosts do not count against the vCPU quota. 
+When you provision virtual server instances and dedicated hosts, the vCPU associated with these resources counts toward the vCPU quotas per region. Instances that are provisioned on dedicated hosts do not count against the vCPU quota.
 
 When you provision virtual server instances, the RAM and instance storage, along with vCPU, that is associated with the instances count toward the vCPU, RAM, and instance storage quotas per region.
 
@@ -77,7 +77,6 @@ When you provision virtual server instances, the RAM and instance storage, along
 |Resource|Quota|
 |--------|-----|
 |Security groups|50 per VPC|
-|Security groups| 5 per network interface (NIC) on a virtual server instance |
 |Rules|50 per security group|
 |Network interfaces|1000 per security group|
 {: caption="Table 4. Quotas for security groups" caption-side="top"}
@@ -143,12 +142,12 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 
 |Resource|Quota|
 |--------|-----|
-| Boot and secondary volumes | 300 total Gen 2 volumes per account in a region |
+| Boot and secondary volumes | 300 total VPC volumes per account in a region |
 {: caption="Table 10. Quotas for block storage volumes" caption-side="top"}
 
-You can increase this quota by opening a [support case](/docs/vpc?topic=vpc-getting-help) and specifying in which zone you need more volumes. Use this [support form](/docs/get-support?topic=get-support-using-avatar).
+You can increase this quota by opening a [support case](/docs/vpc?topic=vpc-getting-help). Make sure that you specify which zone that you need more volumes. Use can use the [support form](/docs/get-support?topic=get-support-using-avatar).
 
-If you already have block storage volumes for Gen 1 Compute instances, you are limited to 300 total volumes for Gen 1 and Gen 2. For example, if you have 200 Gen 1 block storage volumes, you can request 100 Gen 2 block storage volumes for a total of 300.
+If you already have block storage volumes for Classic instances, you are limited to 300 total volumes for Classic and VPC. For example, if you have 200 Classic block storage volumes, you can request 100 VPC block storage volumes for a total of 300.
 {: note}
 
 ### Placement groups
@@ -157,14 +156,16 @@ If you already have block storage volumes for Gen 1 Compute instances, you are l
 |Resource|Quota|
 |--------|-----|
 | Placement groups | 100 placement groups per account in a region |
-| Instances | 12 instances per placement group per region with host_spread placement policy. |
-| Instances | 4 instances per placement group per region with power_spread placement policy. |
+| Instances | 12 instances per placement group per region with host_spread placement group strategy. |
+| Instances | 4 instances per placement group per region with power_spread placement group strategy. |
 {: caption="Table 11. Quotas for placement groups" caption-side="top"}
 
 For the Beta release, the quotas for placement groups are set and can't be adjusted.
 {: note}
 
 ## Service limits
+{: #service-limits-for-vpc-services}
+
 The following table displays current VPC service limits. Unlike quotas, these limits can't be adjusted.
 
 |Resource|Limit|
@@ -173,6 +174,7 @@ The following table displays current VPC service limits. Unlike quotas, these li
 | Network interfaces | 5 per instance |
 | PCI network interfaces for bare metal servers | 8 per bare metal server |
 | Public Gateways | 1 per zone per VPC |
+| Security groups | 5 per network interface (NIC) on a virtual server instance |
 | Remote rules for security groups |5 per security group|
 | Secondary volumes per instance, attached when creating an instance |  4 secondary volumes |
 | Secondary volumes per instance, for existing instances with fewer than 4 cores | 4 secondary volumes |
