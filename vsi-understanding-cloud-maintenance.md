@@ -32,7 +32,7 @@ subcollection: vpc
 ### Host maintenance
 {: #types-of-maintenance-host}
 
-{{site.data.keyword.cloud}} performs periodic maintenance on the underlying server hosts that run virtual servers. This maintenance can be upgrades to the software on the underlying hypervisor, updates to the firmware on the systems or other security and performance updates. In general, users don't experience any issues during these upgrades. Modifications that require host maintenance are, in most cases, which are applied with no or little impact to running services. Some infrequent scenarios can occur where the user might need to be involved during those operations, which are discussed in the [possible impacts]({: #maintenance-impacts}) section.
+{{site.data.keyword.cloud}} performs periodic maintenance on the underlying server hosts that run virtual servers. This maintenance can be upgrades to the software on the underlying hypervisor, updates to the firmware on the systems or other security and performance updates. In general, users don't experience any issues during these upgrades. Modifications that require host maintenance are, in most cases, which are applied with no or little impact to running services. Some infrequent scenarios can occur where the user might need to be involved during those operations, which are discussed in the [possible impacts](#maintenance-impacts) section.
 
 ### Data center maintenance
 {: #types-of-maintenance-data-center}
