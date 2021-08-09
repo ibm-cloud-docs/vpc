@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-15"
+lastupdated: "2021-08-09"
 
 keywords: virtual private endpoints, list, VPE, endpoint gateway
 
@@ -58,6 +58,7 @@ To list all endpoint gateways in the region by using the CLI, run the following 
 ibmcloud is endpoint-gateways \
    [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--json]
 ```
+{: pre}
 
 Where:
 
