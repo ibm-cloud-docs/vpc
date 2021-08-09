@@ -136,6 +136,7 @@ Use the following commands to determine the required information for creating a 
    {: pre}
 
    For this example, you'd see a response similar to the following output:
+   
    ```
     Name       Endpoint               Status   
     us-south   /v1/regions/us-south   available
@@ -150,6 +151,7 @@ Use the following commands to determine the required information for creating a 
    {:pre}
 
    For this example, you'd see a response similar to the following output:
+   
    ```
    Name         Region     Status   
    us-south-1   us-south   available
