@@ -52,7 +52,7 @@ To see all of the operating system versions from the API, make a`GET /operating_
     .
     .
 ```
-{:codeblock}
+{: codeblock}
 
 For more information about creating and importing Linux custom images, see:
 
@@ -89,7 +89,7 @@ To see all of the operating system versions from the API, make a`GET /operating_
     .
     .
 ```
-{:codeblock}
+{: codeblock}
 
 After you create a dedicated host, you can create virtual server instances using a BYOL custom image and your license. For the UI procedure, see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
 
