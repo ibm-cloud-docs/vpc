@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-06"
+lastupdated: "2021-08-09"
 
 keywords: vpc dedicated host, dedicated host, dedicated host group
 
