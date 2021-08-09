@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-15"
+lastupdated: "2021-08-09"
 
 keywords: virtual private endpoints, VPE, endpoint gateway
 
@@ -89,17 +89,19 @@ To create an endpoint gateway by using the CLI, follow these steps:
    ```sh
    ibmcloud is endpoint-gateway-targets
    ```
+   {: pre}
 
 1. Create an endpoint gateway by running the following command:
 
-  ```sh
-  ibmcloud is endpoint-gateway-create \
+   ```sh
+   ibmcloud is endpoint-gateway-create \
     --vpc-id VPC_ID \
     --target TARGET [--name NAME] [(--reserved-ip-id RESERVED_IP_ID1 --reserved-ip-id RESERVED_IP_ID2 ...) \
     | (--new-reserved-ip NEW_RESERVED_IP1 --new-reserved-ip NEW_RESERVED_IP2 ...)] \
     [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] \
     [--json]  
-  ```
+   ```
+   {: pre}
 
 Where:
 
