@@ -130,7 +130,7 @@ To create an application load balancer by using the CLI, perform the following p
 3. Create a load balancer:
 
   ```
-  ibmcloud is load-balancer-create alb-test public --subnet 0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c --family network
+  ibmcloud is load-balancer-create alb-test public --subnet 0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c --family application
   ```
   {: pre}
 
