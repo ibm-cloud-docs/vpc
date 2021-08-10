@@ -84,14 +84,14 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 |————————|—————————|————————|
 | Bare metal server | View, List | Viewer for the bare metal server |
 | Bare metal server | Update, Delete | Editor for the bare metal server |
-| Bare metal server | Create | Editor for the bare metal server<br><br>Bare Metal Advanced Network Operator<br><br>Subnet Editor<br><br>Operator for the security group<br><br>Operator for VPC<br><br>Operator for Key<br><br>Operator for Image |
-| Bare metal server | IP spoofing, Infrastructure NAT | Bare Metal Advanced Network Operator |
+| Bare metal server | Create | Editor for the bare metal server<br><br>Advanced Network Operator for the bare metal server<br><br>Subnet Editor<br><br>Operator for the security group<br><br>Operator for VPC<br><br>Operator for Key<br><br>Operator for Image |
+| Bare metal server | IP spoofing, Infrastructure NAT | Advanced Network Operator for the bare metal server |
 | Bare metal server | Operate (Restart, Start, Stop, Retrieve initialization data) | Operator for the bare metal server |
-| Bare metal server | Create console access token | Bare Metal Console Administrator<br><br>Operator for the bare metal server |
+| Bare metal server | Create console access token | Console Admin for the bare metal server<br><br>Operator for the bare metal server |
 | Bare metal server disk | View, List | Viewer for the bare metal server |
 | Bare metal server disk | Update | Operator for the bare metal server |
-| Bare metal server network interface | Create | Editor for the bare metal server<br><br>Editor for subnet<br><br>Operator for the security group<br><br>Bare Metal Advanced Network Operator |
-| Bare metal server network interface | Update | Editor for the bare metal server<br><br>Bare Metal Advanced Network Operator |
+| Bare metal server network interface | Create | Editor for the bare metal server<br><br>Editor for subnet<br><br>Operator for the security group<br><br>Advanced Network Operator for the bare metal server |
+| Bare metal server network interface | Update | Editor for the bare metal server<br><br>Advanced Network Operator for the bare metal server |
 | Bare metal server network interface | Delete | Editor for the bare metal server |
 | Bare metal server network interface | View, List | Viewer for the bare metal server |
 | Bare metal server floating IP | View, List | Viewer for the bare metal server<br><br>Viewer for Floating IP |
