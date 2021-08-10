@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-30"
+  years: 2020, 2021
+lastupdated: "2021-08-10"
 
 keywords: custom routes
 
@@ -108,27 +108,28 @@ To create a routing table by using the API, follow these steps:
 
 1.  Create a routing table.
 
-   Egress routing table:
+    Egress routing table:
 
-   ```sh
+    ```sh
    curl -X POST -sH "Authorization:${iam_token}" \
    "$vpc_api_endpoint/v1/vpcs/$VpcId/routing_tables?version=$api_version&generation=2" \
    -d '{"name": "test-routing-table","resource_group": {"id": "'$ResourceGroupId'"}}'
-   ```
-   {: codeblock}
+    ```
+    {: codeblock}
 
-   Ingress routing table:   
+    Ingress routing table:   
 
-   ```sh
+    ```sh
       curl -X POST "$vpc_api_endpoint/v1/vpcs/$VpcId/routing_tables?version=$api_version&generation=2" \
       -H "Authorization: $iam_token" \
       -d '{
              "name": "my-ingress-routing-table",
              "route_direct_link_ingress": true
            }'
-   ```
+    ```
+    {: codeblock}
 
-   ```sh
+    ```sh
       curl -X POST "$vpc_api_endpoint/v1/vpcs/$VpcId/routing_tables/$RoutingTableId/routes?version=$api_version&generation=2" \
       -H "Authorization: $iam_token" \
       -d '{
@@ -142,4 +143,5 @@ To create a routing table by using the API, follow these steps:
                            "address": "<instance next hop IP address>"
                          }
           }'
-   ```
+    ```
+    {: codeblock}
