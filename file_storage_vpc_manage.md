@@ -76,7 +76,7 @@ To mount a share to an instance using the API, you create a mount target by prov
 ### Rename a mount target of a file share
 {: #rename-mount-target-ui}
 
-1. Navigate to the [file shares details](/docs/vpc?topic=vpc-file-storage-view#fs-view-single-share) page.
+1. Navigate to the [file shares details](/docs/vpc?topic=vpc-file-storage-view) page.
 
 2. Click the overflow menu (hellipsis).
 
@@ -91,7 +91,7 @@ Valid mount target names can include a combination of lowercase alpha-numeric ch
 
 To delete a mount target, the share must be in a `stable` state.
 
-1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view#file-storage-view-shares-targets-ui).
+1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view).
 
 2. On the File share details page, select a mount target you want to delete.
 
@@ -102,7 +102,7 @@ To delete a mount target, the share must be in a `stable` state.
 
 Before deleting a file share, make sure that it's unmounted from virtual server instances and that all mount targets belonging to the file share are [deleted](#delete-mount-target-ui). To delete a file share, the it must be in a `stable` state or `failed` state (i.e., when provisioning fails).
 
-1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view#file-storage-view-shares-targets-ui).
+1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view).
 
 2. Click the overflow menu (hellipsis) and select **Delete**.
 
