@@ -50,7 +50,9 @@ For more information about some of the limitations of LinuxONE (s390x processor 
 ## 22 July 2021
 {: #july-22-2021}
 
-**Block Storage for VPC:** For secondary volumes attached to a virtual server instance, you can increase capacity in GB increments up to 16,000 GB, depending on the volume's profile. The volume capacity is immediately increased. For more information, see  [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
+**Block Storage for VPC:** IOPS tier and custom profiles are available with volume capacity up to 16,000 GB. For information, see [Block storage profiles](/docs/vpc?topic=vpc-block-storage-profiles).
+
+For secondary volumes attached to a virtual server instance, you can increase capacity in GB increments up to 16,000 GB, depending on the volume's profile. The volume capacity is immediately increased. For more information, see  [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 
 ## 21 July 2021
 {: #july-21-2021}
