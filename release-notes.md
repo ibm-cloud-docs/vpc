@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-08-09"
+lastupdated: "2021-08-11"
 
 keywords: release notes, changes, updates
 
@@ -27,6 +27,11 @@ subcollection: vpc
 
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
+
+## 11 August 2021
+ {: #august-11-2021}
+
+ **Auto scale supports data volumes and private catalog:** Instance groups now support using an instance template that includes one ore more data volumes. In addition, instance groups are now supported in private catalog. For more information about instance groups, see [Creating an instance group for auto scaling](/docs/vpc?topic=vpc-creating-auto-scale-instance-group).
 
 ## 9 August 2021
 
