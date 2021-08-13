@@ -250,7 +250,6 @@ To collect this information and start working with your monitoring instance usin
    ```
    {: pre}
    
-
    The first part of the URL (in this case, `us-south.monitoring.cloud.ibm.com`) is your endpoint. Make note of it.
 
 4. After you have both the API token and the endpoint, you can format your POST request. The following POST request is an example, with all the parameters that you can modify. These parameters are:
