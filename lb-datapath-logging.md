@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-09-19"
+  years: 2020, 2021
+lastupdated: "2021-08-13"
 
 keywords: application load balancer, datapath logging
 
@@ -120,6 +120,7 @@ The following is an example of the JSON schema of a datapath log:
     }
 }
 ```
+{: codeblock}
 
 Note that:
 
