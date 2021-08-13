@@ -3,9 +3,9 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-05-27"
+lastupdated: "2021-08-09"
 
-keywords: ACLs, network, CLI, example, tutorial, firewall, subnet, inbound, outbound, rule, vpc, vpc network
+keywords:  
 
 subcollection: vpc
 
@@ -22,7 +22,7 @@ subcollection: vpc
 {:external: target="_blank" .external}
 
 
-# Setting up network ACLs
+# About network ACLs
 {: #using-acls}
 [comment]: # (linked help topic)
 
@@ -38,10 +38,11 @@ The example that is presented in this document shows how to create network ACLs 
 
 To make your ACLs effective, create rules that determine how to handle your inbound and outbound network traffic. You can create multiple inbound and outbound rules. For more information about rules quotas, see [Quotas](/docs/vpc?topic=vpc-quotas#acl-quotas).
 
-* With inbound rules, you can allow or deny traffic from a source IP range, with specified protocols and ports. The destination IP range is determined by the attached subnet.
-* With outbound rules, you can allow or deny traffic to a destination IP range, with specified protocols and ports. The source IP range is determined by the attached subnet.
+* With inbound rules, you can allow or deny traffic from a source IP range, with specified protocols and ports. 
+* With outbound rules, you can allow or deny traffic to a destination IP range, with specified protocols and ports.
 * ACL rules are prioritized and considered in sequence. Higher priority rules are evaluated first and override lower priority rules.
-* Inbound rules are separated from outbound rules.
+* Inbound rules are separated from outbound rules.  
+* If no rules are specified, then **implicit deny** is the default behavior.
 
 For more information about using ICMP, TCP, and UDP protocols in your ACL rules, see [Understanding internet communication protocols](/docs/vpc?topic=vpc-understanding-icp#understanding-icp).
 
@@ -114,8 +115,8 @@ The following example steps skip the prerequisite steps of using the CLI to crea
 Use the following CLI commands to create two ACLs, named `my_web_subnet_acl` and `my_backend_subnet_acl`:
 
 ```
-ibmcloud is network-acl-create my_web_subnet_acl
-ibmcloud is network-acl-create my_backend_subnet_acl
+ibmcloud is network-acl-create my-web-subnet-acl $vpc_id --source-acl-id $old_acl_id
+ibmcloud is network-acl-create my-backend-subnet-acl $vpc_id --source-acl-id $old_acl_id
 ```
 {: codeblock}
 
@@ -170,7 +171,7 @@ Insert new inbound rules before the default inbound rule.
 
 ```
 ibmcloud is network-acl-rule-add my_web_acl_rule200 $webacl deny inbound all 0.0.0.0/0 0.0.0.0/0 \
---before-rule $inrule
+--before-rule-id $in-rule
 ```
 {: pre}
 
@@ -185,7 +186,7 @@ Now add the rule to `acl200`:
 
 ```
 ibmcloud is network-acl-rule-add my_web_acl_rule100 $webacl allow inbound all 10.10.20.0/24 0.0.0.0/0 \
---before-rule $acl200
+--before-rule-id $acl200
 ```
 {: pre}
 
@@ -194,10 +195,10 @@ Add more rules until your ACL setup is complete, saving each ID as a variable.
 ```
 acl100="0738-78340627-1a1d-447b-859f-ac9431986b6f"
 ibmcloud is network-acl-rule-add my_web_acl_rule20 $webacl allow inbound tcp 0.0.0.0/0 0.0.0.0/0 \
---port-max 443 --port-min 443 --before-rule $acl100
+--source-port-min 443 --source-port-max 443 --before-rule-id $acl100
 acl20="32450627-1a1d-447b-859f-ac9431986b6f"
 ibmcloud is network-acl-rule-add my_web_acl_rule10 $webacl allow inbound tcp 0.0.0.0/0 0.0.0.0/0 \
---port-max 80 --port-min 80 --before-rule $acl20
+--source-port-max 80 --source-port-min 80 --before-rule-id $acl20
 ```
 {: codeblock}
 
@@ -205,16 +206,16 @@ Insert new outbound rules before the default outbound rule.
 
 ```
 ibmcloud is network-acl-rule-add my_web_acl_rule200e $webacl deny outbound all 0.0.0.0/0 0.0.0.0/0 \
---before-rule $outrule
+--before-rule-id $outrule
 acl200e="11110627-1a1d-447b-859f-ac9431986b6f"
 ibmcloud is network-acl-rule-add my_web_acl_rule100e $webacl allow outbound all 0.0.0.0/0 10.10.20.0/24 \
---before-rule $acl200e
+--before-rule-id $acl200e
 acl100e="22220627-1a1d-447b-859f-ac9431986b6f"
 ibmcloud is network-acl-rule-add my_web_acl_rule20e $webacl allow outbound tcp 0.0.0.0/0 0.0.0.0/0 \
---port-max 443 --port-min 443 --before-rule $acl100e
+--source-port-max 443 --source-port-min 443 --before-rule-id $acl100e
 acl20e="33330627-1a1d-447b-859f-ac9431986b6f"
 ibmcloud is network-acl-rule-add my_web_acl_rule10e $webacl allow outbound tcp 0.0.0.0/0 0.0.0.0/0 \
---port-max 80 --port-min 80 --before-rule $acl20e
+--source-port-max 80 --source-port-min 80 --before-rule-id $acl20e
 ```
 {: codeblock}
 
@@ -224,10 +225,10 @@ ibmcloud is network-acl-rule-add my_web_acl_rule10e $webacl allow outbound tcp 0
 Create two subnets so that each of your ACLs is associated with one of the new subnets.
 
 ```
-ibmcloud is subnet-create my_web_subnet my_VPC my_region --ipv4_cidr_block 10.10.10.0/24 \
---generation gc --network-acl $webacl
-ibmcloud is subnet-create my_backend_subnet my_VPC my_region --ipv4_cidr_block 10.10.20.0/24 \
---generation gc --network-acl $bkacl
+ibmcloud is subnet-create my-web-subnet $vpc_id $zone --ipv4_cidr_block 10.10.10.0/24 \
+ --network-acl-id $webacl
+ibmcloud is subnet-create my-backend-subnet$vpc_id $zone --ipv4_cidr_block 10.10.20.0/24 \
+--network-acl-id $bkacl
 ```
 {: codeblock}
 
@@ -248,10 +249,10 @@ ibmcloud is network-acl $webacl
 ```
 {: pre}
 
-To get the default inbound ACL rule:
+To list all ACL rules:
 
 ```
-ibmcloud is network-acl-rules $webacl --direction inbound
+ibmcloud is network-acl-rules $webacl
 ```
 {: pre}
 
@@ -260,8 +261,17 @@ ibmcloud is network-acl-rules $webacl --direction inbound
 
 To add an ACL rule, here's an example command for adding a `ping` inbound rule before the default inbound rule:
 
+Syntax:
+
 ```
-ibmcloud is network-acl-rule-add --action allow --direction inbound --protocol icmp --icmp-type 8 --icmp-code --before-rule-name <default_acl_rule_name> <acl_name> <new_acl_rule_name>
+ibmcloud is network-acl-rule-add ACL ACTION DIRECTION PROTOCOL SOURCE DESTINATION [--name NAME] [--icmp-type ICMP_TYPE] [--icmp-code ICMP_CODE] [--source-port-min PORT_MIN] [--source-port-max PORT_MAX] [--destination-port-min PORT_MIN] [--destination-port-max PORT_MAX] [--before-rule-id RULE_ID] [--output JSON] [-q, --quiet]
+```
+{: pre}
+
+Example:
+
+```
+ibmcloud is network-acl-rule-add 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 allow inbound icmp 10.2.2.2 10.2.2.3 --icmp-type 8 --icmp-code 0
 ```
 {: pre}
 
@@ -274,19 +284,19 @@ Generally speaking, a _communication protocol_ is a system of rules that allow t
 * TCP, Transmission Control Protocol
 * UDP, User Datagram Protocol
 
-The protocols that are used for a particular implementation of, such as, an API call, can influence the overall behavior of your network. So, it is worthwhile to understand the basic differences between them. 
+The protocols that are used for a particular implementation of, say, an API call, can influence the overall behavior of your network, so it is worthwhile to understand the basic differences between them. If you need more information, many good articles are available on the internet with detailed descriptions of the protocols.
 
 ### ICMP
 {:#network-infrastructure-icmp}
 
-ICMP is a _control protocol_, meaning it is designed not to carry application data, but rather information about the status of the network itself. It is essentially a _network layer_ (OSI Layer-3) error-reporting and error-control protocol for the network. The best-known examples of ICMP in practice are the `ping` utility. The `ping` utility uses ICMP to probe remote hosts for responsiveness and overall round-trip time of the probe messages, and the `traceroute` utility.
+ICMP is a _control protocol_, meaning that it is designed to carry information about the status of the network itself. It is essentially a _network layer_ (OSI layer 3) error-reporting and error-control protocol for the network. The best-known examples of ICMP in practice are the `ping` and `traceroute` utilities. The `ping` utility uses ICMP to probe remote hosts for responsiveness and overall round-trip time of the probe messages. The `traceroute` utility uses ICMP to discover and trace network routes that the ICMP packets take when traveling to their destination.
 
-What developers need to know is that ICMP packets have no TCP or UDP port numbers that associated with them because port numbers are a Layer-4 (_transport layer_) construct.
+What developers need to know is that ICMP packets have no TCP or UDP port numbers that are associated with them, because port numbers are a layer 4 (_transport layer_) construct.
 
 ### TCP and UDP
 {:#network-infrastructure-tcp-udp}
 
-Both Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) are OSI Layer-4 _transport protocols_. These protocols are used to pass the actual data. The main difference between TCP and UDP, from a developer's perspective, is how they handle **packet order**.
+Both Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) are OSI layer 4 _transport protocols_. These protocols are used to pass the actual data. The main difference between TCP and UDP, from a developer's perspective, is how they handle **packet order**.
 
 TCP is a connection-oriented protocol, it guarantees that all sent packets reach the destination in the correct order.
 
@@ -294,7 +304,13 @@ Alternatively, UDP is a connection-less protocol. Communication is datagram-orie
 
 Typically, UDP is used for real-time communication, where a little percentage of the packet loss rate is preferable to the overhead of a TCP connection.
 
-### Extra information
-{:#network-infrastructure-additional-information}
+## Related links
+{: #acl-related-links}
 
-An overview of the OSI 7-layer model with examples of internet protocols at each layer is available [here](https://www.webopedia.com/quick_ref/OSI_Layers.asp).
+These links provide additional information about {{site.data.keyword.cloud_notm}} ACLs for VPC.
+
+* [Network ACL CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#network-acls)
+* [Network ACL API reference](https://{DomainName}/apidocs/vpc#list-network-acls)
+* [Network ACL required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls#network-acl-authorizations-required-for-api-and-cli-calls)
+* [Network ACL Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-network-acl)
+* [Network ACL quotas](/docs/vpc?topic=vpc-quotas#acl-quotas)

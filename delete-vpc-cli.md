@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2019-09-30"
+  years: 2019, 2021
+lastupdated: "2021-07-30"
 
 
 keywords: delete, resources, cli, infrastructure, command line interface
@@ -91,6 +91,7 @@ For each VPN gateway in the subnet you want like to delete, run the following co
 ```
 ibmcloud is vpn-gateway-delete $vpnid
 ```
+{: pre}
 
 The status of the VPN gateway changes to `deleting` immediately, but it still appears in a list query result. The deletion of a VPN gateway can take up to 30 minutes. You can request other subnet resources to be deleted in parallel while you wait for the VPN gateway to be deleted. However, the subnet can't be deleted until the VPN gateway and all other resources in the subnet no longer appear in the list query results.
 

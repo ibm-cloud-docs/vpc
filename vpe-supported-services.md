@@ -34,6 +34,7 @@ subcollection: vpc
 * Enterprise Billing Units ([Endpoint URLs](https://{DomainName}/apidocs/enterprise-apis/billing-unit#endpoint-urls))
 * Enterprise Management ([Endpoint URLs](https://{DomainName}/apidocs/enterprise-apis/enterprise#endpoint-urls))
 * Enterprise Usage Reports ([Endpoint URLs](https://{DomainName}/apidocs/enterprise-apis/resource-usage-reports#endpoint-urls))
+* Event Streams for IBM Cloud ([Endpoint URLs](https://{DomainName}/apidocs/event-streams/adminrest))
 * Global Catalog ([Endpoint URLs](https://{DomainName}/apidocs/resource-catalog/global-catalog#endpoint-url))
 * Global Search ([Endpoint URLs](https://{DomainName}/apidocs/search#endpoint-url))
 * Global Tagging ([Endpoint URLs](https://{DomainName}/apidocs/tagging#endpoint-url))
@@ -51,7 +52,6 @@ subcollection: vpc
 * Usage Metering ([Endpoint URLs](https://{DomainName}/apidocs/usage-metering#endpoint))
 * Usage Reports ([Endpoint URLs](https://{DomainName}/apidocs/metering-reporting#endpoint))
 * User Management ([Endpoint URLs](https://{DomainName}/apidocs/user-management#endpoint-urls))
-* {{site.data.keyword.messagehub_full}} ([Endpoint URLs](https://{DomainName}/apidocs/event-streams/adminrest))
 
 This topic will be updated as additional services are supported.
 {: note}

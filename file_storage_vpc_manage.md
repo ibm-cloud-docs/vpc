@@ -76,7 +76,7 @@ To mount a share to an instance using the API, you create a mount target by prov
 ### Rename a mount target of a file share
 {: #rename-mount-target-ui}
 
-1. Navigate to the [file shares details](/docs/vpc?topic=vpc-file-storage-view#fs-view-single-share) page.
+1. Navigate to the [file shares details](/docs/vpc?topic=vpc-file-storage-view) page.
 
 2. Click the overflow menu (hellipsis).
 
@@ -91,7 +91,7 @@ Valid mount target names can include a combination of lowercase alpha-numeric ch
 
 To delete a mount target, the share must be in a `stable` state.
 
-1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view#file-storage-view-shares-targets-ui).
+1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view).
 
 2. On the File share details page, select a mount target you want to delete.
 
@@ -102,7 +102,7 @@ To delete a mount target, the share must be in a `stable` state.
 
 Before deleting a file share, make sure that it's unmounted from virtual server instances and that all mount targets belonging to the file share are [deleted](#delete-mount-target-ui). To delete a file share, the it must be in a `stable` state or `failed` state (i.e., when provisioning fails).
 
-1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view#file-storage-view-shares-targets-ui).
+1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view).
 
 2. Click the overflow menu (hellipsis) and select **Delete**.
 
@@ -403,7 +403,7 @@ The file share is deleted in background. Confirm the deletion by trying to view 
 ## Mount and Unmount File Share from a virtual server instance
 {: #fs-mount-unmount-vsi}
 
-To mount a file share to a virtual server instance, [locate the share mount path information](vpc?topic=vpc-file-storage-view#fs-get-target-api). The mount path is created when you created mount target for a file share. See the following information for mounting on these Linux operating systems. Other Linux distributions follow similar procedures.
+To mount a file share to a virtual server instance, [locate the share mount path information](vpc?topic=vpc-file-storage-view). The mount path is created when you created mount target for a file share. See the following information for mounting on these Linux operating systems. Other Linux distributions follow similar procedures.
 
 * [Mounting file shares on Red Hat Linux](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHEL)
 * [Mounting file shares in CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos)

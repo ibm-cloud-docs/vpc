@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-27"
+lastupdated: "2021-07-27"
 
 keywords: region, zone, deploy, datacenter, data, center, federated, CLI, API, account, failover, disaster, recovery, DR, data center
 
@@ -44,6 +44,7 @@ Virtual Private Cloud is available in the following {{site.data.keyword.cloud}} 
 | Japan (Osaka) | jp-osa | `jp-osa.iaas.cloud.ibm.com` |
 | Australia (Sydney) | au-syd | `au-syd.iaas.cloud.ibm.com` |
 | Canada (Toronto) | ca-tor | `ca-tor.iaas.cloud.ibm.com` |
+| Brazil (São Paulo) | br-sao | `br-sao.iaas.cloud.ibm.com` |
 
 The Regional API (VPC) endpoint is automatically set by the {{site.data.keyword.cloud}} CLI when you log in to a specific region.
 {: note}

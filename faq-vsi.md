@@ -2,7 +2,8 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-07-13"
+
+lastupdated: "2021-08-17"
 
 subcollection: vpc
 
@@ -64,7 +65,7 @@ Yes, a server can be on a subnet that is attached to a public gateway and also h
 {: faq}
 {: support}
 
-You can create virtual server instances for {{site.data.keyword.vpc_full}} in Dallas (us-south), Washington DC (us-east), London (eu-gb), Sydney (au-syd), Tokyo (jp-tok), Osaka (jp-osa), Frankfurt (eu-de), and Toronto (ca-tor).
+You can create virtual server instances for {{site.data.keyword.vpc_full}} in Dallas (us-south), Washington DC (us-east), London (eu-gb), Sydney (au-syd), Tokyo (jp-tok), Osaka (jp-osa), Frankfurt (eu-de), Toronto (ca-tor), and São Paulo (br-sao).
 
 ## Can I use existing virtual server instances from my classic infrastructure with an {{site.data.keyword.vpc_short}}?
 {: #faq-vsi-8}
@@ -150,4 +151,9 @@ Image from volume lets you create a custom image from a boot volume attached to 
 The virtual server instance is automatically assigned an instance identifier (ID), which includes the SMBIOS system-uuid as a portion of the ID, when the instance is created. IDs are immutable, globally unique, and never reused, so the ID uniquely identifies a particular instantiation of a virtual server instance across all of IBM Cloud. The ID, including the SMBIOS system-uuid portion, is static and persists for the lifecycle of the virtual server instance until that virtual server instance is deleted. 
 
 For more information, including how to retrieve this information from within your virtual server, see [Retrieving the virtual server instance identifier](/docs/vpc?topic=vpc-managing-virtual-server-instances#retrieve-VSI-instance-identifer) section in Managing virtual server instances.
+
+## Can I access metadata about my virtual server instances?
+{: #faq-vsi-20}
+
+Yes, if your account has been granted special approval, you can access the instance metadata service to get information about your VPC compute resources. The metadata service is a REST API that you invoke using a well-known URI to retrieve instance-specific information from the metadata server. For more information, see For more information, see [About Instance Metadata for VPC (Beta)](/docs/vpc?topic=vpc-imd-about).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-06-30"
+lastupdated: "2021-08-06"
 
 keywords: image, stock image, custom image, virtual private cloud, virtual server, power, generation 2, gen 2
 
@@ -25,7 +25,7 @@ subcollection: vpc
 # Images
 {: #about-images}
 
-When you provision {{site.data.keyword.vsi_is_full}}, you can select from the supported stock images or a custom image that you import from {{site.data.keyword.cos_full_notm}}. The image that you select determines the operating system that is provisioned for your instance. 
+When you provision {{site.data.keyword.vsi_is_full}}, you can select from the supported stock images or a custom image that you import from {{site.data.keyword.cos_full_notm}}. The image that you select determines the operating system that is provisioned for your instance.
 {:shortdesc}
 
 ## Stock images
@@ -33,30 +33,32 @@ When you provision {{site.data.keyword.vsi_is_full}}, you can select from the su
 
 The following operating systems are available as stock images when you create a virtual server.
 
-<!-- * CentOS 7.x
-* Debian 8.x, 9.x
-* Red Hat Enterprise Linux 7.x-0
-* Ubuntu 16.04, 18.04
-* Windows 2012, 2012 R2, 2016 -->
+### Supported x86_64 stock image operating systems
+{: #x86-supported-os}
 
-| Image | Architectures | 
+| Image | Architectures |
 |---------|---------|
 | CentOS 7.x, 8.x | x86-64 |
-| Debian 9.x, 10.x | x86-64 | 
+| Debian 9.x, 10.x | x86-64 |
 | Red Hat Enterprise Linux 7.x, 8.x | x86-64 |
-| Ubuntu 16.04.x, 18.04.x, 20.04.x | x86-64 | 
+| Ubuntu 16.04.x, 18.04.x, 20.04.x | x86-64 |
 | Windows 2012, 2012 R2, 2016, 2019 | x86-64 |  |
-{: caption="Table 1. Stock boot images provided" caption-side="top"}
+{: caption="Table 1. Supported x86_64 stock image operating systems" caption-side="top"}
 
- When you order an instance, the images are cloud-init enabled to optimize creation times. With a cloud-init enabled image, you can provide user data. In the **User Data** field on the order form, you can enter optional cloud-init user data for the server. For more information about user data and automation, see [User data](/docs/vpc?topic=vpc-user-data).
- 
+### Supported LinuxONE (s390x processor architecture) stock image operating systems
+{: #s390x-supported-os}
+
+| Image | Architectures |
+|---------|---------|
+|  Ubuntu 20.04.x | s390x |
+|  SUSE Linux Enterprise server (SLES) 15 SP1 | s390x |
+|  Red Hat Enterprise Linux 8.x | s390x |
+{: caption="Table 2. Supported s390x stock image operating systems" caption-side="top"}
+
+When you order an instance, the images are cloud-init enabled to optimize creation times. With a cloud-init enabled image, you can provide user data. In the **User Data** field on the order form, you can enter optional cloud-init user data for the server. For more information about user data and automation, see [User data](/docs/vpc?topic=vpc-user-data).
+
 You can access details about each operating system, such as the url for the operating system, by using the API call, [Retrieves all operating systems](https://cloud.ibm.com/apidocs/vpc#retrieves-all-operating-systems){: external}.  
-{: tip} 
-
-<!---### Image support for GPUs
-{: #gpu-images}
-
-The only stock image that currently supports GPU profiles is the Ubuntu 18.04 image for the Power Architecture. The GPU profiles are available for the POWER architecture. The NVIDIA kernel driver for the Tesla V100 GPUs must be installed in your instance before use. For more information, see [Setting up GPU drivers for POWER-based instances](/docs/vpc?topic=vpc-setup-gpus).-->
+{: tip}
 
 ### Stock image naming conventions
 {: #image-naming-conventions}
@@ -67,7 +69,7 @@ All IBM-provided stock, public images are named by using the following conventio
 ibm-<family>-<version>-<type>-<architecture>-<build>
 ```
 
-For example:
+For example,
 
 ```
 ibm-centos-7-6-minimal-amd64-2
@@ -89,14 +91,14 @@ The image naming convention is subject to change. The list of image names is not
 ## Custom images
 {: #custom-images}
 
-You can import an image from {{site.data.keyword.cos_full_notm}} to use for creating a new virtual server instance. 
+You can import an image from {{site.data.keyword.cos_full_notm}} to use for creating a new virtual server instance.
 
-### Requirements 
+### Requirements
 {: #custom-image-reqs}
 
-Custom images must meet the following requirements: 
-- Contain a single file or volume 
-- Is in qcow2 format 
+Custom images must meet the following requirements:
+- Contain a single file or volume
+- Is in qcow2 format
 - Is cloud-init enabled
 - The operating system is supported as a stock image
 - Size doesn't exceed 100 GB
@@ -111,7 +113,7 @@ Storage costs are incurred for storing custom images. This charge is separate fr
  ## Next steps
 {: #next-steps-images}
 
-After you choose a profile, it's time to plan for and create an instance. 
+After you choose a profile, it's time to plan for and create an instance.
 * [Planning for instances](/docs/vpc?topic=vpc-vsi_best_practices)
 * [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers)
 * [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli)

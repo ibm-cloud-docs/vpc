@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2021
-lastupdated: "2021-05-14"
+lastupdated: "2021-08-03"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
@@ -25,7 +25,7 @@ subcollection: vpc
 # Key rotation for VPC resources
 {: #vpc-key-rotation}
 
-For {{site.data.keyword.vpc_short}} resources such as volumes and encrypted images that are protected by your customer root key (CRK), you can rotate the root keys for more security. When you rotate a root key by schedule or on demand, the original key material is replaced. The old key remains active to decrypt existing resources but can't be used to encrypt new ones. This feature is available on Gen 2 Compute resources only.
+For {{site.data.keyword.vpc_short}} resources such as volumes and encrypted images that are protected by your customer root key (CRK), you can rotate the root keys for more security. When you rotate a root key by schedule or on demand, the original key material is replaced. The old key remains active to decrypt existing resources but can't be used to encrypt new ones.
 {:shortdesc}
 
 ## Key rotation overview
@@ -41,7 +41,7 @@ You can set up a [rotation policy](#vpc-key-rotation-policies) to schedule autom
 
 For root keys that you import to the KMS instance, because you're providing new key material not already in the KMS, you can't set a rotation policy for automatic key rotation. Instead, you [manually rotate](#vpc-key-rotation-ui) your keys by using the new cryptographic key material that you imported.
 
-The key rotation feature is available for root keys and does not apply to standard encryption keys. Key rotation is available for encrypting resrouces on Gen 2 Compute resources only.
+The key rotation feature is available for root keys and does not apply to standard encryption keys.
 {:note}
 
 ### How key rotation works
@@ -100,7 +100,6 @@ To perform key rotation:
 * Import one or more root keys to the KMS instance, or have the KMS generate one for you. See [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs).
 * Select one KMS for key rotation. Key rotation modifies key material within that instance.
 * Any root key can be rotated and if the key is protecting a resource; the key is re-wrapped.
-* Keys for resources (such as block storage volumes) on Gen 1 Compute resources can't be rotated. Create separate root keys for resources on Gen 2 Compute resources that can be rotated.
 * If you initially imported a root key, you must provide new base64-encoded key material to rotate the key.
 * Locate the KMS instance ID. See [Retrieving your instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
 * Locate the root key ID and CRN. Using the CLI, see [Step 1 - Obtain service instance and root key information](/docs/vpc?topic=vpc-creating-instances-byok#byok-cli-setup-prereqs). To view a list of available root keys, also see this information for [Key Protect](/docs/key-protect?topic=key-protect-view-keys) or [HPCS](/docs/hs-crypto?topic=hs-crypto-view-keys).

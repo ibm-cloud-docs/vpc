@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-25"
+lastupdated: "2021-08-11"
 
 subcollection: vpc
 
@@ -70,14 +70,13 @@ see [Granting user permissions for VPC resources](/docs/vpc?topic=vpc-managing-u
 You can set scaling policies for these metrics: CPU utilization (%), RAM utilization (%), Network in (Mbps), Network out (Mbps). 
 You can define more than one target metric policy, but only one policy for each type of metric.
 
-## Are there any limitations on network interfaces, floating IP addresses, or volumes when I use auto scale?
+## Are there any limitations on network interfaces or floating IP addresses when I use auto scale?
 {: #faq-auto-scale-5}
 {: faq}
 
 Instance groups do not support instance templates that have the following configurations:
 - Secondary network interfaces are not supported. Only one, primary network interface for an instance template is supported         in an instance group.
 - A primary IP address or floating IP addresses assigned to the primary interface is not supported.
-- Attached data volumes are not supported. 
 
 ## Can I use custom metrics for auto scale?
 {: #faq-auto-scale-6}
@@ -117,14 +116,15 @@ You can update all of the instances in an instance group by deleting the existin
 
 You can add health checking by associating a load balancer when you create your instance group. For more information about load balancers, see [About IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancers). For more information about creating a load balancer, a load balancer pool, and configuring health checks, see [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancer). For additional information, see [Integrating a load balancer with instance groups](/docs/vpc?topic=vpc-lbaas-integration-with-instance-groups) and [Working with health checks](/docs/vpc?topic=vpc-alb-health-checks).
 
+
 ## Do I need to pre-provision resources for auto scaling?
 {: #faq-auto-scale-12}
 {: faq}
 
-During an auto-scaling event, auto scale dynamically allocates instances according to the instance template defined in the instance group. Instance templates do not support  data volumes or a secondary network interface. If you want to include those resources as part of an instance provisioned by auto scale, you must create those resources separately and attach them to the instances after they are provisioned. 
+During an auto-scaling event, auto scale dynamically allocates instances according to the instance template defined in the instance group. Instance templates do not support a secondary network interface. If you want to include a secondary network interface as part of an instance provisioned by auto scale, you must create that resource separately and attach it to the instances after they are provisioned. 
 
-## Can I include instance groups in my private catalog? 
+## Why isn't my instance group scaling? 
 {: #faq-auto-scale-13}
 {: faq}
 
-Instance groups are currently not supported in private catalogs.
+Instance groups can fail to create instances for various reasons. You can use Activity Tracker to find specific details related to instance group events. For more information, see [Instance group events](/docs/vpc?topic=vpc-at-events#events-compute-instance-group).

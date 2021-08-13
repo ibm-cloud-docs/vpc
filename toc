@@ -36,7 +36,7 @@ Virtual Private Cloud (VPC)
         vsi_is_ssh_keys_about.md
         vsi_is_provisioning_scripts.md
         ip-spoofing-about.md
-        
+
         {: .topicgroup}
         Bare Metal Servers for VPC (Beta)
             bare_metal_server_about.md
@@ -128,7 +128,19 @@ Virtual Private Cloud (VPC)
         vsi_instance_storage_how_to.md
         monitoring-vpc-metrics.md
         vsi_is_instance_resize.md
+        managing-gpus.md
         
+    {: .topicgroup}
+    Instance metadata service (Beta)
+        instance_metadata_vpc_about.md
+        instance_metadata_vpc_configure.md
+        instance_metadata_vpc_get_metadata.md
+        instance_metadata_vpc_metadata_summary.md
+        instance_metadata_vpc_access_instance_metadata.md
+        instance_metadata_vpc_use_trusted_profiles.md
+        instance_metadata_vpc_config_windows.md
+        instance_metadata_vpc_security_bp.md
+
     {: .topicgroup}
     Placement groups (Beta)
         about-placement-groups.md
@@ -185,6 +197,7 @@ Virtual Private Cloud (VPC)
     {: .topicgroup}
     Access control lists
         using-acls.md
+        acl-create.md
 
     {: .topicgroup}
     Security groups
@@ -392,6 +405,7 @@ Virtual Private Cloud (VPC)
         vpe-faqs.md
         vpn-faqs.md
         faq-vsi.md
+        instance_metadata_vpc_faqs.md
 
     {: .topicgroup}
     Troubleshooting
@@ -426,7 +440,8 @@ Virtual Private Cloud (VPC)
         vsi_is_troubleshooting.md
         block_storage_is_troubleshoot.md
         bare_metal_server_troubleshoot.md
-        
+        instance_metadata_vpc_troubleshoot.md
+
     release-notes.md
     api-change-log.md
     limitations.md

@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2021
-lastupdated: "2021-05-10"
+lastupdated: "2021-07-30"
 
 keywords: block storage, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
@@ -69,13 +69,13 @@ Customer-managed encryption gives you several advantages over IBM-managed encryp
 
 * Your block storage data is encrypted both at rest and in motion at all times using your own keys.
 * Each boot and data volume is encrypted at rest with a unique master encryption key. If the key is compromised, no other block storage volumes are impacted because the compromised key protects only a single volume.
-* Primary boot volumes created from a Linux or Windows stock images are encrypted by default with IBM-managed encryption. If you create an instance from a stock image and specify customer-managed encryption for data volumes, data written to those volumes uses customer-managed encryption. **Verify this information***
+* Primary boot volumes created from a Linux or Windows stock images are encrypted by default with IBM-managed encryption. If you create an instance from a stock image and specify customer-managed encryption for data volumes, data written to those volumes uses customer-managed encryption.
 * You control the number and usage of root keys to use for envelope encryption at the volume level. For example, you can choose to encrypt your boot volume with one root key and data volumes with a different root key.
 
 **Encrypt your custom images:**
 
 * You can encrypt [custom images](/docs/vpc?topic=vpc-create-encrypted-custom-image) by importing a QCOW2 boot image file protected with your root key.
-* Data in the instance's boot volume is also encrypted. **explain further*** For more information, see [About encrypted custom images](#byok-about-encrypted-images).
+* Data in the instance's boot volume is also encrypted. For more information, see [About encrypted custom images](#byok-about-encrypted-images).
 
 **Excellent performance:**
 
@@ -175,7 +175,7 @@ Two IBM key management services (KMS) are available for customer-managed encrypt
 Table 1 describes these services:
 
 | Key Management Service | HSM Encryption Certification | Description |
-| ----- | ----- |
+| ----- | ----- | ----- |
 | [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect/concepts?topic=key-protect-getting-started-tutorial) | FIPS 140-2 *Level 3* compliance | A multi-tenant KMS that lets you import or create your root keys and securely manage them.  |
 | [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started) | FIPS 140-2 *Level 4* compliance | Highest level of security; a single-tenant KMS and hardware security module (HSM) that's controlled by you.  Import or create your root keys and securely manage them. Create a HSM master key to encrypt the content of key storage, including root keys. Only you have access to your keys and data. |
 {: caption="Table 1. Available key management service options" caption-side="top"}

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2021
-lastupdated: "2021-05-27"
+lastupdated: "2021-07-27"
 
 keywords: classic, access, classic access, VRF, peering
 
@@ -118,6 +118,9 @@ Zone         | Address Prefix
 `ca-tor-1`     | `10.249.0.0/18`
 `ca-tor-2`     | `10.249.64.0/18`
 `ca-tor-3`     | `10.249.128.0/18`
+`br-sao-1`     | `172.26.0.0/18`
+`br-sao-2`     | `172.26.64.0/18`
+`br-sao-3`     | `172.26.128.0/18`
 {: caption="Table 1. Classic access VPC address prefixes by zone" caption-side="top"}
 
 To prevent address prefixes from being created, you can add the `"address_prefix_management": "manual"` parameter when you create the VPC by using the API:

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-27"
+lastupdated: "2021-08-09"
 
 keywords: virtual private endpoints, bind, unbind, reserved IP, VPE, endpoint gateways
 
@@ -89,6 +89,8 @@ To bind a reserved IP to an endpoint gateway by using the CLI, run the following
   ibmcloud is endpoint-gateway-reserved-ip-bind ENDPOINT_GATEWAY \
     --reserved-ip-id RESERVED_IP_ID [--json]  
   ```
+  {: pre}
+  
 Where:
 
 * **ENDPOINT_GATEWAY** is the ID of the endpoint gateway.
@@ -104,6 +106,7 @@ To unbind a reserved IP to an endpoint gateway by using the CLI, run the followi
   ibmcloud is endpoint-gateway-reserved-ip-unbind ENDPOINT_GATEWAY \
   (--address ADDRESS | --reserved-ip-id RESERVED_IP_ID) [-f, --force]  
   ```
+  {: pre}
 
 Where:
 

@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2020, 2021
 
-lastupdated: "2021-03-17"
+lastupdated: "2021-07-30"
 
 keywords: resource, access, role, role-based, authorization, policy, access group, resource group, permission, assign, administrator, operator, editor, viewer, user, team, scenario, manage, create, IAM
 
@@ -177,6 +177,7 @@ You can use the following CLI commands to validate the resource group permission
 ```
 ibmcloud iam user-policies <username>
 ```
+{: pre}
 
 ### Validate by access group
 {: #validate-by-access-group}
@@ -184,6 +185,7 @@ ibmcloud iam user-policies <username>
 ```
 ibmcloud iam access-groups -u <username>
 ```
+{: pre}
 
 Changes to IAM access policies for VPC can take up to 10 minutes to take effect.
 {: note}

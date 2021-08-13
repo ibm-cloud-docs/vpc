@@ -3,7 +3,8 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-07-23"
+lastupdated: "2021-08-17"
+
 
 keywords: release notes, changes, updates
 
@@ -28,22 +29,48 @@ subcollection: vpc
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
 
-## 27 July 2021
-{: #july-27-2021}
+## 17 August 2021
+{: #august-17-2021}
 
 **Instance Identifier Update:** The instance identifier (ID) now includes the SMBIOS system-uuid as a portion of the ID. The ID, including the SMBIOS system-uuid portion, is static and persists for the lifecycle of the virtual server instance until that virtual server instance is deleted. For more information, including how to retrieve this information from within your virtual server, see [Retrieving the virtual server instance identifier](/docs/vpc?topic=vpc-managing-virtual-server-instances#retrieve-VSI-instance-identifer) section in Managing virtual server instances.
+
+## 11 August 2021
+ {: #august-11-2021}
+
+ **Auto scale supports data volumes and private catalog:** Instance groups now support using an instance template that includes one ore more data volumes. In addition, instance groups are now supported in private catalog. For more information about instance groups, see [Creating an instance group for auto scaling](/docs/vpc?topic=vpc-creating-auto-scale-instance-group).
+
+## 9 August 2021
+
+{: #august-9-2021}
+
+**LinuxONE (s390x processor architecture):** You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud™. For more information about available LinuxONE (s390x processor architecture) profiles, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
+For more information about some of the limitations of LinuxONE (s390x processor architecture), see [Service limitations](/docs/vpc?topic=vpc-limitations).
+
+
+## 30 July 2021
+
+{: #july-30-2021}
+
+**Instance Metadata for VPC (closed Beta):** If your account is granted special approval to preview this feature, you can access metadata about your VPC compute resources. The metadata service is a REST API that you invoke using a well-known URI to retrieve instance-specific information from the metadata server. For more information, see [About Instance Metadata for VPC (Beta)](/docs/vpc?topic=vpc-imd-about).
+
+## 26 July 2021
+{: #july-26-2021}
+
+**New region:** The São Paulo region endpoint is now in service at `https://br-sao.iaas.cloud.ibm.com`. For more information, see [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region).
 
 ## 22 July 2021
 {: #july-22-2021}
 
-**Block Storage for VPC:** For secondary volumes attached to a virtual server instance, you can increase capacity in GB increments up to 16,000 GB, depending on the volume's profile. The volume capacity is immediately increased. For more information, see  [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
+**Block Storage for VPC:** IOPS tier and custom profiles are available with volume capacity up to 16,000 GB. For information, see [Block storage profiles](/docs/vpc?topic=vpc-block-storage-profiles).
+
+For secondary volumes attached to a virtual server instance, you can increase capacity in GB increments up to 16,000 GB, depending on the volume's profile. The volume capacity is immediately increased. For more information, see  [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 
 ## 21 July 2021
 {: #july-21-2021}
 
 **Bare Metal Servers for VPC (closed beta):** If your account has been granted special approval to preview this feature, you can now create bare metal servers to host VMware clusters in VPC. You can set up VMware management applications and create VMware virtual machines (VM) on the bare metal servers. As bare metal servers are integrated with the VPC platform, you can take advantage of the network, storage, and security capabilities provided by the VPC. For more information, see [About Bare Metal Servers for VPC (beta)](/docs/vpc?topic=vpc-about-bare-metal-servers).
 
-The bare metal console feature is temporarily unavailable. An "unauthorized" error will be returned if you try to connect to the console. 
+The bare metal console feature is temporarily unavailable. An "unauthorized" error will be returned if you try to connect to the console.
 {:note}
 
 ## 6 July 2021
@@ -107,7 +134,7 @@ The Ultra High Memory family of profiles is currently available in the Dallas an
 ## 06 April 2021
 {: #april-06-2021}
 
-**New region:** The Toronto region endpoint is now in service at `https://ca-tor.iaas.cloud.ibm.com`. For more information, see [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region). 
+**New region:** The Toronto region endpoint is now in service at `https://ca-tor.iaas.cloud.ibm.com`. For more information, see [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region).
 
 ## 01 April 2021
 {: #april-01-2021}

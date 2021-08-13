@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-04-19"
+lastupdated: "2021-08-06"
 
 keywords: CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
 
@@ -41,7 +41,12 @@ Use one of the following public endpoints to connect to the VPC infrastructure A
 | Tokyo             | `https://jp-tok.iaas.cloud.ibm.com`   | Not yet available |
 | Osaka             | `https://jp-osa.iaas.cloud.ibm.com`   | Not yet available |
 | Toronto           | `https://ca-tor.iaas.cloud.ibm.com`   | Not yet available |
+| São Paulo         | `https://br-sao.iaas.cloud.ibm.com`   | `https://br-sao.private.iaas.cloud.ibm.com` |
 {: caption="Table 1. VPC API Regional Endpoints" caption-side="top"}
+
+
+LinuxONE (s390x processor architecture) profiles are supported on virtual server instances in Tokyo.   
+{:note}
 
 After you've created and are accessing the resources in your VPC, you're ready to run workloads. From inside the VPC infrastructure, you can access two types of {{site.data.keyword.cloud_notm}} endpoints: platform as a service (PaaS) endpoints, also known as service endpoints, and infrastructure as a service (IaaS) endpoints.
 
@@ -109,5 +114,3 @@ An NTP server is available from `time.adn.networklayer.com`, which resolves to `
 {{site.data.keyword.cos_full_notm}} stores encrypted and dispersed data across multiple geographic locations. For more information about {{site.data.keyword.cos_full_notm}}, see [Getting started with {{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage).
 
 To reach Cloud Object Storage from a VPC see [Connecting to {{site.data.keyword.cloud_notm}} Object Storage from VPC](/docs/vpc?topic=vpc-connecting-vpc-cos).
-
-

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2020-07-23"
+lastupdated: "2020-07-29"
 
 keywords: flow logs, getting started
 
