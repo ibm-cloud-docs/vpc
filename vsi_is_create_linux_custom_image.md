@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-07-29"
+lastupdated: "2021-08-06"
 
 keywords: creating a linux custom image for vpc, cloud-init, qcow2, vhd
 
@@ -51,6 +51,9 @@ It might be helpful to begin with a cloud-enabled vendor image.
 
 ## Step 2 - Check kernel arguments
 {: #kernel-args}
+
+Skip these steps for LinuxONE (s390x processor architecture).  
+{: note}
 
 Make sure that the following arguments are present on the kernel command line:
 * `nomodeset`

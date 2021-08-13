@@ -175,7 +175,7 @@ Two IBM key management services (KMS) are available for customer-managed encrypt
 Table 1 describes these services:
 
 | Key Management Service | HSM Encryption Certification | Description |
-| ----- | ----- |
+| ----- | ----- | ----- |
 | [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect/concepts?topic=key-protect-getting-started-tutorial) | FIPS 140-2 *Level 3* compliance | A multi-tenant KMS that lets you import or create your root keys and securely manage them.  |
 | [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started) | FIPS 140-2 *Level 4* compliance | Highest level of security; a single-tenant KMS and hardware security module (HSM) that's controlled by you.  Import or create your root keys and securely manage them. Create a HSM master key to encrypt the content of key storage, including root keys. Only you have access to your keys and data. |
 {: caption="Table 1. Available key management service options" caption-side="top"}

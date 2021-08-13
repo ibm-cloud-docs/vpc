@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-07-29"
+lastupdated: "2021-08-09"
 
 keywords:  
 
@@ -38,8 +38,8 @@ The example that is presented in this document shows how to create network ACLs 
 
 To make your ACLs effective, create rules that determine how to handle your inbound and outbound network traffic. You can create multiple inbound and outbound rules. For more information about rules quotas, see [Quotas](/docs/vpc?topic=vpc-quotas#acl-quotas).
 
-* With inbound rules, you can allow or deny traffic from a source IP range, with specified protocols and ports. The destination IP range is determined by the attached subnet.
-* With outbound rules, you can allow or deny traffic to a destination IP range, with specified protocols and ports. The source IP range is determined by the attached subnet.
+* With inbound rules, you can allow or deny traffic from a source IP range, with specified protocols and ports. 
+* With outbound rules, you can allow or deny traffic to a destination IP range, with specified protocols and ports.
 * ACL rules are prioritized and considered in sequence. Higher priority rules are evaluated first and override lower priority rules.
 * Inbound rules are separated from outbound rules.  
 * If no rules are specified, then **implicit deny** is the default behavior.

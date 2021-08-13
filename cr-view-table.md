@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-15"
+lastupdated: "2021-08-10"
 
 keywords: custom routes
 
@@ -71,12 +71,14 @@ To view details of a specific routing table:
 ```
 ibmcloud is vpc-routing-table VPC ROUTING_TABLE [--json]
 ```
+{: pre}
 
 To view details of the default routing table:
 
 ```
 ibmcloud is vpc-default-routing-table VPC [--json]
 ```
+{: pre}
 
 To view details of a routing table that is attached to the subnet:
 

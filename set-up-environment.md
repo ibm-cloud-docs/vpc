@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-07-30"
+lastupdated: "2021-08-06"
 
 keywords: setup, environment, prerequisites, api, cli, command line interface, plugin, creating a vpc, iam, permissions, access, ssh key
 
@@ -53,6 +53,9 @@ Before you can create an {{site.data.keyword.vpc_full}} (VPC) by using the API o
 {: cli}
 
 Before you can use the CLI to create your VPC, you must install the IBM Cloud CLI and the VPC CLI plug-in.
+
+{{site.data.keyword.cloud_notm}} CLI is not supported on LinuxONE (s390x processor architecture). However, you can install the CLI on another supported platform and use it with LinuxONE (s390x processor architecture) virtual server instances.
+{:note}
 
 1. Install the [IBM Cloud CLI ![External link icon](../icons/launch-glyph.svg "External link icon")](/docs/cli?topic=cli-getting-started){: new_window}.
 1. Install the VPC CLI plug-in.

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2020, 2021
-lastupdated: "2021-07-29"
+lastupdated: "2021-08-06"
 
 keywords: vpc, virtual private cloud, private cloud network, quick provisioning, logical isolation, security, cloud-native, workloads, BYOIP, high availability, ACL, Access control list, block storage volumes, generation 2, gen 2
 
@@ -38,6 +38,11 @@ VPC gives your applications logical isolation from other networks, while providi
 You can quickly provision scalable generation 2 compute resources in your VPC by creating *virtual server instances* with the core and RAM configuration that's best for your workload. You can select from the supported stock images or custom images that were imported from {{site.data.keyword.cos_full_notm}}. All images are cloud-init enabled. You can connect to your instance without using a password by adding *SSH keys*.
 
 You can create instances with up to 80 Gbps network bandwidth per instance. Each instance can be multi-homed, that is, you can create multiple network interfaces per instance.
+
+##  Multi-architecture images
+
+You can choose to create *virtual server instances* with different operating systems on x86_64 or LinuxONE (s390x processor architecture). For more information, see [Images](/docs/vpc?topic=vpc-about-images).
+
 
 ## Storage capabilities
 {: #about-vpc-storage-capabilities}

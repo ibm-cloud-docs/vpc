@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021 
-lastupdated: "2021-06-30"
+lastupdated: "2021-08-06"
 
 keywords: create instance template, vsis, virtual server instance
 
@@ -83,7 +83,7 @@ Use the following commands to determine the required information for creating a 
    ```
    ibmcloud is vpcs
    ```
-   {:pre}
+   {: pre}
 
    For this example, you'd see a response similar to the following output:
    ```
@@ -91,7 +91,7 @@ Use the following commands to determine the required information for creating a 
    0738-xxx1xx23-4xx5-6789-12x3-456xx7xx123x   my-vpc                                yes              available   -
    0738-xxxx1234-5678-9x12-x34x-567x8912x3xx   my-other-vpc                          no               available   -
    ```
-   {:screen}
+   {: screen}
 
    If you don't have one available, you can create an {{site.data.keyword.vpc_short}} by using the `ibmcloud is vpc-create` 
    command. For more information about creating an {{site.data.keyword.vpc_short}}, see 
@@ -101,20 +101,20 @@ Use the following commands to determine the required information for creating a 
    ```
    ibmcloud is regions
    ```
-   {:pre}
+   {: pre}
 
    For this example, you'd see a response similar to the following output:
    ```
    Name       Endpoint               Status   
    us-south   /v1/regions/us-south   available
    ```
-   {:screen}
+   {: screen}
 
 3. List the zones associated with the region.
    ```
    ibmcloud is zones us-south
    ```
-   {:pre}
+   {: pre}
 
    For this example, you'd see a response similar to the following output:
    ```
@@ -122,13 +122,13 @@ Use the following commands to determine the required information for creating a 
    us-south-1   us-south   available   
    us-south-3   us-south   available   
    ```
-   {:screen}
+   {: screen}
 
 4. List the available profiles for creating your instance template.
    ```
    ibmcloud is instance-profiles
    ```
-   {:pre}
+   {: pre}
 
    For this example, you'd see a response similar to the following output:
    ```
@@ -148,13 +148,13 @@ Use the following commands to determine the required information for creating a 
    mx2-4x32       amd64          memory     4       32          8                            -   
    mx2-8x64       amd64          memory     8       64          16                           -  
    ```
-   {:screen}
+   {: screen}
 
 5. List the subnets that are associated with the {{site.data.keyword.vpc_short}}.
    ```
    ibmcloud is subnets
    ```
-   {:pre}
+   {: pre}
 
    For this example, you'd see a response similar to the following output:
    ```
@@ -162,7 +162,7 @@ Use the following commands to determine the required information for creating a 
    0076-2249dabc-8c71-4a54-bxy7-953701ca3999   subnet1                  available
    0767-173bn4aa-060b-47e7-am45-b3395a593897   subnet2                  available
    ```
-   {:screen}
+   {: screen}
    
    For the best performance of an instance group, ensure that you use a subnet size of 32 or greater.
 
@@ -174,7 +174,7 @@ Use the following commands to determine the required information for creating a 
    ```
    ibmcloud is images   
    ```
-   {:pre}
+   {: pre}
 
    For this example, you'd see a response similar to the following output:
    ```
@@ -182,13 +182,13 @@ Use the following commands to determine the required information for creating a 
    r007-60d279a0-b328-40eb-a379-595ca53bff89   ibm-redhat-7-6-amd64-sap-hana-1                    available    amd64
    r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1   ibm-windows-server-2016-full-standard-amd64-3      available    amd64
     ```
-   {:screen}
+   {: screen}
    
 7. List all the available placement groups that you can associate with your instance.
     ```
     ibmcloud is placement-groups
     ```
-    {:pre}
+    {: pre}
 
     For this example, you'd see a response similar to the following output.
     
@@ -200,7 +200,7 @@ Use the following commands to determine the required information for creating a 
     placement-group-bbbb-bbbb-bbbb-bbbbbbbbbbbb   vsi-placementGroup2              stable   power_spread     5018a8564e8120570150b0764d39ebcc   
     placement-group-aaaa-aaaa-aaaa-aaaaaaaaaaaa   vsi-placementGroup3              stable   power_spread   1d18e482b282409e80eff354c919c6a2
     ```
- {: pre}
+    {: screen}
 
 For example, if you create an instance template that is called _my-instance-template_ in _us-south-3_ and use the 
 _bx2-2x8_ profile, your `instance-template-create` command would look similar to the following sample.
@@ -208,7 +208,7 @@ _bx2-2x8_ profile, your `instance-template-create` command would look similar to
 ```
 ibmcloud is instance-template-create my-instance-template 0738-xxx1xx23-4xx5-6789-12x3-456xx7xx123x us-south-3 bx2-2x8 0076-2249dabc-8c71-4a54-bxy7-953701ca3999 --image-id r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1 --placement-group r134-953db18c-068c-4a11-9b07-645684b444b2
 ```
-{: pre}
+{: screen}
 
 Where:
    - `INSTANCE_TEMPLATE_NAME` is _my-instance-template_
@@ -237,7 +237,7 @@ Primary Network Interface ID   Name      Subnet ID                              
 Placement         ID                                          Name    Resource type      
                   r134-953db18c-068c-4a11-9b07-645684b444b2   mypg1   placement_group 
 ```
-{:screen}
+{: screen}
 
 
 For more examples of the `ibmcloud is instance-template-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-template-create).

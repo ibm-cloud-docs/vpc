@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-30"
+lastupdated: "2021-08-04"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -60,7 +60,7 @@ The general procedure and context for using trusted profiles are described Table
 
 You can streamline the process by setting up dynamic rules in the first step to link the trusted profile automatically to new instances. 
 
-The IAM token is obtained by exchanging the access token acquired through the metadata service with an IAM token. Table 1 describes the steps involved.
+The IAM token is obtained by exchanging the instance identity access token acquired through the metadata service with an IAM token. Table 1 describes the steps involved.
 
 | Step | Context | Service Called | User Action |
 |------|---------|----------------|-------------|
