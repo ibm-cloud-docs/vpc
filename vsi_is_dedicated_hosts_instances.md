@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-09"
+lastupdated: "2021-08-13"
 
 keywords: vpc dedicated host, dedicated host, dedicated host group
 
@@ -243,7 +243,7 @@ When you created a dedicated host by using the API, you can create the host in a
 
 The following request example creates a dedicated host in a specific group.
 
-```
+```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/dedicated_hosts?version=2020-11-17&generation=2" \
 -H "Authorization: $iam_token" \

@@ -2,7 +2,7 @@
 
 copyright:
   years:  2020, 2021
-lastupdated: "2021-03-30"
+lastupdated: "2021-08-13"
 
 keywords:
 
@@ -406,7 +406,7 @@ To collect this information and work with your {{site.data.keyword.mon_full_notm
    {: tip}
 
 
-   ```
+   ```sh
    curl \
    -H 'Authorization: Bearer <API_TOKEN>’ \
    -H 'Content-Type: application/json' \

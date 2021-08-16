@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-09"
+lastupdated: "2021-08-13"
 
 keywords: create authorization for IBM Cloud Object storage, import image to vpc infrastructure, migrate virtual server, migrate instance
 
@@ -70,7 +70,7 @@ The supported attributes for creating an authorization policy depend on what eac
 
 The example shows an authorization policy for the image service to access IBM Cloud Object Storage.
 
-```
+```sh
 curl --location --request POST 'https://iam.cloud.ibm.com/v1/policies' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer <iam token>' \

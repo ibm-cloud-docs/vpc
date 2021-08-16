@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2020-03-15"
+lastupdated: "2021-08-16"
 
 keywords:  
 
@@ -77,11 +77,12 @@ Flow log collector attributes shown in the table are as follows:
 
 To list all your flow logs, run the following command:
 
-```
+```json
 ibmcloud is flow-logs \
   [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME]
   [--json]
 ```
+{: pre}
 
 Where:
 

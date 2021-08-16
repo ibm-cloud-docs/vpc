@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-10"
+lastupdated: "2021-08-13"
 
 keywords: flow logs, ordering, getting started
 
@@ -123,6 +123,7 @@ To create a flow log collector by using the CLI, run the following command:
     [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] \
     [--json]
   ```
+  {: codeblock}
 
 Where:
 
@@ -178,7 +179,7 @@ the right variables.
           "target": { "id": "'$VpcId'" } \
           }' | jq
    ```
-   {: pre}
+   {: codeblock}
 
 3. To provision a collector that targets a subnet, virtual server instance, or VNIC, you must provide a subnet ID, virtual server instance ID, or VNIC ID as a collector target. For example, the following request creates a collector that targets a virtual server instance ID:
 
@@ -198,7 +199,7 @@ the right variables.
          "target": { "id": "'$VsiId'" } \
          }' | jq    
    ```
-   {: pre}
+   {: codeblock}
 
 ## Next steps
 {: #fl-next-steps}

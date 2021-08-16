@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-05-24"
+lastupdated: "2021-08-16"
 
 keywords: flow logs, activate, deactivate, suspend, resume
 
@@ -56,6 +56,7 @@ To suspend or resume a flow log collector by using the CLI, you must pass a **tr
 ```
 ibmcloud is flow-log-update FLOW_LOG --active (true|false) [--json]
 ```
+{: pre}
 
 Where:
 

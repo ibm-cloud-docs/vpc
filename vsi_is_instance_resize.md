@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-06"
+lastupdated: "2021-08-13"
 
 subcollection: vpc
 
@@ -107,7 +107,7 @@ ibmcloud is instance-update 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --profile bx2-1
 Use the `instance-update` command to resize a virtual server.
 
 1. Run the following command to find the name of the profile you want to use:
-   ```
+   ```sh
    curl  -s -X GET "<api_endpoint>/v1/instance/profiles?generation=2&version=2021-02-01" -H "Authorization: Bearer <IAM token>"
    ```
    {:pre}
@@ -117,7 +117,7 @@ Use the `instance-update` command to resize a virtual server.
     * If you use instance storage, choose a profile that has instance storage.
     * For data volumes, choose a profile that has data volumes.
 3. Run the following command:
-   ```
+   ```sh
    curl -k -sS -X PATCH "<api_endpoint>/v1/instances/<instance id>?generation=2&version=2021-02-01" \
        -H "Authorization: Bearer <IAM token>" \
        -d '
