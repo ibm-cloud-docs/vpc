@@ -2,7 +2,7 @@
 copyright:
   years: 2021
 
-lastupdated: "2021-08-13"
+lastupdated: "2021-08-17"
 
 keywords: virtual private cloud, private cloud network, placement group, placement group strategy, host spread, power spread, generation 2, gen 2
 
@@ -26,7 +26,7 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Managing placement groups (Beta)
+# Managing placement groups 
 {: #managing-placement-group}
 
 With placement groups for {{site.data.keyword.vpc_full}}, you can create policies for managing high availability workloads. You can specify a choice of placement policies for a group of provisioned instances. You can use these policies to influence the physical placement of select VPC virtual servers to meet certain workload demands. 
