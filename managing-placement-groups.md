@@ -1,6 +1,7 @@
 ---
 copyright:
   years: 2021
+
 lastupdated: "2021-08-13"
 
 keywords: virtual private cloud, private cloud network, placement group, placement group strategy, host spread, power spread, generation 2, gen 2
@@ -30,9 +31,6 @@ subcollection: vpc
 
 With placement groups for {{site.data.keyword.vpc_full}}, you can create policies for managing high availability workloads. You can specify a choice of placement policies for a group of provisioned instances. You can use these policies to influence the physical placement of select VPC virtual servers to meet certain workload demands. 
 {:shortdesc}
-
-Placement groups are only available to accounts with special approval to preview this beta feature. Contact your IBM Sales representative if you are interested in getting access.
-{: beta}
 
 After the placement group is created, you can assign a selected virtual server instance or a group of virtual server instances to the placement group. When you provision these instances, the instance is then placed on a computer host in the designated zone for the instance based on the placement group strategy. You can use the same placement group for instances across multiple VPCs.
 
@@ -123,7 +121,7 @@ The following example creates a placement group with a host spread strategy, nam
 ```
 ibmcloud is placement-group-create --strategy host_spread --name MyPlacementGroup --resource-group-id RESOURCE_GROUP_ID --resource-group-name RESOURCE_GROUP_NAME
 ```
-{: codeblock}
+{: pre}
 
 ## Creating a placement group with the API
 {: #creating-placement-group-API}

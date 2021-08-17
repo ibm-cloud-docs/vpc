@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-08-11"
+lastupdated: "2021-08-17"
 
 keywords: release notes, changes, updates
 
@@ -28,6 +28,12 @@ subcollection: vpc
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
 
+## 17 August 2021
+
+{: #august-17-2021}
+
+**Placement groups (GA):** Placement groups for {{site.data.keyword.vpc_full}} are used to create placement group strategies for managing high availability workloads. A placement group contains virtual server instances that share a common placement strategy. Placement strategies influence the physical placement of select VPC resources to meet certain workload demands. For more information about placement groups, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups).
+
 ## 11 August 2021
  {: #august-11-2021}
 
@@ -39,7 +45,6 @@ Use the release notes to learn about new and changed {{site.data.keyword.vpc_ful
 
 **LinuxONE (s390x processor architecture):** You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud™. For more information about available LinuxONE (s390x processor architecture) profiles, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
 For more information about some of the limitations of LinuxONE (s390x processor architecture), see [Service limitations](/docs/vpc?topic=vpc-limitations).
-
 
 ## 30 July 2021
 

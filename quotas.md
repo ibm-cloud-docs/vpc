@@ -2,12 +2,12 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-08-09"
+
+lastupdated: "2021-08-17"
 
 keywords: quotas, resources, limits
 
 subcollection: vpc
-
 
 ---
 
@@ -160,7 +160,7 @@ If you already have block storage volumes for Classic instances, you are limited
 | Instances | 4 instances per placement group per region with power_spread placement group strategy. |
 {: caption="Table 11. Quotas for placement groups" caption-side="top"}
 
-For the Beta release, the quotas for placement groups are set and can't be adjusted.
+The quotas for placement groups are set and can't be adjusted.
 {: note}
 
 ## Service limits
