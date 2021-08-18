@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-03-29"
+lastupdated: "2021-08-18"
 
 keywords: custom image, creating a custom image, migrating a custom image
 
@@ -32,7 +32,7 @@ migrate an instance to VPC.
 
 | Task              | Details           |
 |-------------------|-------------------|
-| 1. Review custom image [requirements](/docs/vpc?topic=vpc-about-images#custom-image-reqs). | The image must contain a single file or volume, and be cloud-init enabled. The image cannot exceed 100 GB. |
+| 1. Review custom image [requirements](/docs/vpc?topic=vpc-about-images#custom-image-reqs). | The image must contain a single file or volume, and be cloud-init enabled. The image can be 10 GB to 250 GB. Images below 10 GB will be rounded up to 10 GB. |
 | 2. Choose a supported operating system.| Make sure that your image is supported as a [stock image](/docs/vpc?topic=vpc-about-images#stock-images) in VPC. If you choose to create a custom image and use you own license, select the _BYOL_ option. |
 | 3. Provision an instance of {{site.data.keyword.cos_full_notm}} if you don't have one. | You must also create an IAM authorization between the Image Service for VPC and Cloud Object Storage. For more information, see [Granting access to IBM Cloud Object Storage to import images](/docs/vpc?topic=vpc-object-storage-prereq). |
 | 4. Create a Linux custom image. | For more information, see [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image). |
@@ -43,6 +43,9 @@ migrate an instance to VPC.
 | 9. Upload your custom image to Cloud Object Storage. | On the **Objects** page of your IBM Cloud Object Storage bucket, click **Upload**. You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB. |
 | 10. Import your custom image to VPC. | When you have a supported custom image available in Cloud Object storage, you are ready to import. See [Importing a custom image](/docs/vpc?topic=vpc-managing-images#import-custom-image). |
 | 11. Create a virtual server by using your custom image. | For more information, see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers). |
+
+If your custom image was encrypted with customer-managed keys, and if the image is under 100 GB, then the boot volume created will be 100 GB, not a lesser size.
+{: important}
 
 ## Next steps
 {: #next-plan-custom-images}
