@@ -46,6 +46,8 @@ Some changes, such as new response properties or new optional request parameters
 
 New values will also be added to the `action` enumeration returned by load balancer listener methods. To avoid disruption, check for and log unknown values when processing the `action` property, or bypass the policy on which the unexpected property value was encountered.
 
+**Block storage volumes.**  In an upcoming release, a new value in the `status` enumeration will be added to the [volume](/apidocs/vpc#list-volume-profiles) APIs. When you expand an existing data volume, the volume goes into an updating state and shows a new API status `updating`. You can still access the data while the volume is being resized. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
+
 **Asynchronous `DELETE` response code change.** In an upcoming release, the response code output for asynchronous `DELETE` operations will change from `204` to `202`. A response code of `204` implies the action is completed, which could be misleading for operations that are still processing. A response code of `202` is more appropriate. This behavior change will occur only for an API version date after its release. A response code of `204` will continue to be returned for API versions up to this version date.
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
@@ -78,11 +80,6 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: #version 2021-07-27}
 
 **Instances.** When you [create an instance](/docs/vpc?topic=vpc-creating-virtual-servers), the value for the boot volume's `capacity` is now based on the image's `minimum_provisioned_size`. If you use API version `2021-07-26` or earlier, the value for the boot volume's `capacity` will continue to be 100 GB.
-
-### For all version dates
-{: #27-july-2021-all-version-dates}
-
-**Block storage volumes.** You can now [update](/apidocs/vpc#update-volume) secondary volumes that are attached to a virtual server instance to increase a volume's storage capacity in gigabyte increments up to 16 TB (depending on the volume's profile). The increase takes effect immediately. For more information, see  [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 
 ## 29 June 2021
 {: #29-june-2021}
