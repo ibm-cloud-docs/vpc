@@ -49,9 +49,6 @@ When you create an instance from a stock image, a 100 GB, 3,000 IOPS general pur
 
 By default, boot volumes are encrypted by IBM-managed encryption. Optionally, you can use your own root keys (CRKs) by choosing customer-managed encryption during instance creation (see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption)). 
 
-If your custom image was encrypted with custom-managed keys, and if the image is under 100 GB, then the boot volume created will be 100 GB, not a lesser size.
-{:note}
-
 You can't detach and delete the boot volume. Boot volumes are always deleted when you delete the instance.
 
 ### Data volumes
