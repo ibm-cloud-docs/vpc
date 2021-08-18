@@ -39,9 +39,6 @@ Your image must adhere to the following custom image requirements:
 * Size doesn't exceed 250 GB
 * Size isn't below 10 GB, Images below 10 GB are rounded up to 10 GB
 
-If your custom image was encrypted with customer-managed keys, and if the image is under 100 GB, then the boot volume created will be 100 GB, not a lesser size.
-{: important}
-
 Complete the following steps to ensure that your own Linux custom image can be successfully deployed in the
 {{site.data.keyword.vpc_short}} infrastructure environment.
 
