@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-03"
+lastupdated: "2021-08-18"
 
 keywords: file storage, virtual private cloud, file share, mount target
 
@@ -30,13 +30,13 @@ subcollection: vpc
 {: #file-storage-create}
 
 Create file shares and mount targets by using the UI, CLI, or API. 
-{:shortdesc}
+{: shortdesc}
 
 File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions. Contact your IBM Sales representative if you are interested in getting access.
-{:note}
+{: note}
 
 Before you get started, to create mount targets for file shares, make sure that you created a [VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
-{:important}
+{: important}
 
 You can create file shares and mount targets either of the following ways:
 
@@ -68,11 +68,12 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file shares an
 | Resource Group | Specify a [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups). Resource groups help organize your account resources for access control and billing purposes. |
 | Location | Choose the zone where you want to create the file share. The zones inherited from the VPC, for example, _US South 3_. |
 | Mount targets (Optional) | Click **Create** to create a new [mount target](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets) for the file share. You can create one mount target per VPC per file share. Provide a name for the mount target and select a VPC in that zone. You can add as many mount targets are you have VPCs. If you don't have one, first [create a VPC](/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc). (To use the API, see [Creating a VPC using the REST APIs](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis).) For information about creating mount targets as a separate operation, see [Create a mount target](#fs-create-mount-target-ui). |
-| Profile | Select an IOPS tier for file share. The tier you select determines the input/output performance of a file share. For more information about file storage IOPS tier profiles, see [IOPS tier profiles](/docs/vpc?topic=vpc-file-storage-profiles). |
-| Size | Specify the size for the file share. |
+| Profile | Select an IOPS tier or Custom IOPS for file share. The profile you select determines the input/output performance of a file share. For more information about file storage IOPS tier and Custom profiles, see [File storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). |
+| Size | Specify the size for the file share. You can later [increase this size](/docs/vpc?topic=vpc-file-storage-expand-capacity), depending on the share profile. |
+| Encryption | Encryption with IBM-managed keys is enabled by default when you create a new share.
 {: caption="Table 1. Values for creating a file share and mount target" caption-side="top"}
 
-When you create file share, you can click the **</>** icon to view the sequence of API requests. Viewing the API calls is a good way to learn about the API and understand actions and their dependencies.
+To see the REST API call, click the **Create with REST API </>** link. Viewing the API calls is a good way to learn about the API and understand actions and their dependencies.
 {: tip}
 
 ### Create a mount target using the UI
@@ -126,7 +127,7 @@ Review the following information:
 | Share details           | `ibmcloud is share SHARE_ID`        | Review details of a share. |
 | Mount targets             | `ibmcloud is share-targets SHARE_ID` | List all mount targets for a file share. |
 | Share profiles         | `ibmcloud is share-profiles`     | List all file share profiles in a region. |
-| Share profile details | `ibmcloud is share-profile PROFILE_NAME`     | List details of a file share profile. Profile names are `tier-3iops`, `tier-5iops`, and `tier-10iops`. |
+| Share profile details | `ibmcloud is share-profile PROFILE_NAME`     | List details of a file share profile. Profile names are `tier-3iops`, `tier-5iops`, `tier-10iops`, and `custom`. |
 {: caption="Table 1. Details for creating file shares" caption-side="top"}
 
 ### Create a file share and add a mount target using the CLI
@@ -168,14 +169,13 @@ ibmcloud is share-target-create 78ff9c4c97d013fb2a95b21abcde7758 --vpc 55251a2e-
 ```
 {:pre}
 
-
 ## Create a file share from the API
 {: #file-storage-create-api}
 {: api}
 
-You can create file shares and mount targets by directly calling the REST APIs. For more information about the File Storage VPC API methods to create a file share, see the [VPC API reference](/apidocs/vpc-beta#create-share).
+You can create file shares and mount targets by directly calling the REST APIs. For more information the file shares VPC API, see the [VPC API reference](/apidocs/vpc-beta).
 
-File Storage for VPC regional API is a beta-level release for customers with special approval to preview this feature. 
+File Storage for VPC regional API is released as beta for customers with special approval to preview this feature. 
 {:note}
 
 ### Before you begin – Set up your API environment
@@ -198,7 +198,7 @@ For example:
 
 ```curl
 curl -X POST \
-"$rias_endpoint/v1/shares?version=2021-02-23&generation=2\
+"$rias_endpoint/v1/shares?version=2021-08-18&generation=2\
 -H "Authorization: $iam_token" \
 -d $'{
   "size": 4800,
@@ -217,7 +217,7 @@ A successful response will look like this:
 
 ```json
 {
-  "created_at": "2021-03-31T23:31:59Z",
+  "created_at": "2021-08-18T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/ff859972-8c39-4528-91df-eb9160eae918",
@@ -254,7 +254,7 @@ This request creates a file shares and a mount target for the file share.
 
 ```curl
 curl -X POST \
-"$rias_endpoint/v1/shares?version=2021-02-23&generation=2\
+"$rias_endpoint/v1/shares?version=2021-08-18&generation=2\
 -H "Authorization: $iam_token" \
 -H 'Content-Type: application/json' \
 -d $'{
@@ -282,7 +282,7 @@ A successful response will look like this:
 
 ```json
 {
-  "created_at": "2021-03-31T23:31:59Z",
+  "created_at": "2021-08-18T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/ff859972-8c39-4528-91df-eb9160eae918",
@@ -349,7 +349,7 @@ A successful response will look like this:
 
 ```json
 {
-  "created_at": "2021-03-31T23:31:59Z",
+  "created_at": "2021-08-18T23:31:59Z",
   "href": "$vpc_api_endpoint/v1/shares/ff859972-8c39-4528-91df-eb9160eae918/targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "lifecycle_state": "pending",

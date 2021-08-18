@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-06-21"
+lastupdated: "2021-08-18"
 
 keywords: virtual private cloud, file storage, file share, mount point
 
@@ -41,11 +41,15 @@ File share data is encrypted by default using IBM-managed encryption for data-at
 ### File storage IOPS profiles
 {: #fs-profiles-intro}
 
-You can select an IOPS tier profile that provides a guaranteed level of performance for your workloads. You can select from three tiers:
+You have two options for creating file shares, by using an IOPS tier profile or by using a custom IOPS profile.
+
+IOPS tiers provide a guaranteed level of performance for your workloads. You can select from three tiers:
 
 * 3 IOPS/GB
 * 5 IOPS/GB
 * 10 IOPS/GB
+
+Custom IOPS profile let you select the performance you want, by selecting custom allocated I/O operations per second (IOPS).
 
 For more information about these options, see [File storage profiles](/docs/vpc?topic=vpc-file-storage-profiles#fs-tiers).
 
@@ -55,6 +59,8 @@ For more information about these options, see [File storage profiles](/docs/vpc?
 File Storage for VPC lets you create a file share at the zonal level. This means that file shares are accessible only within the zone in which you created it, for example, `us-south-1`. File shares are identified by name and associated with a resource group in your {{site.data.keyword.cloud_notm}} customer account.
 
 You create a file share using the UI, CLI, or API. You access file shares from virtual service instances or Kubernetes clusters by way of an NFS mount. To create an NFS mount path, you need to create share mount targets.
+
+You can also [increase the file share size](/docs/vpc?topic=vpc-file-storage-expand-capacity) from its original capacity in GB increments up to 32,000 GB capacity, depending on your share profile.
 
 ### Mount targets for file shares
 {: #fs-share-mount-targets}
