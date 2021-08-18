@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-03"
+lastupdated: "2021-08-18"
 
 keywords: bare metal servers, vpc, baremetal, what is bare metal
 
@@ -55,7 +55,10 @@ The bare metal server that you provisioned by using this service has VMware ESXi
 
 * **Fast provisioning**: Compared to the classic bare metal servers, {{site.data.keyword.bm_is_short}} significantly reduces the time for provisioning and deploying. Provisioning a bare metal server on VPC takes minutes instead of hours by comparison.
 
-* **Improved security and compliance**: {{site.data.keyword.bm_is_short}} provides dedicated hardware. It also allows you to take full control over your ESXi hypervisor to better meet your specific security and compliance requirements. 
+* **Improved security and compliance**: {{site.data.keyword.bm_is_short}} provides dedicated hardware. It also allows you to take full control over your ESXi hypervisor to better meet your specific security and compliance requirements.
+
+You are responsible for security on your bare metal server. That means upgrading or patching the operating system as needed to ensure vulnerabilities are addressed in a timely manner. Also, bare metal servers with floating IPs assigned are internet-facing and should take appropriate precautions. For more information, see [Understanding your responsibilities when using Virtual Private Cloud](/docs/vpc?topic=vpc-responsibilities-vpc#security-compliance).
+{: note}
 
 ## How are Bare Metal Servers for VPC different from other compute offerings?
 {: #comparison}
