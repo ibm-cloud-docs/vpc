@@ -44,9 +44,6 @@ migrate an instance to VPC.
 | 10. Import your custom image to VPC. | When you have a supported custom image available in Cloud Object storage, you are ready to import. See [Importing a custom image](/docs/vpc?topic=vpc-managing-images#import-custom-image). |
 | 11. Create a virtual server by using your custom image. | For more information, see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers). |
 
-If your custom image was encrypted with customer-managed keys, and if the image is under 100 GB, then the boot volume created will be 100 GB, not a lesser size.
-{: important}
-
 ## Next steps
 {: #next-plan-custom-images}
 When you're ready to get started, see one of the following topics:
