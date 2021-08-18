@@ -47,7 +47,10 @@ You can attach several block storage data volumes to a single instance for extra
 
 When you create an instance from a stock image, a 100 GB, 3,000 IOPS general purpose boot volume is created and attached to the instance by default. When you create an instance from a custom image, you can specify a boot volume capacity 10 GB to 250 GB, depending what the image requires. This capacity must greater than or equal to the minimum size required by the custom image. If the custom image is smaller than 10 GB, the boot volume capacity is rounded up to 10 GB.
 
-By default, boot volumes are encrypted by IBM-managed encryption. Optionally, you can use your own root keys (CRKs) by choosing customer-managed encryption during instance creation (see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption)). Boot volumes created from customer-encrypted custom image with a minimum size of 10G, or any size under 100 GB, are created at 100 GB.
+By default, boot volumes are encrypted by IBM-managed encryption. Optionally, you can use your own root keys (CRKs) by choosing customer-managed encryption during instance creation (see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption)). 
+
+If your custom image was encrypted with custom-managed keys, and if the image is under 100 GB, then the boot volume created will be 100 GB, not a lesser size.
+{:note}
 
 You can't detach and delete the boot volume. Boot volumes are always deleted when you delete the instance.
 
