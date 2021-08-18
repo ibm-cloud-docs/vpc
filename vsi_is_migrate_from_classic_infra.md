@@ -58,10 +58,6 @@ You can create an image template from a virtual server in the classic infrastruc
 
 * Only image templates with a single primary boot volume (or disk) and associated file can be imported to {{site.data.keyword.vpc_short}} infrastructure.
 * The image template includes the operating system on the primary boot disk and the items that you installed, such as PHP or Python. This can be between 10 GB and 250 GB of data. Images below 10 GB are rounded up to 10 GB.
-
-If your custom image was encrypted with customer-managed keys, and if the image is under 100 GB, then the boot volume created will be 100 GB, not a lesser size.
-{: important}
-
 * When you use the imported custom image in {{site.data.keyword.vpc_short}} to create a new virtual server, you can select a new profile, assign an SSH key, specify user data, and configure network interfaces.
 
 Secondary disks and their associated files for an image template are not supported when importing an image template as a custom image to {{site.data.keyword.vpc_short}}.  
