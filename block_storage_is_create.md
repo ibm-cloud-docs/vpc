@@ -40,7 +40,7 @@ Before you get started, make sure that you [created a VPC](/docs/vpc?topic=vpc-c
 
 ## Creating block storage volumes by using the UI
 {: #creating-block-storage-ui}
-{:ui}
+{: ui}
 
 Use the {{site.data.keyword.cloud_notm}} console to create a block storage volume when you create a virtual server instance or as a stand-alone volume.
 
@@ -122,7 +122,7 @@ Be sure to select VPC infrastructure from the Menu icon.
 
 ## Create block storage volumes by using the CLI
 {: #creating-block-storage-cli}
-{:cli}
+{: cli}
 
 You can create  block storage volumes by using the command line interface (CLI).
 
@@ -146,7 +146,7 @@ Run the following command to create a block storage volume. Provide a volume nam
 ```
 $ ibmcloud is volume-create VOLUME_NAME PROFILE_NAME ZONE_NAME [--capacity CAPACITY] [--iops IOPS] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--json]
 ```
-{:pre}
+{: pre}
 
 Example:
 
@@ -166,7 +166,7 @@ Created                                 2021-04-24 10:09:28
 Zone                                    us-south-1
 Volume Attachment Instance Reference    none
 ```
-{:screen}
+{: screen}
 
 Capacity, indicated in megabytes, can range 10 - 16,000 GBs. If not specified, the default capacity is 100 GBs. IOPS values can be 1,000 - 48,000 IOPS, depending on volume size. If not specified, the IOPS value defaults to the valid configuration per volume profile. For more information, see the table of [IOPS ranges based on volume size](/docs/vpc?topic=vpc-block-storage-profiles#custom).
 
@@ -176,7 +176,7 @@ You need to specify the volume ID when you attach block storage to a virtual ser
 
 ## Create block storage volumes from the API
 {: #creating-block-storage-api}
-{:api}
+{: api}
 
 You can create block storage volumes by directly calling the [VPC REST APIs](https://{DomainName}/apidocs/vpc){:external}. For more information the file shares VPC API, see the [VPC API reference](https://cloud.ibm.com/apidocs/vpc).
 
@@ -195,7 +195,7 @@ Make a `POST /instances` request to create an instance, and define the volume us
 
 This example also specifies customer-managed encryption.
 
-```
+```sh
 curl -X POST "$vpc_api_endpoint/v1/instances?version=2021-04-06&generation=2" -H "Authorization: $iam_token" -d '{
   "boot_volume_attachment": {
     "volume": {
@@ -251,7 +251,7 @@ curl -X POST "$vpc_api_endpoint/v1/instances?version=2021-04-06&generation=2" -H
   }
 }'
 ```
-{:pre}
+{: pre}
 
 A successful response will look like this:
 
@@ -384,7 +384,7 @@ A successful response will look like this:
   }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 
 ### Create a stand-alone block storage volume from the API
@@ -394,7 +394,7 @@ Make a `POST /volumes` request to create a volume. Specify a name, IOPS, capacit
 
 This example also specifies customer-managed encryption and a resource group.
 
-```
+```sh
 curl -X POST "$vpc_api_endpoint/v1/volumes?version=2021-04-06&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
@@ -415,7 +415,7 @@ curl -X POST "$vpc_api_endpoint/v1/volumes?version=2021-04-06&generation=2" \
       }
     }'
 ```
-{:pre}
+{: pre}
 
 A successful response will look like this:
 
@@ -450,7 +450,7 @@ A successful response will look like this:
   }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Next steps
 {: #next-step-creating-block-storage-vpc}
