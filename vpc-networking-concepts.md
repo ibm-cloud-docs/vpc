@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-27"
+lastupdated: "2021-08-17"
 
 keywords: vpc network, VRF, router, hypervisor, address prefixes, classic access, implicit router, packet flows, NAT, data flows, Cloud Service Endpoint source addresses, source addresses
 
@@ -74,8 +74,8 @@ Six different types of virtual server instance data packet flows occur in a VPC.
 
 **Extra-vpc internet** data flows - Packets that are destined for the internet are the most complex. In addition to using the VPC's implicit router function, each of these flows also rely on one of the implicit router's two network address translation (NAT) functions.
 
-  * an explicit one-to-many NAT through a public gateway function that serves all subnets that are connected to it.
-  * one-to-one NAT assigned to individual virtual server instances.
+* an explicit one-to-many NAT through a public gateway function that serves all subnets that are connected to it.
+* one-to-one NAT assigned to individual virtual server instances.
 
 After NAT translation, the implicit router forwards these internet-destined packets to the internet, by using the cloud backbone.
 
@@ -83,8 +83,8 @@ After NAT translation, the implicit router forwards these internet-destined pack
  {: #pgw-external-IP-lifecycle}
  As both external IPs and PGWs are bound to an availability zone. A public gateway function can have only a single external IP. This external IP has the following lifecycle:
  
-   * The external IP is allocated when the public gateway is created.
-   * The external IP is released when the public gateway is deleted.
+ * The external IP is allocated when the public gateway is created.
+ * The external IP is released when the public gateway is deleted.
 
 ## Classic access
 {: #classic-access}

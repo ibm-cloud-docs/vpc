@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-05-24"
+lastupdated: "2021-08-17"
 
 keywords: flow logs, activate, deactivate, suspend, resume
 
@@ -56,6 +56,7 @@ To suspend or resume a flow log collector by using the CLI, you must pass a **tr
 ```
 ibmcloud is flow-log-update FLOW_LOG --active (true|false) [--json]
 ```
+{: pre}
 
 Where:
 
@@ -69,31 +70,32 @@ Where:
 
 To suspend and resume flow log collectors by using the API, follow these steps:
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with
-the right variables.
-2. Store your `FlowLogID01` in a variable to be used in the API command:
-    ```sh
-    export FlowLogID01="<your_flow_log_id>"
-    ```
-    {:pre}
-3. Choose either to suspend or resume a flow log:
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
+1. Store your `FlowLogID01` in a variable to be used in the API command:
+
+   ```sh
+   export FlowLogID01="<your_flow_log_id>"
+   ```
+   {: pre}
+    
+1. Choose either to suspend or resume a flow log:
 
    * To suspend a flow logs collector:
-
+   
       ```sh
       curl -s -X PATCH \
-        "$vpc_api_endpoint/v1/flow_log_collectors/$FlowLogID01?version=$api_version&generation=2" \
-        -H "Authorization: $iam_token" \
-        -d '{ "active": false }' | jq
+      "$vpc_api_endpoint/v1/flow_log_collectors/$FlowLogID01?version=$api_version&generation=2" \
+      -H "Authorization: $iam_token" \
+      -d '{ "active": false }' | jq
       ```
-      {:pre}
+      {: pre}
 
    * To resume a flow log collector's operation:
-
+   
       ```sh
       curl -s -X PATCH \
-        "$vpc_api_endpoint/v1/flow_log_collectors/$FlowLogID01?version=$api_version&generation=2" \
-        -H "Authorization: $iam_token" \
-        -d '{ "active": true }' | jq
-      ```      
-      {:pre}
+      "$vpc_api_endpoint/v1/flow_log_collectors/$FlowLogID01?version=$api_version&generation=2" \
+      -H "Authorization: $iam_token" \
+      -d '{ "active": true }' | jq
+      ```
+      {: pre}

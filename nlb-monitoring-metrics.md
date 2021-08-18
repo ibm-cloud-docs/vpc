@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-30"
+lastupdated: "2021-08-13"
 
 keywords: l7, layer 7, monitor, metrics, connection
 
@@ -171,8 +171,8 @@ To view and work with your monitoring metrics, follow these steps:
 
 2. Click **Open Dashboard** next to the service name of the monitoring instance that you want to work with.
 
-  The first time that you access your monitoring instance, several windows display as part of the internal setup. Leave these selections with their default entries, and click through the pages until you reach the main page.
-  {: note}
+   The first time that you access your monitoring instance, several windows display as part of the internal setup. Leave these selections with their default entries, and click through the pages until you reach the main page.
+   {: note}
 
 3. Select **Dashboards** on the left sidebar to open the IBM Load Balancer Monitoring Metrics dashboard. Then, click **Default Dashboards > IBM > Load Balancer Monitoring Metrics**. The default dashboard is not editable.
 
@@ -240,16 +240,17 @@ To collect this information and start working with your monitoring instance usin
 
 2. Your Monitor API token is an alphanumeric string that is located in the **Monitor API Token** field. Click the **Copy** button to the right of the key to transfer it to your clipboard.
 
-	Do not share this API token. Anyone who has this API token has full access to your metrics.
-	{: important}
+   Do not share this API token. Anyone who has this API token has full access to your metrics.
+   {: important}
 
 3. To get the endpoint of your {{site.data.keyword.mon_full_notm}} instance, navigate to your main dashboard in your browser. Then, select the URL to the dashboard, which appears similar to:
 
-  ```
-  https://us-south.monitoring.cloud.ibm.com/#/default-dashboard/ibm_is_load_balancer?last=3600
-  ```
-
-  The first part of the URL (in this case, `us-south.monitoring.cloud.ibm.com`) is your endpoint. Make note of it.
+   ```
+   https://us-south.monitoring.cloud.ibm.com/#/default-dashboard/ibm_is_load_balancer?last=3600
+   ```
+   {: pre}
+   
+   The first part of the URL (in this case, `us-south.monitoring.cloud.ibm.com`) is your endpoint. Make note of it.
 
 4. After you have both the API token and the endpoint, you can format your POST request. The following POST request is an example, with all the parameters that you can modify. These parameters are:
 
@@ -264,13 +265,13 @@ To collect this information and start working with your monitoring instance usin
   * The `from` and `to` attributes define the times to focus the scan, set in Epoch Time and in microseconds.
   * The `sampling` and `value` attributes set the granularity of which data is returned in the POST request.
 
-      Because a large volume of data is stored in {{site.data.keyword.mon_full_notm}}, choosing the specific level of granularity is important. {{site.data.keyword.mon_full_notm}} can return only 600 data points at any time with a given request. As a result, the `sampling` and `value` attributes are important. Leaving these two lines out of your request will return an aggregate sum over that time period instead.
+Because a large volume of data is stored in {{site.data.keyword.mon_full_notm}}, choosing the specific level of granularity is important. {{site.data.keyword.mon_full_notm}} can return only 600 data points at any time with a given request. As a result, the `sampling` and `value` attributes are important. Leaving these two lines out of your request will return an aggregate sum over that time period instead.
 
-      If the time range specified by `from` and `to` is large (for example, 4 days), but you define a `sampling` and `value` of 10 seconds, this means that you receive 4 days worth of data that is split into 10-second chunks. This is not a useful sampling due to the large amount of data returned. Specifying a larger chunk is recommended (for example, 1 hour instead of 10 seconds).
-      {: tip}
+If the time range specified by `from` and `to` is large (for example, 4 days), but you define a `sampling` and `value` of 10 seconds, this means that you receive 4 days worth of data that is split into 10-second chunks. This is not a useful sampling due to the large amount of data returned. Specifying a larger chunk is recommended (for example, 1 hour instead of 10 seconds).
+{: tip}
 
 
-  ```bash
+   ```bash
   curl \
   -H 'Authorization: Bearer <API_TOKEN>’ \
   -H 'Content-Type: application/json' \
@@ -308,5 +309,5 @@ To collect this information and start working with your monitoring instance usin
         }
     ]
   }'
-```
-{: codeblock}
+    ```
+    {: codeblock}

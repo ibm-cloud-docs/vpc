@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-12-21"
+lastupdated: "2021-08-17"
 
 keywords: secure, region, zone, subnet, public gateway, floating IP, NAT
 subcollection: vpc
@@ -62,11 +62,11 @@ Each subnet consists of a specified IP address range (CIDR block). Subnets are b
 
 Certain IP addresses are reserved for use by IBM when operating the VPC. Here are the reserved addresses (these IP addresses assume that the subnet's CIDR range is `10.10.10.0/24`):
 
-  * First address in the CIDR range (`10.10.10.0`): Network address
-  * Second address in the CIDR range (`10.10.10.1`): Gateway address
-  * Third address in the CIDR range (`10.10.10.2`): reserved by IBM
-  * Fourth address in the CIDR range (`10.10.10.3`): reserved by IBM for future use
-  * Last address in the CIDR range (`10.10.10.255`): Network broadcast address
+* First address in the CIDR range (`10.10.10.0`): Network address
+* Second address in the CIDR range (`10.10.10.1`): Gateway address
+* Third address in the CIDR range (`10.10.10.2`): reserved by IBM
+* Fourth address in the CIDR range (`10.10.10.3`): reserved by IBM for future use
+* Last address in the CIDR range (`10.10.10.255`): Network broadcast address
 
 ## External connectivity
 {: #external-connectivity}

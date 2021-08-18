@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-03"
+lastupdated: "2021-08-18"
 
 keywords: bare metal servers, vpc, baremetal, what is bare metal
 
@@ -55,7 +55,10 @@ The bare metal server that you provisioned by using this service has VMware ESXi
 
 * **Fast provisioning**: Compared to the classic bare metal servers, {{site.data.keyword.bm_is_short}} significantly reduces the time for provisioning and deploying. Provisioning a bare metal server on VPC takes minutes instead of hours by comparison.
 
-* **Improved security and compliance**: {{site.data.keyword.bm_is_short}} provides dedicated hardware. It also allows you to take full control over your ESXi hypervisor to better meet your specific security and compliance requirements. 
+* **Improved security and compliance**: {{site.data.keyword.bm_is_short}} provides dedicated hardware. It also allows you to take full control over your ESXi hypervisor to better meet your specific security and compliance requirements.
+
+You are responsible for security on your bare metal server. That means upgrading or patching the operating system as needed to ensure vulnerabilities are addressed in a timely manner. Also, bare metal servers with floating IPs assigned are internet-facing and should take appropriate precautions. For more information, see [Understanding your responsibilities when using Virtual Private Cloud](/docs/vpc?topic=vpc-responsibilities-vpc#security-compliance).
+{: note}
 
 ## How are Bare Metal Servers for VPC different from other compute offerings?
 {: #comparison}
@@ -89,11 +92,11 @@ In addition, note the following differences regarding lifecycle operations:
 
 Figure 1 shows an example of how bare metal servers can utilize the VPC networking functionality. For more information about VPC networking, see [About networking](/docs/vpc?topic=vpc-about-networking-for-vpc).
 
-  ![Figure showing connectivity and security of Bare Metal Servers for VPC](images/bare_metal_server_network_diagram.png "Figure showing connectivity and security of Bare Metal Servers for VPC"){: caption="Figure 1. Bare Metal Servers for VPC connectivity and security" caption-side="top"}
+![Figure showing connectivity and security of Bare Metal Servers for VPC](images/bare_metal_server_network_diagram.png "Figure showing connectivity and security of Bare Metal Servers for VPC"){: caption="Figure 1. Bare Metal Servers for VPC connectivity and security" caption-side="top"}
 
 Refer to Figure 2 for the isolation architecture of Bare Metal Servers for VPC. For more information about VPC workload isolation architecture, see [VPC workload isolation architecture](/docs/vpc?topic=vpc-vpc-isolation#vpc_architecture).
 
-  ![Figure showing isolation architecture of Bare Metal Servers for VPC](images/bare_metal_server_archi_diagram.png "Figure showing isolation architecture of Bare Metal Servers for VPC"){: caption="Figure 2. Isolation architecture of Bare Metal Servers for VPC" caption-side="top"}
+![Figure showing isolation architecture of Bare Metal Servers for VPC](images/bare_metal_server_archi_diagram.png "Figure showing isolation architecture of Bare Metal Servers for VPC"){: caption="Figure 2. Isolation architecture of Bare Metal Servers for VPC" caption-side="top"}
 
 ## Next steps
 {: #next-step}

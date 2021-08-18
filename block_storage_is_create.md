@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-07-19"
+lastupdated: "2021-08-17"
 
 keywords: block storage, VPC, virtual private cloud, boot volume, data volume, volume, data storage, VSI, virtual server instance, instance, IOPS
 
@@ -70,7 +70,7 @@ Be sure to select VPC infrastructure from the Menu icon.
 | | **Note:** Alpha-numeric combinations are limited to 100 characters. |
 | | For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | User data | You can add user data that automatically performs common configuration tasks or runs scripts. For more information, see [User data](/docs/vpc?topic=vpc-user-data). |
-| Boot volume | The default boot volume size for all profiles is 100 GB, and encrypted by default using IBM-managed encryption. You can change the encryption method to customer-managed encryption and use your own root keys. For information, see [Provisioning virtual server instances customer-managed encryption volumes in the UI](/docs/vpc?topic=vpc-creating-instances-byok#provision-byok-ui). |
+| Boot volume | The default boot volume size for all profiles is 100 GB. If you are importing a custom image, the boot volume capacity can be 10 GB to 250GB, depending on what the image requires. (Images smaller than 10 GB are rounded up to 10 GB.) Boot volumes are encrypted by default using IBM-managed encryption. You can change the encryption method to customer-managed encryption and use your own root keys. For information, see [Provisioning virtual server instances customer-managed encryption volumes in the UI](/docs/vpc?topic=vpc-creating-instances-byok#provision-byok-ui). |
 | Attached block storage volume | You can add one or more secondary data volumes to be included when you provision the instance. To add a a volume, click **New block storage volume** and specify the information in Table 2. When finished, click **Create volume**. |
 | Network interfaces | Assign networking options to connect into the IBM Cloud VPC. You can create and assign up to five network interfaces to each instance. |
 {: caption="Table 1. Virtual Server Instance provisioning selections" caption-side="top"}
@@ -81,7 +81,7 @@ Be sure to select VPC infrastructure from the Menu icon.
 | Profile | Select [Tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) and select the performance level that you require from the IOPS list. If your performance requirements don't fall within a predefined IOPS tier, select [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) and select an IOPS value within the range for that volume size. Click the **storage size** link to see a table of size and IOPS ranges. |
 | Auto Delete | Enable this feature to automatically delete this volume when the attached virtual server instance is deleted. You can change this setting later on the virtual server details page. |
 | IOPS | Select 3, 5, or 10 IOPS/GB for a Tiered profile |
-| Size | Enter a volume size in GBs. Volume sizes can be between 10 GB and 16,000 GB. Expanded capacity IOPS tiers increases volume size up to 16 TB and 48,000 IOPS. |
+| Size | Enter a volume size in GBs. Volume sizes can be between 10 GB and 16,000 GB. |
 | Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also choose **Customer Managed** and use your own encryption key. For a one-time set-up procedure, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs). |
 {: caption="Table 2. Block storage volume values specified when provisioning an instance" caption-side="top"}
 
@@ -170,10 +170,9 @@ Volume Attachment Instance Reference    none
 
 Capacity, indicated in megabytes, can range 10 - 16,000 GBs. If not specified, the default capacity is 100 GBs. IOPS values can be 1,000 - 48,000 IOPS, depending on volume size. If not specified, the IOPS value defaults to the valid configuration per volume profile. For more information, see the table of [IOPS ranges based on volume size](/docs/vpc?topic=vpc-block-storage-profiles#custom).
 
-The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter.
-Volume names must be unique across the entire VPC infrastructure.
+The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. Volume names must be unique across the entire VPC infrastructure.
 
-Note the volume ID. You need to specify the ID when you attach block storage to a virtual server instance, view block storage volume details, or delete volumes.
+You need to specify the volume ID when you attach block storage to a virtual server instance, view block storage volume details, or delete volumes.
 
 ## Create block storage volumes from the API
 {: #creating-block-storage-api}

@@ -377,6 +377,7 @@ Virtual Private Cloud (VPC)
 
     vpc-responsibilities.md
     vsi-understanding-cloud-maintenance.md
+    vsi_is_disable_hyper-threading.md
     vpc-endpoints.md
 
     {: .topicgroup}
