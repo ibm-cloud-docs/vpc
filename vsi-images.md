@@ -104,9 +104,6 @@ Custom images must meet the following requirements:
 - Size doesn't exceed 250 GB
 - Size isn't less than 10 GB, images less than 10 GB are rounded up to 10 GB
 
-If your custom image was encrypted with customer-managed keys, and if the image is under 100 GB, then the boot volume created will be 100 GB, not a lesser size.
-{: important}
-
 For more information about custom images, see [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images).
 
 <!--### Storage costs
