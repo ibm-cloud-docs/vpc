@@ -42,9 +42,6 @@ Your image must adhere to the following custom image requirements:
 * The operating system is supported as a stock image operating system
 * The min/max volume size is 10 GB to 250 GB, images below 10 GB are rounded up to 10 GB
 
-If your custom image was encrypted with customer-managed keys, and if the image is under 100 GB, then the boot volume created will be 100 GB, not a lesser size.
-{: important}
-
 The following procedure describes how to create a Windows custom image that can be successfully deployed in the {{site.data.keyword.vpc_short}} infrastructure environment. The procedure encompasses these high-level tasks:
 * Use VirtualBox to create a Windows image in VHD format.
 * Customize the image with virtIO drivers and Cloudbase-init.
