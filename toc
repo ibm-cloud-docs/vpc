@@ -142,7 +142,7 @@ Virtual Private Cloud (VPC)
         instance_metadata_vpc_security_bp.md
 
     {: .topicgroup}
-    Placement groups (Beta)
+    Placement groups 
         about-placement-groups.md
         managing-placement-groups.md
 
