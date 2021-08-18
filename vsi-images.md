@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-06"
+lastupdated: "2021-08-18"
 
 keywords: image, stock image, custom image, virtual private cloud, virtual server, power, generation 2, gen 2
 
@@ -101,7 +101,11 @@ Custom images must meet the following requirements:
 - Is in qcow2 format
 - Is cloud-init enabled
 - The operating system is supported as a stock image
-- Size doesn't exceed 100 GB
+- Size doesn't exceed 250 GB
+- Size isn't less than 10 GB, images less than 10 GB are rounded up to 10 GB
+
+If your custom image was encrypted with customer-managed keys, and if the image is under 100 GB, then the boot volume created will be 100 GB, not a lesser size.
+{: important}
 
 For more information about custom images, see [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images).
 
