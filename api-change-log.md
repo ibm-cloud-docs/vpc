@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-10"
+lastupdated: "2021-08-17"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -55,6 +55,16 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
+## 17 August 2021
+{: #17-august-2021}
+
+### For all version dates
+{: #17-august-2021-all-version-dates}
+
+**Larger size boot volumes for custom images.** You can import custom images with a boot disk size from 10 GB to 250 GB, which will become the image's `minimum_provisioned_size` after import. When you specify the image as part of [creating an instance](/docs/vpc?topic=vpc-creating-virtual-servers), the boot volume `capacity` is set to the image's `minimum_provisioned_size`. For details, see [Planning custom images](/docs/vpc?topic=vpc-planning-custom-images).
+
+**Placement groups.** Placement groups for {{site.data.keyword.vpc_full}} are logical groupings of virtual server instances that can be configured to reduce the risk of correlated failures inherent in your physical environment, such as networking issues, power loss, or hardware failure. Define a placement group strategy for high-availability workloads, such as for host or power spread. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc) or dive into the new [API methods](/apidocs/vpc#list-placement-groups).
+
 ## 10 August 2021
 {: 10-august-2021}
 
@@ -62,6 +72,14 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: 10-august-2021-all-version-dates}
 
 **LinuxONE (s390x processor architecture).** You can now [create virtual server instances](/apidocs/vpc#create-instance) on LinuxONE in {{site.data.keyword.Bluemix}} using new virtual server instance profiles. Instances provisioned with these profiles will have a VCPU architecture of s390x and interoperate with other VPC storage and networking features such as block storage volumes, floating IPs, and security groups. For more information, see [Instance Profiles](/docs/vpc?topic=vpc-profiles&interface=api#balanced-s390x-profiles), and  [Service limitations](/docs/vpc?topic=vpc-limitations).
+
+## 27 July 2021
+{: #27-july-2021}
+
+### For version `2021-07-27` or later
+{: #version 2021-07-27}
+
+**Instances.** When you [create an instance](/docs/vpc?topic=vpc-creating-virtual-servers), the value for the boot volume's `capacity` is now based on the image's `minimum_provisioned_size`. If you use API version `2021-07-26` or earlier, the value for the boot volume's `capacity` will continue to be 100 GB.
 
 ## 29 June 2021
 {: #29-june-2021}
