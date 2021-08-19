@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-30"
+lastupdated: "2021-08-19"
 
 keywords: metadata service, security, virtual server instance, instance
 
@@ -28,7 +28,7 @@ subcollection: vpc
 {: #imd-security-best-practices}
 
 IBM takes data security seriously and recommends you follow these best practices to ensure the highest level of protection for your instance metadata.
-{:shortdesc}
+{: shortdesc}
 
 ## Overview
 
@@ -53,12 +53,12 @@ This example uses Linux `iptables` and its owner module, based on its default in
 ```
 $ sudo iptables --append OUTPUT --proto tcp --destination 169.254.169.254 --match owner --uid-owner apache --jump REJECT
 ```
-{:codeblock}
+{: codeblock}
 
- This endpoint is accessible to all commands, processes, and software applications running within a virtual server instance. Access to the API endpoint is not available outside the virtual server instance. This step adds another level of security.
- {:note}
+This endpoint is accessible to all commands, processes, and software applications running within a virtual server instance. Access to the API endpoint is not available outside the virtual server instance. This step adds another level of security.
+{: note}
 
-Another alternative is to use allow rules to define access to particular users or groups. Allow rules require you to make a decision about what software needs access to instance metadata. By defining rules, you can prevent software can accidentally the metadata service if you later change the software or configuration on the instance. 
+Another alternative is to use allow rules to define access to particular users or groups. Allow rules require you to make a decision about what software needs access to instance metadata. By defining rules, you can prevent software applications from accidentally accessing the metadata service if you later change the configuration to prevent access to those applications.
 
 You can also define group usage of the allow rules. Add and remove users from a permitted goup without changing the firewall rule. 
 
@@ -70,6 +70,7 @@ $ sudo iptables --append OUTPUT --proto tcp --destination 169.254.169.254 --matc
 {: codeblock}
 
 ## Limit trusted profiles for compute resource identities
+{: #imd-limit-trusted-profiles}
 
 Limit trusted profiles you create for compute resource identities. Optionally, don't assign a compute resource identity to an instance. 
 
@@ -97,4 +98,3 @@ Consider the following options for controlling network traffic to your virtual s
 {: #imd-compliance}
 
 Security and Compliance Center can help you monitor your VPC infrastructure to validate resource configurations in your account against a profile and identify potential issues as they arise. See [Available goals for Virtual Servers](/docs/vpc?topic=vpc-manage-security-compliance#virtual-servers-available-goals) to define security standards for your virtual server instances.
-

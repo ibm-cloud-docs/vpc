@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-04"
+lastupdated: "2021-08-19"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -41,7 +41,7 @@ To access metadata service, you must have an instance identity access token. If 
 For detailed information and examples of the API calls described in this topic, see the [Metadata service Beta API reference](/apidocs/vpc-metadata-beta).
 
 Windows users have additional requirements to access and use the metadata service. For information, see [Setting up windows servers for using the metadata service](/docs/vpc?topic=vpc-imd-windows-configuration).
-{:note}
+{: note}
 
 ## Retrieve instance metadata from your running virtual server instance
 {: #imd-retrieve-instance-data}
@@ -70,7 +70,7 @@ $ user_data=`curl -X GET "http://169.254.169.254/metadata/v1/instance/initializa
   -H "Authorization: Bearer $access_token"
   | jq -r '(.user_data)'`
 ```
-{:pre}
+{: pre}
 
 The response lists public SSH keys used at instance initialization and extracts any other user data made available when provisioning the instance. The response includes the SHA256 value which identifies the SSH key.
 
@@ -87,7 +87,7 @@ The response lists public SSH keys used at instance initialization and extracts 
   "user_data": "MyCustomUserData"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Retrieve instance information
 {:imd-retrieve-instance}
@@ -99,7 +99,7 @@ user_data=`curl -X GET "http://169.254.169.254/metadata/v1/instance?version=2021
   -H "Accept:application/json" \
   -H "Authorization: Bearer $access_token"`
 ```
-{:pre}
+{: pre}
 
 The response lists all details for an instance, including network interfaces, compute profile, and volume attachments.
 
@@ -190,7 +190,7 @@ The response lists all details for an instance, including network interfaces, co
   }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Additional instance metadata endpoints
 {: #imd-additional-inst-metadata}
@@ -220,7 +220,7 @@ key_data=`curl -X GET "http://169.254.169.254/metadata/v1/keys?version=2021-06-1
   --data-urlencode "version=2021-05-25" 
   | jq -r '(.key_data)'`
 ```
-{:pre}
+{: pre}
 
 Example return:
 
@@ -255,14 +255,14 @@ Example return:
   "total_count": 2
 }
 ```
-{:codeblock}
+{: codeblock}
 
 You can also specify details for a single API key used by the instance by making a `GET /metadata/v1/keys/{id}` call and providing the SSH key ID.
 
 ## Retrieve metadata about placement groups
 {: #imd-retrieve-pg-data}
 
-Make a `GET /metadata/v1/placement_groups` call to retrieve information about placement groups configured for the instance. In the example, the return value of the cURL command is a list of placement groups, beginning with the first and up to 50. The output is parsed by `jq` and placed in the `placement_group` environment variable. 
+Make a `GET /metadata/v1/placement_groups` call to retrieve information about placement groups configured for the instance.  In the example, the return value of the cURL command is a list of metadata for the first 50 placement groups. The output is parsed by `jq` and placed in the `placement_group` environment variable. 
 
 ```json
 placement_groups=`curl -X GET "http://169.254.169.254/metadata/v1/placement_groups?version=2021-06-11" \
@@ -299,7 +299,7 @@ Example return:
   "total_count": 1
 }
 ```
-{:codeblock}
+{: codeblock}
 
 You can also specify details for a single placement group used by the instance by making a `GET /metadata/v1/placement_groups/{id}` call and providing the placement group ID.
 
