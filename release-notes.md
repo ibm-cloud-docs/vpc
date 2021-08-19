@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-08-17"
+lastupdated: "2021-08-19"
 
 keywords: release notes, changes, updates
 
@@ -27,6 +27,15 @@ subcollection: vpc
 
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
+
+## 18 August 2021
+{: #august-18-2021}
+
+**File Storage for VPC** Custom IOPS profiles are available with capacity up to 16,000 GB. For information, see [File storage profiles](/docs/vpc?topic=vpc-file-storage-profiles).
+
+You can also increase the file share size from its original capacity in GB increments up to 32,000 GB capacity, depending on your share profile. For more information, see [Expanding file share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity).
+
+File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions.
 
 ## 17 August 2021
 {: #august-17-2021}
