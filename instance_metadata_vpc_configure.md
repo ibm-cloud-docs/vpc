@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-04"
+lastupdated: "2021-08-18"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -117,7 +117,7 @@ The JSON response shows the IAM token that you can use with any IAM-enabled serv
 ## Create a trusted profile for the instance
 {: #imd-trusted-profile-config}
 
-Trusted profiles for compute resource identities is a feature that lets you assign an IBM Cloud IAM identity to an IBM Cloud resource. You can call any IAM-enabled service from an instance without having to manage and distribute IAM secrets to the instance. Trusted profiles can be created within the token exchange process. For more information, see [Using a trusted profile to access instance metadata](/docs/vpc?topic=vpc-imd-trusted-profile-metadata).
+Trusted profiles for compute resource identities is a feature that lets you assign an IBM Cloud IAM identity to an IBM Cloud resource, such as a virtual server instance. You can call any IAM-enabled service from an instance without having to manage and distribute IAM secrets to the instance. Trusted profiles can be created within the token exchange process and linked to the instance. For more information, see [Using a trusted profile to call IAM-enabled services](/docs/vpc?topic=vpc-imd-trusted-profile-metadata).
 
 ## Enable or disable the instance metadata service
 {: #imd-metadata-service-enable}
