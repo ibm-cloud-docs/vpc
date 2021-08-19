@@ -28,6 +28,11 @@ subcollection: vpc
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
 
+## 19 August 2021
+{: #august-19-2021}
+
+**Larger size boot volumes for custom images:** You can import custom images with a boot disk size from 10 GB to 250 GB, which will become the image's minimum provisioned size after importing. When you specify the image as part of [creating an instance](/docs/vpc?topic=vpc-creating-block-storage), the boot volume capacity is set to this size. For more information, see [Planning custom images](/docs/vpc?topic=vpc-planning-custom-images).
+
 ## 18 August 2021
 {: #august-18-2021}
 
