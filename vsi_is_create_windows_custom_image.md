@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-18"
+lastupdated: "2021-08-20"
 
 keywords: creating a Windows custom image, cloudbase-init, qcow2
 
@@ -41,6 +41,9 @@ Your image must adhere to the following custom image requirements:
 * Is cloud-init enabled
 * The operating system is supported as a stock image operating system
 * The min/max volume size is 10 GB to 250 GB, images below 10 GB are rounded up to 10 GB
+
+You cannot create an image from an encrypted boot volume (Image from a volume feature) that is not 100GB.  The operation will be blocked.
+{: note}
 
 The following procedure describes how to create a Windows custom image that can be successfully deployed in the {{site.data.keyword.vpc_short}} infrastructure environment. The procedure encompasses these high-level tasks:
 * Use VirtualBox to create a Windows image in VHD format.
