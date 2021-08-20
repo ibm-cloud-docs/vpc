@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-05-21"
+lastupdated: "2021-08-20"
 
 keywords: custom image
 
@@ -46,6 +46,9 @@ Make sure that your image meets custom image requirements:
 * Is in qcow2 format
 * Is cloud-init enabled
 * The operating system is supported as a [stock image](/docs/vpc?topic=vpc-about-images#stock-images) operating system
+
+You cannot create an image from an encrypted boot volume (Image from a volume feature) that is not 100GB. The operation will be blocked.
+{: note}
 
 For custom images with Red Hat Enterprise Linux or Windows operating systems, you must select the appropriate version of the operating system when you import the image to indicate how you want to license the OS. Depending on how you configured the image, select either the bring your own license `byol` version of the operating system, or if you plan to license the OS through {{site.data.keyword.cloud_notm}}, select the version without `byol` appended.  
   {: important}
