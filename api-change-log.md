@@ -77,7 +77,7 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: #27-july-2021}
 
 ### For version `2021-07-27` or later
-{: #version 2021-07-27}
+{: #version-2021-07-27}
 
 **Instances.** When you [create an instance](/docs/vpc?topic=vpc-creating-virtual-servers), the value for the boot volume's `capacity` is now based on the image's `minimum_provisioned_size`. If you use API version `2021-07-26` or earlier, the value for the boot volume's `capacity` will continue to be 100 GB.
 
@@ -101,7 +101,7 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: #8-june-2021}
 
 ### For version `2021-06-08` or later
-{: #version 2021-06-08}
+{: #version-2021-06-08}
 
 **Load balancers.** Pagination has been added to the [List all load balancers](/apidocs/vpc#list-load-balancers) (`GET /load_balancers`) method. Requests using earlier version dates remain unpaginated, but may time out if you have many load balancers.  
 If you expect to use many load balancers at once, migrate your applications to the paginated API to improve responsiveness and reliability. Contact [IBM support](/docs/get-support?topic=get-support-using-avatar) if you need help migrating your existing client applications.
