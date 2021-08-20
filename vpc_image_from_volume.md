@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2021
-lastupdated: "2021-05-27"
+lastupdated: "2021-08-20"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
 
@@ -75,6 +75,8 @@ These limitations apply to the release:
 * Instances must be in an available state. 
 * Unattached boot volumes are not supported.
 * Images must be created from a primary boot volume. Data volumes are not supported.
+* Boot volumes used as the source for new encrypted images must have 100 GB capacity. For more information, see [Troubleshooting custom images](/docs/vpc?topic=vpc-ifv-troubleshooting-custom-images).
+* You can't create an image from an encrypted boot volume that's not 100 GB. The operation will be blocked.
 
 ## Options for creating an image from a volume
 {: #vpc-ifv-procedures}

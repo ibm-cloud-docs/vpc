@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-18"
+lastupdated: "2021-08-20"
 
 keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, IOPS, Hyper Protect, Key Protect
 
@@ -45,9 +45,12 @@ You can attach several block storage data volumes to a single instance for extra
 ### Boot volumes
 {: #block-storage-vpc-boot-volumes}
 
-When you create an instance from a stock image, a 100 GB, 3,000 IOPS general purpose boot volume is created and attached to the instance by default. When you create an instance from a custom image, you can specify a boot volume capacity 10 GB to 250 GB, depending what the image requires. This capacity must greater than or equal to the minimum size required by the custom image. If the custom image is smaller than 10 GB, the boot volume capacity is rounded up to 10 GB.
+When you create an instance from a stock image, a 100 GB, 3,000 IOPS general purpose boot volume is created and attached to the instance by default. When you create an instance from a custom image, you can specify a boot volume capacity that's 10 GB to 250 GB, depending what the image requires. This capacity must greater than or equal to the minimum size required by the custom image. If the custom image is smaller than 10 GB, the boot volume capacity is rounded up to 10 GB.
 
-By default, boot volumes are encrypted by IBM-managed encryption. Optionally, you can use your own root keys (CRKs) by choosing customer-managed encryption during instance creation (see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption)). 
+You can't create an image from an encrypted boot volume (Image from a volume feature) that is not 100 GB. The operation will be blocked.
+{: note}
+
+By default, boot volumes are encrypted by IBM-managed encryption. Optionally, you can use your own root keys (CRKs) by choosing customer-managed encryption during instance creation (see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption)).
 
 You can't detach and delete the boot volume. Boot volumes are always deleted when you delete the instance.
 
