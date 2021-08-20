@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-18"
+lastupdated: "2021-08-20"
 
 keywords: creating a linux custom image for vpc, cloud-init, qcow2, vhd
 
@@ -41,6 +41,9 @@ Your image must adhere to the following custom image requirements:
 
 Complete the following steps to ensure that your own Linux custom image can be successfully deployed in the
 {{site.data.keyword.vpc_short}} infrastructure environment.
+
+You cannot create an image from an encrypted boot volume (Image from a volume feature) that is not 100GB.  The operation will be blocked.
+{: note}
 
 ## Step 1 - Start with a single image file in qcow2 or VHD format
 {: #single-image-qcow2}
