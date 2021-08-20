@@ -440,6 +440,7 @@ Virtual Private Cloud (VPC)
             vpn-ts-unstable-connection.md
 
         vsi_is_troubleshooting.md
+        custom_image_vpc_troubleshoot.md
         block_storage_is_troubleshoot.md
         bare_metal_server_troubleshoot.md
         instance_metadata_vpc_troubleshoot.md
