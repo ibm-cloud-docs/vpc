@@ -103,7 +103,7 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 ### For version `2021-06-08` or later
 {: #version-2021-06-08}
 
-**Load balancers.** Pagination has been added to the [List all load balancers](/apidocs/vpc#list-load-balancers) (`GET /load_balancers`) method. Requests using earlier version dates remain unpaginated, but may time out if you have many load balancers.  
+**Load balancers.** Pagination has been added to the [List all load balancers](/apidocs/vpc#list-load-balancers) (`GET /load_balancers`) method. Requests using earlier version dates remain unpaginated, but may time out if you have many load balancers. 
 If you expect to use many load balancers at once, migrate your applications to the paginated API to improve responsiveness and reliability. Contact [IBM support](/docs/get-support?topic=get-support-using-avatar) if you need help migrating your existing client applications.
 
 ## 25 May 2021
@@ -120,9 +120,7 @@ If you expect to use many load balancers at once, migrate your applications to t
 ### For all version dates
 {: #18-may-2021-all-version-dates}
 
-**Snapshots for VPC.** Use the new regional snapshot service to create point-in-time copies of your block storage boot or data volumes. Select a snapshot during instance provisioning and restore a new, fully-provisioned boot volume to start the instance. You can also create and attach a data volume from a snapshot within a running virtual server instance.
-
-Learn about [creating and using snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about) and explore the new [API methods](/apidocs/vpc#delete-snapshots).
+**Snapshots for VPC.** Use the new regional snapshot service to create point-in-time copies of your block storage boot or data volumes. Select a snapshot during instance provisioning and restore a new, fully-provisioned boot volume to start the instance. You can also create and attach a data volume from a snapshot within a running virtual server instance. Learn about [creating and using snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about) and explore the new [API methods](/apidocs/vpc#delete-snapshots).
 
 ## 6 May 2021
 {: #6-may-2021}
@@ -168,7 +166,7 @@ For more information, see [About instance storage](/docs/vpc?topic=vpc-instance-
 ### For all version dates
 {: #23-march-2021-all-version-dates}
  
-**New parameter-based rule types for an application load balancer.** When creating a load balancer listener policy rule, the `field` property may now be set to `query` or `body` to perform additional forms of layer 7 load balancing: 
+**New parameter-based rule types for an application load balancer.** When creating a load balancer listener policy rule, the `field` property may now be set to `query` or `body` to perform additional forms of layer 7 load balancing:
 
    * `query` - Write layer 7 rules that use the query string to route traffic to a specific target. For a `query` type rule, `field` and `value` must be percent-encoded, same as the query string in the URL.
    * `body` - If the body of the `POST` request uses form encoding (UTF-8), then you can create layer 7 rules to route traffic based on the parameter name and value in the body. The `Content-Type` in the request is ignored.
@@ -200,10 +198,10 @@ If you use these new algorithms, be aware that existing client applications will
 
 The following VPN for VPC methods have been updated:
 
-* In IKE policies, the `authentication_algorithm` property now includes a `sha512` value, and the `dh_group` property includes a `19` value.  
-* In IPsec policies, the `authentication_algorithm` property now includes a `sha512` value, and the `pfs` property includes a `group_19` value. 
+* In IKE policies, the `authentication_algorithm` property now includes a `sha512` value, and the `dh_group` property includes a `19` value.
+* In IPsec policies, the `authentication_algorithm` property now includes a `sha512` value, and the `pfs` property includes a `group_19` value.
 
-**New VPN gateway property.** Each element of the existing VPN gateway `members` array now includes a `private_ip` property, which provides the IP address assigned to that VPN gateway member. 
+**New VPN gateway property.** Each element of the existing VPN gateway `members` array now includes a `private_ip` property, which provides the IP address assigned to that VPN gateway member.
 
 ## 23 February 2021
 {: #23-february-2021}
@@ -214,7 +212,7 @@ The following VPN for VPC methods have been updated:
 **Application load balancer security group integration.** For enhanced security, application load balancers can now be associated with security groups. You can specify one or more security groups when you create the application load balancer, and associate security groups with your existing application load balancers. If you omit security groups during load balancer creation, the default security group for the VPC is used.
 
 If you plan to use default security groups for new application load balancers, review your default security group rules. If necessary, edit the rules to accommodate your expected application load balancer traffic.
-{: tip}   
+{: tip}
    
 The following load balancer methods have been updated:
 
@@ -245,7 +243,7 @@ The `delegate_vpc` property is not required if a VPC uses only RFC-1918 addresse
 The following API methods have been updated:
 
 * View the `delegate_vpc` property in the requests and responses for `/vpcs/{vpc_id}/routing_tables/{routing_table_id}/routes`.
-* View reserved IP ranges in `POST /vpcs/{vpc_id}/address_prefixes`, which creates an address pool prefix. 
+* View reserved IP ranges in `POST /vpcs/{vpc_id}/address_prefixes`, which creates an address pool prefix.
 
 ## 27 January 2021
 {: #27-january-2021}
@@ -253,7 +251,7 @@ The following API methods have been updated:
 ### For all API version dates
 {: #27-january-2021-all-version-dates}
 
-**Checksum (SHA256) for imported images.** When you import a custom image to {{site.data.keyword.vpc_short}}, you can now view the checksum that was generated for the image during the import operation. By generating a checksum for the image locally, and checking that the checksums match, you can verify the integrity of the imported image. For more information, see [Validating a custom image after importing](/docs/vpc?topic=vpc-managing-images#validate-custom). 
+**Checksum (SHA256) for imported images.** When you import a custom image to {{site.data.keyword.vpc_short}}, you can now view the checksum that was generated for the image during the import operation. By generating a checksum for the image locally, and checking that the checksums match, you can verify the integrity of the imported image. For more information, see [Validating a custom image after importing](/docs/vpc?topic=vpc-managing-images#validate-custom).
 
 The `sha256` checksum is available in the `file` details in API method `GET /images/{id}`. See [Retrieve an image](/apidocs/vpc#get-image).
 
@@ -277,7 +275,7 @@ Memory for virtual server instances is now expressed in gibibytes (GiB), instead
 ### For all API version dates
 {: 16-december-2020-all-version-dates}
 
-**Customer-managed encryption for block storage volumes and encrypted custom images.** When you disable or delete a customer root key (CRK) that is encrypting your block storage or custom image resources, the API displays a status of `unusable` for these resources, along with the reason codes `encryption_key_deleted` or `encryption_key_disabled`. 
+**Customer-managed encryption for block storage volumes and encrypted custom images.** When you disable or delete a customer root key (CRK) that is encrypting your block storage or custom image resources, the API displays a status of `unusable` for these resources, along with the reason codes `encryption_key_deleted` or `encryption_key_disabled`.
 
 The `unusable` status appears in the following API methods:
 
@@ -288,7 +286,7 @@ The `unusable` status appears in the following API methods:
 
 For more information on key states and resource statuses, see [User actions that impact root key states and resource status](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-root-key-states).
 
-**Dedicated hosts** are now supported in the VPC API. Learn more about using [dedicated hosts](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances) and explore the new [API operations](/apidocs/vpc#list-dedicated-host-groups).
+**Dedicated hosts** are now supported in the VPC API. Learn more about using [dedicated hosts](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances) and explore the new [API methods](/apidocs/vpc#list-dedicated-host-groups).
 
 ## 20 November 2020
 {: 20-november-2020}
@@ -296,7 +294,7 @@ For more information on key states and resource statuses, see [User actions that
 ### For all API version dates
 {: 20-november-2020-all-version-dates}
 
-**Datapath log forwarding with {{site.data.keyword.la_full_notm}}** is now available for [IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancers#load-balancers). Data and health check logs are valuable for debugging, analysis, and maintenance purposes. With the datapath logging feature enabled, your load balancer forwards these logs to your account's [IBM Log Analysis](https://cloud.ibm.com/observe/logging){:external} dashboard. 
+**Datapath log forwarding with {{site.data.keyword.la_full_notm}}** is now available for [IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancers#load-balancers). Data and health check logs are valuable for debugging, analysis, and maintenance purposes. With the datapath logging feature enabled, your load balancer forwards these logs to your account's [IBM Log Analysis](https://cloud.ibm.com/observe/logging){:external} dashboard.
 
 View the `logging` property in the following API methods:
 
@@ -335,7 +333,7 @@ For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-
 ### For all API version dates
 {: #30-october-2020-all-version-dates}
 
-* **Custom routing tables** are now supported in the VPC API. This feature controls where network traffic is directed on a per-subnet basis. Explore new API operations for [routing tables](/apidocs/vpc#list-all-routing-tables-for-a-vpc) and [routes](/apidocs/vpc#create-a-vpc-route). This feature subsumes the [VPC routing API](/apidocs/vpc#list-all-routes-in-the-vpc-s-default-routing-table), which remains supported but is deprecated and might be removed in a future API release.
+* **Custom routing tables** are now supported in the VPC API. This feature controls where network traffic is directed on a per-subnet basis. Explore new API methods for [routing tables](/apidocs/vpc#list-all-routing-tables-for-a-vpc) and [routes](/apidocs/vpc#create-a-vpc-route). This feature subsumes the [VPC routing API](/apidocs/vpc#list-all-routes-in-the-vpc-s-default-routing-table), which remains supported but is deprecated and might be removed in a future API release.
 
 * **Virtual private endpoint gateways.** Use [virtual private endpoint gateways](/apidocs/vpc#list-endpoint-gateways) to connect to supported {{site.data.keyword.cloud_notm}} services from your VPC network by using the IP addresses of your choice, which is allocated from a subnet within your VPC. For more information, see [About virtual private endpoint gateways](/docs/vpc?topic=vpc-about-vpe).
 
@@ -382,7 +380,7 @@ This API release supports the following changes:
 
 For more information, see [Creating an instance group for auto scaling](/docs/vpc?topic=vpc-creating-auto-scale-instance-group).
 
-The following new operations are available for [instance groups](/apidocs/vpc#list-instance-groups):
+The following new methods are available for [instance groups](/apidocs/vpc#list-instance-groups):
 
 * `GET` and `POST` for `/instance_groups`
 * `DELETE`, `GET`, and `PATCH` for `/instance_groups/{id}`
