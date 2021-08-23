@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-06"
+lastupdated: "2021-08-23"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, generation 2, gen 2
 
@@ -44,6 +44,9 @@ The following profile families are available:
 | [Ultra High Memory](#uhmemory) | Ultra High Memory profiles offer the highest vCPU to memory ratios with 1 vCPU to 28 GiB of RAM to serve in-memory OLTP databases, such as SAP. |
 <!--- | [GPU](#gpu) | Best for artificial intelligence (AI) and deep learning workloads. Available for x86_64 processors only. | -->
 {: caption="Table 1. Virtual server family selections" caption-side="top"}
+
+Profiles with instance storage are deployed exclusively on the second-generation Intel&reg; Xeon&reg; Platinum 8272 (Cascade Lake) running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz.  Question: Do we still need this note in the Ultra High Memory family or does this one cover that too?
+{: note}
 
 ## Balanced
 {: #balanced}
@@ -291,7 +294,7 @@ curl -X GET \
 ```
 {:codeblock}
 
-## Storage notes for profiles
+## Block storage volume notes for profiles
 {: #storage-notes-for-profiles}
 
 When you create secondary data volumes, you select a volume profile that best meets your requirements. Volume profiles are available
