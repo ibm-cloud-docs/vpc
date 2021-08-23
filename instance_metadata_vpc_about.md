@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-04"
+lastupdated: "2021-08-23"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -45,9 +45,9 @@ The instance metadata service uses a REST API and well-known IP address to retri
 
 The instance metadata service consists of two components:
 
-* **Instance identity token service** that lets you aquire an [access token](#imd-vpc-access-token) to the VPC metadata service. To access other IBM Cloud IAM-enabled services, you can exchange this token for an IAM token. After the exchange, there's no distinction between tokens. The token can be used to access the instance metadata service or IAM-enabled services. For example, starting an instance might require a call to IBM Cloud Database to set up a database server.
+* **Instance identity token service** that lets you aquire an [access token](#imd-vpc-access-token) to access the VPC metadata service. To access other IBM Cloud IAM-enabled services, you can exchange the instance identity token for an IAM token. For example, starting an instance might require a call to IBM Cloud Database to set up a database server.
 
-* **Instance [metadata service](#imd-service)** that lets you obtain metadata by calling REST APIs that provides instance initialization data, network interface, volume attachment, public SSH key, and placement group information.
+* **Instance [metadata service](#imd-service)** that lets you retrieve the instance metadata. By calling the metadata service APIs, you can get instance initialization data, network interface, volume attachment, public SSH key, and placement group information.
 
 ### Limitations for the Beta release
 {: imd-limitations}
@@ -57,9 +57,9 @@ By default, the metadata service is enabled when your account is added to the al
 ### Instance identity token service
 {: #imd-vpc-access-token}
 
-The instance identity token service lets you generate an access token (JSON web token) to use the metadata service. You generate it by calling a REST API endpoint: `http://169.254.169.254/instance_identity/v1/token`. This endpoint is accessible to all commands, processes, and software applications running within a virtual server instance. Access to the API endpoint is not available outside the virtual server instance.
+The instance identity token service lets you generate an access token (a JSON web token) to use that token to access the metadata service. You generate it by calling this endpoint: `http://169.254.169.254/instance_identity/v1/token`. This endpoint is accessible to all commands, processes, and software applications running within a virtual server instance. Access to the API endpoint is not available outside the virtual server instance.
 
-Use the access token when calling the metadata service. The token is valid until it reaches expiration, which by default is 5 minutes. You can optionally exchange the token for an IAM token to call any IAM-enabled service. 
+Use the instance identity access token when calling the metadata service. The token is valid until it reaches expiration, which by default is 5 minutes. You can optionally exchange this token for an IAM token to call any IAM-enabled service. After you exchange the token, it can't be used to access the metadata service.
 
 For more information, see [Aquire an access token](/docs/vpc?topic=vpc-imd-configure-service#imd-json-token).
 

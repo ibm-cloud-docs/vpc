@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-19"
+lastupdated: "2021-08-23"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -50,25 +50,25 @@ To interact with the token server, you make a REST API `PUT "http://169.254.169.
 
 In the data section of the request, you specify an expiration time for the token. The default is five minutes, but you can specify that it expire sooner or later (5 seconds to one hour).
 
-The response (a JSON payload) contains the token. Use the token to access the metadata service and any IAM services in the account. You can also exchange this token for an IAM token, where you obtain an IAM token to call IAM-enabled services. For more information, see [Exchange a JSON web token for an IAM token](#imd-token-exchange).
+The response (a JSON payload) contains the instance identity access token. Use this token to access the metadata service. You can also exchange this token for an IAM token and use the RIAS API to call IAM-enabled services. For more information, see [Exchange an instance identity access token for an IAM token](#imd-token-exchange).
 
 ### Acquire an access token
 {: #imd-json-token}
 
-Make `PUT "http://169.254.169.254/instance_identity/v1/token` call to get an access token from the instance identity token service. The following example uses `jq` to parse the JSON API response and then extract the access token value. You can use your preferred tool.
+Make `PUT "http://169.254.169.254/instance_identity/v1/token` call to get an instance identity access token from the token service. The following example uses `jq` to parse the JSON API response and then extract the access token value. You can use your preferred parser.
 
-In the example, the return value of the cURL command is the token, which is extracted by `jq` and placed in the `access_token` evironment variable. You use specify this variable in the `GET` call to the metadata service, to reach the metadata endpoint. For more information, see [Retrieve metadata from your running instances](/docs/vpc?topic=vpc-imd-get-metadata#imd-retrieve-instance-data).
+In the example, the return value of the cURL command is the instance identity access token, which is extracted by `jq` and placed in the `access_token` evironment variable. You use specify this variable in the `GET` call to the metadata service, to reach the metadata endpoint. For more information, see [Retrieve metadata from your running instances](/docs/vpc?topic=vpc-imd-get-metadata#imd-retrieve-instance-data).
 
 The example uses `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` may not come preinstalled on all VPC images available when creating an instance. You might need to install `jq` prior to use or use any parser of your choice.
 {: note}
 
-```bash
-$ access_token=`curl -X PUT "http://169.254.169.254/instance_identity/v1/token?version=2021-08-03" \
-    -H "Metadata-Flavor: IBM" \
-    -H "Accept: application/json" \
-    -d '{ \
-            "expires_in": 30 \
-        }' | jq -r '(.access_token)'`
+```
+access_token=`curl -X PUT "http://169.254.169.254/instance_identity/v1/token?version=2021-08-03" \
+  -H "Metadata-Flavor: IBM" \
+  -H "Accept: application/json" \
+  -d '{ \
+        "expires_in": 30 \
+      }' | jq -r '(.access_token)'`
 ```
 {: codeblock}
 
@@ -91,28 +91,28 @@ ACCESS_TOKEN = <token_string>
 ```
 {: pre}
 
-## Exchange a instance identity access token for an IAM token
+## Exchange an instance identity access token for an IAM token
 {: #imd-token-exchange}
 
-To access IBM Cloud IAM-enabled services in the account, you can exchange the instance identity access token for an IAM token using trusted profile information. After you exchange the token, it functions as the original token for the instance metadata service and can be used to access IAM-enabled services, such as Cloud Object Storage, Cloud Database Service, as well as the VPC APIs. You can re-use the token multiple times for either service.
+To access IBM Cloud IAM-enabled services in the account, you can exchange the instance identity access token for an IAM token using trusted profile information. After you exchange the token, you can use it to access IAM-enabled services, such as Cloud Object Storage, Cloud Database Service, as well as the VPC APIs. You can re-use the token multiple times.
 
 You exchange the access token with an IAM token by invoking a `POST` request within the virtual machine. The request specifies the token variable and creates a [trusted profile](/docs/vpc?topic=vpc-imd-trusted-profile-metadata) within IAM. This exchanges the access token with an IAM token linked to the trusted profile.
 
 To exchange a token, make a call like this:
 
 ```
-$ curl – X POST \
-   -H "Content-Type: application/www.form.urlencoded" \
-   -H "Accept: application/json" \
-   -d “grant_type=urn.ibm.params.0auth.grant-type:cr-token&cr-token= \
-      {$access_token}&profile_id= \
-      Profile-b12b1517-aadc-48d4-9f6e-ae069a8ad318” \
-      https:iam.cloud.ibm.com.com/identity/token -s \
-      | jq -r
+curl – X POST \
+-H "Content-Type: application/www.form.urlencoded" \
+-H "Accept: application/json" \
+-d “grant_type=urn.ibm.params.0auth.grant-type:cr-token&cr-token= \
+    {$access_token}&profile_id= \
+    Profile-b12b1517-aadc-48d4-9f6e-ae069a8ad318” \
+    https:iam.cloud.ibm.com.com/identity/token -s \
+    | jq -r
 ```
 {: codeblock}
 
-The JSON response shows the IAM token that you can use with any IAM-enabled service. For more information on exchanging tokens, see [Generating an IAM token for a compute resource](/docs/account?topic=account-trusted-profile-iam-token#token-exchange).
+The JSON response shows the IAM token. For more information on exchanging tokens, see [Generating an IAM token for a compute resource](/docs/account?topic=account-trusted-profile-iam-token#token-exchange).
 
 ## Create a trusted profile for the instance
 {: #imd-trusted-profile-config}
@@ -131,7 +131,7 @@ For Beta, allow-listed user accounts have the metadata service enabled by defaul
 
 This example shows enabling the metadata service at instance creation:
 
-```bash
+```
 curl -X POST "$vpc_api_endpoint/v1/instances?version=2021-07-30&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
@@ -159,7 +159,7 @@ To enable or disable the service from an existing instance, you'd do the same in
 
 This example shows disabling the metadata service for an existing instance:
 
-```bash
+```
 curl -X PATCH "$vpc_api_endpoint/v1/instances?version=2021-06-28&generation=2" -H "Authorization: $iam_token" 
 -d '{
   "image": {

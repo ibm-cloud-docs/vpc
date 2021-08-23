@@ -86,19 +86,9 @@ For more information, see the IAM documentation on [setting up trusted profiles]
 
 3. Follow the steps 1 - 7 in the [End-to-end procedure for accessing metadata from an instance](/docs/vpc?topic=vpc-imd-access-instance-metadata#imd-access-md-ex). The procedure obtains an access token and creates an environment variable for it. When finished, continue with these steps:
 
-4. Exchange the access token acquired using the metadata token service with an IAM token. 
+4. Exchange the instance identity access token acquired using the metadata token service with an IAM token. 
 
-5. Use the IAM token when making calls to IAM-enabled services. You can also use the token to call the instance metadata service, for example, to get initialization information and user data. For example, the same call using the `access_token` variable now specifies the IAM token.
-
-
-   ```json
-   $ user_data=`curl -X GET "http://169.254.169.254/metadata/v1/instance/initialization?version=2021-08-29" \
-     -H "Accept: application/json" \
-     -H "Authorization: Bearer $access_token"
-     | jq -r '(.user_data)'`
-   ```
-   {: codeblock}
-
+5. Use the IAM token to make calls to IAM-enabled services.
 
 ## Next steps
 {: #imd-trusted-profile-next-steps}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-30"
+lastupdated: "2021-08-23"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -78,7 +78,7 @@ Use the information in the Table 1 to understand the type of metadata returned f
 | /instance/volume_attachments/{id}	| id | The unique identifier for the volume attachment. |
 | /instance/volume_attachments/{id}	| name | The user-defined name for the volume attachment. |
 | /instance/volume_attachments/{id}	| type | The type of volume attachment, boot or data. |
-| /instance/volume_attachments/{id}	| volume | The attached volume, whih contains the crn, ID, name, and delete Boolean value. |
+| /instance/volume_attachments/{id}	| volume | The attached volume, which contains the CRN, ID, name, and `deleted` value, when the volume is deleted. |
 {: caption="Table 1. Metadata for an instance" caption-side="top"}
 
 ## Summary of metadata for SSH keys
