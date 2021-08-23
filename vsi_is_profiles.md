@@ -45,7 +45,7 @@ The following profile families are available:
 <!--- | [GPU](#gpu) | Best for artificial intelligence (AI) and deep learning workloads. Available for x86_64 processors only. | -->
 {: caption="Table 1. Virtual server family selections" caption-side="top"}
 
-Profiles with instance storage are deployed exclusively on the second-generation Intel&reg; Xeon&reg; Platinum 8272 (Cascade Lake) running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz.  Question: Do we still need this note in the Ultra High Memory family or does this one cover that too?
+Profiles with instance storage are deployed exclusively on the second-generation Intel&reg; Xeon&reg; Platinum 8272 (Cascade Lake) running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz. 
 {: note}
 
 ## Balanced
