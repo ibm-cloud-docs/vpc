@@ -205,9 +205,6 @@ Ultra High Memory profiles are hosted exclusively on the latest generation Intel
 
 {: #callout-note}
 
-Ultra High Memory profiles are deployed exclusively on the second-generation Intel&reg; Xeon&reg; Platinum 8280L (Cascade Lake) running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz.  
-{: note}
-
 ### Ultra High Memory profiles for x86_64 processors
 {: #uhmemory-x86-profiles}
 
