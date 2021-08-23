@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-04"
+lastupdated: "2021-08-23"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -31,7 +31,7 @@ You can create a trusted profile for compute resource identities in IAM and then
 {:shortdesc}
 
 This service is available only to accounts with special approval to preview this beta feature.
-{:beta}
+{: beta}
 
 ## About trusted profiles for compute resource identities
 {: #imd-compute-res-identity}
@@ -60,14 +60,16 @@ The general procedure and context for using trusted profiles are described Table
 
 You can streamline the process by setting up dynamic rules in the first step to link the trusted profile automatically to new instances. 
 
-The IAM token is obtained by exchanging the instance identity access token acquired through the metadata service with an IAM token. Table 1 describes the steps involved.
+The IAM token is obtained by exchanging the instance identity access token acquired through the metadata service with an IAM token. 
+
+Table 1 describes the steps involved.
 
 | Step | Context | Service Called | User Action |
 |------|---------|----------------|-------------|
 | 1    | IBM Cloud | IAM | Create an [IAM trusted profile for compute resources](/docs/account?topic=account-trustedprofile-compute-tutorial). |
 | 2    | IBM Cloud | IAM | Assign access rights to the IAM trusted profile. |
 | 3    | IBM Cloud | VPC API | Make a call to create a new instance, configured with the [metadata service](/docs/vpc?topic=vpc-imd-configure-service) enabled. Specify any user data. Alternately, [enable an existing instance to use the metadata service](/docs/vpc?topic=vpc-imd-configure-service#imd-metadata-service-enable). |
-| 4    | IBM Cloud | IAM | Make a call to link the instance to the trusted profile. |
+| 4    | IBM Cloud | IAM | Make a call to [link the instance to the trusted profile](/apidocs/iam-identity-token-api#create-link). |
 | 5    | VPC instance | VPC | Make a call to the metadata token service and get an [access token](/docs/vpc?topic=vpc-imd-configure-service#imd-get-token). |
 | 6    | VPC instance | IAM |  Make a call to [exchange the metadata service access token for an IAM token](/docs/vpc?topic=vpc-imd-configure-service#imd-token-exchange). The IAM token allows access to all IAM-enabled services. |
 | 7    | VPC instance | IAM-enabled service | Pass the IAM token to call an IAM-enabled service API. The required access rights to the service exist in the trusted profile. |
@@ -80,20 +82,22 @@ For more information, see the IAM documentation on [setting up trusted profiles]
 
 1. Make sure you have created a [trusted profiles](/docs/account?topic=account-create-trusted-profile) for the instance.
 
-2. Follow the steps 1 - 7 in the [End-to-end procedure for accessing metadata from an instance](/docs/vpc?topic=vpc-imd-access-instance-metadata#imd-access-md-ex). The procedure obtains an access token and creates an environment variable for it. When finished, continue with these steps:
+2. Use the IAM API to [Link the instance to the trusted profile](/apidocs/iam-identity-token-api#create-link). To see a list of links, make a [`GET /profiles/{profile-id}/links` call](/apidocs/iam-identity-token-api#list-link).
 
-3. Exchange the access token acquired using the metadata token service with an IAM token. 
+3. Follow the steps 1 - 7 in the [End-to-end procedure for accessing metadata from an instance](/docs/vpc?topic=vpc-imd-access-instance-metadata#imd-access-md-ex). The procedure obtains an access token and creates an environment variable for it. When finished, continue with these steps:
 
-4. Use the IAM token when making calls to IAM-enabled services. You can also use the token to call the instance metadata service, for example, to get initialization information and user data. For example, the same call using the `access_token` variable now specifies the IAM token.
+4. Exchange the access token acquired using the metadata token service with an IAM token. 
+
+5. Use the IAM token when making calls to IAM-enabled services. You can also use the token to call the instance metadata service, for example, to get initialization information and user data. For example, the same call using the `access_token` variable now specifies the IAM token.
 
 
    ```json
-   $ user_data=`curl -X GET "http://169.254.169.254/metadata/v1/instance/initialization?version=2021-06-29" \
+   $ user_data=`curl -X GET "http://169.254.169.254/metadata/v1/instance/initialization?version=2021-08-29" \
      -H "Accept: application/json" \
      -H "Authorization: Bearer $access_token"
      | jq -r '(.user_data)'`
    ```
-   {:codeblock}
+   {: codeblock}
 
 
 ## Next steps
