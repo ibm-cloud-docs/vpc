@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-05-12"
+lastupdated: "2021-08-03"
 
 keywords: listener, pool, round-robin, weighted, layer 7, datapath logging
 
@@ -27,7 +27,7 @@ subcollection: vpc
 {: #load-balancers}
 
 Use {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) to distribute traffic among multiple server instances within the same region of your VPC.
-{:shortdesc}
+{: shortdesc}
 
 The following diagram illustrates the deployment architecture for the ALB.
 
@@ -96,18 +96,38 @@ With this method, the back-end server instance that serves the least number of c
 ## Front-end listeners and back-end pools
 {: #front-end-listeners-and-back-end-pools}
 
-Front-end listeners are application ports for load balancers to receive incoming requests while back-end pools are the application servers behind the load balancers. 
+Front-end listeners are load balancer application ports for receiving incoming requests, while back-end pools are the application servers behind the load balancers.
 
-Guidelines are as follows:
+### HTTPS redirect listener
+{: #https-redirect-listener}
+
+HTTPS redirect listeners redirect the traffic from an HTTP listener to an HTTPS listener. This does not require any rules applied on the listener.
+
+For instance, if a service listens on port 443 with HTTPS and a user tries to access the service on port 80 using HTTP, then the request automatically redirects to port 443 with HTTPS.
+
+If policies are present on the HTTPS redirect listener, then the policies are evaluated first. If thre are no policy matches, then the request redirects to a configured HTTPS listener.
+
+### HTTPS redirect listener properties
+{: #https_redirect_listener_properties}
+
+Property  | Description
+------------- | -------------
+Listener | The HTTPS listener to which a request redirects. 
+HTTP status code | Status code of the response returned by the application load balancer. The acceptable values are: `301`, `302`, `303`, `307`, or `308`.
+URI | The relative URI to which a request redirects. This is an optional property.
+{: caption="Table 2. HTTPS redirect listener properties" caption-side="top"}
+
+### Guidelines for using listeners
+{: #listener-guidelines}
 
 * You can define up to 10 front-end listeners and map them to back-end pools on the back-end application servers. 
 * The FQDN assigned to your load balancer and the front-end listener ports are exposed to the public internet. Incoming user requests are received on these ports.
-* Supported front-end listener and back-end pool protocols are HTTP, HTTPS, and TCP. 
+* The supported front-end listener and back-end pool protocols are HTTP, HTTPS, and TCP. 
 * You can configure an HTTP/HTTPS front-end listener with an HTTP/HTTPS back-end pool. 
 * HTTP/2 is supported for listeners only. 
 * HTTP and HTTPS listeners and pools are interchangeable. 
-* A TCP front-end listener can only be configured with a TCP back-end pool.
-* You can attach up to 50 virtual server instances to a back-end pool. Traffic is sent to each instance on its specified data port. This data port doesn't need to be the same as the front-end listener port.
+* You can only configure a TCP front-end listener with a TCP back-end pool.
+* You can attach up to 50 virtual server instances to a back-end pool. Traffic is sent to each instance on its specified data port. This data port does not need to be the same one as the front-end listener port.
 
 Effective 31st July 2021, application load balancers will convert all HTTP request and response headers to lower case. This applies to all traffic handled by HTTP and HTTPS listeners. This is being done to provide support for HTTP2, but will be applied to older HTTP 1.x versions as well for uniformity. For most applications this will not require changes, but any application that depends on the case sensitivity of headers needs to be updated to handle them irrespective of capitalization. This is in accordance to networking standards (RFC 2616 Sec 4.2 and RFC 7230 Sec 3.2) which state that HTTP headers are case insensitive.
 {: important}
