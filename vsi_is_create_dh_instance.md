@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021 
-lastupdated: "2021-03-31"
+lastupdated: "2021-08-24"
 
 keywords: dedicated host instance, instance on vpc dedicated host, create instance on dedicated host
 
@@ -28,7 +28,7 @@ subcollection: vpc
 {: #creating-instance-on-dh}
 
 When you have a dedicated host created in your {{site.data.keyword.vpc_short}}, you can provision virtual server instances on the dedicated host by using the {{site.data.keyword.cloud_notm}} console, the CLI, or the API.
-{:shortdesc}
+{: shortdesc}
 
 ## Creating instances on dedicated hosts by using the console
 {: #creating-dedicated-instance}
@@ -54,8 +54,9 @@ When you have a dedicated host created, you can start provisioning virtual serve
 {: before-you-create-dh-instance-cli}
 
 1. Make sure that you downloaded, installed, and intialized the following CLI plug-ins. For more information, see [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup). 
-  * IBM Cloud CLI
-  * The infrastructure-service plug-in
+* IBM Cloud CLI
+* The infrastructure-service plug-in 
+
 2. Have an [{{site.data.keyword.vpc_short}} created](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
 
 ### Gathering information to create an instance on a dedicated host by using the CLI
@@ -99,7 +100,7 @@ The following example command creates a dedicated host with the following parame
 ```
 ibmcloud is instance-create my-instance-name r006-e49dbfc6-03b5-4609-b680-684311be5457 us-south-1 mx2-2x16 0076-2249dabc-8c71-4a54-bxy7-953701ca3999 --image-id r006-72b27b5c-f4b0-48bb-b954-5becc7c1dcb8 --key-ids r006-c23faac2-5983-428c-91b8-2959620e1b96 --dedicated-host-group 0076-edf611ff-0fd6-44bf-b5f3-102eeb3cf928
 ```
-{:pre}
+{: pre}
 
 For a full list of command options, see [ibmcloud is instance-create](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-create).
 
@@ -111,7 +112,7 @@ The following request example creates an instance on a dedicated host with a ded
 
 Remember that the profile family and class must match for the dedicated host or dedicated group and instances that are provisioned on them. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles).
 
-```
+```sh
 curl -X POST \
 ”$vpc_api_endpoint/v1/instances?version=2020-11-17&generation=2" \
 -H "Authorization: $iam_token" \
@@ -145,7 +146,7 @@ curl -X POST \
       ]
     }'
 ```
-{:pre}
+{: codeblock}
 
 For more information, see [Create an instance](https://cloud.ibm.com/apidocs/vpc#create-instance). 
 
