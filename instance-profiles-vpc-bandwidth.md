@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-18"
+lastupdated: "2021-08-24"
 
 keywords: compute, virtual private cloud, virtual server instance, instance, bandwidth
 
@@ -32,33 +32,36 @@ subcollection: vpc
 {: #bandwidth-allocation-profiles}
 
 Instance profiles inform the available instance bandwidth of an instance.
-{:shortdesc}
+{: shortdesc}
+
+This feature is available for accounts in Osaka, Sydney, Toronto, and Sao Paulo only.
+{: note}
 
 ## Bandwidth allocation for resources attached to an instance
 {: #attached-resources}
 
-When you provision an instance, the total instance bandwidth is allocated between storage and networking. The maximum bandwidth capacity is determined by the [virtual server profile](/docs/vpc?topic=vpc-profiles&interface=ui) that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a total instance bandwidth of 4,000 Mbps (4 Gbps). The default allocation is 25% for storage, 75% for networking. In this case:
+When you provision an instance, the total instance bandwidth is allocated between attached volumes and networking. The maximum bandwidth capacity is determined by the [instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui) that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a total instance bandwidth of 4,000 Mbps (4 Gbps). The default allocation is 25% for volumes, 75% for networking. In this case:
 
-* Storage: 1,000 Mbps
+* Volumes: 1,000 Mbps
 * Network: 3,000 Mbps
 
-To ensure reasonable boot times, a percentage of storage bandwidth is first allocated for the boot volume. By default, this is 393 Mbps. The remaining 607 Mb/s is allocated to any data volumes that you attach, based on the size of the volume. For example, if you have one data volume that's allocated 500 Mbps, you can expect to get that level of performance because the subtracting the boot volume (393 Mbps) from the total volume bandwidth allocated (1000 Mbps), leaves 607 Mbps. The IOPS limit is always set to the maximum IOPS of the volume. The bandwidth for each attached volume will be set proportionally based on the volume size and profile.
+The MaxBandwidth property of a volume is the highest potential bandwidth that may be allocated to the volume when attached to an instance. The IOPS limit is always set to the maximum IOPS of the volume. In cases where the total MaxBandwidth of attached volumes exceeds the amount available on the instance, the bandwidth for each attached volume will be set proportionally based on the volume MaxBandwidth.
 
-For example, if you have one data volume that is allocated 500 Mb/s, you can expect to get that level of performance because subtracting the boot volume bandwidth (393 Mb/s) from the total volume bandwidth allocated (1000 Mb/s) leaves 607 Mb/s, which is larger than the volume’s 500 Mb/s.
+To ensure reasonable boot times, a minimum of 393 Mbps of volume bandwidth is allocated to the boot volume. In the example where the instance's total volume bandwidth is 1,000 Mbps, the remaining 607 Mbps is allocated to any secondary volumes that you attach, up to the maximum bandwidth of the volume. For example, if you have one data volume with 500 Mbps, you can expect to get that level of performance.
 
 ## Adjusting bandwidth allocation
 
-The allocation of the instance's total bandwdth can be adjusted after provisioning, balancing between network bandwidth and storage bandwidth, but both storage and network bandwidth must be at least 500 Mbps each. Before you make any change to the storage/networking bandwidth ratio, be sure to evaluate your instance's network bandwidth requirements. Make sure the new bandwidth allocation will not have negative effects on your instance’s network performance.
+The allocation of the instance's total bandwidth can be adjusted after provisioning, balancing between network bandwidth and volume bandwidth, but both volume and network bandwidth must be at least 500 Mbps each. Before you make any change to the volume/networking bandwidth ratio, be sure to evaluate your instance's network bandwidth requirements. Make sure the new bandwidth allocation will not have negative effects on your instance’s network performance.
 
-For example, to allow more storage bandwidth, you could apportion the above example in equal allocations:
+For example, to allow more volume bandwidth, you could apportion the above example in equal allocations:
 
-* Storage: 2,000 Mb/s
+* Volumes: 2,000 Mb/s
 * Network: 2,000 Mb/s
 
-The storage bandwidth available to the instance is apportioned on a per-volume basis. The bandwidth is assigned per volume, not shared between volumes. For example, if you have four identical volumes attached to an instance but are only using one volume, then that volume can get only the bandwidth assigned to it. The volume in use can't access extra bandwidth that is assigned to the unused volumes.
+The volume bandwidth available to the instance is apportioned on a per-volume basis. The bandwidth is assigned per volume, not shared between volumes. For example, if you have four identical volumes attached to an instance but are only using one volume, then that volume can get only the bandwidth assigned to it. The volume in use can't access extra bandwidth that is assigned to the unused volumes.
 {: note}
 
-<!--Customers will have the ability to modify the amount provided to storage bandwidth within the overall instance limits. A default amount of storage bandwidth will be set on each instance profile.
+<!--Customers will have the ability to modify the amount provided to volume bandwidth within the overall instance limits. A default amount of volume bandwidth will be set on each instance profile.
 1Gbps-2Gbps per-vCPU with a limit of 80Gbps-->
 
 ## Example balanced profiles for x86_64 processors
@@ -79,9 +82,9 @@ The following Balanced profiles are available for x86_64 processors:
 {: caption="Table 1. Example profiles" caption-side="top"}
 
 
-Most profiles have a bandwidth cap of 2 Gbps per vCPU and Ultra high memory profiles have a cap of 1 Gbps per vCPU. The total instanc bandwidth cap is 80 Gbps. Bandwidth is distributed evenly across network interfaces, and each network interface has a cap of 16 Gbps that might limit the overall performance. You might need to attach multiple network interfaces to your virtual server instance to optimize network performance.
+Most profiles have a bandwidth cap of 2 Gbps per vCPU and Ultra high memory profiles have a cap of 1 Gbps per vCPU. The total instance bandwidth cap is 80 Gbps. Network bandwidth is distributed evenly across network interfaces, and each network interface has a cap of 16 Gbps that might limit the overall performance. You might need to attach multiple network interfaces to your virtual server instance to optimize network performance.
 
-For example, if you choose a profile with 16 vCPUs, the bandwidth cap for the profile is 32 Gbps. If you have just one network interface, the maximum network performance is 16 Gbps due to the network interface cap. You need to attach two network interfaces (16 Gbps each) to reach the profile cap of 32 Gbps.
+For example, if you choose a profile with 16 vCPUs, the bandwidth cap for the profile is 32 Gbps, 24 Gbps of which is assigned to networking. If you have just one network interface, the maximum network performance is 16 Gbps due to the network interface cap. You need to attach two network interfaces (12 Gbps each) to reach the profile cap of 24 Gbps.
 
 For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
 
@@ -93,4 +96,3 @@ For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles&inter
 
 For more information, see:
 * [Instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui)
-* [Bandwidth allocation for block storage volumes](/docs/vpc?topic=vpc-block-storage-bandwith)
