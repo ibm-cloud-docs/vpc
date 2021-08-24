@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-08-19"
+lastupdated: "2021-08-24"
 
 keywords: release notes, changes, updates
 
@@ -27,6 +27,11 @@ subcollection: vpc
 
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
+
+## 24 August 2021
+{: #august-24-2021}
+
+**HTTPS redirect listeners:** The [HTTPS redirect feature](/docs/vpc?topic=vpc-load-balancers#https-redirect-listener) is now available on Application Load Balancer for VPC to redirect traffic from an HTTP load balancer listener to an HTTPS listener. You can configure an HTTPS redirect on either [load balancer listeners](/docs/vpc?topic=vpc-load-balancers), [load balancer policies](/docs/vpc?topic=vpc-layer-7-load-balancing), or both. 
 
 ## 19 August 2021
 {: #august-19-2021}
