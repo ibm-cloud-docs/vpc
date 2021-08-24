@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2021
-lastupdated: "2021-08-03"
+lastupdated: "2021-08-24"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
@@ -316,16 +316,16 @@ Follow these steps to rotate a root key by using the Key Protect API.
 
 5. Optionally, verify that the key was rotated by running the following call to browse the keys in your Key Protect service instance.
 
-  ```cURL
+   ```cURL
    curl -X GET \
-     https://<region>.kms.cloud.ibm.com/api/v2/keys/metadata \
-     -H 'accept: application/vnd.ibm.collection+json' \
-     -H 'authorization: Bearer <IAM_token>' \
-     -H 'bluemix-instance: <instance_ID>'
-  ```
-  {: codeblock}
+   https://<region>.kms.cloud.ibm.com/api/v2/keys/metadata \
+   -H 'accept: application/vnd.ibm.collection+json' \
+   -H 'authorization: Bearer <IAM_token>' \
+   -H 'bluemix-instance: <instance_ID>'
+   ```
+   {: codeblock}
 
-  Review the `lastRotateDate` and `keyVersion` values in the response to inspect the date and time that your key was last rotated. The `keyVersion` attribute contains identifying information that describes the latest version of the root key.
+Review the `lastRotateDate` and `keyVersion` values in the response to inspect the date and time that your key was last rotated. The `keyVersion` attribute contains identifying information that describes the latest version of the root key.
 
 | Variable | Description |
 |----------|-------------|
