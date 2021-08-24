@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-13"
+lastupdated: "2021-08-24"
 
 keywords: vpc dedicated host, dedicated host, dedicated host group
 
@@ -28,10 +28,10 @@ subcollection: vpc
 {: #creating-dedicated-hosts-instances}
 
 You can create one or more dedicated hosts with associated dedicated host groups in your {{site.data.keyword.cloud}} VPC by using the {{site.data.keyword.cloud_notm}} console, the CLI, or the API. Dedicated Host for VPC is fully integrated into {{site.data.keyword.cloud_notm}}.
-{:shortdesc}
+{: shortdesc}
 
 Dedicated hosts are not supported for LinuxONE (s390x processor architecture).  
-{:note}
+{: note}
 
 ## Dedicated hosts
 {: #dedicated-hosts}
@@ -110,8 +110,9 @@ You can create one or more dedicated groups and hosts in your {{site.data.keywor
 {: before-you-create-group-cli}
 
 1. Make sure that you downloaded, installed, and intialized the following CLI plug-ins. For more information, see [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
-  * IBM Cloud CLI
-  * The vpc-infrastructure plugin
+* IBM Cloud CLI
+* The vpc-infrastructure plugin
+
 2. Have an [{{site.data.keyword.vpc_short}} created](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
 
 ### Gathering information to create a dedicated group by using the CLI
@@ -151,7 +152,7 @@ Use the following commands to determine the required information for creating a 
    ```
    ibmcloud is zones us-south
    ```
-   {:pre}
+   {: pre}
 
    For this example, you'd see a response similar to the following output:
    
