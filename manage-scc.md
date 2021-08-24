@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-25"
+lastupdated: "2021-08-24"
 
 keywords: security and compliance, security, compliance,
 
@@ -161,6 +161,7 @@ The following example is a rule configuration with only private access enabled:
   }
 }
 ```
+{: codeblock}
 
 The following example is a rule configuration that prevents users from creating public type application load balancers:
 
@@ -197,6 +198,7 @@ The following example is a rule configuration that prevents users from creating 
   }
 }
 ```
+{: codeblock}
 
 Make sure that *enforcement_actions* is set with *action: disallow* to apply the rule and meet the compliance criteria. For more information, see [How to configure Rules](/docs/security-compliance?topic=security-compliance-rules).
 {: note}
