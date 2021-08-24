@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-13"
+lastupdated: "2021-08-24"
 
 subcollection: vpc
 
@@ -52,12 +52,12 @@ Virtual servers that run on dedicated hosts can be resized only to profiles that
 Resizing virtual servers on dedicated hosts is not supported for LinuxONE (s390x processor architecture).  
 {: note}
 
-## Resizing with instance storage
+## Resizing virtual servers with instance storage
 {: #resizing-with-instance-storage}
 
 When you stop a virtual server instance with an instance storage profile, that storage is temporary storage and is available only while your virtual server is running. Data on the drive is unrecovered after the instance stops.
 
-## Resizing with data volumes
+## Resizing virtual servers with data volumes
 {: #resizing-with-data-volumes}
 
 Attached data volumes remain intact and are attached in the resized instance.
