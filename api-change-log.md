@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-17"
+lastupdated: "2021-08-24"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -42,10 +42,6 @@ Some changes, such as new response properties or new optional request parameters
 
 ### For all API version dates
 
-**Load balancer listeners.** In an upcoming release, new restrictions will be enforced when updating and deleting load balancer listeners. To avoid disruption, do not update an existing listener’s `protocol` or `accept_proxy_protocol` properties. Instead, delete the listener and create a new listener with the new property values. You cannot delete a listener if other resources are using it. Write your code so that resources are deleted in the opposite order from which they were created.
-
-New values will also be added to the `action` enumeration returned by load balancer listener methods. To avoid disruption, check for and log unknown values when processing the `action` property, or bypass the policy on which the unexpected property value was encountered.
-
 **Block storage volumes.**  In an upcoming release, a new value in the `status` enumeration will be added to the [volume](/apidocs/vpc#list-volume-profiles) APIs. When you expand an existing data volume, the volume goes into an updating state and shows a new API status `updating`. You can still access the data while the volume is being resized. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 
 **Asynchronous `DELETE` response code change.** In an upcoming release, the response code output for asynchronous `DELETE` operations will change from `204` to `202`. A response code of `204` implies the action is completed, which could be misleading for operations that are still processing. A response code of `202` is more appropriate. This behavior change will occur only for an API version date after its release. A response code of `204` will continue to be returned for API versions up to this version date.
@@ -54,6 +50,24 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 24 August 2021
+{: #24-august-2021}
+
+### For all API version dates
+{: #24-august-2021-all-version-dates}
+
+**Application load balancers.** Use the [HTTPS redirect feature](/docs/vpc?topic=vpc-load-balancers#https-redirect-listener) to redirect traffic from an HTTP load balancer listener to an HTTPS listener.
+
+An HTTPS redirect can be configured on either [load balancer listeners](/docs/vpc?topic=vpc-load-balancers) or [load balancer policies](/docs/vpc?topic=vpc-layer-7-load-balancing), or both.  An HTTPS redirect is configured on the listener using the new `https_redirect` property, and will be used if none of the listener policy's rules match (or if it has no rules). An HTTPS redirect is configured on a load balancer policy using the new policy `action` value of `https_redirect`, and will be used only when all of the policy's rules match.
+
+If you configure an HTTPS redirect on a listener policy, be aware that existing applications will be exposed to the new `https_redirect` value. To avoid disruption, check that your applications are written to gracefully handle unexpected `action` values first.
+{: important}
+
+Additional API restrictions are enforced after an HTTPS redirect is configured:
+
+   - You will not be able to [update the `protocol` and `accept_proxy_protocol` properties](/apidocs/vpc#update-load-balancer-listener) of the HTTP and HTTPS listeners. Instead, delete the listener and create a new listener with the new property values.
+   - You will not be able to [delete an HTTPS listener](/apidocs/vpc#delete-load-balancer-listener) until the HTTP listener referring to it is deleted.
 
 ## 17 August 2021
 {: #17-august-2021}
