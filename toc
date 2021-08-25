@@ -302,9 +302,9 @@ Virtual Private Cloud (VPC)
         block_storage_is_manage.md
         block_storage_is_view.md
         block_storage_vpc_expandable_volumes.md
+        block_storage_vpc_adjustable_iops.md
         block_storage_vpc_manage_storage_limits.md
         block_storage_is_use_volume_cli.md
-        block_storage_vpc_api_remediation.md
 
     {: .topicgroup}
     Snapshots
