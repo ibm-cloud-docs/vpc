@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-24"
+lastupdated: "2021-08-25"
 
 keywords: block storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, bandwidth
 
@@ -39,14 +39,15 @@ This feature is available for accounts in the Osaka, Sydney, Toronto, and Sao Pa
 ## Bandwidth allocation for volumes attached to an instance
 {: #attached-block-vol-bandwidth}
 
-When you provision an instance, bandwidth is allocated for both storage and networking. The maximum storage bandwidth capacity is determined by the virtual server profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a total instance bandwidth of 4,000 Mbps (4 GBps). The default allocation is 25% for storage, 75% for networking. In this case:
+When you provision an instance, bandwidth is allocated between storage (boot volume and attached block storage volumes) and networking. The maximum storage bandwidth capacity is determined by the virtual server profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a total instance bandwidth of 4,000 Mbps (4 GBps). The default allocation is 25% for storage, 75% for networking. In this case:
 
 * Storage: 1,000 Mbps
 * Network: 3,000 Mbps
 
-To ensure reasonable boot times, the primary boot volume’s bandwidth is fixed at 393 Mbps. The remaining 607 Mbps will be shared by any secondary data volumes that you attach. Each volume will have an IOPS and bandwidth limit set. The IOPS limit is always set to the maximum IOPS of the volume. The bandwidth for each attached volume will be set proportionally based on the [volume size and profile](/docs/vpc?topic=vpc-block-storage-profiles).
+To ensure reasonable boot times, a minimum of 393 Mbps is allocated to the primary boot volume. In the example, the instance's total volume bandwidth is 1,000 Mbps and the remaining 607 Mbps is allocated to any secondary volumes that you attach, up to the maximum bandwidth of the volume. For example, if you have one data volume with 500 Mbps, you can expect to get that level of performance.
 
-For example, if you have one data volume that is allocated 500 Mbps, you can expect to get that level of performance because subtracting the boot volume bandwidth (393 Mbps) from the total volume bandwidth allocated (1000 Mbps) leaves 607 Mbps, which is larger than the volume’s 500 Mbps.
+Each volume will have an IOPS and bandwidth limit set. The IOPS limit is always set to the maximum IOPS of the volume (`MaxBandwidth` property). The bandwidth for each attached volume will be set proportionally based on the [volume size and profile](/docs/vpc?topic=vpc-block-storage-profiles).
+
 
 ### Adjusting volume bandwidth
 {: #volume-adjust-bandwidth}
@@ -56,7 +57,7 @@ You can change the storage/networking bandwidth ratio to meet your needs, but bo
 * Storage: 2,000 Mbps
 * Network: 2,000 Mbps
 
-However, before you make any change to the storage/networking bandwidth ratio, be sure to evaluate your instance's network bandwidth requirements. Make sure the new bandwidth allocation will not have negative effects on your instance’s network performance. For more information, see [Allocating instance bandwidth for networking](/docs/vpc?topic=vpc-vsi-network-bandwidth).
+However, before you make any change to the storage/networking bandwidth ratio, be sure to evaluate your instance's network bandwidth requirements. Make sure the new bandwidth allocation will not have negative effects on your instance’s network performance.
 
 Extending the example for multiple volumes, the bandwidth looks like this:
 
