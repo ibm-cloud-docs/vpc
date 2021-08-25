@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-23"
+lastupdated: "2021-08-25"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, generation 2, gen 2
 
@@ -48,6 +48,23 @@ The following profile families are available:
 Profiles with instance storage are deployed exclusively on the second-generation Intel&reg; Xeon&reg; Platinum 8272 (Cascade Lake) running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz. 
 {: note}
 
+## Bandwidth allocation
+{: #bandwidth-allocation-profiles}
+
+Instance bandwidth is allocated between storage and networking. The bandwidth capacity (Bandwidth Cap) is determined by the virtual server profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a bandwidth cap of 4 Gbps. The default allocation is 25% for storage, 75% for networking. In this case:
+
+* Storage: 1 Gbps
+* Network: 3 Gbps
+
+In the case of a cx2-8x16 profile, the default distribution is:
+
+* Storage: 4 Gbps
+* Network: 12 Gbps
+
+The amount of overall bandwidth provided to storage bandwidth can be adjusted within the overall instance limits. A default amount of storage bandwidth will be set on each instance profile.
+
+For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-instance-profiles-vpc-bandwidth).
+
 ## Balanced
 {: #balanced}
 
@@ -60,7 +77,7 @@ The Balanced profile family includes both profiles that are provisioned with and
 
 The following Balanced profiles are available for x86_64 processors:
 
-| Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
+| Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|
 | bx2-2x8 | 2 | 8 | 4 | - |
 | bx2d-2x8 | 2 | 8 | 4 | 1x75 |
@@ -87,7 +104,7 @@ The following Balanced profiles are available for x86_64 processors:
 
 The following Balanced profiles are available for LinuxONE (s390x processor architecture):
 
-| Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
+| Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|
 | bz2-1x2 | 1 | 2 | 2 | - |
 | bz2-1x4 | 1 | 4 | 2 | - |
@@ -109,7 +126,7 @@ The Compute profile family includes both profiles that are provisioned with and 
 
 The following Compute profiles are available for instances with x86_64 processors:
 
-| Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
+| Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|
 | cx2-2x4 | 2 | 4 | 4 | - |
 | cx2d-2x4 | 2 | 4 | 4 | 1x75 |
@@ -136,7 +153,7 @@ The following Compute profiles are available for instances with x86_64 processor
 
 The following Compute profiles are available for LinuxONE (s390x processor architecture):
 
-| Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
+| Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|
 | cz2-2x4 | 2 | 4 | 2 | - |
 | cz2-4x8 | 4 | 8 | 8 | - |
@@ -156,7 +173,7 @@ The Memory profile family includes both profiles that are provisioned with and w
 
 The following memory profiles are available for instances with x86_64 processors:
 
-| Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
+| Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|
 | mx2-2x16 | 2 | 16 | 4 | - |
 | mx2d-2x16 | 2 | 16 | 4 | 1x75 |
@@ -183,7 +200,7 @@ The following memory profiles are available for instances with x86_64 processors
 
 The following Memory profiles are available for LinuxONE (s390x processor architecture):
 
-| Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
+| Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|
 | mz2-2x16 | 2 | 16 | 4 | - |
 | mz2-4x32 | 4 | 32 | 8 | - |
@@ -210,7 +227,7 @@ Ultra High Memory profiles are hosted exclusively on the latest generation Intel
 
 The following Ultra High Memory profiles are available for x86_64 processors:
 
-| Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
+| Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|
 | ux2d-2x56 | 2 | 56 | 2 | 1x60 |
 | ux2d-4x112 | 4 | 112 | 4 | 1x120 |
@@ -292,10 +309,9 @@ curl -X GET \
 {:codeblock}
 
 ## Block storage volume notes for profiles
-{: #storage-notes-for-profiles}
+{: #block-storage-notes-for-profiles}
 
-When you create secondary data volumes, you select a volume profile that best meets your requirements. Volume profiles are available
-as three predefined [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) or as a [custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom). These volume profiles relate to virtual server instance profiles:
+When you create secondary data volumes, you select a volume profile that best meets your requirements. Volume profiles are available as three predefined [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) or as a [custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom). These volume profiles relate to virtual server instance profiles:
 
 * A [3 IOPS general-purpose tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers) provides IOPS/GB performance suitable for a virtual server instance Balanced profile.
 * A [5-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance suitable for a virtual server instance Compute profile.
@@ -304,9 +320,9 @@ as three predefined [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tier
 ## Network performance notes for profiles
 {: #network-perf-notes-for-profiles}
 
-Every profile has a maximum network bandwidth of 2 Gbps per vCPU, with a cap of 80 Gbps. Network bandwidth is distributed evenly across network interfaces, and each network interface has a cap of 16 Gbps that might limit the overall performance. You might need to attach multiple network interfaces to your virtual server instance to optimize network performance.
+Every profile has a maximum bandwidth cap of 80 Gbps. Network bandwidth is distributed evenly across network interfaces, and each network interface has a cap of 16 Gbps. You might need to attach multiple network interfaces to your virtual server instance to optimize network performance.
 
-For example, if you choose a profile with 16 vCPU, the network cap for the profile is 32 Gbps. If you have just one network interface, the maximum network performance is 16 Gbps due to the network interface cap. You need to attach two network interfaces (16 Gbps each) to reach the profile cap of 32 Gbps.
+For example, if you choose a profile with 16 vCPU, the bandwidth cap for the profile is 32 Gbps. The default network cap will be 24 Gbps, but can be adjusted up to a maximum of 31.5 Gbps. You need to attach more network interfaces (16 Gbps each) to reach the profile cap of 80 Gbps.
 
 The network bandwidth cap applies separately to egress (transmitted) and ingress (received) traffic. That is, even if an instance capped at 4 Gbps reaches its transmit cap of 4 Gbps, that does not impact its ability to receive up to its cap of 4 Gbps.
 
