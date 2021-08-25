@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019,2021
-lastupdated: "2021-08-17"
+  years: 2019, 2021
+lastupdated: "2021-08-25"
 
 keywords: view instance details, restart, stop, instance details, delete
 
@@ -46,6 +46,51 @@ To delete an instance, the instance must have a powered off status. If the insta
 
 ## Viewing instance details
 You can interact with instances by viewing the summary of all instances on the *Virtual server instances* page, or by clicking an individual instance name to view details and make changes. From the instance details page, you can also view the associated network interface, access its subnet, and reserve or delete a floating IP address.
+
+## Adjusting bandwidth allocation using the UI
+{: #adjusting-bandwidth-allocation-ui}
+{: ui}
+
+You can adjust the allocation of your instance's total bandwidth between network bandwidth and storage bandwidth using the UI.
+
+To adjust the bandwidth of an instance:
+
+1. Navigate to a virtual service instance.
+2. Select Bandwidth allocation.
+3. On the Edit bandwidth allocation screen, adjust the value for Storage bandwidth. You can increase the bandwidth allocated for your block storage boot and attached data volumes. For information about how storage bandwidth is allocated, see [Bandwidth allocation for block storage volumes](/docs/vpc?topic=vpc-block-storage-bandwith).
+After you set storage bandwidth, network bandwidth is automatically adjusted so the total bandwidth of the instance equals the displayed Total bandwidth value. The value for Network bandwidth or Storage bandwidth cannot be set less than 500 Mbps.
+
+To view the new bandwidth allocation, you must either stop and start the instance, or detach and reattach secondary volumes.
+{: note}
+
+## Adjusting bandwidth allocation using the CLI
+{: #adjusting-bandwidth-allocation-cli}
+{: cli}
+
+You can adjust the allocation of your instance's total bandwidth between network bandwidth and storage bandwidth using the CLI.
+
+To reallocate instance bandwidth by using the CLI, run the `instance-update {id}` command and specify the total storage bandwidth in megabits per second (Mbps) for the `total-volume-bandwidth` parameter. Use this syntax:
+```
+ibmcloud is instance-update {id} --total-volume-bandwidth VALUE
+```
+{: pre}
+
+## Adjusting total storage bandwidth allocation from the API
+{: #adjusting-bandwidth-allocation-api}
+{: api}
+
+You can adjust total storage bandwidth for an existing instance. Make a `PATCH /instances` call and specify `total_volume_ bandwidth`. Total storage bandwidth (in megabits per second) is the total bandwidth allocated for primary boot and secondary attached data volumes. Increasing total storage bandwidth results in a corresponding decrease in network bandwidth. The minimum network bandwidth you can have is 500 mbps, so adjust total storage bandwidth accordingly. For example,
+
+```sh
+curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2021-06-22&generation=2" \
+  -H "Authorization: $iam_token" \
+  -d '{
+      "total_volume_bandwidth": 500
+      }'
+```
+{: pre}
+
+Bandwidth allocation is also realized when you add a secondary volume using `POST / volume_attachments` or delete a volume using `DELETE volume_attachments`.
 
 ## Retrieving the virtual server instance identifier
 {: #retrieve-VSI-instance-identifer}
