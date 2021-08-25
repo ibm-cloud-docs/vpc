@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-24"
+lastupdated: "2021-08-25"
 
 keywords: compute, virtual private cloud, virtual server instance, instance, bandwidth
 
@@ -33,9 +33,6 @@ subcollection: vpc
 
 Instance profiles inform the available instance bandwidth of an instance.
 {: shortdesc}
-
-This feature is available for accounts in Osaka, Sydney, Toronto, and Sao Paulo only.
-{: note}
 
 ## Bandwidth allocation for resources attached to an instance
 {: #attached-resources}
