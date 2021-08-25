@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-07-27"
+lastupdated: "2021-08-25"
 
 keywords: address prefixes, regions, subnets, zones, IP, ranges, CIDR
 
@@ -41,7 +41,7 @@ Zone         | Address prefix
 `us-east-2`    | `10.241.64.0/18`
 `us-east-3`    | `10.241.128.0/18`
 `eu-gb-1`      | `10.242.0.0/18`
-`eu-gb-2`      | `10.243.0.0/18`
+`eu-gb-2`      | `10.242.64.0/18`
 `eu-gb-3`      | `10.242.128.0/18`
 `eu-de-1`      | `10.243.0.0/18`
 `eu-de-2`      | `10.243.64.0/18`
