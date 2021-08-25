@@ -33,9 +33,6 @@ subcollection: vpc
 You can allocate bandwidth for volumes attached to a virtual server instance out of total instance bandwidth.
 {:shortdesc}
 
-This feature is available for accounts in the Osaka, Sydney, Toronto, and Sao Paulo regions only.
-{: note}
-
 ## Bandwidth allocation for volumes attached to an instance
 {: #attached-block-vol-bandwidth}
 

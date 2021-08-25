@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019 - 2021
-lastupdated: "2021-08-24"
+lastupdated: "2021-08-25"
 
 keywords: block storage, volume, data storage, volume capacity, classic, virtual server
 
@@ -45,9 +45,6 @@ When you provision {{site.data.keyword.block_storage_is_short}} volumes, you spe
 {: #cp-storage-bandwidth-allocate}
 
 Bandwidth is split between storage and networking. By default, storage is allocated 25% bandwidth and networking 75%. You can change this allocation. You can reallocate storage and network bandwidth when creating a new instance or for an existing instance. Bandwidth can't be shared between storage and networking. The [instance profile](/docs/vpc?topic=vpc-profiles) you choose affects total bandwidth. For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
-
-This feature is available for accounts in the Osaka, Sydney, Toronto, and Sao Paulo regions only.
-{: note}
 
 ## How block size affects performance
 {: #how-block-size-affects-performance}
