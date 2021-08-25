@@ -61,7 +61,6 @@ Virtual Private Cloud (VPC)
             snapshots_vpc_about.md
             block_storage_vpc_capacity_performance.md
             block_storage_is_profiles.md
-            block_storage_vpc_bandwidth.md
     {: .navgroup-end}
 
     {: .navgroup id="tutorial"}
