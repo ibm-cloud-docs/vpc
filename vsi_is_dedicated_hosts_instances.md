@@ -110,8 +110,8 @@ You can create one or more dedicated groups and hosts in your {{site.data.keywor
 {: before-you-create-group-cli}
 
 1. Make sure that you downloaded, installed, and intialized the following CLI plug-ins. For more information, see [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
-* IBM Cloud CLI
-* The vpc-infrastructure plugin
+    * IBM Cloud CLI
+    * The vpc-infrastructure plugin
 
 2. Have an [{{site.data.keyword.vpc_short}} created](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
 
