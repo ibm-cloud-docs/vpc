@@ -54,8 +54,8 @@ When you have a dedicated host created, you can start provisioning virtual serve
 {: before-you-create-dh-instance-cli}
 
 1. Make sure that you downloaded, installed, and intialized the following CLI plug-ins. For more information, see [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup). 
-* IBM Cloud CLI
-* The infrastructure-service plug-in 
+    * IBM Cloud CLI
+    * The infrastructure-service plug-in 
 
 2. Have an [{{site.data.keyword.vpc_short}} created](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
 
