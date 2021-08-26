@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-05"
+lastupdated: "2021-08-26"
 
 keywords:
 
@@ -91,10 +91,10 @@ To recover files from a volume backup, complete the following steps:
 1. Log in to the CentOS virtual server instance.
 2. From the command line, start the Veeam Agent configuration tool, which was automatically installed by the Veeam Backup and Replication software:
 
-  ```
-  veeamconfig ui
-  ```
-  {: pre}
+   ```
+   veeamconfig ui
+   ```
+   {: pre}
 
 3. Select **Recover Files**, and then select the **Job Name** of the backup that you want to recover.
 4. Select the **Restore Point** (creation timestamp of the backup). This mounts the backup into `/mnt/backup`. Each individual device and volume that is backed up is mounted inside of `/mnt/backup`.
