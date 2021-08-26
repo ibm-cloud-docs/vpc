@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-23"
+lastupdated: "2021-08-26"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -46,7 +46,7 @@ Windows users have additional requirements to set up the metadata service. For i
 
 An instance identity access token provides your security credential for accessing the metadata service. It's a signed token with a set of claims based on information about the instance and information passed in the token request.
 
-To interact with the token server, you make a REST API `PUT "http://169.254.169.254/instance_identity/v1/token` call that invokes a well-known, non-routable IP address. You access the token from within the instance. Communication between the instance and metadata service never leaves the host.
+To access the instance identiey, you make a REST API `PUT "http://169.254.169.254/instance_identity/v1/token` call that invokes a well-known, non-routable IP address. You acquire the token from within the instance. Communication between the instance and metadata service never leaves the host.
 
 In the data section of the request, you specify an expiration time for the token. The default is five minutes, but you can specify that it expire sooner or later (5 seconds to one hour).
 
@@ -84,14 +84,7 @@ The JSON response shows the access token character string, date and time it was 
 ```
 {: codeblock}
 
-For convenience, create an environment variable for the access token:
-
-```
-ACCESS_TOKEN = <token_string>
-```
-{: pre}
-
-## Exchange an instance identity access token for an IAM token
+## Generate an IAM token from an instance identity access token
 {: #imd-token-exchange}
 
 To access IBM Cloud IAM-enabled services in the account, you can exchange the instance identity access token for an IAM token using trusted profile information. After you exchange the token, you can use it to access IAM-enabled services, such as Cloud Object Storage, Cloud Database Service, as well as the VPC APIs. You can re-use the token multiple times.

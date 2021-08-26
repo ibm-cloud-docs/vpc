@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-23"
+lastupdated: "2021-08-26"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -57,26 +57,26 @@ By default, the metadata service is enabled when your account is added to the al
 ### Instance identity token service
 {: #imd-vpc-access-token}
 
-The instance identity token service lets you generate an access token (a JSON web token) to use that token to access the metadata service. You generate it by calling this endpoint: `http://169.254.169.254/instance_identity/v1/token`. This endpoint is accessible to all commands, processes, and software applications running within a virtual server instance. Access to the API endpoint is not available outside the virtual server instance.
+The instance identity token service lets you generate an access token to use that token to access the metadata service. You generate it by calling this endpoint: `http://169.254.169.254/instance_identity/v1/token`. This endpoint is accessible to all commands, processes, and software applications running within a virtual server instance. Access to the API endpoint is not available outside the virtual server instance.
 
-Use the instance identity access token when calling the metadata service. The token is valid until it reaches expiration, which by default is 5 minutes. You can optionally exchange this token for an IAM token to call any IAM-enabled service. After you exchange the token, it can't be used to access the metadata service.
+Use the instance identity access token when calling the metadata service. The token is valid until it reaches expiration, which by default is 5 minutes. For more information, see [Aquire an access token](/docs/vpc?topic=vpc-imd-configure-service#imd-json-token).
 
-For more information, see [Aquire an access token](/docs/vpc?topic=vpc-imd-configure-service#imd-json-token).
+You can also generate an IAM token from the instance identity access token. This IAM token can be used to access all IAM-enabled services. It has it's own expiration date, based on the IAM token service default. [Generate an IAM token from an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-token-exchange).
 
 ### Metadata service
 {: #imd-service}
 
 You [configure the metadata service and enable it](/docs/vpc?topic=vpc-imd-configure-service) on an instance to retrieve data about the instance. Use this information to configure and launch new instances.
 
-Metadata is obtained by calling REST APIs that provide instance, SSH key, and placement group information at the following  at the following endpoints: 
+Metadata is obtained by calling REST APIs that provide instance-specific information when you make `GET` calls endpoints accessible within a running virtual server instance. For example, 
 
 * `http://169.254.169.254/metadata/v1/instance`
 * `http://169.254.169.254/metadata/v1/keys`
 * `http://169.254.169.254/metadata/v1/placement_groups`
 
-These endpoints are accessible only within a running virtual server instance.
+For a list of all endpoints you can use to access instance metadata, see [Summary of data returned by the metadata service](/docs/vpc?topic=vpc-imd-metadata-summary).
 
-You [enable the metadata service](/docs/vpc?topic=vpc-imd-get-metadata#imd-metadata-service-enable) by setting a toggle in the VPC API when creating a new instance (`POST /instance`) or updating an existing instance (`PATCH /instance`). 
+You [enable the metadata service](/docs/vpc?topic=vpc-imd-get-metadata#imd-metadata-service-enable) by setting a toggle in the VPC API when creating a new instance (`POST /instances`) or updating an existing instance (`PATCH /instances`). 
 
 Be default, the service is enabled for virtual server instances created on accounts participating in the Beta release. You can disable the service from existing instances or when creating new ones. For information, see [Enable or disable the instance metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-metadata-service-enable).
 {:note}
