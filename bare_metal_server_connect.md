@@ -45,30 +45,30 @@ The password is automatically generated and encrypted using the first SSH key pr
 
 1. Use the following command to retrieve the account name and identify the SSH key that can be used to decrypt the password.
 
-  Ensure that you have set up your [CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
-  {: note}
-
-  For the beta release, you must enable the bare metal servers CLI by running: `export IBMCLOUD_IS_FEATURE_BARE_METAL_SERVER=true`
-  {:important}
-
-  ```
-  ibmcloud is bare-metal-server-initialization-values $bare_metal_server_id
-  ```
-  {:pre}
-  
-  In the response, locate the `User accounts` and `SSH keys` fields. The value of “User accounts” is your account name. You need to use the first SSH key to decrypt the password.
+   Ensure that you have set up your [CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
+   {: note}
+   
+   For the beta release, you must enable the bare metal servers CLI by running: `export IBMCLOUD_IS_FEATURE_BARE_METAL_SERVER=true`
+   {:important}
+   
+   ```
+   ibmcloud is bare-metal-server-initialization-values $bare_metal_server_id
+   ```
+   {:pre}
+   
+   In the response, locate the `User accounts` and `SSH keys` fields. The value of “User accounts” is your account name. You need to use the first SSH key to decrypt the password.
 
 2. After the SSH key is identified, run the following command to obtain your password: 
 
-  ```
-  ibmcloud is bare-metal-server-initialization-values $bare_metal_server_id [--private-key (KEY | @KEY_FILE)] 
-  ```
-  {:pre}
-  
-  Add either `'<content of the private key file>'` or `@private_key_file_path` for the `--private-key` flag.
-  {:note}
-
-  This command decodes and decrypts your password. 
+   ```
+   ibmcloud is bare-metal-server-initialization-values $bare_metal_server_id [--private-key (KEY | @KEY_FILE)] 
+   ```
+   {:pre}
+   
+   Add either `'<content of the private key file>'` or `@private_key_file_path` for the `--private-key` flag.
+   {:note}
+   
+   This command decodes and decrypts your password. 
 
 After you have retrieved the account name and password, you can use the credential to access the ESXi DCUI and web client.
 
@@ -90,48 +90,48 @@ Use IBM Cloud UI, CLI, or REST API to connect to a VNC console.
 
 1. Using IBM Cloud UI console  
 
-  * In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**
-
-  * Click the overflow button of the target bare metal server, then click **Open VNC Console**.
+   * In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**
+   
+   * Click the overflow button of the target bare metal server, then click **Open VNC Console**.
   
 2. Using IBM Cloud CLI
 
-  1) Run the following command to connect to a console:
-  ```
-  ibmcloud is bare-metal-server-console $bare_metal_server_id --vnc
-  ```
-  {:pre}
-  
-  The access token will be invalid after 3 minutes.
-  {:important}
-  
-  2) Save the value of "href" in the response.
-  
-  3) Open the [noVNC portal ![External link icon](../icons/launch-glyph.svg "External link icon")](https://novnc.com/noVNC/vnc.html) in a browser.
-  
-  4) Click the **Setting** button, then expand **Advanced > WebSocket**.
-  
-  5) Check **Encrypt**, paste the URL's API endpoint portion you saved in step 2 to **Host:**, do not include "wss://", set **Port** to "443", paste the URL's path portion you saved in step 2 to **Path**.
+   1) Run the following command to connect to a console:
+   ```
+   ibmcloud is bare-metal-server-console $bare_metal_server_id --vnc
+   ```
+   {:pre}
+   
+   The access token will be invalid after 3 minutes.
+   {:important}
+   
+   2) Save the value of "href" in the response.
+   
+   3) Open the [noVNC portal ![External link icon](../icons/launch-glyph.svg "External link icon")](https://novnc.com/noVNC/vnc.html) in a browser.
+   
+   4) Click the **Setting** button, then expand **Advanced > WebSocket**.
+   
+   5) Check **Encrypt**, paste the URL's API endpoint portion you saved in step 2 to **Host:**, do not include "wss://", set **Port** to "443", paste the URL's path portion you saved in step 2 to **Path**.
       * Example API endpoint: `us-south.iaas.cloud.ibm.com`
       * Example path: `v1/bare_metal_servers/<bare_metal_server_id>/console?access_token=<access_token>&version=2021-05-26&generation=2`
-      
-  6) Click **Connect**.
+   
+   6) Click **Connect**.
   
 3. Using REST API
-  
-  1) Run the following command to connect to a console:
-      
-    ```
-    curl -X POST \
-    "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/console_access_token?version=2020-05-26&generation=2" \
-    -H "Authorization: $token" \
-    -d '{
-       "console_type":"vnc"
-    }'
-    ```
-    {:pre}
+
+   1) Run the following command to connect to a console:
+   
+   ```
+   curl -X POST \
+   "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/console_access_token?version=2020-05-26&generation=2" \
+   -H "Authorization: $token" \
+   -d '{
+      "console_type":"vnc"
+   }'
+   ```
+   {:pre}
     
-  2) Follow **Step 2)** to **Step 6)** in **Using IBM Cloud CLI** to connect to a VNC console.
+   2) Follow **Step 2)** to **Step 6)** in **Using IBM Cloud CLI** to connect to a VNC console.
   
 ### Logging in to ESXi DCUI
 {: #login-esxi-dcui}
@@ -158,16 +158,15 @@ vim-cmd hostsvc/enable_ssh
 vim-cmd hostsvc/start_ssh
 ```
 
-
 1. Press F2 from the DCUI main page to access the System Customization menu. You are prompted to enter your account name and password. 
 
 2. From the **System Customization** menu, select **Troubleshooting Options**.
 
-  ![Figure showing ESXi DCUI System Customization screen](images/bare_metal_server_esxi_sys_customize.png "Figure showing ESXi DCUI System Customization screen"){: caption="Figure 3. ESXi DCUI System Customization screen" caption-side="top"}
+   ![Figure showing ESXi DCUI System Customization screen](images/bare_metal_server_esxi_sys_customize.png "Figure showing ESXi DCUI System Customization screen"){: caption="Figure 3. ESXi DCUI System Customization screen" caption-side="top"}
 
 3. Under the **Troubleshooting Mode Options** menu, select **Enable SSH** and toggle it on. 
 
-  ![Figure showing ESXi DCUI Troubleshooting Mode Options window](images/bare_metal_server_esxi_ssh.png "Figure showing ESXi DCUI Troubleshooting Mode Options window"){: caption="Figure 4. ESXi DCUI Troubleshooting Mode Options window" caption-side="top"}
+   ![Figure showing ESXi DCUI Troubleshooting Mode Options window](images/bare_metal_server_esxi_ssh.png "Figure showing ESXi DCUI Troubleshooting Mode Options window"){: caption="Figure 4. ESXi DCUI Troubleshooting Mode Options window" caption-side="top"}
 
 SSH is enabled, you can now access DCUI using SSH protocol.
 
@@ -180,7 +179,7 @@ You can optionally use a serial console to access ESXi DCUI. You must first manu
 
 2. After you have clicked **Connect** on the noVNC connect window, wait until the **Loading VMware Hypervisor** window appears, then press **shift**+**O** to edit boot options.
 
-  ![Figure showing Loading VMware Hypervisor window](images/bare_metal_server_esxi_loading.png "Figure showing Loading VMware Hypervisor window"){: caption="Figure 5. Loading VMware Hypervisor window" caption-side="top"}
+   ![Figure showing Loading VMware Hypervisor window](images/bare_metal_server_esxi_loading.png "Figure showing Loading VMware Hypervisor window"){: caption="Figure 5. Loading VMware Hypervisor window" caption-side="top"}
  
 3. Enter `gdbPort=none logPort=none tty2Port=com1` in the input field at the bottom of the window, then press **Enter**. To use com2 instead, replace `com1` with `com2`.
 
@@ -190,10 +189,10 @@ You can optionally use a serial console to access ESXi DCUI. You must first manu
 
 6. Press **ESC** if ESXi DCUI doesn’t show up in the terminal. You should see the below ESXi DCUI appears in your terminal.
 
-  ![Figure showing ESXi DCUI serial console](images/bare_metal_server_serial_console.png "Figure showing ESXi DCUI serial console"){: caption="Figure 6. ESXi DCUI serial console" caption-side="top"}
-  
-  You can use other methods to enable the serial console. For more information, see [Redirecting the Direct Console to a Serial Port](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-C65306C0-DA37-4F45-8A50-31F8D109BB1D.html){: external}.
-{: note}
+   ![Figure showing ESXi DCUI serial console](images/bare_metal_server_serial_console.png "Figure showing ESXi DCUI serial console"){: caption="Figure 6. ESXi DCUI serial console" caption-side="top"}
+   
+   You can use other methods to enable the serial console. For more information, see [Redirecting the Direct Console to a Serial Port](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-C65306C0-DA37-4F45-8A50-31F8D109BB1D.html){: external}.
+   {: note}
 
 ## Accessing the ESXi web client using floating IP
 {: #access-esxi-client-using-fip}
