@@ -423,6 +423,7 @@ Virtual Private Cloud (VPC)
         nlb-faqs.md
         vpe-faqs.md
         vpn-faqs.md
+        vpn-client-to-site-faqs.md
         faq-vsi.md
         instance_metadata_vpc_faqs.md
 
@@ -450,12 +451,22 @@ Virtual Private Cloud (VPC)
             vpe-ts-cannot-reach-target.md
             vpe-ts-cannot-communicate.md
 
-        {: topicgroup}
-        Troubleshooting VPN gateways
+        {: .topicgroup}
+        Troubleshooting site-to-site VPN gateways
             vpn-ts-unable-establish-connection.md
             vpn-ts-traffic-not-getting-through.md
             vpn-ts-unstable-connection.md
 
+        {: .topicgroup}
+        Troubleshooting client-to-site VPN servers (Beta)
+            vpn-ts-auth-error-connecting-to-server.md
+            vpn-ts-auth-failure-error.md
+            vpn-ts-cannot-access-vpc-resources.md
+            vpn-ts-certificate-warning-openvpn.md
+            vpn-ts-client-restart-message.md
+            vpn-ts-connection-failure.md
+            vpn-ts-dns-configuration-not-working.md
+            vpn-ts-vpn-client-hangs.md
         vsi_is_troubleshooting.md
         custom_image_vpc_troubleshoot.md
         block_storage_is_troubleshoot.md
