@@ -24,15 +24,15 @@ subcollection: vpc
 # Connecting to a Vyatta peer
 {: #vyatta-config}
 
-You can use {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_short}} to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your Vyatta VPN gateway to connect to {{site.data.keyword.vpn_vpc_short}}.
+You can use IBM Cloud VPN Gateway for VPC to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your Vyatta VPN gateway to connect to VPN Gateway for VPC.
 {: shortdesc}
 
 These instructions are based on Vyatta version: AT&T vRouter 5600 1801d.
 
 Read [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before continuing to connect to your on-premises peer. 
-{:note}
+{: note}
 
-When the Vyatta VPN receives a connection request from {{site.data.keyword.vpn_vpc_short}}, Vyatta uses IPsec Phase 1 parameters to establish a secure connection and authenticate the {{site.data.keyword.vpn_vpc_short}} gateway. Then, if the security policy permits the connection, the Vyatta VPN establishes the tunnel by using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
+When the Vyatta VPN receives a connection request from VPN Gateway for VPC, Vyatta uses IPsec Phase 1 parameters to establish a secure connection and authenticate the {{site.data.keyword.vpn_vpc_short}} gateway. Then, if the security policy permits the connection, the Vyatta VPN establishes the tunnel by using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
 
 To support these functions, the following general configuration steps must be performed on the Vyatta VPN:
 

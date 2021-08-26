@@ -23,11 +23,12 @@ subcollection: vpc
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
+{:terraform: .ph data-hd-interface='terraform'}
 
 # Creating a VPN gateway
 {: #vpn-create-gateway}
 
-You can create an {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_full}} gateway to securely connect your VPC to another private network, such as an on-premises network or another VPC.
+You can create an IBM Cloud VPN Gateway for VPC to securely connect your VPC to another private network, such as an on-premises network or another VPC.
 {: shortdesc}
 
 ## Planning considerations
@@ -37,27 +38,29 @@ Review the following considerations before creating a VPN gateway:
 
 * The VPN gateway is created in the zone that is associated with the subnet that you select. Because the VPN gateway can connect to virtual server instances in this zone only, instances in other zones can't use this VPN gateway to communicate with the other network. For zone fault tolerance, deploy one VPN gateway per zone.
 * Make sure that there's enough space in the subnet for the gateway. To ensure VPN management and fail-over functions are able to function properly, create the VPN gateway in a subnet without any other VPC resources to guarantee that there are enough available private IPs for the gateway. A VPN gateway needs four private IP addresses to accommodate high availability and rolling upgrades. Since up to five private IPs in a subnet are reserved, the minimum subnet size that can be used to host a VPN gateway is 16 IPs (prefix `/28` or netmask `255.255.255.240`).
-* By default, PFS (Perfect Forward Secrecy) is disabled for {{site.data.keyword.vpn_vpc_short}}. Some vendors require PFS enablement for Phase 2. Check your vendor instruction and use custom policies if PFS is required.
-* {{site.data.keyword.vpn_vpc_short}} supports only one route-based VPN per zone per VPC.
+* By default, PFS (Perfect Forward Secrecy) is disabled for IBM Cloud VPN Gateway for VPC. Some vendors require PFS enablement for Phase 2. Check your vendor instruction and use custom policies if PFS is required.
+* IBM Cloud VPN Gateway for VPC supports only one route-based VPN per zone per VPC.
 
-
-## Creating a VPN gateway using the UI
+## Creating a VPN gateway by using the UI
 {: #vpn-create-ui}
 {: ui}
 
 To create a VPN gateway using the UI:
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){:external} and log in to your account.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
 1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) on the upper left of the page, then click **VPC Infrastructure > VPNs** in the Network section.
 
-    If starting from the VPC Infrastructure menu, click **VPN gateways** in the Network section to open the {{site.data.keyword.vpn_vpc_short}} page.
+    If starting from the VPC Infrastructure menu, click **VPNs** in the Network section to open the {{site.data.keyword.vpn_vpc_short}} page.
     {: tip}
 
-1. {: #subnet-assoc}On the {{site.data.keyword.vpn_vpc_short}} page, click **Create** and specify the following information:
+1. Ensure that the **Site-to-site gateways > VPN gateways** tabs are selected.
+1. On the VPNs for VPC page, click **Create** and then select the **Site-to-site** gateway tile.
+1. Specify the following information:
    * **VPN gateway name** - Enter a name for the VPN gateway, such as `my-vpn-gateway`.
-   * **Virtual Private Cloud** - Select the VPC for the VPN gateway.
-   * **Resource group** - Select a resource group for the VPN gateway.
+   * **Resource group** - Select a resource group for the VPN gateway.   
+   * **Tags** - Optionally, add tags to identify this VPN gateway.   
    * **Region** - Shows the region where the VPC is located and where the VPN gateway will be provisioned.
+   * **Virtual Private Cloud** - Select the VPC for the VPN gateway.
    * **Subnet** - Select the subnet in which to create the VPN gateway. See [Planning considerations](/docs/vpc?topic=vpc-vpn-create-gateway#planning-considerations-vpn) for important subnet information.
    * **Mode** - Select to create a policy-based or a route-based VPN. For more information about VPN types, see [VPN features](/docs/vpc?topic=vpc-using-vpn#vpn-features).
 1. In the **New VPN connection for VPC** section, you can define a connection between this gateway and a network outside your VPC by specifying the following information. You can create the VPN connection now, or after your VPN gateway is provisioned.
@@ -84,10 +87,10 @@ To create a VPN gateway using the UI:
     * Select **Auto** if you want the gateway to try to automatically establish the connection.
     * Select or create custom policies if you need to enforce particular security requirements, or the VPN gateway for the other network doesn't support the security proposals that are tried by auto-negotiation.
 
-  The IKE and IPsec security options that you specify for the connection must be the same options that are set on the peer gateway for the network outside your VPC.
-  {: important}
+   The IKE and IPsec security options that you specify for the connection must be the same options that are set on the peer gateway for the network outside your VPC.
+   {: important}
 
-## Creating a VPN gateway using the CLI
+## Creating a VPN gateway by using the CLI
 {: #vpn-create-cli}
 {: cli}
 
@@ -121,14 +124,13 @@ Where:
 - Create a route-based VPN gateway, using a specific resource group ID with output in JSON format:<br />
    `ibmcloud is vpn-gateway-create my-vpc-gateway fee82deba12e4c0fb69c3b09d1f12345 --mode route --resource-group-id fee82deba12e4c0fb69c3b09d1f12345 --output JSON`
 
-## Creating a VPN gateway using the API
+## Creating a VPN gateway by using the API
 {: #vpn-create-api}
 {: api}
 
-To create a policy-based {{site.data.keyword.vpn_vpc_short}} by using the API, follow these steps:
+To create a policy-based IBM Cloud VPN Gateway for VPC by using the API, follow these steps:
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with
-the right variables.
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
 1. Store any additional variables to be used in the API commands; for example:
 
    * `ResourceGroupId` - Find the resource group ID by using the **get resource groups** command and then populate the variable:
@@ -162,6 +164,23 @@ the right variables.
          }'
    ```
    {: codeblock}
+
+## Creating a VPN gateway by using Terraform
+{: #vpn-create-terraform}
+{: terraform} 
+
+The following example creates a VPN gateway by using Terraform:
+
+```terraform
+   resource "ibm_is_vpn_gateway" "is_vpn_gateway" {
+   name = "my-vpn-gateway"
+   subnet = ibm_is_subnet.is_subnet.id
+   mode = "route"
+   }
+```
+{: codeblock}
+
+See the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpn_gateway){: external} for more information.
 
 ## Next steps
 {: #vpn-create-next-steps}

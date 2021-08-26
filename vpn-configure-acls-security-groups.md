@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-28"
+lastupdated: "2021-08-09"
 
 keywords:  VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies, gateway
 
@@ -35,10 +35,10 @@ If you configure ACLs or security groups on the VPN gateway's subnet, make sure 
 |--------------|------|------|------|------|------------------|
 | Inbound | All | Peer gateway public IP[^IP] | N/A | VPN gateway's subnet | N/A
 | Outbound | All  | VPN gateway's subnet | N/A | Peer gateway public IP[^IP2] | N/A
-| Inbound | All | On-premises, private subnet | N/A | VPC subnet | N/A
-| Outbound | All  | VPC subnet | N/A | On-premises, private subnet | N/A
-| Inbound | All  | VPC subnet | N/A | On-premises, private subnet | N/A
-| Outbound | All | On-premises, private subnet | N/A | VPC subnet | N/A
+| Inbound | All | On-premises, private CIDR | N/A | VPC CIDR | N/A
+| Outbound | All  | VPC CIDR | N/A | On-premises, private CIDR | N/A
+| Inbound | All  | VPC CIDR | N/A | On-premises, private CIDR | N/A
+| Outbound | All | On-premises, private CIDR | N/A | VPC CIDR | N/A
 | Inbound (optional) | ICMP | Any | N/A | Any | N/A
 {: caption="Table 1. Inbound and outbound rules on VPN gateway's subnet" caption-side="top"}
 
@@ -47,8 +47,8 @@ If you use ACLs or security groups on the VPC subnets that communicate over the 
 
 | Inbound/Outbound Rules | Protocol | Source IP | Source Port | Destination IP | Destination Port |
 |--------------|------|------|------|------|------------------|
-| Inbound | All | On-premises, private subnet | N/A | VPC subnet | N/A
-| Outbound | All | VPC subnet | N/A | On-premises, private subnet | N/A
+| Inbound | All | On-premises, private CIDR | N/A | VPC CIDR | N/A
+| Outbound | All | VPC CIDR | N/A | On-premises, private CIDR | N/A
 {: caption="Table 2. Inbound and outbound rules on VPC subnets" caption-side="top"}
 
 [^IP]:Set the source IP to the peer gateway public IP address. This allows traffic from the VPC and the on-premises subnets.

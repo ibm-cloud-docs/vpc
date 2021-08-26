@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-11-13"
+  years: 2021
+lastupdated: "2021-08-09"
 
 keywords: vpn, ipsec policy
 
@@ -23,7 +23,7 @@ subcollection: vpc
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
-
+{:terraform: .ph data-hd-interface='terraform'}
 
 # Creating an IPsec policy
 {: #creating-ipsec-policy}
@@ -31,27 +31,26 @@ subcollection: vpc
 You can use custom IPsec policies to define security parameters to use during Phase 2 of IKE negotiation. In this phase, the VPN and peer device use the security association that is established during Phase 1 to negotiate what traffic to send and how to authenticate and encrypt that traffic.
 {: shortdesc}
 
-## Creating an IPsec policy using the UI
+## Creating an IPsec policy by using the UI
 {: #vpn-using-ui-create-ipsec-policy}
 {: ui}
 
 To create an IPsec policy by using the UI, follow these steps:
 
-1. From the **{{site.data.keyword.vpn_vpc_short}}** gateway list page, switch to the **IPsec Policies** tab.
-1. Click the **Create +** button to begin creating custom IPsec policy.
-1. Define the new IPsec policy by specifying the following information:
+1. From the VPNs for VPC list page, select the **Site-to-site gateways > IPsec policies** tabs. 
+1. Click **Create +** and specify the following information: 
    * **Name** - Enter a name for the IPsec policy.
-   * **Resource Group** - Select the resource group for this IPsec policy.
+   * **Resource group** - Select the resource group for this IPsec policy.
    * **Region** - Select the region for this IPsec policy.
    * **Authentication** - Authentication algorithm to use for IKE Phase 2.
    * **Encryption** - Encryption algorithm to use for IKE Phase 2.
-   * **PFS** - Enable Perfect Forward Secrecy (PFS).
-   * **DH Group (If PFS is enabled)** - Diffie-Hellman group to use for IKE Phase 2 key exchange.
-   * **Key Lifetime** - Lifetime in number of seconds of the Phase 2 tunnel.
-1. Click **Create IPsec Policy**.
+   * **Perfect Forward Secrecy** - Enable PFS.
+   * **Diffie-Hellman Group (If PFS is enabled)** - DH group to use for IKE Phase 2 key exchange.
+   * **Key lifetime** - Lifetime in number of seconds of the Phase 2 tunnel.
+1. Click **Create IPsec policy**.
 1. From the **VPN connection details** page, set the **IPsec policies** field to use the wanted IPsec policy.
 
-## Creating an IPsec policy using the CLI
+## Creating an IPsec policy by using the CLI
 {: #vpn-using-cli-create-ipsec-policy}
 {: cli}
 
@@ -87,7 +86,7 @@ Where:
 - Create an IPsec policy with the same parameters and a resource group ID:<br />
    `ibmcloud is ike-policy-create my-ike-policy md5 2 aes128 group_2 --resource-group-id fee82deba12e4c0fb69c3b09d1f12345 --output JSON`
 
-## Creating an IPsec policy using the API
+## Creating an IPsec policy by using the API
 {: #vpn-using-api-create-ipsec-policy}
 {: api}
 
@@ -120,9 +119,28 @@ the right variables.
          }'
    ```
    {: codeblock}
+   
+
+## Creating an IPsec policy by using Terraform
+{: #vpn-using-terraform-create-ipsec-policy}
+{: terraform}
+
+In the following example, you can create a IPsec policy using Terraform:
+
+```terraform
+   resource "ibm_is_ipsec_policy" "is_ipsec_policy" {
+     name                     = "my-ipsec-policy"
+     authentication_algorithm = "sha1"
+     encryption_algorithm     = "aes128"
+     pfs                      = "group_2"
+   }
+```
+{: codeblock}
+
+See the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_ipsec_policy)for more information.
 
 ## Next steps
-{: #vpn-create-next-steps-ipsec}
+{: #vpn-create-ipsec-next-steps}
 
 * [Create an IKE policy](/docs/vpc?topic=vpc-creating-ipsec-policy) if you decide to use custom IKE policy instead of auto-negotiation.
 * Create a VPN connection if you have not already done so when creating your VPN gateway. If you did not create the VPN connection, you can do so after the VPN gateway is provisioned. For more information, see [Adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections).  

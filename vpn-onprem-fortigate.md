@@ -25,13 +25,13 @@ subcollection: vpc
 # Connecting to a FortiGate peer
 {: #fortigate-config}
 
-You can use {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_short}} to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your FortiGate VPN gateway to connect to {{site.data.keyword.vpn_vpc_short}}.
+You can use IBM Cloud VPN Gateway for VPC  to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your FortiGate VPN gateway to connect to VPN Gateway for VPC.
 {: shortdesc}
 
 These instructions are based on FortiGate 300C, Firmware Version v5.2.13, build762 (GA).
 
 Read [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before continuing to connect to your on-premises peer. 
-{:note}
+{: note}
 
 Go to **VPN \> IPsec \> Tunnels** and create a new custom tunnel or edit an existing tunnel.
 

@@ -25,7 +25,7 @@ subcollection: vpc
 # Connecting an IBM policy-based VPN to a Juniper vSRX peer
 {: #juniper-vsrx-config}
 
-You can use {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_short}} to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance on how to configure your Juniper VPN gateway to connect to {{site.data.keyword.vpn_vpc_short}}.
+You can use IBM Cloud VPN Gateway for VPC to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance on how to configure your Juniper VPN gateway to connect to VPN Gateway for VPC.
 {: shortdesc}
 
 Because Juniper vSRX requires Perfect Forward Secrecy (PFS) to be enabled in Phase 2, you must create a custom IPsec policy to replace the default policy for the VPN in your VPC. For more information, see [Creating a custom IPsec policy for Juniper vSRX](#custom-ipsec-policy-with-vsrx).
@@ -33,8 +33,8 @@ Because Juniper vSRX requires Perfect Forward Secrecy (PFS) to be enabled in Pha
 
 These instructions are based on Juniper vSRX, JUNOS Software Release [15.1X49-D123.3].
 
-Read [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before continuing to connect to your on-premises peer. 
-{:note}
+Read [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before continuing to connect to your on-premises peer.
+{: note}
 
 When the Juniper VPN receives a connection request from {{site.data.keyword.vpn_vpc_short}}, Juniper uses IPsec Phase 1 parameters to establish a secure connection and authenticate the {{site.data.keyword.vpn_vpc_short}} gateway. Then, if the security policy permits the connection, the Juniper VPN establishes the tunnel using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
 
@@ -160,11 +160,12 @@ To use a custom IPsec policy in {{site.data.keyword.vpn_vpc_short}}, follow thes
 
 1. On the {{site.data.keyword.vpn_vpc_short}} page in the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, select the **IPsec policies** tab.
 1. Click **New IPsec policy** and specify the following values:
-  * For the **Authentication** field, select **MD5**.
-  * For the **Encryption** field, select **aes256**.
-  * Select the **PFS** option.
-  * For the **DH Group** field, select **2**.
-  * For the **Key lifetime** field, specify **1200**.
+
+   * For the **Authentication** field, select **MD5**.
+   * For the **Encryption** field, select **aes256**.
+   * Select the **PFS** option.
+   * For the **DH Group** field, select **2**.
+   * For the **Key lifetime** field, specify **1200**.
 1. When you create the VPN connection in your VPC, select this custom IPsec policy.
 
 ## Route-based configuration for Juniper vSRX

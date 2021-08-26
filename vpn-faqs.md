@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-06-08"
+lastupdated: "2021-08-26"
 
 keywords: virtual private network, faq, faqs, frequently asked questions, vpn, vpn gateway
 
@@ -23,7 +23,7 @@ subcollection: vpc
 {:DomainName: data-hd-keyref="DomainName"}
 {:external: target="_blank" .external}
 
-# FAQs for VPN gateways
+# FAQs for site-to-site VPN gateways
 {: #faqs-vpn}
 
 You might encounter these frequently asked questions when you use {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_short}}.

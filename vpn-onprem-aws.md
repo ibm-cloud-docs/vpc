@@ -25,16 +25,16 @@ subcollection: vpc
 # Connecting to an AWS peer
 {: #aws-config}
 
-You can use {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_short}} to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your AWS VPN gateway to connect to {{site.data.keyword.vpn_vpc_short}}.
+You can use IBM Cloud VPN Gateway for VPC to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your AWS VPN gateway to connect to VPN Gateway for VPC.
 {: shortdesc}
 
 Because AWS requires PFS to be enabled in Phase 2, you must create a custom IPsec policy to replace the default policy for the VPN in your VPC. See [Creating an IPsec policy](/docs/vpc?topic=vpc-creating-ipsec-policy) for more details.
 {: important}
 
-When the AWS VPN receives a connection request from {{site.data.keyword.vpn_vpc_short}}, AWS VPN uses IPsec Phase 1 parameters to establish a secure connection and authenticate the {{site.data.keyword.vpn_vpc_short}} gateway. Then, if the security policy permits the connection, the AWS VPN establishes the tunnel by using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
+When the AWS VPN receives a connection request from VPN Gateway for VPC, AWS VPN uses IPsec Phase 1 parameters to establish a secure connection and authenticate the {{site.data.keyword.vpn_vpc_short}} gateway. Then, if the security policy permits the connection, the AWS VPN establishes the tunnel by using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
 
 Read [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before continuing to connect to your on-premises peer. 
-{:note}
+{: note}
 
 To support these functions, the following general configuration steps must be performed on the AWS VPN:
 

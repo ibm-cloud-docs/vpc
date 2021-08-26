@@ -30,7 +30,7 @@ subcollection: vpc
 
 # API example - Connecting two VPCs using VPN
 {: #vpn-example}
-{:api}
+{: api}
 
 The following API example describes how to connect two VPCs by creating a VPN gateway in each VPC. A VPN gateway can connect all the subnets in the zone where it is deployed. Therefore, having a VPN gateway in each zone that you want to interconnect makes the subnets in both zones act as if they were a single network. The IP addresses of the subnets in the two VPCs must not overlap.
 {: shortdesc}
