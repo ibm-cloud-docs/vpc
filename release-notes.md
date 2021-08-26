@@ -33,6 +33,8 @@ Use the release notes to learn about new and changed {{site.data.keyword.vpc_ful
 
 **RHEL on SAP image support update:** When you provision a virtual server instance and select {{site.data.keyword.redhat_full}} Enterprise Linux, be aware that version locking must be done manually. When you log into your operating system, a message is displayed with the command needed to manually lock the operating system version. Performing a “yum update” without the version being locked will result in the operating system being upgraded to the latest RHEL release, which is currently 8.4.
 
+**Block storage for VPC**. For Block Storage for VPC volumes attached to a virtual server instance, you can increase or decrease IOPS for a volume by specifying a different IOPS tier profile or different IOPS value withing a custom IOPS band. For more information, see [Adjusting IOPS for block storage volumes](/docs/vpc?topic=vpc-adjusting-volume-iops).
+
 ## 24 August 2021
 {: #august-24-2021}
 
