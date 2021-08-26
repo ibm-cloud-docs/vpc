@@ -226,15 +226,16 @@ Virtual Private Cloud (VPC)
             cr-delete-route.md
 
     {: .topicgroup}
-    VPN gateways
-        vpn-using.md
-        vpn-create.md
-        vpn-add-connection.md
-        vpn-create-ipsec-policy.md
-        vpn-create-ike-policy.md
+    VPNs
+        vpn-overview.md
 
         {: .topicgroup}
-        Connecting to your on-premises network
+        Site-to-site gateways
+            vpn-using.md
+            vpn-create.md
+            vpn-add-connection.md
+            vpn-create-ike-policy.md            
+            vpn-create-ipsec-policy.md
             vpn-onprem.md
             vpn-onprem-aws.md
             vpn-onprem-check-point.md
@@ -243,13 +244,27 @@ Virtual Private Cloud (VPC)
             vpn-onprem-juniper.md
             vpn-onprem-strongswan.md
             vpn-onprem-vyatta.md
+            vpn-access-service-endpoint.md
+            vpn-configure-acls-security-groups.md
+            vpn-view-logs.md
+            vpn-monitoring-metrics.md
+            vpn-limitations.md
+            vpn-api-example.md
 
-        vpn-access-service-endpoint.md
-        vpn-configure-acls-security-groups.md
-        vpn-view-logs.md
-        vpn-monitoring-metrics.md
-        vpn-limitations.md
-        vpn-api-example.md
+        {: .topicgroup}
+        Client-to-site servers (Beta)
+            vpn-client-to-site.md
+            vpn-client-to-site-planning.md
+            vpn-client-to-site-access-groups.md
+            vpn-client-to-site-auth.md
+            vpn-client-to-site-configure-security-groups.md
+            vpn-create-server.md
+            vpn-client-to-site-routes.md
+            vpn-client-to-site-setup.md
+            vpn-client-to-site-connections.md
+            vpn-client-to-site-limitations.md            
+            vpn-client-to-site-loganalysis.md
+            vpn-client-to-site-monitoring.md
 
     {: topicgroup}
     Load balancers
