@@ -25,7 +25,7 @@ subcollection: vpc
 {:troubleshoot: data-hd-content-type='troubleshoot'}
 
 # Why do I get an authentication error "User authentication failed" when connecting to VPN server?
-{: troubleshooting-authentication-error}
+{: #troubleshooting-authentication-error}
 {: troubleshoot}
 
 The VPN connection attempts result in a `User authentication failed` error message.
