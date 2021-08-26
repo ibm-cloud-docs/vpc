@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-08-24"
+lastupdated: "2021-08-26"
 
 keywords: release notes, changes, updates
 
@@ -27,6 +27,11 @@ subcollection: vpc
 
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
+
+## 26 August 2021
+{: #august-26-2021}
+
+**RHEL on SAP image support update:** When you provision a virtual server instance and select {{site.data.keyword.redhat_full}} Enterprise Linux, be aware that version locking must be done manually. When you log into your operating system, a message is displayed with the command needed to manually lock the operating system version. Performing a “yum update” without the version being locked will result in the operating system being upgraded to the latest RHEL release, which is currently 8.4.
 
 ## 24 August 2021
 {: #august-24-2021}
