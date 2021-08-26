@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-20"
+lastupdated: "2021-08-26"
 
 keywords: bare metal servers, connect, tutorial
 
@@ -32,7 +32,7 @@ subcollection: vpc
 
 After the state of the bare metal server turns to **Running**, you can connect to the ESXi direct console user interface (DCUI) and the ESXi web client. You can use the VNC or serial console to access ESXi DCUI. You can access the ESXi web client through a floating IP.
 
-The bare metal console feature is temporarily unavailable. An "unauthorized" error will be returned if you try to connect to the console. The issue will be resolved in approximately one week.
+The bare metal console feature is temporarily unavailable. An "unauthorized" error will be returned if you try to connect to the console.
 {:note}
 
 ## Obtaining the account name and password
