@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-07-30"
+lastupdated: "2021-08-26"
 
 keywords: activity tracker, events
 
@@ -458,14 +458,14 @@ Refer to the following information when you are analyzing events:
     
 - The following fields for Bare Metal Servers for VPC AT events will be changing between the Beta and LA releases:
 
-  1) The `severity` field in Beta events is not consistent with general practice within VPC and will be corrected in the LA release.
+   1) The `severity` field in Beta events is not consistent with general practice within VPC and will be corrected in the LA release.
   
-  2) The `target resourceGroupID` field in Beta events does not include the CRN prefix. This will be corrected in the LA release.
+   2) The `target resourceGroupID` field in Beta events does not include the CRN prefix. This will be corrected in the LA release.
   
-  3) Some Beta events include array data. If the array is too large, the event will not be recorded. For LA, these events will display an array element count rather than the actual data.
+   3) Some Beta events include array data. If the array is too large, the event will not be recorded. For LA, these events will display an array element count rather than the actual data.
   
 - Each time you open a console for a virtual server instance or bare metal server, two API calls are issued: the first one generates a console access token, the second one uses the generated token to open the console websocket.
 
-  This will generate two Activity Tracker events: `is.instance.console-access-token.create` and `is.instance.console.read`, or `is.bare-metal-server.console-access-token.create` and `is.bare-metal-server.console.read`.
+   This will generate two Activity Tracker events: `is.instance.console-access-token.create` and `is.instance.console.read`, or `is.bare-metal-server.console-access-token.create` and `is.bare-metal-server.console.read`.
   
-  You cannot use `request id` to correlate console Activity Tracker events as each call will generate a unique `request id`. Instead, you can use `initiator id` to correlate console events that are generated from API calls issued by the same user.
+   You cannot use `request id` to correlate console Activity Tracker events as each call will generate a unique `request id`. Instead, you can use `initiator id` to correlate console events that are generated from API calls issued by the same user.
