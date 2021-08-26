@@ -36,11 +36,11 @@ You can allocate bandwidth for volumes attached to a virtual server instance out
 ## Bandwidth allocation for volumes attached to an instance
 {: #attached-block-vol-bandwidth}
 
-When you provision an instance, bandwidth is allocated between storage (boot volume and attached block storage volumes) and networking. The maximum storage bandwidth capacity is determined by the virtual server profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a total instance bandwidth of 4,000 Mbps (4 GBps). The initial storage and network bandwidth allocation depends on what you set by using the API or the instance profile default, or if neither, 25% for storage, 75% for networking. 
+When you provision an instance, bandwidth is allocated between block storage volumes (boot volume and attached block storage volumes)and networking. The maximum volume bandwidth capacity is determined by the virtual server profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a total instance bandwidth of 4,000 Mbps (4 GBps). The initial volume and network bandwidth allocation depends on what you set by using the API or the instance profile default, or if neither, 25% for volumes, 75% for networking. 
 
 For example, for the bx2-2x8 profile you might have:
 
-* Storage: 1,000 Mbps
+* Volumes: 1,000 Mbps
 * Network: 3,000 Mbps
 
 To ensure reasonable boot times, a minimum of 393 Mbps is allocated to the primary boot volume. In the example, the instance's total volume bandwidth is 1,000 Mbps and the remaining 607 Mbps is allocated to any secondary volumes that you attach, up to the maximum bandwidth of the volume. For example, if you have one data volume with 500 Mbps, you can expect to get that level of performance.
@@ -51,25 +51,25 @@ Each volume will have an IOPS and bandwidth limit set. The IOPS limit is always 
 ### Adjusting volume bandwidth
 {: #volume-adjust-bandwidth}
 
-You can change the storage/networking bandwidth ratio to meet your needs, but both storage and network bandwidth must be at least 500 Mbps each. For example, to allow more storage bandwidth, you could apportion the above example in equal allocations:
+You can change the volume/networking bandwidth ratio to meet your needs, but both volume and network bandwidth must be at least 500 Mbps each. For example, to allow more bandwidth for volumes, you could apportion the above example in equal allocations:
 
-* Storage: 2,000 Mbps
+* Volumes: 2,000 Mbps
 * Network: 2,000 Mbps
 
-However, before you make any change to the storage/networking bandwidth ratio, be sure to evaluate your instance's network bandwidth requirements. Make sure the new bandwidth allocation will not have negative effects on your instance’s network performance.
+However, before you make any change to the volume/networking bandwidth ratio, be sure to evaluate your instance's network bandwidth requirements. Make sure the new bandwidth allocation will not have negative effects on your instance’s network performance.
 
 Extending the example for multiple volumes, the bandwidth looks like this:
 
 * Total allocation for volumes is 2,000 Mbps
-* Less boot volume, 393 Mbps
+* Less boot volume minimum allocation, 393 Mbps
 * Remaining bandwidth for data volumes: 1,607 Mbps
 
-The storage bandwidth available to the instance is apportioned on a per-volume basis. The bandwidth is assigned per volume, not shared between volumes. For example, if you have four identical volumes attached to an instance but are only using one volume, then that volume can get only the bandwidth assigned to it. The volume in use can't access extra bandwidth that is assigned to the unused volumes. 
+The volume bandwidth available to the instance is apportioned on a per-volume basis. The bandwidth is assigned per volume, not shared between volumes. For example, if you have four identical volumes attached to an instance but are only using one volume, then that volume can get only the bandwidth assigned to it. The volume in use can't access extra bandwidth that is assigned to the unused volumes.
 
 ### Unattached volume bandwidth compared with attached volume bandwidth
 {: #block-vol-bandwidth}
 
-When you create a standalone (unattached) block storage data volume, the volume bandwidth assigned is based on volume capacity, IOPS, and profile. For example, the API response for a `GET /volume/{id}` call shows the bandwidth for an unattached volume:
+When you create a standalone (unattached) block storage data volume, the volume bandwidth assigned is based on volume capacity, IOPS, and volume profile. For example, the API response for a `GET /volume/{id}` call shows the bandwidth for an unattached volume:
 
 ```
 {
@@ -96,11 +96,11 @@ When you create a standalone (unattached) block storage data volume, the volume 
 
 When you attach a secondary volume to a virtual server instance, the primary boot volume gets priority IOPS and bandwidth allocation to ensure reasonable boot times. Boot volume IOPS and bandwidth are never reduced below 3000 IOPS or 393 Mbps.
 
-All volumes are assigned instance bandwidth proportional to their maximum bandwidth, where the sum of all volume bandwidth equals the overall instance storage bandwidth limit.
+All volumes are assigned instance bandwidth proportional to their maximum bandwidth, where the sum of all volume bandwidth equals the overall "volumes" bandwidth.
 
-In our [example](#volume-adjust-bandwidth), the remaining bandwidth allocated on the instance for data volumes was 1,607 Mbps (2000 Mbps less 393 Mbps for the boot volume). After attaching the above volume to the instance, the volume would optimally require 640 Mbps. If this was the only attached volume, it would get this full bandwidth allocation. If you had two additional volumes of greater capacity, the bandwidth allocation might be less.
+In our [example](#volume-adjust-bandwidth), the remaining bandwidth allocated on the instance for data volumes was 1,607 Mbps (2000 Mbps less 393 Mbps for the boot volume). After attaching the data volume to the instance, the volume would optimally require 640 Mbps. If this was the only attached volume, it would get this full bandwidth allocation. If you had two additional volumes of greater capacity, the bandwidth allocation might be less.
 
-Unattached volume bandwidth may not be the same as the actual bandwidth you'll see after the volume is attached to an instance. This is due to the amount of bandwidth dedicated to storage and the total number of volumes that are attached.
+Unattached volume bandwidth may not be the same as the actual bandwidth you'll see after the volume is attached to an instance. This is due to the amount of bandwidth dedicated to the boot volume and all other attached data volumes.
 
 ## Estimating volume bandwidth
 {: #volume-estimate-bandwidth}
