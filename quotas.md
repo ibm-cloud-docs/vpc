@@ -2,8 +2,7 @@
 
 copyright:
   years: 2018, 2021
-
-lastupdated: "2021-08-17"
+lastupdated: "2021-08-18"
 
 keywords: quotas, resources, limits
 
@@ -81,7 +80,7 @@ When you provision virtual server instances, the RAM and instance storage, along
 |Network interfaces|1000 per security group|
 {: caption="Table 4. Quotas for security groups" caption-side="top"}
 
-### VPN gateways
+### VPN gateways (site-to-site)
 {: #vpn-quotas}
 
 |Resource|Quota|
@@ -94,6 +93,18 @@ When you provision virtual server instances, the RAM and instance storage, along
 | Local subnets | 50 across all connections of a VPN gateway, 15 per individual VPN connection |
 | Route-based VPN gateway | 1 per zone per VPC |
 {: caption="Table 5. Quotas for the site-to-site VPN gateway service" caption-side="top"}
+
+### VPN servers (client-to-site) BETA
+{: #vpn-server-quotas}
+
+|Resource|Quota|
+|--------|-----|
+| Active connections per VPN server | 500 |
+| Active VPN servers | 10 per region |
+| Active routes per VPN server | 50 |
+| Number of certificate revocations lists | 20,000 |
+| Number of security groups attached on a VPN server | 5 |
+{: caption="Table 6. Quotas for the client-to-site VPN server service" caption-side="top"}
 
 ### Load balancers
 {: #load-balancer-quotas}
