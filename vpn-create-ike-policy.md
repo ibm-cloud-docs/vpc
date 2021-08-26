@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-09"
+lastupdated: "2021-08-25"
 
 keywords: ike policy
 
@@ -126,7 +126,20 @@ the right variables.
 {: #vpn-using-terraform-create-ike-policy}
 {: terraform}
 
-**Astha providing**
+In the following example, you can create a IKE policy using Terraform:
+
+```terraform
+   resource "ibm_is_ike_policy" "is_ike_policy" {
+     name                     = "my-ike-policy"
+     authentication_algorithm = "md5"
+     encryption_algorithm     = "triple_des"
+     dh_group                 = 2
+     ike_version              = 1
+   }
+```
+{: codeblock}
+
+See the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_ike_policy){: external} for more information.
 
 ## Next steps
 {: #vpn-ike-policy-next-steps}
