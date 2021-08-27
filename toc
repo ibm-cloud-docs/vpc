@@ -472,6 +472,7 @@ Virtual Private Cloud (VPC)
         block_storage_is_troubleshoot.md
         bare_metal_server_troubleshoot.md
         instance_metadata_vpc_troubleshoot.md
+        instance-status-messages.md 
 
     release-notes.md
     api-change-log.md
