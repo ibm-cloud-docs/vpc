@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2020, 2021
 
-lastupdated: "2021-03-21"
+lastupdated: "2021-08-27"
 
 
 keywords: vpc, virtual private cloud, vpc ui, console, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range, generation 2, gen 2
