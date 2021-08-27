@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-08-26"
+lastupdated: "2021-08-27"
 
 keywords: release notes, changes, updates
 
@@ -34,6 +34,8 @@ Use the release notes to learn about new and changed {{site.data.keyword.vpc_ful
 **RHEL on SAP image support update:** When you provision a virtual server instance and select {{site.data.keyword.redhat_full}} Enterprise Linux, be aware that version locking must be done manually. When you log into your operating system, a message is displayed with the command needed to manually lock the operating system version. Performing a “yum update” without the version being locked will result in the operating system being upgraded to the latest RHEL release, which is currently 8.4.
 
 **Block storage for VPC**. For Block Storage for VPC volumes attached to a virtual server instance, you can increase or decrease IOPS for a volume by specifying a different IOPS tier profile or different IOPS value withing a custom IOPS band. For more information, see [Adjusting IOPS for block storage volumes](/docs/vpc?topic=vpc-adjusting-volume-iops).
+
+**Client-to-site VPN servers (Beta):** Until now, the {{site.data.keyword.cloud_notm}} VPN for VPC service supported only site-to-site connectivity, which connects your on-premises network to the {{site.data.keyword.cloud_notm}} VPC network. This Beta adds client-to-site connectivity, which allows users to connect to their {{site.data.keyword.cloud_notm}} VPC infrastructure through a secure/encrypted connection over the internet. This service is especially useful for individuals working at home, traveling, or at locations where site-to-site VPN might not be available. For more information, see [About client-to-site VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-overview).
 
 ## 24 August 2021
 {: #august-24-2021}
