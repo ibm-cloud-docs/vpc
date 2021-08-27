@@ -36,7 +36,9 @@ You can allocate bandwidth for volumes attached to a virtual server instance out
 ## Bandwidth allocation for volumes attached to an instance
 {: #attached-block-vol-bandwidth}
 
-When you provision an instance, bandwidth is allocated between block storage volumes (boot volume and attached block storage volumes)and networking. The maximum volume bandwidth capacity is determined by the virtual server profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a total instance bandwidth of 4,000 Mbps (4 GBps). The initial volume and network bandwidth allocation depends on what you set by using the API or the instance profile default, or if neither, 25% for volumes, 75% for networking. 
+When you provision an instance, bandwidth is allocated between block storage volumes (boot volume and attached block storage volumes)and networking. The maximum bandwidth capacity is determined by the instance profiles that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a total instance bandwidth of 4,000 Mbps (4 Gbps). The initial storage and network bandwidth allocation depends on what you set by using the API or the default instance profile. 
+
+The maximum bandwidth of a volume is the highest potential bandwidth that can be allocated to the volume when attached to an instance. In cases where the total maximum bandwidth of attached volumes exceeds the amount available on the instance, the bandwidth for each volume attachment is set proportionally, based on the corresponding volume's maximum bandwidth.
 
 For example, for the bx2-2x8 profile you might have:
 
@@ -45,8 +47,7 @@ For example, for the bx2-2x8 profile you might have:
 
 To ensure reasonable boot times, a minimum of 393 Mbps is allocated to the primary boot volume. In the example, the instance's total volume bandwidth is 1,000 Mbps and the remaining 607 Mbps is allocated to any secondary volumes that you attach, up to the maximum bandwidth of the volume. For example, if you have one data volume with 500 Mbps, you can expect to get that level of performance.
 
-Each volume will have an IOPS and bandwidth limit set. The IOPS limit is always set to the maximum IOPS of the volume (`MaxBandwidth` property). The bandwidth for each attached volume will be set proportionally based on the [volume size and profile](/docs/vpc?topic=vpc-block-storage-profiles).
-
+Each volume will have an IOPS and bandwidth limit set. The IOPS limit is always set to the maximum IOPS of the volume. The bandwidth for each attached volume is set proportionally based on the [volume size and profile](/docs/vpc?topic=vpc-block-storage-profiles).
 
 ### Adjusting volume bandwidth
 {: #volume-adjust-bandwidth}
@@ -105,7 +106,7 @@ Unattached volume bandwidth may not be the same as the actual bandwidth you'll s
 ## Estimating volume bandwidth
 {: #volume-estimate-bandwidth}
 
-You should estimate they type of data volume your workloads require and select the right IOPS profile. Data intensive workloads might require the higher bandwidth performance of a 10 IOPS/GB profile. For the relationship of volume IOPS profiles to compute profiles, see [How virtual server profiles relate to storage profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#vsi-profiles-relate-to-storage). For information on how block size affects performance, see [Block storage capacity and performance](/docs/vpc?topic=vpc-capacity-performance&interface=ui#how-block-size-affects-performance).
+You should estimate they type of data volume your workloads require and select the right volume profile. Data intensive workloads might require the higher bandwidth performance of a 10 IOPS/GB profile. For the relationship of volume profiles to compute profiles, see [How virtual server profiles relate to storage profiles](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#vsi-profiles-relate-to-storage). For information on how block size affects performance, see [Block storage capacity and performance](/docs/vpc?topic=vpc-capacity-performance&interface=ui#how-block-size-affects-performance).
 
 ## Next steps
 {: #vol-bandwidth-next-steps}
