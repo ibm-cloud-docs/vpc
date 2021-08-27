@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-26"
+lastupdated: "2021-08-27"
 
 keywords: instance backup, veeam, veeam license, order license, virtual private cloud
 
@@ -102,7 +102,7 @@ The following example shows how you can restore files from a volume backup to th
    ```
    veeamconfig ui
    ```
-   {:pre}
+   {: pre}
 
 2. Select **Recover Files**, and then select the **Job Name** of the backup you want to recover.
 3. Select the **Restore Point** (creation timestamp of the backup). This selection mounts the backup into `/mnt/backup`. Each individual device and volume that is backed up is mounted inside of `/mnt/backup`.
