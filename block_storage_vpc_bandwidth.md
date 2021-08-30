@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-26"
+lastupdated: "2021-08-30"
 
 keywords: block storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, bandwidth
 
@@ -36,7 +36,7 @@ You can allocate bandwidth for volumes attached to a virtual server instance out
 ## Bandwidth allocation for volumes attached to an instance
 {: #attached-block-vol-bandwidth}
 
-When you provision an instance, bandwidth is allocated between block storage volumes (boot volume and attached block storage volumes)and networking. The maximum bandwidth capacity is determined by the instance profiles that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a total instance bandwidth of 4,000 Mbps (4 Gbps). The initial storage and network bandwidth allocation depends on what you set by using the API or the default instance profile. 
+When you provision an instance, bandwidth is allocated between block storage volumes (boot volume and attached block storage volumes)and networking. The maximum bandwidth capacity is determined by the instance profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a total instance bandwidth of 4,000 Mbps (4 Gbps). The initial storage and network bandwidth allocation depends on what you set by using the API or by the instance profile you selected. 
 
 The maximum bandwidth of a volume is the highest potential bandwidth that can be allocated to the volume when attached to an instance. In cases where the total maximum bandwidth of attached volumes exceeds the amount available on the instance, the bandwidth for each volume attachment is set proportionally, based on the corresponding volume's maximum bandwidth.
 
