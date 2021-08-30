@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-24"
+lastupdated: "2021-08-30"
 
-keywords: security and compliance, security, compliance,
+keywords: security and compliance for vpc, security for vpc, compliance for vpc,
 
 subcollection: vpc
 
@@ -125,7 +125,7 @@ As a security or compliance focal, you can use the {{site.data.keyword.complianc
 
 [Config rules](#x3084914){: term} are used to enforce the configuration standards that you want to implement across your accounts. To learn more about the data that you can use to create a rule for application and network load balancers, review the following table.
 
-To learn more about config rules, check out [What is a config rule?](/docs/security-compliance?topic=security-compliance-what-is-rule).
+To learn more about constructing config rules, check out [Formatting rules and templates](/docs/security-compliance?topic=security-compliance-formatting-rules-templates).
 
 
 | VPC Service | Resource kind | Property | Operator type | Value | Description |
@@ -200,7 +200,7 @@ The following example is a rule configuration that prevents users from creating 
 ```
 {: codeblock}
 
-Make sure that *enforcement_actions* is set with *action: disallow* to apply the rule and meet the compliance criteria. For more information, see [How to configure Rules](/docs/security-compliance?topic=security-compliance-rules).
+Make sure that *enforcement_actions* is set with *action: disallow* to apply the rule and meet the compliance criteria. For more information, see [Formatting rules and templates](/docs/security-compliance?topic=security-compliance-formatting-rules-templates).
 {: note}
 
 ### Checking results for load balancers
