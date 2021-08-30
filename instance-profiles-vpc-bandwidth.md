@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-27"
+lastupdated: "2021-08-30"
 
 keywords: compute, virtual private cloud, virtual server instance, instance, bandwidth
 
@@ -37,7 +37,7 @@ Instance profiles inform the available instance bandwidth of an instance.
 ## Bandwidth allocation for resources attached to an instance
 {: #attached-resources}
 
-When you provision an instance, the total instance bandwidth is allocated between attached volumes and networking. The maximum bandwidth capacity is determined by the [instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui) that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a total instance bandwidth of 4,000 Mbps (4 Gbps). The initial storage and network bandwidth allocation depends on what you set by using the API default instance profile. You can see bandwidth allocations with the `/instance/profiles` endpoint in the API. You can also see the bandwidth allocations in the profile information during instance creation in the UI.
+When you provision an instance, the total instance bandwidth is allocated between attached volumes and networking. The maximum bandwidth capacity is determined by the [instance profile](/docs/vpc?topic=vpc-profiles&interface=ui) that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a total instance bandwidth of 4,000 Mbps (4 Gbps). The initial volume and network bandwidth allocation depends on the bandwidth you set by using the API or by the instance profile you selected. You can see bandwidth allocations with the `/instance/profiles` endpoint in the API. You can also see the bandwidth allocations in the profile information during instance creation in the UI.
 
 For example, for the bx2-2x8 profile you might have:
 
