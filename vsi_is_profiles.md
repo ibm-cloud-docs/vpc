@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-27"
+lastupdated: "2021-08-30"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, generation 2, gen 2
 
@@ -52,7 +52,7 @@ Profiles with instance storage are deployed exclusively on the second-generation
 {: #bandwidth-allocation-ui}
 {: ui}
 
-Instance bandwidth is allocated between volume bandwidth and networking bandwidth. The bandwidth capacity (Bandwidth Cap) is determined by the virtual server profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a bandwidth cap of 4 Gbps. The initial storage and network bandwidth allocation depends on what you set by using the API default instance profile. You can also see the bandwidth allocations in the profile information during instance creation in the UI. The bandwidth allocation can be changed on the instance details page after provisioning an instance.
+Instance bandwidth is allocated between volume bandwidth and networking bandwidth. The bandwidth capacity (Bandwidth Cap) is determined by the virtual server profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a bandwidth cap of 4 Gbps. The initial volume and network bandwidth allocation depends on the bandwidth set by the instance profile you selected. You can also see the bandwidth allocations in the profile information during instance creation in the UI. The bandwidth allocation can be changed on the instance details page after provisioning an instance.
 
 For example, for the bx2-2x8 profile you might have:
 
@@ -72,7 +72,7 @@ For more information, see [Bandwidth allocation for instance profiles](/docs/vpc
 {: #bandwidth-allocation-api}
 {: api}
 
-Instance bandwidth is allocated between volume bandwidth and networking bandwidth. The bandwidth capacity (Bandwidth Cap) is determined by the virtual server profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a bandwidth cap of 4 Gbps. The initial storage and network bandwidth allocation depends on what you set by using the API default instance profile. You can see bandwidth allocations with the `/instance/profiles` endpoint in the API. The bandwidth can be changed during or after provisioning an instance.
+Instance bandwidth is allocated between volume bandwidth and networking bandwidth. The bandwidth capacity (Bandwidth Cap) is determined by the virtual server profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a bandwidth cap of 4 Gbps. The initial volume and network bandwidth allocation depends on the bandwidth you set by using the API or by the instance profile you selected. You can see bandwidth allocations with the `/instance/profiles` endpoint in the API. The bandwidth can be changed during or after provisioning an instance.
 
 For example, for the bx2-2x8 profile you might have:
 
