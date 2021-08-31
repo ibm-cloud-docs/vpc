@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-24"
+lastupdated: "2021-08-31"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -42,14 +42,27 @@ Some changes, such as new response properties or new optional request parameters
 
 ### For all API version dates
 
-**Block storage volumes.**  In an upcoming release, a new value in the `status` enumeration will be added to the [volume](/apidocs/vpc#list-volume-profiles) APIs. When you expand an existing data volume, the volume goes into an updating state and shows a new API status `updating`. You can still access the data while the volume is being resized. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
-
 **Asynchronous `DELETE` response code change.** In an upcoming release, the response code output for asynchronous `DELETE` operations will change from `204` to `202`. A response code of `204` implies the action is completed, which could be misleading for operations that are still processing. A response code of `202` is more appropriate. This behavior change will occur only for an API version date after its release. A response code of `204` will continue to be returned for API versions up to this version date.
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 31 August 2021
+{: #31-august-2021}
+
+### For all version dates
+{: #31-august-2021-all-version-dates}
+
+**Block storage volumes:**
+
+* **Adjustable IOPS.** To manage the performance the your data volumes attached to running virtual server instances, use the [update volume](/apidocs/vpc#update-volume) method to specify a different tiered `profile` value, or a different `iops` value within the [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#custom) tier. For more information, see [Adjusting IOPS for block storage volumes](/docs/vpc?topic=vpc-adjusting-volume-iops&interface=api).
+
+* **Expandable volumes.** You can now expand a secondary volume attached to a running virtual server instance. Use the `capacity` property in the [update volume](/apidocs/vpc#update-volume) method to request a new volume capacity, up to 16 TB (depending on the volume's profile).  While the volume's capacity is being updated, the volume will remain available for use, but will have a `status` value of `updating`. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
+
+   If you expand an existing data volume, be aware that existing applications will be exposed to the new `updating` value. To avoid disruption, first check that your applications are written to gracefully handle unexpected `status` values.
+   {: important}
 
 ## 24 August 2021
 {: #24-august-2021}
