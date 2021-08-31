@@ -28,7 +28,7 @@ subcollection: vpc
 Lists known limitations for IBM Cloud VPN Gateway for VPC.
 {: shortdesc}
 
-* A VPN gateway for VPC accepts VPN packets with [NAT-Traversal Encapsulation (NAT-T)](https://tools.ietf.org/html/rfc3947){: external} only. The [IP Encapsulating Security Payload (ESP)](https://tools.ietf.org/html/rfc4303){:external} is not accepted. Make sure that the NAT-T feature is enabled on your on-premises VPN device. Also, make sure that UDP ports 500 and 4500 are allowed for both IBM VPC NACL and peer networks.
+* A VPN gateway for VPC accepts VPN packets with [NAT-Traversal Encapsulation (NAT-T)](https://tools.ietf.org/html/rfc3947){: external} only. The [IP Encapsulating Security Payload (ESP)](https://tools.ietf.org/html/rfc4303){: external} is not accepted. Make sure that the NAT-T feature is enabled on your on-premises VPN device. Also, make sure that UDP ports 500 and 4500 are allowed for both IBM VPC NACL and peer networks.
 
 * When multiple networks, subnets, or both are associated with either an {{site.data.keyword.cloud_notm}} VPN gateway or an on-premises device, avoid mixing policy-based and route-based VPNs. Policy-based VPNs create a tunnel for each target network range. However, route-based VPNs route everything to a peer device through a single tunnel. Therefore, when multiple network ranges are configured, only a single tunnel that is associated with a single-network range can be established. Combining contiguous subnets into a single superset CIDR is a valid workaround to this limitation.
 
