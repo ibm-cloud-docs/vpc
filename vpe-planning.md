@@ -25,11 +25,6 @@ Review the following considerations before creating a virtual private endpoint g
 
 * A reserved IP address bound to an endpoint gateway can receive traffic from another zone of the same VPC if your Network ACL (NACL) allows it.
 * You can bind only one IP address per VPC zone to an endpoint gateway.
-* You can attach up to 5 security groups when creating a VPE. If you do not specify a security group during VPE creation, the default security group for your VPC is used.
-
-   If you do not select at least one security group, it is recommended that you update your default security group rules to minimize disruption in traffic on a newly created VPE.
-   {: important}
-
 * You can access {{site.data.keyword.cloud}} services by using either VPEs or the service endpoint directly. However, if you want your VPC to enforce a certain behavior or discipline, it is recommended to block direct access to the service endpoint IP addresses that use NACLs. For more information, see [Configuring ACLs for use with virtual private endpoints](/docs/vpc?topic=vpc-vpe-configuring-acls).
 
    {{site.data.keyword.cloud_notm}} services do not support accessing a service endpoint and VPE simultaneously from the same virtual instance.
