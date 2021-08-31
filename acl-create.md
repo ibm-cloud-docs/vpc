@@ -103,7 +103,7 @@ To create a network ACL by using the API, follow these steps:
     ```
     {: pre}
 
-1.  Create a network ACL:  
+1. Create a network ACL:  
 
    ```sh
    curl -X POST -sH "Authorization:${iam_token}" \
