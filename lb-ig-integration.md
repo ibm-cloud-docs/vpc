@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2020
+  years: 2020, 2021
 lastupdated: "2021-05-25"
 
 keywords: load balancer, autoscaling, instance groups, managed pool, load balancer for vpc, pool
@@ -52,21 +52,21 @@ To create an instance group:
 
 1. [Create an instance group template](/docs/vpc?topic=vpc-creating-auto-scale-instance-group#creating-instance-template).
 
-  An instance group template defines your backend member instance configurations.
+   An instance group template defines your backend member instance configurations.
 
-2. Next, [create an instance group](/docs/vpc?topic=vpc-creating-auto-scale-instance-group). During the instance group creation, you specify the application port, load balancer, and pool identities.
+1. Next, [create an instance group](/docs/vpc?topic=vpc-creating-auto-scale-instance-group). During the instance group creation, you specify the application port, load balancer, and pool identities.
 
-  For an existing instance group, you can update it with the load balancer pool identity. You need to also choose a scaling method. You can choose from the following options:
+    For an existing instance group, you can update it with the load balancer pool identity. You need to also choose a scaling method. You can choose from the following options:
 
-   * A static method that allows a fixed number of backend members
-   * A dynamic method for utilization based scaling
+    * A static method that allows a fixed number of backend members
+    * A dynamic method for utilization based scaling
 
-3. Finally, [create your instance group scaling policies](/docs/vpc?topic=vpc-creating-auto-scale-instance-group#creating-scaling-policies).
+1. Finally, [create your instance group scaling policies](/docs/vpc?topic=vpc-creating-auto-scale-instance-group#creating-scaling-policies).
 
-  Configure scaling policies only if you are using a dynamic scaling method.
+    Configure scaling policies only if you are using a dynamic scaling method.
 
-  When you configure these policies, you define certain metrics (like the CPU utilization percentage) and the wanted target utilization for that metric. Together, the metric and the average target utilization determine when your instance group dynamically adds or removes virtual server instances from the group.
-  {: tip}
+    When you configure these policies, you define certain metrics (like the CPU utilization percentage) and the wanted target utilization for that metric. Together, the metric and the average target utilization determine when your instance group dynamically adds or removes virtual server instances from the group.
+    {: tip}
 
 ## Related links
 {: #lbaas-autoscaling-related-links}
