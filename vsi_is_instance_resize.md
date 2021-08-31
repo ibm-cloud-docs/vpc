@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-24"
+lastupdated: "2021-08-31"
 
 subcollection: vpc
 
@@ -33,12 +33,13 @@ Virtual servers are configured by using profiles, or a combination of instance a
 When you upgrade or downgrade an existing server, you choose another profile that has the pre-defined specifications that you need. You cannot customize the configuration of a virtual server. The virtual server profile that you select determines the valid cores, RAM, bandwidth, and disk sizes on the resized instance. For more information about profiles, see [Instance Profiles](/docs/vpc?topic=vpc-profiles).
 
 When you resize an instance, keep the following information in mind:
-* You need to stop, update, and start the instance that you want to resize
-* Data isn't deleted from the primary volume or the data volume
-* RAM is wiped from the resized instance
-* All network configurations are maintained, such as private IPs, floating IPs, vNICs, and security groups
-* The instance name doesn't change
-* The data center location doesn't change
+* You need to stop, update, and start the instance that you want to resize.
+* Data isn't deleted from the primary volume or the data volume.
+* RAM is wiped from the resized instance.
+* All network configurations are maintained, such as private IPs, floating IPs, vNICs, and security groups.
+* The instance name doesn't change.
+* The data center location doesn't change.
+* An instance with a profile that does not include instance storage cannot be resized to a profile that does include instance storage. 
 
 After the instance is resized, you are billed the hourly rate of the new instance profile.
 
@@ -61,6 +62,15 @@ When you stop a virtual server instance with an instance storage profile, that s
 {: #resizing-with-data-volumes}
 
 Attached data volumes remain intact and are attached in the resized instance.
+
+## Resizing instances associated with instance templates and instance groups
+{: #resizing-instance-templates-groups}  
+
+When you resize an instance that's provisioned from an instance template or that's provisioned as part of an instance group, the following rules apply. 
+
+* An instance that is provisioned from an instance template can be resized with a new instance profile. 
+* Instance templates are not editable, except for the name. You cannot update an instance profile within an instance template. To choose a different profile for an instance template, you must create a new template.
+* Resizing an instance that is part of an instance group removes it from the instance group. An instance must be stopped to resize it. When the instance is stopped, the instance group replaces it with a new instance with the same profile as the instance template describes. 
 
 ## Resizing a virtual server instance using the UI
 {: #resizing-a-virtual-server-UI}
