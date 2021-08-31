@@ -45,9 +45,9 @@ To configure your security group using the UI:
    * Select the protocols and ports to which the rule applies.    
 
    **Tips:**  
-  * All rules are evaluated, regardless of the order in which they're added.
-  * Rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, if you create a rule that allows inbound TCP traffic on port 80, that rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
-  * For Windows images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
+   * All rules are evaluated, regardless of the order in which they're added.
+   * Rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, if you create a rule that allows inbound TCP traffic on port 80, that rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
+   * For Windows images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
 1. _Optional:_ To view interfaces that are attached to the security group, click **Attached interfaces** in the navigation pane.
 1. When you finish creating rules, click the **All security groups for VPC** breadcrumb at the beginning of the page.
 
@@ -56,8 +56,8 @@ To configure your security group using the UI:
 
 For example, you can configure the following inbound rules:
 
- * Allow all SSH traffic (TCP port 22)
- * Allow all ping traffic (ICMP type 8)
+* Allow all SSH traffic (TCP port 22)
+* Allow all ping traffic (ICMP type 8)
 
 | Protocol | Source Type | Source | Value |
 |-----------|------|------|------|------------------|-------|

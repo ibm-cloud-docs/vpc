@@ -48,7 +48,7 @@ To view details of an endpoint gateway by using the {{site.data.keyword.cloud}} 
 
 1. To view the details of a specific gateway, click an individual gateway name. From the details page, you can view additional information about the endpoint gateway, view its bound reserved IPs and their subnets, delete an endpoint gateway, and more.
 
-  ![Endpoint gateway details page](./images/vpe-details.png "Endpoint gateway details page")
+   ![Endpoint gateway details page](./images/vpe-details.png "Endpoint gateway details page")
 
 Descriptions of the fields in the endpoint gateway details are:
 

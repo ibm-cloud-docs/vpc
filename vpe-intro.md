@@ -23,7 +23,7 @@ subcollection: vpc
 {: #about-vpe}
 
 {{site.data.keyword.cloud}} Virtual Private Endpoints (VPE) for VPC enables you to connect to supported {{site.data.keyword.cloud_notm}} services from your VPC network by using the IP addresses of your choosing, allocated from a subnet within your VPC.
-{:shortdesc}
+{: shortdesc}
 
 VPE is an evolution of the private connectivity to {{site.data.keyword.cloud_notm}} services. VPEs are virtual IP interfaces that are bound to an endpoint gateway created on a per service, or service instance, basis (depending on the service operation model). The endpoint gateway is a virtualized function that scales horizontally, is redundant and highly available, and spans all availability zones of your VPC. Endpoint gateways enable communications from virtual server instances within your VPC and {{site.data.keyword.cloud}} service on the private backbone. VPE for VPC gives you the experience of controlling all the private addressing within your cloud.
 
@@ -61,12 +61,14 @@ VPE for VPC IP addresses use a multi-zone-region, logical endpoint gateway to co
 As more {{site.data.keyword.cloud_notm}} services are enabled for VPE for VPC, each service instance will require you to configure its endpoint gateway, but will leverage the same topologies and best practices. For additional provisioning and best practices guidelines, refer to the documentation provided by the individual service.
 
 ### Single-zone topology
+{: #single-zone-topology}
 
-  ![VPE single-zone topology](/images/vpe-single-zone.png)
+![VPE single-zone topology](/images/vpe-single-zone.png)
 
 ### Multi-zone topology
+{: #multi-zone-topology}
 
-  ![VPE multi-zone topology](/images/vpe-multi-zone.png)
+![VPE multi-zone topology](/images/vpe-multi-zone.png)
 
 ## Getting started
 {: #vpe-getting-started}
@@ -83,12 +85,13 @@ To configure a virtual private endpoint, follow these steps:
 After you create the endpoint gateway, virtual server instances in the VPC can access the {{site.data.keyword.cloud_notm}} service privately through it.
 
 ## Related links
+{: #vpe-related}
 
 These links provide additional information about {{site.data.keyword.cloud}} VPE for VPC:
 
 * [VPE CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpe-clis)
 * [VPE API reference](https://{DomainName}/apidocs/vpc?code=java#list-endpoint-gateways)
 * [FAQs for virtual private endpoints](/docs/vpc?topic=vpc-faqs-vpe)
-* [VPE for VPC infrastructure resources for Terraform](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-vpc-gen2-resources#virtual-endpoint-gwy)
+* [VPE for VPC infrastructure resources for Terraform](https://cloud.ibm.com/docs/terraform?topic=terraform-vpc-gen2-resources#virtual-endpoint-gwy)
 * [Troubleshooting VPE gateways](/docs/vpc?topic=vpc-troubleshoot-create-reserved-ip)
 * [VPE Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-vpe)

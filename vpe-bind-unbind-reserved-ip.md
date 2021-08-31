@@ -85,12 +85,12 @@ You can bind or unbind a reserved IP address by using the CLI.
 
 To bind a reserved IP to an endpoint gateway by using the CLI, run the following command:
 
-  ```
+```
   ibmcloud is endpoint-gateway-reserved-ip-bind ENDPOINT_GATEWAY \
     --reserved-ip-id RESERVED_IP_ID [--json]  
-  ```
-  {: pre}
-  
+```
+{: pre}
+
 Where:
 
 * **ENDPOINT_GATEWAY** is the ID of the endpoint gateway.
@@ -102,11 +102,11 @@ Where:
 
 To unbind a reserved IP to an endpoint gateway by using the CLI, run the following command:
 
-  ```
+```
   ibmcloud is endpoint-gateway-reserved-ip-unbind ENDPOINT_GATEWAY \
   (--address ADDRESS | --reserved-ip-id RESERVED_IP_ID) [-f, --force]  
-  ```
-  {: pre}
+```
+{: pre}
 
 Where:
 
