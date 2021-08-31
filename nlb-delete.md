@@ -40,7 +40,7 @@ You can delete an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NL
 
 To delete a network load balancer by using the IBM Cloud console, perform the following procedure:
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){:external}.
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external}.
 1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg), then click **VPC Infrastructure > Load balancers** from the Network section.
 1. Select the Region of your load balancer.
 1. Click the overflow menu ![overflow menu](images/overflow.png) next to the load balancer that you want to delete, then select **Delete**.
@@ -53,10 +53,10 @@ The Status for the NLB now shows **Deleting**. Refresh the page to confirm that 
 
 To delete a {{site.data.keyword.nlb_full}} by using the CLI, run the following command:
 
-  ```
-  ibmcloud is load-balancer-delete <load_balancer_id> -f -q
-  ```
-  {: pre}
+```
+ibmcloud is load-balancer-delete <load_balancer_id> -f -q
+```
+{: pre}
 
 Where:
 

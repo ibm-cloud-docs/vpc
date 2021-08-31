@@ -243,38 +243,38 @@ To do so, follow these steps:
 
 1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring), then click **Create a monitoring instance**.
 
-2. Select a region for your monitoring instance.
+1. Select a region for your monitoring instance.
 
-  If you do not have an existing load balancer, see [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancer) to provision one.
-  {: tip}
+   If you do not have an existing load balancer, see [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancer) to provision one.
+   {: tip}
 
-  ![Region](images/metrics_1.png "Region")
+   ![Region](images/metrics_1.png "Region")
 
-  The region should match the location of your existing load balancer.
-  {: important}
+   The region should match the location of your existing load balancer.
+   {: important}
 
-3. Choose your pricing plan.
+1. Choose your pricing plan.
 
-  Pricing plan details are explained in the selection window. Select the plan that best meets your requirements.
+   Pricing plan details are explained in the selection window. Select the plan that best meets your requirements.
 
-4. Provide a service name for your instance. It can be any name that you want, and has no impact on functionality.
+1. Provide a service name for your instance. It can be any name that you want, and has no impact on functionality.
 
-  Do not create multiple monitoring instances with the same name.
-  {: important}
+   Do not create multiple monitoring instances with the same name.
+   {: important}
 
-5. Optionally, select a resource group. A resource group is a way to organize account resources in customizable groupings. Any account resource that is managed by using IBM Cloud Identity and Access Management (IAM) access control belongs to a resource group within your account.
+1. Optionally, select a resource group. A resource group is a way to organize account resources in customizable groupings. Any account resource that is managed by using IBM Cloud Identity and Access Management (IAM) access control belongs to a resource group within your account.
 
    ![Resource group](images/metrics_2.png "Resource group")
 
-  If you do not have any pre-configured resource groups, or no reason to share this resource selectively, use the default selection.
-  {: note}
+   If you do not have any pre-configured resource groups, or no reason to share this resource selectively, use the default selection.
+   {: note}
 
-  If your account has multiple resource groups, you can choose which one has access to this monitoring instance. This allows you to have metrics available to some resource groups and not to others.
-  {: tip}
+   If your account has multiple resource groups, you can choose which one has access to this monitoring instance. This allows you to have metrics available to some resource groups and not to others.
+   {: tip}
 
-6. Select the **Enable Platform Metrics** checkbox. You must select this to receive metrics from your load balancer.
+1. Select the **Enable Platform Metrics** checkbox. You must select this to receive metrics from your load balancer.
 
-7. Click **Create**. You are taken back to the monitoring metrics home page.
+1. Click **Create**. You are taken back to the monitoring metrics home page.
 
 Within a few minutes, your new monitoring instance is displayed with several configurations. You might have to refresh your browser to see it.  
 
@@ -285,19 +285,19 @@ To view and work with your metrics, follow these steps:
 
 1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring).
 
-2. Click **View IBM Cloud Monitoring** next to the service name of the monitoring instance that you want to work with.
+1. Click **View IBM Cloud Monitoring** next to the service name of the monitoring instance that you want to work with.
 
-  The first time that you access your monitoring instance, several windows display as part of the internal setup. Leave these selections with their default entries, and click through the pages until you reach the main page.
-  {: note}
+   The first time that you access your monitoring instance, several windows display as part of the internal setup. Leave these selections with their default entries, and click through the pages until you reach the main page.
+   {: note}
 
-3. Select **Dashboards** on the left sidebar to open the IBM Load Balancer Monitoring Metrics dashboard. Then, click **Default Dashboards > IBM > Load Balancer Monitoring Metrics**. The default dashboard is not editable.
+1. Select **Dashboards** on the left sidebar to open the IBM Load Balancer Monitoring Metrics dashboard. Then, click **Default Dashboards > IBM > Load Balancer Monitoring Metrics**. The default dashboard is not editable.
 
-4. Nine main metrics in the dashboard are shown: Throughput, Active Connections, Connection Rate, Request Count, Request Latency, HTTP_2xx Response Count, HTTP_3xx Response Count, HTTP_4xx Response Count, and HTTP_5xx Response Count. To modify parameters and segment your metrics by load balancer ID or listener port, you must create a custom dashboard.
+1. Nine main metrics in the dashboard are shown: Throughput, Active Connections, Connection Rate, Request Count, Request Latency, HTTP_2xx Response Count, HTTP_3xx Response Count, HTTP_4xx Response Count, and HTTP_5xx Response Count. To modify parameters and segment your metrics by load balancer ID or listener port, you must create a custom dashboard.
 
-  ![{{site.data.keyword.mon_full_notm}} dashboard](images/metrics_3.png "{{site.data.keyword.mon_full_notm}} dashboard")
+   ![{{site.data.keyword.mon_full_notm}} dashboard](images/metrics_3.png "{{site.data.keyword.mon_full_notm}} dashboard")
 
-  You can choose what time window you'd like to see your metrics displayed for, using the bar at the end.
-  {: tip}
+   You can choose what time window you'd like to see your metrics displayed for, using the bar at the end.
+   {: tip}
 
 ## Creating a custom metrics dashboard
 {: #creating-custom-metrics-dashboard-lb}
@@ -308,34 +308,34 @@ To customize your dashboard, follow these steps:
 
 1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring).
 
-2. Click **View IBM Cloud Monitoring** next to the service name of the monitoring instance you want to work with. The dashboard displays.
+1. Click **View IBM Cloud Monitoring** next to the service name of the monitoring instance you want to work with. The dashboard displays.
 
-3. On the left sidebar, select **Dashboards**. Then, click the green **+** sign in the panel.
+1. On the left sidebar, select **Dashboards**. Then, click the green **+** sign in the panel.
 
-  ![Add dashboard](images/metrics_custom_db.png "Add dashboard")
+   ![Add dashboard](images/metrics_custom_db.png "Add dashboard")
 
-4. Select **Blank dashboard**, then select the type of visual representation you want.
+1. Select **Blank dashboard**, then select the type of visual representation you want.
 
-  {{site.data.keyword.mon_full_notm}} offers eight different visualizations for your dashboard. Read the description for each visualization, then choose the one that best meets your requirements.
+   {{site.data.keyword.mon_full_notm}} offers eight different visualizations for your dashboard. Read the description for each visualization, then choose the one that best meets your requirements.
 
-  **Line** ("View trends over time") is the easiest and most basic option. It is also the most frequently selected option. The examples in this topic show a Line-based visualization.
-  {: note}
+   **Line** ("View trends over time") is the easiest and most basic option. It is also the most frequently selected option. The examples in this topic show a Line-based visualization.
+   {: note}
 
-5. Configure your custom dashboard.
+1. Configure your custom dashboard.
 
-  * In the **Metrics** field, enter `ibm_is` to display the three load balancer metrics: `ibm_is_load_balancer_active_connections`, `ibm_is_load_balancer_connection_rate`, and `ibm_is_load_balancer_throughput`.
+   * In the **Metrics** field, enter `ibm_is` to display the three load balancer metrics: `ibm_is_load_balancer_active_connections`, `ibm_is_load_balancer_connection_rate`, and `ibm_is_load_balancer_throughput`.
 
-  You can monitor listener port traffic by enabling the `ibm_is_load_balancer_listener_port` metric.
-  {: tip}
+   You can monitor listener port traffic by enabling the `ibm_is_load_balancer_listener_port` metric.
+   {: tip}
 
-  * You can choose a scope to display in your dashboard by clicking **Override Dashboard Scope**. For example, you can display the metrics for a particular load balancer.
+   * You can choose a scope to display in your dashboard by clicking **Override Dashboard Scope**. For example, you can display the metrics for a particular load balancer.
 
-  * You can also set a segment to compare metrics across the scope that you defined. For example, you can look at throughput for a particular load balancer segmented by listener port.
+   * You can also set a segment to compare metrics across the scope that you defined. For example, you can look at throughput for a particular load balancer segmented by listener port.
 
-6. Click **Save** for your new custom dashboard to be accessible.
+1. Click **Save** for your new custom dashboard to be accessible.
 
-  By default, the dashboard begins with the name "blank dashboard". You can change the name by selecting **Dashboards** from the sidebar, then clicking the Pencil icon next to the name.
-  {: tip}
+   By default, the dashboard begins with the name "blank dashboard". You can change the name by selecting **Dashboards** from the sidebar, then clicking the Pencil icon next to the name.
+   {: tip}
 
 To return to the default dashboard at any time, select **Dashboards > Default Dashboards > IBM > Load Balancer Monitoring Metrics**.
 
@@ -353,34 +353,34 @@ To collect this information and work with your monitoring instance using metric 
 
 1. Access the [Monitoring home page](https://cloud.ibm.com/observe/monitoring), and click **Open Dashboard** next to the instance you want to work with. After the dashboard displays, select your Account Profile icon on the left sidebar, then select **Settings**. Your account settings display.
 
-  ![Settings](images/metrics_settings.png "Settings")
+   ![Settings](images/metrics_settings.png "Settings")
 
-2. Your Monitor API token is an alphanumeric string that is located in the **Monitor API Token** field. Click the **Copy** button to the right of the key to transfer it to your clipboard.
+1. Your Monitor API token is an alphanumeric string that is located in the **Monitor API Token** field. Click the **Copy** button to the right of the key to transfer it to your clipboard.
 
-	Do not share this API token. Anyone who has this API token has full access to your metrics.
-	{: important}
+   Do not share this API token. Anyone who has this API token has full access to your metrics.
+   {: important}
 
-3. To get the endpoint of your {{site.data.keyword.mon_full_notm}} instance, navigate to your main dashboard in your browser. Then, select the URL to the dashboard, which appears similar to:
+1. To get the endpoint of your {{site.data.keyword.mon_full_notm}} instance, navigate to your main dashboard in your browser. Then, select the URL to the dashboard, which appears similar to:
 
    ```
    https://us-south.monitoring.cloud.ibm.com/#/default-dashboard/ibm_is_load_balancer?last=3600
    ```
    {: pre}
-   
+
    The first part of the URL (in this case, `us-south.monitoring.cloud.ibm.com`) is your endpoint. Make note of it.
 
-4. After you have both the API token and the endpoint, you can format your POST request. The following POST request is an example, with all the parameters that you can modify. These parameters are:
+1. After you have both the API token and the endpoint, you can format your POST request. The following POST request is an example, with all the parameters that you can modify. These parameters are:
 
-  * The Monitor API token.
-  * The endpoint of your monitoring instance.
-  * The value for `ibm_resource` (this is the load balancer ID you want to see metrics for).
+   * The Monitor API token.
+   * The endpoint of your monitoring instance.
+   * The value for `ibm_resource` (this is the load balancer ID you want to see metrics for).
 
-     If you want to see this metric for all of your load balancers, do not enter a value for the `scope` attribute. For example, use `"scope" : ""`.
-     {: note}
+   If you want to see this metric for all of your load balancers, do not enter a value for the `scope` attribute. For example, use `"scope" : ""`.
+   {: note}
 
-  * The metric type that you want to see the results for. This example uses `ibm_is_load_balancer_throughput`, but `ibm_is_load_balancer_active_connections` and `ibm_is_load_balancer_connection_rate` are also valid options.
-  * The `from` and `to` attributes define the times to focus the scan, set in Epoch Time and in microseconds.
-  * The `sampling` and `value` attributes set the granularity of which data is returned in the POST request.
+   * The metric type that you want to see the results for. This example uses `ibm_is_load_balancer_throughput`, but `ibm_is_load_balancer_active_connections` and `ibm_is_load_balancer_connection_rate` are also valid options.
+   * The `from` and `to` attributes define the times to focus the scan, set in Epoch Time and in microseconds.
+   * The `sampling` and `value` attributes set the granularity of which data is returned in the POST request.
 
 Because a large volume of data is stored in {{site.data.keyword.mon_full_notm}}, choosing the specific level of granularity is important. {{site.data.keyword.mon_full_notm}} can return only 600 data points at any time with a given request. As a result, the `sampling` and `value` attributes are important. Leaving these two lines out of your request returns an aggregate sum over that time period instead.
 
