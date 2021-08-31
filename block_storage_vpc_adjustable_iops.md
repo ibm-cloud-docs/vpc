@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-25"
+lastupdated: "2021-08-31"
 
 keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, iops
 
@@ -67,7 +67,6 @@ The following limitations apply to this release.
 {: #exp-iops-general-limitations}
 
 * Primary boot volume IOPS cannot be adjusted.
-* You cannot adjust IOPS for a volume that was created prior to this release.
 * To adjust IOPS, the volume must be attached to a running virtual server instance.
 * The volume must be in an _available_ state with the instance powered on and in a _running_ state.
 
