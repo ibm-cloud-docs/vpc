@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-21"
+lastupdated: "2021-08-31"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 subcollection: vpc
@@ -34,7 +34,7 @@ Restoring a volume from a snapshot creates a new volume. The new volume inherits
 
 When you restore from a bootable snapshot, you create a boot volume. Similarly, you can create a new data volume from a snapshot of a data volume. The volume you create from the snapshot uses the same volume [profile](/docs/vpc?topic=vpc-block-storage-profiles) and contains the same data and meta-data as the original volume. If the source volume used [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption), the volume created from the snapshot inherits that encryption. 
 
-You restore a volume from a [virtual server instance when you provision a new instance](#snapshots-vpc-restore-vol-UI). You can also [restore a volume from an existing instance](#snapshots-vpc-create-from-vol-ui). The snapshot must be in a _stable_ state before you can restore a volume from it.
+You can restore a volume from a snapshot when you [provision a new instance](#snapshots-vpc-restore-vol-UI). You can also restore a volume from a snapshot to create a volume for [an existing instance](#snapshots-vpc-create-from-vol-ui). The snapshot must be in a _stable_ state before you can restore a volume from it.
 
 When you create a new instance, you can select a snapshot for the operating system. You select a _bootable snapshot_, that is, a snapshot taken of a boot volume. This creates a new boot volume for that instance.
 
@@ -84,10 +84,10 @@ Follow these steps to create a boot and data volume from snapshots when you prov
 
 After the instance is created, you can click on the instance name to see the instance details. The boot volume you restored from a snapshot is listed under **Storage volumes**. The camera icon indicates the volume was created from a snapshot.
 
-### Create a volume from a snapshot from an existing virtual server instance using the UI
+### Create a data volume from a snapshot for an existing virtual server instance using the UI
 {: #snapshots-vpc-create-from-vol-ui}
 
-You can also create a snapshot from the list of virtual server instances.
+You can also create a data volume from a snapshot for an existing instance. Choose from the list of virtual server instances.
 
 1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**. 
 
@@ -97,7 +97,7 @@ You can also create a snapshot from the list of virtual server instances.
 
 1. From the Attach data volume panel, expand the list of Block volumes and select **Create a data volume**.
 
-1. Select **Import from snapshot**. Expand the Snapshot list and select a snapshot. You can select either a bootable snapshot or a snapshot of a data volume.
+1. Select **Import from snapshot**. Expand the Snapshot list and select a snapshot.
 
 1. Optionally, increase the size of the volume within the specified range.
 
