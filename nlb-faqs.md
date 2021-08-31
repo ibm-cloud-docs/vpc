@@ -104,7 +104,7 @@ The following default settings apply to network load balancer health check param
 * **Maximum retry attempts:** Two retry attempts, and the range is 1-10 retries
 
 The health check response timeout value must be less than the health check interval value.
-{:tip}
+{: tip}
 
 ## Is the network load balancer IP address fixed?
 {: #is-the-network-load-balancer-ip-address-fixed}
