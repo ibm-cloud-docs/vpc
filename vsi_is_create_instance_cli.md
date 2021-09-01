@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-08-06"
+lastupdated: "2021-09-01"
 
-keywords: instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, vpc, creating, CLI, command line interface, generation 2, gen 2
+keywords: instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, creating, CLI, command line interface, generation 2, gen 2, placement groups
 
 subcollection: vpc
 
@@ -25,42 +25,43 @@ subcollection: vpc
 {: #creating-virtual-servers-cli}
 
 You can create instances by using the command-line interface (CLI).
-{:shortdesc}
+{: shortdesc}
 
 {{site.data.keyword.cloud_notm}} CLI is not supported on LinuxONE (s390x processor architecture). However, you can install the CLI on another supported platform and use it with LinuxONE (s390x processor architecture) virtual server instances.
-{:note}
+{: note}
 
 ## Before you begin
-{: #before-creating-virtual-servers-cli}
+{: #vefore-creating-virtual-servers-cli}
 
-1. Ensure that you downloaded, installed, and initialized the following CLI plug-ins:
+1. Make sure that you download, install, and initialize the following CLI plug-ins:
     * {{site.data.keyword.cloud_notm}} CLI
     * The infrastructure-service plug-in
+
     For more information, see [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 
-2. Make sure that you already [created a VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
+2. Make sure that you [created a VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
 
 ## Gathering information to create an instance by using the CLI
 {: #gather-info-to-create-virtual-servers-cli}
 
-Ready to create an instance? Before you can run the `ibmcloud is instances` command, you need to know the details about the instance, such as what profile or image you want to use.
+Ready to create an instance? Before you can run the `ibmcloud is instances` command, you need to know the details about the instance, such as what profile or image that you want to use.
 
 Gather the following information:
 
 |    Instance details   |  Listing options                |
 | --------------------- | --------------------------------|
 | Image                 | `ibmcloud is images`            |
-| Profile               | `ibmcloud is instance-profiles` |
+| Profile               | `ibmcloud is instance-profiles` |
 | Key                   | `ibmcloud is keys`              |
 | VPC                   | `ibmcloud is vpcs`              |
 | Subnet                | `ibmcloud is subnets`           |
-| Zone                  | `ibmcloud is zones`             |   
+| Zone                  | `ibmcloud is zones`             |  
 | Placement groups      | `ibmcloud is placement-groups`  |
 {: caption="Table 1. Required instance details" caption-side="top"}   
 
 Use the following commands to determine the required information for creating a new instance.
 
-1. List the regions associated with your account.
+1. List the regions that are associated with your account.
    ```
    ibmcloud is regions
    ```
@@ -73,7 +74,7 @@ Use the following commands to determine the required information for creating a 
    ```
    {: screen}
 
-2. List the zones associated with the region.
+2. List the zones that are associated with the region.
    ```
    ibmcloud is zones us-south
    ```
@@ -134,6 +135,8 @@ Use the following commands to determine the required information for creating a 
    cx2-16x32        amd64          compute             16      32            32              -      -
    mx2-4x32         amd64          memory              4       32            8               -      -   
    mx2d-4x32        amd64          memory              4       32            8               -      1x150
+   gx2-16x128x1v00  amd64          gpu-v100            16      128           32              1      -
+   gx2-16x128x2v00  amd64          gpu-v100            16      128           32              2      -     
    ```
    {: screen}
 
@@ -260,7 +263,7 @@ After you know these values, use them to run the `instance-create` command. In a
    ```
    {: screen}
 
-   Information about the network interfaces that are created for the new instance is not returned after the instance is created. You can view it using the command provided in **Step 2**.
+   Information about the network interfaces that are created for the new instance is not returned after the instance is created. You can view it using the command that was provided in **Step 2**.
    {: note}
 
    The status displays pending until the instance is created.
@@ -297,7 +300,9 @@ After you know these values, use them to run the `instance-create` command. In a
    Boot volume                  ID   Name           Attachment ID                               Attachment name
                                 -    PROVISIONING   0736-76436447-3262-4b3d-8b42-aa3fbb5927f6   volume-attachment
    Data volumes                 ID                                          Name        Attachment ID                    Attachment name
-                                r134-dd9cefce-8f3e-4a63-b92a-066c8505e25c   my-volume   0738-xx55xx44-3xx1-1234-42x1-234xx5x678xx my-volume-attachment
+                                r134-dd9cefce-8f3e-4a63-b92a-066c8505e25c   my-volume   0738-xx55xx44-3xx1-1234-42x1-234xx5x678xx my-volume-attachment                                
+   Placement            ID                                          Name       Resource type      
+                     r134-a812ff17-cac5-4e20-8d2b-95b587be6637   mypg2-re   placement_group                                 
    ```
    {: screen}
 
@@ -335,6 +340,9 @@ Do you prefer to create an instance by using the {{site.data.keyword.cloud_notm}
 
 ## Next steps
 {: #next-step-after-creating-virtual-servers-cli}
+
 A series of emails is sent to your administrator: Acknowledgment of the virtual server instance order, order approval and processing, and a message that the instance is created.
+
+If you Choose a GPU profile, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
 
 After the instance is created, associate a floating IP address to the instance. Then, you can connect to your instance. For more information, see [Connecting to your Linux instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux) or [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
