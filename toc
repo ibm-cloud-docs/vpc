@@ -130,7 +130,7 @@ Virtual Private Cloud (VPC)
         vsi_instance_storage_how_to.md
         monitoring-vpc-metrics.md
         vsi_is_instance_resize.md
-        managing-gpus.md
+        managing_gpus.md
 
     {: .topicgroup}
     Instance metadata service (Beta)
