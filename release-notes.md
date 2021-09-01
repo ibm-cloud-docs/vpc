@@ -31,7 +31,7 @@ Use the release notes to learn about new and changed {{site.data.keyword.vpc_ful
 ## 01 September 2021
 {: #september-1-2021}
 
-**New GPU Instance Profile family (Beta):** GPU profiles are available in a limited, allow-listed beta for all images. The profiles include attached NVIDIA 16 GB PCIe v100 GPUs. Drivers must be installed separately. You can use these instances to accelerate certain processing functions for workloads such as inferencing and machine learning. For more information about this service, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
+**New GPU instance profile family (Beta):** GPU profiles are available in a limited, allow-listed beta for all images. The profiles include attached NVIDIA 16 GB PCIe v100 GPUs. Drivers must be installed separately. You can use these instances to accelerate certain processing functions for workloads such as inferencing and machine learning. For more information about this service, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
 
 ## 26 August 2021
 {: #august-26-2021}
