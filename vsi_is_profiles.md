@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-30"
+lastupdated: "2021-09-01"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, generation 2, gen 2
 
@@ -29,7 +29,7 @@ subcollection: vpc
 # Instance Profiles
 {: #profiles}
 
-When you provision {{site.data.keyword.vsi_is_full}}, you can select from four families of profiles: Balanced, Compute, Memory, and Ultra High Memory.
+When you provision {{site.data.keyword.vsi_is_full}}, you can select from four families of profiles: Balanced, Compute, Memory, Ultra High Memory, and GPU.
 
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, and network bandwidth. The attributes define the size and capabilities of the virtual server instance that is provisioned. In the {{site.data.keyword.Bluemix_notm}} console, you can select the most recently used profile or click **View All Profiles** to choose the profile that best fits your needs.
 {: shortdesc}
@@ -42,7 +42,7 @@ The following profile families are available:
 | [Compute](#compute)  | Best for moderate to high web traffic workloads. Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers. |
 | [Memory](#memory) | Best for memory caching and real-time analytics workloads. Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. |
 | [Ultra High Memory](#uhmemory) | Ultra High Memory profiles offer the highest vCPU to memory ratios with 1 vCPU to 28 GiB of RAM to serve in-memory OLTP databases, such as SAP. |
-<!--- | [GPU](#gpu) | Best for artificial intelligence (AI) and deep learning workloads. Available for x86_64 processors only. | -->
+| [GPU](#gpu) | GPU enabled profiles provide on-demand access to NVIDIA V100 GPUs to accelerate AI,high performance computing, data science and graphics workloads. |
 {: caption="Table 1. Virtual server family selections" caption-side="top"}
 
 Profiles with instance storage are deployed exclusively on the second-generation Intel&reg; Xeon&reg; Platinum 8272 (Cascade Lake) running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz. 
@@ -263,6 +263,27 @@ The following Ultra High Memory profiles are available for x86_64 processors:
 | ux2d-200x5600 | 200 | 5600 | 80 | 2x3000 |
 {: caption="Table 6. Ultra High Memory profiles options for x86-64 instances" caption-side="top"}
 
+
+
+## GPU
+{: #gpu}
+
+GPU profiles include 1 or 2 NVIDIA V100 PCIe 16GB GPUs. All OS images are supported on the GPU profiles. NVIDIA GPU drivers must be installed separately.
+
+If you are using GPU profiles, you need to install the NVIDA driver onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
+{: tip}
+
+| Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs |
+|---------|---------|---------|---------|---------|
+| gx2-8x64x1v100 | 8 | 64 | 16 | 1 |
+| gx2-16x128x1v100 | 16 | 128 | 32 | 1 |
+| gx2-16x128x2v100 | 16 | 128 | 32 | 2 |
+| gx2-32x256x2v100 | 32 | 256 | 64 | 2 |
+{: caption="Table 10. GPU profile options" caption-side="top"}
+
+If you are using GPU profiles, you might need to install the CUDA toolkit onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus-beta).
+{: tip}
+
 For more information about persistent storage options, see [Storage notes for profiles](#storage-notes-for-profiles).
 
 For information about storage, see [Storage notes for profiles](#storage-notes-for-profiles).
@@ -357,3 +378,4 @@ After you choose a profile, it's time to create an instance.
 * [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers)
 * [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli)
 * [Creating an instance by using the API](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis#select-profile-and-image)
+* [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus-beta)
