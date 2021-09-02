@@ -268,7 +268,7 @@ The following Ultra High Memory profiles are available for x86_64 processors:
 
 
 
-## GPU
+## GPU (Beta)
 {: #gpu}
 
 GPU profiles include 1 or 2 NVIDIA V100 PCIe 16GB GPUs. All OS images are supported on the GPU profiles. NVIDIA GPU drivers must be installed separately.
@@ -284,7 +284,7 @@ If you are using GPU profiles, you need to install the NVIDA driver onto your vi
 | gx2-32x256x2v100 | 32 | 256 | 64 | 2 |
 {: caption="Table 10. GPU profile options" caption-side="top"}
 
-If you are using GPU profiles, you might need to install the CUDA toolkit onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus-beta-).
+If you are using GPU profiles, you might need to install the CUDA toolkit onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
 {: tip}
 
 For more information about persistent storage options, see [Storage notes for profiles](#storage-notes-for-profiles).
@@ -381,4 +381,4 @@ After you choose a profile, it's time to create an instance.
 * [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers)
 * [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli)
 * [Creating an instance by using the API](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis#select-profile-and-image)
-* [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus-beta-)
+* [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus)
