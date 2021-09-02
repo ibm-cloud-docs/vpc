@@ -68,8 +68,8 @@ You must meet these requirements to increase a volume's capacity.
 
 Limitations apply in this release.
 
-* Boot volumes can't be expanded.
-* You can't expand a volume that is at its maximum capacity for its [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta) or [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) volume range.
+* Boot volumes cannot be expanded.
+* You cannot expand a volume that is at its maximum capacity for its [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta) or [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) volume range.
 
 ### Capacity and performance limitations:
 {: #exp-vol-cap-perf-limitations}
@@ -82,7 +82,7 @@ Limitations apply in this release.
 * After you create a volume, can't change a volume's IOPS tier profile.
 * You can't independently modify IOPS for a volume that is created from an IOPS tier profile. IOPS are adjusted when you expand a volume's capacity and then restart the instance, or attach and detach the volume from the instance.
 * When you expand a volume created from a custom profile, the capacity is increased but the IOPs remain the same. You  can't independently increase the IOPS.
-* Maximum IOPS for a volume is capped at [48,000 IOPS](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta).
+* Maximum IOPS for a volume is capped at [48,000 IOPS](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#tiers).
 * After a volume is expanded, you can't reduce the size of the volume.
 
 ### Additional limitations
@@ -124,6 +124,7 @@ Your new block storage allocation is available in a few minutes.
 
 ## Expand block storage volumes by using the CLI
 {: #expand-vpc-volumes-cli}
+{: cli}
 
 From the CLI, use the `volume-update` command with the `--capacity` parameter to indicate the new size of the volume in GBs.
 
@@ -145,7 +146,7 @@ Profile                                 5iops-tier
 Encryption Key                          -
 Encryption                              provider managed
 Status                                  available
-Created                                 2021-07-30 10:09:28
+Created                                 2021-08-25 10:09:28
 Resource Group                          Default(c16d1edde3fd4a71a0130aed371405a0)
 Zone                                    us-south-2
 Resource Group                          Default(c16d1edde3fd4a71a0130aed371405a0)
@@ -160,6 +161,7 @@ Volume Attachment Instance Reference    Vdisk Name    	Vdisk ID
 
 ## Expand block storage volumes with the API
 {: #expand-vpc-volumes-api}
+{: api}
 
 You can expand existing data volumes by calling the Virtual Private Cloud (VPC) API.
 
@@ -172,7 +174,7 @@ This example call expands a volume with a capacity of 50 GB to 250 GB.
 
 ```
 curl -X PATCH \
- "$vpc_api_endpoint/v1/volumes/$volume_id?version=2021-07-30&generation=2" \
+ "$vpc_api_endpoint/v1/volumes/$volume_id?version=2021-08-25&generation=2" \
  -H "Authorization: $iam_token" \
  -d '{
       "capacity": 250
@@ -185,7 +187,7 @@ The volume status shows `updating` while the volume is being expanded. The curre
 ```
 {
 	"capacity": 50,
-	"created_at": "2021-07-30T09:46:43.000Z",
+	"created_at": "2021-08-25T09:46:43.000Z",
 	"crn": "crn:v1:staging:public:is:us-south-1:a/<Acc id>::volume:<Volume ID>",
     .
     .
@@ -203,7 +205,7 @@ When the volume expansion completes, the new value displays and the volume statu
 ```
 {
 	"capacity": 250,
-	"created_at": "2021-07-30T09:46:43.000Z",
+	"created_at": "2021-08-25T09:46:43.000Z",
 	"crn": "crn:[...]",
 	"encryption": "provider_managed",
 	"href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/2d1bb5a8-40a8-447a-acf7-0eadc8aeb054",
