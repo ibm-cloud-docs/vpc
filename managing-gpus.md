@@ -21,7 +21,7 @@ subcollection: vpc
 {:external: target="_blank" .external}
 {:beta: .beta}
 
-GPU enabled profiles are available as a closed beta release for evaluation and testing purposes.
+This is a Beta feature that requires special approval. Contact your IBM Sales representative if you are interested in getting access.
 {: beta}
 
 # Managing GPUs (Beta)
