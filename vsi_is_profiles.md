@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2021
-lastupdated: "2021-09-01"
+lastupdated: "2021-09-02"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, generation 2, gen 2
 
@@ -33,6 +33,9 @@ When you provision {{site.data.keyword.vsi_is_full}}, you can select from four f
 
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, and network bandwidth. The attributes define the size and capabilities of the virtual server instance that is provisioned. In the {{site.data.keyword.Bluemix_notm}} console, you can select the most recently used profile or click **View All Profiles** to choose the profile that best fits your needs.
 {: shortdesc}
+
+GPU enabled profiles are available as a closed beta release for evaluation and testing purposes.
+{: beta}
 
 The following profile families are available:
 
