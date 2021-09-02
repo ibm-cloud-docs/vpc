@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2021
-lastupdated: "2021-09-01"
+lastupdated: "2021-09-02"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance, gpu, graphics processing unit, set up gpu
 
@@ -25,7 +25,7 @@ GPU enabled profiles are available as a closed beta release for evaluation and t
 {: beta}
 
 # Managing GPUs (Beta)
-{: managing-gpus}
+{: #managing-gpus}
 
 The GPU-enabled family of profiles provides on demand, cost effective access to NVIDIA GPUs. GPUs help to accelerate the processing time required for compute intensitve workloads such as AI, machine learning, inferencing and more. To use the GPUs, make sure that you have the appropriate tool chain such as CUDA, ready.
 {: shortdesc}
