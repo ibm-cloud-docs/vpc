@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-09-03"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, generation 2, gen 2
 
@@ -69,7 +69,7 @@ For a cx2-8x16 profile:
 
 The amount of overall bandwidth provided to volume bandwidth can be adjusted within the overall instance limits. A default amount of volume bandwidth is set on each instance profile.
 
-For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-instance-profiles-vpc-bandwidth).
+For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
 
 ## Bandwidth allocation using the API
 {: #bandwidth-allocation-api}
@@ -89,7 +89,7 @@ For a cx2-8x16 profile:
 
 The amount of overall bandwidth provided to volume bandwidth can be adjusted within the overall instance limits. A default amount of volume bandwidth is set on each instance profile.
 
-For more information, see [Using the REST APIs to create VPC resources](https://test.cloud.ibm.com/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis#select-profile-and-image) and [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-instance-profiles-vpc-bandwidth).
+For more information, see [Using the REST APIs to create VPC resources](https://test.cloud.ibm.com/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis#select-profile-and-image) and [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
 
 ## Balanced
 {: #balanced}
