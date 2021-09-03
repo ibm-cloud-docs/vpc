@@ -2,7 +2,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="vpc" category="network_vpc,storage_vpc,compute" audience="service" href="/docs/vpc?topic=vpc-getting-started" console-page="/vpc-ext/overview" product-page="https://www.ibm.com/cloud/vpc" path="vpc"}
+{: .toc subcollection="vpc" category="network_vpc,storage_vpc,compute" audience="service" href="/docs/vpc" console-page="/vpc-ext/overview" product-page="https://www.ibm.com/cloud/vpc" path="vpc"}
 Virtual Private Cloud (VPC)
 
     {: .navgroup id="learn"}
