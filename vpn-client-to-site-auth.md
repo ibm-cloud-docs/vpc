@@ -192,7 +192,7 @@ To import VPN server certificates into a certificate manager instance, follow th
 
    - Provide a certificate name.
    - Click **Browse** and select `./pki/issued/vpn-server.vpn.ibm.com.crt` as the certificate file.
-   - Click **Browse** and select `./pki/issued/vpn-server.vpn.ibm.com.key` as the certificate's private key.
+   - Click **Browse** and select `./pki/private/vpn-server.vpn.ibm.com.key` as the certificate's private key.
    - Click **Browse** and select `./pki/ca.crt` as the intermediate certificate.
    - Optional: Enter a description.
    - Click **Import**.  
