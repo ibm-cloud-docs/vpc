@@ -120,22 +120,6 @@ When you provision virtual server instances, the RAM and instance storage, along
 | Security Groups | 5 per load balancer |
 {: caption="Table 7. Quotas for load balancers" caption-side="top"}
 
-### Distributed network load balancers
-{: #dnlb-quotas}
-
-All quotas as per region.
-{: note}
-
-| Entity                                | Quota | Comment                                                       |
-| ------------------------------------- | ----- | ------------------------------------------------------------- |
-| Number of service DNLBs in an account |  12 | Number of load balancers per account across all VPCs in the account |
-| Number of service DNLBs in a VPC      |  12 | Number of load balancers per account per VPC |
-| Number of listeners in load balancer  |  25 | Number of listeners per load balancer |
-| Number of pools in load balancer      |  25 | Number of pools per load balancer |
-| Number of members in a Pool           | 100 | Number of members per pool |
-| Number of members on vNIC             |  25 | Number of members per vNIC |
-{: caption="Table 8. Quotas for service distributed network load balancers" caption-side="top"}
-
 ### Routing tables and routes
 {: #routing-tables-routes-quotas}
 
@@ -143,7 +127,7 @@ All quotas as per region.
 |--------|-----|
 | Routing tables per VPC | Default limit: 15<br />Maximum limit: 200 |
 | Routes per routing table | Default limit: 100<br />Maximum limit: 400 |
-{: caption="Table 9. Quotas for routing tables and routes" caption-side="top"}
+{: caption="Table 8. Quotas for routing tables and routes" caption-side="top"}
 
 Each route has a destination property, which includes a prefix length (`/24` in `10.2.0.0/24`). The number of unique prefix lengths that are supported per custom routing table is 14. Multiple routes with the same prefix count as only one unique prefix.
 {: note}
@@ -154,7 +138,7 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 |Resource|Quota|
 |--------|-----|
 | Boot and secondary volumes | 300 total VPC volumes per account in a region |
-{: caption="Table 10. Quotas for block storage volumes" caption-side="top"}
+{: caption="Table 9. Quotas for block storage volumes" caption-side="top"}
 
 You can increase this quota by opening a [support case](/docs/vpc?topic=vpc-getting-help). Make sure that you specify which zone that you need more volumes. Use can use the [support form](/docs/get-support?topic=get-support-using-avatar).
 
@@ -169,7 +153,7 @@ If you already have block storage volumes for Classic instances, you are limited
 | Placement groups | 100 placement groups per account in a region |
 | Instances | 12 instances per placement group per region with host_spread placement group strategy. |
 | Instances | 4 instances per placement group per region with power_spread placement group strategy. |
-{: caption="Table 11. Quotas for placement groups" caption-side="top"}
+{: caption="Table 10. Quotas for placement groups" caption-side="top"}
 
 The quotas for placement groups are set and can't be adjusted.
 {: note}
