@@ -48,6 +48,79 @@ To create an IAM service-to-service authorization for your VPN server and certif
 ## Managing VPN server and client certificates
 {: #creating-cert-manager-instance-import}
 
+### Importing a certificate into the certificate manager
+{: #import-certificate}
+
+The following procedure uses [OpenVPN easy-rsa](https://github.com/OpenVPN/easy-rsa) to generate the VPN server and client certificates, and then imports these certificates to the certificate manager. For detailed steps, see the [Easy-RSA 3 Quickstart README](https://github.com/OpenVPN/easy-rsa/blob/master/README.quickstart.md).
+
+1. Clone the Easy-RSA 3 repository into your local folder:
+
+   ```
+   git clone https://github.com/OpenVPN/easy-rsa.git
+   cd easy-rsa/easyrsa3
+   ```
+   {: pre}
+
+1. Create a new PKI and CA:
+
+   ```
+   ./easyrsa init-pki
+   ./easyrsa build-ca nopass
+   ```
+   {: pre}
+
+   Check that the CA certificate is generated at path `./pki/ca.crt`.
+
+1. Generate a VPN server certificate.
+
+   ```
+   ./easyrsa build-server-full vpn-server.vpn.ibm.com nopass
+   ```
+   {: pre}
+
+   Check that the VPN server public key is generated at path `./pki/issued/vpn-server.vpn.ibm.com.crt`, and that the private key is at path `./pki/private/vpn-server.vpn.ibm.com.key`.
+
+1. Generate a VPN client certificate.
+
+   ```
+   ./easyrsa build-client-full client1.vpn.ibm.com nopass
+   ```
+   {: pre}
+
+   Check that the VPN client public key is generated at path `./pki/issued/client1.vpn.ibm.com.crt`, and that the private key is at path `./pki/private/client1.vpn.ibm.com.key`.
+   
+If you need to create more VPN client certificates, repeat step 4.
+
+**Important considerations:**<br />
+
+* In the preceding example, the VPN server and client certificates are signed by the same CA. To use different CAs to sign the client certificate, copy the `easyrsa3` folder into a new path and follow steps 2 and 4.
+* If you already have the VPN server certificate from other CAs. Make sure that the certificate has the Extended key usage: `TLS Web Client Authentication`. You can use the following command to check the certificate information:  `openssl x509 -noout -text -in certificate_file_name` 
+
+To import VPN server certificates into a certificate manager instance, follow these steps:
+
+   Use the Chrome web browser to import the certificates. Only Chrome can support CRT file extensions; Safari and Firefox can only support PEM.
+   {: tip}
+
+1. If you do not have a certificate manager instance already, navigate to the [Certificate Manager page](/catalog/services/certificate-manager){: external}. Then, complete the information and click **Create** to create a new certificate manager instance.
+
+   For more information, see [Ordering certificates](/docs/certificate-manager?topic=certificate-manager-ordering-certificates).
+   {: note}
+   
+1. On the Your certificates page, follow these steps to import the certificate:
+
+   - Provide a certificate name.
+   - Click **Browse** and select `./pki/issued/vpn-server.vpn.ibm.com.crt` as the certificate file.
+   - Click **Browse** and select `./pki/private/vpn-server.vpn.ibm.com.key` as the certificate's private key.
+   - Click **Browse** and select `./pki/ca.crt` as the intermediate certificate.
+   - Optional: Enter a description.
+   - Click **Import**.  
+
+**Important considerations:**<br />
+
+* In this example, the VPN server and client certificates are signed by the same CA, so you need to only upload the VPN server certificate. You must also use the certificate as a VPN server certificate and authenticate the VPN client. If your VPN server and client certificate are signed by different CAs, you must upload them respectively.
+* If you updated the certificate in the certificate manager, the VPN server is not aware of the certificate update. You must re-import the certificate with a different CRN, then update the VPN server with the new certificate CRN.
+* If the certificate is used as VPN server certificate, you must upload the `Certificate file`, `Private key file` and `Intermediate certificate file`. If the certificate is used as the VPN client certificate to authenticate the client, you must upload the `Certificate file` and `Intermediate certificate file`.
+
 ### Ordering a certificate using the certificate manager
 {: #order-certificate}
 
@@ -129,79 +202,6 @@ The ordered certificates are public SSL/TLS certificates and must be used as a V
 
 You have to create your own CA and import the CA certificate into the certificate manager to authenticate your VPN client.
 {: important}
-
-### Importing a certificate into the certificate manager
-{: #import-certificate}
-
-The following procedure uses [OpenVPN easy-rsa](https://github.com/OpenVPN/easy-rsa) to generate the VPN server and client certificates, and then imports these certificates to the certificate manager. For detailed steps, see the [Easy-RSA 3 Quickstart README](https://github.com/OpenVPN/easy-rsa/blob/master/README.quickstart.md).
-
-1. Clone the Easy-RSA 3 repository into your local folder:
-
-   ```
-   git clone https://github.com/OpenVPN/easy-rsa.git
-   cd easy-rsa/easyrsa3
-   ```
-   {: pre}
-
-1. Create a new PKI and CA:
-
-   ```
-   ./easyrsa init-pki
-   ./easyrsa build-ca nopass
-   ```
-   {: pre}
-
-   Check that the CA certificate is generated at path `./pki/ca.crt`.
-
-1. Generate a VPN server certificate.
-
-   ```
-   ./easyrsa build-server-full vpn-server.vpn.ibm.com nopass
-   ```
-   {: pre}
-
-   Check that the VPN server public key is generated at path `./pki/issued/vpn-server.vpn.ibm.com.crt`, and that the private key is at path `./pki/private/vpn-server.vpn.ibm.com.key`.
-
-1. Generate a VPN client certificate.
-
-   ```
-   ./easyrsa build-client-full client1.vpn.ibm.com nopass
-   ```
-   {: pre}
-
-   Check that the VPN client public key is generated at path `./pki/issued/client1.vpn.ibm.com.crt`, and that the private key is at path `./pki/private/client1.vpn.ibm.com.key`.
-   
-If you need to create more VPN client certificates, repeat step 4.
-
-**Important considerations:**<br />
-
-* In the preceding example, the VPN server and client certificates are signed by the same CA. To use different CAs to sign the client certificate, copy the `easyrsa3` folder into a new path and follow steps 2 and 4.
-* If you already have the VPN server certificate from other CAs. Make sure that the certificate has the Extended key usage: `TLS Web Client Authentication`. You can use the following command to check the certificate information:  `openssl x509 -noout -text -in certificate_file_name` 
-
-To import VPN server certificates into a certificate manager instance, follow these steps:
-
-   Use the Chrome web browser to import the certificates. Only Chrome can support CRT file extensions; Safari and Firefox can only support PEM.
-   {: tip}
-
-1. If you do not have a certificate manager instance already, navigate to the [Certificate Manager page](/catalog/services/certificate-manager){: external}. Then, complete the information and click **Create** to create a new certificate manager instance.
-
-   For more information, see [Ordering certificates](/docs/certificate-manager?topic=certificate-manager-ordering-certificates).
-   {: note}
-   
-1. On the Your certificates page, follow these steps to import the certificate:
-
-   - Provide a certificate name.
-   - Click **Browse** and select `./pki/issued/vpn-server.vpn.ibm.com.crt` as the certificate file.
-   - Click **Browse** and select `./pki/private/vpn-server.vpn.ibm.com.key` as the certificate's private key.
-   - Click **Browse** and select `./pki/ca.crt` as the intermediate certificate.
-   - Optional: Enter a description.
-   - Click **Import**.  
-
-**Important considerations:**<br />
-
-* In this example, the VPN server and client certificates are signed by the same CA, so you need to only upload the VPN server certificate. You must also use the certificate as a VPN server certificate and authenticate the VPN client. If your VPN server and client certificate are signed by different CAs, you must upload them respectively.
-* If you updated the certificate in the certificate manager, the VPN server is not aware of the certificate update. You must re-import the certificate with a different CRN, then update the VPN server with the new certificate CRN.
-* If the certificate is used as VPN server certificate, you must upload the `Certificate file`, `Private key file` and `Intermediate certificate file`. If the certificate is used as the VPN client certificate to authenticate the client, you must upload the `Certificate file` and `Intermediate certificate file`.
 
 ### Locating the certificate CRN 
 {: #locating-cert-crn}
