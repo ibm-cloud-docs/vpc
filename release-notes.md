@@ -28,6 +28,11 @@ subcollection: vpc
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
 
+## 07 September 2021
+{: #september-7-2021}
+
+**Instance Bandwidth:** When you provision a virtual server instance, you can now allocate bandwidth between attached volumes and networking. The maximum bandwidth capacity is determined by the instance profile that you select during instance provisioning. For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
+
 ## 01 September 2021
 {: #september-1-2021}
 
