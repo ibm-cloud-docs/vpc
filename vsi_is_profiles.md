@@ -1,7 +1,8 @@
 ---
 copyright:
   years: 2019, 2021
-lastupdated: "2021-09-03"
+
+lastupdated: "2021-09-07"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, generation 2, gen 2
 
@@ -44,6 +45,7 @@ The following profile families are available:
 | [Balanced](#balanced) | Best for midsize databases and common cloud applications with moderate traffic. |
 | [Compute](#compute)  | Best for moderate to high web traffic workloads. Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers. |
 | [Memory](#memory) | Best for memory caching and real-time analytics workloads. Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. |
+| [Very High Memory](#vhmemory) | Very High Memory profiles offer a core to RAM ratio of 1 vCPU to 14 GiB of RAM. This family is optimized for running high-compute-intensity in-memory workloads like SAP BW/4 HANA |
 | [Ultra High Memory](#uhmemory) | Ultra High Memory profiles offer the highest vCPU to memory ratios with 1 vCPU to 28 GiB of RAM to serve in-memory OLTP databases, such as SAP. |
 | [GPU](#gpu) | GPU enabled profiles provide on-demand access to NVIDIA V100 GPUs to accelerate AI,high performance computing, data science and graphics workloads. |
 {: caption="Table 1. Virtual server family selections" caption-side="top"}
@@ -241,6 +243,33 @@ Profiles with 64 or more vCPUs are deployed exclusively on the second-generation
 
 {: #callout-beta}
 
+## Very High Memory
+{: #vhmemory}
+
+Very High Memory profiles offer 1 vCPU to 14 GiB of RAM to server OLAP databases, such as SAP NetWeaver. All Very High Memory profiles are provisioned with temporary SSD-backed [instance storage](/docs/vpc?topic=vpc-instance-storage) at no additional charge.
+
+Very High Memory profiles are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), EU Germany (Frankfurt), and Japan (Tokyo) regions. Additional regions will be added.
+{: note}
+
+{: #callout-note}
+
+### Very High Memory profiles for x86_64 processors
+{: vhmemory-x86-profiles}
+
+The following Very High Memory profiles are available for x86_64 processors:
+
+| Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance storage (GB) |
+|---------|---------|---------|---------|---------|
+| vx2d-2x28 | 2 | 28 | 4 | 1x60 |
+| vx2d-4x56 | 4 | 56 | 8 | 1x120 |
+| vx2d-8x112 | 8 | 112 | 16 | 1x240 |
+| vx2d-16x224| 16 | 224 | 32 | 1x480 |
+| vx2d-44x616 | 44 | 616 | 80 | 1x1320 |
+| vx2d-88x1232 | 88 | 1232 | 80 | 2x1320 |
+| vx2d-72x2016 | 144 | 2016 | 80 | 2x2160 |
+| vx2d-176x2464 | 176 | 2464 | 80 | 2x2640 |
+{: caption="Table 8. Very High Memory profiles options for x86-64 instances" caption-side="top"}
+
 ## Ultra High Memory
 {: #uhmemory}
 
@@ -264,7 +293,7 @@ The following Ultra High Memory profiles are available for x86_64 processors:
 | ux2d-72x2016 | 72 | 2016 | 72 | 2x1080 |
 | ux2d-104x2912 | 104 | 2912 | 80 | 2x1560 |
 | ux2d-200x5600 | 200 | 5600 | 80 | 2x3000 |
-{: caption="Table 6. Ultra High Memory profiles options for x86-64 instances" caption-side="top"}
+{: caption="Table 9. Ultra High Memory profiles options for x86-64 instances" caption-side="top"}
 
 
 

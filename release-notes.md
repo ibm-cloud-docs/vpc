@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-09-01"
+lastupdated: "2021-09-07"
 
 keywords: release notes, changes, updates
 
@@ -30,6 +30,8 @@ Use the release notes to learn about new and changed {{site.data.keyword.vpc_ful
 
 ## 07 September 2021
 {: #september-7-2021}
+
+**New Very High Memory instance profile family (LA):** Very High Memory profiles are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), EU Germany (Frankfurt), and Japan (Tokyo) regions. Very High Memory profiles offer a core to RAM ratio of 1 vCPU to 14 GiB of RAM. This family is optimized for running high-compute-intensity in-memory workloads like SAP BW/4 HANA. For more information, see [Very High Memory profiles](/docs/vpc?topic=vpc-profiles&interface=ui#vhmemory).  
 
 **Instance Bandwidth:** When you provision a virtual server instance, you can now allocate bandwidth between attached volumes and networking. The maximum bandwidth capacity is determined by the instance profile that you select during instance provisioning. For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
 
