@@ -31,9 +31,9 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
-          "date": "26 August 2021",
-          "title": "Adjustable IOPS",
-          "description": "For Block Storage for VPC volumes attached to a virtual server instance, you can increase or decrease IOPS for a volume by specifying a different IOPS tier profile or different IOPS value within a custom IOPS band."
+          "date": "01 September 2021",
+          "title": "New GPU Instance Profile family (Beta)",
+          "description": "GPU profiles are available in a limited, allow-listed beta for all images. The profiles include attached NVIDIA 16 GB PCIe v100 GPUs. Drivers must be installed separately. You can use these instances to accelerate certain processing functions for workloads such as inferencing and machine learning. For more information about this service, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus)."
         },
         {
           "date": "26 August 2021",
@@ -41,9 +41,9 @@
           "description": "Until now, the IBM Cloud VPN for VPC service supported only site-to-site connectivity, which connects your on-premises network to the IBM Cloud VPC network. This Beta adds client-to-site connectivity, which allows users to connect to their IBM Cloud VPC infrastructure through a secure/encrypted connection over the internet."
         },
         {
-          "date": "24 August 2021",
-          "title": "HTTPS redirect listeners",
-          "description": "The HTTPS redirect feature is now available on Application Load Balancer for VPC to redirect traffic from an HTTP load balancer listener to an HTTPS listener. You can configure an HTTPS redirect on either load balancer listeners, load balancer policies, or both."
+          "date": "26 August 2021",
+          "title": "Block storage for VPC",
+          "description": "For Block Storage for VPC volumes attached to a virtual server instance, you can increase or decrease IOPS for a volume by specifying a different IOPS tier profile or different IOPS value withing a custom IOPS band. For more information, see [Adjusting IOPS for block storage volumes](/docs/vpc?topic=vpc-adjusting-volume-iops)."
         }
       ]
     }

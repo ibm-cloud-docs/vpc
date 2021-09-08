@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-31"
+lastupdated: "2021-09-07"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -48,6 +48,21 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 7 September 2021
+{: #7-september-2021}
+
+### For all version dates
+{: #7-september-2021-all-version-dates}
+
+**Instance bandwidth.** New properties have been added to the [create](/apidocs/vpc#create-instance) and [update](/apidocs/vpc#update-instance) instance methods to allow adjustment to the amount of total bandwidth (in megabits per second) allocated exclusively to attached volumes. The range of acceptable volume bandwidth values depends on the selected instance profile. A new `total_volume_bandwidth` property, added to each [instance profile](/apidocs/vpc#list-instance-profiles), provides the range of possible values, and the default value used when creating an instance. An increase in `total_volume_bandwidth` will result in a corresponding decrease to `total_network_bandwidth`.
+
+The volume bandwidth allocated to your existing instances will be unaffected unless:
+- The instance is resized
+- The instance's `total_volume_bandwidth` is lowered
+- The total bandwidth requested by the instance's attached volumes exceeds the amount already requested by its attached volumes
+
+For more information about this feature, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
 
 ## 31 August 2021
 {: #31-august-2021}

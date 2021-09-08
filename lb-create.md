@@ -92,10 +92,25 @@ To create an ALB:
     * **Back-end pool**: The default back-end pool to which this listener forwards traffic.
     * **Max connections** (optional): Maximum number of concurrent connections the listener allows.
     * **SSL certificate**: If HTTPS is the selected protocol for this listener, you must select an SSL certificate. Make sure that the load balancer is authorized to access the SSL certificate.
-    * **HTTPS redirect**: Redirects the traffic from an HTTP listener to an HTTPS listener. This does not require any rules applied on the listener.
 1. Click **Create**.
 1. After you finish creating pools and listeners, click **Create load balancer**.
 1. To view details of an existing load balancer, click the name of your load balancer on the **Load balancers** page.
+1. If you want to redirect the traffic from an HTTP listener to an HTTPS listener, you can create an HTTP listener with HTTPS redirect settings. 
+
+    Layer 7 load balancing policies will overwrite settings that you define here.
+    {: note}
+    
+    To do so:
+    *  There must be an existing HTTPS listener before you create a new HTTP listener with HTTPS redirect.
+    *  After the status of the load balancer changes to **Active**, click the **Front-end listeners** tab.
+    *  In the listener list page, click **Create**, then specify the following information:
+        * **Protocol**: Select your **HTTP** protocol.
+        * **Port**: Choose the listening port on which requests are received.
+        * **Max connections** (optional): Define the maximum number of concurrent connections the listener allows.
+        * **HTTPS redirect**: Click the toggle button to enable the HTTPS redirect configuration, then specify the following HTTPS redirect settings:
+            * **HTTPS listener**: The target HTTPS listener which the current HTTP listener incoming traffic will be redirected to. Note that you will only see a list of HTTPS listeners whose `accept_proxy_proxy` value is the same as the HTTP listener.
+            * **Redirect URI** (optional): The URL to which the request redirects.
+            * **Status code**: The status code of the response returned by the load balancer.
 1. If you want to redirect, forward, or reject particular incoming traffic for an HTTP or HTTPS front-end listener based on certain criteria, configure layer 7 policies.
     *  After the status of the load balancer changes to **Active**, click **Front-end listeners** in the navigation and click the value in the **Policies** column for the listener you created.
     *  On the Policies page, click **Add policy** and specify the following information to create a policy. You can create multiple policies.
@@ -105,13 +120,19 @@ To create an ALB:
         * **Redirect**: The URL to which the request is redirected, if the action is set to **Redirect**.
         * **Status Code**: The status code of the response returned by the load balancer, if the action is set to **Redirect**.
         * **Forward**: The back-end pool of virtual server instances to which the request is forwarded, if the action is set to **Forward to pool**.
+    * On the Policies page, you can also create an HTTPS redirect policy with the following configuration:
+        * **Name**: Enter a name for the policy, such as `my-policy`. The name must be unique within the listener.
+        * **Action**: Select the **Redirect to HTTPS** option
+        * **HTTPS listener**: The target HTTPS listener which the traffic from the current HTTP listener will redirect to. Note that you will only see a list of HTTPS listeners whose `accept_proxy_proxy` value is the same as the HTTP listener.
+        * **Redirect URI** (optional): The URL to which the request redirects.
+        * **Status code**: The status code of the response returned by the load balancer.
     * On the Policies page, click **Add rule** for your policy. If rules exist for the policy, click the value in the **Rules** column to add more rules.
     * In the Rules window, click **Add rule** and specify the following information to create a rule. If you create multiple rules for a policy, the policy is applied only when all its rules are matched.
         * **Condition**: Specifies the condition with which a rule is evaluated.
         * **Type**: The type of information to be evaluated by the rule: the name of the host from which the request originated, an HTTP header field, or a path in the URL.
         * **Value**: The value to be matched.
         * **Key**: The name of the HTTP header field to evaluate, if the rule type is **Header**. For example, to match a cookie in the HTTP header, enter **Cookie** for the key.
-
+  
 ## Creating an application load balancer using the CLI
 {: #lb-cli-creating-network-load-balancer}
 {: cli}

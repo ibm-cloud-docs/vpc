@@ -1,6 +1,7 @@
 ---
 copyright:
   years: 2019, 2021
+
 lastupdated: "2021-09-07"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, generation 2, gen 2
@@ -33,6 +34,9 @@ When you provision {{site.data.keyword.vsi_is_full}}, you can select from four f
 
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, and network bandwidth. The attributes define the size and capabilities of the virtual server instance that is provisioned. In the {{site.data.keyword.Bluemix_notm}} console, you can select the most recently used profile or click **View All Profiles** to choose the profile that best fits your needs.
 {: shortdesc}
+
+GPU enabled profiles are available as a closed beta release. Contact your IBM Sales representative if you are interested in getting access.
+{: beta}
 
 The following profile families are available:
 
@@ -67,7 +71,7 @@ For a cx2-8x16 profile:
 
 The amount of overall bandwidth provided to volume bandwidth can be adjusted within the overall instance limits. A default amount of volume bandwidth is set on each instance profile.
 
-For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-instance-profiles-vpc-bandwidth).
+For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
 
 ## Bandwidth allocation using the API
 {: #bandwidth-allocation-api}
@@ -87,7 +91,7 @@ For a cx2-8x16 profile:
 
 The amount of overall bandwidth provided to volume bandwidth can be adjusted within the overall instance limits. A default amount of volume bandwidth is set on each instance profile.
 
-For more information, see [Using the REST APIs to create VPC resources](https://test.cloud.ibm.com/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis#select-profile-and-image) and [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-instance-profiles-vpc-bandwidth).
+For more information, see [Using the REST APIs to create VPC resources](https://test.cloud.ibm.com/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis#select-profile-and-image) and [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
 
 ## Balanced
 {: #balanced}
@@ -293,7 +297,7 @@ The following Ultra High Memory profiles are available for x86_64 processors:
 
 
 
-## GPU
+## GPU (Beta)
 {: #gpu}
 
 GPU profiles include 1 or 2 NVIDIA V100 PCIe 16GB GPUs. All OS images are supported on the GPU profiles. NVIDIA GPU drivers must be installed separately.
@@ -309,7 +313,7 @@ If you are using GPU profiles, you need to install the NVIDA driver onto your vi
 | gx2-32x256x2v100 | 32 | 256 | 64 | 2 |
 {: caption="Table 10. GPU profile options" caption-side="top"}
 
-If you are using GPU profiles, you might need to install the CUDA toolkit onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus-beta-).
+If you are using GPU profiles, you might need to install the CUDA toolkit onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
 {: tip}
 
 For more information about persistent storage options, see [Storage notes for profiles](#storage-notes-for-profiles).
@@ -406,4 +410,4 @@ After you choose a profile, it's time to create an instance.
 * [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers)
 * [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli)
 * [Creating an instance by using the API](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis#select-profile-and-image)
-* [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus-beta-)
+* [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus)

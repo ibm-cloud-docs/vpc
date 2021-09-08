@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-12"
+lastupdated: "2021-09-07"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
@@ -197,10 +197,10 @@ Make a `PATCH/snapshots` call and specify the snapshot ID and new name of the sn
 ```
 curl -X PATCH \
 "$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2021-02-12&generation=2" \
-     -H "Authorization: Bearer ${API_TOKEN}" \
-     -d $'{
-  "name": "my-snapshop1-renamed"
-}'
+   -H "Authorization: Bearer ${API_TOKEN}" \
+   -d '{
+       "name": "my-snapshop1-renamed"
+   }'
 ```
 {:codeblock}
 
