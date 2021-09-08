@@ -30,20 +30,19 @@
     "section_updates": {
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
+         {
+          "date": "07 September 2021",
+          "title": "New Very High Memory instance profile family (LA)",
+          "description": "Very High Memory profiles are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), EU Germany (Frankfurt), and Japan (Tokyo) regions. Very High Memory profiles offer a core to RAM ratio of 1 vCPU to 14 GiB of RAM. This family is optimized for running high-compute-intensity in-memory workloads like SAP BW/4 HANA. For more information, see [Very High Memory profiles](/docs/vpc?topic=vpc-profiles&interface=ui#vhmemory)."          },
+        {
+          "date": "07 September 2021",
+          "title": "Instance Bandwidth",
+          "description": "When you provision a virtual server instance, you can now allocate bandwidth between attached volumes and networking. The maximum bandwidth capacity is determined by the instance profile that you select during instance provisioning. For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles)."
+        },
         {
           "date": "01 September 2021",
-          "title": "New GPU Instance Profile family (Beta)",
+         "title": "New GPU Instance Profile family (Beta)",
           "description": "GPU profiles are available in a limited, allow-listed beta for all images. The profiles include attached NVIDIA 16 GB PCIe v100 GPUs. Drivers must be installed separately. You can use these instances to accelerate certain processing functions for workloads such as inferencing and machine learning. For more information about this service, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus)."
-        },
-        {
-          "date": "26 August 2021",
-          "title": "Client-to-site VPN servers (Beta)",
-          "description": "Until now, the IBM Cloud VPN for VPC service supported only site-to-site connectivity, which connects your on-premises network to the IBM Cloud VPC network. This Beta adds client-to-site connectivity, which allows users to connect to their IBM Cloud VPC infrastructure through a secure/encrypted connection over the internet."
-        },
-        {
-          "date": "26 August 2021",
-          "title": "Block storage for VPC",
-          "description": "For Block Storage for VPC volumes attached to a virtual server instance, you can increase or decrease IOPS for a volume by specifying a different IOPS tier profile or different IOPS value withing a custom IOPS band. For more information, see [Adjusting IOPS for block storage volumes](/docs/vpc?topic=vpc-adjusting-volume-iops)."
         }
       ]
     }
