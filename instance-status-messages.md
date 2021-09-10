@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-27"
+lastupdated: "2021-09-09"
 
 keywords: instance status message, instance status, VPC error message, error message
 
@@ -128,5 +128,15 @@ If you still need help with the error, contact [support](/docs/vpc?topic=vpc-get
 The virtual server instance is unusable because the encryption key for the boot volume was deleted.
 
 To resolve this error, restore the encryption key and try again. For more information about restoring your encryption key, see [Restoring keys](/docs/key-protect?topic=key-protect-restore-keys&interface=ui).
+
+If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help).
+
+**Error message**: _Instance was stopped because a new image was created_
+
+The virtual server instance was stopped because a new image was created. To address this error, try the following possible resolutions.
+
+* Start the instance again.
+* Stop and restart the instance.
+* Delete the instance and try again.
 
 If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help).
