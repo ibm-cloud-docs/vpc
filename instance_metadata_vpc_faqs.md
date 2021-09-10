@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-26"
+lastupdated: "2021-09-01"
 
 subcollection: vpc
 
@@ -24,7 +24,7 @@ subcollection: vpc
 {: #faqs-for-rmds}
 
 The instance metadata service is available only to accounts with special approval to preview this beta feature.
-{:beta}
+{: beta}
 
 ## What is the instance metadata service?
 {: #faq-rmds-1}
@@ -46,7 +46,7 @@ To use the metadata service, you need an instance identity access token. The ins
 {: #faq-rmds-3}
 {: faq}
 
-The metadata services provides information about your running virtual server instance: instance initialization data, network interface, volume attachment, public SSH key, and placement group information. For a complete list of all information provided, see [Summary of data returned by the metadata service](/docs/vpc?topic=vpc-imd-metadata-summary).
+The metadata service provides information about your running virtual server instance: instance initialization data, network interface, volume attachment, public SSH key, and placement group information. For a complete list of all information provided, see [Summary of data returned by the metadata service](/docs/vpc?topic=vpc-imd-metadata-summary).
 
 ## What is the instance identity token service? 
 {: #faq-rmds-4}
@@ -62,7 +62,7 @@ Make a `GET "http://169.254.169.254/metadata/v1/instance/initialization"` call t
 ## How do I enable the metadata service? Can I later disable it?
 {: #faq-rdms-6}
 
-For Beta, the metadata service is enabled for instances you create on accounts authorized to use the service. You can disable the service by making a `PATCH /instance` call using the VPC API and setting `enabled` parameter to `true`. For information, see [Enable or disable the instance metadata service](/docs/vpc?topic=vpc-imd-configure-service#imd-metadata-service-enable).
+For Beta, the metadata service is enabled for instances you create on accounts authorized to use the service. You can disable the service by making a `PATCH /instance` call using the VPC API and setting `enabled` parameter to `false`. For information, see [Enable or disable the instance metadata service](/docs/vpc?topic=vpc-imd-configure-service#imd-metadata-service-enable).
 
 ## How secure is the metadata service? Are their additional security measures I need to take?
 {: #faq-rdms-7}

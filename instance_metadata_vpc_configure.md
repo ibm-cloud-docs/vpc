@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-26"
+lastupdated: "2021-09-02"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -63,22 +63,22 @@ The example uses `jq` as a parser, a third-party tool licensed under the [MIT li
 {: note}
 
 ```
-access_token=`curl -X PUT "http://169.254.169.254/instance_identity/v1/token?version=2021-08-03" \
-  -H "Metadata-Flavor: IBM" \
+access_token=`curl -X PUT "http://169.254.169.254/instance_identity/v1/token?version=2021-08-31" \
+  -H "Metadata-Flavor: ibm" \
   -H "Accept: application/json" \
   -d '{ \
-        "expires_in": 30 \
+        "expires_in": 3600 \
       }' | jq -r '(.access_token)'`
 ```
 {: codeblock}
 
-The JSON response shows the access token character string, date and time it was created, date and time it expires, and expiration time you set.  Note that the token expires in 30 seconds. For example:
+The JSON response shows the access token character string, date and time it was created, date and time it expires, and expiration time you set.  Note that the token expires in 5 minutes. For example:
 
 ```
 {
-  "access_token": "eyJhbGciOiJIUzI1NiIsInD3cCI6IkpXCVI9...MNx2KPoYj8YibyB1jO4o8",
-  "created_at": "2021-07-30T15:09:45Z",
-  "expires_at": "2021-07-30T15:10:15Z",
+  "access_token": "eyJhbGciOiJSUzI1NiIsIm...SCfuUlecRTq5w",
+  "created_at": "2021-08-27T18:42:11.731Z",
+  "expires_at": "2021-08-27T19:42:11.731Z",
   "expires_in": 3600
 }
 ```
@@ -87,25 +87,39 @@ The JSON response shows the access token character string, date and time it was 
 ## Generate an IAM token from an instance identity access token
 {: #imd-token-exchange}
 
-To access IBM Cloud IAM-enabled services in the account, you can exchange the instance identity access token for an IAM token using trusted profile information. After you exchange the token, you can use it to access IAM-enabled services, such as Cloud Object Storage, Cloud Database Service, as well as the VPC APIs. You can re-use the token multiple times.
+To access IBM Cloud IAM-enabled services in the account, you can generate an IAM token from the instance identity access token using trusted profile information. After you generate the IAM token, you can use it to access IAM-enabled services, such as Cloud Object Storage, Cloud Database Service, as well as the VPC APIs. You can re-use the token multiple times.
 
-You exchange the access token with an IAM token by invoking a `POST` request within the virtual machine. The request specifies the token variable and creates a [trusted profile](/docs/vpc?topic=vpc-imd-trusted-profile-metadata) within IAM. This exchanges the access token with an IAM token linked to the trusted profile.
+You generate the IAM token by invoking a `POST` request within the virtual server instance. The request specifies the token variable and creates a [trusted profile](/docs/vpc?topic=vpc-imd-trusted-profile-metadata) within IAM. This exchanges the access token with an IAM token linked to the trusted profile.
 
-To exchange a token, make a call like this:
+To generate a token, make a call like this:
 
 ```
-curl – X POST \
--H "Content-Type: application/www.form.urlencoded" \
--H "Accept: application/json" \
--d “grant_type=urn.ibm.params.0auth.grant-type:cr-token&cr-token= \
-    {$access_token}&profile_id= \
-    Profile-b12b1517-aadc-48d4-9f6e-ae069a8ad318” \
-    https:iam.cloud.ibm.com.com/identity/token -s \
-    | jq -r
+curl -X POST\
+-H "Content-Type: application/x-www-form-urlencoded"\
+-H "Accept: application/json"\
+-d grant_type=urn:ibm:params:oauth:grant-type:cr-token\
+-d cr_token=${access_token}\
+-d profile_id=<PROFILE_ID>\
+https://iam.cloud.ibm.com/identity/token\
+| jq -r
 ```
 {: codeblock}
 
-The JSON response shows the IAM token. For more information on exchanging tokens, see [Generating an IAM token for a compute resource](/docs/account?topic=account-trusted-profile-iam-token#token-exchange).
+The JSON response shows the IAM token. 
+
+```
+{
+  "access_token": "eyJraWQiOiIyMDIx...D4T4DAgfwddfhSw",
+  "refresh_token": "",
+  "token_type": "Bearer",
+  "expires_in": 3600,
+  "expiration": 1630094087,
+  "scope": "ibm openid"
+}
+```
+{: code_block}
+
+For more information on exchanging tokens, see [Generating an IAM token for a compute resource](/docs/account?topic=account-trusted-profile-iam-token).
 
 ## Create a trusted profile for the instance
 {: #imd-trusted-profile-config}
@@ -125,8 +139,8 @@ For Beta, allow-listed user accounts have the metadata service enabled by defaul
 This example shows enabling the metadata service at instance creation:
 
 ```
-curl -X POST "$vpc_api_endpoint/v1/instances?version=2021-07-30&generation=2" \
--H "Authorization: $iam_token" \
+curl -X POST "$vpc_api_endpoint/v1/instances?version=2021-08-30&generation=2"\
+-H "Authorization: $iam_token"\
 -d '{
   "image": {
     "id": "9aaf3bcb-dcd7-4de7-bb60-24e39ff9d366"
@@ -153,7 +167,7 @@ To enable or disable the service from an existing instance, you'd do the same in
 This example shows disabling the metadata service for an existing instance:
 
 ```
-curl -X PATCH "$vpc_api_endpoint/v1/instances?version=2021-06-28&generation=2" -H "Authorization: $iam_token" 
+curl -X PATCH "$vpc_api_endpoint/v1/instances?version=2021-08-28&generation=2" -H "Authorization: $iam_token" 
 -d '{
   "image": {
     "id": "9aaf3bcb-dcd7-4de7-bb60-24e39ff9d366"
@@ -175,16 +189,7 @@ curl -X PATCH "$vpc_api_endpoint/v1/instances?version=2021-06-28&generation=2" -
 ```
 {: code_block}
 
-The response in the case of a `POST` or `PATCH` call will show the metadata with the appropriate toggle. For example, enabled would show this:
-
-```
-  "metadata_service": {
-    "enabled": true
-  }
-```
-{: code_block}
-
-You can also verify the metadata service setting by making a `GET /instance/{id}` call.
+The response in the case of a `POST` or `PATCH` call will show the metadata with the appropriate toggle. You can also verify the metadata service setting by making a `GET /instance/{id}` call.
 
 If you use instance templates, you can set this value by making a `POST /instance/template` call and set `enabled` to true or false.
 

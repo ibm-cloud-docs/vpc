@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-26"
+lastupdated: "2021-08-31"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -33,7 +33,7 @@ The service is free.
 This service is available only to accounts with special approval to preview this beta feature. 
 {:beta}
 
-There are no backward-compatibility guarantees as a feature progresses through its beta phase, or from the final beta release to its initial GA release. Using beta features could introduce the risk of corrupting resources in your account. IBM strongly recommends that you do not use non-GA-mature features on production accounts.
+There are no backward-compatibility guarantees as features progress through its beta phase, or from the final beta release to its initial GA release. Using beta features could introduce the risk of corrupting resources in your account. IBM strongly recommends that you do not use non-GA-mature features on production accounts.
 {: important}
 
 ## Metadata service concepts
@@ -68,7 +68,7 @@ You can also generate an IAM token from the instance identity access token. This
 
 You [configure the metadata service and enable it](/docs/vpc?topic=vpc-imd-configure-service) on an instance to retrieve data about the instance. Use this information to configure and launch new instances.
 
-Metadata is obtained by calling REST APIs that provide instance-specific information when you make `GET` calls endpoints accessible within a running virtual server instance. For example, 
+Metadata is obtained by calling REST APIs that provide instance-specific information when you make `GET` calls endpoints accessible within a running virtual server instance. For example, you can retrieve metadata about instances, keys, and placement groups by making a call to the following endpoints:
 
 * `http://169.254.169.254/metadata/v1/instance`
 * `http://169.254.169.254/metadata/v1/keys`
@@ -87,13 +87,6 @@ Through IAM, you can also assign access rights to instances by creating a [compu
 
 The metadata service API lets you [retrieve the metadata](/docs/vpc?topic=vpc-imd-get-metadata) from the virtual server instance. This includes _user data_, the same user data available from cloud-init for VPC instances. User data is data you specified when provisioning the instance and is available when provisioning new instances. User data provides valuable data for controlling how the instance is initialized. For example, information to load database software, custom software for worker nodes, or information to make decisions about how to initialize the instance. For more information, see [User data](/docs/vpc?topic=vpc-user-data).
 
-User data is obtained by making a GET call to the metadata service:
-
-```
-user_data=`curl -X GET "http://169.254.169.254/metadata/v1/instance/initialization
-```
-{:pre}
-
 The metadata you access from within the instance is not protected by any encryption method. Any user with access to the instance and metadata service can potentially see the metadata. As a precaution, do not store sensitive data, such as passwords or customer encryption keys, as user data.
 {:note}
 
@@ -108,7 +101,7 @@ You can use the metadata service in two ways:
 
 * Access an instance identity IAM token and call IAM-enabled services
 
-  In this scenario, you create a trusted profile for compute resource identity and assign a virtual server instance access rights for IAM-enabled services. Make a call to create a new instance, configured with the metadata service. Link the instance to a trusted profile. Call the metadata service to get an access token, then exchange the token for an IAM token. IAM-enabled  services can then be called from an instance without having to manage and distribute IAM secrets to the instance. Use this option when you want to call IAM-enabled services as part of instance bootstrapping an instance. For example, you might want to set up a new COS bucket to be used by the instance workload. For more information, see [Using trusted profiles to access instance metadata](/docs/vpc?topic=vpc-imd-trusted-profile-metadata).
+  In this scenario, you create a trusted profile for compute resource identity and assign a virtual server instance access rights for IAM-enabled services. Make a call to create a new instance, configured with the metadata service. Link the instance to a trusted profile. Call the metadata service to get an access token, then exchange the token for an IAM token. IAM-enabled services can then be called from an instance without having to manage and distribute IAM secrets to the instance. Use this option when you want to call IAM-enabled services as part of instance bootstrapping an instance. For example, you might want to set up a new COS bucket to be used by the instance workload. For more information, see [Using a trusted profile to call IAM-enabled services](/docs/vpc?topic=vpc-imd-trusted-profile-metadata).
 
 Figure 1 illustrates these scenarios.
 

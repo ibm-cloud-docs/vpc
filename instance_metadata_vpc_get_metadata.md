@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-23"
+lastupdated: "2021-09-02"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -64,42 +64,43 @@ You're making an unsecured request that is then secured by a proxy. The proxy in
 
 In the example, the return value of the cURL command is the user data, which is extracted by `jq` and placed in the `user_data` evironment variable.
 
-```json
-$ user_data=`curl -X GET "http://169.254.169.254/metadata/v1/instance/initialization?version=2021-08-23" \
-  -H "Accept: application/json" \
-  -H "Authorization: Bearer $access_token"
-  | jq -r '(.user_data)'`
 ```
-{:pre}
+curl -X GET "http://169.254.169.254/metadata/v1/instance/initialization?version=2021-08-23"\
+  -H "Accept: application/json"\
+  -H "Authorization: Bearer $access_token" | jq -r
+```
+{: code_block}
 
 The response lists public SSH keys used at instance initialization and extracts any other user data made available when provisioning the instance. The response includes the SHA256 value which identifies the SSH key.
 
-```json
+```
 {
   "keys": [
     {
       "crn": "crn:[...]",
       "fingerprint": "SHA256:RJ+YWs3rupwGFiJuLqY43tvmdeLOUjcIc9cA6IR8n8E",
       "id": "dadae729-1d81-4a13-966e-f5d92699f103",
-      "name": "my-key-1"
+      "name": "my-key1",
+      "resource_type": "key"
     }
   ],
-  "user_data": "MyCustomUserData"
+  "user_data": "Content-Type: multipart/form-data; boundary=3efa30189c9e0e8ebc24a4decbbf4c2be7b26120c1cdd7cb7bc2ecb0c07c\nMIME-Version: 1.0\n\n--3efa30189c9e0e8ebc24a4decbbf4c2be7b26120c1cdd7cb7bc2ecb0c07c\nContent-Type: text/cloud-config\n\n#cloud-config\ndisable_root: false\nchpasswd:\n  list: |\n    root:genes1s\n  expire: false\nusers:\n- default\n- name: root\n  lock-passwd: false\n  ssh_pwauth: true\n\n--3efa30189c9e0e8ebc24a4decbbf4c2be7b26120c1cdd7cb7bc2ecb0c07c--"
 }
 ```
-{:codeblock}
+{: code_block}
 
 ### Retrieve instance information
 {:imd-retrieve-instance}
 
 Make a `GET "http://169.254.169.254/metadata/v1/instance"` call to retrieve detailed information about the instance. To tailor information for specific instance details, such as network interfaces, see [Additional instance metadata](#imd-additional-inst-metadata).
 
-```json
-user_data=`curl -X GET "http://169.254.169.254/metadata/v1/instance?version=2021-08-23" \
-  -H "Accept:application/json" \
-  -H "Authorization: Bearer $access_token"`
+
 ```
-{:pre}
+curl -X GET "http://169.254.169.254/metadata/v1/instance?version=2021-08-23"\
+  -H "Accept:application/json"\
+  -H "Authorization: Bearer $access_token"
+```
+{: code_block}
 
 The response lists all details for an instance, including network interfaces, compute profile, and volume attachments.
 
@@ -114,7 +115,7 @@ The response lists all details for an instance, including network interfaces, co
       "name": "my-boot-volume"
     }
   },
-  "created_at": "2021-07-26T16:11:57Z",
+  "created_at": "2021-08-26T16:11:57Z",
   "crn": "crn:[...]",
   "disks": [],
   "id": "eb1b7391-2ca2-4ab5-84a8-b92157a633b0",
@@ -210,72 +211,56 @@ For more information about these APIs, including required parameters and example
 ## Retrieve metadata about SSH keys
 {: #imd-retrieve-key-data}
 
-Make a `GET /metadata/v1/keys` call to retrieve information about SSH keys configured for the instance.
-In the example, the return value of the cURL command is a list of SSH keys. The output is parsed by `jq` and placed in the `key_data` environment variable.
+Make a `GET "http://169.254.169.254/metadata/v1/keys"` call to retrieve information about all SSH keys configured for the instance.
+The output is parsed by `jq`.
 
-```json
-key_data=`curl -X GET "http://169.254.169.254/metadata/v1/keys?version=2021-08-23" \
-  -H "Accept:application/json" \
-  -H "Authorization: Bearer $access_token" \
-  --data-urlencode "version=2021-05-25" 
-  | jq -r '(.key_data)'`
 ```
-{:pre}
+curl -X GET "http://169.254.169.254/metadata/v1/keys?version=2021-08-23"\
+  -H "Accept:application/json"\
+  -H "Authorization: Bearer $access_token" | jq -r
+```
+{: code_block}
 
-Example return:
+Example output, showing one SSH key:
 
 ```
 {
-  "first": {
-    "href": "http://169.254.169.254/v1/keys?limit=50"
-  },
   "keys": [
     {
-      "created_at": "2021-07-29T03:48:11.000Z",
-      "crn": "crn:[...]",
-      "fingerprint": "SHA256:RJ+YWs2kupwGFiJuLqY85twmcdLOUcjIc9cA6IR8n8E",
-      "id": "82679077-ac3b-4c10-be16-63e9c21f0f45",
-      "length": 2048,
-      "name": "my-key-1",
+      "created_at": "2021-08-26T16:39:23.000Z",
+      "crn": "crn:v1:staging:public:is:us-south:a/2c91d5e9ecee442189fb07cd7a8776c4::key:r134-44e5e06b-9450-4f5f-a9be-96feebf770d8",
+      "fingerprint": "SHA256:lZmocJFsWfJcIl8Jdp8r6Ak8gzMqxrFb9UtwWCk27CM",
+      "id": "r134-44e5e06b-9450-4f5f-a9be-96feebf770d8",
+      "length": 4096,
+      "name": "my-key1",
       "public_key": "ssh-rsa AAAAB...n",
-      "type": "rsa"
-    },
-    {
-      "created_at": "2021-07-21T01:28:11.000Z",
-      "crn": "crn:[...]",
-      "fingerprint": "SHA256:XgUFJWiZbPehHNl706+mJbZdPDmSJh8G2ycvCYR2t5U",
-      "id": "a9f3ae27-4769-43e3-b5a3-a2856fbad468",
-      "length": 2048,
-      "name": "my-key-2",
-      "public_key": "ssh-rsa BBBBC...n",
+      "resource_type": "key",
       "type": "rsa"
     }
-  ],
-  "limit": 50,
-  "total_count": 2
+  ]
 }
 ```
-{:codeblock}
+{: code_block}
 
-You can also specify details for a single API key used by the instance by making a `GET /metadata/v1/keys/{id}` call and providing the SSH key ID.
+If you have more than one SSH key, you can make a `GET "http://169.254.169.254/metadata/v1/keys/{id}"` call and provide the SSH key ID.
 
 ## Retrieve metadata about placement groups
 {: #imd-retrieve-pg-data}
 
-Make a `GET /metadata/v1/placement_groups` call to retrieve information about placement groups configured for the instance. In the example, the return value of the cURL command is a list of placement groups, beginning with the first and up to 50. The output is parsed by `jq` and placed in the `placement_group` environment variable. 
+Make a `GET "http://169.254.169.254/metadata/v1/placement_groups"` call to retrieve information about placement groups configured for the instance. In the example, the return value of the cURL command is a list of placement groups, beginning with the first and up to 50. The output is parsed by `jq`. 
 
 ```json
-placement_groups=`curl -X GET "http://169.254.169.254/metadata/v1/placement_groups?version=2021-08-23" \
-  -H "Accept:application/json" \
-  -H "Authorization: Bearer $access_token" \
-  --data-urlencode "version=2021-05-25" \
+curl -X GET "http://169.254.169.254/metadata/v1/placement_groups?version=2021-08-23"\
+  -H "Accept:application/json"\
+  -H "Authorization: Bearer $access_token"\
+  --data-urlencode "version=2021-08-05"\
   -d '{ 
       "start": "first",
       "limit": 50 
   }'
-  | jq -r '(.placement_groups)'`
+  | jq -r
 ```
-{:pre}
+{: code_block}
 
 Example return:
 
@@ -287,7 +272,7 @@ Example return:
   "limit": 50,
   "placement_groups": [
     {
-      "created_at": "2021-07-29T19:55:00Z",
+      "created_at": "2021-08-29T19:55:00Z",
       "crn": "crn:[...]",
       "id": "r018-418fe842-a3e9-47b9-a938-1aa5bd632871",
       "lifecycle_state": "stable",
@@ -301,7 +286,7 @@ Example return:
 ```
 {:codeblock}
 
-You can also specify details for a single placement group used by the instance by making a `GET /metadata/v1/placement_groups/{id}` call and providing the placement group ID.
+You can also specify details for a single placement group used by the instance by making a `GET "http://169.254.169.254/metadata/v1/placement_groups/{id}"` call and providing the placement group ID.
 
 ## Next steps
 {: #imd-next-steps-md}
