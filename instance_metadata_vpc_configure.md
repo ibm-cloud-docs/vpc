@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-09-10"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -63,14 +63,14 @@ The example uses `jq` as a parser, a third-party tool licensed under the [MIT li
 {: note}
 
 ```
-access_token=`curl -X PUT "http://169.254.169.254/instance_identity/v1/token?version=2021-08-31" \
-  -H "Metadata-Flavor: ibm" \
-  -H "Accept: application/json" \
-  -d '{ \
-        "expires_in": 3600 \
+access_token=`curl -X PUT "http://169.254.169.254/instance_identity/v1/token?version=2021-09-10"\
+  -H "Metadata-Flavor: ibm"\
+  -H "Accept: application/json"\
+  -d '{
+        "expires_in": 3600
       }' | jq -r '(.access_token)'`
 ```
-{: codeblock}
+{: pre}
 
 The JSON response shows the access token character string, date and time it was created, date and time it expires, and expiration time you set.  Note that the token expires in 5 minutes. For example:
 
@@ -95,13 +95,13 @@ To generate a token, make a call like this:
 
 ```
 curl -X POST\
--H "Content-Type: application/x-www-form-urlencoded"\
--H "Accept: application/json"\
--d grant_type=urn:ibm:params:oauth:grant-type:cr-token\
--d cr_token=${access_token}\
--d profile_id=<PROFILE_ID>\
-https://iam.cloud.ibm.com/identity/token\
-| jq -r
+    -H "Content-Type: application/x-www-form-urlencoded"\
+    -H "Accept: application/json"\
+    -d grant_type=urn:ibm:params:oauth:grant-type:cr-token\
+    -d cr_token=${access_token}\
+    -d profile_id=<PROFILE_ID>\
+    https://iam.cloud.ibm.com/identity/token\
+    | jq -r
 ```
 {: codeblock}
 
@@ -142,23 +142,22 @@ This example shows enabling the metadata service at instance creation:
 curl -X POST "$vpc_api_endpoint/v1/instances?version=2021-08-30&generation=2"\
 -H "Authorization: $iam_token"\
 -d '{
-  "image": {
-    "id": "9aaf3bcb-dcd7-4de7-bb60-24e39ff9d366"
-  },
-  "keys": [
-    {
-      "id": "363f6d70-0000-0001-0000-00000013b96c"
-    }
-  ],
-  "name": "my-instance",
-  "metadata_service": {
-    "enabled": true
-    }
-  },
-  .
-  .
-  .
-}
+      "image": {
+         "id": "9aaf3bcb-dcd7-4de7-bb60-24e39ff9d366"
+      },
+      "keys": [
+         {
+           "id": "363f6d70-0000-0001-0000-00000013b96c"
+         }
+      ],
+      "name": "my-instance",
+      "metadata_service": {
+         "enabled": true
+      },
+      .
+      .
+      .
+   }'
 ```
 {: code_block}
 
@@ -167,25 +166,25 @@ To enable or disable the service from an existing instance, you'd do the same in
 This example shows disabling the metadata service for an existing instance:
 
 ```
-curl -X PATCH "$vpc_api_endpoint/v1/instances?version=2021-08-28&generation=2" -H "Authorization: $iam_token" 
--d '{
-  "image": {
-    "id": "9aaf3bcb-dcd7-4de7-bb60-24e39ff9d366"
-  },
-  "keys": [
-    {
-      "id": "363f6d70-0000-0001-0000-00000013b96c"
-    }
-  ],
-  "name": "my-instance",
-  "metadata_service": {
-    "enabled": false
-    }
-  },
-  .
-  .
-  .
-}
+curl -X PATCH "$vpc_api_endpoint/v1/instances?version=2021-09-10&generation=2"\
+    -H "Authorization: $iam_token"\ 
+    -d '{
+          "image": {
+             "id": "9aaf3bcb-dcd7-4de7-bb60-24e39ff9d366"
+          },
+          "keys": [
+            {
+              "id": "363f6d70-0000-0001-0000-00000013b96c"
+            }
+          ],
+          "name": "my-instance",
+          "metadata_service": {
+            "enabled": false
+          },
+          .
+          .
+          .
+      }'
 ```
 {: code_block}
 

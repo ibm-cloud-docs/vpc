@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-31"
+lastupdated: "2021-09-10"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -28,7 +28,7 @@ subcollection: vpc
 {: #imd-trusted-profile-metadata} 
 
 You can create a trusted profile for compute resource identities in IAM and then assign a virtual server instance access rights for IAM-enabled services. These services can be called from an instance without having to manage and distribute IAM secrets to the instance. Use this option when you want to call IAM-enabled services as part of instance initialization.
-{:shortdesc}
+{: shortdesc}
 
 This service is available only to accounts with special approval to preview this beta feature.
 {: beta}

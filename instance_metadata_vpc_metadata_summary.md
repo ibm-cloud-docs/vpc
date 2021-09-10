@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-01"
+lastupdated: "2021-09-10"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -32,7 +32,7 @@ Using the instance metadata service, you can access information about the instan
 The API response for each metadata type is presented in JSON format containing metadata key:value pairs.
 
 This service is available only to accounts with special approval to preview this beta feature.
-{:beta}
+{: beta}
 
 ## Summary of metadata for instances
 {: #imd-instance-summary}

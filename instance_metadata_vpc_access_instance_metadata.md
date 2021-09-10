@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-09-10"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -71,7 +71,7 @@ Table 1 describes the steps involved to access instance metadata. The informatio
    ```
    ibmcloud is security-group-rules {id}
    ```
-   {: code_block}
+   {: pre}
 
 4.	SSH to get a connection into the virtual server to issue the APIs for the metadata service.
 
@@ -80,38 +80,38 @@ Table 1 describes the steps involved to access instance metadata. The informatio
 6.	Make a call to the metadata token service to retrieve an access token.  Specify how long the token is valid, for example 3600 seconds (1hour). In this example, the command is run through the `jq` parser to format the JSON response. You can choose the parser that you prefer.
 
    ```
-   access_token=`curl -X PUT "http://169.254.169.254/instance_identity/v1/token?version=2021-08-31"\
+   access_token=`curl -X PUT "http://169.254.169.254/instance_identity/v1/token?version=2021-09-10"\
      -H "Metadata-Flavor: ibm"\
      -H "Accept: application/json"\
      -d '{ 
            "expires_in": 3600 
          }' | jq -r '(.access_token)'`
    ```
-   {: codeblock}
+   {: pre}
 
    The response is the access token payload. 
 
 7. You can now make a call to the metadata service. The first call is to initialization information:
 
    ```
-   curl -X GET "http://169.254.169.254/metadata/v1/instance/initialization?version=2021-08-29"\
+   curl -X GET "http://169.254.169.254/metadata/v1/instance/initialization?version=2021-09-10"\
       -H "Accept: application/json"\
       -H "Authorization: Bearer $access_token"
       | jq -r
    ```
-   {: codeblock}
+   {: pre}
 
    Information in the response shows the SSH key and user data specified when the virtual server was provisioned. If you configured passwords, that information is also returned.
 
 8.	Access metadata about the instance, such as volume attachments, dedicated hosts, memory, vCPUs, and so on.
 
    ```
-   curl -X GET "http://169.254.169.254/metadata/v1/instance?version=2021-08-23"\
+   curl -X GET "http://169.254.169.254/metadata/v1/instance?version=2021-09-10"\
       -H "Accept: application/json"\
       -H "Authorization: Bearer $access_token"\
       | jq -r
    ```
-   {: code_block}
+   {: pre}
 
 9. Continue by making calls for other metadata for the instance, SSH keys, and placement groups by issuing REST APIs all within the instance. For more information, see [Use the instance metadata service](/docs/vpc?topic=vpc-imd-get-metadata).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-09-10"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -65,11 +65,11 @@ You're making an unsecured request that is then secured by a proxy. The proxy in
 In the example, the return value of the cURL command is the user data, which is extracted by `jq` and placed in the `user_data` evironment variable.
 
 ```
-curl -X GET "http://169.254.169.254/metadata/v1/instance/initialization?version=2021-08-23"\
+curl -X GET "http://169.254.169.254/metadata/v1/instance/initialization?version=2021-09-10"\
   -H "Accept: application/json"\
   -H "Authorization: Bearer $access_token" | jq -r
 ```
-{: code_block}
+{: pre}
 
 The response lists public SSH keys used at instance initialization and extracts any other user data made available when provisioning the instance. The response includes the SHA256 value which identifies the SSH key.
 
@@ -96,11 +96,11 @@ Make a `GET "http://169.254.169.254/metadata/v1/instance"` call to retrieve deta
 
 
 ```
-curl -X GET "http://169.254.169.254/metadata/v1/instance?version=2021-08-23"\
+curl -X GET "http://169.254.169.254/metadata/v1/instance?version=2021-09-10"\
   -H "Accept:application/json"\
   -H "Authorization: Bearer $access_token"
 ```
-{: code_block}
+{: pre}
 
 The response lists all details for an instance, including network interfaces, compute profile, and volume attachments.
 
@@ -215,11 +215,11 @@ Make a `GET "http://169.254.169.254/metadata/v1/keys"` call to retrieve informat
 The output is parsed by `jq`.
 
 ```
-curl -X GET "http://169.254.169.254/metadata/v1/keys?version=2021-08-23"\
+curl -X GET "http://169.254.169.254/metadata/v1/keys?version=2021-09-10"\
   -H "Accept:application/json"\
   -H "Authorization: Bearer $access_token" | jq -r
 ```
-{: code_block}
+{: pre}
 
 Example output, showing one SSH key:
 
@@ -249,16 +249,15 @@ If you have more than one SSH key, you can make a `GET "http://169.254.169.254/m
 
 Make a `GET "http://169.254.169.254/metadata/v1/placement_groups"` call to retrieve information about placement groups configured for the instance. In the example, the return value of the cURL command is a list of placement groups, beginning with the first and up to 50. The output is parsed by `jq`. 
 
-```json
-curl -X GET "http://169.254.169.254/metadata/v1/placement_groups?version=2021-08-23"\
+```
+curl -X GET "http://169.254.169.254/metadata/v1/placement_groups?version=2021-09-10"\
   -H "Accept:application/json"\
   -H "Authorization: Bearer $access_token"\
-  --data-urlencode "version=2021-08-05"\
+  --data-urlencode "version=2021-09-10"\
   -d '{ 
-      "start": "first",
-      "limit": 50 
-  }'
-  | jq -r
+        "start": "first",
+        "limit": 50 
+     }' | jq -r
 ```
 {: code_block}
 
@@ -272,7 +271,7 @@ Example return:
   "limit": 50,
   "placement_groups": [
     {
-      "created_at": "2021-08-29T19:55:00Z",
+      "created_at": "2021-09-10T19:55:00Z",
       "crn": "crn:[...]",
       "id": "r018-418fe842-a3e9-47b9-a938-1aa5bd632871",
       "lifecycle_state": "stable",
@@ -291,5 +290,5 @@ You can also specify details for a single placement group used by the instance b
 ## Next steps
 {: #imd-next-steps-md}
 
-* [Access metadata from a running instance](/docs/vpc?topic=vpc-imd-access-instance-metadata) and use it to bootstrap new instances
+* [Access metadata from a running instance](/docs/vpc?topic=vpc-imd-access-instance-metadata) and use it to bootstrap new instances.
 * [Create and use a trusted profile](/docs/vpc?topic=vpc-imd-trusted-profile-metadata) to access IAM-enabled services.

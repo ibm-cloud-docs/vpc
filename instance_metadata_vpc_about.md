@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-31"
+lastupdated: "2021-09-10"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -31,7 +31,7 @@ The service is free.
 {:shortdesc}
 
 This service is available only to accounts with special approval to preview this beta feature. 
-{:beta}
+{: beta}
 
 There are no backward-compatibility guarantees as features progress through its beta phase, or from the final beta release to its initial GA release. Using beta features could introduce the risk of corrupting resources in your account. IBM strongly recommends that you do not use non-GA-mature features on production accounts.
 {: important}

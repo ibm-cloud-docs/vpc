@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-19"
+lastupdated: "2021-09-10"
 
 keywords: metadata service, security, virtual server instance, instance
 
@@ -31,6 +31,7 @@ IBM takes data security seriously and recommends you follow these best practices
 {: shortdesc}
 
 ## Overview
+{: #imd-sec-overview}
 
 This topic describes how to configure security safeguards to protect your metadata by:
 
@@ -55,29 +56,27 @@ $ sudo iptables --append OUTPUT --proto tcp --destination 169.254.169.254 --matc
 ```
 {: codeblock}
 
-This endpoint is accessible to all commands, processes, and software applications running within a virtual server instance. Access to the API endpoint is not available outside the virtual server instance. This step adds another level of security.
-{: note}
+ This endpoint is accessible to all commands, processes, and software applications running within a virtual server instance. Access to the API endpoint is not available outside the virtual server instance. This step adds another level of security.
+ {: note}
 
-Another alternative is to use allow rules to define access to particular users or groups. Allow rules require you to make a decision about what software needs access to instance metadata. By defining rules, you can prevent software applications from accidentally accessing the metadata service if you later change the configuration to prevent access to those applications.
+Another alternative is to use allow rules to define access to particular users or groups. Allow rules require you to make a decision about what software needs access to instance metadata. By defining rules, you can prevent software can accidentally the metadata service if you later change the software or configuration on the instance. 
 
 You can also define group usage of the allow rules. Add and remove users from a permitted goup without changing the firewall rule. 
 
 This example prevents access to the instance metadata service by all processes, except for processes running in the user account `trustworthy-user`:
 
 ```
-$ sudo iptables --append OUTPUT --proto tcp --destination 169.254.169.254 --match owner ! --uid-owner trustworthy-user --jump REJECT
+sudo iptables --append OUTPUT --proto tcp --destination 169.254.169.254 --match owner ! --uid-owner trustworthy-user --jump REJECT
 ```
-{: codeblock}
+{: pre}
 
 ## Limit trusted profiles for compute resource identities
-{: #imd-limit-trusted-profiles}
 
 Limit trusted profiles you create for compute resource identities. Optionally, don't assign a compute resource identity to an instance. 
 
 When you [remove trusted profiles](/docs/account?topic=account-trusted-profile-remove), compute resources and federated users are unlinked from the profile and can no longer apply the trusted profile identity.
 
 You can also update existing trusted profiles by redefining the trust relationship, assigning access policies, and updating session limits, For more information, see [Updating trusted profiles](/docs/account?topic=account-trusted-profile-update).
-
 
 ## Additional network security measures
 {: #imd-network-security}
