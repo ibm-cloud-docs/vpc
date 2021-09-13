@@ -25,7 +25,7 @@ subcollection: vpc
 # Managing virtual server instances
 {: #managing-virtual-server-instances}
 
-Manage your {{site.data.keyword.vsi_is_full}} instances by perfoming tasks such as start, stop, restart, and delete virtual server instances.
+Manage your {{site.data.keyword.vsi_is_full}} instances by performing tasks such as start, stop, restart, and delete virtual server instances.
 {: shortdesc}
 
 ## Managing virtual server instances using the UI
