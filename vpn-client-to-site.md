@@ -35,7 +35,7 @@ Highlights include:
 * TLS1.2/1.3-based secure/encrypted connectivity over the internet
 * Supports both stand-alone (pilot) and high availability (production) deployments
 * Privately interconnect Classic IaaS and VPCs on IBM Public Cloud
-* Availability in all [MZRs world wide](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region) except `br-sao`
+* Availability in all [MZRs world wide](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region)
 * High availability spanning across zones, providing better performance and resiliency
 * Provides added layers of security with integrated authentication methods
 
