@@ -1,8 +1,7 @@
 ---
 copyright:
   years: 2021
-
-lastupdated: "2021-08-17"
+lastupdated: "2021-09-14"
 
 keywords: virtual private cloud, private cloud network, placement group, placement group strategy, host spread, power spread, generation 2, gen 2
 
@@ -14,7 +13,9 @@ subcollection: vpc
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:new_window: target="_blank"}
+{:codeblock: .codeblock}
 {:pre: .pre}
+{:screen: .screen}
 {:tip: .tip}
 {:note: .note}
 {:beta: .beta}
@@ -25,16 +26,17 @@ subcollection: vpc
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
+{:terraform: .ph data-hd-interface='terraform'}
 
-# Managing placement groups 
+# Managing placement groups
 {: #managing-placement-group}
 
 With placement groups for {{site.data.keyword.vpc_full}}, you can create policies for managing high availability workloads. You can specify a choice of placement policies for a group of provisioned instances. You can use these policies to influence the physical placement of select VPC virtual servers to meet certain workload demands. 
-{:shortdesc}
+{: shortdesc}
 
 After the placement group is created, you can assign a selected virtual server instance or a group of virtual server instances to the placement group. When you provision these instances, the instance is then placed on a computer host in the designated zone for the instance based on the placement group strategy. You can use the same placement group for instances across multiple VPCs.
 
-Placement groups can be managed with the UI, CLI, or API. You can create extra placement groups, delete resources, and display the details of the placement groups, which are helpful when you assign placement groups to instances. Additionally, all existing placement groups can be listed and renamed if needed.
+Placement groups can be managed with the UI, CLI, API, or Terraform. You can create extra placement groups, delete resources, and display the details of the placement groups, which are helpful when you assign placement groups to instances. Additionally, all existing placement groups can be listed and renamed if needed.
 
 ## Managing the placement group with the UI
 {: #managing-placement-groups-UI}
@@ -106,7 +108,7 @@ Gather the following required information:
 | **Name** | The placement group name |
 | **Resource group ID** | The ID of the resource group |
 | **Resource group name** | The name of the resource group |
-{: caption="Table 3. Information that is required to create a placement group using the CLI" caption-side="top"}
+{: caption="Table 3. Information required to create a placement group using the CLI" caption-side="top"}
 
 ## Creating the placement group with the CLI
 {: #creating-placement-group-cli-a}
@@ -121,11 +123,13 @@ The following example creates a placement group with a host spread strategy, nam
 ```
 ibmcloud is placement-group-create --strategy host_spread --name MyPlacementGroup --resource-group-id RESOURCE_GROUP_ID --resource-group-name RESOURCE_GROUP_NAME
 ```
-{: pre}
+{: codeblock}
 
 ## Creating a placement group with the API
 {: #creating-placement-group-API}
 {: api}
+
+You can create a placement group in your {{site.data.keyword.vpc_short}} by using the API.
 
 A placement group must be created first before an instance can use it. After a placement group is created, an instance can be attached to it during provisioning.
 
@@ -137,9 +141,37 @@ curl -X POST "$vpc_api_endpoint/v1/placement_groups?version=2021-04-20&generatio
       "strategy": "host_spread"
     }'
 ```
-{: codeblock}
+{: codeblock} 
 
-For more information about the `host_spread` and `power_spread` strategy variables, see [Create a placement group](https://test.cloud.ibm.com/apidocs/vpc-scoped#create-placement-group) in the Virtual Private Cloud API documentation.
+For more information on the `host_spread` and `power_spread` strategy variables, see [Create a placement group](https://test.cloud.ibm.com/apidocs/vpc-scoped#create-placement-group) in the Virtual Private Cloud API documentation.
+
+## Creating the placement group with Terraform
+{: #creating-placement-group-terraform}
+{: terraform}
+
+You can create a placement group in your {{site.data.keyword.vpc_short}} by using Terraform.
+
+A placement group must be created first before an instance can use it. After a placement group is created, an instance can be attached to it during provisioning.
+
+### Before you begin
+{: before-you-create-placement-group-terraform}
+{: terraform}
+
+Make sure that you set up [Terraform for VPC](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest). 
+
+The following example creates a placement group with a host spread strategy, named `my-placement-group`, and a resource group name of `data.ibm_resource_group.default.id`. 
+
+```
+resource "ibm_is_placement_group" "is_placement_group" {
+  strategy = "host_spread"
+  name = "my-placement-group"
+  resource_group = data.ibm_resource_group.default.id 
+}
+```
+{: codeblock} 
+
+For more information on the `host_spread` and `power_spread` strategy variables, see [Create a placement group](https://test.cloud.ibm.com/apidocs/vpc-scoped#create-placement-group) in the Virtual Private Cloud API documentation.
+
 
 ## Changing the placement group name with the UI
 {: #changing-placement-group-name-ui}
@@ -177,6 +209,23 @@ You can update the name of a placement group in your {{site.data.keyword.vpc_sho
 curl -X PATCH "$vpc_api_endpoint/v1/placement_groups/$id?version=2021-05-04&generation=2" -H "Authorization: $iam_token" -d '{
       "name": "my-updated-placement-group",
     }'
+```
+{: pre}  
+
+## Changing the placement group name with Terraform
+{: #changing-placement-group-name-terraform}
+{: terraform}
+
+You can update the name of a placement group in your {{site.data.keyword.vpc_short}} by using Terraform.
+
+The following example updates the placement group with the ID `is_placement_group` to the name of `my-placement-group-modified`.
+
+```
+resource "ibm_is_placement_group" "is_placement_group" {
+  strategy = "host_spread"
+  name = "my-placement-group-modified"
+  resource_group = data.ibm_resource_group.default.id
+}
 ```
 {: codeblock}
 
@@ -217,6 +266,19 @@ The following example deletes the placement group.
 ```sh
 curl -X DELETE "$vpc_api_endpoint/v1/placement_groups/$id?version=2021-04-20&generation=2" -H "Authorization: $iam_token"
 ```
+{: pre} 
+
+## Deleting a placement group with Terraform
+{: #deleting-placement-group-terraform}
+{: terraform}
+
+You can delete a placement group in your {{site.data.keyword.vpc_short}} by using Terraform. A placement group can't be deleted if instances are attached to it. All instances must be removed first. For more information about deleting a virtual private cloud instance and its associated resources, see [Deleting a VPC](/docs/vpc?topic=vpc-deleting). 
+
+The following example deletes a placement group named `PLACEMENT_GROUP`.
+
+```
+terraform destroy -target=ibm_is_placement_group.is_placement_group
+```
 {: pre}
 
 ## Listing all placement groups with the UI
@@ -253,7 +315,21 @@ You can generate a list of placement groups for a region. The following example 
  ```sh
  curl -X GET "$vpc_api_endpoint/v1/placement_groups?version=2021-04-20&generation=2" -H "Authorization: $iam_token"
  ```
- {: pre}
+{: pre} 
+
+## Listing all placement groups with Terraform
+{: #listing-placement-group-terraform}
+{: terraform}
+
+You can generate a list of placement groups for a region. You can list all the existing placement groups in your {{site.data.keyword.vpc_short}} by using Terraform.
+
+The following example lists all the existing placement groups.
+
+```
+data "ibm_is_placement_groups" "is_placement_groups" {
+}
+```
+{: pre}
 
 ## Viewing placement group details with the UI
 {: #view-placement-group-details-UI}
@@ -295,4 +371,24 @@ The following example retrieves a single placement group that is specified by th
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/placement_groups/$id?version=2021-04-20&generation=2" -H "Authorization: $iam_token"
 ```
+{: pre} 
+
+## Viewing placement group details with Terraform
+{: #view-placement-group-details-terraform}
+{: terraform}
+
+You can view details about a placement group, such as the placement group name, assigned resource group, placement group ID, location, date placement group was created, and the specified placement group strategy.
+
+You can retrieve the details a placement group in your {{site.data.keyword.vpc_short}} by using Terraform.
+
+The following example retrieves details for a single placement group with an ID of `ibm_is_placement_group.is_placement_group.name`.
+
+```
+data "ibm_is_placement_group" "d_is_placement_group" {
+  name = ibm_is_placement_group.is_placement_group.name
+}
+```
 {: pre}
+
+
+    
