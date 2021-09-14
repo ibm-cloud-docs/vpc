@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2020
-lastupdated: "2020-12-22"
+lastupdated: "2021-09-13"
 
 keywords: block storage, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, planning, best practices
 
@@ -35,10 +35,10 @@ Consider the following prerequisites before you set up data encryption for your 
 |        Considerations|
 |-------------------|
 |__ Evaluate the amount of control you want over your data encryption. [IBM-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-provider-managed-encryption) is provided by default for boot and data volumes.  [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption) lets you control access to your data. |
-|__ Evaluate whether a combination of IBM-managed encrypted volumes and customer-managed encrypted volumes meets your needs.  |
 |__ For encrypted custom images, review the image requirements, supported operating systems, and learn about creating and importing QCOW2 custom image files. For additional planning tips for custom images, see [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images). |
 |__ Choose the UI, CLI, or API for provisioning customer-managed encryption. |
-|__ Evaluate which [key management service](#byok-encryption-prereqs) best meets your needs. Determine the availability of these services in your region and zone. | 
+|__ Evaluate which [key management service](#byok-encryption-prereqs) best meets your needs. Determine the availability of these services in your region and zone. |
+|__ When setting up authorization to the KMS, determine whether your account allows lets you authorize **Cloud Block Storage** as the [source service](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-volumes-prereqs). Lite accounts must upgrade to a Pay-As-You-Go account. For more information, see [Upgrading to a Pay-As-You-Go account](/docs/account?topic=account-upgrading-account#upgrade-paygo).
 |__ For customer-managed encryption, consider importing or creating multiple root keys and [rotating your keys](/docs/vpc?topic=vpc-vpc-key-rotation) for greater security. |
 |__ If you're provisioning an instance with encrypted volumes, make sure that you [created a VPC](/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc). |
 |__ Decide how many secondary volumes you require and how many will use customer-managed encryption. |
@@ -73,6 +73,9 @@ The following steps are specific to {{site.data.keyword.keymanagementserviceshor
    {: tip}
    
 3. From IBM {{site.data.keyword.iamshort}} (IAM), [authorize access](/docs/account?topic=account-serviceauth#serviceauth) between **Cloud Block Storage** (source service) and **{{site.data.keyword.keymanagementserviceshort}}** (target service) for volumes. Specify _reader_ access for the role.
+
+    You might need to upgrade your account to a Pay-as-you-go account to complete this set. For more information, see[Upgrading to a Pay-As-You-Go account](/docs/account?topic=account-upgrading-account#upgrade-paygo).
+    {: tip}
 
 ### Encrypted custom image prerequisites
 {: #byok-custom-images-prereqs}
