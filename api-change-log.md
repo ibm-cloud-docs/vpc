@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-09-07"
+lastupdated: "2021-09-14"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -58,7 +58,6 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 **Instance bandwidth.** New properties have been added to the [create](/apidocs/vpc#create-instance) and [update](/apidocs/vpc#update-instance) instance methods to allow adjustment to the amount of total bandwidth (in megabits per second) allocated exclusively to attached volumes. The range of acceptable volume bandwidth values depends on the selected instance profile. A new `total_volume_bandwidth` property, added to each [instance profile](/apidocs/vpc#list-instance-profiles), provides the range of possible values, and the default value used when creating an instance. An increase in `total_volume_bandwidth` will result in a corresponding decrease to `total_network_bandwidth`.
 
 The volume bandwidth allocated to your existing instances will be unaffected unless:
-- The instance is resized
 - The instance's `total_volume_bandwidth` is lowered
 - The total bandwidth requested by the instance's attached volumes exceeds the amount already requested by its attached volumes
 
