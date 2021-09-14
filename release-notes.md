@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-09-07"
+lastupdated: "2021-09-14"
 
 keywords: release notes, changes, updates
 
@@ -27,6 +27,11 @@ subcollection: vpc
 
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
+
+## 14 September 2021
+{: #september-14-2021}
+
+**Terraform available for Placement Groups:** You can now create and manage placement groups in your {{site.data.keyword.vpc_short}} by using Terraform. See [Managing placement groups](/docs/vpc?topic=vpc-managing-placement-group&interface=terraform).  
 
 ## 07 September 2021
 {: #september-7-2021}
