@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-20"
+lastupdated: "2021-09-14"
 
-keywords: bare metal servers, profile, baremetal profile
+keywords: bare metal server profile, profile, bare metal profiles, viewing profile, view profiles
 
 subcollection: vpc
 
@@ -27,12 +27,16 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Bare Metal Servers for VPC (beta) profiles
+# Bare Metal Servers for VPC (Beta) profiles 
 {: #bare-metal-servers-profile}
 
-When you create a bare metal server, you can select a profile based on your specific need. Each profile provides a different combination of hardware configurations that include number of vCPU, amount of RAM, and size of local storage. 
+Bare metal servers on VPC is a Beta feature that requires special approval. Contact your IBM Sales representative if you're interested in getting access. 
+{: beta}
 
-Bare Metal Servers for VPC (beta) currently offers two profiles from the "Balanced" profile family. 
+When you create a bare metal server, you can select from a profile family that best fits your needs. A profile provides a different combination of hardware configurations that include number of vCPU, amount of RAM, and size of local storage. The attributes define the size and capabilities of the bare metal server that is provisioned. 
+{: shortdesc}
+
+Bare Metal Servers for VPC (Beta) currently offers two profiles from the "Balanced" profile family. 
 {: note}
 
 ## About profile families
@@ -49,7 +53,7 @@ Profiles are grouped by the "vCPUs:Memory" ratio across all the VPC compute offe
 
 For more information about profile families, see [Instance Profiles](/docs/vpc?topic=vpc-profiles).
 
-Profiles of bare metal servers fall into the "Balanced" profile family as their "vCPU : Memory" ratios is "1:4".
+Bare metal server profiles are in the "Balanced" profile family because their "vCPU : Memory" ratios is "1:4".
 
 ## Profiles of Bare Metal for VPC
 {: #bare-metal-servers-profile-list}
@@ -62,60 +66,65 @@ See table 2 for the configuration of each profile.
 | bx2d-metal-192x768 | 192 | 768 | 0.96 TB SATA M.2 mirrored drive \* 1<br><br>3.2 TB U.2 NVMe SSDs \* 16 | 100 |
 {: caption="Table 2. Bare Metal Servers for VPC profiles" caption-side="top"}
 
-## Understanding the naming rules for profiles
+## Understanding the naming rule of the profiles
 {: #profile-naming-rule}
 
-You can know the configuration of a profile through its name.
+The following information describes the naming rule of the profiles.
 
-* *b* represents a profile of the Balanced family.
-* *x* represents the CPU architecture is x86_64
+* *b* represents a *Balanced* family profile.
+ * *x* represents the *x86_64* CPU architecture .
 * *2* represents this profile has the current generation of processors (Cascade Lake).
-* *d* represents this profile has NVMe U.2 SSDs.
+* *d* represents *NVMe U.2* SSDs.
 * The field between the two dashes is "metal" for bare metal servers.
 * The field after the second dash contains information on the number of vCPU and the size of memory (GB), for example, "192x768" means that this profile has 192 vCPU and a memory of 768 GiB.
 
-Take “bx2d-metal-192x768” as an example, you can learn from this profile name that it is a bare metal profile with 192 vCPU and 768 GiB memory. This profile has the Cascade Lake processors. It provides NVMe U.2 SSDs for storage.
+Using “bx2d-metal-192x768” as an example, you can know that it's a *Balanced* bare metal profile with *192 vCPU and 768 GiB memory*. This profile has the Cascade Lake processors and NVMe U.2 SSDs for storage.
 
 ## Viewing profile configurations
 {: #view-bare-metal-servers-profile}
 
-You can view available profile configurations by using the IBM Cloud console, REST API, or the IBM Cloud Command Line Interface (CLI).
+You can view available profile configurations by using the UI, [CLI](#view-bare-metal-servers-profile-cli), or the [API](#view-bare-metal-servers-profile-api).
 
-### Using the IBM Cloud console to view profiles
+## Using the UI to view profiles
 {: #view-bare-metal-servers-profile-ui}
+{: ui}
+
+Use the following steps to view available bare metal profiles by using the UI.
 
 **(Need to verify on the UI later)**
 
-1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), navigate to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**.
+1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**.
 2. From the **Bare metal servers for VPC** page, click **Create**.
 3. On the **New bare metal server for VPC** page, you can view and select profiles under **Profile**.
 
-### Using REST API to view profiles
-{: #view-bare-metal-servers-profile-api}
+## Using the CLI to view profiles
+{: #view-bare-metal-servers-profile-cli}
+{: cli}
 
-List all the bare metal server profiles available in a region by running the following API request:
+Use the following command to list all the bare metal server profiles that are available in a region:
+
+```
+ibmcloud is bare-metal-server-profiles [--output JSON] [-q, --quiet]
+```
+{: pre}
+
+## Using the API to view profiles
+{: #view-bare-metal-servers-profile-api}
+{: api}
+
+List all bare metal server profiles available in a region by running the following API request:
 
 ```
 curl -X GET \
 "$vpc_api_endpoint/v1/bare_metal_server/profiles?version=2021-03-09&generation=2" \
 -H "Authorization: $iam_token"
 ```
-{:pre}
-
-### Using the CLI to view profiles
-{: #view-bare-metal-servers-profile-cli}
-
-List all the bare metal server profiles available in a region by running the following command:
-
-```
-ibmcloud is bare-metal-server-profiles [--output JSON] [-q, --quiet]
-```
-{:pre}
+{: pre}
 
 ## Next Steps
 {: #bare-metal-servers-profile-next-step}
 
-After you choose a profile, it's time to [create bare metal servers on VPC](/docs/vpc?topic=vpc-creating-bare-metal-servers).
+After you choose a profile, you can [create bare metal servers on VPC](/docs/vpc?topic=vpc-creating-bare-metal-servers).
 
 <!--
 Profiles for post-GA:
