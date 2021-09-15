@@ -30,6 +30,9 @@ subcollection: vpc
 # Bare Metal Servers for VPC images (Beta) 
 {: #bare-metal-image}
 
+Bare metal servers on VPC is a Beta feature that requires special approval. Contact your IBM Sales representative if you're interested in getting access.
+{: beta}
+
 You can license the ESXi hypervisor that is installed on a bare metal server with your own license (bring-your-own-license), or IBM can handle the licensing for you.
 {: shortdesc}
 
