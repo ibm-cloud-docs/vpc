@@ -37,6 +37,13 @@ Some changes, such as new response properties or new optional request parameters
 - Consume only the resources and properties your application needs to function
 - Avoid depending on behavior that is not explicitly documented
 
+SDK changes are based on API changes. For information about the latest changes to the VPC SDKs, see the change logs in the SDK repositories:
+
+- [Java SDK change log](https://github.com/IBM/vpc-java-sdk/blob/master/CHANGELOG.md)
+- [Node SDK change log](https://github.com/IBM/vpc-node-sdk/blob/master/CHANGELOG.md)
+- [Python SDK change log](https://github.com/IBM/vpc-python-sdk/blob/master/CHANGELOG.md)
+- [Go SDK change log](https://github.com/IBM/vpc-go-sdk/blob/master/CHANGELOG.md)
+
 ## Upcoming changes
 {: #upcoming-changes}
 
