@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-20"
+lastupdated: "2021-09-14"
 
-keywords: bare metal servers, storage, 
+keywords: bare metal server storage, storage, bare metal storage
 
 subcollection: vpc
 
@@ -27,20 +27,23 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Storage of Bare Metal Servers for VPC (beta)
+# Storage overview for Bare Metal Servers for VPC (Beta)
 {: #bare-metal-servers-storage}
 
-All profiles of Bare Metal Servers for VPC provide one 0.96 TB SATA M.2 mirrored SSD as the bare metal server's boot disk. Profile `bx2d-metal-192x768` provide an extra set of NVMe (Non-Volatile Memory Express) U.2 solid-state drives (SSD) as secondary local storage. NVMe SSDs provide fast and affordable storage to support use cases such as VMware vSAN, or customer-managed RAID. 
+Bare Metal Servers on VPC is a Beta feature that requires special approval. Contact your IBM Sales representative if you're interested in getting access.
+{: beta}
 
-<!--The total size of the NVMe SSD set varies depending on the profile you select. The NVMe drives are empty by default.-->
-
-The bare metal servers support Virtual RAID on CPU (VROC) solution on the NVMe drives. You can enable this as needed.
+All profiles of Bare Metal Servers for VPC provide one 0.96 TB SATA M.2 mirrored SSD as the boot disk. Profile `bx2d-metal-192x768` provides an extra set of NVMe (Non-Volatile Memory Express) U.2 solid-state drives (SSD) as secondary local storage. NVMe SSDs provides fast and affordable storage to support options such as VMware vSAN, or customer-managed RAID. 
+{: shortdesc}
 
 Bare Metal Servers for VPC provides unmanaged storage solution. You are responsible for managing (such as backing up, encrypting) the storage.
 {: important}
+<!--The total size of the NVMe SSD set varies depending on the profile you select. The NVMe drives are empty by default.-->
 
-**Note:** The following network-attached storages are not supported for now:
+The bare metal servers support Virtual RAID on CPU (VROC) solution on the NVMe drives. You can enable VROC as needed.
 
-  * Block Storage for VPC
-  * File Storage for VPC
+The following network-attached storages are not supported:
+* Block Storage for VPC
+* File Storage for VPC
+
   
