@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2020
-lastupdated: "2021-09-13"
+lastupdated: "2021-09-15"
 
 keywords: block storage, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, planning, best practices
 
@@ -38,7 +38,7 @@ Consider the following prerequisites before you set up data encryption for your 
 |__ For encrypted custom images, review the image requirements, supported operating systems, and learn about creating and importing QCOW2 custom image files. For additional planning tips for custom images, see [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images). |
 |__ Choose the UI, CLI, or API for provisioning customer-managed encryption. |
 |__ Evaluate which [key management service](#byok-encryption-prereqs) best meets your needs. Determine the availability of these services in your region and zone. |
-|__ When setting up authorization to the KMS, determine whether your account allows lets you authorize **Cloud Block Storage** as the [source service](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-volumes-prereqs). Lite accounts must upgrade to a Pay-As-You-Go account. For more information, see [Upgrading to a Pay-As-You-Go account](/docs/account?topic=account-upgrading-account#upgrade-paygo).
+|__ When setting up authorization to the KMS, determine whether your account lets you authorize **Cloud Block Storage** as the [source service](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-volumes-prereqs). Lite accounts must [upgrade to a Pay-As-You-Go](/docs/account?topic=account-upgrading-account#upgrade-paygo) account or a Subscription account. For more information, see IBM Cloud [account types](/docs/account?topic=account-accounts). |
 |__ For customer-managed encryption, consider importing or creating multiple root keys and [rotating your keys](/docs/vpc?topic=vpc-vpc-key-rotation) for greater security. |
 |__ If you're provisioning an instance with encrypted volumes, make sure that you [created a VPC](/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc). |
 |__ Decide how many secondary volumes you require and how many will use customer-managed encryption. |
