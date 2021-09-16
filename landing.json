@@ -31,6 +31,11 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
          {
+          "date": "14 September 2021",
+          "title": "Terraform available for Placement Groups",
+          "description": "You can now create and manage placement groups in your IBM Cloud VPC by using Terraform."
+        },
+        {
           "date": "07 September 2021",
           "title": "New Very High Memory instance profile family (LA)",
           "description": "Very High Memory profiles are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), EU Germany (Frankfurt), and Japan (Tokyo) regions. Very High Memory profiles offer a core to RAM ratio of 1 vCPU to 14 GiB of RAM. This family is optimized for running high-compute-intensity in-memory workloads like SAP BW/4 HANA."
@@ -40,11 +45,6 @@
           "title": "Instance Bandwidth",
           "description": "When you provision a virtual server instance, you can now allocate bandwidth between attached volumes and networking. The maximum bandwidth capacity is determined by the instance profile that you select during instance provisioning."
         },
-        {
-          "date": "01 September 2021",
-         "title": "New GPU Instance Profile family (Beta)",
-          "description": "GPU profiles are available in a limited, allow-listed beta for all images. The profiles include attached NVIDIA 16 GB PCIe v100 GPUs. Drivers must be installed separately. You can use these instances to accelerate certain processing functions for workloads such as inferencing and machine learning."
-        }
       ]
     }
   }
