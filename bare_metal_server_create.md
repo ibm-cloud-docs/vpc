@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-26"
+lastupdated: "2021-09-16"
 
-keywords: bare metal servers, create, tutorial
+keywords: bare metal servers, create, create bare metal, create bare metal server, new bare metal, new bare metal server
 
 subcollection: vpc
 
@@ -27,177 +27,56 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Creating bare metal servers on VPC
+# Creating bare metal servers on VPC (Beta)
 {: #creating-bare-metal-servers}
 
-This tutorial walks through the procedure to create a bare metal server on the VPC with the configuration of your choice.
+Use the following information to create a bare metal server on the {{site.data.keyword.vpc_full}} (VPC) with the configuration of your choice.
+{: shortdesc}
 
-This is a Beta feature that requires special approval. Contact your IBM Sales representative if you are interested in getting access.
+Bare metal servers on VPC is a Beta feature that requires special approval. Contact your IBM Sales representative if you're interested in getting access.
 {: beta}
-
-Start [creating a bare metal server](/vpc-ext/provision/bm) on VPC now.
-{: tip}
-
-## Prerequisites
-{: #prereq}
-
-You must be assigned the following IAM (Identity and Access Management) roles:
-
-* **Editor** of the target resource group: This role allows you to create bare metal servers in this resource group.
-* **Bare Metal Console Administrator**: This role allows you to access ESXi Direct Console User Interface (DCUI), which is the administrator console of ESXi.
-* **Bare Metal Advanced Network Operator**: This role allows you to modify the Allow IP spoofing and Enable Infrastructure NAT (network address translation) configuration on a bare metal server's network interface.
-
-  Source IP spoofing and infrastructure NAT configuration cannot be modified in Beta. By default, source IP spoofing is not allowed on the network interface and infrastructure NAT is enabled.
-  {: important}
-
-**Bare Metal Console Administrator** and **Bare Metal Advanced Network Operator** are two new roles that are added with this feature. This roles are not applied automatically.
-{: note}
-
-   To check whether you are assigned the required roles, go to the [IAM Users ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/iam/users){: new_window} page in the IBM Cloud console and select your account under **User**, then select **Access policies**. You should see an access policy that assigns you the **Editor** (or above) role, **Bare Metal Console Administrator** role, and **Bare Metal Advanced Network Operator** role to the **Resource Attributes** of the target bare metal server. Otherwise, you would need to contact an administrator of your account to assign you the roles by taking the steps below:
-
- **Step 1.** Go to the [IAM Users ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/iam/users){: new_window} page in the IBM Cloud console and select the target user.
-
- **Step 2.** On the **Access policies** tab, click **Assign access**.
-
- **Step 3.** In the **Assign users additional access** section, select **IAM services** and complete the following tasks:
-    * From the **What type of access do you want to assign?** list, select **VPC Infrastructure Services**.
-    * Under **How do you want to scope the access?**, select **All resources** or **Resources based on selected attributes**. The administrators can further scope the access by adding attributes.
-    * In the **Platform access** area, select from **Editor** or **Administrator**.
-    * In the **Service access** area, select **Bare Metal Console Administrator** and **Bare Metal Advanced Network Operator**.
-    * Scroll to the end of the page and click **Add**.
-    * Review the **Access summary** side pane, and click **Assign**.
-
-For more information about the IAM roles, see [Getting Started with IAM](/docs/vpc?topic=vpc-iam-getting-started).
 
 ## Creating a bare metal server by using the UI
 {: #creating-using-ui}
+{: ui}
 
-To create a bare metal server using the IBM Cloud console:
+Follow these steps to create a bare metal server by using the IBM Cloud console.
 
-**Step 1.** In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**
+1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**
 
-**Step 2.** Click **Create**
+2. Click **Create** and enter the information that is in Table 1. 
 
-**Step 3.** On **New bare metal server for VPC**, specify the following information:
+3. Review the configuration **Summary** and click **Create**.
 
-   * Give the bare metal server a name
-   * Select the resource group that it will belong to.
-   * Select the data center where the bare metal will be deployed in under **Location**.
- <!--* Add tags to the bare metal server as needed.-->
- 
-**Step 4.** Select the bare metal server's operating system and version from an image. `ibm-esxi-7-amd64-1` installs a licensed ESXi 7.x hypervisor. `ibm-esxi-7-byol-amd64-1` installs bring-your-own-license ESXi 7.x and allows you to handle the licensing for your bare metal server.
+| Field | Value |
+|---|---|
+| Name | A name is required for your bare metal server. |
+| Resource group | Select a resource group for the server. |
+| Tags | You can assign labels to this server so that you can easily filter resources in your resource list. |
+| Location | Locations are composed of regions (specific geographic areas) and zones (fault tolerant data centers within a region). Select the location where you want your bare metal server. |
+| Operating system | Select the operating system and version from an image. `ibm-esxi-7-amd64-1` installs a licensed ESXi 7.x hypervisor. `ibm-esxi-7-byol-amd64-1` installs bring-your-own-license ESXi 7.x and control the licensing for your bare metal server. |
+| Profile | Select from popular profiles or all available vCPU and RAM combinations. The profile families are Balanced, Compute, and Memory. For more information, see [Bare Metal Servers for VPC profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile).
+| SSH key | Select an existing public SSH key or click **New SSH key** to add a new one.<br><br> You must specify at least one SSH key. This key is used to automatically generate a password that is required for accessing VMware ESXi Direct Console User Interface (DCUI) and ESXi’s web client. |
+| User data | Paste your user data to the **User data (optional)** field or click **Import user data** to upload from your user data. For example, you can enable SSH by adding the following script to the **User data (optional)** field. For more information about user data, see [User data](/docs/vpc?topic=vpc-user-data).|
+| Virtual private cloud | Specify the IBM Cloud VPC where you want to create your server. You can use the default VPC, another existing VPC, or you can create a new VPC. To create a new VPC, click **New VPC**. | 
+| Network interfaces | By default the bare metal server is created with a single primary network interface. You can click the pencil icon to edit the details of the network interface. For example, the subnet or security group that's associated with the interface. To include extra secondary network interfaces, click **New interface**. You can create and assign up to five network interfaces to each instance. For more information about advanced networking configurations, see [Managing network interfaces for a bare metal server](docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers). |
+{: caption="Table 1. Bare metal server provisioning selections" caption-side="top"}
 
-**Step 5.** Select a profile. For more information, see [Profile](/docs/vpc?topic=vpc-bare-metal-servers-profile).
-
-**Step 6.** Select an existing public SSH key or click **New SSH key** to add a new one.
-   
-   You must specify at least one SSH key. This key will be used to automatically generate a password required for accessing VMware ESXi Direct Console User Interface (DCUI) and ESXi’s web client.
-   {: note}
-
-**Step 7.** Paste your user data to the **User data (optional)** field or click **Import user data** to upload from your local machine. For example, you can enable SSH by adding the script below to the **User data (optional)** field:
-
-   ```
-   vim-cmd hostsvc/enable_ssh
-   vim-cmd hostsvc/start_ssh
-   echo "<public ssh key>" >> /etc/ssh/keys-root/authorized_keys
-   ```
-For more information about user data, see [User data](/docs/vpc?topic=vpc-user-data).
-
-**Step 8.** Select a VPC that the bare metal server will be part of, or create a new one.
-
-**Step 9.** Configure network interfaces
-
-   This tutorial creates a primary network interface and a secondary VLAN interface on the bare metal server. For more information, see [Managing network interfaces of bare metal servers](/docs/vpc?topic=vpc-managing-bare-metal-servers).
-   {: note}
-   
-   **9.1** Edit the primary PCI interface.
-   
-   * Click **Edit** of the default PCI interface.
-   * Edit the name of the PCI interface.
-   * Select a subnet. You must select a subnet that is in the VPC specified in **Step 8**.
-   * Click **Save**.
-
-<!--   * Specify the primary IPv4 address. **Note:** If specified, it must be an available address on the network interface's subnet. If unspecified, an available address on the subnet will be automatically selected. * Configure **Allow IP spoofing**. If this is off, source IP spoofing is prevented on this interface; If on, source IP spoofing is allowed on this interface. * Configure **Enable infrastructure NAT**. Turning this on allows the VPC infrastructure to perform any needed NAT operations. If off, the packet would be passed unmodified to/from the network interface, allowing the workload to perform any needed NAT operations.-->
-
-   **9.2** Add secondary network interfaces.
-   
-   You can add one or more secondary network interfaces. To add a secondary VLAN interface:
-   
-   * Click **New interface**.
-   * Edit the name of the PCI interface.
-   * Select a subnet. You must select a subnet that is in the VPC specified in **Step 8**.
-   * Select **VLAN** in **Interface type**.
-   * Specify a **VLAN ID**.
-   * Configure **Allow interface to float**. This specify whether the interface can float to other servers within the same resource group. If this is on, the interface will float automatically if the network detects a GARP or RARP on another bare metal server in the resource group.
-   * Click **Create**.
-<!--* Configure **Allow IP spoofing**.   * Configure **Enable infrastructure NAT**. -->
-
-The VLAN interface is associated with the primary PCI interface if no extra PCI interface is created. If you plan to create extra PCI interfaces, you must specify which PCI interface that the VLAN interface gets associated with.
-{: note}
-
-**Step 10.** Review the configuration and estimated cost in **Summary**.
-
-**Step 11.** Click **Create**.
-
-### Viewing your server
-{: #viewing-bare-metal-servers-ui}
-
-To view the bare metal server, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**, click the name of the bare metal server.
-
-## Creating a bare metal server by using the REST API
+## Creating a bare metal server by using the API
 {: #creating-using-api}
+{: api}
 
-Take the following steps to create a bare metal server by using REST API.
+Follow these steps to create a bare metal server by using the API.
 
 ### Before you begin
 {: #api-prereq}
 
-1. Ensure that you have set up your API environment following [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment) if this is the first time you using the REST API on IBM Cloud.
-
-   In brief, you need to complete the following steps:
-   
-   * Store your API key as a variable 
-   * Get an IBM Identity and Access Management (IAM) token
-   * Store the API endpoint as a variable
+1. Make sure that you set up your API environment. For more information, see [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment).
 
    A good way to learn more about the API is to click **Get sample API call** on the create pages in IBM Cloud console. You can view the correct sequence of API requests and better understand actions and their dependencies.
-  {: tip}
+   {: tip}
 
-2. Make sure that you have created a VPC and a subnet before creating a bare metal server.
-
-   (1) Use the following API request to create a VPC:
-   
-   ```
-   curl -X POST "$vpc_api_endpoint/v1/vpcs?version=2021-03-09&generation=2" \
-   -H "Authorization: $iam_token" \
-   -d '{
-         "name": "my-vpc"
-   }'
-   ```
-   {: pre}
-
-   To use the example API request to create a VPC, make sure that you have already stored your own IAM token and API endpoint in the `$iam_token` and `$vpc_api_endpoint` variables.
-   {: note}
-   
-   (2) Use the following API request to create a subnet:
-   
-   ```
-   curl -X POST "$vpc_api_endpoint/v1/subnets?version=2021-03-09&generation=2" \
-   -H "Authorization: $iam_token" \
-   -d '{
-     "name": "my-subnet-1",
-     "total_ipv4_address_count": 256,
-     "ip_version": "ipv4",
-     "zone": { "name": "us-south-1" },
-     "vpc": { "id": "a0819609-0997-4f92-9409-86c95ddf59d3" }
-   }'
-   ```
-   {: pre}
-  
-To use the example API request to create a VPC, make sure that you have already stored your own IAM token and API endpoint in the `$iam_token` and `$vpc_api_endpoint` variables. At the same time, replace the example VPC ID with the ID of your VPC.
-  {: note}
-
-For more information about the API requests, see [Virtual Private Cloud API](/apidocs/vpc).
+2. Make sure that you have created a VPC and a subnet before you create a bare metal server.
 
 ### Gathering information for the bare metal server
 {: #api-info}
@@ -209,18 +88,17 @@ Before you can use API to create bare metal server, you need to gather all the i
 | Image | [List all images](/apidocs/vpc#list-images) |
 | Keys | [List all keys](/apidocs/vpc#list-keys)<br><br>**Note:** If you don't have any available SSH keys, use [Create a key](/apidocs/vpc#create-key) to create one. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | Subnet | [List all subnets](/apidocs/vpc#list-subnets) |
+| Security groups (optional) | [List all security groups](/apidocs/vpc#list-security-groups) |
 | Profile | [List all bare metal server profiles](/apidocs/vpc#list-bare-metal-server-profiles) |
 | Zone | [List all regions](/apidocs/vpc#list-regions)<br><br>[List all zones in a region](/apidocs/vpc#list-region-zones) |
 {: caption="Table 1. Information needed for creating a bare metal server (API)" caption-side="top"}
 
-<!--| Security groups (optional) | [List all security groups](/apidocs/vpc#list-security-groups) |-->
-
 ### Creating a bare metal server
 {: #api-request}
 
-After you have all the information ready, use the [Create bare metal server](/apidocs/vpc#create-bare-metal-server) API request to create a bare metal server.
+After you have all the information, use the [Create bare metal server](/apidocs/vpc#create-bare-metal-server) API request to create a bare metal server.
 
-For example, to create a bare metal server with the following configuration:
+As an example, you create a bare metal server with the following configuration:
 
 * ESXi image ID: "r134-31c8ca90-2623-48d7-8cf7-737be6fc4c3e"
 * SSH Key ID: "a6b1a881-2ce8-41a3-80fc-36316a73f803"
@@ -233,7 +111,7 @@ For example, to create a bare metal server with the following configuration:
 * Profile name: "bx2d-metal-192x768"
 * Zone: "us-south-1"
 
-The API request would be similar to:
+The API request is similar to:
 
 ```
 curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers?version=2021-03-09&generation=2" \
@@ -280,7 +158,7 @@ curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers?version=2021-03-09&generat
 The example request uses the JSON processing utility jq to format the response. You can modify the command to use another parsing tool or remove " | jq" to receive an unformatted response.
 {: note}
 
-You would see a response that is similar to:
+You see a response that is similar to:
 
 ```
 "bandwidth": 100000,
@@ -429,7 +307,7 @@ For more information about the API request, see [Create a bare metal server](/ap
 ### Viewing your server
 {: #viewing-bare-metal-servers-api}
 
-When the status has turned to "Running", use the following request to view it.
+When the status changes to "Running", use the following request to view it.
 
 ```
 curl -X GET "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id?version=2021-03-09&generation=2" \
@@ -439,8 +317,9 @@ curl -X GET "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id?versi
 
 ## Creating a bare metal server by using the CLI
 {: #creating-using-cli}
+{: cli}
 
-Take the following steps to create a bare metal server by using the IBM Cloud CLI.
+Use the following steps to create a bare metal server by using the IBM Cloud CLI.
 
 ### Before you begin
 {: #cli-prereq}
@@ -450,38 +329,38 @@ Take the following steps to create a bare metal server by using the IBM Cloud CL
 
 For more information, see [Using the CLI to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
 
-For the beta release, you must enable the bare metal servers CLI by running: `export IBMCLOUD_IS_FEATURE_BARE_METAL_SERVER=true`
+For the beta release, you must enable the bare metal servers CLI by running the following command 
+`export IBMCLOUD_IS_FEATURE_BARE_METAL_SERVER=true`
 {: important}
 
-### Gathering information to create an instance by using the CLI
+### Gathering information to create an bare metal server
 {: #cli-info}
 
 Before you can use the CLI to create bare metal server, you need to gather the information that is needed.
 
-| Server Details | Listing Options |
+| Server details | Listing options |
 |---------|---------|
 | Image | [List all images](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#images) |
 | Keys | [List all keys](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#keys)<br><br>**Note:** If you don't have any available SSH keys, use [Create a key](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#key-create) to create one. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | Subnet | [List all subnets](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#subnets) |
+| Security groups (optional) | [List all security groups](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference##security-groups) |
 | Profile | [List all bare metal server profiles](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#bare-metal-server-profiles) |
 | Zone | [List all regions](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#regions)<br><br>[List all zones in a region](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#zones) |
-{: caption="Table 2. Information needed for creating a bare metal server (CLI)" caption-side="top"}
-
-<!--| Security groups (optional) | [List all security groups](/apidocs/vpc#list-security-groups) |-->
+{: caption="Table 2. Information to create a bare metal server by using the CLI" caption-side="top"}
 
 ### Creating a bare metal server
 {: #cli-command}
 
 After you have all the information ready, you can use the CLI to create a bare metal server.
 
-For example, to create a bare metal server with the following configuration:
+For example, you can create a bare metal server with the following configuration:
 
 * ESXi image ID: "r134-31c8ca90-2623-48d7-8cf7-737be6fc4c3e"
 * SSH Key ID: "a6b1a881-2ce8-41a3-80fc-36316a73f803"
 * Name of the bare metal server: "my-bare-metal-server"
 * A primary network interface with the following configurations:
 
-   * Allows VLAN with the ID of "4" to be attached
+   * Allows the VLAN with the ID of "4" to attach to the server
    * Name: "my-primary-network-interface"
    * Subnet ID: "7ec86020-1c6e-4889-b3f0-a15f2e50f87e"
 
@@ -497,7 +376,7 @@ ibmcloud is bare-metal-server-create --name my-bare-metal-server --zone us-south
 ### Viewing your server
 {: #viewing-bare-metal-servers-cli}
 
-When the status has turned to **Running**, use the following command to view it.
+When the status changes to **Running**, use the following command to view it.
 
 ```
 ibmcloud is bare-metal-server $bare_metal_server_id --output JSON
@@ -507,6 +386,4 @@ ibmcloud is bare-metal-server $bare_metal_server_id --output JSON
 ## Next steps
 {: #next-step}
 
-When the bare metal server moves to **Running**, you can try connecting to the VMware ESXi Direct Console User Interface (DCUI) and ESXi's web client.
-
-For more information, see [Connecting to ESXi bare metal servers](/docs/vpc?topic=vpc-connect-to-ESXi-bare-metal-servers).
+When the bare metal server status changes to **Running**, you can try connecting to the VMware ESXi Direct Console User Interface (DCUI) and ESXi's web client. For more information, see [Connecting to ESXi bare metal servers](/docs/vpc?topic=vpc-connect-to-ESXi-bare-metal-servers).
