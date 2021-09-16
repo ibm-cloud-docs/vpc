@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-10"
+lastupdated: "2021-09-16"
 
-keywords: bare metal servers, network, nics, pci, vlan
+keywords: bare metal server network, bare metal network, nics, pci, vlan, network overview
 
 subcollection: vpc
 
@@ -27,145 +27,152 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Network of Bare Metal Servers for VPC (beta)
+# Networking overview for Bare Metal Servers on VPC (Beta)
 {: #bare-metal-servers-network}
 
-The following information walks through the network of Bare Metal Servers for VPC and how it supports VMware vSphere&reg; networking use cases. We highly recommend you go through this information before you build a VMware network on bare metal servers.
+Bare metal servers on VPC is a Beta feature that requires special approval. Contact your IBM Sales representative if you're interested in getting access.
+{: beta}
 
-This information is intended for customers with basic network knowledge of IBM Cloud VPC and VMware vSphere. If you are not familiar with VPC networking, you can start with [About networking](/docs/vpc?topic=vpc-about-networking-for-vpc). If you are not familiar with VMWare vSphere networking, [Introduction to vSphere Networking](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.networking.doc/GUID-8CDF29B2-ABA8-4F34-9FEF-14987BC13265.html){: external} would be a good starting point.
-{: note}
+The following information an overview of the networking features of Bare Metal Servers for VPC and how it supports VMware vSphere&reg; networking. It is recommended that you go through this information before you build a VMware network on bare metal servers.
+{: shortdesc}
+
+The following information is for customers with basic network knowledge of {{site.data.keyword.cloud}} VPC and VMware vSphere. If you aren't familiar with VPC networking, see [About networking](/docs/vpc?topic=vpc-about-networking-for-vpc). If you are not familiar with VMWare vSphere networking, see [Introduction to vSphere Networking](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.networking.doc/GUID-8CDF29B2-ABA8-4F34-9FEF-14987BC13265.html){: external}.
 
 Bare Metal Server for VPC provides full support for VPC networking features. The network is fully software-defined, so you can configure it through the API.
 
-Each bare metal server supports 100 Gbps bandwidth. The bandwidth is shared by the network interfaces created on the bare metal server.
+Each bare metal server supports 100 Gbps bandwidth. The bandwidth is shared by the network interfaces that are on the bare metal server.
 
-For more information about how to manage network interfaces for bare metal servers, see [Managing network interfaces for a bare metal server](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers).
-{: note}
+For more information about managing network interfaces, see [Managing network interfaces for a bare metal server](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers).
 
-## Network interfaces of the bare metal servers
+## Bare metal server network interfaces 
 {: #bare-metal-servers-nics-intro}
 
-You can create two types of network interfaces on a bare metal server: PCI (peripheral component interconnect) and VLAN (virtual LAN) interface.
-
-The PCI interface is a physical network interface. The VLAN interface is a virtual network interface that is associated with a PCI interface through the VLAN ID. The VLAN interface automatically tags traffic that is routed through it with the VLAN ID. Inbound traffic that is tagged with a VLAN ID is directed to the appropriate VLAN interface. 
+You can create two types of network interfaces on a bare metal server: 
+| Network interface | Description |
+|-----|-----|
+| PCI (peripheral component interconnect) | A physical network interface. |
+| VLAN (virtual LAN) interface | A virtual network interface that is associated with a PCI interface through the VLAN ID. The VLAN interface automatically tags traffic that is routed through it with the VLAN ID. Inbound traffic that is tagged with a VLAN ID is directed to the appropriate VLAN interface. |
+{: caption="Table 1. Types of network interfaces for bare metal servers" caption-side="top"}
 
 The following diagram illustrates the relationship between PCI interfaces and VLAN interfaces.
 
 ![Figure showing bare metal server network interfaces](images/bare_metal_server_network_interface.png "Figure showing bare metal server network interfaces"){: caption="Figure 1. Network interfaces on a bare metal server" caption-side="top"}
 
+### Characteristics of the PCI and VLAN interface
+{: #bare-metal-servers-interface-characteristics}
+
 The following list highlights characteristics of the PCI and VLAN interface.
 
-* You can create up to 8 PCI interfaces on a bare metal server. To add or remove PCI interfaces, the bare metal server must be in the **STOPPED** status.
+* You can create up to 8 PCI interfaces on a bare metal server. To add or remove PCI interfaces, the bare metal server must be **STOPPED**.
 
-* You don't have limitations on the maximum number of VLAN interfaces that can be created on a bare metal server.
+* You don't have limitations on the maximum number of VLAN interfaces that can you can create.
 
-<!--BETA item You can attach security groups to both PCI and VLAN interfaces on the bare metal servers to handle incoming and outgoing traffic to the network interface. VLAN interface maintains its own security group rules that might be different from the rules set on its associated PCI interface.-->
+* You can attach security groups to both PCI and VLAN interfaces to handle incoming and outgoing traffic to the network interface. The VLAN interface maintains its own security group rules that might be different from its associated PCI interface rules.
 
-* All network interfaces on the bare metal server are backed by two physical ports that are connected redundantly to the TORs (top-of-rack) switch. IBM manages the aggregation, so you do not need to create multiple PCI interfaces for redundancy reasons.
+* All network interfaces are backed by two redundant physical ports that are on the TORs (top-of-rack) switch. {{site.data.keyword.cloud}} manages the aggregation, so you don't need to create multiple PCI interfaces for redundancy.
 
-* VLAN interfaces can optionally be set to "floatable" to support vMotion (live migration of VMs) between the bare metal servers on VMware's compatible network.
+* Optionally, you can set VLAN interfaces to "floatable" to support vMotion between the bare metal servers on a VMware compatible network.
 
-## How network interfaces of Bare Metal Servers for VPC map to network concepts in VMware vSphere? 
-{: #bm-vmware-nic-mapping}
+* You can associate more than one floating IP with a network interface. Having multiple floating IPs enables the VMware NSX-T Data Center to assign floating IPs to the VMware VMs.
 
-Bare Metal Servers for VPC fully supports VMware vSphere networking functions. To successfully set up networks in the vSphere environment, it is necessary to first understand the mapping of the networking concepts between Bare Metal Servers for VPC and vSphere. 
+## Mapping network concepts between Bare Metal Servers for VPC and VMware vSphere
+{: #mapping-network-concepts}
 
-### Mapping of network concepts between Bare Metal Servers for VPC and VMware vSphere
-{: #concepts}
+Bare Metal Servers for VPC fully supports VMware vSphere networking functions. To set up networks in the vSphere environment, you need to first understand the mapping of the networking concepts between your bare metal server and vSphere. 
 
 The following table describes the mapping of network concepts between Bare Metal Servers for VPC and VMware vSphere.
 
 | Bare Metal Servers for VPC | VMware vSphere |
 |---------|---------|
-| PCI interface | Uplink of the bare metal server on a Standard vSwitch or Distributed vSwitch. |
+| PCI interface | Uplink of the bare metal server on a standard vSwitch or distributed vSwitch. |
 | VLAN interface | Virtual network adapter of the VMKernel or VM |
 | VLAN ID | VLAN ID for port group |
-{: caption="Table 1. mapping of network concepts between Bare Metal Servers for VPC and VMware vShpere" caption-side="top"}
+{: caption="Table 2. Mapping of network concepts between Bare Metal Servers for VPC and VMware vShpere" caption-side="top"}
 
-The PCI interface of the bare metal server maps to the Uplink in vSphere. When you provision a bare metal server, a primary PCI interface is created by default. This primary PCI interface automatically becomes the bare metal server’s uplink on `vSwitch0`. Its IP address is also used by the `vmk0` adapter in the **Management network** port group on `vSwitch0`. The VLAN ID of the **Management network** port group is automatically set to 0.
+The PCI interface of the bare metal server maps to the Uplink in vSphere. When you provision a bare metal server, a primary PCI interface is created by default. This primary PCI interface automatically becomes the bare metal server’s uplink on `vSwitch0`. Its IP address is also used by the `vmk0` adapter in the **Management network** port group on `vSwitch0`. The VLAN ID of the **Management network** port group is automatically set to '0'.
 
-When you add a Standard vSwitch or Distributed vSwitch, you must select one of the available PCI interfaces of the bare metal server as the server’s Uplink on the newly created vSwitch. Therefore, before you add a vSwitch, you need to make sure that at least one PCI interface on the bare metal servers is used as its Uplink.
+After you add a standard vSwitch or distributed vSwitch, you must select one of the available PCI interfaces as the Uplink on the new vSwitch. Therefore, before you add a vSwitch, you need to make sure that at least one PCI interface is used as the Uplink.
 
 The IP of the PCI interface can be used by the VMkernel adapter.
 {: note}
 
-The PCI interfaces created on a bare metal server are displayed in VMware vSphere as `vmnic0`, `vmnic1`, `vmnic2`, and so on. But you can identify the target PCI interface in vSphere through its MAC address.
+The PCI interfaces that are created on a bare metal server are displayed in VMware vSphere as `vmnic0`, `vmnic1`, `vmnic2`, and so on. You can identify the target PCI interface in vSphere through its MAC address.
 
-Bare metal server’s VLAN interface maps to the VMkernel network adapter or VMware virtual machine’s network adapter in vSphere. When you create a VLAN interface on the bare metal server, you must specify a VLAN ID for the VLAN interface. This VLAN ID maps to the VLAN ID that is used to label port groups in vSphere.
+The VLAN interface maps to the VMkernel network adapter or a VMware virtual machine network adapter in vSphere. When you create a VLAN interface, you must specify a VLAN ID for the VLAN interface. This VLAN ID maps to the VLAN ID that is used to label port groups in vSphere.
 
-Before you create a server and vmKernel in vSphere, you must create the VLAN interfaces with appropriate VLAN ID on the bare metal server. During the creation of the VM or VMKernal NIC, you need to specify its IP address to that of the corresponding VLAN interface created on the bare metal server. 
+Before you create a server and vmKernel in vSphere, you must create the VLAN interfaces with appropriate VLAN ID. When you create the VM or VMKernal NIC, you need to specify its IP address to that of the corresponding VLAN interface that was created on server. 
 
-### Tips on configuring bare metal servers network interfaces for VMware vSphere
+### Configuration tips for VMware vSphere network interfaces 
 {: #nic-config-tips}
 
 1. If you plan to enable vMotion on a port group in vSphere, you must set the VLAN interfaces with the target VLAN ID to floatable on the bare metal servers.
-  
-  This configuration cannot be changed after the VLAN interface was created.
-  {: note}
-  
-2. A bare metal server can have multiple Standard vSwitches. It can also be added to different Distributed vSwitches. Before you create a new Standard vSwitch or add a bare metal server to a Distributed vSwitch, make sure that the bare metal server has at least one available PCI interface.
 
-### Limitations of the bare metal servers network interfaces
+   This configuration cannot be changed after the VLAN interface is created.
+   {: note}
+  
+2. A bare metal server can have multiple standard vSwitches. The bare metal server can also be added to different distributed vSwitches. Before you create a new standard vSwitch or add a bare metal server to a distributed vSwitch, make sure that the bare metal server has at least one available PCI interface.
+
+### Limitations of network interfaces
 {: #nic-limits}
 
 1. You need to associate the VLAN interfaces with the same VLAN ID with one subnet. But, you can create VLAN interfaces with different VLAN IDs in one subnet.
 
-  For example, you can create multiple VLAN interfaces with VLAN ID `111` and `222` within `subnet A`. However, if you create one VLAN interface with VLAN ID `111` within `subnet A` and `subnet B` separately, the two network interfaces can't work as expected.
+   For example, you can create multiple VLAN interfaces with VLAN ID `111` and `222` within `subnet A`. However, if you create one VLAN interface with VLAN ID `111` within `subnet A` and `subnet B` separately, the two network interfaces can't work as expected.
 
-  You need to design your network properly before you create the network interfaces. A good practice is to set up a VLAN ID - subnet one-one mapping network topology.
-  {: note}
+   You need to design your network properly before you create the network interfaces. A good practice is to set up a VLAN ID - subnet one-to-one mapping network topology.
+   {: note}
 
-2. In a VMware environment, traffic between VLAN network interfaces that have the same VLAN ID on the same bare metal server are typically switched by the Standard vSwitch internally within the server and never reach the VPC network.
+2. In a VMware environment, traffic between VLAN network interfaces that have the same VLAN ID that are on the same bare metal server are typically switched by the standard vSwitch within the server and never reach the VPC network.
 
-  For example, on a bare metal server host, the default Standard vSwitch is `vSwitch0`. You can create a Port Group with VLAN ID `111` and add it to `vSwitch0`. Traffic between network interfaces attached to Port Group `111` is controlled by `vSwitch0`.
+   For example, on a bare metal server host, the default Standard vSwitch is `vSwitch0`. You can create a Port Group with VLAN ID `111` and add it to `vSwitch0`. Traffic between network interfaces that is attached to Port Group `111` is controlled by `vSwitch0`.
 
-  This setting has the following consequences:
+   This setting has the following consequences:
+   
+   - Security Group rules that control traffic between the network interfaces in Port Group `111` aren't applied. If you need Security Group rules, you need to use separate VLAN IDs for the VLAN interfaces.
+   
+   - Traffic between a VLAN interface without a floating IP and one with a floating IP can fail. In the previous example, you create two VMs in Port Group `111`, VM1 and VM2. VM1 has an associated floating IP and VM2 doesn't. You can't access VM1 through its floating IP from VM2. To resolve this limitation, you can access VM1 through its private IP from VM2. Alternatively, you can use separate VLAN IDs for the VLAN interfaces.
 
-  1) Security Group rules that control traffic between the network interfaces in Port Group `111` aren't applied. If you need Security Group rules enforced, you need to use separate VLAN IDs for the VLAN interfaces.
+3. In a distributed vSwitch topology, to enable vMotion in a specific port group, you need to make sure that the VLAN ID of this port group is included in the VLAN allowlist of all the bare metal servers.
 
-  2) Traffic between a VLAN interface without a floating IP and one with a floating IP might fail. In the previous example, if you create 2 VMs in Port Group `111`, VM1 and VM2. VM1 has an associated floating IP and VM2 doesn't. Then, you can't access VM1 through its floating IP from VM2. To resolve this limitation, you can access VM1 through its private IP from VM2. Alternatively, you can use separate VLAN IDs for the VLAN interfaces.
+   For example, in a distributed vSwitch topology that has two bare metal servers, the PCI interface of "bare-metal-server-1" has a VLAN allowlist of `[111, 222, 333]`, the PCI interface of "bare-metal-server-2" has a VLAN allowlist of `[333, 444, 555]`, only VMs with the VLAN ID `333` can migrate between the two servers through vMotion.
 
-3. In a Distributed vSwitch topology, to enable vMotion in a specific port group, you need to make sure that the VLAN ID of this port group is included in the allowed VLAN list of all the bare metal servers.
+   The PCI interfaces don’t need to be in the same subnet.
+   {: tip}
 
-  For example, in a Distributed vSwitch topology that has 2 bare metal servers, the PCI interface of "bare-metal-server-1" has an allowed VLAN list of `[111, 222, 333]`, the PCI interface of "bare-metal-server-2" has an allowed VLAN list of `[333, 444, 555]`, only VMs with the VLAN ID `333` can migrate between the two servers through vMotion.
+4. A bare metal server can have only one Uplink that is set on a standard vSwitch or distributed vSwitch. Otherwise, the network might not work properly.
 
-  The PCI interfaces don’t need to be in the same subnet.
-  {: note}
-
-4. A bare metal server can have only one Uplink set on a Standard vSwitch or Distributed vSwitch. Otherwise, the network might not work properly.
-
-## An example vSphere network topology
+## Example vSphere network topology
 {: #bare-metal-servers-example-vmotion-topology}
 
-In the following Distributed vSwitch topology, the VMs can migrate between host "10.240.128.42" and "10.240.128.43" using vMotion.
+In the following Distributed vSwitch topology, the VMs can migrate between host "10.240.128.42" and "10.240.128.43" by using vMotion.
 
 ![Figure showing an example Distributed vSwitch topology that enables vMotion](images/bare_metal_server_example_topology.png "Figure showing an example Distributed vSwitch topology that enables vMotion"){: caption="Figure 2. Example Distributed vSwitch topology that enables vMotion" caption-side="top"}
 
-To create a simple topology like this, you need to take the following steps:
+To create a simple topology like Figure 2, use the following steps:
 
-1. On each bare metal server, check the following settings. 
+1. On each bare metal server, check that you did following actions. 
 
-  Step 1.1 Create a PCI interface and make sure that VLAN ID `777` is included in the PCI interface VLAN allowlist.
-  
-  Step 1.2 Create at least one VLAN interface with VLAN ID that is specified to `777`.
-  
-  Step 1.3 Record the MAC address and IP address of the new network interfaces.
+   - Create a PCI interface and make sure that VLAN ID `777` is included in the PCI interface VLAN allowlist.
+   
+   - Create at least one VLAN interface with VLAN ID that is specified to `777`.
+   
+   - Record the MAC address and IP address of the new network interfaces.
 
-2. In vSphere Client, check the following settings.
+2. In vSphere Client, check that you did the following actions.
 
-  Step 2.1 Enable vMotion on the “vmk0” VMkernel adapter of the 2 ESXi hosts.
-  
-  ![Figure that shows how to enable vMotion on vmk0](images/bare_metal_server_vmk0_enable.png "Figure that shows how to enable vMotion on vmk0"){: caption="Figure 3. Enable vMotion on vmk0" caption-side="top"}
-
-  Step 2.2 Create a Distributed vSwitch and add the 2 ESXi hosts to the Distributed vSwitch.
-  
-  Step 2.3 Identify the PCI interfaces that you created among the vmnic list by MAC address.
-  
-  Step 2.4 Set the identified vmnics as the Uplinks of the hosts. In this example, the identified vmnics are named "vmnic3".
-  
-  Step 2.5 Create a Distributed Port Group ("DPortGroup") and set the VLAN ID to `777`.
-  
-  Step 2.6 Create a server and set its IP address to the IP of the VLAN interface (VLAN ID `777`) that is created previously.
+   - Enable vMotion on the “vmk0” VMkernel adapter of the 2 ESXi hosts.
+   
+   ![Figure that shows how to enable vMotion on vmk0](images/bare_metal_server_vmk0_enable.png "Figure that shows how to enable vMotion on vmk0"){: caption="Figure 3. Enable vMotion on vmk0" caption-side="top"}
+   
+   - Create a distributed vSwitch and add the two ESXi hosts to the distributed vSwitch.
+   
+   - Identify the PCI interfaces that you created in the vmnic list (by MAC address).
+   
+   - Set the identified vmnics as the uplinks of the hosts. In this example, the identified vmnics are named "vmnic3".
+   
+   - Create a Distributed Port Group ("DPortGroup") and set the VLAN ID to `777`.
+   
+   - Create a server and set its IP address to the IP of the VLAN interface (VLAN ID `777`) that you created previously.
   
 You can now migrate the VM by using vMotion.  
 
