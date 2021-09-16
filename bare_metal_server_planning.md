@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-08"
+lastupdated: "2021-09-16"
 
 keywords: bare metal servers, planning, planning bare metal server
 
@@ -27,10 +27,11 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Planning for bare metal servers on VPC
+# Planning for Bare Metal Servers on VPC (Beta)
 {: #planning-for-bare-metal-servers}
 
 When you are planning to create a bare metal server on {{site.data.keyword.vpc_full}} (VPC) to host your VMware&reg; environments, use the following configuration checklist as a guide.
+{: shortdesc}
 
 Bare metal servers on VPC is a Beta feature that requires special approval. Contact your IBM Sales representative if you're interested in getting access.
 {: beta}
