@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-14"
+lastupdated: "2021-09-16"
 
 keywords: bare metal server profile, profile, bare metal profiles, viewing profile, view profiles
 
@@ -27,7 +27,7 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Bare Metal Servers for VPC (Beta) profiles 
+# Profiles for Bare Metal Servers for VPC (Beta)
 {: #bare-metal-servers-profile}
 
 Bare metal servers on VPC is a Beta feature that requires special approval. Contact your IBM Sales representative if you're interested in getting access. 
@@ -55,10 +55,10 @@ For more information about profile families, see [Instance Profiles](/docs/vpc?t
 
 Bare metal server profiles are in the "Balanced" profile family because their "vCPU : Memory" ratios is "1:4".
 
-## Profiles of Bare Metal for VPC
+## Profiles configurations
 {: #bare-metal-servers-profile-list}
 
-See table 2 for the configuration of each profile.
+See table 2 for the configurations of each profile.
 
 | Name | vCPU | Memory (GiB) | Local storage | Total Network Bandwidth (Gbps) |
 |---------|---------|---------|---------|---------|
