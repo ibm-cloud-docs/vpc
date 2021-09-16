@@ -94,7 +94,6 @@ You can use the UI, [CLI](#connect-to-vnc-console-cli), or [API](#connect-to-vnc
   
 ### Connecting to a VNC console by using the CLI
 {: #connect-to-vnc-console-cli}   
-{:cli}
 
 1. Run the following command to connect to a console:
    ```
