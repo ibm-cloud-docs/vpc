@@ -27,7 +27,7 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Creating bare metal servers on VPC (Beta)
+# Creating Bare Metal Servers on VPC (Beta)
 {: #creating-bare-metal-servers}
 
 Use the following information to create a bare metal server on the {{site.data.keyword.vpc_full}} (VPC) with the configuration of your choice.
