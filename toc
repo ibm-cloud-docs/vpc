@@ -393,6 +393,7 @@ Virtual Private Cloud (VPC)
     {: .topicgroup}
     VPC API reference
         [VPC API reference](https://{DomainName}/apidocs/vpc)
+        api-change-log.md
 
     vpc-responsibilities.md
     vsi-understanding-cloud-maintenance.md
@@ -476,7 +477,6 @@ Virtual Private Cloud (VPC)
         instance-status-messages.md
 
     release-notes.md
-    api-change-log.md
     limitations.md
     known-issues.md
     errors.md
