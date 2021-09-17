@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-18"
+lastupdated: "2021-09-17"
 
 keywords: virtual private cloud, file storage, file share, mount point
 
@@ -17,6 +17,7 @@ subcollection: vpc
 {:screen: .screen}
 {:pre: .pre}
 {:tip: .tip}
+{:preview: .preview}
 {:table: .aria-labeledby="caption"}
 {:note: .note}
 
@@ -26,8 +27,8 @@ subcollection: vpc
 {{site.data.keyword.cloud}} File Storage for {{site.data.keyword.vpc_full}} (VPC) is a zonal file storage offering that provides NFS-based file storage services for VPC customers. File shares are created in an availability zone within a region. File shares can be shared with multiple virtual service instances within the same zone across multiple VPCs.
 {:shortdesc}
 
-File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions. Contact your IBM Sales representative if you are interested in getting access.
-{:note}
+File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, and London regions. Contact your IBM Sales representative if you are interested in getting access.
+{: preview}
 
 ## Overview
 {: #file-storage-overview}

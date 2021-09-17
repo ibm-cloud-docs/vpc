@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-30"
+lastupdated: "2021-09-17"
 
 keywords: file Storage, NFS, mounting file Storage, mounting file shares on Linux, mounting file shares on RHEL
 
@@ -20,6 +20,7 @@ subcollection: vpc
 {:tip: .tip}
 {:table: .aria-labeledby="caption"}
 {:note: .note}
+{:preview: .preview}
 {:external: target="_blank" .external}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
@@ -33,8 +34,8 @@ subcollection: vpc
 Use these instructions to connect a Red Hat Enterprise Linux&reg;-based {{site.data.keyword.cloud}} Compute Instance to a Network File System (NFS) share.
 {:shortdesc}
 
-File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions. Contact your IBM Sales representative if you are interested in getting access.
-{:note}
+File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, and London regions. Contact your IBM Sales representative if you are interested in getting access.
+{: preview}
 
 ## Before you begin - Create a VSI
 {: #fs-rhel-create-vsi}

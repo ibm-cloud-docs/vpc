@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-18"
+lastupdated: "2021-09-17"
 
 keywords: file storage, virtual private cloud, file share, troubleshooting
 
@@ -18,6 +18,7 @@ subcollection: vpc
 {:table: .aria-labeledby="caption"}
 {:pre: .pre}
 {:tip: .tip}
+{:preview: .preview}
 {:important: .important}
 {:screen: .screen}
 {:support: data-reuse='support'}
@@ -29,8 +30,8 @@ subcollection: vpc
 The following questions often arise about File Storage for VPC. If you have other questions you'd like to see addressed here, provide feedback by using the **Open Issue** or **Edit Topic** links.
 {:shortdesc}
 
-File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions. Contact your IBM Sales representative if you are interested in getting access.
-{:note}
+File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, and London regions. Contact your IBM Sales representative if you are interested in getting access.
+{: preview}
 
 ## Offering questions
 {: #file-storage-vpc-offering-questions}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-18"
+lastupdated: "2021-09-17"
 
 keywords: file storage, virtual private cloud, file share, mount target, expandable share
 
@@ -18,7 +18,7 @@ subcollection: vpc
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
-{:beta: .beta}
+{:preview: .preview}
 {:table: .aria-labeledby="caption"}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
@@ -33,6 +33,9 @@ For {{site.data.keyword.filestorage_vpc_short}} file shares, you can increase th
 {: shortdesc}
 
 Billing for the file share is automatically updated to add the pro-rated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
+
+File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, and London regions. Contact your IBM Sales representative if you are interested in getting access.
+{: preview}
 
 ## Expandable file share concepts
 {: #expandable-share-concepts}
