@@ -16,6 +16,7 @@ subcollection: vpc
 {:new_window: target="_blank"}
 {:pre: .pre}
 {:note: .note}
+{:preview: .preview} 
 {:table: .aria-labeledby="caption"}
 {:external: target="_blank" .external}
 {:ui: .ph data-hd-interface='ui'}
