@@ -50,16 +50,16 @@ For UI issues:
 * Include steps to reproduce the issue, along with your inputs and expected outputs.
 * Note the approximate time that the error occurred.
 * Provide the code version and error details: 
-  1. Right-click the console page and select the **Inspect** or **Inspect Element** option.
-  2. Click the **Console** tab and copy the version information at the beginning of the output (Project, Version, Build Time, etc.).
-  3. Scroll to the end of the output and copy any errors or stack traces.
+    1. Right-click the console page and select the **Inspect** or **Inspect Element** option.
+    2. Click the **Console** tab and copy the version information at the beginning of the output (Project, Version, Build Time, etc.).
+    3. Scroll to the end of the output and copy any errors or stack traces.
 
 * Provide the network response: 
-  1. While you inspect the page, click the **Network** tab.
-  2. Refresh the page and reproduce the problem.
-  3. Filter all requests by the word "graph".
-  4. Starting at the end of the list, click each request and view the **Preview** tab. If the request has an "errors" node, expand that node to show the full error.
-  5. Click the **Response** tab and include the full response string and the URL that generated the response.
+    1. While you inspect the page, click the **Network** tab.
+    2. Refresh the page and reproduce the problem.
+    3. Filter all requests by the word "graph".
+    4. Starting at the end of the list, click each request and view the **Preview** tab. If the request has an "errors" node, expand that node to show the full error.
+    5. Click the **Response** tab and include the full response string and the URL that generated the response.
 
 
 
