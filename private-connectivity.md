@@ -283,7 +283,7 @@ To access the VPC API private endpoint using the API, follow these steps:
    ```
    {: pre}
 
-  The output appears similar to the following:
+   The output appears similar to the following:
 
    ```
    {
