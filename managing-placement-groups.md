@@ -89,8 +89,8 @@ A placement group must be created first before an instance can use it. After a p
 {: cli}
 
 1. Make sure that you download, install, and initialize the following CLI plug-ins. For more information, see [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup). 
-  * IBM Cloud CLI
-  * The vpc-infrastructure plug-in
+    * IBM Cloud CLI
+    * The vpc-infrastructure plug-in
 2. Have an [{{site.data.keyword.vpc_short}} created](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
 
 ### Gathering information to create a placement group with the CLI
