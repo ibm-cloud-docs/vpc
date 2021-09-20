@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-09-14"
+lastupdated: "2021-09-20"
 
 keywords: release notes, changes, updates
 
@@ -27,6 +27,11 @@ subcollection: vpc
 
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {:shortdesc}
+
+## 20 September 2021
+{: #september-20-2021}
+
+**File Storage for VPC (LA)** is now available in the United Kingdom (London) region. For more information about this service, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
 
 ## 14 September 2021
 {: #september-14-2021}
