@@ -99,3 +99,4 @@ For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles&inter
 
 For more information, see:
 * [Instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui)
+* [Adjusting bandwidth allocation using the UI](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#adjusting-bandwidth-allocation-ui)
