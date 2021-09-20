@@ -49,7 +49,7 @@ You must also decide whether you need to resolve private DNS names from your cli
 ## VPN server provisioning considerations
 {: #vpn-server-considerations}
 
-Consider the following when provisioning a VPN server. 
+Consider the following when provisioning a VPN server.
 
 ### Client IPv4 address pool
 {: #client-ip-address-pool}
@@ -64,12 +64,12 @@ Review the following requirements:
 
 * You must ensure that the block size is at least `/22` (`1024` free IP addresses). It is recommended to use a CIDR block that contains twice the number of IP addresses that are required to enable the maximum number of concurrent connections.
 
-### Subnets: high-availability versus stand-alone mode 
+### Subnets: high-availability versus stand-alone mode
 {: #vpn-type}
 
-When you create a VPN server, you can specify either high-availability or stand-alone mode. 
+When you create a VPN server, you can specify either high-availability or stand-alone mode.
 
-   * If you select high-availability mode, you must deploy the VPN server acress two subnets in different zones. Use this mode for production deployments. Best for multi-zone deployments and solutions where client VPN access is critical.
+   * If you select high-availability mode, you must deploy the VPN server across two subnets in different zones. Use this mode for production deployments. Best for multi-zone deployments and solutions where client VPN access is critical.
    * If you select stand-alone mode, you deploy the VPN server in a single subnet and zone. Use this mode for a pilot, non-production deployment where multi-zone resiliency is not required.
 
 ### VPN server authentication
@@ -86,7 +86,7 @@ If certificate authentication is enabled, you must specify the client CA certifi
 
    If the client and VPN server certificate are signed by the same CA, then the administrator can use the same certificate instance when they provision the VPN server.
    {: note}
-   
+
 For more information, see [Setting up client-to-server authentication](/docs/vpc?topic=vpc-client-to-site-authentication).
 
 ### VPN client authentication
@@ -105,8 +105,8 @@ The VPN server receives the username and passcode from the VPN client and makes 
 
    * The passcode is an one-time password. The user MUST re-generate the passcode for re-connection, even if the re-connection is initiated by the VPN server.
    * The SoftLayer MFA is not supported because SoftLayer MFA enforcement is not done via the browser.
-   
-If you use user ID/passcode authentication, maintenance activities force users to re-authenticate by fetching and re-entering the code. The connection is restored only after the new code is entered. This is applicable using stand-alone or HA mode. 
+
+If you use user ID/passcode authentication, maintenance activities force users to re-authenticate by fetching and re-entering the code. The connection is restored only after the new code is entered. This is applicable using stand-alone or HA mode.
 {: important}
 
 ### Client certificate revocation lists
@@ -125,8 +125,8 @@ The transport layer oversees the delivery of data from a process on one device t
 
    UDP is recommended for optimal performance; TCP for reliability.
    {: note}
-   
-   * **User Datagram Protocol (UDP)** 
+
+   * **User Datagram Protocol (UDP)**
 
       The User Datagram Protocol (UDP) is a simple, lightweight protocol with minimum overhead. If a process wants to send a small message and doesn't care about reliability, it can use UDP. Sending a message by using UDP takes much less time than using TCP. It performs little error checking and does not add any advantages to IP services except to provide process-to-process communication instead of host-to-host communication.  
 
@@ -137,7 +137,7 @@ The transport layer oversees the delivery of data from a process on one device t
       TCP is a stream delivery service that guarantees delivery of data streams sent from one host to another without duplication or lost data. Since packet transfer is not reliable, a technique known as positive acknowledgment with retransmission is used to guarantee reliability of packet transfers. This fundamental technique requires the receiver to respond with an acknowledgment message as it receives the data.
 
       The sender keeps a record of each packet it sends, and waits for acknowledgment before sending the next packet. The sender also keeps a timer from when the packet was sent, and retransmits a packet if the timer expires. This timer is needed in case a packet becomes lost or corrupted.
-      
+
 ### Full versus split tunnel mode
 {: #full-versus-split-tunnels}
 
