@@ -16,6 +16,7 @@ subcollection: vpc
 {:screen: .screen}
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
+{:tip: .tip}
 {:note: .note}
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
@@ -68,7 +69,7 @@ Follow these steps to create a boot and data volume from snapshots when you prov
 
 1. From the list of snapshots, select a bootable snapshot for your instance's operating system and click **Save**.
 
-  This action imports snapshot data to the boot volume. The new boot volume is created from the snapshot and is listed under Boot Volume on the instance provisioning page. 
+    This action imports snapshot data to the boot volume. The new boot volume is created from the snapshot and is listed under Boot Volume on the instance provisioning page. 
 
 1. To create a data volume, under Data Volumes, click **Create**. A side panel displays for creating a new data volume.
 
