@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-20"
+lastupdated: "2021-09-21"
 
 keywords: compute, virtual private cloud, virtual server instance, instance, bandwidth
 
@@ -34,9 +34,6 @@ subcollection: vpc
 
 Instance profiles inform the available instance bandwidth of an instance.
 {: shortdesc}
-
-Instance Bandwidth is available for select customers. Contact IBM Sales if you are interested in purchasing and using this offering. 
-{: preview}
 
 ## Bandwidth allocation for resources attached to an instance
 {: #attached-resources}
