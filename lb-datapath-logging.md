@@ -24,7 +24,7 @@ subcollection: vpc
 {:external: target="_blank" .external}
 
 # Datapath log forwarding
-{: #datapath-logging}
+{: #alb-datapath-logging}
 
 Data and health check logs are valuable for debugging and maintenance purposes. With the datapath logging feature enabled, {{site.data.keyword.vpc_full}} {{site.data.keyword.alb_full}} (ALB) forwards these logs to your account's [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/observe/logging){: external} dashboard.
 {: shortdesc}
@@ -53,17 +53,17 @@ To create a {{site.data.keyword.la_short}} instance, follow these steps:
 
 2. Choose the region from the menu list that corresponds to the data center where you provisioned the load balancer. For example, for a load balancer in SYD01, choose the region of Sydney.
 
-   The following table shows the mapping between regions and data centers:
+The following table shows the mapping between regions and data centers:
 
-   | Region | Data center |
-   | ------ | ----------- |
-   | Sydney | SYD01, SYD05, SYD04, MEL01 |
-   | Tokyo | CHE01, HKG02, SNG01, TOK02, TOK04, TOK05, SEO01, OSA02 |
-   | Frankfurt | AMS01, AMS03, FRA02, FRA04, FRA05, MIL01, PAR01 |
-   | London | LON01, LON02, LON04, LON05, LON06, OSL01 |
-   | Dallas | DAL00, DAL01, DAL02, DAL05, DAL06, DAL07, DAL08, DAL09, DAL10, DAL12, DAL13, HOU01, HOU02, MEX01, SJC01, SJC03, SJC04, SEA01, SAO01 |
-   | Washington DC | MON01, TOR01, WDC01, WDC04, WDC06, WDC07 |
-   {: caption="Table 1. Mapping between region and datacenter" caption-side="top"}
+| Region | Data center |
+| ------ | ----------- |
+| Sydney | SYD01, SYD05, SYD04, MEL01 |
+| Tokyo | CHE01, HKG02, SNG01, TOK02, TOK04, TOK05, SEO01, OSA02 |
+| Frankfurt | AMS01, AMS03, FRA02, FRA04, FRA05, MIL01, PAR01 |
+| London | LON01, LON02, LON04, LON05, LON06, OSL01 |
+| Dallas | DAL00, DAL01, DAL02, DAL05, DAL06, DAL07, DAL08, DAL09, DAL10, DAL12, DAL13, HOU01, HOU02, MEX01, SJC01, SJC03, SJC04, SEA01, SAO01 |
+| Washington DC | MON01, TOR01, WDC01, WDC04, WDC06, WDC07 |
+{: caption="Table 1. Mapping between region and datacenter" caption-side="top"}
 
 After you choose your region, click **Create** to create the logging instance, then configure it by clicking **Configure the platform service logs**.
 
