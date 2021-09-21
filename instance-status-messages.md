@@ -81,7 +81,7 @@ Your virtual server did not start because of an unexpected failure. To address t
 If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help).
 
 ## Error: `cannot_start_network`
-{: #cannot-start-netowork}
+{: #cannot-start-network}
 
 **Error message**: _Can't start instance because network resources can't be provisioned_
 
