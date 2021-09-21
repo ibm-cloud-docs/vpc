@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-09"
+lastupdated: "2021-09-21"
 
 keywords: instance status message, instance status, VPC error message, error message
 
@@ -30,7 +30,7 @@ If you receive an error message, you can use the following information to help r
 
 **Error message**: _Can't start instance because provisioning failed_
 
-Your virtual server didn't start because the provisioning process failed. To address this error, try the follow possible resolutions:
+Your virtual server didn't start because the provisioning process failed. To address this error, try the follow possible resolutions: 
 
 * Start the instance again.
 * Stop and restart the instance.
@@ -43,7 +43,7 @@ If you still need help with the error, contact [support](/docs/vpc?topic=vpc-get
 
 **Error message**: _Can't start instance because resource capacity is unavailable._
 
-Your virtual server didn't start because the instance doesn't have enough available resource capacity to start. To address this error, try the follow possible resolutions:
+Your virtual server didn't start because the instance doesn't have enough available resource capacity to start. To address this error, try the follow possible resolutions: 
 
 * Start the instance again.
 * Stop and restart the instance.
@@ -58,7 +58,7 @@ If you still need help with the error, contact [support](/docs/vpc?topic=vpc-get
 
 **Error message**: _Can't start instance in the placement group_
 
-Your virtual server didn't start because the instance doesn't have enough available resource capacity in the instance group to start. To address this error, try the follow possible resolutions:
+Your virtual server didn't start because the instance doesn't have enough available resource capacity in the instance group to start. To address this error, try the follow possible resolutions: 
 
 * Deploy the placement group again.
 * Distribute the instances across availability zones.
@@ -72,7 +72,7 @@ If you still need help with the error, contact [support](/docs/vpc?topic=vpc-get
 
 **Error message**: _Can't start instance because provisioning failed_
 
-Your virtual server did not start because of an unexpected failure. To address this error, try the follow possible resolutions:
+Your virtual server did not start because of an unexpected failure. To address this error, try the follow possible resolutions: 
 
 * Start the instance again.
 * Stop and restart the instance.
@@ -85,7 +85,7 @@ If you still need help with the error, contact [support](/docs/vpc?topic=vpc-get
 
 **Error message**: _Can't start instance because network resources can't be provisioned_
 
-Your virtual server did not start because of a network resource failure. To address this error, try the follow possible resolutions:
+Your virtual server did not start because of a network resource failure. To address this error, try the follow possible resolutions: 
 
 * Start the instance again.
 * Stop and restart the instance.
@@ -98,7 +98,7 @@ If you still need help with the error, contact [support](/docs/vpc?topic=vpc-get
 
 **Error message**: _Can't start instance because the network interface IP address isn't available_
 
-Your virtual server did not start because of an unexpected network interface IP address failure. To address this error, try the follow possible resolutions:
+Your virtual server did not start because of an unexpected network interface IP address failure. To address this error, try the follow possible resolutions: 
 
 * Start the instance again.
 * Stop and restart the instance.
@@ -111,7 +111,7 @@ If you still need help with the error, contact [support](/docs/vpc?topic=vpc-get
 
 **Error message**: _Can't start instance because storage wasn't provisioned_
 
-Your virtual server did not start because of a storage volume or storage disk provisioning error. To address this error, try the follow possible resolutions:
+Your virtual server did not start because of a storage volume or storage disk provisioning error. To address this error, try the follow possible resolutions: 
 
 * Start the instance again.
 * Stop and restart the instance.
@@ -130,6 +130,9 @@ The virtual server instance is unusable because the encryption key for the boot 
 To resolve this error, restore the encryption key and try again. For more information about restoring your encryption key, see [Restoring keys](/docs/key-protect?topic=key-protect-restore-keys&interface=ui).
 
 If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help).
+
+## Error: `stopped_for_image_creation`
+{: #stopped-for-image-creation}
 
 **Error message**: _Instance was stopped because a new image was created_
 
