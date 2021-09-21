@@ -24,7 +24,7 @@ subcollection: vpc
 {:external: target="_blank" .external}
 
 # Datapath log forwarding
-{: #alb-datapath-logging}
+{: #datapath-logging}
 
 Data and health check logs are valuable for debugging and maintenance purposes. With the datapath logging feature enabled, {{site.data.keyword.vpc_full}} {{site.data.keyword.alb_full}} (ALB) forwards these logs to your account's [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/observe/logging){: external} dashboard.
 {: shortdesc}
