@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-09-20"
+lastupdated: "2021-09-21"
 
 keywords: view instance details, restart, stop, instance details, delete
 
@@ -333,10 +333,6 @@ For more information, see the [Retrieve an instance profile](/apidocs/vpc#get-in
 {: #adjusting-bandwidth-allocation-ui}
 {: ui}
 
-
-Instance Bandwidth is available for select customers. Contact IBM Sales if you are interested in purchasing and using this offering. 
-{: preview}
-
 You can adjust the allocation of your instance's total bandwidth between network bandwidth and storage bandwidth using the UI.
 
 To adjust the bandwidth of an instance:
@@ -353,9 +349,6 @@ To view the new bandwidth allocation, you must either stop and start the instanc
 {: #adjusting-bandwidth-allocation-cli}
 {: cli}
 
-Instance Bandwidth is available for select customers. Contact IBM Sales if you are interested in purchasing and using this offering. 
-{: preview}
-
 You can adjust the allocation of your instance's total bandwidth between network bandwidth and storage bandwidth using the CLI.
 
 To reallocate instance bandwidth by using the CLI, run the `instance-update {id}` command and specify the total storage bandwidth in megabits per second (Mbps) for the `total-volume-bandwidth` parameter. Use this syntax:
@@ -367,9 +360,6 @@ ibmcloud is instance-update {id} --total-volume-bandwidth VALUE
 ## Adjusting total storage bandwidth allocation from the API
 {: #adjusting-bandwidth-allocation-api}
 {: api}
-
-Instance Bandwidth is available for select customers. Contact IBM Sales if you are interested in purchasing and using this offering. 
-{: preview}
 
 You can adjust total storage bandwidth for an existing instance. Make a `PATCH /instances` call and specify `total_volume_ bandwidth`. Total storage bandwidth (in megabits per second) is the total bandwidth allocated for primary boot and secondary attached data volumes. Increasing total storage bandwidth results in a corresponding decrease in network bandwidth. The minimum network bandwidth you can have is 500 mbps, so adjust total storage bandwidth accordingly. For example,
 
