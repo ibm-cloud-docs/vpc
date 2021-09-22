@@ -23,7 +23,7 @@ subcollection: vpc
 {: #about-networking-for-vpc}
 
 {{site.data.keyword.vpc_full}} (VPC) is a virtual network that is linked to your customer account. It gives you cloud security, with the ability to scale dynamically, by providing fine-grained control over your virtual infrastructure and your network traffic segmentation.
-{:shortdesc}
+{: shortdesc}
 
 ## Overview
 {: #networking-overview}
@@ -99,7 +99,7 @@ The following figure summarizes the current scope of gateway services.
 | Protects instances; Cannot initiate access to instances through the public endpoint | DNAT service can be scaled up or down, based on requirements | Stateless ACLs allow for granular control of traffic | Create secure connections with industry standard encryption |
 
 You can create only one public gateway per zone, but that public gateway can be attached to multiple subnets in the zone.
-{:tip}
+{: tip}
 
 ### Use a Floating IP address for external connectivity of a virtual server instance
 {: #floating-ip-for-external-connectivity}

@@ -31,13 +31,13 @@ subcollection: vpc
 {: #file-storage-view}
 
 View all file shares and mount targets by using the UI, CLI, or API. Also, view details of a single file share or mount target.
-{:shortdesc}
+{: shortdesc}
 
 File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, and London regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 Before you get started, to create mount targets for file shares, make sure that you created a [VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
-{:important}
+{: important}
 
 ## Viewing file shares and mount targets by using the UI
 {: #file-storage-view-shares-targets-ui}
@@ -108,7 +108,7 @@ Run the `share-targets` command and specify the file share ID to see all mount t
 ```
 ibmcloud is share-targets SHARE_ID [--output JSON] [-q, --quiet]
 ```
-{:pre}
+{: pre}
 
 
 ### Viewing all file shares by using the CLI
@@ -119,7 +119,7 @@ Run the `shares` command to list all file shares in a region.
 ```
 ibmcloud is shares [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME | --all-resource-groups] [--output JSON] [-q, --quiet]
 ```
-{:pre}
+{: pre}
 
 ## Viewing file shares and mount targets by using the API
 {: #file-storage-view-shares-targets-api}
@@ -191,7 +191,7 @@ A successful response looks like the following example:
   ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Viewing a single file share by using the API
 {: #fs-single-file-shares-api}
@@ -203,7 +203,7 @@ curl -X GET \
 "$vpc_api_endpoint/v1/shares/$share_id?version=2021-03-16&generation=2" \
 -H "Authorization: $iam_token"
 ```
-{:pre}
+{: pre}
 
 A successful response looks like the following example:
 
@@ -265,7 +265,7 @@ curl -X GET \
 "$vpc_api_endpoint/v1/shares/$share_id/targets?version=2020-08-01&generation=2" \
 -H "Authorization: $iam_token"
 ```
-{:pre}
+{: pre}
 
 A successful response looks like the following example:
 
@@ -296,7 +296,7 @@ A successful response looks like the following example:
   "total_count": 1
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Viewing a single mount target by using the API
 {: #fs-get-target-api}
@@ -310,7 +310,7 @@ curl -X GET \
 "$vpc_api_endpoint/v1/shares/$share_id/targets/$target_id?version=2020-08-01&generation=2" \
 -H "Authorization: $iam_token"
 ```
-{:pre}
+{: pre}
 
 A successful response looks like the following example:
 
@@ -332,7 +332,7 @@ A successful response looks like the following example:
   }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Next steps
 {: #fs-view-next-steps}

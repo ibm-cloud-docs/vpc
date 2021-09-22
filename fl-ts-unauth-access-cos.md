@@ -28,7 +28,7 @@ subcollection: vpc
 {: support}
 
 A flow log collector requires a {{site.data.keyword.cos_full_notm}} bucket to be defined and accessible. If you see the error log with message ID `is.flow-log-collector.00002E`, the Cloud Object Storage bucket is not accessible. The flow log collector cannot publish data to the bucket. 
-{:shortdesc}
+{: shortdesc}
 
 To avoid lost data, create a Cloud Object Storage bucket within the next 24 hours to correct this problem.
 {: important}

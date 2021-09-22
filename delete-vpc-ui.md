@@ -26,7 +26,7 @@ subcollection: vpc
 {: #deleting-using-console}
 
 Before you can delete an {{site.data.keyword.vpc_full}} in the {{site.data.keyword.cloud_notm}} console, you must delete all of the VPC's public gateways, subnets, and attached resources.
-{:shortdesc}
+{: shortdesc}
 
 To delete a VPC by using the console:
 

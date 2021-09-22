@@ -31,12 +31,12 @@ subcollection: vpc
 {: #managing-block-storage}
 
 Use the UI, CLI, or API to manage your block storage volumes. Detach a volume from a virtual server instance or transfer a volume from one instance to another. Attach a previously attached volume or rename a volume. Set automatic volume deletion or manually delete a volume. Assign access to a volume.
-{:shortdesc}
+{: shortdesc}
 
 
 ## Managing block storage volumes by using the UI
 {: #manage-block-storage-vol-UI}
-{:ui}
+{: ui}
 
 Use the UI to manage your block storage volumes. You can:
 
@@ -138,7 +138,7 @@ You can also enable Auto Delete on a new data volume when you create an instance
 
 ## Managing block storage volumes by using the CLI
 {: #managing-block-storage-cli}
-{:cli}
+{: cli}
 
 Manage your block storage volumes from the command-line interface (CLI). You can update a volume name, update a volume attachment, detach a volume, and delete a volume.
 
@@ -152,7 +152,7 @@ To change a volume name, specify either the volume name or ID and then indicate 
 ```
 ibmcloud is volume-update VOLUME_ID [--name NEW_NAME] [--json]
 ```
-{:pre}
+{: pre}
 
 Example:
 
@@ -173,7 +173,7 @@ Zone                                    us-south-2
 Resource Group                          Default(c16d1edde3fd4a71a0130aed371405a0)
 Volume Attachment Instance Reference    none
 ```
-{:screen}
+{: screen}
 
 ### Updating a volume attachment by using CLI
 {: #update-vol-attachment-cli}
@@ -183,7 +183,7 @@ You can update the volume attachment name and change the default auto delete set
 ```
 ibmcloud is instance-volume-attachment-update INSTANCE_ID VOLUME_ATTACHMENT_ID [--name NEW_NAME] [--auto-delete true | false] [--json]
 ```
-{:pre}
+{: pre}
 
 Use the `--name` parameter and specify a new name for the volume attachment.
 
@@ -195,7 +195,7 @@ Example showing details for `Volume Attachment Instance Reference`:
 VDisk Name    VDisk ID                                    VDisk type   Auto delete   Instance name   Instance ID
 VDisk-data1   0738-fd146b1f-e1bb-4eab-ba78-3109e6bc3a2d   data         true          vsi-test1       0738-8b56da93-7990-4ccf-9dc5-5aee6a5f08f9
 ```
-{:screen}
+{: screen}
 
 ### Detaching a volume by using the CLI
 {: #detach-vol-attachment-cli}
@@ -207,7 +207,7 @@ Use the `instance-volume-attachment-detach` command to detach a volume from an i
 ```
 ibmcloud is instance-volume-attachment-detach INSTANCE_ID VOLUME_ATTACHMENT_ID [-f, --force]
 ```
-{:pre}
+{: pre}
 
 ### Deleting a block storage volume by using the CLI
 {: #delete-vol-cli}
@@ -221,7 +221,7 @@ Use the `volume-delete` command and specify the volume ID to delete a block stor
 ```
 ibmcloud is volume-delete (VOLUME_NAME | VOLUME_ID) [-f, --force]
 ```
-{:pre}
+{: pre}
 
 Example:
 
@@ -232,14 +232,14 @@ Deleting volume 64d85f0f-6c08-4188-9e9a-0057b3aa1b69 under account MyAccount 01 
 OK
 Volume ID 0738-64d85f0f-6c08-4188-9e9a-0057b3aa1b69 is deleted.
 ```
-{:screen}
+{: screen}
 
 
 ## Managing block storage volumes from the API
 {: #managing-block-storage-api}
-{:api}
+{: api}
 
-Manage your block storage volumes programically by making calls to the [VPC REST APIs](https://{DomainName}/apidocs/vpc){:external}. You can update a volume name, update a volume attachment, detach a volume, and delete a volume.
+Manage your block storage volumes programically by making calls to the [VPC REST APIs](https://{DomainName}/apidocs/vpc){: external}. You can update a volume name, update a volume attachment, detach a volume, and delete a volume.
 
 ### Updating the name of a volume from the API
 {: #update-vol-name-api}
@@ -253,7 +253,7 @@ curl -X PATCH "$vpc_api_endpoint/v1/volumes?version=2021-04-20&generation=2" \
       "name": "my-volume-4-update"
     }'
 ```
-{:pre}
+{: pre}
 
 A successful response looks like the following example:
 
@@ -288,7 +288,7 @@ A successful response looks like the following example:
   }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Updating a volume attachment from the API
 {: #update-vol-attachment-api}
@@ -298,7 +298,7 @@ Make a `PATCH /instances` call and specify the ID of the new volume attachment.
 ```
 PATCH /instances/{instance_id}/volume_attachments/{id}
 ```
-{:pre}
+{: pre}
 
 ```
 curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments/$volume_attachment_id?version=2021-04-20&generation=2" \
@@ -308,7 +308,7 @@ curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments/$v
       "name": "my-volume-attachment-data-5iops-updated"
     }'
 ```
-{:pre}
+{: pre}
 
 A successful response looks like the following example:
 
@@ -329,7 +329,7 @@ A successful response looks like the following example:
   }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 
 ### Detaching a volume by using the API
@@ -340,14 +340,14 @@ Make a `DELETE /instances` request and specify the volume attachment ID to delet
 ```
 DELETE /instances/{instance_id}/volume_attachments/{id}
 ```
-{:pre}
+{: pre}
 
 ```
 curl -X DELETE "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments/$volume_attachment_id?version=2021-04-20&generation=2" \
 -H "Authorization: $iam_token"
 
 ```
-{:codeblock}
+{: codeblock}
 
 Verify that the volume is detached from the instance by making a `GET /instances/{instance_id}`
 call.
@@ -361,7 +361,7 @@ Make a `DELETE /volumes/{id}` call.
 curl -X DELETE "$vpc_api_endpoint/v1/volumes/$volume_id?version=2021-04-20&generation=2" \
 -H "Authorization: $iam_token"
 ```
-{:pre}
+{: pre}
 
 To verify that the volume is deleted, list the volumes by making a `GET /volumes` call.
 

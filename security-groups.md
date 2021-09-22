@@ -25,7 +25,7 @@ subcollection: vpc
 {: #using-security-groups}
 
 IBM Cloud Security Groups for VPC give you a convenient way to apply rules that establish filtering to each network interface of a virtual server instance, based on its IP address. When you create a security group, you configure it to create the network traffic patterns you want.
-{:shortdesc}
+{: shortdesc}
 
 By default, a security group denies all traffic. As rules are added to a security group, it defines the traffic that the security group permits.
 

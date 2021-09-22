@@ -25,7 +25,7 @@ subcollection: vpc
 
 After you create a {{site.data.keyword.block_storage_is_short}} volume and attach it to an instance, to use your
 block storage volume as a file system, you need to partition the volume, format the volume, and then mount it as a file system.
-{:shortdesc}
+{: shortdesc}
 
 Follow this procedure to use your block storage volume on a Linux&reg; system.
 
@@ -39,7 +39,7 @@ Run the following command to list all block storage volumes from your instance.
 ```
 lsblk
 ```
-{:pre}
+{: pre}
 
 You will see output like this:
 
@@ -50,7 +50,7 @@ xvda    202:0    0  100G  0 disk
 └─xvda2 202:2    0 99.8G  0 part /
 xvdb    202:32   0  100G  0 disk
 ```
-{:screen}
+{: screen}
 
 Volume `xvdb` is your block storage data volume.
 
@@ -62,7 +62,7 @@ Run the following command to partition the volume.
 ```
 fdisk /dev/xvdb
 ```
-{:pre}
+{: pre}
 
 Type the `n` command for a new partition, then `p` for primary partition.
 
@@ -72,7 +72,7 @@ Partition type:
    e   extended
 Select (default p): p
 ```
-{:pre}
+{: pre}
 
 Complete the prompts to define the partition's first cylinder number and last cylinder number. After creating a new partition, run the `w` command to save changes to the partition table. Reboot your system to verify the newly created partition.
 
@@ -82,14 +82,14 @@ Complete the prompts to define the partition's first cylinder number and last cy
 ```
 /sbin/mkfs -t ext3 /dev/xvdb
 ```
-{:pre}
+{: pre}
 
 To check the size of the partition, run:
 
 ```
 fdisk -s /dev/xvdb
 ```
-{:pre}
+{: pre}
 
 ## Step 4 - Create the directory and mount the volume as a file system
 {: #linux-procedure-mount-volume}
@@ -108,7 +108,7 @@ To see your new file system, run the following command:
 ```
 df -k
 ```
-{:pre}
+{: pre}
 
 You will see output like this:
 
@@ -124,7 +124,7 @@ tmpfs            4084664       0   4084664   0% /sys/fs/cgroup
 tmpfs             817040       0    817040   0% /run/user/0
 /dev/xvdb      103081248   61176  97777192   1% /myvolumedir
 ```
-{:screen}
+{: screen}
 
 Go to the directory in your new file system and create a file:
 
@@ -132,4 +132,4 @@ Go to the directory in your new file system and create a file:
 cd /myvolumedir
 touch myvolumefile1
 ```
-{:codeblock}
+{: codeblock}

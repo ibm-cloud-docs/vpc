@@ -26,7 +26,7 @@ subcollection: vpc
 {: #snapshots-vpc-restore}
 
 Now that you created a snapshot, how do you use it? By restoring from a snapshot, you create a new, fully-provisioned boot or data volume. Restoring from a snapshot of a boot volume creates a new boot volume that you can use when you provision a new instance. Restoring from a snapshot of a data volume creates a secondary volume that's attached to the instance.
-{:shortdesc}
+{: shortdesc}
 
 ## About restoring a volume from a snapshot
 {: #snapshots-vpc-restore-concepts}
@@ -49,7 +49,7 @@ When you select a snapshot as the source for the volume, the service immediately
 
 ## Restore a volume from a snapshot using the UI
 {: #snapshots-vpc-restore-UI}
-{:ui}
+{: ui}
 
 ### Create a volume from a snapshot when you provision a new instance using the UI
 {: #snapshots-vpc-restore-vol-UI}
@@ -108,7 +108,7 @@ The new volume appears in the list of Storage volumes. Hover over the camera ico
 
 ## Restore a volume from a snapshot using the CLI
 {: #snapshots-vpc-restore-CLI}
-{:cli}
+{: cli}
 
 Use the CLI to create a boot or data volume from a snapshot.
 
@@ -122,7 +122,7 @@ Use the CLI to create a boot or data volume from a snapshot.
    ```
    export IBMCLOUD_IS_FEATURE_SNAPSHOT=true
    ```
-   {:pre}
+   {: pre}
 
 3. After you install the vpc-infrastructure plug-in, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
    
@@ -150,7 +150,7 @@ bmcloud is instance-create my-instance-restore1 ea002578-ff10-41fe-9652-e63f7e0e
    }
 }'
 ```
-{:codeblock}
+{: codeblock}
 
 ```
 Creating instance my-instance-restore1 in resource group under account VP 01 as user rtuser1@mycompany.com...
@@ -178,7 +178,7 @@ Boot volume      ID                                   Name                  Atta
                  0651dacb-4589-4147-86b3-a77544598f93 boot-from-snapshot1                  7101-abf9dd2b-9d5d-41f1-849d-55a8ab580ddb                            boot-from-snapshot1
 
 ```
-{:screen}
+{: screen}
 
 ### Create a data volume from a snapshot using the CLI
 {: #snapshots-vpc-restore-data-CLI}
@@ -205,11 +205,11 @@ bmcloud is instance-create my-instance-restore1 ea002578-ff10-41fe-9652-e63f7e0e
 .
 .
 ```
-{:codeblock}
+{: codeblock}
 
 ## Restore a volume from a snapshot from the API
 {: #snapshots-vpc-restore-API}
-{:api}
+{: api}
 
 To restore a boot volume from a bootable snapshot, specify the boot volume attachment and snapshhot ID in the `POST /instances` request.
 
@@ -254,7 +254,7 @@ curl -X POST \
 }'
 
 ```
-{:codeblock}
+{: codeblock}
 
 
 To restore a data volume from a snapshot and attach it at boot time, specify the data volume attachment and snapshot ID in the `POST /instances` request.
@@ -299,7 +299,7 @@ curl -X POST \
     }
 }'
 ```
-{:codeblock}
+{: codeblock}
 
 ## Next Steps
 {: #snapshots_vpc_restore_next_steps}

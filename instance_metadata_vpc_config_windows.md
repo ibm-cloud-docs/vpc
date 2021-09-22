@@ -28,7 +28,7 @@ subcollection: vpc
 {: #imd-windows-configuration}
 
 To access instance metadata from Windows servers, there are additional requirements to locate a default gateway and add a route.
-{:shortdesc}
+{: shortdesc}
 
 This service is available only to accounts with special approval to preview this beta feature.
 {: beta}

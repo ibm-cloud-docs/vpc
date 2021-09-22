@@ -108,7 +108,7 @@ If there's an outage, requests are rerouted to an active region, automatically. 
 Single datacenters are not colocated with IBM Cloud services, such as IAM or Key Protect, and they offer no resiliency in the event of a site's outage or destruction.
 
 If a networking failure results in a partition, such that the datacenter is unable to reach a core IBM Cloud region for access to IAM, authentication and authorization information is read from a cache that might become stale. This action can result in a lack of enforcement of new or altered IAM policies for up to 24 hours.
-{:important}
+{: important}
 
 | **Region** | **Endpoint** |
 |------------|-------------------------------|

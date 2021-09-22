@@ -33,7 +33,7 @@ When you configure and use the Instance Metadata service, you might encounter is
 {: shortdesc}
 
 This service is available only to accounts with special approval to preview this beta feature.
-{:beta}
+{: beta}
 
 ## Disabling the metadata service hangs a virtual server instance
 {: #imd-ts-1}

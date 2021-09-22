@@ -24,7 +24,7 @@ subcollection: vpc
 {: #byok-block-storage-remediation}
 
 {{site.data.keyword.vpc_full}} (VPC) has some new features in development for block storage volumes. We want to make sure that behavior changes we're making to API, CLI, and Terraform does not cause disruption for you.
-{:shortdesc}
+{: shortdesc}
 
 Upcoming enhancements to block storage volumes add a new enumeration status to the volume APIs. The new status occurs when you expand an existing volume. Your block storage volumes will go into an updating state and show the API status code `updating`. You can still access the data while the volume is being resized. For more information on this feature, see [Expanding block storage volume capacity (Beta](/docs/vpc?topic=vpc-expanding-block-storage-volumes)
 

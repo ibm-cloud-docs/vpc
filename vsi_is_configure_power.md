@@ -25,10 +25,10 @@ subcollection: vpc
 {: #vsi_is_power_perf}
 
 To improve overall efficiency, you might want to change the simultaneous multi-threading (SMT) value for your POWER-based instance. When you create an instance, the default SMT value is set to 2 for the boot images provided.  
-{:shortdesc}
+{: shortdesc}
 
 The IBM Cloud Virtual Servers for VPC on POWER service is deprecated. As of 02 June 2020, you cannot provision new instances. Any instance that is still provisioned as of 22 August 2020 will be deleted. For more information, see the [End of Service Announcement for Virtual Servers for VPC on POWER](https://www.ibm.com/cloud/blog/announcements/end-of-service-announcement-for-virtual-servers-for-vpc-on-power).
-{:deprecated}
+{: deprecated}
 
 ## Viewing the current SMT setting
 {: #view_smt_setting}
@@ -38,12 +38,12 @@ To view the current SMT setting, run the following pp64_cpu command:
 ```
 sudo ppc64_cpu --smt 
 ```
-{:pre} 
+{: pre} 
 
 ```
 SMT=2
 ```
-{:screen}
+{: screen}
 
 ## Changing the SMT setting
 {: #change_smt_setting}
@@ -53,22 +53,22 @@ To change the SMT value, run the following `ppc64_cpu –smt=<N>` command, where
 ```
 sudo ppc64_cpu --smt=4 
 ```
-{:pre}
+{: pre}
 
  ```
 [root@power-centos ~]# ppc64_cpu --smt
  ```
-{:pre}
+{: pre}
 
 ```
 SMT=4
  ```
-{:screen}  
+{: screen}  
 
 ```
 sudo lscpu 
 ```
-{:pre}
+{: pre}
 
 ```
 Architecture: ppc64le
@@ -77,21 +77,21 @@ CPU(s): 4O
 n-line CPU(s) list: 0-3
 Thread(s) per core: 4
 ```
-{:screen}
+{: screen}
 
 The instance is dynamically switched to SMT-4 mode. If you run the frequency utility of the ppc64_cpu command, the utility picks two of the vCPUs to report on, at random. Whereas for SMT-2 mode, the utility always returns cpu 0 and 1. The following example shows the frequence utility command and sample output.
 
 ```
 sudo ppc64_cpu --frequency 
 ```
-{:pre}
+{: pre}
 
 ```
 min:3.723 GHz (cpu 0)
 max:3.751 GHz (cpu 3)
 avg:3.744 GHz
 ```
-{:screen}
+{: screen}
 
 ## Considerations
 {: #smt_considerations}

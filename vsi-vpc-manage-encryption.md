@@ -23,7 +23,7 @@ subcollection: vpc
 {: #vpc-encryption-managing}
 
 Take actions to manage your customer-managed encryption that secures your resources with your own root keys. View Activity Tracker events to verify key rotation. Disable or delete root keys that have been compromised or that you no longer need. Optionally, make your data inaccessible after setting up customer-managed encryption.
-{:shortdesc}
+{: shortdesc}
 
 ## Managing root keys
 {: #byok-manage-root-keys}
@@ -60,7 +60,7 @@ When you create a customer-managed encryption volume, snapshot, or custom image,
 1. In the Encryption Instance field, click the link of the KMS instance you provisioned for the root key protecting this volume. Information about that KMS instance shows, which includes the name and ID of the root key.
 
   If you created your KMS instance using a private endpoint, these instances and associated root keys do not appear in the UI. Use the Key Protect or HPCS CLI or API to verify key rotation instead.
-  {:note}
+  {: note}
 
 1. Click  **Associated Resources**. You'll see the following information for the root key in the KMS instance:
   * Key Name
@@ -170,7 +170,7 @@ For more information about disabling root keys, see:
 When you delete a root key, the key is no longer available to decrypt passphrases used to protect your resources. Deleting a root key places it in a _destroyed_ state in the KMS. All resources protected by the deleted root key have an _unusable_ status and can't be used for normal operations.
 
 Your data still exists. You have a 30-day grace period to [restore the deleted key](#byok-restore-root-key). Otherwise, your encrypted resources become inaccessible. After the 30-day grace period, your root key can't be restored and your resources are unrecoverable.
-{:important}
+{: important}
 
 By default, the KMS prevents you from deleting a root key that's actively protecting a resource. Key Protect and HPCS let you **force delete** a root key. To force delete in HPCS, use the API only. Also, see [this troubleshooting issue](/docs/hs-crypto?topic=hs-crypto-troubleshoot-unable-to-delete-keys) for deleting root keys in HPCS. HPCS requires that you delete all resources before you delete a root key protecting those resources.
 
@@ -192,7 +192,7 @@ The following conditions result:
 * Billing continues for unusable resources until you delete them.
 
 As a best practice, before you force delete a root key, review all resources that are associated with that root key. Consider [temporarily disabling the key](#byok-disable-root-keys) instead of deleting it to suspend using that the root key. Root keys can be restored within 30 days, but they must be imported root keys, not KMS generated.
-{:important}
+{: important}
 
 For more information about deleting root keys, see:
 
@@ -351,7 +351,7 @@ The following JSON example shows a `kms.secrets.rotate` event when a root key is
    "logSourceCRN":"crn:v1:bluemix:public:kms:us-south:a/a12333e9bd28461a8c92385628efac9f:fd692647-43d0-4699-9f83-f39a54b1327b::"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 This event shows the updated volume after a successful key rotation:
 
@@ -404,7 +404,7 @@ This event shows the updated volume after a successful key rotation:
   "saveServiceCopy": true
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Activity Tracker events for key suspension and deletion
 {: #byok-key-delete-suspend-events}

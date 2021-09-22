@@ -24,7 +24,7 @@ subcollection: vpc
 {: #byok-api-remediation-plan}
 
 {{site.data.keyword.vpc_full}} (VPC) has some new features in development for customer-managed encryption. We want to make sure that behavior changes we're making to API, CLI, and Terraform does not cause disruption for you.
-{:shortdesc}
+{: shortdesc}
 
 Upcoming enhancements to customer-managed encryption add a new enumeration status to the image and volume APIs. The new status occurs when you delete or disable a customer root key (CRK). Your custom images and block storage volumes will go into an unusable state, with a status code `unusable` in the API, along with associated reason codes `encryption_key_deleted` or `encryption_key_disabled`. 
 

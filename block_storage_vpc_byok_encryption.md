@@ -18,7 +18,7 @@ subcollection: vpc
 {:screen: .screen}
 {:pre: .pre}
 {:note: .note}
-{:important .important}
+{:important: .important}
 {:table: .aria-labeledby="caption"}
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
@@ -28,7 +28,7 @@ subcollection: vpc
 {: #block-storage-vpc-encryption}
 
 By default, {{site.data.keyword.block_storage_is_short}} boot and data volumes are encrypted with IBM-managed encryption. You can also create customer-managed encrypted volumes by using a supported key management service to create or import your customer root key. Your data is protected while in transit and while at rest. 
-{:shortdesc}
+{: shortdesc}
 
 ## Before you begin
 {: #custom-managed-vol-prereqs}
@@ -74,7 +74,7 @@ Complete provisioning customer-managed encryption using the information in Table
 {: caption="Table 2. Values for provisioning block storage volumes with customer-managed encryption" caption-side="top"}
 
 If you created your {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance using a private endpoint, root keys created using that instance are not shown in the UI. You must use the CLI or API to access and use these root keys.
-{:important}
+{: important}
 
 ## Editing boot volumes to use customer-managed encryption in the UI
 {: #edit-boot-vol-byok-ui}
@@ -117,7 +117,7 @@ Created                                 2020-07-20 10:09:28
 Zone                                    us-south-1
 Volume Attachment Instance Reference    none
 ```
-{:screen}
+{: screen}
 
 You can also create volumes with customer-managed encryption during instance provisioning. For information, see [Provisioning instances with customer-managed encrypted volumes from the CLI](/docs/vpc?topic=vpc-creating-instances-byok#provision-byok-cli).
 
@@ -153,7 +153,7 @@ curl -X POST \
       }
     }
 ```
-{:codeblock}
+{: codeblock}
 
 A successful response will look like this:
 
@@ -190,7 +190,7 @@ A successful response will look like this:
     "created_at": "2020-07-20T16:03:22.000Z"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Next steps
 {: #next-step-create-byok-volumes-vpc}

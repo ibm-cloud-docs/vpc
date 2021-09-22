@@ -24,7 +24,7 @@ subcollection: vpc
 {: #quotas}
 
 The following information shows quotas and limits for {{site.data.keyword.vpc_full}} and the resources available within it.
-{:shortdesc}
+{: shortdesc}
 
 ## Quotas
 {: #vpcquotas}
@@ -32,7 +32,7 @@ The following information shows quotas and limits for {{site.data.keyword.vpc_fu
 The following tables show the quotas for various VPC resources.
 
 To increase a quota for a particular resource, [contact support](https://{DomainName}/unifiedsupport/cases/form){: external}.
-{:note}
+{: note}
 
 ### Compute resources
 {: #vsi-quotas}

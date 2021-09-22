@@ -24,14 +24,14 @@ subcollection: vpc
 {: #vsi_is_connecting_linux}
 
 After you created your Linux instance, you can connect to it by completing these steps.
-{:shortdesc}
+{: shortdesc}
 
 ## Locating floating IP address
 {: #locating-floating-ip-address}
 
 If you haven’t associated a floating IP to your instance, follow Step 3 and Step 4 
 in [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli#create-instance-cli) to request a floating IP address to associate to your instance.
-{:note}
+{: note}
 
 If you need to locate your floating IP address for the instance to which you want to connect, complete the following steps. If you already know your floating IP address, skip to [Getting connected](#getting-connected).
 
@@ -40,7 +40,7 @@ If you need to locate your floating IP address for the instance to which you wan
    ```
    ibmcloud is instance-network-interfaces <INSTANCE_ID> <NETWORK_INTERFACE_ID> --json
    ```
-   {:pre}
+   {: pre}
    
    For this example, you'd see a response similar to the following output:
    
@@ -54,14 +54,14 @@ If you need to locate your floating IP address for the instance to which you wan
            }
        ]
    ```
-   {:screen}  
+   {: screen}  
     
 2. Now that you have your floating IP ID, you can locate your floating IP address by running the following command.
    
    ```
    ibmcloud is ip <FLOATING_IP_ID>
    ```
-   {:pre}
+   {: pre}
      
    For this example, you'd see a response similar to the following output:
    
@@ -78,10 +78,10 @@ If you need to locate your floating IP address for the instance to which you wan
    Resource Group   -
    Tags             -
    ```
-   {:screen}
+   {: screen}
   
 Optionally, you can locate the floating IP address that is associated to the instance to which you want to connect through the {{site.data.keyword.cloud_notm}} console.
-{:tip}
+{: tip}
 
 ## Getting connected
 {: #getting-connected}
@@ -91,7 +91,7 @@ Optionally, you can locate the floating IP address that is associated to the ins
    ```
    ssh -i <path to your private key file> root@<floating ip address>
    ```
-   {:pre}
+   {: pre}
 
    You receive a response similar to the following example. When prompted to continue connecting, type `yes`.
    ```
@@ -100,7 +100,7 @@ Optionally, you can locate the floating IP address that is associated to the ins
    Are you sure you want to continue connecting (yes/no)? yes
    Warning: Permanently added 'xxx.xxx.xxx.xxx' (ECDSA) to the list of known hosts.
    ```
-   {:screen}
+   {: screen}
 
    You are now accessing your server.
 
@@ -109,4 +109,4 @@ Optionally, you can locate the floating IP address that is associated to the ins
    ```
    # exit
    ```
-   {:pre}
+   {: pre}

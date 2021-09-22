@@ -93,7 +93,7 @@ cat /sys/devices/system/cpu/cpu*/topology/thread_siblings_list
 {: screen}
 
 Some kernels and CPU architectures use a comma ( *,* ) instead of a hyphen (*-*) in the thread sibling list.
-{:note}
+{: note}
 
 You can disable Hyper-Threading Technology for a single core by writing a zero ( *0* )into the online field in the device file system for the corresponding CPU. For example, to disable Hyper-Threading Technology on core 2 (CPU 5 in the previous example), run the following command:
 ```

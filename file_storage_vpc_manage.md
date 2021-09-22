@@ -31,7 +31,7 @@ subcollection: vpc
 {: #file-storage-managing}
 
 Manage file shares you've created. For this release, you can rename a file share, delete a file share, add mount targets to a file share, mount and unmount a file share from virtual server instances, rename a mount target and, delete a mount target.
-{:shortdesc}
+{: shortdesc}
 
 File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, and London regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
@@ -68,7 +68,7 @@ To mount a share to an instance using the API, you create a mount target by prov
 2. On the File shares details page, under Mount targets, click **Create**.
 
    You must have at least one VPC to create a mount target. If you don't have one, first [create a VPC](/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc).
-   {:note}
+   {: note}
 
 3. In the **Create mount target** window, provide a name for the mount target.
 
@@ -127,7 +127,7 @@ Run the `share-update` command and spedify a new file share name:
 ```
 ibmcloud is share-update SHARE_ID --name NEW_NAME [--output JSON] [-q, --quiet]
 ```
-{:pre}
+{: pre}
 
 Valid file share names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Share names must begin with a lowercase letter.
 
@@ -139,7 +139,7 @@ Run the `share-target-update` command with the share name and target name and sp
 ```
 ibmcloud is share-target-update SHARE_ID TARGET_ID --name NEW_NAME [--output JSON] [-q, --quiet]
 ```
-{:pre}
+{: pre}
 
 Valid mount target names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Mount target names must begin with a lowercase letter.
 
@@ -151,7 +151,7 @@ Run the `share-target-delete` command and specify the share ID and mount target 
 ```
 ibmcloud is share-target-delete SHARE_ID TARGET_ID
 ```
-{:pre}
+{: pre}
 
 ### Delete a file share
 {: #delete-file-share-cli}
@@ -163,7 +163,7 @@ Before you can delete a file share, make sure that it's unmounted from virtual s
 ```
 ibmcloud is share-delete<SHARE_ID.
 ```
-{:pre}
+{: pre}
 
 ## Use the API to manage file shares and mount points
 {: #file-storage-manage-api}
@@ -180,7 +180,7 @@ Using the API, you can:
 To see information about the File Storage for VPC API methods, see this section in the [API reference](/apidocs/vpc-beta#list-share-profiles).
 
 File Storage for VPC regional API is a beta-level release for customers with special approval to preview this feature. 
-{:note}
+{: note}
 
 ### Rename a file share
 {: #rename-file-share-api}
@@ -229,7 +229,7 @@ A successful response will look like this:
   }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Add mount target to a file share
 {: #add-mount-target-api}
@@ -270,7 +270,7 @@ A successful response will look like this:
   }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Rename a mount target of a file share
 {: #rename-mount-target-api}
@@ -345,7 +345,7 @@ For example:
   }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 The mount target is deleted in the background. Confirm the deletion by trying to view the mount target information. If you get _404 Not Found_ error, the mount target is successfully deleted.
 
@@ -397,7 +397,7 @@ For example:
   }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 The file share is deleted in background. Confirm the deletion by trying to view the mount target information. If you get _404 Not Found_ error, the mount target is successfully deleted.
 

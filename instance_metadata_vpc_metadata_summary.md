@@ -27,7 +27,7 @@ subcollection: vpc
 {: #imd-metadata-summary}
 
 Using the instance metadata service, you can access information about the instance, SSH keys, and placement groups. This topic provides a summary of this data by URI path, metadata key, and describes the metadata.
-{:shortdesc}
+{: shortdesc}
 
 The API response for each metadata type is presented in JSON format containing metadata key:value pairs.
 

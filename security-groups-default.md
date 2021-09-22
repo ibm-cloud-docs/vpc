@@ -29,7 +29,7 @@ subcollection: vpc
 {: #updating-the-default-security-group}
 
 The default security group is similar to any other security group, with the exception that it cannot be deleted.
-{:shortdesc}
+{: shortdesc}
 
 Each VPC has a default security group, with rules to allow:
 

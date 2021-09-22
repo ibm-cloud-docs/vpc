@@ -89,7 +89,7 @@ You can create one or several mount targets for an existing file share.
 3. On the File shares details page, under Mount targets, click **Create**.
 
    You must have at least one VPC to create a mount target. If you don't have one, first [create a VPC](/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc).
-   {:note}
+   {: note}
 
 4. In the **Create mount target** window, provide a name for the mount target.
 
@@ -109,7 +109,7 @@ You can create one or several mount targets for an existing file share.
    ```
    export IBMCLOUD_IS_FEATURE_FILESHARE=true
    ```
-   {:pre}
+   {: pre}
 
 3. After you install the VPC CLI plug-in, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
    
@@ -139,7 +139,7 @@ Run the following command to create a file share and mount target. Indicate the 
 ```
 ibmcloud is share-create --zone ZONE_NAME --profile PROFILE --size SIZE [--name NAME] [--targets TARGETS_JSON | @TARGETS_JSON_FILE] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
 ```
-{:pre}
+{: pre}
 
 Example mount target JSON file:
 
@@ -151,7 +151,7 @@ Example mount target JSON file:
   }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Create a mount target for an existing share using the CLI
 {: #fs-create-mount-target-cli}
@@ -161,14 +161,14 @@ Run the `share-target-create` command with the file share ID and VPC ID to creat
 ```
 ibmcloud is share-target-create SHARE_ID --vpc VPC_ID [--name NAME] [--output JSON] [-q, --quiet]
 ```
-{:pre}
+{: pre}
 
 This example command creates a mount target and outputs share and target information to JSON.
 
 ```
 ibmcloud is share-target-create 78ff9c4c97d013fb2a95b21abcde7758 --vpc 55251a2e-d6d4-4233-97b2-b5f8e8d1f479 --name target-name --output JSON
 ```
-{:pre}
+{: pre}
 
 ## Create a file share from the API
 {: #file-storage-create-api}
@@ -177,7 +177,7 @@ ibmcloud is share-target-create 78ff9c4c97d013fb2a95b21abcde7758 --vpc 55251a2e-
 You can create file shares and mount targets by directly calling the REST APIs. For more information the file shares VPC API, see the [VPC API reference](/apidocs/vpc-beta).
 
 File Storage for VPC regional API is released as beta for customers with special approval to preview this feature. 
-{:note}
+{: note}
 
 ### Before you begin – Set up your API environment
 {: #fs-api-prereqs}
@@ -325,7 +325,7 @@ A successful response will look like this:
   }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Create a mount target from the API
 {: #fs-create-mount-target-api}
@@ -366,7 +366,7 @@ A successful response will look like this:
   }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Next steps
 {: #fs-create-next-steps}

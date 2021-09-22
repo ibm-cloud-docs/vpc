@@ -38,7 +38,7 @@ subcollection: vpc
 {:javascript: data-hd-programlang="javascript"}
 {:new_window: target="_blank"}
 {:note: .note}
-{: objectc data-hd-programlang="objectc"}
+{:objectc: data-hd-programlang="objectc"}
 {:org_name: data-hd-keyref="org_name"}
 {:php: data-hd-programlang="php"}
 {:pre: .pre}
@@ -89,7 +89,7 @@ subcollection: vpc
 {: toc-completion-time="30m"}
 
 You can create and configure an {{site.data.keyword.vpc_full}} (VPC) by using the {{site.data.keyword.cloud_notm}} console.
-{:shortdesc}
+{: shortdesc}
 
 ## Objectives
 {: #vpc_tutorials_objectives}
@@ -128,7 +128,7 @@ This command generates two files. The generated public key is in the `id_rsa.pub
 If you plan to create an application load balancer and use HTTPs for the listener, an SSL certificate is required. You can manage certificates with [IBM Certificate Manager](https://{DomainName}/catalog/services/certificate-manager){: external}. You must also create an authorization to allow your load balancer instance to access the Certificate Manager instance that contains the SSL certificate. You can create an authorization through [Identity and Access Authorizations](https://{DomainName}/iam/authorizations){: external}. For the source, select **VPC Infrastructure** as the Source service, **Load Balancer for VPC** as the Resource type, and **All resource instances** for the Source resource instance. Select **Certificate Manager** as the Target service and assign **Writer** for the service access role. Set the Target service instance to **All instances** or to your specific Certificate Manager instance. For more information, see [Using Load Balancers in IBM Cloud VPC](/docs/vpc?topic=vpc-load-balancers).
 
 Allow extra time for completing any optional steps.
-{:note}
+{: note}
 
 ## Creating a VPC and subnet
 {: #creating-a-vpc-and-subnet}
@@ -345,7 +345,7 @@ Using the floating IP address that you created, ping your instance to make sure 
 ```
 ping <public-ip-address>
 ```
-{:pre}
+{: pre}
 
 ### Connecting to Linux images
 {: #connecting-to-linux images}
@@ -355,14 +355,14 @@ Since you created your instance with a public SSH key, you can now connect to it
 ```
 ssh -i <path-to-private-key-file> root@<public-ip-address>
 ```
-{:pre}
+{: pre}
 
 For more information about how to connect to your instance, see [Connecting to Linux instances](/docs/vpc?topic=vpc-vsi_is_connecting_linux).
 
 To connect to a Windows&reg image, log in using its decrypted password. For instructions, see [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
 
 You can now access your virtual server instance by connecting to a VNC or serial console. This is a quick-and-easy way for you to interact with the instance without using a Secure Shell. For more information about this feature, see [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console)
-{:note}
+{: note}
 
 ## Monitoring your instance
 {: #monitoring-your-instance}

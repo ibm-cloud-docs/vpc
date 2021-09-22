@@ -23,7 +23,7 @@ subcollection: vpc
 {: #managing-ssh-keys}
 
 To access {{site.data.keyword.vsi_is_full}} instances, you must have an SSH key available to use. You can add and delete SSH keys in {{site.data.keyword.cloud_notm}} console and by using the CLI. 
-{:shortdesc}
+{: shortdesc}
 
 Managing keys by using the {{site.data.keyword.cloud_notm}} console or CLI has no effect on keys in instances that are already created. (For an existing Linux instance, you can edit keys directly in the `~/.ssh/` directory of the instance.)
 

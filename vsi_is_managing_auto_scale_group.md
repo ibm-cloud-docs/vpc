@@ -25,7 +25,7 @@ subcollection: vpc
 {: #managing-instance-group}
 
 When you have an instance group created, you can duplicate it, delete it, or edit it to change the scaling method, group size, or target policies for scaling.   
-{:shortdesc}
+{: shortdesc}
 
 To manage your instance group from the Instance groups for VPC page, complete the following steps.
 

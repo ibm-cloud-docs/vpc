@@ -22,7 +22,7 @@ subcollection: vpc
 {: #snapshots-vpc-manage}
 
 You can delete snapshots that you no longer need and free space for new snapshots. Rename existing snapshots to make them easier to identify. Verify IAM access. Verify snapshot statuses.
-{:shortdesc}
+{: shortdesc}
 
 ## Deleting snapshots
 {: #snapshots-vpc-delete}
@@ -78,7 +78,7 @@ You can also delete a snapshot from the details page for a block storage volume.
 ```
 is snapshot-delete SNAPSHOT_ID 
 ```
-{:pre}
+{: pre}
 
 4. Confirm deleting the snapshot. The response message indicates that the snapshot is deleted.
 
@@ -92,7 +92,7 @@ curl -X DELETE \
 "$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2021-02-12&generation=2" \
      -H "Authorization: Bearer ${API_TOKEN}"
 ```
-{:screen}
+{: screen}
 
 ## Deleting all snapshots
 {: #snapshots-vpc-delete-all}
@@ -117,7 +117,7 @@ curl -X DELETE \
 "$vpc_api_endpoint/v1/snapshots?source_volume.id=_volume-id_&version=2021-02-12&generation=2" \
      -H "Authorization: Bearer ${API_TOKEN}"
 ```
-{:screen}
+{: screen}
 
 ## Deleting snapshots from the block storage details page by using the UI
 {: #snapshots-vpc-delete-from-volume}
@@ -157,7 +157,7 @@ Specify a `snapshot-update` command and provide the snapshot ID and new name.
 ```
 ibmcloud is snapshot-update SNAPSHOT_ID --name SNAPSHOT_NAME [--output JSON] [-q, --quiet]
 ```
-{:pre}
+{: pre}
 
 Example:
 
@@ -188,7 +188,7 @@ Resource group     ID                                          Name
                       
 Created            2021-02-17T14:11:56+08:00
 ```
-{:screen}
+{: screen}
 
 From the API:
 
@@ -202,7 +202,7 @@ curl -X PATCH \
        "name": "my-snapshop1-renamed"
    }'
 ```
-{:codeblock}
+{: codeblock}
 
 ## IAM roles for creating and managing snapshots
 {: #snapshots-vpc-iam}
@@ -287,7 +287,7 @@ The following example shows JSON output of an Activity Tracker event that was ge
     "saveServiceCopy": true
 }
 ```
-{:screen}
+{: screen}
 
 The following example shows an event that was generated when you list snapshot details by ID:
 
@@ -332,7 +332,7 @@ The following example shows an event that was generated when you list snapshot d
     "saveServiceCopy": true
 }
 ```
-{:screen}
+{: screen}
 
 ## Next Steps
 {: #snapshots-vpc-manage-next-steps}

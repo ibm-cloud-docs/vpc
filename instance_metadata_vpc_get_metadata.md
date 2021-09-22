@@ -28,10 +28,10 @@ subcollection: vpc
 {: #imd-get-metadata}
 
 After obtaining an instance identity access token, you can access the metadata service and retrieve metadata about a virtual server instance. The topic describes how to make calls to the API to access instance metadata such as initialization data, network interfaces, volume attachments, public SSH keys, and placement group information.
-{:shortdesc}
+{: shortdesc}
 
 This service is available only to accounts with special approval to preview this beta feature.
-{:beta}
+{: beta}
 
 ## Before you begin
 {: #imd-md-prereqs}
@@ -41,7 +41,7 @@ To access metadata service, you must have an instance identity access token. If 
 For detailed information and examples of the API calls described in this topic, see the [Metadata service Beta API reference](/apidocs/vpc-metadata-beta).
 
 Windows users have additional requirements to access and use the metadata service. For information, see [Setting up windows servers for using the metadata service](/docs/vpc?topic=vpc-imd-windows-configuration).
-{:note}
+{: note}
 
 ## Retrieve instance metadata from your running virtual server instance
 {: #imd-retrieve-instance-data}
@@ -60,7 +60,7 @@ This request:
 * Extracts the user data from the JSON payload using `jq`
 
 You're making an unsecured request that is then secured by a proxy. The proxy intercepts the request by watching for the instance IP.
-{:note}
+{: note}
 
 In the example, the return value of the cURL command is the user data, which is extracted by `jq` and placed in the `user_data` evironment variable.
 
@@ -90,7 +90,7 @@ The response lists public SSH keys used at instance initialization and extracts 
 {: code_block}
 
 ### Retrieve instance information
-{:imd-retrieve-instance}
+{: imd-retrieve-instance}
 
 Make a `GET "http://169.254.169.254/metadata/v1/instance"` call to retrieve detailed information about the instance. To tailor information for specific instance details, such as network interfaces, see [Additional instance metadata](#imd-additional-inst-metadata).
 
@@ -191,7 +191,7 @@ The response lists all details for an instance, including network interfaces, co
   }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Additional instance metadata endpoints
 {: #imd-additional-inst-metadata}
@@ -283,7 +283,7 @@ Example return:
   "total_count": 1
 }
 ```
-{:codeblock}
+{: codeblock}
 
 You can also specify details for a single placement group used by the instance by making a `GET "http://169.254.169.254/metadata/v1/placement_groups/{id}"` call and providing the placement group ID.
 

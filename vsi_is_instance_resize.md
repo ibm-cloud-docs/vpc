@@ -27,7 +27,7 @@ subcollection: vpc
 {: #resizing-an-instance}
 
 You can resize your virtual server instance and vertically scale to any supported profile size in minutes. You can increase or decrease the amount of vCPU and RAM available for greater flexibility in workload management to address resource requirement changes, optimize cost or workload performance.
-{:shortdesc}
+{: shortdesc}
 
 Virtual servers are configured by using profiles, or a combination of instance attributes, such as the number of vCPUs, amount of RAM, network bandwidth, and more that define the size and capabilities of the virtual server instance.
 When you upgrade or downgrade an existing server, you choose another profile that has the pre-defined specifications that you need. You cannot customize the configuration of a virtual server. The virtual server profile that you select determines the valid cores, RAM, bandwidth, and disk sizes on the resized instance. For more information about profiles, see [Instance Profiles](/docs/vpc?topic=vpc-profiles).
@@ -120,7 +120,7 @@ Use the `instance-update` command to resize a virtual server.
    ```sh
    curl  -s -X GET "<api_endpoint>/v1/instance/profiles?generation=2&version=2021-02-01" -H "Authorization: Bearer <IAM token>"
    ```
-   {:pre}
+   {: pre}
    
 2. Select a compatible profile for your instance.
     * For a virtual server that is running on a dedicated host, choose a profile that the dedicated host supports.

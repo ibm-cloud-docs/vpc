@@ -25,14 +25,14 @@ subcollection: vpc
 {: #snapshots-vpc-create}
 
 With the UI, CLI, or API, you can create a snapshot of a {{site.data.keyword.block_storage_is_short}} volume that is attached to a virtual server instance. You can create a snapshot of a boot or data volume.
-{:shortdesc}
+{: shortdesc}
 
 Before you take a snapshot, make sure that all cached data is present on disk - which applies to instances with Windows and Linux operating systems. For example, on Linux operating systems, run the `sync` command to force an immediate write of all cached data to disk.
-{:note}
+{: note}
 
 ## Creating a snapshot by using the UI
 {: #snapshots-vpc-create-ui}
-{:ui}
+{: ui}
 
 In the UI, you can create a snapshot of a {{site.data.keyword.block_storage_is_short}} volume that you attached to a running virtual server instance. 
 
@@ -80,7 +80,7 @@ Follow these steps to create a snapshot from the list of block storage volumes.
 
 ## Creating a snapshot by using the CLI
 {: #snapshots-vpc-create-cli}
-{:cli}
+{: cli}
 
 ### Gathering information to create a snapshot by using the CLI
 {: #snapshots-vpc-getinfo-cli}
@@ -107,7 +107,7 @@ Gather the following information:
    ```
    export IBMCLOUD_IS_FEATURE_SNAPSHOT=true
    ```
-   {:pre}
+   {: pre}
 
 3. After you install the vpc-infrastructure plug-in, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
    
@@ -118,7 +118,7 @@ Gather the following information:
 ```
 ibmcloud is snapshot-create --volume VOLUME_ID [--name NAME] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
 ```
-{:pre}
+{: pre}
 
 Example:
 
@@ -149,11 +149,11 @@ Resource group     ID                                          Name
                       
 Created            2021-02-22T16:18:56+08:00   
 ```
-{:screen}
+{: screen}
 
 ## Creating a snapshot by using the API
 {: #snapshots-vpc-create-api}
-{:api}
+{: api}
 
 You can create a snapshot by calling the [VPC API](https://{DomainName}/apidocs/vpc).
 
@@ -173,7 +173,7 @@ curl -X POST \
       }
     }'
 ```
-{:codeblock}
+{: codeblock}
 
 A successful response looks like the following example. The snapshot lifecycle state is `pending` while the snapshot is created. When successfully created, the status changes to `stable`.
 
@@ -209,7 +209,7 @@ A successful response looks like the following example. The snapshot lifecycle s
   "resource_type": "snapshot"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Next steps
 {: #snapshots_vpc_create_next_steps}

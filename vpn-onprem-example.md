@@ -26,7 +26,7 @@ subcollection: vpc
 {: #vpn-onprem-example}
 
 You can use VPN for VPC to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your on-premises VPN gateway to connect with VPN for VPC.
-{:shortdesc}
+{: shortdesc}
 
 ## Creating the VPN for VPC gateway and connection
 {: #create-vpc-vpn-gateway}

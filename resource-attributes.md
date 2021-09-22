@@ -25,7 +25,7 @@ subcollection: vpc
 {: #resource-attributes}
 
 When using Terraform or {{site.data.keyword.cloud}} Command Line Interface (CLI) to create, update, or delete {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) access policies, you can specify the target VPC resource by using resource attributes.
-{:shortdesc}
+{: shortdesc}
 
 Resource attributes are in the form of  `name=value,name=value...`.
 
@@ -36,7 +36,7 @@ The following example CLI command gives the user `name@example.com` `Viewer` rol
 ```
 ibmcloud iam user-policy-create name@example.com --roles Viewer --service-name is --attributes "vpcId=*"
 ```
-{:pre} 
+{: pre} 
 
 For information about using CLI to create and modify IAM access policy, see [ibmcloud iam user-policy-create](/docs/account?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_user_policy_create).
 

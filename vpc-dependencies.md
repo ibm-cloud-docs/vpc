@@ -30,7 +30,7 @@ The {{site.data.keyword.vpc_full}} (VPC) depends upon various {{site.data.keywor
 * Integrating with {{site.data.keyword.cloud_notm}} and its user interface
 * Storing and backing up service data (including VPC resource metadata)
 * Logging and auditing service events.
-{:shortdesc}
+{: shortdesc}
 
 
 The following table lists the main dependencies of the VPC service and the purpose of each one:

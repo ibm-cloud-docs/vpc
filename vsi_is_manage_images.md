@@ -26,10 +26,10 @@ subcollection: vpc
 {: #managing-images}
 
 You can create your own custom image on premises and then import it to {{site.data.keyword.vpc_full}} infrastructure from {{site.data.keyword.cos_full_notm}}. Then, you can use your custom image to create new virtual server instances that runs on the KVM hypervisor.
-{:shortdesc}
+{: shortdesc}
 
 You can also create a custom image of a boot volume attached to an instance at import time. For more information, see [About creating an image from volume](/docs/vpc?topic=vpc-image-from-volume-vpc).
-{:note}
+{: note}
 
 ## Importing a custom image
 {: #import-custom-image}
@@ -37,7 +37,7 @@ You can also create a custom image of a boot volume attached to an instance at i
 When you import a custom image, it's private to the account where you import it. Also, the region where you choose to import the image is the region where you can create virtual server instances from that image.  
 
 To complete this task you must have an instance of {{site.data.keyword.cos_full}} available. You must also create an authorization so that the Image Service for VPC can access images in {{site.data.keyword.cos_full_notm}}. For more information, see [Granting access to IBM Cloud Object Storage to import images](/docs/vpc?topic=vpc-object-storage-prereq).
-{:important}
+{: important}
 
 Make sure that your image meets custom image requirements:
 * Contains a single file or volume 

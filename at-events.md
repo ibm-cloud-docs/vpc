@@ -25,7 +25,7 @@ subcollection: vpc
 {: #at-events}
 
 As a security officer, auditor, or manager, you can use the {{site.data.keyword.at_full}} service to track how users and applications interact with {{site.data.keyword.cloud}} Virtual Private Cloud (VPC).
-{:shortdesc}
+{: shortdesc}
 
 {{site.data.keyword.at_full_notm}} records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. In addition, you can be alerted about actions as they happen. The events that are collected comply with the Cloud Auditing Data Federation (CADF) standard. For more information, see the [getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/activity-tracker?topic=activity-tracker-getting-started).
 
@@ -298,7 +298,7 @@ The following tables list the actions that are related to compute resources and 
 {: #events-compute-bm}
 
 Some fields for Bare Metal Servers for VPC AT events will be changing between the Beta and Limited Available (LA) releases. For more information, see [Analyzing events](/docs/vpc?topic=vpc-at-events#at_events_iam_analyze).
-{:note}
+{: note}
 
 | Resource  | Action  | Description  |
 |:----------------|:-----------------------|:-----------------------|
@@ -399,7 +399,7 @@ The following table lists the actions that are related to image resources and th
 {: caption="Table 19. Actions that generate events for image resources" caption-side="top"}
 
 For the image update event, if you are rotating the root key for an image, the CRN for the old key and new key remains the same. The ID for the new key that is rotated in is indicated in the `kmsKeyRefID` field of the image.
-{:note}
+{: note}
 
 ### Placement group resources
 {: #events-placement-group}
@@ -432,7 +432,7 @@ The following table lists the actions that are related to volume resources and t
 {: caption="Table 21. Actions that generate events for block storage resources" caption-side="top"}
 
 An event does not contain a volume name if no information is available at the time of the event. For example, when you make a request to create a volume but do not provide a volume name, the information is not available and does not appear in the event.
-{:note}
+{: note}
 
 ### Snapshots events
 {: #events-snapshots}

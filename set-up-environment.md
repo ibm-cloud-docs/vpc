@@ -30,7 +30,7 @@ subcollection: vpc
 {: #set-up-environment}
 
 Before you can create an {{site.data.keyword.vpc_full}} (VPC) by using the API or CLI, set up your environment.
-{:shortdesc}
+{: shortdesc}
 
 
 ## General prerequisites
@@ -55,7 +55,7 @@ Before you can create an {{site.data.keyword.vpc_full}} (VPC) by using the API o
 Before you can use the CLI to create your VPC, you must install the IBM Cloud CLI and the VPC CLI plug-in.
 
 {{site.data.keyword.cloud_notm}} CLI is not supported on LinuxONE (s390x processor architecture). However, you can install the CLI on another supported platform and use it with LinuxONE (s390x processor architecture) virtual server instances.
-{:note}
+{: note}
 
 1. Install the [IBM Cloud CLI ![External link icon](../icons/launch-glyph.svg "External link icon")](/docs/cli?topic=cli-getting-started){: new_window}.
 1. Install the VPC CLI plug-in.
@@ -83,7 +83,7 @@ To learn how to create resources by using the CLI, see [Creating a VPC using the
 Before you can use the API to create your VPC, you must get an IAM token, store the endpoint as a variable, and verify that you have access to the VPC API service.
 
 The following examples use the `us-south` regional endpoint. To view additional API endpoints, see [Virtual Private Cloud API](https://cloud.ibm.com/apidocs/vpc#api-endpoint).
-{:note}
+{: note}
 
 ### Step 1: Store your API key as a variable
 {: #store-api-key-variable}

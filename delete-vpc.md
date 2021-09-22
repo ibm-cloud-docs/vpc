@@ -25,7 +25,7 @@ subcollection: vpc
 {: #deleting}
 
 An {{site.data.keyword.vpc_full}} resource cannot be deleted if it contains other resources, or if it is attached to another resource. This document describes the relationships between VPC resources, and it provides information about deleting a VPC.
-{:shortdesc}
+{: shortdesc}
 
 The following table summarizes the types of VPC resources and the relationships to consider when you delete those resources.
 

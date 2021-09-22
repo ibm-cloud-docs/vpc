@@ -33,10 +33,10 @@ subcollection: vpc
 [comment]: # (linked help topic)
 
 Create a block storage volume by using the UI, CLI, or programically with the API. You can create a volume as part of instance provisioning, or as a stand-alone volume that you can later attach to an instance.
-{:shortdesc}
+{: shortdesc}
 
 Before you get started, make sure that you [created a VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
-{:important}
+{: important}
 
 ## Creating block storage volumes by using the UI
 {: #creating-block-storage-ui}
@@ -178,7 +178,7 @@ You need to specify the volume ID when you attach block storage to a virtual ser
 {: #creating-block-storage-api}
 {: api}
 
-You can create block storage volumes by directly calling the [VPC REST APIs](https://{DomainName}/apidocs/vpc){:external}. For more information the file shares VPC API, see the [VPC API reference](https://cloud.ibm.com/apidocs/vpc).
+You can create block storage volumes by directly calling the [VPC REST APIs](https://{DomainName}/apidocs/vpc){: external}. For more information the file shares VPC API, see the [VPC API reference](https://cloud.ibm.com/apidocs/vpc).
 
 ### Before you begin – Set up your API environment
 {: #block-storage-api-prereqs}

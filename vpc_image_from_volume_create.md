@@ -27,10 +27,10 @@ subcollection: vpc
 {: #create-ifv}
 
 Use the UI, CLI, or API to create an image from a volume that's attached to an available virtual server instance as the primary boot volume or as a secondary boot volume. 
-{:shortdesc}
+{: shortdesc}
 
 ## Scenarios for creating an image from a volume
-{:#ifv-scenarios}
+{: #ifv-scenarios}
 
 There are several ways you can create an image from volume.
 
@@ -41,7 +41,7 @@ There are several ways you can create an image from volume.
 * Create an image from a boot volume in the list of block storage volumes. The volume must be a boot volume attached to a virtual server instance.
 
 Depending on the size of the image you're creating, the job might take from 5 minutes to 1.5 hours for the image to be created. You can cancel a job that's taking too long to queue. For more information, see [Performance considerations](/docs/vpc?topic=vpc-image-from-volume-vpc-manage#ifv-performance).
-{:note}
+{: note}
 
 
 ## Create an image from a volume by using the UI
@@ -79,7 +79,7 @@ When you select **Virtual server instance boot volume** as the source of your cu
 1. On the **Import custom image** page, select **Virtual server instance boot volume** (default).
 
    To create an image of the boot volume associated with an instance, the virtual server instance must be stopped.
-   {:note}
+   {: note}
 
 1. Optionally, stop a running instance by clicking the overflow menu (ellipsis) and click **Stop**.
 
@@ -163,7 +163,7 @@ Use the CLI to create an image from a volume that's attached to an available vir
    For more information, see the [CLI Reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
    
    After you install the vpc-infrastructure plug-in, set the target to generation 2 by running the command `ibmcloud is target --gen 2`.
-   {:important}
+   {: important}
 
 
 2. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-getting-started).
@@ -177,7 +177,7 @@ Use the CLI to create an image from a volume that's attached to an available vir
 ```
 ibmcloud is instance-stop INSTANCE_ID
 ```
-{:pre}
+{: pre}
 
 
 2. Run the [`image-create` command](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#image-create) to create an image of a boot volume. Specify the ID of the source volume.
@@ -185,7 +185,7 @@ ibmcloud is instance-stop INSTANCE_ID
 ```
 $ ibmcloud is image-create IMAGE_NAME [--source-volume VOLUME_ID]
 ```
-{:pre}
+{: pre}
 
 
 Example:
@@ -211,7 +211,7 @@ File size(GB)      -
 Encryption         none
 Resource group     f22cf48f-8836-4527-9131-1d7c73ba85e9
 ```
-{:screen}
+{: screen}
 
 ## Create an image from a volume with the API
 {: #image-from-volume-vpc-api}
@@ -266,7 +266,7 @@ $iam_token" -d
    }
 }'
 ```
-{:codeblock}
+{: codeblock}
 
 #### Step 2 - Stop the running instance
 {: #ifv-stop-instance}
@@ -281,7 +281,7 @@ $iam_token" -d
    "type":"stop"
 }'
 ```
-{:codeblock}
+{: codeblock}
 
 #### Step 3 - Create a new image and provide the ID of the boot volume image
 {: #ifv-create-image}
@@ -301,7 +301,7 @@ $iam_token" -d
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 In the example response, `source_volume` indicates the boot volume used to create the image. Also notice that the image encryption appears as `none`, because the source volume used the default IBM-managed encryption. If you [used you own root key](#ifv-use-crk), the response would show `user-managed` instead.
 
@@ -340,7 +340,7 @@ In the example response, `source_volume` indicates the boot volume used to creat
 }
 
 ```
-{:codeblock}
+{: codeblock}
 
 ### Create an image from volume and specify your own encryption key
 {: #ifv-use-crk}
@@ -363,7 +363,7 @@ $iam_token" -d
     },
 }
 ```
-{:codeblock}
+{: codeblock}
 
 The response would include information about the root key:
 
@@ -405,7 +405,7 @@ The response would include information about the root key:
 }
 
 ```
-{:codeblock}
+{: codeblock}
 
 ### Create an image from a volume of an existing instance
 {: #ifv-vpc-api-list-instance}
@@ -426,7 +426,7 @@ curl -X GET \
 "$vpc_api_endpoint/v1/instances/version=2021-05-20&generation=2" \
 -H "Authorization: $iam_token"
 ```
-{:codeblock}
+{: codeblock}
 
 Make a `GET /instances/{id}` to view details of a single instance and locate it's boot volume ID.
 
@@ -449,11 +449,11 @@ The response shows the ID of the boot volume under `volume_attachments`:
       }
     },
 ```
-{:codeblock}
+{: codeblock}
 
 You can also tell whether the instance is running by making a 
 `GET /volumes/{id}` call and specify the boot volume ID. If `active = true` in the response, the instance is running.
-{:tip}
+{: tip}
 
 #### Step 2 - Stop the running instance
 {: #ifv-stop-instance}
@@ -468,7 +468,7 @@ $iam_token" -d
    "type":"stop"
 }'
 ```
-{:codeblock}
+{: codeblock}
 
 
 #### Step 3 - Create a new image and provide the ID of the boot volume image
@@ -487,7 +487,7 @@ $iam_token" -d
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Next steps
 {: ifv-next-steps-api}

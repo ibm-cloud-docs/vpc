@@ -26,7 +26,7 @@ subcollection: vpc
 {: #monitor-block-storage-vpc}
 
 To make sure you're always aware of any issues with your block storage volumes, you can monitor IOPS, latency, and throughput for your block storage volumes over time.
-{:shortdesc}
+{: shortdesc}
 
 ## Procedure
 {: monitor-volume-procedure}

@@ -26,7 +26,7 @@ subcollection: vpc
 
 You can create your own custom Linux-based image to deploy a virtual server instance in the {{site.data.keyword.vpc_full}}
 infrastructure.
-{:shortdesc}
+{: shortdesc}
 
 You can begin with an image template from the {{site.data.keyword.cloud_notm}} classic infrastructure. For more information, see [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc).
 Did you know that your can also create a custom image of a boot volume attached to an instance at import time? For more information, see [About creating an image from volume](/docs/vpc?topic=vpc-image-from-volume-vpc).
@@ -81,7 +81,7 @@ Follow the instructions for your Linux distribution to update the kernel command
     ```
     grep -i virtio /boot/config-$(uname -r)
     ```
-    {:pre}
+    {: pre}
 
     Look for `VIRTIO_BLK` and `VIRTIO_NET` in the output. If those lines are not present, then the virtio driver is not built into the kernel.
 
@@ -90,7 +90,7 @@ Follow the instructions for your Linux distribution to update the kernel command
     ```
     lsinitrd /boot/initramfs-$(uname -r).img | grep virtio
     ```
-    {:pre}
+    {: pre}
 
     Verify the the virtio blk driver and its dependencies *virtio.ko*, *virtio_pci*, and *virtio_ring* are present.  If the    virtio dependencies are not present, you must recover the root filesystem.
 

@@ -26,7 +26,7 @@ subcollection: vpc
 {: #creating-a-vpc-using-cli}
 
 You can create and configure an {{site.data.keyword.vpc_full}} using the {{site.data.keyword.cloud}} CLI.
-{:shortdesc}
+{: shortdesc}
 
 To create and configure your virtual private cloud (VPC) and other attached resources, perform the steps in the sections that follow, in this order:
 
@@ -218,7 +218,7 @@ From the output that's returned, save the ID of the instance in a variable so yo
 ```
 instance="0738-21179496-964e-4c00-8210-cf23d75750b3"
 ```
-{:pre}
+{: pre}
 
 The status of the instance is `pending` when it's first created. Before you can proceed, the instance needs to move to the `running` status, which takes a few minutes. To check the status of the instance, run this command:
 
@@ -340,7 +340,7 @@ For example, on Linux you can use a command of this form:
 ```
 ssh -i $HOME/.ssh/id_rsa root@$address
 ```
-{:pre}
+{: pre}
 
 When you're prompted to continue connecting, type `yes`.
 
@@ -371,7 +371,7 @@ From the output that's returned, save the ID of the VPN gateway in a variable so
 ```
 vpn_gateway="0757-7e91085b-dc11-4707-aa4d-66e735e9a2bc"
 ```
-{:pre}
+{: pre}
 
 The status of the VPN gateway is `pending` when it's first created. Before you can proceed, the VPN gateway needs to move to the `available` status, which takes a few minutes. To check the status of the VPN gateway, run this command:
 

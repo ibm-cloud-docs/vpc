@@ -24,7 +24,7 @@ subcollection: vpc
 {: #rias-error-messages}
 
 When you receive an error message from the {{site.data.keyword.cloud}} Virtual Private Cloud APIs, you can use the message ID to find more information about how to resolve the problem.
-{:shortdesc}
+{: shortdesc}
 
 This API error messages topic is deprecated. Use the information in this topic only if you are linked to a specific message ID from an API error message. 
 {: deprecated}

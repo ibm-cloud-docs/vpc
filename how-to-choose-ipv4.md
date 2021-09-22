@@ -25,7 +25,7 @@ subcollection: vpc
 {: #choosing-ip-ranges-for-your-vpc}
 
 Use Classless Inter-Domain Routing (CIDR) notation in the format `<IPv4_address>/number`, such as `10.10.0.0/16`. Reserve the last 16 bits (65,536 addresses) of the IPv4 as 0s so that you can use them for various subnet IP addresses within the same {{site.data.keyword.cloud}} VPC, such as `10.10.1.0/24`.
-{:shortdesc}
+{: shortdesc}
 
 For a definition on CIDR notation, see [RFC 1518](https://tools.ietf.org/html/rfc1518) and [RFC 1519](https://tools.ietf.org/html/rfc1519).
 {: note}

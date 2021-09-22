@@ -28,7 +28,7 @@ subcollection: vpc
 {: #creating-auto-scale-instance-group}
 
 With Auto Scale for VPC, you can create an instance group to scale according to your requirements. Based on the target utilization metrics that you define, the instance group can dynamically add or remove instances to achieve your specified instance availability. 
-{:shortdesc}
+{: shortdesc}
 
 ## Auto scale for VPC
 {: #auto-scale-vpc}
@@ -64,7 +64,7 @@ The monitoring service reflects the same health information for instances that h
 {: ui}
 
 Before you can create an instance group, you need to [create an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
-{:important}
+{: important}
 
 To create an instance group for auto scale, you must complete the following tasks:
 1. Create an instance template that is used to provision instances in your group.
@@ -120,7 +120,7 @@ An instance group is a collection of like virtual server instances. You define h
 You can set a static number of instances or choose to dynamically scale instances according to your requirements.
 
 If you want to include a load balancer for your instance group to balance incoming requests across instances and configure specific health checks, you must create the load balancer before you create the instance group. For more information, see [About application load balancers](/docs/vpc?topic=vpc-load-balancers) and [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancer). For more information about health checks for load balancer pools, see [Working with health checks](/docs/vpc?topic=vpc-alb-health-checks).
-{:important}
+{: important}
 
 1. Make sure that you have the required IBM {{site.data.keyword.iamshort}} (IAM) permissions to create an instance group. For more information, see [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls). 
 2. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Auto scale > Instance groups**.
@@ -166,7 +166,7 @@ You can create an instance group in your {{site.data.keyword.vpc_short}} to auto
 {: #before-cli-tutorial}
 
 Make sure that you set up your [{{site.data.keyword.cloud}} CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup) and your [{{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
-{:important}
+{: important}
 
 To create an auto scale instance group by using the CLI, you must complete the following tasks:
 
@@ -204,7 +204,7 @@ Use the following commands to determine the required information for creating a 
    ```
    ibmcloud is vpcs
    ```
-   {:pre}
+   {: pre}
 
    For this example, you see a response similar to the following output:
    ```
@@ -212,7 +212,7 @@ Use the following commands to determine the required information for creating a 
    0738-xxx1xx23-4xx5-6789-12x3-456xx7xx123x   my-vpc                                yes              available   -
    0738-xxxx1234-5678-9x12-x34x-567x8912x3xx   my-other-vpc                          no               available   -
    ```
-   {:screen}
+   {: screen}
 
    If you don't have one available, you can create an {{site.data.keyword.vpc_short}} by using the `ibmcloud is vpc-create` command. For more information about creating an {{site.data.keyword.vpc_short}}, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpcs).
 
@@ -220,20 +220,20 @@ Use the following commands to determine the required information for creating a 
    ```
    ibmcloud is regions
    ```
-   {:pre}
+   {: pre}
 
    For this example, you see a response similar to the following output:
    ```
    Name       Endpoint               Status   
    us-south   /v1/regions/us-south   available
    ```
-   {:screen}
+   {: screen}
 
 3. List the zones associated with the region.
    ```
    ibmcloud is zones us-south
    ```
-   {:pre}
+   {: pre}
 
    For this example, you see a response similar to the following output:
    ```
@@ -241,13 +241,13 @@ Use the following commands to determine the required information for creating a 
    us-south-1   us-south   available   
    us-south-3   us-south   available   
    ```
-   {:screen}
+   {: screen}
 
 4. List the available profiles for creating your instance template.
    ```
    ibmcloud is instance-profiles
    ```
-   {:pre}
+   {: pre}
 
    For this example, you see a response similar to the following output:
    ```
@@ -267,13 +267,13 @@ Use the following commands to determine the required information for creating a 
    mx2-4x32       amd64          memory     4       32          8                            -   
    mx2-8x64       amd64          memory     8       64          16                           -  
    ```
-   {:screen}
+   {: screen}
 
 5. List the subnets that are associated with the {{site.data.keyword.vpc_short}}.
    ```
    ibmcloud is subnets
    ```
-   {:pre}
+   {: pre}
 
    For this example, you see a response similar to the following output:
    ```
@@ -281,7 +281,7 @@ Use the following commands to determine the required information for creating a 
    0076-2249dabc-8c71-4a54-bxy7-953701ca3999   subnet1                  available
    0767-173bn4aa-060b-47e7-am45-b3395a593897   subnet2                  available
    ```
-   {:screen}
+   {: screen}
    
    For the best performance of an auto scale instance group, ensure that you use a subnet size of 32 or greater.
 
@@ -291,7 +291,7 @@ Use the following commands to determine the required information for creating a 
    ```
    ibmcloud is images   
    ```
-   {:pre}
+   {: pre}
 
    For this example, you see a response similar to the following output:
    ```
@@ -299,7 +299,7 @@ Use the following commands to determine the required information for creating a 
    r007-60d279a0-b328-40eb-a379-595ca53bff89   ibm-redhat-7-6-amd64-sap-hana-1                    available    amd64
    r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1   ibm-windows-server-2016-full-standard-amd64-3      available    amd64
     ```
-   {:screen}
+   {: screen}
 
 
 After you know these values, use them to run the `instance-template-create` command. In addition to the information that you gathered, you must specify a name for the instance. 
@@ -338,7 +338,7 @@ Profile                        bx2-2x8
 Primary Network Interface ID   Name      Subnet ID                                   Security Groups      
                                primary   0076-2249dabc-8c71-4a54-bxy7-953701ca3999   r134-9fd0b586-6876-4e8a-a0a1-586aeff5167c
 ```
-{:screen}
+{: screen}
 
 For more examples of the `ibmcloud is instance-template-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-template-create).
 
@@ -351,7 +351,7 @@ When you create an instance template, validation steps are performed that ensure
 After you have your instance template in hand, your next step is to create an instance group. Before you can run the `instance-group-create` command, you must specify a name for the instance group and determine values for the command options, such as what instance template you want to use.  
 
 If you want to include a load balancer for your instance group to balance incoming requests across instances and configure specific health checks, you must create the load balancer before you create the instance group. For more information, see [About application load balancers](/docs/vpc?topic=vpc-load-balancers) and [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancer). For more information about health checks for load balancer pools, see [Working with health checks](/docs/vpc?topic=vpc-alb-health-checks).
-{:important}
+{: important}
 
 Gather the following information.
 
@@ -397,7 +397,7 @@ Subnets             Name       Subnet ID
 Resource group      ID                                 Name      
                     11caaa983d9c4beb82690daab08717e9   Default      
 ```
-{:screen}
+{: screen}
 
 For more examples of the `ibmcloud is instance-group-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-group-create).
 
@@ -443,7 +443,7 @@ ID                     r134-bcf54494-f63a-41a7-8368-9f7d002c9020
 Status                 enabled  
 Max Membership Count   20   
 ```
-{:screen}
+{: screen}
 
 For more examples of the `ibmcloud is instance-group-manager-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-group-manager-create). 
 
@@ -473,7 +473,7 @@ Use the following commands to determine the required information for creating a 
    ```
    ibmcloud is instance-groups   
    ```
-   {:pre}
+   {: pre}
 
    For this example, you see a response similar to the following output:
    ```
@@ -482,13 +482,13 @@ Use the following commands to determine the required information for creating a 
    72271a2e-d6c7-64b6-99c7-ac7426ew3495        my-other-instance-group  healthy          1
 
    ```
-   {:screen}
+   {: screen}
 
 2. List the available instance groups managers for creating your scaling policy.
    ```
    ibmcloud is instance-group-managers 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479
    ```
-   {:pre}
+   {: pre}
 
    Where:
    - `INSTANCE_GROUP` is _2251a2e-d6c5-42b4-97b0-b5f8e8d1f479_
@@ -500,7 +500,7 @@ Use the following commands to determine the required information for creating a 
    72b27b5c-f4b0-48bb-b954-5becc7c1dcb3        enabled   90                   300        20                     1   
 
    ```
-   {:screen}
+   {: screen}
 
 After you know these values, run the following command to create a scaling policy.
 
@@ -531,7 +531,7 @@ Metric Value   50
 Policy Type    target  
  
 ```
-{:screen}
+{: screen}
 
 The response indicates that the auto scale manager needs to scale up the number of instances in your group when the average CPU utilization reaches 50 percent. Likewise, the auto scale manager also scales down the number of instances in your group when the average CPU utilization drops to less than 50 percent. 
 

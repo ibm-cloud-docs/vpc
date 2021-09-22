@@ -23,7 +23,7 @@ subcollection: vpc
 {: #vpc-encryption-about}
 
 {{site.data.keyword.cloud_notm}} takes security seriously and understands the importance of encrypting data to keep it safe. Primary boot volumes and secondary data volumes are automatically encrypted using IBM-managed encryption. You can also choose to manage your own encryption for volumes and custom images by using customer-managed encryption.
-{:shortdesc}
+{: shortdesc}
 
 ## IBM-managed encryption
 {: #vpc-provider-managed-encryption}
@@ -31,7 +31,7 @@ subcollection: vpc
 By default, all boot and data volumes are encrypted at rest with IBM-managed encryption. There is no additional cost for this service.
 
 For end-to-end encryption in the IBM Cloud, consider using customer-managed encryption. Your data is protected while in transit from block storage to the host/hypervisor and while at rest in block storage volumes.
-{:tip}
+{: tip}
 
 IBM-managed encryption uses the following industry standard protocols:
 
@@ -125,7 +125,7 @@ In total, four keys protect your data:
 * An IBM-managed key encrypts your data in the backend storage system - IBM-managed encryption on the storage system is always applied, even when you use customer-managed encryption. This key protects your data while in transit and while at rest.
 
   Encryption of the network link between your workload outside of IBM Cloud and a workload inside IBM Cloud is the your responsibility. For more information, see [Encryption in Security and regulation compliance](/docs/vpc?topic=vpc-responsibilities-vpc#security-compliance).
-  {:note}
+  {: note}
 
 * A data encryption key (DEK) encrypts data within the QCOW2 file and secures the block data clusters in the virtual disk - The DEK is managed by open source QEMU technology and auto-generated when a QCOW2 file is created.
 

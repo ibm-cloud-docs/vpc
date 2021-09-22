@@ -26,7 +26,7 @@ subcollection: vpc
 {: #deleting-using-cli}
 
 This topic provides examples of how to delete resources from your {{site.data.keyword.vpc_full}}, for every VPC resource, in the suggested order.
-{:shortdesc}
+{: shortdesc}
 
 Here are some key facts to remember about deletion:
 

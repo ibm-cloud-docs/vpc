@@ -119,7 +119,7 @@ Data transfer to the internet as a result of using VPNaaS is charged as regular 
 
 
 For {{site.data.keyword.vsi_is_full}} you're billed at an hourly rate based on instance configurations. Discounts are applied the longer your instance runs. Usage times are calculated per second while the virtual server instance is running. You are not be billed for the time your instance is powered off. For example, if the instance runs for 45 minutes and 32 seconds, you're billed for 45 minutes and 32 seconds. Another example is if you start your instance and run for 20 minutes, then stop your instance for 24 hours, then start the instance and run for 30 minutes; you're billed for the 50 minutes (20 minutes + 30 minutes) the instance was running.
-{:shortdesc}
+{: shortdesc}
 
 ### x86-based instance prices
 {: #base-instance-prices}
@@ -248,7 +248,7 @@ Your total bill, if left running for the entire month, with this model is $522.3
 When you power off an instance, you don't accrue costs for certain compute resources. Billing stops automatically when you stop the instance. The suspend billing feature helps you reduce cost and prevents you from having to re-create an instance when you need its resources again.
 
 In situations where you want to scale your infrastructure up and down in response to workload needs, you can use the suspend billing feature as a faster alternative to creating and deleting instances.
-{:tip}
+{: tip}
 
 ### Billing details
 {: #billing-details}
@@ -256,7 +256,7 @@ In situations where you want to scale your infrastructure up and down in respons
 It's important to understand what costs stop accruing and what costs persist when your virtual server instance is powered off.
 
 Billing is suspended only when you power off your virtual server instance through the {{site.data.keyword.cloud_notm}} console, CLI, or API. If you power off your virtual server instance directly through the OS, billing isn't suspended for that instance.
-{:note}
+{: note}
 
 Review the following table for details on how suspend billing impacts various resource charges.
 
@@ -271,7 +271,7 @@ Review the following table for details on how suspend billing impacts various re
 {: caption="Table 7. Resource billing details" caption-side="top"}
 
 Usage times are calculated per second, for both the in use time and suspended time of your virtual server instance. Even if you never initiate the suspend billing feature by powering off your instance, the billing is calculated per second of the instance's lifecycle.
-{:note}
+{: note}
 
 
 ### Suspend billing and sustained usage discounts
@@ -298,7 +298,7 @@ Computing instance usage...
 RAM usage...
 Operating system usage...
 ```
-{:screen}
+{: screen}
 
 ### Resource details
 {: #resource-details}

@@ -28,7 +28,7 @@ subcollection: vpc
 {: #file-storage-vpc-faqs}
 
 The following questions often arise about File Storage for VPC. If you have other questions you'd like to see addressed here, provide feedback by using the **Open Issue** or **Edit Topic** links.
-{:shortdesc}
+{: shortdesc}
 
 File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, and London regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}

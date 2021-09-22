@@ -25,7 +25,7 @@ subcollection: cloud-infrastructure
 {: #vpc-monitoring-metrics}
 
 The following metrics are associated with the {{site.data.keyword.mon_full_notm}} full agent. If you provisioned a 'no driver mode' instance, see [Monitoring 'no driver mode' metrics](/docs/cloud-infrastructure?topic=cloud-infrastructure-enabling-monitoring-light-no-driver#monitoring-light-metrics).
-{:important} 
+{: important} 
 
 The following tables define basic VPC virtual server instance metrics.
 
