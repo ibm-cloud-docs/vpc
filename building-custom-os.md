@@ -39,7 +39,7 @@ Hardware that is supported by every virtual machine in IBM's VPC is detailed in 
 - **Host bridge**:
    - Intel Corporation 440FX - 82441FX PMC [Natoma] - (rev 02)
 - **ISA bridge**:
-  - Intel Corporation 82371SB PIIX3 ISA [Natoma/Triton II]
+   - Intel Corporation 82371SB PIIX3 ISA [Natoma/Triton II]
 - **IDE interface**:
    - Intel Corporation 82371SB PIIX3 IDE [Natoma/Triton II]
       - Subsystem: XenSource, Inc. Device 0001
