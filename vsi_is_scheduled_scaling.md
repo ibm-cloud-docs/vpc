@@ -206,60 +206,60 @@ curl -X POST "$vpc_api_endpoint/v1/instance_groups/$instance_group_id/managers?v
 {:codeblock}
 
 A successful response looks like the following example:
-```bash
-
-{
-  "aggregation_window": 90,
-  "cooldown": 300,
-  "href": "https://eu-gb.iaas.cloud.ibm.com/v1/instance_groups/r018-7b3ac170-01f3-43d6-87ec-f0ed11ed3f60/managers/r018-4f2f7036-86b0-4d1b-a729-12357d45b00f",
-  "id": "r018-4f2f7036-86b0-4d1b-a729-12357d45b00f",
-  "management_enabled": true,
-  "manager_type": "autoscale",
-  "max_membership_count": 50,
-  "min_membership_count": 1,
-  "name": "my-manager",
-  "policies": []
-} created a scheduled action
-```
-{:codeblock}
+   ```bash
+   
+   {
+     "aggregation_window": 90,
+     "cooldown": 300,
+     "href": "https://eu-gb.iaas.cloud.ibm.com/v1/instance_groups/   r018-7b3ac170-01f3-43d6-87ec-f0ed11ed3f60/managers/   r018-4f2f7036-86b0-4d1b-a729-12357d45b00f",
+     "id": "r018-4f2f7036-86b0-4d1b-a729-12357d45b00f",
+     "management_enabled": true,
+     "manager_type": "autoscale",
+     "max_membership_count": 50,
+     "min_membership_count": 1,
+     "name": "my-manager",
+     "policies": []
+   } created a scheduled action
+   ```
+   {:codeblock}
 
 ### Update a scheduled action
 {: #update-scheduled-action-api}
 
 The following example updates a scheduled action.
 
-```bash
-
-curl -X PATCH "$vpc_api_endpoint/v1/instance_groups/$instance_group_id/managers/$instance_group_manager_id/policies?version=2021-04-20&generation=2" -H "Authorization: $iam_token" -d '{
-      "metric_type": "cpu",
-      "metric_value": 50
-    }'
-```
-{:codeblock}
+   ```bash
+   
+   curl -X PATCH "$vpc_api_endpoint/v1/instance_groups/$instance_group_id/   managers/$instance_group_manager_id/policies?version=2021-04-20&   generation=2" -H "Authorization: $iam_token" -d '{
+         "metric_type": "cpu",
+         "metric_value": 50
+       }'
+   ```
+   {:codeblock}
 
 A successful response looks like the following example:
 
-```bash
-
-{
-  "href": "https://eu-gb.iaas.cloud.ibm.com/v1/instance_groups/r018-7b3ac170-01f3-43d6-87ec-f0ed11ed3f60/managers/r018-4f2f7036-86b0-4d1b-a729-12357d45b00f/policies/r018-02d7b6c3-e3c8-4569-ba6a-caa5d4d6146c",
-  "id": "r018-02d7b6c3-e3c8-4569-ba6a-caa5d4d6146c",
-  "metric_type": "cpu",
-  "metric_value": 50,
-  "name": "my-policy",
-  "policy_type": "target"
-```
-{:codeblock}
+   ```bash
+   
+   {
+     "href": "https://eu-gb.iaas.cloud.ibm.com/v1/instance_groups/   r018-7b3ac170-01f3-43d6-87ec-f0ed11ed3f60/managers/   r018-4f2f7036-86b0-4d1b-a729-12357d45b00f/policies/   r018-02d7b6c3-e3c8-4569-ba6a-caa5d4d6146c",
+     "id": "r018-02d7b6c3-e3c8-4569-ba6a-caa5d4d6146c",
+     "metric_type": "cpu",
+     "metric_value": 50,
+     "name": "my-policy",
+     "policy_type": "target"
+   ```
+   {:codeblock}
 
 ### Delete a scheduled action
 {: #delete-scheduled-action-api}
 
 The following example deletes a scheduled action.
 
-```bash
-
-curl -X DELETE "$vpc_api_endpoint/v1/instance_groups/$instance_group_id/memberships?version=2021-04-20&generation=2" -H "Authorization: $iam_token"
-```
-{:codeblock}
+   ```bash
+   
+   curl -X DELETE "$vpc_api_endpoint/v1/instance_groups/$instance_group_id/   memberships?version=2021-04-20&generation=2" -H "Authorization: $iam_token"
+   ```
+   {:codeblock}
 
 No sample response available.

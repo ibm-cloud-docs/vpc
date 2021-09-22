@@ -50,14 +50,14 @@ To give a new user access to all VPC infrastructure resources:
 1. Go to the [IAM Users ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/iam/users){: new_window} page in the IBM Cloud console and click **Invite users**.
 1. Enter the email addresses of the users that you want to invite in the **Enter Email addresses** section.
 1. In the **Assign users additional access** section, select **IAM services** and complete the following tasks:
-  * From the **What type of access do you want to assign?** list, select **VPC Infrastructure Services**.
-  * From the **in** list, select **All resource groups**.
-  * From the **Resource type** list, select **All resource types**.
-  * In the **Platform access** area, select **Editor**.
-  * In the **Resource group access** area, select **Viewer**.
-  * In the **Service access** area, select **Console Administrator**.
-  * Scroll to the end of the page and click **Add**.
-  * In the **Access summary** side panel, review the details and click **Invite**.
+    * From the **What type of access do you want to assign?** list, select **VPC Infrastructure Services**.
+    * From the **in** list, select **All resource groups**.
+    * From the **Resource type** list, select **All resource types**.
+    * In the **Platform access** area, select **Editor**.
+    * In the **Resource group access** area, select **Viewer**.
+    * In the **Service access** area, select **Console Administrator**.
+    * Scroll to the end of the page and click **Add**.
+    * In the **Access summary** side panel, review the details and click **Invite**.
 
 ## Limited access scenario
 {: #giving-existing-user-permission-to-create-vsis}
@@ -67,14 +67,14 @@ This scenario shows how to give an existing user permission to create and manage
 1. Go to the [IAM Users ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/iam/users){: new_window} page in the IBM Cloud console and select the user whose access you want to configure.
 1. On the **Access policies** tab, click **Assign access**.
 1. In the **Assign users additional access** section, select **IAM services** and complete the following tasks:
-  * From the **What type of access do you want to assign?** list, select **VPC Infrastructure Services**.
-  * From the **in** list, select **Resource group: default**. 
-  * From the **Resource type** list, select **All resource types**.
-  * In the **Platform access** area, select **Editor**.
-  * Make sure that the **Assign access to a resource group** option is set to **Viewer**.
-  * In the **Service access** area, select **Console Administrator**.
-  * Scroll to the end of the page and click **Add**.
-  * Review the **Access summary** side pane, and click **Assign**.
+    * From the **What type of access do you want to assign?** list, select **VPC Infrastructure Services**.
+    * From the **in** list, select **Resource group: default**. 
+    * From the **Resource type** list, select **All resource types**.
+    * In the **Platform access** area, select **Editor**.
+    * Make sure that the **Assign access to a resource group** option is set   to **Viewer**.
+    * In the **Service access** area, select **Console Administrator**.
+    * Scroll to the end of the page and click **Add**.
+    * Review the **Access summary** side pane, and click **Assign**.
 
 ## Team access scenario
 {: #team-access-scenario}

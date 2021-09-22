@@ -90,8 +90,8 @@ You can see all file shares that have a mount target to a VPC by viewing the VPC
 
 1. Go to a VPC:
 
-  1. From the [file shares details page](#fs-view-single-share-ui), click the VPC link in the list of mount targets.
-  2. From the UI, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > > Network > VPCs**. Click the name of a VPC in the list.
+    1. From the [file shares details page](#fs-view-single-share-ui), click the VPC link in the list of mount targets.
+    2. From the UI, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > > Network > VPCs**. Click the name of a VPC in the list.
 
 2. On the VPC details page, scroll to **File shares in this VPC**.
 

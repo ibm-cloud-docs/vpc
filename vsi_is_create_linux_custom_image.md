@@ -107,12 +107,12 @@ use DHCP.  For more information about configuring DHCP, see the documentation fo
 Make sure that your image is cloud-init enabled. Cloud-init version 0.7.9 or greater is required.
 
 1. To determine if cloud-init is installed, run the following command: `cloud-init --version`
-  * In some cases, cloud-init might be installed but not in your environment PATH.
-  * To find the path for cloud-init on ExecStart, run the following command:`systemctl cat cloud-init`
+    * In some cases, cloud-init might be installed but not in your environment PATH.
+    * To find the path for cloud-init on ExecStart, run the following command:`systemctl cat cloud-init`
 
 2. To install cloud-init, use one of the following commands.
-  * For Ubuntu 16, 18 & Debian 9, run the following command: `apt-get install cloud-init`
-  * For CentOS 7 & RedHat 7, run the following command: `yum install cloud-init`
+    * For Ubuntu 16, 18 & Debian 9, run the following command: `apt-get install cloud-init`
+    * For CentOS 7 & RedHat 7, run the following command: `yum install cloud-init`
 
 3. If the `datasources_list` property exists in */etc/cloud/cloud.cfg*, verify that it contains `ConfigDrive` and `NoCloud` or remove the `datasources_list` property entirely. For more information about data sources, see [Data sources](http://cloudinit.readthedocs.io/en/latest/topics/datasources.html){: external}. {{site.data.keyword.cloud_notm}} cloud-init images are created for the environment by using the [NoCloud](https://cloudinit.readthedocs.io/en/latest/topics/datasources/nocloud.html){: external} data source to supply the metadata.
 

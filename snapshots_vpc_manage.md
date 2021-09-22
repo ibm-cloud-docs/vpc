@@ -57,8 +57,8 @@ You can also delete a snapshot from the details page for a block storage volume.
 1. Go to the list of all block storage volumes. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
 1. Select a volume from the list and click the volume name to go to the volume details page.
 1. Click **Snapshots**. A list of snapshots that are taken of this volume are displayed, and you can do the following actions:
-  * Click **Delete all** to delete all snapshots for this volume.
-  * For the most recent snapshot (first in the list), click the overflow menu (ellipsis).
+    * Click **Delete all** to delete all snapshots for this volume.
+    * For the most recent snapshot (first in the list), click the overflow menu (ellipsis).
 1. Select **Delete** from the overflow menu. This option does not appear if the snapshot is not deletable.
 1. Confirm the deletion.
 

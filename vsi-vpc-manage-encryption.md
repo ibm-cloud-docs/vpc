@@ -59,18 +59,18 @@ When you create a customer-managed encryption volume, snapshot, or custom image,
 1. For Encryption, you'll see the name of the KMS and **customer-managed**, for example _Key Protect - Customer-managed_.
 1. In the Encryption Instance field, click the link of the KMS instance you provisioned for the root key protecting this volume. Information about that KMS instance shows, which includes the name and ID of the root key.
 
-  If you created your KMS instance using a private endpoint, these instances and associated root keys do not appear in the UI. Use the Key Protect or HPCS CLI or API to verify key rotation instead.
-  {: note}
+    If you created your KMS instance using a private endpoint, these instances and associated root keys do not appear in the UI. Use the Key Protect or HPCS CLI or API to verify key rotation instead.
+    {: note}
 
 1. Click  **Associated Resources**. You'll see the following information for the root key in the KMS instance:
-  * Key Name
-  * Key ID
-  * Cloud Resource Name (CRN) of the associated resource (i.e., volume, snapshot, or custom image). If you have more than one resource using this root key, they appear in the list.
+    * Key Name
+    * Key ID
+    * Cloud Resource Name (CRN) of the associated resource (i.e., volume, snapshot, or custom image). If you have more than one resource using this root key, they appear in the list.
 1. In the Details column, click the arrow to expand the information. You'll see:
-  * Description of the resource, if you provided one.
-  * Key version ID
-  * Key version date
-  * Retention policy
+    * Description of the resource, if you provided one.
+    * Key version ID
+    * Key version date
+    * Retention policy
 
 After you [rotate the key](/docs/vpc?topic=vpc-vpc-key-rotation), the version ID field and key version date change, indicating the key has been rotated. The rotated key retains its original name and ID in the list of KMS instances.
 

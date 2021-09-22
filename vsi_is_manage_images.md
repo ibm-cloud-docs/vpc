@@ -51,7 +51,7 @@ You cannot create an image from an encrypted boot volume (Image from a volume fe
 {: note}
 
 For custom images with Red Hat Enterprise Linux or Windows operating systems, you must select the appropriate version of the operating system when you import the image to indicate how you want to license the OS. Depending on how you configured the image, select either the bring your own license `byol` version of the operating system, or if you plan to license the OS through {{site.data.keyword.cloud_notm}}, select the version without `byol` appended.  
-  {: important}
+{: important}
 
 When you have an image available in {{site.data.keyword.cos_full_notm}}, you can import it to {{site.data.keyword.vpc_short}} infrastructure by using the {{site.data.keyword.cloud_notm}} console.
 

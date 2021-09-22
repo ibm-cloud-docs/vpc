@@ -42,15 +42,15 @@ To locate your SSH key or generate an SSH key, complete one of the following ste
 
 * Generate an SSH key: If you don't have a public SSH key or if you forgot the password of an SSH key, generate a new one by running the `ssh-keygen` command and following the prompts. 
 
-  For example, you can generate an SSH key on your Linux or Mac system by running the command `ssh-keygen -t rsa -C "user_ID"`.
+    For example, you can generate an SSH key on your Linux or Mac system by running the command `ssh-keygen -t rsa -C "user_ID"`.
 
-  If your Mac system, generates a key size of 3072 bits (by default), run the following command to ensure the generated key is a supported size: `ssh-keygen -t rsa -b 4096 -C "user_ID"`.
-  {: tip}
+    If your Mac system, generates a key size of 3072 bits (by default), run the following command to ensure the generated key is a supported size: `ssh-keygen -t rsa -b 4096 -C "user_ID"`.
+    {: tip}
 
-  You can press Enter to accept the default location for the file. The command generates two files. The generated public key is in the `<your key>.pub` file. For Windows systems, you can use [PuTTYgen](https://www.ssh.com/ssh/putty/windows/puttygen){: external} to generate an SSH key.
+    You can press Enter to accept the default location for the file. The command generates two files. The generated public key is in the `<your key>.pub` file. For Windows systems, you can use [PuTTYgen](https://www.ssh.com/ssh/putty/windows/puttygen){: external} to generate an SSH key.
 
-  If you are using OpenSSH version 7.8 or higher and plan to to access a Windows instance, use the following command to generate the key in PEM format. `$ssh-keygen -m PEM -t rsa -C "user_ID"`
-  {: important}
+    If you are using OpenSSH version 7.8 or higher and plan to to access a Windows instance, use the following command to generate the key in PEM format. `$ssh-keygen -m PEM -t rsa -C "user_ID"`
+    {: important}
 
 When you copy an SSH key from a terminal to add the key to your VPC, sometimes extra line breaks are introduced which cause a parsing error. To avoid this issue, first paste your SSH key into a text editor and remove any extra line breaks. Then, copy the SSH key from text editor and paste it into the VPC UI, CLI, or API.
 {: tip}
