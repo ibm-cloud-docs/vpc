@@ -53,12 +53,12 @@ After you create your Windows instance and complete the prerequisites, complete 
 
 1. Query the status of your instance by running the following command. `INSTANCE_ID` is the ID for the instance that you want to connect:
 
-  ```
-  $ ibmcloud is instance INSTANCE_ID
-  ```
-  {: codeblock}
+    ```
+    $ ibmcloud is instance INSTANCE_ID
+    ```
+    {: codeblock}
 
-  When the instance shows that it's `running`, you are ready to retrieve the initialization values to get your password.
+    When the instance shows that it's `running`, you are ready to retrieve the initialization values to get your password.
 
 2. Run the following command to initialize your instance and obtain your instance password. Specify your instance ID for the `INSTANCE_ID` variable and your private key for the `KEY` or `KEY_FILE` variable:
 

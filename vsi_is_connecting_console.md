@@ -153,7 +153,7 @@ Before you can use the API requests to connect to a VNC or serial console, you n
    If you use websocat, specify the `--binary` flag in your command. For example: `websocat --binary "wss://us-south.iaas.cloud.ibm.com/v1/instances/<instance_id>/console?access_token=<access_token>&version=2021-01-26&generation=2"`
    {: tip}
   
-  4. Enter the credentials following the prompts to log in to your instances.
+4. Enter the credentials following the prompts to log in to your instances.
 
 ## Using CLI to connect to a console
 {: #vsi_is_connecting_console_cli}
