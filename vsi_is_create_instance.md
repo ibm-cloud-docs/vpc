@@ -19,7 +19,7 @@ subcollection: vpc
 {:tip: .tip}
 {:important: .important}
 {:table: .aria-labeledby="caption"}
-{: beta .beta}
+{:beta: .beta}
 
 # Creating virtual server instances by using the UI
 {: #creating-virtual-servers}
