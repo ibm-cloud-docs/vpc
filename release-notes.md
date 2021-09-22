@@ -205,29 +205,29 @@ The Ultra High Memory family of profiles is currently available in the Dallas an
 
 - **New parameter-based rule types for application load balancers:** When creating policy rules for {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB), the `field` property may now be set to `query` or `body` to perform additional forms of layer 7 load balancing.
 
-	* `query` - Write layer 7 rules that use the query string to route traffic to a specific target.
+    * `query` - Write layer 7 rules that use the query string to route traffic to a specific target.
 
-	* `body` - If the body of the `POST` request uses form encoding (UTF-8), then you can create layer 7 rules to route traffic based on the parameter name and value in the body.
+    * `body` - If the body of the `POST` request uses form encoding (UTF-8), then you can create layer 7 rules to route traffic based on the parameter name and value in the body.
 
-  For more information, refer to [Layer 7 load balancing](/docs/vpc?topic=vpc-layer-7-load-balancing).
+    For more information, refer to [Layer 7 load balancing](/docs/vpc?topic=vpc-layer-7-load-balancing).
 - **TCP keep alive support for application load balancers:** {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) now supports `TCP keep alive`. With this setting, the ALB sends TCP-keep-alive packets to both client and back-end servers every five seconds.
 
-  For more information, refer to [Advanced traffic management](/docs/vpc?topic=vpc-advanced-traffic-management#tcp-keep-alive).
+    For more information, refer to [Advanced traffic management](/docs/vpc?topic=vpc-advanced-traffic-management#tcp-keep-alive).
 - **New monitoring metrics:** {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) now has additional monitoring metrics to help track the traffic and usage patterns for your load balancers. These new metrics can provide insight about peak traffic hours, usage dropoffs, and overall usage patterns. The new metrics are:
 
-	* Total number of HTTP/HTTPS requests received by the back-end
-	* Average response time for HTTP/HTTPS requests
-	* Count of responses with the HTTP 2xx back-end response code
-	* Count of responses with the HTTP 3xx back-end response code
-	* Count of responses with the HTTP 4xx back-end response code
-	* Count of responses with the HTTP 5xx back-end response code
+    * Total number of HTTP/HTTPS requests received by the back-end
+    * Average response time for HTTP/HTTPS requests
+    * Count of responses with the HTTP 2xx back-end response code
+    * Count of responses with the HTTP 3xx back-end response code
+    * Count of responses with the HTTP 4xx back-end response code
+    * Count of responses with the HTTP 5xx back-end response code
 
-  For more information, refer to [Monitoring IBM Cloud Application Load Balancer metrics](/docs/vpc?topic=vpc-monitoring-metrics-alb).
+    For more information, refer to [Monitoring IBM Cloud Application Load Balancer metrics](/docs/vpc?topic=vpc-monitoring-metrics-alb).
 - **Private network load balancers:** {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) now supports the creation of private network load balancers. A private NLB is a load balancer only accessible from within the VPC network and/or where the client has reachability to the VPC network (for example, through Direct Link or a transit gateway).
 
-  To create private load balancers, you must have a dedicated subnet with no custom routes configured for the subnet.
+    To create private load balancers, you must have a dedicated subnet with no custom routes configured for the subnet.
 
-  For information on creating a private NLB, refer to [Creating a Network Load Balancer for VPC](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer).
+    For information on creating a private NLB, refer to [Creating a Network Load Balancer for VPC](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer).
 
 ## 19 March 2021
 {: #march-19-2021}
@@ -242,8 +242,8 @@ The Ultra High Memory family of profiles is currently available in the Dallas an
 - **New profiles:** The Balanced, Compute, and Memory profile families now include three new profiles with 64, 96, and 128 vCPUs. Profiles with 64 or more vCPUs are deployed exclusively on 2nd generation Intel Xeon Platinum 8260 (Cascade Lake) running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz.
 
 - **VPN for VPC:**
-  * For high-security standards, VPN now supports SHA-512 authentication and Diffie-Hellman Group 19.
-  * Gateway private IP addresses are now visible for gateway members.
+    * For high-security standards, VPN now supports SHA-512 authentication and Diffie-Hellman Group 19.
+    * Gateway private IP addresses are now visible for gateway members.
 
 ## 05 March 2021
 {: #march-05-2021}
@@ -376,7 +376,7 @@ The Washington D.C. multi-zone region will be enabled in January 2021. This feat
     * cx2-48x96
     * mx2-48x384
 
-  For more information, see [Profiles](/docs/vpc?topic=vpc-profiles).
+    For more information, see [Profiles](/docs/vpc?topic=vpc-profiles).
 
 - **UI enhancements:**
     - New design for the VPC Overview page and generation switcher
@@ -444,9 +444,9 @@ The Washington D.C. multi-zone region will be enabled in January 2021. This feat
 - **Updated custom images information:** A new [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images) checklist is available. The procedure for migrating a virtual server instance from classic infrastructure to {{site.data.keyword.cloud_notm}} VPC is enhanced. For more information, see [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc).
 
 - **User interface updates:**
-  - Added pagination for the security groups list table
-  - On the VPN Provision page, select a subnet from a table or create subnets
-  - New "upgrade pending" button if a user account is pending upgrade
+    - Added pagination for the security groups list table
+    - On the VPN Provision page, select a subnet from a table or create subnets
+    - New "upgrade pending" button if a user account is pending upgrade
 
 - **New SDK:** The [Go SDK](https://{DomainName}/apidocs/vpc?code=go) is now generally available.
 
@@ -539,8 +539,8 @@ The following VPC network services are now generally available:
 {: #february-03-2020}
 
 - **IBM virtual servers for VPC on POWER (beta):** The beta is now open to anyone interested, no signup necessary. For more information, see the following resources:
-  * [IBM Cloud Virtual Private Cloud on POWER](https://developer.ibm.com/linuxonpower/power-virtual-private-cloud/){: external}  
-  * [Profiles](/docs/vpc?topic=vpc-profiles)
+    * [IBM Cloud Virtual Private Cloud on POWER](https://developer.ibm.com/linuxonpower/power-virtual-private-cloud/){: external}  
+    * [Profiles](/docs/vpc?topic=vpc-profiles)
 - **Red Hat Enterprise Linux (RHEL) and Windows stock images are now available:** Provision an instance that uses an RHEL image or a Windows image in the Washington DC region. For more information, see [Images](/docs/vpc?topic=vpc-about-images).
 - **UI enhancements:** The modals for provisioning and attaching a public gateway and for creating an SSH key are now replaced with a redesigned side pane.
 
@@ -549,10 +549,10 @@ The following VPC network services are now generally available:
 
 - **New region:** The Washington DC	region endpoint (us-east) is now in service at `http://us-east.iaas.cloud.ibm.com`. For more information, see [Endpoint URLs](https://{DomainName}/apidocs/vpc#endpoint-url) in the {{site.data.keyword.vpc_short}} API. See also [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region).
 - **CLI plug-in release 0.5.10:** For more information, see [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
-  * You now have an Example section in command help for creating and updating commands. Example: `ibmcloud is help instance-create`, `ibmcloud is help instance-update`, or `ibmcloud is help volume-create`.
-  * Use the _resource group filter_ in list commands. Example: `ibmcloud is vpcs --resource-group-name Littleton`.
-  * JSON output format support for the `ibmcloud is target --json` command.
-  * `ipv4` and `primary-network-interface` options for `instance-create`. Options help specify the primary private IP for the primary network interface when you create an instance.
+    * You now have an Example section in command help for creating and updating commands. Example: `ibmcloud is help instance-create`, `ibmcloud is help instance-update`, or `ibmcloud is help volume-create`.
+    * Use the _resource group filter_ in list commands. Example: `ibmcloud is vpcs --resource-group-name Littleton`.
+    * JSON output format support for the `ibmcloud is target --json` command.
+    * `ipv4` and `primary-network-interface` options for `instance-create`. Options help specify the primary private IP for the primary network interface when you create an instance.
 
 ## 9 December 2019
 {: #dec-9-2019}

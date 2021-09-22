@@ -155,14 +155,14 @@ If you run into unexpected results, add the `--verbose` (debug) flag after the `
 
  * Call the GET Regions API to see the regions available for VPC, in JSON format. At least one object should return.
 
-  You must send the `generation` parameter with every API request to specify which generation to use. For generation 2 virtual server instances, specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API](https://{DomainName}/apidocs/vpc#api-generation-parameter)
-  {: important}
+    You must send the `generation` parameter with every API request to specify which generation to use. For generation 2 virtual server instances, specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API](https://{DomainName}/apidocs/vpc#api-generation-parameter)
+    {: important}
 
     ```
     curl -X GET "$vpc_api_endpoint/v1/regions?version=$api_version&generation=2" \
       -H "Authorization: $iam_token"
     ```
-   {: pre}
+    {: pre}
 
  * Call the GET Zones API to see all zones available for VPC in a particular region, such as `us-south`, in JSON format.
 
@@ -174,8 +174,8 @@ If you run into unexpected results, add the `--verbose` (debug) flag after the `
 
  * Call the GET Profiles API to see the profiles available for your virtual server instances, in JSON format. At least one object should return.
 
-  Add ` | json_pp ` after the curl command to get a readable JSON string.
-  {: tip}
+    Add ` | json_pp ` after the curl command to get a readable JSON string.
+    {: tip}
 
     ```
     curl -X GET "$vpc_api_endpoint/v1/instance/profiles?version=$api_version&generation=2" \

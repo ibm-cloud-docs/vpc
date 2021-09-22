@@ -181,5 +181,5 @@ You need to power off all running VMs on the virtual server instance before enab
 
     If it returns "Y" or "1", it means that your system supports nested virtualization. If the output is "N" or "0", your system won't support nested virtualization.
 
-  Try rebooting the virtual server instance if the feature is not enabled.
-  {: tip}
+    Try rebooting the virtual server instance if the feature is not enabled.
+    {: tip}

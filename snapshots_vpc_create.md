@@ -43,9 +43,6 @@ Follow these steps to create a snapshot from the list of snapshots.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Snapshots**.
 
-  Be sure to select VPC infrastructure from the Menu icon. If necessary, click the *Switch to Gen 2 compute* link in the banner to make sure that you are creating generation 2 resources.  
-  {: tip}
-
 1. From the list of snapshots (initially empty), click **Create**.
 
 1. Enter the information in Table 1 to define your snapshot and select the block storage volume that you want to copy.
@@ -67,9 +64,6 @@ Follow these steps to create a snapshot from the list of snapshots.
 Follow these steps to create a snapshot from the list of block storage volumes. 
 
 1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
-
-  Be sure to select VPC infrastructure from the Menu icon. If necessary, click the *Switch to Gen 2 compute* link in the banner to make sure that you are creating generation 2 resources.  
-  {: tip}
 
 1. From the list of volumes, locate a boot or data volume that is attached to an instance.
 

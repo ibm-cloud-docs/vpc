@@ -104,8 +104,8 @@ To perform key rotation:
 * Locate the KMS instance ID. See [Retrieving your instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
 * Locate the root key ID and CRN. Using the CLI, see [Step 1 - Obtain service instance and root key information](/docs/vpc?topic=vpc-creating-instances-byok#byok-cli-setup-prereqs). To view a list of available root keys, also see this information for [Key Protect](/docs/key-protect?topic=key-protect-view-keys) or [HPCS](/docs/hs-crypto?topic=hs-crypto-view-keys).
 * Locate the API endpoint when using the API service. Using the UI:
-  1. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc){: external}) **Resource List**, under **Services**, click on the KMS instance. (The pane also shows the instance CRN and GUID.)
-  2. Click **View Key Details** for the API endpoint.
+    1. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc){: external}) **Resource List**, under **Services**, click on the KMS instance. (The pane also shows the instance CRN and GUID.)
+    2. Click **View Key Details** for the API endpoint.
 
 ## Using the key management service UI to rotate keys
 {: #vpc-key-rotation-ui}
@@ -159,23 +159,23 @@ For more information, see [Step 1 - Obtain service instance and root key informa
 
 3. Rotate the key.
 
-  ```
-  $ ibmcloud kp key rotate 1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad
-  Rotating root key...
-  SUCCESS
-  ```
-  {: codeblock}
+   ```
+   $ ibmcloud kp key rotate 1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad
+   Rotating root key...
+   SUCCESS
+   ```
+   {: codeblock}
 
 4. Verify the key was rotated.
 
-  ```
-  $ ibmcloud kp key show 1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad
-  Grabbing info for key id: 1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad...
-  SUCCESS
-  Key ID                                 Key Name      Description   Creation Date                   Expiration Date
-  1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad   my-root-key                 2020-05-06 17:25:22 +0000 UTC   Key does not expire
-  ```
-  {: codeblock}
+   ```
+   $ ibmcloud kp key show 1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad
+   Grabbing info for key id: 1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad...
+   SUCCESS
+   Key ID                                 Key Name      Description    Creation Date                   Expiration Date
+   1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad   my-root-key                  2020-05-06 17:25:22 +0000 UTC   Key does not expire
+   ```
+   {: codeblock}
 
 ### CLI procedure for KMS-generated keys
 {: #CLI-vpc-generated-key-procedure}
@@ -184,37 +184,37 @@ This procedure describes creating a new root key with base64 key material. It st
 
 1. Create a random, base64-encoded, 32-byte key material.
 
-  ```
-  $ KEY_MATERIAL=$(openssl rand -base64 32)
-  ```
-  {: pre}
+   ```
+   $ KEY_MATERIAL=$(openssl rand -base64 32)
+   ```
+   {: pre}
 
 2. Create a root key from the base64-encoded value.
 
-  ```
-  $ ibmcloud kp key create my-base64-root-key -k $KEY_MATERIAL
-  Creating key: 'my-base64-root-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
-  SUCCESS
-  Key ID                                 Key Name
-  e55f86ab-6984-4594-ad23-3024f6440a58   my-base64-root-key
-  ```
-  {: codeblock}
+   ```
+   $ ibmcloud kp key create my-base64-root-key -k $KEY_MATERIAL
+   Creating key: 'my-base64-root-key', in instance:  '390086ac-76fa-4094-8cf3-c0829bd69526'...
+   SUCCESS
+   Key ID                                 Key Name
+   e55f86ab-6984-4594-ad23-3024f6440a58   my-base64-root-key
+   ```
+   {: codeblock}
 
 3. Create new key material.
 
-  ```
-  $ NEW_KEY_MATERIAL=$(openssl rand -base64 32)
-  ```
-  {: pre}
+   ```
+   $ NEW_KEY_MATERIAL=$(openssl rand -base64 32)
+   ```
+   {: pre}
 
 4. Rotate the key with the new key material.
 
-  ```
-  $ ibmcloud kp key rotate e55f86ab-6984-4594-ad23-3024f6440a58 -k $NEW_KEY_MATERIAL
-  Rotating root key...
-  SUCCESS
-  ```
-  {: codeblock}
+   ```
+   $ ibmcloud kp key rotate e55f86ab-6984-4594-ad23-3024f6440a58 -k  $NEW_KEY_MATERIAL
+   Rotating root key...
+   SUCCESS
+   ```
+   {: codeblock}
 
 ## Using the key management service API to rotate keys
 {: #vpc-key-rotation-api}
@@ -285,19 +285,19 @@ Follow these steps to rotate a root key by using the Key Protect API.
 
 2. Locate the root key ID in your KMS instance by making a `GET/keys` request to the following endpoint:
 
-  ```
-  https://<region>.kms.cloud.ibm.com/api/v2/keys
-  ```
-  {: pre}
+   ```
+   https://<region>.kms.cloud.ibm.com/api/v2/keys
+   ```
+   {: pre}
 
-  Use the `limit` and `offset` parameters to retrieve a subset of your keys, beginning with the offset value that you specify. For more information, see [Retrieving a subset of keys](/docs/key-protect?topic=key-protect-view-keys#retrieve-subset-keys-api).
-  {: tip}
+   Use the `limit` and `offset` parameters to retrieve a subset of your keys, beginning with the offset value that you specify. For more information, see [Retrieving a subset of keys](/docs/key-protect?topic=key-protect-view-keys#retrieve-subset-keys-api).
+   {: tip}
 
 3. Copy the ID of the root key that you want to rotate.
 
 4. Replace the root key with new key material with a `POST/key/<key-ID> action=rotate ` request. If the root key was generated by the KMS, you don't need a POST request body. If you imported the key, supply the new key material (Base64 encoded) in the `payload` field of the JSON object in the POST request body.
 
-  For example:
+    For example:
 
     ```cURL
       curl -X POST \
@@ -312,7 +312,7 @@ Follow these steps to rotate a root key by using the Key Protect API.
     ```
     {: codeblock}
 
-  Replace the variables in the example request according to Table 1.
+    Replace the variables in the example request according to Table 1.
 
 5. Optionally, verify that the key was rotated by running the following call to browse the keys in your Key Protect service instance.
 

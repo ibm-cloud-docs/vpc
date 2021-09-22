@@ -42,8 +42,8 @@ When creating VPC instances that you intend to interconnect using [IBM Cloud Tra
 
 When creating VPC instances that you also intend to interconnect with your IBM Cloud classic infrastructure using [IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started), do not use IP addresses in your instances in the `10.0.0.0/14`, `10.200.0.0/14`, `10.198.0.0/15`, and `10.254.0.0/16` blocks. You should also avoid using IP addresses from your classic infrastructure subnets. 
   
-  For further information on designing your VPC instances for use with IBM Cloud Transit Gateway, see [Planning for IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-helpful-tips).
-  {: important}
+    For further information on designing your VPC instances for use with IBM Cloud Transit Gateway, see [Planning for IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-helpful-tips).
+    {: important}
 
 ## Design considerations and assumptions
 {: #design-considerations-and-assumptions}

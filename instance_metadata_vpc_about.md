@@ -97,11 +97,11 @@ You can use the metadata service in two ways:
 
 * Access the metadata from within the instance
   
-  In this scenario, you retrieve metadata from within the instance to bootstrap the instance. For example, you might want to specify custom user data when creating the instance and then retrieve that custom user data when initializing the instance. For more information, see [Accessing metadata from an instance](/docs/vpc?topic=vpc-imd-access-instance-metadata).
+    In this scenario, you retrieve metadata from within the instance to bootstrap the instance. For example, you might want to specify custom user data when creating the instance and then retrieve that custom user data when initializing the instance. For more information, see [Accessing metadata from an instance](/docs/vpc?topic=vpc-imd-access-instance-metadata).
 
 * Access an instance identity IAM token and call IAM-enabled services
 
-  In this scenario, you create a trusted profile for compute resource identity and assign a virtual server instance access rights for IAM-enabled services. Make a call to create a new instance, configured with the metadata service. Link the instance to a trusted profile. Call the metadata service to get an access token, then exchange the token for an IAM token. IAM-enabled services can then be called from an instance without having to manage and distribute IAM secrets to the instance. Use this option when you want to call IAM-enabled services as part of instance bootstrapping an instance. For example, you might want to set up a new COS bucket to be used by the instance workload. For more information, see [Using a trusted profile to call IAM-enabled services](/docs/vpc?topic=vpc-imd-trusted-profile-metadata).
+    In this scenario, you create a trusted profile for compute resource identity and assign a virtual server instance access rights for IAM-enabled services. Make a call to create a new instance, configured with the metadata service. Link the instance to a trusted profile. Call the metadata service to get an access token, then exchange the token for an IAM token. IAM-enabled services can then be called from an instance without having to manage and distribute IAM secrets to the instance. Use this option when you want to call IAM-enabled services as part of instance bootstrapping an instance. For example, you might want to set up a new COS bucket to be used by the instance workload. For more information, see [Using a trusted profile to call IAM-enabled services](/docs/vpc?topic=vpc-imd-trusted-profile-metadata).
 
 Figure 1 illustrates these scenarios.
 

@@ -280,11 +280,11 @@ By default, VPN for VPC disables PFS in Phase 2, and Juniper vSRX requires PFS t
 To use a custom IPsec policy in VPN for VPC:
 1. On the VPN for VPC page in the IBM Cloud console, select the **IPsec policies** tab.
 2. Click **New IPsec policy** and specify the following values:
-  * For the ***Authentication** field, select **MD5**.
-  * For the **Encryption** field, select **aes256**.
-  * Select the **PFS** option.
-  * For the **DH Group** field, select **2**.
-  * For the **Key lifetime** field, specify **1200**.
+    * For the ***Authentication** field, select **MD5**.
+    * For the **Encryption** field, select **aes256**.
+    * Select the **PFS** option.
+    * For the **DH Group** field, select **2**.
+    * For the **Key lifetime** field, specify **1200**.
 3. When you create the VPN connection in your VPC, select this custom IPsec policy.
 
 ### StrongSwan configuration
