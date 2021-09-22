@@ -27,7 +27,7 @@ Review the following sample architecture for {{site.data.keyword.vpc_full}}, and
 To understand the isolation aspects of your workloads and data, the diagram shows the fundamental components of the VPC service. You can also review the table, which follows the diagram, for an explanation of those isolation characteristics. Currently, access to the VPC service is through regional public endpoints.
 
 For more information about network traffic isolation, see [VPC behind the curtain](/docs/vpc?topic=vpc-vpc-behind-the-curtain).
-{:note}
+{: note}
 
 ![VPC Components](images/vpc-isolation-architecture-updated.png "VPC components"){: caption="Figure 1. Fundamental VPC components" caption-side="bottom"}
 
@@ -54,7 +54,7 @@ The {{site.data.keyword.vpc_full}} (VPC) depends upon various {{site.data.keywor
 * Integrating with {{site.data.keyword.cloud_notm}} and its user interface
 * Storing and backing up service data (including VPC resource metadata)
 * Logging and auditing service events.
-{:shortdesc}
+{: shortdesc}
 
 
 The following table lists the main dependencies of the VPC service and the purpose of each one:

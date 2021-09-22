@@ -28,7 +28,7 @@ subcollection: vpc
 
 Use the Instance metadata for VPC service to access information about your VPC resources. The metadata service is a REST API that you invoke using a well-known URI to retrieve instance-specific information from the metadata server. Access to API services is made available from within the instance itself and is inaccessible from outside the instance. 
 The service is free.
-{:shortdesc}
+{: shortdesc}
 
 This service is available only to accounts with special approval to preview this beta feature. 
 {: beta}
@@ -79,7 +79,7 @@ For a list of all endpoints you can use to access instance metadata, see [Summar
 You [enable the metadata service](/docs/vpc?topic=vpc-imd-get-metadata#imd-metadata-service-enable) by setting a toggle in the VPC API when creating a new instance (`POST /instances`) or updating an existing instance (`PATCH /instances`). 
 
 Be default, the service is enabled for virtual server instances created on accounts participating in the Beta release. You can disable the service from existing instances or when creating new ones. For information, see [Enable or disable the instance metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-metadata-service-enable).
-{:note}
+{: note}
 
 The metadata service intercepts all requests to the service's IP and then routes them to the specific services to handle these requests. As part of the request to the metadata service, you include the instance identity access token.
 
@@ -88,7 +88,7 @@ Through IAM, you can also assign access rights to instances by creating a [compu
 The metadata service API lets you [retrieve the metadata](/docs/vpc?topic=vpc-imd-get-metadata) from the virtual server instance. This includes _user data_, the same user data available from cloud-init for VPC instances. User data is data you specified when provisioning the instance and is available when provisioning new instances. User data provides valuable data for controlling how the instance is initialized. For example, information to load database software, custom software for worker nodes, or information to make decisions about how to initialize the instance. For more information, see [User data](/docs/vpc?topic=vpc-user-data).
 
 The metadata you access from within the instance is not protected by any encryption method. Any user with access to the instance and metadata service can potentially see the metadata. As a precaution, do not store sensitive data, such as passwords or customer encryption keys, as user data.
-{:note}
+{: note}
 
 ## Scenarios for using the metadata service
 {: #imd-metadata-scenarios}
@@ -117,7 +117,7 @@ Calls to the metadata service are secure prior to leaving the compute host from 
 The initial call to the instance metadata service is over an HTTP connection. The purpose of this call is to acquire an identity token to access the metadata service. These services use a well-known URL. Although you see a non-secure connection, the VPC compute service takes additional actions to secure the token and metadata services.
 
 The instance metadata service is not intended for sensitive data. The service end point is open to all processes on the instance. Information exposed through this service should be considered as shared information to all applications running inside the virtual server instance.
-{:note}
+{: note}
 
 For additional security measures you can take, see [Security best practices for the Instance Metadata service](/docs/vpc?topic=vpc-imd-security-best-practices).
 

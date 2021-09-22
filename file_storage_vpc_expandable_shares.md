@@ -144,7 +144,7 @@ Resource Group    ID                                 Name
 
 Created           2021-08-18T02:15:52-06:00
 ```
-{:screen}
+{: screen}
 
 ## Expand file share capacity with the API
 {: #expand-vpc-share-api}
@@ -154,7 +154,7 @@ You can expand existing file shares by calling the VPC API.
 
 Make a `PATCH /shares/{id}` request and specify the ID of the file share for which you want to increase the size.
 
-{:note}
+{: note}
 
 This request example expands a file share with a capacity of 50 GB to 2500 GB for a 5 IOPS/GB profile.
 
@@ -188,7 +188,7 @@ The file share status shows `updating` while the capacity is increased. The curr
     .
 }
 ```
-{:codeblock}
+{: codeblock}
 
 When the file share expansion completes, the new value displays, and the status is `stable`.
 

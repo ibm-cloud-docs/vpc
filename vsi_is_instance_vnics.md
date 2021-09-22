@@ -23,7 +23,7 @@ subcollection: vpc
 {: #using-instance-vnics}
 
 After you've created a virtual server instance, you can add new network interfaces or edit the interfaces that are already associated with the instance. When you edit a network interface, you can change its name, associate or unassociate a floating IP address, or access the security group associated with an interface.  
-{:shortdesc}
+{: shortdesc}
 
 ## About network interfaces
 {: #about-network-interfaces}

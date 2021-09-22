@@ -20,7 +20,7 @@ subcollection: vpc
 {: #block-storage-vpc-faq}
 
 The following questions often arise about the {{site.data.keyword.block_storage_is_short}} service offering including performance and security. If you have other questions you'd like to see answered here, provide feedback by using the **Open Issue** or **Edit Topic** links.
-{:shortdesc}
+{: shortdesc}
 
 ## Offering questions
 {: #block-storage-vpc-offering-questions}

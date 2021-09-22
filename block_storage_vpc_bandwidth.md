@@ -31,7 +31,7 @@ subcollection: vpc
 {: #block-storage-bandwidth}
 
 You can allocate bandwidth for volumes attached to a virtual server instance out of total instance bandwidth.
-{:shortdesc}
+{: shortdesc}
 
 ## Bandwidth allocation for volumes attached to an instance
 {: #attached-block-vol-bandwidth}
@@ -95,7 +95,7 @@ When you create a standalone (unattached) block storage data volume, the volume 
  .
   "volume_attachments": []
 ```
-{:codeblock}
+{: codeblock}
 
 When you attach a secondary volume to a virtual server instance, the primary boot volume gets priority IOPS and bandwidth allocation to ensure reasonable boot times. Boot volume IOPS and bandwidth are never reduced below 3000 IOPS or 393 Mbps.
 

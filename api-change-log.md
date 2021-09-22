@@ -341,7 +341,7 @@ For more information on key states and resource statuses, see [User actions that
 ### For all API version dates
 {: 20-november-2020-all-version-dates}
 
-**Datapath log forwarding with {{site.data.keyword.la_full_notm}}** is now available for [IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancers#load-balancers). Data and health check logs are valuable for debugging, analysis, and maintenance purposes. With the datapath logging feature enabled, your load balancer forwards these logs to your account's [IBM Log Analysis](https://cloud.ibm.com/observe/logging){:external} dashboard.
+**Datapath log forwarding with {{site.data.keyword.la_full_notm}}** is now available for [IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancers#load-balancers). Data and health check logs are valuable for debugging, analysis, and maintenance purposes. With the datapath logging feature enabled, your load balancer forwards these logs to your account's [IBM Log Analysis](https://cloud.ibm.com/observe/logging){: external} dashboard.
 
 View the `logging` property in the following API methods:
 
@@ -411,7 +411,7 @@ Dive into the APIs to [import an encrypted image](/apidocs/vpc#create-image) and
 **Network load balancers.** You can now use the [load balancers API](/apidocs/vpc#list-load-balancer-profiles) to distribute traffic among multiple server instances within the same region of your VPC. To learn how to create and manage a network load balancer, see [About IBM Cloud Network Load Balancer for VPC](/docs/vpc?topic=vpc-network-load-balancers).
 
 The network load balancers API is shared between {{site.data.keyword.cloud_notm}} application load balancers and network load balancers.
-{:note}
+{: note}
 
 ## 25 August 2020
 {: #2020-08-25}

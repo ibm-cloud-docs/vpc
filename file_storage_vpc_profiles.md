@@ -24,7 +24,7 @@ subcollection: vpc
 {: #file-storage-profiles}
 
 When you provision File Storage for VPC shares by using the {{site.data.keyword.cloud_notm}} console, CLI, or API, you specify a profile that best meets your file storage requirements. Profiles are available as three predefined IOPS tiers or a custom IOPS you can tailor to your needs.
-{:shortdesc}
+{: shortdesc}
 
 File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, and London regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
@@ -102,7 +102,7 @@ To view the list of available profiles by using the CLI, run the following comma
 ```
 ibmcloud is share-profiles
 ```
-{:pre}
+{: pre}
 
 ### Using the API
 {: #fs-using-api-iops-profiles}
@@ -114,7 +114,7 @@ curl -X GET \
 $vpc_api_endpoint/v1/share/profiles?$api_version&generation=2 \
 -H "Authorization: $iam_token"
 ```
-{:codeblock}
+{: codeblock}
 
 ## Next steps
 {: #fs-next-steps}

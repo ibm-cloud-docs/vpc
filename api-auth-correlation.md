@@ -23,7 +23,7 @@ subcollection: vpc
 {: #resource-authorizations-required-for-api-and-cli-calls}
 
 Table 1 lists the minimum Identity and Access Management (IAM) roles that are required to interact with {{site.data.keyword.vpc_full}} (VPC) infrastructure objects.
-{:shortdesc}
+{: shortdesc}
 
 For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?topic=vpc-iam-getting-started).
 

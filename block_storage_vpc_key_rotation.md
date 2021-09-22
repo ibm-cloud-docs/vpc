@@ -26,7 +26,7 @@ subcollection: vpc
 {: #vpc-key-rotation}
 
 For {{site.data.keyword.vpc_short}} resources such as volumes and encrypted images that are protected by your customer root key (CRK), you can rotate the root keys for more security. When you rotate a root key by schedule or on demand, the original key material is replaced. The old key remains active to decrypt existing resources but can't be used to encrypt new ones.
-{:shortdesc}
+{: shortdesc}
 
 ## Key rotation overview
 {: #vpc-key-rotation-overview}
@@ -42,7 +42,7 @@ You can set up a [rotation policy](#vpc-key-rotation-policies) to schedule autom
 For root keys that you import to the KMS instance, because you're providing new key material not already in the KMS, you can't set a rotation policy for automatic key rotation. Instead, you [manually rotate](#vpc-key-rotation-ui) your keys by using the new cryptographic key material that you imported.
 
 The key rotation feature is available for root keys and does not apply to standard encryption keys.
-{:note}
+{: note}
 
 ### How key rotation works
 {: #vpc-key-rotation-function}
@@ -76,7 +76,7 @@ Rotating your root keys provides these security benefits:
 You can rotate your root keys in your KMS instance by setting a rotation policy or by manually rotating your keys. A rotation policy automatically rotates your keys based on a schedule; manual rotation rotates keys on demand.
 
 If you're using HPCS, you can also rotate master keys using [IBM Cloud TKE CLI plug-in](/docs/hs-crypto?topic=hs-crypto-rotate-master-key-cli). Information in this topic pertains to rotating root keys only.
-{:note}
+{: note}
 
 When you set a [rotation policy](/docs/key-protect?topic=key-protect-set-rotation-policy) for a root key, you define a rotation schedule to automatically rotate your key. In your KMS instance, you can set a rotation interval in the range of 1 - 12 months.
 
@@ -187,7 +187,7 @@ This procedure describes creating a new root key with base64 key material. It st
   ```
   $ KEY_MATERIAL=$(openssl rand -base64 32)
   ```
-  {:pre}
+  {: pre}
 
 2. Create a root key from the base64-encoded value.
 
@@ -205,7 +205,7 @@ This procedure describes creating a new root key with base64 key material. It st
   ```
   $ NEW_KEY_MATERIAL=$(openssl rand -base64 32)
   ```
-  {:pre}
+  {: pre}
 
 4. Rotate the key with the new key material.
 
@@ -223,7 +223,7 @@ This procedure describes creating a new root key with base64 key material. It st
 Using the API service, rotating a root key with new key material creates a new root key version that wraps (encrypts) the DEK used to rewrap (reencrypt) your data. The process for manually rotating a key using the {{site.data.keyword.keymanagementserviceshort}} API is described here, but the overall process is similar for HPCS.
 
 If you initially imported a root key by using an import token, follow the steps in [Using an import token to rotate a key](/docs/key-protect?topic=key-protect-rotate-keys#rotate-keys-secure-api).
-{:note}
+{: note}
 
 ### Before you begin
 {: #vpc-key-rotation-api-prereqs}
@@ -247,7 +247,7 @@ curl -X GET \
   -H 'authorization: Bearer <IAM_token>' \
   -H 'bluemix-instance: <instance_ID>'
 ```
-{:codeblock}
+{: codeblock}
 
 The response displays information about the resource:
 
@@ -274,7 +274,7 @@ The response displays information about the resource:
     }
 }
 ```
-{:code-block}
+{: code-block}
 
 ### API procedure
 {: #vpc-key-rotation-api-procedure}
@@ -288,10 +288,10 @@ Follow these steps to rotate a root key by using the Key Protect API.
   ```
   https://<region>.kms.cloud.ibm.com/api/v2/keys
   ```
-  {:pre}
+  {: pre}
 
   Use the `limit` and `offset` parameters to retrieve a subset of your keys, beginning with the offset value that you specify. For more information, see [Retrieving a subset of keys](/docs/key-protect?topic=key-protect-view-keys#retrieve-subset-keys-api).
-  {:tip}
+  {: tip}
 
 3. Copy the ID of the root key that you want to rotate.
 
@@ -341,10 +341,10 @@ Review the `lastRotateDate` and `keyVersion` values in the response to inspect t
 When your root keys are successfully rotated, an HTTP `204 No Content` response is returned, which indicates that your root key was replaced by new key material.
 
 When you unwrap (decrypt) a wrapped data encryption key (WDEK) by using a rotated root key, the service returns a new ciphertext in the response entity-body. Each ciphertext remains available for unwrap actions. If you unwrap a DEK with a previous ciphertext, the service also returns the latest ciphertext and latest key version in the response. Use the latest ciphertext for future unwrap operations.
-{:note}
+{: note}
 
 ### Listing root key versions
-{:#api-byok-list-root-key}
+{: #api-byok-list-root-key}
 
 To see all versions of a root key that you rotated, make a `GET /keys/<key_ID>/versions` call. The older versions remain valid for decrypting existing resources but can't be used to encrypt new ones. They are removed from the list upon their expiration date or when there are no more resources encrypted by them. For an example request and response, see [List key versions](/apidocs/key-protect#list-key-versions).
 

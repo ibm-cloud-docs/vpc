@@ -19,13 +19,13 @@ subcollection: vpc
 {:tip: .tip}
 {:important: .important}
 {:table: .aria-labeledby="caption"}
-{:beta .beta}
+{: beta .beta}
 
 # Creating virtual server instances by using the UI
 {: #creating-virtual-servers}
 
 You can create one or more virtual server instances in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console.
-{:shortdesc}
+{: shortdesc}
 
 To create a virtual server instance:
 

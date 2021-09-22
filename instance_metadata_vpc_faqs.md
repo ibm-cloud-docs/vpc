@@ -18,7 +18,7 @@ subcollection: vpc
 {:download: .download}
 {:faq: data-hd-content-type='faq'}
 {:support: data-reuse='support'}
-{:beta .beta}
+{:beta: .beta}
 
 # FAQs for the instance metadata service (Beta)
 {: #faqs-for-rmds}

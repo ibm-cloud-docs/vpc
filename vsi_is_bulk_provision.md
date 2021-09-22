@@ -26,7 +26,7 @@ subcollection: vpc
 {: #bulk-provisioning}
 
 You can provision a large number of virtual server instances at the same time by using the {{site.data.keyword.cloud_notm}} command-line interface to create an instance group. 
-{:shortdesc}
+{: shortdesc}
 
 ## Before you begin
 {: #before-bp-cli-tutorial}
@@ -42,7 +42,7 @@ When you have an instance template created, you can proceed with creating an ins
 
 If you want to include a load balancer for your instance group to balance incoming requests across instances, you must 
 create the load balancer before you create the instance group. For more information, see [About application load balancers](/docs/vpc?topic=vpc-load-balancers). If you attach a load balancer to your instance group, you are limited to a membership count of 50.
-{:important}
+{: important}
 
 Gather the following information before running the `ibmcloud is instance-group-create` command.
 
@@ -89,7 +89,7 @@ Subnets             Name       Subnet ID
 Resource group      ID                                 Name      
                     11caaa983d9c4beb82690daab08717e9   Default      
 ```
-{:screen}
+{: screen}
 
 For more examples of the `ibmcloud is instance-group-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-group-create).
 

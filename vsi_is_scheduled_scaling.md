@@ -157,7 +157,7 @@ Where:
 <!--```
 expected output
 ```
-{:screen}-->
+{: screen}-->
 
 ### Delete a scheduled action
 {: #delete-scheduled-action-cli}
@@ -167,7 +167,7 @@ Use the following command to delete a scheduled action.
 ```
 ibmcloud is instance-group-manager-action-delete INSTANCE_GROUP MANAGER ACTION [--output JSON] [-f, --force] [-q, --quiet]
 ```
-{:pre}
+{: pre}
 
 Where:
 

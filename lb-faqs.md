@@ -124,7 +124,7 @@ For more information, see[Health Checks](#health-checks).
 * Maximum retry attempts - Default is two retry attempts, and the range is 1-10 retries.
 
 The health check response timeout value must be less than the health check interval value.
-{:tip}
+{: tip}
 
 ## Are the ALB IP addresses fixed?
 {: #ip-addresses-fixed}
@@ -133,7 +133,7 @@ The health check response timeout value must be less than the health check inter
 Application load balancer IP addresses are not guaranteed to be fixed. During system maintenance or horizontal scaling, you see changes in the available IPs associated with the FQDN of your load balancer.
 
 Use FQDN, rather than cached IP addresses.
-{:important}
+{: important}
 
 ## Does the load balancer support layer 7 switching?
 {: #layer-7-switching-alb}

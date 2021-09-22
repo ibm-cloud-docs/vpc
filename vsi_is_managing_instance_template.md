@@ -25,7 +25,7 @@ subcollection: vpc
 {: #managing-instance-template}
 
 When you have an instance template created, you can view it to display its configuration details, duplicate it, delete it, or use it to create a virtual server instance.   
-{:shortdesc}
+{: shortdesc}
 
 To manage your instance template from the Instance templates for VPC page, complete the following steps.
 

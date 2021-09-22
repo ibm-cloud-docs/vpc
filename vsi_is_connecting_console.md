@@ -30,7 +30,7 @@ subcollection: vpc
 {: #vsi_is_connecting_console}
 
 You can access your IBM Cloud virtual server instance by connecting to a VNC or serial console using the IBM Cloud UI, API requests, or IBM Cloud Command Line Interface (CLI). The console service is a quick-and-easy way for you to interact with the virtual server instance without using a Secure Shell.
-{:shortdesc}
+{: shortdesc}
 
 It applies to situations where a boot failure or kernel crash occurred, especially when you use a custom image. When these situations happen, you can use the console service to examine the issue.
 
@@ -46,7 +46,7 @@ The console can be opened using any of the [supported browsers](/docs/overview?t
 1. To connect to the consoles, you need to be assigned `Operator` (or above) and `Console Administrator` roles for the virtual server instance in IBM Cloud Identity and Access Management (IAM).
 
   `Console Administrator` is a new role that is added with this feature. This role is not applied automatically.
-  {:note}
+  {: note}
 
   If you are an administrator of your account, you also need to self-assign the `Console Administrator` role to use this feature.
   {: important}
@@ -113,7 +113,7 @@ Before you can use the API requests to connect to a VNC or serial console, you n
             "console_type": "vnc" 
       	  }'
     ```
-    {:pre}
+    {: pre}
 
     The access token will be invalid after 3 minutes.
     {: note} 
@@ -142,7 +142,7 @@ Before you can use the API requests to connect to a VNC or serial console, you n
          "force": true
       }' 
     ```
-    {:pre}
+    {: pre}
 
     By specifying `"force"` to `true`, you can connect to the serial console even when the console is being used by other users. The default value is `false`, which means the connection will not be established if the console is being used.
     {: note}
@@ -166,7 +166,7 @@ Make sure you have set up the CLI environment following [CLI prerequisites](/doc
   ```
   ibmcloud is instance-console $instance_id [-q, --quiet]
   ```
-  {:pre}
+  {: pre}
     
   This command will open a serial console by default. To open a VNC console, add the `[--vnc]` flag to the command to retrieve URL of the console.
   {: note}

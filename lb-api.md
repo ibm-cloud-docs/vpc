@@ -28,7 +28,7 @@ subcollection: vpc
 
 # {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}} API example
 {: #lbaas-apis-available-alb}
-{:api}
+{: api}
 
 To make API calls, you must use a REST client. For example, you can use a `curl` command to retrieve all existing load balancers:
 

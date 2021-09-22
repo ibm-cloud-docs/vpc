@@ -25,13 +25,13 @@ subcollection: vpc
 {: #migrate-vsi-to-vpc}
 
 You can migrate a virtual server instance from the classic infrastructure by customizing a backup version of the instance to meet the requirements of the {{site.data.keyword.vpc_short}} infrastructure. Next, create an image template from the instance and deploy it in the VPC environment.
-{:shortdesc}
+{: shortdesc}
 
 Migrating a virtual server instance from the classic infrastructure is not supported for LinuxONE (s390x processor architecture).
-{:note}
+{: note}
 
 To complete this task you must have an instance of {{site.data.keyword.cos_full}} available. You must also create an authorization so that the Image Service for VPC can access images in {{site.data.keyword.cos_full_notm}}. For more information, see [Granting access to IBM Cloud Object Storage to import images](/docs/vpc?topic=vpc-object-storage-prereq).
-{:important}
+{: important}
 
 ## Migrating an instance from the classic infrastructure
 {: #migrate-vsi-from-classic-to-vpc-on-classic-task}
@@ -61,7 +61,7 @@ You can create an image template from a virtual server in the classic infrastruc
 * When you use the imported custom image in {{site.data.keyword.vpc_short}} to create a new virtual server, you can select a new profile, assign an SSH key, specify user data, and configure network interfaces.
 
 Secondary disks and their associated files for an image template are not supported when importing an image template as a custom image to {{site.data.keyword.vpc_short}}.  
-{:important}
+{: important}
 
 Complete the following steps to create an image template for the virtual server instance that you want to migrate.
 

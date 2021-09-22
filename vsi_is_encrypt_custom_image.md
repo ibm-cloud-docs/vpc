@@ -26,7 +26,7 @@ subcollection: vpc
 {: #create-encrypted-custom-image}
 
 When you have a qcow2 custom image that meets the requirements for {{site.data.keyword.vpc_full}} infrastructure, you can choose to encrypt it. This procedure describes how to encrypt your custom image with LUKS encryption by using QEMU and your own unique passphrase. After your image is encrypted, you wrap the passphrase with your customer root key (CRK) to create a wrapped (or encrypted) data encryption key that is stored with your image metadata when you import it to {{site.data.keyword.vpc_short}}.   
-{:shortdesc}
+{: shortdesc}
 
 ## How encrypted custom images work
 {: #encrypted-images-work}
@@ -72,7 +72,7 @@ Complete the following steps by using QEMU to create a second, encrypted qcow2 f
    ```
    qemu-img info my_100G_custom_image.qcow2
    ```
-   {:pre}
+   {: pre}
       
    For this example, you'd see a response similar to the following output:
    ```
@@ -87,35 +87,35 @@ Complete the following steps by using QEMU to create a second, encrypted qcow2 f
        refcount bits: 16
        corrupt: false
    ```
-   {:screen}
+   {: screen}
    
 3. Create a new, empty qcow2 file of the exact same size and encrypt it with LUKS encryption. Use the passphrase that you choose, for example, `abc123`, to encrypt the file:
 
    ```
    qemu-img create --object secret,id=sec0,data=abc123 -f qcow2 -o encrypt.format=luks,encrypt.key-secret=sec0 my_100G_custom_image-encrypted.qcow2 100G
    ```
-   {:pre}
+   {: pre}
    
 4. Convert your image, `my_100G_custom_image.qcow2` to the encrypted image, `my_100G_custom_image-encrypted.qcow2`.
 
    ```
    qemu-img convert --object secret,id=sec0,data=abc123 --image-opts driver=qcow2,file.filename=my_100G_custom_image.qcow2 --target-image-opts driver=qcow2,encrypt.key-secret=sec0,file.filename=my_100G_custom_image-encrypted.qcow2 -n -p
    ```
-   {:pre}
+   {: pre}
 
 5. Compare the two files to verify that they are identical. 
 
    ```
    qemu-img compare --object secret,id=sec0,data=abc123 --image-opts driver=qcow2,file.filename=my_100G_custom_image.qcow2  driver=qcow2,encrypt.key-secret=sec0,file.filename=my_100G_custom_image-encrypted.qcow2 -p
    ```
-   {:pre}
+   {: pre}
    
 6. Check the file for errors. 
 
    ```
    qemu-img check --object secret,id=sec0,data=abc123 --image-opts driver=qcow2,encrypt.key-secret=sec0,file.filename=my_100G_custom_image-encrypted.qcow2 
    ```
-   {:pre}
+   {: pre}
    
    For this example, you'd see a response similar to the following output:
    ```
@@ -123,14 +123,14 @@ Complete the following steps by using QEMU to create a second, encrypted qcow2 f
    16343/1638400 = 1.00% allocated, 0.00% fragmented, 0.00% compressed clusters
    Image end offset: 1074790400
    ```
-   {:screen}
+   {: screen}
    
 7. Run info on your new, encrypted file to verify that it is the size and encryption level you expect.
 
    ```
    qemu-img info my_100G_custom_image-encrypted.qcow2
    ```
-   {:pre}
+   {: pre}
 
    For this example, you'd see a response similar to the following output:
    ```
@@ -145,7 +145,7 @@ Complete the following steps by using QEMU to create a second, encrypted qcow2 f
        refcount bits: 16
        corrupt: false
    ```
-   {:screen}
+   {: screen}
 
 ## Upload the encrypted image to {{site.data.keyword.cos_full_notm}}
 {: #upload-encrypted-image-to-cos}
@@ -166,7 +166,7 @@ The following is a summary list of the key management prerequisites:
 * Wrap (protect) the passphrase that you used to encrypt your image with your customer root key to create a wrapped data encryption key (WDEK). 
 
 The following example steps are specific to {{site.data.keyword.keymanagementserviceshort}}, but the general flow also applies to {{site.data.keyword.hscrypto}}. If you're using {{site.data.keyword.hscrypto}}, see the [{{site.data.keyword.hscrypto}} information](/docs/hs-crypto?topic=hs-crypto-get-started) for corresponding instructions.
-{:note}
+{: note}
 
 1. Provision the [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-provision) service.
    
@@ -189,20 +189,20 @@ The following example steps are specific to {{site.data.keyword.keymanagementser
       ```
       echo -n "abc123"|base64
       ```
-      {:pre}
+      {: pre}
 
       For this example, you'd see a response similar to the following output:
       ```
       YWJjMTIz
       ```
-      {:screen}
+      {: screen}
 
    3. Wrap your encoded passphrase with your CRK by running the `ibmcloud kp key wrap` command. While the passphrase used to generate the encrypted image is not technically a data encryption key, this is the terminology that Key Protect uses for data in wraps and unwraps. The data returned from Key Protect is referred to as the WDEK. For more information, see [kp key wrap](/docs/key-protect?topic=key-protect-cli-reference#kp-key-wrap). 
 
       ```
       ibmcloud kp key wrap KEY_ID -i INSTANCE_ID -p PLAINTEXT
       ```
-      {:pre}
+      {: pre}
 
       Where *KEY_ID* is the ID of the root key that you want to use for wrapping, *INSTANCE_ID* is the instance ID that identifies your Key Protect service instance, and *PLAINTEXT* is your encoded passphrase, for example: *YWJjMTIz*. 
 
@@ -213,7 +213,7 @@ The following example steps are specific to {{site.data.keyword.keymanagementser
       Ciphertext
       eyJjaXBoZXJ0ZXh0IjoiKzhjbHVqcUNP ...<redacted>... NmY3MTJjNGViIn0=
       ```
-      {:screen}
+      {: screen}
 
    4. Save, or persist to storage, the ciphertext for the WDEK. You must specify the WDEK ciphertext when you import your encrypted image to {{site.data.keyword.vpc_short}}.
 

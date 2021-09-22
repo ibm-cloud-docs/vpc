@@ -34,7 +34,7 @@ Bare Metal Servers on VPC is a Beta feature that requires special approval. Cont
 {: beta}
 
 The following information is an overview of billing and pricing for Bare Metal Servers for VPC. Billing and pricing are subject to change. For more information about billing and pricing, contact your IBM Sales representative.
-{:shortdesc}
+{: shortdesc}
 
 The Beta version of Bare Metal Servers for VPC is provided free of charge.
 {: important}

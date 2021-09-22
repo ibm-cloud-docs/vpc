@@ -25,7 +25,7 @@ subcollection: vpc
 {: #vpc-encryption-planning}
 
 When you're planning a data encryption strategy for your {{site.data.keyword.block_storage_is_short}} volumes or custom images, you might find this checklist helpful to choose and set up your data encryption service.
-{:shortdesc}
+{: shortdesc}
 
 ## Planning for data encryption
 {: #planning-for-data-encryption}
@@ -58,7 +58,7 @@ Complete the following prerequisites to set up customer-managed encryption for y
 Provision a key management service (KMS) and authorize access between **Cloud Block Storage** and your KMS.
 
 The following steps are specific to {{site.data.keyword.keymanagementserviceshort}}, but the general flow also applies to {{site.data.keyword.hscrypto}}. If you're using {{site.data.keyword.hscrypto}}, see the [{{site.data.keyword.hscrypto}} information](/docs/hs-crypto?topic=hs-crypto-get-started) for corresponding instructions.
-{:note}
+{: note}
 
 1. Provision the [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-provision) service.
    

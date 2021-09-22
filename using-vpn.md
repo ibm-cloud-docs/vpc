@@ -30,7 +30,7 @@ subcollection: vpc
 [comment]: # (linked help topic)
 
 You can use the {{site.data.keyword.cloud}} VPN for VPC service to securely connect your virtual private cloud to another private network. You can use VPN to set up an IPsec site-to-site tunnel between your VPC and your on-premises private network or another VPC.
-{:shortdesc}
+{: shortdesc}
 
 Currently, only policy-based routing is supported.
 

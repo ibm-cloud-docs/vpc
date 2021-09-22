@@ -27,7 +27,7 @@ subcollection: vpc
 {: #troubleshooting-vpc}
 
 This document covers common difficulties you might encounter, and offers some helpful tips.
-{:shortdesc}
+{: shortdesc}
 
 
 ## Using DEBUG mode or `verbose` mode when using the API

@@ -27,7 +27,7 @@ subcollection: vpc
 
 When you're planning to provision custom images in {{site.data.keyword.vpc_full}}, you might find this configuration checklist helpful in preparing your custom images and understanding the process for importing to VPC. The image requirements are the same whether you are creating a custom image from scratch or using an image template from IBM Cloud classic infrastrucure to 
 migrate an instance to VPC. 
-{:shortdesc}
+{: shortdesc}
 
 
 | Task              | Details           |

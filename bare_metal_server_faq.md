@@ -54,7 +54,7 @@ For beta, the offering provides two storage options that includes secondary loca
 {: #billing-options}
 
 Beta of Bare Metal Servers for VPC is provided free of charge.
-{:important}
+{: important}
 
 You will be billed for Bare Metal Servers for VPC based on the server profile you've selected. Charging stops only when you delete the bare metal server. Power off will have no impact on billing. 
 

@@ -30,7 +30,7 @@ subcollection: vpc
 To import a custom image to {{site.data.keyword.vpc_short}}, you must have an instance of {{site.data.keyword.cos_full}} 
 available. You must also create a bucket in {{site.data.keyword.cos_full_notm}} to store your images. Finally, you must 
 create an authorization so that the Image Service for VPC can access images in {{site.data.keyword.cos_full_notm}}.
-{:shortdesc}
+{: shortdesc}
 
 ## Creating an {{site.data.keyword.cos_full_notm}} service instance
 {: #migrate-prereq-icos-instance}

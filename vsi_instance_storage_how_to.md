@@ -36,7 +36,7 @@ If you want instance storage disk to be provisioned with your virtual server ins
 ## Provisioning a Virtual Server Instance with instance storage with the UI
 {: ui}
 
-Before you can create a virtual server instance with instance storage, you need to create an {{site.data.keyword.vpc_short}}. {:important}
+Before you can create a virtual server instance with instance storage, you need to create an {{site.data.keyword.vpc_short}}. {: important}
 
 To provision a with instance storage, complete the following steps:
 1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Virtual server instances**. 
@@ -152,7 +152,7 @@ Network(Gbps)            80
 Instance Storage Disks   Quantity   Size   Supported Interface Types
                          2          900    virtio_blk
 ```
-{:screen}
+{: screen}
 
 Currently, the only supported Interface Type is virtio_blk . This is the standard virtualization block device and the disk shows up as a virtio block device. For more information about virtio, see Virtio.
 

@@ -23,7 +23,7 @@ subcollection: vpc
 {: #limitations}
 
 Limitations might change as capabilities are added, so feel free to check back from time to time.
-{:shortdesc}
+{: shortdesc}
 
 ## General restrictions
 {: #general-restrictions}

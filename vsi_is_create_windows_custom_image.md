@@ -26,14 +26,14 @@ subcollection: vpc
 
 You can create your own custom Windows-based image to deploy a virtual server instance in the {{site.data.keyword.vpc_short}}
 infrastructure.
-{:shortdesc}
+{: shortdesc}
 
 You can begin with an image template from the {{site.data.keyword.cloud_notm}} classic infrastructure. For more information, see [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc).
 Did you know that your can also create a custom image of a boot volume attached to an instance at import time? For more information, see [About creating an image from volume](/docs/vpc?topic=vpc-image-from-volume-vpc).
 {: tip}
 
 Windows custom image are not supported for LinuxONE (s390x processor architecture).  
-{:note}
+{: note}
 
 
 Your image must adhere to the following custom image requirements:

@@ -22,7 +22,7 @@ subcollection: vpc
 {: #manage-storage-limit}
 
 {{site.data.keyword.block_storage_is_short}} offers block-level data storage volumes that can be attached to an instance as either a boot volume or as a data volume. Answer the questions in this topic when you're ordering block storage volumes or requesting an increase in your volume or capacity limits.
-{:shortdesc}
+{: shortdesc}
 
 ## Overview
 {: #manage-storage-limit-overview}
@@ -57,6 +57,6 @@ Review the following checklist items and record your answers. Provide this infor
   For example, *"I expect 25% of the volumes to be used in 30 days, 50 percent to be used in 60 days and 75% to be used in 90 days".* You might also want to break it down further, by primary and secondary volumes, For example, for secondary volumes, *I expect to create 50% of the secondary volumes at less than 250 GB within 30 days and secondary volumes greater than 250 (if possible, estimate volume size) within 60 days*.
 
 You'll have an opportunity to clarify any of your answers. Respond promptly to all questions and statements in your request. They're necessary for processing and approval.
-{:important}
+{: important}
 
 You're notified about the update to your limits throughout the case process.

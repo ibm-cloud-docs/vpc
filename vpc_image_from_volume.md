@@ -24,7 +24,7 @@ subcollection: vpc
 {: #image-from-volume-vpc}
 
 You can create a custom image from a boot volume on a virtual server instance. The image is a full copy of the source volume. It includes the operating system and any user data. You can create new virtual server instances from the image created from the volume.
-{:shortdesc}
+{: shortdesc}
 
 ## Image from volume overview
 {: #vpc-ifv-overview}

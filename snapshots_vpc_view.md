@@ -28,7 +28,7 @@ subcollection: vpc
 {: #snapshots-vpc-view}
 
 You can view a list of all snapshots and drill down to see information about a particular snapshot. Choose the UI, CLI, or API to retrieve this information.
-{:shortdesc}
+{: shortdesc}
 
 ## List snapshots by using the UI
 {: #snapshots-vpc-view-list-ui}
@@ -90,7 +90,7 @@ To see details about a snapshot:
 
 ## View snapshots by using the CLI
 {: #snapshots-vpc-view-cli}
-{:cli}
+{: cli}
 
 You can list all snapshots, all snapshots for a volume, and details about a particular snapshot.
 
@@ -102,7 +102,7 @@ Run the `snapshots` command to list all snapshots.
 ```
 ibmcloud is snapshots [--json]
 ```
-{:pre}
+{: pre}
 
 Example:
 
@@ -115,7 +115,7 @@ ID                                          Name         Status    Progress   So
 0f136bf8-6530-47e4-9482-ff0c06a7edc4   false      Default          2021-02-16T16:18:56+08:00   
 50308933-05b4-4363-9c45-00584fc52a43   snapshot2   pending   0          0f136bf8-6530-47e4-9482-ff0c06a7edc4   false      Default          2021-02-16T16:26:04+08:00 
 ```
-{:screen}
+{: screen}
 
 
 ### Viewing details of a snapshot by using the CLI
@@ -126,7 +126,7 @@ Run the `snapshots {id)` command to see the details of a particular snapshot.
 ```
 ibmcloud is snapshots SNAPSHOT_ID [--json]
 ```
-{:pre}
+{: pre}
 
 Example:
 
@@ -139,7 +139,7 @@ b2168769-a4dc-4cb8-9fc6-e62d45918858   t2b1   stable   -          728b2d3c-2165-
 6e7ac183-3223-43d1-8f15-bea30c94eda0   t2b2   stable   -          728b2d3c-2165-46c7-9863-9397e0a9af42   false      Default          2021-02-26T16:29:01+08:00   
 
 ```
-{:screen}
+{: screen}
 
 ## Listing snapshots by using the API
 {: #snapshots-vpc-view-all-api}
@@ -155,7 +155,7 @@ curl -X GET \
 "$vpc_api_endpoint/v1/snapshots?version=2021-02-16&generation=2" \
 -H "Authorization: $iam_token"
 ```
-{:pre}
+{: pre}
 
 You can filter the list by using the resource group ID, source volume ID, or source volume CRN, and further filter the results by using these options:
 
@@ -178,7 +178,7 @@ curl -X GET \
       }
     }
 ```
-{:pre}
+{: pre}
 
 A successful response looks like the following example:
 
@@ -282,7 +282,7 @@ A successful response looks like the following example:
   "total_count": 3
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Listing details of a snapshot from the API
 {: #snapshots-vpc-view-api}
@@ -294,7 +294,7 @@ curl -X GET \
 "$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2021-02-16&generation=2" \
 -H "Authorization: $iam_token"
 ```
-{:pre}
+{: pre}
 
 A successful response looks like the following example:
 
@@ -331,7 +331,7 @@ A successful response looks like the following example:
   "resource_type": "snapshot"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Next steps
 {: #snapshots_vpc_view_next_steps}

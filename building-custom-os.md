@@ -34,7 +34,7 @@ When you build your own custom Linux kernel for use in the {{site.data.keyword.v
 {: #hardware-requirements-custom-linux-kernels}
 
 Hardware that is supported by every virtual machine in IBM's VPC is detailed in the following device list. These devices are currently consistent for every virtual machine in the VPC and are subject to change as new features become available in the {{site.data.keyword.vpc_full}}. Custom kernels need to support these devices to run in {{site.data.keyword.vpc_full}} VPC. Failure to include these kernels can result in loss of features or capabilities in the {{site.data.keyword.vpc_full}}.
-{:shortdesc}
+{: shortdesc}
 
 - **Host bridge**:
    - Intel Corporation 440FX - 82441FX PMC [Natoma] - (rev 02)

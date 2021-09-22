@@ -28,7 +28,7 @@ subcollection: vpc
 {: #capacity-performance}
 
 Choosing the optimal block storage volume size and performance level for your workloads is important. When you provision {{site.data.keyword.block_storage_is_short}}, you can specify the size of your volume and performance level you require.
-{:shortdesc}
+{: shortdesc}
 
 ## Capacity
 {: #block-storage-vpc-capacity}

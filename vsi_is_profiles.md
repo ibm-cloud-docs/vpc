@@ -367,7 +367,7 @@ To view the list of available instance profiles by using the CLI, run the follow
 ```
 $ ibmcloud is instance-profiles
 ```
-{:codeblock}
+{: codeblock}
 
 ### Viewing instance profiles with the API
 {: #profiles-using-api}
@@ -382,7 +382,7 @@ curl -X GET \
 "$vpc_api_endpoint/v1/instance/profiles?version=2021-02-23&generation=2" \
 -H "Authorization: $iam_token"
 ```
-{:codeblock}
+{: codeblock}
 
 ## Block storage volume notes for profiles
 {: #block-storage-notes-for-profiles}

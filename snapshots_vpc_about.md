@@ -22,7 +22,7 @@ subcollection: vpc
 {: #snapshots-vpc-about}
 
 Snapshots for VPC are a regional offering that is used create a point-in-time copy of your block storage boot or data volume. The initial snapshot that you take is a full backup of the volume. Subsequent snapshots of the same volume are incremental; only the changes since the last snapshots are captured. You can select a snapshot during instance provisioning, and restore a new, fully provisioned boot volume to start the instance. You can also create and attach a data volume from a snapshot within a running virtual server instance.
-{:shortdesc}
+{: shortdesc}
 
 ## Snapshots concepts
 {: #snapshots-vpc-concepts}
@@ -34,7 +34,7 @@ The first time that you take a snapshot of a volume, all the volume's contents a
 When you take a second snapshot, only the change to the volume since the last snapshot is recorded. As such, the size of snapshots that you take can grow or shrink, depending on what is being uploaded to Cloud Object Storage. The chain of snapshots increases with each successive snapshot you take, up to a predefined limit.
 
 You can take up to 100 snapshots per volume in your region. Deleting snapshots from this quota frees up space for additional snapshots. The cumulative size of all snapshots for a volume can't exceed 10 TB.
-{:note}
+{: note}
 
 You can create a new virtual server instance with a boot volume that is initialized from a snapshot. This process is called [restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore). The instance profile of the new instance doesn't need to match the original profile that was used to create the snapshot. 
 
@@ -47,7 +47,7 @@ Snapshots are billed hourly, per GB of data based on capacity. Since the snapsho
 With IBM Cloud IAM, you can set up resource groups in your account to provide user-access to your snapshots. Your IAM role determines whether you can create and manage snapshots. For more information, see [IAM roles for creating and managing snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-iam).
 
 Before you take a snapshot, make sure that all cached data is present on disk - which applies to instances with Windows and Linux operating systems. For example, on Linux operating systems, run the `sync` command to force an immediate write of all cached data to disk.
-{:note}
+{: note}
 
 ## How snapshots work
 {: #snapshots-vpc-operation}

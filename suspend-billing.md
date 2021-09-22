@@ -29,7 +29,7 @@ subcollection: vpc
 When you stop a virtual server instance by using the {{site.data.keyword.cloud_notm}} console, CLI, or API, you don't accrue costs for certain compute resources. Billing stops automatically when you stop the instance. The suspend billing feature helps you reduce cost and prevents you from having to re-create an instance when you need its resources again.
 
 In situations where you want to scale your infrastructure up and down in response to workload needs, you can stop an instance  (and suspend billing) as a faster alternative to creating and deleting instances.
-{:tip}
+{: tip}
 
 ## Billing details
 {: #billing-details}
@@ -37,7 +37,7 @@ In situations where you want to scale your infrastructure up and down in respons
 It's important to understand what costs stop accruing and what costs persist when your virtual server instance is powered off.
 
 Billing is suspended only when you stop your virtual server instance through the {{site.data.keyword.cloud_notm}} console, CLI, or API. If you power off your virtual server instance directly through the OS, billing isn't suspended for that instance.
-{:note}
+{: note}
 
 Review the following table for details on how suspend billing impacts various resource charges.
 
@@ -51,7 +51,7 @@ Review the following table for details on how suspend billing impacts various re
 {: caption="Table 7. Resource billing details" caption-side="top"}
 
 Usage times are calculated per second, for both the in use time and suspended time of your virtual server instance. Even if you never initiate the suspend billing feature by powering off your instance, the billing is calculated per second of the instance's lifecycle. No minimum usage requirement exists for an instance. 
-{:note}
+{: note}
 
 ### Suspend billing and sustained usage discounts
 {: #suspend-billing-and-sustained-usage-discounts}
@@ -68,7 +68,7 @@ Computing instance usage...
 RAM usage...
 Operating system usage...
 ```
-{:screen}
+{: screen}
 
 ## Resource details
 {: #resource-details}

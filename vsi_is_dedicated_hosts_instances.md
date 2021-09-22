@@ -64,7 +64,7 @@ When you provision an instance, you can provision it to either a dedicated host 
 You can create one or more dedicated hosts in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console.
 
 Before you can create a dedicated host, you need to [create an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
-{:important}
+{: important}
 
 If you do not already have a dedicated group, you must create it as part of this task. The profile family and class of the dedicated host and dedicated group must be the same. The profile that you select for the dedicated host when you create it determines the profiles that can be used for the dedicated group and for provisioning instances to hosts in the group. For example, if you select a memory profile for the dedicated host, the associated dedicated group and instances provisioned on hosts in the group must also be provisioned with memory profiles.
 

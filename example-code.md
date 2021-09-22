@@ -24,7 +24,7 @@ subcollection: vpc
 {: #creating-a-vpc-using-the-rest-apis}
 
 You can create and configure an {{site.data.keyword.vpc_full}} resources using the REST APIs.
-{:shortdesc} 
+{: shortdesc} 
 
 To create and configure your virtual private cloud (VPC) and other attached resources, perform the steps in the sections that follow, in this order:
 

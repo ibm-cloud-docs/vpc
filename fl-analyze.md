@@ -29,7 +29,7 @@ subcollection: vpc
 
 A flow log is a summary of the network traffic that is uniquely identified by a connection between two virtual network interface cards (vNICs), within a certain time window. A flow log describes traffic the firewall either accepts (relevant security groups or network ACLs) or rejects, but not both. It contains header information and
 payload statistics.
-{:shortdesc}
+{: shortdesc}
 
 Currently, flow logs collect Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) traffic, but not Internet Control Message Protocol (ICMP) traffic.
 {: note}

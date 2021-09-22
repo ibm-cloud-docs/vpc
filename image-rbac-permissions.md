@@ -33,7 +33,7 @@ control either a single image or multiple images. It's common for a family of im
 The process is described by using the User Interface. However, this function can also be carried
 out by the [API](https://test.cloud.ibm.com/apidocs/iam-identity-token-api) and
 [CLI](/docs/account?topic=account-rgs#rgs_cli).
-{:shortdesc}
+{: shortdesc}
 
 ## Creating a custom resource group for image access controls
 

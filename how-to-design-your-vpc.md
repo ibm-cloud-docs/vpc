@@ -24,7 +24,7 @@ subcollection: vpc
 {: #vpc-addressing-plan-design}
 
 The first step in designing your {{site.data.keyword.vpc_full}} is designing your addressing plan. 
-{:shortdesc}
+{: shortdesc}
 
 A properly designed addressing plan has two goals:
 

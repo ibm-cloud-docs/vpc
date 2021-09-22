@@ -26,7 +26,7 @@ subcollection: vpc
 {: #release-notes}
 
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
-{:shortdesc}
+{: shortdesc}
 
 ## 20 September 2021
 {: #september-20-2021}
@@ -121,7 +121,7 @@ For secondary volumes attached to a virtual server instance, you can increase ca
 **Bare Metal Servers for VPC (closed beta):** If your account has been granted special approval to preview this feature, you can now create bare metal servers to host VMware clusters in VPC. You can set up VMware management applications and create VMware virtual machines (VM) on the bare metal servers. As bare metal servers are integrated with the VPC platform, you can take advantage of the network, storage, and security capabilities provided by the VPC. For more information, see [About Bare Metal Servers for VPC (beta)](/docs/vpc?topic=vpc-about-bare-metal-servers).
 
 The bare metal console feature is temporarily unavailable. An "unauthorized" error will be returned if you try to connect to the console.
-{:note}
+{: note}
 
 ## 6 July 2021
 {: #july-6-2021}
@@ -287,7 +287,7 @@ The Ultra High Memory family of profiles is currently available in the Dallas an
 **Customer-managed encryption (GA):** For block storage volumes and encrypted custom images, deleting or disabling a customer root key (CRK) is now managed by these VPC services. When you delete a root key, the resources become unusable for normal operations. A new `unusable` status and reason code `encryption_key_deleted` or `encryption_key_disabled` has been added to the API for `GET / volumes` and `GET / image` methods. These statuses also appear in the CLI and UI. For more information, see [Disabling root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-disable-root-keys) and [Deleting root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys). For information on key states and resource statuses, see [User actions that impact root key states and resource status](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-root-key-states).
 
 The Washington D.C. multi-zone region will be enabled in January 2021. This feature is available in all other multi-zone regions.
-{:note}
+{: note}
 
 ## 18 December 2020
 {: #dec-18-2020}

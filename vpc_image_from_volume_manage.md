@@ -26,7 +26,7 @@ subcollection: vpc
 {: #image-from-volume-vpc-manage}
 
 Images from volumes have their own lifecycle that you can manage. 
-{:shortdesc}
+{: shortdesc}
 
 * Delete an image from volume.
 * Cancel an image queued for creation.
@@ -34,7 +34,7 @@ Images from volumes have their own lifecycle that you can manage.
 
 ## Deleting an image from volume by using the UI
 {: #ifv-delete-ui}
-{:ui}
+{: ui}
 
 Delete an image from a volume from the list of custom images. You can delete images in the [process of being created](#ifv-delete-queued) (_pending_ state) and available images.
 
@@ -45,25 +45,25 @@ Delete an image from a volume from the list of custom images. You can delete ima
 
 ## Deleting an image from volume by using the CLI
 {: #ifv-delete-cli}
-{:cli}
+{: cli}
 
 1. Locate the image from volume in the list of images.
 
 ```
 $ ibmcloud is images
 ```
-{:pre}
+{: pre}
 
 2. Delete the image by ID.
 
 ```
 $ ibmcloud is image-delete IMAGE_ID
 ```
-{:pre}
+{: pre}
 
 ## Deleting an image from volume by using the API
 {: #ifv-delete-api}
-{:api}
+{: api}
 
 Specify a `DELETE/images` call and specify the ID of the image that was created from the boot volume.
 
@@ -72,14 +72,14 @@ Specify a `DELETE/images` call and specify the ID of the image that was created 
     ```
     GET/images 
     ```
-    {:pre}
+    {: pre}
 
 2. Delete the image by ID:
 
     ```
     DELETE/image/{image_id} 
     ```
-    {:pre}
+    {: pre}
 
 ## Performance considerations
 {: #ifv-performance}
@@ -102,7 +102,7 @@ When you create the image, the API `status_reasons` parameter indicates `image_r
 {: caption="Table 1. Estimated wait time for image creation" caption-side="top"}
 
 The time for the job to start is about 30 seconds. This time does not reflect traffic in the queue, which can increase the estimate. Most jobs start within 5 - 10 minutes. If it's taking longer, [cancel the image from being created](#ifv-delete-queued).
-{:note}
+{: note}
 
 
 ### Cancelling an image that is queued for creation
