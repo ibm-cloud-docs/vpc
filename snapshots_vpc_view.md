@@ -32,7 +32,7 @@ You can view a list of all snapshots and drill down to see information about a p
 
 ## List snapshots by using the UI
 {: #snapshots-vpc-view-list-ui}
-{:ui}
+{: ui}
 
 ### List all snapshots by using the UI
 {: #snapshots-vpc-view-list-ui}
@@ -143,7 +143,7 @@ b2168769-a4dc-4cb8-9fc6-e62d45918858   t2b1   stable   -          728b2d3c-2165-
 
 ## Listing snapshots by using the API
 {: #snapshots-vpc-view-all-api}
-{:api}
+{: api}
 
 ### Listing all snapshots by using the API
 {: #snapshots-vpc-view-all-api}
