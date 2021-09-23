@@ -43,6 +43,7 @@ Follow these steps to verify your configurations:
 
    One thing to watch out for is that {{site.data.keyword.vpn_vpc_short}} by default has Perfect Forward Secrecy (PFS) disabled in Phase 2. If its peer has PFS enabled, then custom policy with PFS enabled is necessary.
    {: important}
+   
 1. Make sure ports UDP 4500 and UDP 500 are open on both sides.
 1. Make sure NAT-Traversal is enabled on the peer, if it is a configurable option.  
 1. Make sure that the peer device uses its public IP address as the IKE ID. This is not a configurable option.
