@@ -291,6 +291,7 @@ Virtual Private Cloud (VPC)
         Network Load Balancer for VPC
             nlb-about.md
             nlb-create.md
+            nlb-vnf-create.md
             nlb-update.md
             nlb-delete.md
             nlb-health-checks.md

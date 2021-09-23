@@ -100,8 +100,6 @@ To create a network load balancer by using the CLI, follow these steps:
 
 1. Create a load balancer:
 
-   Create public network load balancer
-
    ```
    ibmcloud is load-balancer-create nlb-test public --subnet 0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c --family network
    ```
@@ -482,6 +480,3 @@ To create a network load balancer by using the API, follow these steps:
         "name": "example-subnet"
       }
     ]
-   }
-   ```
-   {: screen}

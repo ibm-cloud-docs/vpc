@@ -54,11 +54,13 @@ After you completed all prerequisites, you can create your NLB. For more informa
 ## Types of network load balancers
 {: #types-network-load-balancers}  
 
-{{site.data.keyword.nlb_full}} supports public and private load balancers.
+{{site.data.keyword.nlb_full}} supports public, private, and route mode load balancers.
 
 A public load balancer is a load balancer with a publicly accessible IP address that is registered with DNS. A private load balancer is a load balancer only accessible from within the VPC network and/or where the client has reachability to the VPC network (for example, through Direct Link or Transit Gateway).
 
 For private load balancers, you must have a dedicated subnet with no custom routes configured for the subnet.
+
+Network load balancers with `route_mode` set to `true` are private load balancers that support only VNF (virtual network functions) devices as backend targets. 
 {: note}
 
 ## Load-balancing methods
@@ -105,6 +107,16 @@ The following diagram illustrates how you can deploy {{site.data.keyword.cloud_n
 You may want to leverage the high throughput performance (and low latency) the NLB gains through DSR. In addition, it is recommended that you deploy your workloads in multiple zones to increase their availability in an HA environment.
 
 ![Multi-zone network load balancer](images/nlb_glb.png)
+
+## Use case 3: Network load balancer with route mode
+{: #nlb-use-case-3}
+
+VNF (Virtual Network Function) devices can be integrated into your VPC using custom routes. However, if the VNF device is inactive, your
+workloads will be interrupted. An NLB with route mode can be placed in front of any VNF devices to ensure your traffic is forwarded only to healthy VNF devices.
+
+The following diagram illustrates how you can deploy a network load balancer to support VNF availability. This deployment scenario requires the use of custom routes.
+
+![Network load balancer with route mode](images/nlb_vnf.png)
 
 ## Front-end listeners and back-end pools
 {: #nlb-front-end-listeners-and-back-end-pools}
