@@ -39,8 +39,7 @@ If you are unable to communicate with the {{site.data.keyword.cloud_notm}} servi
 {: tsResolve}
 
 1. Verify that the service instance is valid (not deleted).
-1. Check all reserved IPs associated with the endpoint gateway and make sure they have valid IP addresses. See [Associated reserved IP shows address 0.0.0.0]() for details.
-1. Verify that the service can be reached by using the reserved IP address instead of the URL, assuming one was provided by the service. See [Virtual server instance can access a service by using
-    the reserved IP, but cannot access the service's URL]() for details.
+1. Check all reserved IPs associated with the endpoint gateway and make sure they have valid IP addresses. See [Associated reserved IP shows address 0.0.0.0](/docs/vpc?topic=vpc-troubleshoot-reserved-ip) for details.
+1. Verify that the service can be reached by using the reserved IP address instead of the URL, assuming one was provided by the service. See [Virtual server instance can access a service by using the reserved IP, but cannot access the service's URL](/docs/vpc?topic=vpc-troubleshoot-cannot-access-url) for details.
 1. Verify that connectivity to cloud service endpoints is functional - `host google.com 161.26.0.10`. If this fails, open an IBM Support case.
 1. Verify that network ACLs are defined on the virtual server instance (or reserved IP) subnet that prevents communication between the two.
