@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-20"
+lastupdated: "2021-09-23"
 
 keywords: block storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, bandwidth
 
