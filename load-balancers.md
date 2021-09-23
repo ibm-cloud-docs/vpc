@@ -62,6 +62,7 @@ The following table provides a comparison of the types of load balancers.
 
 ## High Availability mode
 {: #nlb-ha-mode}
+
 The application load balancer is configured in active-active mode. All compute resources of the load balancer are actively involved in forwarding traffic.
 
 High Availability (HA) is achieved by using a Domain Name Service (DNS). VIP of each compute resource is registered with DNS. If any of the compute resources go down, the other resources continue to forward traffic.
@@ -70,6 +71,7 @@ An NLB is configured in active-standby mode. A single VIP is registered with DNS
 
 ## Multi-zone support
 {: #nlb-mz-support}
+
 The network load balancer is limited to a single zone. All back-end servers must be in the same zone. A zone is identified by the subnet that is selected when a load balancer is created. Cloud Internet Services (CIS) Global Load Balancer can be used with multiple zonal network load balancers for multi-zone availability.
 
 The application load balancer can be configured to span multiple zones. The back-end servers can be in any zone within a region.

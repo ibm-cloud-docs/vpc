@@ -57,6 +57,7 @@ However, if your requirements need to restrict inbound traffic, you may specify 
 
 #### Outbound rules
 {: #lb-outbound-rules}
+
 | Protocol | Destination type | Destination | Value |
 |-----------|------|------|-------|
 | TCP | Security group |  `Back-end target` | `Back-end target port` |

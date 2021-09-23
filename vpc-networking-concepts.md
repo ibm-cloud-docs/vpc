@@ -80,11 +80,12 @@ Six different types of virtual server instance data packet flows occur in a VPC.
 After NAT translation, the implicit router forwards these internet-destined packets to the internet, by using the cloud backbone.
 
 ## Life cycle of external IPs that are associated with public gateway functions
- {: #pgw-external-IP-lifecycle}
- As both external IPs and PGWs are bound to an availability zone. A public gateway function can have only a single external IP. This external IP has the following lifecycle:
+{: #pgw-external-IP-lifecycle}
+
+As both external IPs and PGWs are bound to an availability zone. A public gateway function can have only a single external IP. This external IP has the following lifecycle:
  
- * The external IP is allocated when the public gateway is created.
- * The external IP is released when the public gateway is deleted.
+* The external IP is allocated when the public gateway is created.
+* The external IP is released when the public gateway is deleted.
 
 ## Classic access
 {: #classic-access}

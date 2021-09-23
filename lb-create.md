@@ -55,6 +55,7 @@ To create an ALB:
 
         Ensure that the security group allows for load balancing traffic (listener, backend, and health check ports). If you do not specify a security group, the default security group from your VPC attaches instead.
         {: note}
+        
 1. Click **New pool** and specify the following information to create a back-end pool. You can create one or more pools.
     * **Name**: Enter a name for the pool, such as `my-pool`.
     * **Protocol**: Select the protocol for your instances in this pool. The protocol of the pool must match the protocol of its associated listener. For example, if an HTTPS or HTTP protocol is selected for the listener, the protocol of the pool must be HTTP. Similarly, if the listener protocol is TCP, the protocol of the pool must be TCP.
@@ -67,9 +68,9 @@ To create an ALB:
         * **Health check path**: Health path is applicable only if HTTP is selected as the health check protocol. The health path specifies the URL used by the load balancer to send the HTTP health check requests to the instances in the pool. By default, health checks are sent to the root path (`/`).
         * **Health protocol**: The protocol used by the load balancer to send health check messages to the instances in the pool.
         * **Health port**: The port on which to send health check requests. By default, health checks are sent on the same port on which traffic is sent to the instance.
-      * **Interval**: Interval in seconds between two consecutive health check attempts. By default, health checks are sent every 5 seconds.
-      * **Timeout**: Maximum amount of time the system waits for a response from a health check request. By default, the load balancer waits 2 seconds for a response.
-      * **Max retries**: Maximum number of health check attempts that the load balancer makes before an instance is declared unhealthy. By default, an instance is no longer considered healthy after two failed health checks.
+        * **Interval**: Interval in seconds between two consecutive health check attempts. By default, health checks are sent every 5 seconds.
+        * **Timeout**: Maximum amount of time the system waits for a response from a health check request. By default, the load balancer waits 2 seconds for a response.
+        * **Max retries**: Maximum number of health check attempts that the load balancer makes before an instance is declared unhealthy. By default, an instance is no longer considered healthy after two failed health checks.
 
         Although the load balancer stops sending connections to unhealthy instances, the load balancer continues monitoring the health of these instances and resumes their use if they're found healthy again (that is, if they successfully pass two consecutive health check attempts).
 

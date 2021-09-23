@@ -74,7 +74,7 @@ To bring your own subnets:
 If you use an IP range outside of those ranges [RFC 1918](https://tools.ietf.org/html/rfc1918) (`10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`) defined for a subnet, the instances that you attach to that subnet might be unable to reach parts of the public internet. If you plan to configure VPCs that use both non-RFC-1918 addresses and also have public connectivity (floating IPs or public gateways), make sure to use a custom route that contains the `Delegate-VPC` action. 
 {:tip}
 
-### Address prefixes and the {{site.data.keyword.cloud_notm}} console
+## Address prefixes and the {{site.data.keyword.cloud_notm}} console
 {: #address-prefixes-and-the-ibm-cloud-console-ui}
 
 When you create a VPC by using the {{site.data.keyword.cloud_notm}} console, the system selects your address prefixes automatically and requires you to create subnets within the default prefixes. If this address scheme does not suit your requirements, you can clear the **Default address prefixes** option to not assign default address prefixes to each zone in your VPC. After you create your VPC, go to its details page and set your own address prefixes. Then, you can create subnets within the address prefixes you specified.

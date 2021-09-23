@@ -42,7 +42,7 @@ You can create a public or private ALB. Table 1 shows a comparison of public ver
 | Feature | Public load balancer | Private load balancer |
 |--------|-------|-------|
 | Accessible on internet? |  Yes, with a fully qualified domain name (FQDN) | No, internal clients only, on same region and VPC |
-| Accepts all traffic? | Yes | Yes <br>(The restriction to accept traffic only from the RFC-1918 address space has been removed) |
+| Accepts all traffic? | Yes | Yes  \n (The restriction to accept traffic only from the RFC-1918 address space has been removed) |
 | How is domain name registered? | Public IP addresses | Private IP addresses |
 {: caption="Table 1. Comparison of public and private load balancers" caption-side="top"}
 
@@ -75,10 +75,12 @@ Three load-balancing methods are available for distributing traffic across the b
 
 ### Round-robin
 {: #round-robin}
+
 Round-robin is the default load-balancing method. With this method, an application load balancer forwards incoming client connections in round-robin fashion to the back-end servers. As a result, all back-end servers receive roughly an equal number of client connections.
 
 ### Weighted round-robin
 {: #weighted-round-robin}
+
 With this method, an application load balancer forwards incoming client connections to the back-end servers in proportion to the weight assigned to these servers. Each server is assigned a default weight of `50`, which can be customized to any value in the range `0` - `100`.
 
 For example, if application servers A, B and C have the weights `60`, `60`, and `30`, then servers A and B receive an equal number of connections, while server C receives half that number of connections.
@@ -198,7 +200,7 @@ IBM Db2-on-Cloud Service serves as the database for the application load balance
 ## Datapath log forwarding
 {: #datapath-log-forwarding}
 
-With datapath logging enabled, load balancer logs are forwarded to the [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/catalog/services/ibm-log-analysis){:external} service, where you can view your datapath logs.
+With datapath logging enabled, load balancer logs are forwarded to the [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/catalog/services/ibm-log-analysis){: external} service, where you can view your datapath logs.
 
 ## Related links
 {: #permissions-related-links-alb}
@@ -210,4 +212,4 @@ With datapath logging enabled, load balancer logs are forwarded to the [{{site.d
 * [{{site.data.keyword.cloudaccesstraillong_notm}} events](/docs/vpc?topic=vpc-at-events#events-load-balancers)
 * [FAQs for application load balancers](/docs/vpc?topic=vpc-load-balancer-faqs)
 * [Quotas](/docs/vpc?topic=vpc-quotas#load-balancer-quotas)
-* [VPC SOC 3 report on security and availability](https://www.ibm.com/downloads/cas/ZVYQK9N5){:external}
+* [VPC SOC 3 report on security and availability](https://www.ibm.com/downloads/cas/ZVYQK9N5){: external}
