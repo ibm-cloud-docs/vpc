@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-04-30"
+lastupdated: "2021-09-23"
 
 keywords: file Storage, NFS, mounting file Storage, mounting file shares on Ubuntu,
 
@@ -18,6 +18,7 @@ subcollection: FileStorage
 {:screen: .screen}
 {:pre: .pre}
 {:tip: .tip}
+{:preview: .preview}
 {:table: .aria-labeledby="caption"}
 {:note: .note}
 {:external: target="_blank" .external}
@@ -35,7 +36,7 @@ Use these instructions to connect an Ubuntu Linux&reg;-based {{site.data.keyword
 {: shortdesc}
 
 File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions. Contact your IBM Sales representative if you are interested in getting access.
-{: note}
+{: preview}
 
 ## Before you begin - Create a VSI
 {: #fs-ubuntu-create-vsi}
@@ -126,52 +127,8 @@ VPC File Storage service requires NFS versions v4.1 or higher.
    -rw-r--r--   1 nobody nobody    0 Apr 28 15:52 test.txt
    ```
    {: pre}
-
-8. Mount the remote share on start. To complete the setup, you must edit the file systems table (`/etc/fstab`) and add the remote share to the list of entries that are automatically mounted on startup. Before creating an entry in the `fstab`, perform the following steps to add the mount path hostname to `/etc/hosts`. 
-
-   a. Get the `hostname.com` portion of mount path, `for example: fsf-dal2433a-dz.adn.networklayer.com` and get the IP address. Run the following command from inside the instance to get the IP address.
-
-      ```
-      host hostname.com
-      ```
-      {: pre}
-
-      For example:
-      ```
-      # host fsf-dal2433a-dz.adn.networklayer.com
-      fsf-dal2433a-dz.adn.networklayer.com has address 203.0.113.0
-      ```
-      {: pre}
-
-   b. Edit `/etc/hosts` and add an IP to the hostname entry.
-
-      ```
-      <IP_ADDRESS> hostname.com
-      ```
-      {: pre}
-
-      Examples:
-
-      ```
-      198.51.100.0 fsf-dal2433a-dz.adn.networklayer.com
-      ```
-      {: pre}
-
-   c. Edit the file systems table (`/etc/fstab`) and add an entry
-
-      ```
-      (hostname):/(file_share_path) /mnt nfs_version options 0 0
-      ```
-      {: pre}
-
-      For example:
-
-      ```
-      fsf-dal2433a-dz.adn.networklayer.com:/vol2_f866ceaf-7654-4a09-866d-f78f1d86908e /mnt/nfs nfs4 nfsvers=4.1,sec=sys,_netdev 0 0
-      ```
-      {: pre}
   
-9. Verify that the configuration file has no errors.
+8. Verify that the configuration file has no errors.
 
    ```
    mount -fav
