@@ -69,6 +69,7 @@ To set up your remote Vyatta peer, make sure that the following prerequisites ar
 
    After the VPN gateway gets provisioned, note its public IP address.
    {: tip}
+   
 * The Vyatta public IP address
 * The Vyatta subnet that you want to connect using a VPN
 
