@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-21"
+lastupdated: "2021-09-22"
 
 keywords: instance status message, instance status, VPC error message, error message
 
@@ -136,10 +136,8 @@ If you still need help with the error, contact [support](/docs/vpc?topic=vpc-get
 
 **Error message**: _Instance was stopped because a new image was created_
 
-The virtual server instance can't start instance because the image is being created from boot volume. To address this error, try the following possible resolutions.
+The virtual server instance can't start instance because the image is being created from boot volume. 
 
-* Start the instance again.
-* Stop and restart the instance.
-* Delete the instance and try again.
+To resolve this error, try to start the instance again after the image creation process is complete.
 
 If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help).
