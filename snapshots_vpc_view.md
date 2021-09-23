@@ -22,8 +22,6 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
----
-
 # Viewing snapshots
 {: #snapshots-vpc-view}
 
