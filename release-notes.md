@@ -28,6 +28,11 @@ subcollection: vpc
 Use the release notes to learn about new and changed {{site.data.keyword.vpc_full}} features.
 {: shortdesc}
 
+## 23 September 2021
+{: #september-23-2021}
+
+**VNF routing mode for network load balancers:** With {{site.data.keyword.vpc_short}}, you can provision Virtual Network Function (VNF) devices to gain better and more affordable scalability than you would by purchasing physical network devices. {{site.data.keyword.vpc_short}} network load balancers with routing mode allow you to send traffic only to VNF devices as backend targets. In addition, their health checks ensure that workloads only travel through healthy VNF devices. For more information about this service, see [Creating a route mode Network Load Balancer for VPC](/docs/vpc?topic=vpc-nlb-vnf&interface=ui).
+
 ## 14 September 2021
 {: #september-14-2021}
 
