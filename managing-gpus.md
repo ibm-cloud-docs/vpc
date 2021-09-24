@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2021
-lastupdated: "2021-09-02"
+lastupdated: "2021-09-24"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance, gpu, graphics processing unit, set up gpu
 
@@ -37,7 +37,7 @@ The GPU-enabled family of profiles provides on demand, cost effective access to 
 1. Provision a [virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers) by choosing a GPU profile in the Virtual Server Instance selector window under Virtual Server for VPC with Public Virtual Server selected. GPU enabled profiles begin with the gx2 prefix. Stock and custom operating system images are supported.
 2. The NVIDIA V100 GPU driver for Windows or Linux will need to be installed.. For more information, see the [NVIDIA driver documentation](https://docs.nvidia.com/datacenter/tesla/index.html){: external} and [NVIDIA Driver Installation Quickstart Guide](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html){: external}. A NVIDIA driver level of R440 or newer is recommended.
 
-If you wish to automate the installation of the drivers, you can use the [User data](/docs/vpc?topic=vpc-user-data) section of the VSI. This allows you to input a script that executes the commands to install the NVIDIA drivers.
+If you want to automate the installation of the drivers, you can use the [User data](/docs/vpc?topic=vpc-user-data) section of the VSI. This allows you to input a script that executes the commands to install the NVIDIA drivers.
 {: note}
 
 ## Integrating the GPU driver into a custom image from volume
