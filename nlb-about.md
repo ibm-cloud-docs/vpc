@@ -60,7 +60,7 @@ A public load balancer is a load balancer with a publicly accessible IP address 
 
 For private load balancers, you must have a dedicated subnet with no custom routes configured for the subnet.
 
-Network load balancers with `route_mode` set to `true` are private load balancers that support only VNF (virtual network functions) devices as backend targets. 
+Network load balancers with `route_mode` set to `true` are private load balancers that support only VNF (virtual network functions) devices as backend targets.
 {: note}
 
 ## Load-balancing methods
@@ -114,7 +114,7 @@ You may want to leverage the high throughput performance (and low latency) the N
 VNF (Virtual Network Function) devices can be integrated into your VPC using custom routes. However, if the VNF device is inactive, your
 workloads will be interrupted. An NLB with route mode can be placed in front of any VNF devices to ensure your traffic is forwarded only to healthy VNF devices.
 
-The following diagram illustrates how you can deploy a network load balancer to support VNF availability. This deployment scenario requires the use of custom routes.
+The following diagram is an example of how to deploy a network load balancer to support transparent VNF devices with availability.
 
 ![Network load balancer with route mode](images/nlb_vnf.png)
 
