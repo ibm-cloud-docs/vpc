@@ -70,7 +70,7 @@ The VPC API service enforces this limit.
 {: #faq-vpc-public-gateway-timeout}
 {: faq}
 
-  Yes, the VPC public gateway has a fixed, four-minute timeout for TCP connections, and it is not configurable.
+Yes, the VPC public gateway has a fixed, four-minute timeout for TCP connections, and it is not configurable.
 
 ## How do you obtain the Cloud Resource Name (CRN) of a VPC?
 {: #faq-crn}
