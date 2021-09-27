@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-05-14"
+lastupdated: "2021-09-27"
 
-keywords: troubleshoot, tips, error, bearer, API, CLI, problem, debug, token, trace
+keywords: vpc, troubleshoot, tips, error, bearer, API, CLI, problem, debug, token, trace
 
 subcollection: vpc
 
@@ -22,6 +22,11 @@ subcollection: vpc
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
+{:support: data-reuse='support'}
+{:tsSymptoms: .tsSymptoms}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
+{:troubleshoot: data-hd-content-type='troubleshoot'}
 
 # Troubleshooting your VPC
 {: #troubleshooting-vpc}
@@ -109,7 +114,20 @@ It can take several minutes for resources to be deleted from the system, due to 
 4. Delete your VPCs
 
 For more information, see [Deleting a VPC](/docs/vpc?topic=vpc-deleting).
+
 ## Trace ID is blank
 {: #troubleshoot-trace-id-blank}
 
 Usually, when the Trace ID is blank, it is because the JSON returned doesn't match what is expected from the API. Try running the command `RIAAS_DEBUG=yes ibmcloud is server-rm 3fb7c1eb-45fd-4c85-962e-617f216e7393` (substitute your correct server ID token) and check the output.
+
+## VPC public gateway drops connection
+{: troubleshoot-public-gateway}
+
+The TCP connection between the IKS cluster and back-end database is dropped by the VPC public gateway during the TCP idle time (for example, 5 minutes).
+{: tsSymptoms}
+
+The VPC public gateway has a fixed 4-minute timeout for TCP connections, and it is not configurable. This problem occurs because the Linux default timeout for idle time is 2 hours (only if connection is idle for 2 hours, TCP keep-alive packets are being sent).  
+{: tsCauses}
+
+Set the idle time to less than 4 minutes (for example, 180 seconds). 
+{: tsResolve}
