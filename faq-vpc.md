@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2020-02-24"
+lastupdated: "2021-09-27"
 
 subcollection: vpc
 
@@ -65,6 +65,12 @@ The VPC API automatically creates a floating IP along with the public gateway if
 {: faq}
 
 The VPC API service enforces this limit.
+
+## Does the VPC public gateway have a timeout function?
+{: #faq-vpc-public-gateway-timeout}
+{: faq}
+
+  Yes, the VPC public gateway has a fixed, four-minute timeout for TCP connections, and it is not configurable.
 
 ## How do you obtain the Cloud Resource Name (CRN) of a VPC?
 {: #faq-crn}
