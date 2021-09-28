@@ -35,7 +35,7 @@ subcollection: vpc
 
 {{site.data.keyword.cloud_notm}} provides public- and private-facing application load balancers. An application load balancer provides layer 7 and layer 4 load balancing on {{site.data.keyword.cloud_notm}} and supports SSL offloading. The incoming and outgoing packets flow through the load balancer.
 
-In contrast, a network load balancer provides only layer 4 load balancing on {{site.data.keyword.cloud_notm}}, and does not support SSL offloading. Currently, {{site.data.keyword.cloud_notm}} provides public facing network load balancers only. The client sends public network traffic to the network load balancer, which forwards it to target virtual machines (VMs). Then, the target VMs respond directly to the client by using Direct Server Return (DSR).
+In contrast, a network load balancer provides only layer 4 load balancing on {{site.data.keyword.cloud_notm}}, and does not support SSL offloading. The client sends public network traffic to the network load balancer, which forwards it to target virtual machines (VMs). Then, the target VMs respond directly to the client by using Direct Server Return (DSR).
 
 This gives network load balancers an advantage over application load balancers by enhancing performance in the following ways:
 
@@ -56,7 +56,7 @@ The following table provides a comparison of the types of load balancers.
 | SSL offloading              |  No              | Yes |
 | Supported protocols         |  TCP | HTTPS, HTTP, TCP  |
 | Transport layer             |   Layer 4  | Layer 4, Layer 7 |
-| Types of load balancers |  Public | Public and private |
+| Types of load balancers |  Public and private | Public and private |
 | Virtual IP Address (VIP)   |  Single    | Multiple |
 {: caption="Table 1. Comparison of network and application load balancers" caption-side="top"}
 
