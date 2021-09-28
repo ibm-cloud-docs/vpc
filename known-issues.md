@@ -28,9 +28,9 @@ Known issues might change over time, so check back occasionally.
 ## Network load balancers don't support selectable port ranges
 {: #nlb-port-range}
 
-**Issue**: Cannot create network load balancers with specific port ranges
+**Symptom**:  The `port_min` and `port_max` properties are supported only when route mode is enabled, and only when the entire port range is specified (`port_min` of `1` and `port_max` of `65535`). 
 
-Currently, the `port_min` and `port_max` properties are supported only when route mode is enabled, and only when the entire port range is specified (`port_min` of `1` and `port_max` of `65535`).  Support for allowing an arbitrary port range to be specified is planned for a future release.
+**Workaround**: Support is planned for a future release.  In the meantime, you can create separate single-port load balancer listeners for each port in the desired range.
 
 ## Virtual server instances must be stopped before they can be deleted
 {: #API-1144}
