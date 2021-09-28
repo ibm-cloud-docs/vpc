@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-09-14"
+lastupdated: "2021-09-28"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -55,6 +55,21 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 28 September 2021
+{: #28-september-2021}
+
+### For all version dates
+{: #28-september-2021-all-version-dates}
+
+**Route mode for VNF support for network load balancers.** [Network load balancers](/apidocs/vpc#create-load-balancer) now support a new "route mode" enabling virtual network functions (VNFs) as back-end targets. A `route_mode` property has been added to the load balancer to indicate if the load balancer is in route mode. A `route_mode_supported` property has been added to the load balancer profile resource to indicate if the profile supports route mode. Presently, only network load balancer profiles support route mode.
+
+[Load balancer](/apidocs/vpc#create-load-balancer) and [Load balancer listener](/apidocs/vpc#create-load-balancer-listener) methods now accept properties `port_min` and `port_max`. You can request a load balancer listener for a single port by setting either the `port` property, or by setting the `port_min` and `port_max` properties to the same value. All load balancer listener responses now include `port_min` and `port_max` properties, with `port_min` matching the value of the existing `port` property.
+
+When creating load balancers with route mode enabled, you must specify the listener's `port_min` value as `1`,  the `port_max` value as `65535`, and omit the `port` property. Other port range values are not currently supported, as noted in [Known issues](/docs/vpc?topic=vpc-known-issues).
+{: note}
+
+For more information, see [Creating a route mode Network Load Balancer for VPC](/docs/vpc?topic=vpc-nlb-vnf&interface=api).
 
 ## 7 September 2021
 {: #7-september-2021}
