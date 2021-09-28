@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-09-28"
 
 keywords: vpc, known issues, bugs, defects
 
@@ -25,11 +25,12 @@ subcollection: vpc
 Known issues might change over time, so check back occasionally.
 {: shortdesc}
 
-## Route mode network load balancers support specific port settings only
-{: #vnf-nlb-ports}
+## Network load balancers fail if port settings fall outside the supported range
+{: #nlb-port-range}
 
-- **Symptom**: Network load balancers with route mode enabled will fail with port settings outside the supported range. 
-- **Fix**: Configure your listener with `port_min=1`, `port_max=65535`, and `port` omitted. Other `port_min` or `port_max` values are not supported.
+**Issue**: Cannot create network load balancers with specific port ranges
+
+Currently, the `port_min` and `port_max` properties are supported only when route mode is enabled, and only when the entire port range is specified (`port_min` of `1` and `port_max` of `65535`).  Support for allowing an arbitrary port range to be specified is planned for a future release.
 
 ## Virtual server instances must be stopped before they can be deleted
 {: #API-1144}
