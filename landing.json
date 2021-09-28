@@ -44,7 +44,7 @@
           "date": "07 September 2021",
           "title": "New Very High Memory instance profile family (LA)",
           "description": "Very High Memory profiles are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), EU Germany (Frankfurt), and Japan (Tokyo) regions. Very High Memory profiles offer a core to RAM ratio of 1 vCPU to 14 GiB of RAM. This family is optimized for running high-compute-intensity in-memory workloads like SAP BW/4 HANA."
-        },
+        }
       ]
     }
   }
