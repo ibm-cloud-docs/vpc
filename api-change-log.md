@@ -62,7 +62,7 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 ### For all version dates
 {: #28-september-2021-all-version-dates}
 
-**Route mode for VNF support for network load balancers.** [Network load balancers](/apidocs/vpc#create-load-balancer) now support a new "route mode" enabling virtual network functions (VNFs) as back-end targets. A `route_mode` property has been added to the load balancer to indicate if the load balancer is in route mode. A `route_mode_supported` property has been added to the load balancer profile resource to indicate if the profile supports route mode. Presently, only network load balancer profiles support route mode.
+**Route mode for VNF support for network load balancers.** [Network load balancers](/apidocs/vpc#create-load-balancer) now support a new "route mode" enabling virtual network functions (VNFs) as back-end targets. A `route_mode` property has been added to the load balancer resource to indicate if the load balancer is in route mode. A `route_mode_supported` property has been added to the load balancer profile resource to indicate if the profile supports route mode. Presently, only network load balancer profiles support route mode.
 
 The [Create load balancer](/apidocs/vpc#create-load-balancer) and [Create load balancer listener](/apidocs/vpc#create-load-balancer-listener) methods now accept properties `port_min` and `port_max`. You can request a load balancer listener for a single port by setting either the `port` property, or by setting the `port_min` and `port_max` properties to the same value. All load balancer listener responses now include `port_min` and `port_max` properties, with `port_min` matching the value of the existing `port` property.
 
