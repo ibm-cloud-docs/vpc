@@ -33,8 +33,8 @@ subcollection: vpc
 
 You can create an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) by using the UI, CLI, or API. To order and start using the Network Load Balancer for VPC, you require two main items:
 
-   * An [IBMid](https://www.ibm.com/account/us-en/signup/register.html){: external} account.
-   * A VPC in which to deploy the network load balancer.
+* An [IBMid](https://www.ibm.com/account/us-en/signup/register.html){: external} account.
+* A VPC in which to deploy the network load balancer.
 
 ## Creating a network load balancer using the UI
 {: #nlb-ui}
@@ -51,7 +51,6 @@ To create and configure {{site.data.keyword.nlb_full}} by using the {{site.data.
    * Select the **Network Load Balancer (NLB)** tile and the subnet where you want to deploy the load balancer.
    * Select type: public or private.
    * Optionally, add tags.
-
 1. Click **New Pool** and specify the following information to create a back-end pool. You can create one or more pools.
    * Type a name for the pool, such as `my-pool`.
    * Enter a protocol for your instances in this pool. The protocol of the pool must match the protocol of its associated listener. For example, if the listener is TCP, the protocol of the pool must be TCP.
@@ -93,21 +92,21 @@ To create a network load balancer by using the CLI, follow these steps:
 
 1. Log in to your account using the CLI. After you enter the password, the system prompts which account and region that you want to use:
 
-    ```
+    ```sh
     ibmcloud login --sso
     ```
     {: pre}
 
 1. Create a load balancer:
 
-   ```
+   ```sh
    ibmcloud is load-balancer-create nlb-test public --subnet 0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c --family network
    ```
    {: pre}
 
    Sample output:
 
-   ```
+   ```sh
    Creating load balancer nlb-test in resource group under account IBM Cloud Network Services as user test@ibm.com...
 
     ID                 r134-99b5ab45-6357-42db-8b32-5d2c8aa62776    
@@ -135,14 +134,14 @@ To create a network load balancer by using the CLI, follow these steps:
 
    Create private network load balancer
 
-   ```
+   ```sh
    ibmcloud is load-balancer-create nlb-test private --subnet 07a7-37b4dcfc-841e-4d4a-9f9f-9e45ffbd0285 --family network
    ```
    {: pre}
 
    Sample output:
 
-   ```  
+   ```sh
    Creating load balancer nlb-test in resource group  under account CNS Development Account - netsvs as user test@us.ibm.com...
 
    ID                 r018-8a994baa-21ba-428c-ac3f-e3fd91fa92c9
@@ -170,14 +169,14 @@ To create a network load balancer by using the CLI, follow these steps:
 
 1. Create a pool:
 
-   ```
+   ```sh
    ibmcloud is load-balancer-pool-create nlb-pool r134-99b5ab45-6357-42db-8b32-5d2c8aa62776  weighted_round_robin tcp 10
    ```
    {: pre}
 
    Sample output:
 
-   ```
+   ```sh
    Creating pool nlb-pool of load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776  under account IBM Cloud Network Services as user test@ibm.com...
 
    ID                         r134-3b66d605-6aa5-4166-9f66-b16054da3cb0   
@@ -199,14 +198,14 @@ To create a network load balancer by using the CLI, follow these steps:
 
 1. Create a member:
 
-   ```
+   ```sh
    ibmcloud is load-balancer-pool-member-create r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 9090 0716_6acdd058-4607-4463-af08-d4999d983945 --weight 70
    ```
    {: pre}
 
    Sample output:
 
-   ```
+   ```sh
    Creating member of pool r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 under account IBM Cloud Network Services as user test@ibm.com...
 
    ID                 r134-61f8b000-a90d-4abe-909e-c507dffec565   
@@ -221,14 +220,14 @@ To create a network load balancer by using the CLI, follow these steps:
 
 1. Create a listener:
 
-   ```
+   ```sh
    ibmcloud is load-balancer-listener-create r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 7070 tcp --default-pool r134-3b66d605-6aa5-4166-9f66-b16054da3cb0
    ```
    {: pre}
 
    Sample output:
 
-   ```
+   ```sh
    Creating listener of load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
 
    ID                     r134-2847a948-f9b6-4fc1-91c6-f1c49dac3eba   
@@ -244,14 +243,14 @@ To create a network load balancer by using the CLI, follow these steps:
 
 1. Get details about your load balancer:
 
-   ```
+   ```sh
    ibmcloud is load-balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776
    ```
    {: pre}
 
    Sample output:
 
-   ```
+   ```sh
    Getting load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
 
    ID                 r134-99b5ab45-6357-42db-8b32-5d2c8aa62776   
@@ -368,7 +367,7 @@ To create a network load balancer by using the API, follow these steps:
 
    Sample output:
 
-   ```
+   ```sh
    {
        "created_at": "2018-07-12T23:17:07.5985381Z",
        "crn": "crn:v1:staging:public:is:us-south:a/123456::load-balancer:dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
@@ -426,7 +425,7 @@ To create a network load balancer by using the API, follow these steps:
 
    Allow some time for provisioning. When the load balancer is ready, it is set to `online` and `active` status, as shown in the following sample output:
 
-   ```
+   ```sh
    {
     "id": "0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
     "crn": "crn:v1:staging:public:is:us-south:a/123456::load-balancer:dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
@@ -480,3 +479,5 @@ To create a network load balancer by using the API, follow these steps:
         "name": "example-subnet"
       }
     ]
+   ```
+   {: codeblock}
