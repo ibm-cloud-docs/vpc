@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-10-01"
 
 keywords: file storage, virtual private cloud, file share, troubleshooting
 
@@ -30,7 +30,7 @@ subcollection: vpc
 The following questions often arise about File Storage for VPC. If you have other questions you'd like to see addressed here, provide feedback by using the **Open Issue** or **Edit Topic** links.
 {: shortdesc}
 
-File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions. Contact your IBM Sales representative if you are interested in getting access.
+File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, and London regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Offering questions
@@ -40,7 +40,7 @@ File Storage for VPC is available for customers with special approval to preview
 {: faq}
 {: #faq-fs-2}
 
-No. You can create a file share independent of a VPC. However, to create a mount target, you must have a VPC available. To mount a share, you must provision a virtual server instance within that VPC.
+No. You can create a file share independent of a VPC. However, to create a mount target, you must have a VPC available. To mount a file share, you must provision a virtual server instance within that VPC.
 
 ### I have existing VPCs. Can I create a file share within that VPC?
 {: faq}
@@ -64,9 +64,9 @@ In this release, you can:
 *	Create a file share.
 *	Mount a file share to one or multiple virtual server instances across multiple VPCs within the same zone.
 *	Delete a file share.
-*	Delete all mount targets or delete a single mount target. When you delete one or several mount targets, the instances that are mounting the share for the VPCs where the mount target is deleted can't access the share.
-*	List shares and mount targets.
-*	Update share and mount target name.
+*	Delete all mount targets or delete a single mount target. When you delete one or several mount targets, the instances that are mounting the file share for the VPCs where the mount target is deleted can't access the file share.
+*	List file shares and mount targets.
+*	Update file share and mount target name.
 
 ### Who do I contact to help with any issues? What information do I need to provide?
 {: faq}
@@ -107,7 +107,7 @@ No.
 {: faq}
 {: #faq-fs-mgt-6}
 
-No. As a best practice, independently back up your data. When your share data is deleted, it can't be restored.
+No. As a best practice, independently back up your data. When your file share data is deleted, it can't be restored.
 
 ### Are file shares elastic?
 {: faq}
@@ -119,7 +119,7 @@ File shares are not elastic. Currently, you can provision minimum of 10 GB to ma
 {: faq}
 {: #faq-fs-mgt-8}
 
-You can increase the size of a file share from its original capacity in GB increments up to 32,000 GB capacity, depending on your share profile. For more information, see [Expanding file share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity).
+You can increase the size of a file share from its original capacity in GB increments up to 32,000 GB capacity, depending on your file share profile. For more information, see [Expanding file share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity).
 
 
 ## Performance questions

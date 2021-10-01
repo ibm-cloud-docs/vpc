@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-10-01"
 
 keywords: file storage, virtual private cloud, file share
 
@@ -33,7 +33,7 @@ subcollection: vpc
 Manage file shares you've created. For this release, you can rename a file share, delete a file share, add mount targets to a file share, mount and unmount a file share from virtual server instances, rename a mount target and, delete a mount target.
 {: shortdesc}
 
-File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions. Contact your IBM Sales representative if you are interested in getting access.
+File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, and London regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Use the UI to manage file shares and mount points
@@ -54,14 +54,14 @@ Using the UI, you can:
 
 1. On the [file shares details](/docs/vpc?topic=vpc-file-storage-view#fs-view-single-share-ui) page, click the pencil icon next to the file share name.
 
-2. Provide a new name for the share.
+2. Provide a new name for the file share.
 
-Valid file share names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Share names must begin with a lowercase letter.
+Valid file share names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. File share names must begin with a lowercase letter.
 
 ### Add mount target to a file share
 {: #add-mount-target-ui}
 
-To mount a share to an instance using the API, you create a mount target by providing a VPC or subnet information. If you want to connect a share to instances running in multiple VPCs in the same zone, you can create multiple mount targets for different VPCs.
+To mount a file share to an instance using the API, you create a mount target by providing a VPC or subnet information. If you want to connect a file share to instances running in multiple VPCs in the same zone, you can create multiple mount targets for different VPCs.
 
 1. Locate a file share to which you want to add a mount target from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view#file-storage-view-shares-targets-ui).
 
@@ -90,7 +90,7 @@ Valid mount target names can include a combination of lowercase alpha-numeric ch
 ### Delete mount target of a file share
 {: #delete-mount-target-ui}
 
-To delete a mount target, the share must be in a `stable` state.
+To delete a mount target, the file share must be in a `stable` state.
 
 1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view).
 
@@ -129,12 +129,12 @@ ibmcloud is share-update SHARE_ID --name NEW_NAME [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
-Valid file share names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Share names must begin with a lowercase letter.
+Valid file share names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. File share names must begin with a lowercase letter.
 
 ### Rename a mount target of a file share
 {: #rename-mount-target-cli}
 
-Run the `share-target-update` command with the share name and target name and specify a new mount target name.
+Run the `share-target-update` command with the file share name and target name and specify a new mount target name.
 
 ```
 ibmcloud is share-target-update SHARE_ID TARGET_ID --name NEW_NAME [--output JSON] [-q, --quiet]
@@ -146,7 +146,7 @@ Valid mount target names can include a combination of lowercase alpha-numeric ch
 ### Delete mount target of a file share
 {: #delete-mount-target-cli}
 
-Run the `share-target-delete` command and specify the share ID and mount target ID. To delete a mount target, the share must be in a `stable` state.
+Run the `share-target-delete` command and specify the file share ID and mount target ID. To delete a mount target, the file share must be in a `stable` state.
 
 ```
 ibmcloud is share-target-delete SHARE_ID TARGET_ID
@@ -156,9 +156,9 @@ ibmcloud is share-target-delete SHARE_ID TARGET_ID
 ### Delete a file share
 {: #delete-file-share-cli}
 
-Run the `share_delete` command ans specify the share ID.
+Run the `share_delete` command ans specify the file share ID.
 
-Before you can delete a file share, make sure that it's unmounted from virtual server instances and that all mount targets belonging to the file share are [deleted](#delete-mount-target-cli). To delete a file share, the share must be in a `stable` or `failed` state (i.e., when provisioning fails).
+Before you can delete a file share, make sure that it's unmounted from virtual server instances and that all mount targets belonging to the file share are [deleted](#delete-mount-target-cli). To delete a file share, the file share must be in a `stable` or `failed` state (i.e., when provisioning fails).
 
 ```
 ibmcloud is share-delete<SHARE_ID.
@@ -185,7 +185,7 @@ File Storage for VPC regional API is a beta-level release for customers with spe
 ### Rename a file share
 {: #rename-file-share-api}
 
-Make a `PATCH /shares/$share_id` call to rename a specific share. For example:
+Make a `PATCH /shares/$share_id` call to rename a specific file share. For example:
 
 ```
 curl -X PATCH \
@@ -426,11 +426,11 @@ File Storage for VPC service require IAM permissions for role-based access contr
 
 | VPC File Storage action | IAM role |
 |-----------------|----------|
-| Create share | Administrator, editor |
-| List all shares | Administrator, editor, operator, viewer |
-| View share details | Administrator, editor, operator, viewer |
-| Update share | Administrator, editor |
-| Delete share | Administrator, editor |
+| Create file share | Administrator, editor |
+| List all file shares | Administrator, editor, operator, viewer |
+| View file share details | Administrator, editor, operator, viewer |
+| Update file share | Administrator, editor |
+| Delete file share | Administrator, editor |
 | Create mount target | Administrator, editor |
 | List all mount target | Administrator, editor, operator, viewer |
 | View mount target details | Administrator, editor, operator, viewer |

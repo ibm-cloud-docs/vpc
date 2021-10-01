@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-10-01"
 
 keywords: file Storage, NFS, mounting file Storage, mounting file shares on Linux, mounting file shares on RHEL
 
@@ -31,10 +31,10 @@ subcollection: vpc
 # Mounting file shares on Red Hat Linux
 {: #file-storage-vpc-mount-RHEL}
 
-Use these instructions to connect a Red Hat Enterprise Linux&reg;-based {{site.data.keyword.cloud}} Compute Instance to a Network File System (NFS) share.
+Use these instructions to connect a Red Hat Enterprise Linux&reg;-based {{site.data.keyword.cloud}} Compute Instance to a Network File System (NFS) file share.
 {: shortdesc}
 
-File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions. Contact your IBM Sales representative if you are interested in getting access.
+File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, and London regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Before you begin - Create a VSI
@@ -115,7 +115,7 @@ SSH into the virtual server instance where you want to mount the file share, the
 
    The files that are created by root and have an ownership of `nobody:nobody`. To display the ownership correctly, update `idmapd.conf` with the correct domain settings. For more information, see [How to implement no_root_squash for NFS](#fs-RHEL-norootsquash).
 
-6. Mount the remote share on start. To complete the setup, you must edit the file systems table (`/etc/fstab`) and add the remote share to the list of entries that are automatically mounted on startup. Before creating an entry in the `fstab`, perform the following steps to add the mount path hostname to `/etc/hosts`. 
+6. Mount the remote file share on start. To complete the setup, you must edit the file systems table (`/etc/fstab`) and add the remote file share to the list of entries that are automatically mounted on startup. Before creating an entry in the `fstab`, perform the following steps to add the mount path hostname to `/etc/hosts`. 
 
    **a.** Get the `hostname.com` portion of mount path, `for example: fsf-dal2433a-dz.adn.networklayer.com` and get the IP address. Run the following command from the instance to get the IP address.
 
@@ -180,7 +180,7 @@ SSH into the virtual server instance where you want to mount the file share, the
 
 By default, NFS downgrades any files that were created with the root permissions to the `nobody` user. This security feature prevents privileges from being shared unless they are requested.
 
-Configuring `no_root_squash` allows root clients to retain root permissions on the remote NFS share.
+Configuring `no_root_squash` allows root clients to retain root permissions on the remote NFS file share.
 
 For NFSv4.1, set the nfsv4 domain to: `slnfsv4.com` and start `rpcidmapd` or a similar service that is used by your OS.
 

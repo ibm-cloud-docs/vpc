@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-10-01"
 
 keywords: file storage, virtual private cloud, file share, mount target
 
@@ -33,7 +33,7 @@ subcollection: vpc
 Create file shares and mount targets by using the UI, CLI, or API. 
 {: shortdesc}
 
-File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions. Contact your IBM Sales representative if you are interested in getting access.
+File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, and London regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 Before you get started, to create mount targets for file shares, make sure that you created a [VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
@@ -59,19 +59,19 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file shares an
 
 1. Enter the information described in the Table 1.
 
-1. While creating a share, specify the information for the mount target as well.
+1. While creating a file share, specify the information for the mount target as well.
 
-1. When finished, click **Create file share**. You're returned to the File Shares for VPC page, where a message indicates that the file share is provisioning. When completed, the status changes to **Active**.
+1. When finished, click **Create file share**. You're returned to the File Storage for VPC page, where a message indicates that the file share is provisioning. When completed, the status changes to **Active**.
 
 | Field | Value |
 |-------|-------|
-| Name  | Specify a meaningful name for your file share. The share name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want. |
+| Name  | Specify a meaningful name for your file share. The file share name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want. |
 | Resource Group | Specify a [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups). Resource groups help organize your account resources for access control and billing purposes. |
 | Location | Choose the zone where you want to create the file share. The zones inherited from the VPC, for example, _US South 3_. |
 | Mount targets (Optional) | Click **Create** to create a new [mount target](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets) for the file share. You can create one mount target per VPC per file share. Provide a name for the mount target and select a VPC in that zone. You can add as many mount targets are you have VPCs. If you don't have one, first [create a VPC](/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc). (To use the API, see [Creating a VPC using the REST APIs](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis).) For information about creating mount targets as a separate operation, see [Create a mount target](#fs-create-mount-target-ui). |
 | Profile | Select an IOPS tier or Custom IOPS for file share. The profile you select determines the input/output performance of a file share. For more information about file storage IOPS tier and Custom profiles, see [File storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). |
 | Size | Specify the size for the file share. You can later [increase this size](/docs/vpc?topic=vpc-file-storage-expand-capacity), depending on the share profile. |
-| Encryption | Encryption with IBM-managed keys is enabled by default when you create a new share.
+| Encryption | Encryption with IBM-managed keys is enabled by default when you create a new file share.
 {: caption="Table 1. Values for creating a file share and mount target" caption-side="top"}
 
 To see the REST API call, click the **Create with REST API </>** link. Viewing the API calls is a good way to learn about the API and understand actions and their dependencies.
@@ -124,8 +124,8 @@ Review the following information:
 
 |     Details   |  Listing options  | What it provides  |
 | --------------------- | --------------------------------|---------------------|
-| File shares           | `ibmcloud is shares`            | List all shares in a region. |
-| Share details           | `ibmcloud is share SHARE_ID`        | Review details of a share. |
+| File shares           | `ibmcloud is shares`            | List all file shares in a region. |
+| Share details           | `ibmcloud is share SHARE_ID`        | Review details of a file share. |
 | Mount targets             | `ibmcloud is share-targets SHARE_ID` | List all mount targets for a file share. |
 | Share profiles         | `ibmcloud is share-profiles`     | List all file share profiles in a region. |
 | Share profile details | `ibmcloud is share-profile PROFILE_NAME`     | List details of a file share profile. Profile names are `tier-3iops`, `tier-5iops`, `tier-10iops`, and `custom`. |
@@ -134,7 +134,7 @@ Review the following information:
 ### Create a file share and add a mount target using the CLI
 {: #fs-create-share-target-cli}
 
-Run the following command to create a file share and mount target. Indicate the zone in which to create the share, [share profile](/docs/vpc?topic=vpc-file-storage-profiles), share size, and name (optional). Provide a mount target JSON or JSON file to create the mount target in this command.
+Run the following command to create a file share and mount target. Indicate the zone in which to create the file share, [file share profile](/docs/vpc?topic=vpc-file-storage-profiles), file share size, and name (optional). Provide a mount target JSON or JSON file to create the mount target in this command.
 
 ```
 ibmcloud is share-create --zone ZONE_NAME --profile PROFILE --size SIZE [--name NAME] [--targets TARGETS_JSON | @TARGETS_JSON_FILE] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
@@ -153,7 +153,7 @@ Example mount target JSON file:
 ```
 {: codeblock}
 
-### Create a mount target for an existing share using the CLI
+### Create a mount target for an existing file share using the CLI
 {: #fs-create-mount-target-cli}
 
 Run the `share-target-create` command with the file share ID and VPC ID to create a mount target on the file share. The VPC must be unique to each mount target.
@@ -163,7 +163,7 @@ ibmcloud is share-target-create SHARE_ID --vpc VPC_ID [--name NAME] [--output JS
 ```
 {: pre}
 
-This example command creates a mount target and outputs share and target information to JSON.
+This example command creates a mount target and outputs file share and mount target information to JSON.
 
 ```
 ibmcloud is share-target-create 78ff9c4c97d013fb2a95b21abcde7758 --vpc 55251a2e-d6d4-4233-97b2-b5f8e8d1f479 --name target-name --output JSON
@@ -190,7 +190,7 @@ A good way to learn more about the API is to click **Get sample API call** on th
 ### Create a file share from the API
 {: #fs-create-file-share-api}
 
-Use the `POST/shares` request to create a file share. Specify the size of the share, a name, the IOPS profile, and zone. 
+Use the `POST/shares` request to create a file share. Specify the size of the file share, a name, the IOPS profile, and zone. 
 
 You must provide `generation` parameter with the API request and specify `generation=2`. Do not use `generation=1` for the  file storage service. For more information, see **Generation** in the [Virtual Private Cloud API reference](https://{DomainName}/apidocs/vpc#api-generation-parameter).
 {: note}
@@ -251,7 +251,7 @@ A successful response will look like this:
 ### Create a file share and mount target together from the API
 {: #fs-create-share-target-api}
 
-This request creates a file shares and a mount target for the file share.
+This request creates a file share and a mount target for the file share.
 
 ```curl
 curl -X POST \

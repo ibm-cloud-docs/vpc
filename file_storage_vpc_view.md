@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-10-01"
 
 keywords: file storage, virtual private cloud, file share, mount target
 
@@ -33,7 +33,7 @@ subcollection: vpc
 View all file shares and mount targets by using the UI, CLI, or API. Also, view details of a single file share or mount target.
 {: shortdesc}
 
-File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions. Contact your IBM Sales representative if you are interested in getting access.
+File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, and London regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 Before you get started, to create mount targets for file shares, make sure that you created a [VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
@@ -47,12 +47,12 @@ Before you get started, to create mount targets for file shares, make sure that 
 {: #fs-view-all-shares-ui}
 
 1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**.
-1. The File Shares for VPC list page shows all file shares that are created in that zone. Overflow menu options are used to manage the shares. The following table describes the information and actions on the list page.
+1. The File Shares for VPC list page shows all file shares that are created in that zone. Overflow menu options are used to manage the file shares. The following table describes the information and actions on the list page.
 
 | Field | Value |
 |-------|-------|
 | Region | Account region for the file share. Select a different region to see file shares for zones in that region. |
-| Name  | The share name. Click the name to see details about that share. |
+| Name  | The share name. Click the name to see details about that file share. |
 | Status | For a list of statuses for file shares, see [File storage lifecycle states](/docs/vpc?topic=vpc-file-storage-managing#file-storage-vpc-status). |
 | Resource groups | Resource groups associated with the file share in your account. |
 | Zone | Zone in which the file share was created and resides (for example, _US South 2_). |
@@ -71,14 +71,14 @@ Before you get started, to create mount targets for file shares, make sure that 
 
 | Field | Value |
 |-------|-------|
-| Name  | The share name. Click the pencil icon to change the name. |
+| Name  | The file share name. Click the pencil icon to change the name. |
 | Resource group | Resource groups associated with the file share in your account. |
-| ID | The UUID generated when you created the share. |
+| ID | The UUID generated when you created the file share. |
 | Created | Date the file share was created. |
 | Zone | Zone in which the file share was created and resides (for example, _US South 2_). |
 | Size | Size of the file share, in GBs. |
 | IOPS tier | [IOPS tier profile](/docs/vpc?topic=vpc-file-storage-profiles#fs-tiers) defining the share performance (for example 3 IOPS/GB). |
-| Max IOPS | Maximum IOPS for the IOPS tier profile associated with the share. |
+| Max IOPS | Maximum IOPS for the IOPS tier profile associated with the file share. |
 | Mount targets | Number of mount targets associated with the file share. You can have one mount target per VPC per file share.<br> You can create more mount targets for other VPCs.<br>Click the **Virtual private cloud** to go to the details page for that VPC, where you can see a [list of file shares](#fs-view-shares-vpc) that have a mount target to the VPC]. |
 | Overflow menu (ellipsis) | Options for managing the file share, depending on its state. For example, for a file share in a _stable_ state, you can delete a file share. |
 {: caption="Table 2. File shares details page" caption-side="top"}
@@ -128,7 +128,7 @@ ibmcloud is shares [--resource-group-id RESOURCE_GROUP_ID | --resource-group-nam
 ### Viewing all file shares by using the API
 {: #fs-view-all-shares-api}
 
-Use the `GET /shares` request list all shares for a region. 
+Use the `GET /shares` request list all file shares for a region. 
 
 ```curl
 curl -X GET \ 
@@ -253,10 +253,10 @@ A successful response looks like the following example:
 ```
 {: pre}
 
-### Listing all mount targets of a share by using the API
+### Listing all mount targets of a file share by using the API
 {: #fs-list-targets-api}
 
-Use the `GET /shares/{share_id}/targets` request to list all mount targets of a share.
+Use the `GET /shares/{share_id}/targets` request to list all mount targets of a file share.
 
 Example:
 
