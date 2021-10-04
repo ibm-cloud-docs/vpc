@@ -25,6 +25,7 @@ subcollection: vpc
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
+{:terraform: .ph data-hd-interface="terraform"}
 
 # Accessing private API endpoints from an on-premises network using {{site.data.keyword.dl_full_notm}}
 {: #end-to-end-private-connectivity}
@@ -62,8 +63,8 @@ Before you begin, you must have a VPC, a subnet created in the VPC, and {{site.d
                                 )
                         NS      ns1.example.com.
    us-south.private.iaas.cloud.ibm.com.    CNAME   loadbalancer.appdomain.cloud.
-
    ```
+   {: screen}
    
 ![End-to-end connectivity architecture](images/end-to-end-connectivity.png "[End-to-end connectivity architecture")
 
@@ -71,8 +72,8 @@ After completing this procedure, you can access a VPC API endpoint from an on-pr
 
 For example, if you want to create a VPE for IAM, you can make the following REST API call from an on-premises network by using a private VPC API endpoint to provision VPE for IBM Cloud Identity and Access Management (IAM). 
 
-  ```sh
- curl -X POST "$rias_endpoint/v1/endpoint_gateways?version=$version&generation=2" -H "Authorization: $iam_token" -d '{
+   ```sh
+   curl -X POST "$rias_endpoint/v1/endpoint_gateways?version=$version&generation=2" -H "Authorization: $iam_token" -d '{
       "name": "my-iam-endpoint-gateway",
       "target": {
         "crn" : "crn:v1:bluemix:public:iam-svcs:global:::endpoint:private.iam.cloud.ibm.com",
@@ -210,7 +211,7 @@ To access the VPC API private endpoint using the CLI, follow these steps:
    ```
    ibmcloud plugin install vpc-infrastructure
    ```
-   {: note}              
+   {: pre}              
 
 1. To switch to API private endpoint mode, enter the following command:
 
