@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-08-18"
+lastupdated: "2021-10-04"
 
 keywords: quotas, resources, limits
 
@@ -171,9 +171,7 @@ The following table displays current VPC service limits. Unlike quotas, these li
 | Public Gateways | 1 per zone per VPC |
 | Security groups | 5 per network interface (NIC) on a virtual server instance |
 | Remote rules for security groups |5 per security group|
-| Secondary volumes per instance, attached when creating an instance |  4 secondary volumes |
-| Secondary volumes per instance, for existing instances with fewer than 4 cores | 4 secondary volumes |
-| Secondary volumes per instance, for existing instances with 4 cores or more | Up to 12 secondary volumes |
+| Secondary volumes per instance | Up to 12 secondary volumes |
 | Instance groups for auto scale and more | 200 per account|
 | Instance group memberships  | 1000 per instance group|
 {: caption="Table 12. Limits for VPC resources" caption-side="top"}
