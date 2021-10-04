@@ -43,7 +43,6 @@ Virtual Private Cloud (VPC)
             bare_metal_server_about.md
             bare_metal_server_profile.md
             bare_metal_server_image.md
-            bare_metal_server_billing_pricing.md
             bare_metal_server_network.md
             bare_metal_server_storage.md
 
