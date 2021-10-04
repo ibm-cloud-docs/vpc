@@ -24,7 +24,7 @@ subcollection: vpc
 {:important: .important}
 
 # FAQ for bare metal servers (Beta)
-{: #faqs-for-bare-metal}
+{: #bare-metal-server-faq}
 
 Bare Metal Servers on VPC is a Beta feature that requires special approval. Contact your IBM Sales representative if you're interested in getting access.
 {: beta}
