@@ -36,6 +36,13 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 ## October 2021
 {: #subcollection-oct21}
 
+### 05 October 2021
+{: #subcollection-oct0521}
+{: release-note}
+
+**New locations for Very High Memory instance profile family (LA)**
+:   Very High Memory profiles now are available in the United Kingdom (London), Japan (Osaka), and Australia (Sydney) regions. For more information, see Very High Memory profiles.
+
 ### 01 October 2021
 {: #subcollection-oct0121}
 {: release-note}
