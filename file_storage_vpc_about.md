@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-10-01"
+lastupdated: "2021-10-04"
 
 keywords: virtual private cloud, file storage, file share, mount point
 
@@ -24,7 +24,7 @@ subcollection: vpc
 # About File Storage for VPC
 {: #file-storage-vpc-about}
 
-{{site.data.keyword.cloud}} File Storage for {{site.data.keyword.vpc_full}} (VPC) is a zonal file storage offering that provides NFS-based file storage services for VPC customers. A file share is an instance of file storage and created in an availability zone within a region.
+{{site.data.keyword.cloud}} File Storage for {{site.data.keyword.vpc_full}} (VPC) is a zonal file storage offering that provides NFS-based file storage services for VPC customers. File shares are created in an availability zone within a region. File shares can be shared with multiple virtual server instances within the same zone across multiple VPCs.
 {: shortdesc}
 
 File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, and London regions. Contact your IBM Sales representative if you are interested in getting access.
@@ -42,7 +42,7 @@ File share data is encrypted by default using IBM-managed encryption for data-at
 ### File storage IOPS profiles
 {: #fs-profiles-intro}
 
-You have two options for creating a file share, either using an IOPS tier profile or using a custom IOPS profile.
+You have two options for creating file shares, by using an IOPS tier profile or by using a custom IOPS profile.
 
 IOPS tiers provide a guaranteed level of performance for your workloads. You can select from three tiers:
 
@@ -59,7 +59,7 @@ For more information about these options, see [File Storage for VPC profiles](/d
 
 File Storage for VPC lets you create a file share at the zonal level. This means that file shares are accessible only within the zone in which you created it, for example, `us-south-1`. File shares are identified by name and associated with a resource group in your {{site.data.keyword.cloud_notm}} customer account.
 
-You create a file share using the UI, CLI, or API. You access file shares from virtual server instances or Kubernetes clusters by way of an NFS mount. To create an NFS mount path, you need to create file share mount targets.
+You create a file share using the UI, CLI, or API. You access file shares from virtual server instances or Kubernetes clusters by way of an NFS mount. To create an NFS mount path, you need to create mount targets.
 
 You can also [increase the file share size](/docs/vpc?topic=vpc-file-storage-expand-capacity) from its original capacity in GB increments up to 32,000 GB capacity, depending on your file share profile.
 

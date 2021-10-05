@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-10-01"
+lastupdated: "2021-10-04"
 
-keywords: file storage, virtual private cloud, file share, mount target, expandable share
+keywords: file storage, virtual private cloud, file share, mount target, expandable file share
 
 subcollection: vpc
 
@@ -44,7 +44,7 @@ You can increase the capacity of the file share. The file share size cannot be l
 
 Capacity can be increased for file shares that are in a `stable` state. Your user authorization is verified before expanding the file share. You can use the [UI](#expand-vpc-share-ui), [CLI](#expand-vpc-share-cli), or [API](#expand-vpc-share-api) to increase file share capacity. You can expand a file share  multiple times up to its [maximum capacity limit](#exp-share-capacity-IOPS-limitations). After expanding the file share, you can't reduce the capacity.
 
-Expanded capacity is determined by the maximum that is allowed by the file share profile. File hares that are created from a [Custom profile](/docs/vpc?topic=vpc-file-storage-profiles#custom) can be expanded within their custom IOPS range. 
+Expanded capacity is determined by the maximum that is allowed by the file share profile. File shares that are created from a [Custom profile](/docs/vpc?topic=vpc-file-storage-profiles#custom) can be expanded within their custom IOPS range. 
 
 File shares that are created from an [IOPS tier profile](/docs/vpc?topic=vpc-file-storage-profiles#fs-tiers) can be expanded to the maximum size for its IOPS tier:
 
@@ -74,9 +74,9 @@ After you create a file share, you cannot change its IOPS profile.
 ### File share capacity and IOPS limitations
 {: #exp-share-capacity-IOPs-limitations}
 
-* File shares can expand, with the following restrictions: 
-    * If the file share was created using a [Tiered IOPS profile](/docs/vpc?  topic=vpc-file-storage-profiles#fs-tiers) that limits capacity to less   than 32,000 GB, it can only expand to the allowed capacity for that tier.
-    * If the file share was created using a [Custom IOPS profile](/docs/vpc?  topic=vpc-file-storage-profiles#custom) and created in a lower range that   doesn't allow expanding to 16,000 GB (custom IOPS max), it can only expand   to its maximum capacity for that custom IOPS range.
+* File shares can expand, with the following restrictions:
+    * If the file share was created using a [Tiered IOPS profile](/docs/vpc?  topic=vpc-file-storage-profiles#fs-tiers) that limits capacity to less than 32,000 GB, it can only expand to the allowed capacity for that tier.
+    * If the file share was created using a [Custom IOPS profile](/docs/vpc?  topic=vpc-file-storage-profiles#custom) and created in a lower range that doesn't allow expanding to 16,000 GB (custom IOPS max), it can only expand to its maximum capacity for that custom IOPS range.
     * File shares can expand multiple times until maximum capacity is reached.
 * IOPS increase to the maximum allowed by the IOPS tier profile.
 * After you create a file share, you can't change its IOPS profile.
@@ -142,7 +142,7 @@ Targets           ID                                          Name              
 Resource Group    ID                                 Name
                   875623bcde2b4ebda924d32640908845   Default
 
-Created           2021-08-18T02:15:52-06:00
+Created           2021-10-07T02:15:52-06:00
 ```
 {: screen}
 
@@ -160,7 +160,7 @@ This request example expands a file share with a capacity of 50 GB to 2500 GB fo
 
 ```
 curl -X PATCH \
- "$vpc_api_endpoint/v1/shares/$share_id?version=2021-05-30&generation=2" \
+ "$vpc_api_endpoint/v1/shares/$share_id?version=2021-10-04&generation=2" \
  -H "Authorization: $iam_token" \
  -d '{
       "size": 2500
@@ -172,7 +172,7 @@ The file share status shows `updating` while the capacity is increased. The curr
 
 ```json
 {
-  "created_at": "2021-08-18T23:31:59Z",
+  "created_at": "2021-10-07T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",
@@ -194,7 +194,7 @@ When the file share expansion completes, the new value displays, and the status 
 
 ```json
 {
-  "created_at": "2021-08-18T23:31:59Z",
+  "created_at": "2021-10-07T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",
@@ -221,7 +221,6 @@ When the file share expansion completes, the new value displays, and the status 
 }
 ```
 {: codeblock}
-
 
 ## Next steps
 {: #next-step-expandable-shares}

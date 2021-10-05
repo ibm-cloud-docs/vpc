@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-10-01"
+lastupdated: "2021-10-04"
 
 keywords: file storage, virtual private cloud, file share
 
@@ -77,7 +77,7 @@ To mount a file share to an instance using the API, you create a mount target by
 ### Rename a mount target of a file share
 {: #rename-mount-target-ui}
 
-1. Navigate to the [file shares details](/docs/vpc?topic=vpc-file-storage-view) page.
+1. Navigate to the [file shares details](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-view-single-share-ui) page.
 
 2. Click the overflow menu (hellipsis).
 
@@ -92,7 +92,7 @@ Valid mount target names can include a combination of lowercase alpha-numeric ch
 
 To delete a mount target, the file share must be in a `stable` state.
 
-1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view).
+1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view#file-storage-view-shares-targets-ui).
 
 2. On the File share details page, select a mount target you want to delete.
 
@@ -189,9 +189,9 @@ Make a `PATCH /shares/$share_id` call to rename a specific file share. For examp
 
 ```
 curl -X PATCH \
-"$vpc_api_endpoint/v1/shares/$share_id?version=2021-02-15&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id?version=2021-10-04&generation=2" \
   -H "Authorization: Bearer ${API_TOKEN}" \
-  -d $'{
+  -d '{
     "name": "share-renamed1"
   }'
 ```
@@ -201,7 +201,7 @@ A successful response will look like this:
 
 ```json
 {
-  "created_at": "2021-03-31T23:31:59Z",
+  "created_at": "2021-10-07T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8",
@@ -238,10 +238,10 @@ Make a `POST /shares/{share_ID}/targets` call to create a mount target for an ex
 
 ```curl
 curl -X POST \
-"$rias_endpoint/v1/shares/$share_id/targets?version=2021-03-15&generation=2\
+"$rias_endpoint/v1/shares/$share_id/targets?version=2021-10-04&generation=2\
 -H "Authorization: $iam_token" \
 -H 'Content-Type: application/json' \
--d $'{
+-d '{
   "name": "target-name1",
   "vpc": {
     "id": 4d1c51ac-1144-4e32-af86-a0349fabc266"
@@ -254,7 +254,7 @@ A successful response will look like this:
 
 ```json
 {
-  "created_at": "2021-03-31T23:31:59Z",
+  "created_at": "2021-10-07T23:31:59Z",
   "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "lifecycle_state": "pending",
@@ -279,9 +279,9 @@ Make a `PATCH /shares/$share_id/targets/$target_id` call to rename a mount targe
 
 ```curl
 curl -X PATCH \
-"$vpc_api_endpoint/v1/shares/$share_id/targets/$target_id?version=2021-03-15&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id/targets/$target_id?version=2021-10-04&generation=2" \
   -H "Authorization: Bearer ${API_TOKEN}" \
-  -d $'{
+  -d '{
     "name": "target-renamed1"
   }
 ```
@@ -291,7 +291,7 @@ A successful response will look like this:
 
 ```json
 {
-  "created_at": "2021-03-31T23:31:59Z",
+  "created_at": "2021-10-07T23:31:59Z",
   "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "lifecycle_state": "stable",
@@ -318,7 +318,7 @@ For example:
 
 ```
 curl -X DELETE \
-"$vpc_api_endpoint/v1/shares/$share_id/targets/$target_id?version=2021-03-15&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id/targets/$target_id?version=2021-10-04&generation=2" \
   -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: pre}
@@ -329,7 +329,7 @@ For example:
 
 ```json
 {
-  "created_at": "2021-03-31T23:31:59Z",
+  "created_at": "2021-10-07T23:31:59Z",
   "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "lifecycle_state": "pending_deletion",
@@ -358,7 +358,7 @@ For example:
 
 ```
 curl -X DELETE \
-"$vpc_api_endpoint/v1/shares/$share_id?version=2021-03-15&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id?version=2021-10-04&generation=2" \
   -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: pre}
@@ -369,7 +369,7 @@ For example:
 
 ```json
 {
-  "created_at": "2021-03-31T23:31:59Z",
+  "created_at": "2021-10-07T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8",
@@ -401,10 +401,10 @@ For example:
 
 The file share is deleted in background. Confirm the deletion by trying to view the mount target information. If you get _404 Not Found_ error, the mount target is successfully deleted.
 
-## Mount and Unmount File Share from a virtual server instance
+## Mount and unmount file shares from a virtual server instance
 {: #fs-mount-unmount-vsi}
 
-To mount a file share to a virtual server instance, [locate the share mount path information](vpc?topic=vpc-file-storage-view). The mount path is created when you created mount target for a file share. See the following information for mounting on these Linux operating systems. Other Linux distributions follow similar procedures.
+To mount a file share to a virtual server instance, [locate the mount path information](vpc?topic=vpc-file-storage-view). The mount path is created when you created mount target for a file share. See the following information for mounting on these Linux operating systems. Other Linux distributions follow similar procedures.
 
 * [Mounting file shares on Red Hat Linux](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHEL)
 * [Mounting file shares in CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos)
@@ -426,16 +426,16 @@ File Storage for VPC service require IAM permissions for role-based access contr
 
 | VPC File Storage action | IAM role |
 |-----------------|----------|
-| Create file share | Administrator, editor |
+| Create a file share | Administrator, editor |
 | List all file shares | Administrator, editor, operator, viewer |
 | View file share details | Administrator, editor, operator, viewer |
-| Update file share | Administrator, editor |
-| Delete file share | Administrator, editor |
-| Create mount target | Administrator, editor |
-| List all mount target | Administrator, editor, operator, viewer |
+| Update a file share | Administrator, editor |
+| Delete a file share | Administrator, editor |
+| Create a mount target | Administrator, editor |
+| List all mount targets | Administrator, editor, operator, viewer |
 | View mount target details | Administrator, editor, operator, viewer |
-| Update mount target | Administrator, editor |
-| Delete mount target | Administrator, editor |
+| Update a mount target | Administrator, editor |
+| Delete a mount target | Administrator, editor |
 {: caption="Table 1. IAM Roles for using the file service" caption-side="top"}
 
 ## File share lifecycle states
@@ -448,8 +448,8 @@ Table 1 describes the states in the file share lifecycle.
 | Stable | The file share or mount target is stable and available for use. |
 | Pending | The file share or mount target is being created. |
 | Failed | The file share or mount target has failed creation. You can delete the failed share and try creating new one. |
-| Deleting | The share or mount target being deleted. |
-| Deleted | The share or mount target has been deleted. |
+| Deleting | The file share or mount target being deleted. |
+| Deleted | The file share or mount target has been deleted. |
 {: caption="Table 2. File storage lifecycle states" caption-side="top"}
 
 ## Next steps

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-10-01"
+lastupdated: "2021-10-04"
 
 keywords: file Storage, mounting file storage, Linux, CentOS, NFS
 
@@ -46,7 +46,7 @@ Before you begin to mount File Storage for VPC file shares, you must create a [v
 Mount path information can be obtained from the File share details page in the UI, or through an API or CLI call to get the mount target information.
 {: tip}
 
-## Mounting the file share on CentOS
+## Mount the file share on CentOS
 {: #fs-mount-CentOS}
 
 Follow these steps to mount a file share on a CentOS host. Examples are based on CentOS 8.
@@ -176,7 +176,7 @@ SSH into the virtual server instance where you want to mount the file share, the
    {: tip}
 
 
-## Implementing `no_root_squash` for NFS (optional)
+## Implement `no_root_squash` for NFS (optional)
 {: #fs-CentOS-norootsquash}
 
 By default, NFS downgrades any files that were created with the root permissions to the `nobody` user. This security feature prevents privileges from being shared unless they are requested.
@@ -204,7 +204,7 @@ For example:
 
 2. Run `nfsidmap -c`.
 
-## Unmounting the file system
+## Unmount the file system
 {: #fs-CentOS-umount}
 
 To unmount any currently mounted file system on your host, run the `umount` command with disk name or mount point name.

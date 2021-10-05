@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-10-01"
+lastupdated: "2021-10-04"
 
 keywords: file storage, virtual private cloud, file share, mount target
 
@@ -48,7 +48,7 @@ You can create file shares and mount targets either of the following ways:
 {: #file-storage-create-ui}
 {: ui}
 
-In the {{site.data.keyword.cloud_notm}} console, you can create a file shares and mount targets.
+In the {{site.data.keyword.cloud_notm}} console, you can create a file share and mount targets.
 
 ### Create a file share and mount target using the UI
 {: #fs-create-share-target-ui}
@@ -70,7 +70,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file shares an
 | Location | Choose the zone where you want to create the file share. The zones inherited from the VPC, for example, _US South 3_. |
 | Mount targets (Optional) | Click **Create** to create a new [mount target](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets) for the file share. You can create one mount target per VPC per file share. Provide a name for the mount target and select a VPC in that zone. You can add as many mount targets are you have VPCs. If you don't have one, first [create a VPC](/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc). (To use the API, see [Creating a VPC using the REST APIs](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis).) For information about creating mount targets as a separate operation, see [Create a mount target](#fs-create-mount-target-ui). |
 | Profile | Select an IOPS tier or Custom IOPS for file share. The profile you select determines the input/output performance of a file share. For more information about file storage IOPS tier and Custom profiles, see [File storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). |
-| Size | Specify the size for the file share. You can later [increase this size](/docs/vpc?topic=vpc-file-storage-expand-capacity), depending on the share profile. |
+| Size | Specify the size for the file share. You can later [increase this size](/docs/vpc?topic=vpc-file-storage-expand-capacity), depending on the file share profile. |
 | Encryption | Encryption with IBM-managed keys is enabled by default when you create a new file share.
 {: caption="Table 1. Values for creating a file share and mount target" caption-side="top"}
 
@@ -122,13 +122,13 @@ Before you run the `ibmcloud is share-create` command, you can view information 
 
 Review the following information:
 
-|     Details   |  Listing options  | What it provides  |
-| --------------------- | --------------------------------|---------------------|
-| File shares           | `ibmcloud is shares`            | List all file shares in a region. |
-| Share details           | `ibmcloud is share SHARE_ID`        | Review details of a file share. |
-| Mount targets             | `ibmcloud is share-targets SHARE_ID` | List all mount targets for a file share. |
-| Share profiles         | `ibmcloud is share-profiles`     | List all file share profiles in a region. |
-| Share profile details | `ibmcloud is share-profile PROFILE_NAME`     | List details of a file share profile. Profile names are `tier-3iops`, `tier-5iops`, `tier-10iops`, and `custom`. |
+| Details  |  Listing options  | What it provides  |
+| -------- | ------------------|-------------------|
+| File shares | `ibmcloud is shares` | List all shares in a region. |
+| File share details | `ibmcloud is share SHARE_ID`  | Review details of a share. |
+| Mount targets  | `ibmcloud is share-targets SHARE_ID` | List all mount targets for a file share. |
+| File share profiles   | `ibmcloud is share-profiles` | List all file share profiles in a region. |
+| File share profile details | `ibmcloud is share-profile PROFILE_NAME` | List details of a file share profile. Profile names are `tier-3iops`, `tier-5iops`, `tier-10iops`, and `custom`. |
 {: caption="Table 1. Details for creating file shares" caption-side="top"}
 
 ### Create a file share and add a mount target using the CLI
@@ -201,7 +201,7 @@ For example:
 curl -X POST \
 "$rias_endpoint/v1/shares?version=2021-08-18&generation=2\
 -H "Authorization: $iam_token" \
--d $'{
+-d '{
   "size": 4800,
   "name": "share-name",
   "profile": {
@@ -258,7 +258,7 @@ curl -X POST \
 "$rias_endpoint/v1/shares?version=2021-08-18&generation=2\
 -H "Authorization: $iam_token" \
 -H 'Content-Type: application/json' \
--d $'{
+-d '{
   "size": 4800,
   "targets": [
     {
@@ -337,7 +337,7 @@ curl -X POST \
 "$rias_endpoint/v1/shares/$share_id/targets?version=2021-03-15&generation=2\
 -H "Authorization: $iam_token" \
 -H 'Content-Type: application/json' \
--d $'{
+-d '{
   "name": "target-name1",
   "vpc": {
     "id": "6e01bc24-4a6e-4a0c-a1bd-4caa0c8159e7"

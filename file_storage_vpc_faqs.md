@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-10-01"
+lastupdated: "2021-10-04"
 
 keywords: file storage, virtual private cloud, file share, troubleshooting
 
@@ -21,6 +21,7 @@ subcollection: vpc
 {:preview: .preview}
 {:important: .important}
 {:screen: .screen}
+{:note: .note}
 {:support: data-reuse='support'}
 
 
@@ -83,7 +84,7 @@ For information about who to contact, see [Getting help and support](/docs/vpc?t
 {: #faq-fs-mgt-1}
 {: support}
 
-No. As a zonal shared file service, file shares that are created for a zone are accessible to instances only within that zone. For this release, File Storage for VPC is available in single zones in the Dallas (us-south), Frankfurt (eu-de), and Washington DC (us-east) regions for allow-listed IBM Cloud customer accounts. 
+No. As a zonal service, file shares that are created for a zone are accessible to instances only within that zone. For this release, File Storage for VPC is available in single zones in the Dallas (us-south), Washington DC (us-east), Frankfurt (eu-de), and London (eu-gb) regions for allow-listed IBM Cloud customer accounts. 
 
 ### Can I mount file shares for my Kube containers?
 {: faq}

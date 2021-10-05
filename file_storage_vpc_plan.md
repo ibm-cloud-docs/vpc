@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-10-01"
+lastupdated: "2021-10-04"
 
 keywords: file storage, virtual private cloud, file share, mount target
 
@@ -49,7 +49,7 @@ Consider the following prerequisites before you set up File Storage for VPC.
 |__ Evaluate how you plan to use your file shares. |
 |__ Make sure you have a unique name for your file shares that easily identify the file share as your list of file shares grows. Associate it with a resource group in your IBM Cloud customer account. |
 |__ When creating a file share, decide when to create a mount target. You can create additional mount targets separate from file share creation. |
-|__ Estimate the size of the file share you require for your current needs. You can later [increase the size of the share](/docs/vpc?topic=vpc-file-storage-expand-capacity), depending on what the file share profile allows. |
+|__ Estimate the size of the file share you require for your current needs. You can later [increase the size of the file share](/docs/vpc?topic=vpc-file-storage-expand-capacity), depending on what the file share profile allows. |
 |__ To mount a file share on a target, you must create at least one mount target. |
 |__ To create a mount target you must have a VPC. Identify an existing VPC or create a new one. |
 {: caption="Table 1. Checklist for planning file shares" caption-side="top"}

@@ -2,9 +2,9 @@
 
 copyright:
 years: 2021
-lastupdated: "2021-10-01"
+lastupdated: "2021-10-04"
 
-keywords: file storage, virtual private cloud, shares, profile
+keywords: file storage, virtual private cloud, file shares, profile
 
 subcollection: vpc
 
