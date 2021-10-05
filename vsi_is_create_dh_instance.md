@@ -39,9 +39,9 @@ When you have a dedicated host created, you can start provisioning virtual serve
 Remember that the profile family and class must match for the dedicated host or dedicated group and instances that are provisioned on them. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles).
 
 To create an instance on a dedicated host:
-1. In the [{{site.data.keyword.cloud_notm}} console]](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Dedicated hosts**. 
+1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Dedicated hosts**. 
 2. If you want to create an instance on a specific dedicated host, on the **Dedicated hosts** tab click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the host where you want the instance created and select **New instance**.
-3. If you want to create an instance on any dedicated host within a dedicated group, on the **Dedicated groups** tab click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the dedicated group where you want the instance created and select **New instance**.
+3. If you want to create an instance on any dedicated host within a dedicated group, on the **Dedicated groups** tab click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the dedicated group where you want the instance created and select **New instance**. The virtual server instance is provisioned on any dedicated host in the group that has space available.
 4. For more information, see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers). 
 
 ## Creating instances on dedicated hosts by using the CLI
