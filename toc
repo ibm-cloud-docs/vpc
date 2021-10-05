@@ -12,6 +12,7 @@ Virtual Private Cloud (VPC)
     [Pricing](https://www.ibm.com/cloud/vpc/pricing)
     about-vpc.md
     quotas.md
+    release-notes.md
 
     {: .topicgroup}
     Network
@@ -476,7 +477,6 @@ Virtual Private Cloud (VPC)
         instance_metadata_vpc_troubleshoot.md
         instance-status-messages.md
 
-    release-notes.md
     limitations.md
     known-issues.md
     errors.md
