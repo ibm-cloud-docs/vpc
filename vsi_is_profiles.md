@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-09-21"
+lastupdated: "2021-10-05"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, generation 2, gen 2
 
@@ -248,7 +248,7 @@ Profiles with 64 or more vCPUs are deployed exclusively on the second-generation
 
 Very High Memory profiles offer 1 vCPU to 14 GiB of RAM to server OLAP databases, such as SAP NetWeaver. All Very High Memory profiles are provisioned with temporary SSD-backed [instance storage](/docs/vpc?topic=vpc-instance-storage) at no additional charge.
 
-Very High Memory profiles are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), EU Germany (Frankfurt), and Japan (Tokyo) regions. Additional regions will be added.
+Very High Memory profiles are available in the US South (Dallas), US East (Washington DC), United Kingdom (London), Canada (Toronto), EU Germany (Frankfurt), and Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions. Additional regions will be added.
 {: note}
 
 {: #callout-note}
