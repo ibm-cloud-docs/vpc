@@ -45,6 +45,8 @@ All the bare metal servers that are created in the Beta period are reclaimed whe
 
 {{site.data.keyword.bm_is_short}} are single-tenant physical servers that provide you performance and control with low-level access to the hardware resources. Your server isn’t shared with “noisy neighbors,” it’s all yours!
 
+* **Advanced CPU microarchitecture**: {{site.data.keyword.bm_is_short}} on {{site.data.keyword.vpc_full}} use 2nd Generation Intel&reg; Xeon&reg; Platinum 8260 Processors. Intel Xeon 8260 processors are optimized for cloud enterprise applications, HPC workloads, IoT workloads, with enhanced networking and security.
+
 * **VMware-specific**:   VMware ESXi is installed automatically during provisioning. After you provision a server, you can configure vCenter Server, vSAN, and NSX-T. 
 
 * **Support for all native VPC functionality**: Your bare metal server uses SmartNIC to support all VPC network capabilities. The VMware instances that are created on the bare metal server can connect with {{site.data.keyword.cloud}} virtual server instances if they are in the same VPC. {{site.data.keyword.bm_is_short}} enables extra network capability compared to virtual server instances to support multiple VMware's technologies. For example, vMotion (for live migration of instances), IP Failover, and VMware's VM Scheduler.
