@@ -66,6 +66,7 @@ To create and configure {{site.data.keyword.nlb_full}} with route mode using the
 
    You cannot modify the configuration of a route mode NLB after it finishes provisioning. 
    {: important}
+
 1. Click **New Pool** and specify the following information to create a back-end pool. 
    * Type a name for the pool, such as `my-pool`.
    * Enter a protocol for your instances in this pool. The protocol of the pool must match the protocol of its associated listener. For example, if the listener is TCP, the protocol of the pool must be TCP.
@@ -104,21 +105,21 @@ To create a network load balancer using the CLI, follow these steps:
 
 1. Log in to your account using the CLI. After you enter the password, the system prompts which account and region that you want to use:
 
-   ```
+   ```sh
    ibmcloud login --sso
    ```
    {: pre}
 
 1. Create a load balancer:
 
-   ```
+   ```sh
    ibmcloud is load-balancer-create nlb-test public --subnet 0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c --family network --route-mode true
    ```
    {: pre}
 
    Sample output:
 
-   ```
+   ```sh
    Creating load balancer vnf under account CNS Development Account - netsvs as user ibm@us.ibm.com...
 
    ID                          r014-c7cadd8e-9e8b-4965-bee3-5d9ff95b3512
@@ -148,14 +149,14 @@ To create a network load balancer using the CLI, follow these steps:
 
 1. Wait until the NLB is in an active state, then run the following command;
 
-   ```
+   ```sh
    ibmcloud is load-balancer r014-c7cadd8e-9e8b-4965-bee3-5d9ff95b3512 
    ```
    {: pre}
    
    Sample output:
    
-   ```
+   ```sh
    Getting load balancer r014-c7cadd8e-9e8b-4965-bee3-5d9ff95b3512 under account CNS Development Account - netsvs as user ibm@us.ibm.com...
    
    ID                          r014-c7cadd8e-9e8b-4965-bee3-5d9ff95b3512
@@ -187,14 +188,14 @@ To create a network load balancer using the CLI, follow these steps:
 
 1. Add a pool.
    
-   ```
+   ```sh
    ibmcloud is load-balancer-pool-create example-pool r014-c7cadd8e-9e8b-4965-bee3-5d9ff95b3512 round_robin tcp 20 2 5 tcp  
    ```
    {: pre}
    
    Sample output:
    
-   ```
+   ```sh
    Creating pool example-pool of load balancer r014-c7cadd8e-9e8b-4965-bee3-5d9ff95b3512 under account CNS Development Account - netsvs as user ibm@us.ibm.com
    
    ID                    r014-474dca7d-aece-48a3-a636-fe8c3e654a3b
@@ -219,14 +220,14 @@ To create a network load balancer using the CLI, follow these steps:
    
 1. Add a member.
 
-   ```
+   ```sh
    ibmcloud is load-balancer-pool-member-create r014-c7cadd8e-9e8b-4965-bee3-5d9ff95b3512 r014-474dca7d-aece-48a3-a636-fe8c3e654a3b 200 0767_5545cfb3-febc-4f09-b9ea-0aeb66074edf
    ```
    {: pre}
 
    Sample output:
 
-   ```
+   ```sh
    Creating member of pool r014-474dca7d-aece-48a3-a636-fe8c3e654a3b under account CNS Development Account - netsvs as user ibm@us.ibm.com...
    
    ID                 r014-1fdb900f-81a4-4204-839a-fcdee6c28e8a
@@ -236,6 +237,298 @@ To create a network load balancer using the CLI, follow these steps:
    Health             unknown
    Created            2021-09-14T19:27:11.077-05:00
    Provision status   create_pending
+   ```
+   {: screen}
+
+## Creating a route mode network load balancer using the API
+{: #nlb-vnf-api}
+{: api}
+
+To create a network load balancer by using the API, follow these steps:
+
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
+1. Create your API request payload using the following template. Modify the name and subnet with your own values.
+
+   ```sh
+   {
+      "name": "nlb-vnf",
+      "is_public": false,
+      "profile": {
+         "name": "network-fixed"
+         },
+      "route_mode": true,
+      "subnets": [
+         {
+      "id": "0767-064498f3-4df5-4fa5-b2ed-de5a3bfea024"
+         }
+       ]
+   }
+   ```
+   {: pre}
+   
+   Save this payload to a JSON file. In the following examples, the file is named `create.json`.
+
+1. Make the request to create your NLB with the following command.
+ 
+   The following properties must be set in the payload: 
+
+      - `route_mode` is `true`
+      - `is_public` is `false`
+      - Profile name is `network_fixed`
+      {: important}
+
+   ```sh
+   curl -s -H "Authorization: Bearer $IAM_TOKEN" -X POST -d @create.json "https://us-east.iaas.cloud.ibm.com/v1/load_balancers?version=2021-07-30&generation=2" | jq
+   ```
+   {: pre}
+
+   Sample output:
+   
+   ```sh
+   {
+     "id": "r014-020f4f34-bb49-4699-98a7-a53384cd649d",
+     "name": "nlb-vnf",
+     "href": "https://us-east.iaas.cloud.ibm.com/v1/load_balancers/r014-020f4f34-bb49-4699-98a7-a53384cd649d",
+     "crn": "crn:v1:bluemix:public:is:us-east-2:a/be636a7a6e4d4b6296bedf669ce8f757::load-balancer:r014-020f4f34-bb49-4699-98a7-a53384cd649d",
+     "is_public": false,
+     "created_at": "2021-09-14T21:45:06.377862525Z",
+     "hostname": "020f4f34-us-east.lb.appdomain.cloud",
+     "listeners": [],
+     "operating_status": "offline",
+     "pools": [],
+     "private_ips": [],
+     "provisioning_status": "create_pending",
+     "public_ips": [],
+     "subnets": [
+       {
+         "id": "0767-064498f3-4df5-4fa5-b2ed-de5a3bfea024",
+         "href": "https://us-east.iaas.cloud.ibm.com/v1/subnets/0767-064498f3-4df5-4fa5-b2ed-de5a3bfea024",
+         "crn": "crn:v1:bluemix:public:is:us-east-2:a/be636a7a6e4d4b6296bedf669ce8f757::subnet:0767-064498f3-4df5-4fa5-b2ed-de5a3bfea024",
+         "name": "nlb-subnet"
+       }
+     ],
+     "resource_group": {
+       "id": "42c4f51adc3147b4b4049ad9826c30a1",
+       "href": "https://resource-controller.cloud.ibm.com/v1/resource_groups/42c4f51adc3147b4b4049ad9826c30a1",
+       "name": "Default"
+     },
+     "resource_type": "load_balancer",
+     "logging": {
+       "datapath": {
+         "active": false
+       }
+     },
+     "profile": {
+       "href": "https://us-east.iaas.cloud.ibm.com/v1/load_balancer/profiles/network-fixed",
+       "name": "network-fixed",
+       "family": "Network"
+     },
+     "security_groups": [],
+     "security_group_supported": false,
+     "route_mode": true
+   }
+   ```
+   {: screen}
+
+1. After the NLB is in an active state, perform a `GET` call to fetch its status.
+
+   ```sh
+   curl -s -H "Authorization: Bearer $IAM_TOKEN" -X GET "https://us-east.iaas.cloud.ibm.com/v1/load_balancers/r014-020f4f34-bb49-4699-98a7-a53384cd649d?version=2021-07-30&generation=2" | jq
+   ```
+   {: pre}
+
+   Sample output:
+   
+   ```sh
+   {
+     "id": "r014-020f4f34-bb49-4699-98a7-a53384cd649d",
+     "name": "nlb-vnf",
+     "href": "https://us-east.iaas.cloud.ibm.com/v1/load_balancers/r014-020f4f34-bb49-4699-98a7-a53384cd649d",
+     "crn": "crn:v1:bluemix:public:is:us-east-2:a/be636a7a6e4d4b6296bedf669ce8f757::load-balancer:r014-020f4f34-bb49-4699-98a7-a53384cd649d",
+     "is_public": false,
+     "created_at": "2021-09-14T21:45:06.377863Z",
+     "hostname": "020f4f34-us-east.lb.appdomain.cloud",
+     "listeners": [],
+     "operating_status": "online",
+     "pools": [],
+     "private_ips": [
+       {
+          "address": "10.241.64.13"
+       },
+       {
+          "address": "10.241.64.14"
+       }
+    ],
+     "provisioning_status": "active",
+     "public_ips": [],
+     "subnets": [
+        {
+          "id": "0767-064498f3-4df5-4fa5-b2ed-de5a3bfea024",
+          "href": "https://us-east.iaas.cloud.ibm.com/v1/subnets/0767-064498f3-4df5-4fa5-b2ed-de5a3bfea024",
+          "crn": "crn:v1:bluemix:public:is:us-east-2:a/be636a7a6e4d4b6296bedf669ce8f757::subnet:0767-064498f3-4df5-4fa5-b2ed-de5a3bfea024",
+          "name": "nlb-subnet"
+        }
+     ],
+     "resource_group": {
+       "id": "42c4f51adc3147b4b4049ad9826c30a1",
+       "href": "https://resource-controller.cloud.ibm.com/v1/resource_groups/42c4f51adc3147b4b4049ad9826c30a1",
+       "name": "Default"
+    },
+     "resource_type": "load_balancer",
+     "logging": {
+        "datapath": {
+        "active": false
+       }
+     },
+     "profile": {
+       "href": "https://us-east.iaas.cloud.ibm.com/v1/load_balancer/profiles/network-fixed",
+       "name": "network-fixed",
+       "family": "Network"
+     },
+     "security_groups": [],
+     "security_group_supported": false,
+     "route_mode": true
+   }
+   ```
+   {: screen}
+   
+   Note the first IP address listed in `Private IPs`. You require this when you define the custom routes. 
+
+1. Add a pool.
+
+   First, create your API request payload using the following template. 
+
+   ```sh
+   {
+     "algorithm": "round_robin",
+     "protocol": "tcp",
+     "health_monitor": {
+       "delay": 10,
+       "max_retries": 2,
+       "timeout": 5,
+       "type": "tcp"
+    }
+   }
+   ```
+   {: pre}
+
+   Then, run the following command:
+
+   ```sh
+   curl -s -H "Authorization: Bearer $IAM_TOKEN" -X POST -d @create.json "https://us-east.iaas.cloud.ibm.com/v1/load_balancers/r014-020f4f34-bb49-4699-98a7-a53384cd649d/pools?version=2021-07-30&generation=2" | jq
+   ```
+   {: pre}
+
+   Sample output:
+
+   ```sh
+   {
+     "id": "r014-0b8f4cde-4684-484b-bd3c-64f55a917328",
+     "name": "flashbulb-marvelous-gainfully-skydiver",
+     "href": "https://us-east.iaas.cloud.ibm.com/v1/load_balancers/r014-020f4f34-bb49-4699-98a7-a53384cd649d/pools/r014-0b8f4cde-4684-484b-bd3c-64f55a917328",
+     "algorithm": "round_robin",
+     "health_monitor": {
+     "delay": 10,
+     "max_retries": 2,
+       "timeout": 5,
+       "type": "tcp"
+     },
+     "protocol": "tcp",
+     "created_at": "2021-09-14T21:56:08.202217034Z",
+     "provisioning_status": "active",
+     "proxy_protocol": "disabled"
+   }
+   ```
+   {: screen}
+
+1. Wait until the NLB is in an active state, then add a listener. 
+
+   The port range for the listener must be defined as follows: 
+   - `port_min` is `1` 
+   - `port_max` is `65535`
+
+   Create an API request payload using the following template:
+
+   ```sh
+   {
+     "default_pool": {
+       "id": "r014-0b8f4cde-4684-484b-bd3c-64f55a917328"
+     },
+     "port_min": 1,
+     "port_max": 65535,
+     "protocol": "tcp"
+   }
+   ```
+   {: pre}
+
+   Run the following command:
+
+   ```sh
+   curl -s -H "Authorization: Bearer $IAM_TOKEN" -X POST -d @create_vnf.json "https://us-east.iaas.cloud.ibm.com/v1/load_balancers/r014-020f4f34-bb49-4699-98a7-a53384cd649d/listeners?version=2021-07-30&generation=2" | jq
+   ```
+   {: pre}
+
+   Sample output:
+   
+   ```sh
+   {
+     "id": "r014-0ce87b15-9530-4624-a574-92495631f75d",
+     "href": "https://us-east.iaas.cloud.ibm.com/v1/load_balancers/r014-020f4f34-bb49-4699-98a7-a53384cd649d/listeners/r014-0ce87b15-9530-4624-a574-92495631f75d",
+     "protocol": "tcp",
+     "port": 1,
+     "port_min": 1,
+     "port_max": 65535,
+     "default_pool": {
+       "id": "r014-0b8f4cde-4684-484b-bd3c-64f55a917328",
+       "href": "https://us-east.iaas.cloud.ibm.com/v1/load_balancers/r014-020f4f34-bb49-4699-98a7-a53384cd649d/pools/r014-0b8f4cde-4684-484b-bd3c-64f55a917328",
+       "name": "flashbulb-marvelous-gainfully-skydiver"
+     },
+     "provisioning_status": "create_pending",
+     "created_at": "2021-09-14T22:01:13.523172702Z",
+     "accept_proxy_protocol": false,
+     "https_redirect": null
+   }
+   ```
+   {: screen}
+
+1. Add the pool member.
+
+   First, create an API request payload using the following template:
+
+   ```sh
+   {
+     "port": 90,
+     "target": {
+       "id": "0767_5545cfb3-febc-4f09-b9ea-0aeb66074edf"
+     }
+   }
+   ```
+   {: pre}
+
+   Then run the following command:
+
+   ```sh
+   curl -s -H "Authorization: Bearer $IAM_TOKEN" -X POST -d @add_member.json "https://us-east.iaas.cloud.ibm.com/v1/load_balancers/r014-020f4f34-bb49-4699-98a7-a53384cd649d/pools/r014-0b8f4cde-4684-484b-bd3c-64f55a917328/members?version=2021-07-30&generation=2" | jq
+   ```
+   {: pre}
+
+   Sample output:
+   
+   ```sh
+   {
+     "id": "r014-c625efe0-6f69-4ae7-a2ef-9bf33c811a2c",
+     "href": "https://us-east.iaas.cloud.ibm.com/v1/load_balancers/r014-020f4f34-bb49-4699-98a7-a53384cd649d/pools/r014-0b8f4cde-4684-484b-bd3c-64f55a917328/members/r014-c625efe0-6f69-4ae7-a2ef-9bf33c811a2c",
+     "port": 90,
+     "target": {
+       "id": "0767_5545cfb3-febc-4f09-b9ea-0aeb66074edf",
+       "href": "https://us-east.iaas.cloud.ibm.com/v1/instances/0767_5545cfb3-febc-4f09-b9ea-0aeb66074edf",
+       "crn": "crn:v1:bluemix:public:is:us-east-2:a/be636a7a6e4d4b6296bedf669ce8f757::instance:0767_5545cfb3-febc-4f09-b9ea-0aeb66074edf"
+     }, 
+     "weight": 50,
+     "health": "unknown",
+     "created_at": "2021-09-14T22:07:46.898295306Z",
+     "provisioning_status": "create_pending"
+   }
    ```
    {: screen}
 
