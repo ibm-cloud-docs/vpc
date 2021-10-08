@@ -33,11 +33,12 @@ Did you know that your can also create a custom image of a boot volume attached 
 {: tip}
 
 Your image must adhere to the following custom image requirements:
-* Contains a single file or volume, qcow2 or VHD format
-* Is cloud-init enabled
-* The operating system is supported as a stock image operating system
-* Size doesn't exceed 250 GB
-* Size isn't below 10 GB, Images below 10 GB are rounded up to 10 GB
+* Contains a single file or volume in qcow2 or VHD format.
+* Is cloud-init enabled.
+* The operating system is supported as a stock image operating system.
+* The image is configured to use BIOS boot mode. UEFI boot mode is not supported in {{site.data.keyword.vpc_short}}. 
+* Image size doesn't exceed 250 GB.
+* Image size isn't below 10 GB. Images below 10 GB are rounded up to 10 GB.
 
 Complete the following steps to ensure that your own Linux custom image can be successfully deployed in the
 {{site.data.keyword.vpc_short}} infrastructure environment.
