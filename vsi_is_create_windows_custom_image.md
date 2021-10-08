@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-20"
+lastupdated: "2021-10-07"
 
 keywords: creating a Windows custom image, cloudbase-init, qcow2
 
@@ -40,6 +40,7 @@ Your image must adhere to the following custom image requirements:
 * Contains a single file or volume
 * Is cloud-init enabled
 * The operating system is supported as a stock image operating system
+* The image is configured to use BIOS boot mode. UEFI boot mode is not supported in {{site.data.keyword.vpc_short}}. 
 * The min/max volume size is 10 GB to 250 GB, images below 10 GB are rounded up to 10 GB
 
 You cannot create an image from an encrypted boot volume (Image from a volume feature) that is not 100GB.  The operation will be blocked.
