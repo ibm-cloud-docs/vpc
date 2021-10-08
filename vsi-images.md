@@ -57,7 +57,7 @@ The following operating systems are available as stock images when you create a 
 
 When you order an instance, the images are cloud-init enabled to optimize creation times. With a cloud-init enabled image, you can provide user data. In the **User Data** field on the order form, you can enter optional cloud-init user data for the server. For more information about user data and automation, see [User data](/docs/vpc?topic=vpc-user-data).
 
-You can access details about each operating system, such as the url for the operating system, by using the API call, [Retrieves all operating systems](https://cloud.ibm.com/apidocs/vpc#retrieves-all-operating-systems){: external}.  
+You can access details about each operating system, such as the url for the operating system, by using the API call, [List all operating systems](https://cloud.ibm.com/apidocs/vpc#list-operating-systems){: external}.  
 {: tip}
 
 ### Stock image naming conventions
