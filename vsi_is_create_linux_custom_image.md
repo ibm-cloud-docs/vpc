@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-20"
+lastupdated: "2021-10-08"
 
 keywords: creating a linux custom image for vpc, cloud-init, qcow2, vhd
 
@@ -36,7 +36,7 @@ Your image must adhere to the following custom image requirements:
 * Contains a single file or volume in qcow2 or VHD format.
 * Is cloud-init enabled.
 * The operating system is supported as a stock image operating system.
-* The image is configured to use BIOS boot mode. UEFI boot mode is not supported in {{site.data.keyword.vpc_short}}. 
+* The image is configured to use BIOS boot mode. UEFI boot mode is not supported. 
 * Image size doesn't exceed 250 GB.
 * Image size isn't below 10 GB. Images below 10 GB are rounded up to 10 GB.
 
@@ -118,6 +118,9 @@ Make sure that your image is cloud-init enabled. Cloud-init version 0.7.9 or gre
 3. If the `datasources_list` property exists in */etc/cloud/cloud.cfg*, verify that it contains `ConfigDrive` and `NoCloud` or remove the `datasources_list` property entirely. For more information about data sources, see [Data sources](http://cloudinit.readthedocs.io/en/latest/topics/datasources.html){: external}. {{site.data.keyword.cloud_notm}} cloud-init images are created for the environment by using the [NoCloud](https://cloudinit.readthedocs.io/en/latest/topics/datasources/nocloud.html){: external} data source to supply the metadata.
 
 4. In the */etc/cloud/cloud.cfg* file, verify that the `cloud_final_modules` section includes the `scripts-vendor` module and that it is enabled. By default, Red Hat Enterprise Linux and CentOS do not include the `scripts-vendor` module that is required to provision instances in the {{site.data.keyword.vpc_short}} infrastructure.
+
+    For Red Hat Enterprise Linux images, make sure that these services are enabled: `cloud-init-local.service`, `cloud-init.service`, `cloud-config.service`, `cloud-final.service`.
+    {: note}
 
 5.  Make sure to configure your image to use SSH for logging in to your virtual server instance.
 
