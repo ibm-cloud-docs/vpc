@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2021
 lastupdated: "2021-07-21"
 
-keywords: user data
+keywords: user data, virtual server username
 
 subcollection: vpc
 
@@ -24,7 +24,7 @@ subcollection: vpc
 {: #user-data}
 [comment]: # (linked help topic)
 
-When you create an {{site.data.keyword.vsi_is_full}} instance, you can specify optional user data that automatically performs common configuration tasks or runs scripts. 
+When you create an {{site.data.keyword.vsi_is_full}} instance, you can specify optional user data that automatically performs common configuration tasks or runs scripts. For more information about user data and usernames, see [IAM access](/docs/account?topic=account-userroles)
 {: shortdesc}
 
 VPC uses Cloud-init technology to configure virtual server instances. The **User Data** field on the *New virtual server for VPC* page allows users to put in custom configuration options by using cloud-init. Cloud-init supports several formats for configuration data, including yaml in a cloud-config file.
@@ -40,25 +40,26 @@ The size limit of the **User Data** field (or file) is 64 K bytes.
 ### Adding a user and SSH key
 The following cloud-init example shows how a Linux user can add a user and provide the user with an authorized SSH key. The **Name** field has the public key that is added to `~/.ssh/authorized_keys`. 
 
-   ```
-   #cloud-config
-   users:
-     - name: demouser
-       gecos: Demo User
-       sudo: ALL=(ALL) NOPASSWD:ALL
-       groups: users, admin
-       ssh_import_id: None
-       lock_passwd: true
-       ssh_authorized_keys:
-           - <ssh public key>
-   ```
-   {: codeblock}
+```
+#cloud-config
+users:
+  - name: demouser
+    gecos: Demo User
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, admin
+    ssh_import_id: None
+    lock_passwd: true
+    ssh_authorized_keys:
+        - <ssh public key>
+```
+{: codeblock}
 
 The following shell script example shows how a Linux user can add an SSH key for the current user.
 
-<pre class="codeblock"><code class="hljs">#!/bin/sh
+```
+hljs">#!/bin/sh
 echo &lt;sshKey&gt; &gt; ~/.ssh/authorized_keys
-</code></pre>
+```
 
 You can paste one of these examples directly into the **User Data** field. The user data is then available to the virtual server instance during provisioning.
 
