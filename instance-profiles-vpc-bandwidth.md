@@ -88,7 +88,7 @@ For example, if you choose a profile with 16 vCPUs, the bandwidth cap for the pr
 
 For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
 
-<!-- Do we want to communicate this?
+<!-- Do we want to communicate this?-->
 <!-- The 2Gbps per-vCPU is a maximum allocation for an instance. The actual allocation of networking bandwidth to an instance is determined by the number of attached vNICs. The maximum allocation for each vNIC is provided on the instance profile and for all existing profiles is 16Gb/s. This means that if only 1 vNIC is attached at-most 16Gb/s is allocated to the instance. -->
 
 ## Next steps
