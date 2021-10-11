@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-14"
+lastupdated: "2021-10-11"
 
 keywords: bare metal server storage, storage, bare metal storage
 
@@ -36,7 +36,7 @@ Bare Metal Servers on VPC is a Beta feature that requires special approval. Cont
 All profiles of Bare Metal Servers for VPC provide one 0.96 TB SATA M.2 mirrored SSD as the boot disk. Profile `bx2d-metal-192x768` provides an extra set of NVMe (Non-Volatile Memory Express) U.2 solid-state drives (SSD) as secondary local storage. NVMe SSDs provides fast and affordable storage to support options such as VMware vSAN, or customer-managed RAID. 
 {: shortdesc}
 
-Bare Metal Servers for VPC provides unmanaged storage solution. You are responsible for managing (such as backing up, encrypting) the storage.
+Storage for Bare Metal Servers for VPC is unmanaged. You are responsible for encryption and backing up your data.
 {: important}
 <!--The total size of the NVMe SSD set varies depending on the profile you select. The NVMe drives are empty by default.-->
 
