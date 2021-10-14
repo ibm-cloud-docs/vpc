@@ -51,7 +51,7 @@ The following profile families are available:
 | [GPU](#gpu) | GPU enabled profiles provide on-demand access to NVIDIA V100 GPUs to accelerate AI,high performance computing, data science and graphics workloads. |
 {: caption="Table 1. Virtual server family selections" caption-side="top"}
 
-Profiles with instance storage are deployed exclusively on the second-generation Intel&reg; Xeon&reg; Platinum 8272 (Cascade Lake) running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz. 
+Profiles with instance storage are deployed exclusively on the second-generation Intel&reg; Xeon&reg; Platinum 8272 (Cascade Lake) running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz.
 {: note}
 
 ## Bandwidth allocation using the UI
@@ -133,6 +133,9 @@ The following Balanced profiles are available for x86_64 processors:
 
 The following Balanced profiles are available for LinuxONE (s390x processor architecture):
 
+LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Tokyo region.”
+{: preview}
+
 | Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|
 | bz2-1x2 | 1 | 2 | 2 | - |
@@ -182,6 +185,9 @@ The following Compute profiles are available for instances with x86_64 processor
 
 The following Compute profiles are available for LinuxONE (s390x processor architecture):
 
+LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Tokyo region.”
+{: preview}
+
 | Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|
 | cz2-2x4 | 2 | 4 | 2 | - |
@@ -228,6 +234,9 @@ The following memory profiles are available for instances with x86_64 processors
 {: #memory-s390x-profiles}
 
 The following Memory profiles are available for LinuxONE (s390x processor architecture):
+
+LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Tokyo region.”
+{: preview}
 
 | Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|
