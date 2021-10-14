@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-10-05"
+lastupdated: "2021-10-14"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, generation 2, gen 2
 
@@ -133,7 +133,7 @@ The following Balanced profiles are available for x86_64 processors:
 
 The following Balanced profiles are available for LinuxONE (s390x processor architecture):
 
-LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Tokyo region.”
+LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Tokyo region.
 {: preview}
 
 | Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
@@ -185,7 +185,7 @@ The following Compute profiles are available for instances with x86_64 processor
 
 The following Compute profiles are available for LinuxONE (s390x processor architecture):
 
-LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Tokyo region.”
+LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Tokyo region.
 {: preview}
 
 | Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
@@ -235,7 +235,7 @@ The following memory profiles are available for instances with x86_64 processors
 
 The following Memory profiles are available for LinuxONE (s390x processor architecture):
 
-LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Tokyo region.”
+LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Tokyo region.
 {: preview}
 
 | Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
