@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019 - 2021
-lastupdated: "2021-07-19"
+lastupdated: "2021-08-25"
 
 keywords: block storage, virtual private cloud, volume, profile, volume profile, data storage, storage profile, virtual server instance, instance
 
@@ -18,6 +18,7 @@ subcollection: vpc
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
 {:note: .note}
+{:beta: .beta}
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
@@ -26,9 +27,9 @@ subcollection: vpc
 {: #block-storage-profiles}
 
 When you provision {{site.data.keyword.block_storage_is_short}} data volumes by using the {{site.data.keyword.cloud_notm}} console, CLI, or API, you specify an IOPS profile that best meets your storage requirements. Profiles are available as three predefined IOPS tiers or as custom IOPS. IOPS tiers provide reliable IOPS/GB performance for volumes up to 16,000 GB capacity. You can also specify a custom IOPS profile and define volume capacity and IOPS within a range.
-{:shortdesc}
+{: shortdesc}
 
-IOPS is based on a 16 KB block size with a 50-50 read/write random workload. Each 16 KB of data read/written counts as one read/write operation; a single write of less than 16 KB counts as a single write operation. Baseline throughput is determined by the amount of IOPS multiplied by the 16 KB block size. For more information, see [How block size affects performance](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
+IOPS is are based on either a 16 KB (for the 3 GB/ IOPS and 5 GB/IOPS tiers) or 256 KB block size (for the 10 GB/IOPS tier) with a 50-50 read/write random workload. Each 16/256 KB of data read/written counts as one read/write operation; a single write of less than 16/256 KB counts as a single write operation. Baseline throughput is determined by the amount of IOPS multiplied by the 16 KB block size. For more information, see [How block size affects performance](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
 
 ## IOPS tiers
 {: #tiers}
@@ -41,7 +42,7 @@ Choose the profile that provides optimal performance for your compute workloads.
 |-----------|----------|-------------|--------------|
 | 3 IOPS/GB | General-purpose workloads - Workloads that host small databases for web applications or store virtual machine disk images for a hypervisor | 10 GB to 16,000 GB |  48,000 IOPS |
 | 5 IOPS/GB | High I/O intensity workloads - Workloads characterized by a large percentage of active data, such as transactional and other performance-sensitive databases| 10 GB to 9,600 GB | 48,000 IOPS|
-| 10 IOPS/GB | Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics | 10 GB to 4,800 GB | 48,000 IOPS |
+| 10 IOPS/GB | Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics. Bandwidth limits are calculated using a 256 KB block size. | 10 GB to 4,800 GB | 48,000 IOPS |
 {: caption="Table 1. IOPS tier profiles and performance levels for each tier" caption-side="top"}
 
 ## Custom IOPS profile
@@ -106,7 +107,7 @@ You can view available IOPS profiles the {{site.data.keyword.cloud_notm}} consol
 ```
 $ ibmcloud is volume-profiles
 ```
-{:codeblock}
+{: codeblock}
 
 ### Using the API
 {: #using-api-iops-profiles}
@@ -119,9 +120,13 @@ curl -X GET \
 $vpc_api_endpoint/v1/volume/profiles?$api_version&generation=2 \
 -H "Authorization: $iam_token"
 ```
-{:codeblock}
+{: codeblock}
 
-## Related Information
-{: #related-profile-info}
+## Next Steps
+{: #profile-next-steps}
 
-For information about Balanced, Compute, and Memory profiles for {{site.data.keyword.vsi_is_short}}, see [Profiles](/docs/vpc?topic=vpc-profiles).
+To expand volume capacity, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
+
+To [change the IOPS tier or Custom IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) for an existing volume attached to a virtual server instance.
+
+For more information about Balanced, Compute, and Memory profiles for {{site.data.keyword.vsi_is_short}}, see [Profiles](/docs/vpc?topic=vpc-profiles).

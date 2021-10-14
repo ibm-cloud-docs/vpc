@@ -29,10 +29,10 @@ subcollection: vpc
 {: #creating-instances-byok}
 
 You can create virtual servers for {{site.data.keyword.vpc_short}} that use your own encryption keys to protect data in the block storage volumes that are attached to your instance. When you provision an instance, you can specify customer-managed encryption for the boot and data volumes. Customer-managed encryption uses your customer root key, giving you complete control over your data. You can import your root key to a key management service (KMS) or create one in a KMS.  Customer-managed encryption protects your data while in transit and while at rest. For added security, enable the secure import of your root keys by using import tokens.
-{:shortdesc}
+{: shortdesc}
 
 Before you can create an instance, you need to [create an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
-{:important}
+{: important}
 
 ## Before you begin
 {: #custom-managed-vol-prereqs}
@@ -97,7 +97,7 @@ Obtain the ID of the key management service instance and the CRN of the root key
    Key Protect-17   us-south   active   service_instance
    Key Protect-60   us-south   active   service_instance
    ```
-   {:screen}
+   {: screen}
     
 3. Retrieve the instance ID for the {{site.data.keyword.keymanagementserviceshort}} service instance where your customer root keys are stored. `Key Protect-17` is the name of the {{site.data.keyword.keymanagementserviceshort}} service instance.
 
@@ -114,7 +114,7 @@ Obtain the ID of the key management service instance and the CRN of the root key
    crn:v1:bluemix:public:kms:us-south:a/abxx1c2xxxx34x567xxdex891xxx23fx:xxx4g5xx-6789-x1h2-
    ixxx-3jkl4xxxx567::7mnxxxo8-91xx-23px-q4rs-xxtuv5w6xxx7
    ```
-   {:screen}
+   {: screen}
        
    The instance ID is the string that follows the final `::` in the CRN. In this example, it's `7mnxxxo8-91xx-23px-q4rs-xxtuv5w6xxx7`.
     
@@ -142,7 +142,7 @@ Obtain the ID of the key management service instance and the CRN of the root key
    kms:us-south:a/abxx1c2xxxx34x567xxdex891xxx23fx:xxx4g5xx-6789-x1h2-ixxx-3jkl4xxxx567:
    key:c12xxxx3-45d6-7efg-xxx8-9xxx12345x6h
    ```
-   {:screen}
+   {: screen}
 
 ### Step 2 - Specify customer-managed encryption for boot and data volumes in JSON format
 {: #vsi-vol-attach-byok-json}
@@ -172,7 +172,7 @@ This example defines the data in a boot volume JSON file. The `encryption key` p
    "delete_volume_on_instance_delete":true
 }
 ```
-{:codeblock}
+{: codeblock}
 
 #### Example secondary volume JSON file
 {: #secondary-vol-byok-json}
@@ -195,7 +195,7 @@ This example defines two general-purpose secondary (data) volumes with customer-
       "delete_volume_on_instance_delete":true
    }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Step 3 - Create a new instance with customer-managed encrypted volumes from the CLI
 {: #procedure-byok-cli}
@@ -206,7 +206,7 @@ Use the [ibmcloud is instance-create](/docs/vpc?topic=vpc-infrastructure-cli-plu
 ```
 ibmcloud is instance-create INSTANCE_NAME VPC ZONE_NAME PROFILE_NAME SUBNET --image-id IMAGE_ID [--boot-volume @BOOT_VOLUME_JSON_FILE] [--volume-attach @VOLUME_ATTACH_JSON_FILE]...
 ```
-{:pre}
+{: pre}
 
 ## Provisioning instances with customer-managed encryption data volumes with the API
 {: #provision-byok-api}
@@ -285,7 +285,7 @@ curl -X POST \
         }
     }'
 ```
-{:codeblock}
+{: codeblock}
 
 A successful response will look like this. Note that the boot volume appears under both `boot_volume_attachment` and `volume_attachment`.
 
@@ -424,7 +424,7 @@ A successful response will look like this. Note that the boot volume appears und
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Next steps
 {: #next-steps-creating-byok-instances}

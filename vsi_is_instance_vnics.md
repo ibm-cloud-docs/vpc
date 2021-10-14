@@ -23,7 +23,7 @@ subcollection: vpc
 {: #using-instance-vnics}
 
 After you've created a virtual server instance, you can add new network interfaces or edit the interfaces that are already associated with the instance. When you edit a network interface, you can change its name, associate or unassociate a floating IP address, or access the security group associated with an interface.  
-{:shortdesc}
+{: shortdesc}
 
 ## About network interfaces
 {: #about-network-interfaces}
@@ -103,13 +103,13 @@ Here is the virtual server setup:
 
 * There are two virtual servers (`Virtual-server-1` and `Virtual-server-2`) where both virtual servers belong to the same VPC.
 * Each virtual server has two interfaces from two subnets:
-  * _Virtual-server-1_ has interface `eth0` from `net_1_0`, and interface `eth1` from `net_1_1`.
-  * _Virtual-server-2_ has interface `eth0` from `net_2_0`, and interface `eth1` from `net_2_1`.
+    * _Virtual-server-1_ has interface `eth0` from `net_1_0`, and interface `eth1` from `net_1_1`.
+    * _Virtual-server-2_ has interface `eth0` from `net_2_0`, and interface `eth1` from `net_2_1`.
 * Each virtual server's `net_*_0` is set up with a default route.
 * Each subnet's gateway IP and CIDR are known.
 
-   Alphabetic names are used here. The real gateway ID would be similar to `192.168.100.1`, the CIDR `192.168.100.0/24`, and the IP address `192.168.100.6`.
-   {: note}
+    Alphabetic names are used here. The real gateway ID would be similar to `192.168.100.1`, the CIDR `192.168.100.0/24`, and the IP address `192.168.100.6`.
+    {: note}
 
 | Subnet | Gateway IP | Subnet CIDR | Interface IP |
 | --- | --- | --- | --- |

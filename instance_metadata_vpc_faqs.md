@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-04"
+lastupdated: "2021-09-10"
 
 subcollection: vpc
 
@@ -18,13 +18,13 @@ subcollection: vpc
 {:download: .download}
 {:faq: data-hd-content-type='faq'}
 {:support: data-reuse='support'}
-{:beta .beta}
+{:beta: .beta}
 
 # FAQs for the instance metadata service (Beta)
 {: #faqs-for-rmds}
 
 The instance metadata service is available only to accounts with special approval to preview this beta feature.
-{:beta}
+{: beta}
 
 ## What is the instance metadata service?
 {: #faq-rmds-1}
@@ -38,11 +38,7 @@ The metadata service uses well-known IP address to retrieve instance metadata su
 {: #faq-rmds-2}
 {: faq}
 
-The metadata service uses a REST API and well-known URL to retrieve instance, SSH key, and placement group information. This information is accessible from the following endpoints:
-
-* `http://169.254.169.254/metadata/v1/instance`
-* `http://169.254.169.254/metadata/v1/keys`
-* `http://169.254.169.254/metadata/v1/placement_groups`
+By calling the [metadata service APIs](/apidocs/vpc-metadata-beta), you can get instance initialization data, network interface, volume attachment, public SSH key, and placement group information.
 
 To use the metadata service, you need an instance identity access token. The instance identity token service lets you access the metadata service. For more information, see this [FAQ](#faq-rmds-4).
 
@@ -50,13 +46,13 @@ To use the metadata service, you need an instance identity access token. The ins
 {: #faq-rmds-3}
 {: faq}
 
-The metadata services provides information about your running virtual server instance: instance initialization data, network interface, volume attachment, public SSH key, and placement group information. For a complete list of all information provided, see [Summary of data returned by the metadata service](/docs/vpc?topic=vpc-imd-metadata-summary).
+The metadata service provides information about your running virtual server instance: instance initialization data, network interface, volume attachment, public SSH key, and placement group information. For a complete list of all information provided, see [Summary of data returned by the metadata service](/docs/vpc?topic=vpc-imd-metadata-summary).
 
 ## What is the instance identity token service? 
 {: #faq-rmds-4}
 {: faq}
 
-The instance identity token service lets you generate an access token that provides a security credential for accessing the metadata. To interact with the token server, you make a REST API `PUT "http://169.254.169.254/instance_identity/v1/token` call that invokes a well-known, non-routable IP address. You access the token from within the instance. For more information, see [instance identity token service](/docs/vpc?topic=vpc-imd-about#imd-vpc-access-token).
+The instance identity token service lets you generate an access token that provides a security credential for accessing the metadata. To interact with the instance identity token service, you make a REST API call to the service using a well-known, non-routable IP address. You access the token from within the instance. For more information, see [Instance identity token service](/docs/vpc?topic=vpc-imd-about#imd-vpc-access-token).
 
 ## How do I get metadata for booting up a new instance?
 {: #faq-rdms-5}
@@ -66,7 +62,7 @@ Make a `GET "http://169.254.169.254/metadata/v1/instance/initialization"` call t
 ## How do I enable the metadata service? Can I later disable it?
 {: #faq-rdms-6}
 
-For Beta, the metadata service is enabled for instances you create on accounts authorized to use the service. You can disable the service by making a `PATCH /instance` call using the VPC API and setting the setting `enabled` parameter to `true`. For information, see [Enable or disable the instance metadata service](/docs/vpc?topic=vpc-imd-configure-service#imd-metadata-service-enable).
+For Beta, the metadata service is enabled for instances you create on accounts authorized to use the service. You can disable the service by making a `PATCH /instance` call using the VPC API and setting `enabled` parameter to `false`. For information, see [Enable or disable the instance metadata service](/docs/vpc?topic=vpc-imd-configure-service#imd-metadata-service-enable).
 
 ## How secure is the metadata service? Are their additional security measures I need to take?
 {: #faq-rdms-7}

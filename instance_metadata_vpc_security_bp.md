@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-30"
+lastupdated: "2021-09-10"
 
 keywords: metadata service, security, virtual server instance, instance
 
@@ -28,9 +28,10 @@ subcollection: vpc
 {: #imd-security-best-practices}
 
 IBM takes data security seriously and recommends you follow these best practices to ensure the highest level of protection for your instance metadata.
-{:shortdesc}
+{: shortdesc}
 
 ## Overview
+{: #imd-sec-overview}
 
 This topic describes how to configure security safeguards to protect your metadata by:
 
@@ -53,10 +54,10 @@ This example uses Linux `iptables` and its owner module, based on its default in
 ```
 $ sudo iptables --append OUTPUT --proto tcp --destination 169.254.169.254 --match owner --uid-owner apache --jump REJECT
 ```
-{:codeblock}
+{: codeblock}
 
  This endpoint is accessible to all commands, processes, and software applications running within a virtual server instance. Access to the API endpoint is not available outside the virtual server instance. This step adds another level of security.
- {:note}
+ {: note}
 
 Another alternative is to use allow rules to define access to particular users or groups. Allow rules require you to make a decision about what software needs access to instance metadata. By defining rules, you can prevent software can accidentally the metadata service if you later change the software or configuration on the instance. 
 
@@ -65,9 +66,9 @@ You can also define group usage of the allow rules. Add and remove users from a 
 This example prevents access to the instance metadata service by all processes, except for processes running in the user account `trustworthy-user`:
 
 ```
-$ sudo iptables --append OUTPUT --proto tcp --destination 169.254.169.254 --match owner ! --uid-owner trustworthy-user --jump REJECT
+sudo iptables --append OUTPUT --proto tcp --destination 169.254.169.254 --match owner ! --uid-owner trustworthy-user --jump REJECT
 ```
-{: codeblock}
+{: pre}
 
 ## Limit trusted profiles for compute resource identities
 
@@ -76,7 +77,6 @@ Limit trusted profiles you create for compute resource identities. Optionally, d
 When you [remove trusted profiles](/docs/account?topic=account-trusted-profile-remove), compute resources and federated users are unlinked from the profile and can no longer apply the trusted profile identity.
 
 You can also update existing trusted profiles by redefining the trust relationship, assigning access policies, and updating session limits, For more information, see [Updating trusted profiles](/docs/account?topic=account-trusted-profile-update).
-
 
 ## Additional network security measures
 {: #imd-network-security}
@@ -97,4 +97,3 @@ Consider the following options for controlling network traffic to your virtual s
 {: #imd-compliance}
 
 Security and Compliance Center can help you monitor your VPC infrastructure to validate resource configurations in your account against a profile and identify potential issues as they arise. See [Available goals for Virtual Servers](/docs/vpc?topic=vpc-manage-security-compliance#virtual-servers-available-goals) to define security standards for your virtual server instances.
-

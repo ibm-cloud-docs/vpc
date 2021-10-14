@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-25"
+lastupdated: "2021-09-23"
 
-keywords: security and compliance, security, compliance,
+keywords: security and compliance for vpc, security for vpc, compliance for vpc,
 
 subcollection: vpc
 
@@ -117,7 +117,6 @@ To start monitoring your resources, check out [Getting started with {{site.data.
 
 * Check whether Flow Logs for VPC are enabled
 
-
 ## Governing VPC resource configuration
 {: #govern-vpc}
 
@@ -125,8 +124,7 @@ As a security or compliance focal, you can use the {{site.data.keyword.complianc
 
 [Config rules](#x3084914){: term} are used to enforce the configuration standards that you want to implement across your accounts. To learn more about the data that you can use to create a rule for application and network load balancers, review the following table.
 
-To learn more about config rules, check out [What is a config rule?](/docs/security-compliance?topic=security-compliance-what-is-rule).
-
+To learn more about constructing config rules, check out [Formatting rules and templates](/docs/security-compliance?topic=security-compliance-formatting-rules-templates).
 
 | VPC Service | Resource kind | Property | Operator type | Value | Description |
 |-------------|---------------|----------|---------------|-------|-------------|
@@ -134,7 +132,6 @@ To learn more about config rules, check out [What is a config rule?](/docs/secur
 | Load Balancer | *instance* | *load_balancer_type* | String| *["private", "public"]* | *A list of strings that indicate what type of  load balancer can be provisioned.* |
 | Auto Scale | *instance* | *membership_count* | Numeric | *["1"]* | *A number that indicates the total number of instances in the instance group.* |
 | Block Storage | *instance* | *user_managed_encryption* | Boolean | - | *A Boolean that indicates whether customer managed key encryption is enabled.* |
-| VPN | *connection* | *ike_policy* | String | *triple_des* | *A list of strings that are not recommended because they match the VPN IKE policy encryption algorithm.* |
 {: caption="Table 1. Rule properties for VPC" caption-side="top"}
 
 ### Example: Governing load balancer resource configuration
@@ -161,6 +158,7 @@ The following example is a rule configuration with only private access enabled:
   }
 }
 ```
+{: codeblock}
 
 The following example is a rule configuration that prevents users from creating public type application load balancers:
 
@@ -197,8 +195,9 @@ The following example is a rule configuration that prevents users from creating 
   }
 }
 ```
+{: codeblock}
 
-Make sure that *enforcement_actions* is set with *action: disallow* to apply the rule and meet the compliance criteria. For more information, see [How to configure Rules](/docs/security-compliance?topic=security-compliance-rules).
+Make sure that *enforcement_actions* is set with *action: disallow* to apply the rule and meet the compliance criteria. For more information, see [Formatting rules and templates](/docs/security-compliance?topic=security-compliance-formatting-rules-templates).
 {: note}
 
 ### Checking results for load balancers
@@ -208,5 +207,3 @@ As a security or compliance focal, you can use the {{site.data.keyword.complianc
 
 The evaluation results are only available for a limited time and are updated once a day. It is recommended that reports are downloaded and organized to maintain a history of compliance for audit purposes. For more information about reporting results, see [View evaluation results](https://cloud.ibm.com/security-compliance/compliance-posture/rules).
 {: note}
-
-

@@ -41,7 +41,7 @@ Before you begin, ensure that you have created a VPC and subnet.
 
 To configure an ACL using the IBM Cloud console, follow these steps:
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){:external} and log in to your account.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
 1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left of the page, then click **VPC Infrastructure > Access control lists** in the Network section.
 1. Click **Create** in the upper right of the page.
 1. In the order form, complete the following information:
@@ -103,7 +103,7 @@ To create a network ACL by using the API, follow these steps:
     ```
     {: pre}
 
-1.  Create a network ACL:  
+1. Create a network ACL:  
 
    ```sh
    curl -X POST -sH "Authorization:${iam_token}" \

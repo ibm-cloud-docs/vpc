@@ -30,7 +30,7 @@ subcollection: vpc
 {: #set-up-environment}
 
 Before you can create an {{site.data.keyword.vpc_full}} (VPC) by using the API or CLI, set up your environment.
-{:shortdesc}
+{: shortdesc}
 
 
 ## General prerequisites
@@ -55,7 +55,7 @@ Before you can create an {{site.data.keyword.vpc_full}} (VPC) by using the API o
 Before you can use the CLI to create your VPC, you must install the IBM Cloud CLI and the VPC CLI plug-in.
 
 {{site.data.keyword.cloud_notm}} CLI is not supported on LinuxONE (s390x processor architecture). However, you can install the CLI on another supported platform and use it with LinuxONE (s390x processor architecture) virtual server instances.
-{:note}
+{: note}
 
 1. Install the [IBM Cloud CLI ![External link icon](../icons/launch-glyph.svg "External link icon")](/docs/cli?topic=cli-getting-started){: new_window}.
 1. Install the VPC CLI plug-in.
@@ -83,7 +83,7 @@ To learn how to create resources by using the CLI, see [Creating a VPC using the
 Before you can use the API to create your VPC, you must get an IAM token, store the endpoint as a variable, and verify that you have access to the VPC API service.
 
 The following examples use the `us-south` regional endpoint. To view additional API endpoints, see [Virtual Private Cloud API](https://cloud.ibm.com/apidocs/vpc#api-endpoint).
-{:note}
+{: note}
 
 ### Step 1: Store your API key as a variable
 {: #store-api-key-variable}
@@ -155,14 +155,14 @@ If you run into unexpected results, add the `--verbose` (debug) flag after the `
 
  * Call the GET Regions API to see the regions available for VPC, in JSON format. At least one object should return.
 
-  You must send the `generation` parameter with every API request to specify which generation to use. For generation 2 virtual server instances, specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API](https://{DomainName}/apidocs/vpc#api-generation-parameter)
-  {: important}
+    You must send the `generation` parameter with every API request to specify which generation to use. For generation 2 virtual server instances, specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API](https://{DomainName}/apidocs/vpc#api-generation-parameter)
+    {: important}
 
     ```
     curl -X GET "$vpc_api_endpoint/v1/regions?version=$api_version&generation=2" \
       -H "Authorization: $iam_token"
     ```
-   {: pre}
+    {: pre}
 
  * Call the GET Zones API to see all zones available for VPC in a particular region, such as `us-south`, in JSON format.
 
@@ -174,8 +174,8 @@ If you run into unexpected results, add the `--verbose` (debug) flag after the `
 
  * Call the GET Profiles API to see the profiles available for your virtual server instances, in JSON format. At least one object should return.
 
-  Add ` | json_pp ` after the curl command to get a readable JSON string.
-  {: tip}
+    Add ` | json_pp ` after the curl command to get a readable JSON string.
+    {: tip}
 
     ```
     curl -X GET "$vpc_api_endpoint/v1/instance/profiles?version=$api_version&generation=2" \

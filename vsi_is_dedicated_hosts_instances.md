@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-09"
+lastupdated: "2021-08-24"
 
 keywords: vpc dedicated host, dedicated host, dedicated host group
 
@@ -28,10 +28,10 @@ subcollection: vpc
 {: #creating-dedicated-hosts-instances}
 
 You can create one or more dedicated hosts with associated dedicated host groups in your {{site.data.keyword.cloud}} VPC by using the {{site.data.keyword.cloud_notm}} console, the CLI, or the API. Dedicated Host for VPC is fully integrated into {{site.data.keyword.cloud_notm}}.
-{:shortdesc}
+{: shortdesc}
 
 Dedicated hosts are not supported for LinuxONE (s390x processor architecture).  
-{:note}
+{: note}
 
 ## Dedicated hosts
 {: #dedicated-hosts}
@@ -64,7 +64,7 @@ When you provision an instance, you can provision it to either a dedicated host 
 You can create one or more dedicated hosts in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console.
 
 Before you can create a dedicated host, you need to [create an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
-{:important}
+{: important}
 
 If you do not already have a dedicated group, you must create it as part of this task. The profile family and class of the dedicated host and dedicated group must be the same. The profile that you select for the dedicated host when you create it determines the profiles that can be used for the dedicated group and for provisioning instances to hosts in the group. For example, if you select a memory profile for the dedicated host, the associated dedicated group and instances provisioned on hosts in the group must also be provisioned with memory profiles.
 
@@ -110,8 +110,9 @@ You can create one or more dedicated groups and hosts in your {{site.data.keywor
 {: before-you-create-group-cli}
 
 1. Make sure that you downloaded, installed, and intialized the following CLI plug-ins. For more information, see [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
-  * IBM Cloud CLI
-  * The vpc-infrastructure plugin
+    * IBM Cloud CLI
+    * The vpc-infrastructure plugin
+
 2. Have an [{{site.data.keyword.vpc_short}} created](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
 
 ### Gathering information to create a dedicated group by using the CLI
@@ -136,35 +137,37 @@ Use the following commands to determine the required information for creating a 
    ```
    ibmcloud is regions
    ```
-   {:pre}
+   {: pre}
 
    For this example, you'd see a response similar to the following output:
+   
    ```
     Name       Endpoint               Status   
     us-south   /v1/regions/us-south   available
     ```
-    {:screen}
+    {: screen}
 
 2. List the zones that are associated with the region.
 
    ```
    ibmcloud is zones us-south
    ```
-   {:pre}
+   {: pre}
 
    For this example, you'd see a response similar to the following output:
+   
    ```
    Name         Region     Status   
    us-south-1   us-south   available
    ```
-   {:screen}
+   {: screen}
 
 3. List the profiles that are available for creating a dedicated host to determine what profile family and class you want to assign to the dedicated host group. The family and class that you assign to the group when it is created determines the profiles that can be used to provision dedicated hosts and instances in the group. All dedicated hosts and virtual server instances that are provisioned to the dedicated host group must be from the same family and class of profiles. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles).
 
    ```
    ibmcloud is dedicated-host-profiles
    ```
-   {:pre}
+   {: pre}
 
    For this example, you'd see a response similar to the following output. Check the Family and Class columns that are associated with the dedicated host profile that you want to provision in the dedicated host group. If you want to provision a memory profile for your host, note the associated family, `memory`, and associated class, `mx2`.
 
@@ -174,7 +177,7 @@ Use the following commands to determine the required information for creating a 
    bx2-host-152x608     amd64          4                  152     608      balanced        bx2     
    mx2-host-152x1216    amd64          4                  152     1216     memory          mx2   
    ```
-   {:screen}
+   {: screen}
 
 ### Creating a dedicated host group by using the CLI
 {: #creating-dedicated-group-cli}
@@ -188,7 +191,7 @@ The following example creates a dedicated host group named `myDedicatedHostGroup
 ```
 ibmcloud is dedicated-host-group-create --zone us-south-1 --family memory --class mx2 --name myDedicatedHostGroup
 ```
-{:pre}
+{: pre}
 
 In the output, be sure to note the ID for the dedicated host group that is created. In this example the ID for myDedicatedHostGroup is `0076-edf611ff-0fd6-44bf-b5f3-102eeb3cf928`.
 
@@ -204,7 +207,7 @@ List the profiles that are available for creating a dedicated host.
 ```
 ibmcloud is dedicated-host-profiles
 ```
-{:pre}
+{: pre}
 
 For this example, you'd see a response similar to the following output. The profile that you select must be from the same family and class as your dedicated host group where you plan to provision the host.
 
@@ -214,7 +217,7 @@ cx2-host-152x304     amd64          4                  152     304      compute 
 bx2-host-152x608     amd64          4                  152     608      balanced        bx2     
 mx2-host-152x1216    amd64          4                  152     1216     memory          mx2   
 ```
-{:screen}
+{: screen}
 
 ### Creating a dedicated host by using the CLI
 {: creating-dedicated-host-cli}
@@ -228,7 +231,7 @@ The following example creates a dedicated host named `myDedicatedHost` with the 
 ```
 ibmcloud is dedicated-host-create --profile mx2-host-152x1216 --host-group 0076-edf611ff-0fd6-44bf-b5f3-102eeb3cf928 --name myDedicatedHost
 ```
-{:pre}
+{: pre}
 
 For a full list of command options, see [ibmcloud is dedicated-host-create](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#dedicated-host-create).
 
@@ -241,7 +244,7 @@ When you created a dedicated host by using the API, you can create the host in a
 
 The following request example creates a dedicated host in a specific group.
 
-```
+```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/dedicated_hosts?version=2020-11-17&generation=2" \
 -H "Authorization: $iam_token" \
@@ -255,7 +258,7 @@ curl -X POST \
       }
     }'
 ```
-{:pre}
+{: codeblock}
 
 
 The dedicated group information is optional. If you want a dedicated group to be created for you automatically, you can omit the group information and add a zone instead.

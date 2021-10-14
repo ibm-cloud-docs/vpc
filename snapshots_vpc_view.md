@@ -22,17 +22,15 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
----
-
 # Viewing snapshots
 {: #snapshots-vpc-view}
 
 You can view a list of all snapshots and drill down to see information about a particular snapshot. Choose the UI, CLI, or API to retrieve this information.
-{:shortdesc}
+{: shortdesc}
 
 ## List snapshots by using the UI
 {: #snapshots-vpc-view-list-ui}
-{:ui}
+{: ui}
 
 ### List all snapshots by using the UI
 {: #snapshots-vpc-view-list-ui}
@@ -90,7 +88,7 @@ To see details about a snapshot:
 
 ## View snapshots by using the CLI
 {: #snapshots-vpc-view-cli}
-{:cli}
+{: cli}
 
 You can list all snapshots, all snapshots for a volume, and details about a particular snapshot.
 
@@ -102,7 +100,7 @@ Run the `snapshots` command to list all snapshots.
 ```
 ibmcloud is snapshots [--json]
 ```
-{:pre}
+{: pre}
 
 Example:
 
@@ -115,7 +113,7 @@ ID                                          Name         Status    Progress   So
 0f136bf8-6530-47e4-9482-ff0c06a7edc4   false      Default          2021-02-16T16:18:56+08:00   
 50308933-05b4-4363-9c45-00584fc52a43   snapshot2   pending   0          0f136bf8-6530-47e4-9482-ff0c06a7edc4   false      Default          2021-02-16T16:26:04+08:00 
 ```
-{:screen}
+{: screen}
 
 
 ### Viewing details of a snapshot by using the CLI
@@ -126,7 +124,7 @@ Run the `snapshots {id)` command to see the details of a particular snapshot.
 ```
 ibmcloud is snapshots SNAPSHOT_ID [--json]
 ```
-{:pre}
+{: pre}
 
 Example:
 
@@ -139,11 +137,11 @@ b2168769-a4dc-4cb8-9fc6-e62d45918858   t2b1   stable   -          728b2d3c-2165-
 6e7ac183-3223-43d1-8f15-bea30c94eda0   t2b2   stable   -          728b2d3c-2165-46c7-9863-9397e0a9af42   false      Default          2021-02-26T16:29:01+08:00   
 
 ```
-{:screen}
+{: screen}
 
 ## Listing snapshots by using the API
 {: #snapshots-vpc-view-all-api}
-{:api}
+{: api}
 
 ### Listing all snapshots by using the API
 {: #snapshots-vpc-view-all-api}
@@ -155,7 +153,7 @@ curl -X GET \
 "$vpc_api_endpoint/v1/snapshots?version=2021-02-16&generation=2" \
 -H "Authorization: $iam_token"
 ```
-{:pre}
+{: pre}
 
 You can filter the list by using the resource group ID, source volume ID, or source volume CRN, and further filter the results by using these options:
 
@@ -167,171 +165,171 @@ For more information, see the [VPC API reference](https://{DomainName}/apidocs/v
 
 For example, this call filters the list to show snapshots that were created for a single volume and limits the results to five per page.
 
-```
-curl -X GET \
-"$vpc_api_endpoint/v1/snapshots?version=2021-02-16&generation=2" \
--H "Authorization: $iam_token" \
--d '{
-      "limit": 5,
-      "source_volume": {
-        "id": "8948ad59-bc0f-7510-812f-5dc64f59fab8"
-      }
-    }
-```
-{:pre}
+   ```
+   curl -X GET \
+   "$vpc_api_endpoint/v1/snapshots?version=2021-02-16&generation=2" \
+   -H "Authorization: $iam_token" \
+   -d '{
+         "limit": 5,
+         "source_volume": {
+           "id": "8948ad59-bc0f-7510-812f-5dc64f59fab8"
+         }
+       }
+   ```
+   {: pre}
 
 A successful response looks like the following example:
 
-```
-{
-  "snapshots": [
-    {
-      "id": "1eeae628-b24c-41fb-91b9-bc0e02167f1e",
-      "crn": "crn: [...]",
-      "name": "my-snapshot-1",
-      "resource_group": {
-        "id": "bd081e1c-3c0d-4242-84fb-9d02fc963402",
-        "href": "https://resource-controller.test.cloud.ibm.com/v2/
-        resource_groups/bd081e1c-3c0d-4242-84fb-9d02fc963402",
-        "name": "Default"
-      },
-      "encryption": "provider_managed",
-      "encryption_key": null,
-      "source_volume": {
-        "id": "8948ad59-bc0f-7510-812f-5dc64f59fab8",
-        "crn": "[...]",
-        "href": "https://us-south.iaas.cloud.ibm.com/v1/
-        volumes/8948ad59-bc0f-7510-812f-5dc64f59fab8",
-        "name": "my-data-volume-1"
-      },
-      "created_at": "2021-02-16T11:39:04Z",
-      "lifecycle_state": "stable",
-      "minimum_capacity": 100,
-      "source_image": {
-        "id": "9eea9ca3-7e67-457d-855e-9b1e751b661b"
-      },
-      "size": 0,
-      "deletable": false,
-      "resource_type": "snapshot"
-    },
-    {
-      "id": "3170394c-717f-43b1-8276-35e3fdef53d8",
-      "crn": "crn: [...]",
-      "href": "/v1/snapshots/3170394c-717f-43b1-8276-35e3fdef53d8",
-      "name": "my-snapshot-2",
-      "resource_group": {
-        "id": "bd081e1c-3c0d-4242-84fb-9d02fc963402",
-        "href": "https://resource-controller.test.cloud.ibm.com/v2/
-        resource_groups/bd081e1c-3c0d-4242-84fb-9d02fc963402",
-        "name": "Default"
-      },
-      "encryption": "provider_managed",
-      "encryption_key": null,
-      "source_volume": {
-        "id": "8948ad59-bc0f-7510-812f-5dc64f59fab8",
-        "crn": "",
-        "href": "https://us-south.iaas.cloud.ibm.com/v1/
-        volumes/8948ad59-bc0f-7510-812f-5dc64f59fab8",
-        "name": "my-data-volume-1"
-      },
-      "created_at": "2021-02-16T07:29:36Z",
-      "lifecycle_state": "stable",
-      "minimum_capacity": 100,
-      "source_image": {
-        "id": "9eea9ca3-7e67-457d-855e-9b1e751b661b"
-      },
-      "size": 0,
-      "deletable": false,
-      "resource_type": "snapshot"
-    },
-    {
-      "id": "c518cef6-ce08-461e-87e0-549274741feb",
-      "crn": "crn: [...]",
-      "href": "/v1/snapshots/c518cef6-ce08-461e-87e0-549274741feb",
-      "name": "my-snapshot-3",
-      "resource_group": {
-        "id": "bd081e1c-3c0d-4242-84fb-9d02fc963402",
-        "href": "https://resource-controller.test.cloud.ibm.com/v2/
-        resource_groups/bd081e1c-3c0d-4242-84fb-9d02fc963402",
-        "name": "Default"
-      },
-      "encryption": "provider_managed",
-      "encryption_key": null,
-      "source_volume": {
-        "id": "8948ad59-bc0f-7510-812f-5dc64f59fab8",
-        "crn": "crn: [...]",
-        "href": "https://us-south.iaas.cloud.ibm.com/v1/
-        volumes/8948ad59-bc0f-7510-812f-5dc64f59fab8",
-        "name": "my-data-volume-1"
-      },
-      "created_at": "2021-02-16T07:27:51Z",
-      "lifecycle_state": "stable",
-      "minimum_capacity": 100,
-      "source_image": {
-        "id": "9eea9ca3-7e67-457d-855e-9b1e751b661b"
-      },
-      "size": 0,
-      "deletable": false,
-      "resource_type": "snapshot"
-    }
-  ],
-  "first": {
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshots?limit=5"
-  },
-  "limit": 5,
-  "total_count": 3
-}
-```
-{:codeblock}
+   ```
+   {
+     "snapshots": [
+       {
+         "id": "1eeae628-b24c-41fb-91b9-bc0e02167f1e",
+         "crn": "crn: [...]",
+         "name": "my-snapshot-1",
+         "resource_group": {
+           "id": "bd081e1c-3c0d-4242-84fb-9d02fc963402",
+           "href": "https://resource-controller.test.cloud.ibm.com/v2/
+           resource_groups/bd081e1c-3c0d-4242-84fb-9d02fc963402",
+           "name": "Default"
+         },
+         "encryption": "provider_managed",
+         "encryption_key": null,
+         "source_volume": {
+           "id": "8948ad59-bc0f-7510-812f-5dc64f59fab8",
+           "crn": "[...]",
+           "href": "https://us-south.iaas.cloud.ibm.com/v1/
+           volumes/8948ad59-bc0f-7510-812f-5dc64f59fab8",
+           "name": "my-data-volume-1"
+         },
+         "created_at": "2021-02-16T11:39:04Z",
+         "lifecycle_state": "stable",
+         "minimum_capacity": 100,
+         "source_image": {
+           "id": "9eea9ca3-7e67-457d-855e-9b1e751b661b"
+         },
+         "size": 0,
+         "deletable": false,
+         "resource_type": "snapshot"
+       },
+       {
+         "id": "3170394c-717f-43b1-8276-35e3fdef53d8",
+         "crn": "crn: [...]",
+         "href": "/v1/snapshots/3170394c-717f-43b1-8276-35e3fdef53d8",
+         "name": "my-snapshot-2",
+         "resource_group": {
+           "id": "bd081e1c-3c0d-4242-84fb-9d02fc963402",
+           "href": "https://resource-controller.test.cloud.ibm.com/v2/
+           resource_groups/bd081e1c-3c0d-4242-84fb-9d02fc963402",
+           "name": "Default"
+         },
+         "encryption": "provider_managed",
+         "encryption_key": null,
+         "source_volume": {
+           "id": "8948ad59-bc0f-7510-812f-5dc64f59fab8",
+           "crn": "",
+           "href": "https://us-south.iaas.cloud.ibm.com/v1/
+           volumes/8948ad59-bc0f-7510-812f-5dc64f59fab8",
+           "name": "my-data-volume-1"
+         },
+         "created_at": "2021-02-16T07:29:36Z",
+         "lifecycle_state": "stable",
+         "minimum_capacity": 100,
+         "source_image": {
+           "id": "9eea9ca3-7e67-457d-855e-9b1e751b661b"
+         },
+         "size": 0,
+         "deletable": false,
+         "resource_type": "snapshot"
+       },
+       {
+         "id": "c518cef6-ce08-461e-87e0-549274741feb",
+         "crn": "crn: [...]",
+         "href": "/v1/snapshots/c518cef6-ce08-461e-87e0-549274741feb",
+         "name": "my-snapshot-3",
+         "resource_group": {
+           "id": "bd081e1c-3c0d-4242-84fb-9d02fc963402",
+           "href": "https://resource-controller.test.cloud.ibm.com/v2/
+           resource_groups/bd081e1c-3c0d-4242-84fb-9d02fc963402",
+           "name": "Default"
+         },
+         "encryption": "provider_managed",
+         "encryption_key": null,
+         "source_volume": {
+           "id": "8948ad59-bc0f-7510-812f-5dc64f59fab8",
+           "crn": "crn: [...]",
+           "href": "https://us-south.iaas.cloud.ibm.com/v1/
+           volumes/8948ad59-bc0f-7510-812f-5dc64f59fab8",
+           "name": "my-data-volume-1"
+         },
+         "created_at": "2021-02-16T07:27:51Z",
+         "lifecycle_state": "stable",
+         "minimum_capacity": 100,
+         "source_image": {
+           "id": "9eea9ca3-7e67-457d-855e-9b1e751b661b"
+         },
+         "size": 0,
+         "deletable": false,
+         "resource_type": "snapshot"
+       }
+     ],
+     "first": {
+       "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshots?limit=5"
+     },
+     "limit": 5,
+     "total_count": 3
+   }
+   ```
+   {: codeblock}
 
 ### Listing details of a snapshot from the API
 {: #snapshots-vpc-view-api}
 
 For details about a single snapshot, use the VPC API to make a `GET/snapshots` call and specify the snapshot ID.
 
-```
-curl -X GET \
-"$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2021-02-16&generation=2" \
--H "Authorization: $iam_token"
-```
-{:pre}
+   ```
+   curl -X GET \
+   "$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?   version=2021-02-16&generation=2" \
+   -H "Authorization: $iam_token"
+   ```
+   {: pre}
 
 A successful response looks like the following example:
 
-```
-{
-  "id": "7528eb61-bc01-4763-a67a-a414a103f96d",
-  "crn": "crn: [...]",
-  "href": "https://us-south.iaas.cloud.ibm.com/v1/
-  snapshots/7528eb61-bc01-4763-a67a-a414a103f96d",
-  "name": "my-snapshot-4",
-  "resource_group": {
-    "id": "59ff2d74-b0e5-4b40-a553-b812e50c72e9",
-    "href": "https://resource-controller.test.cloud.ibm.com/v2/
-    resource_groups/59ff2d74-b0e5-4b40-a553-b812e50c72e9",
-    "name": "Default"
-  },
-  "encryption": "provider_managed",
-  "encryption_key": null,
-  "source_volume": {
-    "id": "8948ad59-bc0f-7510-812f-5dc64f59fab8",
-    "crn": "crn: [...]",
-    "href": "https://us-south.iaas.cloud.ibm.com/v1/
-    volumes/8948ad59-bc0f-7510-812f-5dc64f59fab8",
-    "name": "my-data-volume-1"
-  },
-  "created_at": "2021-02-16T11:39:04Z",
-  "lifecycle_state": "stable",
-  "minimum_capacity": 100,
-  "source_image": {
-    "id": "r134-32045dc2-b463-4cda-b424-bc3dcf51dfbb"
-  },
-  "size": 0,
-  "deletable": false,
-  "resource_type": "snapshot"
-}
-```
-{:codeblock}
+   ```
+   {
+     "id": "7528eb61-bc01-4763-a67a-a414a103f96d",
+     "crn": "crn: [...]",
+     "href": "https://us-south.iaas.cloud.ibm.com/v1/
+     snapshots/7528eb61-bc01-4763-a67a-a414a103f96d",
+     "name": "my-snapshot-4",
+     "resource_group": {
+       "id": "59ff2d74-b0e5-4b40-a553-b812e50c72e9",
+       "href": "https://resource-controller.test.cloud.ibm.com/v2/
+       resource_groups/59ff2d74-b0e5-4b40-a553-b812e50c72e9",
+       "name": "Default"
+     },
+     "encryption": "provider_managed",
+     "encryption_key": null,
+     "source_volume": {
+       "id": "8948ad59-bc0f-7510-812f-5dc64f59fab8",
+       "crn": "crn: [...]",
+       "href": "https://us-south.iaas.cloud.ibm.com/v1/
+       volumes/8948ad59-bc0f-7510-812f-5dc64f59fab8",
+       "name": "my-data-volume-1"
+     },
+     "created_at": "2021-02-16T11:39:04Z",
+     "lifecycle_state": "stable",
+     "minimum_capacity": 100,
+     "source_image": {
+       "id": "r134-32045dc2-b463-4cda-b424-bc3dcf51dfbb"
+     },
+     "size": 0,
+     "deletable": false,
+     "resource_type": "snapshot"
+   }
+   ```
+   {: codeblock}
 
 ## Next steps
 {: #snapshots_vpc_view_next_steps}

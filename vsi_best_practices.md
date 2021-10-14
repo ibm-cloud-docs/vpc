@@ -24,7 +24,7 @@ subcollection: vpc
 {: #vsi_best_practices}
 
 When you're planning to provision virtual server instances for {{site.data.keyword.vpc_short}}, you might find this configuration checklist helpful to get the most out of your deployment.
-{:shortdesc}
+{: shortdesc}
 
 ## Planning for provisioning instances
 {: #planning-for-provisioning-instances}

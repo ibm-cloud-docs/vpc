@@ -1,0 +1,50 @@
+{
+    "title": "IBM Cloud VPC docs",
+    "lastupdated": "2021-08-31",
+    "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
+    "section_devtools": {
+      "api": "/apidocs/vpc", 
+      "cli": "/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference", 
+      "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance"
+    },
+    "section_recommended": [
+      {
+        "title": "Using the IBM Cloud console to create VPC resources",
+        "description": "Get up and running quickly by completing this short tutorial to set up a VPC and subnet, configure an ACL, and create a virtual server instance with block storage and networking options.",
+        "href": "/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console"
+      },
+      {
+        "title": "Creating an instance group for auto scaling",
+        "description": "Set up an instance group to dynamically add or remove instances according to your requirements.",
+        "href": "/docs/vpc?topic=vpc-creating-auto-scale-instance-group"
+      },
+      {
+        "title": "About creating an image from a volume",
+        "description": "Learn about creating a custom image from a boot volume on a virtual server instance.",
+        "href": "/docs/vpc?topic=vpc-image-from-volume-vpc"
+      }
+    ],
+    "section_learn": {
+      "architecture": "https://www.ibm.com/cloud/architecture/architectures/virtual-private-cloud"
+    },
+    "section_updates": {
+      "view_more": "/docs/vpc?topic=vpc-release-notes",
+      "tiles": [
+         {
+          "date": "05 October 2021",
+          "title": "New regions for Very High Memory instance profile family (LA)",
+          "description": "Very High Memory profiles now are available in the United Kingdom (London), Japan (Osaka), and Australia (Sydney) regions."
+        },
+        {
+          "date": "01 October 2021",
+          "title": "File Storage for VPC (LA)",
+          "description": "IBM Cloud® File Storage for VPC is now available in the United Kingdom (London) region."
+        },
+        {
+          "date": "23 September 2021",
+          "title": "VNF routing mode for network load balancers",
+          "description": "With IBM Cloud VPC, you can provision Virtual Network Function (VNF) devices to gain better and more affordable scalability than you would by purchasing physical network devices. IBM Cloud VPC network load balancers with routing mode allow you to send traffic only to VNF devices as backend targets. In addition, their health checks ensure that workloads only travel through healthy VNF devices."
+        }
+      ]
+    }
+  }

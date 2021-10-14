@@ -2,7 +2,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="vpc" category="network_vpc,storage_vpc,compute" audience="service" href="/docs/vpc?topic=vpc-getting-started" console-page="/vpc-ext/overview" product-page="https://www.ibm.com/cloud/vpc" path="vpc"}
+{: .toc subcollection="vpc" version="2" category="network_vpc,storage_vpc,compute" audience="service" href="/docs/vpc" console-page="/vpc-ext/overview" product-page="https://www.ibm.com/cloud/vpc" path="vpc"}
 Virtual Private Cloud (VPC)
 
     {: .navgroup id="learn"}
@@ -12,6 +12,7 @@ Virtual Private Cloud (VPC)
     [Pricing](https://www.ibm.com/cloud/vpc/pricing)
     about-vpc.md
     quotas.md
+    release-notes.md
 
     {: .topicgroup}
     Network
@@ -36,13 +37,13 @@ Virtual Private Cloud (VPC)
         vsi_is_ssh_keys_about.md
         vsi_is_provisioning_scripts.md
         ip-spoofing-about.md
+        instance-profiles-vpc-bandwidth.md
 
         {: .topicgroup}
         Bare Metal Servers for VPC (Beta)
             bare_metal_server_about.md
             bare_metal_server_profile.md
             bare_metal_server_image.md
-            bare_metal_server_billing_pricing.md
             bare_metal_server_network.md
             bare_metal_server_storage.md
 
@@ -61,6 +62,7 @@ Virtual Private Cloud (VPC)
             snapshots_vpc_about.md
             block_storage_vpc_capacity_performance.md
             block_storage_is_profiles.md
+            block_storage_vpc_bandwidth.md
     {: .navgroup-end}
 
     {: .navgroup id="tutorial"}
@@ -129,7 +131,7 @@ Virtual Private Cloud (VPC)
         monitoring-vpc-metrics.md
         vsi_is_instance_resize.md
         managing-gpus.md
-        
+
     {: .topicgroup}
     Instance metadata service (Beta)
         instance_metadata_vpc_about.md
@@ -142,7 +144,7 @@ Virtual Private Cloud (VPC)
         instance_metadata_vpc_security_bp.md
 
     {: .topicgroup}
-    Placement groups (Beta)
+    Placement groups
         about-placement-groups.md
         managing-placement-groups.md
 
@@ -198,6 +200,7 @@ Virtual Private Cloud (VPC)
     Access control lists
         using-acls.md
         acl-create.md
+        acl-icp.md
 
     {: .topicgroup}
     Security groups
@@ -224,15 +227,16 @@ Virtual Private Cloud (VPC)
             cr-delete-route.md
 
     {: .topicgroup}
-    VPN gateways
-        vpn-using.md
-        vpn-create.md
-        vpn-add-connection.md
-        vpn-create-ipsec-policy.md
-        vpn-create-ike-policy.md
+    VPNs
+        vpn-overview.md
 
         {: .topicgroup}
-        Connecting to your on-premises network
+        Site-to-site gateways
+            vpn-using.md
+            vpn-create.md
+            vpn-add-connection.md
+            vpn-create-ike-policy.md
+            vpn-create-ipsec-policy.md
             vpn-onprem.md
             vpn-onprem-aws.md
             vpn-onprem-check-point.md
@@ -241,13 +245,27 @@ Virtual Private Cloud (VPC)
             vpn-onprem-juniper.md
             vpn-onprem-strongswan.md
             vpn-onprem-vyatta.md
+            vpn-access-service-endpoint.md
+            vpn-configure-acls-security-groups.md
+            vpn-view-logs.md
+            vpn-monitoring-metrics.md
+            vpn-limitations.md
+            vpn-api-example.md
 
-        vpn-access-service-endpoint.md
-        vpn-configure-acls-security-groups.md
-        vpn-view-logs.md
-        vpn-monitoring-metrics.md
-        vpn-limitations.md
-        vpn-api-example.md
+        {: .topicgroup}
+        Client-to-site servers (Beta)
+            vpn-client-to-site.md
+            vpn-client-to-site-planning.md
+            vpn-client-to-site-access-groups.md
+            vpn-client-to-site-auth.md
+            vpn-client-to-site-configure-security-groups.md
+            vpn-create-server.md
+            vpn-client-to-site-routes.md
+            vpn-client-to-site-setup.md
+            vpn-client-to-site-connections.md
+            vpn-client-to-site-limitations.md
+            vpn-client-to-site-loganalysis.md
+            vpn-client-to-site-monitoring.md
 
     {: topicgroup}
     Load balancers
@@ -273,6 +291,7 @@ Virtual Private Cloud (VPC)
         Network Load Balancer for VPC
             nlb-about.md
             nlb-create.md
+            nlb-vnf-create.md
             nlb-update.md
             nlb-delete.md
             nlb-health-checks.md
@@ -300,9 +319,9 @@ Virtual Private Cloud (VPC)
         block_storage_is_manage.md
         block_storage_is_view.md
         block_storage_vpc_expandable_volumes.md
+        block_storage_vpc_adjustable_iops.md
         block_storage_vpc_manage_storage_limits.md
         block_storage_is_use_volume_cli.md
-        block_storage_vpc_api_remediation.md
 
     {: .topicgroup}
     Snapshots
@@ -318,6 +337,7 @@ Virtual Private Cloud (VPC)
         file_storage_vpc_create.md
         file_storage_vpc_view.md
         file_storage_vpc_manage.md
+        file_storage_vpc_expandable_shares.md
 
         {: .topicgroup}
         Mounting on Linux
@@ -374,9 +394,11 @@ Virtual Private Cloud (VPC)
     {: .topicgroup}
     VPC API reference
         [VPC API reference](https://{DomainName}/apidocs/vpc)
+        api-change-log.md
 
     vpc-responsibilities.md
     vsi-understanding-cloud-maintenance.md
+    vsi_is_disable_hyper-threading.md
     vpc-endpoints.md
 
     {: .topicgroup}
@@ -404,6 +426,7 @@ Virtual Private Cloud (VPC)
         nlb-faqs.md
         vpe-faqs.md
         vpn-faqs.md
+        vpn-client-to-site-faqs.md
         faq-vsi.md
         instance_metadata_vpc_faqs.md
 
@@ -431,19 +454,29 @@ Virtual Private Cloud (VPC)
             vpe-ts-cannot-reach-target.md
             vpe-ts-cannot-communicate.md
 
-        {: topicgroup}
-        Troubleshooting VPN gateways
+        {: .topicgroup}
+        Troubleshooting site-to-site VPN gateways
             vpn-ts-unable-establish-connection.md
             vpn-ts-traffic-not-getting-through.md
             vpn-ts-unstable-connection.md
 
+        {: .topicgroup}
+        Troubleshooting client-to-site VPN servers (Beta)
+            vpn-ts-auth-error-connecting-to-server.md
+            vpn-ts-auth-failure-error.md
+            vpn-ts-cannot-access-vpc-resources.md
+            vpn-ts-certificate-warning-openvpn.md
+            vpn-ts-client-restart-message.md
+            vpn-ts-connection-failure.md
+            vpn-ts-dns-configuration-not-working.md
+            vpn-ts-vpn-client-hangs.md
         vsi_is_troubleshooting.md
+        custom_image_vpc_troubleshoot.md
         block_storage_is_troubleshoot.md
         bare_metal_server_troubleshoot.md
         instance_metadata_vpc_troubleshoot.md
+        instance-status-messages.md
 
-    release-notes.md
-    api-change-log.md
     limitations.md
     known-issues.md
     errors.md

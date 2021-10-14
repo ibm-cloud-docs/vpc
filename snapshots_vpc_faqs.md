@@ -22,7 +22,7 @@ subcollection: vpc
 {: #snapshots-vpc-faqs}
 
 The following questions often arise about the Snapshot for VPC offering. If you have other questions you'd like to see answered here, provide feedback by using the **Open Issue** or **Edit Topic** links.
-{:shortdesc}
+{: shortdesc}
 
 ## What is a snapshot?
 {: faq}

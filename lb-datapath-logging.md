@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-09-19"
+  years: 2020, 2021
+lastupdated: "2021-08-13"
 
 keywords: application load balancer, datapath logging
 
@@ -26,8 +26,8 @@ subcollection: vpc
 # Datapath log forwarding
 {: #datapath-logging}
 
-Data and health check logs are valuable for debugging and maintenance purposes. With the datapath logging feature enabled, {{site.data.keyword.vpc_full}} {{site.data.keyword.alb_full}} (ALB) forwards these logs to your account's [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/observe/logging){:external} dashboard.
-{:shortdesc}
+Data and health check logs are valuable for debugging and maintenance purposes. With the datapath logging feature enabled, {{site.data.keyword.vpc_full}} {{site.data.keyword.alb_full}} (ALB) forwards these logs to your account's [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/observe/logging){: external} dashboard.
+{: shortdesc}
 
 To enable or disable the datapath logging feature, you can:
 
@@ -45,7 +45,7 @@ If you do not have a {{site.data.keyword.la_short}} instance, you must create on
 ## Viewing logs in the IBM Log Analysis service
 {: #viewing-logs-in-the-ibm-cloud-log-analysis-service}
 
-Log in to [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/observe/logging){:external} with your IBM Cloud account. You can view logs from the {{site.data.keyword.la_short}} instance. For more information, see [Getting started with {{site.data.keyword.la_full_notm}}](/docs/log-analysis?topic=log-analysis-getting-started).
+Log in to [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/observe/logging){: external} with your IBM Cloud account. You can view logs from the {{site.data.keyword.la_short}} instance. For more information, see [Getting started with {{site.data.keyword.la_full_notm}}](/docs/log-analysis?topic=log-analysis-getting-started).
 
 To create a {{site.data.keyword.la_short}} instance, follow these steps:
 
@@ -53,7 +53,7 @@ To create a {{site.data.keyword.la_short}} instance, follow these steps:
 
 2. Choose the region from the menu list that corresponds to the data center where you provisioned the load balancer. For example, for a load balancer in SYD01, choose the region of Sydney.
 
-  The following table shows the mapping between regions and data centers:
+The following table shows the mapping between regions and data centers:
 
 | Region | Data center |
 | ------ | ----------- |
@@ -120,6 +120,7 @@ The following is an example of the JSON schema of a datapath log:
     }
 }
 ```
+{: codeblock}
 
 Note that:
 
@@ -136,6 +137,6 @@ The format of the logs can be impacted by internal upgrades. It is recommended t
 ## Related links
 {: #datapath-logging-related-links}
 
-* [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/observe/logging){:external}
+* [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/observe/logging){: external}
 * [Getting started with {{site.data.keyword.la_full_notm}}](/docs/log-analysis?topic=log-analysis-getting-started)
 * [Activity Tracker with {{site.data.keyword.la_short}} events](/docs/vpc?topic=vpc-at-events#events-load-balancers)

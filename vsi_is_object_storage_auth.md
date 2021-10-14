@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-05-14"
+lastupdated: "2021-08-13"
 
 keywords: create authorization for IBM Cloud Object storage, import image to vpc infrastructure, migrate virtual server, migrate instance
 
@@ -30,7 +30,7 @@ subcollection: vpc
 To import a custom image to {{site.data.keyword.vpc_short}}, you must have an instance of {{site.data.keyword.cos_full}} 
 available. You must also create a bucket in {{site.data.keyword.cos_full_notm}} to store your images. Finally, you must 
 create an authorization so that the Image Service for VPC can access images in {{site.data.keyword.cos_full_notm}}.
-{:shortdesc}
+{: shortdesc}
 
 ## Creating an {{site.data.keyword.cos_full_notm}} service instance
 {: #migrate-prereq-icos-instance}
@@ -51,9 +51,11 @@ Before you run the command you need to know the GUID for the {{site.data.keyword
 1. Select the {{site.data.keyword.cos_full_notm}} instance where your images are stored. 
 1. From the right panel, copy the GUID. For example, `f7d4676f-f298-4cb3-8390-2fe258a5d6df`.
 1. Run the following command and replace $COS_INSTANCE_CRN with the GUID. 
+
 ```
 ibmcloud iam authorization-policy-create is cloud-object-storage Reader --source-resource-type image --target-service-instance-id $COS_INSTANCE_CRN
 ```
+{: pre}
 
 For more information about all of the parameters that are available for this command, see [ibmcloud iam authorization-policy-create](/docs/cli?topic=cli-ibmcloud_commands_iam#ibmcloud_iam_authorization_policy_create).
 
@@ -68,7 +70,7 @@ The supported attributes for creating an authorization policy depend on what eac
 
 The example shows an authorization policy for the image service to access IBM Cloud Object Storage.
 
-```
+```sh
 curl --location --request POST 'https://iam.cloud.ibm.com/v1/policies' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer <iam token>' \
@@ -113,8 +115,8 @@ curl --location --request POST 'https://iam.cloud.ibm.com/v1/policies' \
     ]
 }'
 ```
+{: codeblock}
 
-  
 <!--- ### Granting access with the UI
 
 1. From the [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com/vpc){: external} menu bar, click **Manage** &gt; **Access (IAM)**, and select **Authorizations**.

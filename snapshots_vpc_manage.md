@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-12"
+lastupdated: "2021-09-07"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
@@ -22,7 +22,7 @@ subcollection: vpc
 {: #snapshots-vpc-manage}
 
 You can delete snapshots that you no longer need and free space for new snapshots. Rename existing snapshots to make them easier to identify. Verify IAM access. Verify snapshot statuses.
-{:shortdesc}
+{: shortdesc}
 
 ## Deleting snapshots
 {: #snapshots-vpc-delete}
@@ -57,8 +57,8 @@ You can also delete a snapshot from the details page for a block storage volume.
 1. Go to the list of all block storage volumes. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
 1. Select a volume from the list and click the volume name to go to the volume details page.
 1. Click **Snapshots**. A list of snapshots that are taken of this volume are displayed, and you can do the following actions:
-  * Click **Delete all** to delete all snapshots for this volume.
-  * For the most recent snapshot (first in the list), click the overflow menu (ellipsis).
+    * Click **Delete all** to delete all snapshots for this volume.
+    * For the most recent snapshot (first in the list), click the overflow menu (ellipsis).
 1. Select **Delete** from the overflow menu. This option does not appear if the snapshot is not deletable.
 1. Confirm the deletion.
 
@@ -78,7 +78,7 @@ You can also delete a snapshot from the details page for a block storage volume.
 ```
 is snapshot-delete SNAPSHOT_ID 
 ```
-{:pre}
+{: pre}
 
 4. Confirm deleting the snapshot. The response message indicates that the snapshot is deleted.
 
@@ -92,7 +92,7 @@ curl -X DELETE \
 "$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2021-02-12&generation=2" \
      -H "Authorization: Bearer ${API_TOKEN}"
 ```
-{:screen}
+{: screen}
 
 ## Deleting all snapshots
 {: #snapshots-vpc-delete-all}
@@ -117,7 +117,7 @@ curl -X DELETE \
 "$vpc_api_endpoint/v1/snapshots?source_volume.id=_volume-id_&version=2021-02-12&generation=2" \
      -H "Authorization: Bearer ${API_TOKEN}"
 ```
-{:screen}
+{: screen}
 
 ## Deleting snapshots from the block storage details page by using the UI
 {: #snapshots-vpc-delete-from-volume}
@@ -157,7 +157,7 @@ Specify a `snapshot-update` command and provide the snapshot ID and new name.
 ```
 ibmcloud is snapshot-update SNAPSHOT_ID --name SNAPSHOT_NAME [--output JSON] [-q, --quiet]
 ```
-{:pre}
+{: pre}
 
 Example:
 
@@ -188,7 +188,7 @@ Resource group     ID                                          Name
                       
 Created            2021-02-17T14:11:56+08:00
 ```
-{:screen}
+{: screen}
 
 From the API:
 
@@ -197,12 +197,12 @@ Make a `PATCH/snapshots` call and specify the snapshot ID and new name of the sn
 ```
 curl -X PATCH \
 "$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2021-02-12&generation=2" \
-     -H "Authorization: Bearer ${API_TOKEN}" \
-     -d $'{
-  "name": "my-snapshop1-renamed"
-}'
+   -H "Authorization: Bearer ${API_TOKEN}" \
+   -d '{
+       "name": "my-snapshop1-renamed"
+   }'
 ```
-{:codeblock}
+{: codeblock}
 
 ## IAM roles for creating and managing snapshots
 {: #snapshots-vpc-iam}
@@ -287,7 +287,7 @@ The following example shows JSON output of an Activity Tracker event that was ge
     "saveServiceCopy": true
 }
 ```
-{:screen}
+{: screen}
 
 The following example shows an event that was generated when you list snapshot details by ID:
 
@@ -332,7 +332,7 @@ The following example shows an event that was generated when you list snapshot d
     "saveServiceCopy": true
 }
 ```
-{:screen}
+{: screen}
 
 ## Next Steps
 {: #snapshots-vpc-manage-next-steps}

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-04-16"
+lastupdated: "2021-07-21"
 
-keywords: user data
+keywords: user data, virtual server username
 
 subcollection: vpc
 
@@ -24,15 +24,15 @@ subcollection: vpc
 {: #user-data}
 [comment]: # (linked help topic)
 
-When you create an {{site.data.keyword.vsi_is_full}} instance, you can specify optional user data that automatically performs common configuration tasks or runs scripts.
-{:shortdesc}
+When you create an {{site.data.keyword.vsi_is_full}} instance, you can specify optional user data that automatically performs common configuration tasks or runs scripts. For more information about user data and usernames, see [IAM access](/docs/account?topic=account-userroles)
+{: shortdesc}
 
 VPC uses Cloud-init technology to configure virtual server instances. The **User Data** field on the *New virtual server for VPC* page allows users to put in custom configuration options by using cloud-init. Cloud-init supports several formats for configuration data, including yaml in a cloud-config file.
 
 You can specify cloud-config data directly in the **User Data** field, or you can include the cloud-config data in a text file and specify the file name when you create your instance. For example, if you save the cloud-config data in `userdata.blob`, specify `-user-data @userdata.blob` when you create an instance by using the CLI.
 
 The size limit of the **User Data** field (or file) is 64 K bytes.
-{:tip}
+{: tip}
 
 ## User data examples for Linux 
 {: #user-data-examples-for-linux}
@@ -40,8 +40,8 @@ The size limit of the **User Data** field (or file) is 64 K bytes.
 ### Adding a user and SSH key
 The following cloud-init example shows how a Linux user can add a user and provide the user with an authorized SSH key. The **Name** field has the public key that is added to `~/.ssh/authorized_keys`. 
 
-
-<pre class="codeblock"><code class="hljs">#cloud-config
+```
+#cloud-config
 users:
   - name: demouser
     gecos: Demo User
@@ -50,21 +50,23 @@ users:
     ssh_import_id: None
     lock_passwd: true
     ssh_authorized_keys:
-        - &lt;ssh public key&gt;
-</code></pre>
+        - <ssh public key>
+```
+{: codeblock}
 
 The following shell script example shows how a Linux user can add an SSH key for the current user.
 
-<pre class="codeblock"><code class="hljs">#!/bin/sh
+```
+hljs">#!/bin/sh
 echo &lt;sshKey&gt; &gt; ~/.ssh/authorized_keys
-</code></pre>
+```
 
 You can paste one of these examples directly into the **User Data** field. The user data is then available to the virtual server instance during provisioning.
 
 If you specify to include a file and have spaces preceding the file name, the data isn't interpreted correctly. Verify that `#!/bin/sh` or `#!/bin/bash` are the first characters on the line immediately following the end of file designation (`<<EOF`). The characters can't be indented. 
 {: tip}
 
-For more Linux user data examples and information, see [Cloud config examples ![External link icon](../icons/launch-glyph.svg "External link icon")](https://cloudinit.readthedocs.io/en/latest/topics/examples.html){:new_window}.
+For more Linux user data examples and information, see [Cloud config examples ![External link icon](../icons/launch-glyph.svg "External link icon")](https://cloudinit.readthedocs.io/en/latest/topics/examples.html){: new_window}.
 
 ### Configuring a single disk instance storage by using cloud-config script
 {: #configure-instance-storage-cloud-config}
@@ -229,9 +231,9 @@ The following example shows user data that can be passed to a Windows instance. 
 ```
 "user_data": "Content-Type: multipart/mixed; boundary=MIMEBOUNDARY\nMIME-Version: 1.0\n\n--MIMEBOUNDARY\nContent-Type: text/cloud-config; charset=\"us-ascii\"\nMIME-Version: 1.0\nContent-Transfer-Encoding: 7bit\nContent-Disposition: attachment; filename=\"cloud-config\"\n#cloud-config\n\nset_timezone: America/Detroit\n\n--MIMEBOUNDARY--\n"
 ```
-{:codeblock}
+{: codeblock}
 
-For more Windows user data examples and information, see [Cloudbase-init 1.0 documentation ![External link icon](../icons/launch-glyph.svg "External link icon")](https://cloudbase-init.readthedocs.io/en/latest/userdata.html){:new_window}.
+For more Windows user data examples and information, see [Cloudbase-init 1.0 documentation ![External link icon](../icons/launch-glyph.svg "External link icon")](https://cloudbase-init.readthedocs.io/en/latest/userdata.html){: new_window}.
 
 ## Next steps
 {: #next-steps-user}

@@ -32,7 +32,7 @@ subcollection: vpc
 
 You can configure listeners when [creating a network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer), or afterward by using the following procedure:
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){:external} and log in to your account.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
 
 2. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
 
@@ -42,9 +42,9 @@ You can configure listeners when [creating a network load balancer](/docs/vpc?to
 
 5. Select the new options for your listener. You have the following options:
 
-  * **Protocol**: The network protocol for the inbound customer traffic.
-  * **Port**: The port that the load balancer receives your inbound customer traffic.
-  * **Back-end pool**: The pool the load balancer distributes to the inbound customer traffic.
+   * **Protocol**: The network protocol for the inbound customer traffic.
+   * **Port**: The port that the load balancer receives your inbound customer traffic.
+   * **Back-end pool**: The pool the load balancer distributes to the inbound customer traffic.
 
 When you use the UI, you must create a pool before you create a listener. You cannot set the pool of an existing listener to empty.
 {: tip}

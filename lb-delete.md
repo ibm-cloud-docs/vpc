@@ -40,7 +40,7 @@ You can delete an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (AL
 
 To delete an ALB by using the IBM Cloud console, perform the following procedure:
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){:external}.
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external}.
 1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg), then click **VPC Infrastructure > Load balancers** from the Network section.
 1. Select the Region of your load balancer.
 1. Click the overflow menu ![overflow menu](images/overflow.png) next to the load balancer that you want to delete, then select **Delete**.
@@ -53,10 +53,10 @@ The Status for the load balancer now shows **Deleting**. Refresh the page to con
 
 To delete an ALB by using the CLI, run the following command:
 
-  ```
-  ibmcloud is load-balancer-delete <load_balancer_id> -f -q
-  ```
-  {: pre}
+```
+ibmcloud is load-balancer-delete <load_balancer_id> -f -q
+```
+{: pre}
 
 Where:
 
@@ -83,9 +83,9 @@ To delete an ALB by using the API, perform the following procedure:
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with
 the right variables.
 
-2. Run the following command to delete the load balancer:
+1. Run the following command to delete the load balancer:
 
-```bash
-curl -H "Authorization: $iam_token" -X DELETE "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
-```
-{: codeblock}
+    ```bash
+    curl -H "Authorization: $iam_token" -X DELETE "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
+    ```
+    {: codeblock}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-30"
+lastupdated: "2021-09-10"
 
 keywords: metadata, virtual private cloud, instance, virtual server, troubleshooting, troubleshoot
 
@@ -30,11 +30,10 @@ subcollection: vpc
 {: #imd-troubleshoot}
 
 When you configure and use the Instance Metadata service, you might encounter issues. Often, you can recover by following a few steps. Issues, symptoms, likely causes, and resolutions are described in the following sections.
-{:shortdesc}
+{: shortdesc}
 
 This service is available only to accounts with special approval to preview this beta feature.
-{:beta}
-
+{: beta}
 
 ## Disabling the metadata service hangs a virtual server instance
 {: #imd-ts-1}
@@ -49,4 +48,3 @@ For Beta, the metadata service is enabled by default. Trying to disable the serv
 
 To disable the service, use an account not on the Beta allow-list.
 {: tsResolve}
-

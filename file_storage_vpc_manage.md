@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-26"
+lastupdated: "2021-10-04"
 
 keywords: file storage, virtual private cloud, file share
 
@@ -19,6 +19,7 @@ subcollection: vpc
 {:tip: .tip}
 {:table: .aria-labeledby="caption"}
 {:note: .note}
+{:preview: .preview}
 {:external: target="_blank" .external}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
@@ -30,10 +31,10 @@ subcollection: vpc
 {: #file-storage-managing}
 
 Manage file shares you've created. For this release, you can rename a file share, delete a file share, add mount targets to a file share, mount and unmount a file share from virtual server instances, rename a mount target and, delete a mount target.
-{:shortdesc}
+{: shortdesc}
 
-File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions. Contact your IBM Sales representative if you are interested in getting access.
-{:note}
+File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, and London regions. Contact your IBM Sales representative if you are interested in getting access.
+{: preview}
 
 ## Use the UI to manage file shares and mount points
 {: #file-storage-manage-ui}
@@ -53,21 +54,21 @@ Using the UI, you can:
 
 1. On the [file shares details](/docs/vpc?topic=vpc-file-storage-view#fs-view-single-share-ui) page, click the pencil icon next to the file share name.
 
-2. Provide a new name for the share.
+2. Provide a new name for the file share.
 
-Valid file share names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Share names must begin with a lowercase letter.
+Valid file share names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. File share names must begin with a lowercase letter.
 
 ### Add mount target to a file share
 {: #add-mount-target-ui}
 
-To mount a share to an instance using the API, you create a mount target by providing a VPC or subnet information. If you want to connect a share to instances running in multiple VPCs in the same zone, you can create multiple mount targets for different VPCs.
+To mount a file share to an instance using the API, you create a mount target by providing a VPC or subnet information. If you want to connect a file share to instances running in multiple VPCs in the same zone, you can create multiple mount targets for different VPCs.
 
 1. Locate a file share to which you want to add a mount target from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view#file-storage-view-shares-targets-ui).
 
 2. On the File shares details page, under Mount targets, click **Create**.
 
    You must have at least one VPC to create a mount target. If you don't have one, first [create a VPC](/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc).
-   {:note}
+   {: note}
 
 3. In the **Create mount target** window, provide a name for the mount target.
 
@@ -76,7 +77,7 @@ To mount a share to an instance using the API, you create a mount target by prov
 ### Rename a mount target of a file share
 {: #rename-mount-target-ui}
 
-1. Navigate to the [file shares details](/docs/vpc?topic=vpc-file-storage-view#fs-view-single-share) page.
+1. Navigate to the [file shares details](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-view-single-share-ui) page.
 
 2. Click the overflow menu (hellipsis).
 
@@ -89,7 +90,7 @@ Valid mount target names can include a combination of lowercase alpha-numeric ch
 ### Delete mount target of a file share
 {: #delete-mount-target-ui}
 
-To delete a mount target, the share must be in a `stable` state.
+To delete a mount target, the file share must be in a `stable` state.
 
 1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view#file-storage-view-shares-targets-ui).
 
@@ -102,7 +103,7 @@ To delete a mount target, the share must be in a `stable` state.
 
 Before deleting a file share, make sure that it's unmounted from virtual server instances and that all mount targets belonging to the file share are [deleted](#delete-mount-target-ui). To delete a file share, the it must be in a `stable` state or `failed` state (i.e., when provisioning fails).
 
-1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view#file-storage-view-shares-targets-ui).
+1. Select a file share from the [list of file shares](/docs/vpc?topic=vpc-file-storage-view).
 
 2. Click the overflow menu (hellipsis) and select **Delete**.
 
@@ -126,43 +127,43 @@ Run the `share-update` command and spedify a new file share name:
 ```
 ibmcloud is share-update SHARE_ID --name NEW_NAME [--output JSON] [-q, --quiet]
 ```
-{:pre}
+{: pre}
 
-Valid file share names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Share names must begin with a lowercase letter.
+Valid file share names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. File share names must begin with a lowercase letter.
 
 ### Rename a mount target of a file share
 {: #rename-mount-target-cli}
 
-Run the `share-target-update` command with the share name and target name and specify a new mount target name.
+Run the `share-target-update` command with the file share name and target name and specify a new mount target name.
 
 ```
 ibmcloud is share-target-update SHARE_ID TARGET_ID --name NEW_NAME [--output JSON] [-q, --quiet]
 ```
-{:pre}
+{: pre}
 
 Valid mount target names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Mount target names must begin with a lowercase letter.
 
 ### Delete mount target of a file share
 {: #delete-mount-target-cli}
 
-Run the `share-target-delete` command and specify the share ID and mount target ID. To delete a mount target, the share must be in a `stable` state.
+Run the `share-target-delete` command and specify the file share ID and mount target ID. To delete a mount target, the file share must be in a `stable` state.
 
 ```
 ibmcloud is share-target-delete SHARE_ID TARGET_ID
 ```
-{:pre}
+{: pre}
 
 ### Delete a file share
 {: #delete-file-share-cli}
 
-Run the `share_delete` command ans specify the share ID.
+Run the `share_delete` command ans specify the file share ID.
 
-Before you can delete a file share, make sure that it's unmounted from virtual server instances and that all mount targets belonging to the file share are [deleted](#delete-mount-target-cli). To delete a file share, the share must be in a `stable` or `failed` state (i.e., when provisioning fails).
+Before you can delete a file share, make sure that it's unmounted from virtual server instances and that all mount targets belonging to the file share are [deleted](#delete-mount-target-cli). To delete a file share, the file share must be in a `stable` or `failed` state (i.e., when provisioning fails).
 
 ```
 ibmcloud is share-delete<SHARE_ID.
 ```
-{:pre}
+{: pre}
 
 ## Use the API to manage file shares and mount points
 {: #file-storage-manage-api}
@@ -179,18 +180,18 @@ Using the API, you can:
 To see information about the File Storage for VPC API methods, see this section in the [API reference](/apidocs/vpc-beta#list-share-profiles).
 
 File Storage for VPC regional API is a beta-level release for customers with special approval to preview this feature. 
-{:note}
+{: note}
 
 ### Rename a file share
 {: #rename-file-share-api}
 
-Make a `PATCH /shares/$share_id` call to rename a specific share. For example:
+Make a `PATCH /shares/$share_id` call to rename a specific file share. For example:
 
 ```
 curl -X PATCH \
-"$vpc_api_endpoint/v1/shares/$share_id?version=2021-02-15&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id?version=2021-10-04&generation=2" \
   -H "Authorization: Bearer ${API_TOKEN}" \
-  -d $'{
+  -d '{
     "name": "share-renamed1"
   }'
 ```
@@ -200,7 +201,7 @@ A successful response will look like this:
 
 ```json
 {
-  "created_at": "2021-03-31T23:31:59Z",
+  "created_at": "2021-10-07T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8",
@@ -228,7 +229,7 @@ A successful response will look like this:
   }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Add mount target to a file share
 {: #add-mount-target-api}
@@ -237,10 +238,10 @@ Make a `POST /shares/{share_ID}/targets` call to create a mount target for an ex
 
 ```curl
 curl -X POST \
-"$rias_endpoint/v1/shares/$share_id/targets?version=2021-03-15&generation=2\
+"$rias_endpoint/v1/shares/$share_id/targets?version=2021-10-04&generation=2\
 -H "Authorization: $iam_token" \
 -H 'Content-Type: application/json' \
--d $'{
+-d '{
   "name": "target-name1",
   "vpc": {
     "id": 4d1c51ac-1144-4e32-af86-a0349fabc266"
@@ -253,7 +254,7 @@ A successful response will look like this:
 
 ```json
 {
-  "created_at": "2021-03-31T23:31:59Z",
+  "created_at": "2021-10-07T23:31:59Z",
   "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "lifecycle_state": "pending",
@@ -269,7 +270,7 @@ A successful response will look like this:
   }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Rename a mount target of a file share
 {: #rename-mount-target-api}
@@ -278,9 +279,9 @@ Make a `PATCH /shares/$share_id/targets/$target_id` call to rename a mount targe
 
 ```curl
 curl -X PATCH \
-"$vpc_api_endpoint/v1/shares/$share_id/targets/$target_id?version=2021-03-15&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id/targets/$target_id?version=2021-10-04&generation=2" \
   -H "Authorization: Bearer ${API_TOKEN}" \
-  -d $'{
+  -d '{
     "name": "target-renamed1"
   }
 ```
@@ -290,7 +291,7 @@ A successful response will look like this:
 
 ```json
 {
-  "created_at": "2021-03-31T23:31:59Z",
+  "created_at": "2021-10-07T23:31:59Z",
   "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "lifecycle_state": "stable",
@@ -317,7 +318,7 @@ For example:
 
 ```
 curl -X DELETE \
-"$vpc_api_endpoint/v1/shares/$share_id/targets/$target_id?version=2021-03-15&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id/targets/$target_id?version=2021-10-04&generation=2" \
   -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: pre}
@@ -328,7 +329,7 @@ For example:
 
 ```json
 {
-  "created_at": "2021-03-31T23:31:59Z",
+  "created_at": "2021-10-07T23:31:59Z",
   "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "lifecycle_state": "pending_deletion",
@@ -344,7 +345,7 @@ For example:
   }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 The mount target is deleted in the background. Confirm the deletion by trying to view the mount target information. If you get _404 Not Found_ error, the mount target is successfully deleted.
 
@@ -357,7 +358,7 @@ For example:
 
 ```
 curl -X DELETE \
-"$vpc_api_endpoint/v1/shares/$share_id?version=2021-03-15&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id?version=2021-10-04&generation=2" \
   -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: pre}
@@ -368,7 +369,7 @@ For example:
 
 ```json
 {
-  "created_at": "2021-03-31T23:31:59Z",
+  "created_at": "2021-10-07T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8",
@@ -396,14 +397,14 @@ For example:
   }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 The file share is deleted in background. Confirm the deletion by trying to view the mount target information. If you get _404 Not Found_ error, the mount target is successfully deleted.
 
-## Mount and Unmount File Share from a virtual server instance
+## Mount and unmount file shares from a virtual server instance
 {: #fs-mount-unmount-vsi}
 
-To mount a file share to a virtual server instance, [locate the share mount path information](vpc?topic=vpc-file-storage-view#fs-get-target-api). The mount path is created when you created mount target for a file share. See the following information for mounting on these Linux operating systems. Other Linux distributions follow similar procedures.
+To mount a file share to a virtual server instance, [locate the mount path information](vpc?topic=vpc-file-storage-view). The mount path is created when you created mount target for a file share. See the following information for mounting on these Linux operating systems. Other Linux distributions follow similar procedures.
 
 * [Mounting file shares on Red Hat Linux](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHEL)
 * [Mounting file shares in CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos)
@@ -425,16 +426,16 @@ File Storage for VPC service require IAM permissions for role-based access contr
 
 | VPC File Storage action | IAM role |
 |-----------------|----------|
-| Create share | Administrator, editor |
-| List all shares | Administrator, editor, operator, viewer |
-| View share details | Administrator, editor, operator, viewer |
-| Update share | Administrator, editor |
-| Delete share | Administrator, editor |
-| Create mount target | Administrator, editor |
-| List all mount target | Administrator, editor, operator, viewer |
+| Create a file share | Administrator, editor |
+| List all file shares | Administrator, editor, operator, viewer |
+| View file share details | Administrator, editor, operator, viewer |
+| Update a file share | Administrator, editor |
+| Delete a file share | Administrator, editor |
+| Create a mount target | Administrator, editor |
+| List all mount targets | Administrator, editor, operator, viewer |
 | View mount target details | Administrator, editor, operator, viewer |
-| Update mount target | Administrator, editor |
-| Delete mount target | Administrator, editor |
+| Update a mount target | Administrator, editor |
+| Delete a mount target | Administrator, editor |
 {: caption="Table 1. IAM Roles for using the file service" caption-side="top"}
 
 ## File share lifecycle states
@@ -447,8 +448,8 @@ Table 1 describes the states in the file share lifecycle.
 | Stable | The file share or mount target is stable and available for use. |
 | Pending | The file share or mount target is being created. |
 | Failed | The file share or mount target has failed creation. You can delete the failed share and try creating new one. |
-| Deleting | The share or mount target being deleted. |
-| Deleted | The share or mount target has been deleted. |
+| Deleting | The file share or mount target being deleted. |
+| Deleted | The file share or mount target has been deleted. |
 {: caption="Table 2. File storage lifecycle states" caption-side="top"}
 
 ## Next steps

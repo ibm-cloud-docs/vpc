@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2021
-lastupdated: "2021-08-03"
+lastupdated: "2021-08-24"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
@@ -26,7 +26,7 @@ subcollection: vpc
 {: #vpc-key-rotation}
 
 For {{site.data.keyword.vpc_short}} resources such as volumes and encrypted images that are protected by your customer root key (CRK), you can rotate the root keys for more security. When you rotate a root key by schedule or on demand, the original key material is replaced. The old key remains active to decrypt existing resources but can't be used to encrypt new ones.
-{:shortdesc}
+{: shortdesc}
 
 ## Key rotation overview
 {: #vpc-key-rotation-overview}
@@ -42,7 +42,7 @@ You can set up a [rotation policy](#vpc-key-rotation-policies) to schedule autom
 For root keys that you import to the KMS instance, because you're providing new key material not already in the KMS, you can't set a rotation policy for automatic key rotation. Instead, you [manually rotate](#vpc-key-rotation-ui) your keys by using the new cryptographic key material that you imported.
 
 The key rotation feature is available for root keys and does not apply to standard encryption keys.
-{:note}
+{: note}
 
 ### How key rotation works
 {: #vpc-key-rotation-function}
@@ -76,7 +76,7 @@ Rotating your root keys provides these security benefits:
 You can rotate your root keys in your KMS instance by setting a rotation policy or by manually rotating your keys. A rotation policy automatically rotates your keys based on a schedule; manual rotation rotates keys on demand.
 
 If you're using HPCS, you can also rotate master keys using [IBM Cloud TKE CLI plug-in](/docs/hs-crypto?topic=hs-crypto-rotate-master-key-cli). Information in this topic pertains to rotating root keys only.
-{:note}
+{: note}
 
 When you set a [rotation policy](/docs/key-protect?topic=key-protect-set-rotation-policy) for a root key, you define a rotation schedule to automatically rotate your key. In your KMS instance, you can set a rotation interval in the range of 1 - 12 months.
 
@@ -104,8 +104,8 @@ To perform key rotation:
 * Locate the KMS instance ID. See [Retrieving your instance ID](/docs/key-protect?topic=key-protect-retrieve-instance-ID).
 * Locate the root key ID and CRN. Using the CLI, see [Step 1 - Obtain service instance and root key information](/docs/vpc?topic=vpc-creating-instances-byok#byok-cli-setup-prereqs). To view a list of available root keys, also see this information for [Key Protect](/docs/key-protect?topic=key-protect-view-keys) or [HPCS](/docs/hs-crypto?topic=hs-crypto-view-keys).
 * Locate the API endpoint when using the API service. Using the UI:
-  1. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc){: external}) **Resource List**, under **Services**, click on the KMS instance. (The pane also shows the instance CRN and GUID.)
-  2. Click **View Key Details** for the API endpoint.
+    1. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc){: external}) **Resource List**, under **Services**, click on the KMS instance. (The pane also shows the instance CRN and GUID.)
+    2. Click **View Key Details** for the API endpoint.
 
 ## Using the key management service UI to rotate keys
 {: #vpc-key-rotation-ui}
@@ -159,23 +159,23 @@ For more information, see [Step 1 - Obtain service instance and root key informa
 
 3. Rotate the key.
 
-  ```
-  $ ibmcloud kp key rotate 1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad
-  Rotating root key...
-  SUCCESS
-  ```
-  {: codeblock}
+   ```
+   $ ibmcloud kp key rotate 1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad
+   Rotating root key...
+   SUCCESS
+   ```
+   {: codeblock}
 
 4. Verify the key was rotated.
 
-  ```
-  $ ibmcloud kp key show 1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad
-  Grabbing info for key id: 1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad...
-  SUCCESS
-  Key ID                                 Key Name      Description   Creation Date                   Expiration Date
-  1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad   my-root-key                 2020-05-06 17:25:22 +0000 UTC   Key does not expire
-  ```
-  {: codeblock}
+   ```
+   $ ibmcloud kp key show 1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad
+   Grabbing info for key id: 1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad...
+   SUCCESS
+   Key ID                                 Key Name      Description    Creation Date                   Expiration Date
+   1a6d5be8-287c-4eb3-9c44-cf0c2b0d67ad   my-root-key                  2020-05-06 17:25:22 +0000 UTC   Key does not expire
+   ```
+   {: codeblock}
 
 ### CLI procedure for KMS-generated keys
 {: #CLI-vpc-generated-key-procedure}
@@ -184,37 +184,37 @@ This procedure describes creating a new root key with base64 key material. It st
 
 1. Create a random, base64-encoded, 32-byte key material.
 
-  ```
-  $ KEY_MATERIAL=$(openssl rand -base64 32)
-  ```
-  {:pre}
+   ```
+   $ KEY_MATERIAL=$(openssl rand -base64 32)
+   ```
+   {: pre}
 
 2. Create a root key from the base64-encoded value.
 
-  ```
-  $ ibmcloud kp key create my-base64-root-key -k $KEY_MATERIAL
-  Creating key: 'my-base64-root-key', in instance: '390086ac-76fa-4094-8cf3-c0829bd69526'...
-  SUCCESS
-  Key ID                                 Key Name
-  e55f86ab-6984-4594-ad23-3024f6440a58   my-base64-root-key
-  ```
-  {: codeblock}
+   ```
+   $ ibmcloud kp key create my-base64-root-key -k $KEY_MATERIAL
+   Creating key: 'my-base64-root-key', in instance:  '390086ac-76fa-4094-8cf3-c0829bd69526'...
+   SUCCESS
+   Key ID                                 Key Name
+   e55f86ab-6984-4594-ad23-3024f6440a58   my-base64-root-key
+   ```
+   {: codeblock}
 
 3. Create new key material.
 
-  ```
-  $ NEW_KEY_MATERIAL=$(openssl rand -base64 32)
-  ```
-  {:pre}
+   ```
+   $ NEW_KEY_MATERIAL=$(openssl rand -base64 32)
+   ```
+   {: pre}
 
 4. Rotate the key with the new key material.
 
-  ```
-  $ ibmcloud kp key rotate e55f86ab-6984-4594-ad23-3024f6440a58 -k $NEW_KEY_MATERIAL
-  Rotating root key...
-  SUCCESS
-  ```
-  {: codeblock}
+   ```
+   $ ibmcloud kp key rotate e55f86ab-6984-4594-ad23-3024f6440a58 -k  $NEW_KEY_MATERIAL
+   Rotating root key...
+   SUCCESS
+   ```
+   {: codeblock}
 
 ## Using the key management service API to rotate keys
 {: #vpc-key-rotation-api}
@@ -223,7 +223,7 @@ This procedure describes creating a new root key with base64 key material. It st
 Using the API service, rotating a root key with new key material creates a new root key version that wraps (encrypts) the DEK used to rewrap (reencrypt) your data. The process for manually rotating a key using the {{site.data.keyword.keymanagementserviceshort}} API is described here, but the overall process is similar for HPCS.
 
 If you initially imported a root key by using an import token, follow the steps in [Using an import token to rotate a key](/docs/key-protect?topic=key-protect-rotate-keys#rotate-keys-secure-api).
-{:note}
+{: note}
 
 ### Before you begin
 {: #vpc-key-rotation-api-prereqs}
@@ -247,7 +247,7 @@ curl -X GET \
   -H 'authorization: Bearer <IAM_token>' \
   -H 'bluemix-instance: <instance_ID>'
 ```
-{:codeblock}
+{: codeblock}
 
 The response displays information about the resource:
 
@@ -274,7 +274,7 @@ The response displays information about the resource:
     }
 }
 ```
-{:code-block}
+{: code-block}
 
 ### API procedure
 {: #vpc-key-rotation-api-procedure}
@@ -285,19 +285,19 @@ Follow these steps to rotate a root key by using the Key Protect API.
 
 2. Locate the root key ID in your KMS instance by making a `GET/keys` request to the following endpoint:
 
-  ```
-  https://<region>.kms.cloud.ibm.com/api/v2/keys
-  ```
-  {:pre}
+   ```
+   https://<region>.kms.cloud.ibm.com/api/v2/keys
+   ```
+   {: pre}
 
-  Use the `limit` and `offset` parameters to retrieve a subset of your keys, beginning with the offset value that you specify. For more information, see [Retrieving a subset of keys](/docs/key-protect?topic=key-protect-view-keys#retrieve-subset-keys-api).
-  {:tip}
+   Use the `limit` and `offset` parameters to retrieve a subset of your keys, beginning with the offset value that you specify. For more information, see [Retrieving a subset of keys](/docs/key-protect?topic=key-protect-view-keys#retrieve-subset-keys-api).
+   {: tip}
 
 3. Copy the ID of the root key that you want to rotate.
 
 4. Replace the root key with new key material with a `POST/key/<key-ID> action=rotate ` request. If the root key was generated by the KMS, you don't need a POST request body. If you imported the key, supply the new key material (Base64 encoded) in the `payload` field of the JSON object in the POST request body.
 
-  For example:
+    For example:
 
     ```cURL
       curl -X POST \
@@ -312,20 +312,20 @@ Follow these steps to rotate a root key by using the Key Protect API.
     ```
     {: codeblock}
 
-  Replace the variables in the example request according to Table 1.
+    Replace the variables in the example request according to Table 1.
 
 5. Optionally, verify that the key was rotated by running the following call to browse the keys in your Key Protect service instance.
 
-  ```cURL
+   ```cURL
    curl -X GET \
-     https://<region>.kms.cloud.ibm.com/api/v2/keys/metadata \
-     -H 'accept: application/vnd.ibm.collection+json' \
-     -H 'authorization: Bearer <IAM_token>' \
-     -H 'bluemix-instance: <instance_ID>'
-  ```
-  {: codeblock}
+   https://<region>.kms.cloud.ibm.com/api/v2/keys/metadata \
+   -H 'accept: application/vnd.ibm.collection+json' \
+   -H 'authorization: Bearer <IAM_token>' \
+   -H 'bluemix-instance: <instance_ID>'
+   ```
+   {: codeblock}
 
-  Review the `lastRotateDate` and `keyVersion` values in the response to inspect the date and time that your key was last rotated. The `keyVersion` attribute contains identifying information that describes the latest version of the root key.
+Review the `lastRotateDate` and `keyVersion` values in the response to inspect the date and time that your key was last rotated. The `keyVersion` attribute contains identifying information that describes the latest version of the root key.
 
 | Variable | Description |
 |----------|-------------|
@@ -341,10 +341,10 @@ Follow these steps to rotate a root key by using the Key Protect API.
 When your root keys are successfully rotated, an HTTP `204 No Content` response is returned, which indicates that your root key was replaced by new key material.
 
 When you unwrap (decrypt) a wrapped data encryption key (WDEK) by using a rotated root key, the service returns a new ciphertext in the response entity-body. Each ciphertext remains available for unwrap actions. If you unwrap a DEK with a previous ciphertext, the service also returns the latest ciphertext and latest key version in the response. Use the latest ciphertext for future unwrap operations.
-{:note}
+{: note}
 
 ### Listing root key versions
-{:#api-byok-list-root-key}
+{: #api-byok-list-root-key}
 
 To see all versions of a root key that you rotated, make a `GET /keys/<key_ID>/versions` call. The older versions remain valid for decrypting existing resources but can't be used to encrypt new ones. They are removed from the list upon their expiration date or when there are no more resources encrypted by them. For an example request and response, see [List key versions](/apidocs/key-protect#list-key-versions).
 

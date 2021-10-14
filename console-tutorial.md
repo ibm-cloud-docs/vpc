@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2020, 2021
 
-lastupdated: "2021-03-21"
+lastupdated: "2021-08-27"
 
 
 keywords: vpc, virtual private cloud, vpc ui, console, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range, generation 2, gen 2
@@ -38,7 +38,7 @@ subcollection: vpc
 {:javascript: data-hd-programlang="javascript"}
 {:new_window: target="_blank"}
 {:note: .note}
-{:objectc data-hd-programlang="objectc"}
+{:objectc: data-hd-programlang="objectc"}
 {:org_name: data-hd-keyref="org_name"}
 {:php: data-hd-programlang="php"}
 {:pre: .pre}
@@ -89,7 +89,7 @@ subcollection: vpc
 {: toc-completion-time="30m"}
 
 You can create and configure an {{site.data.keyword.vpc_full}} (VPC) by using the {{site.data.keyword.cloud_notm}} console.
-{:shortdesc}
+{: shortdesc}
 
 ## Objectives
 {: #vpc_tutorials_objectives}
@@ -128,7 +128,7 @@ This command generates two files. The generated public key is in the `id_rsa.pub
 If you plan to create an application load balancer and use HTTPs for the listener, an SSL certificate is required. You can manage certificates with [IBM Certificate Manager](https://{DomainName}/catalog/services/certificate-manager){: external}. You must also create an authorization to allow your load balancer instance to access the Certificate Manager instance that contains the SSL certificate. You can create an authorization through [Identity and Access Authorizations](https://{DomainName}/iam/authorizations){: external}. For the source, select **VPC Infrastructure** as the Source service, **Load Balancer for VPC** as the Resource type, and **All resource instances** for the Source resource instance. Select **Certificate Manager** as the Target service and assign **Writer** for the service access role. Set the Target service instance to **All instances** or to your specific Certificate Manager instance. For more information, see [Using Load Balancers in IBM Cloud VPC](/docs/vpc?topic=vpc-load-balancers).
 
 Allow extra time for completing any optional steps.
-{:note}
+{: note}
 
 ## Creating a VPC and subnet
 {: #creating-a-vpc-and-subnet}
@@ -148,25 +148,25 @@ To create a VPC and subnet:
 1. Select whether the default security group allows inbound SSH and ping traffic to virtual server instances in this VPC. We'll configure more rules for the default security group later.
 1. _Optional:_ Select whether you want to enable your VPC to access classic infrastructure resources. For more information, see [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure).
 
-    You can only enable a VPC for classic access while creating the VPC. In addition, you can only have one classic access VPC in your account at any time.
-    {: important}
+   You can only enable a VPC for classic access while creating the VPC. In addition, you can only have one classic access VPC in your account at any time.
+   {: important}
 
 1. _Optional:_ Clear the **Default address prefixes** option if you don't want to assign default address prefixes to each zone in your VPC. After you create your VPC, you can go to its details page and set your own address prefixes.
 1. Enter a name for the new subnet in your VPC, such as `my-subnet`.
 1. Select a resource group for the subnet.
 1. Select a location for the subnet. The location consists of a region and a zone.
 
-    The region that you select is used as the region of the VPC. All additional resources that you create in this VPC are created in the selected region.
-    {: tip}
+   The region that you select is used as the region of the VPC. All additional resources that you create in this VPC are created in the selected region.
+   {: tip}
 1. Enter an IP range for the subnet in CIDR notation, for example: `10.240.0.0/24`. In most cases, you can use the default IP range. If you want to specify a custom IP range, you can use the IP range calculator to select a different address prefix or change the number of addresses.
 
-    A subnet cannot be resized after it is created.
-    {: important}
+   A subnet cannot be resized after it is created.
+   {: important}
 
 1. Attach a public gateway to the subnet if you want to allow all attached resources to communicate with the public internet.  
 
-    You can also attach the public gateway after you create the subnet.
-    {: tip}
+   You can also attach the public gateway after you create the subnet.
+   {: tip}
 
 1. Click **Create virtual private cloud**.
 1. To create another subnet in this VPC, click the **Subnets** tab and click **New subnet**. When you define the subnet, make sure to select `my_vpc` in the **Virtual private cloud** field.
@@ -236,8 +236,8 @@ To create a virtual server instance in the newly created subnet:
 1. Select an image (that is, operating system and version), such as Debian GNU/Linux 9.x Stretch/Stable.
 1. To set the instance size, select one of the popular profiles or click **All profiles** to choose a different core, RAM, and network performance combination that's most appropriate for your workload. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles).
 
-    After you create your instance, you can't update the profile.
-    {: important}
+   After you create your instance, you can't update the profile.
+   {: important}
 
 1. Select an existing SSH key or add an SSH key that is to be used to access the virtual server instance. To add an SSH key, click **New key** and name the key. After you enter your previously generated public key value, click **Add SSH key**.
 1. _Optional:_ Enter user data to run common configuration tasks when your instance starts. For example, you can specify cloud-init directives or shell scripts for Linux&reg images. For more information, see [User Data](/docs/vpc?topic=vpc-user-data).
@@ -245,10 +245,10 @@ To create a virtual server instance in the newly created subnet:
 1. In the **Data volumes** area, click **New volume** to attach a block storage volume to your instance if you want more storage. In this tutorial, we'll create a block storage volume and attach it to the instance later.
 1. In the **Network interfaces** area, you can edit the network interface and change its name. If you have more than one subnet in the selected zone and VPC, you can attach a different subnet to the interface. If you want the instance to exist in multiple subnets, you can create more interfaces.
 
-  Each interface has a maximum network bandwidth of 16 Gbps. If the profile you selected for this instance has a maximum network bandwidth greater than 16 Gbps, you might want to create more interfaces to optimize network performance. For more information, see [Network performance notes for profiles](/docs/vpc?topic=vpc-profiles#network-perf-notes-for-profiles).
-  {: tip}
+   Each interface has a maximum network bandwidth of 16 Gbps. If the profile you selected for this instance has a maximum network bandwidth greater than 16 Gbps, you might want to create more interfaces to optimize network performance. For more information, see [Network performance notes for profiles](/docs/vpc?topic=vpc-profiles#network-perf-notes-for-profiles).
+   {: tip}
 
-  You can also select which security groups to attach to each interface. By default, the VPC's default security group is attached. The default security group allows inbound SSH and ping traffic, all outbound traffic, and all traffic between instances in the group. All other traffic is blocked; you can configure rules to allow more traffic. If you later edit the rules of the default security group, those updated rules will apply to all current and future instances in the group.
+   You can also select which security groups to attach to each interface. By default, the VPC's default security group is attached. The default security group allows inbound SSH and ping traffic, all outbound traffic, and all traffic between instances in the group. All other traffic is blocked; you can configure rules to allow more traffic. If you later edit the rules of the default security group, those updated rules will apply to all current and future instances in the group.
 1. Click **Create virtual server instance**. The status of the instance starts as *Pending*, changes to *Stopped*, and then *Running*. You might need to refresh the page to see the change in status.
 
 ## Creating and attaching a block storage volume
@@ -263,13 +263,13 @@ To create and attach a block storage volume:
 
 1. In the navigation pane, click **Storage > Block storage volumes**.
 1. Click **New volume** and specify the following information.
-  * **Name**: Enter a name for the block storage volume, such as `data-volume-1`.
-  * **Resource group**: Select a resource group for the block storage volume. You can use resource groups to organize your account resources for access control and billing purposes. For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup).
-  * **Tags**: _Optional:_ Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
-  * **Location**: Select a location for the block storage volume. The location consists of a region and a zone, for example US South 1.
-  * **Size**: Specify the size of the volume between 10 GBs and 2000 GBs.
-  * **IOPs**: Select one of the IOPs Tiers or click Custom to enter an IOPs value based on volume size.
-  * **Encryption**: For this release, accept the default *Provider managed* encryption option.
+   * **Name**: Enter a name for the block storage volume, such as `data-volume-1`.
+   * **Resource group**: Select a resource group for the block storage volume. You can use resource groups to organize your account resources for access control and billing purposes. For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup).
+   * **Tags**: _Optional:_ Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
+   * **Location**: Select a location for the block storage volume. The location consists of a region and a zone, for example US South 1.
+   * **Size**: Specify the size of the volume between 10 GBs and 2000 GBs.
+   * **IOPs**: Select one of the IOPs Tiers or click Custom to enter an IOPs value based on volume size.
+   * **Encryption**: For this release, accept the default *Provider managed* encryption option.
 1. Click **Create volume**.
 1. In the list of block storage volumes, find the volume that you created. When the status is Available, click "..." and select **Attach to instance**.
 1. Select the instance to which you want to attach the volume and click **Attach**.
@@ -290,9 +290,9 @@ To configure the security group:
    * Select the protocols and ports to which the rule applies.    
 
    **Tips:**  
-  * All rules are evaluated, regardless of the order in which they're added.
-  * Rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, you created a rule that allows inbound TCP traffic on port 80. That rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
-  * For Windows&reg images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
+   * All rules are evaluated, regardless of the order in which they're added.
+   * Rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, you created a rule that allows inbound TCP traffic on port 80. That rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
+   * For Windows&reg images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
 1. _Optional:_ To view interfaces that are attached to the security group, click **Attached interfaces** in the navigation pane.
 1. When you finish creating rules, click the **All security groups for VPC** breadcrumb at the beginning of the page.
 
@@ -345,7 +345,7 @@ Using the floating IP address that you created, ping your instance to make sure 
 ```
 ping <public-ip-address>
 ```
-{:pre}
+{: pre}
 
 ### Connecting to Linux images
 {: #connecting-to-linux images}
@@ -355,14 +355,14 @@ Since you created your instance with a public SSH key, you can now connect to it
 ```
 ssh -i <path-to-private-key-file> root@<public-ip-address>
 ```
-{:pre}
+{: pre}
 
 For more information about how to connect to your instance, see [Connecting to Linux instances](/docs/vpc?topic=vpc-vsi_is_connecting_linux).
 
 To connect to a Windows&reg image, log in using its decrypted password. For instructions, see [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
 
 You can now access your virtual server instance by connecting to a VNC or serial console. This is a quick-and-easy way for you to interact with the instance without using a Secure Shell. For more information about this feature, see [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console)
-{:note}
+{: note}
 
 ## Monitoring your instance
 {: #monitoring-your-instance}

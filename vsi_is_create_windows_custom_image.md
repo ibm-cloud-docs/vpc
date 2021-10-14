@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-06"
+lastupdated: "2021-10-07"
 
 keywords: creating a Windows custom image, cloudbase-init, qcow2
 
@@ -26,21 +26,25 @@ subcollection: vpc
 
 You can create your own custom Windows-based image to deploy a virtual server instance in the {{site.data.keyword.vpc_short}}
 infrastructure.
-{:shortdesc}
+{: shortdesc}
 
 You can begin with an image template from the {{site.data.keyword.cloud_notm}} classic infrastructure. For more information, see [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc).
 Did you know that your can also create a custom image of a boot volume attached to an instance at import time? For more information, see [About creating an image from volume](/docs/vpc?topic=vpc-image-from-volume-vpc).
 {: tip}
 
 Windows custom image are not supported for LinuxONE (s390x processor architecture).  
-{:note}
+{: note}
 
 
 Your image must adhere to the following custom image requirements:
-* Contains a single file or volume
-* Is cloud-init enabled
-* The operating system is supported as a stock image operating system
-* Size of the boot disk doesn't exceed 100 GB
+* Contains a single file or volume.
+* Is cloud-init enabled.
+* The operating system is supported as a stock image operating system.
+* The image is configured to use BIOS boot mode. UEFI boot mode is not supported. 
+* The min/max volume size is 10 GB to 250 GB. Images below 10 GB are rounded up to 10 GB.
+
+You cannot create an image from an encrypted boot volume (Image from a volume feature) that is not 100GB.  The operation will be blocked.
+{: note}
 
 The following procedure describes how to create a Windows custom image that can be successfully deployed in the {{site.data.keyword.vpc_short}} infrastructure environment. The procedure encompasses these high-level tasks:
 * Use VirtualBox to create a Windows image in VHD format.

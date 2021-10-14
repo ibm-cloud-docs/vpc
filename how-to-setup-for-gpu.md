@@ -131,7 +131,7 @@ version:        418.116.00
 {: screen}
 
 The output from the command that reports `CUDA Version: 10.1` does not necessarily mean that the CUDA toolkit is installed. It is reporting only the release stream of CUDA that is compatible with the driver. For more information, see the following section for CUDA-specific information.
-{:tip}
+{: tip}
 
 
 ## Installing CUDA

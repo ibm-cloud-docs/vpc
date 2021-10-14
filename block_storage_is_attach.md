@@ -30,7 +30,7 @@ subcollection: vpc
 {: #attaching-block-storage}
 
 When you create a {{site.data.keyword.block_storage_is_short}} volume for a virtual server instance, the volume is attached to the instance by default. When you detach a volume, it exists as an unattached volume that you can later reattach. These available volumes are displayed in the list of [all block storage volumes](/docs/vpc?topic=vpc-viewing-block-storage#viewvols). You can attach the volume to another instance from the list of all block storage volumes, or when you view details about an instance.
-{:shortdesc}
+{: shortdesc}
 
 ## Volume attachment limits
 {: #vol-attach-limits}
@@ -50,7 +50,7 @@ The following limits also apply:
 {: #attach}
 {: help}
 {: support}
-{:ui}
+{: ui}
 
 From the list of all block storage volumes, follow these steps.
 
@@ -69,7 +69,7 @@ You can also attach a block storage volume from the virtual server instance deta
 
 ## Attaching a block storage volume by using the CLI
 {: #attaching-block-storage-cli}
-{:cli}
+{: cli}
 
 Follow these instructions to use the CLI to attach a block storage volume to a virtual server instance. Each instance can have [many volume attachments](/docs/vpc?topic=vpc-attaching-block-storage#vol-attach-limits), but a single volume attachment connects one volume to one instance.
 
@@ -93,7 +93,7 @@ To attach a volume to a virtual server instance in the current resource group, r
 ```
 ibmcloud is instance-volume-attachment-add NAME INSTANCE_ID VOLUME_ID [--auto-delete true | false] [--json]
 ```
-{:pre}
+{: pre}
 
 `NAME` is the name that you provide for the volume attachment and INSTANCE_ID is the ID of the virtual server instance.
 
@@ -115,7 +115,7 @@ ID                                     Name                  Address          Pr
 0738-e6353eba-c407-4406-b9f6-c50ee1da8d83   vsi-09201             198.51.100.3     -         ubuntu-16.04-amd64(7eb4e35b-.)   5 hours ago    running    vpnaas-test1(2467b0fa-.)          us-south-1   -
 
 ```
-{:screen}
+{: screen}
 
 ### Show details of a volume that is attached to a virtual server instance
 {: #show-details-attached-vol}
@@ -125,7 +125,7 @@ After you attach a volume, you can display details by specifying the instance ID
 ```
 ibmcloud is instance-volume-attachment INSTANCE_ID VOLUME_ATTACHMENT_ID [--json]
 ```
-{:pre}
+{: pre}
 
 ### List all volume attachments of a server instance
 
@@ -134,10 +134,10 @@ Use the `instance-volume-attachments` command and specify the instance ID to see
 ```
 ibmcloud is instance-volume-attachments INSTANCE_ID [--json]
 ```
-{:pre}
+{: pre}
 
 Do you prefer to use the {{site.data.keyword.cloud}} console? For more information, see [Attaching a block storage volume by using the UI](/docs/vpc?topic=vpc-attaching-block-storage).
-{:tip}
+{: tip}
 
 ### Create a volume attachment JSON
 {: #volume_attachment_json}
@@ -162,25 +162,25 @@ Here is an example volume attachment JSON file that defines a custom volume:
     }
 ]
 ```
-{:codeblock}
+{: codeblock}
 
 ## Attaching a block storage volume from the API
 {: #attaching-block-storage-api}
-{:api}
+{: api}
 
 ### Attach a block storage volume from the API
 {: #attach-block-storage-cli}
 {: help}
 {: support}
 
-Attach block storage volumes to an instance by directly calling the [REST APIs](https://{DomainName}/apidocs/vpc){:external}.
+Attach block storage volumes to an instance by directly calling the [REST APIs](https://{DomainName}/apidocs/vpc){: external}.
 
 Create a volume attachment for an instance to attach a block storage volume. Make a `POST /instances` call and specify `volume_attachments`. This example creates a volume attachment and specifies the volume by ID.
 
 ```
 POST/instances/{instance_id}/volume_attachments
 ```
-{:pre}
+{: pre}
 
 Example request:
 
@@ -195,7 +195,7 @@ curl -X POST "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments?ver
       }
     }'
 ```
-{:codeblock}
+{: codeblock}
 
 A successful response indicates that the volume is attached.
 
@@ -216,7 +216,7 @@ A successful response indicates that the volume is attached.
   }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Next steps
 {: #next-step-attaching-block-storage}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-05-21"
+lastupdated: "2021-08-20"
 
 keywords: custom image
 
@@ -26,10 +26,10 @@ subcollection: vpc
 {: #managing-images}
 
 You can create your own custom image on premises and then import it to {{site.data.keyword.vpc_full}} infrastructure from {{site.data.keyword.cos_full_notm}}. Then, you can use your custom image to create new virtual server instances that runs on the KVM hypervisor.
-{:shortdesc}
+{: shortdesc}
 
 You can also create a custom image of a boot volume attached to an instance at import time. For more information, see [About creating an image from volume](/docs/vpc?topic=vpc-image-from-volume-vpc).
-{:note}
+{: note}
 
 ## Importing a custom image
 {: #import-custom-image}
@@ -37,17 +37,21 @@ You can also create a custom image of a boot volume attached to an instance at i
 When you import a custom image, it's private to the account where you import it. Also, the region where you choose to import the image is the region where you can create virtual server instances from that image.  
 
 To complete this task you must have an instance of {{site.data.keyword.cos_full}} available. You must also create an authorization so that the Image Service for VPC can access images in {{site.data.keyword.cos_full_notm}}. For more information, see [Granting access to IBM Cloud Object Storage to import images](/docs/vpc?topic=vpc-object-storage-prereq).
-{:important}
+{: important}
 
 Make sure that your image meets custom image requirements:
 * Contains a single file or volume 
-* Size of the boot disk doesn't exceed 100 GB
+* Size of the boot disk doesn't exceed 250 GB
+* Size of the boot disk isn't below 10 GB, images below 10 GB are rounded up to 10 GB
 * Is in qcow2 format
 * Is cloud-init enabled
 * The operating system is supported as a [stock image](/docs/vpc?topic=vpc-about-images#stock-images) operating system
 
-  For custom images with Red Hat Enterprise Linux or Windows operating systems, you must select the appropriate version of the operating system when you import the image to indicate how you want to license the OS. Depending on how you configured the image, select either the bring your own license `byol` version of the operating system, or if you plan to license the OS through {{site.data.keyword.cloud_notm}}, select the version without `byol` appended.  
-  {: important}
+You cannot create an image from an encrypted boot volume (Image from a volume feature) that is not 100GB. The operation will be blocked.
+{: note}
+
+For custom images with Red Hat Enterprise Linux or Windows operating systems, you must select the appropriate version of the operating system when you import the image to indicate how you want to license the OS. Depending on how you configured the image, select either the bring your own license `byol` version of the operating system, or if you plan to license the OS through {{site.data.keyword.cloud_notm}}, select the version without `byol` appended.  
+{: important}
 
 When you have an image available in {{site.data.keyword.cos_full_notm}}, you can import it to {{site.data.keyword.vpc_short}} infrastructure by using the {{site.data.keyword.cloud_notm}} console.
 

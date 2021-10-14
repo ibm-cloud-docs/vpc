@@ -26,7 +26,7 @@ subcollection: vpc
 With a dedicated group and dedicated host created, you can manage your resources. You can create additional dedicated hosts, 
 provision new virtual server instances, or delete resources. You can also disable placement of new instances on 
 a dedicated host. Disabling placement of new instances is required if you need to delete a dedicated host. 
-{:shortdesc}
+{: shortdesc}
 
 ## Managing dedicated hosts
 {: #manage-dedicated-hosts}

@@ -1,7 +1,8 @@
 ---
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-06"
+
+lastupdated: "2021-10-05"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, generation 2, gen 2
 
@@ -19,6 +20,7 @@ subcollection: vpc
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:preview: .preview}
 {:external: target="_blank" .external}
 {:download: .download}
 {:beta: .beta}
@@ -29,10 +31,13 @@ subcollection: vpc
 # Instance Profiles
 {: #profiles}
 
-When you provision {{site.data.keyword.vsi_is_full}}, you can select from four families of profiles: Balanced, Compute, Memory, and Ultra High Memory.
+When you provision {{site.data.keyword.vsi_is_full}}, you can select from six families of profiles: Balanced, Compute, Memory, Very High Memory, Ultra High Memory, and GPU.
 
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, and network bandwidth. The attributes define the size and capabilities of the virtual server instance that is provisioned. In the {{site.data.keyword.Bluemix_notm}} console, you can select the most recently used profile or click **View All Profiles** to choose the profile that best fits your needs.
 {: shortdesc}
+
+GPU enabled profiles are available as a closed beta release. Contact your IBM Sales representative if you are interested in getting access.
+{: beta}
 
 The following profile families are available:
 
@@ -41,9 +46,53 @@ The following profile families are available:
 | [Balanced](#balanced) | Best for midsize databases and common cloud applications with moderate traffic. |
 | [Compute](#compute)  | Best for moderate to high web traffic workloads. Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers. |
 | [Memory](#memory) | Best for memory caching and real-time analytics workloads. Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. |
+| [Very High Memory](#vhmemory) | Very High Memory profiles offer a core to RAM ratio of 1 vCPU to 14 GiB of RAM. This family is optimized for running high-compute-intensity in-memory workloads like SAP BW/4 HANA |
 | [Ultra High Memory](#uhmemory) | Ultra High Memory profiles offer the highest vCPU to memory ratios with 1 vCPU to 28 GiB of RAM to serve in-memory OLTP databases, such as SAP. |
-<!--- | [GPU](#gpu) | Best for artificial intelligence (AI) and deep learning workloads. Available for x86_64 processors only. | -->
+| [GPU](#gpu) | GPU enabled profiles provide on-demand access to NVIDIA V100 GPUs to accelerate AI,high performance computing, data science and graphics workloads. |
 {: caption="Table 1. Virtual server family selections" caption-side="top"}
+
+Profiles with instance storage are deployed exclusively on the second-generation Intel&reg; Xeon&reg; Platinum 8272 (Cascade Lake) running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz. 
+{: note}
+
+## Bandwidth allocation using the UI
+{: #bandwidth-allocation-ui}
+{: ui}
+
+Instance bandwidth is allocated between volume bandwidth and networking bandwidth. The bandwidth capacity (Bandwidth Cap) is determined by the virtual server profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a bandwidth cap of 4 Gbps. The initial volume and network bandwidth allocation depends on the bandwidth set by the instance profile you selected. You can also see the bandwidth allocations in the profile information during instance creation in the UI. The bandwidth allocation can be changed on the instance details page after provisioning an instance.
+
+For example, for the bx2-2x8 profile you might have:
+
+* Storage: 1 Gbps
+* Network: 3 Gbps
+
+For a cx2-8x16 profile:
+
+* Storage: 4 Gbps
+* Network: 12 Gbps
+
+The amount of overall bandwidth provided to volume bandwidth can be adjusted within the overall instance limits. A default amount of volume bandwidth is set on each instance profile.
+
+For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles) and [/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#adjusting-bandwidth-allocation-ui](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#adjusting-bandwidth-allocation-ui).
+
+## Bandwidth allocation using the API
+{: #bandwidth-allocation-api}
+{: api}
+
+Instance bandwidth is allocated between volume bandwidth and networking bandwidth. The bandwidth capacity (Bandwidth Cap) is determined by the virtual server profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a bandwidth cap of 4 Gbps. The initial volume and network bandwidth allocation depends on the bandwidth you set by using the API or by the instance profile you selected. You can see bandwidth allocations with the `/instance/profiles` endpoint in the API. The bandwidth can be changed during or after provisioning an instance.
+
+For example, for the bx2-2x8 profile you might have:
+
+* Storage: 1 Gbps
+* Network: 3 Gbps
+
+For a cx2-8x16 profile:
+
+* Storage: 4 Gbps
+* Network: 12 Gbps
+
+The amount of overall bandwidth provided to volume bandwidth can be adjusted within the overall instance limits. A default amount of volume bandwidth is set on each instance profile.
+
+For more information, see [Using the REST APIs to create VPC resources](https://test.cloud.ibm.com/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis#select-profile-and-image) and [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
 
 ## Balanced
 {: #balanced}
@@ -57,7 +106,7 @@ The Balanced profile family includes both profiles that are provisioned with and
 
 The following Balanced profiles are available for x86_64 processors:
 
-| Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
+| Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|
 | bx2-2x8 | 2 | 8 | 4 | - |
 | bx2d-2x8 | 2 | 8 | 4 | 1x75 |
@@ -84,7 +133,7 @@ The following Balanced profiles are available for x86_64 processors:
 
 The following Balanced profiles are available for LinuxONE (s390x processor architecture):
 
-| Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
+| Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|
 | bz2-1x2 | 1 | 2 | 2 | - |
 | bz2-1x4 | 1 | 4 | 2 | - |
@@ -106,7 +155,7 @@ The Compute profile family includes both profiles that are provisioned with and 
 
 The following Compute profiles are available for instances with x86_64 processors:
 
-| Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
+| Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|
 | cx2-2x4 | 2 | 4 | 4 | - |
 | cx2d-2x4 | 2 | 4 | 4 | 1x75 |
@@ -133,7 +182,7 @@ The following Compute profiles are available for instances with x86_64 processor
 
 The following Compute profiles are available for LinuxONE (s390x processor architecture):
 
-| Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
+| Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|
 | cz2-2x4 | 2 | 4 | 2 | - |
 | cz2-4x8 | 4 | 8 | 8 | - |
@@ -153,7 +202,7 @@ The Memory profile family includes both profiles that are provisioned with and w
 
 The following memory profiles are available for instances with x86_64 processors:
 
-| Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
+| Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|
 | mx2-2x16 | 2 | 16 | 4 | - |
 | mx2d-2x16 | 2 | 16 | 4 | 1x75 |
@@ -180,7 +229,7 @@ The following memory profiles are available for instances with x86_64 processors
 
 The following Memory profiles are available for LinuxONE (s390x processor architecture):
 
-| Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
+| Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|
 | mz2-2x16 | 2 | 16 | 4 | - |
 | mz2-4x32 | 4 | 32 | 8 | - |
@@ -195,6 +244,33 @@ Profiles with 64 or more vCPUs are deployed exclusively on the second-generation
 
 {: #callout-beta}
 
+## Very High Memory
+{: #vhmemory}
+
+Very High Memory profiles offer 1 vCPU to 14 GiB of RAM to server OLAP databases, such as SAP NetWeaver. All Very High Memory profiles are provisioned with temporary SSD-backed [instance storage](/docs/vpc?topic=vpc-instance-storage) at no additional charge.
+
+Very High Memory profiles are available in the US South (Dallas), US East (Washington DC), United Kingdom (London), Canada (Toronto), EU Germany (Frankfurt), and Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions. Additional regions will be added.
+{: preview}
+
+{: #callout-note}
+
+### Very High Memory profiles for x86_64 processors
+{: vhmemory-x86-profiles}
+
+The following Very High Memory profiles are available for x86_64 processors:
+
+| Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance storage (GB) |
+|---------|---------|---------|---------|---------|
+| vx2d-2x28 | 2 | 28 | 4 | 1x60 |
+| vx2d-4x56 | 4 | 56 | 8 | 1x120 |
+| vx2d-8x112 | 8 | 112 | 16 | 1x240 |
+| vx2d-16x224| 16 | 224 | 32 | 1x480 |
+| vx2d-44x616 | 44 | 616 | 80 | 1x1320 |
+| vx2d-88x1232 | 88 | 1232 | 80 | 2x1320 |
+| vx2d-72x2016 | 144 | 2016 | 80 | 2x2160 |
+| vx2d-176x2464 | 176 | 2464 | 80 | 2x2640 |
+{: caption="Table 8. Very High Memory profiles options for x86-64 instances" caption-side="top"}
+
 ## Ultra High Memory
 {: #uhmemory}
 
@@ -202,26 +278,44 @@ Ultra High Memory profiles are hosted exclusively on the latest generation Intel
 
 {: #callout-note}
 
-Ultra High Memory profiles are deployed exclusively on the second-generation Intel&reg; Xeon&reg; Platinum 8280L (Cascade Lake) running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz.  
-{: note}
-
 ### Ultra High Memory profiles for x86_64 processors
 {: #uhmemory-x86-profiles}
 
 The following Ultra High Memory profiles are available for x86_64 processors:
 
-| Instance profile | vCPU | GiB RAM | Network Bandwidth Cap (Gbps) | Instance Storage (GB) |
+| Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|
 | ux2d-2x56 | 2 | 56 | 2 | 1x60 |
 | ux2d-4x112 | 4 | 112 | 4 | 1x120 |
 | ux2d-8x224 | 8 | 224 | 8 | 1x240 |
 | ux2d-16x448 | 16 | 448 | 16 | 1x480 |
 | ux2d-36x1008 | 36 | 1008 | 36 | 1x1080 |
-| ux2d-52x1456 | 52 | 1456 | 52 | 2x780 |
+| ux2d-52-1456| 52 | 1456 | 52 | 2x780 |
 | ux2d-72x2016 | 72 | 2016 | 72 | 2x1080 |
 | ux2d-104x2912 | 104 | 2912 | 80 | 2x1560 |
 | ux2d-200x5600 | 200 | 5600 | 80 | 2x3000 |
-{: caption="Table 6. Ultra High Memory profiles options for x86-64 instances" caption-side="top"}
+{: caption="Table 9. Ultra High Memory profiles options for x86-64 instances" caption-side="top"}
+
+
+
+## GPU (Beta)
+{: #gpu}
+
+GPU profiles include 1 or 2 NVIDIA V100 PCIe 16GB GPUs. All OS images are supported on the GPU profiles. NVIDIA GPU drivers must be installed separately.
+
+If you are using GPU profiles, you need to install the NVIDA driver onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
+{: tip}
+
+| Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs |
+|---------|---------|---------|---------|---------|
+| gx2-8x64x1v100 | 8 | 64 | 16 | 1 |
+| gx2-16x128x1v100 | 16 | 128 | 32 | 1 |
+| gx2-16x128x2v100 | 16 | 128 | 32 | 2 |
+| gx2-32x256x2v100 | 32 | 256 | 64 | 2 |
+{: caption="Table 10. GPU profile options" caption-side="top"}
+
+If you are using GPU profiles, you might need to install the CUDA toolkit onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
+{: tip}
 
 For more information about persistent storage options, see [Storage notes for profiles](#storage-notes-for-profiles).
 
@@ -274,7 +368,7 @@ To view the list of available instance profiles by using the CLI, run the follow
 ```
 $ ibmcloud is instance-profiles
 ```
-{:codeblock}
+{: codeblock}
 
 ### Viewing instance profiles with the API
 {: #profiles-using-api}
@@ -289,13 +383,12 @@ curl -X GET \
 "$vpc_api_endpoint/v1/instance/profiles?version=2021-02-23&generation=2" \
 -H "Authorization: $iam_token"
 ```
-{:codeblock}
+{: codeblock}
 
-## Storage notes for profiles
-{: #storage-notes-for-profiles}
+## Block storage volume notes for profiles
+{: #block-storage-notes-for-profiles}
 
-When you create secondary data volumes, you select a volume profile that best meets your requirements. Volume profiles are available
-as three predefined [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) or as a [custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom). These volume profiles relate to virtual server instance profiles:
+When you create secondary data volumes, you select a volume profile that best meets your requirements. Volume profiles are available as three predefined [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) or as a [custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom). These volume profiles relate to virtual server instance profiles:
 
 * A [3 IOPS general-purpose tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers) provides IOPS/GB performance suitable for a virtual server instance Balanced profile.
 * A [5-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance suitable for a virtual server instance Compute profile.
@@ -304,9 +397,9 @@ as three predefined [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tier
 ## Network performance notes for profiles
 {: #network-perf-notes-for-profiles}
 
-Every profile has a maximum network bandwidth of 2 Gbps per vCPU, with a cap of 80 Gbps. Network bandwidth is distributed evenly across network interfaces, and each network interface has a cap of 16 Gbps that might limit the overall performance. You might need to attach multiple network interfaces to your virtual server instance to optimize network performance.
+Every profile has a maximum bandwidth cap of 80 Gbps. Network bandwidth is distributed evenly across network interfaces, and each network interface has a cap of 16 Gbps. You might need to attach multiple network interfaces to your virtual server instance to optimize network performance.
 
-For example, if you choose a profile with 16 vCPU, the network cap for the profile is 32 Gbps. If you have just one network interface, the maximum network performance is 16 Gbps due to the network interface cap. You need to attach two network interfaces (16 Gbps each) to reach the profile cap of 32 Gbps.
+For example, if you choose a profile with 16 vCPU, the bandwidth cap for the profile is 32 Gbps. The default network cap will be 24 Gbps, but can be adjusted up to a maximum of 31.5 Gbps. You need to attach more network interfaces (16 Gbps each) to reach the profile cap of 80 Gbps.
 
 The network bandwidth cap applies separately to egress (transmitted) and ingress (received) traffic. That is, even if an instance capped at 4 Gbps reaches its transmit cap of 4 Gbps, that does not impact its ability to receive up to its cap of 4 Gbps.
 
@@ -318,3 +411,4 @@ After you choose a profile, it's time to create an instance.
 * [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers)
 * [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli)
 * [Creating an instance by using the API](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis#select-profile-and-image)
+* [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus)

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-20"
+lastupdated: "2021-09-16"
 
-keywords: bare metal servers, managing network interface, tutorial
+keywords: bare metal servers, managing network interface, bare metal network interface, configure network interface, create network interface, delete network interface, associate network interface, update network interface
 
 subcollection: vpc
 
@@ -27,119 +27,105 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Managing network interfaces for a bare metal server
+# Managing network interfaces for Bare Metal Servers on VPC (Beta)
 {: #managing-nic-for-bare-metal-servers}
 
-This document walks through how to manage network interfaces of the bare metal servers. For information about the networking features of Bare Metal Server for VPC and how it supports VMware networking scenarios, see [Network of Bare Metal Server for VPC](/docs/vpc?topic=vpc-bare-metal-servers-network).
+After you create a bare metal server, you can add new network interfaces or edit existing network interfaces. When you edit a network interface, you can change its name, associate or unassociate a floating IP address, or access the security group that is associated with an interface. For more information about the networking features of Bare Metal Server for VPC, see [Network of Bare Metal Server for VPC](/docs/vpc?topic=vpc-bare-metal-servers-network).
+{: shortdesc}
 
-You can create 2 types of network interface on the bare metal servers: PCI interface and VLAN interface.
+Bare metal servers on VPC is a Beta feature that requires special approval. Contact your IBM Sales representative if you're interested in getting access. 
+{: beta}
 
-The PCI interface is a physical network interface. The VLAN interface is a virtual interface that is associated with a PCI interface.
+## Overview of bare metal server network interfaces
+{: #overview-bare-metal-network-interfaces}
 
-The VLAN interface automatically tags traffic that is routed through it with the VLAN ID. Inbound traffic tagged with a VLAN ID is directed to the appropriate VLAN interface. 
+You can create two types of network interface on the bare metal servers - PCI interface and VLAN interface.
 
-<!--
-The VLAN interface has its own security groups and does not inherit those of the PCI interface through which traffic flows.
-{: note}-->
+* A PCI interface is a physical network interface. The VLAN interface is a virtual interface that is associated with a PCI interface. The maximum number of PCI interfaces per bare metal server is eight.
 
-When creating a bare metal server, a primary PCI interface will be created by default. Optionally, you can add one or more secondary PCI or VLAN interfaces. You can also add, update, or delete the network interfaces on the bare metal server after the server was created.
+*  The VLAN interface automatically tags traffic that is routed through it with the VLAN ID. Inbound traffic that is tagged with a VLAN ID is directed to the appropriate VLAN interface. The VLAN interface has its own security groups and doesn't inherit security groups from the PCI interface. You aren't limited on the maximum number of VLAN interfaces per bare metal server.
 
-The maximum number of PCI interfaces per bare metal server is 8. There is no limitation on the maximum number of VLAN interfaces per bare metal server.
-{:tip}
+When you create a bare metal server, a primary PCI interface is created for you. Optionally, you can add one or more secondary PCI or VLAN interfaces. You can also add, update, or delete the network interfaces.
 
-You can associate one floating IP with a network interface. For more information, see [Associate floating IP with a network interface](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers#add-fips-to-nic).
-{:tip}
+You can associate one or more floating IPs with a network interface. The multiple floating IPs feature enables the VMware&reg; NSX-T Data Center to assign floating IPs. For more information about associating floating IP, see [Associate floating IPs with a network interface](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers#add-fips-to-nic).
 
 ## Network interface configurations
 {: #nic-configs}
 
 You can specify the following configurations for both PCI and VLAN interfaces:
 
-* **Name**: Name of the interface.
+| Field | Value |
+|-----|-----|
+| Name | Name of the interface. |
+| Subnet | Specify the subnet that the network interface is associated with. |
+| Floating IP | After the network interface is created, you can associate one floating IP for external connectivity. |
+| Primary IPv4 address | The primary IPv4 address of the network interface. If specified, it must be an available address on the network interface's subnet. If unspecified, an available address on the subnet is automatically selected. |
+| Allow IP spoofing | Turning IP spoofing _off_ prevents source IP spoofing on an interface. Turning IP spoofing _on_ allows source IP spoofing. The default option is _off_. You must have the **Advanced Network Operator** IAM role to modify this configuration. |
+| Enable infrastructure NAT | Turning on infrastructure NAT allows the VPC infrastructure to perform any needed NAT operations. If infrastructure NAT is off, the packet passes unmodified to and from the network interface, allowing the workload to perform NAT operations. The default option is _on_. You must have the **Advanced Network Operator** IAM role to modify this configuration. **Allow IP spoofing** must be turned off if **Enable infrastructure NAT** is turned _off_. |
+| Security groups | You can select the security groups that are used to control the traffic for the network interface. For VLAN interfaces, you need to specify the following two configurations: 1. **Allow interface to float**: Decide whether the interface needs to float to any other server within the same resource group. If enabled, the interface automatically floats if the network detects a GARP or RARP on another bare metal server within the resource group. The default option is _off_. You can't change this configuration after the VLAN interface is created. 2. **VLAN ID**: You must specify the VLAN ID tag to use for all traffic on this VLAN interface. |
+| Associated PCI interface | If more than one PCI interfaces are created on the bare metal server, you must select a PCI interface to associate to this VLAN interface. Make sure that you associate the VLAN interfaces with the same VLAN ID that is on a bare metal server with one subnet. If you create two VLAN interfaces with the same ID in two different subnets, the interfaces might not work. However, you can associate VLAN interfaces with different VLAN ID with one subnet. |
+| Allowed VLANs (PCI interface only) | Specify the VLAN IDs of the VLAN interfaces that can use the PCI interface. |
+{: caption="Table 1. Bare metal server network interface configurations" caption-side="top"}
 
-* **Subnet**: You must specify the subnet that the network interface is associated with.
-
-* **Floating IP**: After the network interface is created, you can associate one floating IP with a it for external connectivity.
-
-* **Primary IPv4 address**: The primary IPv4 address of the network interface. If specified, it must be an available address on the network interface's subnet. If unspecified, an available address on the subnet will be automatically selected.
-
-<!--
-* **Allow IP spoofing**: Turning this off will prevent source IP spoofing on an interface. Turning it on will allow source IP spoofing. The default option is off. **Note**: You must be assigned the **Advanced Network Operator** IAM role to specify or modify this configuration.
-* **Enable infrastructure NAT**: Turning this on allows the VPC infrastructure to perform any needed NAT operations. If off, the packet would be passed unmodified to/from the network interface, allowing the workload to perform any needed NAT operations. The default option is on. **Note**: You must be assigned the **Advanced Network Operator** IAM role to specify or modify this configuration.
-* **Security groups**: You can select the security groups that are used to control the traffic for the bare metal server.
--->
-
-<!--Multiple FIP support: nic needs to turn on **Allow IP spoofing** and turned off **Enable infrastructure NAT**.-->
-
-In addition, for VLAN interfaces, you need to specify the following 2 configurations: 
-
-* **Allow interface to float**: Decide if the interface needs to be able to float to any other server within the same resource group. If enabled, the interface will float automatically if the network detects a GARP or RARP on another bare metal server within the resource group. The default option is off. **Note:** This configuration cannot be changed after the VLAN interface was created.
-
-* **VLAN ID**: You must specify the VLAN ID tag that will be used for all traffic on this VLAN interface.
-
-* **Associated PCI interface**: If more than one PCI interfaces are created on the bare metal server, you must select a PCI interface this VLAN interface is associated with.
-
-You should always associate the VLAN interfaces with the same VLAN ID on a bare metal server with one subnet. If you create two VLAN interfaces with the same ID in two different subnets, the interfaces may not be working properly. However, you can associate VLAN interfaces with different VLAN ID with one subnet.
-{:important}
-
-For PCI interface, you need to specify the following:
-
-* **Allowed VLANs**: Specify the VLAN IDs of the VLAN interfaces that can use this PCI interface. 
-
-You cannot add the same VLAN ID to the Allowed VLANs lists of two PCI interfaces on a single bare metal server. A new PCI interface cannot be created if it contains VLAN ID(s) that have already been specified in the Allowed VLANs list of any existing PCI interface.
+You can't add the same VLAN ID to the Allowed VLANs lists of two PCI interfaces on a single bare metal server. You can't create a new PCI interface if it contains VLAN IDs that are specified in the Allowed VLANs list of any existing PCI interface.
 {: note}
-
-A VLAN interface must be associated with a PCI interface. When using IBM Cloud UI to create VLAN interfaces, you must specify the **Associated PCI interface** field. If you use IBM Cloud CLI or REST API, you need to use the `allowed_vlans` property of the PCI interface to specify the VLAN IDs that can be associated with it. Then, when creating VLAN interfaces, the ID of the VLAN interface must have been added to the `allowed_vlans` field of a PCI interface. Otherwise, the VLAN interface couldn't be created.
-{:important}
 
 ## Creating a network interface
 {: #create-nic}
 
-You can create one or more network interfaces on a bare metal server while creating the server. You can also add new interfaces to an existing bare metal server.
+You can create one or more network interfaces on a bare metal server when you create the server. You can also add new interfaces to an existing bare metal server.
 
-To create new interfaces or update the primary PCI network interface while creating the bare metal server: 
+A VLAN interface must be associated with a PCI interface. When you use {{site.data.keyword.cloud}} UI to create VLAN interfaces, you must specify the **Associated PCI interface** field. If you use the CLI or API, you need to use the `allowed_vlans` property of the PCI interface to specify the VLAN IDs that can be associated with it. Then, when you create VLAN interfaces, the ID of the VLAN interface must be added to the `allowed_vlans` field of a PCI interface. Otherwise, the VLAN interface can't be created.
+{: important}
 
-1. On the **New bare metal server for VPC** page, locate the **Network interfaces** section.
+### Creating a network interface during provisioning
+{: #create-network-interface-bare-metal-provisioning}
+
+To create a new interface or update the primary PCI network interface while you create a bare metal server, use the following steps. 
+
+1. On the **New bare metal server for VPC** page, go to the **Network interfaces** section.
 
 2. Click **New interface** to create a secondary interface.
 
 3. Click the edit icon of the primary PCI network interface to edit the primary interface.
 
-To add a new interface to an existing bare metal server:
+### Creating a network interface for an existing bare metal server
+{: #create-network-interface-existing-bare-metal}
 
-In the **Network interfaces** section of the **Bare metal server details** page, click **New interface** to create a new interface.
+To add a network interface to an existing bare metal server, do the following step.
 
-PCI interfaces can only be created or deleted when the bare metal server is in **Stopped** state.
-{:important}
+1. In the **Network interfaces** section of the **Bare metal server details** page, click **New interface** to create a new interface.
 
-## Associating floating IP with a network interface
+PCI interfaces can be only created or deleted when the bare metal server is in **Stopped** state.
+{: important}
+
+## Associating floating IPs with a network interface
 {: #add-fips-to-nic}
 
-<!--Multiple FIP support: You can associate one or more floating IPs with one network interface. The multiple floating IP function enables VMware’s NSXT-0 to perform the NAT and handoff public IPs to NSX-T enabled VMs. To associate multiple floating IPs to a network interface, ensure that **Allow IP spoofing** has been turned on and **Enable infrastructure NAT** has been turned off on the network interface.{:important}-->
+You can associate one or more floating IPs with one network interface. 
 
-Follow the steps below to associate a floating IP with the network interface:
+To associate multiple floating IPs to a network interface, make sure that both **Allow IP spoofing** and **Enable infrastructure NAT** are off on the network interface.
+{: important}
+
+Follow these steps to associate a floating IP with the network interface:
 
 1. Under the **Network interfaces** section of the **Bare metal server details** page, identify the interface that you want to associate the floating IP with.
 
 2. Click the edit icon of the target interface.
 
-3. On the **Edit network interface** page, locate the **Floating IP address** field, select **Reserve a new floating IP** or select an existing floating IP address.
+3. On the **Edit network interface** page, locate the **Floating IP address** field, check the floating IPs that you want to associate with the network interface.
 
-4. Click **Save**
+4. Click **Save** when you finish adding floating IPs.
 
-<!-- Multiple FIP support:
-4. Repeat the Step 3 to add more floating IPs.
-5. Click **Save** when you have finished adding floating IPs.-->
+You can disassociate the associated floating IP from the network interface.
+{: tip}
 
-The associated floating IP can be disassociated from the network interface.
-{:tip}
-
-## Updating an existing interface
+## Updating a network interface
 {: #update-nic}
 
-After you have created a network interface, you can change the floating IP attached to it. For the PCI interface, you can also update the VLAN IDs associated with it.
+After you created a network interface, you can change its **Enable infrastructure NAT** and **Allow IP spoofing** setting. You can also change the floating IPs that are attached to it. For PCI interface, updating its associated VLAN IDs is available.
 
-Follow the steps below to update the network interface:
+Follow these steps to update the network interface:
 
 1. Under the **Network interfaces** section of the ***Bare metal server details** page, identify the interface that you want to update.
 
@@ -152,11 +138,11 @@ Follow the steps below to update the network interface:
 ## Deleting a network interface
 {: #delete-nic}
 
-You can delete the network interfaces that have been created by clicking the delete icon of the network interface on the **Bare metal server details** page.
+You can delete the network interfaces that you created by clicking the delete icon of the network interface on the **Bare metal server details** page.
 
-Notes on deleting network interfaces:
+Keep the following information in mind when you delete network interfaces:
 
-* This operation cannot be reversed.
-* The floating IP associated with the network interface are implicitly disassociated.
-* PCI interfaces can only be deleted when the bare metal server is in **Stopped** state.
-* The primary network interface is not allowed to be deleted.
+* Network interface deletion can't be reversed.
+* The floating IPs that are associated with the network interface are implicitly disassociated.
+* You can delete PCI interfaces only when the bare metal server is **Stopped**.
+* You can't delete the primary network interface.

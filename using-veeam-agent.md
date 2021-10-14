@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-26"
+lastupdated: "2021-08-27"
 
 keywords: instance backup, veeam, veeam license, order license, virtual private cloud
 
@@ -45,24 +45,24 @@ After you provisioned your instance and configured the secondary volume, [downlo
 
 1. Install the downloaded package:
 
-  ```
-  yum install ./veeam-release-el7-1.0.7-1.x86_64.rpm
-  ```
-  {: pre}
+   ```
+   yum install ./veeam-release-el7-1.0.7-1.x86_64.rpm
+   ```
+   {: pre}
 
 2. After the package is installed, install the Veeam Linux agent:
 
-  ```
-  yum install veeam
-  ```
-  {: pre}
+   ```
+   yum install veeam
+   ```
+   {: pre}
 
 3. Transfer the Veeam license ID file to the instance. The Veeam Linux agent is configured by the Veeam configuration tool. From the command line, enter the following command:
 
-  ```
-  veeamconfig ui
-  ```
-  {: pre}
+   ```
+   veeamconfig ui
+   ```
+   {: pre}
 
 4. Follow the menu prompts and use the license ID to activate the software.
 
@@ -99,10 +99,10 @@ The following example shows how you can restore files from a volume backup to th
 
 1. Log in to the CentOS virtual server instance. From the command line, start the Veeam configuration tool:
 
-  ```
-  veeamconfig ui
-  ```
-  {:pre}
+   ```
+   veeamconfig ui
+   ```
+   {: pre}
 
 2. Select **Recover Files**, and then select the **Job Name** of the backup you want to recover.
 3. Select the **Restore Point** (creation timestamp of the backup). This selection mounts the backup into `/mnt/backup`. Each individual device and volume that is backed up is mounted inside of `/mnt/backup`.
@@ -172,24 +172,24 @@ The secondary volume is now ready for the Veeam Agent to import the backup repos
 
 1. Start the Veeam Agent:
 
-  ```
-  veeamconfig ui
-  ```
-  {: pre}
+   ```
+   veeamconfig ui
+   ```
+   {: pre}
 
 2. Select _Recover Files_, _Import backup_, then select the backup location. In this example, it is:
 
-  ```
-  vdd	virtio /veeam_disk
-  ```
-  {: screen}
+   ```
+   vdd	virtio /veeam_disk
+   ```
+   {: screen}
 
 3. In _Browse for backup files_, select the appropriate backup job file directory and then select the backup job file.  In this example, this file is the backup job file:
 
-  ```
-  BackupJob1.vdm
-  ```
-  {: screen}
+   ```
+   BackupJob1.vdm
+   ```
+   {: screen}
 
 4. Select the backup creation timestamp.  This selection mounts the backup into `/mnt/backup`.  Each individual device and volume that is backed up is mounted inside of `/mnt/backup`.
 

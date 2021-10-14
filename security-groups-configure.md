@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2018, 2020
+  years: 2018, 2021
 
-lastupdated: "2020-10-12"
+lastupdated: "2021-08-07"
 
 keywords:  
 
@@ -45,9 +45,9 @@ To configure your security group using the UI:
    * Select the protocols and ports to which the rule applies.    
 
    **Tips:**  
-  * All rules are evaluated, regardless of the order in which they're added.
-  * Rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, if you create a rule that allows inbound TCP traffic on port 80, that rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
-  * For Windows images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
+   * All rules are evaluated, regardless of the order in which they're added.
+   * Rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, if you create a rule that allows inbound TCP traffic on port 80, that rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
+   * For Windows images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
 1. _Optional:_ To view interfaces that are attached to the security group, click **Attached interfaces** in the navigation pane.
 1. When you finish creating rules, click the **All security groups for VPC** breadcrumb at the beginning of the page.
 
@@ -56,8 +56,8 @@ To configure your security group using the UI:
 
 For example, you can configure the following inbound rules:
 
- * Allow all SSH traffic (TCP port 22)
- * Allow all ping traffic (ICMP type 8)
+* Allow all SSH traffic (TCP port 22)
+* Allow all ping traffic (ICMP type 8)
 
 | Protocol | Source Type | Source | Value |
 |-----------|------|------|------|------------------|-------|
@@ -91,7 +91,7 @@ The security group rules for `my_vpc_sg` include the basic functions of SSH, PIN
 
 Notice that you must create the security group first, with the `ibmcloud is sgc` command, and then create the instance that uses this security group.
 
-This example code skips a few steps. For detailed information about creating a VPC and subnet, see [Creating a VPC by using the CLI](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
+You must enter `ibmcloud plugin install vpc-infrastructure` to get access to `ibmcloud is`. For detailed information about creating a VPC and subnet, see [Creating a VPC by using the CLI](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
 {: tip}
 
 You can copy and paste commands from this example CLI code to begin creating an instance with an attached security group. System responses are not shown completely in this sample code. You must update your commands with the correct resource IDs for your VPC, subnet, image, key, and the correct security group ID number.

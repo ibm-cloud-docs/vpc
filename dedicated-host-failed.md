@@ -27,7 +27,7 @@ subcollection: vpc
 {: support}
 
 If you see an entry in the error log with message ID dedicated-host.00001, then the specified dedicated host has failed to create due to insufficient capacity in the requested region. 
-{:shortdesc}
+{: shortdesc}
 
 The dedicated host with the specified ID in the error message failed to create:
    `dedicated-host.00001: Failed to create dedicated host <Dedicated Host ID> due to insufficient capacity in zone.`

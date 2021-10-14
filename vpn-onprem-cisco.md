@@ -25,11 +25,11 @@ subcollection: vpc
 # Connecting to a Cisco ASAv peer
 {: #cisco-asav-config}
 
-You can use {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_short}} to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your Cisco ASAv VPN gateway to connect to {{site.data.keyword.vpn_vpc_short}}.
+You can use IBM Cloud VPN Gateway for VPC to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your Cisco ASAv VPN gateway to connect to VPN Gateway for VPC.
 {: shortdesc}
 
-Read [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before continuing to connect to your on-premises peer. 
-{:note}
+Read [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before continuing to connect to your on-premises peer.
+{: note}
 
 ## Connecting an IBM policy-based VPN to a Cisco ASAv peer
 {: #cisco-asav-config-policy-based}
@@ -49,6 +49,10 @@ The first step in configuring your Cisco ASAv for use with {{site.data.keyword.v
 When a Cisco ASAv VPN receives a connection request from {{site.data.keyword.vpn_vpc_short}}, it uses IKE Phase 1 parameters to establish a secure connection and authenticate to {{site.data.keyword.vpn_vpc_short}}. Then, if the security policy permits the connection, the Cisco ASAv establishes the tunnel using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
 
 To support these functions, the following general configuration steps must be performed on the Cisco ASAv VPN:
+
+* Make sure the public IP address for Cisco ASAv is configured directly on the ASAv. Use `isakmp identity address` to ensure the Cisco ASAv uses the public IP address of the interface as its identity.
+
+      This global setting applies to all connections on the Cisco device, so if you need to maintain multiple connections, set `isakmp identity auto` instead, to ensure the Cisco device automatically determines the identity by connection type.
 
 * Define the Phase 1 parameters that the Cisco ASAv VPN requires to authenticate {{site.data.keyword.vpn_vpc_short}} and establish a secure connection.
 * Define the Phase 2 parameters that the Cisco ASAv VPN requires to create a VPN tunnel with {{site.data.keyword.vpn_vpc_short}}.

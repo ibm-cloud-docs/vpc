@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-07-20"
+lastupdated: "2021-08-26"
 
 keywords: resource, resource authorizations, policies, authorization, resource type, resource groups, roles, API, CLI, editor, viewer, administrator, operator
 
@@ -23,7 +23,7 @@ subcollection: vpc
 {: #resource-authorizations-required-for-api-and-cli-calls}
 
 Table 1 lists the minimum Identity and Access Management (IAM) roles that are required to interact with {{site.data.keyword.vpc_full}} (VPC) infrastructure objects.
-{:shortdesc}
+{: shortdesc}
 
 For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?topic=vpc-iam-getting-started).
 
@@ -84,14 +84,14 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 |————————|—————————|————————|
 | Bare metal server | View, List | Viewer for the bare metal server |
 | Bare metal server | Update, Delete | Editor for the bare metal server |
-| Bare metal server | Create | Editor for the bare metal server<br><br>Bare Metal Advanced Network Operator<br><br>Subnet Editor<br><br>Operator for the security group<br><br>Operator for VPC<br><br>Operator for Key<br><br>Operator for Image |
-| Bare metal server | IP spoofing, Infrastructure NAT | Bare Metal Advanced Network Operator |
+| Bare metal server | Create | Editor for the bare metal server<br><br>Advanced Network Operator for the bare metal server<br><br>Subnet Editor<br><br>Operator for the security group<br><br>Operator for VPC<br><br>Operator for Key<br><br>Operator for Image |
+| Bare metal server | IP spoofing, Infrastructure NAT | Advanced Network Operator for the bare metal server |
 | Bare metal server | Operate (Restart, Start, Stop, Retrieve initialization data) | Operator for the bare metal server |
-| Bare metal server | Create console access token | Bare Metal Console Administrator<br><br>Operator for the bare metal server |
+| Bare metal server | Create console access token | Console Admin for the bare metal server<br><br>Operator for the bare metal server |
 | Bare metal server disk | View, List | Viewer for the bare metal server |
 | Bare metal server disk | Update | Operator for the bare metal server |
-| Bare metal server network interface | Create | Editor for the bare metal server<br><br>Editor for subnet<br><br>Operator for the security group<br><br>Bare Metal Advanced Network Operator |
-| Bare metal server network interface | Update | Editor for the bare metal server<br><br>Bare Metal Advanced Network Operator |
+| Bare metal server network interface | Create | Editor for the bare metal server<br><br>Editor for subnet<br><br>Operator for the security group<br><br>Advanced Network Operator for the bare metal server |
+| Bare metal server network interface | Update | Editor for the bare metal server<br><br>Advanced Network Operator for the bare metal server |
 | Bare metal server network interface | Delete | Editor for the bare metal server |
 | Bare metal server network interface | View, List | Viewer for the bare metal server |
 | Bare metal server floating IP | View, List | Viewer for the bare metal server<br><br>Viewer for Floating IP |
@@ -161,3 +161,27 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | VPN gateway ike_policies, ipsec_policies and connections | Create, Update, Delete | Editor for the VPN gateway |
 | VPN gateway ike_policies, ipsec_policies and connections|View, List  | Viewer for the VPN gateway |
 {: caption="Table 1. Minimum IAM roles for VPC actions" caption-side="top"}
+
+
+{: #vpn-server-authorizations-required-for-api-and-cli-calls}
+
+**Client-to-site VPN server tasks (Beta)**
+
+The following table lists tasks that are associated with the client-to-site VPN server service, the minimum IAM role required to complete the task, and the associated API method.
+
+| Description | Resource | Minimum IAM role | Action | API |  
+|--------|--------|---------|---------|---------|
+| List all VPN servers | VPN server | Viewer | is.vpn-server.vpn-server.read | `GET /vpn_servers/<vpn-server-id>` and `GET /vpn_servers/<vpn-server-id>/configuration` |
+| Create VPN server | VPN server | Editor | is.vpn-server.vpn-server.create | `POST /vpn_servers` |
+| Delete VPN server | VPN server | Editor | is.vpn-server.vpn-server.delete | `DELETE /vpn_servers/<vpn-server-id>` |
+| Update VPN server | VPN server | Editor | is.vpn-server.vpn-server.update | `PATCH /vpn_servers/<vpn-server-id>` |
+| Create security group | VPN server | Security Group Operator | is.security-group.security-group.operate | `POST /vpn_servers` |
+| Create subnet | VPN server | Subnet Operator | is.subnet.subnet.update | `POST /vpn_servers` |
+| Update subnet | VPN server | Subnet Operator | is.subnet.subnet.update | `PATCH /vpn_servers/<vpn-server-id>` |
+| List VPN server  | VPN server | Operator | is.vpn-server.vpn-server.read | `GET /vpn_servers/<vpn-server-id>/clients/<vpn-server-client-id>` |
+| Delete a VPN client (This request disconnects and deletes the VPN client from the VPN server immediately) | VPN server | Operator | is.vpn-server.vpn-server.operate | `DELETE /vpn_servers/<vpn-server-id>/clients/<vpn-server-client-id>` |
+| Disconnect a VPN client (This request disconnects the specified VPN client, and deletes the client according to the VPN server's auto-deletion policy) | VPN server | Operator | is.vpn-server.vpn-server.operate | `POST /vpn_servers/<vpn-server-id>/clients/<vpn-server-client-id>/disconnect` |
+| List all routes for a VPN server | VPN server | Operator | is.vpn-server.vpn-server.read | `GET /vpn_servers/<vpn-server-id>/routes/<vpn-server-route-id>` |
+| Create a route for a VPN server | VPN server | Editor | is.vpn-server.vpn-server.update | `POST /vpn_servers/routes` |
+| Connect to VPN server | VPN server | VPNClient | is.vpn-server.vpn-server.connect | N/A |
+{: caption="Table 2. Minimum IAM roles for VPN gateway API and CLI calls" caption-side="top"}

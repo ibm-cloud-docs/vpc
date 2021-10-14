@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-15"
+lastupdated: "2021-08-10"
 
 keywords: virtual private endpoints, delete, VPE, endpoint gateway
 
@@ -59,6 +59,7 @@ To delete an endpoint gateway by using the CLI, run the following command:
 ```
 ibmcloud is endpoint-gateway-delete ENDPOINT_GATEWAY [-f, --force]
 ```
+{: pre}
 
 Where:
 
@@ -77,7 +78,7 @@ To delete an endpoint gateway by using the API, follow these steps:
     ```sh
     export EndpointGatewayId=<endpoint_gateway_id>
     ```
-    {:pre}      
+    {: pre}      
 
 1. Delete the endpoint gateway:
 
@@ -85,4 +86,4 @@ To delete an endpoint gateway by using the API, follow these steps:
    curl -X DELETE -sH "Authorization:${iam_token}"
    "$vpc_api_endpoint/v1/endpoint_gateways/$EndpointGatewayId?version=$api_version&generation=2"
    ```
-   {:pre}
+   {: pre}

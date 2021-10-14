@@ -33,18 +33,18 @@ The {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) pool is a g
 
 You can configure pools when [creating a network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer), or afterward by using the following procedure:
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){:external} and log in to your account.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
 
-2. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
+1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
 
-3. Click the network load balancer that you want to change.
+1. Click the network load balancer that you want to change.
 
-4. On the network load balancer details page, click the back-end pools tab and select the pool that you want to edit.
+1. On the network load balancer details page, click the back-end pools tab and select the pool that you want to edit.
 
-5. Select the new options for your pool. You have the following options:
+1. Select the new options for your pool. You have the following options:
 
-  * **Pool Name**: The name for your pool. Ideally, a name that describes the function that is performed by this pool.
-  * **Protocol**: The network traffic protocol for your traffic.
-  * **Method**: The load-balancing algorithm for the pool.
-  * **Session stickiness**: Whether all requests during a user's session are sent to the same instance.
-  * **Health check**: For more information about configuring health checks, see [Working with health checks](/docs/vpc?topic=vpc-nlb-health-checks#nlb-health-checks).
+   *  **Pool Name**: The name for your pool. Ideally, a name that describes the function that is performed by this pool.
+   * **Protocol**: The network traffic protocol for your traffic.
+   * **Method**: The load-balancing algorithm for the pool.
+   * **Session stickiness**: Whether all requests during a user's session are sent to the same instance.
+   * **Health check**: For more information about configuring health checks, see [Working with health checks](/docs/vpc?topic=vpc-nlb-health-checks#nlb-health-checks).

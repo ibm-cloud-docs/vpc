@@ -26,7 +26,7 @@ subcollection: vpc
 {: #advanced-traffic-management}
 
 The following advanced traffic management features are available in {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB).
-{:shortdesc}
+{: shortdesc}
 
 ## Max connections
 {: #max-connections}
@@ -44,12 +44,12 @@ By default, an ALB forwards received requests to a back-end server based on the 
 With this option, an ALB creates the affinity between a client and a back-end server based on the source IP of the connection. As an example, if you enable source IP type session persistence for port 80 (HTTP), then any subsequent HTTP connection attempts from the same source IP client are persistent on the same back-end server. This feature is available for all supported protocols (HTTP, HTTPS, and TCP).
 
 ### Cookie-based session persistence
-{: #cookie}	
+{: #cookie}
 
 With this option, an ALB creates the affinity between a client and a back-end server based on cookies. ALBs support two modes of cookie-based session persistence:
 
-  * HTTP cookie persistence
-  * Application-cookie persistence 
+   * HTTP cookie persistence
+   * Application-cookie persistence
 
 For HTTP cookie persistence, a load balancer inserts a cookie with a predefined prefix, while application cookie persistence allows you to define your own cookie name. This feature supports only HTTP and HTTPS protocols.
 

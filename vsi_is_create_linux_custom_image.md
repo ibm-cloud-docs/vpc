@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-06"
+lastupdated: "2021-10-08"
 
 keywords: creating a linux custom image for vpc, cloud-init, qcow2, vhd
 
@@ -26,20 +26,25 @@ subcollection: vpc
 
 You can create your own custom Linux-based image to deploy a virtual server instance in the {{site.data.keyword.vpc_full}}
 infrastructure.
-{:shortdesc}
+{: shortdesc}
 
 You can begin with an image template from the {{site.data.keyword.cloud_notm}} classic infrastructure. For more information, see [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc).
 Did you know that your can also create a custom image of a boot volume attached to an instance at import time? For more information, see [About creating an image from volume](/docs/vpc?topic=vpc-image-from-volume-vpc).
 {: tip}
 
 Your image must adhere to the following custom image requirements:
-* Contains a single file or volume, qcow2 or VHD format
-* Is cloud-init enabled
-* The operating system is supported as a stock image operating system
-* Size doesn't exceed 100 GB
+* Contains a single file or volume in qcow2 or VHD format.
+* Is cloud-init enabled.
+* The operating system is supported as a stock image operating system.
+* The image is configured to use BIOS boot mode. UEFI boot mode is not supported. 
+* Image size doesn't exceed 250 GB.
+* Image size isn't below 10 GB. Images below 10 GB are rounded up to 10 GB.
 
 Complete the following steps to ensure that your own Linux custom image can be successfully deployed in the
 {{site.data.keyword.vpc_short}} infrastructure environment.
+
+You cannot create an image from an encrypted boot volume (Image from a volume feature) that is not 100GB.  The operation will be blocked.
+{: note}
 
 ## Step 1 - Start with a single image file in qcow2 or VHD format
 {: #single-image-qcow2}
@@ -77,7 +82,7 @@ Follow the instructions for your Linux distribution to update the kernel command
     ```
     grep -i virtio /boot/config-$(uname -r)
     ```
-    {:pre}
+    {: pre}
 
     Look for `VIRTIO_BLK` and `VIRTIO_NET` in the output. If those lines are not present, then the virtio driver is not built into the kernel.
 
@@ -86,7 +91,7 @@ Follow the instructions for your Linux distribution to update the kernel command
     ```
     lsinitrd /boot/initramfs-$(uname -r).img | grep virtio
     ```
-    {:pre}
+    {: pre}
 
     Verify the the virtio blk driver and its dependencies *virtio.ko*, *virtio_pci*, and *virtio_ring* are present.  If the    virtio dependencies are not present, you must recover the root filesystem.
 
@@ -103,16 +108,19 @@ use DHCP.  For more information about configuring DHCP, see the documentation fo
 Make sure that your image is cloud-init enabled. Cloud-init version 0.7.9 or greater is required.
 
 1. To determine if cloud-init is installed, run the following command: `cloud-init --version`
-  * In some cases, cloud-init might be installed but not in your environment PATH.
-  * To find the path for cloud-init on ExecStart, run the following command:`systemctl cat cloud-init`
+    * In some cases, cloud-init might be installed but not in your environment PATH.
+    * To find the path for cloud-init on ExecStart, run the following command:`systemctl cat cloud-init`
 
 2. To install cloud-init, use one of the following commands.
-  * For Ubuntu 16, 18 & Debian 9, run the following command: `apt-get install cloud-init`
-  * For CentOS 7 & RedHat 7, run the following command: `yum install cloud-init`
+    * For Ubuntu 16, 18 & Debian 9, run the following command: `apt-get install cloud-init`
+    * For CentOS 7 & RedHat 7, run the following command: `yum install cloud-init`
 
 3. If the `datasources_list` property exists in */etc/cloud/cloud.cfg*, verify that it contains `ConfigDrive` and `NoCloud` or remove the `datasources_list` property entirely. For more information about data sources, see [Data sources](http://cloudinit.readthedocs.io/en/latest/topics/datasources.html){: external}. {{site.data.keyword.cloud_notm}} cloud-init images are created for the environment by using the [NoCloud](https://cloudinit.readthedocs.io/en/latest/topics/datasources/nocloud.html){: external} data source to supply the metadata.
 
 4. In the */etc/cloud/cloud.cfg* file, verify that the `cloud_final_modules` section includes the `scripts-vendor` module and that it is enabled. By default, Red Hat Enterprise Linux and CentOS do not include the `scripts-vendor` module that is required to provision instances in the {{site.data.keyword.vpc_short}} infrastructure.
+
+    For Red Hat Enterprise Linux images, make sure that these services are enabled: `cloud-init-local.service`, `cloud-init.service`, `cloud-config.service`, `cloud-final.service`.
+    {: note}
 
 5.  Make sure to configure your image to use SSH for logging in to your virtual server instance.
 

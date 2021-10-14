@@ -210,7 +210,7 @@ To view the list of available profiles by using the CLI, run the following comma
 ```
 $ ibmcloud is dedicated-host-profiles
 ```
-{:codeblock}
+{: codeblock}
 
 ## Next steps
 {: nextsteps-profiles}

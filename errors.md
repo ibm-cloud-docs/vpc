@@ -24,7 +24,7 @@ subcollection: vpc
 {: #rias-error-messages}
 
 When you receive an error message from the {{site.data.keyword.cloud}} Virtual Private Cloud APIs, you can use the message ID to find more information about how to resolve the problem.
-{:shortdesc}
+{: shortdesc}
 
 This API error messages topic is deprecated. Use the information in this topic only if you are linked to a specific message ID from an API error message. 
 {: deprecated}
@@ -406,18 +406,18 @@ If the resource is an instance:
 1. A reboot operation may already be in progress for the instance. Refer to [actions allowed](/docs/vpc-on-classic?topic=vpc-on-classic-troubleshooting-your-ibm-cloud-vpc#error-409-conflict-invoke-action), depending on the status of the instance.
 
 2. While the status of the instance is `pending` you cannot perform the following actions:
-  * delete the instance
-  * attach a volume to the instance
-  * detach a volume from the instance
-  * update the instance
+    * delete the instance
+    * attach a volume to the instance
+    * detach a volume from the instance
+    * update the instance
 
 Try your action again later. If the status of the resource does not change, [contact support](/docs/vpc-on-classic?topic=vpc-on-classic-getting-help-and-support).
 
 If the resource is an image:
 
 While the status of the instance is `deleting` you cannot perform the following actions:
-  * patch the image
-  * delete the image
+    * patch the image
+    * delete the image
 
 Do not make the request again. Deletion of the image will complete in its own time. Once deletion is complate, all requests on that image will fail with the error `not_found` instead.
 

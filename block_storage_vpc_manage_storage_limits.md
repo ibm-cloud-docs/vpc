@@ -22,7 +22,7 @@ subcollection: vpc
 {: #manage-storage-limit}
 
 {{site.data.keyword.block_storage_is_short}} offers block-level data storage volumes that can be attached to an instance as either a boot volume or as a data volume. Answer the questions in this topic when you're ordering block storage volumes or requesting an increase in your volume or capacity limits.
-{:shortdesc}
+{: shortdesc}
 
 ## Overview
 {: #manage-storage-limit-overview}
@@ -39,24 +39,24 @@ Review the following checklist items and record your answers. Provide this infor
 - **Ticket Subject**: "Request to Increase VPC Volume Count Limit".
 
 - **How many extra volumes do you need? Provide your account, region, and in what zone you'd like more volumes.**
-  For example, *"200 volumes in US South-2".*
+    For example, *"200 volumes in US South-2".*
 
 - **How many volumes are primary boot volumes versus secondary data volumes?**
-  For example, *"50% primary volumes, 50% secondary volumes" or "100 primary volumes, 100 secondary volumes".*
+    For example, *"50% primary volumes, 50% secondary volumes" or "100 primary volumes, 100 secondary volumes".*
 
 - **Of the secondary volumes, how many secondary volumes do you need and of what capacity?**
-  For example, *"75% of the secondary volumes are under 250 GB and 25% will be up to 16,000 GB.*
+    For example, *"75% of the secondary volumes are under 250 GB and 25% will be up to 16,000 GB.*
 
 - **How many total volumes will use customer-managed encryption?**
-  For example, *"100 volumes (or 50%) will use customer-managed encryption".*
+    For example, *"100 volumes (or 50%) will use customer-managed encryption".*
 
 - **Provide an estimate of when you expect or plan to provision all of the requested volumes.**
-  For example, *"I expect to create these volumes within 90 days".*
+    For example, *"I expect to create these volumes within 90 days".*
 
 - **Provide a 90-day forecast of expected average capacity usage of these volumes.**
-  For example, *"I expect 25% of the volumes to be used in 30 days, 50 percent to be used in 60 days and 75% to be used in 90 days".* You might also want to break it down further, by primary and secondary volumes, For example, for secondary volumes, *I expect to create 50% of the secondary volumes at less than 250 GB within 30 days and secondary volumes greater than 250 (if possible, estimate volume size) within 60 days*.
+    For example, *"I expect 25% of the volumes to be used in 30 days, 50 percent to be used in 60 days and 75% to be used in 90 days".* You might also want to break it down further, by primary and secondary volumes, For example, for secondary volumes, *I expect to create 50% of the secondary volumes at less than 250 GB within 30 days and secondary volumes greater than 250 (if possible, estimate volume size) within 60 days*.
 
 You'll have an opportunity to clarify any of your answers. Respond promptly to all questions and statements in your request. They're necessary for processing and approval.
-{:important}
+{: important}
 
 You're notified about the update to your limits throughout the case process.

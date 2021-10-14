@@ -31,7 +31,7 @@ subcollection: vpc
 {: support}
 
 Learn about the management responsibilities that you have when you use {{site.data.keyword.vpc_full}} (VPC). {{site.data.keyword.vpc_short}} customer responsibilities apply across all VPC infrastructure services, unless otherwise noted. For overall terms of use, see [Cloud Services terms](/docs/overview/terms-of-use?topic=overview-terms#terms).
-{:shortdesc}
+{: shortdesc}
 
 ## Overview of shared responsibilities
 {: #overview-by-resource}
@@ -52,7 +52,7 @@ Learn about the management responsibilities that you have when you use {{site.da
 | Physical storage | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} |
 | Physical network and devices | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | Shared |
 | Facilities and data centers | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} | {{site.data.keyword.IBM_notm}} |
-{:caption="Table 1. Responsibilities by resource" caption-side="top"}
+{: caption="Table 1. Responsibilities by resource" caption-side="top"}
 
 ## Tasks for shared responsibilities by area
 {: #task-responsibilities}

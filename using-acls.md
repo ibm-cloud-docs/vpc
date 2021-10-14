@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-07-29"
+lastupdated: "2021-08-09"
 
 keywords:  
 
@@ -38,8 +38,8 @@ The example that is presented in this document shows how to create network ACLs 
 
 To make your ACLs effective, create rules that determine how to handle your inbound and outbound network traffic. You can create multiple inbound and outbound rules. For more information about rules quotas, see [Quotas](/docs/vpc?topic=vpc-quotas#acl-quotas).
 
-* With inbound rules, you can allow or deny traffic from a source IP range, with specified protocols and ports. The destination IP range is determined by the attached subnet.
-* With outbound rules, you can allow or deny traffic to a destination IP range, with specified protocols and ports. The source IP range is determined by the attached subnet.
+* With inbound rules, you can allow or deny traffic from a source IP range, with specified protocols and ports. 
+* With outbound rules, you can allow or deny traffic to a destination IP range, with specified protocols and ports.
 * ACL rules are prioritized and considered in sequence. Higher priority rules are evaluated first and override lower priority rules.
 * Inbound rules are separated from outbound rules.  
 * If no rules are specified, then **implicit deny** is the default behavior.
@@ -69,7 +69,7 @@ As Figure 1 illustrates, you have two web servers that deal with requests from t
 The example rules that follow show how to set up the ACL rules for the basic scenario.
 
 As a best practice, give fine-grained rules a higher priority than coarse-grained rules. For example, you have a rule that blocks all traffic from the subnet 10.10.30.0/24. If it is assigned a higher priority, any fine-grained rules with lower priority that allow traffic from 10.10.30.5 are never applied.
-{:note}
+{: note}
 
 #### ACL-1 example rules
 {: #acl1-example-rules}
@@ -276,7 +276,7 @@ ibmcloud is network-acl-rule-add 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 allow inbo
 {: pre}
 
 ## Understanding Internet Communication Protocols
-{:#understanding-icp}
+{: #understanding-icp}
 
 Generally speaking, a _communication protocol_ is a system of rules that allow two or more entities of a communications system to transmit information. The internet has a large suite of protocols to cover many situations. When software developers create web-based applications and programming interfaces, they commonly use three of these communication protocols to describe the state of the network and the ways that data packets are moved across the network:
 
@@ -287,14 +287,14 @@ Generally speaking, a _communication protocol_ is a system of rules that allow t
 The protocols that are used for a particular implementation of, say, an API call, can influence the overall behavior of your network, so it is worthwhile to understand the basic differences between them. If you need more information, many good articles are available on the internet with detailed descriptions of the protocols.
 
 ### ICMP
-{:#network-infrastructure-icmp}
+{: #network-infrastructure-icmp}
 
 ICMP is a _control protocol_, meaning that it is designed to carry information about the status of the network itself. It is essentially a _network layer_ (OSI layer 3) error-reporting and error-control protocol for the network. The best-known examples of ICMP in practice are the `ping` and `traceroute` utilities. The `ping` utility uses ICMP to probe remote hosts for responsiveness and overall round-trip time of the probe messages. The `traceroute` utility uses ICMP to discover and trace network routes that the ICMP packets take when traveling to their destination.
 
 What developers need to know is that ICMP packets have no TCP or UDP port numbers that are associated with them, because port numbers are a layer 4 (_transport layer_) construct.
 
 ### TCP and UDP
-{:#network-infrastructure-tcp-udp}
+{: #network-infrastructure-tcp-udp}
 
 Both Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) are OSI layer 4 _transport protocols_. These protocols are used to pass the actual data. The main difference between TCP and UDP, from a developer's perspective, is how they handle **packet order**.
 

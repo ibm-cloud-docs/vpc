@@ -29,7 +29,7 @@ completion-time: 30m
 {: toc-completion-time="30m"}
 
 This tutorial demonstrates how to use resource groups and access groups to give users access to resources on dedicated hosts without allowing them to see or interact with these hosts directly.
-{:shortdesc}
+{: shortdesc}
 
 The fictional user profile *Employee Example* is used to show how to give a user access to resources in a dedicated host group without giving them the ability to interact directly with the dedicated hosts in the group. For example, users can provision an instance on the dedicated host group, and the instance is automatically assigned to a dedicated host within the group. However, in this example of resource group configuration, users don't have authority to create or delete a dedicated host.
 

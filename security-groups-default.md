@@ -21,12 +21,15 @@ subcollection: vpc
 {:note: .note}
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Updating the default security group
 {: #updating-the-default-security-group}
 
 The default security group is similar to any other security group, with the exception that it cannot be deleted.
-{:shortdesc}
+{: shortdesc}
 
 Each VPC has a default security group, with rules to allow:
 
@@ -39,6 +42,7 @@ Inbound rules to allow pinging and SSH are not automatically added to the defaul
 
 ## Example: Modifying the default security group rules by using the CLI
 {: #example-modifying-the-default-security-group-rules-using-the-cli}
+{: cli}
 
 1. Log in to {{site.data.keyword.vpc_full}}.
 

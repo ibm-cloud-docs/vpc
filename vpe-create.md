@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-15"
+lastupdated: "2021-08-09"
 
 keywords: virtual private endpoints, VPE, endpoint gateway
 
@@ -41,11 +41,11 @@ You can create an endpoint gateway for an {{site.data.keyword.cloud}} service th
 
 Prior to creating an endpoint gateway, ensure that you review [Planning for virtual private endpoint gateways](/docs/vpc?topic=vpc-planning-considerations) and have satisfied the following conditions:
 
-  * A VPC
-  * A subnet in at least one availability zone if you intend on binding an IP address at the same time you provision the endpoint gateway
-  * An instance of the service
-  * Appropriate [IAM permissions](/docs/vpc?topic=vpc-vpe-iam) to create an endpoint gateway, create or bind a reserved IP, and view or list the target service
-  * Verification that the service you are configuring supports VPE  
+   * A VPC
+   * A subnet in at least one availability zone if you intend on binding an IP address at the same time you provision the endpoint gateway
+   * An instance of the service
+   * Appropriate [IAM permissions](/docs/vpc?topic=vpc-vpe-iam) to create an endpoint gateway, create or bind a reserved IP, and view or list the target service
+   * Verification that the service you are configuring supports VPE  
 
 ## Creating an endpoint gateway using the UI
 {: #vpe-creating-ui}
@@ -56,7 +56,7 @@ To create an endpoint gateway by using the {{site.data.keyword.cloud_notm}} cons
 
 1. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Virtual private endpoint gateways** in the Network section. The Virtual private endpoint gateways for VPC page appears.
 
-  ![Virtual private endpoint gateways for VPC page](./images/vpe-dashboard.png "Virtual private endpoint gateways for VPC page")
+   ![Virtual private endpoint gateways for VPC page](./images/vpe-dashboard.png "Virtual private endpoint gateways for VPC page")
 
 1. Click **Create** to go to the provisioning page.
 1. In the Details section, enter values for the following fields:
@@ -89,17 +89,19 @@ To create an endpoint gateway by using the CLI, follow these steps:
    ```sh
    ibmcloud is endpoint-gateway-targets
    ```
+   {: pre}
 
 1. Create an endpoint gateway by running the following command:
 
-  ```sh
-  ibmcloud is endpoint-gateway-create \
+   ```sh
+   ibmcloud is endpoint-gateway-create \
     --vpc-id VPC_ID \
     --target TARGET [--name NAME] [(--reserved-ip-id RESERVED_IP_ID1 --reserved-ip-id RESERVED_IP_ID2 ...) \
     | (--new-reserved-ip NEW_RESERVED_IP1 --new-reserved-ip NEW_RESERVED_IP2 ...)] \
     [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] \
     [--json]  
-  ```
+   ```
+   {: pre}
 
 Where:
 

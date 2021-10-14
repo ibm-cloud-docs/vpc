@@ -24,8 +24,8 @@ subcollection: vpc
 # Connecting to your on-premises network  
 {: #vpn-onprem-example}
 
-You can use {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_short}} to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your {{site.data.keyword.vpn_vpc_short}} gateway to connect to your on-premises network.
-{:shortdesc}
+You can use IBM Cloud VPN Gateway for VPC to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your VPN gateway to connect to your on-premises network.
+{: shortdesc}
 
 Create a VPN gateway in your VPC and create a VPN connection between the VPC and the peer gateway of the on-premises network by specifying the following information.
 * **Connection name** - Enter a name for the connection, such as `onprem-connection`.
@@ -42,7 +42,7 @@ The gateway status appears as **Pending** while the VPN gateway is being created
 ## Configuring the on-premises VPN gateway
 {: #configuring-onprem-gateway}
 
-The next step is configuring your on-premises VPN gateway peer to connect to your IBM {{site.data.keyword.vpn_vpc_short}} gateway. The configuration depends on the type of VPN gateway. See the following topics for details.
+The next step is configuring your on-premises VPN gateway peer to connect to your IBM Cloud VPN Gateway for VPC. The configuration depends on the type of VPN gateway. See the following topics for details.
 
 - [Connecting to an AWS peer](/docs/vpc?topic=vpc-aws-config)
 - [Connecting to a Check Point Security Gateway peer](/docs/vpc?topic=vpc-check-point-config)

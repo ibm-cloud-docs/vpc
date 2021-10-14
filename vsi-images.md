@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-06"
+lastupdated: "2021-09-24"
 
 keywords: image, stock image, custom image, virtual private cloud, virtual server, power, generation 2, gen 2
 
@@ -26,7 +26,7 @@ subcollection: vpc
 {: #about-images}
 
 When you provision {{site.data.keyword.vsi_is_full}}, you can select from the supported stock images or a custom image that you import from {{site.data.keyword.cos_full_notm}}. The image that you select determines the operating system that is provisioned for your instance.
-{:shortdesc}
+{: shortdesc}
 
 ## Stock images
 {: #stock-images}
@@ -41,7 +41,7 @@ The following operating systems are available as stock images when you create a 
 | CentOS 7.x, 8.x | x86-64 |
 | Debian 9.x, 10.x | x86-64 |
 | Red Hat Enterprise Linux 7.x, 8.x | x86-64 |
-| Ubuntu 16.04.x, 18.04.x, 20.04.x | x86-64 |
+| Ubuntu 18.04.x, 20.04.x | x86-64 |
 | Windows 2012, 2012 R2, 2016, 2019 | x86-64 |  |
 {: caption="Table 1. Supported x86_64 stock image operating systems" caption-side="top"}
 
@@ -57,7 +57,7 @@ The following operating systems are available as stock images when you create a 
 
 When you order an instance, the images are cloud-init enabled to optimize creation times. With a cloud-init enabled image, you can provide user data. In the **User Data** field on the order form, you can enter optional cloud-init user data for the server. For more information about user data and automation, see [User data](/docs/vpc?topic=vpc-user-data).
 
-You can access details about each operating system, such as the url for the operating system, by using the API call, [Retrieves all operating systems](https://cloud.ibm.com/apidocs/vpc#retrieves-all-operating-systems){: external}.  
+You can access details about each operating system, such as the url for the operating system, by using the API call, [List all operating systems](https://cloud.ibm.com/apidocs/vpc#list-operating-systems){: external}.  
 {: tip}
 
 ### Stock image naming conventions
@@ -101,7 +101,8 @@ Custom images must meet the following requirements:
 - Is in qcow2 format
 - Is cloud-init enabled
 - The operating system is supported as a stock image
-- Size doesn't exceed 100 GB
+- Size doesn't exceed 250 GB
+- Size isn't less than 10 GB, images less than 10 GB are rounded up to 10 GB
 
 For more information about custom images, see [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images).
 

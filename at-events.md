@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-07-30"
+lastupdated: "2021-08-26"
 
 keywords: activity tracker, events
 
@@ -25,7 +25,7 @@ subcollection: vpc
 {: #at-events}
 
 As a security officer, auditor, or manager, you can use the {{site.data.keyword.at_full}} service to track how users and applications interact with {{site.data.keyword.cloud}} Virtual Private Cloud (VPC).
-{:shortdesc}
+{: shortdesc}
 
 {{site.data.keyword.at_full_notm}} records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. In addition, you can be alerted about actions as they happen. The events that are collected comply with the Cloud Auditing Data Federation (CADF) standard. For more information, see the [getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/activity-tracker?topic=activity-tracker-getting-started).
 
@@ -195,42 +195,66 @@ The following table lists the actions that are related to virtual private endpoi
 | vpc  | is.vpc.vpc-route.delete   | Route was removed from VPC   |
 {: caption="Table 10. Actions that generate events for VPC" caption-side="top"}
 
-### VPN events
+### VPN gateway events
 {: #events-vpns}
 
-The following table lists the actions that are related to VPNs and the generation of events.
+The following table lists the actions that are related to site-to-site VPN gateways and the generation of events.
 
-| Resource  | Action  | Data Event | Description  |
-|:----------------|:-----------------------|:--------------|:-----------------------|
-| vpn  | is.vpn.vpn-gateway.create   | | VPN gateway was created |
-| vpn  | is.vpn.vpn-gateway.delete   | | VPN gateway was deleted |
-| vpn  | is.vpn.vpn-gateway.update   | | VPN gateway was updated |
-| vpn  | is.vpn.vpn-gateway.read   | | VPN gateway was retrieved |
-| vpn  | is.vpn.vpn-gateway.list   | | VPN gateways were listed |
-| vpn  | is.vpn.vpn-connection.create   | Yes | VPN connection was created on VPN gateway |
-| vpn  | is.vpn.vpn-connection.delete   | Yes | VPN connection was deleted from VPN gateway |
-| vpn  | is.vpn.vpn-connection.update   | Yes | VPN connection was updated on VPN gateway |
-| vpn  | is.vpn.vpn-connection.read   | Yes | VPN connection was retrieved from VPN gateway |
-| vpn  | is.vpn.vpn-connection.list   | | VPN gateway connections were listed |
-| vpn  | is.vpn.vpn-connection_local-cidr.create   | | Local subnet was created on VPN gateway connection |
-| vpn  | is.vpn.vpn-connection_local-cidr.delete   | | Local subnet was deleted from VPN gateway connection |
-| vpn  | is.vpn.vpn-connection_local-cidr.read   | | Local subnet was retrieved from VPN gateway connection |
-| vpn  | is.vpn.vpn-connection_local-cidr.list   | | Local subnets were listed from VPN gateway connection |
-| vpn  | is.vpn.vpn-connection_peer-cidr.create   | | Peer subnet was created on VPN gateway connection |
-| vpn  | is.vpn.vpn-connection_peer-cidr.delete   | | Peer subnet was deleted from VPN gateway connection |
-| vpn  | is.vpn.vpn-connection_peer-cidr.read   | | Peer subnet was retrieved from VPN gateway connection |
-| vpn  | is.vpn.vpn-connection_peer-cidr.list   | | Peer subnets were listed from VPN gateway connection |
-| vpn  | is.vpn.ike-policy.create   | | IKE policy was created |
-| vpn  | is.vpn.ike-policy.delete   | | IKE policy was deleted |
-| vpn  | is.vpn.ike-policy.update   | | IKE policy was updated |
-| vpn  | is.vpn.ike-policy.read   | | IKE policy was retrieved |
-| vpn  | is.vpn.ike-policy.list   | | IKE policies were listed |
-| vpn  | is.vpn.ipsec-policy.create   | | IPsec policy was created |
-| vpn  | is.vpn.ipsec-policy.delete   | | IPsec policy was deleted |
-| vpn  | is.vpn.ipsec-policy.update   | | IPsec policy was updated |
-| vpn  | is.vpn.ipsec-policy.read   | | IPsec policy was retrieved |
-| vpn  | is.vpn.ipsec-policy.list   | | IPsec policies were listed |
-{: caption="Table 11. Actions that generate events for VPNs" caption-side="top"}
+| Resource  | Action  | Description  |
+|:----------------|:-----------------------|:-----------------------|
+| vpn  | is.vpn.vpn-gateway.create   | VPN gateway was created |
+| vpn  | is.vpn.vpn-gateway.delete   | VPN gateway was deleted |
+| vpn  | is.vpn.vpn-gateway.update   | VPN gateway was updated |
+| vpn  | is.vpn.vpn-gateway.read   | VPN gateway was retrieved |
+| vpn  | is.vpn.vpn-gateway.list   | VPN gateways were listed |
+| vpn  | is.vpn.vpn-connection.create   | VPN connection was created on VPN gateway |
+| vpn  | is.vpn.vpn-connection.delete   | VPN connection was deleted from VPN gateway |
+| vpn  | is.vpn.vpn-connection.update   | VPN connection was updated on VPN gateway |
+| vpn  | is.vpn.vpn-connection.read   | VPN connection was retrieved from VPN gateway |
+| vpn  | is.vpn.vpn-connection.list   | VPN gateway connections were listed |
+| vpn  | is.vpn.vpn-connection_local-cidr.create | Local subnet was created on VPN gateway connection |
+| vpn  | is.vpn.vpn-connection_local-cidr.delete | Local subnet was deleted from VPN gateway connection |
+| vpn  | is.vpn.vpn-connection_local-cidr.read   | Local subnet was retrieved from VPN gateway connection |
+| vpn  | is.vpn.vpn-connection_local-cidr.list   | Local subnets were listed from VPN gateway connection |
+| vpn  | is.vpn.vpn-connection_peer-cidr.create  | Peer subnet was created on VPN gateway connection |
+| vpn  | is.vpn.vpn-connection_peer-cidr.delete  | Peer subnet was deleted from VPN gateway connection |
+| vpn  | is.vpn.vpn-connection_peer-cidr.read  | Peer subnet was retrieved from VPN gateway connection |
+| vpn  | is.vpn.vpn-connection_peer-cidr.list  | Peer subnets were listed from VPN gateway connection |
+| vpn  | is.vpn.ike-policy.create   | IKE policy was created |
+| vpn  | is.vpn.ike-policy.delete   | IKE policy was deleted |
+| vpn  | is.vpn.ike-policy.update   | IKE policy was updated |
+| vpn  | is.vpn.ike-policy.read   | IKE policy was retrieved |
+| vpn  | is.vpn.ike-policy.list   | IKE policies were listed |
+| vpn  | is.vpn.ipsec-policy.create   | IPsec policy was created |
+| vpn  | is.vpn.ipsec-policy.delete   | IPsec policy was deleted |
+| vpn  | is.vpn.ipsec-policy.update   | IPsec policy was updated |
+| vpn  | is.vpn.ipsec-policy.read   | IPsec policy was retrieved |
+| vpn  | is.vpn.ipsec-policy.list   | IPsec policies were listed |
+{: caption="Table 11. Actions that generate events for site-to-site VPN gateways" caption-side="top"}
+
+### VPN server events (Beta)
+{: #events-vpn-server}
+
+The following table lists the actions that are related to client-to-site VPN servers and the generation of events.
+
+| Resource  | Action  | Description  |
+|:----------------|:-----------------------|:-----------------------|
+| vpn  | is.vpn-server.vpn-server.create   | VPN server was created |
+| vpn  | is.vpn-server.vpn-server.delete   | VPN server was deleted |
+| vpn  | is.vpn-server.vpn-server.update   | VPN server was updated |
+| vpn  | is.vpn-server.vpn-server.read   | VPN server was retrieved |
+| vpn  | is.vpn-server.vpn-server.list   | VPN servers were listed |
+| vpn  | is.vpn-server.vpn-server.configuration.read | VPN server configuration was downloaded |
+| vpn  | is.vpn-server.vpn-server-client.delete | VPN client was disconnected and deleted from a VPN server |
+| vpn  | is.vpn-server.vpn-server-client.read   | VPN client was retrieved from a VPN server |
+| vpn  | is.vpn-server.vpn-server-client.list   | VPN server clients were listed |
+| vpn  | is.vpn-server.vpn-server-client.disconnect | VPN client was disconnected from a VPN server, and deleted according to the VPN server's auto-deletion policy |
+| vpn  | is.vpn-server.vpn-server-route.create  | VPN server route was created |
+| vpn  | is.vpn-server.vpn-server-route.delete   | VPN server route was deleted |
+| vpn  | is.vpn-server.vpn-server-route.update  | VPN server route was updated |
+| vpn  | is.vpn-server.vpn-server-route.read  | VPN server route was retrieved |
+| vpn  | is.vpn-server.vpn-server-route.list  | VPN server routes were listed |
+{: caption="Table 12. Actions that generate events for client-to-site VPN servers" caption-side="top"}
 
 ## Compute resources
 {: #events-compute}
@@ -268,13 +292,13 @@ The following tables list the actions that are related to compute resources and 
 | instance | is.instance.disk.update | Instance storage disk name was updated |
 | instance | is.instance.disk.wipe | Instance storage disk was wiped clean |
 | instance | is.instance.gpu.wipe | Memory was wiped on the GPU for the Instance |
-{: caption="Table 12. Actions that generate events for Instance" caption-side="top"}
+{: caption="Table 13. Actions that generate events for Instance" caption-side="top"}
 
 ### Bare metal server events
 {: #events-compute-bm}
 
 Some fields for Bare Metal Servers for VPC AT events will be changing between the Beta and Limited Available (LA) releases. For more information, see [Analyzing events](/docs/vpc?topic=vpc-at-events#at_events_iam_analyze).
-{:note}
+{: note}
 
 | Resource  | Action  | Description  |
 |:----------------|:-----------------------|:-----------------------|
@@ -298,7 +322,7 @@ Some fields for Bare Metal Servers for VPC AT events will be changing between th
 | Bare Metal Server | is.bare-metal-server.network-interface-floating-ip.attach | Floating IP was associated with a network interface |
 | Bare Metal Server | is.bare-metal-server.network-interface-floating-ip.detach | Floating IP was disassociated from a network interface |
 | Bare Metal Server | is.bare-metal-server.profile.read | One or more bare metal server profiles was retrieved |
-{: caption="Table 13. Actions that generate events for Bare Metal Server" caption-side="top"}
+{: caption="Table 14. Actions that generate events for Bare Metal Server" caption-side="top"}
 
 ### Key events
 {: #events-compute-key}
@@ -309,7 +333,7 @@ Some fields for Bare Metal Servers for VPC AT events will be changing between th
 | key  | is.key.key.delete   | Key was deleted  |
 | key  | is.key.key.update   | Key was updated  |
 | key | is.key.key.read | One or more keys was retrieved |
-{: caption="Table 14. Actions that generate events for Key" caption-side="top"}
+{: caption="Table 15. Actions that generate events for Key" caption-side="top"}
 
 ### Dedicated host events
 {: #events-compute-dedicated-host}
@@ -320,7 +344,7 @@ Some fields for Bare Metal Servers for VPC AT events will be changing between th
 | dedicated-host | is.dedicated-host.dedicated-host.update | Dedicated host or host disk was updated |
 | dedicated-host | is.dedicated-host.dedicated-host.delete  |Dedicated host was deleted |
 | dedicated-host | is.dedicated-host.dedicated-host.read | One or more dedicated hosts or host disks were retrieved |
-{: caption="Table 15. Actions that generate events for Dedicated Host" caption-side="top"}
+{: caption="Table 16. Actions that generate events for Dedicated Host" caption-side="top"}
 
 ### Dedicated host group events
 {: #events-compute-dedicated-host-group}
@@ -331,7 +355,7 @@ Some fields for Bare Metal Servers for VPC AT events will be changing between th
 | dedicated-host-group  | is.dedicated-host.dedicated-host-group.update | Dedicated host group was updated |
 | dedicated-host-group  | is.dedicated-host.dedicated-host-group.delete | Dedicated host group was deleted |
 | dedicated-host-group  | is.dedicated-host.dedicated-host-group.read | One or more dedicated host groups was retrieved |
-{: caption="Table 16. Actions that generate events for Dedicated Host Group" caption-side="top"}
+{: caption="Table 17. Actions that generate events for Dedicated Host Group" caption-side="top"}
 
 ### Instance group events
 {: #events-compute-instance-group}
@@ -360,7 +384,7 @@ Some fields for Bare Metal Servers for VPC AT events will be changing between th
 | instance-group  | is.instance-group.membership.update   | Instance group membership was updated  |
 | instance-group  | is.instance-group.membership.read     | Instance group membership was retrieved |
 | instance-group  | is.instance-group.instance.create     | Instance group instance was created |
-{: caption="Table 17. Actions that generate events for Instance Group" caption-side="top"}
+{: caption="Table 18. Actions that generate events for Instance Group" caption-side="top"}
 
 ### Image resources
 {: #events-images}
@@ -372,10 +396,10 @@ The following table lists the actions that are related to image resources and th
 | image  | is.image.image.create   | Image was created |
 | image  | is.image.image.delete   | Image was deleted |
 | image  | is.image.image.update   | Image was updated |
-{: caption="Table 18. Actions that generate events for image resources" caption-side="top"}
+{: caption="Table 19. Actions that generate events for image resources" caption-side="top"}
 
 For the image update event, if you are rotating the root key for an image, the CRN for the old key and new key remains the same. The ID for the new key that is rotated in is indicated in the `kmsKeyRefID` field of the image.
-{:note}
+{: note}
 
 ### Placement group resources
 {: #events-placement-group}
@@ -389,7 +413,7 @@ The following table lists the actions that are related to placement group resour
 | placement_group | is.placement-group.placement-group.update | Placement group was updated |
 | instance | is.instance.instance.create | Instance was created and includes a placement group reference |
 | instance | is.instance.instance.update | Instance was updated and includes updates to the placement group reference |
-{: caption="Table 19. Actions that generate events for placement group resources" caption-side="top"}
+{: caption="Table 20. Actions that generate events for placement group resources" caption-side="top"}
 
 ## Storage resources
 {: #events-storage}
@@ -405,10 +429,10 @@ The following table lists the actions that are related to volume resources and t
 | volume  | is.volume.volume.update  | Volume was updated  |
 | volume  | is.volume.volume.delete  | Volume was deleted  |
 | volume  | is.volume.volume.read    | One or more volumes were retrieved  |
-{: caption="Table 20. Actions that generate events for block storage resources" caption-side="top"}
+{: caption="Table 21. Actions that generate events for block storage resources" caption-side="top"}
 
 An event does not contain a volume name if no information is available at the time of the event. For example, when you make a request to create a volume but do not provide a volume name, the information is not available and does not appear in the event.
-{:note}
+{: note}
 
 ### Snapshots events
 {: #events-snapshots}
@@ -421,7 +445,7 @@ The following table lists the actions that are related to snapshots resources an
 | snapshot  | is.snapshot.snapshot.update  | Snapshot was updated  |
 | snapshot  | is.snapshot.snapshot.delete  | Snapshot was deleted  |
 | snapshot  | is.snapshot.snapshot.read    | One or more snapshots were retrieved  |
-{: caption="Table 21. Actions that generate events for snapshot resources" caption-side="top"}
+{: caption="Table 22. Actions that generate events for snapshot resources" caption-side="top"}
 
 ## Supported locations
 {: #at-supported-locations}
@@ -455,17 +479,17 @@ Refer to the following information when you are analyzing events:
     When you create resources, you can get IDs from the `responseData.responseContent` field.
 
     For update actions, the original value is not included. You can do a read action to get the value before you run an update on the resource.
-    
+
 - The following fields for Bare Metal Servers for VPC AT events will be changing between the Beta and LA releases:
 
-  1) The `severity` field in Beta events is not consistent with general practice within VPC and will be corrected in the LA release.
-  
-  2) The `target resourceGroupID` field in Beta events does not include the CRN prefix. This will be corrected in the LA release.
-  
-  3) Some Beta events include array data. If the array is too large, the event will not be recorded. For LA, these events will display an array element count rather than the actual data.
-  
+   1) The `severity` field in Beta events is not consistent with general practice within VPC and will be corrected in the LA release.
+
+   2) The `target resourceGroupID` field in Beta events does not include the CRN prefix. This will be corrected in the LA release.
+
+   3) Some Beta events include array data. If the array is too large, the event will not be recorded. For LA, these events will display an array element count rather than the actual data.
+
 - Each time you open a console for a virtual server instance or bare metal server, two API calls are issued: the first one generates a console access token, the second one uses the generated token to open the console websocket.
 
-  This will generate two Activity Tracker events: `is.instance.console-access-token.create` and `is.instance.console.read`, or `is.bare-metal-server.console-access-token.create` and `is.bare-metal-server.console.read`.
-  
-  You cannot use `request id` to correlate console Activity Tracker events as each call will generate a unique `request id`. Instead, you can use `initiator id` to correlate console events that are generated from API calls issued by the same user.
+   This will generate two Activity Tracker events: `is.instance.console-access-token.create` and `is.instance.console.read`, or `is.bare-metal-server.console-access-token.create` and `is.bare-metal-server.console.read`.
+
+   You cannot use `request id` to correlate console Activity Tracker events as each call will generate a unique `request id`. Instead, you can use `initiator id` to correlate console events that are generated from API calls issued by the same user.

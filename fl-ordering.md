@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-10"
+lastupdated: "2021-08-13"
 
 keywords: flow logs, ordering, getting started
 
@@ -51,27 +51,28 @@ Before you create a flow log collector, make sure that you meet the following pr
 
 3. Authorize resources of type **Flow Logs for VPC** to use the COS instance created in Step 2.
 
-   To do so, follow these steps:
+   To do so, use the following steps:
 
    * In the IBM Cloud console, click **Manage > Access (IAM)**, then select **Authorizations** from the navigation pane.
    * Click **Create** and complete the following information:
 
-      - For Source service:
-         * Select **VPC Infrastructure Services**.
-         * Select **Services based on attributes**.
-         * For Resource type, select **Flow Logs for VPC**.
-         * For Source service instance, select **All instances**.
+      For Source service:
 
-      - For Target service:
-         * Select **Cloud Object Storage**.
-         * Select **Services based on attributes**.
-         * For Service instance, select **string equals > All instances**.
+      * Select **VPC Infrastructure Services**.
+      * Select **Services based on attributes**.
+      * For Resource type, select **Flow Logs for VPC**.
+      * For Source service instance, select **All instances**.
 
-      - For Service access, select the **Writer** role to assign access to the source service that accesses the target service.
+      For Target service:
+      * Select **Cloud Object Storage**.
+      * Select **Services based on attributes**.
+      * For Service instance, select **string equals > All instances**.
+
+      For Service access, select the **Writer** role to assign access to the source service that accesses the target service.
 
    * Click **Authorize**.   
 
-    For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth#create-auth).
+   For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth#create-auth).
    {: note}
 
 ## Creating a flow log collector by using the UI
@@ -80,34 +81,34 @@ Before you create a flow log collector, make sure that you meet the following pr
 
 To create a flow log collector by using the IBM Cloud console, follow these steps:
 
-1. Go to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){:external} and log in to your account.
+1. Go to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
 
 1. Select the Menu icon ![Menu icon](./images/menu_icon.png), then click **VPC Infrastructure** > **Flow Logs**. The Flow logs for VPC dashboard appears.
 
-  ![Flow log collector dashboard](./images/list-view-01.png "Flow Log Collector dashboard")
+   ![Flow log collector dashboard](./images/list-view-01.png "Flow Log Collector dashboard")
 
 1. Click **Create flow log collector** to go to the flow logs provisioning page.
 1. Enter values for the following fields:
 
-  * **Name** - Type a unique name for your flow log collector.
-  * **Resource group** - Select a resource group for your flow log collector. You can use the default group for this flow log, or choose from the list (if defined). For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup).
+   * **Name** - Type a unique name for your flow log collector.
+   * **Resource group** - Select a resource group for your flow log collector. You can use the default group for this flow log, or choose from the list (if defined). For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup).
 
 1. From the **Attach the flow log connector to** menu, choose a target type for the flow log. Depending on your selection, additional fields might be required.   
 
-  * **VPC** - Select a VPC. All network traffic within the selected VPC is logged.
-  * **Subnet** -  Select a VPC and a subnet within the selected VPC. All traffic within the selected subnet is logged.
-  * **Instance** - Select a VPC and a virtual server instance that exists within the selected VPC. All traffic for the virtual server instance is logged.
-  * **Interface** - Select a VPC, a virtual server instance within the selected VPC, and a specific network interface for the selected virtual server instance. All traffic for the selected network interface is logged.
+   * **VPC** - Select a VPC. All network traffic within the selected VPC is logged.
+   * **Subnet** -  Select a VPC and a subnet within the selected VPC. All traffic within the selected subnet is logged.
+   * **Instance** - Select a VPC and a virtual server instance that exists within the selected VPC. All traffic for the virtual server instance is logged.
+   * **Interface** - Select a VPC, a virtual server instance within the selected VPC, and a specific network interface for the selected virtual server instance. All traffic for the selected network interface is logged.
 
-  For example:
+   For example:
 
-  ![Example Network Subnet Target](./images/flow-log-provision-subnet-target-example.png "Example Network Subnet Target")
+   ![Example Network Subnet Target](./images/flow-log-provision-subnet-target-example.png "Example Network Subnet Target")
 
 1. Specify where the logs are written. Flow logs are written to a COS bucket, which must be created as a single-region bucket in the same region as the target resource.
 
-  * **Cloud Object Storage Instance** - The COS instance that the wanted bucket resides in.
-  * **Location** - This input is unavailable because it is directly tied to the region the target resource resides in.
-  * **Bucket** - The wanted Cloud Object Storage (COS) bucket that the flow log collector service writes to.
+   * **Cloud Object Storage Instance** - The COS instance that the wanted bucket resides in.
+   * **Location** - This input is unavailable because it is directly tied to the region the target resource resides in.
+   * **Bucket** - The wanted Cloud Object Storage (COS) bucket that the flow log collector service writes to.
 
 ## Creating a flow log collector by using the CLI
 {: #fl-ordering-cli}
@@ -115,14 +116,15 @@ To create a flow log collector by using the IBM Cloud console, follow these step
 
 To create a flow log collector by using the CLI, run the following command:
 
-  ```
+```
   ibmcloud is flow-log-create \
     --bucket STORAGE_BUCKET_NAME \
     --target TARGET_ID [--name NAME] \
     --active ACTIVE \
     [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] \
     [--json]
-  ```
+```
+{: codeblock}
 
 Where:
 
@@ -138,11 +140,11 @@ Where:
 {: #fl-ordering-api}
 {: api}
 
-To create a flow log collector by using the API, use the following steps:
+To create a flow log collector by using the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with
 the right variables.
-2. Store the following values in variables to be used in the API command:
+1. Store the following values in variables to be used in the API command:
 
    * `ResourceGroupId` - First, get your resource group and then populate the variable:
 
@@ -165,7 +167,7 @@ the right variables.
     ```
     {: pre}
 
-2. When all variables are initiated, provision a flow log collector for the specific VPC:
+1. When all variables are initiated, provision a flow log collector for the specific VPC:
 
    ```sh
    curl -X POST
@@ -180,7 +182,7 @@ the right variables.
    ```
    {: pre}
 
-3. To provision a collector that targets a subnet, virtual server instance, or VNIC, you must provide a subnet ID, virtual server instance ID, or VNIC ID as a collector target. For example, the following request creates a collector that targets a virtual server instance ID:
+1. To provision a collector that targets a subnet, virtual server instance, or VNIC, you must provide a subnet ID, virtual server instance ID, or VNIC ID as a collector target. For example, the following request creates a collector that targets a virtual server instance ID:
 
    ```sh
    export VsiId=<your_vsi_id>
@@ -198,7 +200,7 @@ the right variables.
          "target": { "id": "'$VsiId'" } \
          }' | jq    
    ```
-   {: pre}
+   {: codeblock}
 
 ## Next steps
 {: #fl-next-steps}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-04-30"
+lastupdated: "2021-08-06"
 
 keywords: instance storage, local disk, storage, temporary storage, generation 2, gen 2
 
@@ -36,7 +36,7 @@ If you want instance storage disk to be provisioned with your virtual server ins
 ## Provisioning a Virtual Server Instance with instance storage with the UI
 {: ui}
 
-Before you can create a virtual server instance with instance storage, you need to create an {{site.data.keyword.vpc_short}}. {:important}
+Before you can create a virtual server instance with instance storage, you need to create an {{site.data.keyword.vpc_short}}. {: important}
 
 To provision a with instance storage, complete the following steps:
 1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Virtual server instances**. 
@@ -67,7 +67,6 @@ If you are using custom images, make sure that you load the correct device drive
 
 If your instance storage device has a connection type of virtio_blk (all General Purpose profiles with instance storage - Balanced, Compute and Memory - offer only virtio_blk connections), then the libvirt virtio driver must be installed. The libvirt virtio driver is automatically installed with all IBM provided operating systems. 
 
-
 ## Using instance storage from your instance
 
 ### Listing the block devices on your instance
@@ -90,7 +89,7 @@ vde            50G 252:64  disk     512     512
 vdf           366K 252:80  disk     512     512
 vdg            44K 252:96  disk     512     512
 ```
-{:screen}
+{: screen}
 
 In this example all of the block storage devices are virtio devices: 
 * vda is the boot volume
@@ -101,13 +100,14 @@ In this example all of the block storage devices are virtio devices: 
 ```
 lsblk -p -o NAME,TYPE,PHY-SEC,LOG-SEC,MOUNTPOINT | grep disk | grep 4096 | awk 'NR>0{print $1}'
 ```
+{: pre}
 
 * vdf and vdg are small block volumes that are used for the cloud-init configuration of the instance
 
 ### Partitioning, formatting, and mounting instance storage disks
 The instance storage disks can be partitioned, formatted with a file system, and mounted into the hierarchical file system in the same manner as the remote block volumes. 
 
-* For instructions for Linux&reg;, see [Using your block storage data volume (CLI)](https://test.cloud.ibm.com/docs/vpc?topic=vpc-start-using-your-block-storage-data-volume) or [Configuring a single disk instance storage by using the cloud-config script](/docs/vpc?topic=vpc-user-data##configure-instance-storage-cloud-config).
+* For instructions for Linux&reg;, see [Using your block storage data volume (CLI)](https://test.cloud.ibm.com/docs/vpc?topic=vpc-start-using-your-block-storage-data-volume) or [Configuring a single disk instance storage by using the cloud-config script](/docs/vpc?topic=vpc-user-data#configure-instance-storage-cloud-config).
 * For Windows&reg;, use the Computer Management UI to bring a block volume online, partition, and format it.
 
 In the previous example, after partitioning vdc into two parts, formatting them with separate file systems, and mounting them, lsblk now reports the following for the pair instance storage disks:
@@ -119,13 +119,13 @@ vdc         558.8G disk    8192    4096
 ├─vdc1        200G part    8192    4096 /localdisk1 ext4
 └─vdc2      358.8G part    8192    4096 /localdisk2 xfs
 ```
-{:screen}
+{: screen}
 
 Due to the ephemeral nature of instance storage, it is recommended that you configure the mount entry in the Linux&reg; VM’s /etc/fstab file with the "nofail” option (or leave the entry out entirely) to avoid a mount failure during boot. Here is an example mount entry with the "nofail" option:
 ```
 /dev/vdb1 /mnt/inststg1 ext4 defaults,nofail 0 0
 ```
-{:important}
+{: pre}
 
 ### Looking up instance storage details
 
@@ -152,11 +152,9 @@ Network(Gbps)            80
 Instance Storage Disks   Quantity   Size   Supported Interface Types
                          2          900    virtio_blk
 ```
-{:screen}
+{: screen}
 
 Currently, the only supported Interface Type is virtio_blk . This is the standard virtualization block device and the disk shows up as a virtio block device. For more information about virtio, see Virtio.
-
-
 
 ### Reporting instance storage information
 You can report instance storage information for your virtual server instance by using the following CLI example. 
@@ -168,7 +166,7 @@ ID                                          Name       �
 0716-6ebed02f-c421-4b06-a73b-f334413e84b3   clunky-refocus-tidings-underpaid   600    virtio_blk
 0716-54ee0659-d92a-4d4c-ac6b-8f03cb178a07   linguini-epiphany-lush-preschool   600    virtio_blk
 ```
-{:screen}
+{: screen}
 
 ### Updating one of the default names
 You can update the custom names of the instance storage disks by using the following is a CLI example. 
@@ -188,4 +186,4 @@ ID                                          Name       �
 0716-6ebed02f-c421-4b06-a73b-f334413e84b3   my-instance-disk1                  600    virtio_blk
 0716-54ee0659-d92a-4d4c-ac6b-8f03cb178a07   linguini-epiphany-lush-preschool   600    virtio_blk
 ```
-{:screen}
+{: screen}

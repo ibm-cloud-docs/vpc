@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-15"
+lastupdated: "2021-08-09"
 
 keywords: virtual private endpoints, list, VPE, endpoint gateway
 
@@ -46,7 +46,7 @@ From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext
 
 The Virtual private endpoint gateways for VPC page appears. Use this table to view endpoint gateways in the region.
 
-  ![Virtual private endpoint gateways for VPC page](./images/vpe-dashboard.png "Virtual private endpoint gateways for VPC page")
+![Virtual private endpoint gateways for VPC page](./images/vpe-dashboard.png "Virtual private endpoint gateways for VPC page")
 
 ## Listing endpoint gateways using the CLI
 {: #vpe-listing-endpoint-gateways-cli}
@@ -58,6 +58,7 @@ To list all endpoint gateways in the region by using the CLI, run the following 
 ibmcloud is endpoint-gateways \
    [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--json]
 ```
+{: pre}
 
 Where:
 
@@ -77,7 +78,7 @@ To list endpoint gateways by using the API, follow these steps:
     ```sh
     export EndpointGatewayId=<endpoint_gateway_id>
     ```
-    {:pre}   
+    {: pre}   
 
 1. List endpoint gateways:   
 

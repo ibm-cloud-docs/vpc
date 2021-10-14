@@ -26,7 +26,7 @@ subcollection: vpc
 {: #monitoring}
 
 You can monitor CPU, volume, memory, and network usage of your virtual server instances after you set up an instance of the {{site.data.keyword.monitoringlong}} service. 
-{:shortdesc}
+{: shortdesc}
 
 ## Before you begin
 {: #before-monitoring}
@@ -74,7 +74,7 @@ The following metrics are available (by default) from the console.
 {: caption="Table 2: Default volume metrics available from console" caption-side="top"}
 
 Volume metrics are available in either IOPS requests or read/write requests by using the toggle selector. 
-{:tip}
+{: tip}
 
 ### Memory
 {: #memory-metrics}
@@ -94,4 +94,4 @@ Volume metrics are available in either IOPS requests or read/write requests by u
 {: caption="Table 3: Default network metrics available from console" caption-side="top"}
 
 Network metrics are available in either packets or KB by using the toggle selector. 
-{:tip}
+{: tip}

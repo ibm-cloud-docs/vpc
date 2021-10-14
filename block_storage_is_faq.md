@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019 - 2021
-lastupdated: "2021-07-21"
+lastupdated: "2021-08-17"
 
 keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, image, IOPS, FAQ
 
@@ -20,7 +20,7 @@ subcollection: vpc
 {: #block-storage-vpc-faq}
 
 The following questions often arise about the {{site.data.keyword.block_storage_is_short}} service offering including performance and security. If you have other questions you'd like to see answered here, provide feedback by using the **Open Issue** or **Edit Topic** links.
-{:shortdesc}
+{: shortdesc}
 
 ## Offering questions
 {: #block-storage-vpc-offering-questions}
@@ -109,7 +109,7 @@ Image from volume lets you create a custom image directly from a block storage b
 {: faq}
 {: #faq-block-storage-14}
 
-The boot disk, also called a boot volume, is created when you provision a virtual server instance. The boot disk of an instance is a cloned image of the virtual machine image. The boot volume is deleted when you delete the instance to which it is attached.
+The boot disk, also called a boot volume, is created when you provision a virtual server instance. The boot disk of an instance is a cloned image of the virtual machine image. For stock images, the boot volume capacity is 100 GB. If you are importing a custom image, the boot volume capacity can be 10 GB to 250GB, depending on what the image requires. Images smaller than 10 GB are rounded up to 10 GB. If the imported custom image is encrypted by the user, the boot volume will be 100 GB for a smaller size image. The boot volume is deleted when you delete the instance to which it is attached.
 
 ### When can I delete a block storage data volume?
 {: faq}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-30"
+lastupdated: "2021-09-10"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -28,10 +28,10 @@ subcollection: vpc
 {: #imd-windows-configuration}
 
 To access instance metadata from Windows servers, there are additional requirements to locate a default gateway and add a route.
-{:shortdesc}
+{: shortdesc}
 
 This service is available only to accounts with special approval to preview this beta feature.
-{:beta}
+{: beta}
 
 ## Overview
 {: #imd-windows-config-overview}
@@ -52,10 +52,9 @@ Using the Windows terminal, this example invokes the Powershell `Get-NetRoute` c
 ```
 C:\> powershell "Get-NetRoute -DestinationPrefix "0.0.0.0/0" | Select-Object -ExpandProperty "NextHop""
 ```
-{:pre}
+{: codeblock}
 
 The first IP address retrieved is the default route. Place the output into a variable.
-
 
 ## Step 2: Add a route to the default gateway
 {: #imd-windows-add-route}
@@ -67,24 +66,24 @@ Set up the default route so that the link local address can get to the default g
 ```
 C:> route -p add 198.51.100.0 MASK 255.255.255.255 $DEFAULT_GATEWAY
 ```
-{:pre}
+{: codeblock}
 
 A Python automation script might contain code like this:
 
 ```
 command = 'route -p add 198.51.100.0 MASK 255.255.255.255 ()'.format(default_gateway)
 ```
-{:pre}
+{: codeblock}
 
 These examples use the `route` command, but can also use the Powershell `New-NetRoute` command and pipe the route in a single command. For example, to combine steps 1 and 2 in a single command, you could specify:
 
 ```
 C:\> powershell "Get-NetRoute -DestinationPrefix "0.0.0.0/0" | Select-Object -ExpandProperty "NextHop" | New-NetRoute"
 ```
-{:pre}
+{: codeblock}
 
 To add routes, you must run as an administrator on the Windows server.
-{:note}
+{: note}
 
 ## Step 3: Programatically retrieve instance metadata
 {: #imd-windows-get-metadata}

@@ -26,7 +26,7 @@ subcollection: vpc
 {: #vpn-onprem-example}
 
 You can use VPN for VPC to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your on-premises VPN gateway to connect with VPN for VPC.
-{:shortdesc}
+{: shortdesc}
 
 ## Creating the VPN for VPC gateway and connection
 {: #create-vpc-vpn-gateway}
@@ -280,11 +280,11 @@ By default, VPN for VPC disables PFS in Phase 2, and Juniper vSRX requires PFS t
 To use a custom IPsec policy in VPN for VPC:
 1. On the VPN for VPC page in the IBM Cloud console, select the **IPsec policies** tab.
 2. Click **New IPsec policy** and specify the following values:
-  * For the ***Authentication** field, select **MD5**.
-  * For the **Encryption** field, select **aes256**.
-  * Select the **PFS** option.
-  * For the **DH Group** field, select **2**.
-  * For the **Key lifetime** field, specify **1200**.
+    * For the ***Authentication** field, select **MD5**.
+    * For the **Encryption** field, select **aes256**.
+    * Select the **PFS** option.
+    * For the **DH Group** field, select **2**.
+    * For the **Key lifetime** field, specify **1200**.
 3. When you create the VPN connection in your VPC, select this custom IPsec policy.
 
 ### StrongSwan configuration
@@ -397,6 +397,7 @@ To set up your remote Vyatta peer, make sure that the following prerequisites ar
 
    After the VPN gateway gets provisioned, note its public IP address.
    {: tip}
+   
 * The Vyatta public IP address
 * The Vyatta subnet that you want to connect using a VPN
 

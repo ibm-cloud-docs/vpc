@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-20"
+lastupdated: "2021-09-14"
 
-keywords: bare metal servers, esxi license, byol
+keywords: bare metal license, esxi license, byol, bring your own license, ESXi 7.x BYOL
 
 subcollection: vpc
 
@@ -27,15 +27,19 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Bare Metal Servers for VPC (beta) images
+# Bare Metal Servers for VPC images (Beta) 
 {: #bare-metal-image}
 
-You can license the ESXi hypervisor that is installed on a bare metal server with your own license (bring-your-own-license), or let IBM handle the licensing for you.
+Bare metal servers on VPC is a Beta feature that requires special approval. Contact your IBM Sales representative if you're interested in getting access.
+{: beta}
+
+You can license the ESXi hypervisor that is installed on a bare metal server with your own license (bring-your-own-license), or IBM can handle the licensing for you.
+{: shortdesc}
 
 You can specify how a bare metal server is licensed by selecting from different ESXi image options: "ESXi 7.x BYOL" or "ESXi 7.x".
 
 * The "ESXi 7.x BYOL" option provides ESXi in evaluation mode. The evaluation period is 60 days and begins at the time of provisioning. At any time during the 60-day evaluation period, you can convert from evaluation mode to licensed mode with your appropriate customer provided license.
 
-* The "ESXi 7.x" option provides ESXi in licensed mode and is activated during the provisioning process. Billing will apply for IBM rented licenses. 
+* The "ESXi 7.x" option provides ESXi in licensed mode and is activated during the provisioning process. Billing applies for IBM rented licenses. 
 
-For information about how to license ESXi, see [Licensing ESXi Hosts]( https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-28D25806-748B-49C0-97A1-E7DE5CB335A9.html){: external}.
+For more information about how to license ESXi, see [Licensing ESXi Hosts](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-28D25806-748B-49C0-97A1-E7DE5CB335A9.html){: external}.

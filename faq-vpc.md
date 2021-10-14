@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2020-02-24"
+lastupdated: "2021-09-27"
 
 subcollection: vpc
 
@@ -25,7 +25,7 @@ subcollection: vpc
 
 ## Can I connect my VPC to my other IBM Cloud workloads?  
 {: #faq-vpc-0}
-{:faq}
+{: faq}
 {: support}
 
 Yes, you can set up access to your {{site.data.keyword.cloud}} classic infrastructure from one VPC in each region. For more information, see [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure).
@@ -65,6 +65,12 @@ The VPC API automatically creates a floating IP along with the public gateway if
 {: faq}
 
 The VPC API service enforces this limit.
+
+## Does the VPC public gateway have a timeout function?
+{: #faq-vpc-public-gateway-timeout}
+{: faq}
+
+Yes, the VPC public gateway has a fixed, four-minute timeout for TCP connections, and it is not configurable.
 
 ## How do you obtain the Cloud Resource Name (CRN) of a VPC?
 {: #faq-crn}

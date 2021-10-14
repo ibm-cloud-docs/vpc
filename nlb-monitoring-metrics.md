@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-30"
+lastupdated: "2021-08-13"
 
 keywords: l7, layer 7, monitor, metrics, connection
 
@@ -133,28 +133,28 @@ To do so, follow these steps:
 
 2. Select a region for your monitoring instance.
 
-  If you do not have an existing load balancer, see [Creating a network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer) to provision one.
-  {: tip}
+   If you do not have an existing load balancer, see [Creating a network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer) to provision one.
+   {: tip}
 
-  ![Region](images/metrics_1.png "Region")
+   ![Region](images/metrics_1.png "Region")
 
-  The region should match the location of your existing load balancer.
-  {: important}
+   The region should match the location of your existing load balancer.
+   {: important}
 
 3. Choose your pricing plan.
 
-  Pricing plan details are explained in the selection window. Select the plan that best meets your requirements.
+   Pricing plan details are explained in the selection window. Select the plan that best meets your requirements.
 
 4. Provide a unique service name for your instance.
 5. Optionally, select a resource group. A resource group is a way to organize account resources in customizable groupings. Any account resource that is managed by using IBM Cloud Identity and Access Management (IAM) access control belongs to a resource group within your account.
 
    ![Resource group](images/metrics_2.png "Resource group")
 
-  If you do not have any pre-configured resource groups, or no reason to share this resource selectively, use the default selection.
-  {: note}
+   If you do not have any pre-configured resource groups, or no reason to share this resource selectively, use the default selection.
+   {: note}
 
-  If your account has multiple resource groups, you can choose which one has access to this monitoring instance. This allows you to have metrics available to some resource groups and not to others.
-  {: tip}
+   If your account has multiple resource groups, you can choose which one has access to this monitoring instance. This allows you to have metrics available to some resource groups and not to others.
+   {: tip}
 
 6. Select the **Enable Platform Metrics** checkbox. You must select this to receive metrics from your load balancer.
 
@@ -171,17 +171,17 @@ To view and work with your monitoring metrics, follow these steps:
 
 2. Click **Open Dashboard** next to the service name of the monitoring instance that you want to work with.
 
-  The first time that you access your monitoring instance, several windows display as part of the internal setup. Leave these selections with their default entries, and click through the pages until you reach the main page.
-  {: note}
+   The first time that you access your monitoring instance, several windows display as part of the internal setup. Leave these selections with their default entries, and click through the pages until you reach the main page.
+   {: note}
 
 3. Select **Dashboards** on the left sidebar to open the IBM Load Balancer Monitoring Metrics dashboard. Then, click **Default Dashboards > IBM > Load Balancer Monitoring Metrics**. The default dashboard is not editable.
 
 4. Two main metrics in the dashboard are shown: Active Connections, and Connection Rate. To modify parameters and segment your metrics by load balancer ID or listener port, you must create a custom dashboard.
 
-  ![S{{site.data.keyword.mon_full_notm}} dashboard](images/metrics_nlb.png "{{site.data.keyword.mon_full_notm}} dashboard")
+   ![S{{site.data.keyword.mon_full_notm}} dashboard](images/metrics_nlb.png "{{site.data.keyword.mon_full_notm}} dashboard")
 
-  You can choose what time window you'd like to see your metrics displayed for, using the bar on the bottom.
-  {: tip}
+   You can choose what time window you'd like to see your metrics displayed for, using the bar on the bottom.
+   {: tip}
 
 ## Creating a custom metrics dashboard
 {: #metrics-custom-nlb}
@@ -196,29 +196,29 @@ To customize your dashboard, follow these steps:
 
 3. On the left sidebar, select **Dashboards**. Then, click the green **+** sign in the panel.
 
-  ![Add dashboard](images/metrics_custom_db.png "Add dashboard")
+   ![Add dashboard](images/metrics_custom_db.png "Add dashboard")
 
 4. Select **Blank dashboard**, then select the type of visual representation you want.
 
-  {{site.data.keyword.mon_full_notm}} offers eight different visualizations for your dashboard. Read the description for each visualization, then choose the one that best meets your requirements.
+   {{site.data.keyword.mon_full_notm}} offers eight different visualizations for your dashboard. Read the description for each visualization, then choose the one that best meets your requirements.
 
-  **Line** ("View trends over time") is the easiest and most basic option. It is also the most frequently selected option. The examples in this topic show a Line-based visualization.
-  {: note}
+   **Line** ("View trends over time") is the easiest and most basic option. It is also the most frequently selected option. The examples in this topic show a Line-based visualization.
+   {: note}
 
 5. Configure your custom dashboard.
 
-  * In the **Metrics** field, enter `ibm_is` to display the two load balancer metrics: `ibm_is_load_balancer_active_connections` and `ibm_is_load_balancer_connection_rate`.
+   * In the **Metrics** field, enter `ibm_is` to display the two load balancer metrics: `ibm_is_load_balancer_active_connections` and `ibm_is_load_balancer_connection_rate`.
 
-  You can monitor listener port traffic by enabling the `ibm_is_load_balancer_listener_port` metric.
-  {: tip}
+      You can monitor listener port traffic by enabling the `ibm_is_load_balancer_listener_port` metric.
+      {: tip}
 
-  * You can choose a scope to display in your dashboard by clicking **Override Dashboard Scope**. For example, you can display the metrics for a particular load balancer.
-  * You can also set a segment to compare metrics across the scope you have defined. For example, you can look at Active connections for a particular load balancer segmented by listener port.
+   * You can choose a scope to display in your dashboard by clicking **Override Dashboard Scope**. For example, you can display the metrics for a particular load balancer.
+   * You can also set a segment to compare metrics across the scope you have defined. For example, you can look at Active connections for a particular load balancer segmented by listener port.
 
 6. Click **Save** for your new custom dashboard to be accessible.
 
-  By default, the dashboard begins with the name "blank dashboard". You can change the name by selecting **Dashboards** from the sidebar, then clicking the Pencil icon next to the name.
-  {: tip}
+   By default, the dashboard begins with the name "blank dashboard". You can change the name by selecting **Dashboards** from the sidebar, then clicking the Pencil icon next to the name.
+   {: tip}
 
 To return to the default dashboard at any time, select **Dashboards > Default Dashboards > IBM > Load Balancer Monitoring Metrics**.
 
@@ -236,41 +236,42 @@ To collect this information and start working with your monitoring instance usin
 
 1. Access the [Monitoring home page](https://cloud.ibm.com/observe/monitoring), and click **Open Dashboard** next to the instance you want to work with. After the {{site.data.keyword.mon_full_notm}} dashboard displays, select your Account Profile icon on the left sidebar, then select **Settings**. Your account settings display.
 
-  ![Settings](images/metrics_settings.png "Settings")
+   ![Settings](images/metrics_settings.png "Settings")
 
 2. Your Monitor API token is an alphanumeric string that is located in the **Monitor API Token** field. Click the **Copy** button to the right of the key to transfer it to your clipboard.
 
-	Do not share this API token. Anyone who has this API token has full access to your metrics.
-	{: important}
+   Do not share this API token. Anyone who has this API token has full access to your metrics.
+   {: important}
 
 3. To get the endpoint of your {{site.data.keyword.mon_full_notm}} instance, navigate to your main dashboard in your browser. Then, select the URL to the dashboard, which appears similar to:
 
-  ```
-  https://us-south.monitoring.cloud.ibm.com/#/default-dashboard/ibm_is_load_balancer?last=3600
-  ```
+   ```
+   https://us-south.monitoring.cloud.ibm.com/#/default-dashboard/ibm_is_load_balancer?last=3600
+   ```
+   {: pre}
 
-  The first part of the URL (in this case, `us-south.monitoring.cloud.ibm.com`) is your endpoint. Make note of it.
+   The first part of the URL (in this case, `us-south.monitoring.cloud.ibm.com`) is your endpoint. Make note of it.
 
 4. After you have both the API token and the endpoint, you can format your POST request. The following POST request is an example, with all the parameters that you can modify. These parameters are:
 
-  * The Monitor API token.
-  * The endpoint of your monitoring instance.
-  * The value for `ibm_resource` (this is the load balancer ID you want to see metrics for).
+   * The Monitor API token.
+   * The endpoint of your monitoring instance.
+   * The value for `ibm_resource` (this is the load balancer ID you want to see metrics for).
 
-     If you want to see this metric for all of your load balancers, do not enter a value for the `scope` attribute. For example, use `"scope" : ""`.
-     {: note}
+      If you want to see this metric for all of your load balancers, do not enter a value for the `scope` attribute. For example, use `"scope" : ""`.
+      {: note}
 
-  * The metric type that you want to see the results for. This example uses `ibm_is_load_balancer_active_connections`, but `ibm_is_load_balancer_connection_rate` is also a valid option.
-  * The `from` and `to` attributes define the times to focus the scan, set in Epoch Time and in microseconds.
-  * The `sampling` and `value` attributes set the granularity of which data is returned in the POST request.
+   * The metric type that you want to see the results for. This example uses `ibm_is_load_balancer_active_connections`, but `ibm_is_load_balancer_connection_rate` is also a valid option.
+   * The `from` and `to` attributes define the times to focus the scan, set in Epoch Time and in microseconds.
+   * The `sampling` and `value` attributes set the granularity of which data is returned in the POST request.
 
-      Because a large volume of data is stored in {{site.data.keyword.mon_full_notm}}, choosing the specific level of granularity is important. {{site.data.keyword.mon_full_notm}} can return only 600 data points at any time with a given request. As a result, the `sampling` and `value` attributes are important. Leaving these two lines out of your request will return an aggregate sum over that time period instead.
+Because a large volume of data is stored in {{site.data.keyword.mon_full_notm}}, choosing the specific level of granularity is important. {{site.data.keyword.mon_full_notm}} can return only 600 data points at any time with a given request. As a result, the `sampling` and `value` attributes are important. Leaving these two lines out of your request will return an aggregate sum over that time period instead.
 
-      If the time range specified by `from` and `to` is large (for example, 4 days), but you define a `sampling` and `value` of 10 seconds, this means that you receive 4 days worth of data that is split into 10-second chunks. This is not a useful sampling due to the large amount of data returned. Specifying a larger chunk is recommended (for example, 1 hour instead of 10 seconds).
-      {: tip}
+If the time range specified by `from` and `to` is large (for example, 4 days), but you define a `sampling` and `value` of 10 seconds, this means that you receive 4 days worth of data that is split into 10-second chunks. This is not a useful sampling due to the large amount of data returned. Specifying a larger chunk is recommended (for example, 1 hour instead of 10 seconds).
+{: tip}
 
 
-  ```bash
+   ```bash
   curl \
   -H 'Authorization: Bearer <API_TOKEN>’ \
   -H 'Content-Type: application/json' \
@@ -308,5 +309,5 @@ To collect this information and start working with your monitoring instance usin
         }
     ]
   }'
-```
-{: codeblock}
+    ```
+   {: codeblock}

@@ -2,7 +2,8 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-07-30"
+
+lastupdated: "2021-08-17"
 
 subcollection: vpc
 
@@ -143,7 +144,16 @@ When you provision a Windows virtual server instance with a stock image, disk ma
 
 Image from volume lets you create a custom image from a boot volume attached to a virtual server instance. You then use the custom image to provision new virtual server instances. For more information, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc).
 
+## What are the virtual server instance identifier and SMBIOS system-uuid?
+{: #faq-vsi-20}
+{: faq}
+
+The virtual server instance is automatically assigned an instance identifier (ID), which includes the SMBIOS system-uuid as a portion of the ID, when the instance is created. IDs are immutable, globally unique, and never reused, so the ID uniquely identifies a particular instantiation of a virtual server instance across all of IBM Cloud. The ID, including the SMBIOS system-uuid portion, is static and persists for the lifecycle of the virtual server instance until that virtual server instance is deleted. 
+
+For more information, including how to retrieve this information from within your virtual server, see [Retrieving the virtual server instance identifier](/docs/vpc?topic=vpc-managing-virtual-server-instances#retrieve-VSI-instance-identifer) section in Managing virtual server instances.
+
 ## Can I access metadata about my virtual server instances?
 {: #faq-vsi-20}
 
 Yes, if your account has been granted special approval, you can access the instance metadata service to get information about your VPC compute resources. The metadata service is a REST API that you invoke using a well-known URI to retrieve instance-specific information from the metadata server. For more information, see For more information, see [About Instance Metadata for VPC (Beta)](/docs/vpc?topic=vpc-imd-about).
+

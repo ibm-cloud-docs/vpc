@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2020, 2021 
+  years: 2020, 2021
 lastupdated: "2021-03-23"
 
 keywords: network load balancer, public, listener, pool, round-robin
@@ -33,9 +33,8 @@ subcollection: vpc
 
 You can create an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) by using the UI, CLI, or API. To order and start using the Network Load Balancer for VPC, you require two main items:
 
-   * An [IBMid](https://www.ibm.com/account/us-en/signup/register.html){:external} account.
-   * A VPC in which to deploy the network load balancer.
-
+* An [IBMid](https://www.ibm.com/account/us-en/signup/register.html){: external} account.
+* A VPC in which to deploy the network load balancer.
 
 ## Creating a network load balancer using the UI
 {: #nlb-ui}
@@ -43,7 +42,7 @@ You can create an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NL
 
 To create and configure {{site.data.keyword.nlb_full}} by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){:external} and log in to your account.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
 1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
 1. Click **New load balancer +** in the upper right of the page.
 1. In the order form, complete the following information:
@@ -52,7 +51,6 @@ To create and configure {{site.data.keyword.nlb_full}} by using the {{site.data.
    * Select the **Network Load Balancer (NLB)** tile and the subnet where you want to deploy the load balancer.
    * Select type: public or private.
    * Optionally, add tags.
-
 1. Click **New Pool** and specify the following information to create a back-end pool. You can create one or more pools.
    * Type a name for the pool, such as `my-pool`.
    * Enter a protocol for your instances in this pool. The protocol of the pool must match the protocol of its associated listener. For example, if the listener is TCP, the protocol of the pool must be TCP.
@@ -94,24 +92,22 @@ To create a network load balancer by using the CLI, follow these steps:
 
 1. Log in to your account using the CLI. After you enter the password, the system prompts which account and region that you want to use:
 
-    ```
+    ```sh
     ibmcloud login --sso
     ```
     {: pre}
 
 1. Create a load balancer:
 
-  Create public network load balancer
+   ```sh
+   ibmcloud is load-balancer-create nlb-test public --subnet 0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c --family network
+   ```
+   {: pre}
 
-  ```
-  ibmcloud is load-balancer-create nlb-test public --subnet 0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c --family network
-  ```
-  {: pre}
+   Sample output:
 
-  Sample output:
-
-  ```
-  Creating load balancer nlb-test in resource group under account IBM Cloud Network Services as user test@ibm.com...
+   ```sh
+   Creating load balancer nlb-test in resource group under account IBM Cloud Network Services as user test@ibm.com...
 
     ID                 r134-99b5ab45-6357-42db-8b32-5d2c8aa62776    
     Name               nlb-test   
@@ -133,150 +129,153 @@ To create a network load balancer by using the CLI, follow these steps:
                        3021f90279574ce287dd5fba82c08899   Default      
 
     Created            2020-08-27T14:34:34.732-05:00
-  ```
-  {: screen}
-  
-  Create private network load balancer
-  
-  ```
-  ibmcloud is load-balancer-create nlb-test private --subnet 07a7-37b4dcfc-841e-4d4a-9f9f-9e45ffbd0285 --family network
-  ```
-  {: pre}
-  
-  Sample output:
-  ```  
-  Creating load balancer nlb-test in resource group  under account CNS Development Account - netsvs as user test@us.ibm.com...
+   ```
+   {: screen}
 
-  ID                 r018-8a994baa-21ba-428c-ac3f-e3fd91fa92c9
-  Name               nlb-test
-  CRN                crn:v1:bluemix:public:is:eu-gb-3:a/be636a7a6e4d4b6296bedf669ce8f757::load-balancer:r018-8a994baa-21ba-428c-ac3f-e3fd91fa92c9
-  Family             Network
-  Host name          8a994baa-eu-gb.lb.appdomain.cloud
-  Subnets            ID                                          Name
-                     07a7-37b4dcfc-841e-4d4a-9f9f-9e45ffbd0285   nlb1
+   Create private network load balancer
 
-  Public IPs
-  Private IPs
-  Provision status   create_pending
-  Operating status   offline
-  Is public          false
-  Listeners
-  Pools              ID   Name
+   ```sh
+   ibmcloud is load-balancer-create nlb-test private --subnet 07a7-37b4dcfc-841e-4d4a-9f9f-9e45ffbd0285 --family network
+   ```
+   {: pre}
 
-  Resource group     ID                                 Name
-                     42c4f51adc3147b4b4049ad9826c30a1   Default
+   Sample output:
 
-  Created            2021-03-22T11:34:57.34-05:00
-  ```
-  {: screen}
+   ```sh
+   Creating load balancer nlb-test in resource group  under account CNS Development Account - netsvs as user test@us.ibm.com...
+
+   ID                 r018-8a994baa-21ba-428c-ac3f-e3fd91fa92c9
+   Name               nlb-test
+   CRN                crn:v1:bluemix:public:is:eu-gb-3:a/be636a7a6e4d4b6296bedf669ce8f757::load-balancer:r018-8a994baa-21ba-428c-ac3f-e3fd91fa92c9
+   Family             Network
+   Host name          8a994baa-eu-gb.lb.appdomain.cloud
+   Subnets            ID                                          Name
+                      07a7-37b4dcfc-841e-4d4a-9f9f-9e45ffbd0285   nlb1
+
+   Public IPs
+   Private IPs
+   Provision status   create_pending
+   Operating status   offline
+   Is public          false
+   Listeners
+   Pools              ID   Name
+
+   Resource group     ID                                 Name
+                      42c4f51adc3147b4b4049ad9826c30a1   Default
+
+   Created            2021-03-22T11:34:57.34-05:00
+   ```
+   {: screen}
 
 1. Create a pool:
 
-  ```
-  ibmcloud is load-balancer-pool-create nlb-pool r134-99b5ab45-6357-42db-8b32-5d2c8aa62776  weighted_round_robin tcp 10
-  ```
-  {: pre}
+   ```sh
+   ibmcloud is load-balancer-pool-create nlb-pool r134-99b5ab45-6357-42db-8b32-5d2c8aa62776  weighted_round_robin tcp 10
+   ```
+   {: pre}
 
-  Sample output:
+   Sample output:
 
-  ```
-  Creating pool nlb-pool of load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776  under account IBM Cloud Network Services as user test@ibm.com...
+   ```sh
+   Creating pool nlb-pool of load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776  under account IBM Cloud Network Services as user test@ibm.com...
 
-  ID                         r134-3b66d605-6aa5-4166-9f66-b16054da3cb0   
-  Name                       nlb-pool   
-  Protocol                   tcp   
-  Algorithm                  weighted_round_robin   
-  Instance group             ID   Name      
-                             -    -      
+   ID                         r134-3b66d605-6aa5-4166-9f66-b16054da3cb0   
+   Name                       nlb-pool   
+   Protocol                   tcp   
+   Algorithm                  weighted_round_robin   
+   Instance group             ID   Name      
+                              -    -      
 
-  Health monitor             Type   Port   Health monitor URL   Delay   Retries   Timeout      
-                             http   8080   /                    10      2         5      
+   Health monitor             Type   Port   Health monitor URL   Delay   Retries   Timeout      
+                              http   8080   /                    10      2         5      
 
-  Session persistence type   source_ip   
-  Members                       
-  Provision status           active   
-  Created                    2020-08-27T14:45:42.038-05:00
-  ```
-  {: screen}
+   Session persistence type   source_ip   
+   Members                       
+   Provision status           active   
+   Created                    2020-08-27T14:45:42.038-05:00
+   ```
+   {: screen}
 
 1. Create a member:
 
-  ```
-  ibmcloud is load-balancer-pool-member-create r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 9090 0716_6acdd058-4607-4463-af08-d4999d983945 --weight 70
-  ```
-  {: pre}
+   ```sh
+   ibmcloud is load-balancer-pool-member-create r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 9090 0716_6acdd058-4607-4463-af08-d4999d983945 --weight 70
+   ```
+   {: pre}
 
-  Sample output:
-  ```
-  Creating member of pool r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 under account IBM Cloud Network Services as user test@ibm.com...
+   Sample output:
 
-  ID                 r134-61f8b000-a90d-4abe-909e-c507dffec565   
-  Port               9090   
-  Target             0716_6acdd058-4607-4463-af08-d4999d983945   
-  Weight             70   
-  Health             unknown   
-  Created            2020-08-27T14:59:55.446-05:00   
-  Provision status   create_pending
-  ```
-  {: screen}
+   ```sh
+   Creating member of pool r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 under account IBM Cloud Network Services as user test@ibm.com...
+
+   ID                 r134-61f8b000-a90d-4abe-909e-c507dffec565   
+   Port               9090   
+   Target             0716_6acdd058-4607-4463-af08-d4999d983945   
+   Weight             70   
+   Health             unknown   
+   Created            2020-08-27T14:59:55.446-05:00   
+   Provision status   create_pending
+   ```
+   {: screen}
 
 1. Create a listener:
 
-  ```
-  ibmcloud is load-balancer-listener-create r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 7070 tcp --default-pool r134-3b66d605-6aa5-4166-9f66-b16054da3cb0
-  ```
-  {: pre}
+   ```sh
+   ibmcloud is load-balancer-listener-create r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 7070 tcp --default-pool r134-3b66d605-6aa5-4166-9f66-b16054da3cb0
+   ```
+   {: pre}
 
-  Sample output:
-  ```
-  Creating listener of load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
+   Sample output:
 
-  ID                     r134-2847a948-f9b6-4fc1-91c6-f1c49dac3eba   
-  Certificate instance   -   
-  Connection limit       -   
-  Port                   7070   
-  Protocol               tcp   
-  Default pool           r134-3b66d605-6aa5-4166-9f66-b16054da3cb0   
-  Provision status       create_pending   
-  Created                2020-08-27T15:16:08.643-05:00  
-  ```
-  {: screen}
+   ```sh
+   Creating listener of load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
+
+   ID                     r134-2847a948-f9b6-4fc1-91c6-f1c49dac3eba   
+   Certificate instance   -   
+   Connection limit       -   
+   Port                   7070   
+   Protocol               tcp   
+   Default pool           r134-3b66d605-6aa5-4166-9f66-b16054da3cb0   
+   Provision status       create_pending   
+   Created                2020-08-27T15:16:08.643-05:00  
+   ```
+   {: screen}
 
 1. Get details about your load balancer:
 
-  ```
-  ibmcloud is load-balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776
-  ```
-  {: pre}
+   ```sh
+   ibmcloud is load-balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776
+   ```
+   {: pre}
 
-  Sample output:
+   Sample output:
 
-  ```
-  Getting load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
+   ```sh
+   Getting load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
 
-  ID                 r134-99b5ab45-6357-42db-8b32-5d2c8aa62776   
-  Name               nlb-test   
-  CRN                crn:v1:public:is:us-south-1:a/6266f0fbb7df487d8438b9b31d24cd96::load-balancer:r134-99b5ab45-6357-42db-8b32-5d2c8aa62776   
-  Family             Network   
-  Host name          99b5ab45-us-south.lb.test.appdomain.cloud   
-  Subnets            ID                                          Name      
-                     0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c   nlb      
+   ID                 r134-99b5ab45-6357-42db-8b32-5d2c8aa62776   
+   Name               nlb-test   
+   CRN                crn:v1:public:is:us-south-1:a/6266f0fbb7df487d8438b9b31d24cd96::load-balancer:r134-99b5ab45-6357-42db-8b32-5d2c8aa62776   
+   Family             Network   
+   Host name          99b5ab45-us-south.lb.test.appdomain.cloud   
+   Subnets            ID                                          Name      
+                      0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c   nlb      
 
-  Public IPs         150.238.50.78, 150.238.54.95   
-  Private IPs        10.240.0.58, 10.240.0.59   
-  Provision status   active   
-  Operating status   online   
-  Is public          true   
-  Listeners          r134-2847a948-f9b6-4fc1-91c6-f1c49dac3eba   
-  Pools              ID                                          Name      
-                     r134-3b66d605-6aa5-4166-9f66-b16054da3cb0   nlb-pool      
+   Public IPs         150.238.50.78, 150.238.54.95   
+   Private IPs        10.240.0.58, 10.240.0.59   
+   Provision status   active   
+   Operating status   online   
+   Is public          true   
+   Listeners          r134-2847a948-f9b6-4fc1-91c6-f1c49dac3eba   
+   Pools              ID                                          Name      
+                      r134-3b66d605-6aa5-4166-9f66-b16054da3cb0   nlb-pool      
 
-  Resource group     ID                                 Name      
-                     3021f90279574ce287dd5fba82c08899   Default      
+   Resource group     ID                                 Name      
+                      3021f90279574ce287dd5fba82c08899   Default      
 
-  Created            2020-08-27T14:34:34.732-05:00
-  ```
-  {: screen}
+   Created            2020-08-27T14:34:34.732-05:00
+   ```
+   {: screen}
 
 ## Creating a network load balancer using the API
 {: #nlb-api-creating-network-load-balancer}
@@ -302,132 +301,132 @@ To create a network load balancer by using the API, follow these steps:
 
 1. Create a load balancer with a listener, pool, and attached server instances (pool members):
 
-  ```bash
-  curl -H "Authorization: $iam_token" -X POST
-  "$vpc_api_endpoint/v1/load_balancers?version=$api_version&generation=2" \
-      -d '{
-          "name": "example-balancer",
-          "is_public": true,
-          "profile": {
-              "name": "network-fixed"
-          },
-          "listeners": [
-              {
-                  "certificate_instance": {
-                      "crn": "crn:v1:staging:public:cloudcerts:us-south:a/123456:b8877ea4-b8eg-467e-912a-da1eb7f031cg:certificate:43219c4c97d013fb2a95b21dddde1234"
-                  },
-                  "port": 443,
-                  "protocol": "tcp",
-                  "default_pool": {
-                      "name": "example-pool"
-                  }
-              }
-          ],
-          "pools": [
-              {
-                  "algorithm": "round_robin",
-                  "health_monitor": {
-                      "delay": 5,
-                      "max_retries": 2,
-                      "timeout": 2,
-                      "type": "tcp",
-                      "url_path": "/"
-                  },
-                  "name": "example-pool",
-                  "protocol": "tcp",
-                  "session_persistence": {
-                      "cookie_name": "string",
-                      "type": "source_ip"
-                  },
-                  "members": [
-                      {
-                          "port": 80,
-                          "target": {
-                              "address": "192.168.100.5"
-                          },
-                          "weight": 50
-                      },
-                      {
-                          "port": 80,
-                          "target": {
-                              "address": "192.168.100.6"
-                          },
-                          "weight": 50
-                      }
-                  ]
-              }
-          ],
-          "subnets": [
-              {
-                  "id": "7ec87131-1c7e-4990-b4f0-a26f2e61f98e"
-              }
-          ]
-          }'
-  ```
-  {: codeblock}
+   ```bash
+   curl -H "Authorization: $iam_token" -X POST
+   "$vpc_api_endpoint/v1/load_balancers?version=$api_version&generation=2" \
+       -d '{
+           "name": "example-balancer",
+           "is_public": true,
+           "profile": {
+               "name": "network-fixed"
+           },
+           "listeners": [
+               {
+                   "certificate_instance": {
+                     "crn": "crn:v1:staging:public:cloudcerts:us-south:a/123456:b8877ea4-b8eg-467e-912a-da1eb7f031cg:certificate:43219c4c97d013fb2a95b21dddde1234"
+                   },
+                   "port": 443,
+                   "protocol": "tcp",
+                   "default_pool": {
+                       "name": "example-pool"
+                   }
+               }
+           ],
+           "pools": [
+               {
+                   "algorithm": "round_robin",
+                   "health_monitor": {
+                       "delay": 5,
+                       "max_retries": 2,
+                       "timeout": 2,
+                       "type": "tcp",
+                       "url_path": "/"
+                   },
+                   "name": "example-pool",
+                   "protocol": "tcp",
+                   "session_persistence": {
+                       "cookie_name": "string",
+                       "type": "source_ip"
+                   },
+                   "members": [
+                       {
+                           "port": 80,
+                           "target": {
+                               "address": "192.168.100.5"
+                           },
+                           "weight": 50
+                       },
+                       {
+                           "port": 80,
+                           "target": {
+                               "address": "192.168.100.6"
+                           },
+                           "weight": 50
+                       }
+                   ]
+               }
+           ],
+           "subnets": [
+               {
+                   "id": "7ec87131-1c7e-4990-b4f0-a26f2e61f98e"
+               }
+           ]
+           }'
+   ```
+   {: codeblock}
 
-  Sample output:
+   Sample output:
 
-  ```
-  {
-      "created_at": "2018-07-12T23:17:07.5985381Z",
-      "crn": "crn:v1:staging:public:is:us-south:a/123456::load-balancer:dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
-      "hostname": "ac34687d.lb.appdomain.cloud",
-      "href": "https://us-south.iaas.cloud.ibm.com/v1/load_balancers/dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
-      "id": "0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
-      "is_public": true,
-      "profile": {
-          "name": "network-fixed",
-          "family": "network"
-      },
-      "listeners": [
-          {
-              "id": "0738-70294e14-4e61-11e8-bcf4-0242ac110004",
-              "href": "https://us-south.iaas.cloud.ibm.com/v1/load_balancers/dd754295-e9e0-4c9d-bf6c-58fbc59e5727/listeners/70294e14-4e61-11e8-bcf4-0242ac110004"
-          }
-      ],
-      "name": "example-balancer",
-      "operating_status": "offline",
-      "pools": [
-          {
-              "id": "0738-70294e14-4e61-11e8-bcf4-0242ac110004",
-              "href": "https://us-south.iaas.cloud.ibm.com/v1/load_balancers/dd754295-e9e0-4c9d-bf6c-58fbc59e5727/pools/70294e14-4e61-11e8-bcf4-0242ac110004",
-              "name": "example-pool"
-          }
-      ],
-      "provisioning_status": "create_pending",
-      "resource_group": {
-          "id": "56969d60-43e9-465c-883c-b9f7363e78e8"
-      },
-      "subnets": [
-          {
-              "id": "0738-7ec86020-1c6e-4889-b3f0-a15f2e50f87e",
-              "href": "https://us-south.iaas.cloud.ibm.com/v1/subnets/7ec86020-1c6e-4889-b3f0-a15f2e50f87e",
-              "name": "example-subnet"
-          }
-      ]
-  }
-  ```
-  {: screen}
+   ```sh
+   {
+       "created_at": "2018-07-12T23:17:07.5985381Z",
+       "crn": "crn:v1:staging:public:is:us-south:a/123456::load-balancer:dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
+       "hostname": "ac34687d.lb.appdomain.cloud",
+       "href": "https://us-south.iaas.cloud.ibm.com/v1/load_balancers/dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
+       "id": "0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
+       "is_public": true,
+       "profile": {
+           "name": "network-fixed",
+           "family": "network"
+       },
+       "listeners": [
+           {
+               "id": "0738-70294e14-4e61-11e8-bcf4-0242ac110004",
+               "href": "https://us-south.iaas.cloud.ibm.com/v1/load_balancers/dd754295-e9e0-4c9d-bf6c-58fbc59e5727/listeners/70294e14-4e61-11e8-bcf4-0242ac110004"
+           }
+       ],
+       "name": "example-balancer",
+       "operating_status": "offline",
+       "pools": [
+           {
+               "id": "0738-70294e14-4e61-11e8-bcf4-0242ac110004",
+               "href": "https://us-south.iaas.cloud.ibm.com/v1/load_balancers/dd754295-e9e0-4c9d-bf6c-58fbc59e5727/pools/70294e14-4e61-11e8-bcf4-0242ac110004",
+               "name": "example-pool"
+           }
+       ],
+       "provisioning_status": "create_pending",
+       "resource_group": {
+           "id": "56969d60-43e9-465c-883c-b9f7363e78e8"
+       },
+       "subnets": [
+           {
+               "id": "0738-7ec86020-1c6e-4889-b3f0-a15f2e50f87e",
+               "href": "https://us-south.iaas.cloud.ibm.com/v1/subnets/7ec86020-1c6e-4889-b3f0-a15f2e50f87e",
+               "name": "example-subnet"
+           }
+       ]
+   }
+   ```
+   {: screen}
 
-  Save the ID of the load balancer to use in the next steps. For example, save it in the variable `lbid`.
+   Save the ID of the load balancer to use in the next steps. For example, save it in the variable `lbid`.
 
-  ```bash
-  lbid=0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727
-  ```
-  {: pre}
+   ```bash
+   lbid=0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727
+   ```
+   {: pre}
 
 1. Get details about the load balancer:
 
-  ```bash
-  curl -H "Authorization: $iam_token" -X GET "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
-  ```
-  {: codeblock}
+   ```bash
+    curl -H "Authorization: $iam_token" -X GET "$vpc_api_endpoint/v1/load_balancers/$lbid?version=$api_version&generation=2"
+   ```
+   {: codeblock}
 
-  Allow some time for provisioning. When the load balancer is ready, it is set to `online` and `active` status, as shown in the following sample output:
+   Allow some time for provisioning. When the load balancer is ready, it is set to `online` and `active` status, as shown in the following sample output:
 
-  ```
-  {
+   ```sh
+   {
     "id": "0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
     "crn": "crn:v1:staging:public:is:us-south:a/123456::load-balancer:dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
     "href": "https://us-south.iaas.cloud.ibm.com/v1/load_balancers/dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
@@ -480,6 +479,5 @@ To create a network load balancer by using the API, follow these steps:
         "name": "example-subnet"
       }
     ]
-  }
-  ```
-  {: screen}
+   ```
+   {: codeblock}

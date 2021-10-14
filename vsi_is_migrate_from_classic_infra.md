@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-06"
+lastupdated: "2021-08-18"
 
 keywords: migrate virtual server from classic infrastructure, migrate to vpc, migrate image template, image template, import image to vpc infrastructure, migrate virtual server, migrate instance
 
@@ -25,13 +25,13 @@ subcollection: vpc
 {: #migrate-vsi-to-vpc}
 
 You can migrate a virtual server instance from the classic infrastructure by customizing a backup version of the instance to meet the requirements of the {{site.data.keyword.vpc_short}} infrastructure. Next, create an image template from the instance and deploy it in the VPC environment.
-{:shortdesc}
+{: shortdesc}
 
 Migrating a virtual server instance from the classic infrastructure is not supported for LinuxONE (s390x processor architecture).
-{:note}
+{: note}
 
 To complete this task you must have an instance of {{site.data.keyword.cos_full}} available. You must also create an authorization so that the Image Service for VPC can access images in {{site.data.keyword.cos_full_notm}}. For more information, see [Granting access to IBM Cloud Object Storage to import images](/docs/vpc?topic=vpc-object-storage-prereq).
-{:important}
+{: important}
 
 ## Migrating an instance from the classic infrastructure
 {: #migrate-vsi-from-classic-to-vpc-on-classic-task}
@@ -57,11 +57,11 @@ For an example of using shell scripts to migrate a classic instance to an {{site
 You can create an image template from a virtual server in the classic infrastructure that you want to migrate to the {{site.data.keyword.vpc_short}} infrastructure. The image template captures an image of the existing virtual server so that you can create a new one based on the captured image. Make sure that you understand the following information about image templates.
 
 * Only image templates with a single primary boot volume (or disk) and associated file can be imported to {{site.data.keyword.vpc_short}} infrastructure.
-* The image template includes the operating system on the primary boot disk and the items that you installed, such as PHP or Python, up to 100 GB of data.
+* The image template includes the operating system on the primary boot disk and the items that you installed, such as PHP or Python. This can be between 10 GB and 250 GB of data. Images below 10 GB are rounded up to 10 GB.
 * When you use the imported custom image in {{site.data.keyword.vpc_short}} to create a new virtual server, you can select a new profile, assign an SSH key, specify user data, and configure network interfaces.
 
 Secondary disks and their associated files for an image template are not supported when importing an image template as a custom image to {{site.data.keyword.vpc_short}}.  
-{:important}
+{: important}
 
 Complete the following steps to create an image template for the virtual server instance that you want to migrate.
 

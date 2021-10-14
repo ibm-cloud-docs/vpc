@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-03-25"
+lastupdated: "2021-08-03"
 
 keywords: application load balancer, alb, polices, rules
 
@@ -36,13 +36,14 @@ You can define policies for HTTP and HTTPS listeners. For each policy, you must 
 
 You can attach more than one policy to a listener. In general, a policy with the lowest priority is evaluated first. Each policy must have a different priority.
 
-If the incoming request does not match the rules for any of the policies, the request is redirected to the default pool of the listener.
+If the incoming request does not match the rules for any policy, the system request redirects to the configured HTTPS redirect listener, if present. Otherwise, the system redirects the request to the default pool of the listener. The HTTPS redirect has a higher precedence over the default pool on an HTTP listener.
 
 The following actions are supported for a layer 7 policy:
 
 * **Reject** - The request is denied with a 403 response.
 * **Redirect** - The request is redirected to a configured URL and response code.
 * **Forward** - The request is sent to a specific back-end pool.
+* **HTTPS Redirect** - The HTTP request redirects to an HTTPS listener.
 
 ## Policy properties
 {: #layer-7-policy-properties}
@@ -50,11 +51,13 @@ The following actions are supported for a layer 7 policy:
 Property  | Description
 ------------- | -------------
 Name | The name of the policy. The name must be unique within the listener.
-Action | The action to take when all policy rules match. The acceptable values are `reject`, `redirect`, and `forward`.
+Action | The action to take when all policy rules match. The acceptable values are `reject`, `redirect`, `forward`, and `https_redirect`.
 Priority | Policies are evaluated based on ascending order of priority.
 URL | The URL to which the request is redirected, if the action is set to `redirect`.
-HTTP status code | Status code of the response returned by the application load balancer when the action is set to `redirect`. The acceptable values are: `301`, `302`, `303`, `307`, or `308`.
+HTTP status code | Status code of the response returned by the application load balancer when the action is set to `redirect` or `https_redirect`. The acceptable values are: `301`, `302`, `303`, `307`, or `308`.
 Target | The back-end pool of virtual server instances to which the request is forwarded, if the action is set to `forward`.
+Listener | The HTTPS listener to which the request is redirected, if the action is set to `https_redirect`.
+URI | The relative URI to which the request is redirected, if the action is `https_redirect`. This is an optional property.
 {: caption="Table 1. Description of policy properties" caption-side="top"}
 
 ## Rules
@@ -253,6 +256,95 @@ curl -H "Authorization: $iam_token" -X POST
                             "type": "path",
                             "value": "/test/testtest"
                         }
+                    ]
+                }
+            ]
+        }'
+```
+{: codeblock}
+
+### Example 3: Create an HTTP listener with https redirect policies
+
+```
+bash
+curl -H "Authorization: $iam_token" -X POST
+"$vpc_api_endpoint/v1/load_balancers/$lbId/listeners" \
+    -d '{
+            "connection_limit": 2000,
+            "port": 80,
+            "protocol": "http",
+            "policies": [
+                {
+                    "name": "hostname_header",
+                    "action": "https_redirect",
+                    "priority": 1,
+                    "target": {
+                        "listener": {
+                            "id": "0134-d578be10-31e3-46b3-8513-79babb852319"
+                        },
+                        "http_status_code": 307
+                    },
+                    "rules": [
+                        {
+                            "condition": "contains",
+                            "type": "header",
+                            "field": "aheader",
+                            "value": "avalue"
+                        },
+                        {
+                            "condition": "equals",
+                            "type": "hostname",
+                            "value": "abc.com"
+                        }
+                    ]
+                },
+                {
+                    "name": "header_cookie",
+                    "action": "https_redirect",
+                    "priority": 2,
+                    "target": {
+                        "listener": {
+                            "id": "0456-a578be10-31e3-46b3-8513-79babb852398"
+                        },
+                        "http_status_code": 302
+                    },
+                    "rules": [
+                        {
+                            "condition": "contains",
+                            "type": "header",
+                            "field": "aheader",
+                            "value": "avalue"
+                        },
+                        {
+                            "condition": "equals",
+                            "type": "header",
+                            "field": "cookie",
+                            "value": "flavor=oatmeal"
+                        }
+                    ]
+                },
+                {
+                    "name": "path_hostname",
+                    "action": "https_redirect",
+                    "priority": 5,
+                    "target": {
+                        "listener": {
+                            "id": "0386-d898be10-21e3-66b3-9513-69babb852390"
+                        },
+                        "http_status_code": 301,
+                        "uri": "/test/sample"
+                    },
+                    "rules": [
+                        {
+                            "condition": "contains",
+                            "type": "hostname",
+                            "value": "abc"
+                        },
+                        {
+                            "condition": "equals",
+                            "value": "/test",
+                            "type": "path"
+                          }
                     ]
                 }
             ]

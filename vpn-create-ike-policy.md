@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-11-13"
+  years: 2020, 2021
+lastupdated: "2021-08-25"
 
 keywords: ike policy
 
@@ -23,6 +23,7 @@ subcollection: vpc
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
+{:terraform: .ph data-hd-interface='terraform'}
 
 # Creating an IKE policy
 {: #creating-ike-policy}
@@ -30,27 +31,26 @@ subcollection: vpc
 You can use custom Internet Key Exchange (IKE) policies to define security parameters to use during Phase 1 of IKE negotiation. In this phase, the VPN and peer device exchange credentials and security policies to authenticate each other and establish a secure communication channel to be used for Phase 2 negotiation.
 {: shortdesc}
 
-## Creating an IKE policy using the UI
+## Creating an IKE policy by using the UI
 {: #vpn-using-ui-create-ike-policy}
 {: ui}
 
 To create an IKE policy using the UI, follow these steps:
 
-1. From the **{{site.data.keyword.vpn_vpc_short}}** gateway list page, switch to the **IKE Policies** tab.
-1. Click **Create +** to begin creating custom IKE policy.
-1. Define the new IKE policy by specifying the following information:
+1. From the VPNs for VPC list page, select the **Site-to-site gateways > IKE policies** tabs. 
+1. Click **Create +** and specify the following information:   
    * **Name** - Enter a name for the IKE policy.
-   * **Resource Group** - Select the resource group for this IKE policy.
+   * **Resource group** - Select the resource group for this IKE policy.
    * **Region** - Select the region for this IKE policy.
-   * **IKE Version** - IKE protocol version. Some vendors do not support both IKE versions. Check with peer vendor documentation to verify IKE version support.
+   * **IKE version** - IKE protocol version. Some vendors do not support both IKE versions. Check with peer vendor documentation to verify IKE version support.
    * **Authentication** - Authentication algorithm to use for IKE Phase 1.
    * **Encryption** - Encryption algorithm to use for IKE Phase 1.
-   * **DH Group** - Diffie-Hellman group to use for IKE Phase 1.
-   * **Key Lifetime** - Lifetime in number of seconds of Phase 1 tunnel.
-1. Click **Create IKE Policy**.
+   * **Diffie-Hellman group** - DH group to use for IKE Phase 1.
+   * **Key lifetime** - Lifetime in number of seconds of Phase 1 tunnel.
+1. Click **Create IKE policy**.
 1. From the **VPN connection details** page, set the **IKE policies** field to use the wanted IKE policy.
 
-## Creating an IKE policy using the CLI
+## Creating an IKE policy by using the CLI
 {: #vpn-using-cli-create-ike-policy}
 {: cli}
 
@@ -87,7 +87,7 @@ Where:
 - CCreate an IPsec policy with the same parameters and a resource group ID:<br />
    - `ibmcloud is ipsec-policy-create my-ipsec-policy md5 aes128 group_2 --resource-group-id fee82deba12e4c0fb69c3b09d1f12345 --output JSON`
 
-## Creating an IKE policy using the API
+## Creating an IKE policy by using the API
 {: #vpn-using-api-create-ike-policy}
 {: api}
 
@@ -121,9 +121,28 @@ the right variables.
          }'
    ```
    {: codeblock}
+   
+## Creating an IKE policy by using Terraform
+{: #vpn-using-terraform-create-ike-policy}
+{: terraform}
+
+In the following example, you can create a IKE policy using Terraform:
+
+```terraform
+   resource "ibm_is_ike_policy" "is_ike_policy" {
+     name                     = "my-ike-policy"
+     authentication_algorithm = "md5"
+     encryption_algorithm     = "triple_des"
+     dh_group                 = 2
+     ike_version              = 1
+   }
+```
+{: codeblock}
+
+See the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_ike_policy){: external} for more information.
 
 ## Next steps
-{: #vpn-next-steps-ike}
+{: #vpn-ike-policy-next-steps}
 
 * [Create an IPsec policy](/docs/vpc?topic=vpc-creating-ipsec-policy) if you decide to use custom IPsec policy instead of auto-negotiation.
 * Create a VPN connection if you have not already done so when creating your VPN gateway. If you did not create a VPN connection, you can do so after the VPN gateway is provisioned. For more information, see [Adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections).  

@@ -30,10 +30,10 @@ subcollection: vpc
 If you intend to update API applications to generation 2 profiles, you must understand the current implementation before you modify existing API scripts.
 
 Generation 1 and generation 2 resources are not compatible and must be created in separate VPCs.
-{:important}
+{: important}
 
 We are continually adding [new features and support](/docs/vpc?topic=vpc-api-change-log).
-{:note}
+{: note}
 
 ## Pagination
 {: #pagination}
@@ -109,7 +109,7 @@ The `generation=2` query parameter must be included in API requests to retrieve 
 
 
 See also the following resources:
-* [Start your migration](https://www.ibm.com/cloud/blog/announcements/start-your-vpc-gen1-to-vpc-gen2-migration){:external} blog
+* [Start your migration](https://www.ibm.com/cloud/blog/announcements/start-your-vpc-gen1-to-vpc-gen2-migration){: external} blog
 * [Comparing compute generations in VPC](/docs/cloud-infrastructure?topic=cloud-infrastructure-compare-vpc-vpcoc)
 * [Virtual Private Cloud API](/apidocs/vpc) (for generation 2 virtual server profiles)
 * [Virtual Private Cloud API (Gen1 compute)](/apidocs/vpc-on-classic) (for generation 1 virtual server profiles)

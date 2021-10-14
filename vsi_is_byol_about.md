@@ -21,7 +21,7 @@ subcollection: vpc
 {: #byol-vpc-about}
 
 For Red Hat Enterprise Linux&reg; (RHEL) and Windows&reg; operating systems, you can bring your own license (BYOL) to the {{site.data.keyword.cloud}} VPC when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. Acquisition and activation of the license is between you and the OS vendor.
-{:shortdesc}
+{: shortdesc}
 
 ## BYOL concepts
 {: #byol-vpc-concepts}
@@ -54,7 +54,7 @@ To see all of the operating system versions from the API, make a`GET /operating_
     .
     .
 ```
-{:codeblock}
+{: codeblock}
 
 For more information about creating and importing Linux custom images, see:
 
@@ -67,7 +67,7 @@ For more information about creating and importing Linux custom images, see:
 You can create a Windows BYOL custom image by using your own license, upload it to Cloud Object Storage, and import it to the VPC. The Windows BYOL custom image must be provisioned on a dedicated host single-tenantfor privileged users within your account.
 
 Windows BYOL custom images can be used to provision virtual server instances on dedicated hosts only. Windows BYOL custom images cannot be used to provision public instances.  
-{:important}
+{: important}
 
 When you import your BYOL custom image, you must select a _BYOL_ operating system from the list of operating system versions. The following are supported Windows versions:
 
@@ -91,7 +91,7 @@ To see all of the operating system versions from the API, make a`GET /operating_
     .
     .
 ```
-{:codeblock}
+{: codeblock}
 
 After you create a dedicated host, you can create virtual server instances by using a BYOL custom image and your license. For the UI procedure, see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
 

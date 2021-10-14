@@ -2,9 +2,9 @@
 
 copyright:
 years: 2021
-lastupdated: "2021-06-29"
+lastupdated: "2021-10-04"
 
-keywords: file storage, virtual private cloud, shares, profile
+keywords: file storage, virtual private cloud, file shares, profile
 
 subcollection: vpc
 
@@ -16,17 +16,18 @@ subcollection: vpc
 {:important: .important}
 {:screen: .screen}
 {:pre: .pre}
+{:preview: .preview}
 {:table: .aria-labeledby="caption"}
 {:note: .note}
 
-# File storage profiles
+# File Storage for VPC profiles
 {: #file-storage-profiles}
 
-When you provision File Storage for VPC shares by using the {{site.data.keyword.cloud_notm}} console, CLI, or API, you specify a profile that best meets your storage requirements. Profiles are available as three predefined IOPS tiers.
-{:shortdesc}
+When you provision File Storage for VPC file shares by using the {{site.data.keyword.cloud_notm}} console, CLI, or API, you specify a profile that best meets your file storage requirements. Profiles are available as three predefined IOPS tiers or a custom IOPS you can tailor to your needs.
+{: shortdesc}
 
-File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions. Contact your IBM Sales representative if you are interested in getting access.
-{:note}
+File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, and London regions. Contact your IBM Sales representative if you are interested in getting access.
+{: preview}
 
 ## IOPS tiers
 {: #fs-tiers}
@@ -42,6 +43,26 @@ File shares are based on IOPS tiers you can select when creating a share. Choose
 
 <sup>1</sup>For 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share/instance is limited to 48,000 IOPS.
 
+## Custom IOPS profile
+{: #custom}
+Custom IOPS is a good option when you have well-defined performance requirements that do not fall within a predefined IOPS tier. You can customize the IOPS by specifying the total IOPS for the file share within the range for its size. You can provision shares with IOPS performance from 100 IOPS to 48,000 IOPS, based on the size.
+
+Table 2 shows the available IOPS ranges based on file share size.
+
+| File Share size (GB) | IOPS range |
+|-------------|--------------|
+| 10 - 39   | 100 - 1,000 |
+| 40 - 79 | 100 -2,000 |
+| 80 - 99 | 100 - 4,000 |
+| 100 - 499 | 100 - 6,000 |
+| 500 - 999 | 100 - 10,000 |
+| 1,000 - 1,999 | 100 - 20,000 |
+| 2000 - 3,999 | 200 - 40,000 |
+| 4000 - 7,999 | 300 - 40,000 |
+| 8000 - 9,999 | 500 - 48,000 |
+| 10,000 - 16,000 | 1,000 - 48,000 |
+{: caption="Table 2. Available IOPS based on file share size" caption-side="top"}
+
 ### Profile Block size
 {: #fs-profiles-block-size}
 
@@ -49,12 +70,12 @@ The IOPS value for File Storage for VPC profiles is based on a 16-KB block size 
 
 The block size used by your application directly impacts the storage performance. If the block size that is used by your application is smaller than 16 KB, the IOPS limit is realized before the throughput limit. Conversely, if the block size that is used by your application is larger than 16 KB, the throughput limit is realized before to the IOPS limit.
 
-Table 1 shows examples of how block size affects throughput, calculated as Average I/O size x IOPS = Throughput in MB/s.
+Table 1 shows examples of how block size affects throughput, calculated as Average I/O size x IOPS = Throughput in Mbps.
 
-| Block Size (KB) | IOPS | Throughput (MB/s) |
+| Block Size (KB) | IOPS | Throughput (Mbps) |
 |-----|-----|-----|
-| 4 | 1,000 | 4 |
-| 8 | 1,000 | 8 |
+| 4 | 1,000 | 16 |
+| 8 | 1,000 | 16 |
 | 16 | 1,000 | 16 |
 | 32 | 500 | 16 |
 | 64 | 250 | 16 |
@@ -81,7 +102,7 @@ To view the list of available profiles by using the CLI, run the following comma
 ```
 ibmcloud is share-profiles
 ```
-{:pre}
+{: pre}
 
 ### Using the API
 {: #fs-using-api-iops-profiles}
@@ -93,7 +114,7 @@ curl -X GET \
 $vpc_api_endpoint/v1/share/profiles?$api_version&generation=2 \
 -H "Authorization: $iam_token"
 ```
-{:codeblock}
+{: codeblock}
 
 ## Next steps
 {: #fs-next-steps}

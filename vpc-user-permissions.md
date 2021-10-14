@@ -26,7 +26,7 @@ subcollection: vpc
 {: #managing-user-permissions-for-vpc-resources}
 
 {{site.data.keyword.vpc_full}} uses role-based access control that enables account administrators to control their users' access to VPC resources. Access can be assigned to individual users or to groups of users by using {{site.data.keyword.Bluemix_notm}} Identity and Access Management (IAM).
-{:shortdesc}
+{: shortdesc}
 
 For more information about IAM roles, see [IAM roles and actions](/docs/vpc?topic=vpc-iam-getting-started#iam-roles). For more information about the minimum IAM roles that a user or service ID need to interact with an {{site.data.keyword.vpc_full}} (VPC) infrastructure resource, see [Required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
 {: note}
@@ -50,14 +50,14 @@ To give a new user access to all VPC infrastructure resources:
 1. Go to the [IAM Users ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/iam/users){: new_window} page in the IBM Cloud console and click **Invite users**.
 1. Enter the email addresses of the users that you want to invite in the **Enter Email addresses** section.
 1. In the **Assign users additional access** section, select **IAM services** and complete the following tasks:
-  * From the **What type of access do you want to assign?** list, select **VPC Infrastructure Services**.
-  * From the **in** list, select **All resource groups**.
-  * From the **Resource type** list, select **All resource types**.
-  * In the **Platform access** area, select **Editor**.
-  * In the **Resource group access** area, select **Viewer**.
-  * In the **Service access** area, select **Console Administrator**.
-  * Scroll to the end of the page and click **Add**.
-  * In the **Access summary** side panel, review the details and click **Invite**.
+    * From the **What type of access do you want to assign?** list, select **VPC Infrastructure Services**.
+    * From the **in** list, select **All resource groups**.
+    * From the **Resource type** list, select **All resource types**.
+    * In the **Platform access** area, select **Editor**.
+    * In the **Resource group access** area, select **Viewer**.
+    * In the **Service access** area, select **Console Administrator**.
+    * Scroll to the end of the page and click **Add**.
+    * In the **Access summary** side panel, review the details and click **Invite**.
 
 ## Limited access scenario
 {: #giving-existing-user-permission-to-create-vsis}
@@ -67,14 +67,14 @@ This scenario shows how to give an existing user permission to create and manage
 1. Go to the [IAM Users ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/iam/users){: new_window} page in the IBM Cloud console and select the user whose access you want to configure.
 1. On the **Access policies** tab, click **Assign access**.
 1. In the **Assign users additional access** section, select **IAM services** and complete the following tasks:
-  * From the **What type of access do you want to assign?** list, select **VPC Infrastructure Services**.
-  * From the **in** list, select **Resource group: default**. 
-  * From the **Resource type** list, select **All resource types**.
-  * In the **Platform access** area, select **Editor**.
-  * Make sure that the **Assign access to a resource group** option is set to **Viewer**.
-  * In the **Service access** area, select **Console Administrator**.
-  * Scroll to the end of the page and click **Add**.
-  * Review the **Access summary** side pane, and click **Assign**.
+    * From the **What type of access do you want to assign?** list, select **VPC Infrastructure Services**.
+    * From the **in** list, select **Resource group: default**. 
+    * From the **Resource type** list, select **All resource types**.
+    * In the **Platform access** area, select **Editor**.
+    * Make sure that the **Assign access to a resource group** option is set   to **Viewer**.
+    * In the **Service access** area, select **Console Administrator**.
+    * Scroll to the end of the page and click **Add**.
+    * Review the **Access summary** side pane, and click **Assign**.
 
 ## Team access scenario
 {: #team-access-scenario}
@@ -139,7 +139,7 @@ Add the necessary VPC access policies for each access group. For example, add a 
 Because floating IP resources and the boot volume that's automatically attached to an instance are created in the Default resource group, you must also add access policies for the Default resource group.
 
 | Access group | Resource group |  Resource type | Platform access role|  Service access role |
-|--------------------------|------------------------|----------------------------------------------------------------|--------------------------|------------------------|-----------------------------------------------------------------|
+| -------------- | -------------- | -------------- | -------------- | -------------- |
 |test_team_manage_vpcs|Default|Block Storage for VPC| Editor|      |
 |test_team_manage_vpcs|Default|Floating IP for VPC| Editor|      |
 {: caption="Table 1. Access policies for the default resource group" caption-side="top"}
@@ -147,16 +147,16 @@ Because floating IP resources and the boot volume that's automatically attached 
 Repeat the previous steps to add access policies for the remaining three access groups.
 
 | Access group | Resource group |  Resource type | Platform access role|  Service access role |
-|--------------------------|------------------------|----------------------------------------------------------------|--------------------------|------------------------|-----------------------------------------------------------------|
-|test_team_view_vpcs|test_team| All resource types| Viewer|      |
-|test_team_view_vpcs|Default| Block Storage for VPC| Viewer|      |
-|test_team_view_vpcs|Default| Floating IP for VPC| Viewer|      |
-|production_team_manage_vpcs|production_team| All resource types| Editor| Console Administrator |
-|production_team_manage_vpcs|Default| Block Storage for VPC| Editor|      |
-|production_team_manage_vpcs|Default| Floating IP for VPC| Editor|      |
-|production_team_view_vpcs|production_team| All resource types| Viewer|      |
-|production_team_view_vpcs|Default| Block Storage for VPC| Viewer|      |
-|production_team_view_vpcs|Default| Floating IP for VPC| Viewer|      |
+| -------------- | -------------- | -------------- | -------------- | -------------- |
+| test_team_view_vpcs | test_team | All resource types| Viewer|      |
+| test_team_view_vpcs | Default | Block Storage for VPC| Viewer|      |
+| test_team_view_vpcs| Default| Floating IP for VPC| Viewer|      |
+| production_team_manage_vpcs| production_team| All resource types| Editor| Console Administrator |
+| production_team_manage_vpcs| Default| Block Storage for VPC| Editor|      |
+| production_team_manage_vpcs| Default| Floating IP for VPC| Editor|      |
+| production_team_view_vpcs| production_team | All resource types| Viewer|      |
+| production_team_view_vpcs| Default| Block Storage for VPC| Viewer|      |
+| production_team_view_vpcs| Default| Floating IP for VPC| Viewer|      |
 {: caption="Table 2. Access policies for the remaining access groups" caption-side="top"}
  
 The teams are now set up to use VPCs. Members of the `test_team_manage_vpcs` and `production_team_manage_vpcs` access groups can now create VPCs in their assigned resource groups (that is, in the `test_team` and `production_team` resource groups).

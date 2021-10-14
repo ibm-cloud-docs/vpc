@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-30"
+lastupdated: "2021-09-10"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -27,12 +27,12 @@ subcollection: vpc
 {: #imd-metadata-summary}
 
 Using the instance metadata service, you can access information about the instance, SSH keys, and placement groups. This topic provides a summary of this data by URI path, metadata key, and describes the metadata.
-{:shortdesc}
+{: shortdesc}
 
 The API response for each metadata type is presented in JSON format containing metadata key:value pairs.
 
 This service is available only to accounts with special approval to preview this beta feature.
-{:beta}
+{: beta}
 
 ## Summary of metadata for instances
 {: #imd-instance-summary}
@@ -71,14 +71,14 @@ Use the information in the Table 1 to understand the type of metadata returned f
 | /instance/network_interfaces/{id}	| security_groups |	A list of security groups. |
 | /instance/network_interfaces/{id}	| subnet | The subnet associated with the instance. |
 | /instance/network_interfaces/{id}	| type | The type of this network interface as it relates to an instance. |
-| /instance/volume_attachments	| volume_attachments | A list of volume attachments. See /instance/volume_attachments/{id} for details. |
+| /instance/volume_attachments | volume_attachments | A list of volume attachments. See /instance/volume_attachments/{id} for details. |
 | /instance/volume_attachments/{id}	| created_at | The date and time that the volume was attached. |
-| /instance/volume_attachments/{id}	| delete_volume_on_instance_delete | If set to `true`, when deleting the instance the volume is also deleted. |
+| /instance/volume_attachments/{id}	| delete_volume_on_instance_delete | If set to `true`, when deleting the instance, the volume is also deleted. |
 | /instance/volume_attachments/{id}	| device | Information about how the volume is exposed to the instance operating system. |
 | /instance/volume_attachments/{id}	| id | The unique identifier for the volume attachment. |
 | /instance/volume_attachments/{id}	| name | The user-defined name for the volume attachment. |
 | /instance/volume_attachments/{id}	| type | The type of volume attachment, boot or data. |
-| /instance/volume_attachments/{id}	| volume | The attached volume, whih contains the crn, ID, name, and delete Boolean value. |
+| /instance/volume_attachments/{id}	| volume | The attached volume, which contains the CRN, ID, name, and `deleted` value, when the volume is deleted. |
 {: caption="Table 1. Metadata for an instance" caption-side="top"}
 
 ## Summary of metadata for SSH keys
@@ -91,14 +91,14 @@ Use the information in the Table 2 to understand the type of metadata returned f
 | /keys	| first	| A link to the first page of resources. |
 | /keys	| keys | A collection of keys. See keys/{id} for details. |
 | /keys	| limit	| The maximum number of resources that can be returned by the request. |
-| /keys	| next	| A link to the next page of resources. |
+| /keys	| next | A link to the next page of resources. |
 | /keys	| total_count |	The total number of resources across all pages. |
 | /keys/{id} | created_at |	The date and time that the key was created. |
 | /keys/{id} | crn | The Cloud Resource Name for this key. |
 | /keys/{id} | fingerprint | The fingerprint for this key. The value is returned base64-encoded and prefixed with the hash algorithm (always SHA256). |
 | /keys/{id} | id | The unique identifier for the key. |
 | /keys/{id} | length | The length of this key, in bits. |
-| /keys/{id} | name	| The unique user-defined name for this key. If unspecified, the name will be a hyphenated list of randomly-selected words (for example, "elderly-mountain-troup-opponent".) |
+| /keys/{id} | name	| The unique user-defined name for this key. If unspecified, the name will be a hyphenated list of randomly selected words (for example, "elderly-mountain-troup-opponent".) |
 | /keys/{id} | public_key | The public SSH key. |
 {: caption="Table 2. Metadata for SSH keys" caption-side="top"}
 
@@ -112,9 +112,9 @@ Use the information in the Table 3 to understand the type of metadata returned f
 |--------------------------|--------------|-----------------------------|
 | /placement_groups | first | A link to the first page of resources. |
 | /placement_groups | limit | The maximum number of resources that can be returned by the request. |
-| /placement_groups  |	next | A link to the next page of resources, present for all pages but last page. |
+| /placement_groups |	next | A link to the next page of resources, present for all pages but last page. |
 | /placement_groups | placement_groups | A collection of placement groups. See placement_groups/{id} for details. |
-| /placement_groups  | total_count | The total number of resources across all pages. |
+| /placement_groups | total_count | The total number of resources across all pages. |
 | /placement_groups/{id} | created_at |	The date and time that the placement group was created. |
 | /placement_groups/{id} | crn | The Cloud Resource Name for this placement group. |
 | /placement_groups/{id} | id |	The unique identifier for this placement group. |

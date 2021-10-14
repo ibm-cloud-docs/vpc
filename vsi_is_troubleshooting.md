@@ -65,7 +65,7 @@ If you see this error message:
 ```
 This system is not registered with an entitlement server.
 ```
-{:pre}
+{: pre}
 
 Your REHL virtual server instance was unregistered from the capsule server. To resolve this issue, run the `reregister-ng-rhel-vsi.sh` script to reregister the virtual server instance. 
 
@@ -136,7 +136,7 @@ echo '{"network.hostname-override":"'${profileName}'"}' > /etc/rhsm/facts/katell
 echo "Registering system..."
 subscription-manager register --org="${organization}" --activationkey="${activationKey}" --force
 ```
-{:screen}
+{: screen}
 
 
 To run the script:
@@ -181,5 +181,5 @@ You need to power off all running VMs on the virtual server instance before enab
 
     If it returns "Y" or "1", it means that your system supports nested virtualization. If the output is "N" or "0", your system won't support nested virtualization.
 
-  Try rebooting the virtual server instance if the feature is not enabled.
-  {: tip}
+    Try rebooting the virtual server instance if the feature is not enabled.
+    {: tip}

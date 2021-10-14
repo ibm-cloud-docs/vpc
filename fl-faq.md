@@ -69,12 +69,12 @@ You can create multiple flow log collectors on the condition that they are on di
 
 You cannot change the COS bucket location for an existing flow log collector. You can delete the existing collector and create a new one with the COS bucket location that you want to use.
 
-## Are Virtual Appliances (IKS workers, LBaaS, VPN gateway) included in the flow log collector data output?
+## Are virtual appliances (IKS workers, ROKS, LBaaS, VPN gateway) included in the flow log collector data output?
 {: #virtual-appliances-in-collector-output}
 {: faq}
 {: support}
 
-Flow Logs for VPC collects at the virtual server-level of the VPC instance. Virtual Appliances (IKS workers, LBaaS, VPN Gateway) are currently not included in flow log collector data output.
+Flow Logs for VPC collects at the virtual server-level of the VPC instance. Virtual Appliances (IKS workers, ROKS, LBaaS, VPN Gateway) are currently not included in flow log collector data output.
 
 ## Is there a viewer or filter for flow logs?
 {: viewer-filter}

@@ -31,7 +31,7 @@ subcollection: vpc
 {: #network-load-balancers}
 
 You can use the {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) to distribute traffic among multiple server instances within the same region of your VPC.
-{:shortdesc}
+{: shortdesc}
 
 The following diagram illustrates the deployment architecture for a network load balancer.
 
@@ -54,11 +54,13 @@ After you completed all prerequisites, you can create your NLB. For more informa
 ## Types of network load balancers
 {: #types-network-load-balancers}  
 
-{{site.data.keyword.nlb_full}} supports public and private load balancers.
+{{site.data.keyword.nlb_full}} supports public, private, and route mode load balancers.
 
 A public load balancer is a load balancer with a publicly accessible IP address that is registered with DNS. A private load balancer is a load balancer only accessible from within the VPC network and/or where the client has reachability to the VPC network (for example, through Direct Link or Transit Gateway).
 
 For private load balancers, you must have a dedicated subnet with no custom routes configured for the subnet.
+
+Network load balancers with `route_mode` set to `true` are private load balancers that support only VNF (virtual network functions) devices as backend targets.
 {: note}
 
 ## Load-balancing methods
@@ -106,6 +108,16 @@ You may want to leverage the high throughput performance (and low latency) the N
 
 ![Multi-zone network load balancer](images/nlb_glb.png)
 
+## Use case 3: Network load balancer with route mode
+{: #nlb-use-case-3}
+
+VNF (Virtual Network Function) devices can be integrated into your VPC using custom routes. However, if the VNF device is inactive, your
+workloads will be interrupted. An NLB with route mode can be placed in front of any VNF devices to ensure your traffic is forwarded only to healthy VNF devices.
+
+The following diagram is an example of how to deploy a network load balancer to support transparent VNF devices with availability.
+
+![Network load balancer with route mode](images/nlb_vnf.png)
+
 ## Front-end listeners and back-end pools
 {: #nlb-front-end-listeners-and-back-end-pools}
 
@@ -132,7 +144,7 @@ Since layer 4 load balancing requires fewer computations compared to more sophis
 
 * [Network load balancer CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#nlb-anchor)
 * [Load balancer API reference](https://{DomainName}/apidocs/vpc#list-load-balancer-profiles)
-* [Network load balancer infrastructure resources for Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-vpc-gen2-resources#lb)
+* [Network load balancer infrastructure resources for Terraform](/docs/terraform?topic=terraform-vpc-gen2-resources#lb)
 * [Network load balancer in {{site.data.keyword.cloud}} Kubernetes Service](/docs/containers?topic=containers-vpc-lbaas#nlb_vpc)
 * [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-load-balancers)

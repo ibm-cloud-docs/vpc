@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-05-24"
+lastupdated: "2021-08-16"
 
 keywords: flow logs, viewing objects, SQL, analyze
 
@@ -29,7 +29,7 @@ subcollection: vpc
 
 A flow log is a summary of the network traffic that is uniquely identified by a connection between two virtual network interface cards (vNICs), within a certain time window. A flow log describes traffic the firewall either accepts (relevant security groups or network ACLs) or rejects, but not both. It contains header information and
 payload statistics.
-{:shortdesc}
+{: shortdesc}
 
 Currently, flow logs collect Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) traffic, but not Internet Control Message Protocol (ICMP) traffic.
 {: note}
@@ -41,10 +41,13 @@ Each flow log object contains individual flow logs. To view or analyze the flow 
 1. Start querying flow logs from the bucket that you specified when [Creating a flow log collector](/docs/vpc?topic=vpc-ordering-flow-log-collector).
 
     To view the most frequent flow object, run the following query:
-    ```
+    
+    ```json
     SELECT * FROM cos://<region>/<bucket>/ibm_vpc_flowlogs_v1/ STORED AS JSON ORDER BY `stream-id` LIMIT 1 INTO cos://<region>/<target_bucket>/result/ STORED AS JSON
     ```
-Where:
+    {: pre}
+    
+    Where:
 
     * **bucket** - The bucket where your flow logs are stored.
     * **region** - The [region alias](/docs/sql-query#endpoints) of the bucket that holds your flow logs.
@@ -100,9 +103,10 @@ Flows are tagged as rejected if their packets were blocked by security group or 
 
 Flow logs are written to the user-specified COS bucket in the following naming convention:
 
-```
+```json
 ibm_vpc_flowlogs_v1/account={account}/region={region}/vpc-id={vpc-id}/subnet-id={subnet-id}/endpoint-type=vnics/instance-id={vsi-id}/vnic-id={vnic-id}/record-type={all|ingress|egress|internal}/year={xxxx}/month={yy}/day={zz}/hour={hh}/stream-id={stream-id}/{sequence-number}.gz
 ```
+{: screen}
 
 Where:
 
@@ -171,7 +175,7 @@ In most cases, you can find the direction field by comparing the vNIC’s privat
 ### Example flow log object
 {: #example-flow-logs-object}
 
-```
+```json
 
     {
         "version": "0.0.1",
@@ -211,6 +215,7 @@ In most cases, you can find the direction field by comparing the vNIC’s privat
     }
 
 ```
+{: screen}
 
 ### Analyzing flow logs by using IBM Cloud SQL Query
 {: #analyzing-flow-logs-for-vpc-using-sql}
@@ -231,7 +236,7 @@ To analyze flow logs, follow these steps:
 
 1. Define a table for flow logs:
 
-   ```
+   ```json
    -- Table definition for flow logs
    CREATE TABLE FLOW(
    	version string,
@@ -281,16 +286,18 @@ To analyze flow logs, follow these steps:
    ) USING JSON
    LOCATION cos://<region>/<bucket>/ibm_vpc_flowlogs_v1/
    ```
+   {: codeblock}
 
 1. Define a view for convenient flow log queries:
 
-   ```
+   ```json
    CREATE VIEW FLOW_FLAT AS
    WITH EXPLODED_FLOW as (
        SELECT version,collector_crn,attached_endpoint_type,network_interface_id, instance_crn, capture_start_time, capture_end_time, `vnic-id`, `record-type`, year, month, day, hour, `stream-id`, explode(flow_logs) as flow FROM FLOW)
    SELECT version, collector_crn, attached_endpoint_type, network_interface_id, instance_crn, capture_start_time, capture_end_time, `vnic-id`, `record-type`, year, month, day, hour, `stream-id`, flow.*
    FROM EXPLODED_FLOW
    ```
+   {: codeblock}
 
 #### Optimizing flow logs layout with {{site.data.keyword.sqlquery_full}}
 {: #optimizing-flow-logs-layout}
@@ -313,7 +320,7 @@ To optimize flow logs layout with {{site.data.keyword.sqlquery_full}}, follow th
 
 1. Convert all flow logs for a specific date to parquet, writing one parquet object per hour:
 
-   ```
+   ```json
    SELECT * FROM FLOW_FLAT
    WHERE
    	   day = day(DATE("2020-07-24")) AND
@@ -321,14 +328,16 @@ To optimize flow logs layout with {{site.data.keyword.sqlquery_full}}, follow th
 	   year = year(DATE("2020-07-24"))
    INTO cos://<region>/<bucket>/ibm_vpc_flowlogs_v1_parquet/ JOBPREFIX NONE STORED AS PARQUET PARTITIONED BY (year,month,day,hour)
    ```
+   {: codeblock}
 
 1. Create a table for conveniently working with the optimized data:
 
-   ```
+   ```json
    CREATE TABLE FLOW_PARQUET
    USING PARQUET
    LOCATION cos://<region>/<bucket>/ibm_vpc_flowlogs_v1_parquet/
    ```
+   {: codeblock}
 
    Replace the following place holders in the following steps:
 
@@ -344,13 +353,14 @@ To optimize flow logs layout with {{site.data.keyword.sqlquery_full}}, follow th
 
 The following example queries a maximum of 100 individual flows for the date specified:
 
-```
+```json
 SELECT * FROM FLOW_FLAT WHERE CAST(capture_start_time AS date) = DATE("2020-07-24") LIMIT 100
 ```
+{: pre}
 
 The following query lists all accepted TCP connection for the specified date, extracting the hour that the connection was made:
 
-```
+```json
 SELECT hour(capture_start_time) as hour,
     network_interface_id,
     initiator_ip,
@@ -363,6 +373,7 @@ WHERE
 SORT BY hour
 LIMIT 100
 ```
+{: codeblock}
 
 To see which of your vNICs received the most HTTPS traffic in the last seven days, use this query. It counts the number of packets that are sent and groups them by `target_ip`, and returns the first 10. You can check which vNIC sent the most traffic by sorting by `packets_sent`. 
 
@@ -372,7 +383,7 @@ You need to include a similar clause when you query large amounts of flow logs.
 {: note}
 
 
-```
+```json
 SELECT target_ip,
     SUM(packets_from_initiator) AS `packets_received`,
     SUM(packets_from_target) AS `packets_sent`
@@ -386,10 +397,11 @@ WHERE
 GROUP BY target_ip
 ORDER BY `packets_received` DESC LIMIT 10
 ```
+{: codeblock}
 
 To see which vNIC received the most traffic in the last hour, use this query. This query counts the number of bytes sent, groups them by `target_ip`, and returns the first 5.
 
-```
+```json
 SELECT target_ip,
     SUM(bytes_from_initiator) AS `bytes`
 FROM
@@ -403,6 +415,7 @@ WHERE
 GROUP BY target_ip
 ORDER BY `bytes` DESC LIMIT 5
 ```
+{: codeblock}
 
 ### Example solution: Analyzing flow Logs for VPC
 {: #example-analyzing-flow-logs}
