@@ -36,6 +36,13 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 ## October 2021
 {: #subcollection-oct21}
 
+### 15 October 2021
+{: #subcollection-oct0121}
+{: release-note}
+
+**New GPU Instance Profile family** 
+:   GPU profiles are available for all images. The profiles include attached NVIDIA 16 GB PCIe v100 GPUs. Drivers must be installed separately. You can use these instances to accelerate certain processing functions for workloads such as inferencing and machine learning. For more information about this service, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
+
 ### 05 October 2021
 {: #subcollection-oct0521}
 {: release-note}
