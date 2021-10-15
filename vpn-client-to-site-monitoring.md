@@ -321,7 +321,7 @@ To collect this information and work with your {{site.data.keyword.mon_full_notm
 
    ![Settings](images/metrics_settings.png "Settings")
 
-4. Your Monitor API token is an alphanumeric string that is located in the **Sysdig Monitor API Token** field. Click the **Copy** button to copy the token to your clipboard.
+4. Your Monitor API token is an alphanumeric string that is located in the **IBM Cloud Monitor API Token** field. Click the **Copy** button to copy the token to your clipboard.
 
    Do not share this API token. Anyone who has this API token has full access to your metrics.
    {: important}
@@ -332,7 +332,7 @@ To collect this information and work with your {{site.data.keyword.mon_full_notm
    https://us-south.monitoring.cloud.ibm.com/#/default-dashboard/ibm_vpc_vpn_gen2?last=1209600
    ```
    {: pre}
-      
+
    The first part of the URL (in this example, `us-south.monitoring.cloud.ibm.com`) is your endpoint. Make note of this URL.
 
 6. After you have both the API token and the endpoint, you can format your POST request. The following POST request is an example, with all the parameters that you can modify. The following are parameters:
