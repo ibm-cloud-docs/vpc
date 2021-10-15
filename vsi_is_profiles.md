@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-10-14"
+lastupdated: "2021-10-15"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, generation 2, gen 2
 
@@ -35,9 +35,6 @@ When you provision {{site.data.keyword.vsi_is_full}}, you can select from six fa
 
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, and network bandwidth. The attributes define the size and capabilities of the virtual server instance that is provisioned. In the {{site.data.keyword.Bluemix_notm}} console, you can select the most recently used profile or click **View All Profiles** to choose the profile that best fits your needs.
 {: shortdesc}
-
-GPU enabled profiles are available as a closed beta release. Contact your IBM Sales representative if you are interested in getting access.
-{: beta}
 
 The following profile families are available:
 
@@ -307,7 +304,7 @@ The following Ultra High Memory profiles are available for x86_64 processors:
 
 
 
-## GPU (Beta)
+## GPU
 {: #gpu}
 
 GPU profiles include 1 or 2 NVIDIA V100 PCIe 16GB GPUs. All OS images are supported on the GPU profiles. NVIDIA GPU drivers must be installed separately.
