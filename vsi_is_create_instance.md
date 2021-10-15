@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-08-19"
+lastupdated: "2021-10-15"
 
 keywords: instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, vpc, creating, UI, console
 
@@ -50,7 +50,7 @@ To create a virtual server instance:
 | Processor architecture | Select the processor architecture that your instance is created with. *x86* means x86_64 bit processor, and *s390x* is LinuxONE (s390x processor architecture).   |
 | Operating system | Image - Select a stock image or a custom image for the operating system. A custom image can be one that you created externally and imported to COS, or a custom image created from a boot volume attached to an instance.<br>You can also select a RHEL or Windows custom image and bring your own license (BYOL).<br>All operating system images use cloud-init, which allows you to enter user metadata associated with the instance for post provisioning scripts.<br>For more information about available stock images, and custom image requirements, see [Images](/docs/vpc?topic=vpc-about-images). For information about creating BYOL custom images, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about). For information about creating an image from a volume, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc). |
 | | Snapshot - Optionally, select a snapshot of a boot volume that includes an operating system. If you created a boot volume from a bootable snapshot, it appears under Boot Volume. If you want to use another bootable snapshot and create a new boot volume, click **Change** to select a different snapshot from the list of snapshots. For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore). |
-| Profile |  Select from popular profiles or all available vCPU and RAM combinations. The profile families are Balanced, Compute, and Memory. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles). |
+| Profile |  Select from popular profiles or all available vCPU and RAM combinations. The profile families are Balanced, Compute, and Memory, and GPU. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles). |
 | SSH Key | You must select an existing SSH key or upload a new SSH key to use before you can create the instance. SSH keys are used to securely connect to the instance after it's running. |
 | | **Note:** Alpha-numeric combinations are limited to 100 characters. |
 | | For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
