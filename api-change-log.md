@@ -47,7 +47,7 @@ SDK changes are based on API changes. For information about the latest changes t
 ## Upcoming changes
 {: #upcoming-changes}
 
-### For all version dates
+### For all API version dates
 
 **Asynchronous `DELETE` response code change.** In an upcoming release, the response code output for asynchronous `DELETE` operations will change from `204` to `202`. A response code of `204` implies the action is completed, which could be misleading for operations that are still processing. A response code of `202` is more appropriate. This behavior change will occur only for an API version date after its release. A response code of `204` will continue to be returned for API versions up to this version date.
 
@@ -59,7 +59,7 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 ### 19 October 2021
 {: #19-october-2021}
 
-#### For all API version dates
+#### For all version dates
 {: #19-october-2021-all-version-dates}
 
 **GPU instances.** Updated instance and instance profile methods now include details about GPUs attached to the instance. New profiles provide support for GPUs. These GPUs provide accelerated computing to help you run workloads with more powerful compute capabilities.
