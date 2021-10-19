@@ -56,6 +56,16 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
+### 19 October 2021
+{: #19-october-2021}
+
+#### For all API version dates
+{: #19-october-2021-all-version-dates}
+
+**GPU instances.** Updated instance and instance profile methods now include details about GPUs attached to the instance. New profiles provide support for GPUs. These GPUs provide accelerated computing to help you run workloads with more powerful compute capabilities.
+
+The [list all instances](/apidocs/vpc#list-instances) method returns a new `gpu` property with additional sub-properties: `count`, `manufacturer`, `model`, and `memory`. The [retrieve an instance profile](/apidocs/vpc#get-instance-profile) method returns new properties: `gpu_count`, `gpu_manufacturer`, `gpu_model`, and `gpu_memory`. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
+
 ## 28 September 2021
 {: #28-september-2021}
 
