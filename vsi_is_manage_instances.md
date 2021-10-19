@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-09-21"
+lastupdated: "2021-10-19"
 
 keywords: view instance details, restart, stop, instance details, delete
 
@@ -265,7 +265,7 @@ The delete action permanently removes an instance and its connected vNIC, and da
 
 You can delete the virtual server instance in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
 
-To delete the virtual server instance by using the CLI, use the **ibmcloud is instance-reboot** command. Specify the ID of the instance that is being deleted.
+To delete the virtual server instance by using the CLI, use the **ibmcloud is instance-delete** command. Specify the ID of the instance that is being deleted.
 
 The following example deletes 2 instances with an IDs of `INSTANCE1` and `INSTANCE2`.
 
