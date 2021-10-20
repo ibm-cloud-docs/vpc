@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-09-28"
+lastupdated: "2021-10-19"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -56,10 +56,10 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
-### 19 October 2021
+## 19 October 2021
 {: #19-october-2021}
 
-#### For all version dates
+### For all version dates
 {: #19-october-2021-all-version-dates}
 
 **GPU instances.** Updated instance and instance profile methods now include details about GPUs attached to the instance. New profiles provide support for GPUs. These GPUs provide accelerated computing to help you run workloads with more powerful compute capabilities.
