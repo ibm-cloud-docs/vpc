@@ -37,7 +37,7 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 {: #subcollection-oct21}
 
 ### 15 October 2021
-{: #subcollection-oct0121}
+{: #subcollection-oct1521}
 {: release-note}
 
 **New GPU Instance Profile family** 
