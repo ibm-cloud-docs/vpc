@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2021-08-31",
+    "lastupdated": "2021-10-20",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc", 
@@ -30,6 +30,11 @@
     "section_updates": {
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
+          {
+          "date": "15 October 2021",
+          "title": "New GPU Instance Profile family",
+          "description": " GPU profiles are available for all images. The profiles include attached NVIDIA 16 GB PCIe v100 GPUs. Drivers must be installed separately. You can use these instances to accelerate certain processing functions for workloads such as inferencing and machine learning."
+        },
          {
           "date": "05 October 2021",
           "title": "New regions for Very High Memory instance profile family (LA)",
@@ -39,11 +44,6 @@
           "date": "01 October 2021",
           "title": "File Storage for VPC (LA)",
           "description": "IBM Cloud® File Storage for VPC is now available in the United Kingdom (London) region."
-        },
-        {
-          "date": "23 September 2021",
-          "title": "VNF routing mode for network load balancers",
-          "description": "With IBM Cloud VPC, you can provision Virtual Network Function (VNF) devices to gain better and more affordable scalability than you would by purchasing physical network devices. IBM Cloud VPC network load balancers with routing mode allow you to send traffic only to VNF devices as backend targets. In addition, their health checks ensure that workloads only travel through healthy VNF devices."
         }
       ]
     }
