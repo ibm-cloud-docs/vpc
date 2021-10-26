@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-07"
+lastupdated: "2021-10-26"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
@@ -17,6 +17,9 @@ subcollection: vpc
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
 {:note: .note}
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Managing Snapshots
 {: #snapshots-vpc-manage}
@@ -39,8 +42,9 @@ You can also use the [CLI](#snapshots-vpc-delete-snapshot-cli) or [API](#snapsho
 
 You can delete all snapshots for a volume. Deleting all snapshots requires further confirmation in the UI. In the CLI and API, you identify the volume by ID.
 
-## Deleting a single snapshot
-{: #snapshots-vpc-delete-single-snapshot}
+## Delete snapshots by using the UI
+{: #snapshots-vpc-delete-snapshot-ui}
+{: ui}
 
 ### Deleting a single snapshot by using the UI
 {: #snapshots-vpc-delete-snapshot-ui}
@@ -48,54 +52,19 @@ You can delete all snapshots for a volume. Deleting all snapshots requires furth
 You can delete a snapshot from the list of all snapshots.
 
 1. Go to the list of all snapshots. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Snapshots**.
-1. Click the overflow menu (ellipsis) in the row of the snapshot you want to delete.
-1. From the overflow menu, select **Delete**.
-1. Confirm the deletion and click **Delete**.
+2. Click the overflow menu (ellipsis) in the row of the snapshot you want to delete.
+3. From the overflow menu, select **Delete**.
+4. Confirm the deletion and click **Delete**.
 
 You can also delete a snapshot from the details page for a block storage volume.
 
 1. Go to the list of all block storage volumes. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
-1. Select a volume from the list and click the volume name to go to the volume details page.
-1. Click **Snapshots**. A list of snapshots that are taken of this volume are displayed, and you can do the following actions:
+2. Select a volume from the list and click the volume name to go to the volume details page.
+3. Click **Snapshots**. A list of snapshots that are taken of this volume are displayed, and you can do the following actions:
     * Click **Delete all** to delete all snapshots for this volume.
     * For the most recent snapshot (first in the list), click the overflow menu (ellipsis).
-1. Select **Delete** from the overflow menu. This option does not appear if the snapshot is not deletable.
-1. Confirm the deletion.
-
-### Deleting a single snapshot by using the CLI
-{: #snapshots-vpc-delete-snapshot-cli}
-
-1. Downloaded, install, and initialize the following CLI plug-ins:
-    * {{site.data.keyword.cloud_notm}} CLI
-    * The infrastructure-service plug-in
-
-   For more information, see the [CLI Reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
-   
-2. After you install the vpc-infrastructure plug-in, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
-
-3. Use the `snapshot-delete` CLI command and specify the ID of the snapshot.
-
-```
-is snapshot-delete SNAPSHOT_ID 
-```
-{: pre}
-
-4. Confirm deleting the snapshot. The response message indicates that the snapshot is deleted.
-
-### Deleting a single snapshot from the API
-{: #snapshots-vpc-delete-snapshot-api}
-
-Make a `DELETE/snapshots/{snapshot_ID}` call to delete a specific snapshot by ID.
-
-```
-curl -X DELETE \
-"$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2021-02-12&generation=2" \
-     -H "Authorization: Bearer ${API_TOKEN}"
-```
-{: screen}
-
-## Deleting all snapshots
-{: #snapshots-vpc-delete-all}
+4. Select **Delete** from the overflow menu. This option does not appear if the snapshot is not deletable.
+5. Confirm the deletion.
 
 ### Deleting all snapshots for a volume by using the UI
 {: #snapshots-vpc-delete-all-ui}
@@ -107,31 +76,97 @@ To delete all snapshots for a volume by using the UI, follow these steps.
 1. From the overflow menu (ellipsis), select **Delete all for volume**.
 1. Confirm the deletion by typing _delete_ and then click **Delete**.
 
-### Deleting all snapshots for a volume from the API
+### Delete snapshots from the block storage details page by using the UI
+{: #snapshots-vpc-delete-from-volume}
+
+You can delete the most recently created snapshot from the list of snapshots from the block storage volume details page. Optionally, you can delete all snapshots from this view.
+
+1. Go to the list of all block storage volumes. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
+2. Select a volume from the list and click the volume name to go to the volume details page.
+3. Click **Snapshots** to see a list of snapshots taken of this volume.
+4. Click **Delete all** to delete all snapshots for this volume. 
+5. Alternatively, select a single snapshot in the list for deletion and then:
+   1. Click the overflow menu (ellipsis).
+   2. Select **Delete** from the overflow menu. 
+   3. Confirm the deletion.
+
+## Delete snapshots from the CLI
+{: #snapshots-vpc-delete-snapshot-cli}
+{: cli}
+
+Before you begin, make sure that you:
+
+1. Download, install, and initialize the following [CLI plug-ins](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference):
+    * {{site.data.keyword.cloud_notm}} CLI
+    * The infrastructure-service plug-in
+
+2. After you install the VPC infrastructure plug-in, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
+
+### Deleting a single snapshot by using the CLI
+{: #snapshots-vpc-delete-snapshot-cli}
+
+1. Navigate to the list of snapshots for a volume:
+
+    ```
+    ibmcloud is snapshots --volume VOLUME [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME]
+    ```
+    {: pre}
+
+2. Enter the `snapshot-delete` command and specify the ID of the snapshot.
+
+    ```
+    ibmcloud is snapshot-delete SNAPSHOT_ID
+    ```
+    {: pre}
+
+3. Confirm deleting the snapshot. The response message indicates that the snapshot is deleted.
+
+### Delete all snapshots from the CLI
+{: #snapshots-vpc-delete-all-snapshot-cli}}
+
+1. Navigate to the list of snapshots for a volume:
+
+    ```
+    ibmcloud is snapshots --volume VOLUME [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME | --all-resource-groups]
+    ```
+    {: pre}
+
+2. Enter the `snapshot-delete` command.
+
+    ```
+    ibmcloud is snapshot-delete
+    ```
+    {: pre}
+
+3. Confirm deleting the snapshots. The response message indicates when the snapshots are deleted.
+
+## Delete snapshots from the API
+{: #snapshots-vpc-delete-snapshot-api}
+{: api}
+
+### Delete a single snapshot from the API
+{: #snapshots-vpc-delete-snapshot-api}
+
+Make a `DELETE/snapshots/{snapshot_ID}` call to delete a specific snapshot by ID.
+
+```
+curl -X DELETE \
+"$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2021-02-12&generation=2" \
+     -H "Authorization: Bearer ${API_TOKEN}"
+```
+{: screen}
+
+### Delete all snapshots for a volume from the API
 {: #snapshots-vpc-delete-all-api}
 
 Make a `DELETE/snapshots` call and specify the source volume ID for the `source_volume.id` parameter in the request.
 
 ```
 curl -X DELETE \
-"$vpc_api_endpoint/v1/snapshots?source_volume.id=_volume-id_&version=2021-02-12&generation=2" \
+"$vpc_api_endpoint/v1/snapshots?source_volume.id=_volume-id_&version=2021-10-12&generation=2" \
      -H "Authorization: Bearer ${API_TOKEN}"
 ```
-{: screen}
-
-## Deleting snapshots from the block storage details page by using the UI
-{: #snapshots-vpc-delete-from-volume}
-
-You can delete the most recently created snapshot from the list of snapshots from the block storage volume details page. Optionally, you can delete all snapshots from this view.
-
-1. Go to the list of all block storage volumes. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
-1. Select a volume from the list and click the volume name to go to the volume details page.
-1. Click **Snapshots** to see a list of snapshots taken of this volume.
-1. Click **Delete all** to delete all snapshots for this volume. 
-1. Alternatively, delete the most recently created snapshot (first in the list):
-   1. Click the overflow menu (ellipsis).
-   1. Select **Delete** from the overflow menu. 
-   1. Confirm the deletion.
+{: pre}
 
 ## Naming snapshots
 {: #snapshots-vpc-naming}
@@ -140,17 +175,18 @@ Consider naming the snapshot to indicate the volume that you copied. For example
 
 Snapshot names adhere to the same requirements as volume names. Valid names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Snapshot names must begin with a lowercase letter and must be unique across the VPC. The UI provides name checking as a convenience. For example, if you end a snapshot name with a hyphen (-), the UI notifies you of the error. It also checks for duplicate names.
 
-## Change the snapshot name
-{: #snapshots-vpc-rename}
-
-From the UI:
+## Rename a snapshot using the UI
+{: #snapshots-vpc-rename-ui}
+{: ui}
 
 1. Go to the list of snapshots. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Snapshots**. 
-1. Click the name of a snapshot from the list.
-1. Click the pencil icon. 
-1. Provide a [new name](#snapshots-vpc-naming) for the snapshot, save, and confirm your changes.
+2. Click the name of a snapshot from the list.
+3. Click the pencil icon. 
+4. Provide a [new name](#snapshots-vpc-naming) for the snapshot, save, and confirm your changes.
 
-From the CLI:
+## Rename a snapshot from the CLI:
+{: #snapshots-vpc-rename-cli}
+{: cli}
 
 Specify a `snapshot-update` command and provide the snapshot ID and new name.
 
@@ -186,20 +222,22 @@ Source Image       ID                                          Name
 Resource group     ID                                          Name      
                    64e81667-75d8-4803-9935-fb0ee5895c04        Default      
                       
-Created            2021-02-17T14:11:56+08:00
+Created            2021-10-27T14:11:56+08:00
 ```
 {: screen}
 
-From the API:
+## Rename a snapshot from the API
+{: #snapshots-vpc-rename-api}
+{: api}
 
 Make a `PATCH/snapshots` call and specify the snapshot ID and new name of the snapshot. 
 
 ```
 curl -X PATCH \
-"$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2021-02-12&generation=2" \
+"$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2021-10-12&generation=2" \
    -H "Authorization: Bearer ${API_TOKEN}" \
    -d '{
-       "name": "my-snapshop1-renamed"
+     "name": "my-snapshop1-renamed"
    }'
 ```
 {: codeblock}

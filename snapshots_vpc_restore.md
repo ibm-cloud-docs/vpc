@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-31"
+lastupdated: "2021-10-26"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 subcollection: vpc
@@ -106,7 +106,7 @@ You can also create a data volume from a snapshot for an existing instance. Choo
 
 The new volume appears in the list of Storage volumes. Hover over the camera icon to see the name of the snapshot from which it was created. 
 
-## Restore a volume from a snapshot using the CLI
+## Restore a volume from a snapshot from the CLI
 {: #snapshots-vpc-restore-CLI}
 {: cli}
 
@@ -128,12 +128,12 @@ Use the CLI to create a boot or data volume from a snapshot.
    
 4. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli#create-a-vpc-cli).
 
-### Create a boot volume from a snapshot using the CLI
+### Create a boot volume from a snapshot from the CLI
 {: #snapshots-vpc-restore-boot-CLI}
 
 Specify the `source_snapshot` parameter and snapshot ID when using the `instance-create` command to create a new instance.
 
-Example:
+For example:
 
 ```
 bmcloud is instance-create my-instance-restore1 ea002578-ff10-41fe-9652-e63f7e0e3cba us-south-1 bx2-2x8 ba11a6f2-6c17-4fee-a4b5-5c016fe64376 --boot-volume
@@ -173,19 +173,19 @@ Zone             us-south-1
 Resource group   ID                                         Name
                  cdc21b72d4f557b195de988b175e3d81           Default
 
-Created          2020-11-17T17:03:30+08:00
+Created          2021-10-27T17:03:30+08:00
 Boot volume      ID                                   Name                  Attachment ID                            Attachment name
                  0651dacb-4589-4147-86b3-a77544598f93 boot-from-snapshot1                  7101-abf9dd2b-9d5d-41f1-849d-55a8ab580ddb                            boot-from-snapshot1
 
 ```
 {: screen}
 
-### Create a data volume from a snapshot using the CLI
+### Create a data volume from a snapshot for a new instance from the CLI
 {: #snapshots-vpc-restore-data-CLI}
 
-Specify the `source_snapshot` parameter and snapshot ID in the volume attachment.
+When you create a new instance using the `instance-create` command, specify the `source_snapshot` parameter and snapshot ID in the volume attachment.
 
-Example:
+For example:
 
 ```
 bmcloud is instance-create my-instance-restore1 ea002578-ff10-41fe-9652-e63f7e0e3cba us-south-1 bx2-2x8 ba11a6f2-6c17-4fee-a4b5-5c016fe64376 --volume-attach
@@ -207,6 +207,18 @@ bmcloud is instance-create my-instance-restore1 ea002578-ff10-41fe-9652-e63f7e0e
 ```
 {: codeblock}
 
+### Create a data volume from a snapshot for an existing instance from the CLI
+{: #snapshots-vpc-restore-data-inst-cli}
+
+For an existing instance, specify the `instance-volume-attachment-add` command with the `source-snapshot` parameter, and the ID of the snapshot. To find the ID of the snapshot from the CLI, see [View snapshots from the CLI](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=cli#snapshots-vpc-view-cli).
+
+For example:
+
+```
+ibmcloud is instance-volume-attachment-add data-vol-name 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --profile general-purpose --source-snapshot eaf9d6ca-35bf-4ac7-bc45-d0f2507f2830
+```
+{: codeblock}
+
 ## Restore a volume from a snapshot from the API
 {: #snapshots-vpc-restore-API}
 {: api}
@@ -217,7 +229,7 @@ For example:
 
 ```
 curl -X POST \
-"$vpc_api_endpoint/v1/instances?version=2021-05-21&generation=2" \
+"$vpc_api_endpoint/v1/instances?version=2021-10-21&generation=2" \
 -H "Authorization: $iam_token" \
 -H "Content-Type: application/json" \
 -d '{
@@ -261,7 +273,7 @@ To restore a data volume from a snapshot and attach it at boot time, specify the
 
 ```
 curl -X POST \
-"$vpc_api_endpoint/v1/instances?version=2021-05-21&generation=2" \
+"$vpc_api_endpoint/v1/instances?version=2021-10-21&generation=2" \
 -H "Authorization: $iam_token" \
 -H "Content-Type: application/json" \
 -d '{
