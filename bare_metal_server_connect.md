@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-16"
+lastupdated: "2021-10-26"
 
 keywords: bare metal server connect esxi, connect to esxi, connect to esxi, bare metal connect esxi, bare metal esxi
 
@@ -45,7 +45,6 @@ The bare metal console feature is temporarily unavailable. An "unauthorized" err
 You need to enter the account name and password to access both ESXi DCUI and the ESXi web client. You can retrieve the account information by using the CLI.   
 
 The password is automatically generated and encrypted by using the first SSH key that was provided when the bare metal server was created. You need to decrypt the password by using this SSH key.
-{: note}
 
 1. Use the following command to retrieve the account name and identify the SSH key that you use to decrypt the password.
 
@@ -76,7 +75,6 @@ After you retrieve the account name and password, you can use them to access the
 You can access the VMware ESXi DCUI by connecting to a VNC or serial console.
 
 To connect to a console, you need to be assigned **Operator** (or greater) and **Bare Metal Console Administrator** roles for the bare metal server in IBM Cloud Identity and Access Management (IAM). If you are an administrator of your account, you also need to self-assign the **Bare Metal Console Administrator** role.
-{: important}
 
 ESXi DCUI doesn’t output from a serial console by default. You can enable it by following [Connecting to a serial console](/docs/vpc?topic=vpc-connect-to-ESXi-bare-metal-servers#connect-to-serial-console).
 
@@ -86,7 +84,7 @@ ESXi DCUI doesn’t output from a serial console by default. You can enable it b
 You can use the UI, [CLI](#connect-to-vnc-console-cli), or [API](#connect-to-vnc-console-api) to connect to a VNC console.
 
 ### Connecting to a VNC console by using the UI
-{: #connect-to-vnc-console-ui}   
+{: #connect-to-vnc-console-ui} 
 
 1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**
 
@@ -117,7 +115,7 @@ You can use the UI, [CLI](#connect-to-vnc-console-cli), or [API](#connect-to-vnc
 6. Click **Connect**.
   
 ### Connecting to a VNC console by using the API
-{: #connect-to-vnc-console-api}   
+{: #connect-to-vnc-console-api}
 
 1. Run the following API call to connect the VNC console:
       
@@ -134,13 +132,9 @@ curl -X POST \
 ## Logging in to ESXi DCUI
 {: #login-esxi-dcui}
 
-After you open the ESXi DCUI in a VNC console, you see the following screen.
-
-![Figure showing ESXi DCUI first screen](images/bare_metal_server_esxi_first-screen.png "Figure showing ESXi DCUI first screen"){: caption="Figure 1. ESXi DCUI login screen" caption-side="top"}
-
-Press **F2** from the DCUI main page to access the **System Customization** menu. In the open window, enter the account name and password, then press **Enter**.
-
-![Figure showing ESXi DCUI authentication window](images/bare_metal_server_esxi_log_in.png "Figure showing ESXi DCUI authentication window"){: caption="Figure 2. ESXi DCUI authentication window" caption-side="top"}
+1. Open the ESXi DCUI in a VNC console. 
+2. Press **F2** from the DCUI main page to access the **System Customization** menu. 
+3. In the open window, enter the account name and password, then press **Enter**.
 
 You can reset the password in the **Configure Password** section.
 {: tip}
@@ -159,11 +153,7 @@ vim-cmd hostsvc/start_ssh
 
 2. From the **System Customization** menu, select **Troubleshooting Options**.
 
-   ![Figure showing ESXi DCUI System Customization screen](images/bare_metal_server_esxi_sys_customize.png "Figure showing ESXi DCUI System Customization screen"){: caption="Figure 3. ESXi DCUI System Customization screen" caption-side="top"}
-
 3. Under the **Troubleshooting Mode Options** menu, select **Enable SSH** and toggle it on. 
-
-   ![Figure showing ESXi DCUI Troubleshooting Mode Options window](images/bare_metal_server_esxi_ssh.png "Figure showing ESXi DCUI Troubleshooting Mode Options window"){: caption="Figure 4. ESXi DCUI Troubleshooting Mode Options window" caption-side="top"}
 
 4. SSH is enabled. You can now access DCUI by using SSH protocol.
 
@@ -175,8 +165,6 @@ You can optionally use a serial console to access ESXi DCUI. You must first manu
 1. Reboot the bare metal server. Then, immediately open a VNC console following [Accessing ESXi DCUI by using a VNC or serial console](/docs/vpc?topic=vpc-connect-to-ESXi-bare-metal-servers#access-esxi-dcui-using-console).
 
 2. After you click **Connect** on the noVNC connect window, wait until the **Loading VMware Hypervisor** window appears, then press **shift**+**O** to edit boot options.
-
-![Figure showing Loading VMware Hypervisor window](images/bare_metal_server_esxi_loading.png "Figure showing Loading VMware Hypervisor window"){: caption="Figure 5. Loading VMware Hypervisor window" caption-side="top"}
  
 3. Enter `gdbPort=none logPort=none tty2Port=com1` in the input field, then press **Enter**. To use com2 instead, replace `com1` with `com2`.
 
@@ -185,11 +173,9 @@ You can optionally use a serial console to access ESXi DCUI. You must first manu
 5. Open a serial console by clicking **Open serial console** on the IBM Cloud UI. A new tab opens in your terminal.
 
 6. Press **ESC** if ESXi DCUI doesn’t show up in the terminal. You see ESXi DCUI in your terminal.
-
-   ![Figure showing ESXi DCUI serial console](images/bare_metal_server_serial_console.png "Figure showing ESXi DCUI serial console"){: caption="Figure 6. ESXi DCUI serial console" caption-side="top"}
    
-   You can use other methods to enable the serial console. For more information, see [Redirecting the Direct Console to a Serial Port](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-C65306C0-DA37-4F45-8A50-31F8D109BB1D.html){: external}.
-   {: note}
+You can use other methods to enable the serial console. For more information, see [Redirecting the Direct Console to a Serial Port](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-C65306C0-DA37-4F45-8A50-31F8D109BB1D.html){: external}.
+{: note}
 
 ## Accessing the ESXi web client by using floating IP
 {: #access-esxi-client-using-fip}
@@ -256,8 +242,14 @@ curl -X PUT "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/netwo
 ### Accessing the ESXi web client
 {: #login-esxi-client}
 
-After you completed the previous steps, you can now access the ESXi web client by entering the floating IP in the address bar of your browser. 
+1. After you completed the previous steps, you can now access the ESXi web client by entering the floating IP in the address bar of your browser. 
+2. In the login window, enter the account name and password that you previously retrieved.
 
-![Figure showing ESXi web client login window](images/bare_metal_server_esxi_client.png "Figure showing ESXi web client login window"){: caption="Figure 7. ESXi web client login window" caption-side="top"}
+## Notes on the console service
+{: #access-console-notes}
 
-In the login window, enter the account name and password that you previously retrieved.
+Keep the following notes in mind when you're using a console service. 
+
+- The console session expires after 10 minutes of idle time. It closes after 60 minutes, regardless of activity.
+- The console disconnects if the server is powered off. You can't reestablish the connection until the server starts again.
+- The number of active VNC consoles per server is limited to two. The number of active serial consoles per server is limited to one.
