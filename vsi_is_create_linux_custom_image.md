@@ -119,7 +119,7 @@ Make sure that your image is cloud-init enabled. Cloud-init version 0.7.9 or gre
 
 4. In the */etc/cloud/cloud.cfg* file, verify that the `cloud_final_modules` section includes the `scripts-vendor` module and that it is enabled. By default, Red Hat Enterprise Linux and CentOS do not include the `scripts-vendor` module that is required to provision instances in the {{site.data.keyword.vpc_short}} infrastructure.
 
-    For Red Hat Enterprise Linux images, the following packages are included as part of the base Red Hat Enterprise Linux package: `subscription-manager`, `ethtool`, and `rpm`. In addition, make sure that these services are enabled: `cloud-init-local.service`, `cloud-init.service`, `cloud-config.service`, and  `cloud-final.service`.
+    For Red Hat Enterprise Linux images, the following packages are included as part of the base image by default and are required for cloud-init to run successfully: `subscription-manager`, `ethtool`, and `rpm`. In addition, make sure that these services are enabled: `cloud-init-local.service`, `cloud-init.service`, `cloud-config.service`, and  `cloud-final.service`.
     {: note}
 
 5.  Make sure to configure your image to use SSH for logging in to your virtual server instance.
