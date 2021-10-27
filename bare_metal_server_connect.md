@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-10-26"
+lastupdated: "2021-10-27"
 
 keywords: bare metal server connect esxi, connect to esxi, connect to esxi, bare metal connect esxi, bare metal esxi
 
@@ -56,16 +56,16 @@ The password is automatically generated and encrypted by using the first SSH key
    ```
    {: pre}
    
-   In the response, locate the `User accounts` and `SSH keys` fields. The value of “User accounts” is your account name. You need to use the first SSH key to decrypt the password.
+3. In the response, locate the `User accounts` and `SSH keys` fields. The value of “User accounts” is your account name. You need to use the first SSH key to decrypt the password.
 
-2. After you have the SSH key, run the following command to obtain your password: 
+4. After you have the SSH key, run the following command to obtain your password: 
 
    ```
    ibmcloud is bare-metal-server-initialization-values $bare_metal_server_id [--private-key (KEY | @KEY_FILE)] 
    ```
    {: pre}
    
-   Add either `'<content of the private key file>'` or `@private_key_file_path` for the `--private-key` flag. This command decodes and decrypts your password. 
+5. Add either `'<content of the private key file>'` or `@private_key_file_path` for the `--private-key` flag to decode and decrypt your password. 
 
 After you retrieve the account name and password, you can use them to access the ESXi DCUI and web client.
 
@@ -94,6 +94,7 @@ You can use the UI, [CLI](#connect-to-vnc-console-cli), or [API](#connect-to-vnc
 {: #connect-to-vnc-console-cli}   
 
 1. Run the following command to connect to a console:
+
    ```
    ibmcloud is bare-metal-server-console $bare_metal_server_id --vnc
    ```
@@ -109,8 +110,8 @@ You can use the UI, [CLI](#connect-to-vnc-console-cli), or [API](#connect-to-vnc
 4. Click **Setting**, then expand **Advanced > WebSocket**.
    
 5. Check **Encrypt**, paste the URL API endpoint portion that you saved in Step 2 to **Host:**. Don't include "wss://", set **Port** to "443". Paste the URL's path portion that you saved in Step 2 to **Path**.
-      * Example API endpoint: `us-south.iaas.cloud.ibm.com`
-      * Example path: `v1/bare_metal_servers/<bare_metal_server_id>/console?access_token=<access_token>&version=2021-05-26&generation=2`
+   * Example API endpoint: `us-south.iaas.cloud.ibm.com`
+   * Example path: `v1/bare_metal_servers/<bare_metal_server_id>/console?access_token=<access_token>&version=2021-05-26&generation=2`
 
 6. Click **Connect**.
   
@@ -119,13 +120,13 @@ You can use the UI, [CLI](#connect-to-vnc-console-cli), or [API](#connect-to-vnc
 
 1. Run the following API call to connect the VNC console:
       
-```
-curl -X POST \
-"$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/console_access_token?version=2020-05-26&generation=2" \
--H "Authorization: $token" \
--d '{"console_type":"vnc"}'
-```
-{: pre}
+   ```
+   curl -X POST \
+   "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/console_access_token?version=2020-05-26&generation=2" \
+   -H "Authorization: $token" \
+   -d '{"console_type":"vnc"}'
+   ```
+   {: pre}
        
 2. Follow Steps 2 - 6 in [Connecting to a VNC console by using the CLI](#connect-to-vnc-console-cli) to connect to the VNC console.
   
@@ -142,12 +143,10 @@ You can reset the password in the **Configure Password** section.
 ## Enabling SSH for the bare metal server (optional)
 {: #enable-ssh}
 
-By default, you don't have SSH access to the ESXi bare metal server. But you can enable SSH access in DCUI by using the following steps. You can also enable SSH when you provision a bare metal server by passing in the following script content as user data:
+By default, you don't have SSH access to the ESXi bare metal server. You can enable SSH access in DCUI by using one the following options.
 
-```
-vim-cmd hostsvc/enable_ssh
-vim-cmd hostsvc/start_ssh
-```
+### Enabling SSH from the DCUI
+{: #enable-shh-dcui-option-1}
 
 1. Press F2 from the DCUI main page to access the System Customization menu. You are prompted to enter your account name and password. 
 
@@ -156,6 +155,17 @@ vim-cmd hostsvc/start_ssh
 3. Under the **Troubleshooting Mode Options** menu, select **Enable SSH** and toggle it on. 
 
 4. SSH is enabled. You can now access DCUI by using SSH protocol.
+
+### Enabling SSH by using a script
+{: #enable-ssh-script-option-2}
+
+You can also enable SSH when you provision a bare metal server by passing in the following script content as user data:
+
+```
+vim-cmd hostsvc/enable_ssh
+vim-cmd hostsvc/start_ssh
+```
+{: pre}
 
 ## Connecting to a serial console 
 {: #connect-to-serial-console}
@@ -231,7 +241,7 @@ You need the following information to attach a floating IP to a network interfac
 Use the [List all network interfaces](/apidocs/vpc#list-bare-metal-server-network-interfaces) command to find the ID of the network interface. Use the [List all floating IP](/apidocs/vpc#list-floating-ips) command to find the reserved floating IP IDs, or, use the [Reserve a floating IP](/apidocs/vpc#create-floating-ip) command to reserve a new one. 
 {: tip}
 
-When you collected all the required information, use the following API request to attach the floating IP to the bare metal server:
+After you collect all the required information, use the following API request to attach the floating IP to the bare metal server:
 
 ```
 curl -X PUT "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/network_interfaces/$network_interface_id/floating_ips/$floating_ip_id?version=2021-03-09&generation=2" \ 
@@ -242,7 +252,7 @@ curl -X PUT "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/netwo
 ### Accessing the ESXi web client
 {: #login-esxi-client}
 
-1. After you completed the previous steps, you can now access the ESXi web client by entering the floating IP in the address bar of your browser. 
+1. After you complete the previous steps, you can now access the ESXi web client by entering the floating IP in the address bar of your browser. 
 2. In the login window, enter the account name and password that you previously retrieved.
 
 ## Notes on the console service
