@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-10-26"
+lastupdated: "2021-10-28"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
@@ -35,10 +35,6 @@ You can delete a single snapshot or all snapshots for a volume. When you delete 
 * Be at the first snapshot in the UI list, with no child references. You can't delete a child snapshot.
 * Be in a `stable` state.
 * Not be actively restoring a volume.
-
-An easy way to determine whether you can delete a snapshot is look in the [UI](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-list-ui) list of snapshots. The overflow menu has a **Delete** option when a snapshot is deletable.
-
-You can also use the [CLI](#snapshots-vpc-delete-snapshot-cli) or [API](#snapshots-vpc-delete-snapshot-api) to list the snapshot by ID and then check the `deletable` attribute value (true or false).
 
 You can delete all snapshots for a volume. Deleting all snapshots requires further confirmation in the UI. In the CLI and API, you identify the volume by ID.
 
@@ -211,7 +207,6 @@ Source Volume      ID                                          Name
                       
 Progress           -  
 Bootable           false   
-Deletable          false   
 Encryption         provider_managed   
 Encryption key     -   
 Minimum Capacity   100   
@@ -286,7 +281,7 @@ The following example shows JSON output of an Activity Tracker event that was ge
 
 ```
 {
-    "eventTime": "2021-02-16T17:59:07.57+0000",
+    "eventTime": "2021-10-16T17:59:07.57+0000",
     "action": "is.snapshot.create",
     "outcome": "success",
     "message": "Block Storage Snapshots for VPC: create my-snapshot-1",
@@ -331,7 +326,7 @@ The following example shows an event that was generated when you list snapshot d
 
 ```
 {
-    "eventTime": "2021-02-16T17:55:25.60+0000",
+    "eventTime": "2021-10-16T17:55:25.60+0000",
     "action": "is.snapshot.read",
     "outcome": "success",
     "message": "Block Storage Snapshots for VPC: read my-snapshot-2",
