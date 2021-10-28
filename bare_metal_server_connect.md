@@ -261,5 +261,4 @@ curl -X PUT "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/netwo
 Keep the following notes in mind when you're using a console service. 
 
 - The console session expires after 10 minutes of idle time. It closes after 60 minutes, regardless of activity.
-- The console disconnects if the server is powered off. You can't reestablish the connection until the server starts again.
 - The number of active VNC consoles per server is limited to two. The number of active serial consoles per server is limited to one.
