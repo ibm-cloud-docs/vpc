@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-02"
+lastupdated: "2021-10-28"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 subcollection: vpc
@@ -130,7 +130,6 @@ Source Volume      ID                                          Name
                       
 Progress           0   
 Bootable           false   
-Deletable          false   
 Encryption         provider_managed   
 Encryption key     -   
 Minimum Capacity   100   
@@ -141,7 +140,7 @@ Source Image       ID                                          Name
 Resource group     ID                                          Name      
                    64e81667-75d8-4803-9935-fb0ee5895c04        Default      
                       
-Created            2021-02-22T16:18:56+08:00   
+Created            2021-10-28T16:18:56+08:00   
 ```
 {: screen}
 
@@ -193,13 +192,13 @@ A successful response looks like the following example. The snapshot lifecycle s
     "href": "https://cloud.ibm.com/v1/volumes/8948ad59-bc0f-7510-812f-5dc64f59fab8",
     "name": "my-boot-volume-1"
   },
-  "created_at": "2021-02-22T16:54:33Z",
+  "created_at": "2021-10-28T16:54:33Z",
   "lifecycle_state": "pending",
   "source_image": {
     "id": "72b27b5c-f4b0-48bb-b954-5becc7c1dcb8"
   },
   "size": 0,
-  "deletable": false,
+
   "resource_type": "snapshot"
 }
 ```
