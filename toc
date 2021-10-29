@@ -12,7 +12,7 @@ Virtual Private Cloud (VPC)
     [Pricing](https://www.ibm.com/cloud/vpc/pricing)
     about-vpc.md
     quotas.md
-    release-notes.md
+   
 
     {: .topicgroup}
     Network
@@ -63,6 +63,8 @@ Virtual Private Cloud (VPC)
             block_storage_vpc_capacity_performance.md
             block_storage_is_profiles.md
             block_storage_vpc_bandwidth.md
+            
+        release-notes.md
     {: .navgroup-end}
 
     {: .navgroup id="tutorial"}

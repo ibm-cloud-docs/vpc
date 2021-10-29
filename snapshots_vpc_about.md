@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-08"
+lastupdated: "2021-10-28"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
@@ -68,7 +68,7 @@ The following limitations apply to this release:
 * You can take 100 snapshots per volume.
 * Snapshots of a detached volume are not supported.
 * Snapshots of volumes greater than 10 TB are not supported.
-* You can delete only latest snapshot or all snapshots of a volume.
+* You can delete a single snapshot or all snapshots of a volume.
 
 In addition, to delete a block storage volume, all snapshots must be in a `stable` state. 
 

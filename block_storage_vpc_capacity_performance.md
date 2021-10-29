@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019 - 2021
-lastupdated: "2021-08-30"
+lastupdated: "2021-10-18"
 
 keywords: block storage, volume, data storage, volume capacity, classic, virtual server
 
@@ -53,7 +53,7 @@ You can reallocate volume and network bandwidth when creating a new instance or 
 ## How block size affects performance
 {: #how-block-size-affects-performance}
 
-IOPS is are based on either a 16 KB (for the 3 GB/ IOPS and 5 GB/IOPS tiers) or 256 KB block size (for the 10 GB/IOPS tier) with a 50-50 read/write random workload. Each 16 KB of data read/written counts as one read/write operation; a single write of less than 16 KB counts as a single write operation.
+IOPS are based on either a 16 KB (for the 3 GB/ IOPS and 5 GB/IOPS tiers) or 256 KB block size (for the 10 GB/IOPS tier) with a 50-50 read/write random workload. Each 16 KB of data read/written counts as one read/write operation; a single write of less than 16 KB counts as a single write operation.
 
 Baseline throughput is determined by the amount of IOPS multiplied by the 16 KB or 256 KB block size. The higher the IOPS you specify, the higher the throughput.
 

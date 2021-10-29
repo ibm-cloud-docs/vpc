@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-06"
+lastupdated: "2021-10-27"
 
 keywords: instance storage, local disk, storage, temporary storage, generation 2, gen 2
 
@@ -31,7 +31,7 @@ subcollection: vpc
 
 Instance storage provides fast, affordable, temporary storage that can improve the performance of some cloud native workloads (or apps or services). For more information, see [About instance storage](/docs/vpc?topic=vpc-instance-storage). 
 
-If you want instance storage disk to be provisioned with your virtual server instance, select a profile that has instance storage included. The instance storage disk devices cannot be live attached or detached, as they are purchased as part of the instance profile itself. The general purpose profile families (Balanced, Compute, and Memory) all have profile options with instance storage. The amount of instance storage is proportionally allocated based on the number of vCPUs assigned to the profile. For more information about profiles, see [Instance profiles](https://test.cloud.ibm.com/docs/vpc?topic=vpc-profiles).
+If you want instance storage disk to be provisioned with your virtual server instance, select a profile that has instance storage included. The instance storage disk devices cannot be live attached or detached, as they are purchased as part of the instance profile itself. The general purpose profile families (Balanced, Compute, and Memory) all have profile options with instance storage. The amount of instance storage is proportionally allocated based on the number of vCPUs assigned to the profile. For more information about profiles, see [Instance profiles](/docs/vpc?topic=vpc-profiles).
 
 ## Provisioning a Virtual Server Instance with instance storage with the UI
 {: ui}
@@ -107,7 +107,7 @@ lsblk -p -o NAME,TYPE,PHY-SEC,LOG-SEC,MOUNTPOINT | grep disk | grep 4096 | awk '
 ### Partitioning, formatting, and mounting instance storage disks
 The instance storage disks can be partitioned, formatted with a file system, and mounted into the hierarchical file system in the same manner as the remote block volumes. 
 
-* For instructions for Linux&reg;, see [Using your block storage data volume (CLI)](https://test.cloud.ibm.com/docs/vpc?topic=vpc-start-using-your-block-storage-data-volume) or [Configuring a single disk instance storage by using the cloud-config script](/docs/vpc?topic=vpc-user-data#configure-instance-storage-cloud-config).
+* For instructions for Linux&reg;, see [Using your block storage data volume (CLI)](/docs/vpc?topic=vpc-start-using-your-block-storage-data-volume) or [Configuring a single disk instance storage by using the cloud-config script](/docs/vpc?topic=vpc-user-data#configure-instance-storage-cloud-config).
 * For Windows&reg;, use the Computer Management UI to bring a block volume online, partition, and format it.
 
 In the previous example, after partitioning vdc into two parts, formatting them with separate file systems, and mounting them, lsblk now reports the following for the pair instance storage disks:

@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-10-07"
+lastupdated: "2021-10-22"
 
 keywords: VPC release notes
 
@@ -35,6 +35,20 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 
 ## October 2021
 {: #subcollection-oct21}
+
+### 21 October 2021
+{: #subcollection-oct2121}
+{: release-note}
+
+**UI Updates**
+:    When you create a virtual server instance by using the UI, the image selection on the UI was updated. The image selection is changed from a tile selection to a drop-down menu. For both custom and catalog images, there is now a side panel that enables you to filter, sort, and search for images.
+
+### 15 October 2021
+{: #subcollection-oct1521}
+{: release-note}
+
+**New GPU Instance Profile family** 
+:   GPU profiles are available for all images. The profiles include attached NVIDIA 16 GB PCIe v100 GPUs. Drivers must be installed separately. You can use these instances to accelerate certain processing functions for workloads such as inferencing and machine learning. For more information about this service, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
 
 ### 05 October 2021
 {: #subcollection-oct0521}

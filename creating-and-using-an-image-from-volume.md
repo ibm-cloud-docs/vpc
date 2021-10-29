@@ -102,7 +102,7 @@ When you select **Virtual server instance boot volume** as the source of your cu
 
 
 ## Creating virtual server instances by using the UI
-{: #creating-virtual-servers}
+{: #creating-virtual-servers-ifv}
 {: step}
 
 You can create virtual server instances in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console. Complete the following actions to create a virtual server instance.

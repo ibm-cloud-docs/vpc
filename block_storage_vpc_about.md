@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-25"
+lastupdated: "2021-10-18"
 
 keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, IOPS, Hyper Protect, Key Protect
 
@@ -33,7 +33,7 @@ subcollection: vpc
 
 You can choose an [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers) to specify a pre-defined level of performance for your volumes. Or, you can choose a [custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom) and define your own volume capacity and IOPS level. All profiles are backed by solid-state drives (SSDs).
 
-For data volumes attached to a virtual server instance, you can [increase volune capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes) in GB increments up to 16,000 GB capacity, depending on your volume profile. You can also [increase or decrease IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) for a volume attached to an instance by specifying a different IOPS tier or custom IOPS band. 
+For data volumes attached to a virtual server instance, you can [increase volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes) in GB increments up to 16,000 GB capacity, depending on your volume profile. You can also [increase or decrease IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) for a volume attached to an instance by specifying a different IOPS tier or custom IOPS band. 
 
 For optimal performance, you can allocate storage bandwidth on the instance and change the storage/networking bandwidth ratio. For more information, see [Bandwidth allocation for block storage volumes](/docs/vpc?topic=vpc-block-storage-bandwidth).
 
