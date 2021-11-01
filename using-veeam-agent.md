@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-27"
+lastupdated: "2021-10-29"
 
 keywords: instance backup, veeam, veeam license, order license, virtual private cloud
 
@@ -25,6 +25,9 @@ subcollection: vpc
 
 The [Veeam Agent for Linux](https://www.veeam.com/linux-cloud-server-backup-agent.html){: external} is supported on the Linux&reg; operating systems. You can deploy the Veeam Agent on a virtual server instance for {{site.data.keyword.vpc_full}}, including CentOS, RHEL, Ubuntu, and Debian for instance backups and restoration. Similarly, the [Veeam Agent for Windows](https://www.veeam.com/windows-cloud-server-backup-agent.html){: external} is available for use on Windows instances for {{site.data.keyword.vpc_short}}.
 {: shortdesc}
+
+The Veeam Agent is not supported for LinuxONE (s390x processor architecture).
+{:note}
 
 The following example provides information on installing, configuring, and using the Linux Agent on a virtual server instance that is provisioned with CentOS. Similar instructions apply to the other operating system types, although you need to replace any OS-specific commands. The example provides instructions on how to perform a volume backup and restore. But, you need to use similar instructions if you prefer to do full system or file and folder backup and restore operations.
 
@@ -136,7 +139,7 @@ ibmcloud is in-vola <volume attachment name> <New VPC instance ID> <volume  ID>
 #### Verifying secondary volume
 {: #verify-secondary-volume}
 
-After the secondary volume is attached to the new CentOS instance, you need to verify that the secondary volume is available. 
+After the secondary volume is attached to the new CentOS instance, you need to verify that the secondary volume is available.
 
 Use the following example:
 
@@ -157,7 +160,7 @@ In this example, the secondary volume is the `vdd` device.
 #### Mounting the volume
 {: #mount-volume}
 
-Make a mount point directory and mount the volume. 
+Make a mount point directory and mount the volume.
 
 ```
 mkdir /veeam_disk
