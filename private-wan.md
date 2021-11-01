@@ -71,10 +71,9 @@ By default, a VPC is private, and remains private until it is configured to enab
 
 ![Direct Link on-premises interconnect use case](images/direct-link-dedicated.png "Direct Link on-premises interconnect use case")
 
+See [{{site.data.keyword.tg_full_notm}}](/docs/transit-gateway?topic=transit-gateway-about) and [{{site.data.keyword.dl_full_notm}} (2.0)](/docs/dl?topic=dl-get-started-with-ibm-cloud-dl) use case documentation for detailed private connectivity use cases and topologies. For information about native, private connectivity to {{site.data.keyword.cloud_notm}} services, see [Endpoints available](/docs/vpc?topic=vpc-service-endpoints-for-vpc).
 
 ### Connecting to Hyper Protect Crypto Services (HPCS) from VPC by using a Private Network
 {: #vpc_privatenetwork_hpcs}
 
 The HPCS instance can be configured using API requests from both public and private endpoints. You can route traffic from your virtual server instance to the HPCS instance via the private network by configuring the route. You can use the `route add -net 166.9.0.0/16 gw <gateway> dev <gateway_interface>` command to configure the route. For more information about configuring the private network of {{site.data.keyword.cloud_notm}} on your virtual server, see [Using service endpoints to privately connect to Hyper Protect Crypto Services](/docs/hs-crypto?topic=hs-crypto-secure-connection#configure-network).
-
-See [{{site.data.keyword.tg_full_notm}}](/docs/transit-gateway?topic=transit-gateway-about) and [{{site.data.keyword.dl_full_notm}} (2.0)](/docs/dl?topic=dl-get-started-with-ibm-cloud-dl) use case documentation for detailed private connectivity use cases and topologies. For information about native, private connectivity to {{site.data.keyword.cloud_notm}} services, see [Endpoints available](/docs/vpc?topic=vpc-service-endpoints-for-vpc).
