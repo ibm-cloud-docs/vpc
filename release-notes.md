@@ -44,7 +44,7 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 
 The metadata service also provides a new API call to generate an IAM token from the instance identity access token using trusted profile information. For more information, see [Generate an IAM token from an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-token-exchange).
 
-**Snapshots for VPC (GA)**. You can now delete any snapshot that is not actively restoring a volume. The snapshot can be anywhere in the snapshot chain and must be in either a in a `stable` or `pending` state. For more information, see [Deleting snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-delete).
+**Snapshots for VPC (GA)**. You can now delete any or all snapshots not actively restoring a volume. Snapshots can be anywhere in the snapshot chain and must be in either a in a `stable` or `pending` state. For more information, see [Deleting snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-delete).
 
 ## October 2021
 {: #subcollection-oct21}
