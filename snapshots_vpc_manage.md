@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-10-28"
+lastupdated: "2021-11-02"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
@@ -30,11 +30,12 @@ You can delete snapshots that you no longer need and free space for new snapshot
 ## Deleting snapshots
 {: #snapshots-vpc-delete}
 
-You can delete a single snapshot or all snapshots for a volume. When you delete a single snapshot, the snapshot must meet to the following prerequisites:
+You can delete a snapshot anywhere in the chain of snapshots for a volume, or all snapshots for a volume. When you delete a snapshot, the it must meet to the following prerequisites:
 
-* Be at the first snapshot in the UI list, with no child references. You can't delete a child snapshot.
-* Be in a `stable` state.
+* Be in a `stable` or `pending` state.
 * Not be actively restoring a volume.
+
+An easy way to determine whether you can delete a snapshot is look in the [UI](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-list-ui) list of snapshots and check its status.
 
 You can delete all snapshots for a volume. Deleting all snapshots requires further confirmation in the UI. In the CLI and API, you identify the volume by ID.
 
@@ -108,7 +109,7 @@ Before you begin, make sure that you:
     ```
     {: pre}
 
-2. Enter the `snapshot-delete` command and specify the ID of the snapshot.
+2. Run the `snapshot-delete` command and specify the ID of the snapshot.
 
     ```
     ibmcloud is snapshot-delete SNAPSHOT_ID
@@ -127,7 +128,7 @@ Before you begin, make sure that you:
     ```
     {: pre}
 
-2. Enter the `snapshot-delete` command.
+2. Run the `snapshot-delete` command.
 
     ```
     ibmcloud is snapshot-delete
@@ -184,7 +185,7 @@ Snapshot names adhere to the same requirements as volume names. Valid names can 
 {: #snapshots-vpc-rename-cli}
 {: cli}
 
-Specify a `snapshot-update` command and provide the snapshot ID and new name.
+Run the `snapshot-update` command and provide the snapshot ID and new name.
 
 ```
 ibmcloud is snapshot-update SNAPSHOT_ID --name SNAPSHOT_NAME [--output JSON] [-q, --quiet]
@@ -333,7 +334,7 @@ The following example shows an event that was generated when you list snapshot d
     "initiator": {
         "id": "IBMid-50A7R6DVH5",
         "typeURI": "service/security/account/user",
-        "name": "skinner2@us.ibm.com",
+        "name": "myuser@mycompany.com",
         "host": {
             "address": "192.0.2.0"
         },

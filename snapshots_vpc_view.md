@@ -39,9 +39,9 @@ View a list of all snapshots you created, with the most recent one at the beginn
 
 1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Snapshots**. By default, the newest snapshots display at the beginning of the list.
 
-1. View snapshots in your account region. If you created snapshots in a different region, expand the list and select the region.
+2. View snapshots in your account region. If you created snapshots in a different region, expand the list and select the region.
 
-1. As your list of snapshots grows, use the filter to indicate the number of snapshots to display per page. Use the page navigation arrows to move forward and back through the list.
+3. As your list of snapshots grows, use the filter to indicate the number of snapshots to display per page. Use the page navigation arrows to move forward and back through the list.
 
 Table 1 describes the information for all snapshots in the list of snapshots. 
 
@@ -69,7 +69,7 @@ You can also list all snapshots that were created from a block storage volume fr
 To see details about a snapshot:
 
 1. Go to the list of all snapshots. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Snapshots**.
-1. Click the name of a snapshot. The snapshot details page displays with the information that is described in Table 2.
+2. Click the name of a snapshot. The snapshot details page displays with the information that is described in Table 2.
 
 | Field | Value |
 |-------|-------|
