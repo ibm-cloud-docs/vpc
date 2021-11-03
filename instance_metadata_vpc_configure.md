@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-11-02"
+lastupdated: "2021-11-03"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -99,7 +99,7 @@ To access IBM Cloud IAM-enabled services in the account, you can generate an IAM
 
 Make a `POST /instance_identity/v1/iam_token` call and specify the ID of the trusted profile. This request uses the instance identity access token and a trusted profile linked to a virtual server instance to generate an IAM access token. The trusted profile can be linked either when you create the instance or provided in the request body.
 
-Beta users should migrate to the metadata service API to generate an IAM token using`POST /instance_identity/v1/iam_token`, as shown in an example below. Using the IAM API to pass the instance identity access token and generate an IAM token is being deprecated.
+The IAM API used to pass the instance identity access token and generate an IAM token is being deprecated. Beta users should migrate to the metadata service API to generate an IAM token using `POST /instance_identity/v1/iam_token`.
 {: note}
 
 Example request:
