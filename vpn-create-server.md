@@ -202,7 +202,7 @@ the right variables.
       ```
       {: pre}
 
-1. When all variables are initiated, create the VPN server (PLACEHOLDER):
+1. When all variables are initiated, create the VPN server:
 
    ```sh
       curl -X POST "$vpc_api_endpoint/v1/vpn_servers?version=$api_version&maturity&generation=2" \
