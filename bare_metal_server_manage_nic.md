@@ -30,7 +30,7 @@ subcollection: vpc
 # Managing network interfaces for Bare Metal Servers on VPC (Beta)
 {: #managing-nic-for-bare-metal-servers}
 
-After you create a bare metal server, you can add new network interfaces or edit existing network interfaces. When you edit a network interface, you can change its name, associate or unassociate a floating IP address, or access the security group that is associated with an interface. For more information about the networking features of Bare Metal Server for VPC, see [Network of Bare Metal Server for VPC](/docs/vpc?topic=vpc-bare-metal-servers-network).
+After you create a bare metal server, you can add new network interfaces or edit existing network interfaces. When you edit a network interface, you can change its name, associate or unassociate a floating IP address, or access the security group that is associated with an interface. For more information about the networking features of Bare Metal Server for VPC, see [Networking overview for Bare Metal Servers on VPC](/docs/vpc?topic=vpc-bare-metal-servers-network).
 {: shortdesc}
 
 Bare metal servers on VPC is a Beta feature that requires special approval. Contact your IBM Sales representative if you're interested in getting access. 
