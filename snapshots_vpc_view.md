@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-10-28"
+lastupdated: "2021-05-26"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
@@ -39,9 +39,9 @@ View a list of all snapshots you created, with the most recent one at the beginn
 
 1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Snapshots**. By default, the newest snapshots display at the beginning of the list.
 
-2. View snapshots in your account region. If you created snapshots in a different region, expand the list and select the region.
+1. View snapshots in your account region. If you created snapshots in a different region, expand the list and select the region.
 
-3. As your list of snapshots grows, use the filter to indicate the number of snapshots to display per page. Use the page navigation arrows to move forward and back through the list.
+1. As your list of snapshots grows, use the filter to indicate the number of snapshots to display per page. Use the page navigation arrows to move forward and back through the list.
 
 Table 1 describes the information for all snapshots in the list of snapshots. 
 
@@ -69,7 +69,7 @@ You can also list all snapshots that were created from a block storage volume fr
 To see details about a snapshot:
 
 1. Go to the list of all snapshots. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Snapshots**.
-2. Click the name of a snapshot. The snapshot details page displays with the information that is described in Table 2.
+1. Click the name of a snapshot. The snapshot details page displays with the information that is described in Table 2.
 
 | Field | Value |
 |-------|-------|
@@ -110,8 +110,8 @@ Listing snapshots for generation 2 compute in all resource groups and region us-
 
 ID                                          Name         Status    Progress   Source Volume                               Bootable   Resource group   Created   
 6a093fdd-9e33-4e96-9ca8-cf5b45d097d8   snapshot1    stable    -          
-0f136bf8-6530-47e4-9482-ff0c06a7edc4   false      Default          2021-10-16T16:18:56+08:00   
-50308933-05b4-4363-9c45-00584fc52a43   snapshot2   pending   0          0f136bf8-6530-47e4-9482-ff0c06a7edc4   false      Default          2021-10-16T16:26:04+08:00 
+0f136bf8-6530-47e4-9482-ff0c06a7edc4   false      Default          2021-02-16T16:18:56+08:00   
+50308933-05b4-4363-9c45-00584fc52a43   snapshot2   pending   0          0f136bf8-6530-47e4-9482-ff0c06a7edc4   false      Default          2021-02-16T16:26:04+08:00 
 ```
 {: screen}
 
@@ -133,8 +133,8 @@ $ ibmcloud is snapshots --volume 728b2d3c-2165-46c7-9863-9397e0a9af42
 Listing snapshots for generation 2 compute in all resource groups and region us-south under account VPC 01 as user rtuser1@mycompany.com...
 
 ID                                          Name   Status   Progress   Source Volume                               Bootable   Resource group   Created   
-b2168769-a4dc-4cb8-9fc6-e62d45918858   t2b1   stable   -          728b2d3c-2165-46c7-9863-9397e0a9af42   false      Default          2021-10-26T16:28:58+08:00   
-6e7ac183-3223-43d1-8f15-bea30c94eda0   t2b2   stable   -          728b2d3c-2165-46c7-9863-9397e0a9af42   false      Default          2021-10-26T16:29:01+08:00   
+b2168769-a4dc-4cb8-9fc6-e62d45918858   t2b1   stable   -          728b2d3c-2165-46c7-9863-9397e0a9af42   false      Default          2021-02-26T16:28:58+08:00   
+6e7ac183-3223-43d1-8f15-bea30c94eda0   t2b2   stable   -          728b2d3c-2165-46c7-9863-9397e0a9af42   false      Default          2021-02-26T16:29:01+08:00   
 
 ```
 {: screen}
@@ -150,7 +150,7 @@ Using the [VPC API](https://{DomainName}/apidocs/vpc), make a `GET/snapshots` re
 
 ```
 curl -X GET \
-"$vpc_api_endpoint/v1/snapshots?version=2021-10-16&generation=2" \
+"$vpc_api_endpoint/v1/snapshots?version=2021-02-16&generation=2" \
 -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -167,7 +167,7 @@ For example, this call filters the list to show snapshots that were created for 
 
    ```
    curl -X GET \
-   "$vpc_api_endpoint/v1/snapshots?version=2021-10-16&generation=2" \
+   "$vpc_api_endpoint/v1/snapshots?version=2021-02-16&generation=2" \
    -H "Authorization: $iam_token" \
    -d '{
          "limit": 5,
@@ -202,13 +202,14 @@ A successful response looks like the following example:
            volumes/8948ad59-bc0f-7510-812f-5dc64f59fab8",
            "name": "my-data-volume-1"
          },
-         "created_at": "2021-10-16T11:39:04Z",
+         "created_at": "2021-02-16T11:39:04Z",
          "lifecycle_state": "stable",
          "minimum_capacity": 100,
          "source_image": {
            "id": "9eea9ca3-7e67-457d-855e-9b1e751b661b"
          },
          "size": 0,
+         "deletable": false,
          "resource_type": "snapshot"
        },
        {
@@ -231,13 +232,14 @@ A successful response looks like the following example:
            volumes/8948ad59-bc0f-7510-812f-5dc64f59fab8",
            "name": "my-data-volume-1"
          },
-         "created_at": "2021-10-16T07:29:36Z",
+         "created_at": "2021-02-16T07:29:36Z",
          "lifecycle_state": "stable",
          "minimum_capacity": 100,
          "source_image": {
            "id": "9eea9ca3-7e67-457d-855e-9b1e751b661b"
          },
          "size": 0,
+         "deletable": false,
          "resource_type": "snapshot"
        },
        {
@@ -260,13 +262,14 @@ A successful response looks like the following example:
            volumes/8948ad59-bc0f-7510-812f-5dc64f59fab8",
            "name": "my-data-volume-1"
          },
-         "created_at": "2021-10-16T07:27:51Z",
+         "created_at": "2021-02-16T07:27:51Z",
          "lifecycle_state": "stable",
          "minimum_capacity": 100,
          "source_image": {
            "id": "9eea9ca3-7e67-457d-855e-9b1e751b661b"
          },
          "size": 0,
+         "deletable": false,
          "resource_type": "snapshot"
        }
      ],
@@ -286,7 +289,7 @@ For details about a single snapshot, use the VPC API to make a `GET/snapshots` c
 
    ```
    curl -X GET \
-   "$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2021-10-16&generation=2" \
+   "$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?   version=2021-02-16&generation=2" \
    -H "Authorization: $iam_token"
    ```
    {: pre}
@@ -315,13 +318,14 @@ A successful response looks like the following example:
        volumes/8948ad59-bc0f-7510-812f-5dc64f59fab8",
        "name": "my-data-volume-1"
      },
-     "created_at": "2021-10-16T11:39:04Z",
+     "created_at": "2021-02-16T11:39:04Z",
      "lifecycle_state": "stable",
      "minimum_capacity": 100,
      "source_image": {
        "id": "r134-32045dc2-b463-4cda-b424-bc3dcf51dfbb"
      },
      "size": 0,
+     "deletable": false,
      "resource_type": "snapshot"
    }
    ```

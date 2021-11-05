@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-11-02"
+lastupdated: "2021-07-02"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 subcollection: vpc
@@ -43,11 +43,11 @@ Follow these steps to create a snapshot from the list of snapshots.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Snapshots**.
 
-2. From the list of snapshots (initially empty), click **Create**.
+1. From the list of snapshots (initially empty), click **Create**.
 
-3. Enter the information in Table 1 to define your snapshot and select the block storage volume that you want to copy.
+1. Enter the information in Table 1 to define your snapshot and select the block storage volume that you want to copy.
 
-4. Click **Create snapshot**. You're returned to the list of snapshots. Messages display while snapshot is being created and when ready, the snapshot displays first in the list of snapshots. You can then [view details of your snapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui).
+1. Click **Create snapshot**. You're returned to the list of snapshots. Messages display while snapshot is being created and when ready, the snapshot displays first in the list of snapshots. You can then [view details of your snapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui).
 
 | Field | Value |
 |-------|-------|
@@ -65,11 +65,11 @@ Follow these steps to create a snapshot from the list of block storage volumes.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
 
-2. From the list of volumes, locate a boot or data volume that is attached to an instance.
+1. From the list of volumes, locate a boot or data volume that is attached to an instance.
 
-3. Click the overflow menu (...) and select **Create snapshot**.
+1. Click the overflow menu (...) and select **Create snapshot**.
 
-4. On the snapshots list page, messages display while snapshot is being created. When ready, the snapshot displays first in the list of snapshots. You can then [view details of your snapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui).
+1. On the snapshots list page, messages display while snapshot is being created. When ready, the snapshot displays first in the list of snapshots. You can then [view details of your snapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui).
 
 
 ## Creating a snapshot by using the CLI
@@ -130,6 +130,7 @@ Source Volume      ID                                          Name
                       
 Progress           0   
 Bootable           false   
+Deletable          false   
 Encryption         provider_managed   
 Encryption key     -   
 Minimum Capacity   100   
@@ -140,7 +141,7 @@ Source Image       ID                                          Name
 Resource group     ID                                          Name      
                    64e81667-75d8-4803-9935-fb0ee5895c04        Default      
                       
-Created            2021-10-28T16:18:56+08:00   
+Created            2021-02-22T16:18:56+08:00   
 ```
 {: screen}
 
@@ -192,13 +193,13 @@ A successful response looks like the following example. The snapshot lifecycle s
     "href": "https://cloud.ibm.com/v1/volumes/8948ad59-bc0f-7510-812f-5dc64f59fab8",
     "name": "my-boot-volume-1"
   },
-  "created_at": "2021-10-28T16:54:33Z",
+  "created_at": "2021-02-22T16:54:33Z",
   "lifecycle_state": "pending",
   "source_image": {
     "id": "72b27b5c-f4b0-48bb-b954-5becc7c1dcb8"
   },
   "size": 0,
-
+  "deletable": false,
   "resource_type": "snapshot"
 }
 ```

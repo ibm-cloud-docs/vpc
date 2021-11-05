@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-11-02"
+lastupdated: "2021-07-08"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
@@ -60,16 +60,17 @@ The initial snapshot is the entire copy of your block storage volume. Subsequent
 
 You restore a boot or data volume from a running virtual server instance by using the UI, CLI, or API. Restoring a volume from a snapshot creates a new, fully provisioned volume. Restoring from a snapshot of a boot volume creates a new boot volume that you can use when you provision a new instance. Restoring from a snapshot of a data volume creates a secondary volume that is attached to the instance.
 
-## Restrictions
+## Limitations
 {: #snapshots-vpc-limitations}
 
-The following restrictions apply to this release:
+The following limitations apply to this release:
 
 * You can take 100 snapshots per volume.
 * Snapshots of a detached volume are not supported.
 * Snapshots of volumes greater than 10 TB are not supported.
-* You can delete a single snapshot anywhere in the snapshots chain or all snapshots. Snapshots must be in a `stable`state and not actively restoring a volume.
-* You can delete a block storage volume and all its snapshots. All snapshots must be in a `stable` state. No snapshot can be actively restoring a volume.
+* You can delete only latest snapshot or all snapshots of a volume.
+
+In addition, to delete a block storage volume, all snapshots must be in a `stable` state. 
 
 ## Creating and using snapshots
 {: #snapshots-vpc-procedure-overview}
