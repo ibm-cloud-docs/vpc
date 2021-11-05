@@ -64,7 +64,7 @@ Virtual Private Cloud (VPC)
             block_storage_is_profiles.md
             block_storage_vpc_bandwidth.md
             
-        release-notes.md
+    release-notes.md
     {: .navgroup-end}
 
     {: .navgroup id="tutorial"}
