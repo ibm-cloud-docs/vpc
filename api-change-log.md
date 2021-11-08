@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-11-02"
+lastupdated: "2021-11-08"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -55,19 +55,6 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
-
-## 2 November 2021
-{: #2-november-2021}
-
-### For all API version dates
-{: #2-november-2021-all-version-dates}
-
-**Snapshots for VPC.** Restrictions have been removed for deleting snapshots. You can now delete any snapshot in the chain of snapshots, providing that the snapshot is in a `stable` state and is not actively restoring a volume. The `deletable` property, which indicated whether a snapshot could be deleted, has been deprecated from the following methods:
-
-* [Create a snapshot](/apidocs/vpc#create-snapshot) - `POST /snapshots`
-* [List all snapshots](/apidocs/vpc#list-snapshots) - `GET /snapshots`
-* [Retrieve a snapshot](/apidocs/vpc#get-snapshot) - `GET /snapshots/{id}`
-* [Update a snapshot](/apidocs/vpc#update-snapshot) - `PATCH /snapshots/{id}`
 
 ## 19 October 2021
 {: #19-october-2021}
