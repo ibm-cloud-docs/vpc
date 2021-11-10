@@ -135,7 +135,7 @@ Virtual Private Cloud (VPC)
         managing-gpus.md
 
     {: .topicgroup}
-    Instance metadata service (Beta)
+    Instance metadata service
         instance_metadata_vpc_about.md
         instance_metadata_vpc_configure.md
         instance_metadata_vpc_get_metadata.md
