@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-10-28"
+lastupdated: "2021-11-11"
 
 keywords: image, stock image, custom image, virtual private cloud, virtual server, power, generation 2, gen 2
 
@@ -42,7 +42,8 @@ The following operating systems are available as stock images when you create a 
 | Debian 9.x, 10.x | x86-64 |
 | Red Hat Enterprise Linux 7.x, 8.x | x86-64 |
 | Ubuntu 18.04.x, 20.04.x | x86-64 |
-| Windows 2012, 2012 R2, 2016, 2019 | x86-64 |  |
+| Windows 2012, 2012 R2, 2016, 2019 | x86-64 |
+| Fedora Core OS | x86-64 |
 {: caption="Table 1. Supported x86_64 stock image operating systems" caption-side="top"}
 
 CentOS 8 is scheduled for End of Life (EOL) on 31 December 2021. On 01 January 2022, CentOS 8 stock images are deprecated and can no longer be selected to provision in {{site.data.keyword.cloud_notm}} console. Existing CentOS instances are not affected.
