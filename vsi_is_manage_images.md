@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-20"
+lastupdated: "2021-11-12"
 
 keywords: custom image
 
@@ -43,7 +43,7 @@ Make sure that your image meets custom image requirements:
 * Contains a single file or volume 
 * Size of the boot disk doesn't exceed 250 GB
 * Size of the boot disk isn't below 10 GB, images below 10 GB are rounded up to 10 GB
-* Is in qcow2 format
+* Is in qcow2 or VHD format
 * Is cloud-init enabled
 * The operating system is supported as a [stock image](/docs/vpc?topic=vpc-about-images#stock-images) operating system
 
