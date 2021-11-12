@@ -36,6 +36,13 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 ## November 2021
 {: #subcollection-nov21}
 
+### 12 November 2021
+{: #subcollection-nov1221}
+{: release-note}
+
+**Fedora Core OS**
+:   Fedora Core OS is now available in all regions as a stock image. The user login ‘root’ is disabled by default in Fedora Core OS. The user login ‘core’ can be used to log in to Fedora Core OS instances. For more information, see [Virtual server images](docs/vpc?topic=vpc-about-images#x86-supported-os) and [User data examples for Fedora Core OS](/docs/vpc?topic=vpc-user-data#user-data-examples-for-fed-core).
+
 ### 02 November 2021
 {: #subcollection-nov0221}
 {: release-note}
