@@ -47,9 +47,10 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 {: #subcollection-nov0221}
 {: release-note}
 
-**Instance Metadata Service for VPC (LA)**. The metadata service is now available in all regions to customer accounts authorized to access this service. This service is enabled by default when you create new instances using the UI, CLI, or API. You can also disable the service from these interfaces. For more information, see [Enable or disable the metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-metadata-service-enable).
+**Instance Metadata Service for VPC (LA)**. 
+:   The metadata service is now available in all regions to customer accounts authorized to access this service. This service is enabled by default when you create new instances using the UI, CLI, or API. You can also disable the service from these interfaces. For more information, see [Enable or disable the metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-metadata-service-enable).
 
-The metadata service also provides a new API call to generate an IAM token from the instance identity access token using trusted profile information. For more information, see [Generate an IAM token from an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-token-exchange).
+:   The metadata service also provides a new API call to generate an IAM token from the instance identity access token using trusted profile information. For more information, see [Generate an IAM token from an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-token-exchange).
 
 ## October 2021
 {: #subcollection-oct21}
