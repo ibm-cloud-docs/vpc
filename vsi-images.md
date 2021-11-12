@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-11-11"
+lastupdated: "2021-11-12"
 
 keywords: image, stock image, custom image, virtual private cloud, virtual server, power, generation 2, gen 2
 
@@ -102,7 +102,7 @@ You can import an image from {{site.data.keyword.cos_full_notm}} to use for crea
 
 Custom images must meet the following requirements:
 - Contain a single file or volume
-- Is in qcow2 format
+- Is in qcow2 or vhd format
 - Is cloud-init enabled
 - The operating system is supported as a stock image
 - Size doesn't exceed 250 GB
