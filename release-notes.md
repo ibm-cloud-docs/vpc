@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-11-05"
+lastupdated: "2021-11-12"
 
 keywords: VPC release notes
 
