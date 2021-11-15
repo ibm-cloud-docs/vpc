@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-11-13"
+  years: 2021
+lastupdated: "2021-11-11"
 
 keywords: cisco peer, ASAv
 
@@ -34,7 +34,120 @@ Read [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before conti
 ## Connecting an IBM policy-based VPN to a Cisco ASAv peer
 {: #cisco-asav-config-policy-based}
 
-Cisco ASAv uses IKEv2 when you have multiple subnets either on IBM VPC or your on-premises network, and on your on-premises VPN device. You must create one VPN connection per one subnet pair on a IBM VPN gateway because Cisco ASAv creates a new SA per subnet pair.
+Cisco ASAv uses IKEv2 when you have multiple subnets either on IBM VPC or your on-premises network, and on your on-premises VPN device. You must create one VPN connection per one subnet pair on an IBM VPN gateway because Cisco ASAv creates a new SA per subnet pair.
+{: important}
+
+These instructions are based on Cisco ASAv, Cisco Adaptive Security Appliance Software Version 9.10(1).
+
+The first step in configuring your Cisco ASAv for use with {{site.data.keyword.vpn_vpc_short}} is to ensure that the following prerequisite conditions are met:
+
+* Cisco ASAv is online and functional with a proper license.
+* A password for the Cisco ASAv is enabled.
+* There's at least one configured and verified functional internal interface.
+* There's at least one configured and verified functional external interface.
+
+When a Cisco ASAv VPN receives a connection request from {{site.data.keyword.vpn_vpc_short}}, it uses IKE Phase 1 parameters to establish a secure connection and authenticate to {{site.data.keyword.vpn_vpc_short}}. Then, if the security policy permits the connection, the Cisco ASAv establishes the tunnel by using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
+
+To support these functions, the following general configuration steps must be performed on the Cisco ASAv VPN:
+
+* Make sure the public IP address for Cisco ASAv is configured directly on the ASAv. Use `crypto isakmp identity address` to ensure the Cisco ASAv uses the public IP address of the interface as its identity.
+
+   This global setting applies to all connections on the Cisco device. So, if you need to maintain multiple connections, set `crypto isakmp identity auto` instead, to ensure the Cisco device automatically determines the identity by connection type.
+
+* Define the Phase 1 parameters that the Cisco ASAv VPN requires to authenticate {{site.data.keyword.vpn_vpc_short}} and establish a secure connection.
+* Define the Phase 2 parameters that the Cisco ASAv VPN requires to create a VPN tunnel with {{site.data.keyword.vpn_vpc_short}}.
+
+The ASAv device supports object groups for the ACLs feature. This feature extends the conventional ACLs to support object-group-based ACLs. You can create the following object group according to your VPC subnets and on-premises subnets:
+
+```sh
+# define network object according to your VPC and on-premises subnet
+object-group network on-premise-subnets
+ network-object 172.16.0.0 255.255.0.0
+object-group network ibm-vpc-zone3-subnets
+ network-object 10.241.129.0 255.255.255.0
+object-group network ibm-vpc-zone2-subnets
+ network-object 10.240.64.0 255.255.255.0
+```
+{: codeblock}
+
+Create an IKE version 2 proposal object. IKEv2 proposal objects contain the parameters that are required for creating IKEv2 proposals when you define remote access and site-to-site VPN policies. IKE is a key management protocol that facilitates the management of IPsec-based communications. It is used to authenticate IPsec peers, negotiate and distribute IPsec encryption keys, and automatically establish IPsec security associations (SAs).
+
+In this block, the following parameters are set as an example. You could choose other parameters according to your company's security policy. And make sure to use identical parameters on IBM VPN gateway and ASAv:
+
+* **Encryption algorithm** - Set to `aes-256` for this example.
+* **Integrity algorithm** - Set to `sha` for this example.
+* **Diffie-Hellman group** - IPsec uses the Diffie-Hellman algorithm to generate the initial encryption key between the peers. In this example, it is set to group `5`.
+* **Pseudo-Random Function (PRF)** - IKEv2 requires a separate method that is used as the algorithm to derive keying material and hashing operations that are required for the IKEv2 tunnel encryption. This is referred to as the pseudo-random function and is set to `sha`.
+* **SA Lifetime** - Set the lifetime of the security associations (after which time a reconnection occurs) to `36000` seconds.
+
+```sh
+crypto ikev2 policy 100
+encryption aes-256
+integrity sha
+group 5
+prf sha
+lifetime seconds 36000
+crypto ikev2 enable outside
+```
+{: codeblock}
+
+Create an IPsec policy for the connection. The IKEv2 supports multiple encryptions and authentication types, and multiple integrity algorithms for a single policy. The ASAv orders the settings from the "most secure" to the "least secure" and negotiates with the peer using that order.
+
+```sh
+# Create IPsec policy, IKEv2 support multiple proposals 
+crypto ipsec ikev2 ipsec-proposal ibm-vpc-proposal
+ protocol esp encryption aes-256 aes 3des
+ protocol esp integrity sha-256 sha-1 md5
+```
+{: codeblock}
+
+Create the group policy and tunnel group. The peer address and pre-shared key are configured in this step.
+
+```sh
+# Create VPN default group policy
+group-policy ibm_vpn internal
+group-policy ibm_vpn attributes
+ vpn-tunnel-protocol ikev2
+
+# Create the tunnel-group to configure pre-shared keys
+tunnel-group 150.239.170.57 type ipsec-l2l
+tunnel-group 150.239.170.57 general-attributes
+ default-group-policy ibm_vpn
+tunnel-group 150.239.170.57 ipsec-attributes
+ ikev2 remote-authentication pre-shared-key <your pre-shared key>
+ ikev2 local-authentication pre-shared-key <your pre-shared key>
+```
+{: codeblock}
+
+Create an ACL to match the traffic from on-premises to VPC. For the traffic from VPC to on-premises, the ASAv uses the SPI to look up the traffic selector. Make sure that both sides are using a matched traffic selector.
+
+```sh
+access-list outside_cryptomap_ibm_vpc_zone2 extended permit ip object-group on-premise-subnets object-group ibm-vpc-zone2-subnets
+```
+{: codeblock}
+
+Create a crypto map to pull together the various elements of the VPN tunnel, and activate it on the outside interface.
+
+```sh
+crypto map ibm_vpc 1 match address outside_cryptomap_ibm_vpc_zone2
+crypto map ibm_vpc 1 set peer 150.239.170.57
+crypto map ibm_vpc 1 set ikev2 ipsec-proposal ibm-vpc-proposal
+crypto map ibm_vpc 1 set pfs group14
+crypto map outside_map interface outside
+```
+{: codeblock}
+
+If you have NAT rules on the ASAv devices, you must exempt the traffic on the VPN from the NAT rules.
+
+```sh
+nat (inside,outside) source static on-premise-subnets on-premise-subnets destination static ibm-vpc-zone2-subnets ibm-vpc-zone2-subnets
+```
+{: codeblock}
+
+## Connecting an IBM static, route-based VPN to a Cisco ASAv peer
+{: #cisco-asav-config-static-route-based}
+
+Currently, a {{site.data.keyword.vpn_vpc_short}} static, route-based VPN does not support high availability with a Cisco ASAv peer.
 {: important}
 
 These instructions are based on Cisco ASAv, Cisco Adaptive Security Appliance Software Version 9.10(1).
@@ -50,65 +163,79 @@ When a Cisco ASAv VPN receives a connection request from {{site.data.keyword.vpn
 
 To support these functions, the following general configuration steps must be performed on the Cisco ASAv VPN:
 
-* Make sure the public IP address for Cisco ASAv is configured directly on the ASAv. Use `isakmp identity address` to ensure the Cisco ASAv uses the public IP address of the interface as its identity.
+* Make sure the public IP address for Cisco ASAv is configured directly on the ASAv. Use `crypto isakmp identity address` to ensure the Cisco ASAv uses the public IP address of the interface as its identity.
 
-      This global setting applies to all connections on the Cisco device, so if you need to maintain multiple connections, set `isakmp identity auto` instead, to ensure the Cisco device automatically determines the identity by connection type.
+  This global setting applies to all connections on the Cisco device, so if you need to maintain multiple connections, set `crypto isakmp identity auto` instead, to ensure the Cisco device automatically determines the identity by connection type.
 
 * Define the Phase 1 parameters that the Cisco ASAv VPN requires to authenticate {{site.data.keyword.vpn_vpc_short}} and establish a secure connection.
 * Define the Phase 2 parameters that the Cisco ASAv VPN requires to create a VPN tunnel with {{site.data.keyword.vpn_vpc_short}}.
 
-Create an IKE version 2 proposal object. IKEv2 proposal objects contain the parameters that are required for creating IKEv2 proposals when defining remote access and site-to-site VPN policies. IKE is a key management protocol that facilitates the management of
+Create an IKE version 2 proposal object. IKEv2 proposal objects contain the parameters that are required for creating IKEv2 proposals when you define remote access and site-to-site VPN policies. IKE is a key management protocol that facilitates the management of
 IPsec-based communications. It is used to authenticate IPsec peers, negotiate and distribute IPsec encryption keys, and automatically establish IPsec security associations (SAs).
+In this block, the following parameters are set as an example. You could choose other parameters according to your company's security policy. And make sure to use identical parameters on IBM VPN gateway and ASAv:
 
-```
-group-policy GroupPolicy_161.156.80.10 internal
-group-policy GroupPolicy_161.156.80.10 attributes
- vpn-tunnel-protocol ikev1 ikev2
-tunnel-group 161.156.80.10 type ipsec-l2l
-tunnel-group 161.156.80.10 general-attributes
- default-group-policy GroupPolicy_161.156.80.10
-tunnel-group 161.156.80.10 ipsec-attributes
- ikev1 pre-shared-key <key value>
- ikev2 remote-authentication pre-shared-key <key value>
- ikev2 local-authentication pre-shared-key <key value>
-```
-{: codeblock}
-
-Create an IKEv2 policy configuration for the IPsec connection. The IKEv2 policy block sets the parameters for the IKE exchange. In this block, the following parameters are set:
 * **Encryption algorithm** - Set to AES-256 for this example.
-* **Integrity algorithm** - Set to SHA256 for this example.
-* **Diffie-Hellman group** - IPsec uses the Diffie-Hellman algorithm to generate the initial encryption key between the peers. In this example, it is set to group 14.
-* **Pseudo-Random Function (PRF)** - IKEv2 requires a separate method that is used as the algorithm to derive keying material and hashing operations that are required for the IKEv2 tunnel encryption. This is referred to as the pseudo-random function and is set to SHA.
+* **Integrity algorithm** - Set to sha256 for this example.
+* **Diffie-Hellman group** - IPsec uses the Diffie-Hellman algorithm to generate the initial encryption key between the peers. In this example, it is set to group 19.
+* **Pseudo-Random Function (PRF)** - IKEv2 requires a separate method that is used as the algorithm to derive keying material and hashing operations that are required for the IKEv2 tunnel encryption. This is referred to as the pseudo-random function and is set to sha256.
 * **SA Lifetime** - Set the lifetime of the security associations (after which time a reconnection occurs) to 36,000 seconds.
-* **Operation type** - Keep this as the default value, bidirectional. (It's not explicit in the "show running" display.)
 
-As shown in the following code example, this sample policy uses AES-256 to encrypt the secure channel. The SHA512 hash algorithm is used to validate the identity of the remote peer, and Diffie-Hellman group 14 is used for key generation. Group 14 uses 2048-bit encryption blocks. Finally, a lifetime for the security association is set to 36,000 seconds.
-
-```
+```sh
 crypto ikev2 policy 100
-encryption aes-256
-integrity sha-1
-group 14
-prf sha
-lifetime seconds 36000
+ encryption aes-256
+ integrity sha256
+ group 19
+ prf sha256
+ lifetime seconds 36000
+crypto ikev2 enable outside
 ```
 {: codeblock}
 
-Define the access list and crypto map for VPN:
+Create an IPsec profile for the virtual tunnel interface(VTI). The profile references the IPsec proposal, and the VTI references the profile. Make sure IBM VPN gateway and ASAv use identical IPsec proposal and IPsec profile parameters.
 
-```
-access-list outside_cryptomap_1 extended permit ip object NETWORK_OBJ_192.168.236.0_24 object vpc
-crypto map outside_map 1 match address outside_cryptomap_1
-crypto map outside_map 1 set peer 161.156.80.10
-crypto map outside_map 1 set ikev1 transform-set ESP-AES-128-SHA ESP-AES-128-MD5 ESP-AES-192-SHA ESP-AES-192-MD5 ESP-AES-256-SHA ESP-AES-256-MD5 ESP-3DES-SHA ESP-3DES-MD5 ESP-DES-SHA ESP-DES-MD5
-crypto map outside_map 1 set ikev2 ipsec-proposal AES256 AES192 AES 3DES DES
-crypto map outside_map interface outside
-nat (any,outside) source static NETWORK_OBJ_192.168.236.0_24 NETWORK_OBJ_192.168.236.0_24 destination static vpc vpc no-proxy-arp route-lookup
+```sh
+crypto ipsec ikev2 ipsec-proposal ibm-proposal
+ protocol esp encryption aes-256
+ protocol esp integrity sha-256
+crypto ipsec profile ibm-profile
+ set ikev2 ipsec-proposal ibm-proposal
+ set pfs group19
+ set security-association lifetime kilobytes unlimited
+ set security-association lifetime seconds 27000
+ responder-only
 ```
 {: codeblock}
 
-## Connecting an IBM static, route-based VPN to a Cisco ASAv peer
-{: #cisco-asav-config-static-route-based}
+Create the tunnel group. The peer address and pre-shared key are configured in the group.
 
-Currently, a {{site.data.keyword.vpn_vpc_short}} static, route-based VPN does not support a Cisco ASAv peer.
-{: important}
+```sh
+tunnel-group 52.118.79.142 type ipsec-l2l
+tunnel-group 52.118.79.142 ipsec-attributes
+ ikev2 remote-authentication pre-shared-key <your pre-shared key>
+ ikev2 local-authentication pre-shared-key <your pre-shared key>
+```
+{: codeblock}
+
+Create the virtual tunnel interface and configure the link-local address (`169.254.0.2/30`) on the interface. Be careful to choose the link-local address and make sure that it is not overlapping with other addresses on the device. There are two available IP addresses(`169.254.0.1` and `169.254.0.2`) in a subnet with a 30-bits netmask. The first IP address `169.254.0.1` is used as the IBM VPN gateway VTI address; the second, `169.254.0.2` is used as the ASAv VTI address. If you have more than one VTI on the ASAv, you could choose another link-local subnet, such as `169.254.0.4/30`, `169.254.0.8/30`, and so on.
+
+You do not need to configure `169.254.0.1` on the IBM VPN gateway. It is referenced only when you configure the routes on the ASAv.
+{: note}
+
+```sh
+interface Tunnel1
+ nameif to-ibm-zone3-m1
+ ip address 169.254.0.2 255.255.255.252
+ tunnel source interface outside
+ tunnel destination 52.118.79.142
+ tunnel mode ipsec ipv4
+ tunnel protection ipsec profile ibm-profile
+!
+```
+{: codeblock}
+
+Add a route to the ASAv. The destination is the IBM VPC subnet, and the next hop is the VTI address of the IBM VPN gateway.
+
+```sh
+route to-ibm-zone3-m1 10.241.128.0 255.255.192.0 169.254.0.1 1
+```
+{: codeblock}

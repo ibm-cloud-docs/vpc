@@ -30,20 +30,20 @@
     "section_updates": {
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
-          {
-          "date": "21 October 2021",
-          "title": "UI Updates",
-          "description": "When you create a virtual server instance by using the UI, the image selection on the UI was updated. The image selection is changed from a tile selection to a drop-down menu. For both custom and catalog images, there is now a side panel that enables you to filter, sort, and search for images."
+        {
+          "date": "12 November 2021",
+          "title": "Fedora Core OS",
+          "description": "Fedora Core OS is now available in all regions as a stock image. The user login ‘root’ is disabled by default in Fedora Core OS. The user login ‘core’ can be used to log in to Fedora Core OS instances."
         },
           {
-          "date": "15 October 2021",
-          "title": "New GPU Instance Profile family",
-          "description": " GPU profiles are available for all images. The profiles include attached NVIDIA 16 GB PCIe v100 GPUs. Drivers must be installed separately. You can use these instances to accelerate certain processing functions for workloads such as inferencing and machine learning."
+          "date": "02 November 2021",
+          "title": "Instance Metadata Service for VPC (LA)",
+          "description": "The metadata service is now available in all regions to customer accounts authorized to access this service. This service is enabled by default when you create new instances using the UI, CLI, or API. You can also disable the service from these interfaces. The metadata service also provides a new API call to generate an IAM token from the instance identity access token using trusted profile information."
         },
-         {
-          "date": "05 October 2021",
-          "title": "New regions for Very High Memory instance profile family (LA)",
-          "description": "Very High Memory profiles now are available in the United Kingdom (London), Japan (Osaka), and Australia (Sydney) regions."
+          {
+          "date": "02 November 2021",
+          "title": "Snapshots for VPC (GA)",
+          "description": "You can now delete any or all snapshots not actively restoring a volume. Snapshots can be anywhere in the snapshot chain and must be in a stable state."
         }
       ]
     }

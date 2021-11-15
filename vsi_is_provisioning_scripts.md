@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-07-21"
+lastupdated: "2021-11-11"
 
 keywords: user data, virtual server username
 
@@ -234,6 +234,90 @@ The following example shows user data that can be passed to a Windows instance. 
 {: codeblock}
 
 For more Windows user data examples and information, see [Cloudbase-init 1.0 documentation ![External link icon](../icons/launch-glyph.svg "External link icon")](https://cloudbase-init.readthedocs.io/en/latest/userdata.html){: new_window}.
+
+## User data examples for Fedora Core OS 
+{: #user-data-examples-for-fed-core}
+
+The following examples show user data that can be passed to a Fedora Core OS instance.
+
+The user login 'root' is disabled by default in Fedora Core OS. The user login 'core' can be used to log in to Fedora Core OS instances.
+{: note}
+
+Fedora Core OS user data must be in ignition format.
+
+Use the following example to boot a Fedora Core OS instance
+
+   ```
+   ibmcloud is instance-create $NAME $VPC $ZONE $PROFILE $SUBNET --image-id $IMAGE --key-ids $SSHKEY --user-data @example.ign
+   ```
+
+Use the following example to create a local user.
+
+1. Write the Butane config in the YAML format.
+   
+   Butane config
+   ```
+   variant: fcos
+   version: 1.4.0
+   passwd:
+     users:
+       - name: demouser
+   ```
+2. Use Butane to convert the Butane config into an Ignition config.
+   
+   Ignition config
+   ```
+   
+   "ignition": {
+       "version": "1.4.0"
+     },
+     "passwd": {
+       "users": [
+         {
+           "name": "demouser"
+         }
+       ]
+     }
+   }
+   ```
+
+Use the following sample user data shows how to add an SSH key for a local user.
+
+1. Write the Butane config in the YAML format.
+   
+   Butane config
+   ```
+   variant: fcos
+   version: 1.4.0
+   passwd:
+     users:
+       - name: demouser
+         ssh_authorized_keys:
+           - <ssh public key>
+   ```
+
+2. Use Butane to convert the Butane config into an Ignition config.
+   
+   Ignition config
+   ```
+   
+     "ignition": {
+       "version": "1.4.0"
+     },
+     "passwd": {
+       "users": [
+         {
+           "name": "demouser",
+           "sshAuthorizedKeys": [
+             "<ssh public key>"
+           ]
+         }
+       ]
+     }
+   }
+   ```
+
+For more Fedora Core OS user data examples and information, see [Fedora Project documentation](https://docs.fedoraproject.org/en-US/fedora-coreos/producing-ign/){: external}.
 
 ## Next steps
 {: #next-steps-user}

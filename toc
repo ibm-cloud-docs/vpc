@@ -64,7 +64,7 @@ Virtual Private Cloud (VPC)
             block_storage_is_profiles.md
             block_storage_vpc_bandwidth.md
             
-        release-notes.md
+    release-notes.md
     {: .navgroup-end}
 
     {: .navgroup id="tutorial"}
@@ -135,7 +135,7 @@ Virtual Private Cloud (VPC)
         managing-gpus.md
 
     {: .topicgroup}
-    Instance metadata service (Beta)
+    Instance metadata service
         instance_metadata_vpc_about.md
         instance_metadata_vpc_configure.md
         instance_metadata_vpc_get_metadata.md
@@ -476,7 +476,6 @@ Virtual Private Cloud (VPC)
         custom_image_vpc_troubleshoot.md
         block_storage_is_troubleshoot.md
         bare_metal_server_troubleshoot.md
-        instance_metadata_vpc_troubleshoot.md
         instance-status-messages.md
 
     limitations.md

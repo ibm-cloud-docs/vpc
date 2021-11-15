@@ -60,15 +60,15 @@ For example, you can configure the following inbound rules:
 * Allow all ping traffic (ICMP type 8)
 
 | Protocol | Source Type | Source | Value |
-|-----------|------|------|------|------------------|-------|
-| TCP| Any | 0.0.0.0/0 | Ports 22-22
-| ICMP | Any | 0.0.0.0/0 | Type: 8, Code: Any|
+|-----------|------|------|------|
+| TCP| Any | 0.0.0.0/0 | Ports 22-22 |
+| ICMP | Any | 0.0.0.0/0 | Type: 8, Code: Any |
 {: caption="Table 1. Configuration information for inbound rules" caption-side="top"}
 
 Then, configure outbound rules that allow all TCP traffic:
 
 | Protocol | Destination Type | Source | Value |
-|-----------|------|------|------|------------------|-------|
+|-----------|------|------|------|
 | TCP| Any | 0.0.0.0/0 | Any port|
 {: caption="Table 2. Configuration information for outbound rules" caption-side="top"}
 

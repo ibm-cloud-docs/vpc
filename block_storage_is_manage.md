@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-07-19"
+lastupdated: "2021-10-26"
 
 keywords: block storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
@@ -30,11 +30,10 @@ subcollection: vpc
 # Managing block storage volumes
 {: #managing-block-storage}
 
-Use the UI, CLI, or API to manage your block storage volumes. Detach a volume from a virtual server instance or transfer a volume from one instance to another. Attach a previously attached volume or rename a volume. Set automatic volume deletion or manually delete a volume. Assign access to a volume.
+Use the UI, CLI, or API to manage your block storage volumes. Detach a volume from a virtual server instance or transfer a volume from one instance to another. Attach a previously attached volume or rename a volume. Set automatic volume deletion or manually delete a volume. Assign access to a volume. Access volume read/write metrics for monitoring performance.
 {: shortdesc}
 
-
-## Managing block storage volumes by using the UI
+## Manage block storage volumes by using the UI
 {: #manage-block-storage-vol-UI}
 {: ui}
 
@@ -46,7 +45,7 @@ Use the UI to manage your block storage volumes. You can:
 * Rename a block storage volume
 * Delete a block storage data volume
 
-### Detaching a block storage volume from a virtual server instance
+### Detach a block storage volume from a virtual server instance
 {: #detach}
 {: help}
 {: support}
@@ -62,7 +61,7 @@ To detach a volume:
 
 Alternatively, you can click an individual volume in the list of all block storage volumes and go to the **Volume Details** page for that volume. Under **Attached instances**, click the minus sign next to the virtual server instance to detach the volume from that instance.
 
-### Transfering a block storage volume from one virtual server instance to another
+### Transfer a block storage volume from one virtual server instance to another
 {: #transfer}
 
 To transfer a block storage volume to another virtual server instance:
@@ -73,7 +72,7 @@ To transfer a block storage volume to another virtual server instance:
 1. Under Attached Storage volumes, click the plus sign to add a volume. All block storage volumes are displayed.
 1. From the list of volumes, select the volume that you previously detached.
 
-### Attaching a previously attached block storage data volume
+### Attach a previously attached block storage data volume
 {: #reattach}
 
 A block storage data volume is attached by default when you create the volume during virtual server instance creation. When you detach a volume from an instance, it exists as an unattached volume and is displayed in the list of [all block storage volumes](/docs/vpc?topic=vpc-viewing-block-storage#viewvols). You can attach it to another instance from the list of block storage volumes.
@@ -84,7 +83,7 @@ A block storage data volume is attached by default when you create the volume du
 1. Select an available virtual server instance.
 1. Confirm your selection.
 
-### Renaming a block storage volume
+### Rename a block storage volume
 {: #rename}
 
 You can change the name of an existing volume to make it more meaningful.
@@ -101,7 +100,7 @@ Valid volume names can include a combination of lowercase alpha-numeric characte
 
 Volume names must be unique across the entire VPC infrastructure. For example, if you create two volumes with the same name in the same account and region, a "volume name duplicate" error is triggered.
 
-### Deleting a block storage data volume
+### Delete a block storage data volume
 {: #delete}
 {: help}
 {: support}
@@ -117,7 +116,7 @@ To delete a volume:
 1. From the options menu, click **Delete**.
 1. Confirm the deletion.
 
-### Automatically deleting block storage data volumes
+### Automatically delete block storage data volumes
 {: #auto-delete}
 
 Using the Auto Delete feature, you can specify that a block storage data volume is automatically deleted when you delete an instance to which it is attached.
@@ -136,7 +135,7 @@ Alternatively, select a data volume from the list of block storage volumes (**St
 
 You can also enable Auto Delete on a new data volume when you create an instance. For information, see [Create and attach a block storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi).
 
-## Managing block storage volumes by using the CLI
+## Manage block storage volumes by using the CLI
 {: #managing-block-storage-cli}
 {: cli}
 
@@ -144,7 +143,7 @@ Manage your block storage volumes from the command-line interface (CLI). You can
 
 Before you begin, [install the IBM Cloud CLI and VPC CLI plug-in](/docs/vpc?topic=vpc-creating-block-storage#before-creating-block-storage-cli).
 
-### Updating the name of a volume
+### Update a volume name
 {: #update-vol-name-cli}
 
 To change a volume name, specify either the volume name or ID and then indicate the new name. The volume name can be up to 63 alpha-numeric characters and include special characters, and must begin with a lowercase letter. The volume name must be unique across the VPC infrastructure.
@@ -175,7 +174,7 @@ Volume Attachment Instance Reference    none
 ```
 {: screen}
 
-### Updating a volume attachment by using CLI
+### Update a volume attachment by using CLI
 {: #update-vol-attachment-cli}
 
 You can update the volume attachment name and change the default auto delete setting with the `instance-volume-attachment-update` command.
@@ -197,7 +196,7 @@ VDisk-data1   0738-fd146b1f-e1bb-4eab-ba78-3109e6bc3a2d   data         true     
 ```
 {: screen}
 
-### Detaching a volume by using the CLI
+### Detach a volume by using the CLI
 {: #detach-vol-attachment-cli}
 {: help}
 {: support}
@@ -209,7 +208,7 @@ ibmcloud is instance-volume-attachment-detach INSTANCE_ID VOLUME_ATTACHMENT_ID [
 ```
 {: pre}
 
-### Deleting a block storage volume by using the CLI
+### Delete a block storage volume by using the CLI
 {: #delete-vol-cli}
 {: help}
 {: support}
@@ -235,13 +234,13 @@ Volume ID 0738-64d85f0f-6c08-4188-9e9a-0057b3aa1b69 is deleted.
 {: screen}
 
 
-## Managing block storage volumes from the API
+## Manage block storage volumes from the API
 {: #managing-block-storage-api}
 {: api}
 
 Manage your block storage volumes programically by making calls to the [VPC REST APIs](https://{DomainName}/apidocs/vpc){: external}. You can update a volume name, update a volume attachment, detach a volume, and delete a volume.
 
-### Updating the name of a volume from the API
+### Update the name of a volume from the API
 {: #update-vol-name-api}
 
 Make a `PATCH /volumes/{id}` call and specify a new name for the volume.
@@ -290,7 +289,7 @@ A successful response looks like the following example:
 ```
 {: codeblock}
 
-### Updating a volume attachment from the API
+### Update a volume attachment from the API
 {: #update-vol-attachment-api}
 
 Make a `PATCH /instances` call and specify the ID of the new volume attachment. 
@@ -332,7 +331,7 @@ A successful response looks like the following example:
 {: codeblock}
 
 
-### Detaching a volume by using the API
+### Detach a volume by using the API
 {: #detach-vol-attachment-api}
 
 Make a `DELETE /instances` request and specify the volume attachment ID to delete a volume attachment. Deleting a volume attachment detaches a volume from an instance.
@@ -352,7 +351,7 @@ curl -X DELETE "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments/$
 Verify that the volume is detached from the instance by making a `GET /instances/{instance_id}`
 call.
 
-### Deleting a block storage volume by using the API
+### Delete a block storage volume by using the API
 {: #delete-vol-api
 
 Make a `DELETE /volumes/{id}` call. 
@@ -364,6 +363,24 @@ curl -X DELETE "$vpc_api_endpoint/v1/volumes/$volume_id?version=2021-04-20&gener
 {: pre}
 
 To verify that the volume is deleted, list the volumes by making a `GET /volumes` call.
+
+## Add tags to block storage volumes for backup policies
+{: #block-storage-add-tags}
+
+You can add tags to associate a volume with a backup policy. Backup policies schedule automatic creation of backup snapshots. When one volume tag matches a backup policy tag, it triggers creation of a backup snapshot. A backup policy defines a backup plan that schedules when backup snapshots are taken. For information about creating backups, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-about). For more information about tags, see [Working with tags](/docs/account?topic=account-tag).
+
+You can add tags to a volume in the following ways:
+
+* From the [volume details](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-vol-details-ui) page, click the pencil icon 
+* From the list of all [Block storage for VPC volumes](), select a volume and click **Add tags**. In the Add tags dialog box, enter a new tag and click **Save**.
+
+## Access volume read/write metrics
+{: #block-storage-metrics}
+
+You can view read/write metrics for your block storage volumes attached to a virtual server instance: 
+
+* [Cumulative number of bytes read for a volume](/docs/vpc?topic=vpc-vpc-monitoring-metrics#bytes-read-for-volume-gen2) since the virtual server instance started.
+* [Cumulative number of bytes written for a volume](/vpc?topic=vpc-vpc-monitoring-metrics#bytes-written-for-volume-gen2) since virtual server instance started.
 
 ## Block storage data eradication
 {: #block-storage-data-eradication}
@@ -396,6 +413,27 @@ With Administrator privileges, you can assign volume-level user access to the {{
 
 For more information, see the [best practices for assigning access](/docs/account?topic=account-account_setup#account_setup). For the complete IAM process, which includes inviting users to your account and assigning Cloud IAM access, see the [IAM getting started tutorial](/docs/account?topic=account-iamoverview).
 
+## Monitor block storage performance
+{: #block-storage-monitor}
+
+You can monitor certain block storage volume performance from the VPC virtual server instance metrics. These include:
+
+* Cumulative number of [bytes read for a volume](/docs/vpc?topic=vpc-vpc-monitoring-metrics#bytes-read-for-volume-gen2) since virtual server instance was started
+
+* Cumulative number of [bytes written for a volume](/docs/vpc?topic=vpc-vpc-monitoring-metrics#bytes-written-for-volume-gen2) since virtual server instance was started
+
+To see these metrics by using the UI:
+
+1. From the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext) > **VPC Infrastructure > Compute > Virtual server instances**.
+
+2. Click on the instance name to go to the instance details.
+
+3. Click the **Monitoring** tab and scroll to the **Volume** metrics.
+
+4. Select a volume to see its read or write metrics. Figure 1 shows this view.
+
+![Figure showing volume metrics.](/images/volume-read-write-metrics.png "Figure showing volume read-write metrics."){: caption="Figure 1. Read-write metrics for block storage volumes" caption-side="bottom"}
+
 ## Block storage volume status
 {: #status}
 
@@ -409,7 +447,7 @@ The following table shows statuses that you might see when you create, view, or 
 | Failed  | A volume creation failed  |
 | Pending | A volume is being created |
 | Pending deletion | A volume is being deleted. If you're unsure the volume is deleted, verify this state. Attempting to delete a volume again while in this state results in a conflict error. |
-| Updating | A volume's capacity is [expanding](/docs/vpc?topic=vpc-expanding-block-storage-volumes). |
+| Updating | A volume's capacity is [expanding](/docs/vpc?topic=vpc-expanding-block-storage-volumes) or volume IOPS being [adjusted](/docs/vpc?topic=vpc-adjusting-volume-iop). |
 | Unusable | A volume is unusable because the customer root key (CRK) was [deleted](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys) or [disabled](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-disable-root-keys). |
 {: caption="Table 2. Block storage statuses" caption-side="top"}
 

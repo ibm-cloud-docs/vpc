@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-10"
+lastupdated: "2021-11-02"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -18,20 +18,20 @@ subcollection: vpc
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
-{:beta: .beta}
+{:preview: .preview}
 {:table: .aria-labeledby="caption"}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 
 
-# Use the instance metadata service (Beta)
+# Use the instance metadata service
 {: #imd-get-metadata}
 
-After obtaining an instance identity access token, you can access the metadata service and retrieve metadata about a virtual server instance. The topic describes how to make calls to the API to access instance metadata such as initialization data, network interfaces, volume attachments, public SSH keys, and placement group information.
+After obtaining an instance identity access token, you can access the metadata service and retrieve metadata about a virtual server instance. This topic describes how to make calls to the API to access instance metadata such as initialization data, network interfaces, volume attachments, public SSH keys, and placement groups.
 {: shortdesc}
 
-This service is available only to accounts with special approval to preview this beta feature.
-{: beta}
+This service is available only to accounts with special approval to use this service. Contact [IBM support](/docs/vpc?topic=vpc-getting-help) if you're interested in getting access.
+{: preview}
 
 ## Before you begin
 {: #imd-md-prereqs}
@@ -65,7 +65,7 @@ You're making an unsecured request that is then secured by a proxy. The proxy in
 In the example, the return value of the cURL command is the user data, which is extracted by `jq` and placed in the `user_data` evironment variable.
 
 ```
-curl -X GET "http://169.254.169.254/metadata/v1/instance/initialization?version=2021-09-10"\
+curl -X GET "http://169.254.169.254/metadata/v1/instance/initialization?version=2021-10-12"\
   -H "Accept: application/json"\
   -H "Authorization: Bearer $access_token" | jq -r
 ```
@@ -96,7 +96,7 @@ Make a `GET "http://169.254.169.254/metadata/v1/instance"` call to retrieve deta
 
 
 ```
-curl -X GET "http://169.254.169.254/metadata/v1/instance?version=2021-09-10"\
+curl -X GET "http://169.254.169.254/metadata/v1/instance?version=2021-10-12"\
   -H "Accept:application/json"\
   -H "Authorization: Bearer $access_token"
 ```
@@ -115,7 +115,7 @@ The response lists all details for an instance, including network interfaces, co
       "name": "my-boot-volume"
     }
   },
-  "created_at": "2021-08-26T16:11:57Z",
+  "created_at": "2021-10-19T16:11:57Z",
   "crn": "crn:[...]",
   "disks": [],
   "id": "eb1b7391-2ca2-4ab5-84a8-b92157a633b0",
@@ -215,7 +215,7 @@ Make a `GET "http://169.254.169.254/metadata/v1/keys"` call to retrieve informat
 The output is parsed by `jq`.
 
 ```
-curl -X GET "http://169.254.169.254/metadata/v1/keys?version=2021-09-10"\
+curl -X GET "http://169.254.169.254/metadata/v1/keys?version=2021-10-12"\
   -H "Accept:application/json"\
   -H "Authorization: Bearer $access_token" | jq -r
 ```
@@ -227,7 +227,7 @@ Example output, showing one SSH key:
 {
   "keys": [
     {
-      "created_at": "2021-08-26T16:39:23.000Z",
+      "created_at": "2021-10-19T16:39:23.000Z",
       "crn": "crn:v1:staging:public:is:us-south:a/2c91d5e9ecee442189fb07cd7a8776c4::key:r134-44e5e06b-9450-4f5f-a9be-96feebf770d8",
       "fingerprint": "SHA256:lZmocJFsWfJcIl8Jdp8r6Ak8gzMqxrFb9UtwWCk27CM",
       "id": "r134-44e5e06b-9450-4f5f-a9be-96feebf770d8",
@@ -250,10 +250,10 @@ If you have more than one SSH key, you can make a `GET "http://169.254.169.254/m
 Make a `GET "http://169.254.169.254/metadata/v1/placement_groups"` call to retrieve information about placement groups configured for the instance. In the example, the return value of the cURL command is a list of placement groups, beginning with the first and up to 50. The output is parsed by `jq`. 
 
 ```
-curl -X GET "http://169.254.169.254/metadata/v1/placement_groups?version=2021-09-10"\
+curl -X GET "http://169.254.169.254/metadata/v1/placement_groups?version=2021-10-12"\
   -H "Accept:application/json"\
   -H "Authorization: Bearer $access_token"\
-  --data-urlencode "version=2021-09-10"\
+  --data-urlencode "version=2021-10-12"\
   -d '{ 
         "start": "first",
         "limit": 50 
@@ -271,7 +271,7 @@ Example return:
   "limit": 50,
   "placement_groups": [
     {
-      "created_at": "2021-09-10T19:55:00Z",
+      "created_at": "2021-10-12T19:55:00Z",
       "crn": "crn:[...]",
       "id": "r018-418fe842-a3e9-47b9-a938-1aa5bd632871",
       "lifecycle_state": "stable",
