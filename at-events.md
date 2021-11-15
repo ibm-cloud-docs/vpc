@@ -420,7 +420,7 @@ The following table lists the actions that are related to placement group resour
 
 | Resource  | Action  | Description  |
 |:----------------|:-----------------------|:-----------------------|
-| Instance Metadata | is.metadata.jwt-token.create | Creates a JSON web token for accessing the Metadata service |
+| Instance Metadata | is.metadata.jwt-token.create | Creates an instance identity access token for accessing the Metadata service |
 | Instance Metadata | is.metadata.instance.initialize | Gets initialization information for the calling instance  |
 | Instance Metadata | is.metadata.instance.read | Gets metadata information for the calling instance  |
 | Instance Metadata | is.metadata.instance-key.get | Gets a public SSH key for the calling instance |
@@ -479,8 +479,6 @@ File Storage for VPC is available for customers with special approval to preview
 | shares  | is.share.share.read   | One or more file shares were retrieved  |
 | shares  | is.share.share.update   | File share was updated  |
 | shares  | is.share.share.delete | File share was deleted  |
-| shares  | is.share.replica.split | Replication relationship is removed between two file shares |
-| shares  | is.share.replica.failover | Replication relationship is reversed between two file shares |
 | share mount targets  | is.share.target.create  | Mount target for a file share was created  |
 | share mount targets  | is.share.target.read  | One or more mount targets for a file share were retrieved  |
 | share mount targets  | is.share.target.update  | Mount target for a file share was modified  |

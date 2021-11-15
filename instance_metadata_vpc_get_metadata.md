@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-11-02"
+lastupdated: "2021-11-15"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -32,6 +32,8 @@ After obtaining an instance identity access token, you can access the metadata s
 
 This service is available only to accounts with special approval to use this service. Contact [IBM support](/docs/vpc?topic=vpc-getting-help) if you're interested in getting access.
 {: preview}
+
+When you make API calls to the instance metadata service, events are triggered in the Activity Tracker. For more information, see [Instance Metadata service events](/docs/vpc?topic=vpc-at-events#events-metadata).
 
 ## Before you begin
 {: #imd-md-prereqs}

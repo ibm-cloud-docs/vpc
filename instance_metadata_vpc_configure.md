@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-11-03"
+lastupdated: "2021-11-15"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -383,6 +383,11 @@ curl -X POST "$vpc_api_endpoint/v1/instance/templates?version=2021-10-14&generat
 {: pre}
 
 The API does not allow changing the `metadata-service` setting after creating the instance template. If you disabled it for a template, create a new instance template with the `metadata-service` enabled set to `true`.
+
+## Activity Tracker events for instance metadata
+{: imd-at-events}
+
+Activity Tracker events are triggered when you get an [instance access identity token](#imd-json-token) and then [use the service](/docs/vpc?topic=vpc-imd-get-metadata). For information about these events, see [Instance Metadata service events](/docs/vpc?topic=vpc-at-events#events-metadata).
 
 ## Next steps
 {: #imd-token-next}
