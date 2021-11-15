@@ -56,11 +56,11 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
-## 2 November 2021
-{: #2-november-2021}
+## 16 November 2021
+{: #16-november-2021}
 
 ### For all API version dates
-{: #2-november-2021-all-version-dates}
+{: #16-november-2021-all-version-dates}
 
 **Snapshots for VPC.** Restrictions have been removed for deleting snapshots. You can now [delete](/apidocs/vpc#delete-snapshot) any snapshot in the chain of snapshots, providing that the snapshot is not actively restoring a volume. The `deletable` property, which indicated whether a snapshot could be deleted, has been deprecated. 
 
