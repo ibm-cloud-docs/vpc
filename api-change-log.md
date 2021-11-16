@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-11-08"
+lastupdated: "2021-11-16"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -10,16 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:download: .download}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # VPC API change log
 {: #api-change-log}
@@ -48,6 +39,7 @@ SDK changes are based on API changes. For information about the latest changes t
 {: #upcoming-changes}
 
 ### For all API version dates
+{: #upcoming-changes-all-version-dates}
 
 **Asynchronous `DELETE` response code change.** In an upcoming release, the response code output for asynchronous `DELETE` operations will change from `204` to `202`. A response code of `204` implies the action is completed, which could be misleading for operations that are still processing. A response code of `202` is more appropriate. This behavior change will occur only for an API version date after its release. A response code of `204` will continue to be returned for API versions up to this version date.
 
@@ -139,10 +131,10 @@ Additional API restrictions are enforced after an HTTPS redirect is configured:
 **Placement groups.** Placement groups for {{site.data.keyword.vpc_full}} are logical groupings of virtual server instances that can be configured to reduce the risk of correlated failures inherent in your physical environment, such as networking issues, power loss, or hardware failure. Define a placement group strategy for high-availability workloads, such as for host or power spread. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc) or dive into the new [API methods](/apidocs/vpc#list-placement-groups).
 
 ## 10 August 2021
-{: 10-august-2021}
+{: #10-august-2021}
 
 ### For all version dates
-{: 10-august-2021-all-version-dates}
+{: #10-august-2021-all-version-dates}
 
 **LinuxONE (s390x processor architecture).** You can now [create virtual server instances](/apidocs/vpc#create-instance) on LinuxONE in {{site.data.keyword.Bluemix}} using new virtual server instance profiles. Instances provisioned with these profiles will have a VCPU architecture of s390x and interoperate with other VPC storage and networking features such as block storage volumes, floating IPs, and security groups. For more information, see [Instance Profiles](/docs/vpc?topic=vpc-profiles&interface=api#balanced-s390x-profiles), and  [Service limitations](/docs/vpc?topic=vpc-limitations).
 
@@ -259,10 +251,11 @@ A new `dedicated_host_only` property has been added to operating system resource
 
 Every operation that returns an `OperatingSystem` resource now includes a `dedicated_host_only` property.
 
-## 09 March 2021
-{: #09-march-2021}
+## 9 March 2021
+{: #9-march-2021}
 
 ### For all API version dates
+{: #9-march-2021-all-version-dates}
 
 **Additional VPN for VPC IKEv2 encryption/hash/Diffie Hellman (DH) group support.** For enhanced security, VPN for VPC now supports SHA2-512 (a Secure Hash Algorithm) and DH group 19 (a 256-bit elliptic curve algorithm) to generate a symmetric key.
 
@@ -280,7 +273,7 @@ The following VPN for VPC methods have been updated:
 {: #23-february-2021}
 
 ### For all API version dates
-{: 23-february-2021-all-version-dates}
+{: #23-february-2021-all-version-dates}
 
 **Application load balancer security group integration.** For enhanced security, application load balancers can now be associated with security groups. You can specify one or more security groups when you create the application load balancer, and associate security groups with your existing application load balancers. If you omit security groups during load balancer creation, the default security group for the VPC is used.
 
@@ -352,19 +345,19 @@ Memory for virtual server instances is now expressed in gibibytes (GiB), instead
 The `unusable` status appears in the following API methods:
 
 - [List all volumes](/apidocs/vpc#list-volumes) (`GET /volumes`)
-- [Retrieve a specific volume](/apidocs/vpc#get-volume) (`GET /volume{id}`)
+- [Retrieve a specific volume](/apidocs/vpc#get-volume) (`GET /volumes/{id}`)
 - [List all images](/apidocs/vpc#list-volumes) (`GET /images`)
-- [Retrieve the specified image](/apidocs/vpc#get-image) (`GET /images{id}`)
+- [Retrieve the specified image](/apidocs/vpc#get-image) (`GET /images/{id}`)
 
 For more information on key states and resource statuses, see [User actions that impact root key states and resource status](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-root-key-states).
 
 **Dedicated hosts** are now supported in the VPC API. Learn more about using [dedicated hosts](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances&interface=api) and explore the new [API methods](/apidocs/vpc#list-dedicated-host-groups).
 
 ## 20 November 2020
-{: 20-november-2020}
+{: #20-november-2020}
 
 ### For all API version dates
-{: 20-november-2020-all-version-dates}
+{: #20-november-2020-all-version-dates}
 
 **Datapath log forwarding with {{site.data.keyword.la_full_notm}}** is now available for [IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancers#load-balancers). Data and health check logs are valuable for debugging, analysis, and maintenance purposes. With the datapath logging feature enabled, your load balancer forwards these logs to your account's [IBM Log Analysis](https://cloud.ibm.com/observe/logging){: external} dashboard.
 
@@ -376,10 +369,10 @@ View the `logging` property in the following API methods:
 For more information, see [Datapath log forwarding with IBM Log Analysis](/docs/vpc?topic=vpc-datapath-logging#datapath-logging).
 
 ## 19 November 2020
-{: 19-november-2020}
+{: #19-november-2020}
 
 ### For all API version dates
-{: 19-november-2020-all-version-dates}
+{: #19-november-2020-all-version-dates}
 
 **Support for ingress routing** is included as part of [routing tables](/apidocs/vpc#list-vpc-routing-tables), which were released on 30 October 2020. Use [ingress routing](/apidocs/vpc#create-vpc-routing-table) to control the policy for packets that are coming in to your VPC or one of its zones. The policy can vary, depending on the type of source and the destination IP address range.
 
