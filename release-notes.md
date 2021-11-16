@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-11-12"
+lastupdated: "2021-11-16"
 
 keywords: VPC release notes
 
@@ -35,6 +35,17 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 
 ## November 2021
 {: #subcollection-nov21}
+
+### 16 November 2021
+{: #subcollection-nov1621}
+{: release-note}
+
+**New Very High Memory and Ultra High Memory instance profile family for dedicated host (LA)** 
+:   Very High Memory with instance storage and Ultra High Memory with instance storage profiles are now available for dedicated host. 
+
+:   Very High Memory profiles offer a core to RAM ratio of 1 vCPU to 14 GiB of RAM. This family is hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts and is best for OLAP workloads and SAP-related services, such as SAP NetWeaver. Very High Memory profiles are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions. For more information, see [Very High Memory with instance storage profiles](/docs/vpc?topic=vpc-dh-profiles#vhm-is-dh-pr).
+
+:   Ultra High Memory profiles offer a core to RAM ratio of 1 vCPU to 28 GiB of RAM. This family is hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts and are optimized for running memory intensive applications and in-memory database such as SAP HANA, Memcached, or Redis. Ultra High Memory profiles are available in the US South (Dallas) and EU Germany (Frankfurt) regions. For more information, see [Ultra HIgh Memory with instance storage profiles](/docs/vpc?topic=vpc-dh-profiles#uhm-is-dh-pr). 
 
 ### 12 November 2021
 {: #subcollection-nov1221}
