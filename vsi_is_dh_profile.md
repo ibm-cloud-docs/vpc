@@ -162,7 +162,7 @@ instances.
 {: note}
 
 ## Very High Memory with instance storage
-{: #vhm-is-dh-pr}
+{: #vhmemory-is-dh-pr}
 
 The Very High Memory with instance storage profile is hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts and is best for OLAP workloads and SAP-related services, such as SAP NetWeaver. The Very High Memory profile offers 1 vCPU to 14 GiB of RAM memory ratio and include temporary SSD-backed [Instance Storage](/docs/vpc?topic=vpc-instance-storage) at no additional charge. 
 
@@ -182,7 +182,7 @@ instances.
 {: note}
 
 ## Ultra High Memory with instance storage
-{: #uhm-is-dh-pr}
+{: #uhmemory-is-dh-pr}
 
 The Ultra High Memory with instance storage profile is best for in-memory OLTP databases, such as SAP. The Ultra High Memory profile is hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts and are optimized for running memory intensive applications and in-memory database such as SAP HANA, Memcached, or Redis. This profile family offers our highest vCPU to memory ratio with 28 GiB of memory for every 1 vCPU of compute and up to 5.7 TiB of available RAM. All Ultra High Memory profiles are provisioned with temporary SSD-backed [Instance Storage](/docs/vpc?topic=vpc-instance-storage) at no additional charge.
 
