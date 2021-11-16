@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-09"
+lastupdated: "2021-11-16"
 
 keywords: dedicated host profiles, balanced, compute, memory, ultra high memory, generation 2, gen 2
 
