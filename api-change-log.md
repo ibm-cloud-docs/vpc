@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-11-16"
+lastupdated: "2021-11-20"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -12,10 +12,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# VPC API change log
+# Change log
 {: #api-change-log}
 
-Read this change log to learn about updates and improvements to the {{site.data.keyword.vpc_full}} (VPC) [API](/apidocs/vpc). The change log lists changes that are ordered by the date they were released. Changes to existing API versions are designed to be compatible with existing client applications.
+Read the VPC API change log to learn about updates and improvements to the {{site.data.keyword.vpc_full}} (VPC) [API](/apidocs/vpc). The change log lists changes that are ordered by the date they were released. Changes to existing API versions are designed to be compatible with existing client applications.
 {: shortdesc}
 
 By design, new features with backward-incompatible changes apply only to version dates on and after the feature's release. Changes that apply to older versions of the API are designed to maintain compatibility with existing applications and code. If backward-incompatible changes require non-trivial client code changes to use an API version, the API change log might provide links to instructions, tips, or best practices for updating client code.
@@ -38,7 +38,7 @@ SDK changes are based on API changes. For information about the latest changes t
 ## Upcoming changes
 {: #upcoming-changes}
 
-### For all API version dates
+### For all version dates
 {: #upcoming-changes-all-version-dates}
 
 **Asynchronous `DELETE` response code change.** In an upcoming release, the response code output for asynchronous `DELETE` operations will change from `204` to `202`. A response code of `204` implies the action is completed, which could be misleading for operations that are still processing. A response code of `202` is more appropriate. This behavior change will occur only for an API version date after its release. A response code of `204` will continue to be returned for API versions up to this version date.
@@ -105,7 +105,7 @@ For more information about this feature, see [Bandwidth allocation for instance 
 ## 24 August 2021
 {: #24-august-2021}
 
-### For all API version dates
+### For all version dates
 {: #24-august-2021-all-version-dates}
 
 **Application load balancers.** Use the [HTTPS redirect feature](/docs/vpc?topic=vpc-load-balancers#https-redirect-listener) to redirect traffic from an HTTP load balancer listener to an HTTPS listener.
@@ -254,7 +254,7 @@ Every operation that returns an `OperatingSystem` resource now includes a `dedic
 ## 9 March 2021
 {: #9-march-2021}
 
-### For all API version dates
+### For all version dates
 {: #9-march-2021-all-version-dates}
 
 **Additional VPN for VPC IKEv2 encryption/hash/Diffie Hellman (DH) group support.** For enhanced security, VPN for VPC now supports SHA2-512 (a Secure Hash Algorithm) and DH group 19 (a 256-bit elliptic curve algorithm) to generate a symmetric key.
@@ -272,7 +272,7 @@ The following VPN for VPC methods have been updated:
 ## 23 February 2021
 {: #23-february-2021}
 
-### For all API version dates
+### For all version dates
 {: #23-february-2021-all-version-dates}
 
 **Application load balancer security group integration.** For enhanced security, application load balancers can now be associated with security groups. You can specify one or more security groups when you create the application load balancer, and associate security groups with your existing application load balancers. If you omit security groups during load balancer creation, the default security group for the VPC is used.
@@ -314,7 +314,7 @@ The following API methods have been updated:
 ## 27 January 2021
 {: #27-january-2021}
 
-### For all API version dates
+### For all version dates
 {: #27-january-2021-all-version-dates}
 
 **Checksum (SHA256) for imported images.** When you import a custom image to {{site.data.keyword.vpc_short}}, you can now view the checksum that was generated for the image during the import operation. By generating a checksum for the image locally, and checking that the checksums match, you can verify the integrity of the imported image. For more information, see [Validating a custom image after importing](/docs/vpc?topic=vpc-managing-images#validate-custom).
@@ -324,7 +324,7 @@ The `sha256` checksum is available in the `file` details in API method `GET /ima
 ## 19 January 2021
 {: #19-january-2021}
 
-### For all API version dates
+### For all version dates
 {: #19-january-2021-all-version-dates}
 
 The quantity of memory for virtual server instance profiles is now provisioned in gibibytes (GiB), instead of gigabytes (GB). For example, creating a new `bx2-4x16` virtual server instance provisions the instance with 16 GiB (17,179,869,184 bytes), instead of 16 GB (16,000,000,000 bytes). Virtual server instances that have already been provisioned are not affected.
@@ -337,7 +337,7 @@ Memory for virtual server instances is now expressed in gibibytes (GiB), instead
 ## 16 December 2020
 {: 16-december-2020}
 
-### For all API version dates
+### For all version dates
 {: 16-december-2020-all-version-dates}
 
 **Customer-managed encryption for block storage volumes and encrypted custom images.** When you disable or delete a customer root key (CRK) that is encrypting your block storage or custom image resources, the API displays a status of `unusable` for these resources, along with the reason codes `encryption_key_deleted` or `encryption_key_disabled`.
@@ -356,7 +356,7 @@ For more information on key states and resource statuses, see [User actions that
 ## 20 November 2020
 {: #20-november-2020}
 
-### For all API version dates
+### For all version dates
 {: #20-november-2020-all-version-dates}
 
 **Datapath log forwarding with {{site.data.keyword.la_full_notm}}** is now available for [IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancers#load-balancers). Data and health check logs are valuable for debugging, analysis, and maintenance purposes. With the datapath logging feature enabled, your load balancer forwards these logs to your account's [IBM Log Analysis](https://cloud.ibm.com/observe/logging){: external} dashboard.
@@ -371,7 +371,7 @@ For more information, see [Datapath log forwarding with IBM Log Analysis](/docs/
 ## 19 November 2020
 {: #19-november-2020}
 
-### For all API version dates
+### For all version dates
 {: #19-november-2020-all-version-dates}
 
 **Support for ingress routing** is included as part of [routing tables](/apidocs/vpc#list-vpc-routing-tables), which were released on 30 October 2020. Use [ingress routing](/apidocs/vpc#create-vpc-routing-table) to control the policy for packets that are coming in to your VPC or one of its zones. The policy can vary, depending on the type of source and the destination IP address range.
@@ -395,7 +395,7 @@ For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-
 ## 30 October 2020
 {: #30-october-2020}
 
-### For all API version dates
+### For all version dates
 {: #30-october-2020-all-version-dates}
 
 - **Custom routing tables** are now supported in the VPC API. This feature controls where network traffic is directed on a per-subnet basis. Explore new API methods for [routing tables](/apidocs/vpc#list-vpc-routing-tables) and [routes](/apidocs/vpc#create-vpc-routing-table-route). This feature subsumes the [VPC routing API](/apidocs/vpc#list-all-routes-in-the-vpc-s-default-routing-table), which remains supported but is deprecated and might be removed in a future API release.
@@ -413,7 +413,7 @@ For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-
 ## 5 October 2020
 {: #2020-10-05}
 
-### For all API version dates
+### For all version dates
 {: #2020-10-05-all-version-dates}
 
 **Encrypted images.** Use the VPC API to create your own image, encrypt it with your own key, and import it, encrypted, into {{site.data.keyword.cloud_notm}}. After you import the image, use it like any other image. If you use the image to provision an instance, its boot volume is encrypted using the image's root encryption key or another root encryption key of your choosing.
@@ -423,7 +423,7 @@ Dive into the APIs to [import an encrypted image](/apidocs/vpc#create-image) and
 ## 31 August 2020
 {: #2020-08-31}
 
-### For all API version dates
+### For all version dates
 {: #2020-08-31-all-version-dates}
 
 **Network load balancers.** You can now use the [load balancers API](/apidocs/vpc#list-load-balancer-profiles) to distribute traffic among multiple server instances within the same region of your VPC. To learn how to create and manage a network load balancer, see [About IBM Cloud Network Load Balancer for VPC](/docs/vpc?topic=vpc-network-load-balancers).
@@ -434,7 +434,7 @@ The network load balancers API is shared between {{site.data.keyword.cloud_notm}
 ## 25 August 2020
 {: #2020-08-25}
 
-### For all API version dates
+### For all version dates
 {: #2020-08-25-all-version-dates}
 
 This API release supports the following changes:
@@ -467,7 +467,7 @@ The following new endpoints are now available for instances:
 ## 23 July 2020
 {: #2020-07-23}
 
-### For all API version dates
+### For all version dates
 {: #2020-07-23-all-version-dates}
 
 The [flow log collectors API](/apidocs/vpc#list-flow-log-collectors) is now generally available.
@@ -475,7 +475,7 @@ The [flow log collectors API](/apidocs/vpc#list-flow-log-collectors) is now gene
 ## 22 July 2020
 {: #2020-07-22}
 
-### For all API version dates
+### For all version dates
 {: #2020-07-22-all-version-dates}
 
 This API release supports the following enhancements for customer-managed encryption for block storage boot and data volumes:
@@ -486,7 +486,7 @@ This API release supports the following enhancements for customer-managed encryp
 ## 12 May 2020
 {: #2020-05-12}
 
-### For all API version dates
+### For all version dates
 {: #2020-05-12-all-version-dates}
 
 Configure load balancer pool resources and their health monitors to use the HTTPS protocol. This enhancement enables end-to-end SSL encryption with HTTPS listeners, along with HTTPS health checks for increased availability. See the [load balancers API](/apidocs/vpc#list-load-balancers).
@@ -494,7 +494,7 @@ Configure load balancer pool resources and their health monitors to use the HTTP
 ## 1 May 2020
 {: #2020-05-02}
 
-### For all API version dates
+### For all version dates
 {: #2020-05-02-all-version-dates}
 
 This API release supports the following changes:
@@ -505,7 +505,7 @@ This API release supports the following changes:
 ## 17 April 2020
 {: #2020-04-17}
 
-### For all API version dates
+### For all version dates
 {: #2020-04-17-all-version-dates}
 
 {{site.data.keyword.cloud_notm}} interprets volume capacity units in gibibytes, but the API documentation used gigabytes. This issue is now resolved in the documentation.
@@ -513,7 +513,7 @@ This API release supports the following changes:
 ## 10 April 2020
 {: #2020-04-10}
 
-### For all API version dates
+### For all version dates
 {: #2020-04-10-all-version-dates}
 
 Usage recommendations are provided for the following load balancer properties:
@@ -526,7 +526,7 @@ The guidance notes that new values for these properties might be added in the fu
 ## 6 February 2020
 {: #2020-02-06}
 
-### For all API version dates
+### For all version dates
 {: #2020-02-06-all-version-dates}
 
 Support is temporarily suspended for creating instances from an existing boot volume. This feature was available through the API only, with no CLI or UI support. In the interim, you must specify the `image` property when you call `POST /instances`.
@@ -537,7 +537,7 @@ You can still create instances that reference existing data volumes.
 ## 3 December 2019
 {: #2019-12-03}
 
-### For all API version dates
+### For all version dates
 {: #2019-12-03-all-version-dates}
 
 Device IDs are now shown when you retrieve an instance's volume attachments.
@@ -545,7 +545,7 @@ Device IDs are now shown when you retrieve an instance's volume attachments.
 ## 26 November 2019
 {: #2019-11-26}
 
-### For all API version dates
+### For all version dates
 {: #2019-11-26-all-version-dates}
 
 This API release supports the following changes:
@@ -556,7 +556,7 @@ This API release supports the following changes:
 ## 21 November 2019
 {: #2019-11-21}
 
-### For all API version dates
+### For all version dates
 {: #2019-11-21-all-version-dates}
 
 A VPC’s cloud service endpoint source IPs now appear in output. Learn about [cloud service endpoint source addresses](/docs/vpc?topic=vpc-vpc-behind-the-curtain#cse-source-addresses) and how [DNS resolves shared cloud service endpoints](/docs/vpc?topic=vpc-service-endpoints-for-vpc#dns-domain-name-system-resolver-endpoints).
@@ -564,7 +564,7 @@ A VPC’s cloud service endpoint source IPs now appear in output. Learn about [c
 ## 5 November 2019
 {: #2019-11-05}
 
-### For all API version dates
+### For all version dates
 {: #2019-11-05-all-version-dates}
 
 This API release supports the following changes:
