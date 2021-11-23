@@ -51,7 +51,7 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 ## 23 November 2021
 {: #23-november-2021}
 
-### For all API version dates
+### For all version dates
 {: #23-november-2021-all-version-dates}
 
 **Snapshots for VPC.** Restrictions have been removed for deleting snapshots. You can now [delete](/apidocs/vpc#delete-snapshot) any snapshot in the chain of snapshots.  If the snapshot is actively being used to restore a volume, the snapshot will remain in `deleting` until the restore completes. The `deletable` property, which indicated whether a snapshot could be deleted, has been deprecated. 
