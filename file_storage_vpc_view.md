@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-10-04"
+lastupdated: "2021-11-18"
 
 keywords: file storage, virtual private cloud, file share, mount target
 
@@ -30,23 +30,23 @@ subcollection: vpc
 # Viewing file shares and mount targets
 {: #file-storage-view}
 
-View all file shares and mount targets by using the UI, CLI, or API. Also, view details of a single file share or mount target.
+View all file shares and mount targets in the UI, CLI, or API. Also, view details of a single file share or mount target.
 {: shortdesc}
 
-File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, and London regions. Contact your IBM Sales representative if you are interested in getting access.
+File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Paris, and Sydney regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 Before you get started, to create mount targets for file shares, make sure that you created a [VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
 {: important}
 
-## View file shares and mount targets by using the UI
+## View file shares and mount targets in the UI
 {: #file-storage-view-shares-targets-ui}
 {: ui}
 
-### View all file shares by using the UI
+### View all file shares in the UI
 {: #fs-view-all-shares-ui}
 
-1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**.
+1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**.
 2. The File Shares for VPC list page shows all file shares that are created in that zone. Overflow menu options are used to manage the file shares. The following table describes the information and actions on the list page.
 
 | Field | Value |
@@ -58,14 +58,14 @@ Before you get started, to create mount targets for file shares, make sure that 
 | Zone | Zone in which the file share was created and resides (for example, _US South 2_). |
 | Mount targets | Number of mount targets that are associated with the file share. You can have one mount target per VPC per file share. |
 | Size | Size of the file share, in GBs. |
-| Encryption Type | Shows encryption type of the file share. |
+| Encryption Type | Shows encryption type of the file share, either provider-managed or customer-managed. [Customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption) uses your own root keys to protect your data. The UI also identifies the key management service (KMS), Key Protect or Hyper Protect. |
 | Overflow menu (ellipsis) | Options for managing the file share, depending on its state. For example, for a file share in a _stable_ state, you can Delete a file share. |
-{: caption="Table 1. File shares list page" caption-side="top"}
+{: caption="Table 1. File shares list page." caption-side="top"}
 
-### View details of a single file share by using the UI
+### View details of a single file share in the UI
 {: #fs-view-single-share-ui}
 
-1. Go to the list of all file shares. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**.
+1. Go to the list of all file shares. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**.
 
 1. Click the name of a file share to see the details page. The editable name and [status](/docs/vpc?topic=vpc-file-storage-managing#file-storage-vpc-status) of the file share is shown. The following table describes the information on files shares details page.
 
@@ -79,11 +79,14 @@ Before you get started, to create mount targets for file shares, make sure that 
 | Size | Size of the file share, in GBs. |
 | IOPS tier | [IOPS tier profile](/docs/vpc?topic=vpc-file-storage-profiles#fs-tiers) defining the file share performance (for example 3 IOPS/GB). |
 | Max IOPS | Maximum IOPS for the IOPS tier profile associated with the file share. |
-| Mount targets | Number of mount targets associated with the file share. You can have one mount target per VPC per file share.<br> You can create more mount targets for other VPCs.<br>Click the **Virtual private cloud** to go to the details page for that VPC, where you can see a [list of file shares](#fs-view-shares-vpc) that have a mount target to the VPC]. |
+| Encryption | Specifies provider managed or [customer managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption). |
+| Encryption instance | Link to the Key Protect or Hyper Protect instance. |
+| Key ID | Copyable customer root key ID. |
+| Mount targets | Number of mount targets associated with the file share. You can have one mount target per VPC per file share. \n You can create more mount targets for other VPCs. \n Click the **Virtual private cloud** to go to the details page for that VPC, where you can see a [list of file shares](#fs-view-shares-vpc) that have a mount target to the VPC]. |
 | Overflow menu (ellipsis) | Options for managing the file share, depending on its state. For example, for a file share in a _stable_ state, you can delete a file share. |
 {: caption="Table 2. File shares details page" caption-side="top"}
 
-### View all file shares for a VPC by using the UI
+### View all file shares for a VPC in the UI
 {: #fs-view-shares-vpc}
 
 You can see all file shares that have a mount target to a VPC by viewing the VPC details page.
@@ -91,48 +94,48 @@ You can see all file shares that have a mount target to a VPC by viewing the VPC
 1. Go to a VPC:
 
     1. From the [file shares details page](#fs-view-single-share-ui), click the VPC link in the list of mount targets.
-    2. From the UI, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > > Network > VPCs**. Click the name of a VPC in the list.
+    2. From the UI, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > > Network > VPCs**. Click the name of a VPC in the list.
 
 2. On the VPC details page, scroll to **File shares in this VPC**.
 
 
-## View file share and mount targets by using the CLI
+## View file share and mount targets from the CLI
 {: #file-storage-view-shares-targets-cli}
 {: cli}
 
-### View mount targets for a file share by using the CLI
+### View mount targets for a file share from the CLI
 {: #fs-view-targets-shares-cli}
 
 Run the `share-targets` command and specify the file share ID to see all mount targets for a file share.
 
-```
+```zsh
 ibmcloud is share-targets SHARE_ID [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
 
-### View all file shares by using the CLI
+### View all file shares from the CLI
 {: #fs-view-all-shares-cli}
 
 Run the `shares` command to list all file shares in a region.
 
-```
+```zsh
 ibmcloud is shares [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME | --all-resource-groups] [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
-## View file shares and mount targets by using the API
+## View file shares and mount targets with the API
 {: #file-storage-view-shares-targets-api}
 {: api}
 
-### View all file shares by using the API
+### View all file shares with the API
 {: #fs-view-all-shares-api}
 
 Use the `GET /shares` request list all file shares for a region. 
 
 ```curl
 curl -X GET \ 
-"$vpc_api_endpoint/v1/shares?version=2021-10-04&generation=2"\
+"$vpc_api_endpoint/v1/shares?version=2021-11-23&generation=2"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -147,7 +150,7 @@ A successful response looks like the following example:
   "limit": 50,
   "shares": [
     {
-      "created_at": "2021-10-07T13:02:17Z",
+      "created_at": "2021-11-23T13:02:17Z",
       "crn": "crn:[...]",
       "encryption": "provider_managed",
       "href": "$vpc_api_endpoint/v1/shares/51bba578-0dce-4f8a-aa6e-f06c899e2c8e",
@@ -193,7 +196,7 @@ A successful response looks like the following example:
 ```
 {: codeblock}
 
-### View a single file share by using the API
+### View a single file share with the API
 {: #fs-single-file-shares-api}
 
 Use the `GET /shares/{share_id}` request to get details about a single file share.
@@ -209,7 +212,7 @@ A successful response looks like the following example:
 
 ```json
 {
-  "created_at": "2021-10-07T23:31:59Z",
+  "created_at": "2021-11-23T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",
@@ -253,7 +256,7 @@ A successful response looks like the following example:
 ```
 {: pre}
 
-### List all mount targets of a file share by using the API
+### List all mount targets of a file share with the API
 {: #fs-list-targets-api}
 
 Use the `GET /shares/{share_id}/targets` request to list all mount targets of a file share.
@@ -262,7 +265,7 @@ Example:
 
 ```curl
 curl -X GET \ 
-"$vpc_api_endpoint/v1/shares/$share_id/targets?version=2021-10-04&generation=2"\
+"$vpc_api_endpoint/v1/shares/$share_id/targets?version=2021-11-23&generation=2"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -277,7 +280,7 @@ A successful response looks like the following example:
   "limit": 50,
   "targets": [
     {
-      "created_at": "2021-10-07T23:31:59Z",
+      "created_at": "2021-11-23T23:31:59Z",
       "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63/targets/d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
       "id": "d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
       "lifecycle_state": "stable",
@@ -298,7 +301,7 @@ A successful response looks like the following example:
 ```
 {: codeblock}
 
-### View a single mount target by using the API
+### View a single mount target with the API
 {: #fs-get-target-api}
 
 Use the `GET /shares/{share_id}/targets/{target_id}` request to information of a single mount target of a file share. This call includes mount path information. Use the mount path to attach a file share to an instance.
@@ -307,7 +310,7 @@ Example:
 
 ```curl
 curl -X GET \ 
-"$vpc_api_endpoint/v1/shares/$share_id/targets/$target_id?version=2021-10-04&generation=2"\
+"$vpc_api_endpoint/v1/shares/$share_id/targets/$target_id?version=2021-11-23&generation=2"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -316,7 +319,7 @@ A successful response looks like the following example:
 
 ```json
 {
-  "created_at": "2021-10-07T23:31:59Z",
+  "created_at": "2021-11-23T23:31:59Z",
   "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63/targets/d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
   "id": "d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
   "lifecycle_state": "stable",
@@ -337,5 +340,5 @@ A successful response looks like the following example:
 ## Next steps
 {: #fs-view-next-steps}
 
-* [Create new file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create)
-* [Manage your file shares](/docs/vpc?topic=vpc-file-storage-managing)
+* [Create new file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create).
+* [Manage your file shares](/docs/vpc?topic=vpc-file-storage-managing).
