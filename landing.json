@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2021-10-22",
+    "lastupdated": "2021-11-23",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc", 
@@ -31,6 +31,11 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "16 November 2021",
+          "title": "New Very High Memory and Ultra High Memory instance profile family for dedicated host (LA)",
+          "description": "Very High Memory with instance storage and Ultra High Memory with instance storage profiles are now available for dedicated host. Very High Memory profiles offer a core to RAM ratio of 1 vCPU to 14 GiB of RAM. This family is hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts and is best for OLAP workloads and SAP-related services, such as SAP NetWeaver. Very High Memory profiles are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions. Ultra High Memory profiles offer a core to RAM ratio of 1 vCPU to 28 GiB of RAM. This family is hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts and are optimized for running memory intensive applications and in-memory database such as SAP HANA, Memcached, or Redis. Ultra High Memory profiles are available in the US South (Dallas) and EU Germany (Frankfurt) regions."
+        },
+        {
           "date": "12 November 2021",
           "title": "Fedora Core OS",
           "description": "Fedora Core OS is now available in all regions as a stock image. The user login ‘root’ is disabled by default in Fedora Core OS. The user login ‘core’ can be used to log in to Fedora Core OS instances."
@@ -39,11 +44,6 @@
           "date": "02 November 2021",
           "title": "Instance Metadata Service for VPC (LA)",
           "description": "The metadata service is now available in all regions to customer accounts authorized to access this service. This service is enabled by default when you create new instances using the UI, CLI, or API. You can also disable the service from these interfaces. The metadata service also provides a new API call to generate an IAM token from the instance identity access token using trusted profile information."
-        },
-          {
-          "date": "02 November 2021",
-          "title": "Snapshots for VPC (GA)",
-          "description": "You can now delete any or all snapshots not actively restoring a volume. Snapshots can be anywhere in the snapshot chain and must be in a stable state."
         }
       ]
     }
