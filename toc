@@ -135,7 +135,7 @@ Virtual Private Cloud (VPC)
         managing-gpus.md
 
     {: .topicgroup}
-    Instance metadata service (Beta)
+    Instance metadata service
         instance_metadata_vpc_about.md
         instance_metadata_vpc_configure.md
         instance_metadata_vpc_get_metadata.md
@@ -394,9 +394,19 @@ Virtual Private Cloud (VPC)
         /vpc-infrastructure-cli-plugin/vpc-infrastructure-cli-plugin-vpc-cli-rn
 
     {: .topicgroup}
-    VPC API reference
-        [VPC API reference](https://{DomainName}/apidocs/vpc)
+    VPC API
+        [Reference](https://{DomainName}/apidocs/vpc)
         api-change-log.md
+
+    {: .topicgroup}
+    Beta VPC API
+        [Reference](https://{DomainName}/apidocs/vpc-beta)
+        [Change log](https://{DomainName}/apidocs/vpc-beta#api-change-log-beta)
+
+    {: .topicgroup}
+    Beta VPC instance metadata API
+        [Reference](https://{DomainName}/apidocs/vpc-metadata-beta)
+        [Change log](https://{DomainName}/apidocs/vpc-metadata-beta#api-instance-metadata-change-log)
 
     vpc-responsibilities.md
     vsi-understanding-cloud-maintenance.md

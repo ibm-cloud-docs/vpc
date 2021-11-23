@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-11-05"
+lastupdated: "2021-11-16"
 
 keywords: VPC release notes
 
@@ -36,13 +36,32 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 ## November 2021
 {: #subcollection-nov21}
 
+### 16 November 2021
+{: #subcollection-nov1621}
+{: release-note}
+
+**New Very High Memory and Ultra High Memory instance profile family for dedicated host (LA)** 
+:   Very High Memory with instance storage and Ultra High Memory with instance storage profiles are now available for dedicated host. 
+
+:   Very High Memory profiles offer a core to RAM ratio of 1 vCPU to 14 GiB of RAM. This family is hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts and is best for OLAP workloads and SAP-related services, such as SAP NetWeaver. Very High Memory profiles are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions. For more information, see [Very High Memory with instance storage profiles](/docs/vpc?topic=vpc-dh-profiles#vhm-is-dh-pr).
+
+:   Ultra High Memory profiles offer a core to RAM ratio of 1 vCPU to 28 GiB of RAM. This family is hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts and are optimized for running memory intensive applications and in-memory database such as SAP HANA, Memcached, or Redis. Ultra High Memory profiles are available in the US South (Dallas) and EU Germany (Frankfurt) regions. For more information, see [Ultra HIgh Memory with instance storage profiles](/docs/vpc?topic=vpc-dh-profiles#uhm-is-dh-pr). 
+
+### 12 November 2021
+{: #subcollection-nov1221}
+{: release-note}
+
+**Fedora Core OS**
+:   Fedora Core OS is now available in all regions as a stock image. The user login ‘root’ is disabled by default in Fedora Core OS. The user login ‘core’ can be used to log in to Fedora Core OS instances. For more information, see [Virtual server images](docs/vpc?topic=vpc-about-images#x86-supported-os) and [User data examples for Fedora Core OS](/docs/vpc?topic=vpc-user-data#user-data-examples-for-fed-core).
+
 ### 02 November 2021
 {: #subcollection-nov0221}
 {: release-note}
 
-**Instance Metadata Service for VPC (LA)**. The metadata service is now available in all regions to customer accounts authorized to access this service. This service is enabled by default when you create new instances using the UI, CLI, or API. You can also disable the service from these interfaces. For more information, see [Enable or disable the metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-metadata-service-enable).
+**Instance Metadata Service for VPC (LA)**. 
+:   The metadata service is now available in all regions to customer accounts authorized to access this service. This service is enabled by default when you create new instances using the UI, CLI, or API. You can also disable the service from these interfaces. For more information, see [Enable or disable the metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-metadata-service-enable).
 
-The metadata service also provides a new API call to generate an IAM token from the instance identity access token using trusted profile information. For more information, see [Generate an IAM token from an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-token-exchange).
+:   The metadata service also provides a new API call to generate an IAM token from the instance identity access token using trusted profile information. For more information, see [Generate an IAM token from an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-token-exchange).
 
 ## October 2021
 {: #subcollection-oct21}

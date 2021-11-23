@@ -30,6 +30,11 @@
     "section_updates": {
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
+        {
+          "date": "12 November 2021",
+          "title": "Fedora Core OS",
+          "description": "Fedora Core OS is now available in all regions as a stock image. The user login ‘root’ is disabled by default in Fedora Core OS. The user login ‘core’ can be used to log in to Fedora Core OS instances."
+        },
           {
           "date": "02 November 2021",
           "title": "Instance Metadata Service for VPC (LA)",
@@ -39,11 +44,6 @@
           "date": "02 November 2021",
           "title": "Snapshots for VPC (GA)",
           "description": "You can now delete any or all snapshots not actively restoring a volume. Snapshots can be anywhere in the snapshot chain and must be in a stable state."
-        },
-        {
-          "date": "21 October 2021",
-          "title": "UI Updates",
-          "description": "When you create a virtual server instance by using the UI, the image selection on the UI was updated. The image selection is changed from a tile selection to a drop-down menu. For both custom and catalog images, there is now a side panel that enables you to filter, sort, and search for images."
         }
       ]
     }

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-8-26"
+lastupdated: "2021-11-17"
 
 keywords:
 
@@ -25,14 +25,14 @@ subcollection: vpc
 # About client-to-site VPN servers (Beta)
 {: #vpn-client-to-site-overview}
 
-Client VPN for VPC is available to all IBM Cloud users. After the Beta period ends, you will be given a time period to migrate your VPN servers to the standard pricing plan to avoid disruption of service.
+Client VPN for VPC is available to all IBM Cloud users. After the Beta period ends, you are given a time period to migrate your VPN servers to the standard pricing plan to avoid disruption of service.
 {: beta}
 
 Until now, the IBM Cloud VPN for VPC service supported only site-to-site connectivity, which connects your on-premises network to the IBM Cloud VPC network. This beta release adds client-to-site connectivity, which allows clients from the internet, such as a laptop, to connect to the VPC network while still maintaining secure connectivity. This solution is useful for telecommuters who want to connect to the IBM Cloud from a remote location, such as a home office.
 
 Highlights include:
 
-* TLS1.2/1.3-based secure/encrypted connectivity over the internet
+* TLS 1.2/1.3-based secure/encrypted connectivity over the internet
 * Supports both stand-alone (pilot) and high availability (production) deployments
 * Privately interconnect Classic IaaS and VPCs on IBM Public Cloud
 * Availability in all [MZRs world wide](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region)
@@ -82,9 +82,12 @@ When the administrator enforces the VPN server in full-tunnel mode, all traffic 
 ### Use case 3: Integrating with a transit gateway
 {: #integrate-transit-vpn-gateway}
 
-Generally, it is recommended to provision VPC resources in multiple regions for redundancy. To access the resources in all regions from personal devices, one approach is to create one client-to-site VPN server per VPC, per region, and establish the VPN connection to all VPN servers. You must also maintain multiple VPN servers with this approach. This might be an inconvenience, but it is a more secure method. Another approach is to use a transit gateway to connect all these VPCs; as a result, only one VPN server is required to access the VPCs.
+Generally, it is recommended to provision VPC resources in multiple regions for redundancy. To access the resources in all regions from personal devices, one approach is to create one client-to-site VPN server per VPC, per region, and establish the VPN connection to all VPN servers. You must also maintain multiple VPN servers with this approach. This might be an inconvenience, but it is a more secure method. Another approach is to use a transit gateway to connect all these VPCs. As a result, only one VPN server is required to access the VPCs.
 
 ![Network topology: Integrating with a transit gateway](images/vpn-server-use-case-tgw-integration.png "Integrating with a transit gateway"){: caption="Figure 4. Network topology: Integrating with a transit gateway" caption-side="bottom"}
+
+When you integrate the client-to-site VPN server with the transit gateway, you must add one or more VPN routes with the destination set to the CIDR of the subnet in other VPCs or classic networks, and set the route action to `translate`. For more information, see [Managing VPN routes](/docs/vpc?topic=vpc-vpn-client-to-site-routes).
+{: note}
 
 ### Use case 4: Integrating with a site-to-site VPN gateway
 {: #integrating-with-site-to-site-vpn-gateway}
@@ -92,6 +95,7 @@ Generally, it is recommended to provision VPC resources in multiple regions for 
 Integrate with a site-to-site VPN gateway if you want to access your on-premises private network at the same time as when you connect to IBM VPCs. This use case removes the requirement to maintain multiple VPN servers simultaneously. You can access your on-premises private network from a client-to-site VPN server directly.  
 
 ![Network topology: Integrating with a site-to-site VPN gateway](images/vpn-server-use-case-vpn-gateway.png "Integrating with a site-to-site VPN gateway"){: caption="Figure 5. Network topology: Integrating with a site-to-site VPN gateway" caption-side="bottom"}
+
 
 ## Related links
 

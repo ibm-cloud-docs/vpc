@@ -10,19 +10,7 @@ subcollection: vpc
 
 ---
 
-<!-- Common attributes used in the template are defined as follows: -->
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:note: .note}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # API application migration considerations
 {: #api-integration-migration}

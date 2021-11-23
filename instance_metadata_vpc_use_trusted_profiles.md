@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-11-02"
+lastupdated: "2021-11-11"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -68,10 +68,10 @@ Table 1 describes the steps involved.
 |------|---------|----------------|-------------|
 | 1    | IBM Cloud | IAM | Create an [IAM trusted profile for compute resources](/docs/account?topic=account-trustedprofile-compute-tutorial). |
 | 2    | IBM Cloud | IAM | Assign access rights to the IAM trusted profile. |
-| 3    | IBM Cloud | VPC UI, CLI, API | Make a call to create a new instance, configured with the [metadata service](/docs/vpc?topic=vpc-imd-configure-service) enabled. Specify any user data. Alternatively, [enable an existing instance to use the metadata service](/docs/vpc?topic=vpc-imd-configure-service#imd-metadata-service-enable). |
+| 3    | IBM Cloud | VPC API | Make a call to create a new instance, configured with the [metadata service](/docs/vpc?topic=vpc-imd-configure-service) enabled. Specify any user data. Alternatively, [enable an existing instance to use the metadata service](/docs/vpc?topic=vpc-imd-configure-service#imd-metadata-service-enable). |
 | 4    | IBM Cloud | IAM | Make a call to [link the instance to the trusted profile](/apidocs/iam-identity-token-api#create-link). |
-| 5    | VPC instance | VPC | Make a call to the metadata token service and get an [instance identity access token](/docs/vpc?topic=vpc-imd-configure-service#imd-get-token). |
-| 6    | VPC instance | IAM |  Make a call to [generate an IAM token from the instance identity access token](/docs/vpc?topic=vpc-imd-configure-service#imd-token-exchange). The IAM token allows access to all IAM-enabled services. |
+| 5    | VPC instance | VPC API | Make a call to the metadata token service and get an [instance identity access token](/docs/vpc?topic=vpc-imd-configure-service#imd-get-token). |
+| 6    | VPC instance | IAM API |  Make a call to [generate an IAM token from the instance identity access token](/docs/vpc?topic=vpc-imd-configure-service#imd-token-exchange). The IAM token allows access to all IAM-enabled services. |
 | 7    | VPC instance | IAM-enabled service | Pass the IAM token to call an IAM-enabled service API. The required access rights to the service exist in the trusted profile. |
 {: caption="Table 1. Procedure for using a trusted profile" caption-side="top"}
 
