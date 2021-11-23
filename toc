@@ -360,6 +360,7 @@ Virtual Private Cloud (VPC)
         vsi-vpc-planning-encryption.md
         vsi_vpc_instance_byok_encryption.md
         block_storage_vpc_byok_encryption.md
+        file_storage_vpc_byok_encryption.md
         block_storage_vpc_key_rotation.md
         vsi-vpc-manage-encryption.md
 
