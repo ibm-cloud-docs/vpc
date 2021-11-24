@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-10-27"
+lastupdated: "2021-11-24"
 
 keywords: bare metal server connect esxi, connect to esxi, connect to esxi, bare metal connect esxi, bare metal esxi
 
@@ -51,7 +51,7 @@ The password is automatically generated and encrypted by using the first SSH key
    For the beta release, you must enable the CLI by running: `export IBMCLOUD_IS_FEATURE_BARE_METAL_SERVER=true`. Make sure that you set up your [CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
    {: important}
 
-   ```
+   ```sh
    ibmcloud is bare-metal-server-initialization-values $bare_metal_server_id
    ```
    {: pre}
@@ -60,7 +60,7 @@ The password is automatically generated and encrypted by using the first SSH key
 
 4. After you have the SSH key, run the following command to obtain your password: 
 
-   ```
+   ```sh
    ibmcloud is bare-metal-server-initialization-values $bare_metal_server_id [--private-key (KEY | @KEY_FILE)] 
    ```
    {: pre}
@@ -95,7 +95,7 @@ You can use the UI, [CLI](#connect-to-vnc-console-cli), or [API](#connect-to-vnc
 
 1. Run the following command to connect to a console:
 
-   ```
+   ```sh
    ibmcloud is bare-metal-server-console $bare_metal_server_id --vnc
    ```
    {: pre}
@@ -120,7 +120,7 @@ You can use the UI, [CLI](#connect-to-vnc-console-cli), or [API](#connect-to-vnc
 
 1. Run the following API call to connect the VNC console:
       
-   ```
+   ```sh
    curl -X POST \
    "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/console_access_token?version=2020-05-26&generation=2" \
    -H "Authorization: $token" \
@@ -224,7 +224,7 @@ Use the [List the network interfaces](/docs/vpc?topic=vpc-infrastructure-cli-plu
 
 After you collect all the required information, use the following command to attach the floating IP to the bare metal server: 
 
-```
+```sh
 ibmcloud is bare-metal-server-network-interface-floating-ip-add $bare_metal_server_id $network_interface_id $floating_ip_id 
 ```
 {: pre}
@@ -243,7 +243,7 @@ Use the [List all network interfaces](/apidocs/vpc#list-bare-metal-server-netw
 
 After you collect all the required information, use the following API request to attach the floating IP to the bare metal server:
 
-```
+```sh
 curl -X PUT "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/network_interfaces/$network_interface_id/floating_ips/$floating_ip_id?version=2021-03-09&generation=2" \ 
 -H "Authorization: $iam_token"
 ```
