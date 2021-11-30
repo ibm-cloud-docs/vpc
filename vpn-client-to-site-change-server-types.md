@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-11-22"
+lastupdated: "2021-11-30"
 
 keywords: upgrading VPN, VPN server types
 
