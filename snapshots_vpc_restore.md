@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-10-26"
+lastupdated: "2021-11-30"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 subcollection: vpc
@@ -47,62 +47,59 @@ You can't simultaneously restore a boot and data volume.
 
 When you select a snapshot as the source for the volume, the service immediately creates the new volume. The volume appears as _pending_ while it's being created. After the volume is hydrated (that is, fully provisioned), it contains all the data and metadata of the original volume. It retains the same capacity and IOPS performance. You can then use the boot volume to start a new instance or write data to the new attached data volume.
 
-## Restore a volume from a snapshot using the UI
+## Restore a volume from a snapshot in the UI
 {: #snapshots-vpc-restore-UI}
 {: ui}
 
-### Create a volume from a snapshot when you provision a new instance using the UI
+### Create a volume from a snapshot when you provision a new instance in the UI
 {: #snapshots-vpc-restore-vol-UI}
 
 Follow these steps to create a boot and data volume from snapshots when you provision a new virtual server instance.
 
-1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**. 
+1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**. 
 
-   Be sure to select VPC infrastructure from the Menu icon.   
-   {: tip}
+2. Click **Create** and provision your new instance with the information from the table in [Creating virtual server instances in the UI](/docs/vpc?topic=vpc-creating-virtual-servers). 
 
-1. Click **Create** and provision your new instance with the information from the table in [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers). 
+3. For the operating system, click the tab for **Snaphots**. The most recent bootable snapshot is listed. 
 
-1. For the operating system, click the tab for **Snaphots**. The most recent bootable snapshot is listed. 
+4. Optionally, to select a different bootable snapshot and create a boot volume, click **Change**.
 
-1. Optionally, to select a different bootable snapshot and create a boot volume, click **Change**.
-
-1. From the list of snapshots, select a bootable snapshot for your instance's operating system and click **Save**.
+5. From the list of snapshots, select a bootable snapshot for your instance's operating system and click **Save**.
 
     This action imports snapshot data to the boot volume. The new boot volume is created from the snapshot and is listed under Boot Volume on the instance provisioning page. 
 
-1. To create a data volume, under Data Volumes, click **Create**. A side panel displays for creating a new data volume.
+6. To create a data volume, under Data Volumes, click **Create**. A side panel displays for creating a new data volume.
 
-1. Select **Import from snapshot**. Expand the list to select a data snapshot. The most recent data snapshot is selected by default. Optionally, select a different snapshot from the list. The snapshot contains the properties of the original source volume, including the IOPS tier and encryption. 
+7. Select **Import from snapshot**. Expand the list to select a data snapshot. The most recent data snapshot is selected by default. Optionally, select a different snapshot from the list. The snapshot contains the properties of the original source volume, including the IOPS tier and encryption. 
 
-1. Optionally, change the size of the volume.
+8. Optionally, change the size of the volume.
 
-1. Click **Save**. The new data volume is created from the snapshot and attached to the instance, shown in the Data volume list. 
+9. Click **Save**. The new data volume is created from the snapshot and attached to the instance, shown in the Data volume list. 
 
-1. Optionally, to see the API POST request for restoring the volume, click **Get sample API call**. Information displays for the call, similar to the example in [this section](#snapshots-vpc-restore-API).
+10. Optionally, to see the API POST request for restoring the volume, click **Get sample API call**. Information displays for the call, similar to the example in [this section](#snapshots-vpc-restore-API).
 
-1. When you're finished provisioning your new instance, click **Create virtual server instance**. The new instance appears in the list of virtual server instances.
+11. When you're finished provisioning your new instance, click **Create virtual server instance**. The new instance appears in the list of virtual server instances.
 
 After the instance is created, you can click on the instance name to see the instance details. The boot volume you restored from a snapshot is listed under **Storage volumes**. The camera icon indicates the volume was created from a snapshot.
 
-### Create a data volume from a snapshot for an existing virtual server instance using the UI
+### Create a data volume from a snapshot for an existing virtual server instance in the UI
 {: #snapshots-vpc-create-from-vol-ui}
 
 You can also create a data volume from a snapshot for an existing instance. Choose from the list of virtual server instances.
 
 1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**. 
 
-1. From the list, click on the name of an instance. The instance must be in a _Running_ state.
+2. From the list, click on the name of an instance. The instance must be in a _Running_ state.
 
-1. On the Instance details page, scroll to the list of Storage volumes and click **Attach volumes**. A side panel opens for you to define the volume attachment.
+3. On the Instance details page, scroll to the list of Storage volumes and click **Attach volumes**. A side panel opens for you to define the volume attachment.
 
-1. From the Attach data volume panel, expand the list of Block volumes and select **Create a data volume**.
+4. From the Attach data volume panel, expand the list of Block volumes and select **Create a data volume**.
 
-1. Select **Import from snapshot**. Expand the Snapshot list and select a snapshot.
+5. Select **Import from snapshot**. Expand the Snapshot list and select a snapshot.
 
-1. Optionally, increase the size of the volume within the specified range.
+6. Optionally, increase the size of the volume within the specified range.
 
-1. Click **Save**. The side panel closes and messages indicate that the restored volume is being attached to the instance. 
+7. Click **Save**. The side panel closes and messages indicate that the restored volume is being attached to the instance. 
 
 The new volume appears in the list of Storage volumes. Hover over the camera icon to see the name of the snapshot from which it was created. 
 
@@ -173,7 +170,7 @@ Zone             us-south-1
 Resource group   ID                                         Name
                  cdc21b72d4f557b195de988b175e3d81           Default
 
-Created          2021-10-27T17:03:30+08:00
+Created          2021-11-27T17:03:30+08:00
 Boot volume      ID                                   Name                  Attachment ID                            Attachment name
                  0651dacb-4589-4147-86b3-a77544598f93 boot-from-snapshot1                  7101-abf9dd2b-9d5d-41f1-849d-55a8ab580ddb                            boot-from-snapshot1
 
@@ -229,7 +226,7 @@ For example:
 
 ```
 curl -X POST \
-"$vpc_api_endpoint/v1/instances?version=2021-10-21&generation=2" \
+"$vpc_api_endpoint/v1/instances?version=2021-11-22&generation=2" \
 -H "Authorization: $iam_token" \
 -H "Content-Type: application/json" \
 -d '{
@@ -273,7 +270,7 @@ To restore a data volume from a snapshot and attach it at boot time, specify the
 
 ```
 curl -X POST \
-"$vpc_api_endpoint/v1/instances?version=2021-10-21&generation=2" \
+"$vpc_api_endpoint/v1/instances?version=2021-11-22&generation=2" \
 -H "Authorization: $iam_token" \
 -H "Content-Type: application/json" \
 -d '{
