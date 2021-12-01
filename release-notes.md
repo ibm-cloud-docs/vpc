@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-11-16"
+lastupdated: "2021-11-30"
 
 keywords: VPC release notes
 
@@ -35,6 +35,13 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 
 ## November 2021
 {: #subcollection-nov21}
+
+### 30 November 2021
+{: #subcollection-nov3021}
+{: release-note}
+
+**VPN client-to-site servers update (open beta)** 
+:   You can now update a VPN server after the VPN is provisioned. For example, you can upgrade a stand-alone VPN server (one subnet) to a High Availability (HA) VPN server (two subnets in different zones). You can also detach a subnet to downgrade an HA VPN server to a stand-alone deployment, or change an attached subnet after your VPN server is provisioned. For more information, see [Upgrading to an HA VPN server](/docs/vpc?topic=vpc-vpn-client-to-site-change-server-types). 
 
 ### 16 November 2021
 {: #subcollection-nov1621}
