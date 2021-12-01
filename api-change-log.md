@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-11-23"
+lastupdated: "2021-11-30"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -40,6 +40,8 @@ SDK changes are based on API changes. For information about the latest changes t
 
 ### For all version dates
 {: #upcoming-changes-all-version-dates}
+
+**Security groups for endpoint gateways.** In an upcoming release, new endpoint gateways will require at least one security group. If you omit specifying a security group during endpoint gateway creation, the default security group for the VPC will be used for the endpoint gateway. If you plan to use default security groups for new endpoint gateways, review your default security group rules. If necessary, edit the rules to accommodate your endpoint gateway traffic.
 
 **Asynchronous `DELETE` response code change.** In an upcoming release, the response code output for asynchronous `DELETE` operations will change from `204` to `202`. A response code of `204` implies the action is completed, which could be misleading for operations that are still processing. A response code of `202` is more appropriate. This behavior change will occur only for an API version date after its release. A response code of `204` will continue to be returned for API versions up to this version date.
 
