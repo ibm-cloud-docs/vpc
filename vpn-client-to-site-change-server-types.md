@@ -88,7 +88,7 @@ Where:
    Separate the two subnet IDs or names with a comma.
    {: note}   
    
-- Change the subnet of a VPN server, or downgrade from two subnets (HA VPN server) to one subnet (stand-alone VPN server). The specified subnet (for example, `0716-6ec3e875-abfa-40f4-a7c5-7473f4b2a2e1') replaces any existing subnets.
+- Change the subnet of a VPN server, or downgrade from two subnets (HA VPN server) to one subnet (stand-alone VPN server). The specified subnet (for example, `0716-6ec3e875-abfa-40f4-a7c5-7473f4b2a2e1`) replaces any existing subnets.
 
    `ibmcloud is vpn-server-update r134-aa88726e-8b34-4f97-992d-027df9c4bb36 --subnet 0716-6ec3e875-abfa-40f4-a7c5-7473f4b2a2e1`
 
