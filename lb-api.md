@@ -10,21 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:note: .note}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:external: target="_blank" .external}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}} API example
 {: #lbaas-apis-available-alb}
@@ -32,7 +18,7 @@ subcollection: vpc
 
 To make API calls, you must use a REST client. For example, you can use a `curl` command to retrieve all existing load balancers:
 
-```
+```sh
 curl -X GET "$vpc_api_endpoint/v1/load_balancers?version=$api_version&generation=2" -H "Authorization: $iam_token"
 ```
 
@@ -116,7 +102,7 @@ curl -H "Authorization: $iam_token" -X POST
 
 Sample output:
 
-```
+```sh
 {
     "created_at": "2018-07-12T23:17:07.5985381Z",
     "crn": "crn:v1:staging:public:is:us-south:a/123456::load-balancer:dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
@@ -161,7 +147,7 @@ Sample output:
 
 Save the ID of the load balancer to use in the next steps. For example, save it in the variable `lbid`.
 
-```
+```sh
 lbid=0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727
 ```
 You can deploy load balancer appliances to multiple subnets. To achieve higher availability and redundancy, deploy the load balancer to subnets in different zones.

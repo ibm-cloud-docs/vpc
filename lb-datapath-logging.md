@@ -10,18 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:note: .note}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # Datapath log forwarding
 {: #datapath-logging}
@@ -33,7 +22,7 @@ To enable or disable the datapath logging feature, you can:
 
 * Create a load balancer and enable or disable the toggle button.
 
-   ![Datapath Logging](images/lb-datapath-logging.png "Datapath Logging")
+   ![Datapath Logging](images/lb-datapath-logging.png "Datapath Logging"){: caption="Figure 1. Datapath logging" caption-side="bottom}
 
 * Use the CLI to set the `--logging-datapath-active` property to `true` for existing load balancers.
 
@@ -53,17 +42,17 @@ To create a {{site.data.keyword.la_short}} instance, follow these steps:
 
 2. Choose the region from the menu list that corresponds to the data center where you provisioned the load balancer. For example, for a load balancer in SYD01, choose the region of Sydney.
 
-The following table shows the mapping between regions and data centers:
+   The following table shows the mapping between regions and data centers:
 
-| Region | Data center |
-| ------ | ----------- |
-| Sydney | SYD01, SYD05, SYD04, MEL01 |
-| Tokyo | CHE01, HKG02, SNG01, TOK02, TOK04, TOK05, SEO01, OSA02 |
-| Frankfurt | AMS01, AMS03, FRA02, FRA04, FRA05, MIL01, PAR01 |
-| London | LON01, LON02, LON04, LON05, LON06, OSL01 |
-| Dallas | DAL00, DAL01, DAL02, DAL05, DAL06, DAL07, DAL08, DAL09, DAL10, DAL12, DAL13, HOU01, HOU02, MEX01, SJC01, SJC03, SJC04, SEA01, SAO01 |
-| Washington DC | MON01, TOR01, WDC01, WDC04, WDC06, WDC07 |
-{: caption="Table 1. Mapping between region and datacenter" caption-side="top"}
+   | Region | Data center |
+   | ------ | ----------- |
+   | Sydney | SYD01, SYD05, SYD04, MEL01 |
+   | Tokyo | CHE01, HKG02, SNG01, TOK02, TOK04, TOK05, SEO01, OSA02 |
+   | Frankfurt | AMS01, AMS03, FRA02, FRA04, FRA05, MIL01, PAR01 |
+   | London | LON01, LON02, LON04, LON05, LON06, OSL01 |
+   | Dallas | DAL00, DAL01, DAL02, DAL05, DAL06, DAL07, DAL08, DAL09, DAL10, DAL12, DAL13, HOU01, HOU02, MEX01, SJC01, SJC03, SJC04, SEA01, SAO01 |
+   | Washington DC | MON01, TOR01, WDC01, WDC04, WDC06, WDC07 |
+   {: caption="Table 1. Mapping between region and datacenter" caption-side="bottom"}
 
 After you choose your region, click **Create** to create the logging instance, then configure it by clicking **Configure the platform service logs**.
 
@@ -72,7 +61,7 @@ After you choose your region, click **Create** to create the logging instance, t
 
 The following output is an example of {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}} datapath logging:
 
-```
+```sh
 Sep 28 11:25:04 is-load-balancer crn:v1:bluemix:public:is:us-south:a/8c8a02225526799f56330a6701d939eb::load-balancer:r134-6ba32c0e-830c-483c-871a-0240c10662cf
 {"PRIORITY":"info", "MSG_timestamp":"2020-09-28T03:25:03.136101+00:00", "SentByHost":"150.238.66.162", "MESSAGE":" Connect from 222.72.143.92:38605 to 10.240.128.5:62776 (r134-6ba32c0e-830c-483c-871a-0240c10662cf/HTTP)", "logSourceCRN":"crn:v1:bluemix:public:is:us-south:a/8c8a02225526799f56330a6701d939eb::load-balancer:r134-6ba32c0e-830c-483c-871a-0240c10662cf", "saveServiceCopy":false}
 ```
@@ -92,6 +81,7 @@ The datapath log is a JSON string, containing the following fields:
 | MESSAGE | string | Description about the log file. |
 | logSourceCRN | string | Where the log file is saved in the {{site.data.keyword.la_short}} instance of the account indicated in the CRN. |
 | saveServiceCopy | bool | Indicates whether to save a log in the {{site.data.keyword.la_short}} STS; the default value is `false`. |
+{: caption="Table 1. Datapath log fields" caption-side="bottom}
 
 The following is an example of the JSON schema of a datapath log:
 

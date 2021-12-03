@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-08-03"
+lastupdated: "2021-12-01"
 
 keywords: listener, pool, round-robin, weighted, layer 7, datapath logging
 
@@ -10,18 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:note: .note}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # About {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}}
 {: #load-balancers}
@@ -31,8 +20,7 @@ Use {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) to distribu
 
 The following diagram illustrates the deployment architecture for the ALB.
 
-![Application load balancer for VPC](images/alb_arc.png "Application load balancer")
-{: caption="Application load balancer" caption-side="top"}
+![Application load balancer for VPC](images/alb_arc.png "Application load balancer"){: caption="Application load balancer" caption-side="bottom"}
 
 ## Types of application load balancers
 {: #types-load-balancer}
@@ -44,7 +32,7 @@ You can create a public or private ALB. Table 1 shows a comparison of public ver
 | Accessible on internet? |  Yes, with a fully qualified domain name (FQDN) | No, internal clients only, on same region and VPC |
 | Accepts all traffic? | Yes | Yes  \n (The restriction to accept traffic only from the RFC-1918 address space has been removed) |
 | How is domain name registered? | Public IP addresses | Private IP addresses |
-{: caption="Table 1. Comparison of public and private load balancers" caption-side="top"}
+{: caption="Table 1. Comparison of public and private load balancers" caption-side="bottom"}
 
 ### Public application load balancer
 {: #public-load-balancer}
@@ -117,7 +105,7 @@ Property  | Description
 Listener | The HTTPS listener to which a request redirects. 
 HTTP status code | Status code of the response returned by the application load balancer. The acceptable values are: `301`, `302`, `303`, `307`, or `308`.
 URI | The relative URI to which a request redirects. This is an optional property.
-{: caption="Table 2. HTTPS redirect listener properties" caption-side="top"}
+{: caption="Table 2. HTTPS redirect listener properties" caption-side="bottom"}
 
 ### Guidelines for using listeners
 {: #listener-guidelines}
@@ -148,7 +136,7 @@ When an HTTPS listener is configured with an HTTP pool, the HTTPS request is ter
 
 SSL offloading requires you to provide an SSL certificate for the application load balancer to perform SSL offloading tasks. You can manage the SSL certificates through the [IBM Certificate Manager](/docs/certificate-manager?topic=certificate-manager-getting-started).
 
-To give an application load balancer access to your SSL certificate, you must enable **service-to-service authorization**, which grants your load balancer service instance access to your certificate manager instance. For more information, see [Granting access between services](/docs/account?topic=account-serviceauth#create-auth). Make sure to choose **VPC Infrastructure Services** as the source service, then click the **Resource type** checkbox to expose the dropdown menu. Select **Load Balancer for VPC** as the resource type from the dropdown, then **Certificate Manager** as the target service, and assign the **Writer** service access role.
+{{site.data.content.load-balancer-grant-service-auth}} 
 
 The required authorization between the load balancer and certificate manager must be set to prevent errors in your load balancer.
 {: important}

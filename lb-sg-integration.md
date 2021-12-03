@@ -10,18 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:note: .note}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # Integrating an IBM Cloud Application Load Balancer for VPC with security groups
 {: #alb-integration-with-security-groups}
@@ -37,6 +26,7 @@ Security groups are a convenient way to secure your ALB instances. With a securi
 The following tables provide best practices for inbound and outbound traffic for both public and private application load balancers.
 
 ### Public Application Load Balancer
+{: #public-application-load-balancer}
 
 #### Inbound rules
 {: #lb-inbound-rules}
@@ -44,14 +34,14 @@ The following tables provide best practices for inbound and outbound traffic for
 | Protocol | Source Type | Source | Value |
 |-----------|------|------|-------|
 | TCP| IP Address | 0.0.0.0/0 | `Listener port` |
-{: caption="Table 1. Configuration information for inbound rules of public load balancers" caption-side="top"}
+{: caption="Table 1. Configuration information for inbound rules of public load balancers" caption-side="bottom"}
 
 In a typical use case, it is common to allow inbound traffic from all sources to the listener port on a public load balancer.
 
 | Protocol | Source Type | Source | Value |
 |-----------|------|------|-------|
 | TCP| IP Address | 209.173.53.167/20 | `Listener port` |
-{: caption="Table 2. Configuration information for inbound rules of public load balancers from a specific CIDR" caption-side="top"}
+{: caption="Table 2. Configuration information for inbound rules of public load balancers from a specific CIDR" caption-side="bottom"}
 
 However, if your requirements need to restrict inbound traffic, you may specify a source CIDR, such as `209.173.53.167/20`. This will allow all public IP addresses within the IP range to reach the public load balancer.
 
@@ -62,7 +52,7 @@ However, if your requirements need to restrict inbound traffic, you may specify 
 |-----------|------|------|-------|
 | TCP | Security group |  `Back-end target` | `Back-end target port` |
 | TCP | Security group |  `Back-end target` | `Health check port` |
-{: caption="Table 3. Configuration information for outbound rules of public load balancers" caption-side="top"}
+{: caption="Table 3. Configuration information for outbound rules of public load balancers" caption-side="bottom"}
 
 Ensure that your back-end targets are in a security group and configured as the destination in the outbound rules. Using a nested security group allows your ALB to allow only outbound traffic to the back-end target and health check ports.
 
@@ -70,6 +60,7 @@ You can configure the outbound rule to be more permissive than shown (for exampl
 {: note}
 
 ### Private Application Load Balancer
+{: #private-application-load-balancer}
 
 #### Inbound rules
 {: #lb-inbound-rules-private}
@@ -77,7 +68,7 @@ You can configure the outbound rule to be more permissive than shown (for exampl
 | Protocol | Source type | Source | Value |
 |-----------|------|------|-------|
 | TCP| IP address | `Subnet CIDR or VPC security group` | `Listener port` |
-{: caption="Table 4. Configuration information for inbound rules for private load balancers" caption-side="top"}
+{: caption="Table 4. Configuration information for inbound rules for private load balancers" caption-side="bottom"}
 
 It is typical to limit the inbound rules for a private load balancer to your own workload. Ensure that you specify the source from a specific subnet CIDR, or a security group that the source devices belong to. Using a specific CIDR, or nested security group, is preferred; however, individual IP addresses also work.
 
@@ -85,12 +76,13 @@ A nested security group is an option only when clients are in the same VPC. If t
 {: note}
 
 #### Outbound rules
+{: #outbound-rules}
 
 | Protocol | Destination type | Destination | Value |
 |-----------|------|------|-------|
 | TCP | Security group |  `Back-end target security group` | `Back-end target port` |
 | TCP | Security group |  `Back-end target security group` | `Health check port`(if different from the back-end target port) |
-{: caption="Table 5. Configuration information for outbound rules for private load balancers" caption-side="top"}
+{: caption="Table 5. Configuration information for outbound rules for private load balancers" caption-side="bottom"}
 
 Ensure that your back-end targets are in a security group and configured as the destination in the outbound rules. Using a nested security group enables your ALB to allow only outbound traffic to the back-end target and health check ports.
 
@@ -117,8 +109,7 @@ To create a security group using the UI:
    The security group must be created in the same VPC as the load balancer.
 1. Click **Add** to configure inbound and outbound rules that define what type of traffic is allowed to and from the security group. For each rule, complete the following information:
    * Specify a CIDR block or IP address for the permitted traffic. Alternatively, you can specify a security group in the same VPC to allow traffic to or from all sources that are attached to the selected security group.
-   * Select the protocols and ports to which the rule applies.
-   For best practices about network rules, see [Network traffic rules](/docs/vpc?topic=vpc-alb-integration-with-security-groups#alb-traffic).  
+   * Select the protocols and ports to which the rule applies. For best practices about network rules, see [Network traffic rules](/docs/vpc?topic=vpc-alb-integration-with-security-groups#alb-traffic).
 
    **Tips:**
    * All rules are evaluated, regardless of the order in which they're added.
@@ -129,13 +120,14 @@ To create a security group using the UI:
 1. Click **Create security group** after you finish creating rules.
 
 #### Security group example
+{: #security-group-example}
 
 For example, configure the following inbound rules, which allow all traffic on port 80 for an HTTP listener (TCP port 80).
 
 | Protocol | Source type | Source | Value |
 |-----------|------|------|-------|
 | TCP| Any | `0.0.0.0/0` | Port 80 |
-{: caption="Table 6. Example configuration information for inbound rules" caption-side="top"}
+{: caption="Table 6. Example configuration information for inbound rules" caption-side="bottom"}
 
 Then, configure outbound rules that allow TCP traffic to your back-end target:
 
@@ -143,7 +135,7 @@ Then, configure outbound rules that allow TCP traffic to your back-end target:
 |-----------|------|------|-------|
 | TCP| Any | `10.11.12.13/32` (Back-end target IP address) | 80 (Back-end target port) |
 | TCP| Any | `10.11.12.14/32` (Back-end target IP address) | 80 (Back-end target health check port) |
-{: caption="Table 7. Example configuration information for outbound rules" caption-side="top"}
+{: caption="Table 7. Example configuration information for outbound rules" caption-side="bottom"}
 
 ### Procedure: Attaching security groups during ALB creation
 {: #create-alb-with-security-groups}

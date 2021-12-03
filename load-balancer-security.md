@@ -9,11 +9,7 @@ subcollection: vpc
 
 ---
 
-{:external: target="_blank" .external}
-{:note: .note}
-{:term: .term}
-{:shortdesc: .shortdesc}
-{:table: .aria-labeledby="caption"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Managing security and compliance with load balancers for VPC
 {: #manage-security-compliance-lb}
@@ -52,11 +48,11 @@ As a security or compliance focal, you can use the {{site.data.keyword.complianc
 |---------------|----------|---------------|-------|-------------|
 | *instance* | *profile_family* | *string_equals* | *['application', 'network']* | *A list of strings that match load balancer profile family name from load balancer profile family. Ex: ['application', 'network']* |
 | *instance* | *load_balancer_type* | *string_equals* | *['private', 'public']* | *A list of strings that indicate what type of the load balancer can be provisioned. Ex: ['public', 'private']* |
-{: caption="Table 1. Rule properties for application and network load balancers*" caption-side="top"}
+{: caption="Table 1. Rule properties for application and network load balancers*" caption-side="bottom"}
 
 The following example is a rule configuration with only private access enabled:
 
-```
+```sh
 {
   target: {
     service_name: "is.load-balancer",
@@ -78,7 +74,7 @@ The following example is a rule configuration with only private access enabled:
 
 The following example is a rule configuration that prevents users from creating public type application load balancers:
 
-```
+```sh
 {
   target: {
     service_name: "is.load-balancer",

@@ -10,23 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:term: .term}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:generic: data-hd-programlang="generic"}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Updating an {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}}
 {: #alb-updating}
@@ -55,14 +39,14 @@ The **Active** button on the upper left of your screen now shows as **Updating**
 
 The following example shows how to use the CLI to update your ALB pool to use the algorithm `least_connections` and the port of the member:
 
-```
+```sh
 ibmcloud is load-balancer-pool-update r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 --algorithm least_connections
 ```
 {: pre}
 
 Sample output:
 
-```
+```sh
 Updating pool r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 of load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
 
 ID                         r134-3b66d605-6aa5-4166-9f66-b16054da3cb0   
@@ -82,14 +66,14 @@ Created                    2020-08-27T14:45:42.038-05:00
 ```
 {: screen}
 
-```
+```sh
 ibmcloud is load-balancer-pool-member-update r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 r134-61f8b000-a90d-4abe-909e-c507dffec565 --port 6060
 ```
 {: pre}
 
 Sample output:
 
-```
+```sh
 Updating member r134-61f8b000-a90d-4abe-909e-c507dffec565 of load balancer pool r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 under account IBM Cloud Network Services as user test@ibm.com...
 
 ID                 r134-61f8b000-a90d-4abe-909e-c507dffec565   
@@ -127,7 +111,8 @@ To update an application load balancer by using the API, perform the following p
    {: codeblock}
 
    Sample output:
-   ```
+
+   ```sh
    {
        "created_at": "2020-08-24T23:36:22.990359Z",
        "crn": "crn:v1:bluemix:public:is:eu-gb-3:a/be636a7a6e4d4b6296bedf669ce8f88::load-balancer:r018-808fedde-2650-46cc-9cd1-4b828b92970a",
@@ -211,7 +196,8 @@ To update an application load balancer by using the API, perform the following p
    {: codeblock}
 
    Sample output:
-   ```
+
+   ```sh
    {
        "created_at": "2020-08-24T23:36:23.723008Z",
        "default_pool": {
@@ -227,3 +213,4 @@ To update an application load balancer by using the API, perform the following p
    }
    ```
    {: screen}
+   

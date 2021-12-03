@@ -9,18 +9,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:note: .note}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # Advanced traffic management
 {: #advanced-traffic-management}
@@ -48,8 +37,8 @@ With this option, an ALB creates the affinity between a client and a back-end se
 
 With this option, an ALB creates the affinity between a client and a back-end server based on cookies. ALBs support two modes of cookie-based session persistence:
 
-   * HTTP cookie persistence
-   * Application-cookie persistence
+* HTTP cookie persistence
+* Application-cookie persistence
 
 For HTTP cookie persistence, a load balancer inserts a cookie with a predefined prefix, while application cookie persistence allows you to define your own cookie name. This feature supports only HTTP and HTTPS protocols.
 
@@ -95,7 +84,7 @@ The following timeout values are used by an ALB. Currently, you cannot customize
 | Server-side connection attempt    | The maximum time window that the load balancer can use to establish TCP connection with the back-end server. If the connection attempt is unsuccessful, the load balancer tries the next available server, according to the load-balancing method configured. | 5 seconds   |
 | Client-side idle connection  | The maximum idle time after which the load balancer brings down the client-side connection, if the client failed to close its connection properly.| 50 seconds  |
 | Server-side idle connection | The maximum idle time (with back-end protocol configuration of TCP) after which the load balancer closes the server-side connection. With the back-end protocol configuration of HTTP, if the load balancer fails to receive a response to its HTTP request within the idle timeout window, it returns an error message to the end client.                                | 50 seconds |
-{: caption="Table 1. Application load balancer timeout values" caption-side="top"}
+{: caption="Table 1. Application load balancer timeout values" caption-side="bottom"}
 
 ## Preserving end-client IP address (HTTP/HTTPS only)
 {: #preserving-end-client-ip-address}
@@ -122,7 +111,7 @@ Private load balancer enforcement applies for all regions when enabled.
 
 {{site.data.keyword.alb_full}} uses Application-Layer Protocol Negotiation (ALPN) to negotiate with clients connecting to HTTPS listeners, and supports both HTTP/1.1 and HTTP/2. If the client connecting to the ALB is using HTTP/2, then the ALB also uses HTTP/2 as its preferred protocol, and processes the request to the back-end pool. Otherwise, HTTP/1.1 is chosen by default.
 
-The HTTP/2 protocol is not yet supported for backend pools. However, HTTP and HTTPS protocols are supported.
+The HTTP/2 protocol is not yet supported for back-end pools. However, HTTP and HTTPS protocols are supported.
 {: note}
 
 ## Enabling proxy protocol
@@ -133,8 +122,7 @@ You can enable proxy protocol for TCP, HTTP, and HTTPS listeners and back-end po
 ### Use case 1: Client connects to load balancer directly
 {: #client-connects-directly-tcp}
 
-![Proxy Protocol Pool](images/VPC-LBaaS-Proxy-Protocol-Pool.png "Proxy Protocol Pool")
-{: caption="Proxy Protocol Pool" caption-side="top"}
+![Proxy Protocol Pool](images/VPC-LBaaS-Proxy-Protocol-Pool.png "Proxy Protocol Pool"){: caption="Proxy Protocol Pool" caption-side="bottom"}
 
 If the ALB is receiving traffic from a client directly, enabling the proxy protocol for the back-end pool of that listener configures the load balancer to attach the proxy protocol header to the TCP packets being sent to that back-end pool.
 
@@ -144,8 +132,7 @@ All back-end members of that pool must support proxy protocol for the data path 
 ### Use case 2: Client connects to a proxy or proxy chain, which then connects to the load balancer using proxy protocol
 {: #client-connects-proxy}
 
-![Proxy Protocol Listener](images/VPC-LBaaS-Proxy-Protocol-Listener.png "Proxy Protocol Listener")
-{: caption="Proxy Protocol Listener" caption-side="top"}
+![Proxy Protocol Listener](images/VPC-LBaaS-Proxy-Protocol-Listener.png "Proxy Protocol Listener"){: caption="Proxy Protocol Listener" caption-side="bottom"}
 
 If the {{site.data.keyword.alb_full}} is receiving traffic from a proxy (or a proxy chain) that uses proxy protocol, the listener must have proxy protocol that is enabled so that it can parse the origin client information that is contained in the proxy protocol headers. This setting is disabled by default, if not specified. Because the load balancer can detect the version of the proxy protocol header and parse it correctly, you don't have to specify which version of proxy protocol is being used to send traffic to the ALB.
 

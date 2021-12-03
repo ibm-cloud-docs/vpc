@@ -10,23 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:term: .term}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:generic: data-hd-programlang="generic"}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating an {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}}
 {: #load-balancer}
@@ -53,9 +37,9 @@ To create an ALB:
     * **Subnets**: Select the subnets in which to create your load balancer. To maximize the availability of your application, select subnets in different zones.
     * **Security groups**: Select the security groups that you want to attach to your load balancer.
 
-        Ensure that the security group allows for load balancing traffic (listener, backend, and health check ports). If you do not specify a security group, the default security group from your VPC attaches instead.
+        Ensure that the security group allows for load balancing traffic (listener, back-end, and health check ports). If you do not specify a security group, the default security group from your VPC attaches instead.
         {: note}
-        
+
 1. Click **New pool** and specify the following information to create a back-end pool. You can create one or more pools.
     * **Name**: Enter a name for the pool, such as `my-pool`.
     * **Protocol**: Select the protocol for your instances in this pool. The protocol of the pool must match the protocol of its associated listener. For example, if an HTTPS or HTTP protocol is selected for the listener, the protocol of the pool must be HTTP. Similarly, if the listener protocol is TCP, the protocol of the pool must be TCP.
@@ -146,21 +130,21 @@ To create an application load balancer by using the CLI, perform the following p
 
 1. Use the terminal to log in to your account using the CLI. After you enter the password, the system prompts which account and region you want to use:
 
-    ```
+    ```sh
     ibmcloud login --sso
     ```
     {: pre}
 
 1. Create a load balancer:
 
-    ```
+    ```sh
     ibmcloud is load-balancer-create alb-test public --subnet 0896-b1f24514-89dc-4afd-b0e2-5489a43cf45c --family application
     ```
     {: pre}
 
     Sample output:
 
-    ```
+    ```sh
     Creating load balancer nlb-test in resource group under account IBM Cloud Network Services as user test@ibm.com...
 
     ID                 r134-99b5ab45-6357-42db-8b32-5d2c8aa62776
@@ -188,14 +172,14 @@ To create an application load balancer by using the CLI, perform the following p
 
 1. Create a pool:
 
-    ```
+    ```sh
     ibmcloud is load-balancer-pool-create alb-pool r134-99b5ab45-6357-42db-8b32-5d2c8aa62776  weighted_round_robin tcp 10
     ```
     {: pre}
 
     Sample output:
 
-    ```
+    ```sh
     Creating pool nlb-pool of load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776  under account IBM Cloud Network Services as user test@ibm.com...
 
     ID                         r134-3b66d605-6aa5-4166-9f66-b16054da3cb0
@@ -217,13 +201,14 @@ To create an application load balancer by using the CLI, perform the following p
 
 1. Create a member:
 
-    ```
+    ```sh
     ibmcloud is load-balancer-pool-member-create r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 9090 0716_6acdd058-4607-4463-af08-d4999d983945 --weight 70
     ```
     {: pre}
 
     Sample output:
-    ```
+    
+    ```sh
     Creating member of pool r134-3b66d605-6aa5-4166-9f66-b16054da3cb0 under account IBM Cloud Network Services as user test@ibm.com...
 
     ID                 r134-61f8b000-a90d-4abe-909e-c507dffec565
@@ -238,14 +223,14 @@ To create an application load balancer by using the CLI, perform the following p
 
 1. Create a listener:
 
-    ```
+    ```sh
     ibmcloud is load-balancer-listener-create r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 7070 tcp --default-pool r134-3b66d605-6aa5-4166-9f66-b16054da3cb0
     ```
     {: pre}
 
     Sample output:
 
-    ```
+    ```sh
     Creating listener of load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
 
     ID                     r134-2847a948-f9b6-4fc1-91c6-f1c49dac3eba
@@ -261,14 +246,14 @@ To create an application load balancer by using the CLI, perform the following p
 
 1. Get details about your load balancer:
 
-    ```
+    ```sh
     ibmcloud is load-balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776
     ```
     {: pre}
 
     Sample output:
 
-    ```
+    ```sh
     Getting load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
 
     ID                 r134-99b5ab45-6357-42db-8b32-5d2c8aa62776
@@ -385,7 +370,7 @@ To create an application load balancer by using the API, perform the following p
 
     Sample output:
 
-    ```
+    ```sh
     {
         "created_at": "2018-07-12T23:17:07.5985381Z",
         "crn": "crn:v1:staging:public:is:us-south:a/123456::load-balancer:dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
@@ -443,7 +428,7 @@ To create an application load balancer by using the API, perform the following p
 
     Allow some time for provisioning. When the load balancer is ready, it is set to `online` and `active` status, as shown in the following sample output:
 
-    ```
+    ```sh
     {
       "id": "0738-dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
       "crn": "crn:v1:staging:public:is:us-south:a/123456::load-balancer:dd754295-e9e0-4c9d-bf6c-58fbc59e5727",
