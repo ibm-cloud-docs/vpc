@@ -10,23 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:term: .term}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:generic: data-hd-programlang="generic"}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating a route mode Network Load Balancer for VPC
 {: #nlb-vnf}
@@ -147,7 +131,7 @@ To create a network load balancer using the CLI, follow these steps:
    ```
    {: screen}
 
-1. Wait until the NLB is in an active state, then run the following command;
+1. Wait until the NLB is in an active state, then run the following command: {: #nlb-get-private-ips-cli}
 
    ```sh
    ibmcloud is load-balancer r014-c7cadd8e-9e8b-4965-bee3-5d9ff95b3512 
@@ -330,7 +314,7 @@ To create a network load balancer by using the API, follow these steps:
    ```
    {: screen}
 
-1. After the NLB is in an active state, perform a `GET` call to fetch its status.
+1. After the NLB is in an active state, perform a `GET` call to fetch its status.{: #nlb-get-private-ips-api}
 
    ```sh
    curl -s -H "Authorization: Bearer $IAM_TOKEN" -X GET "https://us-east.iaas.cloud.ibm.com/v1/load_balancers/r014-020f4f34-bb49-4699-98a7-a53384cd649d?version=2021-07-30&generation=2" | jq
@@ -546,5 +530,5 @@ After the NLB with route mode enabled is in active state, follow these steps to 
    * Your back-end workload subnet CIDR.
 
 1. Configure your custom routes as follows:
-   * For all traffic destined for the backend customer workload subnet, set the next hop to the NLB private IP.
+   * For all traffic destined for the back-end customer workload subnet, set the next hop to the NLB private IP.
    * For all traffic destined for the client subnet, set the next hop to the NLB private IP.

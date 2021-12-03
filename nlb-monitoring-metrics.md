@@ -10,16 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:preview: .preview}
-{:download: .download}
-{:note: .note}
-{:important: .important}
+{{site.data.keyword.attribute-definition-list}}
 
 # Monitoring {{site.data.keyword.nlb_full}} metrics
 {: #nlb_monitoring-metrics}
@@ -58,7 +49,7 @@ The active connection metric contains the following metadata:
 | Metric type | `gauge` |
 | Value type | `none`  |
 | Segment by | `IBM Load Balancer for VPC appliance metrics` and `IBM Load Balancer for VPC listener metrics` |
-{: caption="Table 1: IBM Load Balancer for VPC active connections metrics metadata" caption-side="top"}
+{: caption="Table 1: IBM Load Balancer for VPC active connections metrics metadata" caption-side="bottom"}
 
 
 ### Connection rate
@@ -72,7 +63,7 @@ Connection rate is the number of new, incoming active connections per second to 
 | Metric type | `gauge` |
 | Value type  | `none` |
 | Segment by | `IBM Load Balancer for VPC appliance metrics` and `IBM Load Balancer for VPC listener metrics` |
-{: caption="Table 2: IBM Load Balancer for VPC connection rate metric metadata" caption-side="top"}
+{: caption="Table 2: IBM Load Balancer for VPC connection rate metric metadata" caption-side="bottom"}
 
 ## Metric segmentation
 {: #nlb-metric-segmentation}
@@ -91,7 +82,7 @@ The following attributes are available for segmenting the three metrics.
 | `Resource` | `ibm_resource` | A load balancer's unique ID |
 | `Scope` | `ibm_scope` | The account associated with a given load balancer |
 | `Service name` | `ibm_service_name` | ibm-is-load-balancer |
-{: caption="Table 3: Global attributes" caption-side="top"}
+{: caption="Table 3: Global attributes" caption-side="bottom"}
 
 ### Additional attributes
 {: #nlb-additional-attributes}
@@ -100,9 +91,9 @@ The following attributes are available to segment one or more of the global attr
 
 | Attribute | Attribute Name | Attribute Description |
 |-----------|----------------|-----------------------|
-| IBM Load Balancer for VPC appliance metrics | `ibm_is_load_balancer_appliance_ip` | The metrics coming from the load balancer backend. Because the load balancer is highly available, multiple appliances support each load balancer for redundancy.  |
+| IBM Load Balancer for VPC appliance metrics | `ibm_is_load_balancer_appliance_ip` | The metrics coming from the load balancer back-end. Because the load balancer is highly available, multiple appliances support each load balancer for redundancy.  |
 | IBM Load Balancer for VPC listener metrics | `ibm_is_load_balancer_listener_port` | The metrics that are gathered from individual listeners and their ports. Configure the listeners in your load balancer settings. The monitoring metrics reflect the metrics coming from those listeners. |
-{: caption="Table 4: Additional attributes" caption-side="top"}
+{: caption="Table 4: Additional attributes" caption-side="bottom"}
 
 The displayed metrics contain a timestamp in UNIX Epoch Time and the metric value for the time interval ending at that timestamp. You can specify different scopes, as well as the time interval over which to report the metrics.
 
@@ -136,7 +127,7 @@ To do so, follow these steps:
    If you do not have an existing load balancer, see [Creating a network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer) to provision one.
    {: tip}
 
-   ![Region](images/metrics_1.png "Region")
+   ![Region](images/metrics_1.png "Region"){: caption="Figure 1. Region" caption-side="bottom}
 
    The region should match the location of your existing load balancer.
    {: important}
@@ -148,7 +139,7 @@ To do so, follow these steps:
 4. Provide a unique service name for your instance.
 5. Optionally, select a resource group. A resource group is a way to organize account resources in customizable groupings. Any account resource that is managed by using IBM Cloud Identity and Access Management (IAM) access control belongs to a resource group within your account.
 
-   ![Resource group](images/metrics_2.png "Resource group")
+   ![Resource group](images/metrics_2.png "Resource group"){: caption="Figure 2. Resource group" caption-side="bottom}
 
    If you do not have any pre-configured resource groups, or no reason to share this resource selectively, use the default selection.
    {: note}
@@ -178,7 +169,7 @@ To view and work with your monitoring metrics, follow these steps:
 
 4. Two main metrics in the dashboard are shown: Active Connections, and Connection Rate. To modify parameters and segment your metrics by load balancer ID or listener port, you must create a custom dashboard.
 
-   ![S{{site.data.keyword.mon_full_notm}} dashboard](images/metrics_nlb.png "{{site.data.keyword.mon_full_notm}} dashboard")
+   ![{{site.data.keyword.mon_full_notm}} dashboard](images/metrics_nlb.png "{{site.data.keyword.mon_full_notm}} dashboard"){: caption="Figure 3. {{site.data.keyword.mon_full_notm}} dashboard" caption-side="bottom}
 
    You can choose what time window you'd like to see your metrics displayed for, using the bar on the bottom.
    {: tip}
@@ -196,7 +187,7 @@ To customize your dashboard, follow these steps:
 
 3. On the left sidebar, select **Dashboards**. Then, click the green **+** sign in the panel.
 
-   ![Add dashboard](images/metrics_custom_db.png "Add dashboard")
+   ![Add dashboard](images/metrics_custom_db.png "Add dashboard"){: caption="Figure 4. Add dashboard" caption-side="bottom}
 
 4. Select **Blank dashboard**, then select the type of visual representation you want.
 
@@ -236,7 +227,7 @@ To collect this information and start working with your monitoring instance usin
 
 1. Access the [Monitoring home page](https://cloud.ibm.com/observe/monitoring), and click **Open Dashboard** next to the instance you want to work with. After the {{site.data.keyword.mon_full_notm}} dashboard displays, select your Account Profile icon on the left sidebar, then select **Settings**. Your account settings display.
 
-   ![Settings](images/metrics_settings.png "Settings")
+   ![Settings](images/metrics_settings.png "Settings"){: caption="Figure 5. Settings" caption-side="bottom}
 
 2. Your Monitor API token is an alphanumeric string that is located in the **Monitor API Token** field. Click the **Copy** button to the right of the key to transfer it to your clipboard.
 
@@ -245,7 +236,7 @@ To collect this information and start working with your monitoring instance usin
 
 3. To get the endpoint of your {{site.data.keyword.mon_full_notm}} instance, navigate to your main dashboard in your browser. Then, select the URL to the dashboard, which appears similar to:
 
-   ```
+   ```sh
    https://us-south.monitoring.cloud.ibm.com/#/default-dashboard/ibm_is_load_balancer?last=3600
    ```
    {: pre}
@@ -290,7 +281,7 @@ If the time range specified by `from` and `to` is large (for example, 4 days), b
             "time": {
                 "from": 1584396900000000,
                 "to": 1584402600000000,
-	              “sampling”: 600000000
+                 “sampling”: 600000000
             },
             "group": {
                 "by": [

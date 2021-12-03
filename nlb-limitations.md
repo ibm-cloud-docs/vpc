@@ -10,18 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:note: .note}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # {{site.data.keyword.cloud_notm}} {{site.data.keyword.nlb_full}} limitations
 {: #nlb-limitations}
@@ -33,11 +22,9 @@ Known limitations for {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}}
 * All members that are associated with a network load balancer must be in the same zone as the load balancer.
 * To ensure service availability, use a dedicated subnet with your NLBs. Clients and members should reside in an alternate subnet.
 * Two members with the same instance X and same port Y cannot exist at the same time for an NLB. This case is not supported and your traffic might not be routed correctly.
-* For a route mode network load balancer, the only supported backend targets are VNF instances. When using APIs, the listener
-`port_min` and `port_max` should be set to `1` and `65535` respectively. `port` should be
-left empty.
+* For a route mode network load balancer, the only supported back-end targets are VNF instances. When using APIs, the listener `port_min` and `port_max` should be set to `1` and `65535` espectively. `port` should be left empty.
 * For a route mode NLB, only one listener is supported.
-* For a route mode network load balancer, the NLB and the VNF backend targets must be in the same subnet.
+* For a route mode network load balancer, the NLB and the VNF back-end targets must be in the same subnet.
 * The default load balancer quota is 50 per region. To increase the number, you must [create a support case](/docs/get-support?topic=get-support-open-case).
 * For Private NLB, the NLB service might add rules to custom routing tables to ensure service availability for some failure conditions. As a result, if the client is outside the zone and/or VPC of the NLB, you must add an ingress custom routing table to the VPC where the NLB resides with the proper traffic source selected.
 
@@ -48,7 +35,7 @@ left empty.
 | On-premises | Ingress | Direct Link |
 | Another VPC or classic infrastructure | Ingress | Transit Gateway |
 | Another Availability Zone of the same VPC |	Ingress	| VPC zone |
-{: caption="Table 1: Traffic sources that require ingress custom routing tables" caption-side="top"}
+{: caption="Table 1: Traffic sources that require ingress custom routing tables" caption-side="bottom"}
 
    For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes).
    {: note}

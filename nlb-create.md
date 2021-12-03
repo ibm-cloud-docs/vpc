@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-23"
+lastupdated: "2021-11-03"
 
 keywords: network load balancer, public, listener, pool, round-robin
 
@@ -10,23 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:term: .term}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:generic: data-hd-programlang="generic"}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating a {{site.data.keyword.nlb_full}}
 {: #nlb-ui-creating-network-load-balancer}
@@ -47,10 +31,12 @@ To create and configure {{site.data.keyword.nlb_full}} by using the {{site.data.
 1. Click **New load balancer +** in the upper right of the page.
 1. In the order form, complete the following information:
    * Type a unique name for your load balancer and select a VPC.
-   * Select a resource group. Use the default group, or select from the list (if defined for your account). You cannot change the resource group after the load balancer is created.
-   * Select the **Network Load Balancer (NLB)** tile and the subnet where you want to deploy the load balancer.
-   * Select type: public or private.
+   * Select a resource group. Use the default group, or select from the list (if defined for your account). You cannot change the resource group after the load balancer is created.   
    * Optionally, add tags.
+   * Select the **Network Load Balancer (NLB)** tile and the subnet where you want to deploy the load balancer.
+   * Select type: **Public** or **Private**.
+1. **For Private type only**, you have the option to enable routing mode, which is used to deploy highly available virtual network functions (VNFs). For use cases and end-to-end instructions, see [About HA VNF deployments](/docs/vpc?topic=vpc-about-vnf-ha).
+1. Select a subnet from the list.
 1. Click **New Pool** and specify the following information to create a back-end pool. You can create one or more pools.
    * Type a name for the pool, such as `my-pool`.
    * Enter a protocol for your instances in this pool. The protocol of the pool must match the protocol of its associated listener. For example, if the listener is TCP, the protocol of the pool must be TCP.

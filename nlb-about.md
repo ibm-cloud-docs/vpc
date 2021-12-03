@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-23"
+lastupdated: "2021-11-03"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc, vpc network
 
@@ -10,22 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:preview: .preview}
-{:screen: .screen}
-{:term: .term}
-{:beta: .beta}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:generic: data-hd-programlang="generic"}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
+{{site.data.keyword.attribute-definition-list}}
 
 # About {{site.data.keyword.cloud_notm}} {{site.data.keyword.nlb_full}}
 {: #network-load-balancers}
@@ -35,8 +20,7 @@ You can use the {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB)
 
 The following diagram illustrates the deployment architecture for a network load balancer.
 
-![Network load balancer for VPC](images/nlb_arc.png "Network load balancer")
-{: caption="Network load balancer" caption-side="top"}
+![Network load balancer for VPC](images/nlb_arc.png "Network load balancer"){: caption="Network load balancer" caption-side="bottom"}
 
 The NLB is zonal, which means that the members must be in the same zone as the load balancer. For more information, see [Multi-zone support](/docs/vpc?topic=vpc-nlb-vs-elb#nlb-mz-support).
 
@@ -60,7 +44,7 @@ A public load balancer is a load balancer with a publicly accessible IP address 
 
 For private load balancers, you must have a dedicated subnet with no custom routes configured for the subnet.
 
-Network load balancers with `route_mode` set to `true` are private load balancers that support only VNF (virtual network functions) devices as backend targets.
+Network load balancers with `route_mode` set to `true` are private load balancers that support only VNF (virtual network functions) devices as back-end targets. 
 {: note}
 
 ## Load-balancing methods
@@ -97,7 +81,7 @@ The following diagram illustrates how {{site.data.keyword.cloud_notm}} Network L
 
 Often times a client might submit a request that is fairly small with a minor performance impact on the load balancer; however, the information that is returned from the back-end targets (virtual server instance or container workloads) can be significant. With Direct Server Return (DSR), the information is sent directly back to the clients; thus, minimizing latency and optimizing performance.
 
-![Network load balancer traffic flow](images/nlb-use-case.png)
+![Network load balancer traffic flow](images/nlb-use-case.png){: caption="Figure 2. Network load balancer traffic flow" caption-side="bottom}
 
 ## Use case 2: Multi-zone network load balancer reference architecture
 {: #nlb-use-case-2}
@@ -106,17 +90,7 @@ The following diagram illustrates how you can deploy {{site.data.keyword.cloud_n
 
 You may want to leverage the high throughput performance (and low latency) the NLB gains through DSR. In addition, it is recommended that you deploy your workloads in multiple zones to increase their availability in an HA environment.
 
-![Multi-zone network load balancer](images/nlb_glb.png)
-
-## Use case 3: Network load balancer with route mode
-{: #nlb-use-case-3}
-
-VNF (Virtual Network Function) devices can be integrated into your VPC using custom routes. However, if the VNF device is inactive, your
-workloads will be interrupted. An NLB with route mode can be placed in front of any VNF devices to ensure your traffic is forwarded only to healthy VNF devices.
-
-The following diagram is an example of how to deploy a network load balancer to support transparent VNF devices with availability.
-
-![Network load balancer with route mode](images/nlb_vnf.png)
+![Multi-zone network load balancer](images/nlb_glb.png){: caption="Figure 3. Multi-zone network load balancer" caption-side="bottom}
 
 ## Front-end listeners and back-end pools
 {: #nlb-front-end-listeners-and-back-end-pools}
@@ -130,7 +104,7 @@ You can attach up to 50 virtual server instances to a back-end pool. Traffic is 
 
 The following diagram shows the VPC representation of a typical network load balancer setup. The NLB is provisioned on a VPC subnet. To configure the network data path on the network load balancer, a listener, a pool, and at least one member must be created. A _listener_ is the front-end port that the network load balancer is listening on for customer requests. These requests are forwarded to the targets in the pool that is associated with the listener. A _pool_ is a group of targets that are used to distribute the network requests coming into the network load balancer for a specific listener. A _member_ is a back-end server with a specified port that is configured to listen for requests.
 
-![Network load balancer work flow](images/nlb-workflow-customer-view.png "Network load balancer work flow"){: caption="Network load balancer work flow" caption-side="top"}
+![Network load balancer work flow](images/nlb-workflow-customer-view.png "Network load balancer work flow"){: caption="Figure 4. Network load balancer work flow" caption-side="bottom"}
 
 ## Layer 4 load balancing
 {: #nlb-layer4}
