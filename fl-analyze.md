@@ -220,7 +220,7 @@ In most cases, you can find the direction field by comparing the vNIC’s privat
 ### Analyzing flow logs by using IBM Cloud SQL Query
 {: #analyzing-flow-logs-for-vpc-using-sql}
 
-You can analyze flow logs with SQL that uses {{site.data.keyword.sqlquery_full}} by using the path to the objects on COS in the FROM clause of your SQL query. (For an example, see Step 3 in [Viewing flow log objects](/docs/vpc?topic=vpc-fl-analyze). However, for a more convenient way of querying, it is recommended that you create table and view definitions that give you a flattened view on your flows. For more information about table catalog functions and benefits, see [Catalog management]/docs/sql-query?topic=sql-query-hivemetastore).
+You can analyze flow logs with SQL that uses {{site.data.keyword.sqlquery_full}} by using the path to the objects on COS in the FROM clause of your SQL query. (For an example, see Step 3 in [Viewing flow log objects](/docs/vpc?topic=vpc-fl-analyze). However, for a more convenient way of querying, it is recommended that you create table and view definitions that give you a flattened view on your flows. For more information about table catalog functions and benefits, see [Catalog management](/docs/sql-query?topic=sql-query-hivemetastore).
 
 The view flattens the flow log data structure; thus, making it easier to analyze your flows.
 

@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2020, 2021
 
-lastupdated: "2021-08-27"
+lastupdated: "2021-11-24"
 
 
 keywords: vpc, virtual private cloud, vpc ui, console, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range, generation 2, gen 2
@@ -117,7 +117,7 @@ This tutorial is intended for software developers and system administrators who 
 
 Set up your account to access VPC. Make sure that your account is [upgraded to a paid account](/docs/account?topic=account-accountfaqs#changeacct){: new_window}.
 
-Make sure that you have an SSH key. The key is used to connect to the virtual server instance. For example, generate an SSH key on your Linux&reg server by running the following command:
+Make sure that you have an SSH key. The key is used to connect to the virtual server instance. For example, generate an SSH key on your Linux server by running the following command:
 ```
 ssh-keygen -t rsa -C "user_ID"
 ```
@@ -144,7 +144,7 @@ To create a VPC and subnet:
 1. Enter a name for the VPC, such as `my-vpc`.
 1. Select a resource group for the VPC. Use resource groups to organize your account resources for access control and billing purposes. For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup).
 1. _Optional:_ Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
-1. Select or create the default ACL for new subnets in this VPC. In this tutorial, let's create a new default ACL. We'll configure rules for the ACL later.
+1. The create VPC process assigns a default ACL. Later in this tutorial we'll discuss how to configure rules for the ACL.
 1. Select whether the default security group allows inbound SSH and ping traffic to virtual server instances in this VPC. We'll configure more rules for the default security group later.
 1. _Optional:_ Select whether you want to enable your VPC to access classic infrastructure resources. For more information, see [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure).
 
@@ -152,12 +152,13 @@ To create a VPC and subnet:
    {: important}
 
 1. _Optional:_ Clear the **Default address prefixes** option if you don't want to assign default address prefixes to each zone in your VPC. After you create your VPC, you can go to its details page and set your own address prefixes.
-1. Enter a name for the new subnet in your VPC, such as `my-subnet`.
-1. Select a resource group for the subnet.
+1. By default the create VPC process defines three subnets. If you need to edit the properties that are defined for the subnet, click the pencil icon for the subnet that you want to edit. You can also remove a subnet that is pre-defined by clicking the minus icon. If you need to add a subnet, complete the following steps. 
+1. Click **Add subnet** and enter a name for the new subnet in your VPC, such as `my-subnet`.
 1. Select a location for the subnet. The location consists of a region and a zone.
 
-   The region that you select is used as the region of the VPC. All additional resources that you create in this VPC are created in the selected region.
-   {: tip}
+    The region that you select is used as the region of the VPC. All additional resources that you create in this VPC are created in the selected region.
+    {: tip}
+1. Select a resource group for the subnet.
 1. Enter an IP range for the subnet in CIDR notation, for example: `10.240.0.0/24`. In most cases, you can use the default IP range. If you want to specify a custom IP range, you can use the IP range calculator to select a different address prefix or change the number of addresses.
 
    A subnet cannot be resized after it is created.
@@ -169,7 +170,7 @@ To create a VPC and subnet:
    {: tip}
 
 1. Click **Create virtual private cloud**.
-1. To create another subnet in this VPC, click the **Subnets** tab and click **New subnet**. When you define the subnet, make sure to select `my_vpc` in the **Virtual private cloud** field.
+
 
 ## Configuring the ACL
 {: #configuring-the-acl}
@@ -189,35 +190,13 @@ To configure the ACL:
    * Select the protocol to which the rule applies.  
    * For the source and destination of the rule, specify the IP range and ports for which the rule applies. For example, if you want all inbound traffic to be allowed to the IP range 192.168.0.0/24 in your subnet, specify **Any** as the source and 192.168.0.0/24 as the destination. But if you want to allow inbound traffic only from 169.168.0.0/24 to your entire subnet, specify 169.168.0.0/24 as the source and **Any** as the destination for the rule.
    * Specify the rule's priority. Rules with lower numbers are evaluated first and override rules with higher numbers. For example, if a rule with priority 2 allows HTTP traffic and a rule with priority 5 denies all traffic, HTTP traffic is still allowed.  
+
+   See [Configuring rules](/docs/vpc?topic=vpc-acl-create-ui#example-configuring-rules) for an example.
+   {: note}
+
 1. When you finish creating rules, click the **All access control lists** breadcrumb at the beginning of the page.
 
-### Example ACL
-
-For example, you can configure the following inbound rules:
-
-* Allow HTTP traffic from the internet
-* Allow all inbound traffic from the subnet 10.10.20.0/24
-* Deny all other inbound traffic  
-
-| Priority| Allow/Deny | Protocol | Source | Destination |
-|--------------|-----------|------|------|------|
-| 1 | Allow | TCP | Any IP, ports 80 - 80 |Any IP, any port|
-| 2 | Allow | ALL | 10.10.20.0/24, any port |Any IP, any port|
-| 3 | Deny| ALL | Any IP, any port |Any IP, any port|
-{: caption="Table 1. Information for configuring inbound rules" caption-side="top"}
-
-Then, configure the following outbound rules:
-
-* Allow HTTP traffic to the internet
-* Allow all outbound traffic to the subnet 10.10.20.0/24
-* Deny all other outbound traffic  
-
-| Priority| Allow/Deny | Protocol | Source | Destination |
-|--------------|-----------|------|------|------|
-| 1 | Allow | TCP | Any IP, any port |Any IP, ports 80 - 80  |
-| 2 | Allow | ALL | Any IP, any port | 10.10.20.0/24, any port |
-| 3 | Deny| ALL | Any IP, any port |Any IP, any port|
-{: caption="Table 2. Information for configuring outbound rules" caption-side="top"}
+For more information, see [About access control lists](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
 
 ## Creating a virtual server instance
 {: #creating-a-vsi}
@@ -227,22 +206,24 @@ Then, configure the following outbound rules:
 
 To create a virtual server instance in the newly created subnet:
 
-1. Click **Compute > Virtual server instances** in the navigation pane and click **New instance**.
+1. Click **Compute > Virtual server instances** in the navigation pane and click **Create**.
 1. Enter a name for the instance, such as `my-instance`.
 1. Select the VPC that you created.
 1. Select a resource group for the instance.
 1. _Optional:_ Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
 1. In the **Location** field, select the zone in which to create the instance.
-1. Select an image (that is, operating system and version), such as Debian GNU/Linux 9.x Stretch/Stable.
-1. To set the instance size, select one of the popular profiles or click **All profiles** to choose a different core, RAM, and network performance combination that's most appropriate for your workload. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles).
+1. Select the type of virtual server that you want to create. By default, Public is selected. 
+1. Select the processor architecture for the virtual server that you want to create. By default, x86 is selected. 
+1. Select an image (that is, operating system and version), such as Debian GNU/Linux 9.x Stretch/Stable. Alternatively, you can select a snapshot. 
+1. To set the instance size, select one of the popular profiles or click **View all profiles** to choose a different core, RAM, and network performance combination that's most appropriate for your workload. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles).
 
    After you create your instance, you can't update the profile.
    {: important}
 
-1. Select an existing SSH key or add an SSH key that is to be used to access the virtual server instance. To add an SSH key, click **New key** and name the key. After you enter your previously generated public key value, click **Add SSH key**.
-1. _Optional:_ Enter user data to run common configuration tasks when your instance starts. For example, you can specify cloud-init directives or shell scripts for Linux&reg images. For more information, see [User Data](/docs/vpc?topic=vpc-user-data).
+1. Select an existing SSH key or add an SSH key that is to be used to access the virtual server instance. To add an SSH key, click **Create key** and name the key. After you enter your previously generated public key value, click **Add SSH key**.
+1. _Optional:_ Enter user data to run common configuration tasks when your instance starts. For example, you can specify cloud-init directives or shell scripts for Linux images. For more information, see [User Data](/docs/vpc?topic=vpc-user-data).
 1. Note the boot volume. In the current release, 100 GB is allotted for the boot volume. *Auto Delete* is enabled for the volume; the boot volume is deleted automatically if the instance is deleted.
-1. In the **Data volumes** area, click **New volume** to attach a block storage volume to your instance if you want more storage. In this tutorial, we'll create a block storage volume and attach it to the instance later.
+1. In the **Data volumes** area, click **Create** to attach a block storage volume to your instance if you want more storage. In this tutorial, we'll create a block storage volume and attach it to the instance later.
 1. In the **Network interfaces** area, you can edit the network interface and change its name. If you have more than one subnet in the selected zone and VPC, you can attach a different subnet to the interface. If you want the instance to exist in multiple subnets, you can create more interfaces.
 
    Each interface has a maximum network bandwidth of 16 Gbps. If the profile you selected for this instance has a maximum network bandwidth greater than 16 Gbps, you might want to create more interfaces to optimize network performance. For more information, see [Network performance notes for profiles](/docs/vpc?topic=vpc-profiles#network-perf-notes-for-profiles).
@@ -292,7 +273,7 @@ To configure the security group:
    **Tips:**  
    * All rules are evaluated, regardless of the order in which they're added.
    * Rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, you created a rule that allows inbound TCP traffic on port 80. That rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
-   * For Windows&reg images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
+   * For Windows images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
 1. _Optional:_ To view interfaces that are attached to the security group, click **Attached interfaces** in the navigation pane.
 1. When you finish creating rules, click the **All security groups for VPC** breadcrumb at the beginning of the page.
 
@@ -306,7 +287,7 @@ For example, you can configure the following inbound rules:
  * Allow all ping traffic (ICMP type 8)
 
 | Protocol | Source Type | Source | Value |
-|-----------|------|------|------|------------------|-------|
+|-----------|------|------|------|
 | TCP| Any | 0.0.0.0/0 | Ports 22-22
 | ICMP | Any | 0.0.0.0/0 | Type: 8, Code: Any|
 {: caption="Table 3. Configuration information for inbound rules" caption-side="top"}
@@ -314,7 +295,7 @@ For example, you can configure the following inbound rules:
 Then, configure outbound rules that allow all TCP traffic:
 
 | Protocol | Destination Type | Source | Value |
-|-----------|------|------|------|------------------|-------|
+|-----------|------|------|------|
 | TCP| Any | 0.0.0.0/0 | Any port|
 {: caption="Table 4. Configuration information for outbound rules" caption-side="top"}
 
@@ -359,7 +340,7 @@ ssh -i <path-to-private-key-file> root@<public-ip-address>
 
 For more information about how to connect to your instance, see [Connecting to Linux instances](/docs/vpc?topic=vpc-vsi_is_connecting_linux).
 
-To connect to a Windows&reg image, log in using its decrypted password. For instructions, see [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
+To connect to a Windows image, log in using its decrypted password. For instructions, see [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
 
 You can now access your virtual server instance by connecting to a VNC or serial console. This is a quick-and-easy way for you to interact with the instance without using a Secure Shell. For more information about this feature, see [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console)
 {: note}

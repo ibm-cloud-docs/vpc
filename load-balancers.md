@@ -10,22 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:preview: .preview}
-{:screen: .screen}
-{:term: .term}
-{:beta: .beta}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:generic: data-hd-programlang="generic"}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Load balancers for VPC overview
 {: #nlb-vs-elb}
@@ -52,13 +37,14 @@ The following table provides a comparison of the types of load balancers.
 | Monitoring metrics| Yes | Yes |
 | Multi-zone support          |  No (see [Multi-zone support](/docs/vpc?topic=vpc-network-load-balancers#nlb-use-case-2)) | Yes |     
 | Security group support | No | Yes (see [Integrating an ALB for VPC with security groups](/docs/vpc?topic=vpc-alb-integration-with-security-groups)) |
-| Source IP address is preserved | Yes | No |
+| Source IP address is preserved | Yes | Yes |
 | SSL offloading              |  No              | Yes |
 | Supported protocols         |  TCP | HTTPS, HTTP, TCP  |
 | Transport layer             |   Layer 4  | Layer 4, Layer 7 |
 | Types of load balancers |  Public and private | Public and private |
 | Virtual IP Address (VIP)   |  Single    | Multiple |
-{: caption="Table 1. Comparison of network and application load balancers" caption-side="top"}
+| Route mode for VNFs   | Yes (see [Setting up high availability for Virtual Network Functions (VNF)](/docs/vpc?topic=vpc-about-vnf)) | No |
+{: caption="Table 1. Comparison of network and application load balancers" caption-side="bottom"}
 
 ## High Availability mode
 {: #nlb-ha-mode}
@@ -86,7 +72,7 @@ The application load balancer can be configured to span multiple zones. The back
 
 A client makes a request by using the FQDN that is registered to the load balancer instance. A DNS server handles the request and distributes the traffic in a round robin fashion to the appliances. The appliances then accept the request and route it to a back-end server. Eventually the back-end server responds, and the response flows back through the load balancer, then back to the client.
 
-![ALB traffic flow](images/alb-datapath.png)
+![ALB traffic flow](images/alb-datapath.png){: caption="Figure 1. Application load balancer traffic flow" caption-side="bottom}
 
 ## Network load balancer data flow
 {: #nlb-data-flow}
@@ -96,7 +82,7 @@ after the network load balancer forwards the request to the back-end target. Aft
 generates the response, the response is sent directly to the client that uses DSR (Direct Server
 Return).
 
-![Network load balancer traffic flow](images/nlb-datapath.png)
+![Network load balancer traffic flow](images/nlb-datapath.png){: caption="Figure 2. Network load balancer traffic flow" caption-side="bottom}
 
 ## Related links
 {: #lb-related-links}

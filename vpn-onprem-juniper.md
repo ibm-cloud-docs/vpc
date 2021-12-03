@@ -194,7 +194,7 @@ ike {
     }
     gateway ike-gate-vpnaas {
         ike-policy ike-policy-vpnaas;
-        address <{{site.data.keyword.vpn_vpc_short}} Gateway Public IP #1>;
+        address <VPN for VPC Gateway Public IP #1>;
         dead-peer-detection {
             inactive: probe-idle-tunnel;
             interval 10;
@@ -207,7 +207,7 @@ ike {
     }
     gateway ike-gate-vpnaas2 {
         ike-policy ike-policy-vpnaas;   
-        address <{{site.data.keyword.vpn_vpc_short}} Gateway Public IP #2>;          
+        address <VPN for VPC Gateway Public IP #2>;          
         dead-peer-detection {           
             inactive: probe-idle-tunnel;
             interval 10;                

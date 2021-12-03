@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-10-18"
+lastupdated: "2021-11-12"
 
 keywords: creating a linux custom image for vpc, cloud-init, qcow2, vhd
 
@@ -126,10 +126,10 @@ Make sure that your image is cloud-init enabled. Cloud-init version 0.7.9 or gre
 
 6. For more information, see [cloud-init documentation](https://cloudinit.readthedocs.io/en/latest/){: external}.
 
-## Step 6 - Boot disk size is 100 GB
+## Step 6 - Boot disk size
 {: #boot-disk-100GB}
 
-Make sure that the image has a boot disk size of 100 GB.
+Make sure that the image has a boot disk size between 10 GB and 250 GB. Images below 10 GB are rounded up to 10 GB.
 
 If you are customizing a virtual server instance to migrate from classic infrastructure, return to [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc#migrate-customize-image-vpc) and continue completing migration steps.
 {: tip}

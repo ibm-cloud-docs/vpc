@@ -2,7 +2,7 @@
 
 Copyright:
   years:  2021
-lastupdated: "2021-08-06"
+lastupdated: "2021-11-30"
 
 keywords: block storage, virtual private cloud, volume, data storage, virtual server instance, instance, snapshots
 
@@ -45,9 +45,7 @@ Consider the following prerequisites before you set up Snapshots for VPC.
 | __ Make sure you have a unique name for your snapshots. For example, if you have a method for naming volumes, you might name snapshots by using similar conventions. It is easier to filter and search for them later. For more information, see [Naming snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-naming). |
 | __ To create a snapshot, verify that the volume is attached to a virtual server instance and that the instance is in a running state.|
 | __ To create an instance from a snapshot of a boot volume, use a snapshot in the same region. |
-
 {: caption="Table 1. Checklist for planning snapshots" caption-side="top"}
-
 
 ## Next Steps
 {: #snapshots-vpc-planning-next-steps}

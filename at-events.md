@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-08-26"
+lastupdated: "2021-11-24"
 
 keywords: activity tracker, events
 
@@ -283,8 +283,8 @@ The following tables list the actions that are related to compute resources and 
 | instance   | is.instance.volume-attachment.delete   | Instance volume attachment was deleted  |
 | instance   | is.instance.volume-attachment.update   | Instance volume attachment was updated  |
 | instance   | is.instance.volume-attachment.read | One or more instance volume attachments was retrieved |
-| instance   | is.instance.network-interface.create   | - Instance network interface was created (Instance was attached to a subnet)<br /> - Includes the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces that are created on the virtual server. When set to `false`, IP spoofing is not allowed on the interface.  |
-| instance   | is.instance.network-interface.update   | - Instance network interface was updated (Instance was attached to a subnet)<br /> - Includes the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces that are created on the virtual server. When set to `false`, IP spoofing is not allowed on the interface. |
+| instance   | is.instance.network-interface.create   | - Instance network interface was created (Instance was attached to a subnet) \n - Includes the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces that are created on the virtual server. When set to `false`, IP spoofing is not allowed on the interface.  |
+| instance   | is.instance.network-interface.update   | - Instance network interface was updated (Instance was attached to a subnet) \n - Includes the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces that are created on the virtual server. When set to `false`, IP spoofing is not allowed on the interface. |
 | instance   | is.instance.network-interface.delete   | Instance network interface was deleted (Instance was detached from a subnet)  |
 | instance | is.instance.network-interface.read | One or more instance network interfaces was retrieved |
 | instance | is.instance.network-interface_floating-ip.read | One or more floating IPs under an instance network interface was retrieved |
@@ -415,6 +415,24 @@ The following table lists the actions that are related to placement group resour
 | instance | is.instance.instance.update | Instance was updated and includes updates to the placement group reference |
 {: caption="Table 20. Actions that generate events for placement group resources" caption-side="top"}
 
+### Instance Metadata service events
+{: #events-metadata}
+
+| Resource  | Action  | Description  |
+|:----------------|:-----------------------|:-----------------------|
+| Instance Metadata | is.metadata.jwt-token.create | Creates an instance identity access token for accessing the Metadata service |
+| Instance Metadata | is.metadata.instance.initialize | Gets initialization information for the calling instance  |
+| Instance Metadata | is.metadata.instance.read | Gets metadata information for the calling instance  |
+| Instance Metadata | is.metadata.instance-key.get | Gets a public SSH key for the calling instance |
+| Instance Metadata | is.metadata.instance-key.list | Lists public SSH keys for the calling instance  |
+| Instance Metadata | is.metadata.instance-network-interface.get | Gets a network interface for the calling instance |
+| Instance Metadata | is.metadata.instance-network-interface.list | Lists network intrefaces for the calling instance  |
+| Instance Metadata | is.metadata.instance-placement-group.get | Gets a placement group for the calling instance |
+| Instance Metadata | is.metadata.instance-placement-group.list | Lists placement groups for the calling instance |
+| Instance Metadata | is.metadata.instance-volume-attachment.get | Gets a volume attachment for the calling instance |
+| Instance Metadata | is.metadata.instance-volume-attachment.list | Lists volume attachments for the calling instance  |
+{: caption="Table 21. Actions that generate events for the Instance Metadata service" caption-side="top"}
+
 ## Storage resources
 {: #events-storage}
 
@@ -429,7 +447,7 @@ The following table lists the actions that are related to volume resources and t
 | volume  | is.volume.volume.update  | Volume was updated  |
 | volume  | is.volume.volume.delete  | Volume was deleted  |
 | volume  | is.volume.volume.read    | One or more volumes were retrieved  |
-{: caption="Table 21. Actions that generate events for block storage resources" caption-side="top"}
+{: caption="Table 22. Actions that generate events for block storage resources" caption-side="top"}
 
 An event does not contain a volume name if no information is available at the time of the event. For example, when you make a request to create a volume but do not provide a volume name, the information is not available and does not appear in the event.
 {: note}
@@ -445,7 +463,27 @@ The following table lists the actions that are related to snapshots resources an
 | snapshot  | is.snapshot.snapshot.update  | Snapshot was updated  |
 | snapshot  | is.snapshot.snapshot.delete  | Snapshot was deleted  |
 | snapshot  | is.snapshot.snapshot.read    | One or more snapshots were retrieved  |
-{: caption="Table 22. Actions that generate events for snapshot resources" caption-side="top"}
+{: caption="Table 23. Actions that generate events for snapshot resources" caption-side="top"}
+
+### File storage events
+{: #events-file-storage}
+
+The following table lists the actions that are related to file storage resources and the generation of events.
+
+File Storage for VPC is available for customers with special approval to preview this service in select regions. Contact your IBM Sales representative if you are interested in getting access.
+{: note}
+
+| Resource  | Action  | Description  |
+|:---------------|:-----------------------|:-----------------------|
+| shares  | is.share.share.create   | File share was created  |
+| shares  | is.share.share.read   | One or more file shares were retrieved  |
+| shares  | is.share.share.update   | File share was updated  |
+| shares  | is.share.share.delete | File share was deleted  |
+| share mount targets  | is.share.target.create  | Mount target for a file share was created  |
+| share mount targets  | is.share.target.read  | One or more mount targets for a file share were retrieved  |
+| share mount targets  | is.share.target.update  | Mount target for a file share was modified  |
+| share mount targets  | is.share.target.delete | Mount target for a file share was deleted  |
+{: caption="Table 24. Actions that generate events for file storage resources" caption-side="top"}
 
 ## Supported locations
 {: #at-supported-locations}

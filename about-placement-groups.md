@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2021
-lastupdated: "2021-08-17"
+lastupdated: "2021-11-24"
 
 keywords: virtual private cloud, private cloud network, cloud-native, workloads, high availability, generation 2, placement group, host spread, power spread
 
@@ -89,6 +89,7 @@ When an instance is resized, the instance is stopped, the profile is updated, an
    * Solution: Use power spread placement group policy to group database components on different power supplies.
    
 ## Limitations
+{: #limitations-placement-groups-for-vpc}
 
 * The VPC must exist before you create a placement group. If the VPC isn't created before you create a placement group, you receive an error and the placement group isn't created.
 * The quotas have a set limit and can't be adjusted. For information about placement group quotas, see the placement group quotas section in [Quotas and service limits](/docs/vpc?topic=vpc-quotas#placement-group-quotas).

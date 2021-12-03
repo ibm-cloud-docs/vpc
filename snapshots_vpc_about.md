@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-10-28"
+lastupdated: "2021-11-30"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
@@ -27,7 +27,7 @@ Snapshots for VPC are a regional offering that is used create a point-in-time co
 ## Snapshots concepts
 {: #snapshots-vpc-concepts}
 
-A snapshot is a copy of your volume that you take manually by using the UI or CLI, or create programmatically from the API. You can snapshot a boot or data volume that is attached to a running virtual server instance. A "bootable" snapshot is a snapshot of a boot volume. You can also take a snapshot of a data volume. Both actions require the volumes to be attached to a running server instance.
+A snapshot is a copy of your volume that you take manually in the UI or CLI, or create programmatically with the API. You can snapshot a boot or data volume that is attached to a running virtual server instance. A "bootable" snapshot is a snapshot of a boot volume. You can also take a snapshot of a data volume. Both actions require the volumes to be attached to a running server instance.
 
 The first time that you take a snapshot of a volume, all the volume's contents are copied. The snapshot has the same encryption as the volume (customer-managed or provider-managed). Snapshots are stored and retrieved from IBM Cloud Object Storage. Data is encrypted while in transit and stored in the same region as the original volume.
 
@@ -42,11 +42,11 @@ You can create a new virtual server instance with a boot volume that was initial
 
 Snapshots have their own lifecycle, independent of the block storage volume. You can delete the original volume and the snapshot persists. Do not detach the volume from the instance during or after snapshot creation. You can't reattach the volume to the instance. Snapshots are also crash-consistent; if the virtual server stops for any reason, the snapshot data is safe on the disk.
 
-Snapshots are billed hourly, per GB of data based on capacity. Since the snapshot is based on the capacity that was provisioned for the original volume, the snapshot capacity doesn't vary.
+Cost for snapshots is calculated based on GB capacity stored per month, unless the duration is less than one month. Because the snapshot is based on the capacity that was provisioned for the original volume, the snapshot capacity does not vary.
 
 With IBM Cloud IAM, you can set up resource groups in your account to provide user-access to your snapshots. Your IAM role determines whether you can create and manage snapshots. For more information, see [IAM roles for creating and managing snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-iam).
 
-Before you take a snapshot, make sure that all cached data is present on disk - which applies to instances with Windows and Linux operating systems. For example, on Linux operating systems, run the `sync` command to force an immediate write of all cached data to disk.
+Before you take a snapshot, make sure that all cached data is present on disk - which applies to instances with Windows and Linux&reg; operating systems. For example, on Linux&reg; operating systems, run the `sync` command to force an immediate write of all cached data to disk.
 {: note}
 
 ## How snapshots work
@@ -58,19 +58,18 @@ Volume data that is retrieved for the requested snapshot is encrypted while in t
 
 The initial snapshot is the entire copy of your block storage volume. Subsequent snapshots copy only what was changed since the last snapshot.
 
-You restore a boot or data volume from a running virtual server instance by using the UI, CLI, or API. Restoring a volume from a snapshot creates a new, fully provisioned volume. Restoring from a snapshot of a boot volume creates a new boot volume that you can use when you provision a new instance. Restoring from a snapshot of a data volume creates a secondary volume that is attached to the instance.
+You restore a boot or data volume from a running virtual server instance in the UI, CLI, or API. Restoring a volume from a snapshot creates a new, fully provisioned volume. Restoring from a snapshot of a boot volume creates a new boot volume that you can use when you provision a new instance. Restoring from a snapshot of a data volume creates a secondary volume that is attached to the instance.
 
-## Limitations
+## Restrictions
 {: #snapshots-vpc-limitations}
 
-The following limitations apply to this release:
+The following restrictions apply to this release:
 
 * You can take 100 snapshots per volume.
 * Snapshots of a detached volume are not supported.
 * Snapshots of volumes greater than 10 TB are not supported.
-* You can delete a single snapshot or all snapshots of a volume.
-
-In addition, to delete a block storage volume, all snapshots must be in a `stable` state. 
+* You can delete a single snapshot anywhere in the snapshots chain or all snapshots. Snapshots must be in a `stable` or `pending` state and not actively restoring a volume.
+* You can delete a block storage volume and all its snapshots. All snapshots must be in a `stable` or `pending` state. No snapshot can be actively restoring a volume.
 
 ## Creating and using snapshots
 {: #snapshots-vpc-procedure-overview}

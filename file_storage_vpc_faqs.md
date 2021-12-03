@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-10-04"
+lastupdated: "2021-11-18"
 
 keywords: file storage, virtual private cloud, file share, troubleshooting
 
@@ -31,7 +31,7 @@ subcollection: vpc
 The following questions often arise about File Storage for VPC. If you have other questions you'd like to see addressed here, provide feedback by using the **Open Issue** or **Edit Topic** links.
 {: shortdesc}
 
-File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, and London regions. Contact your IBM Sales representative if you are interested in getting access.
+File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Paris, and Sydney regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Offering questions
@@ -141,7 +141,7 @@ You can expect an average latency less than 100 ms for writes and less than 50 m
 {: #faq-fs-sec-1}
 {: support}
 
-All data-at-rest is encrypted by default using IBM-managed encryption. You can also encrypt your file shares using your own root keys, which gives your more control over your data security. For information about his option, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption).
+All data-at-rest is encrypted by default using IBM-managed encryption. You can also encrypt your file shares with your own root keys, which gives your more control over your data security. For information about his option, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption).
 
 Data-in-transit is not supported in this release.
 
@@ -155,4 +155,4 @@ No.
 {: faq}
 {: #faq-fs-sec-3}
 
-Your data is protected at rest by using IBM-managed encryption. You can't use your own keys for encryption. This feature is planned in a later release.
+By default, your file share data is protected at rest with IBM-managed encryption. You can also bring your own keys to the IBM Cloud and use them to encrypt your file shares. For more information, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption).

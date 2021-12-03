@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-10"
+lastupdated: "2021-11-02"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -18,20 +18,20 @@ subcollection: vpc
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
-{:beta: .beta}
+{:preview: .preview}
 {:table: .aria-labeledby="caption"}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 
 
-# Setting up windows servers for using the metadata service (Beta)
+# Setting up windows servers for using the instance metadata service
 {: #imd-windows-configuration}
 
 To access instance metadata from Windows servers, there are additional requirements to locate a default gateway and add a route.
 {: shortdesc}
 
-This service is available only to accounts with special approval to preview this beta feature.
-{: beta}
+This service is available only to accounts with special approval to use this feature. Contact [IBM support](/docs/vpc?topic=vpc-getting-help) if you're interested in getting access.
+{: preview}
 
 ## Overview
 {: #imd-windows-config-overview}

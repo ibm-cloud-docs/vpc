@@ -3,7 +3,7 @@
 copyright:
   years: 2020, 2021
 
-lastupdated: "2021-10-26"
+lastupdated: "2021-11-02"
 
 keywords: vnc console, serial console, virtual server instance
 
@@ -31,10 +31,6 @@ subcollection: vpc
 
 You can access your IBM Cloud virtual server instance by connecting to a VNC or serial console by using the IBM Cloud UI, API requests, or IBM Cloud Command Line Interface (CLI). The console service is a quick-and-easy way for you to interact with the instance without using a Secure Shell.
 {: shortdesc}
-
-
-*z/OS Experimental* Connecting a z/OS virtual server instance to a VNC console is not supported.
-{: note}
 
 It applies to situations where a boot failure or kernel crash occurred, especially when you use a custom image. When these situations happen, you can use the console service to examine the issue.
 
@@ -76,8 +72,6 @@ The console can be opened by using any of the [supported browsers](/docs/overvie
     * For Linux images, connect to the instance following [Connecting to Linux instances](/docs/vpc?topic=vpc-vsi_is_connecting_linux). On the instance, create a local password with the following command: `sudo passwd $(whoami)`
 
     * For Windows images, obtain the password following [Connecting to Windows instances](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
-
-    * *z/OS Experimental* For z/OS images, obtain the password following [Connecting to z/OS instances](/docs/vpc?topic=vpc-vsi_is_connecting_zos).
 
 For the serial console, you can configure `getty` to log in automatically without a password by using the `-a root` flag.
 {: tip}

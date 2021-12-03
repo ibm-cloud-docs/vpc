@@ -10,25 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:term: .term}
-{:tip: .tip}
-{:beta: .beta}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:table: .aria-labeledby="caption"}
-{:external: target="_blank" .external}
-{:generic: data-hd-programlang="generic”}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Managing VPN routes (Beta)
 {: #vpn-client-to-site-routes}
@@ -95,7 +77,7 @@ To delete a route using the UI, follow these steps:
 
 To create a VPN server route by using the CLI, enter the following command:
 
-```
+```sh
 ibmcloud is vpn-server-route-create VPN_SERVER_ID --destination DESTINATION_CIDR [--action translate | deliver | drop] [--name NAME] [--output JSON] [-q, --quiet]
 ```
 {: pre}
@@ -123,7 +105,7 @@ For example:
 
 To update a VPN server route by using the CLI, enter the following command:
 
-```
+```sh
 ibmcloud is vpn-server-route-update VPN_SERVER_ID ROUTE_ID [--name NAME] [--output JSON] [-q, --quiet]
 ```
 {: pre}
@@ -147,7 +129,7 @@ For example:
 
 To view details of a VPN route, enter the following command:
 
-```
+```sh
 ibmcloud is vpn-server-route VPN_SERVER_ID ROUTE_ID [--output JSON] [-q, --quiet]
 ```
 {: pre}
@@ -165,7 +147,7 @@ Where:
 
 To view a list of VPN server routes for a vpn server by using the CLI, enter the following command:
 
-```
+```sh
 ibmcloud is vpn-server-routes VPN_SERVER_ID [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME | --all-resource-groups] [--output JSON] [-q, --quiet]
 ```
 {: pre}
@@ -185,7 +167,7 @@ Where:
 
 To delete a VPN server route by using the CLI, enter the following command:
 
-```
+```sh
 ibmcloud is vpn-server-route-delete VPN_SERVER_ID (ROUTE_ID1 ROUTE_ID2 ...) [--output JSON] [-f, --force] [-q, --quiet]
 ```
 {: pre}
@@ -205,12 +187,12 @@ Where:
 
 To create a VPN route on the VPN server by using the API, follow these steps:
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with
-the right variables.
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
+
 1. Perform a POST to `/vpn_servers/{vpn_server_id}/routes`.
 
    ```sh
-      curl -X POST "$vpc_api_endpoint/v1/vpn_servers/$vpn_server_id/routes?version=$api_version&maturity&generation=2" \
+      curl -X POST "$vpc_api_endpoint/v1/vpn_servers/$vpn_server_id/routes?version=$api_version&maturity=beta&generation=2" \
         -H "Authorization: $iam_token" \
         -d '{
            "name":"my-route-1",
@@ -226,8 +208,8 @@ the right variables.
 
 To update a route on the VPN server by using the API, follow these steps:
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with
-the right variables.
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
+
 1. Perform a PATCH on `/vpn_servers/{vpn_server_id}/routes/{id}`
 
    ```sh
@@ -245,8 +227,8 @@ the right variables.
 
 To view a route on a VPN server by using the API, follow these steps:  
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with
-the right variables.
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
+
 1. When all variables are initiated, list your routes:
 
    ```sh
@@ -271,8 +253,7 @@ the right variables.
 
 To delete a route on a VPN server by using the API, follow these steps:
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with
-the right variables.
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
 
 1. Perform a DELETE on `/vpn_servers/{vpn_server_id}/routes/{id}`. 
 

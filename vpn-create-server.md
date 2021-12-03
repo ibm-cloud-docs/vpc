@@ -10,24 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:term: .term}
-{:note: .note}
-{:tip: .tip}
-{:important: .important}
-{:external: target="_blank_" .external}
-{:generic: data-hd-programlang="generic"}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:help: data-hd-content-type='help'}
-{:support: data-reuse='support'}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating a VPN server (Beta)
 {: #vpn-create-server}
@@ -53,7 +36,7 @@ Before you provision a VPN server, complete the following prerequisites in the f
 
    * For a High Availability (HA) VPN server, create a VPC and two subnets in two different zones. The VPN server resides in the two subnets.   
    * For a stand-alone VPN server, create a VPC and one subnet in one zone.
-   
+
    For instructions, see [Creating a VPC and subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vpc-and-subnet).
    {: note}
 
@@ -78,7 +61,9 @@ To create a client-to-site VPN server using the UI:
 1. Click **Create** in the upper right of the page.
 1. In the VPN type section, click **Client-to-site server**.
 
-   ![VPN type section](images/vpn-type.png "VPN type section")
+   ![VPN type section](images/vpn-type.png){: caption="VPN type section" caption-side="bottom"}
+
+
 1. In the Details section, specify the following information:
 
    * **VPN server name** - Enter a name for the VPN server, such as `my-vpn-server`.
@@ -87,7 +72,8 @@ To create a client-to-site VPN server using the UI:
    * **Virtual Private Cloud** - Select the VPC for the VPN server.
    * **Client IPv4 address pool** - Enter a CIDR range. The client is assigned an IP address for its session from this address pool.
 
-      ![VPN details section](images/vpn-details.png "VPN details section")
+      ![VPN details section](images/vpn-details.png){: caption="VPN details section" caption-side="bottom"}
+
 1. In the Subnets section, specify the following information:
 
    * Select a VPN server mode:
@@ -96,14 +82,15 @@ To create a client-to-site VPN server using the UI:
       * Stand-alone mode - Deploys the VPN server in a single subnet and zone. Best for single-zone deployments where multi-zone resiliency is not required.
 
    * Specify the subnet (stand-alone mode) or subnets (HA mode) for your VPC.
-   
-      ![VPN subnets section](images/vpn-subnets.png "VPN subnets section")
+
+      ![VPN subnets section](images/vpn-subnets.png){: caption="VPN subnets section" caption-side="bottom"}
 
 1. In the Authentication section, specify the following information:
 
    * **VPN server authentication** - Select the server certificate manager and server SSL certificate.   
-   
-      ![VPN server authentication section](images/vpn-server-authentication.png "VPN server authentication section")
+
+      ![VPN server authentication section](images/vpn-server-authentication.png){: caption="VPN server authentication section" caption-side="bottom"}
+
    * **Client authentication modes** - Select to configure user authentication through the use of a client certificate, user ID and passcode, or both.   
 
       * Client certificate - You can select a client certificate and configure a user ID and passcode for optimal security. A user ID and passcode provides two-factor authentication, which is an added layer of security that requires additional login credentials for account access.
@@ -112,15 +99,15 @@ To create a client-to-site VPN server using the UI:
          {: note}
 
       * User ID and passcode - Configure Two-Factor Authentication (2FA) for your account. 2FA offers an added layer of security that integrates with IBM Cloud IAM to complete the 2FA authentication. When 2FA is completed, the system passes the code to the openVPN client for authentication.
-   
-      ![VPN client authentication section](images/vpn-client-authentication.png "VPN client authentication section")
-      
+
+      ![VPN client authentication section](images/vpn-client-authentication.png){: caption="VPN client authentication section" caption-side="bottom"}
+
 1. In the Security groups section, select at least one security group. To configure one or more security groups and their rules, see [Configuring ACLs and security groups for use with VPN](/docs/vpc?topic=vpc-acls-security-groups-vpn).
 
    Currently, you can attach security groups only during VPN server provisioning.
    {: note}
-   
-   ![VPN security groups section](images/vpn-security-groups.png "VPN security groups section")
+
+   ![VPN security groups section](images/vpn-security-groups.png){: caption="VPN security groups section" caption-side="bottom"}
 
 1. In the **Additional configuration** section, specify the following information:
 
@@ -134,8 +121,8 @@ To create a client-to-site VPN server using the UI:
 
       * Full tunnel - All traffic flows through the VPN interface to the VPN tunnel.   
       * Split tunnel - Private traffic flows through the VPN interface to the VPN tunnel, and public traffic flows through the existing LAN interface.
-      
-         ![VPN additional configuration section](images/vpn-additional-configuration.png "VPN additional configuration section")
+
+         ![VPN additional configuration section](images/vpn-additional-configuration.png){: caption="VPN additional configuration section" caption-side="bottom"}
 
 ## Creating a VPN server using the CLI
 {: #vpn-create-server-cli}
@@ -143,7 +130,7 @@ To create a client-to-site VPN server using the UI:
 
 To create a VPN server by using the CLI, enter the following command:
 
-```
+```sh
 ibmcloud is vpn-server-create --subnets SUBNETS --client-ip-pool CLIENT_IP_POOL --cert CERT (--client-auth-methods certificate | username | certificate,username | username,certificate) [--client-ca CLIENT_CA] [--client-crl CLIENT_CRL] [--client-dns CLIENT_DNS] [--client-idle-timeout CLIENT_IDLE_TIMEOUT] [--enable-split-tunnel false | true] [--port PORT] [--protocol udp | tcp] [--security-group SECURITY_GROUP1 --security-group SECURITY_GROUP2 ...] [--name NAME] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
 ```
 {: pre}
@@ -184,8 +171,8 @@ ibmcloud is vpn-server-create --subnets SUBNETS --client-ip-pool CLIENT_IP_POOL 
 
 To create a client-to-site VPN server by using the API, follow these steps:
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with
-the right variables.
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
+
 1. Store any additional variables to be used in the API commands; for example:
 
    * `ResourceGroupId` - Find the resource group ID by using the `get resource groups` command and then populate the variable:
@@ -196,16 +183,16 @@ the right variables.
       {: pre}
 
    * `SubnetId` - Find the subnet ID by using the `get subnet` command and then populate the variable:
-   
+
       ```sh
       export SubnetId=<your_subnet_id>
       ```
       {: pre}
 
-1. When all variables are initiated, create the VPN server (PLACEHOLDER):
+1. When all variables are initiated, create the VPN server:
 
    ```sh
-      curl -X POST "$vpc_api_endpoint/v1/vpn_servers?version=$api_version&maturity&generation=2" \
+      curl -X POST "$vpc_api_endpoint/v1/vpn_servers?version=$api_version&maturity=beta&generation=2" \
         -H "Authorization: $iam_token" \
         -d '{
            "certificate": {

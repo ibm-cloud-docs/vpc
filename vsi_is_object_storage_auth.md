@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-08-13"
+lastupdated: "2021-11-18"
 
 keywords: create authorization for IBM Cloud Object storage, import image to vpc infrastructure, migrate virtual server, migrate instance
 
@@ -47,13 +47,13 @@ From IBM {{site.data.keyword.iamshort}}, you must create an authorization so tha
 To authorize the image source service to access the target service, a specific instance of {{site.data.keyword.cos_full_notm}}, run the `ibmcloud iam authorization-policy-create` command. 
 
 Before you run the command you need to know the GUID for the {{site.data.keyword.cos_full_notm}}. 
-1. Go to Resource list > Storage. 
-1. Select the {{site.data.keyword.cos_full_notm}} instance where your images are stored. 
+1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > Resource list > Storage**. 
+1. To display the details for the {{site.data.keyword.cos_full_notm}} service instance where your images are stored, click in the table row that is associated with the instance, in the Group, Location, Product, or Status columns, for example. Don't click the name of the service instance, which opens the Buckets page.
 1. From the right panel, copy the GUID. For example, `f7d4676f-f298-4cb3-8390-2fe258a5d6df`.
-1. Run the following command and replace $COS_INSTANCE_CRN with the GUID. 
+1. Run the following command and replace $COS_INSTANCE_GUID with the GUID. 
 
 ```
-ibmcloud iam authorization-policy-create is cloud-object-storage Reader --source-resource-type image --target-service-instance-id $COS_INSTANCE_CRN
+ibmcloud iam authorization-policy-create is cloud-object-storage Reader --source-resource-type image --target-service-instance-id $COS_INSTANCE_GUID
 ```
 {: pre}
 

@@ -12,7 +12,7 @@ Virtual Private Cloud (VPC)
     [Pricing](https://www.ibm.com/cloud/vpc/pricing)
     about-vpc.md
     quotas.md
-   
+
 
     {: .topicgroup}
     Network
@@ -63,8 +63,8 @@ Virtual Private Cloud (VPC)
             block_storage_vpc_capacity_performance.md
             block_storage_is_profiles.md
             block_storage_vpc_bandwidth.md
-            
-        release-notes.md
+
+    release-notes.md
     {: .navgroup-end}
 
     {: .navgroup id="tutorial"}
@@ -135,7 +135,7 @@ Virtual Private Cloud (VPC)
         managing-gpus.md
 
     {: .topicgroup}
-    Instance metadata service (Beta)
+    Instance metadata service
         instance_metadata_vpc_about.md
         instance_metadata_vpc_configure.md
         instance_metadata_vpc_get_metadata.md
@@ -265,6 +265,7 @@ Virtual Private Cloud (VPC)
             vpn-client-to-site-routes.md
             vpn-client-to-site-setup.md
             vpn-client-to-site-connections.md
+            vpn-client-to-site-change-server-types.md
             vpn-client-to-site-limitations.md
             vpn-client-to-site-loganalysis.md
             vpn-client-to-site-monitoring.md
@@ -360,6 +361,7 @@ Virtual Private Cloud (VPC)
         vsi-vpc-planning-encryption.md
         vsi_vpc_instance_byok_encryption.md
         block_storage_vpc_byok_encryption.md
+        file_storage_vpc_byok_encryption.md
         block_storage_vpc_key_rotation.md
         vsi-vpc-manage-encryption.md
 
@@ -394,9 +396,19 @@ Virtual Private Cloud (VPC)
         /vpc-infrastructure-cli-plugin/vpc-infrastructure-cli-plugin-vpc-cli-rn
 
     {: .topicgroup}
-    VPC API reference
-        [VPC API reference](https://{DomainName}/apidocs/vpc)
+    VPC API
+        [Reference](https://{DomainName}/apidocs/vpc)
         api-change-log.md
+
+    {: .topicgroup}
+    Beta VPC API
+        [Reference](https://{DomainName}/apidocs/vpc-beta)
+        [Change log](https://{DomainName}/apidocs/vpc-beta#api-change-log-beta)
+
+    {: .topicgroup}
+    Beta VPC instance metadata API
+        [Reference](https://{DomainName}/apidocs/vpc-metadata-beta)
+        [Change log](https://{DomainName}/apidocs/vpc-metadata-beta#api-instance-metadata-change-log)
 
     vpc-responsibilities.md
     vsi-understanding-cloud-maintenance.md
@@ -476,7 +488,6 @@ Virtual Private Cloud (VPC)
         custom_image_vpc_troubleshoot.md
         block_storage_is_troubleshoot.md
         bare_metal_server_troubleshoot.md
-        instance_metadata_vpc_troubleshoot.md
         instance-status-messages.md
 
     limitations.md

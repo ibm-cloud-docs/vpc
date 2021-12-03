@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-09"
+lastupdated: "2021-11-30"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, faqs
 subcollection: vpc
@@ -27,6 +27,7 @@ The following questions often arise about the Snapshot for VPC offering. If you 
 ## What is a snapshot?
 {: faq}
 {: #faq-snapshot-1}
+
 Snapshots are a point-in-time copy of your block storage boot or data volume. To create a snapshot, the original volume must be attached to a running virtual server instance. The first snapshot is a full backup of the volume. Subsequent snapshots of the same volume record only the changes since the last snapshot. You can use a snapshot of a boot volume to provision an instance. If the snapshot was of a data volume, you can attach it to a virtual server instance. You can create a new volume from a snapshot (called _restoring_ a volume). Snapshots are persistent; they have a lifecycle independent from the original volume.
 
 ## What is a bootable snapshot?
@@ -39,7 +40,7 @@ A bootable snapshot is a copy of a boot volume. You can use this new boot volume
 {: faq}
 {: #faq-snapshot-3}
 
-You can take up to 100 snapshots per volume in a region.  Deleting snapshots from this quota frees up space for additional snapshots.
+You can take up to 100 snapshots per volume in a region. [Deleting snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-delete) from this quota frees up space for additional snapshots. You can delete a single snapshot anywhere in the snapshots chain or all snapshots.
 
 ## Is there a limit on the size of a volume that I can snapshot?
 {: faq}
@@ -71,10 +72,18 @@ Deleting a volume from which you created a snapshot has no effect on the snapsho
 {: faq}
 {: #faq-snapshot-8}
 
-In the initial offering of Snapshots for VPC, you can only take a manual snapshot. If you want to set up a snapshot schedule, you have to take independent action, such as setting up a Linux cron job similar to taking backups. However, this is not supported by IBM.
+In the initial offering of Snapshots for VPC, you can only take a manual snapshot. If you want to set up a snapshot schedule, you have to take independent action, such as setting up a Linux&reg; cron job similar to taking backups. However, this is not supported by IBM.
 
 ## Can I detach or delete a volume after I take a snapshot?
 {: faq}
 {: #faq-snapshot-9}
 
 Snapshots have their own lifecycle, independent of the block storage volume. You can separately manage the source volume. However, when taking a snapshot, you must wait for the snapshot creation process to complete before detaching or deleting the volume.
+
+## How am I charged for usage?
+{: faq}
+{: #faq-snapshot-pricing}
+
+Cost for snapshots is calculated based on GB capacity stored per month, unless the duration is less than one month. Because the snapshot is based on the capacity that was provisioned for the original volume, the snapshot capacity does not vary. Deleting snapshots reduces cost, so the fewer snapshots you retain the lower the cost.
+
+Pricing for snapshots is also set by region. For more information, see [Pricing](https://www.ibm.com/cloud/vpc/pricing).
