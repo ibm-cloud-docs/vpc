@@ -9,21 +9,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:important: .important}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:download: .download}
-{:external: target="_blank" .external}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
-{:terraform: .ph data-hd-interface='terraform'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating a VPN gateway
 {: #vpn-create-gateway}
@@ -68,9 +54,9 @@ To create a VPN gateway using the UI:
     * **VPN connection name** - Enter a name for the connection, such as `my-connection`.
     * **Peer gateway address** - Specify the IP address of the VPN gateway for the network outside your VPC.
     * **Preshared key** - Specify the authentication key of the VPN gateway for the network outside your VPC. The preshared key is a string of hexadecimal digits, or a passphrase of printable ASCII characters. To be compatible with most peer gateway types, this string must follow these rules:  
-		* Can be a combination of digits, lower or upper case characters, or the following special characters: `- + & ! @ # $ % ^ * ( ) . , :`  
-		* The length of the string must be 6 - 128 characters.
-		* Cannot start with `0x` or `0s`.
+        * Can be a combination of digits, lower or upper case characters, or the following special characters: `- + & ! @ # $ % ^ * ( ) . , :`  
+        * The length of the string must be 6 - 128 characters.
+        * Cannot start with `0x` or `0s`.
 
     * **Local subnets (Policy-based VPN only)** - Specify one or more subnets in the VPC that you want to connect through the VPN tunnel.
     * **Peer subnets (Policy-based VPN only)** - Specify one or more subnets in the other network that you want to connect through the VPN tunnel.
@@ -96,7 +82,7 @@ To create a VPN gateway using the UI:
 
 To create a VPN gateway by using the CLI, enter the following command:
 
-```
+```sh
 ibmcloud is vpn-gateway-create VPN_GATEWAY_NAME SUBNET
     [--mode policy | route]
     [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME]
@@ -117,11 +103,11 @@ Where:
 ### Command examples
 {: #command-examples-vpn-gateway-create}
 
-- Create a route-based VPN gateway with a specific subnet ID:<br />
+- Create a route-based VPN gateway with a specific subnet ID:
    `ibmcloud is vpn-gateway-create my-vpc-gateway fee82deba12e4c0fb69c3b09d1f12345 --mode route`
-- Create a policy-based VPN gateway using the Default resource group:<br />
+- Create a policy-based VPN gateway using the Default resource group:
    `ibmcloud is vpn-gateway-create my-vpc-gateway fee82deba12e4c0fb69c3b09d1f12345 --mode policy --resource-group-name Default`
-- Create a route-based VPN gateway, using a specific resource group ID with output in JSON format:<br />
+- Create a route-based VPN gateway, using a specific resource group ID with output in JSON format:
    `ibmcloud is vpn-gateway-create my-vpc-gateway fee82deba12e4c0fb69c3b09d1f12345 --mode route --resource-group-id fee82deba12e4c0fb69c3b09d1f12345 --output JSON`
 
 ## Creating a VPN gateway by using the API

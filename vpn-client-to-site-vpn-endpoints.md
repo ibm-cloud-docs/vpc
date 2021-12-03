@@ -10,32 +10,16 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:term: .term}
-{:tip: .tip}
-{:note: .note}
-{:beta: .beta}
-{:important: .important}
-{:deprecated: .deprecated}
-{:table: .aria-labeledby="caption"}
-{:external: target="_blank" .external}
-{:generic: data-hd-programlang="generic”}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
-# Managing VPN clients (Beta)
+# Managing VPN clients (Beta) - DRAFT
 {: #vpn-client-to-site-endpoints}
 
-Client VPN for VPC is available to all IBM Cloud users. After the Beta period ends, you will be given a time period to migrate your VPN servers to the standard pricing plan to avoid disruption of service.
+Client VPN for VPC is available to all IBM Cloud users. After the Beta period ends, you are given a time period to migrate your VPN servers to the standard pricing plan to avoid disruption of service.
 {: beta}
 
 ## Modifying a client VPN  
+{: #modifying-a-client-vpn}
 
 ## Connecting and disconnecting client VPNs
+{: #connecting-and-disconnecting-client-vpns}

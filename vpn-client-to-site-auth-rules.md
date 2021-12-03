@@ -10,33 +10,13 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:term: .term}
-{:tip: .tip}
-{:beta: .beta}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:table: .aria-labeledby="caption"}
-{:external: target="_blank" .external}
-{:generic: data-hd-programlang="generic”}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Using VPN client authorization rules (Beta)
 {: #client-vpn-auth-rules}
 
 Each network must have an authorization rule that grants access to the network.
 {: shortdesc}
-
-**Susan: Writer**
 
 ## Adding authorization rules using the UI
 {: #ui-add-auth-rule}
@@ -78,7 +58,6 @@ To remove authorization rules and grant access to a network to a Client VPN endp
 
 Remove an authorization rule using the `revoke-client-vpn-ingress` command.
 
-
 ## Viewing authorization rules using the UI
 {: #ui-view-auth-rule}
 {: ui}
@@ -88,7 +67,6 @@ To view authorization rules and grant access to a network to a Client VPN endpoi
 2. From the dashboard, click the Menu icon ![Menu icon](../icons/icon_hamburger.svg) and select **Client VPN**
 3. Select the Client VPN endpoint where the authorization rule is applied (DEPENDS ON UI—steps might be more complex)
 4. Select Authorization (may be different name)to see a list of authorization rules for the Client VPN
-
 
 ## Viewing authorization rules using the CLI
 {: #ui-view-auth-rule}

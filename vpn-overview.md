@@ -10,17 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:beta: .beta}
-{:important: .important}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:download: .download}
+{{site.data.keyword.attribute-definition-list}}
 
 # VPNs for VPC overview 
 {: #vpn-overview}

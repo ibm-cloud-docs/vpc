@@ -13,20 +13,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:important: .important}
-{:tip: .tip}
-{:note: .note}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:external: target="_blank" .external}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # API example - Connecting two VPCs using VPN
 {: #vpn-example}
@@ -40,7 +27,7 @@ You can use a VPN gateway to connect two VPCs. However, it is recommended to use
 
 The following diagram shows how to interconnect three VPCs; the following example shows you how to connect only the first two. You can repeat the steps to connect more VPCs.
 
-![Interconnecting VPCs by using VPN gateways](images/vpc-vpn.svg){: caption="Figure 1: Interconnecting VPCs by using VPN gateways" caption-side="top"}
+![Interconnecting VPCs by using VPN gateways](images/vpc-vpn.svg){: caption="Figure 1: Interconnecting VPCs by using VPN gateways" caption-side="bottom"}
 
 The following example assumes that:
 
@@ -80,7 +67,8 @@ curl -X POST "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation=
 {: codeblock}
 
 Sample output:
-```
+
+```sh
 {
     "id": "0738-7fd72524-6e2d-49a6-b975-0071efccd89a",
     "crn": "crn:v1:staging:public:is:us-south:a/b668aa2600ac21c890aef16a6210b2fd::vpn:0738-7fd72524-6e2d-49a6-b975-0071efccd89a",
@@ -155,7 +143,8 @@ curl -X POST  "$vpc_api_endpoint/v1/vpn_gateways?version=$api_version&generation
 
 
 Sample output:
-```
+
+```sh
 {
     "id": "0738-f72559a3-2fac-4958-b937-54474e6a8a8d",
     "crn": "crn:v1:staging:public:is:us-south:a/b668aa2600ac21c890aef16a6210b2fd::vpn:0738-f72559a3-2fac-4958-b937-54474e6a8a8d",
@@ -230,7 +219,7 @@ curl -X POST "$vpc_api_endpoint/v1/vpn_gateways/$gwid1/connections?version=$api_
 
 Sample output:
 
-```
+```sh
 {
     "id": "0738-a252d380-0784-45ff-8fc0-c2b58e446b4d",
     "name": "vpn-connection-to-vpn-gateway-2",
@@ -277,7 +266,7 @@ curl -X POST "$vpc_api_endpoint/v1/vpn_gateways/$gwid2/connections?version=$api_
 
 Sample output:
 
-```
+```sh
 {
     "id": "0738-1d4dbacq-673d-2qed-hf68-858961739gf0",
     "name": "vpn-connection-to-vpn-gateway-1",
@@ -310,6 +299,7 @@ Sample output:
 
 
 You can check the status of the VPN connection as follows:
+
 ```bash
 curl  -X GET "$vpc_api_endpoint/v1/vpn_gateways/$gwid1/connections?version=$api_version&generation=2" \
       -H "Authorization: $iam_token"
@@ -318,7 +308,7 @@ curl  -X GET "$vpc_api_endpoint/v1/vpn_gateways/$gwid1/connections?version=$api_
 
 Sample output:
 
-```
+```sh
 {
     "first": {
         "href": "https://us-south.iaas.cloud.ibm.com/v1/vpn_gateways/0738-7fd72524-6e2d-49a6-b975-0071efccd89a/connections?limit=10"

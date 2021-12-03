@@ -10,20 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:important: .important}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:download: .download}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
-{:terraform: .ph data-hd-interface='terraform'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating an IKE policy
 {: #creating-ike-policy}
@@ -56,7 +43,7 @@ To create an IKE policy using the UI, follow these steps:
 
 To create an IKE policy using the CLI, enter the following command:
 
-```
+```sh
 ibmcloud is ike-policy-create IKE_POLICY_NAME AUTHENTICATION_ALGORITHM DH_GROUP ENCRYPTION_ALGORITHM IKE_VERSION
     [--key-lifetime KEY_LIFETIME]
     [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME]
@@ -80,11 +67,11 @@ Where:
 ### Command examples
 {: #command-examples-vpn-create-ike-policy}
 
-- Create an IPsec policy using MD5 authentication, AES 128 encryption, and PFS with DH Group 2:<br />
+- Create an IPsec policy using MD5 authentication, AES 128 encryption, and PFS with DH Group 2:
    - `ibmcloud is ipsec-policy-create my-ipsec-policy md5 aes128 group_2`
-- Create an IPsec policy with the same parameters and a 3600-seconds lifetime:<br />
+- Create an IPsec policy with the same parameters and a 3600-seconds lifetime:
    - `ibmcloud is ipsec-policy-create my-ipsec-policy md5 aes128 group_2 --key-lifetime 3600`
-- CCreate an IPsec policy with the same parameters and a resource group ID:<br />
+- CCreate an IPsec policy with the same parameters and a resource group ID:
    - `ibmcloud is ipsec-policy-create my-ipsec-policy md5 aes128 group_2 --resource-group-id fee82deba12e4c0fb69c3b09d1f12345 --output JSON`
 
 ## Creating an IKE policy by using the API
@@ -93,8 +80,8 @@ Where:
 
 To create an IKE policy using the API, follow these steps:
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with
-the right variables.
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
+
 1. Store any additional variables to be used in the API commands, for example:
 
    `ResourceGroupId` - Find the resource group ID by using the **get resource groups** command and then populate the variable:

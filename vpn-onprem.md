@@ -10,16 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:important: .important}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:download: .download}
+{{site.data.keyword.attribute-definition-list}}
 
 # Connecting to your on-premises network  
 {: #vpn-onprem-example}
@@ -47,7 +38,7 @@ The next step is configuring your on-premises VPN gateway peer to connect to you
 - [Connecting to an AWS peer](/docs/vpc?topic=vpc-aws-config)
 - [Connecting to a Check Point Security Gateway peer](/docs/vpc?topic=vpc-check-point-config)
 - [Connecting to a Cisco ASAv peer](/docs/vpc?topic=vpc-cisco-asav-config)
-- [Connecting to a FortiGate peer ](/docs/vpc?topic=vpc-fortigate-config)
+- [Connecting to a FortiGate peer](/docs/vpc?topic=vpc-fortigate-config)
 - [Connecting to a Juniper vSRX peer](/docs/vpc?topic=vpc-juniper-vsrx-config)
 - [Connecting to a strongSwan peer](/docs/vpc?topic=vpc-strongswan-config)
 - [Connecting to a Vyatta peer](/docs/vpc?topic=vpc-vyatta-config)

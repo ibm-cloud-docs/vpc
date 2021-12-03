@@ -10,17 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:beta: .beta}
-{:important: .important}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:download: .download}
+{{site.data.keyword.attribute-definition-list}}
 
 # Setting up a client VPN environment and connecting to a VPN server (Beta)
 {: #vpn-client-environment-setup}
@@ -33,7 +23,7 @@ After you create the VPN server using the newly created certificate, you can set
 
 1. Open the details page of the VPN server, then click **Download client profile** to download the client configuration file (`<vpn_server>.ovpn`).
 
-   ![Download client profile](images/vpn-download-client-profile.png "Download client profile")
+   ![Download client profile](images/vpn-download-client-profile.png){: caption="Download client profile" caption-side="bottom"}
 
 1. Distribute the client profile file to the VPN client users.
 1. Instruct VPN client users to do the following:
@@ -46,7 +36,7 @@ After you create the VPN server using the newly created certificate, you can set
    
       * Option 1: Add the following information to the end of the client profile:
       
-         ```
+         ```sh
          cert /path/client_public_key.crt
          key /path/client_private_key.key
          ```
@@ -54,7 +44,7 @@ After you create the VPN server using the newly created certificate, you can set
       
       * Option 2: Add the following information to the end of the client profile:
       
-         ```
+         ```sh
          <cert>
          -----BEGIN CERTIFICATE-----
          place your VPN client certificate
@@ -74,7 +64,7 @@ After you create the VPN server using the newly created certificate, you can set
 1. Connect to the VPN server using the OpenVPN client and configuration file.
 1. To verify that a client connected successfully, open the details page of the VPN server. Then, scroll to the Clients section to view all connected VPN clients in the last hour.
 
-   ![VPN client connections](images/vpn-client-section.png "VPN client connections")
+   ![VPN client connections](images/vpn-client-section.png "VPN client connections"){: caption="VPN client connections" caption-side="bottom"}
 
    You can click the overflow menu ![overflow menu](images/overflow.png) to disconnect or delete clients.
    {: tip}

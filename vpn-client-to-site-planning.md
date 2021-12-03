@@ -10,17 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:important: .important}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:beta: .beta}
-{:tip: .tip}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:download: .download}
+{{site.data.keyword.attribute-definition-list}}
 
 # Planning considerations for VPN servers (Beta)
 {: #client-to-site-vpn-planning}
@@ -59,9 +49,7 @@ When you create a VPN server, you are prompted for a client IPv4 address pool (C
 Review the following requirements:
 
 * Each active VPN client is assigned an IP address from a configurable IP pool. You must select the IP CIDR range carefully to make sure it does not overlap with the VPC prefix and personal device local CIDR.
-
 * Depending on the use case, the client IP pool cannot overlap with a customer's local device IP address. The client IP pool also cannot overlap with the destination network; for example, if the VPN server is used to access the {{site.data.keyword.cloud_notm}} classic network, the client IP cannot overlap with the {{site.data.keyword.cloud_notm}} classic network.
-
 * You must ensure that the block size is at least `/22` (`1024` free IP addresses). It is recommended to use a CIDR block that contains twice the number of IP addresses that are required to enable the maximum number of concurrent connections.
 
 ### Subnets: high-availability versus stand-alone mode
@@ -69,15 +57,15 @@ Review the following requirements:
 
 When you create a VPN server, you can specify either high-availability or stand-alone mode.
 
-   * If you select high-availability mode, you must deploy the VPN server across two subnets in different zones. Use this mode for production deployments. Best for multi-zone deployments and solutions where client VPN access is critical.
-   * If you select stand-alone mode, you deploy the VPN server in a single subnet and zone. Use this mode for a pilot, non-production deployment where multi-zone resiliency is not required.
+* If you select high-availability mode, you must deploy the VPN server across two subnets in different zones. Use this mode for production deployments. Best for multi-zone deployments and solutions where client VPN access is critical.
+* If you select stand-alone mode, you deploy the VPN server in a single subnet and zone. Use this mode for a pilot, non-production deployment where multi-zone resiliency is not required.
 
 ### VPN server authentication
 {: #server-authentication}
 
 You must specify a VPN server certificate during provisioning. You can create a certificate using the {{site.data.keyword.cloud_notm}} Certificate Manager, or use one of your own.
 
-   If using the CLI or API, you must specify the certificate's CRN. To obtain the certificate CRN, see [Locating the certificate CRN ](/docs/vpc?topic=vpc-client-to-site-authentication#locating-cert-crn).
+   If using the CLI or API, you must specify the certificate's CRN. To obtain the certificate CRN, see [Locating the certificate CRN](/docs/vpc?topic=vpc-client-to-site-authentication#locating-cert-crn).
    {: note}
 
 If the VPN server is using user ID and passcode authentication only, you only need to specify the VPN server certificate, which includes the public/private key and CA certificate. The VPN service gets the public and private keys from the certificate instance and stores them in the VPN server. This CA certificate is also copied in the client profile so that the client can use the CA certificate to verify the VPN server.  
@@ -103,8 +91,8 @@ VPN users don't use their password directly to connect to the VPN server. They g
 
 The VPN server receives the username and passcode from the VPN client and makes an IAM call to verify the passcode and permission with IAM policy.  
 
-   * The passcode is an one-time password. The user MUST re-generate the passcode for re-connection, even if the re-connection is initiated by the VPN server.
-   * The SoftLayer MFA is not supported because SoftLayer MFA enforcement is not done via the browser.
+* The passcode is an one-time password. The user MUST re-generate the passcode for re-connection, even if the re-connection is initiated by the VPN server.
+* The SoftLayer MFA is not supported because SoftLayer MFA enforcement is not done via the browser.
 
 If you use user ID/passcode authentication, maintenance activities force users to re-authenticate by fetching and re-entering the code. The connection is restored only after the new code is entered. This is applicable using stand-alone or HA mode.
 {: important}
@@ -126,17 +114,17 @@ The transport layer oversees the delivery of data from a process on one device t
    UDP is recommended for optimal performance; TCP for reliability.
    {: note}
 
-   * **User Datagram Protocol (UDP)**
+* **User Datagram Protocol (UDP)**
 
-      The User Datagram Protocol (UDP) is a simple, lightweight protocol with minimum overhead. If a process wants to send a small message and doesn't care about reliability, it can use UDP. Sending a message by using UDP takes much less time than using TCP. It performs little error checking and does not add any advantages to IP services except to provide process-to-process communication instead of host-to-host communication.  
+   The User Datagram Protocol (UDP) is a simple, lightweight protocol with minimum overhead. If a process wants to send a small message and doesn't care about reliability, it can use UDP. Sending a message by using UDP takes much less time than using TCP. It performs little error checking and does not add any advantages to IP services except to provide process-to-process communication instead of host-to-host communication.  
 
-   * **Transmission Control Protocol (TCP)**
+* **Transmission Control Protocol (TCP)**
 
-      Transmission Control Protocol (TCP) is a reliable but complex transport-layer protocol. TCP adds connection-oriented features and reliability to IP services.
+   Transmission Control Protocol (TCP) is a reliable but complex transport-layer protocol. TCP adds connection-oriented features and reliability to IP services.
 
-      TCP is a stream delivery service that guarantees delivery of data streams sent from one host to another without duplication or lost data. Since packet transfer is not reliable, a technique known as positive acknowledgment with retransmission is used to guarantee reliability of packet transfers. This fundamental technique requires the receiver to respond with an acknowledgment message as it receives the data.
+   TCP is a stream delivery service that guarantees delivery of data streams sent from one host to another without duplication or lost data. Since packet transfer is not reliable, a technique known as positive acknowledgment with retransmission is used to guarantee reliability of packet transfers. This fundamental technique requires the receiver to respond with an acknowledgment message as it receives the data.
 
-      The sender keeps a record of each packet it sends, and waits for acknowledgment before sending the next packet. The sender also keeps a timer from when the packet was sent, and retransmits a packet if the timer expires. This timer is needed in case a packet becomes lost or corrupted.
+   The sender keeps a record of each packet it sends, and waits for acknowledgment before sending the next packet. The sender also keeps a timer from when the packet was sent, and retransmits a packet if the timer expires. This timer is needed in case a packet becomes lost or corrupted.
 
 ### Full versus split tunnel mode
 {: #full-versus-split-tunnels}
@@ -145,11 +133,9 @@ When a VPN connection is set up, an encrypted tunnel is created over the interne
 
 Other considerations:
 
-   * Use full-tunnel (default) mode if you have a security concern when the client accesses the internet without a VPN tunnel. Full-tunnel is usually necessary for compliance with regulatory standards; however, this approach can be costly and also increases the load of the VPN server.
-
-   * In split-tunnel mode, routes are pushed to the VPN client by the VPN server. This way, the OpenVPN client knows which traffic should be sent into the VPN tunnel. You should be careful when adding routes and avoid routing loops. For example, if the VPN server's public IP address is `3.3.3.3`, then you cannot add a route `3.3.3.0/24` because this route would send traffic to `3.3.3.3` that should not go through the VPN tunnel. Ideally, you should configure the private subnet only as a route destination, such as a VPC subnet, a CSE subnet, an on-premises private subnet, and so on.
-
-   * The VPN route is pushed to your VPN client. If your VPN client already has a route with the same destination, the route "push" fails and the traffic cannot reach your VPN server. You must address the route conflict and then re-connect the VPN client. A common issue is if you add a VPN route with destination `0.0.0.0/0` on a split-tunnel-mode VPN server, and this route needs to be pushed to your VPN client. Typically, the VPN client already has a route with destination `0.0.0.0/0`; therefore, this VPN route will conflict with your VPN client route. To avoid conflict, use a full-tunnel-mode VPN server, or remove the route `0.0.0.0/0` on your host.
+* Use full-tunnel (default) mode if you have a security concern when the client accesses the internet without a VPN tunnel. Full-tunnel is usually necessary for compliance with regulatory standards; however, this approach can be costly and also increases the load of the VPN server.
+* In split-tunnel mode, routes are pushed to the VPN client by the VPN server. This way, the OpenVPN client knows which traffic should be sent into the VPN tunnel. You should be careful when adding routes and avoid routing loops. For example, if the VPN server's public IP address is `3.3.3.3`, then you cannot add a route `3.3.3.0/24` because this route would send traffic to `3.3.3.3` that should not go through the VPN tunnel. Ideally, you should configure the private subnet only as a route destination, such as a VPC subnet, a CSE subnet, an on-premises private subnet, and so on.
+* The VPN route is pushed to your VPN client. If your VPN client already has a route with the same destination, the route "push" fails and the traffic cannot reach your VPN server. You must address the route conflict and then re-connect the VPN client. A common issue is if you add a VPN route with destination `0.0.0.0/0` on a split-tunnel-mode VPN server, and this route needs to be pushed to your VPN client. Typically, the VPN client already has a route with destination `0.0.0.0/0`; therefore, this VPN route will conflict with your VPN client route. To avoid conflict, use a full-tunnel-mode VPN server, or remove the route `0.0.0.0/0` on your host.
 
 No matter which tunnel mode you choose, you must use the API `/vpn_servers/{id}/routes` to define how the VPN server forwards the traffic from the VPN client. For example, if you want the internet traffic from the client to go through the VPN tunnel, a `0.0.0.0/0` route must be configured using the VPN service routes API.
 
@@ -159,10 +145,10 @@ No matter which tunnel mode you choose, you must use the API `/vpn_servers/{id}/
 
 You must provide VPN client software for your users. The following client software versions are verified for use with this beta release:
 
-* For macOS Catalina and later:<br />[OpenVPN Connect v3](https://openvpn.net/vpn-client/#tab-macos){: external}, OpenVPN Connect v2, and Tunnelblick 3.8.4
-* Windows 8 and later:<br />[OpenVPN Connect v3](https://openvpn.net/vpn-client/#tab-windows){: external}, OpenVPN Connect v2
-* RHEL 7.x and later:<br />[OpenVPN Connect v3](https://openvpn.net/vpn-client/#tab-linux){: external}, OpenVPN Connect v2, and OpenVPN command-line client (version 2.4.4 and later)
-* Ubuntu 18.04 and later:<br />[OpenVPN Connect v3](https://openvpn.net/vpn-client/#tab-linux){: external}, OpenVPN Connect v2, and OpenVPN command-line client (version 2.4.10 and later)
+* For macOS Catalina and later: [OpenVPN Connect v3](https://openvpn.net/vpn-client/#tab-macos){: external}, OpenVPN Connect v2, and Tunnelblick 3.8.4
+* Windows 8 and later: [OpenVPN Connect v3](https://openvpn.net/vpn-client/#tab-windows){: external}, OpenVPN Connect v2
+* RHEL 7.x and later: [OpenVPN Connect v3](https://openvpn.net/vpn-client/#tab-linux){: external}, OpenVPN Connect v2, and OpenVPN command-line client (version 2.4.4 and later)
+* Ubuntu 18.04 and later: [OpenVPN Connect v3](https://openvpn.net/vpn-client/#tab-linux){: external}, OpenVPN Connect v2, and OpenVPN command-line client (version 2.4.10 and later)
 
 VPN client users can choose other OpenVPN-2.4-compatible client software. However, software that is not listed is not guaranteed to work.
 {: tip}

@@ -10,18 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:important: .important}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:external: target="_blank" .external}
-{:table: .aria-labeledby="caption"}
-{:download: .download}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Connecting to a Check Point Security Gateway peer
 {: #check-point-config}
@@ -113,4 +102,4 @@ It is recommended to change these default settings to the following:
    1. To save the changes, click **File > Save All**.
    1. In SmartConsole, install the Access Control Policy on this Security Gateway object.
 
-   For more information, see [NAT-T Compatibility With Check Point Devices ](https://support.cohesive.net/support/solutions/articles/31000156433-nat-t-compatibility-with-check-point-devices){: external}.
+   For more information, see [NAT-T Compatibility With Check Point Devices](https://support.cohesive.net/support/solutions/articles/31000156433-nat-t-compatibility-with-check-point-devices){: external}.

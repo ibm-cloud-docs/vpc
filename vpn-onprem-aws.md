@@ -10,17 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:important: .important}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:download: .download}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Connecting to an AWS peer
 {: #aws-config}
@@ -65,12 +55,18 @@ To configure an AWS peer, follow these steps:
      To reach multiple contiguous subnets in IBM VPC, use a larger CIDR range that covers all subnets that are needed.
    * Enter a pre-shared key for both **tunnel1** and **tunnel2**.
    * For both AWS tunnels, choose **Edit Tunnel X Options** and select the desired security parameters. You can choose multiple values for each parameter as long as they are supported by IBM VPN as well.
-     ![AWS Tunnel Options](images/vpn-interop-aws-tunnel-options.png)
+
+     ![AWS Tunnel Options](images/vpn-interop-aws-tunnel-options.png){: caption="AWS Tunnel Options" caption-side="bottom"}
+
 1. After the AWS site-to-site connection is in `Available` state, go to the **Static Routes** tab to verify that the correct route was added automatically. Make manual adjustments if necessary.
    The following screen shows that networks `10.240.128.0/27` and `10.240.128.32/27` on the IBM VPC side are routed with the new destination `10.240.128.0/26`.
-   ![AWS Connection Static Routes](images/vpn-aws-connection-static-routes.png)   
+
+   ![AWS Connection Static Routes](images/vpn-aws-connection-static-routes.png){: caption="AWS Connection Static Routes" caption-side="bottom"}   
+
 1. Go to AWS **Route Tables** under **VIRTUAL PRIVATE CLOUD** and find the route table that is associated with the VPC where the VPN was attached. Click **Edit Routes** and add the same route to the route table.
-   ![AWS Route Table](images/vpn-aws-route-table.png)
+
+   ![AWS Route Table](images/vpn-aws-route-table.png){: caption="AWS Route table" caption-side="bottom"}
+
 1. Verify connection status on the **Site-to-Site Connection** page.
 1. Verify traffic. Ensure that AWS ACL and security group rules are adjusted to allow the traffic you need.
 

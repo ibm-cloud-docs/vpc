@@ -10,21 +10,10 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:important: .important}
-{:tip: .tip}
-{:note: .note}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # About site-to-site VPN gateways
 {: #using-vpn}
-[comment]: # (linked help topic)
 
 You can use the IBM Cloud VPN Gateway for VPC service to securely connect your Virtual Private Cloud (VPC) to another private network. Use a static, route-based VPN, or a policy-based VPN to set up an IPsec site-to-site tunnel between your VPC and your on-premises private network, or another VPC.
 {: shortdesc}
@@ -78,25 +67,27 @@ To create a VPN gateway, follow these general steps:
 
 This diagram illustrates an example VPN setup with multiple on-premises networks. The VPN is configured on a subnet within a user's VPC, but can be shared by instances on all subnets within the zone. The IKE and IPsec policies also can be used by one or more VPN connections.
 
-![VPN setup example](images/vpn-setup.png)
+![VPN setup example](images/vpn-setup.png){: caption="VPN setup example" caption-side="bottom"}
 
 ## {{site.data.keyword.vpn_vpc_short}} use cases
 {: #vpn-use-cases}
 
 ### Use case 1: VPN connection to single remote peer device of the same type that is associated with one or more peer networks
+{: #use-case-1-vpn}
 
 Both route-based and policy-based VPNs allow users to connect to a single remote peer device associated with one or more networks.
 
 This use case does not apply for connections between a policy-based VPN and a route-based VPN. For more information, see [Known limitations](/docs/vpc?topic=vpc-vpn-limitations).
 {: important}
 
-![Single peer VPN use case](images/vpn-single-peer.png)
+![Single peer VPN use case](images/vpn-single-peer.png){: caption="Single peer VPN use case" caption-side="bottom"}
 
 ### Use case 2: VPN connections to multiple remote peer devices
+{: #use-case-2-vpn}
 
 Both policy-based and route-based VPNs allow users to connect to multiple remote peer devices associated with different VPCs/environments by using multiple VPN connections
 
-![Multiple Peers VPN use case](images/vpn-multiple-peers.png)
+![Multiple Peers VPN use case](images/vpn-multiple-peers.png){: caption="Mulitple Peers VPN use case" caption-side="bottom"}
 
 ## About policy negotiation
 {: #policy-negotiation}
@@ -124,7 +115,7 @@ You can use the following encryption, authentication, and Diffie-Hellman Group o
 | 1  | aes128 | sha1   | 2  |
 | 2  | aes256 | sha256 | 5  |
 | 3  | 3des   | md5    | 14 |
-{: caption="Table 1. Encryption, authentication, and DH Group options for IPsec auto-negotiation Phase 1" caption-side="top"}
+{: caption="Table 1. Encryption, authentication, and DH Group options for IPsec auto-negotiation Phase 1" caption-side="bottom"}
 
 ### IPsec auto-negotiation (Phase 2)
 {: #ipsec-auto-negotiation-phase-2}
@@ -139,7 +130,7 @@ By default, PFS is disabled for IBM Cloud VPN Gateway for VPC. Some vendors requ
 | 1  | aes128 | sha1   | Disabled  |
 | 2  | aes256 | sha256 | Disabled  |
 | 3  | 3des   | md5    | Disabled  |
-{: caption="Table 2. Encryption and authentication options for IPsec auto-negotiation Phase 2" caption-side="top"}
+{: caption="Table 2. Encryption and authentication options for IPsec auto-negotiation Phase 2" caption-side="bottom"}
 
 ## Related links
 {: #vpn-related-links}
@@ -147,7 +138,7 @@ By default, PFS is disabled for IBM Cloud VPN Gateway for VPC. Some vendors requ
 These links provide additional information about IBM Cloud VPN Gateway for VPC:
 
 * [VPN CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpn-clis)
-* [VPN API reference](https://{DomainName}/apidocs/vpc#list-ike-policies)
+* [VPN API reference](https://{DomainName}/apidocs/vpc#list-ike-policies){: external}
 * [VPN Terraform reference](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpn_gateway)
 * [Required permissions for VPN resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-vpns)

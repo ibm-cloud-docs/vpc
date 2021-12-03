@@ -10,17 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:important: .important}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:download: .download}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Connecting to a strongSwan peer
 {: #strongswan-config}
@@ -35,7 +25,7 @@ Read [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before conti
 
 Go to the **/etc** directory and create a new custom tunnel configuration file with a name such as `ipsec.abc.conf`. Edit the `/etc/ipsec.conf` file to include the new `ipsec.abc.conf` file by adding the following line:
 
-```
+```sh
 include /etc/ipsec.abc.conf
 ```
 {: codeblock}
@@ -58,7 +48,7 @@ Use the following configuration:
 1. Set `lifetime = 10800` in the Phase 2 proposal.
 1. Input your peers and subnets information in the Phase 2 proposal. In the following example, a connection is defined between the on-premises subnet `10.160.26.64/26` whose strongSwan VPN gateway has the IP address `169.45.74.119` and the VPC subnet `192.168.17.0/28` whose {{site.data.keyword.vpn_vpc_short}} gateway has the IP address `169.61.181.116`.
 
-    ```
+    ```sh
     vim /etc/ipsec.abc.conf
     conn all
            type=tunnel
@@ -85,7 +75,7 @@ Use the following configuration:
 
 Set the preshared key in `/etc/ipsec.secrets`:
 
-```
+```sh
 vim ipsec.secrets
 # This file holds shared secrets or RSA private keys for authentication.
 
@@ -96,7 +86,7 @@ vim ipsec.secrets
 
 After the configuration file finishes running, restart the strongSwan VPN.
 
-```
+```sh
 ipsec restart
 
 ```

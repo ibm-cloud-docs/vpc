@@ -10,17 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:important: .important}
-{:new_window: target="_blank"}
-{:beta: .beta}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:download: .download}
+{{site.data.keyword.attribute-definition-list}}
 
 # About client-to-site VPN servers (Beta)
 {: #vpn-client-to-site-overview}
@@ -47,7 +37,7 @@ Figure 1 illustrates an example VPN server setup to connect resources in and out
 A DNS service is deployed as part of the VPN service. The DNS name provided ends with `appdomain.cloud`.
 {: note}
 
-![Client-to-site VPN server architecture](images/vpn-server-arch.png "Client-to-site VPN server architecture"){: caption="Figure 1. Client-to-site VPN server architecture" caption-side="bottom"}
+![Client-to-site VPN server architecture](images/vpn-server-arch.png){: caption="Figure 1. Client-to-site VPN server architecture" caption-side="bottom"}
 
 ## Getting started
 {: #vpn-client-to-site-getting-started}
@@ -77,14 +67,14 @@ The VPN server is deployed in a selected Multi-zone Region (MZR) and VPC. All vi
 
 When the administrator enforces the VPN server in full-tunnel mode, all traffic from customer devices is sent to the VPN server, including internet traffic. The VPN server forwards the internet traffic to the IBM Cloud infrastructure Edge node and finally reaches the internet.
 
-![Network topology: A VPN client can access the internet through the VPN server](images/vpn-connect-to-internet.png "A VPN client can access the internet through the VPN server"){: caption="Figure 3. Network topology: A VPN client can access the internet through the VPN server" caption-side="bottom"}
+![Network topology: A VPN client can access the internet through the VPN server](images/vpn-connect-to-internet.png){: caption="Figure 3. Network topology: A VPN client can access the internet through the VPN server" caption-side="bottom"}
 
 ### Use case 3: Integrating with a transit gateway
 {: #integrate-transit-vpn-gateway}
 
 Generally, it is recommended to provision VPC resources in multiple regions for redundancy. To access the resources in all regions from personal devices, one approach is to create one client-to-site VPN server per VPC, per region, and establish the VPN connection to all VPN servers. You must also maintain multiple VPN servers with this approach. This might be an inconvenience, but it is a more secure method. Another approach is to use a transit gateway to connect all these VPCs. As a result, only one VPN server is required to access the VPCs.
 
-![Network topology: Integrating with a transit gateway](images/vpn-server-use-case-tgw-integration.png "Integrating with a transit gateway"){: caption="Figure 4. Network topology: Integrating with a transit gateway" caption-side="bottom"}
+![Network topology: Integrating with a transit gateway](images/vpn-server-use-case-tgw-integration.png){: caption="Figure 4. Network topology: Integrating with a transit gateway" caption-side="bottom"}
 
 When you integrate the client-to-site VPN server with the transit gateway, you must add one or more VPN routes with the destination set to the CIDR of the subnet in other VPCs or classic networks, and set the route action to `translate`. For more information, see [Managing VPN routes](/docs/vpc?topic=vpc-vpn-client-to-site-routes).
 {: note}
@@ -94,10 +84,11 @@ When you integrate the client-to-site VPN server with the transit gateway, you m
 
 Integrate with a site-to-site VPN gateway if you want to access your on-premises private network at the same time as when you connect to IBM VPCs. This use case removes the requirement to maintain multiple VPN servers simultaneously. You can access your on-premises private network from a client-to-site VPN server directly.  
 
-![Network topology: Integrating with a site-to-site VPN gateway](images/vpn-server-use-case-vpn-gateway.png "Integrating with a site-to-site VPN gateway"){: caption="Figure 5. Network topology: Integrating with a site-to-site VPN gateway" caption-side="bottom"}
+![Network topology: Integrating with a site-to-site VPN gateway](images/vpn-server-use-case-vpn-gateway.png){: caption="Figure 5. Network topology: Integrating with a site-to-site VPN gateway" caption-side="bottom"}
 
 
 ## Related links
+{: #vin-client-to-site-related-links}
 
 * [Quotas](/docs/vpc?topic=vpc-quotas#vpn-server-quotas)
 * [Required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls#vpn-server-authorizations-required-for-api-and-cli-calls)

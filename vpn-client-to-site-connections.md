@@ -10,25 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:term: .term}
-{:tip: .tip}
-{:note: .note}
-{:beta: .beta}
-{:important: .important}
-{:deprecated: .deprecated}
-{:table: .aria-labeledby="caption"}
-{:external: target="_blank" .external}
-{:generic: data-hd-programlang="generic”}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Disconnecting VPN clients (Beta)
 {: #vpn-client-to-site-connections}
@@ -49,7 +31,7 @@ To disconnect a VPN client from the VPN server, follow these steps:
 1. Scroll to the Clients section to view VPN clients that connected in the last hour.
 1. Click the overflow menu ![overflow menu](images/overflow.png) next to the client you want to disconnect, then click **Disconnect**. The disconnected VPN client is automatically deleted after one hour.
 
-   ![Disconnect a VPN client](images/vpn-client-section.png "VPN client connections")
+   ![Disconnect a VPN client](images/vpn-client-section.png){: caption="VPN client connections" caption-side="bottom"}
 
    You can also specify to **Delete** the VPN client, which deletes the client session immediately.
    {: note}
@@ -63,7 +45,7 @@ To disconnect a VPN client by using the CLI, enter the following command:
 The disconnected VPN client is automatically deleted after one hour. To automatically delete a VPN client, use the **ibmcloud is vpn-server-client-delete** command.
 {: note}
 
-```
+```sh
 ibmcloud is vpn-server-client-disconnect VPN_SERVER_ID (CLIENT_ID1 CLIENT_ID2 ...) [-f, --force] [-q, --quiet]
 ```
 {: pre}
@@ -78,7 +60,7 @@ Where:
 
 For example:
 
-```
+```sh
 ic is vpn-server-client-disconnect r134-46ca4654-fe57-431c-9f5a-1c82773b6e83 86b1f0cc-6e83-45e5-bd78-1bef291be6e7
 This will disconnect VPN client 86b1f0cc-16b0-45e5-bd78-1bef291be6e7 and cannot be undone. Continue [y/N] ?> y
 Disconnect VPN client 86b1f0cc-16b0-45e5-bd78-1bef291be6e7 under account IBM as user terry@ibm.com...

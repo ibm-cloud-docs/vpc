@@ -10,25 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:term: .term}
-{:tip: .tip}
-{:note: .note}
-{:beta: .beta}
-{:important: .important}
-{:deprecated: .deprecated}
-{:table: .aria-labeledby="caption"}
-{:external: target="_blank" .external}
-{:generic: data-hd-programlang="generic”}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating an IAM access group and granting the role to connect to the VPN server (Beta)
 {: #create-iam-access-group}
@@ -36,7 +18,7 @@ subcollection: vpc
 Client VPN for VPC is available to all IBM Cloud users. After the Beta period ends, you will be given a time period to migrate your VPN servers to the standard pricing plan to avoid disruption of service.
 {: beta}
 
-**FOR USER ID AND PASSCODE AUTHENTICATION ONLY**
+FOR USER ID AND PASSCODE AUTHENTICATION ONLY
 
 To create an IAM access group and grant the user role to connect to the VPN server, follow these steps:
 
@@ -45,10 +27,12 @@ To create an IAM access group and grant the user role to connect to the VPN serv
 1. Click the **Access policies** tab, then click **Assign access**.
 1. From the drop-down menu, select **VPC Infrastructure Services**. 
 
-   ![Assigning access to an access group](images/vpn-access-role.png "Assigning access to an access group") 
+   ![Assigning access to an access group](images/vpn-access-role.png){: caption="Assigning access to an access group" caption-side="bottom"}
+
 1. For Service access, select **Users of the VPN server need this role to connect to the VPN server**, then click **Add**.
 
-   ![Assigning access role to an access group](images/vpn-access.png "Assigning access role to an access group") 
+   ![Assigning access role to an access group](images/vpn-access.png ){: caption="Assigning an access role to an access group" caption-side="bottom"}
+
 1. Review the Access summary panel and click **Assign**.
 1. Click the **Users** tab and then click **Add users** to add users to the new access group.
 

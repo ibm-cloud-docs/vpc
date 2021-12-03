@@ -10,19 +10,7 @@ subcollection: vpc
 
 ---
 
-{:tsSymptoms: .tsSymptoms}
-{:tsCauses: .tsCauses}
-{:tsResolve: .tsResolve}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:note: .note}
-{:tip: .tip}
-{:important: .important}
-{:support: data-reuse='support'}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:note:.deprecated}
-{:troubleshoot: data-hd-content-type='troubleshoot'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Why do I see a certificate warning with OpenVPN Connect v2 or v3?
 {: #troubleshoot-certificate-warning-openvpn}
@@ -32,7 +20,8 @@ subcollection: vpc
 When the authentication mode is user ID/passcode only, a client certificate is not required. However, this approach is less secure than using both certificate and user ID/passcode authentication.  
 {: shortdesc}
 
-`OpenVPN Connect V2` displays the error `Missing External PKI alias`.<br />
+`OpenVPN Connect V2` displays the error `Missing External PKI alias`.
+
 `OpenVPN Connect V3` displays the error `Miss external certificate`.
 {: tsSymptoms}
 

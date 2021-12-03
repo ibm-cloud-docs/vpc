@@ -10,17 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:important: .important}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:download: .download}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Connecting an IBM policy-based VPN to a Juniper vSRX peer
 {: #juniper-vsrx-config}
@@ -36,7 +26,7 @@ These instructions are based on Juniper vSRX, JUNOS Software Release [15.1X49-D1
 Read [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before continuing to connect to your on-premises peer.
 {: note}
 
-When the Juniper VPN receives a connection request from {{site.data.keyword.vpn_vpc_short}}, Juniper uses IPsec Phase 1 parameters to establish a secure connection and authenticate the {{site.data.keyword.vpn_vpc_short}} gateway. Then, if the security policy permits the connection, the Juniper VPN establishes the tunnel using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
+When the Juniper VPN receives a connection request from VPN for VPC, Juniper uses IPsec Phase 1 parameters to establish a secure connection and authenticate the VPN for VPC gateway. Then, if the security policy permits the connection, the Juniper VPN establishes the tunnel using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
 
 To support these functions, you must do the following on the Juniper vSRX unit:
 
@@ -59,7 +49,7 @@ Make sure that you specify `IKEv1` in Phase 1. Juniper vSRX supports IKEv2 in ro
 
 Here's an example of how to set up security:
 
-```
+```sh
 proposal proposal-ike1 {
     authentication-method pre-shared-keys;
     dh-group group2;
@@ -128,7 +118,7 @@ security {
 
 Here's an example of how to set up the firewall:
 
-```
+```sh
 admin@Juniper-vSRX# show firewall filter PROTECT-IN term VPN_IKE
 from {
     destination-address {
@@ -146,7 +136,7 @@ then accept;
 
 After the configuration file finishes running, you can check the connection status from the CLI using the following command:
 
-```
+```sh
  run show security ipsec security-associations
 ```
 {: codeblock}
@@ -159,6 +149,7 @@ By default, {{site.data.keyword.vpn_vpc_short}} disables PFS in Phase 2, and Jun
 To use a custom IPsec policy in {{site.data.keyword.vpn_vpc_short}}, follow these steps:
 
 1. On the {{site.data.keyword.vpn_vpc_short}} page in the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, select the **IPsec policies** tab.
+
 1. Click **New IPsec policy** and specify the following values:
 
    * For the **Authentication** field, select **MD5**.
@@ -166,19 +157,20 @@ To use a custom IPsec policy in {{site.data.keyword.vpn_vpc_short}}, follow thes
    * Select the **PFS** option.
    * For the **DH Group** field, select **2**.
    * For the **Key lifetime** field, specify **1200**.
+
 1. When you create the VPN connection in your VPC, select this custom IPsec policy.
 
 ## Route-based configuration for Juniper vSRX
 {: #route-based-setup-vsrx}
 
-The following configuration shows how to set up two route-based tunnels between the Juniper vSRX VPN and {{site.data.keyword.vpn_vpc_short}} using a weighted preference for two tunnels.
+The following configuration shows how to set up two route-based tunnels between the Juniper vSRX VPN and VPN for VPC using a weighted preference for two tunnels.
 
-The {{site.data.keyword.vpn_vpc_short}} gateway should have a connection where the peer address is the vSRX public IP.
+The VPN for VPC gateway should have a connection where the peer address is the vSRX public IP.
 {: note}
 
 Set the vSRX configuration as follows:
 
-```
+```sh
 ike {
     proposal ike-proposal-vpnaas {
         authentication-method pre-shared-keys;
@@ -221,7 +213,7 @@ ike {
 ```
 {: codeblock}
 
-```
+```sh
 ipsec {                                 
     proposal ipsec-proposal-vpnaas {    
         protocol esp;                   
@@ -251,7 +243,7 @@ ipsec {
 ```
 {: codeblock}
 
-```
+```sh
 st0 {                                   
     unit 0 {                            
         description IBM_VPC1;           
@@ -265,7 +257,7 @@ st0 {
 ```
 {: codeblock}
 
-```
+```sh
 routing-options {
     static {
         route <static route> {
@@ -287,8 +279,10 @@ routing-options {
 Follow these steps to verify the configuration:
 
 1. Verify IKE Phase 1 is working for both tunnels:
-`run show security ike sa`
+   `run show security ike sa`
+
 2. Verify IKE Phase 2 is working for both tunnels:
-`run show security ipsec sa`
+   `run show security ipsec sa`
+   
 3. Show the route:
-`run show route <static route>`
+   `run show route <static route>`

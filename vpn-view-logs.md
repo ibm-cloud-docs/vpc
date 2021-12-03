@@ -10,14 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Using {{site.data.keyword.la_full_notm}} to view VPN logs
 {: #using-log-analysis-to-view-vpn-logs}
@@ -59,7 +52,7 @@ To view the {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}}
 1. Apply the source filter for **is.vpn** to filter logs from {{site.data.keyword.vpn_vpc_short}}.
 1. Click the **Sources** filter menu.
 
-![Source filter](images/vpc-vpn-logdna-source-filter.png)
+![Source filter](images/vpc-vpn-logdna-source-filter.png){: caption="Source filter" caption-side="bottom"}
 
 1. Click **Apply**.
 

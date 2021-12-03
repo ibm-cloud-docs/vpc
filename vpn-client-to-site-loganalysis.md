@@ -10,17 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:important: .important}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:beta: .beta}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:download: .download}
+{{site.data.keyword.attribute-definition-list}}
 
 # Using IBM Log Analysis to view VPN server logs (Beta)
 {: #client-vpn-log-analysis-c2s}
@@ -64,7 +54,7 @@ To view the {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}}
 1. Apply the source filter for **is.vpn-server** to filter logs from {{site.data.keyword.vpn_vpc_short}}.
 1. Click the **Sources** filter menu.
 
-   ![Source filter](images/vpc-vpn-server-logdna-source-filter.png)
+   ![Source filter](images/vpc-vpn-server-logdna-source-filter.png){: caption="Source filter" caption-side="bottom"}
 
 1. Click **Apply**.
 

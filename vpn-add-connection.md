@@ -10,20 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:important: .important}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:download: .download}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
-{:terraform: .ph data-hd-interface='terraform'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Adding connections to a VPN gateway
 {: #vpn-adding-connections}
@@ -68,7 +55,7 @@ To add a VPN connection to an existing VPN gateway, follow these steps:
 
 To create a VPN connection by using the CLI, enter the following command:
 
-```
+```sh
 ibmcloud is vpn-gateway-connection-create CONNECTION_NAME VPN_GATEWAY_ID PEER_ADDRESS PRESHARED_KEY
      --local-cidr CIDR1 --local-cidr CIDR2 ...
      --peer-cidr CIDR1 --peer-cidr CIDR2 ...
@@ -109,11 +96,11 @@ Where:
 {: #vpn-using-api-add-connection}
 {: api}
 
-
 To create a VPN connection by using the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with
 the right variables.
+
 1. Store any additional variables to be used in the API commands, for example:
 
    * `vpnGatewayId` - The VPN gateway identifier
@@ -124,12 +111,12 @@ the right variables.
        {: pre}
 
    * `ikePolicyId` - The unique identifier for this IKE policy
-
+   
       ```sh
       export ikePolicyId=<your_ike_policy_id>
       ```
       {: pre}
-
+      
    * `ipsecPolicyId` - The unique identifier for this IPsec policy
 
        ```sh

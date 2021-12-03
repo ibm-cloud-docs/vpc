@@ -10,16 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:important: .important}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:download: .download}
+{{site.data.keyword.attribute-definition-list}}
 
 # Connecting to a Vyatta peer
 {: #vyatta-config}
@@ -95,7 +86,7 @@ The following commands use the following variables where:
 * `{{ vyatta_address }}` is the Vyatta public IP address.
 * `{{ vyatta_cidr }}` is the Vyatta subnet.
 
-```
+```sh
 vim vyatta_temp/create_vpn.vcli
 #!/bin/vcli -f
 configure
@@ -139,7 +130,7 @@ end_configure
 
 For example, you can run the following commands:
 
-```
+```sh
 #!/bin/vcli -f
 configure
 
@@ -180,10 +171,7 @@ end_configure
 ```
 {: screen}
 
-Finally, make note of your `{{ psk }}` value, as you will need it to set up the VPN connection in the next step.
-
-{: codeblock}
-
+Finally, make note of your `{{ psk }}` value, as you will need it to set up the VPN connection in the next step. 
 
 ## Troubleshooting
 {: #vyatta-troubleshooting}
@@ -192,7 +180,7 @@ Remember that:
 
 * If you enable CPP firewall on Vyatta, you must configure the rules to allow traffic from IBM gateway. For example, if your CPP firewall name is `GATEWAY_CPP`, add these rules to the firewall:
 
-    ```
+    ```sh
     # set security firewall name GATEWAY_CPP rule 250 source address 169.61.247.167
     # set security firewall name GATEWAY_CPP rule 250 action accept
     ```
@@ -200,7 +188,7 @@ Remember that:
 
 * If you are applying the firewall to the interface, you must permit the traffic from IBM VPC. For example:
 
-    ```
+    ```sh
     # set security firewall name to-vpc rule 20 destination address 10.240.0.0/24
     # set security firewall name to-vpc rule 20 action accept
     # set security firewall name from-vpc rule 20 source address 10.240.0.0/24

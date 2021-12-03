@@ -10,19 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:note: .note}
-{:screen: .screen}
-{:tip: .tip}
-{:beta: .beta}
-{:note: .note}
-{:important: .important}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # FAQs for client-to-site VPN servers (Beta)
 {: #faqs-vpn-server}
@@ -102,6 +90,7 @@ You cannot delete the subnet if any VPN servers are present.
 You cannot update the security group attached to the VPN server after the server is provisioned. However, you can change the rules of the security group. The rules take effect immediately on the VPN server.
 
 ## Can I create routes and use the private IPs?
+{: #create-routes-and-use-private-ips}
 
 No, you cannot create routes and use the private IPs because the private IPs are not static. They can change at any time.
 
@@ -161,9 +150,9 @@ You can use UDP or TCP and any port number to run the VPN server. UDP is recomme
 
 The action of the VPN route depends on the route destination:
 
-   * If the route destination is in the VPC, or an on-premises private subnet connected using VPN gateway, the route action can be `deliver`; otherwise, it is `translate`.
-   * If you want to block traffic from the client, use the `drop` route action to forward unwanted or undesirable network traffic to a null or "black hole" route.
-   * When the route action is `translate`, the source IP is translated to the VPN server private IP before it is sent out from the VPN server. This means that your VPN client IP is invisible from the destination devices.
+* If the route destination is in the VPC, or an on-premises private subnet connected using VPN gateway, the route action can be `deliver`; otherwise, it is `translate`.
+* If you want to block traffic from the client, use the `drop` route action to forward unwanted or undesirable network traffic to a null or "black hole" route.
+* When the route action is `translate`, the source IP is translated to the VPN server private IP before it is sent out from the VPN server. This means that your VPN client IP is invisible from the destination devices.
 
 ## What DNS server IP addresses should I use?
 {: #faq-vpn-server-dns-server-ip}

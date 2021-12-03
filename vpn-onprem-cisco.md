@@ -10,17 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:important: .important}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:download: .download}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Connecting to a Cisco ASAv peer
 {: #cisco-asav-config}
@@ -165,13 +155,13 @@ To support these functions, the following general configuration steps must be pe
 
 * Make sure the public IP address for Cisco ASAv is configured directly on the ASAv. Use `crypto isakmp identity address` to ensure the Cisco ASAv uses the public IP address of the interface as its identity.
 
-  This global setting applies to all connections on the Cisco device, so if you need to maintain multiple connections, set `crypto isakmp identity auto` instead, to ensure the Cisco device automatically determines the identity by connection type.
+   This global setting applies to all connections on the Cisco device, so if you need to maintain multiple connections, set `crypto isakmp identity auto` instead, to ensure the Cisco device automatically determines the identity by connection type.
 
 * Define the Phase 1 parameters that the Cisco ASAv VPN requires to authenticate {{site.data.keyword.vpn_vpc_short}} and establish a secure connection.
 * Define the Phase 2 parameters that the Cisco ASAv VPN requires to create a VPN tunnel with {{site.data.keyword.vpn_vpc_short}}.
 
-Create an IKE version 2 proposal object. IKEv2 proposal objects contain the parameters that are required for creating IKEv2 proposals when you define remote access and site-to-site VPN policies. IKE is a key management protocol that facilitates the management of
-IPsec-based communications. It is used to authenticate IPsec peers, negotiate and distribute IPsec encryption keys, and automatically establish IPsec security associations (SAs).
+Create an IKE version 2 proposal object. IKEv2 proposal objects contain the parameters that are required for creating IKEv2 proposals when you define remote access and site-to-site VPN policies. IKE is a key management protocol that facilitates the management of IPsec-based communications. It is used to authenticate IPsec peers, negotiate and distribute IPsec encryption keys, and automatically establish IPsec security associations (SAs).
+
 In this block, the following parameters are set as an example. You could choose other parameters according to your company's security policy. And make sure to use identical parameters on IBM VPN gateway and ASAv:
 
 * **Encryption algorithm** - Set to AES-256 for this example.

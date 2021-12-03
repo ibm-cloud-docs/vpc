@@ -10,19 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:important: .important}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:beta: .beta}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:download: .download}
-{: api}
-{: ui}
+{{site.data.keyword.attribute-definition-list}}
 
 # Monitoring VPN servers (Beta)
 {: #vpn-client-to-site-monitoring}
@@ -34,7 +22,7 @@ Client VPN for VPC is available to all IBM Cloud users. After the Beta period en
 {: shortdesc}
 
 ## Platform metrics overview
-{: platform-metrics-overview}
+{: #platform-metrics-overview}
 
 You can view platform metrics when you enable {{site.data.keyword.mon_full_notm}} on your {{site.data.keyword.cloud_notm}} platform. An {{site.data.keyword.mon_full_notm}} instance must be configured in a region to monitor these metrics. For more information, see [Enabling platform metrics](/docs/monitoring?topic=monitoring-platform_metrics_enabling).
 
@@ -45,7 +33,7 @@ Before you enable {{site.data.keyword.mon_full_notm}} on your platform, keep the
 * Metrics are collected automatically and are available for monitoring through the {{site.data.keyword.mon_full_notm}}-enabled instance.
 
 ## Metrics available by service plan
-{: vpn-client-to-site-metrics-by-plan}
+{: #vpn-client-to-site-metrics-by-plan}
 
 Metrics available by plan names are as follows:
 
@@ -66,7 +54,7 @@ Each metric is composed of the following metadata types:
 * **Segment** - How you want {{site.data.keyword.mon_full_notm}} to divide and display the monitoring metrics.
 
 ## VPN server metric definitions
-{: metric-definitions}
+{: #metric-definitions}
 
 The following tables define the basic VPN server metrics on {{site.data.keyword.cloud_notm}} for VPC.
 
@@ -81,7 +69,7 @@ Bytes received per minute for a VPN server
 | `Metric type` | `gauge` |
 | `Value type`  | `byte` |
 | `Segment by` | `Service instance, Service instance name, VPN server name` |
-{: caption="Table 1: VPN server data bytes received" caption-side="top"}
+{: caption="Table 1: VPN server data bytes received" caption-side="bottom"}
 
 ### VPN server data bytes sent
 {: #ibm_is_vpn_server_data_sent_bytes}
@@ -94,7 +82,7 @@ Bytes sent per minute for a VPN server
 | `Metric type` | `gauge` |
 | `Value type`  | `byte` |
 | `Segment by` | `Service instance, Service instance name, VPN server name` |
-{: caption="Table 2: VPN server data bytes sent" caption-side="top"}
+{: caption="Table 2: VPN server data bytes sent" caption-side="bottom"}
 
 ### VPN server CRL days until expiration
 {: #ibm_is_vpn_server_crl_days_expiry}
@@ -107,7 +95,7 @@ Days until the expiration of the Certificate Revocation List (CRL) for a VPN ser
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `Service instance, Service instance name, VPN server name` |
-{: caption="Table 3: VPN server CRL days until expiration" caption-side="top"}
+{: caption="Table 3: VPN server CRL days until expiration" caption-side="bottom"}
 
 ### VPN server authentication failure count
 {: #ibm_is_vpn_server_authentication_failure_count}
@@ -120,7 +108,7 @@ Number of authentication failures for a VPN server
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `Service instance, Service instance name, VPN server name` |
-{: caption="Table 4: VPN server authentication failure count" caption-side="top"}
+{: caption="Table 4: VPN server authentication failure count" caption-side="bottom"}
 
 ### VPN server active client count
 {: #ibm_is_vpn_server_active_client_count}
@@ -133,7 +121,7 @@ Number of active clients for a VPN server
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `Service instance, Service instance name, VPN server name` |
-{: caption="Table 5: VPN server active client count" caption-side="top"}
+{: caption="Table 5: VPN server active client count" caption-side="bottom"}
 
 ### VPN server health status
 {: #ibm_is_vpn_server_health_status}
@@ -146,7 +134,7 @@ Health status for a VPN server (for example, `2`=ok, `1`=degraded, `0`=faulted/i
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `Service instance, Service instance name, VPN server name` |
-{: caption="Table 6: VPN server health status" caption-side="top"}
+{: caption="Table 6: VPN server health status" caption-side="bottom"}
 
 ## Metric segmentation
 {: #vpn-client-to-site-metric-segmentation}
@@ -156,7 +144,7 @@ You can split the metrics that {{site.data.keyword.mon_full_notm}} presents into
 As an example, you can segment the `VPN Server Bytes Input` by `IBM {{site.data.keyword.vpn_vpc_short}} server name` to show how many bytes per minute are received for a VPN server. The dashboard shows different lines in different colors where each line represents received bytes per minute for a VPN server.
 
 ### Global attributes
-{: global-attributes-vpn}
+{: #global-attributes-vpn}
 
 The following attributes are available for segmenting all of the VPN server metrics:
 
@@ -169,7 +157,7 @@ The following attributes are available for segmenting all of the VPN server metr
 | `Resource group` | `ibm_resource_group_name` | The resource group where the service instance was created. |
 | `Scope` | `ibm_scope` | The scope of the account, organization, or space GUID that is associated with this metric. |
 | `Service name` | `ibm_service_name` | The name of the service that generated this metric. |
-{: caption="Table 7: VPN server metric attributes" caption-side="top"}
+{: caption="Table 7: VPN server metric attributes" caption-side="bottom"}
 
 ### Additional attributes
 {: #additional-attributes-vpn}
@@ -181,7 +169,7 @@ The following attributes are available for segmenting one or more attributes as 
 | `Service instance` | `ibm_service_instance` | Identifies the instance that the metric is associated with. |
 | `Service instance name` | `ibm_service_instance_name` | Provides the user provided name of the service instance. This name isn't necessarily a unique value that depends on the name that is provided. |
 | `VPN server name` | `ibm_is_vpn_server_name` | The IBM {{site.data.keyword.vpn_vpc_short}} server name. |
-{: caption="Table 8: VPN server segmentation metric attributes" caption-side="top"}
+{: caption="Table 8: VPN server segmentation metric attributes" caption-side="bottom"}
 
 The displayed metrics contain a timestamp in UNIX epoch time and the metric value for the time intervals that end at that timestamp. You can specify different scopes, and the time interval over which to report the metrics.
 
@@ -209,7 +197,7 @@ To receive monitoring metrics, use the following steps:
    If you do not have an existing VPN server, see [Creating a VPN server](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#vpn-ui) to provision one.
    {: tip}
 
-   ![Region](images/metrics_1.png "Region")
+   ![Region](images/metrics_1.png){: caption="Region" caption-side="bottom"}
 
    The region needs to match the location of your existing VPN server.
    {: important}
@@ -225,7 +213,7 @@ To receive monitoring metrics, use the following steps:
 
 5. Optionally, select a resource group. A resource group organizes account resources in customizable groupings. Any account resource that is managed by using IBM Cloud Identity and Access Management (IAM) access control belongs to a resource group within your account.
 
-   ![Resource group](images/metrics_2.png "Resource group")
+   ![Resource group](images/metrics_2.png){: caption="Resource group" caption-side="bottom"}
 
    If you do not have any pre-configured resource groups, or have no reason to share this resource selectively, use the default selection.
    {: note}
@@ -258,7 +246,7 @@ To view and work with your {{site.data.keyword.mon_full_notm}} metrics, follow t
 
 5. Six main metrics in the dashboard are shown. These metrics include VPN server health status, VPN server active client count, VPN server authentication failure count, VPN server CRL days until expiration, and VPN server bytes input/output. If you want to modify the parameters and segment your metrics by VPN server name, you must create a custom dashboard.
 
-   ![VPN server {{site.data.keyword.mon_full_notm}} dashboard](images/dashboard_c2s_vpn.png "VPN server {{site.data.keyword.mon_full_notm}} dashboard")
+   ![VPN server {{site.data.keyword.mon_full_notm}} dashboard](images/dashboard_c2s_vpn.png){: caption="VPN server {{site.data.keyword.mon_full_notm}} dashboard" caption-side="bottom"}
 
    You can choose what time window that you'd like to see your metrics by using the time selection bar.
    {: tip}
@@ -276,7 +264,7 @@ To customize your dashboard, use the following steps:
 
 3. Select **Dashboards** and click the **+** in the panel.
 
-   ![Add VPN {{site.data.keyword.mon_full_notm}} dashboard](images/add_dashboard_c2s_vpn.png "Add VPN server {{site.data.keyword.mon_full_notm}} dashboard")
+   ![Add VPN {{site.data.keyword.mon_full_notm}} dashboard](images/add_dashboard_c2s_vpn.png){: caption="Add VPN monitoring dashboard" caption-side="bottom"}
 
 4. Select **Blank dashboard** and select the type of visual representation that you want.
 
@@ -313,13 +301,13 @@ After you create your {{site.data.keyword.mon_full_notm}} instance, you must col
 
 To collect this information and work with your {{site.data.keyword.mon_full_notm}} instance by using metric query API, follow these steps:
 
-1. Access the [Monitoring home page](https://cloud.ibm.com/observe/monitoring).
+1. Access the [Monitoring home page](https://cloud.ibm.com/observe/monitoring){: external}.
 
 2. Click **Open Dashboard** next to the instance that you want to work with.
 
 3. After you see the {{site.data.keyword.mon_full_notm}} dashboard, select your Account Profile icon on the sidebar and select **Settings**. You now see your account settings.
 
-   ![Settings](images/metrics_settings.png "Settings")
+   ![Settings](images/metrics_settings.png){: caption="Settings" caption-side="bottom"}
 
 4. Your Monitor API token is an alphanumeric string that is located in the **IBM Cloud Monitor API Token** field. Click the **Copy** button to copy the token to your clipboard.
 
@@ -328,11 +316,11 @@ To collect this information and work with your {{site.data.keyword.mon_full_notm
 
 5. To get the endpoint of your {{site.data.keyword.mon_full_notm}} instance, go to your main {{site.data.keyword.mon_full_notm}} dashboard in your browser. Then, select the URL to the dashboard, which appears similar to the following example:
 
-   ```
+   ```sh
    https://us-south.monitoring.cloud.ibm.com/#/default-dashboard/ibm_vpc_vpn_gen2?last=1209600
    ```
    {: pre}
-
+      
    The first part of the URL (in this example, `us-south.monitoring.cloud.ibm.com`) is your endpoint. Make note of this URL.
 
 6. After you have both the API token and the endpoint, you can format your POST request. The following POST request is an example, with all the parameters that you can modify. The following are parameters:
