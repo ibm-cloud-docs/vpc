@@ -2,7 +2,7 @@
 
 Copyright:
   years:  2021
-lastupdated: "2021-11-30"
+lastupdated: "2021-12-03"
 
 keywords: block storage, virtual private cloud, volume, data storage, virtual server instance, instance, snapshots
 
@@ -26,8 +26,6 @@ subcollection: vpc
 When you plan a snapshot strategy for your {{site.data.keyword.block_storage_is_short}} volumes, you might find this checklist helpful to set up and use the snapshot service.
 {: shortdesc}
 
-Snapshots are currently not supported for LinuxONE (s390x processor architecture).  
-{: note}
 
 ## Planning to create and use snapshots
 {: #planning-for-data-encryption}
