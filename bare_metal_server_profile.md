@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-16"
+lastupdated: "2021-12-06"
 
 keywords: bare metal server profile, profile, bare metal profiles, viewing profile, view profiles
 
@@ -30,7 +30,7 @@ subcollection: vpc
 # Profiles for Bare Metal Servers for VPC (Beta)
 {: #bare-metal-servers-profile}
 
-Bare metal servers on VPC is a Beta feature that requires special approval. Contact your IBM Sales representative if you're interested in getting access. 
+Bare Metal Servers for VPC is a closed beta program and isn't open to new participants. Contact your IBM Sales representative if you're interested in getting access when Bare Metal Servers for VPC becomes available.
 {: beta}
 
 When you create a bare metal server, you can select from a profile family that best fits your needs. A profile provides a different combination of hardware configurations that include number of vCPU, amount of RAM, and size of local storage. The attributes define the size and capabilities of the bare metal server that is provisioned. 
