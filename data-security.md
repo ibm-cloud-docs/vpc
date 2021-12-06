@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-03"
+lastupdated: "2021-12-06"
 
 keywords: data encryption, data storage, bring your own keys, BYOK, key management, key encryption, personal data, data deletion, data security
 
@@ -42,6 +42,16 @@ For example, if you provision two volumes by using the same root key, unique pas
 All your interaction with {{site.data.keyword.vpn_vpc_short}} is encrypted. For example, when you use an API or interact with the service through the User Interface to configure VPN gateways and VPN connections, all such interactions are encrypted end-to-end. Likewise, data elements related to your configuration are encrypted in transit and at rest. No personal or sensitive data is stored, processed, or transmitted. Data at rest is stored in an encrypted database.
 
 After the {{site.data.keyword.vpn_vpc_short}} is provisioned and the network connections are created, the encryption of data that you choose to transmit across the network is your responsibility.
+
+### Instance storage data isolation and encryption
+{: #instance-storage}
+
+The instance storage disk or disks, attached to the virtual server instance, cannot be shared with any other virtual servers and cannot be accessed by any other virtual servers in the future. They are one-time use, single-attach, for the virtual server that requested the instance storage. 
+
+Instance storage data is secured with on-disk encryption. The physical disks used for instance storage are self-encrypting with the strong AES-256 encryption standard. The data is automatically decrypted when your instance accesses the data. When your instance is shut down or deleted, the underlying storage space is erased and unrecoverable. At that point, the data is unrecoverable. For more information, see [Introduction to encryption](/docs/key-protect?topic=key-protect-basics).
+
+Data is automatically encrypted on the physical media at the drive level. However, customer-managed keys are not supported for instance storage. For sensitive data, it is strongly recommended that users utilize software-based file system encryption such as LUKS for Linux&reg; or BitLocker for Windows&reg;. This technology allows end users to encrypt entirely within the instance, and can provide additional protection for sensitive data in-transit between the instances and the physical drive media. Some operating systems also provide FIPS certified encryption algorithms that may also be used. See [Encrypting block devices using LUKS](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/security_hardening/encrypting-block-devices-using-luks_security-hardening) for an example of how to encrypt on Red Hat Enterprise Linux&reg; however, refer to the Operating System documentation or specific information on how to encrypt each device.
+
 
 ## Protecting your sensitive data in VPC
 {: #data-encryption}
