@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-14"
+lastupdated: "2021-12-06"
 
 keywords: bare metal license, esxi license, byol, bring your own license, ESXi 7.x BYOL
 
@@ -30,7 +30,7 @@ subcollection: vpc
 # Bare Metal Servers for VPC images (Beta) 
 {: #bare-metal-image}
 
-Bare metal servers on VPC is a Beta feature that requires special approval. Contact your IBM Sales representative if you're interested in getting access.
+Bare Metal Servers for VPC is a closed beta program and isn't open to new participants. Contact your IBM Sales representative if you're interested in getting access when Bare Metal Servers for VPC becomes available.
 {: beta}
 
 You can license the ESXi hypervisor that is installed on a bare metal server with your own license (bring-your-own-license), or IBM can handle the licensing for you.
