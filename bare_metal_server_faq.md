@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-17"
+lastupdated: "2021-12-06"
 
 keywords: bare metal servers, faq, bare metal faq
 
@@ -26,7 +26,7 @@ subcollection: vpc
 # FAQ for bare metal servers (Beta)
 {: #bare-metal-server-faq}
 
-Bare Metal Servers on VPC is a Beta feature that requires special approval. Contact your IBM Sales representative if you're interested in getting access.
+Bare Metal Servers for VPC is a closed beta program and isn't open to new participants. Contact your IBM Sales representative if you're interested in getting access when Bare Metal Servers for VPC becomes available.
 {: beta}
 
 ## What's the difference between Bare Metal Servers (classic infrastructure) and Bare Metal Servers for VPC?
