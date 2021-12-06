@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-10-01"
+lastupdated: "2021-12-03"
 
 keywords: vpc, limitations, restrictions
 
@@ -84,10 +84,10 @@ Block storage volume names must be unique across the entire VPC infrastructure. 
 ## LinuxONE (s390x processor architecture) virtual server instance restrictions  
 {: #LinuxONE-vsi-restrictions}
 
-The following features are currently not supported:
+The following feature is currently not supported:
 
 * Dedicated hosts
-* Snapshots
+
 
 ## API considerations
 {: #api-considerations}
