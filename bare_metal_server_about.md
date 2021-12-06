@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-16"
+lastupdated: "2021-12-06"
 
 keywords: bare metal servers, vpc, baremetal, what is bare metal, about bare metal
 
@@ -30,7 +30,7 @@ subcollection: vpc
 # About Bare Metal Servers for VPC (Beta)
 {: #about-bare-metal-servers}
 
-Bare metal servers on VPC is a Beta feature that requires special approval. Contact your IBM Sales representative if you're interested in getting access. 
+Bare Metal Servers for VPC is a closed beta program and isn't open to new participants. Contact your IBM Sales representative if you're interested in getting access when Bare Metal Servers for VPC becomes available. 
 {: beta}
 
 {{site.data.keyword.bm_is_short}} provides bare metal servers to host VMware&reg; clusters in the {{site.data.keyword.vpc_full}} (VPC). You can set up VMware management applications and create VMware virtual machines (VM) on the bare metal servers. As bare metal servers are integrated with the VPC platform, you can take advantage of the network, storage, and security capacity provided by the VPC. 
