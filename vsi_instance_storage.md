@@ -8,6 +8,7 @@ keywords: instance storage, local disk, storage, temporary storage, generation 2
 
 subcollection: vpc
 
+
 ---
 
 {:shortdesc: .shortdesc}
@@ -27,6 +28,7 @@ subcollection: vpc
 {: #instance-storage}
 
 Instance storage is a set of one or more solid state drives directly attached to your virtual server instance when the instance is provisioned. An instance storage disk provides fast, affordable, temporary storage to improve the performance of cloud native workloads with scratch space, caching buffers, or a place for replicated data. The data stored on instance storage is ephemeral, meaning it is tied directly to the lifecycle of the instance. The instance storage disk is automatically created and destroyed with the instance. Instance storage data is not lost, however, when an instance is rebooted.
+{: shortdesc}
 
 Instance storage is a complementary storage technology to the boot and block storage volumes for data offered with VPC. Some examples of use cases for instance storage disks are:
 *	Distributed File Systems: Technologies such as Hadoop Distributed File System (HDFS), which do triplication of the data across multiple servers. These technologies can improve read bandwidth and retain reliability by maintaining multiple copies of the data. It is recommended that at least three copies of the data, ideally across availability zones, are maintained when using Instance Storage for these workloads.
@@ -34,6 +36,8 @@ Instance storage is a complementary storage technology to the boot and block sto
 *	Content Delivery Networks (CDNs): Improve performance for large geographically distributed applications with instance storage for fast, low cost, local data caching.
 
 ## Lifecycle of instance storage
+{: #instance-storage-lifecycle}
+
 The lifecycle of instance storage is critical to understand. Without a proper understanding of its temporary nature, workloads could experience data loss.
 {: important}
 
