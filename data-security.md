@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-12-06"
+lastupdated: "2021-12-08"
 
 keywords: data encryption, data storage, bring your own keys, BYOK, key management, key encryption, personal data, data deletion, data security
 
@@ -44,7 +44,7 @@ All your interaction with {{site.data.keyword.vpn_vpc_short}} is encrypted. For 
 After the {{site.data.keyword.vpn_vpc_short}} is provisioned and the network connections are created, the encryption of data that you choose to transmit across the network is your responsibility.
 
 ### Instance storage data isolation and encryption
-{: #instance-storage}
+{: #instance-storage-isolation}
 
 The instance storage disk or disks, attached to the virtual server instance, cannot be shared with any other virtual servers and cannot be accessed by any other virtual servers in the future. They are one-time use, single-attach, for the virtual server that requested the instance storage. 
 
