@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-29"
+lastupdated: "2021-12-09"
 
 keywords: instance backup, veeam, veeam license, order license, virtual private cloud
 
@@ -29,10 +29,10 @@ The [Veeam Agent for Linux](https://www.veeam.com/linux-cloud-server-backup-agen
 The Veeam Agent is not supported for LinuxONE (s390x processor architecture).
 {:note}
 
-The following example provides information on installing, configuring, and using the Linux Agent on a virtual server instance that is provisioned with CentOS. Similar instructions apply to the other operating system types, although you need to replace any OS-specific commands. The example provides instructions on how to perform a volume backup and restore. But, you need to use similar instructions if you prefer to do full system or file and folder backup and restore operations.
+The following example provides information on installing, configuring, and using the Linux Agent on a virtual server instance that is provisioned with CentOS. Similar instructions apply to the other operating system types, although you need to replace any OS-specific commands. The example provides instructions on how to perform a volume backup and restore. If you prefer to do file and folder backup and restore operations, you use a similar procedure. The wanted restore point is mounted, and the wanted backup files are copied to the virtual server instance.
 
-Full image-level restore is not supported. Instead, for restore operations of full, volume, or file and folder backup types, you can use the same method. The wanted restore point is mounted, and the wanted backup files are copied to the virtual server instance.
-{: tip}
+Full image-level (entire machine) backup and restore is not supported. 
+{: important}
 
 ## Before you begin
 {: #before-you-begin-veeam-agent}
