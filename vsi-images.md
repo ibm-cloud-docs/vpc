@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-11-12"
+lastupdated: "2021-12-09"
 
 keywords: image, stock image, custom image, virtual private cloud, virtual server, power, generation 2, gen 2
 
@@ -41,6 +41,7 @@ The following operating systems are available as stock images when you create a 
 | CentOS 7.x, 8.x | x86-64 |
 | Debian 9.x, 10.x | x86-64 |
 | Red Hat Enterprise Linux 7.x, 8.x | x86-64 |
+| Rocky Linux 8.5 | x86-64 |
 | Ubuntu 18.04.x, 20.04.x | x86-64 |
 | Windows 2012, 2012 R2, 2016, 2019 | x86-64 |
 | Fedora Core OS | x86-64 |
