@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-26"
+lastupdated: "2021-12-08"
 
 keywords:
 
@@ -24,7 +24,6 @@ subcollection: vpc
 {: #about-veeam}
 
 You can use Veeam software to back up your storage data on a virtual server instance for {{site.data.keyword.vpc_full}} to protect:
-   * A complete system
    * Individual volumes
    * Folders and files
 
