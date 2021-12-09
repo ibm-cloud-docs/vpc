@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-11-30"
+lastupdated: "2021-12-09"
 
 keywords: VPC release notes
 
@@ -32,6 +32,16 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 {: shortdesc}
 
 For information about changes to the {{site.data.keyword.vpc_short}} API , see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log)
+
+## December 2021
+{: #subcollection-dec21}
+
+### 09 December 2021
+{: #subcollection-dec0921}
+{: release-note}
+
+**New stock image for virtual servers**
+:   Rocky Linux version 8.5 is now supported as a stock image when you provision {{site.data.keyword.vpc_short}} virtual servers.
 
 ## November 2021
 {: #subcollection-nov21}
