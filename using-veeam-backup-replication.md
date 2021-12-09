@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-26"
+lastupdated: "2021-12-09"
 
 keywords:
 
@@ -25,7 +25,7 @@ subcollection: vpc
 
 The Veeam Backup and Replication software offers an optional way of managing backups of {{site.data.keyword.vsi_is_full}}, although [using the Veeam Agent](/docs/vpc?topic=vpc-using-veeam-agent) is the recommended method. The Veeam Backup and Replication software is supported only on the Microsoft Windows operating system. However, you can use it to manage backups for multiple virtual server instances for {{site.data.keyword.vpc_short}} that are deployed with any of the supported Linux&reg; operating systems, including CentOS, RHEL, Ubuntu, and Debian, and with any of the supported Windows operating systems.
 
-The following example provides information on installing, configuring, and using the backup and replication software to perform a backup operation on a volume that is attached to a CentOS instance. It also describes how to restore the backed-up volume data using the Veeam Agent for Linux. In addition, the example provides specific instructions on how to perform a volume backup and restore, but you would use similar instructions if you prefer to do full system or file and folder backup and restore operations.
+The following example provides information on installing, configuring, and using the backup and replication software to perform a backup operation on a volume that is attached to a CentOS instance. It also describes how to restore the backed-up volume data using the Veeam Agent for Linux. In addition, the example provides specific instructions on how to perform a volume backup and restore, but you would use similar instructions if you prefer to do file and folder backup and restore operations.
 
 In general, similar instructions apply to the other Linux operating system types supported for virtual server instances for VPC.
 {: note}
