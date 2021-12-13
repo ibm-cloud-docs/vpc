@@ -95,6 +95,9 @@ Inbound rules to allow pinging and SSH are not automatically added to the defaul
 
 3. Update the default security group to add rules that allow SSH and PING.
 
+   Disabling SSH connections will prohibit the license registration for RedHat Enterprise Linux. This may result in provisioning failures.
+   {: important}
+
    ```
    ibmcloud is security-group-rule-add $sg inbound tcp --port-min 22 --port-max 22
    ibmcloud is security-group-rule-add $sg inbound icmp --icmp-type 8 --icmp-code 0
