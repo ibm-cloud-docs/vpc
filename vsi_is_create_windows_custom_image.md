@@ -50,7 +50,7 @@ The following procedure describes how to create a Windows custom image that can 
 * Use VirtualBox to create a Windows image in VHD format.
 * Customize the image with virtIO drivers and Cloudbase-init.
 
-## Initial steps for creating a windows custom image
+## Initial steps for creating a Windows custom image
 {: #create-win-custom-image-first-steps
 }
 Complete the following steps to start creating a Windows custom image.
