@@ -1,0 +1,538 @@
+#  Name your file `toc.yaml`
+#  Make sure you include all nav file coding requirements, as defined in https://test.cloud.ibm.com/docs/writing?topic=writing-code-nav
+#  Anything with a fully qualified URL with `http` or `https` will get an external link icon added to the nav entry
+
+toc:
+  properties:
+    subcollection: vpc
+    version: 2
+    category: network_vpc
+    audience: service
+    href: /docs/vpc
+    console-page: /vpc-ext/overview
+    product-page: https://www.ibm.com/cloud/vpc
+    path: vpc
+    label: Virtual Private Cloud (VPC)
+
+#  List your getting started tutorial (getting-started.md) as the first item in the Get started nav group. See https://test.cloud.ibm.com/docs/writing?topic=writing-navigation for more details on the toc design.
+  entries:
+    - navgroup:
+       id: learn
+       topics:
+       - getting-started.md
+       - link:
+          label: What is Virtual Private Cloud?
+          href: https://www.ibm.com/cloud/learn/vpc
+       - link:
+          label: Architecture Center VPC Resources
+          href: https://www.ibm.com/cloud/architecture/architectures/virtual-private-cloud/resources
+       - link:
+          label: Pricing
+          href: https://www.ibm.com/cloud/vpc/pricing
+       - about-vpc.md
+       - quotas.md
+       - topicgroup:
+           label: Network
+           topics:
+           - about-network.md
+           - vpc-security.md
+           - vpc-networking-concepts.md
+           - interconnectivity.md
+           - private-wan.md
+           - private-connectivity.md
+       - topicgroup:
+           label: Compute
+           topics:
+           - vsi_is_about_vpc.md
+           - suspend-billing.md
+           - vsi-images.md
+           - topicgroup:
+               label: Profiles
+               topics:
+               - vsi_is_profiles.md
+               - vsi_is_dh_profile.md
+           - vsi_is_ssh_keys_about.md
+           - vsi_is_provisioning_scripts.md
+           - ip-spoofing-about.md
+           - instance-profiles-vpc-bandwidth.md
+           - topicgroup:
+               label: Bare Metal Servers for VPC (Beta)
+               topics:
+               - bare_metal_server_about.md
+               - bare_metal_server_profile.md
+               - bare_metal_server_image.md
+               - bare_metal_server_network.md
+               - bare_metal_server_storage.md
+       - topicgroup:
+           label: Storage
+           topics:
+           - vsi_instance_storage.md
+           - topicgroup:
+               label: File storage
+               topics:
+               - file_storage_vpc_about.md
+               - file_storage_vpc_profiles.md
+           - topicgroup:
+               label: Block storage
+               topics:
+               - block_storage_vpc_about.md
+               - snapshots_vpc_about.md
+               - block_storage_vpc_capacity_performance.md
+               - block_storage_is_profiles.md
+               - block_storage_vpc_bandwidth.md
+       - release-notes.md
+
+    - navgroup:
+        id: tutorial
+        topics:
+        - topicgroup:
+            label: VPC product tutorials
+            topics:
+            - console-tutorial.md
+            - user-access-to-dedicated-hosts-and-groups.md
+            - creating-and-using-an-image-from-volume.md
+        - topicgroup:
+            label: Solution tutorials
+            topics:
+            - /solution-tutorials/solution-tutorials-vpc-public-app-private-backend
+            - /solution-tutorials/solution-tutorials-vpc-multi-region
+            - /solution-tutorials/solution-tutorials-vpc-app-deploy
+            - /solution-tutorials/solution-tutorials-vpc-secure-management-bastion-server
+            - /containers/containers-vpc_ks_tutorial
+            - /solution-tutorials/solution-tutorials-vpc-tg-dns-iam
+
+    - navgroup:
+        id: howto
+        topics:
+        - set-up-environment.md
+        - topicgroup:
+            label: Managing access
+            topics:
+            - iam.md
+            - vpc-user-permissions.md
+            - api-auth-correlation.md
+            - resource-attributes.md
+        - topicgroup:
+            label: Managing a VPC
+            topics:
+            - hello-world-vpc.md
+            - example-code.md
+            - vpc-regions.md
+            - connectivity-options.md
+            - topicgroup:
+                label: Setting IP ranges
+                topics:
+                - how-to-choose-ipv4.md
+                - how-to-design-your-vpc.md
+                - vpc-regions-and-subnets.md
+            - classic-access.md
+            - connect-to-cos.md
+            - dns-svcs-about.md
+            - topicgroup:
+                label: Deleting a VPC
+                topics:
+                - delete-vpc.md
+                - delete-vpc-ui.md
+                - delete-vpc-cli.md
+                - delete-vpc-api.md
+        - topicgroup:
+            label: Virtual server instances
+            topics:
+            - vsi_best_practices.md
+            - vsi_is_create_instance.md
+            - vsi_is_create_instance_cli.md
+            - topicgroup:
+                label: Connecting to instances
+                topics:
+                - vsi_is_connecting_linux_gc.md
+                - vsi_is_connecting_windows.md
+            - vsi_is_create_instance_template.md
+            - vsi_is_bulk_provision.md
+            - vsi_is_connecting_console.md
+            - vsi_is_manage_instances.md
+            - vsi_is_ssh_keys.md
+            - vsi_is_instance_vnics.md
+            - vsi_instance_storage_how_to.md
+            - monitoring-vpc-metrics.md
+            - vsi_is_instance_resize.md
+            - managing-gpus.md
+        - topicgroup:
+            label: Instance metadata service
+            topics:
+            - instance_metadata_vpc_about.md
+            - instance_metadata_vpc_configure.md
+            - instance_metadata_vpc_get_metadata.md
+            - instance_metadata_vpc_metadata_summary.md
+            - instance_metadata_vpc_access_instance_metadata.md
+            - instance_metadata_vpc_use_trusted_profiles.md
+            - instance_metadata_vpc_config_windows.md
+            - instance_metadata_vpc_security_bp.md
+        - topicgroup:
+            label: Placement groups
+            topics:
+            - about-placement-groups.md
+            - managing-placement-groups.md
+        - topicgroup:
+            label: Bare metal servers (Beta)
+            topics:
+            - bare_metal_server_planning.md
+            - bare_metal_server_create.md
+            - bare_metal_server_connect.md
+            - bare_metal_server_manage_nic.md
+            - bare_metal_server_manage.md
+        - topicgroup:
+            label: Dedicated hosts
+            topics:
+            - vsi_is_dedicated_hosts_instances.md
+            - vsi_is_create_dh_instance.md
+            - vsi_is_manage_dedicated_host_group.md
+        - topicgroup:
+            label: Custom images
+            topics:
+            - vsi_is_plan_custom_image.md
+            - vsi_is_object_storage_auth.md
+            - vsi_is_create_linux_custom_image.md
+            - vsi_is_create_windows_custom_image.md
+            - vsi_is_migrate_from_classic_infra.md
+            - vsi_is_encrypt_custom_image.md
+            - vsi_is_manage_images.md
+            - vsi_is_byol_about.md
+            - image-rbac-permissions.md
+            - building-custom-os.md
+            - topicgroup:
+                label: Image from volume
+                topics:
+                - vpc_image_from_volume.md
+                - vpc_image_from_volume_create.md
+                - vpc_image_from_volume_manage.md
+        - topicgroup:
+            label: Virtual private endpoint gateways
+            topics:
+            - vpe-intro.md
+            - vpe-planning.md
+            - vpe-configure-acls.md
+            - vpe-create.md
+            - vpe-bind-unbind-reserved-ip.md
+            - vpe-accessing-after-setup.md
+            - vpe-view-details.md
+            - vpe-list.md
+            - vpe-delete.md
+            - vpe-iam.md
+            - vpe-limitations.md
+            - vpe-supported-services.md
+        - topicgroup:
+            label: Access control lists
+            topics:
+            - using-acls.md
+            - acl-create.md
+            - acl-icp.md
+        - topicgroup:
+            label: Security groups
+            topics:
+            - security-groups.md
+            - security-groups-configure.md
+            - security-groups-default.md
+        - topicgroup:
+            label: Routing tables
+            topics:
+            - cr-intro.md
+            - topicgroup:
+                label: VPC routing tables
+                topics:
+                - cr-create-table.md
+                - cr-view-table.md
+                - cr-attach-subnet.md
+                - cr-list-table.md
+                - cr-delete-table.md
+            - topicgroup:
+                label: VPC routes
+                topics:
+                - cr-create-route.md
+                - cr-list-route.md
+                - cr-delete-route.md
+        - topicgroup:
+            label: VPNs
+            topics:
+            - vpn-overview.md
+            - topicgroup:
+                label: Site-to-site gateways
+                topics:
+                - vpn-using.md
+                - vpn-create.md
+                - vpn-add-connection.md
+                - vpn-create-ike-policy.md
+                - vpn-create-ipsec-policy.md
+                - vpn-onprem.md
+                - vpn-onprem-aws.md
+                - vpn-onprem-check-point.md
+                - vpn-onprem-cisco.md
+                - vpn-onprem-fortigate.md
+                - vpn-onprem-juniper.md
+                - vpn-onprem-strongswan.md
+                - vpn-onprem-vyatta.md
+                - vpn-access-service-endpoint.md
+                - vpn-configure-acls-security-groups.md
+                - vpn-view-logs.md
+                - vpn-monitoring-metrics.md
+                - vpn-limitations.md
+                - vpn-api-example.md
+            - topicgroup:
+                label: Client-to-site-servers (Beta)
+                topics:
+                - vpn-client-to-site.md
+                - vpn-client-to-site-planning.md
+                - vpn-client-to-site-access-groups.md
+                - vpn-client-to-site-auth.md
+                - vpn-client-to-site-configure-security-groups.md
+                - vpn-create-server.md
+                - vpn-client-to-site-routes.md
+                - vpn-client-to-site-setup.md
+                - vpn-client-to-site-connections.md
+                - vpn-client-to-site-change-server-types.md
+                - vpn-client-to-site-limitations.md
+                - vpn-client-to-site-loganalysis.md
+                - vpn-client-to-site-monitoring.md
+        - topicgroup:
+            label: Load balancers
+            topics:
+            - load-balancers.md
+            - topicgroup:
+                label: Application Load Balancer for VPC
+                topics:
+                - lb-overview.md
+                - lb-create.md
+                - lb-update.md
+                - lb-delete.md
+                - lb-health-checks.md
+                - lb-adv-traffic-mgmt.md
+                - lb-layer-7-policies-rules.md
+                - lb-monitoring-metrics.md
+                - lb-ig-integration.md
+                - lb-sg-integration.md
+                - lb-datapath-logging.md
+                - lb-api.md
+                - lb-limitations.md
+            - topicgroup:
+                label: Network Load Balancer for VPC
+                topics:
+                - nlb-about.md
+                - nlb-create.md
+                - nlb-vnf-create.md
+                - nlb-update.md
+                - nlb-delete.md
+                - nlb-health-checks.md
+                - nlb-listeners.md
+                - nlb-pools.md
+                - nlb-privatelb.md
+                - nlb-monitoring-metrics.md
+                - nlb-limitations.md
+        - topicgroup:
+            label: Flow logs
+            topics:
+            - fl-using.md
+            - fl-ordering.md
+            - fl-analyze.md
+            - fl-iam.md
+            - fl-managing.md
+            - fl-activate.md
+            - fl-delete.md
+            - fl-monitoring.md
+        - topicgroup:
+            label: Block storage volumes
+            topics:
+            - block_storage_is_create.md
+            - block_storage_is_attach.md
+            - block_storage_is_view.md
+            - block_storage_is_manage.md
+            - block_storage_vpc_expandable_volumes.md
+            - block_storage_vpc_adjustable_iops.md
+            - block_storage_vpc_manage_storage_limits.md
+            - block_storage_is_use_volume_cli.md
+        - topicgroup:
+            label: Snapshots
+            topics:
+            - snapshots_vpc_planning.md
+            - snapshots_vpc_create.md
+            - snapshots_vpc_view.md
+            - snapshots_vpc_restore.md
+            - snapshots_vpc_manage.md
+        - topicgroup:
+            label: File storage
+            topics:
+            - file_storage_vpc_plan.md
+            - file_storage_vpc_create.md
+            - file_storage_vpc_view.md
+            - file_storage_vpc_manage.md
+            - file_storage_vpc_expandable_shares.md
+            - topicgroup:
+                label: Mounting on Linux
+                topics:
+                - file_storage_vpc_mount_rhel.md
+                - file_storage_vpc_mount_centos.md
+                - file_storage_vpc_mount_ubuntu.md
+        - topicgroup:
+            label: Auto scale
+            topics:
+            - vsi_is_creating_auto_scale_group.md
+            - vsi_is_managing_auto_scale_group.md
+            - vsi_is_managing_instance_template.md
+            - vsi_is_scheduled_scaling.md
+        - topicgroup:
+            label: Data encryption
+            topics:
+            - vsi-vpc-about-data-encryption.md
+            - vsi-vpc-planning-encryption.md
+            - vsi_vpc_instance_byok_encryption.md
+            - block_storage_vpc_byok_encryption.md
+            - file_storage_vpc_byok_encryption.md
+            - block_storage_vpc_key_rotation.md
+            - vsi-vpc-manage-encryption.md
+        - topicgroup:
+            label: High availability and disaster recovery
+            topics:
+            - ha-dr.md
+            - topicgroup:
+                label: Backup and recovery using Veeam
+                topics:
+                - about-veeam.md
+                - ordering-veeam-licenses.md
+                - using-veeam-agent.md
+                - using-veeam-backup-replication.md    
+        - topicgroup:
+            label: Enhancing security
+            topics:
+            - architecture-workload-isolation.md
+            - data-security.md
+            - manage-scc.md
+            - load-balancer-security.md
+        - topicgroup:
+            label: Logging and monitoring
+            topics:
+            - at-events.md
+            - logging.md
+#  Links to your REST API docs should be included in the Reference navigation group. For details on publishing API docs, see https://test.cloud.ibm.com/docs/api-docs.
+#  Links to your command line reference docs should be included in the Reference navigation group.
+
+    - navgroup:
+        id: reference
+        topics:
+        - topicgroup:
+            label: VPC CLI reference
+            topics:
+            - /vpc-infrastructure-cli-plugin/vpc-infrastructure-cli-plugin-vpc-reference
+            - /vpc-infrastructure-cli-plugin/vpc-infrastructure-cli-plugin-vpc-cli-rn
+        - topicgroup:
+            label: VPC API
+            topics:
+            - link:
+               label: Reference
+               href: https://{DomainName}/apidocs/vpc
+            - api-change-log.md
+        - topicgroup:
+            label: Beta VPC API
+            topics:
+            - link:
+               label: Reference
+               href: https://{DomainName}/apidocs/vpc-beta
+            - link:
+                label: Change log
+                href: https://{DomainName}/apidocs/vpc-beta#api-change-log-beta
+        - topicgroup:
+            label: Beta VPC instance metadata API
+            topics:
+            - link:
+               label: Reference
+               href: https://{DomainName}/apidocs/vpc-metadata-beta
+            - link:
+               label: Change log
+               href: https://{DomainName}/apidocs/vpc-metadata-beta#api-instance-metadata-change-log
+        - vpc-responsibilities.md
+        - vsi-understanding-cloud-maintenance.md
+        - vsi_is_disable_hyper-threading.md
+        - vpc-endpoints.md
+        - topicgroup:
+            label: Terraform
+            topics:
+            - /ibm-cloud-provider-for-terraform/ibm-cloud-provider-for-terraform-getting-started
+            - link:
+               label: Terraformer for VPC
+               href: https://github.com/GoogleCloudPlatform/terraformer/blob/master/docs/ibmcloud.md
+            - link:
+               label: Tabular Terraform for VPC
+               href: https://github.com/ibm-cloud-architecture/tabular-terraform
+        - link:
+            label: Exporter tool
+            href: https://github.com/l2fprod/vpc-diagram-exporter
+
+    - navgroup:
+        id: help
+        topics:
+        - topicgroup:
+            label: FAQs
+            topics:
+            - faq-vpc.md
+            - faq-auto-scale.md
+            - bare_metal_server_faq.md
+            - block_storage_is_faq.md
+            - faq-dedicated-host.md
+            - file_storage_vpc_faqs.md
+            - fl-faq.md
+            - nlb-faqs.md
+            - lb-faqs.md
+            - instance_metadata_vpc_faqs.md
+            - faqs-placement-groups.md
+            - snapshots_vpc_faqs.md
+            - vpe-faqs.md
+            - vpn-faqs.md
+            - vpn-client-to-site-faqs.md
+            - faq-vsi.md
+        - topicgroup:
+            label: Troubleshooting
+            topics:
+            - troubleshooting.md
+            - topicgroup:
+                label: Troubleshooting dedicated host
+                topics:
+                - dedicated-host-failed.md
+            - topicgroup:
+                label: Troubleshooting flow log collectors
+                topics:
+                - fl-ts-failed-write.md
+                - fl-ts-cos-bucket.md
+                - fl-ts-unauth-access-cos.md
+            - topicgroup:
+                label: Troubleshooting VPE gateways
+                topics:
+                - vpe-ts-cannot-create-reserved.md
+                - vpe-ts-cannot-access-url.md
+                - vpe-ts-cannot-find-reserved.md
+                - vpe-ts-reserved-address.md
+                - vpe-ts-cannot-create-multiple.md
+                - vpe-ts-cannot-reach-target.md
+                - vpe-ts-cannot-communicate.md
+            - topicgroup:
+                label: Troubleshooting site-to-site VPN gateways
+                topics:
+                - vpn-ts-unable-establish-connection.md
+                - vpn-ts-traffic-not-getting-through.md
+                - vpn-ts-unstable-connection.md
+            - topicgroup:
+                label: Troubleshooting client-to-site VPN servers (Beta)
+                topics:
+                - vpn-ts-auth-error-connecting-to-server.md
+                - vpn-ts-auth-failure-error.md
+                - vpn-ts-cannot-access-vpc-resources.md
+                - vpn-ts-certificate-warning-openvpn.md
+                - vpn-ts-client-restart-message.md
+                - vpn-ts-connection-failure.md
+                - vpn-ts-dns-configuration-not-working.md
+                - vpn-ts-vpn-client-hangs.md
+            - vsi_is_troubleshooting.md
+            - custom_image_vpc_troubleshoot.md
+            - block_storage_is_troubleshoot.md
+            - bare_metal_server_troubleshoot.md
+            - instance-status-messages.md
+        - limitations.md
+        - known-issues.md
+        - errors.md
+        - getting-help.md
