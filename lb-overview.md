@@ -175,11 +175,6 @@ An application load balancer adjusts its capacity automatically according to the
 
 {{site.data.keyword.cloud_notm}} Application Load Balancer for VPC supports Multi-Zone-Regions (MZRs). You can achieve high availability and redundancy by deploying an application load balancer with subnets from different zones. When subnets from multiple zones are used to provision an application load balancer, the load balancer appliances get deployed to multiple zones.
 
-## Data storage and encryption
-{: #load-balancer-data-stored-encrypted-alb}
-
-IBM Db2-on-Cloud Service serves as the database for the application load balancer. It has high-availability (HA) enabled, and SSL connections are enforced. SSL certificates are also used for the load balancer RESTful APIs. When you create a load balancer, a workflow activity creates a virtual server instance. Before the virtual server instance is created, a request is made to the Certificate Manager to obtain the server SSL certificate to be injected into the appliance.
-
 ## Integration with instance groups
 {: #lbaas-integration-with-instance-groups-overview}
 
