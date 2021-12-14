@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-03-16"
+lastupdated: "2021-12-14"
 
 subcollection: vpc
 
@@ -149,13 +149,10 @@ If the script fails, provide the following parameters:
 *	activation key 
 *	profile name
 
-## How to manually enable nested virtualization on a virtual server instance?
+## Can I configure nested virtualization on a virtual server instance?
 {: #troubleshoot-enable-nested-virtualization}
 
-Nested virtualization on virtual server instances is disabled by default for now. But you can try enabling it manually by taking the following steps.
-
-The steps documented below may be changed. Please contact your IBM support if you couldn't enable this feature.
-{: note}
+Nested virtualization on virtual server instances is not a supported configuration.
 
 ### Prerequisite
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-12-03"
+lastupdated: "2021-12-14"
 
 keywords: vpc, limitations, restrictions
 
@@ -38,7 +38,7 @@ The following features are not supported, including all properties associated wi
 
    * Direct Link on Classic access to VPC is supported through [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure) only. Direct Link (release 2.0) does not have this limitation.
 
-   * Nested virtualization on virtual server instances is disabled for now. But you can try [enabling it manually](/docs/vpc?topic=vpc-troubleshooting-your-virtual-servers-for-vpc#troubleshoot-enable-nested-virtualization). However, this feature may not work properly in scenarios such as live migration of virtual server instances.
+   * Nested virtualization on virtual server instances is not a supported configuration.
 
 ### Billing note
 When the VPC billing system reports network traffic from load balancers and VPNs, the resources are identified with a nonstandard name. The resource is identified using the prefix `instance-`, followed by the last 16 digits of the back-end virtual server instance.
