@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-10-04"
+lastupdated: "2021-12-14"
 
 keywords: file storage, virtual private cloud, file share, mount target, expandable file share
 
@@ -75,8 +75,8 @@ After you create a file share, you cannot change its IOPS profile.
 {: #exp-share-capacity-IOPs-limitations}
 
 * File shares can expand, with the following restrictions:
-    * If the file share was created using a [Tiered IOPS profile](/docs/vpc?  topic=vpc-file-storage-profiles#fs-tiers) that limits capacity to less than 32,000 GB, it can only expand to the allowed capacity for that tier.
-    * If the file share was created using a [Custom IOPS profile](/docs/vpc?  topic=vpc-file-storage-profiles#custom) and created in a lower range that doesn't allow expanding to 16,000 GB (custom IOPS max), it can only expand to its maximum capacity for that custom IOPS range.
+    * If the file share was created using a [Tiered IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles#fs-tiers) that limits capacity to less than 32,000 GB, it can only expand to the allowed capacity for that tier.
+    * If the file share was created using a [Custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles#custom) and created in a lower range that doesn't allow expanding to 16,000 GB (custom IOPS max), it can only expand to its maximum capacity for that custom IOPS range.
     * File shares can expand multiple times until maximum capacity is reached.
 * IOPS increase to the maximum allowed by the IOPS tier profile.
 * After you create a file share, you can't change its IOPS profile.
