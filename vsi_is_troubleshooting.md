@@ -154,29 +154,3 @@ If the script fails, provide the following parameters:
 
 Nested virtualization on virtual server instances is not a supported configuration.
 
-### Prerequisite
-
-You need to power off all running VMs on the virtual server instance before enabling the nested virtualization feature.
-
-### Steps to enable nested virtualization
-
-1. Access the virtual server instance using SSH or by opening a serial console.
-
-2. Unload the KVM module using `$ sudo modprobe -r kvm_intel`
-
-3. Reload the KVM module with the nested feature enabled using `$ sudo modprobe kvm_intel nested=1`
-
-4. Open "/etc/modprobe.d/kvm.conf" file using `$ sudo vi /etc/modprobe.d/kvm.conf`
-  
-    **Note:** Create this file if it doesn't exist yet.
-
-5. Add the following line in the file: `options kvm_intel nested=1`
-
-6. Save and close the file.
-
-7. Verify if nested virtualization is enabled using `cat /sys/module/kvm_intel/parameters/nested`
-
-    If it returns "Y" or "1", it means that your system supports nested virtualization. If the output is "N" or "0", your system won't support nested virtualization.
-
-    Try rebooting the virtual server instance if the feature is not enabled.
-    {: tip}
