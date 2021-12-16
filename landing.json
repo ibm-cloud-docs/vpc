@@ -33,12 +33,12 @@
         {
           "date": "16 December 2021",
           "title": "File Storage for VPC (LA)",
-          "description": "{{site.data.keyword.filestorage_vpc_full}} is now available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Paris, Sydney, and Tokyo regions."
+          "description": "IBM Cloud File Storage for VPC is now available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Paris, Sydney, and Tokyo regions."
         },
         {
           "date": "09 December 2021",
           "title": "New stock image for virtual servers",
-          "description": "Rocky Linux version 8.5 is now supported as a stock image when you provision {{site.data.keyword.vpc_short}} virtual servers."
+          "description": "Rocky Linux version 8.5 is now supported as a stock image when you provision IBM Cloud VPC virtual servers."
         },
         {
           "date": "30 November 2021",
