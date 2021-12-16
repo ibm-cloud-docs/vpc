@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-12-06"
+lastupdated: "2021-12-14"
 
 keywords: bare metal servers, faq, bare metal faq
 
@@ -35,9 +35,9 @@ Bare Metal Servers for VPC is a closed beta program and isn't open to new partic
 
 Compared to the classic bare metal infrastructure, Bare Metal Servers for VPC provides the following advantages:
 
-* Security and performance of the private cloud with the flexibility and scalability of the public cloud.
-* Better connectivity and networking throughput empowered by VPC concepts. 
-* Faster provisioning and deployment.
+* Security and performance of the private cloud with the flexibility and scalability that you expect of the public cloud.
+* Integrates with other VPC services such as virtual server, security groups, networking, and more. 
+* Faster provisioning and deployment and simple hourly billing.
 
 Keep in mind that Bare Metal Servers for VPC is less customizable than classic bare metal servers. 
 
@@ -45,15 +45,15 @@ Keep in mind that Bare Metal Servers for VPC is less customizable than classic b
 {: #faq-bare-metal-1}
 {: faq}
 
-Currently, only VMware ESXi 7.0 is supported. Support for RHEL, Windows, Linux, and custom images is coming soon. 
+Currently, only VMware ESXi 7.0 is supported. Support for RHEL, Windows, Linux, and custom image support is planned. 
 
 ## What storage options are available?
 {: #faq-bare-metal-2}
 {: faq}
 
-For the beta version, you have two storage options that include secondary local NVMe drives: 
+VPC Block Storage is not supported. VPC File Storage is compatible when it becomes generally available. Two storage options are available that include secondary local NVMe drives.
 
-* The `bx2d-metal-192x768` profile provides mirrored 960 GB SATA M.2 drives as boot storage only. 
+* The `bx2-metal-192x768` profile provides mirrored 960 GB SATA M.2 drives as boot storage only. 
 * The `bx2d-metal-192x768` profile provides mirrored 960 GB SATA M.2 drives as boot storage and 16 3.2 TB U.2 NVMe SSDs as secondary local storage to support vSAN, or user-managed RAID. 
 
 ## What is required to set up my Bare Metal Servers for VPC? 
@@ -66,38 +66,82 @@ When you are planning to create the bare metal servers, you can go through the c
 {: #faq-bare-metal-4}
 {: faq}
 
-The beta offering is first available in the `eu-de` region and expand to other regions globally soon. 
+The beta offering is first available in the `eu-de` region with plans to expand to the DAL and FRA regions when Bare Metal Servers for VPC is generally available. 
 
-## How does billing work?
+## Do I need to configure multiple network interfaces on a bare metal server to support the full 100 Gbps bandwidth?
 {: #faq-bare-metal-5}
 {: faq}
 
-You are billed for Bare Metal Servers for VPC based on the server profile that you selected. Billing stops only when you delete the bare metal server. Powering off the server doesn't change billing. 
+No. You can add as many or as few vNICs as you need. Every interface can take advantage of the 100 Gbps bandwidth, but the total aggregate is 100 Gbps for each server. Meaning that the bandwidth is shared by all the vNICs. For more information about networking on bare metal, see [Networking overview for bare metal servers](/docs/vpc?topic=vpc-bare-metal-servers-network).
 
-The Beta version of Bare Metal Servers for VPC is provided free of charge.
+## How many NVMe drives does a bare metal server support? 
+{: #faq-bare-metal-6}
+{: faq}
+
+The number NVMe drives that are supported depends on the profile that you select. The 4-socket profile with drives supports 16 3.2 TB NVMe drives and the planned 2-socket profile with drives supports eight 3.2 TB NVMe drives. These NVMe drives are in addition to the 960 Gb boot drive. 
+
+No other drive configurations are supported and drive size, type, and quantity can't be changed.
+{: note} 
+
+For more information about profiles, see [Profiles for Bare Metal Servers for VPC](/docs/vpc?topic=vpc-bare-metal-servers-profile).
+
+## Does Bare Metal Servers for VPC support RAID?
+{: #faq-bare-metal-6}
+{: faq}
+
+The boot disk supports RAID 1 by using a hardware RAID controller. If you use a profile with NVMe drives, it is recommended that you use a software RAID option.  
+ 
+Secondary drives use a JBOD configuration and aren't supported by a hardware RAID controller. 
+
+## Can I enable dual uplinks (uplink redundancy)?  
+{: faq-bare-metal-7}
+{: faq}
+
+No. The uplinks (PCI network interfaces) are redundant by design. The VLAN network that you create are on that default, redundant uplink. You don’t need to manage uplink redundancy because redundancy is automatic.   
+
+For more information, see [Networking overview for Bare Metal Servers on VPC](/docs/vpc?topic=vpc-bare-metal-servers-network). 
+
+## What storage replication is supported for Bare Metal Servers for VPC? 
+{: faq-bare-metal-8}
+{: faq}
+
+Replication isn't supported. 
+
+## What is the size of the boot drive for Bare Metal Servers for VPC? 
+{: faq-bare-metal-9}
+{: faq}
+
+The boot drive is 960 Gb. You can configure each image differently for its partition sizes.  
+ 
+Bare Metal Servers for VPC supports only UEFI images. 
 {: important}
 
-See the following table for the available price plans. Billing and pricing are subject to change. For more information about billing and pricing, contact your IBM Sales representative.
+## How does billing work?
+{: #faq-bare-metal-10}
+{: faq}
 
-| Profile | Price per hour |
-|---------|---------|
-| bx2-metal-192x768 | USD 9.219 |
-| bx2d-metal-192x768 | USD 12.726 |
-{: caption="Table 1. Price plans" caption-side="top"}
+You are billed for Bare Metal Servers for VPC based on the server profile that you selected. Billing stops only when you delete the bare metal server. Powering off the server doesn't change billing. For more information about billing and pricing, contact your IBM Sales representative.
+
+<!--See the following table for the available price plans. Billing and pricing are subject to change. -->
+
+<!--| Profile | Price per hour |-->
+<!--| bx2-metal-192x768 | USD 9.219 |-->
+<!--| bx2d-metal-192x768 | USD 12.726 |-->
+<!--{: caption="Table 1. Price plans" caption-side="bottom"}-->
 
 You are also billed for other VPC services and resources that are attached to any bare metal servers. For more information about pricing for Bare Metal Servers on VPC, see [Pricing](https://www.ibm.com/cloud/vpc/pricing).
 
 ## How is billing for bare metal severs different from virtual server instances?
-{: #faq-bare-metal-6}
+{: #faq-bare-metal-11}
 {: faq}
 
 The main difference between virtual server instances and the bare metal servers is that powering off a bare metal server has no effect on the billing cycle. Meaning that hourly billed servers still accrue at the normal rate whether the server is powered off or on. The billing stops only when the bare metal server is deleted. 
 
 ## How do I view my invoices?
-{: #faq-bare-metal-7}
+{: #faq-bare-metal-12}
 {: faq}
 
-To view your account invoices follow these steps.
+To view your account invoices, follow these steps.
 
 1. Go to the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), 
 2. Then, click **Manage > Billing and Usage**.
