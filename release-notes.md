@@ -36,6 +36,15 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 ## December 2021
 {: #subcollection-dec21}
 
+### 16 December 2021
+{: #subcollection-dec1621}
+{: release-note}
+
+**File Storage for VPC (LA)** 
+:   {{site.data.keyword.filestorage_vpc_full}} is now available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Paris, Sydney, and Tokyo regions.
+
+:   For more information about this service, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about). 
+
 ### 09 December 2021
 {: #subcollection-dec0921}
 {: release-note}
