@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2018, 2020, 2021
+  years: 2018, 2021
 
-lastupdated: "2021-11-24"
+lastupdated: "2021-12-17"
 
 
 keywords: vpc, virtual private cloud, vpc ui, console, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range, generation 2, gen 2
@@ -13,74 +13,7 @@ subcollection: vpc
 
 ---
 
-{:beta: .beta}
-{:codeblock: .codeblock}
-{:curl: .ph data-hd-programlang='curl'}
-{:deprecated: .deprecated}
-{:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
-{:download: .download}
-{:external: target="_blank" .external}
-{:faq: data-hd-content-type='faq'}
-{:fuzzybunny: .ph data-hd-programlang='fuzzybunny'}
-{:generic: data-hd-operatingsystem="generic"}
-{:generic: data-hd-programlang="generic"}
-{:gif: data-image-type='gif'}
-{:go: .ph data-hd-programlang='go'}
-{:help: data-hd-content-type='help'}
-{:hide-dashboard: .hide-dashboard}
-{:hide-in-docs: .hide-in-docs}
-{:important: .important}
-{:ios: data-hd-operatingsystem="ios"}
-{:java: #java .ph data-hd-programlang='java'}
-{:java: .ph data-hd-programlang='java'}
-{:java: data-hd-programlang="java"}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:javascript: data-hd-programlang="javascript"}
-{:new_window: target="_blank"}
-{:note: .note}
-{:objectc: data-hd-programlang="objectc"}
-{:org_name: data-hd-keyref="org_name"}
-{:php: data-hd-programlang="php"}
-{:pre: .pre}
-{:preview: .preview}
-{:python: .ph data-hd-programlang='python'}
-{:python: data-hd-programlang="python"}
-{:route: data-hd-keyref="route"}
-{:row-headers: .row-headers}
-{:ruby: .ph data-hd-programlang='ruby'}
-{:ruby: data-hd-programlang="ruby"}
-{:runtime: architecture="runtime"}
-{:runtimeIcon: .runtimeIcon}
-{:runtimeIconList: .runtimeIconList}
-{:runtimeLink: .runtimeLink}
-{:runtimeTitle: .runtimeTitle}
-{:screen: .screen}
-{:script: data-hd-video='script'}
-{:service: architecture="service"}
-{:service_instance_name: data-hd-keyref="service_instance_name"}
-{:service_name: data-hd-keyref="service_name"}
-{:shortdesc: .shortdesc}
-{:space_name: data-hd-keyref="space_name"}
-{:step: data-tutorial-type='step'}
-{:subsection: outputclass="subsection"}
-{:support: data-reuse='support'}
-{:swift: #swift .ph data-hd-programlang='swift'}
-{:swift: .ph data-hd-programlang='swift'}
-{:swift: data-hd-programlang="swift"}
-{:table: .aria-labeledby="caption"}
-{:term: .term}
-{:tip: .tip}
-{:tooling-url: data-tooling-url-placeholder='tooling-url'}
-{:troubleshoot: data-hd-content-type='troubleshoot'}
-{:tsCauses: .tsCauses}
-{:tsResolve: .tsResolve}
-{:tsSymptoms: .tsSymptoms}
-{:tutorial: data-hd-content-type='tutorial'}
-{:unity: .ph data-hd-programlang='unity'}
-{:url: data-credential-placeholder='url'}
-{:user_ID: data-hd-keyref="user_ID"}
-{:vb.net: .ph data-hd-programlang='vb.net'}
-{:video: .video}
+{{site.data.keyword.attribute-definition-list}}
 
 # Using the {{site.data.keyword.cloud_notm}} console to create VPC resources
 {: #creating-a-vpc-using-the-ibm-cloud-console}
@@ -125,7 +58,9 @@ ssh-keygen -t rsa -C "user_ID"
 
 This command generates two files. The generated public key is in the `id_rsa.pub` file under an ``.ssh`` directory in your home directory, for example, ``/Users/<USERNAME>/.ssh/id_rsa.pub``. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
 
-If you plan to create an application load balancer and use HTTPs for the listener, an SSL certificate is required. You can manage certificates with [IBM Certificate Manager](https://{DomainName}/catalog/services/certificate-manager){: external}. You must also create an authorization to allow your load balancer instance to access the Certificate Manager instance that contains the SSL certificate. You can create an authorization through [Identity and Access Authorizations](https://{DomainName}/iam/authorizations){: external}. For the source, select **VPC Infrastructure** as the Source service, **Load Balancer for VPC** as the Resource type, and **All resource instances** for the Source resource instance. Select **Certificate Manager** as the Target service and assign **Writer** for the service access role. Set the Target service instance to **All instances** or to your specific Certificate Manager instance. For more information, see [Using Load Balancers in IBM Cloud VPC](/docs/vpc?topic=vpc-load-balancers).
+If you plan to create an [application load balancer](/docs/vpc?topic=vpc-load-balancers) and use HTTPs for the listener, an SSL certificate is required. You can manage certificates with [IBM Certificate Manager](https://{DomainName}/catalog/services/certificate-manager){: external}. 
+
+{{site.data.content.load-balancer-grant-service-auth}} 
 
 Allow extra time for completing any optional steps.
 {: note}
@@ -139,38 +74,38 @@ Allow extra time for completing any optional steps.
 To create a VPC and subnet:
 
 1. Open [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}).
-
-1. Click **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Network > VPCs** and click **New virtual private cloud**.
+1. Click **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Network > VPCs** and click **Create**.
 1. Enter a name for the VPC, such as `my-vpc`.
 1. Select a resource group for the VPC. Use resource groups to organize your account resources for access control and billing purposes. For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup).
 1. _Optional:_ Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
-1. The create VPC process assigns a default ACL. Later in this tutorial we'll discuss how to configure rules for the ACL.
-1. Select whether the default security group allows inbound SSH and ping traffic to virtual server instances in this VPC. We'll configure more rules for the default security group later.
-1. _Optional:_ Select whether you want to enable your VPC to access classic infrastructure resources. For more information, see [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure).
+1. Select the region where you want the VPC created. 
+1. The create VPC process assigns a default ACL. Later in this tutorial we'll configure rules for the ACL.
+1. Select whether the default security group allows inbound SSH and ping traffic to virtual server instances in this VPC. By default both types of traffic are allowed. We'll configure more rules for the default security group later.
+1. _Optional:_ Select whether you want to enable your VPC to access classic infrastructure resources. By default classic access is not enabled. For more information, see [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure).
 
-   You can only enable a VPC for classic access while creating the VPC. In addition, you can only have one classic access VPC in your account at any time.
-   {: important}
+    You can only enable a VPC for classic access while creating the VPC. In addition, you can only have one classic access VPC in your account at any time.
+    {: important}
 
 1. _Optional:_ Clear the **Default address prefixes** option if you don't want to assign default address prefixes to each zone in your VPC. After you create your VPC, you can go to its details page and set your own address prefixes.
 1. By default the create VPC process defines three subnets. If you need to edit the properties that are defined for the subnet, click the pencil icon for the subnet that you want to edit. You can also remove a subnet that is pre-defined by clicking the minus icon. If you need to add a subnet, complete the following steps. 
-1. Click **Add subnet** and enter a name for the new subnet in your VPC, such as `my-subnet`.
-1. Select a location for the subnet. The location consists of a region and a zone.
+    1. Click **Add subnet** and enter a name for the new subnet in your VPC, such as `my-subnet`.
+    1. Select a location for the subnet. The location consists of a region and a zone.
 
-    The region that you select is used as the region of the VPC. All additional resources that you create in this VPC are created in the selected region.
-    {: tip}
-1. Select a resource group for the subnet.
-1. Enter an IP range for the subnet in CIDR notation, for example: `10.240.0.0/24`. In most cases, you can use the default IP range. If you want to specify a custom IP range, you can use the IP range calculator to select a different address prefix or change the number of addresses.
+        The region that you select is used as the region of the VPC. All additional resources that you create in this VPC are created in the selected region.
+        {: tip}
+    
+    1. Select a resource group for the subnet.
+    1. The most efficient location for your IP range (CIDR block) is calculated to maximize available IP addresses. You can customize the IP range by selecting a different address prefix, changing the number of addresses, or by entering your IP range manually.
 
-   A subnet cannot be resized after it is created.
-   {: important}
+        A subnet cannot be resized after it is created.
+        {: important}
 
-1. Attach a public gateway to the subnet if you want to allow all attached resources to communicate with the public internet.  
+    1. Attach a public gateway to the subnet if you want to allow all attached resources to communicate with the public internet.  
 
-   You can also attach the public gateway after you create the subnet.
-   {: tip}
+        You can also attach the public gateway after you create the subnet.
+        {: tip}
 
 1. Click **Create virtual private cloud**.
-
 
 ## Configuring the ACL
 {: #configuring-the-acl}
@@ -185,7 +120,7 @@ To configure the ACL:
 1. In the navigation pane, click **Network > Subnets**.
 1. Click the subnet that you created.
 1. In the **Subnet details** area, click the name of the ACL.
-1. Click **Add rule** to configure inbound and outbound rules that define what traffic is allowed in or out of the subnet. For each rule, specify the following information:
+1. Click **Create** to configure inbound and outbound rules that define what traffic is allowed in or out of the subnet. For each rule, specify the following information:
    * Select whether to allow or deny the specified traffic.
    * Select the protocol to which the rule applies.  
    * For the source and destination of the rule, specify the IP range and ports for which the rule applies. For example, if you want all inbound traffic to be allowed to the IP range 192.168.0.0/24 in your subnet, specify **Any** as the source and 192.168.0.0/24 as the destination. But if you want to allow inbound traffic only from 169.168.0.0/24 to your entire subnet, specify 169.168.0.0/24 as the source and **Any** as the destination for the rule.
@@ -194,9 +129,9 @@ To configure the ACL:
    See [Configuring rules](/docs/vpc?topic=vpc-acl-create-ui#example-configuring-rules) for an example.
    {: note}
 
-1. When you finish creating rules, click the **All access control lists** breadcrumb at the beginning of the page.
+1. When you finish creating rules, click the **Access control lists** breadcrumb at the beginning of the page.
 
-For more information, see [About access control lists](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
+For more information, see [About access control lists](/docs/vpc?topic=vpc-using-acls).
 
 ## Creating a virtual server instance
 {: #creating-a-vsi}
@@ -208,22 +143,23 @@ To create a virtual server instance in the newly created subnet:
 
 1. Click **Compute > Virtual server instances** in the navigation pane and click **Create**.
 1. Enter a name for the instance, such as `my-instance`.
-1. Select the VPC that you created.
 1. Select a resource group for the instance.
 1. _Optional:_ Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
 1. In the **Location** field, select the zone in which to create the instance.
 1. Select the type of virtual server that you want to create. By default, Public is selected. 
 1. Select the processor architecture for the virtual server that you want to create. By default, x86 is selected. 
-1. Select an image (that is, operating system and version), such as Debian GNU/Linux 9.x Stretch/Stable. Alternatively, you can select a snapshot. 
-1. To set the instance size, select one of the popular profiles or click **View all profiles** to choose a different core, RAM, and network performance combination that's most appropriate for your workload. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles).
+1. Select an image (that is, operating system and version), such as *Debian GNU/Linux* and *ibm-debian-9-13-minimal-amd64-4*. Alternatively, you can select a snapshot. 
+1. To set the instance size, select a profile. If you want to choose something other than the default, click **View all profiles** to choose a different core, RAM, and network performance combination that's most appropriate for your workload. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles).
 
-   After you create your instance, you can't update the profile.
-   {: important}
+    After you create your instance, you can't update the profile.
+    {: important}
 
 1. Select an existing SSH key or add an SSH key that is to be used to access the virtual server instance. To add an SSH key, click **Create key** and name the key. After you enter your previously generated public key value, click **Add SSH key**.
 1. _Optional:_ Enter user data to run common configuration tasks when your instance starts. For example, you can specify cloud-init directives or shell scripts for Linux images. For more information, see [User Data](/docs/vpc?topic=vpc-user-data).
+1. _Optional:_ If you want the virtual server instance to be included in a placement group, select **Add instance to placement group**. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc).
 1. Note the boot volume. In the current release, 100 GB is allotted for the boot volume. *Auto Delete* is enabled for the volume; the boot volume is deleted automatically if the instance is deleted.
 1. In the **Data volumes** area, click **Create** to attach a block storage volume to your instance if you want more storage. In this tutorial, we'll create a block storage volume and attach it to the instance later.
+1. In the **Networking** area, select the VPC that you created.
 1. In the **Network interfaces** area, you can edit the network interface and change its name. If you have more than one subnet in the selected zone and VPC, you can attach a different subnet to the interface. If you want the instance to exist in multiple subnets, you can create more interfaces.
 
    Each interface has a maximum network bandwidth of 16 Gbps. If the profile you selected for this instance has a maximum network bandwidth greater than 16 Gbps, you might want to create more interfaces to optimize network performance. For more information, see [Network performance notes for profiles](/docs/vpc?topic=vpc-profiles#network-perf-notes-for-profiles).
@@ -243,17 +179,17 @@ You can create a block storage volume and attach it to your virtual server insta
 To create and attach a block storage volume:
 
 1. In the navigation pane, click **Storage > Block storage volumes**.
-1. Click **New volume** and specify the following information.
+1. On the Block storage volumes for VPC page, click **Create** and specify the following information.
    * **Name**: Enter a name for the block storage volume, such as `data-volume-1`.
    * **Resource group**: Select a resource group for the block storage volume. You can use resource groups to organize your account resources for access control and billing purposes. For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup).
    * **Tags**: _Optional:_ Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
    * **Location**: Select a location for the block storage volume. The location consists of a region and a zone, for example US South 1.
-   * **Size**: Specify the size of the volume between 10 GBs and 2000 GBs.
-   * **IOPs**: Select one of the IOPs Tiers or click Custom to enter an IOPs value based on volume size.
-   * **Encryption**: For this release, accept the default *Provider managed* encryption option.
+   * **IOPs**: Select one of the IOPs Tiers or click **Custom** to enter an IOPs value based on volume size.
+   * **Size**: Specify the size of the volume between 10 GBs and 16000 GBs.
+   * **Encryption**: Encryption with IBM-managed keys is enabled by default on all volumes. You can also choose a customer-managed option and use [your own encryption key](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
 1. Click **Create volume**.
 1. In the list of block storage volumes, find the volume that you created. When the status is Available, click "..." and select **Attach to instance**.
-1. Select the instance to which you want to attach the volume and click **Attach**.
+1. Select the instance to which you want to attach the volume and click **Attach volume**.
 
 ## Configuring the security group for the instance
 {: #configuring-the-security-group}
@@ -265,17 +201,17 @@ To configure the security group:
 
 1. In the navigation pane, click **Compute > Virtual server instances**.
 1. Click your instance to view its details.
-1. In the **Network interfaces** section, click the security group.
-1. Click **Add rule** to configure inbound and outbound rules that define what type of traffic is allowed to and from the instance. For each rule, specify the following information:  
-   * Specify a CIDR block or IP address for the permitted traffic. Alternatively, you can specify a security group in the same VPC to allow traffic to or from all instances that are attached to the selected security group.   
-   * Select the protocols and ports to which the rule applies.    
+1. In the **Network interfaces** section, click the name of the security group.
+1. On the **Rules** tab of the security group details page, click **Create** to configure inbound and outbound rules that define what type of traffic is allowed to and from the instance. For each rule, specify the following information: 
+   * Select the protocols and ports to which the rule applies. 
+   * Specify a CIDR block or IP address for the permitted traffic. Alternatively, you can specify a security group in the same VPC to allow traffic to or from all instances that are attached to the selected security group.      
 
    **Tips:**  
    * All rules are evaluated, regardless of the order in which they're added.
    * Rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, you created a rule that allows inbound TCP traffic on port 80. That rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
    * For Windows images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
-1. _Optional:_ To view interfaces that are attached to the security group, click **Attached interfaces** in the navigation pane.
-1. When you finish creating rules, click the **All security groups for VPC** breadcrumb at the beginning of the page.
+1. _Optional:_ To view interfaces that are attached to the security group, click the **Attached resources** tab and review the Attached interfaces section.
+1. When you finish creating rules, click the **Security groups for VPC** breadcrumb at the beginning of the page.
 
 
 ### Example security group
@@ -283,21 +219,21 @@ To configure the security group:
 
 For example, you can configure the following inbound rules:
 
- * Allow all SSH traffic (TCP port 22)
- * Allow all ping traffic (ICMP type 8)
+   * Allow all SSH traffic (TCP port 22)
+   * Allow all ping traffic (ICMP type 8)
 
 | Protocol | Source Type | Source | Value |
 |-----------|------|------|------|
-| TCP| Any | 0.0.0.0/0 | Ports 22-22
+| TCP| Any | 0.0.0.0/0 | Ports 22-22 |
 | ICMP | Any | 0.0.0.0/0 | Type: 8, Code: Any|
-{: caption="Table 3. Configuration information for inbound rules" caption-side="top"}
+{: caption="Table 1. Configuration information for inbound rules" caption-side="bottom"}
 
 Then, configure outbound rules that allow all TCP traffic:
 
 | Protocol | Destination Type | Source | Value |
 |-----------|------|------|------|
 | TCP| Any | 0.0.0.0/0 | Any port|
-{: caption="Table 4. Configuration information for outbound rules" caption-side="top"}
+{: caption="Table 2. Configuration information for outbound rules" caption-side="bottom"}
 
 ## Reserving a floating IP address
 {: #reserving-a-floating-ip-address}
@@ -312,9 +248,11 @@ To reserve and associate a floating IP address:
 
 1. In the navigation pane, click **Compute > Virtual server instances**.
 1. Click your instance to view its details.
-1. In the **Network interfaces** section, click **Reserve** for the interface that you want to associate with a floating IP address.
+1. In the **Network interfaces** section, click the pencil icon to edit the interface that you want to associate with a floating IP address. 
+1. On the Edit network interface page, find the Floating IP address drop-down menu and select **Reserve a new floating IP**.
+1. Click **Save**.
 
-You can later reassign this floating IP address to another instance in the same zone. To do this, you can find the floating IP address on the **Network > Floating IPs** page, click its overflow menu (**...**), and click **Unassociate**. Then, click **Associate** to select the instance and network interface that you want to associate with the floating IP address.
+You can later reassign this floating IP address to another instance in the same zone. To do this, you can find the floating IP address on the **Network > Floating IPs** page, click its overflow menu (**...**), and click **Release**. Then, click **Bind** to select the instance and network interface that you want to associate with the floating IP address.
 {: tip}
 
 ## Connecting to your instance
@@ -342,7 +280,7 @@ For more information about how to connect to your instance, see [Connecting to L
 
 To connect to a Windows image, log in using its decrypted password. For instructions, see [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
 
-You can now access your virtual server instance by connecting to a VNC or serial console. This is a quick-and-easy way for you to interact with the instance without using a Secure Shell. For more information about this feature, see [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console)
+You can now access your IBM Cloud virtual server instance by connecting to a VNC or serial console. This is a quick-and-easy way for you to interact with the instance without using a Secure Shell. For more information about this feature, see [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console)
 {: note}
 
 ## Monitoring your instance
@@ -355,13 +293,13 @@ To monitor your instance:
 
 1. Click **Virtual server instance** in the navigation pane.
 1. Click the name of your instance.
-1. Click **Monitoring** in the navigation pane.
+1. On the virtual server instance details page, click the **Monitoring** tab.
 
-Because the monitoring data is stored in {{site.data.keyword.mon_full_notm}}, you must be authenticated to an instance of {{site.data.keyword.mon_full_notm}} in your account. For more information, see [IBM Cloud monitoring services](/docs/cloud-infrastructure?topic=cloud-infrastructure-monitoring)
+Because the monitoring data is stored in {{site.data.keyword.mon_full_notm}}, you must be authenticated to an instance of {{site.data.keyword.mon_full_notm}} in your account. For more information, see [IBM Cloud monitoring](/docs/cloud-infrastructure?topic=cloud-infrastructure-monitoring-iaas).
 {: important}
 
 ## Creating a load balancer (optional)
-{: #creating-load-balancer}
+{: #tutorial-load-balancer}
 {: step}
 
 You can create two different types of {{site.data.keyword.cloud_notm}} load balancers: an application load balancer and a network load balancer. For comparison information and instructions on how to create an  {{site.data.keyword.cloud_notm}} load balancer, see [Load balancers overview](/docs/vpc?topic=vpc-nlb-vs-elb).
