@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-10-04"
+lastupdated: "2021-12-17"
 
 keywords: file Storage, mounting file storage, Linux, CentOS, NFS
 
@@ -35,7 +35,7 @@ subcollection: vpc
 Use these instructions to connect a CentOS Linux&reg;-based {{site.data.keyword.cloud}} Compute Instance to a Network File System (NFS) file share.
 {: shortdesc}
 
-File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, and London regions. Contact your IBM Sales representative if you are interested in getting access.
+File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Paris, Sydney, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Before you begin - Create a VSI

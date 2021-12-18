@@ -2,7 +2,7 @@
 
 copyright:
 years: 2021
-lastupdated: "2021-11-22"
+lastupdated: "2021-12-17"
 
 keywords: file storage, virtual private cloud, file shares, profile
 
@@ -26,7 +26,7 @@ subcollection: vpc
 When you provision File Storage for VPC file shares by using the {{site.data.keyword.cloud_notm}} console, CLI, or API, you specify a profile that best meets your file storage requirements. Profiles are available as three predefined IOPS tiers or a custom IOPS you can tailor to your needs.
 {: shortdesc}
 
-File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Paris, and Sydney regions. Contact your IBM Sales representative if you are interested in getting access.
+File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Paris, Sydney, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## IOPS tiers
