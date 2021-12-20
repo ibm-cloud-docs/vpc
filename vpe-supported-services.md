@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-30"
+lastupdated: "2021-12-20"
 
 keywords: virtual private endpoints, endpoint gateway, VPE
 subcollection: vpc
@@ -53,6 +53,10 @@ subcollection: vpc
 * Usage Metering ([Endpoint URLs](https://{DomainName}/apidocs/usage-metering#endpoint))
 * Usage Reports ([Endpoint URLs](https://{DomainName}/apidocs/metering-reporting#endpoint))
 * User Management ([Endpoint URLs](https://{DomainName}/apidocs/user-management#endpoint-urls))
+* Watson Assistant ([Instructions](/docs/watson?topic=watson-virtual-private-endpoints))
+* Watson Discovery ([Instructions](/docs/watson?topic=watson-virtual-private-endpoints))
+* Watson Speech to Text ([Instructions](/docs/watson?topic=watson-virtual-private-endpoints))
+* Watson Text to Speech ([Instructions](/docs/watson?topic=watson-virtual-private-endpoints))
 
 This topic will be updated as additional services are supported.
 {: note}
