@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2021
 
-lastupdated: "2021-12-17"
+lastupdated: "2021-12-20"
 
 
 keywords: vpc, virtual private cloud, vpc ui, console, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range, generation 2, gen 2
@@ -150,10 +150,6 @@ To create a virtual server instance in the newly created subnet:
 1. Select the processor architecture for the virtual server that you want to create. By default, x86 is selected. 
 1. Select an image (that is, operating system and version), such as *Debian GNU/Linux* and *ibm-debian-9-13-minimal-amd64-4*. Alternatively, you can select a snapshot. 
 1. To set the instance size, select a profile. If you want to choose something other than the default, click **View all profiles** to choose a different core, RAM, and network performance combination that's most appropriate for your workload. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles).
-
-    After you create your instance, you can't update the profile.
-    {: important}
-
 1. Select an existing SSH key or add an SSH key that is to be used to access the virtual server instance. To add an SSH key, click **Create key** and name the key. After you enter your previously generated public key value, click **Add SSH key**.
 1. _Optional:_ Enter user data to run common configuration tasks when your instance starts. For example, you can specify cloud-init directives or shell scripts for Linux images. For more information, see [User Data](/docs/vpc?topic=vpc-user-data).
 1. _Optional:_ If you want the virtual server instance to be included in a placement group, select **Add instance to placement group**. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc).
