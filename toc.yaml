@@ -408,8 +408,10 @@ toc:
         - topicgroup:
             label: Logging and monitoring
             topics:
+            - ibm-monitoring.md
             - at-events.md
             - logging.md
+            - vpc-quota-metrics.md
 #  Links to your REST API docs should be included in the Reference navigation group. For details on publishing API docs, see https://test.cloud.ibm.com/docs/api-docs.
 #  Links to your command line reference docs should be included in the Reference navigation group.
 
@@ -532,6 +534,7 @@ toc:
             - block_storage_is_troubleshoot.md
             - bare_metal_server_troubleshoot.md
             - instance-status-messages.md
+            - quota-dashboard-troubleshooting.md
         - limitations.md
         - known-issues.md
         - errors.md
