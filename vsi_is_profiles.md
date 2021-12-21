@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-11-29"
+lastupdated: "2021-12-21"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, generation 2, gen 2
 
@@ -273,7 +273,7 @@ The following Very High Memory profiles are available for x86_64 processors:
 | vx2d-16x224| 16 | 224 | 32 | 1x480 |
 | vx2d-44x616 | 44 | 616 | 80 | 1x1320 |
 | vx2d-88x1232 | 88 | 1232 | 80 | 2x1320 |
-| vx2d-72x2016 | 144 | 2016 | 80 | 2x2160 |
+| vx2d-144x2016 | 144 | 2016 | 80 | 2x2160 |
 | vx2d-176x2464 | 176 | 2464 | 80 | 2x2640 |
 {: caption="Table 8. Very High Memory profiles options for x86-64 instances" caption-side="top"}
 
