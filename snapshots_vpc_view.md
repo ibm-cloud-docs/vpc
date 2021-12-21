@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-11-11"
+lastupdated: "2021-12-20"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
@@ -58,7 +58,7 @@ Table 1 describes the information for all snapshots in the list of snapshots.
 | Encryption | Encryption with [IBM-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-provider-managed-encryption) or [provider-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-customer-managed-encryption), inherited from the source volume. |
 | Source volume | The boot or data volume from which the snapshot was created. Click the name of the volume to see its [details](/docs/vpc?topic=vpc-viewing-block-storage). |
 | Bootable | Whether the snapshot is of a boot volume. |
-| Created | The date and time the snapshot was created. |
+| Created | The date and time that snapshot was first taken. |
 | Tags | Number of tags applied to this snapshot from the source volume. If there are no tags applied to the snapshot that were inherited from the source volume, **Add tags** allows you to apply tags to the snapshot. | 
 | Actions (ellipsis) | Click the overflow icon to display a menu of context-specific actions you can take: | 
 | | Copy the snapshot ID |
@@ -76,7 +76,7 @@ To see details about a snapshot:
 
 1. Go to the list of all snapshots. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage snapshots**.
 
-1. Click the name of a snapshot. The snapshot details page displays with the information that is described in Table 2.
+1. Click the name of a snapshot. The snapshot details side panel shows the information that is described in Table 2.
 
 | Field | Value |
 |-------|-------|
@@ -86,7 +86,8 @@ To see details about a snapshot:
 | Resource group | |
 | ID | Copiable GUID of the snapshot. |
 | CRN | Copiable CRN of the snapshot. |
-| Created | Creation date of the snapshot. |
+| Created | Date and time that the snapshot resource creation process started. |
+| Captured | Date and time when the snapshot creation completed. |
 | Region | Region of your account, such as us-south |
 | Size| Size in GBs of the snapshot, inherited from the source volume. |
 | Source volume | Source volume from which the first snapshot was taken. Click the link for volume details. If the volume was deleted, the name appears without a link. |
@@ -125,13 +126,13 @@ ID                                          Name         Status    Progress   So
 {: screen}
 
 
-### View details of a snapshot from the CLI
+### View all snapshots for a volume from the CLI
 {: #snapshots-vpc-view-cli}
 
-Run the `snapshots {id)` command to see the details of a particular snapshot.
+Run the `snapshots` command and specify the volume ID.
 
 ```zsh
-ibmcloud is snapshots SNAPSHOT_ID [--json]
+ibmcloud is snapshots --volume VOLUME-ID [--json]
 ```
 {: pre}
 
@@ -142,11 +143,53 @@ $ ibmcloud is snapshots --volume 728b2d3c-2165-46c7-9863-9397e0a9af42
 Listing snapshots for generation 2 compute in all resource groups and region us-south under account VPC 01 as user rtuser1@mycompany.com...
 
 ID                                          Name   Status   Progress   Source Volume                               Bootable   Resource group   Created   
-b2168769-a4dc-4cb8-9fc6-e62d45918858   t2b1   stable   -          728b2d3c-2165-46c7-9863-9397e0a9af42   false      Default          2021-11-26T16:28:58+08:00   
-6e7ac183-3223-43d1-8f15-bea30c94eda0   t2b2   stable   -          728b2d3c-2165-46c7-9863-9397e0a9af42   false      Default          2021-11-26T16:29:01+08:00   
+b2168769-a4dc-4cb8-9fc6-e62d45918858   t2b1   stable   -          728b2d3c-2165-46c7-9863-9397e0a9af42   false      Default          2021-12-20T16:28:58+08:00   
+6e7ac183-3223-43d1-8f15-bea30c94eda0   t2b2   stable   -          728b2d3c-2165-46c7-9863-9397e0a9af42   false      Default          2021-12-20T16:29:01+08:00   
 
 ```
 {: screen}
+
+### View details of a snapshot from the CLI
+{: #snapshots-vpc-view-details-cli}
+
+Run the `snapshots` command and specify the snapshots ID.
+
+```zsh
+ibmcloud is snapshots SNAPSHOT_ID [--json]
+```
+{: pre}
+
+Example:
+
+```zsh
+ibmcloud is snapshot c2bc3194-0cab-40c4-9434-db9f26218700
+Getting snapshot c2bc3194-0cab-40c4-9434-db9f26218700 under account vpc1 as user user@mycompany.com...
+                          
+ID                     c2bc3194-0cab-40c4-9434-db9f26218700   
+Name                   my-snapshot   
+CRN                    crn:v1:bluemix:public:is:us-south:a/7f75c7b025e54bc5635f754b2f888665::snapshot:c2bc3194-0cab-40c4-9434-db9f26218700   
+Status                 stable   
+Source volume          ID                                          Name      
+                       fe027a90-19e7-4cb5-bda3-4c0e35d2bcdf        test5-vol      
+                          
+Progress               -   
+Bootable               true   
+Encryption             provider_managed   
+Encryption key         -   
+Minimum capacity(GB)   100   
+Size(GB)               1   
+Source image           ID                                          Name      
+                       fb4d7950-8ff4-4d9a-9d9f-3056cb8c36d9        centos-8-2-minimal-amd64-2      
+                          
+Operating system       Name             Vendor   Version                 Family   Architecture   Display name      
+                       centos-8-amd64   CentOS   8.x - Minimal Install   CentOS   amd64          CentOS 8.x - Minimal Install (amd64)      
+                          
+Resource group         ID                                 Name      
+                       ef2694fe-d6d1-4136-94c3-0ae315204e6b   Default      
+                          
+Created                2021-21-20T01:53:15+05:30  
+```
+{: codeblock}
 
 ## List snapshots with the API
 {: #snapshots-vpc-view-all-api}
@@ -159,7 +202,7 @@ Using the [VPC API](https://{DomainName}/apidocs/vpc), make a `GET/snapshots` re
 
    ```curl
    curl -X GET \
-   "$vpc_api_endpoint/v1/snapshots?version=2021-11-16&generation=2" \
+   "$vpc_api_endpoint/v1/snapshots?version=2021-12-16&generation=2" \
    -H "Authorization: $iam_token"
    ```
    {: pre}
@@ -174,118 +217,104 @@ For more information, see the [VPC API reference](https://{DomainName}/apidocs/v
 
 For example, this call filters the list to show snapshots that were created for a single volume and limits the results to five per page.
 
-   ```curl
-   curl -X GET \
-   "$vpc_api_endpoint/v1/snapshots?version=2021-11-16&generation=2" \
-   -H "Authorization: $iam_token" \
-   -d '{
-         "limit": 5,
-         "source_volume": {
-           "id": "8948ad59-bc0f-7510-812f-5dc64f59fab8"
-         }
-       }
+```curl
+curl -X GET \
+"$vpc_api_endpoint/v1/snapshots?version=2021-12-21&generation=2" \
+-H "Authorization: $iam_token" \
+-d '{
+      "limit": 5,
+      "source_volume": 
+        "id": "8948ad59-bc0f-7510-812f-5dc64f59fab8"
+      }
+    }'
    ```
    {: pre}
 
 A successful response looks like the following example:
 
-   ```json
-   {
-     "snapshots": [
-       {
-         "id": "1eeae628-b24c-41fb-91b9-bc0e02167f1e",
-         "crn": "crn: [...]",
-         "name": "my-snapshot-1",
-         "resource_group": {
-           "id": "bd081e1c-3c0d-4242-84fb-9d02fc963402",
-           "href": "https://resource-controller.test.cloud.ibm.com/v2/
-           resource_groups/bd081e1c-3c0d-4242-84fb-9d02fc963402",
-           "name": "Default"
-         },
-         "encryption": "provider_managed",
-         "encryption_key": null,
-         "source_volume": {
-           "id": "8948ad59-bc0f-7510-812f-5dc64f59fab8",
-           "crn": "[...]",
-           "href": "https://us-south.iaas.cloud.ibm.com/v1/
-           volumes/8948ad59-bc0f-7510-812f-5dc64f59fab8",
-           "name": "my-data-volume-1"
-         },
-         "created_at": "2021-11-16T11:39:04Z",
-         "lifecycle_state": "stable",
-         "minimum_capacity": 100,
-         "source_image": {
-           "id": "9eea9ca3-7e67-457d-855e-9b1e751b661b"
-         },
-         "resource_type": "snapshot"
-       },
-       {
-         "id": "3170394c-717f-43b1-8276-35e3fdef53d8",
-         "crn": "crn: [...]",
-         "href": "/v1/snapshots/3170394c-717f-43b1-8276-35e3fdef53d8",
-         "name": "my-snapshot-2",
-         "resource_group": {
-           "id": "bd081e1c-3c0d-4242-84fb-9d02fc963402",
-           "href": "https://resource-controller.test.cloud.ibm.com/v2/
-           resource_groups/bd081e1c-3c0d-4242-84fb-9d02fc963402",
-           "name": "Default"
-         },
-         "encryption": "provider_managed",
-         "encryption_key": null,
-         "source_volume": {
-           "id": "8948ad59-bc0f-7510-812f-5dc64f59fab8",
-           "crn": "",
-           "href": "https://us-south.iaas.cloud.ibm.com/v1/
-           volumes/8948ad59-bc0f-7510-812f-5dc64f59fab8",
-           "name": "my-data-volume-1"
-         },
-         "created_at": "2021-11-16T07:29:36Z",
-         "lifecycle_state": "stable",
-         "minimum_capacity": 100,
-         "source_image": {
-           "id": "9eea9ca3-7e67-457d-855e-9b1e751b661b"
-         },
-         "size": 0,
-         "resource_type": "snapshot"
-       },
-       {
-         "id": "c518cef6-ce08-461e-87e0-549274741feb",
-         "crn": "crn: [...]",
-         "href": "/v1/snapshots/c518cef6-ce08-461e-87e0-549274741feb",
-         "name": "my-snapshot-3",
-         "resource_group": {
-           "id": "bd081e1c-3c0d-4242-84fb-9d02fc963402",
-           "href": "https://resource-controller.test.cloud.ibm.com/v2/
-           resource_groups/bd081e1c-3c0d-4242-84fb-9d02fc963402",
-           "name": "Default"
-         },
-         "encryption": "provider_managed",
-         "encryption_key": null,
-         "source_volume": {
-           "id": "8948ad59-bc0f-7510-812f-5dc64f59fab8",
-           "crn": "crn: [...]",
-           "href": "https://us-south.iaas.cloud.ibm.com/v1/
-           volumes/8948ad59-bc0f-7510-812f-5dc64f59fab8",
-           "name": "my-data-volume-1"
-         },
-         "created_at": "2021-11-16T07:27:51Z",
-         "lifecycle_state": "stable",
-         "minimum_capacity": 100,
-         "source_image": {
-           "id": "9eea9ca3-7e67-457d-855e-9b1e751b661b"
-         },
-         "size": 0,
-         "resource_type": "snapshot"
-       }
-     ],
-     "first": {
-       "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshots?limit=5"
-     },
-     "limit": 5,
-     "total_count": 3
-   }
-   ```
-   {: codeblock}
+```json
+{
+  "snapshots": [
+    {
+      "id": "1eeae628-b24c-41fb-91b9-bc0e02167f1e",
+      "crn": "crn: [...]",
+      "href": "https://resource-controller.test.cloud.ibm.com/v2/
+      resource_groups/bd081e1c-3c0d-4242-84fb-9d02fc963402",
+      "resource_group": {
+        "id": "bd081e1c-3c0d-4242-84fb-9d02fc963402",
+        "href": "https://resource-controller.test.cloud.ibm.com/v2/
+        resource_groups/bd081e1c-3c0d-4242-84fb-9d02fc963402",
+        "name": "Default"
+      },
+      "encryption": "provider_managed",
+      "source_volume": {
+        "id": "8948ad59-bc0f-7510-812f-5dc64f59fab8",
+        "crn": "crn: [...]",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/
+        volumes/8948ad59-bc0f-7510-812f-5dc64f59fab8",
+        "name": "my-data-volume-1"
+      },
+      "created_at": "2021-12-21T07:02:01Z",
+      "captured_at": "2021-12-21T07:02:17Z",
+      "lifecycle_state": "stable",
+      "minimum_capacity": 100,
+      "operating_system": {
+        "architecture": "amd64",
+        "display_name": "CentOS 7.x - Minimal Install (amd64)",
+        "family": "CentOS",
+        "gpu_supported": null,
+        "href": "https://us-south-iaas.cloud.ibm.com/v1/operating_systems/centos-7-amd64",
+        "name": "centos-7-amd64",
+        "vendor": "CentOS",
+        "version": "7.x - Minimal Install"
+      },
+      "source_image": {
+        "id": "7bdec860-e092-4f07-8481-b0b041a9224a",
+        "crn": "crn: [...]",
+        "href": "/v1/images/7bdec860-e092-4f07-8481-b0b041a9224a",
+        "name": "ibm-centos-7-6-minimal-amd64-2"
+      },
+      "size": 3,
+      "resource_type": "snapshot",
+      "bootable": true
+    },
+    {
+      "id": "dd43ba12-8a76-4f09-8839-9b258162e535",
+      "crn": "crn: [...]",
+      "resource_group": {
+        "id": "bd081e1c-3c0d-4242-84fb-9d02fc963402",
+        "href": "https://resource-controller.cloud.ibm.com/v2/
+        resource_groups/bd081e1c-3c0d-4242-84fb-9d02fc963402",
+        "name": "Default"
+      },
+      "encryption": "provider_managed",
+      "source_volume": {
+        "id": "6c1f512c-da2f-41f7-ac3b-294e5be0d1dd",
+        "crn": "crn: [...]",
+        "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/6c1f512c-da2f-41f7-ac3b-294e5be0d1dd",
+        "name": "vol-6c1f512c-da2f-41f7-ac3b-294e5be0d1dd"
+      },
+      "created_at": "2021-12-19T17:50:43Z",
+      "captured_at": "2021-12-19T17:50:58Z",
+      "lifecycle_state": "stable",
+      "minimum_capacity": 1999,
+      "size": 237,
+      "resource_type": "snapshot",
+      "bootable": false
+    }
+  ],
+  "first": {
+    "href": "https://us-south.iaasdev.cloud.ibm.com/v1/snapshots?limit=5"
+  },
+  "next": {
+    "href": "https://us-south.iaasdev.cloud.ibm.com/v1/snapshots?limit=5&start=569704e5-f6a8-4758-b9d6-2264074a4b31"
+  },
+  "limit": 5,
+  "total_count": 63
+}
+
+```
+{: codeblock}
 
 ### List details of a snapshot with the API
 {: #snapshots-vpc-view-api}
@@ -294,46 +323,60 @@ For details about a single snapshot, use the VPC API to make a `GET/snapshots` c
 
    ```curl
    curl -X GET \
-   "$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2021-11-16&   generation=2" \
+   "$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2021-12-21&generation=2" \
    -H "Authorization: $iam_token"
    ```
    {: pre}
 
 A successful response looks like the following example:
 
-   ```json
-   {
-     "id": "7528eb61-bc01-4763-a67a-a414a103f96d",
-     "crn": "crn: [...]",
-     "href": "https://us-south.iaas.cloud.ibm.com/v1/
-     snapshots/7528eb61-bc01-4763-a67a-a414a103f96d",
-     "name": "my-snapshot-4",
-     "resource_group": {
-       "id": "59ff2d74-b0e5-4b40-a553-b812e50c72e9",
-       "href": "https://resource-controller.test.cloud.ibm.com/v2/
-       resource_groups/59ff2d74-b0e5-4b40-a553-b812e50c72e9",
-       "name": "Default"
-     },
-     "encryption": "provider_managed",
-     "encryption_key": null,
-     "source_volume": {
-       "id": "8948ad59-bc0f-7510-812f-5dc64f59fab8",
-       "crn": "crn: [...]",
-       "href": "https://us-south.iaas.cloud.ibm.com/v1/
-       volumes/8948ad59-bc0f-7510-812f-5dc64f59fab8",
-       "name": "my-data-volume-1"
-     },
-     "created_at": "2021-11-16T11:39:04Z",
-     "lifecycle_state": "stable",
-     "minimum_capacity": 100,
-     "source_image": {
-       "id": "r134-32045dc2-b463-4cda-b424-bc3dcf51dfbb"
-     },
-     "size": 0,
-     "resource_type": "snapshot"
-   }
-   ```
-   {: codeblock}
+```json
+{
+  "id": "7528eb61-bc01-4763-a67a-a414a103f96d",
+  "crn": "crn: [...]",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/
+  snapshots/7528eb61-bc01-4763-a67a-a414a103f96d",
+  "name": "my-snapshot-4",
+  "resource_group": {
+    "id": "59ff2d74-b0e5-4b40-a553-b812e50c72e9",
+    "href": "https://resource-controller.cloud.ibm.com/v2/
+    resource_groups/59ff2d74-b0e5-4b40-a553-b812e50c72e9",
+    "name": "Default"
+  },
+  "encryption": "provider_managed",
+  "source_volume": {
+    "id": "7528eb61-bc01-4763-a67a-a414a103f96d",
+    "crn": "crn: [...]",
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/7528eb61-bc01-4763-a67a-a414a103f96d",
+    "name": "my-data-volume-1"
+  },
+  "created_at": "2021-12-13T07:02:01Z",
+  "captured_at": "2021-12-13T07:02:17Z",
+  "lifecycle_state": "stable",
+  "minimum_capacity": 100,
+  "operating_system": {
+    "architecture": "amd64",
+    "display_name": "CentOS 7.x - Minimal Install (amd64)",
+    "family": "CentOS",
+    "gpu_supported": null,
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/operating_systems/centos-7-amd64",
+    "name": "centos-7-amd64",
+    "vendor": "CentOS",
+    "version": "7.x - Minimal Install"
+  },
+  "source_image": {
+    "id": "dc021ec6-759d-4b87-8e0a-04106b8aa635",
+    "crn": "crn:v1:staging:public:is:us-south:::image:dc021ec6-759d-4b87-8e0a-04106b8aa635",
+    "href": "/v1/images/dc021ec6-759d-4b87-8e0a-04106b8aa635",
+    "name": "centos-7-6-minimal-amd64-2"
+  },
+  "size": 3,
+  "resource_type": "snapshot",
+  "bootable": true
+}
+
+```
+{: codeblock}
 
 ## Next steps
 {: #snapshots_vpc_view_next_steps}
