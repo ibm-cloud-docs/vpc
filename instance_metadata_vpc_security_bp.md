@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-11-02"
+lastupdated: "2021-12-28"
 
 keywords: metadata service, security, virtual server instance, instance
 
@@ -46,7 +46,7 @@ This topic describes how to configure security safeguards to protect your metada
 ## Disable the metadata service for an instance or account
 {: #imd-disable-instance-acct}
 
-For Beta, the metadata service is enabled by default for allow-listed accounts. To disable the service, see [Enable or disable the instance metadata service](/docs/vpc?topic=vpc-imd-configure-service). Also, see this [troubleshooting issue](/docs/vpc?topic=vpc-imd-troubleshoot#imd-ts-1) for more information about disabling the service. At this time, you must use an account not on the Beta allow-list.
+The metadata service is enabled by default for allow-listed accounts. To disable the service, see [Enable or disable the instance metadata service](/docs/vpc?topic=vpc-imd-configure-service). Also, see this [troubleshooting issue](/docs/vpc?topic=vpc-imd-troubleshoot#imd-ts-1) for more information about disabling the service. At this time, you must use an account not on the Beta allow-list.
 
 ## Use iptables firewall to limit access on Linux
 {: #imd-iptables}
