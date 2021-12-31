@@ -284,6 +284,9 @@ Ultra High Memory profiles are hosted exclusively on the latest generation Intel
 
 {: #callout-note}
 
+Ultra High Memory profiles are available in the US South (Dallas) and EU Germany (Frankfurt) regions. Additional regions will be added.
+{: preview}
+
 ### Ultra High Memory profiles for x86_64 processors
 {: #uhmemory-x86-profiles}
 
