@@ -2,7 +2,7 @@
 
 copyright:
   years:  2021
-lastupdated: "2021-12-20"
+lastupdated: "2022-01-04"
 
 keywords: IBM Cloud monitoring, platform metrics, metrics, vpc metrics, vpc monitoring metrics
 
@@ -52,7 +52,7 @@ Resources that offer quota metrics, detailed in Table 1.
 ### Resource quota consumption
 {: #ibm_is_resource_quota_consumption}
 
-The amount of resource consumed for a given resource type, detailed in Table 2.
+The amount of a resource that is consumed for a given resource type, detailed in Table 2.
 
 | Description | Metadata |
 |----------|-------------|
@@ -100,7 +100,7 @@ The following attributes are available for segmenting all previously mentioned m
 ### Additional attributes
 {: additional-attributes}
 
-The following attributes are available for segmenting one or more attributes as described in the reference above.  Please see the individual metrics for segmentation options.
+The following attributes are available for segmenting one or more attributes as described in the Global attributes reference. See the individual metrics for segmentation options.
 
 | Attribute name | Attribute | Attribute description |
 |-----------|----------------|-----------------------|
@@ -113,4 +113,4 @@ The following attributes are available for segmenting one or more attributes as 
 ## Next steps
 {: next-steps}
 
-- [Quotas and servuce limits](/docs/vpc?topic=vpc-quotas)
+- [Quotas and service limits](/docs/vpc?topic=vpc-quotas)
