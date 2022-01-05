@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2021
 
-lastupdated: "2021-12-16"
+lastupdated: "2022-01-05"
 
 keywords: VPC release notes
 
@@ -41,7 +41,7 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 {: release-note}
 
 **File Storage for VPC (LA)** 
-:   {{site.data.keyword.filestorage_vpc_full}} is now available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Paris, Sydney, and Tokyo regions.
+:   {{site.data.keyword.filestorage_vpc_full}} is now available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, and Tokyo regions.
 
 :   For more information about this service, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about). 
 
