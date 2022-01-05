@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-12-17"
+lastupdated: "2021-12-31"
 
 keywords: file storage, virtual private cloud, file share, mount target
 
@@ -33,7 +33,7 @@ subcollection: vpc
 View all file shares and mount targets in the UI, CLI, or API. Also, view details of a single file share or mount target.
 {: shortdesc}
 
-File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Paris, Sydney, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 Before you get started, to create mount targets for file shares, make sure that you created a [VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
