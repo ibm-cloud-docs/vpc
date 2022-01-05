@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-12-22"
+lastupdated: "2022-01-05"
 
 keywords: block storage, boot volume, data volume, volume, data storage, file storage, snapshots
 
@@ -51,7 +51,7 @@ For more information about this service, see [About Block Storage for VPC](/docs
 
 {{site.data.keyword.cloud}} File Storage for {{site.data.keyword.vpc_full}} (VPC) is a zonal file storage offering that provides NFS-based file storage services. You create file shares in an availability zone within a region. You can share them with multiple virtual server instances within the same zone across multiple VPCs.
 
-File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Paris, and Sydney regions. Contact your IBM Sales representative if you are interested in getting access.
+File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, and Sydney regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 Using this service, you can:
