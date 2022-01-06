@@ -51,7 +51,7 @@ The following table provides a comparison of the types of load balancers.
 
 The application load balancer is configured in active-active mode. All compute resources of the load balancer are actively involved in forwarding traffic.
 
-High Availability (HA) is achieved by using a Domain Name Service (DNS). VIP of each compute resource is registered with DNS. If any of the compute resources go down, the other resources continue to forward traffic.
+High Availability (HA) is achieved by using a Domain Name Service (DNS). The Virtual IP (VIP) of each compute resource is registered to the assigned DNS. If any of the compute resources go down, the other resources continue to forward traffic.
 
 An NLB is configured in active-standby mode. A single VIP is registered with DNS, and traffic is forwarded through that compute resource. If an active compute resource goes down, the standby takes over and the VIP is transferred to the standby.
 
@@ -70,7 +70,7 @@ The application load balancer can be configured to span multiple zones. The back
 ## Application load balancer data flow
 {: #alb-data-flow}
 
-A client makes a request by using the FQDN that is registered to the load balancer instance. A DNS server handles the request and distributes the traffic in a round robin fashion to the appliances. The appliances then accept the request and route it to a back-end server. Eventually the back-end server responds, and the response flows back through the load balancer, then back to the client.
+A client makes a request by using the FQDN that is registered to the load balancer instance. A DNS server handles the request and distributes the traffic in a round robin fashion to the back-end servers (server instances hosting the application). Eventually the back-end server responds, and the response flows back through the load balancer, then back to the client.
 
 ![ALB traffic flow](images/alb-datapath.png){: caption="Figure 1. Application load balancer traffic flow" caption-side="bottom}
 

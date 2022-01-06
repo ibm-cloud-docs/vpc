@@ -86,6 +86,8 @@ A nested security group is an option only when clients are in the same VPC. If t
 
 Ensure that your back-end targets are in a security group and configured as the destination in the outbound rules. Using a nested security group enables your ALB to allow only outbound traffic to the back-end target and health check ports.
 
+In addition, your back-end targets must have connectivity to the DNS resolver in order to resolve your load balancer's name. This is because load balancers are accessed through their DNS name.
+
 ## Attaching a security group during load balancer provisioning
 {: #attaching-sg-alb-provisioning}
 

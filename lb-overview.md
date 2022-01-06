@@ -22,6 +22,9 @@ The following diagram illustrates the deployment architecture for the ALB.
 
 ![Application load balancer for VPC](images/alb_arc.png "Application load balancer"){: caption="Application load balancer" caption-side="bottom"}
 
+In this diagram, "Client Resources" represents the resources (VPCs and subnets, for instance) that belong to the client ecosystem.
+{: note}
+
 ## Types of application load balancers
 {: #types-load-balancer}
 
@@ -118,6 +121,7 @@ URI | The relative URI to which a request redirects. This is an optional propert
 * HTTP and HTTPS listeners and pools are interchangeable. 
 * You can only configure a TCP front-end listener with a TCP back-end pool.
 * You can attach up to 50 virtual server instances to a back-end pool. Traffic is sent to each instance on its specified data port. This data port does not need to be the same one as the front-end listener port.
+* "Private only" endpoints for Certificate Manager are not supported with HTTPS listeners. To configure an HTTPS listener in an ALB, you must upload your TLS certificates to a "Public and private" endpoint.
 
 Effective 31st July 2021, application load balancers will convert all HTTP request and response headers to lower case. This applies to all traffic handled by HTTP and HTTPS listeners. This is being done to provide support for HTTP2, but will be applied to older HTTP 1.x versions as well for uniformity. For most applications this will not require changes, but any application that depends on the case sensitivity of headers needs to be updated to handle them irrespective of capitalization. This is in accordance to networking standards (RFC 2616 Sec 4.2 and RFC 7230 Sec 3.2) which state that HTTP headers are case insensitive.
 {: important}
