@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2019, 2021
+  years: 2019, 2022
 
-lastupdated: "2022-01-05"
+lastupdated: "2022-01-07"
 
 keywords: VPC release notes
 
@@ -32,6 +32,16 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 {: shortdesc}
 
 For information about changes to the {{site.data.keyword.vpc_short}} API , see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log)
+
+## January 2022
+{: #subcollection-jan22}
+
+### 06 January 2022
+{: #subcollection-jan0622}
+{: release-note}
+
+**UI update when creating a virtual server**
+:   When you create a virtual server, the UI is updated to include a link in the Operating system section that opens a panel containing information about the image lifecycle.
 
 ## December 2021
 {: #subcollection-dec21}
