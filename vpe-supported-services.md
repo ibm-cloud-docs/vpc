@@ -9,15 +9,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:download: .download}
+{{site.data.keyword.attribute-definition-list}}
 
 # VPE supported services
 {: #vpe-supported-services}
@@ -53,6 +45,7 @@ subcollection: vpc
 * Usage Metering ([Endpoint URLs](https://{DomainName}/apidocs/usage-metering#endpoint))
 * Usage Reports ([Endpoint URLs](https://{DomainName}/apidocs/metering-reporting#endpoint))
 * User Management ([Endpoint URLs](https://{DomainName}/apidocs/user-management#endpoint-urls))
+* VPC API
 * Watson Assistant ([Instructions](/docs/watson?topic=watson-virtual-private-endpoints))
 * Watson Discovery ([Instructions](/docs/watson?topic=watson-virtual-private-endpoints))
 * Watson Speech to Text ([Instructions](/docs/watson?topic=watson-virtual-private-endpoints))
