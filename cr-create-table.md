@@ -10,30 +10,16 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:DomainName: data-hd-keyref="DomainName"}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:term: .term}
-{:generic: data-hd-programlang="generic"}
-{:download: .download}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating a routing table
 {: #create-vpc-routing-table}
 
 Create a routing table to define rules to forward network traffic along the best path toward its destination. For example, a routing table provides information for sending a data packet to the next hop on its route across the network.
 {: shortdesc}
+
+Custom routes and custom routing tables are only supported on route-based VPNs. If you are using policy-based VPNs, the routes are created automatically by the VPN service in the default routing table.
+{: important}
 
 Ingress traffic from a particular traffic source is routed by using the routes in the custom routing table that is associated with that traffic source. If no matching route is found in
 a custom routing table, routing continues by using the VPC system routing table. You can avoid this behavior with a custom routing table's default route with an action of **drop**.
@@ -51,7 +37,7 @@ To create a routing table by using the {{site.data.keyword.cloud_notm}} console,
 
 1. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appear.
 
-     ![Routing tables for VPC page](./images/cr-routing-tables-page.png)
+   ![Routing tables for VPC page](./images/cr-routing-tables-page.png){: caption="Figure 1. Routing tables for VPC page" caption-side="bottom}
 
 1. Click **Create** in the upper right of the page.
 1. In the New routing table for VPC provisioning page, complete the following information:
@@ -63,7 +49,7 @@ To create a routing table by using the {{site.data.keyword.cloud_notm}} console,
       If you select **Ingress**, you must select one or more traffic sources. Ingress routing tables support networks for Transit Gateway and Direct Link 2.0 that are associated with the VPC that the routing table is being created in.
       {: note}
 
-      ![Routing table creation page](./images/cr-create-routing-table.png)
+      ![Routing table creation page](./images/cr-create-routing-table.png){: caption="Figure 2. Routing table creation page" caption-side="bottom}
 
 1. Read and agree to the **Terms and Conditions**, then click **Create routing table**.  
 
@@ -73,7 +59,7 @@ To create a routing table by using the {{site.data.keyword.cloud_notm}} console,
 
 To create a routing table by using the CLI, run the following command:
 
-```
+```sh
 ibmcloud is vpc-routing-table-create VPC [--name NAME] [--direct-link-ingress false | true] [--transit-gateway-ingress false | true] [--vpc-zone-ingress false | true] [--output JSON] [-q, --quiet]
 ```
 {: pre}

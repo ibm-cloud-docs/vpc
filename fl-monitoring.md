@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2020,2021
+  years: 2020, 2021
 lastupdated: "2021-05-25"
 
 keywords:
@@ -10,16 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank_"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:preview: .preview}
-{:download: .download}
-{:note: .note}
-{:important: .important}
+{{site.data.keyword.attribute-definition-list}}
 
 # Monitoring flow logs for VPC metrics
 {: #fl-monitoring-metrics}
@@ -28,7 +19,7 @@ Use {{site.data.keyword.mon_full}} to gain operational visibility into the perfo
 {: shortdesc}
 
 ## Platform metrics overview
-{: platform-metrics-overview}
+{: #platform-metrics-overview}
 
 You can view platform metrics when you enable {{site.data.keyword.mon_full_notm}} on your {{site.data.keyword.cloud_notm}} platform. A monitoring instance must be configured in a region to monitor these metrics. For more information, see [Enabling platform metrics](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-platform_metrics_enabling).
 
@@ -49,7 +40,7 @@ The number of bytes sent to Cloud Object Storage from a flow log collector.
 | `Metric type` | `gauge` |
 | `Value type`  | `byte` |
 | `Segment by` | `IBM IS Generation 2, flow log collector virtual server attachment` |
-{: caption="Table 1: Flow log bytes sent" caption-side="top"}
+{: caption="Table 1: Flow log bytes sent" caption-side="bottom"}
 
 ## Attributes for segmentation
 {: #segmentation-attributes-fl}
@@ -67,10 +58,10 @@ The following attributes are available for segmenting the previously listed metr
 | `Resource type` | `ibm_resource_type` | Type of resource measured by the service. |
 | `Scope` | `ibm_scope` | Scope of the account, organization, or space GUID that is associated with this metric. |
 | `Service name` | `ibm_service_name` | Name of the service generating this metric. |
-{: caption="Table 2: Global attributes" caption-side="top"}
+{: caption="Table 2: Global attributes" caption-side="bottom"}
 
 ### Additional attributes
-{: additional-attributes-fl}
+{: #additional-attributes-fl}
 
 The following attributes are available for segmenting one or more attributes as described in the preceding reference. See the individual metrics for segmentation options.
 
@@ -78,4 +69,45 @@ The following attributes are available for segmenting one or more attributes as 
 |-----------|----------------|-----------------------|
 | `IBM IS Generation 2` | `ibm_is_generation` | IBM IS Generation ( `2` for Gen. 2) |
 | `Flow log collector VPS attachment` | `ibm_flow_log_collector_instance` | The virtual server instance ID where the flow log collector is attached. |
-{: caption="Table 3: Additional attributes" caption-side="top"}
+{: caption="Table 3: Additional attributes" caption-side="bottom"}
+
+## Enabling metrics monitoring - PLACEHOLDER
+{: #enable-metrics-monitoring}
+
+To receive monitoring metrics, you must set up your {{site.data.keyword.mon_full_notm}} instance.
+
+To receive monitoring metrics, use the following steps:
+
+1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring) and click **Create a monitoring instance**.
+
+2. Select a region for your monitoring instance.
+
+   ![Region](images/metrics_1.png "Region"){: caption="Figure 1. Region" caption-side="bottom}
+
+   The region needs to match the location of your existing VPN gateway.
+   {: important}
+
+3. Choose your pricing plan.
+
+   Pricing plan details are explained in the selection window. Select the plan that best meets your requirements.
+
+4. Provide a unique service name for your instance. The name can be any name that you want. The name has no impact on functionality.
+
+   Do not give multiple monitoring instances the same name.
+   {: important}
+
+5. Optionally, select a resource group. A resource group organizes account resources in customizable groupings. Any account resource that is managed by using IBM Cloud Identity and Access Management (IAM) access control belongs to a resource group within your account.
+
+   ![Resource group](images/metrics_2.png "Resource group"){: caption="Figure 2. Resource group" caption-side="bottom}
+
+   If you do not have any pre-configured resource groups, or have no reason to share this resource selectively, use the default selection.
+   {: note}
+
+   If your account has multiple resource groups, you can choose which group has access to this {{site.data.keyword.mon_full_notm}} instance. By using this selective access, metrics can be available to some resource groups and not to others.
+   {: tip}
+
+6. Check the **Enable Platform Metrics** checkbox. You must select this option to receive metrics from your VPN gateway.
+
+7. Click **Create**. You are taken back to the monitoring metrics home page.
+
+Within a few minutes, your new monitoring instance is displayed with several configurations. You might have to refresh your browser to see it.  

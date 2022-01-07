@@ -10,24 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:DomainName: data-hd-keyref="DomainName"}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:term: .term}
-{:generic: data-hd-programlang="generic"}
-{:download: .download}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Listing routes of a routing table
 {: #list-routes-routing-table}
@@ -43,27 +26,27 @@ To list the routes of a VPC routing table by using the {{site.data.keyword.cloud
 
 1. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
 
-   ![Listing routing table routes](./images/cr-routing-table-list.png)
+   ![Listing routing table routes](./images/cr-routing-table-list.png){: caption="Figure 1. Listing routing table routes" caption-side="bottom}
 
 1. Click the routing table name or number of routes that are associated with the routing table.
 
    The Routing table details page appears, listing the routes associated with the routing table.
 
-   ![Destination routes table](./images/cr-routing-table-details.png)
+   ![Destination routes table](./images/cr-routing-table-details.png){: caption="Figure 2. Destination routes table" caption-side="bottom}
 
 Descriptions of these columns are as follows:
 
 | Column | Description |
 |-------|-------------|
-| State | The lifecycle state. Custom route states are:<ul><li>**Pending** - In the process of being provisioned in the specified VPC and zone.</li><li>**Stable** - Provisioning was successful.</li><li>**Deleting** - A **Stable** or **Failed** route is in the process of being deleted.</li><li>**Deleted** - Deletion was successful.</li><li>**Failed** - The route is not functional. From this state, you can delete only the route.</li></ul> |
+| State | The lifecycle state. Custom route states are:  \n * **Pending** - In the process of being provisioned in the specified VPC and zone.  \n * **Stable** - Provisioning was successful.  \n * **Deleting** - A **Stable** or **Failed** route is in the process of being deleted.  \n * **Deleted** - Deletion was successful.  \n * **Failed** - The route is not functional. From this state, you can delete only the route.|
 | Destination | Destination CIDR of the route. |
-| Action | Values are:<ul><li>**Deliver** - Routes the packet to the next hop target. You can add multiple routes with the same address prefix. The virtual router performs equal-cost, multi-path routing (ECMP) by using the different next hop IP addresses.</li><li>**Drop** - Drops the packet.</li><li>**Delegate** - Routes the packet by using the system routing table.<sup>1</sup></li></ul> |
+| Action | Values are:  \n * **Deliver** - Routes the packet to the next hop target. You can add multiple routes with the same address prefix. The virtual router performs equal-cost, multi-path routing (ECMP) by using the different next hop IP addresses.  \n * **Drop** - Drops the packet.  \n * **Delegate** - Routes the packet by using the system routing table. 1 |
 | Type | Either **IP Address** or **VPN Connection**. |
 | Next hop | The IP address of the next hop to which to route packets. |
 | Location | The region associated with the VPC. |
-{: caption="Table 1. Destination routes details" caption-side="top"}
+{: caption="Table 1. Destination routes details" caption-side="bottom"}
 
-<sup>1</sup> A system routing table is maintained for each VPC. A VPC can have a presence in multiple zones, and the VPC's system routing table is different in each zone. It is used for routing traffic when no matching route is found in the custom routing table that is associated with the subnet of which the traffic is egressing.
+1 - A system routing table is maintained for each VPC. A VPC can have a presence in multiple zones, and the VPC's system routing table is different in each zone. It is used for routing traffic when no matching route is found in the custom routing table that is associated with the subnet of which the traffic is egressing.
 
 ## Listing routes of a routing table using the CLI
 {: #cr-view-details-route-using-the-cli}
@@ -71,7 +54,7 @@ Descriptions of these columns are as follows:
 
 To view details of a route by using the CLI, run the following command:
 
-```
+```sh
 ibmcloud is vpc-routing-table-route VPC ROUTING_TABLE ROUTE [--json]
 ```
 {: pre}

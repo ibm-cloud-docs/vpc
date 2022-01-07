@@ -9,23 +9,7 @@ keywords: flow logs, delete
 subcollection: vpc
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:term: .term}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank_" .external}
-{:generic: data-hd-programlang="generic"}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Deleting a flow log collector
 {: #deleting-a-flow-log-collector}
@@ -49,7 +33,7 @@ To delete a flow log collector, click the overflow menu ![overflow menu](images/
 
 To delete a flow log collector by using the CLI, run the following command:
 
-```
+```sh
 ibmcloud is flow-log-delete FLOW_LOG [-f, --force]
 ```
 {: pre}
@@ -65,8 +49,7 @@ Where:
 
 To delete a flow log collector by using the API, follow these steps:
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with
-the right variables.
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
 1. Store your `FlowLogID01` in a variable to be used in the API command:
 
    ```sh

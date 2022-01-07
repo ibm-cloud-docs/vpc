@@ -10,17 +10,7 @@ subcollection: vpc
 
 ---
 
-{:tsSymptoms: .tsSymptoms}
-{:tsCauses: .tsCauses}
-{:tsResolve: .tsResolve}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:support: data-reuse='support'}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:important: .important}
-{:note:.note}
-{:troubleshoot: data-hd-content-type='troubleshoot'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Why can't the Cloud Object Storage bucket be found?
 {: #fl-ts-error-cos-bucket}
@@ -43,11 +33,11 @@ A bucket that is associated with a flow log collector was deleted, or is not acc
 Follow these steps to resolve this issue:
 {: tsResolve}
 
-1.	Create a Cloud Object Storage bucket with the same `<BucketName>` specified in the error message. To create a Cloud Object Storage bucket, see the [Cloud Object Storage](https://cloud.ibm.com/catalog/services/cloud-object-storage) ordering page.
+1. Create a Cloud Object Storage bucket with the same `<BucketName>` specified in the error message. To create a Cloud Object Storage bucket, see the [Cloud Object Storage](https://cloud.ibm.com/catalog/services/cloud-object-storage) ordering page.
 
    The Cloud Object Storage bucket must be a single-region bucket in the same region as the target resource. Additionally, it is recommended that you secure the bucket through IAM access groups and audit logging.
    {: note}
-   
+
 1. Check to make sure that you defined an authorization between the flow log collector and the Cloud Object Storage bucket so that the flow log collector can publish data. To define an authorization, use the following steps:
 
    * In the {{site.data.keyword.cloud_notm}} console, click **Manage** &gt; **Access (IAM)**.

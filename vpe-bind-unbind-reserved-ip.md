@@ -10,24 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:DomainName: data-hd-keyref="DomainName"}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:term: .term}
-{:generic: data-hd-programlang="generic"}
-{:download: .download}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Binding and unbinding a reserved IP address
 {: #bind-unbind-reserved-ip}
@@ -54,7 +37,7 @@ To reserve or bind an IP address by using the {{site.data.keyword.cloud}} consol
    If you did not reserve or bind an IP during endpoint gateway creation, this link appears in the IP address column in the table.
    {: note}
 
-   ![Binding a reserved IP address](./images/vpe-bind.png "Binding a reserved IP address")
+   ![Binding a reserved IP address](./images/vpe-bind.png "Binding a reserved IP address"){: caption="Figure 1. Binding a reserved IP address" caption-side="bottom}
 
 1. From the Reserved IP side panel, have IBM select an IP address for you from the subnet that is listed, or select from existing IPs.
 
@@ -85,7 +68,7 @@ You can bind or unbind a reserved IP address by using the CLI.
 
 To bind a reserved IP to an endpoint gateway by using the CLI, run the following command:
 
-```
+```sh
   ibmcloud is endpoint-gateway-reserved-ip-bind ENDPOINT_GATEWAY \
     --reserved-ip-id RESERVED_IP_ID [--json]  
 ```
@@ -102,7 +85,7 @@ Where:
 
 To unbind a reserved IP to an endpoint gateway by using the CLI, run the following command:
 
-```
+```sh
   ibmcloud is endpoint-gateway-reserved-ip-unbind ENDPOINT_GATEWAY \
   (--address ADDRESS | --reserved-ip-id RESERVED_IP_ID) [-f, --force]  
 ```
@@ -122,13 +105,14 @@ Where:
 To bind or unbind a reserved IP address by using the API, perform the following prerequisites and procedures.
 
 ### Prerequisites
+{: #vpe-prerequisites}
 
 The following prerequisites must be met before you can use the API to bind or unbind reserved IP addresses:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 1. Store the following values in variables to use in the API command:
 
-    ```
+    ```sh
     export EndpointGatewayId=<endpoint_gateway_id>
     export ReservedIPId=<reserved_ip_id>
     ```

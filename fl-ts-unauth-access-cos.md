@@ -10,17 +10,7 @@ subcollection: vpc
 
 ---
 
-{:tsSymptoms: .tsSymptoms}
-{:tsCauses: .tsCauses}
-{:tsResolve: .tsResolve}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:support: data-reuse='support'}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:note:.note}
-{:important: .important}
-{:troubleshoot: data-hd-content-type='troubleshoot'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Why isn't the flow log collector authorized to publish data to the Cloud Object Storage bucket?
 {: #fl-ts-error-unauth-access-cos}

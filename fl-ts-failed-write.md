@@ -10,17 +10,7 @@ subcollection: vpc
 
 ---
 
-{:tsSymptoms: .tsSymptoms}
-{:tsCauses: .tsCauses}
-{:tsResolve: .tsResolve}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:support: data-reuse='support'}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:note:.note}
-{:important: .important}
-{:troubleshoot: data-hd-content-type='troubleshoot'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Why didn't data write to the flow log file in the past 24 hours?
 {: #fl-ts-error-failed-write}
@@ -41,7 +31,7 @@ The Cloud Object Storage bucket does not exist, or does not have correct permiss
 {: tsCauses}
 
 Before this error message was logged, you received one of the following error messages each hour for 24 hours. Follow the resolution procedure for the error message that you received.
-   * [is.flow-log-collector.00002E: Unauthorized access to Cloud Object Storage bucket <BucketName>](/docs/vpc?topic=vpc-fl-ts-error-unauth-access-cos)
-   * [is.flow-log-collector.00003E: Cloud Object Storage bucket <BucketName> was not found](/docs/vpc?topic=vpc-fl-ts-error-cos-bucket)
+* [is.flow-log-collector.00002E: Unauthorized access to Cloud Object Storage bucket `<BucketName>`](/docs/vpc?topic=vpc-fl-ts-error-unauth-access-cos)
+* [is.flow-log-collector.00003E: Cloud Object Storage bucket `<BucketName>` was not found](/docs/vpc?topic=vpc-fl-ts-error-cos-bucket)
 {: tsResolve}
  

@@ -11,22 +11,7 @@ subcollection: vpc
 ---
 
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:term: .term}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:table: .aria-labeledby="caption"}
-{:generic: data-hd-programlang="generic"}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # About IP spoofing checks
 {: #ip-spoofing-about}
@@ -41,9 +26,9 @@ Traffic can be dropped at two points in the check:
 
 - Outgoing traffic is checked to verify that the content comes from the selected network interface address. Traffic from the selected network network interface is dropped if its source address does not match the selected network interface address.
 
-![Figure showing unsuccessful traffic flow to and from a virtual server instance](images/as-deny.png "Figure showing unsuccessful traffic flow to and from a virtual server instance"){: caption="Figure 1. Unsuccessful IP spoofing check" caption-side="top"}
+![Figure showing unsuccessful traffic flow to and from a virtual server instance](images/as-deny.png "Figure showing unsuccessful traffic flow to and from a virtual server instance"){: caption="Figure 1. Unsuccessful IP spoofing check" caption-side="bottom"}
 
-![Figure showing successful traffic flow to and from a virtual server instance](images/as-allow.png "Figure showing successful traffic flow to and from a virtual server instance"){: caption="Figure 2. Successful IP spoofing check" caption-side="top"}
+![Figure showing successful traffic flow to and from a virtual server instance](images/as-allow.png "Figure showing successful traffic flow to and from a virtual server instance"){: caption="Figure 2. Successful IP spoofing check" caption-side="bottom"}
 
 Only operators with **IP Spoofing Operator** Identity and Access Management (IAM) privileges can enable or disable the IP spoofing check on the interfaces within a VPC. Ingress and egress IP Spoofing checks are enabled by default.
 

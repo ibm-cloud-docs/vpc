@@ -10,24 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:DomainName: data-hd-keyref="DomainName"}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:term: .term}
-{:generic: data-hd-programlang="generic"}
-{:download: .download}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Deleting an endpoint gateway
 {: #vpe-deleting-ui-cli-api}
@@ -56,7 +39,7 @@ If you previously selected the auto-delete option for attached IP addresses, any
 
 To delete an endpoint gateway by using the CLI, run the following command:
 
-```
+```sh
 ibmcloud is endpoint-gateway-delete ENDPOINT_GATEWAY [-f, --force]
 ```
 {: pre}
@@ -64,7 +47,7 @@ ibmcloud is endpoint-gateway-delete ENDPOINT_GATEWAY [-f, --force]
 Where:
 
 * **ENDPOINT_GATEWAY** is the ID of the endpoint gateway.
-* **--force, -f** forces the operation without confirmation.
+* **-f, --force** forces the operation without confirmation.
 
 ## Deleting an endpoint gateway using the API
 {: #vpe-deleting-api}

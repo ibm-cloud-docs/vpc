@@ -44,7 +44,7 @@ The following table summarizes the types of VPC resources and the relationships 
 | Public gateway | The public gateway must be detached from all subnets. |  ---- |
 | Load balancer | ---- | ---- |
 | VPN gateway | ---- | Because IKE and IPsec policies can be shared between gateways, these policies are not deleted when a VPN Gateway is deleted. These policies must be removed manually. |
-{: caption="Table 1. Types of resources and relationships that affect deletions" caption-side="top"}
+{: caption="Table 1. Types of resources and relationships that affect deletions" caption-side="bottom"}
 
 ## VPC resources cannot be deleted in a transient state
 {: #deleting-status}
@@ -88,7 +88,7 @@ A VPC must have a default security group and a default network ACL. If you creat
 | Subnet | Instances, load balancers, VPN gateways | Public gateway, network ACL | Yes| No | Yes|
 | Public gateway| --- | Subnets, floating IP | Yes | No | No to subnets, Yes to floating IP |
 | Security Groups | ---  | Instances (NIC), VPC as default | No| Yes | No |
-{: caption="Table 2. Requirements for deleting subnets, public gateways, and security groups" caption-side="top"}
+{: caption="Table 2. Requirements for deleting subnets, public gateways, and security groups" caption-side="bottom"}
 
 ### Subnet
 {: #deleting-subnet}
@@ -102,7 +102,7 @@ An instance can have multiple network interfaces, and those network interfaces c
 | Instance (network interface) | Multiple network interfaces | Volume attachments, security groups | Yes| No  | Yes|
 | VPN | --- | ---| Yes | No  | --- |
 | Load Balancer | ---  | --- | Yes | No | ---  |
-{: caption="Table 3. Requirements for deleting network interfaces" caption-side="top"}
+{: caption="Table 3. Requirements for deleting network interfaces" caption-side="bottom"}
 
 ### Instance
 {: #deleting-instance}
@@ -112,7 +112,7 @@ No prerequisites are required for deleting an instance. When the instance is del
 | In Instance | Can contain | Can attach to | Has Status? | Automatically deleted when instance is deleted | Automatically detached when deleted |
 | ---------------- | ----------------------------------------- | --------------------------- | ------ | ---------------------------------------------- | ----------------------------------- |
 | Network interface | --- | Subnets, floating IP, security groups | No | Yes | Yes |
-{: caption="Table 4. Information for deleting instances" caption-side="top"}
+{: caption="Table 4. Information for deleting instances" caption-side="bottom"}
 
 ### Load Balancer
 {: #deleting-lb}
@@ -125,7 +125,7 @@ Deleting a load balancer can take up to 30 minutes. The delete request immediate
 ### VPN
 {: #deleting-vpn}
 
-No prerequisites are required for deleting a VPN gateway. When the VPN gateway is deleted, its associated connections are also deleted automatically. IKE and IPSec policies are not deleted when a VPN gateway is deleted.
+No prerequisites are required for deleting a VPN gateway. When the VPN gateway is deleted, its associated connections are also deleted automatically. IKE and IPsec policies are not deleted when a VPN gateway is deleted.
 
 Deleting a VPN gateway can take up to 30 minutes. The delete request immediately changes the provisioning status of the VPN gateway to `deleting`. However, the VPN gateway is not deleted until it disappears from the list query.
 {: important}
@@ -174,7 +174,7 @@ When any VPC is created, it requires a default network ACL. If an existing netwo
 Unlike security groups, network ACLs can be assigned across VPCs. Therefore, deleting a VPC does not delete the network ACLs.
 {: note}
 
-## Next Steps
+## Next steps
 {: #deleting-nextsteps}
 
 The following topics provide more examples on how to delete VPC resources by using the IBM Cloud Console, CLI, or API.

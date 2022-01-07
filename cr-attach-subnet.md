@@ -10,24 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:DomainName: data-hd-keyref="DomainName"}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:term: .term}
-{:generic: data-hd-programlang="generic"}
-{:download: .download}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Attaching subnets to a routing table
 {: #attach-subnets-routing-table}
@@ -50,7 +33,7 @@ To attach a routing table to a subnet by using the {{site.data.keyword.cloud_not
 1. Select a subnet from the drop-down list. The current routing table, IP range, and location of the subnet shows.
 1. Click **Attach**.   
 
-   ![Attaching subnets to routing table side panel](/images/attach-subnet-routing-table.png "Attaching subnets to routing table side panel")
+   ![Attaching subnets to routing table side panel](/images/attach-subnet-routing-table.png "Attaching subnets to routing table side panel"){: caption="Figure 1. Attaching subnets to routing table side panel" caption-side="bottom"}
 
 To reassign a routing table to a subnet, follow these steps:
 
@@ -59,7 +42,7 @@ To reassign a routing table to a subnet, follow these steps:
 1. From the Reassign subnet routing table side panel, click the subnet that you want to assign to this routing table.
 1. Click **Reassign**.
 
-   ![Reassign routing table side panel](/images/reassign-routing-table.png "Reassign routing table side panel")
+   ![Reassign routing table side panel](/images/reassign-routing-table.png "Reassign routing table side panel"){: caption="Figure 2. Reassign routing table side panel" caption-side="bottom"}
    
 ## Attaching subnets to a routing table using the CLI
 {: #cr-attach-subnets-using-the-cli}
@@ -67,7 +50,7 @@ To reassign a routing table to a subnet, follow these steps:
 
 To attach subnets to a routing table by using the CLI, run the following command:
 
-```
+```sh
 ibmcloud is subnet-update SUBNET_ID --routing-table-id ROUTING_TABLE_ID
 ```
 {: pre}

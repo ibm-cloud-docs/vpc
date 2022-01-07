@@ -10,25 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:DomainName: data-hd-keyref="DomainName"}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:term: .term}
-{:generic: data-hd-programlang="generic"}
-{:download: .download}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Listing endpoint gateways in the region
 {: #vpe-listing-endpoint-gateways}
@@ -46,7 +28,7 @@ From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext
 
 The Virtual private endpoint gateways for VPC page appears. Use this table to view endpoint gateways in the region.
 
-![Virtual private endpoint gateways for VPC page](./images/vpe-dashboard.png "Virtual private endpoint gateways for VPC page")
+![Virtual private endpoint gateways for VPC page](./images/vpe-dashboard.png "Virtual private endpoint gateways for VPC page"){: caption="Figure 1. Virtual private endpoint gateways for VPC page" caption-side="bottom}
 
 ## Listing endpoint gateways using the CLI
 {: #vpe-listing-endpoint-gateways-cli}
@@ -54,7 +36,7 @@ The Virtual private endpoint gateways for VPC page appears. Use this table to vi
 
 To list all endpoint gateways in the region by using the CLI, run the following command:
 
-```
+```sh
 ibmcloud is endpoint-gateways \
    [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--json]
 ```

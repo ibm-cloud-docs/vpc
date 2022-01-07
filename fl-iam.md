@@ -9,20 +9,7 @@ keywords: flow logs, IAM
 subcollection: vpc
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:term: .term}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank_" .external}
-{:generic: data-hd-programlang="generic"}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Managing access for flow logs
 {: #fl-iam}
@@ -46,7 +33,7 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | Editor | Read, operate, update, create, delete, and list flow log collectors |
 | Operator | Operate and list flow log collectors |
 | Viewer | Read flow log collectors |
-{: caption="Table 1. IAM user roles and actions" caption-side="top"}
+{: caption="Table 1. IAM user roles and actions" caption-side="bottom"}
 
 For information about assigning user roles in the console, see [Managing access to resources](/docs/account?topic=account-assign-access-resources).
 
@@ -61,7 +48,7 @@ In addition, you also require the following actions and operations that are not 
 | Operator on Subnet     | Create flow log collector with Subnet scope    |
 | Operator on VPC    | Create flow log collector with VPC scope    |
 | Operator on virtual server instance | Create flow log collector with Instance or Interface scope  |
-{: caption="Table 2. Additional IAM user roles and actions" caption-side="top"}
+{: caption="Table 2. Additional IAM user roles and actions" caption-side="bottom"}
 
 Operator roles in the following table are required only if the target scope is being changed.
 {: important}
@@ -72,7 +59,7 @@ Operator roles in the following table are required only if the target scope is b
 | Operator on Subnet     | (to Subnet scope)           |  
 | Operator on VPC           | (to VPC scope)              |  
 | Operator on virtual server instance | (to Instance or Interface scope) |
-{: caption="Table 3. IAM roles only if the target scope is being changed" caption-side="top"}
+{: caption="Table 3. IAM roles only if the target scope is being changed" caption-side="bottom"}
 
 Each aggregator creates a separate stream of data to COS. Since you can create a flow log collector that associates data that is captured from multiple interface IDs with a single COS bucket, each bucket needs a folder structure for holding data.
 {: note}

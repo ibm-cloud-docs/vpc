@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2020,2021
+  years: 2020, 2021
 lastupdated: "2021-05-21"
 
 keywords: custom routes
@@ -10,24 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:term: .term}
-{:note: .note}
-{:tip: .tip}
-{:important: .important}
-{:external: target="_blank_" .external}
-{:generic: data-hd-programlang="generic"}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:help: data-hd-content-type='help'}
-{:support: data-reuse='support'}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Listing routing tables for a VPC
 {: #list-routing-tables-for-vpc}
@@ -43,7 +26,7 @@ To list the routing tables for a VPC by using the {{site.data.keyword.cloud_notm
 
 1. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
 
-   ![Routing tables for VPC page](./images/cr-routing-tables-page.png)
+   ![Routing tables for VPC page](./images/cr-routing-tables-page.png){: caption="Figure 1. Routing tables for VPC page" caption-side="bottom}
 
 1. From the Virtual private cloud drop-down list, select the VPC that you want to list routing tables for.
 
@@ -66,7 +49,7 @@ The overflow menu ![overflow menu](images/overflow.png) is used to delete a rout
 
 To list the routing tables for a VPC by using the CLI, run the following command:
 
-```
+```sh
 ibmcloud is vpc-routing-tables VPC [--json]
 ```
 {: pre}

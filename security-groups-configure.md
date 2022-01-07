@@ -11,18 +11,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Setting up the security groups for your virtual server instance
 {: #configuring-the-security-group}
@@ -32,7 +21,7 @@ You can configure security groups to define the inbound and outbound traffic tha
 {: shortdesc}
 
 ## Setting up the security groups for your virtual server instance using the UI
-{: sgg-using-ui}
+{: #sgg-using-ui}
 {: ui}
 
 To configure your security group using the UI:
@@ -48,7 +37,8 @@ To configure your security group using the UI:
    * All rules are evaluated, regardless of the order in which they're added.
    * Rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, if you create a rule that allows inbound TCP traffic on port 80, that rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
    * For Windows images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
-1. _Optional:_ To view interfaces that are attached to the security group, click **Attached interfaces** in the navigation pane.
+
+1. Optional: To view interfaces that are attached to the security group, click **Attached interfaces** in the navigation pane.
 1. When you finish creating rules, click the **All security groups for VPC** breadcrumb at the beginning of the page.
 
 ### Example security group
@@ -61,16 +51,16 @@ For example, you can configure the following inbound rules:
 
 | Protocol | Source Type | Source | Value |
 |-----------|------|------|------|
-| TCP| Any | 0.0.0.0/0 | Ports 22-22 |
-| ICMP | Any | 0.0.0.0/0 | Type: 8, Code: Any |
-{: caption="Table 1. Configuration information for inbound rules" caption-side="top"}
+| TCP| Any | 0.0.0.0/0 | Ports 22-22
+| ICMP | Any | 0.0.0.0/0 | Type: 8, Code: Any|
+{: caption="Table 1. Configuration information for inbound rules" caption-side="bottom"}
 
 Then, configure outbound rules that allow all TCP traffic:
 
 | Protocol | Destination Type | Source | Value |
 |-----------|------|------|------|
 | TCP| Any | 0.0.0.0/0 | Any port|
-{: caption="Table 2. Configuration information for outbound rules" caption-side="top"}
+{: caption="Table 2. Configuration information for outbound rules" caption-side="bottom"}
 
 ## Setting up the security groups for your virtual server instance using the CLI
 {: #sg-using-cli}
@@ -78,7 +68,7 @@ Then, configure outbound rules that allow all TCP traffic:
 
 In this example, you create a virtual server instance with a security group that is enabled by using the command-line interface (CLI). Figure 1 shows what this scenario looks like.
 
-![Figure showing a virtual server instance with a security group enabled](/images/security-groups-schematic.svg "Figure showing a virtual server instance with a security group enabled"){: caption="Figure 1. Instance with security group enabled" caption-side="top"}
+![Figure showing a virtual server instance with a security group enabled](/images/security-groups-schematic.svg){: caption="Figure 1. Instance with security group enabled" caption-side="bottom"}
 
 Notice in Figure 1 that the instance named **SG4** has the floating IP `169.60.208.144` assigned to it, in addition to its internal VPC address `10.10.10.5`; therefore, **SG4** can talk to the public internet. The security group assigned to instance **SG4** is named `demosg`.
 
@@ -98,21 +88,21 @@ You can copy and paste commands from this example CLI code to begin creating an 
 
 1. Create a security group called `my_vpc_sg`:
 
-   ```
+   ```sh
    ibmcloud is security-group-create my_vpc_sg $vpc
    ```
    {: pre}
 
    Save the ID in a variable so you can use it later; for example, in a variable named `sg`:
 
-   ```
+   ```sh
    sg=0738-2d364f0a-a870-42c3-a554-000000632953
    ```
    {: pre}
 
 2. Add rules to allow SSH, PING, and outbound TCP:
 
-   ```
+   ```sh
    ibmcloud is security-group-rule-add $sg inbound tcp --port-min 22 --port-max 22
    ibmcloud is security-group-rule-add $sg inbound icmp --icmp-type 8 --icmp-code 0
    ibmcloud is security-group-rule-add $sg outbound tcp
@@ -121,7 +111,7 @@ You can copy and paste commands from this example CLI code to begin creating an 
 
 3. Finally, create an instance with the security group:
 
-   ```
+   ```sh
    ibmcloud is instance-create test-instance $vpc us-south-2 b-4x16 $subnet 1000 \
    --image $image --keys $key --security-groups $sg
    ```
@@ -132,21 +122,21 @@ You can copy and paste commands from this example CLI code to begin creating an 
 
 For a complete list of the available VPC CLI commands for security groups, enter:
 
-```
+```sh
 ibmcloud is help | grep sg
 ```
 {: pre}
 
 To see your security group and its metadata, including rules, you can enter (for the previous example):
 
-```
+```sh
 ibmcloud is sg $sg
 ```
 {: pre}
 
 To add a security group rule, here's an example command for adding a PING inbound rule to a security group:
 
-```
+```sh
 ibmcloud is security-group-rule-add $sg inbound icmp --icmp-type 8 --icmp-code 0
 
 ```
@@ -167,7 +157,7 @@ For instructions about creating a VPC and subnet, see [Creating a VPC](/docs/vpc
 
 Create a security group named `my-security-group` in your {{site.data.keyword.vpc_short}}.
 
-```
+```sh
 curl -X POST "$vpc_api_endpoint/v1/security_groups?version=$api_version&generation=2" \
   -H "Authorization: $iam_token" \
   -d '{
@@ -179,7 +169,7 @@ curl -X POST "$vpc_api_endpoint/v1/security_groups?version=$api_version&generati
 
 Save the ID in a variable so you can use it later; for example, the variable `sg`:
 
-```
+```sh
 sg=0738-2d364f0a-a870-42c3-a554-000000632953
 ```
 {: pre}
@@ -189,7 +179,7 @@ sg=0738-2d364f0a-a870-42c3-a554-000000632953
 
 Create a rule on the security group to allow inbound connections on port 22.
 
-```
+```sh
 curl -X POST "$vpc_api_endpoint/v1/security_groups/$sg/rules?version=$api_version&generation=2" \
   -H "Authorization: $iam_token" \
   -d '{
@@ -206,7 +196,7 @@ curl -X POST "$vpc_api_endpoint/v1/security_groups/$sg/rules?version=$api_versio
 
 To clean up the security group, it cannot be associated with any network interfaces, and it cannot be referenced by a rule in a different security group.
 
-```
+```sh
 curl -X DELETE "$vpc_api_endpoint/v1/security_groups/$sg?version=$api_version&generation=2" \
   -H "Authorization: $iam_token"
 ```

@@ -8,15 +8,7 @@ keywords: VPE, virtual private endpoints, limitations, endpoint gateway
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:download: .download}
+{{site.data.keyword.attribute-definition-list}}
 
 # Virtual private endpoint limitations
 {: #limitations-vpe}

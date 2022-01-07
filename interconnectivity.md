@@ -10,22 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:beta: .beta}
-{:screen: .screen}
-{:term: .term}
-{:tip: .tip}
-{:note: .note}
-{:preview: .preview}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank_" .external}
-{:generic: data-hd-programlang="generic"}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Interconnecting your VPC using {{site.data.keyword.cloud_notm}} offerings
 {: #interconnectivity}
@@ -43,7 +28,7 @@ IBM has the following offerings that can help you interconnect a VPC with an on-
 
       With {{site.data.keyword.dl_full_notm}} Global Routing capabilities, you can connect to all {{site.data.keyword.cloud_notm}} regions worldwide from a single {{site.data.keyword.dl_full_notm}} connection. You can also take advantage of {{site.data.keyword.dl_full_notm}} service provider partners to establish more secure hybrid connections for your workloads across the globe, as well as easily provision multiple connections as your capacity requirements increase.   
 
-   ![Sample Direct Link on-premises interconnect use case](images/direct-link-dedicated.png "Example Direct Link on-premises interconnect use case")
+      ![Sample Direct Link on-premises interconnect use case](images/direct-link-dedicated.png){: caption="Example Direct Link on-premises interconnect use case" caption-side="bottom"}
 
    * **{{site.data.keyword.dl_full_notm}} Connect** provides connectivity between your on-premises and {{site.data.keyword.cloud_notm}} VPC networks through a supported service provider. A service provider connection is useful if your data center is in a physical location that can't reach a dedicated colocation facility, or if your data needs don't warrant a 5 Gbps+ connection. Connect service providers  are often used to facilitate multicloud connectivity (public clouds from multiple vendors) through their network. Connect service providers offer layer 2 connectivity, layer 3 connectivity, or both. Work with your service provider to understand their offerings and requirements.
 
@@ -54,7 +39,7 @@ IBM has the following offerings that can help you interconnect a VPC with an on-
 
 **{{site.data.keyword.tg_full_notm}}** provisions and defines connections between resources on the {{site.data.keyword.cloud_notm}} network, providing private interconnectivity between {{site.data.keyword.cloud_notm}} data centers worldwide. {{site.data.keyword.tg_full_notm}} provides a central hub for connectivity, making it easier to provision and manage your networks. With {{site.data.keyword.tg_full_notm}}, you can create a single transit gateway or multiple transit gateways to connect {{site.data.keyword.cloud_notm}} VPCs. You can also connect your {{site.data.keyword.cloud_notm}} classic infrastructure to a transit gateway to provide seamless communication with classic infrastructure resources. Any new resource that you connect to a transit gateway is automatically made available to every other resource connected to it. All data remains within the private {{site.data.keyword.cloud_notm}} backbone and is optimized for performance.
 
-![Sample Transit Gateway use case](images/TGW_Multi-Multi.png "Sample Transit Gateway use case")
+![Sample Transit Gateway use case](images/TGW_Multi-Multi.png){: caption="Sample Transit Gateway use case" caption-side="bottom"}
 
 | IP | Origin |
 |---|---|
@@ -65,7 +50,7 @@ IBM has the following offerings that can help you interconnect a VPC with an on-
 | `10.111.0.0/24` | from VPC Z through Transit Gateway (global) |
 | `13.111.0.0/24` | from VPC Z through Transit Gateway (global) |
 {: class="simple-tab-table"}
-{: caption="Table 1. VPC A Networks" caption-side="left"}
+{: caption="Table 1. VPC A Networks" caption-side="bottom"}
 {: #simpletabtable1}
 {: tab-title="VPC A Networks"}
 {: tab-group="connect-simple"}
@@ -76,7 +61,7 @@ IBM has the following offerings that can help you interconnect a VPC with an on-
 | `13.101.0.0/24` | from VPC B subnet |
 | `10.100.0.0/24` | from VPC A through Transit Gateway (local) |
 | `13.100.0.0/24` | from VPC A through Transit Gateway (local) |
-{: caption="Table 2. VPC B Networks" caption-side="left"}
+{: caption="Table 2. VPC B Networks" caption-side="bottom"}
 {: #simpletabtable2}
 {: tab-title="VPC B Networks"}
 {: tab-group="connect-simple"}
@@ -89,7 +74,7 @@ IBM has the following offerings that can help you interconnect a VPC with an on-
 | `10.100.0.0/24` | from VPC A through Transit Gateway (global) |
 | `13.100.0.0/24` | from VPC A through Transit Gateway (global) |
 {: class="simple-tab-table"}
-{: caption="Table 3. VPC Z Networks" caption-side="left"}
+{: caption="Table 3. VPC Z Networks" caption-side="bottom"}
 {: #simpletabtable3}
 {: tab-title="VPC Z Networks"}
 {: tab-group="connect-simple"}
@@ -138,7 +123,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 | `172.16.0.0/12` | from an Enterprise through Direct Link 2.0 |
 | `13.0.0.0/8` | from an Enterprise through Direct Link 2.0 |
 {: class="simple-tab-table"}
-{: caption="Table 4. VPC A Networks" caption-side="left"}
+{: caption="Table 4. VPC A Networks" caption-side="bottom"}
 {: #simpletabtable4}
 {: tab-title="VPC A Networks"}
 {: tab-group="connect-simple2"}
@@ -152,7 +137,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 | `10.0.0.0/8` | from an Enterprise through Direct Link 2.0 |
 | `172.16.0.0/12` | from an Enterprise through Direct Link 2.0 |
 | `13.0.0.0/8` | from an Enterprise through Direct Link 2.0 |
-{: caption="Table 5. VPC B Networks" caption-side="left"}
+{: caption="Table 5. VPC B Networks" caption-side="bottom"}
 {: #simpletabtable5}
 {: tab-title="VPC B Networks"}
 {: tab-group="connect-simple2"}
@@ -164,7 +149,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 | `13.0.0.0/8` | `Delegate-VPC` | - | Dallas 2 |
 | `13.0.0.0/8` | `Delegate-VPC` | - | Dallas 3 |
 {: class="simple-tab-table"}
-{: caption="Table 6. VPC A Default (Egress) Routing Table" caption-side="left"}
+{: caption="Table 6. VPC A Default (Egress) Routing Table" caption-side="bottom"}
 {: #simpletabtable6}
 {: tab-title="VPC A Default (Egress) Routing Table"}
 {: tab-group="connect-simple3"}
@@ -174,7 +159,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 | `13.0.0.0/8` | `Delegate-VPC` | - | Dallas 1 |
 | `13.0.0.0/8` | `Delegate-VPC` | - | Dallas 2 |
 | `13.0.0.0/8` | `Delegate-VPC` | - | Dallas 3 |
-{: caption="Table 7. VPC B Default (Egress) Routing Table" caption-side="left"}
+{: caption="Table 7. VPC B Default (Egress) Routing Table" caption-side="bottom"}
 {: #simpletabtable7}
 {: tab-title="VPC B Default (Egress) Routing Table"}
 {: tab-group="connect-simple3"}
@@ -183,7 +168,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 ### Use case 2: VPC-to-VPC connected with {{site.data.keyword.cloud_notm}} Transit Gateway
 {: #use-case-vpc-vpc-transit-gateway}
 
-![VPC-to-VPC connected with Transit Gateway use case](images/vpc-vpc-transit-gateway.png "VPC-to-VPC connected with Transit Gateway use case")
+![VPC-to-VPC connected with Transit Gateway use case](images/vpc-vpc-transit-gateway.png){: caption="VPC-to-VPC connected with Transit Gateway" caption-side="bottom"}
 
 | IP | Origin |
 |---|---|
@@ -194,7 +179,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 | `10.111.0.0/24` | from VPC Z through Transit Gateway (global)  |
 | `13.111.0.0/24` | from VPC Z through Transit Gateway  (global) |
 {: class="simple-tab-table"}
-{: caption="Table 8. VPC A Networks" caption-side="left"}
+{: caption="Table 8. VPC A Networks" caption-side="bottom"}
 {: #simpletabtable8}
 {: tab-title="VPC A Networks"}
 {: tab-group="connect-simple4"}
@@ -205,7 +190,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 | `13.101.0.0/24` | from VPC B subnet |
 | `10.100.0.0/24` | from VPC A through Transit Gateway (local) |
 | `13.100.0.0/24` | from VPC A through Transit Gateway (local) |
-{: caption="Table 9. VPC B Networks" caption-side="left"}
+{: caption="Table 9. VPC B Networks" caption-side="bottom"}
 {: #simpletabtable9}
 {: tab-title="VPC B Networks"}
 {: tab-group="connect-simple4"}
@@ -217,7 +202,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 | `13.111.0.0/24` | from VPC Z subnet |
 | `10.100.0.0/24` | from VPC A through Transit Gateway (global) |
 | `13.100.0.0/24` | from VPC A through Transit Gateway (global) |
-{: caption="Table 10. VPC Z Networks" caption-side="left"}
+{: caption="Table 10. VPC Z Networks" caption-side="bottom"}
 {: #simpletabtable10}
 {: tab-title="VPC Z Networks"}
 {: tab-group="connect-simple4"}
@@ -229,7 +214,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 | `13.0.0.0/8` | `Delegate-VPC` | - | Dallas 2 |
 | `13.0.0.0/8` | `Delegate-VPC` | - | Dallas 3 |
 {: class="simple-tab-table"}
-{: caption="Table 11. VPC A Default (Egress) Routing Table" caption-side="left"}
+{: caption="Table 11. VPC A Default (Egress) Routing Table" caption-side="bottom"}
 {: #simpletabtable11}
 {: tab-title="VPC A Default (Egress) Routing Table"}
 {: tab-group="connect-simple5"}
@@ -240,7 +225,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 | `13.0.0.0/8` | `Delegate-VPC` | - | Dallas 2 |
 | `13.0.0.0/8` | `Delegate-VPC` | - | Dallas 3 |
 {: class="simple-tab-table"}
-{: caption="Table 12. VPC B Default (Egress) Routing Table" caption-side="left"}
+{: caption="Table 12. VPC B Default (Egress) Routing Table" caption-side="bottom"}
 {: #simpletabtable12}
 {: tab-title="VPC B Default (Egress) Routing Table"}
 {: tab-group="connect-simple5"}
@@ -250,7 +235,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 | `13.0.0.0/8` | `Delegate-VPC` | - | WDC 1 |
 | `13.0.0.0/8` | `Delegate-VPC` | - | WDC 2 |
 | `13.0.0.0/8` | `Delegate-VPC` | - | WDC 3 |
-{: caption="Table 13. VPC Z Default (Egress) Routing Table" caption-side="left"}
+{: caption="Table 13. VPC Z Default (Egress) Routing Table" caption-side="bottom"}
 {: #simpletabtable13}
 {: tab-title="VPC Z Default (Egress) Routing Table"}
 {: tab-group="connect-simple5"}
@@ -259,14 +244,14 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 ### Use case 3: VPC-to-classic and BCR peering with {{site.data.keyword.cloud_notm}} Transit Gateway
 {: #use-case-vpc-classic-transit-gateway}
 
-![VPC-to-classic and BCR peering with Transit Gateway use case](images/vpc-classic-transit-gateway.png "VPC-to-classic and BCR peering with Transit Gateway use case")
+![VPC-to-classic and BCR peering with Transit Gateway use case](images/vpc-classic-transit-gateway.png){: caption="VPC-to-classic and BCR peering with Transit Gateway use case" caption-side="bottom"}
 
 | IP | Origin |
 |---|---|
 | `10.100.0.0/24` | from VPC A subnet |
 | `13.100.0.0/24` | from VPC A subnet |
 | `13.111.0.0/24` | from Classic through Transit Gateway |
-{: caption="Table 14. VPC B Networks" caption-side="left"}
+{: caption="Table 14. VPC B Networks" caption-side="bottom"}
 {: #simpletabtable14}
 {: tab-title="VPC A Networks"}
 {: tab-group="connect-simple6"}
@@ -277,7 +262,7 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 | `13.0.0.0/8` | `Delegate-VPC` | - | Dallas 1 |
 | `13.0.0.0/8` | `Delegate-VPC` | - | Dallas 2 |
 | `13.0.0.0/8` | `Delegate-VPC` | - | Dallas 3 |
-{: caption="Table 15. VPC A Default (Egress) Routing Table" caption-side="left"}
+{: caption="Table 15. VPC A Default (Egress) Routing Table" caption-side="bottom"}
 {: #simpletabtable15}
 {: tab-title="VPC A Default (Egress) Routing Table"}
 {: tab-group="connect-simple7"}

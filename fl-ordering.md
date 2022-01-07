@@ -9,24 +9,7 @@ keywords: flow logs, ordering, getting started
 subcollection: vpc
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:term: .term}
-{:note: .note}
-{:tip: .tip}
-{:important: .important}
-{:external: target="_blank_" .external}
-{:generic: data-hd-programlang="generic"}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:help: data-hd-content-type='help'}
-{:support: data-reuse='support'}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating a flow log collector
 {: #ordering-flow-log-collector}
@@ -85,7 +68,7 @@ To create a flow log collector by using the IBM Cloud console, follow these step
 
 1. Select the Menu icon ![Menu icon](./images/menu_icon.png), then click **VPC Infrastructure** > **Flow Logs**. The Flow logs for VPC dashboard appears.
 
-   ![Flow log collector dashboard](./images/list-view-01.png "Flow Log Collector dashboard")
+   ![Flow log collector dashboard](./images/list-view-01.png "Flow Log Collector dashboard"){: caption="Figure 1. Flow log collector dashboard" caption-side="bottom}
 
 1. Click **Create flow log collector** to go to the flow logs provisioning page.
 1. Enter values for the following fields:
@@ -102,7 +85,7 @@ To create a flow log collector by using the IBM Cloud console, follow these step
 
    For example:
 
-   ![Example Network Subnet Target](./images/flow-log-provision-subnet-target-example.png "Example Network Subnet Target")
+   ![Example Network Subnet Target](./images/flow-log-provision-subnet-target-example.png "Example Network Subnet Target"){: caption="Figure 2. Example network subnet target" caption-side="bottom}
 
 1. Specify where the logs are written. Flow logs are written to a COS bucket, which must be created as a single-region bucket in the same region as the target resource.
 
@@ -116,7 +99,7 @@ To create a flow log collector by using the IBM Cloud console, follow these step
 
 To create a flow log collector by using the CLI, run the following command:
 
-```
+```sh
   ibmcloud is flow-log-create \
     --bucket STORAGE_BUCKET_NAME \
     --target TARGET_ID [--name NAME] \
@@ -142,8 +125,7 @@ Where:
 
 To create a flow log collector by using the API, follow these steps:
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with
-the right variables.
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
 1. Store the following values in variables to be used in the API command:
 
    * `ResourceGroupId` - First, get your resource group and then populate the variable:

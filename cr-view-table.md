@@ -10,24 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:DomainName: data-hd-keyref="DomainName"}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:term: .term}
-{:generic: data-hd-programlang="generic"}
-{:download: .download}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Viewing details of a routing table
 {: #view-details-routing-table}
@@ -45,7 +28,7 @@ To view the details of a routing table by using the {{site.data.keyword.cloud_no
 
 1. Click the name of the routing table that you want details for. The Routing table details page appears.
 
-    ![Routing table details](./images/cr-routing-table-details.png)
+    ![Routing table details](./images/cr-routing-table-details.png){: caption="Figure 1. Routing table details" caption-side="bottom}
 
 Field descriptions are as follows.
 
@@ -57,7 +40,7 @@ Field descriptions are as follows.
 | Created | The origination date of the routing table.|
 | Attached subnets | The number of attached subnets. Click to see the subnet details. |
 | ID | The ID of this routing table. |
-{: caption="Table 1. Routing table details" caption-side="top"}
+{: caption="Table 1. Routing table details" caption-side="bottom"}
 
 For descriptions of the routing table columns, see [Listing routes of a routing table](/docs/vpc?topic=vpc-list-routes-routing-table).
 {: note}
@@ -68,21 +51,21 @@ For descriptions of the routing table columns, see [Listing routes of a routing 
 
 To view details of a specific routing table:
 
-```
+```sh
 ibmcloud is vpc-routing-table VPC ROUTING_TABLE [--json]
 ```
 {: pre}
 
 To view details of the default routing table:
 
-```
+```sh
 ibmcloud is vpc-default-routing-table VPC [--json]
 ```
 {: pre}
 
 To view details of a routing table that is attached to the subnet:
 
-```
+```sh
 ibmcloud is subnet-routing-table SUBNET [--json]
 ```
 {: pre}

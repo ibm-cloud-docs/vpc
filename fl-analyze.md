@@ -9,20 +9,7 @@ keywords: flow logs, viewing objects, SQL, analyze
 subcollection: vpc
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:term: .term}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank_" .external}
-{:generic: data-hd-programlang="generic"}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Viewing flow log objects
 {: #fl-analyze}
@@ -77,8 +64,8 @@ If both the connection initiator vNIC and connection target vNIC enable flow log
 
 The `start_time` and `end_time` in a flow log reflects:
 
-   * Capture time - The time that data path elements were queried for traffic counters.
-   * Data path time - The time as maintained in the data path element itself.
+* Capture time - The time that data path elements were queried for traffic counters.
+* Data path time - The time as maintained in the data path element itself.
 
 It's possible that the flow log does not reflect all traffic (for example, in the data path) between a flow log `start_time` and `end_time`. In other words, it might be that packets sent and received by the vNIC toward the end of the capture window are reflected only in a flow log with the later `start_time` window.
 
@@ -103,7 +90,7 @@ Flows are tagged as rejected if their packets were blocked by security group or 
 
 Flow logs are written to the user-specified COS bucket in the following naming convention:
 
-```json
+```sh
 ibm_vpc_flowlogs_v1/account={account}/region={region}/vpc-id={vpc-id}/subnet-id={subnet-id}/endpoint-type=vnics/instance-id={vsi-id}/vnic-id={vnic-id}/record-type={all|ingress|egress|internal}/year={xxxx}/month={yy}/day={zz}/hour={hh}/stream-id={stream-id}/{sequence-number}.gz
 ```
 {: screen}
@@ -141,6 +128,7 @@ The object header fields that are specified in the following table are written t
 | `state`                  | string |  Indicates the operational state of the flow log collector. `OK` means that data is being collected and shipped without any errors. `skip data` indicates data that was lost during this collection interval (for example, because of high rate of rejected SYN packets). |
 | `number_of_flow_logs`    | uin32  | The number of elements in a `flow_logs` array. Since this number is highly variable, it's useful as a quick reference of the number of flow logs contained in a single COS object, without needing to download the object first. |
 | `flow_logs`              | array of JSON objects | This can be an empty array, which indicates `no traffic`.|
+{: caption="Table 1. Flow logs object header fields (per COS object)" caption-side="bottom"}
 
 ### Flow log fields
 {: #flow-log-fields}
@@ -168,6 +156,7 @@ The object header fields that are specified in the following table are written t
 | `cumulative_packets_from_initiator` | uint64 | The count of packets since the connection was initiated, from Initiator to Target. |
 | `cumulative_bytes_from_target` | uint64 | The count of bytes since the connection was initiated, from Target to Initiator. |
 | `cumulative_packets_from_target` | uint64 | The count of packets since the connection was initiated, from Target to Initiator. |
+{: caption="Table 2. Flow log fields" caption-side="bottom"}
 
 In most cases, you can find the direction field by comparing the vNIC’s private IP with the source and destination IPs. However, the field is convenient for queries.
 {: note}
@@ -176,7 +165,6 @@ In most cases, you can find the direction field by comparing the vNIC’s privat
 {: #example-flow-logs-object}
 
 ```json
-
     {
         "version": "0.0.1",
         "collector_crn": "crn",
@@ -229,8 +217,8 @@ For more elaborate and repeatable analysis, such as when you want to collaborate
 
 **Important**: Replace these variables in the following steps:
 
- * **bucket** - The bucket where your flow logs are stored.
- * **region** - The [region alias](/docs/sql-query#endpoints) of the bucket that holds your flow logs.
+* **bucket** - The bucket where your flow logs are stored.
+* **region** - The [region alias](/docs/sql-query#endpoints) of the bucket that holds your flow logs.
 
 To analyze flow logs, follow these steps:
 
@@ -239,15 +227,15 @@ To analyze flow logs, follow these steps:
    ```json
    -- Table definition for flow logs
    CREATE TABLE FLOW(
-   	version string,
-   	collector_crn string,
-   	attached_endpoint_type string,
-   	network_interface_id string,
-   	instance_crn string,
-   	capture_start_time timestamp,
-   	capture_end_time timestamp,
-   	number_of_flow_logs int,
-  	flow_logs array<struct<
+    version string,
+    collector_crn string,
+    attached_endpoint_type string,
+    network_interface_id string,
+    instance_crn string,
+    capture_start_time timestamp,
+    capture_end_time timestamp,
+    number_of_flow_logs int,
+    flow_logs array<struct<
          start_time: string,
          end_time: string,
          connection_start_time: string,
@@ -269,20 +257,20 @@ To analyze flow logs, follow these steps:
          cumulative_packets_from_initiator: long,
          cumulative_bytes_from_target: long,
          cumulative_packets_from_target: long
-       >>,
-  	   account string,
-  	   region string,
+        >>,
+      account string,
+      region string,
        `vpc-id` string,
-     	`subnet-id` string,
-     	`endpoint-type` string,
-     	`instance-id` string,
-     	`vnic-id` string,
-     	`record-type` string,
-     	year int,
-     	month int,
-     	day int,
-     	hour int,
-     	`stream-id` string
+       `subnet-id` string,
+       `endpoint-type` string,
+       `instance-id` string,
+       `vnic-id` string,
+       `record-type` string,
+       year int,
+       month int,
+       day int,
+       hour int,
+       `stream-id` string
    ) USING JSON
    LOCATION cos://<region>/<bucket>/ibm_vpc_flowlogs_v1/
    ```
@@ -306,15 +294,15 @@ When large amounts of flow logs are analyzed, it is recommended to convert flow 
 
 The following SQL statement is an ETL job addresses two aspects that contribute significantly to query execution time:
 
- * object size - Flow logs have a maximum size of 100 KB. An optimal object size for a query is approximately 128 MB.
- * data format - Flow logs are stored as compressed JSON. The optimal format for queries is parquet, which allows to read only the columns that a query needs, not the whole object.  
+* object size - Flow logs have a maximum size of 100 KB. An optimal object size for a query is approximately 128 MB.
+* data format - Flow logs are stored as compressed JSON. The optimal format for queries is parquet, which allows to read only the columns that a query needs, not the whole object.  
 
- Note the INTO clause, which defines the target location and partitioning layout of the data that is produced by this ETL job.
+Note the INTO clause, which defines the target location and partitioning layout of the data that is produced by this ETL job.
 
 **Important**: Replace these variables in the following steps:
 
- * **bucket** - The bucket where you want to store the optimized flow logs.
- * **region** - The [region alias](/docs/sql-query#endpoints) of the bucket that holds your flow logs.
+* **bucket** - The bucket where you want to store the optimized flow logs.
+* **region** - The [region alias](/docs/sql-query#endpoints) of the bucket that holds your flow logs.
 
 To optimize flow logs layout with {{site.data.keyword.sqlquery_full}}, follow these steps:
 
@@ -323,9 +311,9 @@ To optimize flow logs layout with {{site.data.keyword.sqlquery_full}}, follow th
    ```json
    SELECT * FROM FLOW_FLAT
    WHERE
-   	   day = day(DATE("2020-07-24")) AND
-   	   month = month(DATE("2020-07-24")) AND
-	   year = year(DATE("2020-07-24"))
+       day = day(DATE("2020-07-24")) AND
+       month = month(DATE("2020-07-24")) AND
+       year = year(DATE("2020-07-24"))
    INTO cos://<region>/<bucket>/ibm_vpc_flowlogs_v1_parquet/ JOBPREFIX NONE STORED AS PARQUET PARTITIONED BY (year,month,day,hour)
    ```
    {: codeblock}
@@ -341,8 +329,8 @@ To optimize flow logs layout with {{site.data.keyword.sqlquery_full}}, follow th
 
    Replace the following place holders in the following steps:
 
-    * **bucket** - The bucket where you stored the optimized flow logs.
-    * **region** - The [region alias](/docs/sql-query#endpoints) of the bucket that holds your flow logs.
+      * **bucket** - The bucket where you stored the optimized flow logs.
+      * **region** - The [region alias](/docs/sql-query#endpoints) of the bucket that holds your flow logs.
 
 1. Use the table `FLOW_PARQUET` instead of `FLOW_FLAT`.  
 
@@ -390,10 +378,10 @@ SELECT target_ip,
 FROM
     FLOW_FLAT
 WHERE
-	target_port = 443 AND
-	day = day(current_date() - INTERVAL 7 days) AND
-	month = month(current_date() - INTERVAL 7 days) AND
-	year = year(current_date() - INTERVAL 7 days)
+    target_port = 443 AND
+    day = day(current_date() - INTERVAL 7 days) AND
+    month = month(current_date() - INTERVAL 7 days) AND
+    year = year(current_date() - INTERVAL 7 days)
 GROUP BY target_ip
 ORDER BY `packets_received` DESC LIMIT 10
 ```
@@ -410,8 +398,8 @@ WHERE
     capture_start_time > current_timestamp() - INTERVAL 1 hours AND
     hour = hour(current_date() - INTERVAL 1 hours) AND
     day = day(current_date() - INTERVAL 1 hours) AND
-	month = month(current_date() - INTERVAL 1 hours) AND
-	year = year(current_date() - INTERVAL 1 hours)
+    month = month(current_date() - INTERVAL 1 hours) AND
+    year = year(current_date() - INTERVAL 1 hours)
 GROUP BY target_ip
 ORDER BY `bytes` DESC LIMIT 5
 ```

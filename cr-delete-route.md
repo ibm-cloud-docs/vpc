@@ -10,24 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:DomainName: data-hd-keyref="DomainName"}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:term: .term}
-{:generic: data-hd-programlang="generic"}
-{:download: .download}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Deleting a route
 {: #delete-vpc-route}
@@ -45,7 +28,7 @@ To delete a route by using the {{site.data.keyword.cloud_notm}} console, follow 
 2. Click the number of routes, or the routing table name that contains the route.
 3. Click the overflow menu ![overflow menu](images/overflow.png) next to the route that you want to delete, then click **Delete**. Click **Delete** again to confirm the deletion.
 
-   ![Deleting a route](./images/cr-routing-table-route-delete.png)
+   ![Deleting a route](./images/cr-routing-table-route-delete.png){: caption="Figure 1. Deleting a route" caption-side="bottom}
 
 ## Deleting a route by using the CLI
 {: #cr-delete-using-the-cli}
@@ -53,7 +36,7 @@ To delete a route by using the {{site.data.keyword.cloud_notm}} console, follow 
 
 To delete a route by using the CLI, run the following command:
 
-```
+```sh
 ibmcloud is vpc-routing-table-route-delete VPC ROUTING_TABLE ROUTE [-f, --force]
 ```
 {: pre}

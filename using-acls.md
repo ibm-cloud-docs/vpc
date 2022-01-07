@@ -11,20 +11,10 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:external: target="_blank" .external}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # About network ACLs
-{: #using-acls}
-[comment]: # (linked help topic)
+{: #using-acls} 
 
 You can use an access control list (ACL) to control all incoming and outgoing traffic in {{site.data.keyword.vpc_full}}. An ACL is a built-in, virtual firewall, similar to a security group. In contrast to security groups, ACL rules control traffic to and from the _subnets_, rather than to and from the _instances_.
 
@@ -59,16 +49,16 @@ You can attach an ACL to a subnet two different ways:
 
 In the example that follows, you create two ACLs and associate them with two subnets by using the command-line interface (CLI). Figure 1 shows what the scenario looks like.
 
-![Figure showing an example ACL scenario](images/vpc-acls.svg "Figure showing an example ACL scenario"){: caption="Figure 1. ACL with two subnets" caption-side="top"}
+![Figure showing an example ACL scenario](images/vpc-acls.svg){: caption="Figure 1. ACL with two subnets" caption-side="bottom"}
 
-As Figure 1 illustrates, you have two web servers that deal with requests from the internet and two backend servers that you want to hide from the public. In this example, you place the servers into two separate subnets, 10.10.10.0/24 and 10.10.20.0/24, and you need to allow the web servers to exchange data with the backend servers. Also, you want to allow limited outbound traffic from the backend servers.
+As Figure 1 illustrates, you have two web servers that deal with requests from the internet and two back-end servers that you want to hide from the public. In this example, you place the servers into two separate subnets, `10.10.10.0/24` and `10.10.20.0/24`, and you need to allow the web servers to exchange data with the back-end servers. Also, you want to allow limited outbound traffic from the back-end servers.
 
 ### Example rules
 {: #acl-example-rules}
 
 The example rules that follow show how to set up the ACL rules for the basic scenario.
 
-As a best practice, give fine-grained rules a higher priority than coarse-grained rules. For example, you have a rule that blocks all traffic from the subnet 10.10.30.0/24. If it is assigned a higher priority, any fine-grained rules with lower priority that allow traffic from 10.10.30.5 are never applied.
+As a best practice, give fine-grained rules a higher priority than coarse-grained rules. For example, you have a rule that blocks all traffic from the subnet `10.10.30.0/24`. If it is assigned a higher priority, any fine-grained rules with lower priority that allow traffic from `10.10.30.5` are never applied.
 {: note}
 
 #### ACL-1 example rules
@@ -78,26 +68,26 @@ As a best practice, give fine-grained rules a higher priority than coarse-graine
 |--------------|-----------|------|------|------|------------------|-------|
 | Inbound | Allow | 0.0.0.0/0 | 0.0.0.0/0 | TCP| 80 | Allow HTTP traffic from the internet|
 | Inbound | Allow | 0.0.0.0/0 | 0.0.0.0/0 | TCP | 443 | Allow HTTPS traffic from the internet|
-| Inbound | Allow| 10.10.20.0/24 | 0.0.0.0/0 |All| All| Allow all inbound traffic from the subnet 10.10.20.0/24 where the backend servers are placed|
+| Inbound | Allow| 10.10.20.0/24 | 0.0.0.0/0 |All| All| Allow all inbound traffic from the subnet `10.10.20.0/24` where the back-end servers are placed|
 | Inbound | Deny| 0.0.0.0/0| 0.0.0.0/0 |All| All| Deny all other traffic inbound|
 | Outbound | Allow | 0.0.0.0/0 | 0.0.0.0/0 | TCP|80 | Allow HTTP traffic to the internet|
 | Outbound | Allow | 0.0.0.0/0 | 0.0.0.0/0 | TCP|443 | Allow HTTPS traffic to the internet|
-| Outbound | Allow| 0.0.0.0/0 | 10.10.20.0/24 |All| All| Allow all outbound traffic to the subnet 10.10.20.0/24 where the backend servers are placed|
+| Outbound | Allow| 0.0.0.0/0 | 10.10.20.0/24 |All| All| Allow all outbound traffic to the subnet `10.10.20.0/24` where the back-end servers are placed|
 | Outbound | Deny| 0.0.0.0/0 | 0.0.0.0/0|All| All| Deny all other traffic outbound|
-{: caption="Table 1. Example rules for ACL-1" caption-side="top"}
+{: caption="Table 1. Example rules for ACL-1" caption-side="bottom"}
 
 #### ACL-2 example rules
-{: acl2-example-rules}
+{: #acl2-example-rules}
 
 | Inbound/Outbound| Allow/Deny | Source IP | Destination IP | Protocol| Port | Description|
 |--------------|-----------|------|------|------|------------------|--------|
-| Inbound | Allow| 10.10.10.0/24 | 0.0.0.0/0 |All| All| Allow all inbound traffic from the subnet 10.10.10.0/24 where the web servers are placed|
+| Inbound | Allow| `10.10.10.0/24` | 0.0.0.0/0 |All| All| Allow all inbound traffic from the subnet `10.10.10.0/24` where the web servers are placed|
 | Inbound | Deny| 0.0.0.0/0| 0.0.0.0/0 |All| All| Deny all other traffic inbound|
 | Outbound | Allow | 0.0.0.0/0 | 0.0.0.0/0 | TCP| 80 | Allow HTTP traffic to the internet|
 | Outbound | Allow | 0.0.0.0/0 | 0.0.0.0/0 | TCP| 443 | Allow HTTPS traffic to the internet|
-| Outbound | Allow| 0.0.0.0/0 | 10.10.10.0/24 |All| All| Allow all outbound traffic to the subnet 10.10.10.0/24 where the web servers are placed|
+| Outbound | Allow| 0.0.0.0/0 | `10.10.10.0/24` |All| All| Allow all outbound traffic to the subnet `10.10.10.0/24` where the web servers are placed|
 | Outbound | Deny| 0.0.0.0/0 | 0.0.0.0/0|All| All| Deny all other traffic outbound|
-{: caption="Table 2. Example rules for ACL-2" caption-side="top"}
+{: caption="Table 2. Example rules for ACL-2" caption-side="bottom"}
 
 This example illustrates general cases only. In your scenarios, you might want to have more granular control over the traffic:
 
@@ -114,7 +104,7 @@ The following example steps skip the prerequisite steps of using the CLI to crea
 
 Use the following CLI commands to create two ACLs, named `my_web_subnet_acl` and `my_backend_subnet_acl`:
 
-```
+```sh
 ibmcloud is network-acl-create my-web-subnet-acl $vpc_id --source-acl-id $old_acl_id
 ibmcloud is network-acl-create my-backend-subnet-acl $vpc_id --source-acl-id $old_acl_id
 ```
@@ -122,7 +112,7 @@ ibmcloud is network-acl-create my-backend-subnet-acl $vpc_id --source-acl-id $ol
 
 The response includes the newly created ACL IDs. Save the IDs of both ACLs to be used in later commands. You can use variables that are named `webacl` and `bkacl`, like this:
 
-```
+```sh
 webacl="0738-ba9e785a-3e10-418a-811c-56cfe5669676"
 bkacl="0738-a4e28308-8ee7-46ab-8108-9f881f22bdbf"
 ```
@@ -133,7 +123,7 @@ bkacl="0738-a4e28308-8ee7-46ab-8108-9f881f22bdbf"
 
 Before you add rules, retrieve the default inbound and outbound ACL rules so that you can insert new rules before them.
 
-```
+```sh
 ibmcloud is network-acl-rules $webacl
 ibmcloud is network-acl-rules $bkacl
 ```
@@ -141,7 +131,7 @@ ibmcloud is network-acl-rules $bkacl
 
 The response shows the default inbound and outbound rules that allow all IPv4 traffic in all protocols.
 
-```
+```sh
 Getting rules of network acl ba9e785a-3e10-418a-811c-56cfe5669676 under account Demo Account as user demouser...
 
 inbound
@@ -156,11 +146,11 @@ ID                                     Name                                     
 
 Save the IDs of both ACL rules as variables so you can use the values in later commands. For example, you can save the IDs in variables `inrule` and `outrule`:
 
-```
+```sh
 inrule="0738-e2b30627-1a1d-447b-859f-ac9431986b6f"
 outrule="0738-173a3492-0544-472e-91c0-7828cbcb62d4"
 ```
-{: codeblock}
+{: screen}
 
 #### Step 3. Add new ACL rules as described
 {: #step-3-add-new-acl-rules-as-decribed}
@@ -169,7 +159,7 @@ In this example, first add inbound rules and then add outbound rules.
 
 Insert new inbound rules before the default inbound rule.
 
-```
+```sh
 ibmcloud is network-acl-rule-add my_web_acl_rule200 $webacl deny inbound all 0.0.0.0/0 0.0.0.0/0 \
 --before-rule-id $in-rule
 ```
@@ -177,14 +167,14 @@ ibmcloud is network-acl-rule-add my_web_acl_rule200 $webacl deny inbound all 0.0
 
 At each step, save the ID of the ACL rule in a variable so the ID can be used in later commands. For example, you can use the variable `acl200`:
 
-```
+```sh
 acl200="0738-90930627-1a1d-447b-859f-ac9431986b6f"
 ```
 {: pre}
 
 Now add the rule to `acl200`:
 
-```
+```sh
 ibmcloud is network-acl-rule-add my_web_acl_rule100 $webacl allow inbound all 10.10.20.0/24 0.0.0.0/0 \
 --before-rule-id $acl200
 ```
@@ -192,7 +182,7 @@ ibmcloud is network-acl-rule-add my_web_acl_rule100 $webacl allow inbound all 10
 
 Add more rules until your ACL setup is complete, saving each ID as a variable.
 
-```
+```sh
 acl100="0738-78340627-1a1d-447b-859f-ac9431986b6f"
 ibmcloud is network-acl-rule-add my_web_acl_rule20 $webacl allow inbound tcp 0.0.0.0/0 0.0.0.0/0 \
 --source-port-min 443 --source-port-max 443 --before-rule-id $acl100
@@ -204,7 +194,7 @@ ibmcloud is network-acl-rule-add my_web_acl_rule10 $webacl allow inbound tcp 0.0
 
 Insert new outbound rules before the default outbound rule.
 
-```
+```sh
 ibmcloud is network-acl-rule-add my_web_acl_rule200e $webacl deny outbound all 0.0.0.0/0 0.0.0.0/0 \
 --before-rule-id $outrule
 acl200e="11110627-1a1d-447b-859f-ac9431986b6f"
@@ -224,7 +214,7 @@ ibmcloud is network-acl-rule-add my_web_acl_rule10e $webacl allow outbound tcp 0
 
 Create two subnets so that each of your ACLs is associated with one of the new subnets.
 
-```
+```sh
 ibmcloud is subnet-create my-web-subnet $vpc_id $zone --ipv4_cidr_block 10.10.10.0/24 \
  --network-acl-id $webacl
 ibmcloud is subnet-create my-backend-subnet$vpc_id $zone --ipv4_cidr_block 10.10.20.0/24 \
@@ -237,21 +227,21 @@ ibmcloud is subnet-create my-backend-subnet$vpc_id $zone --ipv4_cidr_block 10.10
 
 To show a complete list of the available VPC CLI commands for ACLs:
 
-```
+```sh
 ibmcloud is network-acls
 ```
 {: pre}
 
 To see your ACL and its metadata, including rules:
 
-```
+```sh
 ibmcloud is network-acl $webacl
 ```
 {: pre}
 
 To list all ACL rules:
 
-```
+```sh
 ibmcloud is network-acl-rules $webacl
 ```
 {: pre}
@@ -263,14 +253,14 @@ To add an ACL rule, here's an example command for adding a `ping` inbound rule b
 
 Syntax:
 
-```
+```sh
 ibmcloud is network-acl-rule-add ACL ACTION DIRECTION PROTOCOL SOURCE DESTINATION [--name NAME] [--icmp-type ICMP_TYPE] [--icmp-code ICMP_CODE] [--source-port-min PORT_MIN] [--source-port-max PORT_MAX] [--destination-port-min PORT_MIN] [--destination-port-max PORT_MAX] [--before-rule-id RULE_ID] [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
 Example:
 
-```
+```sh
 ibmcloud is network-acl-rule-add 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 allow inbound icmp 10.2.2.2 10.2.2.3 --icmp-type 8 --icmp-code 0
 ```
 {: pre}

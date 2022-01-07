@@ -83,7 +83,7 @@ After NAT translation, the implicit router forwards these internet-destined pack
 {: #pgw-external-IP-lifecycle}
 
 As both external IPs and PGWs are bound to an availability zone. A public gateway function can have only a single external IP. This external IP has the following lifecycle:
- 
+
 * The external IP is allocated when the public gateway is created.
 * The external IP is released when the public gateway is deleted.
 

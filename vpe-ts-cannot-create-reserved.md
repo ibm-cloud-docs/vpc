@@ -10,16 +10,7 @@ subcollection: vpc
 
 ---
 
-{:tsSymptoms: .tsSymptoms}
-{:tsCauses: .tsCauses}
-{:tsResolve: .tsResolve}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:support: data-reuse='support'}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:note:.deprecated}
-{:troubleshoot: data-hd-content-type='troubleshoot'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Why can't I create a reserved IP?
 {: #troubleshoot-create-reserved-ip}
@@ -35,8 +26,7 @@ Unable to create a reserved IP address.
 Possible causes:
 {: tsCauses}
 
-1. If the endpoint gateway exists, and a reserved IP is being added to it, there might be a reserved IP already associated with the endpoint gateway in the same AZ as the reserved IP
-that you are trying to add.
+1. If the endpoint gateway exists, and a reserved IP is being added to it, there might be a reserved IP already associated with the endpoint gateway in the same AZ as the reserved IP that you are trying to add.
 1. If a new endpoint gateway is being created with multiple reserved IPs, there might be two reserved IPs being specified in the same AZ.
 
 Check to see if either of these causes apply, then modify your configuration per the limitations. For example, you can't have more than one reserved IP per subnet.
