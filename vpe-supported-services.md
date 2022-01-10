@@ -45,7 +45,7 @@ subcollection: vpc
 * Usage Metering ([Endpoint URLs](https://{DomainName}/apidocs/usage-metering#endpoint))
 * Usage Reports ([Endpoint URLs](https://{DomainName}/apidocs/metering-reporting#endpoint))
 * User Management ([Endpoint URLs](https://{DomainName}/apidocs/user-management#endpoint-urls))
-* VPC API
+* VPC API ([Endpoint URLs](https://{DomainName}/apidocs/vpc#endpoint-url)) ([About VPE for VPC](/docs/vpc?topic=vpc-about-vpe))
 * Watson Assistant ([Instructions](/docs/watson?topic=watson-virtual-private-endpoints))
 * Watson Discovery ([Instructions](/docs/watson?topic=watson-virtual-private-endpoints))
 * Watson Speech to Text ([Instructions](/docs/watson?topic=watson-virtual-private-endpoints))
