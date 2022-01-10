@@ -66,6 +66,13 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
     - RHEL versions 7, 8.2, and 8.4
     - Ubuntu version 20.04
 
+**Windows stock image updates**
+:   For all Windows stock images, TLS 1.2 was enabled and all earlier versions were disabled.
+
+:   The following cloudbase-init configuration files were updated to add the value "ntp_use_dhcp_config=true":
+    - C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\cloudbase-init.conf
+    - C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\cloudbase-init-unattend.conf
+
 **New stock image for virtual servers**
 :   Rocky Linux version 8.5 is now supported as a stock image when you provision {{site.data.keyword.vpc_short}} virtual servers.
 
