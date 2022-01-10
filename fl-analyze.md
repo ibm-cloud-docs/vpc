@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-08-16"
+  years: 2020, 2022
+lastupdated: "2022-01-10"
 
 keywords: flow logs, viewing objects, SQL, analyze
 
@@ -38,7 +38,11 @@ Each flow log object contains individual flow logs. To view or analyze the flow 
 
     * **bucket** - The bucket where your flow logs are stored.
     * **region** - The [region alias](/docs/sql-query#endpoints) of the bucket that holds your flow logs.
-    * **target_bucket** - A bucket different from the bucket that is used to write the results of your query. It is recommended to use the bucket that was created by {{site.data.keyword.sqlquery_full}}.
+    * **target_bucket** - A bucket that is different from the bucket where your flow logs are stored. It is recommended to use the target location that was created by {{site.data.keyword.sqlquery_full}}. 
+    
+      You can find the **Target location** listed under the query editor field in the IBM SQL Query UI.   
+      {: note}
+
 1. Use the preview to inspect the content of the object.
 1. Refine your query to analyze specific aspects of your flow logs by using [SQL](/docs/sql-query?topic=sql-query-sql-reference "SQL Query Language Reference").
 
