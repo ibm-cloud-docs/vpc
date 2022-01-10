@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-04-15"
+  years: 2018, 2022
+lastupdated: "2022-01-10"
 
 keywords: Getting started with Virtual Private Cloud (VPC), VPC, vpc, virtual private cloud, IBM Cloud, Virtual Private Cloud, getting started, permissions, infrastructure, iaas, IaaS, Infrastructure as a Service, SSH key, CLI, API, console, public gateway, floating IP, IP ranges, BYoIP, generation 2, gen 2, gen2, virtual servers, virtual server instances, instances. vsi, virtual machines, server, get started
 
@@ -71,7 +71,7 @@ To learn how to create VPC resources, see these tutorials:
 * [Using the {{site.data.keyword.cloud_notm}} console to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console)
 * [Using the CLI to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-cli)
 * [Using the REST APIs to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis)
-* [Using Terraform: Provisioning a virtual server instance in a VPC](/docs/terraform?topic=terraform-getting-started#sample_vpc_config)
+* [Using Terraform: Provisioning a virtual server instance in a VPC](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-sample_vpc_config)
 
 For a general overview of the VPC infrastructure and related compute, networking and storage concepts, see the following topics:
 
