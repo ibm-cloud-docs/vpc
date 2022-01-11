@@ -339,6 +339,20 @@ toc:
             - fl-delete.md
             - fl-monitoring.md
         - topicgroup:
+            label: Virtual network functions
+            topics:
+            - vnf-about.md 
+            - topicgroup:
+                label: Deploying a highly available VNF
+                topics:
+                - vnf-about-ha.md
+                - vnf-configure.md            
+                - vnf-configure-security-groups.md
+                - vnf-deploy-vnf.md
+                - vnf-deploy-nlb.md
+                - vnf-configure-custom-routes.md
+                - vnf-limitations.md
+        - topicgroup:
             label: Block storage volumes
             topics:
             - block_storage_is_create.md
