@@ -21,10 +21,11 @@ Known limitations for {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}}
 * There is a one-to-one mapping between listener and pool.
 * All members that are associated with a network load balancer must be in the same zone as the load balancer.
 * To ensure service availability, use a dedicated subnet with your NLBs. Clients and members should reside in an alternate subnet.
-* Two members with the same instance X and same port Y cannot exist at the same time for an NLB. This case is not supported and your traffic might not be routed correctly.
-* For a route mode network load balancer, the only supported back-end targets are VNF instances. When using APIs, the listener `port_min` and `port_max` should be set to `1` and `65535` espectively. `port` should be left empty.
-* For a route mode NLB, only one listener is supported.
-* For a route mode network load balancer, the NLB and the VNF back-end targets must be in the same subnet.
+* Two members with the same instance X and same port Y cannot exist at the same time for an NLB. This case is not supported and your traffic might not be routed correctly. 
+* For an NLB with routing mode enabled:
+   * The only supported back-end targets are VNF instances. When using APIs, the listener `port_min` and `port_max` should be set to `1` and `65535` respectively; `port` should be left empty.
+   * Only one listener is supported.
+   * The NLB and the VNF back-end targets must be in the same subnet.
 * The default load balancer quota is 50 per region. To increase the number, you must [create a support case](/docs/get-support?topic=get-support-open-case).
 * For Private NLB, the NLB service might add rules to custom routing tables to ensure service availability for some failure conditions. As a result, if the client is outside the zone and/or VPC of the NLB, you must add an ingress custom routing table to the VPC where the NLB resides with the proper traffic source selected.
 

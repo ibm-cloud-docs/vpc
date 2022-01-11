@@ -38,13 +38,13 @@ After you completed all prerequisites, you can create your NLB. For more informa
 ## Types of network load balancers
 {: #types-network-load-balancers}  
 
-{{site.data.keyword.nlb_full}} supports public, private, and route mode load balancers.
+{{site.data.keyword.nlb_full}} supports public, private, and private with routing mode enabled. 
 
 A public load balancer is a load balancer with a publicly accessible IP address that is registered with DNS. A private load balancer is a load balancer only accessible from within the VPC network and/or where the client has reachability to the VPC network (for example, through Direct Link or Transit Gateway).
 
 For private load balancers, you must have a dedicated subnet with no custom routes configured for the subnet.
 
-Network load balancers with `route_mode` set to `true` are private load balancers that support only VNF (virtual network functions) devices as back-end targets. 
+Network load balancers with `route_mode` set to `true` are private load balancers that support only VNF (virtual network function) devices as back-end targets. 
 {: note}
 
 ## Load-balancing methods

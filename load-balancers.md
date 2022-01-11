@@ -43,7 +43,7 @@ The following table provides a comparison of the types of load balancers.
 | Transport layer             |   Layer 4  | Layer 4, Layer 7 |
 | Types of load balancers |  Public and private | Public and private |
 | Virtual IP Address (VIP)   |  Single    | Multiple |
-| Route mode for VNFs   | Yes (see [Setting up high availability for Virtual Network Functions (VNF)](/docs/vpc?topic=vpc-about-vnf)) | No |
+| Routing mode for VNFs   | Yes (see [About HA VNF deployments](/docs/vpc?topic=vpc-about-vnf-ha)) | No |
 {: caption="Table 1. Comparison of network and application load balancers" caption-side="bottom"}
 
 ## High Availability mode

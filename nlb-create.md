@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-11-03"
+lastupdated: "2022-01-11"
 
 keywords: network load balancer, public, listener, pool, round-robin
 
