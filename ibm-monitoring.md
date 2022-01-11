@@ -35,8 +35,6 @@ Each monitoring dashboard has the relevant metrics for its associated service as
 |----------|----------|
 | VPC VSI Gen 2 Overview | [VPC virtual server instances metrics definitions](/docs/vpc?topic=vpc-vpc-monitoring-metrics) |
 | VPC Gen 2 VPN | [Monitoring VPN gateway for VPC metrics](/docs/vpc?topic=vpc-vpn-monitoring-metrics&interface=ui) |
-| VPC Gen 2 Load Balancer | [Monitoring Application Load Balancer for VPC metrics](/docs/vpc?topic=vpc-monitoring-metrics-alb) |
-| VPC Gen 2 Load Balancer | [Monitoring Network Load Balancer for VPC metrics](/docs/vpc?topic=vpc-nlb_monitoring-metrics) |
 | VPC Flow Logs Overview | [Monitoring flow logs for VPC metrics](/docs/vpc?topic=vpc-fl-monitoring-metrics) |
 | VPC Resource Quota Overview | [VPC quota metrics definitions](/docs/vpc?topic=vpc-vpc-quota-metrics) |
 
