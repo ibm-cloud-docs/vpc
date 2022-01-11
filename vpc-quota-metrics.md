@@ -43,11 +43,11 @@ Resources that offer quota metrics, detailed in Table 1.
 | `network-acl` | `network-acl` | {region} | {vpc id} |
 | `network-acl` | `network-acl-rule` | {region} | {network acl id} |
 | `share` | `share` | {region} | {account id} |
+| `volume` | `volume` | {region} | {account id} |
 
 {: caption="Table 1: Services offering quota metrics" caption-side="top"}
 
-<!---| `load-balancer` | `load-balancer` | {region} | {account id} |
-| `volume` | `volume` | {region} | {account id} |--->
+<!---| `load-balancer` | `load-balancer` | {region} | {account id} |--->
 
 ### Resource quota consumption
 {: #ibm_is_resource_quota_consumption}
