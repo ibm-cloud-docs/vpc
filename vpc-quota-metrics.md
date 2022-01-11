@@ -14,12 +14,16 @@ subcollection: cloud-infrastructure
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
+{:preview: .preview}
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
 {:download: .download}
 {:important: .important}
 {:note: .note}
+
+VPC Resource Quota Overview metrics is available for customers with special approval to preview this service in the Washington and Dallas regions.
+{: preview}
 
 # VPC Resource Quota Overview metrics definitions
 {: #vpc-quota-metrics}
