@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-01-10"
+lastupdated: "2022-01-12"
 
 keywords: bare metal servers, baremetal, what is bare metal, about bare metal, bare metal features, bare metal benefits
 
@@ -51,7 +51,6 @@ The following information lists the key features that are included with a bare m
 You can choose different bare metal server profiles to match your individual workload needs and help accelerate deployment of your compute resources. You get maximum performance without oversubscribing. IBM Cloud VPC Infrastructure for bare metal servers provides profiles with or without secondary NVMe drives. 
 
 * Balanced profiles are ideal for common high-performance cloud workloads. 
-* Compute profiles are ideal for workloads with intensive CPU demands.
 * Memory profiles are ideal for more memory intensive cloud workloads. 
 
 For more information, see [Profiles for Bare Metal Servers for VPC](/docs/vpc?topic=vpc-bare-metal-servers-profile).
@@ -88,25 +87,23 @@ You are responsible for security on your bare metal server. That means upgrading
 ## Pricing options
 {: #bare-metal-pricing-options}
 
-You can choose hourly or pay-as-you-go billing options for your bare metal servers. 
+Pay-as-you-go bandwidth is per gigabyte. Your billing charges accrue from provision to cancellation, and are billed in arrears. Total pricing includes bare metal server instance profiles and software, internet data transfers, and optional VPC services. Each additional component is priced separately and included as part of your total IBM Cloud VPC charge. Service tiers are bound to your account, not to any specific VPC.
 
-Pay-as-you-go bandwidth is per gigabyte. Your billing charges accrue from provision to cancellation, and are billed in arrears. Total pricing includes bare metal server instance profiles and software, internet data transfers, and optional VPC services. Each additional component is priced separately and included as part of your total IBM Cloud VPC charge. Service tiers are bound to your account, not to any specific VPC. 
+For more information about pricing, see [Pricing](https://www.ibm.com/cloud/vpc/pricing#tab_2651670).
 
 ## Bare Metal Servers for VPC versus bare metal server on classic infrastructure
 {: #vs-classic-bare-metal}
 
 With {{site.data.keyword.bm_is_short}}, you can enjoy the security and performance of the private cloud with the flexibility and scalability of the public cloud. Compared to the classic bare metal infrastructures, {{site.data.keyword.bm_is_short}} provides better connectivity and networking throughput by using VPC concepts. 
 
-Keep in mind that {{site.data.keyword.bm_is_short}} is less customizable than classic bare metal servers. Most {{site.data.keyword.bm_is_short}} currently supports only VMware with ESXi. Currently, {{site.data.keyword.bm_is_short}} lacks file storage support compared when compared to classic bare metal servers.
+Keep in mind that {{site.data.keyword.bm_is_short}} is less customizable than classic bare metal servers. {{site.data.keyword.bm_is_short}} currently supports only VMware with ESXi. Currently, {{site.data.keyword.bm_is_short}} file storage has limited support when compared to classic bare metal servers. For more information about file storage, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about). 
 
 ### Bare metal servers versus virtual server instances
 {: #bare-metal-vs-virtual-servers}
 
 In general, you choose bare metal servers over virtual server instances if you need access to the actual hardware to run a hypervisor such as VMware's ESXi, or run real-time workloads. 
 
-{{site.data.keyword.bm_is_short}} sets up a VMware virtualization environment in a VPC. However, you can't install and run VMware’s vCenter Server and other management apps on a virtual server instance. 
-
-{{site.data.keyword.bm_is_short}} offers improved security compared to a virtual server instance as customers fully manage the physical resources of a bare metal server until it is decommissioned. By contrast, virtual server instances can share resources such as CPU, memory, and processes, across an IBM managed hypervisor.
+{{site.data.keyword.bm_is_short}} sets up a VMware virtualization environment in a VPC. {{site.data.keyword.bm_is_short}} offers improved security compared to a virtual server instance as customers fully manage the physical resources of a bare metal server until it is decommissioned. By contrast, virtual server instances can share resources such as CPU, memory, and processes, across an IBM managed hypervisor.
 
 Keep the following lifecycle operations differences in mind: 
 
