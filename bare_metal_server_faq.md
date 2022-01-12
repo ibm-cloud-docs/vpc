@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-12-14"
+  years: 2021, 2022
+lastupdated: "2022-01-12"
 
 keywords: bare metal servers, faq, bare metal faq
 
@@ -56,6 +56,8 @@ VPC Block Storage is not supported. VPC File Storage is compatible when it becom
 * The `bx2-metal-192x768` profile provides mirrored 960 GB SATA M.2 drives as boot storage only. 
 * The `bx2d-metal-192x768` profile provides mirrored 960 GB SATA M.2 drives as boot storage and 16 3.2 TB U.2 NVMe SSDs as secondary local storage to support vSAN, or user-managed RAID. 
 
+For more information about file storage, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about).
+
 ## What is required to set up my Bare Metal Servers for VPC? 
 {: #faq-bare-metal-3}
 {: faq}
@@ -66,7 +68,7 @@ When you are planning to create the bare metal servers, you can go through the c
 {: #faq-bare-metal-4}
 {: faq}
 
-The beta offering is first available in the `eu-de` region with plans to expand to the DAL and FRA regions when Bare Metal Servers for VPC is generally available. 
+Bare metal servers are available in eu-de and us-south regions.
 
 ## Do I need to configure multiple network interfaces on a bare metal server to support the full 100 Gbps bandwidth?
 {: #faq-bare-metal-5}
