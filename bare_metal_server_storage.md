@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-12-06"
+  years: 2021, 2022
+lastupdated: "2022-01-12"
 
 keywords: bare metal server storage, storage, bare metal storage
 
@@ -39,8 +39,6 @@ All profiles of Bare Metal Servers for VPC provide one 0.96 TB SATA M.2 mirrored
 Storage for Bare Metal Servers for VPC is unmanaged. You are responsible for encryption and backing up your data.
 {: important}
 <!--The total size of the NVMe SSD set varies depending on the profile you select. The NVMe drives are empty by default.-->
-
-The bare metal servers support Virtual RAID on CPU (VROC) solution on the NVMe drives. You can enable VROC as needed.
 
 The following network-attached storages are not supported:
 * Block Storage for VPC
