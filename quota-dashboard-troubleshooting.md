@@ -2,7 +2,7 @@
 
 copyright:
   years:  2021, 2022
-lastupdated: "2022-01-11"
+lastupdated: "2022-01-12"
 
 keywords: IBM Cloud monitoring, platform metrics, metrics, vpc metrics, vpc monitoring metrics, quota
 
@@ -95,3 +95,14 @@ Creating or deleting a dedicated host generates a metric for the 'instance-vcpu'
 
 - instance-vcpu
    - For more information, see [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances&interface=ui) and [Managing dedicated hosts and groups](/docs/vpc?topic=vpc-manage-dedicated-hosts-groups&interface=ui).
+
+### Create or delete a file share
+{: create-delete-file-shares}
+
+Creating or deleting a file share generates a metric for the 'share' resource.
+
+- share
+   For more information, see:
+   - [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create&interface=ui).
+   - [Delete a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#delete-file-share-ui)
+   
