@@ -53,4 +53,4 @@ Currently, the following IBM Cloud VNF catalog offerings are available:
 ## Next step
 {: #next-step-create-nlb}
 
-[Creating a Network Load Balancer using routing mode](/docs/vpc?topic=vpc-deploy-nlb)
+[Creating a network load balancer with routing mode](/docs/vpc?topic=vpc-deploy-nlb)

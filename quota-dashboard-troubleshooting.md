@@ -59,11 +59,10 @@ Creating or deleting one of the following resources sends metric events for the 
    - For more information on deleting a floating IP, see [Deleting VPC resources by using the UI](/docs/vpc?topic=vpc-deleting-using-console), [Deleting VPC resources by using the CLI](/docs/vpc?topic=vpc-deleting-using-cli), or [Deleting VPC resources by using the API](/docs/vpc?topic=vpc-deleting-using-api).
 - network-acl
    - For more information, see [About network ACLs](/docs/vpc?topic=vpc-using-acls).
+- load-balancer
+   - For more information, see [Creating a network load balancer for VPC](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer&interface=ui) and [Deleting a network load balancer for VPC](/docs/vpc?topic=vpc-nlb-deleting&interface=ui).
 - volume
    - For more information, see [Creating block storage volumes](/docs/vpc?topic=vpc-creating-block-storage) and [Delete a block storage data volume](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#delete).
-   
-<!--- load-balancer
-   - For more information, see [Creating a Network Load Balancer for VPC](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer&interface=ui) and [Deleting an IBM Cloud Network Load Balancer for VPC](/docs/vpc?topic=vpc-nlb-deleting&interface=ui).--->
 
 ### Add or remove a rule
 {: change-rule}
@@ -94,8 +93,9 @@ For more information, see:
 Creating or deleting a dedicated host generates a metric for the 'instance-vcpu' resource.
 
 - instance-vcpu
-   - For more information, see [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances&interface=ui) and [Managing dedicated hosts and groups](/docs/vpc?topic=vpc-manage-dedicated-hosts-groups&interface=ui).
-
+   For more information, see:
+   - [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances&interface=ui) and [Managing dedicated hosts and groups](/docs/vpc?topic=vpc-manage-dedicated-hosts-groups&interface=ui).
+   
 ### Create or delete a file share
 {: create-delete-file-shares}
 

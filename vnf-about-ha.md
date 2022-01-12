@@ -66,5 +66,5 @@ Follow these basic steps to configure high availability for supported IBM Cloud 
 1. [Configure VPC resources](/docs/vpc?topic=vpc-configure-vpc-resources).
 1. [Configure security groups](/docs/vpc?topic=vpc-configure-security-groups).
 1. [Deploy a VNF](/docs/vpc?topic=vpc-deploy-vnf).
-1. [Create a Network Load Balancer (NLB) using routing mode](/docs/vpc?topic=vpc-deploy-nlb).
+1. [Create a network load balancer with routing mode](/docs/vpc?topic=vpc-deploy-nlb).
 1. [Configure custom routes](/docs/vpc?topic=vpc-config-custom-routes).

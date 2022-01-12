@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Creating a network load balancer using routing mode
+# Creating a network load balancer with routing mode
 {: #deploy-nlb}
 
 Traffic destined for servers in an IBM Cloud VPC must be delivered to healthy VNF devices; otherwise, traffic disruption occurs. You can use Network Load Balancers (NLB) with routing mode enabled to perform health checks, and to ensure that workloads only travel through healthy VNF devices. Because of this, network load balancers with routing mode support only VNF devices as back-end targets.
