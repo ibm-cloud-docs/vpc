@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-11-24"
+  years: 2018, 2022
+lastupdated: "2022-01-12"
 
 keywords: resource, resource authorizations, policies, authorization, resource type, resource groups, roles, API, CLI, editor, viewer, administrator, operator
 
@@ -125,6 +125,11 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | Public gateway | Update, Delete | Editor for the public gateway |
 | Public gateway | View, List | Viewer for the public gateway |
 |——————|———————|————————|
+| Shares | View, List | Viewer for file shares and mount targets |
+| Shares | Create | Editor for creating file shares and mount targets |
+| Shares | Update, Delete | Editor for updating and deleting file shares and mount targets |
+| Share profiles | View, List | Any account user |
+|——————|———————|————————|
 | Security group | View, List | Viewer for the security group |
 | Security group | Create  | Viewer for the VPC and the resource group of the security group \n \n Editor for security group for VPC resources |
 | Security group | Update, Delete | Editor for the security group|
@@ -132,6 +137,10 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | Security group rule | Create, Update, Delete | Editor for the security group|
 | Security group target | View, List | Viewer for the security group |
 | Security group target | Attach, Detach | Operator for the security group \n \n Editor for instance if the target is a network interface \n \n Editor for load balancer if the target is a load balancer |
+|————————|—————————|————————|
+| Snapshots | View, List | Viewer for snapshots|
+| Snapshots | Create | Editor for creating snapshots |
+| Snapshots | Update, Delete | Editor for updating and deleting snapshots |
 |————————|—————————|————————|
 | SSH key | Create| Editor for SSH Key for VPC resources |
 | SSH key | Update, Delete | Editor for the SSH key |
