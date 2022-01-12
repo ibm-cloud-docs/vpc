@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-12-06"
+  years: 2021, 2022
+lastupdated: "2022-01-12"
 
 keywords: bare metal server profile, profile, bare metal profiles, viewing profile, view profiles
 
@@ -30,7 +30,7 @@ subcollection: vpc
 # Profiles for Bare Metal Servers for VPC (Beta)
 {: #bare-metal-servers-profile}
 
-Bare Metal Servers for VPC is a closed beta program and isn't open to new participants. Contact your IBM Sales representative if you're interested in getting access when Bare Metal Servers for VPC becomes available.
+Bare Metal Servers for VPC is a closed beta program and isn't open to new participants. Contact your IBM Sales representative if you're interested in getting access when Bare Metal Servers for VPC becomes available. 
 {: beta}
 
 When you create a bare metal server, you can select from a profile family that best fits your needs. A profile provides a different combination of hardware configurations that include number of vCPU, amount of RAM, and size of local storage. The attributes define the size and capabilities of the bare metal server that is provisioned. 
@@ -49,7 +49,7 @@ Profiles are grouped by the "vCPUs:Memory" ratio across all the VPC compute offe
 | Balanced | 1:4 |
 | Compute | 1:2 |
 | Memory | 1:8 or 1:6 |
-{: caption="Table 1. Profile families" caption-side="top"}
+{: caption="Table 1. Profile families" caption-side="bottom"}
 
 For more information about profile families, see [Instance Profiles](/docs/vpc?topic=vpc-profiles).
 
@@ -64,7 +64,7 @@ See table 2 for the configurations of each profile.
 |---------|---------|---------|---------|---------|
 | bx2-metal-192x768 | 192 | 768 | 0.96 TB SATA M.2 mirrored drive * 1 | 100 |
 | bx2d-metal-192x768 | 192 | 768 | 0.96 TB SATA M.2 mirrored drive \* 1<br><br>3.2 TB U.2 NVMe SSDs \* 16 | 100 |
-{: caption="Table 2. Bare Metal Servers for VPC profiles" caption-side="top"}
+{: caption="Table 2. Bare Metal Servers for VPC profiles" caption-side="bottom"}
 
 ## Understanding the naming rule of the profiles
 {: #profile-naming-rule}
@@ -79,6 +79,8 @@ The following information describes the naming rule of the profiles.
 * The field after the second dash contains information on the number of vCPU and the size of memory (GB), for example, "192x768" means that this profile has 192 vCPU and a memory of 768 GiB.
 
 Using “bx2d-metal-192x768” as an example, you can know that it's a *Balanced* bare metal profile with *192 vCPU and 768 GiB memory*. This profile has the Cascade Lake processors and NVMe U.2 SSDs for storage.
+
+Bare metal profiles are dedicated servers that provide physical cores. vCPU measurements are used in profile naming only. vCPU to physical cores are a 2:1 ratio (e.g 192 vCPU = 96 physical cores).
 
 ## Viewing profile configurations
 {: #view-bare-metal-servers-profile}
