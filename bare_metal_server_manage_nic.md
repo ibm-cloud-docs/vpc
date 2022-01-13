@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-12-06"
+  years: 2021, 2022
+lastupdated: "2022-01-13"
 
 keywords: bare metal servers, managing network interface, bare metal network interface, configure network interface, create network interface, delete network interface, associate network interface, update network interface
 
@@ -33,7 +33,7 @@ subcollection: vpc
 After you create a bare metal server, you can add new network interfaces or edit existing network interfaces. When you edit a network interface, you can change its name, associate or unassociate a floating IP address, or access the security group that is associated with an interface. For more information about the networking features of Bare Metal Server for VPC, see [Networking overview for Bare Metal Servers on VPC](/docs/vpc?topic=vpc-bare-metal-servers-network).
 {: shortdesc}
 
-Bare Metal Servers for VPC is a closed beta program and isn't open to new participants. Contact your IBM Sales representative if you're interested in getting access when Bare Metal Servers for VPC becomes available. 
+Bare Metal Servers for VPC is a closed beta program and isn't open to new participants. Contact your IBM Sales representative if you're interested in getting access when Bare Metal Servers for VPC becomes available.
 {: beta}
 
 ## Overview of bare metal server network interfaces
@@ -49,6 +49,8 @@ When you create a bare metal server, a primary PCI interface is created for you.
 
 You can associate one or more floating IPs with a network interface. The multiple floating IPs feature enables the VMware&reg; NSX-T Data Center to assign floating IPs. For more information about associating floating IP, see [Associate floating IPs with a network interface](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers#add-fips-to-nic).
 
+If you want to control the flow of network traffic in your VPC, you can configure routes. VPC routes specify the next hop for packets, based on their destination addresses. For more information, see [Creating a route](/docs/vpc?topic=vpc-create-vpc-route).
+
 ## Network interface configurations
 {: #nic-configs}
 
@@ -59,13 +61,14 @@ You can specify the following configurations for both PCI and VLAN interfaces:
 | Name | Name of the interface. |
 | Subnet | Specify the subnet that the network interface is associated with. |
 | Floating IP | After the network interface is created, you can associate one floating IP for external connectivity. |
+| Allow interface floating | Turning on "Allow interface to float" gives the VLAN interface the ability to float to another bare metal server. Example - VM migration or virtual IP. |
 | Primary IPv4 address | The primary IPv4 address of the network interface. If specified, it must be an available address on the network interface's subnet. If unspecified, an available address on the subnet is automatically selected. |
 | Allow IP spoofing | Turning IP spoofing _off_ prevents source IP spoofing on an interface. Turning IP spoofing _on_ allows source IP spoofing. The default option is _off_. You must have the **Advanced Network Operator** IAM role to modify this configuration. |
 | Enable infrastructure NAT | Turning on infrastructure NAT allows the VPC infrastructure to perform any needed NAT operations. If infrastructure NAT is off, the packet passes unmodified to and from the network interface, allowing the workload to perform NAT operations. The default option is _on_. You must have the **Advanced Network Operator** IAM role to modify this configuration. **Allow IP spoofing** must be turned off if **Enable infrastructure NAT** is turned _off_. |
 | Security groups | You can select the security groups that are used to control the traffic for the network interface. For VLAN interfaces, you need to specify the following two configurations: 1. **Allow interface to float**: Decide whether the interface needs to float to any other server within the same resource group. If enabled, the interface automatically floats if the network detects a GARP or RARP on another bare metal server within the resource group. The default option is _off_. You can't change this configuration after the VLAN interface is created. 2. **VLAN ID**: You must specify the VLAN ID tag to use for all traffic on this VLAN interface. |
 | Associated PCI interface | If more than one PCI interfaces are created on the bare metal server, you must select a PCI interface to associate to this VLAN interface. Make sure that you associate the VLAN interfaces with the same VLAN ID that is on a bare metal server with one subnet. You can't create two VLAN interfaces with the same ID in two subnets. However, you can associate VLAN interfaces with different VLAN ID with one subnet. |
 | Allowed VLANs (PCI interface only) | Specify the VLAN IDs of the VLAN interfaces that can use the PCI interface. |
-{: caption="Table 1. Bare metal server network interface configurations" caption-side="top"}
+{: caption="Table 1. Bare metal server network interface configurations" caption-side="bottom"}
 
 You can't add the same VLAN ID to the Allowed VLANs lists of two PCI interfaces on a single bare metal server. You can't create a new PCI interface if it contains VLAN IDs that are specified in the Allowed VLANs list of any existing PCI interface.
 {: note}
@@ -146,3 +149,28 @@ Keep the following information in mind when you delete network interfaces:
 * The floating IPs that are associated with the network interface are implicitly disassociated.
 * You can delete PCI interfaces only when the bare metal server is **Stopped**.
 * You can't delete the primary network interface.
+
+## Creating a virtual IP (VIP)
+{: #bare-metal-virtual-ips}
+
+A VIP is used for moving between interfaces to achieve high availability. Typically, two interfaces belong to two VMs. Each interface has a primary IP that negotiates with VRRP to determine which VM owns the VIP.
+
+<!--![Figure showing the primary IP and VRRP relationship](images/vip-vrrp.png "Figure showing the primary IP and VRRP relationship"){: caption="Figure 1. Primary IP and VRRP relationship" caption-side="bottom"}-->
+
+From a RIAS perspective, you create a VIP the same what that you create a primary IP. 
+
+1. Use the following command to create a VIP.
+`ibmcloud is bm-nicc <BM_ID> --subnet <SUBNET_ID> --interface-type vlan --vlan <VLAN_ID> --allow-interface-to-float true`
+2. Set `allow-interfaces-to-float`to _true_.
+
+## Creating a custom route
+{: #bare-metal-create-custom-route}
+
+Custom routes achieve communication without NAT rules between VMWare VMS within an NSX-T cluster and virtual server outside the NSX-T cluster, but within the same VPC. To create a custom route, use the following steps.
+
+1. Use the following command to create the custom route. `ibmcloud is vpc-route-create my-custom-route <VPC_ID> --zone us-south-3 --destination <DEST_CIDR> --next-hop-ip <NH_IP>`
+2. Set ` allow-ip-spoofing` to _true_ for the VNIC of HN_IP by using this command. Typically, a VIP is used as HN_IP for high availability. `ibmcloud is bm-nicu <BM_ID> <VNIC_ID> --allow-ip-spoofing true`
+3. Then associate the custom route with specific subnets.
+
+You can also use a custom route so segment VMs can communicate to infrastructure VMs or VPNs.
+{: tip}
