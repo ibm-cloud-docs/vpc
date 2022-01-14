@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-01-12"
+lastupdated: "2022-01-14"
 
 keywords: bare metal servers, faq, bare metal faq
 
@@ -52,6 +52,9 @@ Currently, only VMware ESXi 7.0 is supported. Support for RHEL, Windows, Linux, 
 {: faq}
 
 VPC Block Storage is not supported. VPC File Storage is compatible when it becomes generally available. Two storage options are available that include secondary local NVMe drives.
+
+File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+{: preview}
 
 * The `bx2-metal-192x768` profile provides mirrored 960 GB SATA M.2 drives as boot storage only. 
 * The `bx2d-metal-192x768` profile provides mirrored 960 GB SATA M.2 drives as boot storage and 16 3.2 TB U.2 NVMe SSDs as secondary local storage to support vSAN, or user-managed RAID. 
