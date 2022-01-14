@@ -22,6 +22,7 @@ subcollection: vpc
 {:support: data-reuse='support'}
 {:note: .note}
 {:important: .important}
+{:preview: .preview}
 
 # FAQ for bare metal servers (Beta)
 {: #bare-metal-server-faq}
