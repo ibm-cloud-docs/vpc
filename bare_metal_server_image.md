@@ -44,4 +44,4 @@ You can specify how a bare metal server is licensed by selecting from different 
 
 For more information about how to license ESXi, see [Licensing ESXi Hosts](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-28D25806-748B-49C0-97A1-E7DE5CB335A9.html){: external}.
 
-You can view and manage your VMWare licenses [here](https://cloud.ibm.com/classic/devices/vmwarelicenses).{ :external}
+You can view and manage your VMWare licenses [here](https://cloud.ibm.com/classic/devices/vmwarelicenses){ :external}.
