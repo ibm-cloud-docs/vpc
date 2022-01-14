@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-01-07"
+lastupdated: "2022-01-14"
 
 keywords: VPC release notes
 
@@ -35,6 +35,13 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 
 ## January 2022
 {: #subcollection-jan22}
+
+### 14 January 2022
+{: #subcollection-jan1422}
+{: release-note}
+
+**Updates to Getting started with IBM Cloud VPC button**
+:   The "Getting started with IBM Cloud VPC" button now includes access to tours that are specific to what you are doing on the IBM console. If a tour is not available, the button takes you to the VPC List view.
 
 ### 06 January 2022
 {: #subcollection-jan0622}
