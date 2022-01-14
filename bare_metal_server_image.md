@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-12-06"
+  years: 2021, 2022
+lastupdated: "2022-01-14"
 
 keywords: bare metal license, esxi license, byol, bring your own license, ESXi 7.x BYOL
 
@@ -43,3 +43,5 @@ You can specify how a bare metal server is licensed by selecting from different 
 * The "ESXi 7.x" option provides ESXi in licensed mode and is activated during the provisioning process. Billing applies for IBM rented licenses. 
 
 For more information about how to license ESXi, see [Licensing ESXi Hosts](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-28D25806-748B-49C0-97A1-E7DE5CB335A9.html){: external}.
+
+You can view and manage your VMWare licenses [here](https://cloud.ibm.com/classic/devices/vmwarelicenses).{ :external}
