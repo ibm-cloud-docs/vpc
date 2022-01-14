@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-01-13"
+lastupdated: "2022-01-14"
 
 keywords: bare metal servers, managing network interface, bare metal network interface, configure network interface, create network interface, delete network interface, associate network interface, update network interface
 
@@ -157,7 +157,7 @@ A VIP is used for moving between interfaces to achieve high availability. Typica
 
 <!--![Figure showing the primary IP and VRRP relationship](images/vip-vrrp.png "Figure showing the primary IP and VRRP relationship"){: caption="Figure 1. Primary IP and VRRP relationship" caption-side="bottom"}-->
 
-From a RIAS perspective, you create a VIP the same what that you create a primary IP. 
+From a RIAS perspective, you create a VIP the same way that you create a primary IP. 
 
 1. Use the following command to create a VIP.
 `ibmcloud is bm-nicc <BM_ID> --subnet <SUBNET_ID> --interface-type vlan --vlan <VLAN_ID> --allow-interface-to-float true`
