@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-12-06"
+  years: 2021, 2022
+lastupdated: "2022-01-14"
 
 keywords: bare metal server connect esxi, connect to esxi, connect to esxi, bare metal connect esxi, bare metal esxi
 
@@ -36,8 +36,7 @@ Bare Metal Servers for VPC is a closed beta program and isn't open to new partic
 After your bare metal server is running, you can connect to the ESXi direct console user interface (DCUI) and the ESXi web client. You can use the VNC or serial console to access ESXi DCUI. You can access the ESXi web client through a floating IP.
 {: shortdesc}
 
-The bare metal console feature is temporarily unavailable. An "unauthorized" error is returned if you try to connect to the console.
-{: important}
+For more information about VMWare deployments, see [Deploying Roll Your Own VMware on IBM Cloud Bare Metal Servers for Virtual Private Cloud](/docs/solution-tutorials?topic=solution-tutorials-vpc-bm-vmware).
 
 ## Obtaining your ESXi account name and password
 {: #prereq}
