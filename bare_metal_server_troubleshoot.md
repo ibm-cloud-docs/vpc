@@ -15,7 +15,6 @@ subcollection: vpc
 {:beta: .beta}
 {:codeblock: .codeblock}
 {:important: .important}
-{:new_window: target="_blank"}
 {:note: .note}
 {:pre: .pre}
 {:preview: .preview}
@@ -25,31 +24,44 @@ subcollection: vpc
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
+{:external: target="_blank" .external}
+{:support: data-reuse='support'}
+{:table: .aria-labeledby="caption"}
+{:important: .important}
+{:tsSymptoms: .tsSymptoms}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
+{:troubleshoot: data-hd-content-type='troubleshoot'}
 
 # Troubleshooting Bare Metal Servers for VPC (Beta)
 {: #troubleshoot_bare_metal}
 
 The following topics cover common difficulties that you might encounter, and offers some helpful tips.
 
-## Bare metal servers have hardware issues
-{: #hardware_issues}
+## How do I fix a hardware issue?
+{: #bare-metal-troubleshoot-hardware-issues}
+{: troubleshoot}
+{: support} 
 
-When hardware issues occur, you can request support from IBM by creating a support case. Click [here](https://cloud.ibm.com/unifiedsupport/cases/add%C2%A0) to create a support case. For information about how to create a case, see [Support cases](/docs/vpc?topic=vpc-getting-help#support-tickets).
+If your bare metal server experiences a hardware issue, you can request support by creating a support case. Click [here](https://cloud.ibm.com/unifiedsupport/cases/add%C2%A0) to create a support case. For more information about creating a case, see [Support cases](/docs/vpc?topic=vpc-getting-help#support-tickets).
 
-After receiving the case, IBM operation team puts the bare metal server into maintenance mode.
+After the operation team receives the case, the server goes into a maintenance state.
 
-You must power off the bare metal server before it can go into the **Maintenance** state by the IBM operation team.
+You must power off the bare metal server before it can go into the **Maintenance** state.
 {: note}
 
-You cannot start a bare metal server that is in the **Maintenance** state. The KVM console is also disabled. You can't connect to the system over the network.
+You can't start a bare metal server that's in a **Maintenance** state. The KVM console is also unavailable. You can't connect to the system over the network.
 
-During the maintenance, IBM also has no access to your network and workloads. The data on the disks isn't examined. But we still recommend you use software encryption for added security.
+During maintenance, IBM also has no access to your network and workloads. The data on the disks isn't examined. But we still recommend you use software encryption for added security.
 
 You can delete the bare metal server that is in the **Maintenance** state.
 {: note}
 
 When the issues are fixed, the server is handed back to you and the state returns to **Stopped**.
 
-## Firware updates
+## How do I manage firmware updates?
+{: #bare-metal-troubleshoot-firmware-update}
+{: troubleshoot}
+{: support} 
 
 Firmware for bare metal servers is managed by IBM. Manual firmware changes aren’t supported on the disk controller or disk drives without direction from IBM.
