@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-01-12"
+lastupdated: "2022-01-14"
 
 keywords: bare metal servers, baremetal, what is bare metal, about bare metal, bare metal features, bare metal benefits
 
@@ -96,7 +96,7 @@ For more information about pricing, see [Pricing](https://www.ibm.com/cloud/vpc/
 
 With {{site.data.keyword.bm_is_short}}, you can enjoy the security and performance of the private cloud with the flexibility and scalability of the public cloud. Compared to the classic bare metal infrastructures, {{site.data.keyword.bm_is_short}} provides better connectivity and networking throughput by using VPC concepts. 
 
-Keep in mind that {{site.data.keyword.bm_is_short}} is less customizable than classic bare metal servers. {{site.data.keyword.bm_is_short}} currently supports only VMware with ESXi. Currently, {{site.data.keyword.bm_is_short}} file storage has limited support when compared to classic bare metal servers. For more information about file storage, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about). 
+{{site.data.keyword.bm_is_short}} has local NVMe which you can use to create VMWare vSAN. For more information about file storage, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about). 
 
 ### Bare metal servers versus virtual server instances
 {: #bare-metal-vs-virtual-servers}
