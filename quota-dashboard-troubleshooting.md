@@ -2,7 +2,7 @@
 
 copyright:
   years:  2021, 2022
-lastupdated: "2022-01-12"
+lastupdated: "2022-01-14"
 
 keywords: IBM Cloud monitoring, platform metrics, metrics, vpc metrics, vpc monitoring metrics, quota
 
@@ -60,7 +60,9 @@ Creating or deleting one of the following resources sends metric events for the 
 - network-acl
    - For more information, see [About network ACLs](/docs/vpc?topic=vpc-using-acls).
 - load-balancer
-   - For more information, see [Creating a network load balancer for VPC](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer&interface=ui) and [Deleting a network load balancer for VPC](/docs/vpc?topic=vpc-nlb-deleting&interface=ui).
+   - For more information, see:
+      - [Creating a network load balancer for VPC](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer&interface=ui) and [Deleting an IBM Cloud Network Load Balancer for VPC](/docs/vpc?topic=vpc-nlb-deleting&interface=ui).
+      - [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancer&interface=ui) and [Deleting an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-alb-deleting&interface=ui).
 - volume
    - For more information, see [Creating block storage volumes](/docs/vpc?topic=vpc-creating-block-storage) and [Delete a block storage data volume](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#delete).
 
@@ -105,4 +107,3 @@ Creating or deleting a file share generates a metric for the 'share' resource.
    For more information, see:
    - [Creating file shares and mount targets](/docs/vpc?topic=vpc-file-storage-create&interface=ui).
    - [Delete a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#delete-file-share-ui)
-   
