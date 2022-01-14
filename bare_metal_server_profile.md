@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-01-12"
+lastupdated: "2022-01-14"
 
 keywords: bare metal server profile, profile, bare metal profiles, viewing profile, view profiles
 
@@ -92,8 +92,6 @@ You can view available profile configurations by using the UI, [CLI](#view-bare-
 {: ui}
 
 Use the following steps to view available bare metal profiles by using the UI.
-
-**(Need to verify on the UI later)**
 
 1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**.
 2. From the **Bare metal servers for VPC** page, click **Create**.
