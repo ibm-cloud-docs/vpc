@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2022-01-07",
+    "lastupdated": "2022-01-19",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc", 
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
-          "date": "06 January 2022",
-          "title": "UI update when creating a virtual server",
-          "description": "When you create a virtual server, the UI is updated to include a link in the Operating system section that opens a panel containing information about the image lifecycle."
+          "date": "14 January 2022",
+          "title": "Application Load Balancer (ALB) for VPC",
+          "description": "Application load balancers now support HTTP/HTTPS compression, which allows you to compress data being transmitted to your users."
         },
         {
-          "date": "16 December 2021",
-          "title": "File Storage for VPC (LA)",
-          "description": "IBM Cloud File Storage for VPC is now available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, and Tokyo regions."
+          "date": "14 January 2022",
+          "title": "High Availability (HA) Virtual Network Function (VNF) support",
+          "description": "Support for a highly available, highly resilient virtual network functions can be achieved through the use of the 'routing mode' feature of the IBM Cloud Network Load Balancer (NLB) for VPC."
         },
         {
-          "date": "09 December 2021",
-          "title": "New stock image for virtual servers",
-          "description": "Rocky Linux version 8.5 is now supported as a stock image when you provision IBM Cloud VPC virtual servers."
+          "date": "14 January 2022",
+          "title": "Updates to Getting started with IBM Cloud VPC button",
+          "description": "The 'Getting started with IBM Cloud VPC' button now includes access to tours that are specific to what you are doing on the IBM console. If a tour is not available, the button takes you to the VPC List view."
         }
       ]
     }
