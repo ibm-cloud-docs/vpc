@@ -1,8 +1,8 @@
 ---
 copyright:
-  years: 2019, 2021
+  years: 2019, 2022
 
-lastupdated: "2021-12-31"
+lastupdated: "2022-01-19"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, generation 2, gen 2
 
@@ -98,10 +98,8 @@ Balanced profiles provide a mix of performance and scalability for more common w
 
 The Balanced profile family includes both profiles that are provisioned with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
 
-### Balanced profiles for x86_64 processors
-{: #balanced-x86-profiles}
-
-The following Balanced profiles are available for x86_64 processors:
+LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Tokyo region.
+{: preview}
 
 | Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|
@@ -124,14 +122,11 @@ The following Balanced profiles are available for x86_64 processors:
 | bx2-128x512 | 128 | 512 | 80 | - |
 | bx2d-128x512 | 128 | 512 | 80 | 2x400 |
 {: caption="Table 2. Balance profiles options for x86-64 instances" caption-side="top"}
-
-### Balanced profiles for s390x processors
-{: #balanced-s390x-profiles}
-
-The following Balanced profiles are available for LinuxONE (s390x processor architecture):
-
-LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Tokyo region.
-{: preview}
+{: #balanced-intel-x86-64}
+{: tab-title="Intel x86-64"}
+{: tab-group="Balanced"}
+{: class="simple-tab-table"}
+{: summary="Balanced profiles options for Intel x86-64 virtual server instances."}
 
 | Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|
@@ -142,6 +137,11 @@ LinuxONE (s390x processor architecture) profiles can be used to provision virtua
 | bz2-8x32 | 8 | 32 | 16 | - |
 | bz2-16x64 | 16 | 64 | 32 | - |
 {: caption="Table 3. Balance profiles options for s390x instances" caption-side="top"}
+{: #balanced-s390x}
+{: tab-title="s390x"}
+{: tab-group="Balanced"}
+{: class="simple-tab-table"}
+{: summary="Balanced profiles options for LinuxONE s390x virtual server instances."}
 
 ## Compute
 {: #compute}
@@ -150,10 +150,8 @@ Compute profiles are best for workloads with intensive CPU demands, such as high
 
 The Compute profile family includes both profiles that are provisioned with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
 
-### Compute profiles for x86_64 processors
-{: #compute-x86-profiles}
-
-The following Compute profiles are available for instances with x86_64 processors:
+LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Tokyo region.
+{: preview}
 
 | Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|
@@ -176,14 +174,11 @@ The following Compute profiles are available for instances with x86_64 processor
 | cx2-128x256 | 128 | 256 | 80 | - |
 | cx2d-128x256 | 128 | 256 | 80 | 2x2400 |
 {: caption="Table 4. Compute profile options for x86-64 instances" caption-side="top"}
-
-### Compute profiles for s390x processors
-{: #compute-s390x-profiles}
-
-The following Compute profiles are available for LinuxONE (s390x processor architecture):
-
-LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Tokyo region.
-{: preview}
+{: #compute-intel-x86-64}
+{: tab-title="Intel x86-64"}
+{: tab-group="Compute"}
+{: class="simple-tab-table"}
+{: summary="Compute profiles options for Intel x86-64 virtual server instances."}
 
 | Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|
@@ -192,6 +187,11 @@ LinuxONE (s390x processor architecture) profiles can be used to provision virtua
 | cz2-8x16 | 8 | 16 | 16 | - |
 | cz2-16x32 | 16 | 32 | 32 | - |
 {: caption="Table 5. Balance profiles options for s390x instances" caption-side="top"}
+{: #compute-s390x}
+{: tab-title="s390x"}
+{: tab-group="Compute"}
+{: class="simple-tab-table"}
+{: summary="Compute profiles options for LinuxONE s390x virtual server instances."}
 
 ## Memory
 {: #memory}
@@ -200,10 +200,8 @@ Memory profiles are best for memory intensive workloads, such as large caching w
 
 The Memory profile family includes both profiles that are provisioned with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
 
-### Memory profiles for x86_64 processors
-{: #memory-x86-profiles}
-
-The following memory profiles are available for instances with x86_64 processors:
+LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Tokyo region.
+{: preview}
 
 | Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|
@@ -226,14 +224,12 @@ The following memory profiles are available for instances with x86_64 processors
 | mx2-128x1024| 128 | 1024 | 80 | - |
 | mx2d-128x1024| 128 | 1024 | 80 | 2x2400|
 {: caption="Table 5. Memory profile options for x86-64 instances " caption-side="top"}
+{: #memory-intel-x86-64}
+{: tab-title="Intel x86-64"}
+{: tab-group="Memory"}
+{: class="simple-tab-table"}
+{: summary="Memory profiles options for Intel x86-64 virtual server instances."}
 
-### Memory profiles for s390x processors
-{: #memory-s390x-profiles}
-
-The following Memory profiles are available for LinuxONE (s390x processor architecture):
-
-LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Tokyo region.
-{: preview}
 
 | Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|
@@ -242,6 +238,11 @@ LinuxONE (s390x processor architecture) profiles can be used to provision virtua
 | mz2-8x64 | 8 | 64 | 16 | - |
 | mz2-16x128 | 16 | 128 | 32 | - |
 {: caption="Table 7. Balance profiles options for s390x instances" caption-side="top"}
+{: #memory-s390x}
+{: tab-title="s390x"}
+{: tab-group="Memory"}
+{: class="simple-tab-table"}
+{: summary="Memory profiles options for LinuxONE s390x virtual server instances."}
 
 {: #callout-note}
 
@@ -276,6 +277,11 @@ The following Very High Memory profiles are available for x86_64 processors:
 | vx2d-144x2016 | 144 | 2016 | 80 | 2x2160 |
 | vx2d-176x2464 | 176 | 2464 | 80 | 2x2640 |
 {: caption="Table 8. Very High Memory profiles options for x86-64 instances" caption-side="top"}
+{: #vhmemory-intel-x86-64}
+{: tab-title="Intel x86-64"}
+{: tab-group="Very High Memory"}
+{: class="simple-tab-table"}
+{: summary="Very High Memory profiles options for Intel x86-64 virtual server instances."}
 
 ## Ultra High Memory
 {: #uhmemory}
@@ -304,8 +310,11 @@ The following Ultra High Memory profiles are available for x86_64 processors:
 | ux2d-100x2800 | 100 | 2800 | 80 | 2x1500 |
 | ux2d-200x5600 | 200 | 5600 | 80 | 2x3000 |
 {: caption="Table 9. Ultra High Memory profiles options for x86-64 instances" caption-side="top"}
-
-
+{: #uhmemory-intel-x86-64}
+{: tab-title="Intel x86-64"}
+{: tab-group="Ultra High Memory"}
+{: class="simple-tab-table"}
+{: summary="Ultra High Memory profiles options for Intel x86-64 virtual server instances."}
 
 ## GPU
 {: #gpu}
@@ -322,6 +331,11 @@ If you are using GPU profiles, you need to install the NVIDA driver onto your vi
 | gx2-16x128x2v100 | 16 | 128 | 32 | 2 |
 | gx2-32x256x2v100 | 32 | 256 | 64 | 2 |
 {: caption="Table 10. GPU profile options" caption-side="top"}
+{: #gpu-intel-x86-64}
+{: tab-title="Intel x86-64"}
+{: tab-group="GPU"}
+{: class="simple-tab-table"}
+{: summary="GPU profiles options for Intel x86-64 virtual server instances."}
 
 If you are using GPU profiles, you might need to install the CUDA toolkit onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
 {: tip}
