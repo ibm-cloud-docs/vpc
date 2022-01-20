@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2019, 2021
+  years: 2019, 2022
 
-lastupdated: "2021-11-24"
+lastupdated: "2022-01-20"
 
 keywords: activity tracker, events
 
@@ -321,7 +321,7 @@ Some fields for Bare Metal Servers for VPC AT events will be changing between th
 | Bare Metal Server | is.bare-metal-server.network-interface-floating-ip.read | One or more floating IPs associated with a network interface was retrieved |
 | Bare Metal Server | is.bare-metal-server.network-interface-floating-ip.attach | Floating IP was associated with a network interface |
 | Bare Metal Server | is.bare-metal-server.network-interface-floating-ip.detach | Floating IP was disassociated from a network interface |
-| Bare Metal Server | is.bare-metal-server.profile.read | One or more bare metal server profiles was retrieved |
+| Bare Metal Server | is.bare-metal-server.bare-metal-server-profile.read | One or more bare metal server profiles was retrieved |
 {: caption="Table 14. Actions that generate events for Bare Metal Server" caption-side="top"}
 
 ### Key events
