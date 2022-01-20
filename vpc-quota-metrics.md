@@ -2,7 +2,7 @@
 
 copyright:
   years:  2021, 2022
-lastupdated: "2022-01-14"
+lastupdated: "2022-01-20"
 
 keywords: IBM Cloud monitoring, platform metrics, metrics, vpc metrics, vpc monitoring metrics
 
@@ -14,10 +14,10 @@ subcollection: cloud-infrastructure
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
-{:preview: .preview}
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
+{:preview: .preview}
 {:download: .download}
 {:important: .important}
 {:note: .note}
@@ -28,7 +28,7 @@ VPC Resource Quota Overview metrics is available for customers with special appr
 # VPC Resource Quota Overview metrics definitions
 {: #vpc-quota-metrics}
 
-Some VPC resources have quotas associated with them.  The metrics definitions defined below allow the user to see the consumption number related to the quota along with the associated limit.
+Some VPC resources have quotas associated with them.  The following metrics definitions allow the user to see the consumption number related to the quota along with the associated limit.
 
 ## Quota metrics available by resource type
 {: metrics-by-plan}
@@ -37,6 +37,13 @@ Resources that offer quota metrics, detailed in Table 1.
 
 | Resource type | Resource quota name | Region | Secondary resource ID |
 |-----------|-----------|-----------|-----------|
+| `share` | `share` | {region} | {account id} |
+| `volume` | `volume` | {region} | {account id} |
+| `load-balancer` | `load-balancer` | {region} | {account id} |
+
+{: caption="Table 1: Services offering quota metrics" caption-side="top"}
+
+<!--
 | `instance` | `instance-vcpu` | {region} | {account id} |
 | `instance` | `instance-memory` | {region} | {account id} |
 | `vpc` | `vpc` | {region} | {account id} |
@@ -46,11 +53,7 @@ Resources that offer quota metrics, detailed in Table 1.
 | `floating-ip` | `floating-ip` | {region} | {account id} |
 | `network-acl` | `network-acl` | {region} | {vpc id} |
 | `network-acl` | `network-acl-rule` | {region} | {network acl id} |
-| `share` | `share` | {region} | {account id} |
-| `volume` | `volume` | {region} | {account id} |
-| `load-balancer` | `load-balancer` | {region} | {account id} |
-
-{: caption="Table 1: Services offering quota metrics" caption-side="top"}
+-->
 
 
 ### Resource quota consumption
