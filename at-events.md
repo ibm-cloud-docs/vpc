@@ -528,6 +528,6 @@ Refer to the following information when you are analyzing events:
 
 - Each time you open a console for a virtual server instance or bare metal server, two API calls are issued: the first one generates a console access token, the second one uses the generated token to open the console websocket.
 
-   This will generate two Activity Tracker events: `is.instance.console-access-token.create` and `is.instance.console.read`, or `is.bare-metal-server.console-access-token.create` and `is.bare-metal-server.console.read`.
+   This generates two Activity Tracker events: `is.instance.console-access-token.create` and `is.instance.console.read`, or `is.bare-metal-server.console-access-token.create` and `is.bare-metal-server.console.read`.
 
-   You cannot use `request id` to correlate console Activity Tracker events as each call will generate a unique `request id`. Instead, you can use `initiator id` to correlate console events that are generated from API calls issued by the same user.
+   You cannot use `request id` to correlate console Activity Tracker events as each call generates a unique `request id`. Instead, you can use `initiator id` to correlate console events that are generated from API calls issued by the same user.
