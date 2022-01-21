@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2019-12-05"
+  years: 2019, 2022
+lastupdated: "2022-01-21"
 
 keywords: delete, resources
 
@@ -21,7 +21,7 @@ subcollection: vpc
 {:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
 
-# Deleting a VPC
+# Considerations when deleting a VPC
 {: #deleting}
 
 An {{site.data.keyword.vpc_full}} resource cannot be deleted if it contains other resources, or if it is attached to another resource. This document describes the relationships between VPC resources, and it provides information about deleting a VPC.
@@ -179,6 +179,4 @@ Unlike security groups, network ACLs can be assigned across VPCs. Therefore, del
 
 The following topics provide more examples on how to delete VPC resources by using the IBM Cloud Console, CLI, or API.
 
-* [Deleting VPC resources by using the UI](/docs/vpc?topic=vpc-deleting-using-console)
-* [Deleting VPC resources by using the CLI](/docs/vpc?topic=vpc-deleting-using-cli)
-* [Deleting VPC resources by using the API](/docs/vpc?topic=vpc-deleting-using-api)
+* [Deleting a VPC and its associated resources](/docs/vpc?topic=vpc-deleting-a-vpc-and-its-associated-resources&interface=ui)
