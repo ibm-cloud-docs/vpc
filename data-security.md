@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-12-08"
+  years: 2020, 2022
+lastupdated: "2022-01-21"
 
 keywords: data encryption, data storage, bring your own keys, BYOK, key management, key encryption, personal data, data deletion, data security
 
@@ -119,7 +119,7 @@ For information about deleting custom images, see [Managing custom images](/docs
 ### Deleting VPC instances
 {: #service-delete}
 
-For information about deleting a VPC and its associated resources, see [Deleting a VPC](/docs/vpc?topic=vpc-deleting).
+For information about deleting a VPC and its associated resources, see [Deleting a VPC and its associated resources](/docs/vpc?topic=vpc-deleting-a-vpc-and-its-associated-resources&interface=ui).
 
 The VPC data retention policy describes how long your data is stored after you delete the service. The data retention policy is included in the {{site.data.keyword.vpc_full}} service description, which you can find in the [{{site.data.keyword.cloud_notm}} Terms and Notices](/docs/overview?topic=overview-terms).
 
