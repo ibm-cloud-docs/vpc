@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-01-14"
+lastupdated: "2022-01-21"
 
 keywords: bare metal license, esxi license, byol, bring your own license, ESXi 7.x BYOL
 
@@ -10,7 +10,6 @@ subcollection: vpc
 
 ---
 
-{:beta: .beta}
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:shortdesc: .shortdesc}
@@ -27,11 +26,8 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Bare Metal Servers for VPC images (Beta) 
+# Bare Metal Servers for VPC images
 {: #bare-metal-image}
-
-Bare Metal Servers for VPC is a closed beta program and isn't open to new participants. Contact your IBM Sales representative if you're interested in getting access when Bare Metal Servers for VPC becomes available.
-{: beta}
 
 You can license the ESXi hypervisor that is installed on a bare metal server with your own license (bring-your-own-license), or IBM can handle the licensing for you.
 {: shortdesc}
@@ -44,4 +40,4 @@ You can specify how a bare metal server is licensed by selecting from different 
 
 For more information about how to license ESXi, see [Licensing ESXi Hosts](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-28D25806-748B-49C0-97A1-E7DE5CB335A9.html){: external}.
 
-You can view and manage your VMWare licenses [here](https://cloud.ibm.com/classic/devices/vmwarelicenses){ :external}.
+You can view and manage your VMWare licenses [here](https://cloud.ibm.com/classic/devices/vmwarelicenses){: external}.
