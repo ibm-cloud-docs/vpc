@@ -2,15 +2,14 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-01-14"
+lastupdated: "2022-01-21"
 
-keywords: bare metal server connect esxi, connect to esxi, connect to esxi, bare metal connect esxi, bare metal esxi
+keywords: bare metal server connect esxi, connect to esxi, connect to esxi, bare metal connect esxi, bare metal esxi, windows serial console, connect to windows console, connect to windows serial console, serial console, connect to serial console
 
 subcollection: vpc
 
 ---
 
-{:beta: .beta}
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:shortdesc: .shortdesc}
@@ -27,11 +26,8 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Connecting to ESXi with Bare Metal Servers on VPC (Beta)
+# Connecting to ESXi with Bare Metal Servers on VPC
 {: #connect-to-ESXi-bare-metal-servers}
-
-Bare Metal Servers for VPC is a closed beta program and isn't open to new participants. Contact your IBM Sales representative if you're interested in getting access when Bare Metal Servers for VPC becomes available.
-{: beta}
 
 After your bare metal server is running, you can connect to the ESXi direct console user interface (DCUI) and the ESXi web client. You can use the VNC or serial console to access ESXi DCUI. You can access the ESXi web client through a floating IP.
 {: shortdesc}
@@ -46,9 +42,6 @@ You need to enter the account name and password to access both ESXi DCUI and the
 The password is automatically generated and encrypted by using the first SSH key that was provided when the bare metal server was created. You need to decrypt the password by using this SSH key.
 
 1. Use the following command to retrieve the account name and identify the SSH key that you use to decrypt the password.
-
-   For the beta release, you must enable the CLI by running: `export IBMCLOUD_IS_FEATURE_BARE_METAL_SERVER=true`. Make sure that you set up your [CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
-   {: important}
 
    ```sh
    ibmcloud is bare-metal-server-initialization-values $bare_metal_server_id
@@ -71,7 +64,7 @@ After you retrieve the account name and password, you can use them to access the
 ## Accessing ESXi DCUI by using a VNC or serial console
 {: #access-esxi-dcui-using-console}
 
-You can access the VMware ESXi DCUI by connecting to a VNC or serial console.
+You can access the VMware&reg; ESXi DCUI by connecting to a VNC or serial console.
 
 To connect to a console, you need to be assigned **Operator** (or greater) and **Bare Metal Console Administrator** roles for the bare metal server in IBM Cloud Identity and Access Management (IAM). If you are an administrator of your account, you also need to self-assign the **Bare Metal Console Administrator** role.
 
