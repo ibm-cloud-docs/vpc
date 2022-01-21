@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-12-06"
+  years: 2021, 2022
+lastupdated: "2022-01-21"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -10,7 +10,6 @@ subcollection: vpc
 
 ---
 
-{:beta: .beta}
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:shortdesc: .shortdesc}
@@ -27,14 +26,11 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Managing Bare Metal Servers for VPC (Beta)
+# Managing Bare Metal Servers for VPC
 {: #managing-bare-metal-servers}
 
 You can manage your {{site.data.keyword.cloud}} Bare Metal Servers for VPC by performing tasks such as start, stop, restart, and delete bare metal server.
 {: shortdesc}
-
-Bare Metal Servers for VPC is a closed beta program and isn't open to new participants. Contact your IBM Sales representative if you're interested in getting access when Bare Metal Servers for VPC becomes available. 
-{: beta}
 
 You can perform the following actions by using the UI, API, or CLI:
 
@@ -44,7 +40,7 @@ You can perform the following actions by using the UI, API, or CLI:
 | Start | Start a stopped server. This action is not available if the the status is Running. |
 | Reboot | Immediately powers off a running servere and then powers it back on again. |
 | Delete | To delete a server, the server must be powered off. If the server has a floating IP address, the floating IP address must be unassociated or released before the server is deleted. The delete action permanently removes a server and its connected vNIC, boot volume, and data from your account. |
-{: caption="Table 1. Actions available for bare metal servers" caption-side="top"}
+{: caption="Table 1. Actions available for bare metal servers" caption-side="bottom"}
 
 ## Managing bare metal servers by using the UI
 {: #managing-bare-metal-servers-ui}
@@ -105,10 +101,6 @@ The delete action permanently removes a server and its connected vNIC, boot volu
 ## Managing your bare metal server by using the CLI
 {: #managing-bare-metal-servers-cli}
 {: cli}
-
-For the Beta release, you must enable the bare metal servers CLI by running the following command: 
-`export IBMCLOUD_IS_FEATURE_BARE_METAL_SERVER=true`
-{: important}
 
 ### Viewing your bare metal servers
 {: #viewing-bare-metal-servers-cli}
