@@ -3,7 +3,7 @@
 copyright:
   years: 2020, 2022
 
-lastupdated: "2022-01-14"
+lastupdated: "2022-01-21"
 
 keywords: troubleshooting bare metal servers, hardware issues, firmware
 
@@ -12,7 +12,6 @@ subcollection: vpc
 
 ---
 
-{:beta: .beta}
 {:codeblock: .codeblock}
 {:important: .important}
 {:note: .note}
@@ -33,7 +32,7 @@ subcollection: vpc
 {:tsResolve: .tsResolve}
 {:troubleshoot: data-hd-content-type='troubleshoot'}
 
-# Troubleshooting Bare Metal Servers for VPC (Beta)
+# Troubleshooting Bare Metal Servers for VPC
 {: #troubleshoot_bare_metal}
 
 The following topics cover common difficulties that you might encounter, and offers some helpful tips.
