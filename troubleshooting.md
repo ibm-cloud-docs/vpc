@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-09-27"
+  years: 2018, 2022
+lastupdated: "2022-01-21"
 
 keywords: vpc, troubleshoot, tips, error, bearer, API, CLI, problem, debug, token, trace
 
@@ -113,7 +113,7 @@ It can take several minutes for resources to be deleted from the system, due to 
 3. Delete your subnets
 4. Delete your VPCs
 
-For more information, see [Deleting a VPC](/docs/vpc?topic=vpc-deleting).
+For more information, see [Deleting a VPC and its associated resources](/docs/vpc?topic=vpc-deleting-a-vpc-and-its-associated-resources&interface=ui).
 
 ## Trace ID is blank
 {: #troubleshoot-trace-id-blank}
