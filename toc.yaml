@@ -133,9 +133,7 @@ toc:
                 label: Deleting a VPC
                 topics:
                 - delete-vpc.md
-                - delete-vpc-ui.md
-                - delete-vpc-cli.md
-                - delete-vpc-api.md
+                - delete-vpc-resources.md
         - topicgroup:
             label: Virtual server instances
             topics:
