@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-01-14"
+lastupdated: "2022-01-21"
 
 
 keywords: VPC release notes
@@ -37,6 +37,16 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 
 ## January 2022
 {: #subcollection-jan22}
+
+### 21 January 2022
+{: #subcollection-jan2122}
+{: release-note}
+
+**New stock images for virtual servers**
+:   The following stock images are now available for virtual servers:
+    - Redhat 8.4 for SAP
+    - SLES 12 SP5 for SAP
+    - SLES 15 SP3 for SAP
 
 ### 14 January 2022
 {: #subcollection-jan1422}
