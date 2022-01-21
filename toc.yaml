@@ -40,33 +40,33 @@ toc:
            - interconnectivity.md
            - private-wan.md
            - private-connectivity.md
+           - bare_metal_server_network.md
        - topicgroup:
            label: Compute
            topics:
            - vsi_is_about_vpc.md
+           - bare_metal_server_about.md
            - suspend-billing.md
-           - vsi-images.md
+           - topicgroup:
+               label: Images
+               topics:
+               - vsi-images.md
+               - bare_metal_server_image.md
            - topicgroup:
                label: Profiles
                topics:
                - vsi_is_profiles.md
                - vsi_is_dh_profile.md
+               - bare_metal_server_profile.md
            - vsi_is_ssh_keys_about.md
            - vsi_is_provisioning_scripts.md
            - ip-spoofing-about.md
-           - instance-profiles-vpc-bandwidth.md
-           - topicgroup:
-               label: Bare Metal Servers for VPC (Beta)
-               topics:
-               - bare_metal_server_about.md
-               - bare_metal_server_profile.md
-               - bare_metal_server_image.md
-               - bare_metal_server_network.md
-               - bare_metal_server_storage.md
+           - instance-profiles-vpc-bandwidth.md  
        - topicgroup:
            label: Storage
            topics:
            - vpc_storage_overview.md
+           - bare_metal_server_storage.md
            - topicgroup:
                label: File storage
                topics:
@@ -172,11 +172,12 @@ toc:
             - about-placement-groups.md
             - managing-placement-groups.md
         - topicgroup:
-            label: Bare metal servers (Beta)
+            label: Bare metal servers
             topics:
             - bare_metal_server_planning.md
             - bare_metal_server_create.md
             - bare_metal_server_connect.md
+            - bare-metal-server-connect-serial-console-windows.md
             - bare_metal_server_manage_nic.md
             - bare_metal_server_manage.md
         - topicgroup:
@@ -505,6 +506,7 @@ toc:
             label: Troubleshooting
             topics:
             - troubleshooting.md
+            - bare_metal_server_troubleshoot.md
             - topicgroup:
                 label: Troubleshooting dedicated host
                 topics:
@@ -545,7 +547,6 @@ toc:
             - vsi_is_troubleshooting.md
             - custom_image_vpc_troubleshoot.md
             - block_storage_is_troubleshoot.md
-            - bare_metal_server_troubleshoot.md
             - instance-status-messages.md
             - quota-dashboard-troubleshooting.md
         - limitations.md
