@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2019, 2021
+  years: 2019, 2022
 lastupdated: "2021-12-09"
 
 keywords: image, stock image, custom image, virtual private cloud, virtual server, power, generation 2, gen 2
@@ -22,7 +22,7 @@ subcollection: vpc
 {:external: target="_blank" .external}
 
 
-# Images
+# Virtual server images
 {: #about-images}
 
 When you provision {{site.data.keyword.vsi_is_full}}, you can select from the supported stock images or a custom image that you import from {{site.data.keyword.cos_full_notm}}. The image that you select determines the operating system that is provisioned for your instance.
