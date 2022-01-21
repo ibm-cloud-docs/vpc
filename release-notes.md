@@ -91,13 +91,6 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 **New stock image for virtual servers**
 :   Rocky Linux version 8.5 is now supported as a stock image when you provision {{site.data.keyword.vpc_short}} virtual servers.
 
-### 07 December 2021
-{: #subcollection-dec0721}
-{: release-note}
-
-**Security group support for Virtual Private Endpoint (VPE) gateways** 
-:   You can now attach security groups to your endpoint gateways and manage them for your application needs. Attach security groups when creating an endpoint gateway, or modify security groups bound to an endpoint gateway after provisioning. For more information, see [Configuring ACLs and security groups for use with endpoint gateways](/docs/vpc?topic=vpc-configure-acls-sgs-endpoint-gateways). 
-
 ## November 2021
 {: #subcollection-nov21}
 
@@ -134,9 +127,6 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 :   The metadata service is now available in all regions to customer accounts authorized to access this service. This service is enabled by default when you create new instances using the UI, CLI, or API. You can also disable the service from these interfaces. For more information, see [Enable or disable the metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-metadata-service-enable).
 
 :   The metadata service also provides a new API call to generate an IAM token from the instance identity access token using trusted profile information. For more information, see [Generate an IAM token from an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-token-exchange).
-
-**Snapshots for VPC (GA)**. 
-:   You can now delete any or all snapshots not actively restoring a volume. Snapshots can be anywhere in the snapshot chain and must be in a `stable` state. For more information, see [Deleting snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-delete).
 
 ## October 2021
 {: #subcollection-oct21}
@@ -226,9 +216,6 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 **HTTPS redirect listeners**
 :   The [HTTPS redirect feature](/docs/vpc?topic=vpc-load-balancers#https-redirect-listener) is now available on Application Load Balancer for VPC to redirect traffic from an HTTP load balancer listener to an HTTPS listener. You can configure an HTTPS redirect on either [load balancer listeners](/docs/vpc?topic=vpc-load-balancers), [load balancer policies](/docs/vpc?topic=vpc-layer-7-load-balancing), or both. 
 
-**Virtual server instances for VPC**:
-:   When you provision an instance, you can now allocate I/O bandwidth between storage and network bandwidth from the total instance bandwidth. The maximum bandwidth capacity is determined by the instance profile that you selected during instance provisioning. For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
-
 ### 19 August 2021
 {: #subcollection-aug1921}
 {: release-note}
@@ -275,6 +262,13 @@ For more information about some of the limitations of LinuxONE (s390x processor 
 ## July 2021
 {: #subcollection-jul21}
 
+### 30 July 2021
+{: #subcollection-jul3021}
+{: release-note}
+
+**Instance Metadata for VPC (closed Beta)** 
+:   If your account is granted special approval to preview this feature, you can access metadata about your VPC compute resources. The metadata service is a REST API that you invoke using a well-known URI to retrieve instance-specific information from the metadata server. For more information, see [About Instance Metadata for VPC (Beta)](/docs/vpc?topic=vpc-imd-about).
+
 ### 26 July 2021
 {: #subcollection-jul2621}
 {: release-note}
@@ -320,7 +314,7 @@ For more information about some of the limitations of LinuxONE (s390x processor 
 {: #subcollection-jun3021}
 {: release-note}
 
-**Placement groups (Beta)**
+**Placement groups**
 :   Placement groups for {{site.data.keyword.vpc_full}} are used to create placement group strategies for managing high availability workloads. A placement group contains virtual server instances that share a common placement strategy. Placement strategies influence the physical placement of select VPC resources to meet certain workload demands. For more information about placement groups, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups).
 
 ### 17 June 2021
@@ -364,13 +358,6 @@ For more information about some of the limitations of LinuxONE (s390x processor 
 **Scheduled Scaling for VPC (GA)**
 :   Scheduled Scaling for VPC lets you set scheduled actions to automatically scale instance group capacity up or down based on daily, intermittent, or seasonal demand. You can set multiple, recurring scheduled action frequencies that can scale monthly, weekly, daily, hourly, or even every set number of minutes. For more information, see [Scheduled scaling](/docs/vpc?topic=vpc-scheduled-scaling-vpc).
 
-### 15 May 2021
-{: #subcollection-may1521}
-{: release-note}
-
-**Virtual Private Cloud (VPC) Gen 1 end of service**
-:   Virtual Private Cloud (VPC) Gen 1 reached end of service on 26 February 2021. The VPC on Classic API reference has been removed from the library page on 15 May, 2021. VPC on Classic users are being redirected to the [Virtual Private Cloud API](https://cloud.ibm.com/apidocs/vpc).
-
 ### 06 May 2021
 {: #subcollection-may0621}
 {: release-note}
@@ -391,7 +378,7 @@ For more information about some of the limitations of LinuxONE (s390x processor 
 :   File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions. With this feature, you can create NFS-based file shares in a single zone in a region. You can share file storage over multiple virtual service instances within the same zone across multiple VPCs. For more information about this service, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about). Contact your IBM Sales representative if you are interested in getting access.
 
 ### 07 April 2021
-{: #subcollection-may2521}
+{: #subcollection-apr0721}
 {: release-note}
 
 **File Storage for VPC (beta)**
@@ -503,7 +490,7 @@ For more information about some of the limitations of LinuxONE (s390x processor 
 {: release-note}
 
 **Dedicated hosts**
-:   You can now use dedicated hosts to carve out a single-tenant compute node for {{site.data.keyword.vpc_short}} in the following regions: Dallas, Washington DC, London, Tokyo, and Osaka. For more information, see [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances).
+:   You can now use dedicated hosts to carve out a single-tenant compute node for {{site.data.keyword.vpc_short}} in the following regions: Dallas, London, Tokyo, and Osaka. For more information, see [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances).
 
 **Application load balancer security group integration**
 :   For enhanced security, application load balancers can now be associated with security groups. You can specify one or more security groups when you create the application load balancer, and associate security groups with your existing application load balancers. For more information, see [Integrating an IBM Cloud Application Load Balancer for VPC with security groups](/docs/vpc?topic=vpc-alb-integration-with-security-groups).
@@ -566,19 +553,19 @@ For more information about some of the limitations of LinuxONE (s390x processor 
 :   You can now bring your own license (BYOL) when you import a custom image to {{site.data.keyword.vpc_short}}. This is a Beta feature that is available for evaluation and testing purposes. Contact your IBM Sales representative if you are interested in getting access. For more information, see [Bring your own license (Beta)](/docs/vpc?topic=vpc-byol-vpc-about).
 
 ### 17 December 2020
-{: #subcollection-dec2220}
+{: #subcollection-dec1720}
 {: release-note}
 
 **Checksum (SHA256) for imported images (Beta)**
 :   Now when you import a custom image, you can view the checksum that's generated for the image when it is imported to {{site.data.keyword.vpc_short}}. If you generate a checksum locally for your image before importing it, you can compare the two checksums to ensure that they are identical. For more information, see [Validating a custom image after importing (Beta)](/docs/vpc?topic=vpc-managing-images#validate-custom).
-- **UI enhancements:** Default boot volume names are now appended with a millisecond timestamp.
+- **UI enhancement** Default boot volume names are now appended with a millisecond timestamp.
 
 ### 11 December 2020
 {: #subcollection-dec1120}
 {: release-note}
 
 **VPN logging and auditing**
-:   The ability to monitor and audit your VPNs has been added to VPN for VPC. For more information, see [Using IBM Log Analysis to view VPN logs](/docs/vpc?topic=vpc-using-log-analysis-to-view-vpn-logs).
+:   The ability to monitor and audit your VPNs has been added to  {{site.data.keyword.vpn_vpc_short}}. For more information, see [Using IBM Log Analysis to view VPN logs](/docs/vpc?topic=vpc-using-log-analysis-to-view-vpn-logs).
 
 ### 01 December 2020
 {: #subcollection-dec0120}
@@ -600,7 +587,7 @@ For more information about some of the limitations of LinuxONE (s390x processor 
 **Support for datapath log forwarding with Log Analysis**
 :   Datapath log forwarding with {{site.data.keyword.la_full_notm}} is now available for IBM Cloud Application Load Balancer for VPC. Data and health check logs are valuable for debugging, analysis, and maintenance purposes. With the datapath logging feature enabled, your load balancer forwards these logs to your account's {{site.data.keyword.la_full_notm}} dashboard. For more information, see [Datapath log forwarding with Log Analysis](/docs/vpc?topic=vpc-datapath-logging#datapath-logging).
 
-**UI enhancements** 
+**UI enhancement** 
 :   You can now provision a VPC from the within the New virtual server for VPC page.
 
 ### 12 November 2020
@@ -608,9 +595,9 @@ For more information about some of the limitations of LinuxONE (s390x processor 
 {: release-note}
 
 **Route-based virtual private network (VPN) gateways for VPC**
-:   Use route-based VPN for VPC gateways to manage large, on-premises or cloud-based networks that require the ability to statically route network and connectivity over a secure, encrypted connection. VPN for VPC provides UI, CLI, and API support in all MZRs. For more information, see [About VPN gateways](/docs/vpc?topic=vpc-using-vpn).
+:   Use route-based {{site.data.keyword.vpn_vpc_short}} gateways to manage large, on-premises or cloud-based networks that require the ability to statically route network and connectivity over a secure, encrypted connection. VPN for VPC provides UI, CLI, and API support in all MZRs. For more information, see [About VPN gateways](/docs/vpc?topic=vpc-using-vpn).
 
-**UI enhancements:**
+**UI enhancement**
 :   You can now provision virtual server instances without first creating a VPC. Your virtual server instance is created in a default VPC.
 :   The refresh data option is removed from all details pages. Instead, users can refresh by using the browser refresh.
 
@@ -770,8 +757,8 @@ For more information about some of the limitations of LinuxONE (s390x processor 
 **Network load balancer (beta)**
 :   Network load balancers are available in a limited beta. Use network load balancers to distribute traffic among multiple server instances within the same region of your VPC. For more information, see [Load balancers overview](/docs/vpc?topic=vpc-nlb-vs-elb) and [About network load balancers](/docs/vpc?topic=vpc-network-load-balancers).
 
-**VPN for VPC update**
-:   Access VPN monitoring metrics by using [Monitoring VPN for VPC metrics](/docs/vpc?topic=vpc-sysdig-monitoring-metrics).
+** {{site.data.keyword.vpn_vpc_short}} update**
+:   Access VPN monitoring metrics by using [Monitoring VPN for VPC metrics](/docs/vpc?topic=vpc-vpn-monitoring-metrics).
 
 ## June 2020
 {: #subcollection-jun20}
@@ -790,14 +777,14 @@ For more information about some of the limitations of LinuxONE (s390x processor 
 **Updated custom images information**
 :   A new [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images) checklist is available. The procedure for migrating a virtual server instance from classic infrastructure to {{site.data.keyword.cloud_notm}} VPC is enhanced. For more information, see [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc).
 
-**UI Enhancements:**
+**UI enhancements**
 :   Added pagination for the security groups list table
 
 :   On the VPN Provision page, select a subnet from a table or create subnets
 
 :   New "upgrade pending" button if a user account is pending upgrade
 
-**New SDK:** 
+**New SDK** 
 :   The [Go SDK](https://{DomainName}/apidocs/vpc?code=go) is now generally available.
 
 ### 02 June 2020
@@ -859,7 +846,7 @@ For more information about some of the limitations of LinuxONE (s390x processor 
 {: release-note}
 
 **Load balancer for VPC update** 
-:   Access load balancer monitoring metrics (throughput, active connections, connection rate) using [IBM Cloud Monitoring](/docs/vpc?topic=vpc-monitoring-metrics).
+:   Access load balancer monitoring metrics (throughput, active connections, connection rate) using [{{site.data.keyword.mon_full_notm}}](/docs/vpc?topic=vpc-monitoring-metrics).
 
    The following cipher suites are supported for load balancer HTTPS listeners:
    
@@ -897,7 +884,7 @@ For more information about some of the limitations of LinuxONE (s390x processor 
 {: #subcollection-mar0220}
 {: release-note}
 
-**New London region**
+**New region**
 :   The London region endpoint (eu-gb) is now in service at `http://eu-gb.iaas.cloud.ibm.com`. For more information, see [Endpoint URLs](https://{DomainName}/apidocs/vpc#endpoint-url) in the {{site.data.keyword.vpc_short}} API. See also [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region).
 
 **UI enhancement**
@@ -943,7 +930,7 @@ For more information about some of the limitations of LinuxONE (s390x processor 
 **Red Hat Enterprise Linux (RHEL) and Windows stock images are now available**
 :   Provision an instance that uses an RHEL image or a Windows image in the Washington DC region. For more information, see [Images](/docs/vpc?topic=vpc-about-images).
 
-**UI enhancements**
+**UI enhancement**
 :   The modals for provisioning and attaching a public gateway and for creating an SSH key are now replaced with a redesigned side pane.
 
 ## January 2020
@@ -953,7 +940,7 @@ For more information about some of the limitations of LinuxONE (s390x processor 
 {: #subcollection-jan1020}
 {: release-note}
 
-**New Washington DC region**
+**New region**
 :   The Washington DC region endpoint (us-east) is now in service at `http://us-east.iaas.cloud.ibm.com`. For more information, see [Endpoint URLs](https://{DomainName}/apidocs/vpc#endpoint-url) in the {{site.data.keyword.vpc_short}} API. See also [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region).
 
 **CLI plug-in release 0.5.10**
@@ -1004,7 +991,7 @@ For more information about some of the limitations of LinuxONE (s390x processor 
 :   Use the {{site.data.keyword.cloud}} Load balancer for VPC service to distribute traffic among multiple server instances within the same region of your VPC. For more information, see [Using load balancers (Beta)](/docs/vpc?topic=vpc-load-balancers).
 
 **VPN (beta)**
-:   Use the {{site.data.keyword.cloud}} VPN for VPC service to securely connect your VPC to another private network. For more information, see [Using VPN (Beta)](/docs/vpc?topic=vpc-using-vpn).
+:   Use the {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_short}} service to securely connect your VPC to another private network. For more information, see [Using VPN (Beta)](/docs/vpc?topic=vpc-using-vpn).
 
 ## October 2019
 {: #subcollection-oct19}
