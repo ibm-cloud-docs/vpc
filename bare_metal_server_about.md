@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-01-14"
+lastupdated: "2022-01-21"
 
 keywords: bare metal servers, baremetal, what is bare metal, about bare metal, bare metal features, bare metal benefits
 
@@ -10,7 +10,6 @@ subcollection: vpc
 
 ---
 
-{:beta: .beta}
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:shortdesc: .shortdesc}
@@ -27,18 +26,12 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# About Bare Metal Servers for VPC (Beta)
+# About Bare Metal Servers for VPC
 {: #about-bare-metal-servers}
-
-{{site.data.keyword.bm_is_short}}is a closed beta program and isn't open to new participants. Contact your IBM Sales representative if you're interested in getting access when Bare Metal Servers for VPC becomes available. 
-{: beta}
 
 You can provision dedicated, {{site.data.keyword.bm_is_short}} on your own software-defined, private cloud and deploy to multizone regions. A bare metal server is ideal for expanding capacity of applications that benefit from elastic, quick provisioning, and deprovisioning. Accelerate deployment with preset server profiles for your high-performance workloads.  
 
 You get the full suite of IBM Cloud VPC networking benefits, plus 4x faster networking throughput (up to 100 Gbps). Using a VPC for your dedicated, bare metal servers helps you isolate and provision network segments on the cloud, where you then can deploy and manage your compute, storage, and networking.  
-
-All the bare metal servers that are created in the Beta period are reclaimed when Beta ends. All data that is on the servers is deleted. Make sure that you migrate your workloads and data before the end of Beta to avoid any data loss.
-{: important}
 
 ## Key features
 {: #bare-metal-features}
