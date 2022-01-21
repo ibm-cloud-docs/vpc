@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-01-14"
+lastupdated: "2022-01-21"
 
 keywords: bare metal servers, create, create bare metal, create bare metal server, new bare metal, new bare metal server
 
@@ -10,7 +10,6 @@ subcollection: vpc
 
 ---
 
-{:beta: .beta}
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:shortdesc: .shortdesc}
@@ -27,14 +26,11 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Creating Bare Metal Servers on VPC (Beta)
+# Creating Bare Metal Servers on VPC
 {: #creating-bare-metal-servers}
 
 Use the following information to create a bare metal server on the {{site.data.keyword.vpc_full}} (VPC) with the configuration of your choice.
 {: shortdesc}
-
-Bare Metal Servers for VPC is a closed beta program and isn't open to new participants. Contact your IBM Sales representative if you're interested in getting access when Bare Metal Servers for VPC becomes available.
-{: beta}
 
 ## Creating a bare metal server by using the UI
 {: #creating-using-ui}
@@ -328,10 +324,6 @@ Use the following steps to create a bare metal server by using the IBM Cloud CLI
 2. Make sure that you have created a VPC and a subnet before creating a bare metal server.
 
 For more information, see [Using the CLI to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
-
-For the beta release, you must enable the bare metal servers CLI by running the following command 
-`export IBMCLOUD_IS_FEATURE_BARE_METAL_SERVER=true`
-{: important}
 
 ### Gathering information to create an bare metal server
 {: #cli-info}
