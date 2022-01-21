@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-09-16"
+  years: 2021, 2022
+lastupdated: "2021-01-21"
 
 keywords: bare metal server network, bare metal network, nics, pci, vlan, network overview
 
@@ -10,7 +10,6 @@ subcollection: vpc
 
 ---
 
-{:beta: .beta}
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:shortdesc: .shortdesc}
@@ -27,11 +26,8 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Networking overview for Bare Metal Servers on VPC (Beta)
+# Networking overview for Bare Metal Servers on VPC
 {: #bare-metal-servers-network}
-
-Bare metal servers on VPC is a Beta feature that requires special approval. Contact your IBM Sales representative if you're interested in getting access.
-{: beta}
 
 The following information an overview of the networking features of Bare Metal Servers for VPC and how it supports VMware vSphere&reg; networking. It is recommended that you go through this information before you build a VMware network on bare metal servers.
 {: shortdesc}
@@ -52,11 +48,11 @@ You can create two types of network interfaces on a bare metal server:
 |-----|-----|
 | PCI (peripheral component interconnect) | A physical network interface. |
 | VLAN (virtual LAN) interface | A virtual network interface that is associated with a PCI interface through the VLAN ID. The VLAN interface automatically tags traffic that is routed through it with the VLAN ID. Inbound traffic that is tagged with a VLAN ID is directed to the appropriate VLAN interface. |
-{: caption="Table 1. Types of network interfaces for bare metal servers" caption-side="top"}
+{: caption="Table 1. Types of network interfaces for bare metal servers" caption-side="bottom"}
 
 The following diagram illustrates the relationship between PCI interfaces and VLAN interfaces.
 
-![Figure showing bare metal server network interfaces](images/bare_metal_server_network_interface.png "Figure showing bare metal server network interfaces"){: caption="Figure 1. Network interfaces on a bare metal server" caption-side="top"}
+![Figure showing bare metal server network interfaces](images/bare_metal_server_network_interface.png "Figure showing bare metal server network interfaces"){: caption="Figure 1. Network interfaces on a bare metal server" caption-side="bottom"}
 
 ### Characteristics of the PCI and VLAN interface
 {: #bare-metal-servers-interface-characteristics}
@@ -87,7 +83,7 @@ The following table describes the mapping of network concepts between Bare Metal
 | PCI interface | Uplink of the bare metal server on a standard vSwitch or distributed vSwitch. |
 | VLAN interface | Virtual network adapter of the VMKernel or VM |
 | VLAN ID | VLAN ID for port group |
-{: caption="Table 2. Mapping of network concepts between Bare Metal Servers for VPC and VMware vShpere" caption-side="top"}
+{: caption="Table 2. Mapping of network concepts between Bare Metal Servers for VPC and VMware vShpere" caption-side="bottom"}
 
 The PCI interface of the bare metal server maps to the Uplink in vSphere. When you provision a bare metal server, a primary PCI interface is created by default. This primary PCI interface automatically becomes the bare metal server’s uplink on `vSwitch0`. Its IP address is also used by the `vmk0` adapter in the **Management network** port group on `vSwitch0`. The VLAN ID of the **Management network** port group is automatically set to '0'.
 
@@ -146,7 +142,7 @@ Before you create a server and vmKernel in vSphere, you must create the VLAN int
 
 In the following Distributed vSwitch topology, the VMs can migrate between host "10.240.128.42" and "10.240.128.43" by using vMotion.
 
-![Figure showing an example Distributed vSwitch topology that enables vMotion](images/bare_metal_server_example_topology.png "Figure showing an example Distributed vSwitch topology that enables vMotion"){: caption="Figure 2. Example Distributed vSwitch topology that enables vMotion" caption-side="top"}
+![Figure showing an example Distributed vSwitch topology that enables vMotion](images/bare_metal_server_example_topology.png "Figure showing an example Distributed vSwitch topology that enables vMotion"){: caption="Figure 2. Example Distributed vSwitch topology that enables vMotion" caption-side="bottom"}
 
 To create a simple topology like Figure 2, use the following steps:
 
@@ -162,7 +158,7 @@ To create a simple topology like Figure 2, use the following steps:
 
    - Enable vMotion on the “vmk0” VMkernel adapter of the 2 ESXi hosts.
    
-   ![Figure that shows how to enable vMotion on vmk0](images/bare_metal_server_vmk0_enable.png "Figure that shows how to enable vMotion on vmk0"){: caption="Figure 3. Enable vMotion on vmk0" caption-side="top"}
+   ![Figure that shows how to enable vMotion on vmk0](images/bare_metal_server_vmk0_enable.png "Figure that shows how to enable vMotion on vmk0"){: caption="Figure 3. Enable vMotion on vmk0" caption-side="bottom"}
    
    - Create a distributed vSwitch and add the two ESXi hosts to the distributed vSwitch.
    
