@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-01-14"
+lastupdated: "2022-01-21"
 
 keywords: bare metal server storage, storage, bare metal storage
 
@@ -10,7 +10,6 @@ subcollection: vpc
 
 ---
 
-{:beta: .beta}
 {:codeblock: .codeblock}
 {:screen: .screen}
 {:shortdesc: .shortdesc}
@@ -27,11 +26,8 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Storage overview for Bare Metal Servers for VPC (Beta)
+# Storage overview for Bare Metal Servers for VPC
 {: #bare-metal-servers-storage}
-
-Bare Metal Servers for VPC is a closed beta program and isn't open to new participants. Contact your IBM Sales representative if you're interested in getting access when Bare Metal Servers for VPC becomes available.
-{: beta}
 
 All profiles of Bare Metal Servers for VPC provide one 0.96 TB SATA M.2 mirrored SSD as the boot disk. Profile `bx2d-metal-192x768` provides an extra set of NVMe (Non-Volatile Memory Express) U.2 solid-state drives (SSD) as secondary local storage. NVMe SSDs provides fast and affordable storage to support options such as VMware vSAN, or customer-managed RAID. 
 {: shortdesc}
@@ -46,3 +42,4 @@ The following network-attached storages are not supported:
 
 File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access. 
 {: preview}
+  
