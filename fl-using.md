@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-08-06"
+  years: 2020, 2022
+lastupdated: "2022-01-24"
 
 keywords: flow logs, getting started
 
@@ -134,9 +134,7 @@ These links provide additional information about {{site.data.keyword.cloud_notm}
 * [Flow logs CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#flow-logs-cli-ref)
 * [Flow logs API reference](https://{DomainName}/apidocs/vpc#list-flow-log-collectors)
 * [FAQs for flow log collectors](/docs/vpc?topic=vpc-fl-faq)
-* [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-flow-logs)
-* [Flow Logs for VPC infrastructure resources for Terraform](/docs/terraform?topic=terraform-vpc-gen2-resources#ibm_is_flow_log)
+* [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-flow-logs) 
 * [Blog: Time Series Analytics for IBM Virtual Private Cloud (VPC) Flows Using Grafana](https://www.ibm.com/cloud/blog/time-series-analytics-for-ibm-virtual-private-cloud-flows-using-grafana){: external}
 * [Blog: Use IBM Log Analysis to Analyze VPC Network Traffic from IBM Cloud Flow Logs for VPC](https://www.ibm.com/cloud/blog/use-ibm-log-analysis-with-logdna-to-analyze-vpc-network-traffic-from-ibm-cloud-flow-logs-for-vpc){: external}
-* [Blog: Indexing and Searching VPC Flow Logs in IBM Cloud Databases for Elasticsearch](https://www.ibm.com/cloud/blog/indexing-and-searching-vpc-flow-logs-in-ibm-cloud-databases-for-elasticsearch){: external}
-* [Article: Provisioning VPC Flow Logs in IBM Cloud by using Terraform](https://developer.ibm.com/recipes/tutorials/provisioning-vpc-flow-logs-in-ibm-cloud-using-terraform/){: external}
+* [Blog: Indexing and Searching VPC Flow Logs in IBM Cloud Databases for Elasticsearch](https://www.ibm.com/cloud/blog/indexing-and-searching-vpc-flow-logs-in-ibm-cloud-databases-for-elasticsearch){: external} 
