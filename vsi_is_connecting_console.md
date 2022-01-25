@@ -68,7 +68,7 @@ To enable the serial console service for custom Linux images, make sure that the
 
 ## Using the IBM Cloud UI to connect to a console
 {: #vsi_is_connecting_console_ui}
-(: ui)
+{: ui}
 
 Follow these steps to connect to a console by using IBM Cloud UI.
 
