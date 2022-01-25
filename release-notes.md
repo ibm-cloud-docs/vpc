@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-01-21"
+lastupdated: "2022-01-25"
 
 
 keywords: VPC release notes
@@ -37,6 +37,13 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 
 ## January 2022
 {: #subcollection-jan22}
+
+### 25 January 2022
+{: #subcollection-jan2522}
+{: release-note}
+
+**Update to Snapshots for VPC**
+:   When you view details of a snapshot from the [UI](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-snapshot-ui), [CLI](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=cli#snapshots-vpc-view-details-cli), or [API](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=api#snapshots-vpc-view-api), a new field shows when the snapshot was captured from the volume. This feature applies to snapshots created after January 2022.
 
 ### 21 January 2022
 {: #subcollection-jan2122}
