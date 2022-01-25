@@ -41,8 +41,6 @@ SDK changes are based on API changes. For information about the latest changes t
 ### For all version dates
 {: #upcoming-changes-all-version-dates}
 
-**Security groups for endpoint gateways.** In an upcoming release, new endpoint gateways will require at least one security group. If you omit specifying a security group during endpoint gateway creation, the default security group for the VPC will be used for the endpoint gateway. If you plan to use default security groups for new endpoint gateways, review your default security group rules. If necessary, edit the rules to accommodate your endpoint gateway traffic.
-
 **Asynchronous `DELETE` response code change.** In an upcoming release, the response code output for asynchronous `DELETE` operations will change from `204` to `202`. A response code of `204` implies the action is completed, which could be misleading for operations that are still processing. A response code of `202` is more appropriate. This behavior change will occur only for an API version date after its release. A response code of `204` will continue to be returned for API versions up to this version date.
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
@@ -55,6 +53,30 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 ### For all version dates
 {: #25-january-2022-all-version-dates}
+
+**Security groups for endpoint gateways.** For enhanced security, you can now associate security
+groups with [endpoint gateways](/docs/vpc?topic=vpc-about-vpe). When you [create an endpoint
+gateway](/apidocs/vpc#create-endpoint-gateway), you can now specify the `security_groups`
+property, which associates those security groups with the endpoint gateway. If you do not specify
+`security_groups`, the endpoint gateway will be associated with the VPC's default security group.
+Before using the default security group, review your default security group rules and, if necessary,
+edit the rules to accommodate your endpoint gateway traffic.
+
+Responses that return an endpoint gateway now include the `security_groups` property. On endpoint
+gateways created before 25 January 2022, the `security_groups` property in the response is an empty
+array (`[]`), and no security groups are set.
+
+You can update security groups for an endpoint gateway by [adding an endpoint
+gateway](/apidocs/vpc#create-security-group-target-binding) to or [removing an endpoint
+gateway](/apidocs/vpc#delete-security-group-target-binding) from a security group's targets.
+
+You will not be able to remove the only remaining security group from an endpoint gateway. As a
+result, if you add a security group to an endpoint gateway which had no security groups, you will
+not be able to revert the endpoint gateway to have no security groups.
+
+Finally, the security group `targets` property can now refer to an endpoint gateway, as can the
+responses for the [get security group target](/apidocs/vpc#get-security-group-target) and
+[list security group target](/apidocs/vpc#list-security-group-targets) methods.
 
 **Snapshots for VPC.** A `captured_at` property has been added to each
 [snapshot](https://github.ibm.com/apidocs/vpc#get-snapshot), indicating the date and time when the
