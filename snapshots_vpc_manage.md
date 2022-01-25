@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-11-30"
+  years: 2021, 2022
+lastupdated: "2022-01-17"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
@@ -148,7 +148,7 @@ Make a `DELETE/snapshots/{snapshot_ID}` call to delete a specific snapshot by ID
 
 ```
 curl -X DELETE \
-"$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2021-10-12&generation=2" \
+"$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2022-01-12&generation=2" \
      -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: codeblock}
@@ -160,7 +160,7 @@ Make a `DELETE/snapshots` call and specify the source volume ID for the `source_
 
 ```
 curl -X DELETE \
-"$vpc_api_endpoint/v1/snapshots?source_volume.id=_volume-id_&version=2021-10-12&generation=2" \
+"$vpc_api_endpoint/v1/snapshots?source_volume.id=_volume-id_&version=2022-01-12&generation=2" \
      -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: codeblock}
@@ -198,27 +198,27 @@ Example:
 $ ibmcloud is snapshot-update b40ecbfa-296b-4592-b959-59459868d683 --name my-snapshot1-renamed
 Updating snapshot b40ecbfa-296b-4592-b959-59459868d683 in resource group under account VPC 01 as user rtuser1@mycompany.com...
 
-ID                 b40ecbfa-296b-4592-b959-59459868d683   
+ID                 b40ecbfa-296b-4592-b959-59459868d683
 Name               my-snapshot1-renamed
 CRN                crn:v1:public:is:us-south:a/23db6395-3466-4055-ada1-c072b6b749bf::
-                   snapshot:b40ecbfa-296b-4592-b959-59459868d683   
-Status             stable   
-Source Volume      ID                                          Name      
-                   c3f9ffa4-6609-4750-ad09-e8caea5d9e5c        demo-volume1      
+                   snapshot:b40ecbfa-296b-4592-b959-59459868d683
+Status             stable
+Source Volume      ID                                          Name
+                   c3f9ffa4-6609-4750-ad09-e8caea5d9e5c        demo-volume1
                       
 Progress           -  
 Bootable           false   
-Encryption         provider_managed   
-Encryption key     -   
-Minimum Capacity   100   
-Size               1   
+Encryption         provider_managed
+Encryption key     -
+Minimum Capacity   100
+Size               1
 Source Image       ID                                          Name      
-                   c348a188-bc70-4c08-afb7-cbcbde831be3        ibm-centos-7-6-minimal-amd64-2      
+                   c348a188-bc70-4c08-afb7-cbcbde831be3        ibm-centos-7-6-minimal-amd64-2
                       
-Resource group     ID                                          Name      
-                   64e81667-75d8-4803-9935-fb0ee5895c04        Default      
-                      
-Created            2021-10-27T14:11:56+08:00
+Resource group     ID                                          Name
+                   64e81667-75d8-4803-9935-fb0ee5895c04        Default
+Created            2022-01-12T14:11:56+08:00
+Captured           2022-01-12T14:31:11+08:00
 ```
 {: screen}
 
@@ -230,7 +230,7 @@ Make a `PATCH/snapshots` call and specify the snapshot ID and new name of the sn
 
 ```
 curl -X PATCH \
-"$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2021-10-12&generation=2" \
+"$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2022-01-12&generation=2" \
    -H "Authorization: Bearer ${API_TOKEN}" \
    -d '{
      "name": "my-snapshop1-renamed"
@@ -282,7 +282,7 @@ The following example shows JSON output of an Activity Tracker event that was ge
 
 ```
 {
-    "eventTime": "2021-10-16T17:59:07.57+0000",
+    "eventTime": "2022-01-16T17:59:07.57+0000",
     "action": "is.snapshot.create",
     "outcome": "success",
     "message": "Block Storage Snapshots for VPC: create my-snapshot-1",
@@ -327,7 +327,7 @@ The following example shows an event that was generated when you list snapshot d
 
 ```
 {
-    "eventTime": "2021-10-16T17:55:25.60+0000",
+    "eventTime": "2022-01-16T17:55:25.60+0000",
     "action": "is.snapshot.read",
     "outcome": "success",
     "message": "Block Storage Snapshots for VPC: read my-snapshot-2",
