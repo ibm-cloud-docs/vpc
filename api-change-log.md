@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-01-04"
+lastupdated: "2022-01-25"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -49,6 +49,22 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 25 January 2022
+{: #25-january-2022}
+
+### For all version dates
+{: #25-january-2022-all-version-dates}
+
+**Snapshots for VPC.** A `captured_at` property has been added to each
+[snapshot](https://github.ibm.com/apidocs/vpc#get-snapshot), indicating the date and time when the
+snapshot was captured from the volume. The `captured_at` timestamp value is a close approximation to
+the actual snapshot time, typically within a few seconds. The actual snapshot capture is between the
+`created_at` and `captured_at` timestamps. (The `created_at` property indicates when the [snapshot
+creation](/apidocs/vpc#create-snapshot) process was initiated.)
+
+If `captured_at` is absent from the response, the snapshot's data has not yet been captured.
+Additionally, the property may be absent for snapshots created before 1 January 2022.
 
 ## 23 November 2021
 {: #23-november-2021}
