@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2020, 2021
+  years: 2020, 2022
 
-lastupdated: "2021-11-02"
+lastupdated: "2022-01-25"
 
 keywords: vnc console, serial console, virtual server instance
 
@@ -11,20 +11,7 @@ subcollection: vpc
 
 
 ---
-
-{:beta: .beta}
-{:codeblock: .codeblock}
-{:important: .important}
-{:new_window: target="_blank"}
-{:note: .note}
-{:pre: .pre}
-{:preview: .preview}
-{:screen: .screen}
-{:shortdesc: .shortdesc}
-{:tip: .tip}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Accessing virtual server instances by using VNC or serial consoles
 {: #vsi_is_connecting_console}
@@ -81,6 +68,7 @@ To enable the serial console service for custom Linux images, make sure that the
 
 ## Using the IBM Cloud UI to connect to a console
 {: #vsi_is_connecting_console_ui}
+(: ui)
 
 Follow these steps to connect to a console by using IBM Cloud UI.
 
@@ -94,6 +82,7 @@ You can stop or restart the instance by clicking **Shutdown instance** or **Rebo
 
 ## Using API to connect to a console
 {: #vsi_is_connecting_console_api}
+{: api}
 
 Before you can use the API requests to connect to a VNC or serial console, you need to get an IAM token, store the endpoint as a variable, and verify that you have access to the VPC API service. For more information, see [API prerequisites](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 
@@ -153,6 +142,7 @@ Before you can use the API requests to connect to a VNC or serial console, you n
 
 ## Using CLI to connect to a console
 {: #vsi_is_connecting_console_cli}
+{: cli}
 
 Make sure that you set up the CLI environment by following [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 
