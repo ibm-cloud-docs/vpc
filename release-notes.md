@@ -42,6 +42,9 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 {: #subcollection-jan2522}
 {: release-note}
 
+**Security group support for Virtual Private Endpoint (VPE) gateways** 
+:   You can now attach security groups to your endpoint gateways and manage them for your application needs. Attach security groups when creating an endpoint gateway, or modify security groups bound to an endpoint gateway after provisioning. For more information, see [Configuring ACLs and security groups for use with endpoint gateways](/docs/vpc?topic=vpc-configure-acls-sgs-endpoint-gateways). 
+
 **Update to Snapshots for VPC**
 :   When you view details of a snapshot from the [UI](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-snapshot-ui), [CLI](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=cli#snapshots-vpc-view-details-cli), or [API](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=api#snapshots-vpc-view-api), a new field shows when the snapshot was captured from the volume. This feature applies to snapshots created after January 2022.
 
