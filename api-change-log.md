@@ -41,6 +41,21 @@ SDK changes are based on API changes. For information about the latest changes t
 ### For all version dates
 {: #upcoming-changes-all-version-dates}
 
+**Port ranges for public network load balancers.** In an upcoming release, when [creating a public
+network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer&interface=api) you
+will be able to specify a range of listener ports. However, when you configure a load balancer with
+a port range, the `port` property of the load balancer's [pool
+members](/apidocs/vpc#list-load-balancer-pool-members) will not be used for port translation on
+incoming traffic. Instead, traffic will arrive at the member on the same port it arrived on at the
+listener.
+
+To prepare for this change, client applications must be updated to check the `port_min` and
+`port_max` properties on the [load balancer listener](/apidocs/vpc#get-load-balancer-listener). If
+those properties do not have the same value, the client must consider the inclusive range between
+`port_min` and `port_max` as the possible ports on which traffic can arrive on at the member.
+However, if `port_min` and `port_max` have the same value, the behavior will be unchanged and
+traffic will arrive on the port specified by the `port` property of the load balancer pool member.
+
 **Asynchronous `DELETE` response code change.** In an upcoming release, the response code output for asynchronous `DELETE` operations will change from `204` to `202`. A response code of `204` implies the action is completed, which could be misleading for operations that are still processing. A response code of `202` is more appropriate. This behavior change will occur only for an API version date after its release. A response code of `204` will continue to be returned for API versions up to this version date.
 
 The new response code will be rolled out gradually. Each phase of the rollout will be tied to a dated API version. These changes will be announced in future change log updates.
