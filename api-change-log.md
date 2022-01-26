@@ -52,7 +52,7 @@ listener.
 To prepare for this change, client applications must be updated to check the `port_min` and
 `port_max` properties on the [load balancer listener](/apidocs/vpc#get-load-balancer-listener). If
 those properties do not have the same value, the client must consider the inclusive range between
-`port_min` and `port_max` as the possible ports on which traffic can arrive on at the member.
+`port_min` and `port_max` as the possible ports on which traffic can arrive at the member.
 However, if `port_min` and `port_max` have the same value, the behavior will be unchanged and
 traffic will arrive on the port specified by the `port` property of the load balancer pool member.
 
