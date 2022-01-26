@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-01-04"
+lastupdated: "2022-01-25"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -41,7 +41,20 @@ SDK changes are based on API changes. For information about the latest changes t
 ### For all version dates
 {: #upcoming-changes-all-version-dates}
 
-**Security groups for endpoint gateways.** In an upcoming release, new endpoint gateways will require at least one security group. If you omit specifying a security group during endpoint gateway creation, the default security group for the VPC will be used for the endpoint gateway. If you plan to use default security groups for new endpoint gateways, review your default security group rules. If necessary, edit the rules to accommodate your endpoint gateway traffic.
+**Port ranges for public network load balancers.** In an upcoming release, when [creating a public
+network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer&interface=api) you
+will be able to specify a range of listener ports. However, when you configure a load balancer with
+a port range, the `port` property of the load balancer's [pool
+members](/apidocs/vpc#list-load-balancer-pool-members) will not be used for port translation on
+incoming traffic. Instead, traffic will arrive at the member on the same port it arrived on at the
+listener.
+
+To prepare for this change, client applications must be updated to check the `port_min` and
+`port_max` properties on the [load balancer listener](/apidocs/vpc#get-load-balancer-listener). If
+those properties do not have the same value, the client must consider the inclusive range between
+`port_min` and `port_max` as the possible ports on which traffic can arrive on at the member.
+However, if `port_min` and `port_max` have the same value, the behavior will be unchanged and
+traffic will arrive on the port specified by the `port` property of the load balancer pool member.
 
 **Asynchronous `DELETE` response code change.** In an upcoming release, the response code output for asynchronous `DELETE` operations will change from `204` to `202`. A response code of `204` implies the action is completed, which could be misleading for operations that are still processing. A response code of `202` is more appropriate. This behavior change will occur only for an API version date after its release. A response code of `204` will continue to be returned for API versions up to this version date.
 
@@ -49,6 +62,46 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 25 January 2022
+{: #25-january-2022}
+
+### For all version dates
+{: #25-january-2022-all-version-dates}
+
+**Security groups for endpoint gateways.** For enhanced security, you can now associate security
+groups with [endpoint gateways](/docs/vpc?topic=vpc-about-vpe). When you [create an endpoint
+gateway](/apidocs/vpc#create-endpoint-gateway), you can now specify the `security_groups`
+property, which associates those security groups with the endpoint gateway. If you do not specify
+`security_groups`, the endpoint gateway will be associated with the VPC's default security group.
+Before using the default security group, review your default security group rules and, if necessary,
+edit the rules to accommodate your endpoint gateway traffic.
+
+Responses that return an endpoint gateway now include the `security_groups` property. On endpoint
+gateways created before 25 January 2022, the `security_groups` property in the response is an empty
+array (`[]`), and no security groups are set.
+
+You can update security groups for an endpoint gateway by [adding an endpoint
+gateway](/apidocs/vpc#create-security-group-target-binding) to or [removing an endpoint
+gateway](/apidocs/vpc#delete-security-group-target-binding) from a security group's targets.
+
+You will not be able to remove the only remaining security group from an endpoint gateway. As a
+result, if you add a security group to an endpoint gateway which had no security groups, you will
+not be able to revert the endpoint gateway to have no security groups.
+
+Finally, the security group `targets` property can now refer to an endpoint gateway, as can the
+responses for the [get security group target](/apidocs/vpc#get-security-group-target) and
+[list security group target](/apidocs/vpc#list-security-group-targets) methods.
+
+**Snapshots for VPC.** A `captured_at` property has been added to each
+[snapshot](https://github.ibm.com/apidocs/vpc#get-snapshot), indicating the date and time when the
+snapshot was captured from the volume. The `captured_at` timestamp value is a close approximation to
+the actual snapshot time, typically within a few seconds. The actual snapshot capture is between the
+`created_at` and `captured_at` timestamps. (The `created_at` property indicates when the [snapshot
+creation](/apidocs/vpc#create-snapshot) process was initiated.)
+
+If `captured_at` is absent from the response, the snapshot's data has not yet been captured.
+Additionally, the property may be absent for snapshots created before 1 January 2022.
 
 ## 23 November 2021
 {: #23-november-2021}
