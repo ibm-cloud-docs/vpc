@@ -94,10 +94,10 @@ responses for the [get security group target](/apidocs/vpc#get-security-group-ta
 [list security group target](/apidocs/vpc#list-security-group-targets) methods.
 
 **Snapshots for VPC.** A `captured_at` property has been added to each
-[snapshot](https://github.ibm.com/apidocs/vpc#get-snapshot), indicating the date and time when the
-snapshot was captured from the volume. The `captured_at` timestamp value is a close approximation to
-the actual snapshot time, typically within a few seconds. The actual snapshot capture is between the
-`created_at` and `captured_at` timestamps. (The `created_at` property indicates when the [snapshot
+[snapshot](/apidocs/vpc#list-snapshots), indicating the date and time when the snapshot was captured
+from the volume. The `captured_at` timestamp value is a close approximation to the actual snapshot
+time, typically within a few seconds. The actual snapshot capture is between the `created_at` and
+`captured_at` timestamps. (The `created_at` property indicates when the [snapshot
 creation](/apidocs/vpc#create-snapshot) process was initiated.)
 
 If `captured_at` is absent from the response, the snapshot's data has not yet been captured.
