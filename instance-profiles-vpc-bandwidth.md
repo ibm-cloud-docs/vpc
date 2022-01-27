@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-09-21"
+  years: 2021, 2022
+lastupdated: "2022-01-27"
 
 keywords: compute, virtual private cloud, virtual server instance, instance, bandwidth
 
