@@ -271,6 +271,7 @@ toc:
                 - vpn-onprem-strongswan.md
                 - vpn-onprem-vyatta.md
                 - vpn-access-service-endpoint.md
+                - vpn-ha.md
                 - vpn-configure-acls-security-groups.md
                 - vpn-view-logs.md
                 - vpn-monitoring-metrics.md
