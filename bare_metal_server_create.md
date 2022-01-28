@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-01-21"
+lastupdated: "2022-01-28"
 
 keywords: bare metal servers, create, create bare metal, create bare metal server, new bare metal, new bare metal server
 
@@ -36,7 +36,7 @@ Use the following information to create a bare metal server on the {{site.data.k
 {: #creating-using-ui}
 {: ui}
 
-Follow these steps to create a bare metal server by using the IBM Cloud console.
+Follow these steps to create a bare metal server by using the IBM Cloud console. You can also check out the following [video](https://mediacenter.ibm.com/media/t/1_j2pdfua6){: external} to learn more about creating a bare metal server. 
 
 1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**
 
