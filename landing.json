@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "25 January 2022",
+          "title": "Security group support for Virtual Private Endpoint (VPE) gateways",
+          "description": "You can now attach security groups to your endpoint gateways and manage them for your application needs. Attach security groups when creating an endpoint gateway, or modify security groups bound to an endpoint gateway after provisioning."
+        },
+        {
+          "date": "25 January 2022",
+          "title": "Update to Snapshots for VPC",
+          "description": "When you view details of a snapshot from the UI, CLI, or API, a new field shows when the snapshot was captured from the volume. This feature applies to snapshots created after January 2022."
+        },
+        {
           "date": "21 January 2022",
           "title": "New stock images for virtual servers",
           "description": "Redhat 8.4 for SAP, SLES 12 SP5 for SAP, and SLES 15 SP3 for SAP stock images are now available for virtual servers."
-        },
-        {
-          "date": "14 January 2022",
-          "title": "Application Load Balancer (ALB) for VPC",
-          "description": "Application load balancers now support HTTP/HTTPS compression, which allows you to compress data being transmitted to your users."
-        },
-        {
-          "date": "14 January 2022",
-          "title": "High Availability (HA) Virtual Network Function (VNF) support",
-          "description": "Support for a highly available, highly resilient virtual network functions can be achieved through the use of the 'routing mode' feature of the IBM Cloud Network Load Balancer (NLB) for VPC."
         }
       ]
     }
