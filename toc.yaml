@@ -439,7 +439,7 @@ toc:
             - /vpc-infrastructure-cli-plugin/vpc-infrastructure-cli-plugin-vpc-reference
             - /vpc-infrastructure-cli-plugin/vpc-infrastructure-cli-plugin-vpc-cli-rn
         - topicgroup:
-            label: VPC API
+            label: VPC API & SDK
             topics:
             - link:
                label: Reference
