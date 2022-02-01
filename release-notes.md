@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-01-25"
+lastupdated: "2022-01-31"
 
 
 keywords: VPC release notes
@@ -37,6 +37,13 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 
 ## January 2022
 {: #subcollection-jan22}
+
+### 31 January 2022
+{: #subcollection-jan3122}
+{: release-note}
+
+**Bare Metal Servers for VPC** 
+:    Bare Metal Servers for VPC is generally available (GA). For more information about bare metal servers, see [About Bare Metal Servers for VPC](/docs/vpc?topic=vpc-about-bare-metal-servers).
 
 ### 25 January 2022
 {: #subcollection-jan2522}
