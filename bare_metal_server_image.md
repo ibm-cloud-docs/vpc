@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-01-21"
+lastupdated: "2022-02-02"
 
 keywords: bare metal license, esxi license, byol, bring your own license, ESXi 7.x BYOL
 
@@ -37,6 +37,9 @@ You can specify how a bare metal server is licensed by selecting from different 
 * The "ESXi 7.x BYOL" option provides ESXi in evaluation mode. The evaluation period is 60 days and begins at the time of provisioning. At any time during the 60-day evaluation period, you can convert from evaluation mode to licensed mode with your appropriate customer provided license.
 
 * The "ESXi 7.x" option provides ESXi in licensed mode and is activated during the provisioning process. Billing applies for IBM rented licenses. 
+
+VMware ESXi on a Bare Metal Server for VPC is charged monthly and is calculated per CPU based on the selected profile. If you choose to rent VMware ESXi with your server, you are subject to a prorated monthly cost for the license instead of an hourly rate. Proration amount is variable based on your billing anniversary date. 
+{: note}
 
 For more information about how to license ESXi, see [Licensing ESXi Hosts](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-28D25806-748B-49C0-97A1-E7DE5CB335A9.html){: external}.
 
