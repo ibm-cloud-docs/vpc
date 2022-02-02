@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-01-21"
+lastupdated: "2022-01-27"
 
 keywords: bare metal servers, baremetal, what is bare metal, about bare metal, bare metal features, bare metal benefits
 
@@ -67,7 +67,7 @@ Renting licenses can get expensive. Bringing your own license is an option for I
 ### Rapid scaling
 {: #bare-metal-rapid-scaling-benefit}
 
-Scale your dedicated, bare metal server environment for your needs quickly. Often, in 10 minutes or less.  
+Scale your dedicated, bare metal server environment for your needs quickly. Often, in 10 minutes or less when resources are available.
 
 ### Network orchestration 
 {: #bare-metal-network-orchestration-benefit}

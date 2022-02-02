@@ -3,8 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-01-28"
-
+lastupdated: "2022-01-31"
 
 keywords: VPC release notes
 
@@ -35,15 +34,26 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 
 For information about changes to the {{site.data.keyword.vpc_short}} API , see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log)
 
-## January 2022
-{: #subcollection-jan22}
+## February 2022
+{: #subcollection-feb22}
 
-### 28 January 2022
-{: #subcollection-jan2122}
+### 2 February 2022
+{: #subcollection-feb222}
 {: release-note}
 
 **Maximum bandwidth for each vNIC is increased**
 :   The maximum bandwidth for a vNIC is now 25 Gbps instead of the previous 16 Gbps to 25 Gbps. For more information, see [Optimizing network bandwidth allocation for profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles#network-perf-notes-for-profiles).   
+
+## January 2022
+{: #subcollection-jan22}
+
+### 31 January 2022
+{: #subcollection-jan3122}
+{: release-note}
+
+**Bare Metal Servers for VPC** 
+:    Bare Metal Servers for VPC is generally available (GA). For more information about bare metal servers, see [About Bare Metal Servers for VPC](/docs/vpc?topic=vpc-about-bare-metal-servers).
+
 
 ### 25 January 2022
 {: #subcollection-jan2522}

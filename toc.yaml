@@ -271,6 +271,7 @@ toc:
                 - vpn-onprem-strongswan.md
                 - vpn-onprem-vyatta.md
                 - vpn-access-service-endpoint.md
+                - vpn-ha.md
                 - vpn-configure-acls-security-groups.md
                 - vpn-view-logs.md
                 - vpn-monitoring-metrics.md
@@ -438,7 +439,7 @@ toc:
             - /vpc-infrastructure-cli-plugin/vpc-infrastructure-cli-plugin-vpc-reference
             - /vpc-infrastructure-cli-plugin/vpc-infrastructure-cli-plugin-vpc-cli-rn
         - topicgroup:
-            label: VPC API
+            label: VPC API & SDK
             topics:
             - link:
                label: Reference

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-01-25"
+lastupdated: "2022-02-01"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -62,6 +62,27 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 1 February 2022
+{: #1-february-2022}
+
+### For all version dates
+{: #1-february-2022-all-version-dates}
+
+**Bare metal servers for VPC.** You can now create bare metal servers to host VMware&reg; clusters
+in {{site.data.keyword.vpc_short}}. You can set up VMware management applications and create VMware
+virtual machines on the bare metal servers. The new [bare metal
+server](/vpc#list-bare-metal-servers) APIs use a similar structure and employ the same concepts as
+the existing [instance](/apidocs/vpc?code=go#list-instances) APIs. There is also a parallel but
+separate set of [bare metal server profile](/apidocs/vpc#list-bare-metal-server-profiles) APIs with
+similar conventions to the existing [instance profile](/apidocs/vpc-scoped#list-instance-profiles)
+APIs. After you've learned one concept, it will apply to the other. However, be aware that there are
+some [limitations](/docs/vpc?topic=vpc-known-issues#bare-metal-servers-limitations).
+
+For more information, see [About Bare Metal Servers for
+VPC](/docs/vpc?topic=vpc-about-bare-metal-servers) and [Bare metal server
+profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=api), or dive into the new [API
+methods](/apidocs/vpc#list-bare-metal-server-profiles).
 
 ## 25 January 2022
 {: #25-january-2022}

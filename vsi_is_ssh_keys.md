@@ -1,23 +1,15 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-05-12"
+  years: 2018, 2022
+lastupdated: "2022-01-28"
 
 keywords: 
 subcollection: vpc
 
 ---
+{{site.data.keyword.attribute-definition-list}}
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:note: .note}
-{:tip: .tip}
-{:table: .aria-labeledby="caption"}
-{:external: target="_blank" .external}
 
 # Managing SSH keys
 {: #managing-ssh-keys}
@@ -37,6 +29,7 @@ For more information about locating or generating an SSH key, see [SSH keys](/do
 
 ## Managing SSH keys with IBM Cloud console
 {: #managing-ssh-keys-with-ibm-cloud-console}
+{: ui}
 
 When you provision a virtual server, you can select from available SSH keys or upload a new one. You cannot generate SSH keys in {{site.data.keyword.cloud_notm}} console.
 
@@ -59,6 +52,7 @@ You can add and delete SSH keys by using the {{site.data.keyword.cloud_notm}} co
 
 ## Managing SSH keys by using the CLI
 {: #managing-ssh-keys-by-using-the-cli}
+{: cli}
 
 You can also manage your SSH keys by using the CLI.
 
