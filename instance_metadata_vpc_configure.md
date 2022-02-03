@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-11-15"
+  years: 2022
+lastupdated: "2022-01-21"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -50,7 +50,7 @@ Windows users have additional requirements to set up the metadata service. For i
 
 An instance identity access token provides your security credential for accessing the metadata service. It's a signed token with a set of claims based on information about the instance and information passed in the token request.
 
-To access the instance identiey, you make a REST API `PUT "http://169.254.169.254/instance_identity/v1/token` call that invokes a well-known, non-routable IP address. You acquire the token from within the instance. Communication between the instance and metadata service never leaves the host.
+To access the instance identity, you make a REST API `PUT "http://169.254.169.254/instance_identity/v1/token` call that invokes a well-known, non-routable IP address. You acquire the token from within the instance. Communication between the instance and metadata service never leaves the host.
 
 In the data section of the request, you specify an expiration time for the token. The default is five minutes, but you can specify that it expire sooner or later (5 seconds to one hour).
 
@@ -134,7 +134,7 @@ For more information about trusted profiles, see [Using a trusted profile to cal
 ## Create a trusted profile for the instance
 {: #imd-trusted-profile-config}
 
-Trusted profiles for compute resource identities is a feature that lets you assign an IBM Cloud IAM identity to an IBM Cloud resource, such as a virtual server instance. You can call any IAM-enabled service from an instance without having to manage and distribute IAM secrets to the instance. Trusted profiles can be created within the token exchange process and linked to the instance. For more information, see [Using a trusted profile to call IAM-enabled services](/docs/vpc?topic=vpc-imd-trusted-profile-metadata).
+Trusted profiles for compute resource identities is a feature that lets you assign an IBM Cloud IAM identity to an IBM Cloud resource, such as a virtual server instance. You can call any IAM-enabled service from an instance without having to manage and distribute IAM secrets to the instance. You can create a trusted profile when you generate an IAM token from an instance identity access token and link it to the instance. For more information, see [Using a trusted profile to call IAM-enabled services](/docs/vpc?topic=vpc-imd-trusted-profile-metadata).
 
 ## Enable or disable the instance metadata service
 {: #imd-metadata-service-enable}
@@ -150,7 +150,7 @@ From the IBM Cloud console, you can enable or disable the instance metadata serv
 #### Enable the metadata service for an existing instance using the UI
 {: #imd-enable-on-instance-ui}
 
-Use the UI to enable the metadata service on an existing instance where it has been disabled. 
+Use the UI to enable the metadata service on an existing instance. 
 
 1. Navigate to the list of instances.  In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
 
@@ -160,10 +160,10 @@ Use the UI to enable the metadata service on an existing instance where it has b
 
 4. Click the toggle on (appears green). 
 
-#### Enable or disable the metadata service when creating a new instance using the UI
+#### Enable the metadata service when creating a new instance using the UI
 {: #imd-enable-new-instance-ui}
 
-When you create a new vitual server instance, the metadata service is enabled by default. You can disable the service if you like. This procedure shows how to disable the metadata service. For complete information about creating a virtual server instance, see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
+This procedure shows how to enable the metadata service when creating a new virtual server instance.
 
 1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
 
@@ -171,12 +171,25 @@ When you create a new vitual server instance, the metadata service is enabled by
 
 3. [Provision the instance](/docs/vpc?topic=vpc-creating-virtual-servers).
 
-4. Under **Metadata**, the service is enabled by default and the toggle is on (appears green). To disable it, the click the toggle button off (appears gray).
+4. Under **Metadata**, the toggle is off by default (appears gray). Click the toggle on (appears green). 
+
+ For more information about creating virtual server instances, see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
+
+### Disable the metadata service using the UI
+{: #imd-disable-new-instance}
+
+This procedure shows how to disable the metadata service for an instance on which it is enabled. By default, the metadatata service is disabled when you create a new instance.
+
+1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
+
+2. Click on an instance from the list to go to its details page.  
+
+3. Under **Metadata**, the click the toggle button off (appears gray).
 
 #### Enable or disable the metadata service on instance templates using the UI
 {: #imd-enable-instance-template-ui}
 
-When you create an [instance template](/docs/vpc?topic=vpc-creating-auto-scale-instance-group&interface=ui#creating-instance-template), the enable metadata service toggle is on by default. Click the toggle to disable the service.
+When you create an [instance template](/docs/vpc?topic=vpc-creating-auto-scale-instance-group&interface=ui#creating-instance-template), the enable metadata service toggle is disabled by default. Click the toggle to enable the service.
 
 When you view the details of an existing instance template, the page will indicate whether metadata was enabled or not for the template. Note that you can't change the instance template metadata setting after creating the template.
 
@@ -197,12 +210,10 @@ Before you begin:
 #### Enable or disable the metadata service when creating a new instance from the CLI
 {: #imd-enable-on-instance-cli}
 
-When you run the `ibmcloud is instance-create` command to create a new instance, the metadata service is enabled by default. In the response, you will see `Metadata service enabled` set to `true`. 
-
-To disable the service when creating a new instance, set the `metadata-service` parameter to `false`. For example:
+Run the `ibmcloud is instance-create` command and set the `metadata-service` property to `true`. The metadata service is disabled by default. In the response, you will see `Metadata service enabled` set to `true`.
 
 ```
-ibmcloud is instance-create test-instance-1 7002c1cd-9b0b-43ee-8112-5124dedbe84b us-south-1  bx2-2x8  0711-08206578-d749-49ea-86c9-1014622d1c6f --image-id 9f0050d0-636b-4fe6-82ea-931664fd9d91 --metadata-service false
+ibmcloud is instance-create test-instance-1 7002c1cd-9b0b-43ee-8112-5124dedbe84b us-south-1  bx2-2x8  0711-08206578-d749-49ea-86c9-1014622d1c6f --image-id 9f0050d0-636b-4fe6-82ea-931664fd9d91 --metadata-service true
 
 Creating instance test under account VPC1 as user myuser@mycompany.com...
                               
@@ -217,7 +228,7 @@ Architecture               amd64
 vCPUs                      2
 Memory(GiB)                8
 Bandwidth(Mbps)            4000
-Metadata service enabled   false
+Metadata service enabled   true
 Image                      ID                                          Name
                            9f0050d0-636b-4fe6-82ea-931664fd9d91        ibm-ubuntu-20-04-minimal-amd64-1
 
@@ -228,7 +239,7 @@ Zone                       us-south-1
 Resource group             ID                                  Name
                            21cabbd983d9c4beb82690daab08717e8   Default
                               
-Created                    2021-10-12T22:12:11+05:30
+Created                    2021-12-27T22:12:11+05:30
 Boot volume                ID   Name           Attachment ID                               Attachment name
                            -    PROVISIONING   954c1c47-906d-423f-a8c8-dd3adfafd278        my-vol-attachment1
 ```
@@ -237,14 +248,12 @@ Boot volume                ID   Name           Attachment ID                    
 #### Enable or disable the metadata service for an existing instance from the CLI
 {: #imd-enable-on-instance-cli}
 
-Run the `ibmcloud is instance-update` command and specify the instance ID. To enable the metadata service, set the `metadata-service` parameter to `true`; to disable, set it to `false`. An example command for enabling the service will look like this:
+Run the `ibmcloud is instance-update` command and specify the instance ID. To enable the metadata service, set the `metadata-service` parameter to `true`; to disable, set it to `false`. An example command for enabling the service looks like this:
 
 ```
 ibmcloud is instance-update e219a883-41f2-4680-810e-ee63ade35f98 --metadata-service true
 ```
 {: codeblock}
-
-The result will be similar to that when [creating an instance](#imd-enable-on-instance-cli), with the `metadata service enabled` parameter set to `true`. When you disable the service, the value is set to `false`.
 
 #### Enable or disable the metadata service when creating new instance templates from the CLI
 {: #imd-enable-instance-template-cli}
@@ -278,14 +287,14 @@ For more information about these commands, see the [VPC CLI Reference](/docs/vpc
 #### Enable or disable the metadata service when creating a new instance from the API
 {: #imd-disable-on-instance-api}
 
-The metadata service is enabled by default when you create a new instance by making a `POST /instances` call. 
+The metadata service is disabled by default when you create a new instance by making a `POST /instances` call. 
 
-You can disable the service by specifying the `metadata_service` parameter and setting `enabled` to `false`.
+You can enable the service by specifying the `metadata_service` parameter and setting `enabled` to `true`.
 
-This example shows disabling the metadata service at instance creation:
+This example shows enabling the metadata service at instance creation:
 
 ```
-curl -X POST "$vpc_api_endpoint/v1/instances?version=2021-10-14&generation=2"\
+curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-01-12&generation=2"\
 -H "Authorization: Bearer $iam_token"\
 -d '{
       "image": {
@@ -298,7 +307,7 @@ curl -X POST "$vpc_api_endpoint/v1/instances?version=2021-10-14&generation=2"\
       ],
       "name": "my-instance",
       "metadata_service": {
-         "enabled": false
+         "enabled": true
       },
       .
       .
@@ -307,34 +316,22 @@ curl -X POST "$vpc_api_endpoint/v1/instances?version=2021-10-14&generation=2"\
 ```
 {: code_block}
 
-The response will show the metadata parameter set to `false` when you disable the service. You can also verify the metadata service setting by making a `GET /instance/{id}` call.
+The response will show the metadata parameter set to `true` when you enable the service. You can also verify the metadata service setting by making a `GET /instance/{id}` call.
 
 #### Enable or disable the metadata service for an existing instance from the API
 {: #imd-enable-on-instance-api}
 
-To enable or disable the service from an existing instance, make a `PATCH /instance/{instance_id}` call and specify the `metadata_service` parameter. Set `enabled` to either `true` or `false`.
+To enable or disable the service from an existing instance, make a `PATCH /instance/{instance_id}` call and specify the `metadata_service` parameter. By default, the `enabled` property is set to `false`. To enable the service, set it to`true`.
 
-This example call shows enabling the metadata service for an instance on which the service is enabled:
+This example call shows enabling the metadata service for an instance:
 
 ```
-curl -X PATCH "$vpc_api_endpoint/v1/instances?version=2021-10-14&generation=2"\
+curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2022-01-12&generation=2"\
     -H "Authorization: Bearer $iam_token"\ 
     -d '{
-          "image": {
-             "id": "9aaf3bcb-dcd7-4de7-bb60-24e39ff9d366"
-          },
-          "keys": [
-            {
-              "id": "363f6d70-0000-0001-0000-00000013b96c"
-            }
-          ],
-          "name": "my-instance",
           "metadata_service": {
             "enabled": true
-          },
-          .
-          .
-          .
+          }
       }'
 ```
 {: code_block}
@@ -344,12 +341,12 @@ The response will show the metadata parameter set to `true` when you enable the 
 #### Enable or disable the metadata service when creating new instance templates from the API
 {: #imd-enable-instance-template-api}
 
-When you create an instance template, you can set this value by making a `POST /instance/templates` call and set `enabled` to `true` or `false`.
+When you create an instance template, you can set this value by making a `POST /instance/templates` call. By default, the  `enabled` property is set to `false`. To enable it, set it to `true`.
 
-For example, to disable the metadata service when creating an instance template, make a call like this example:
+For example:
 
 ```
-curl -X POST "$vpc_api_endpoint/v1/instance/templates?version=2021-10-14&generation=2"\
+curl -X POST "$vpc_api_endpoint/v1/instance/templates?version=2022-01-12&generation=2"\
     -H "Authorization: Bearer $iam_token"\ 
     -d '{
          "image": {
@@ -362,7 +359,7 @@ curl -X POST "$vpc_api_endpoint/v1/instance/templates?version=2021-10-14&generat
          ],
          "name": "my-instance-template",
          "metadata_service": {
-             "enabled": false
+             "enabled": true
          },
          "primary_network_interface": {
            "subnet": {
