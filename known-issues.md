@@ -11,13 +11,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:download: .download}
+{{site.data.keyword.attribute-definition-list}}
 
 # Known issues
 {: #known-issues}
@@ -58,5 +52,5 @@ Known issues might change over time, so check back occasionally.
 
 - **Issue:** Network load balancers are not integrated with bare metal servers. As a result, if you create a network load balancer, you won't be able to target a bare metal server as a load balancer pool member target.
 
-Because all bare metal profiles are VMware &reg; certified, the `supported_image_flags` image property and `required_image_flags` profile property that expressed this ability during the beta period have been discontinued. These properties might still be visible to API and CLI consumers, but they aren't supported and must not be used. These properties will be removed entirely in a future release.
+Because all bare metal profiles are VMware&reg; certified, the `supported_image_flags` image property and `required_image_flags` profile property that expressed this ability during the beta period have been discontinued. These properties might still be visible to API and CLI consumers, but they aren't supported and must not be used. These properties will be removed entirely in a future release.
 {: note}
