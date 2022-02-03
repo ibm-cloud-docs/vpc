@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-05-20"
+  years: 2021, 2022
+lastupdated: "2022-02-02"
 
 keywords: dedicated host, dedicated hosts, dedicated host group, access, user access,
 
@@ -128,28 +128,28 @@ Be sure to select VPC infrastructure from the Menu icon.
 1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
 2. Click **Create** and enter the information in Table 1.
 3. Click **Create virtual server instance** when you are ready to provision.
+
 | Field | Value |
 |-------|-------|
 | Name  | Required; provide a name for your virtual server instance. |
 | Virtual private cloud | Block Storage server instance |
 | Resource group | User resources |
 | Location | Dallas 2 |
-| SSH Key | Required; select an existing SSH key.|
+| SSH Key | Required; select an existing SSH key. |
 | | **Note:** Alpha-numeric combinations are limited to 100 characters. |
 | | For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | Data volumes | You can add one or more secondary data volumes to be included when you provision the instance. To add a volume, click **Create** and specify the information in Table 2. When finished, click **Save**. |
 | Network interfaces | Assign networking options to connect into the IBM Cloud VPC. You can create and assign up to five network interfaces to each instance. |
-{: caption="Table 1. Virtual Server Instance provisioning selections" caption-side="top"}
 | Attached block storage volume | You can add one or more secondary data volumes to be included when you provision the instance. To add a volume, click **New block storage volume** and specify the information in Table 2. When finished, click **Create volume**. |
 | Virtual Private Cloud | Select 'my-vpc' for the Virtual Private Cloud |
-{: caption="Table 1. Virtual Server Instance provisioning selections" caption-side="top"}
+{: caption="Table 1. Virtual Server Instance provisioning selections" caption-side="bottom"}
 
 | Field | Value |
 |-------|-------|
 | Name  | Specify a unique, meaningful name for your volume, for example, 'my-data-volume' You can later edit the name if you want. Volume names must be unique the entire VPC infrastructure. |
 | Size | Enter a volume size in GBs. Volume sizes can be between 10 GB and 2 TBs. |
 | Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also choose **Customer Managed** and use your own encryption key. For a one-time set up procedure, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs). |
-{: caption="Table 2. Block storage volume values specified when provisioning an instance" caption-side="top"}
+{: caption="Table 2. Block storage volume values specified when provisioning an instance" caption-side="bottom"}
 
 A block storage volume is created and attached to the virtual server instance. On the instance details page, the **Attached block storage volumes** list is updated to show the new volume.
 
