@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-11-02"
+  years: 2021, 2022
+lastupdated: "2022-01-28"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -64,14 +64,14 @@ The metadata service uses a link local address (169.254.169.254) to [set up acce
 Set up the default route so that the link local address can get to the default gateway. From the windows or Powershell terminal, you would specify:
 
 ```
-C:> route -p add 198.51.100.0 MASK 255.255.255.255 $DEFAULT_GATEWAY
+C:> route -p add 169.254.169.254 MASK 255.255.255.255 $DEFAULT_GATEWAY
 ```
 {: codeblock}
 
 A Python automation script might contain code like this:
 
 ```
-command = 'route -p add 198.51.100.0 MASK 255.255.255.255 ()'.format(default_gateway)
+command = 'route -p add 169.254.169.254 MASK 255.255.255.255 ()'.format(default_gateway)
 ```
 {: codeblock}
 
