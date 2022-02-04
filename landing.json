@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2022-01-31",
+    "lastupdated": "2022-02-04",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc", 
@@ -31,6 +31,11 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "31 January 2022",
+          "title": "Bare Metal Servers for VPC",
+          "description": "Bare Metal Servers for VPC is generally available (GA)."
+        },
+        {
           "date": "25 January 2022",
           "title": "Security group support for Virtual Private Endpoint (VPE) gateways",
           "description": "You can now attach security groups to your endpoint gateways and manage them for your application needs. Attach security groups when creating an endpoint gateway, or modify security groups bound to an endpoint gateway after provisioning."
@@ -39,11 +44,6 @@
           "date": "25 January 2022",
           "title": "Update to Snapshots for VPC",
           "description": "When you view details of a snapshot from the UI, CLI, or API, a new field shows when the snapshot was captured from the volume. This feature applies to snapshots created after January 2022."
-        },
-        {
-          "date": "21 January 2022",
-          "title": "New stock images for virtual servers",
-          "description": "Redhat 8.4 for SAP, SLES 12 SP5 for SAP, and SLES 15 SP3 for SAP stock images are now available for virtual servers."
         }
       ]
     }
