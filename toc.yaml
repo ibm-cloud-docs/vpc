@@ -61,7 +61,7 @@ toc:
            - vsi_is_ssh_keys_about.md
            - vsi_is_provisioning_scripts.md
            - ip-spoofing-about.md
-           - instance-profiles-vpc-bandwidth.md  
+           - instance-profiles-vpc-bandwidth.md
        - topicgroup:
            label: Storage
            topics:
@@ -323,6 +323,7 @@ toc:
                 - nlb-delete.md
                 - nlb-health-checks.md
                 - nlb-listeners.md
+                - nlb-port-range.md
                 - nlb-pools.md
                 - nlb-privatelb.md
                 - nlb-monitoring-metrics.md
@@ -341,12 +342,12 @@ toc:
         - topicgroup:
             label: Virtual network functions
             topics:
-            - vnf-about.md 
+            - vnf-about.md
             - topicgroup:
                 label: Deploying a highly available VNF
                 topics:
                 - vnf-about-ha.md
-                - vnf-configure.md            
+                - vnf-configure.md
                 - vnf-configure-security-groups.md
                 - vnf-deploy-vnf.md
                 - vnf-deploy-nlb.md
@@ -412,7 +413,7 @@ toc:
                 - about-veeam.md
                 - ordering-veeam-licenses.md
                 - using-veeam-agent.md
-                - using-veeam-backup-replication.md    
+                - using-veeam-backup-replication.md
         - topicgroup:
             label: Enhancing security
             topics:
