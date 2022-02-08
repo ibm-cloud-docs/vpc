@@ -509,6 +509,12 @@ toc:
             topics:
             - troubleshooting.md
             - bare_metal_server_troubleshoot.md
+            - block_storage_is_troubleshoot.md
+            - topicgroup:
+                label: Troubleshooting custom images
+                topics:
+                - vsi_is_tbs_rhel_classic_image.md    
+                - custom_image_vpc_troubleshoot.md
             - topicgroup:
                 label: Troubleshooting dedicated host
                 topics:
@@ -519,6 +525,7 @@ toc:
                 - fl-ts-failed-write.md
                 - fl-ts-cos-bucket.md
                 - fl-ts-unauth-access-cos.md
+            - vsi_is_troubleshooting.md
             - topicgroup:
                 label: Troubleshooting VPE gateways
                 topics:
@@ -546,9 +553,6 @@ toc:
                 - vpn-ts-connection-failure.md
                 - vpn-ts-dns-configuration-not-working.md
                 - vpn-ts-vpn-client-hangs.md
-            - vsi_is_troubleshooting.md
-            - custom_image_vpc_troubleshoot.md
-            - block_storage_is_troubleshoot.md
             - instance-status-messages.md
             - quota-dashboard-troubleshooting.md
         - limitations.md
