@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-01-19"
+lastupdated: "2022-02-09"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, generation 2, gen 2
 
@@ -48,7 +48,7 @@ The following profile families are available:
 | [GPU](#gpu) | GPU enabled profiles provide on-demand access to NVIDIA V100 GPUs to accelerate AI,high performance computing, data science and graphics workloads. |
 {: caption="Table 1. Virtual server family selections" caption-side="top"}
 
-Profiles with instance storage are deployed exclusively on the second-generation Intel&reg; Xeon&reg; Platinum 8272 (Cascade Lake) running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz.
+Profiles with instance storage are deployed exclusively on the second-generation Intel&reg; Xeon&reg; Platinum 8260 (Cascade Lake) running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz.  
 {: note}
 
 ## Bandwidth allocation using the UI
