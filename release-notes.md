@@ -35,6 +35,19 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 
 For information about changes to the {{site.data.keyword.vpc_short}} API , see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log)
 
+## February 2022
+{: #subcollection-feb22}
+
+### 08 February 2022
+{: #subcollection-feb0822}
+{: release-note}
+
+**Port ranges for public network load balancers**
+:    When [creating a public network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer&interface=api), you can now specify a range of listener ports.
+
+**Bare Metal server support for application load balancers**
+:    Bare Metal server members are now supported on application load balancers. See [Load balancers for VPC overview](/docs/vpc?topic=vpc-nlb-vs-elb&interface=ui) for more information.
+
 ## January 2022
 {: #subcollection-jan22}
 
