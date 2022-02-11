@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021 
-lastupdated: "2021-09-01"
+  years: 2020, 2022
+lastupdated: "2022-01-21"
 
 keywords: auto scale, autoscale, virtual server instance, creating, UI, console, instance group
 
@@ -98,13 +98,14 @@ To create an instance template, complete the following steps.
 | Operating system | Select a stock image or a custom image to use for the operating system image. |
 | Profile |  Select from popular profiles or all available vCPU and RAM combinations. The profile families are Balanced, Compute, Memory, and GPU. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles). |
 | SSH Key | You must select an existing SSH key or upload a new SSH key to use before you can create the instance. SSH keys are used to securely connect to the instance after it's running.<br />**Note:** Alpha-numeric combinations are limited to 100 characters.<br />For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
+| Metadata | Disabled by default, lets instances created from this template gather metadata about itself. Click the toggle to turn the metadata service on. For more information, see [About Instance Metadata for VPC](/docs/vpc?topic=vpc-imd-about). |
 | User data | You can add user data that automatically performs common configuration tasks or runs scripts. For more information, see [User data](/docs/vpc?topic=vpc-user-data). |
 | Placement group | Select a placement group for the instance. If you add a placement group, the instance is placed according to the placement group strategy. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc). |
 | Boot volume | The default boot volume size for all profiles is 100 GB. |
 | Data volumes | You can add one or more secondary data volumes to be included when you provision the instance. To add volumes, click **New volume**. |
 | Virtual private cloud | Specify the IBM Cloud VPC where you want to create your instance. You can use an existing VPC or you can create a new VPC. To create a new VPC, click **New VPC**. |
 | Network interfaces | Defines the networking connection into the IBM Cloud VPC.  |
-{: caption="Table 1. Instance template selections" caption-side="top"}
+{: caption="Table 1. Instance template selections" caption-side="bottom"}
 
 **Important:** Instance groups do not support instance templates that have the following configurations:
 - Secondary network interfaces are not supported. Only one, primary network interface for an instance template is supported in an instance group.
@@ -141,7 +142,7 @@ If you want to include a load balancer for your instance group to balance incomi
 | Instance group size | For a static group, enter the number of instances that you want to constantly have in this instance group. For a dynamic group, enter the minimum and maximum number of instances for your group. The number of instances scale automatically within that range based on the target metrics that you define. |
 | Aggregation window (seconds) | For a dynamic group this value determines the time period that the instance group manager monitors each instance and determines the average utilization. |
 | Cooldown period (seconds) | For a dynamic group, the cooldown period is the time in seconds to pause further scaling actions after scaling takes place. |
-{: caption="Table 2. Instance group selections" caption-side="top"}
+{: caption="Table 2. Instance group selections" caption-side="bottom"}
 
 ### Creating scaling policies
 {: #creating-scaling-policies}
@@ -154,7 +155,7 @@ To add scaling policies, complete the following fields on the **New instance gro
 |-------|-------|
 | Metric type | Select the metric type that you want to associate with a target utilization value to use for adding or removing instances from your group. You can choose one of these metrics: CPU utilization (%), RAM utilization (%), Network in (Mbps), Network out (Mbps). You can define more than one target metric policy, but only one policy for each type of metric. |
 | Average target utilization | Specify the average utilization that you want to achieve for the metric that you select. This target value defines when the instance group manager needs to scale up instances or scale down instances in your group. At the end of each aggregation window, the instance group manager adds the current utilization of each instance and divides it by this target utilization value to determine the membership count. |
-{: caption="Table 3. Scaling policies selections" caption-side="top"}
+{: caption="Table 3. Scaling policies selections" caption-side="bottom"}
 
 ## Setting up auto scale with the CLI
 {: #setting-up-autoscale-cli}
@@ -196,7 +197,7 @@ Gather the following required instance template details.
 | Profile | `ibmcloud is instance-profiles` |
 | Subnet | `ibmcloud is subnets` |
 | Image | `ibmcloud is images` |
-{: caption="Table 1. Required instance template details" caption-side="top"}
+{: caption="Table 1. Required instance template details" caption-side="bottom"}
 
 Use the following commands to determine the required information for creating a new instance template.
 
@@ -360,7 +361,7 @@ Gather the following information.
 | Instance template | ID of the instance template that you created in the previous task |
 | Subnet IDs | Comma-separated IDs of subnets that you must select from the `ibmcloud is subnets` command in the previous task |
 | --membership-count | Number of members in the instance group |
-{: caption="Table 2. Required instance group details" caption-side="top"}
+{: caption="Table 2. Required instance group details" caption-side="bottom"}
 
 After you know these values, use them to run the `instance-group-create` command. In addition to the information that you gathered, you must specify a name for the instance group. 
 
@@ -415,7 +416,7 @@ Gather the following information.
 | --------------------------------- | -------------------------------- |
 | INSTANCE_GROUP | ID of the instance group you created in the previous task |
 | --max-members | The maximum number of members in a managed instance group; range 1 - 100 |
-{: caption="Table 3. Required instance group manager details" caption-side="top"}
+{: caption="Table 3. Required instance group manager details" caption-side="bottom"}
 
 
 After you know these values, use them to run the `instance-group-manager-create` command.
@@ -465,7 +466,7 @@ Gather the following information.
 | MANAGER | ID of the manager |
 | --metric-type | The type of metric to be evaluated:  cpu (utilization percent), memory (utilization percent), network_in (Mbps), network_out (Mbps) |
 | --metric-value | The metric target value to be evaluated |
-{: caption="Table 4. Required instance group manager policy details" caption-side="top"}
+{: caption="Table 4. Required instance group manager policy details" caption-side="bottom"}
 
 Use the following commands to determine the required information for creating a new instance template.
 

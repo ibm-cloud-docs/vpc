@@ -98,8 +98,7 @@ Where:
 
 To create a VPN connection by using the API, follow these steps:
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with
-the right variables.
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
 
 1. Store any additional variables to be used in the API commands, for example:
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-11-02"
+  years: 2022
+lastupdated: "2022-01-21"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -52,12 +52,12 @@ Table 1 describes the steps involved to access instance metadata. The informatio
 
 | Step | Context | Service Called | User Action |
 |------|---------|----------------|-------------|
-| 1    | IBM Cloud | VPC UI, CLI, API | Create a virtual server instance and enable the metadata service on it. From the UI, the metadata service is enabled for new instances when you have access. For an existing instance where it's not enabled, use the UI to [enable the service](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-enable-on-instance-ui). From the API, make a call to create a virtual server instance configured with the [metadata service](/docs/vpc?topic=vpc-imd-configure-service) enabled. Customer user data is specified on instance creation. |
+| 1    | IBM Cloud | VPC UI, CLI, API | Create a virtual server instance and enable the metadata service on it. (The service is disabled by default.) You can also enable the service on an existing instance, using the [UI](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-enable-on-instance-ui) or API. From the API, make a call to create a virtual server instance configured with the [metadata service](/docs/vpc?topic=vpc-imd-configure-service) enabled. Customer user data is specified on instance creation. |
 | 2    | IBM Cloud | -- | Sign on to the instance using the normal startup operations. |
 | 3    | VPC instance | Metadata service | Provide a `curl` command to call the metadata token service to [acquire an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-json-token). |
 | 4    | VPC instance | Metadata service | Provide a `curl` command to [call the metadata service](/docs/vpc?topic=vpc-imd-get-metadata#imd-retrieve-instance-data). The token from the previous step is passed and the metadata is returned.| 
 | 5    | VPC instance | -- | Parse the JSON returned in the previous step to acquire the user data. |
-{: caption="Table 1. General procedure for accessing instance metadata" caption-side="top"}
+{: caption="Table 1. General procedure for accessing instance metadata" caption-side="bottom"}
 
 ## End-to-end procedure for accessing metadata from an instance
 {: #imd-access-md-ex}
@@ -80,7 +80,7 @@ Table 1 describes the steps involved to access instance metadata. The informatio
 6.	Make a call to the metadata token service to retrieve an access token.  Specify how long the token is valid, for example 3600 seconds (1hour). In this example, the command is run through the `jq` parser to format the JSON response. You can choose the parser that you prefer.
 
    ```
-   instance_identity_token=`curl -X PUT "http://169.254.169.254/instance_identity/v1/token?version=2021-10-12"\
+   instance_identity_token=`curl -X PUT "http://169.254.169.254/instance_identity/v1/token?version=2021-12-28"\
      -H "Metadata-Flavor: ibm"\
      -H "Accept: application/json"\
      -d '{ 
@@ -94,7 +94,7 @@ Table 1 describes the steps involved to access instance metadata. The informatio
 7. You can now make a call to the metadata service. The first call is to initialization information:
 
    ```
-   curl -X GET "http://169.254.169.254/metadata/v1/instance/initialization?version=2021-10-12"\
+   curl -X GET "http://169.254.169.254/metadata/v1/instance/initialization?version=2021-12-28"\
       -H "Accept: application/json"\
       -H "Authorization: Bearer $instance_identity_token"
       | jq -r
@@ -106,7 +106,7 @@ Table 1 describes the steps involved to access instance metadata. The informatio
 8.	Access metadata about the instance, such as volume attachments, dedicated hosts, memory, vCPUs, and so on.
 
    ```
-   curl -X GET "http://169.254.169.254/metadata/v1/instance?version=2021-10-12"\
+   curl -X GET "http://169.254.169.254/metadata/v1/instance?version=2021-12-28"\
       -H "Accept: application/json"\
       -H "Authorization: Bearer $instance_identity_token"\
       | jq -r

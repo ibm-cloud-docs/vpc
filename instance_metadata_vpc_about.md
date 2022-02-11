@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-11-02"
+  years: 2022
+lastupdated: "2022-01-21"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -39,7 +39,7 @@ This service is available only to accounts with special approval to use this ser
 
 You can programmatically access metadata about a virtual server instance and use it to initialize new instances. Metadata provided by API services pertains only to the instance from which the request is made. You can't use the metadata service within an instance to obtain information about another instance or to obtain information concerning resources not currently associated with the instance.
 
-The instance metadata service uses a REST API and well-known IP address to retrieve metadata. It's enabled by default on all new instances you create. Metadata you can access includes the instance name, CRN, resource groups, user data, as well as information about SSH keys and placement groups. For a list of all metadata returned from the service see the [summary of data returned by the metadata service](/docs/vpc?topic=vpc-imd-metadata-summary).
+The instance metadata service uses a REST API and well-known IP address to retrieve metadata. You can enable it on all new instances you create. (The service is disabled by default.) Metadata you can access includes the instance name, CRN, resource groups, user data, as well as information about SSH keys and placement groups. For a list of all metadata returned from the service see the [summary of data returned by the metadata service](/docs/vpc?topic=vpc-imd-metadata-summary).
 
 The instance metadata service has two components:
 
@@ -50,7 +50,7 @@ The instance metadata service has two components:
 ### Limitations
 {: imd-limitations}
 
-By default, the metadata service is enabled when your account is added to the allow list to preview this feature. If you want to disable the service, you must disable it from an account not on the allow list. For information about disabling the metadata service from the VPC UI, CLI, or API, see [Enable or disable the metadata service](/docs/vpc?topic=vpc-imd-configure-service#imd-metadata-service-enable).
+You can enable the metadata service when you create a new instance and your account is added to the allow list to preview this feature. For information about enabling or disabling the metadata service, see [Enable or disable the metadata service](/docs/vpc?topic=vpc-imd-configure-service#imd-metadata-service-enable).
 
 ### Instance identity token service
 {: #imd-vpc-access-token}
@@ -67,9 +67,9 @@ Beta users must migrate to the latest metadata service API to generate an IAM to
 ### Metadata service
 {: #imd-service}
 
-You configure the metadata service and enable it on an instance to retrieve data about the instance. Use this information to configure and launch new instances.The metadata service is enabled by default on new instances you create in the allow-listed account.
+You can enable the metadata service on all new instances in allow-listed accounts to retrieve data about the instance. Use this information to configure and launch new instances.
 
-Metadata is obtained by calling REST APIs that provide instance-specific information when you make `GET` calls endpoints accessible within a running virtual server instance. For example, you can retrieve metadata about instances, keys, and placement groups by making a call to the following endpoints:
+Metadata is obtained by calling REST APIs that provide instance-specific information. You make `GET` calls to endpoints accessible within a running virtual server instance. You can retrieve metadata about instances, keys, and placement groups by making calls invoke a well-known, non-routable IP address:
 
 * `http://169.254.169.254/metadata/v1/instance`
 * `http://169.254.169.254/metadata/v1/keys`
@@ -77,13 +77,21 @@ Metadata is obtained by calling REST APIs that provide instance-specific informa
 
 For a list of all endpoints you can use to access instance metadata, see [Summary of data returned by the metadata service](/docs/vpc?topic=vpc-imd-metadata-summary).
 
-You [enable the metadata service](/docs/vpc?topic=vpc-imd-get-metadata#imd-metadata-service-enable) by setting a toggle in the VPC UI, CLI, or API when creating a new instance or updating an existing instance. 
+You [enable the metadata service](/docs/vpc?topic=vpc-imd-get-metadata#imd-metadata-service-enable) by setting a toggle in the VPC UI, CLI, or API when creating a new instance or updating an existing instance.
 
 The metadata service intercepts all requests to the service's IP and then routes them to the specific services to handle these requests. As part of the request to the metadata service, you include the instance identity access token.
 
+#### Compute resource identities
+{: #imd-comp-res-identity}
+
 Through IAM, you can also assign access rights to instances by creating a [compute resource identity](/docs/vpc?topic=vpc-imd-trusted-profile-metadata), and then configure access rights to IBM-enabled services using that identity.
 
-The metadata you access from the instance includes _user data_. This is the same user data available from cloud-init for VPC instances; data you specified when provisioning the instance that is available when provisioning new instances. For example,information to load database software, custom software for worker nodes, or information to make decisions about how to initialize the instance. For more information, see [User data](/docs/vpc?topic=vpc-user-data).
+The compute resource identity service creates a trusted profile, against which you assign access rights to enable the instance to call IAM-enabled services, such as Cloud Object Storage and Key Protect. You create a trusted profile within the virtual server instance. Trusted profiles define authorization for all applications running on the instance.
+
+#### User data
+{: #imd-user-data}
+
+The metadata you access from the instance includes _user data_. This is data you specified when provisioning the instance that is available when provisioning new instances. (It's the same user data available from cloud-init for VPC instances.) For example, information to load database software, custom software for worker nodes, or information to make decisions about how to initialize the instance are provided in user data. For more information, see this topic on [User data](/docs/vpc?topic=vpc-user-data).
 
 The metadata you access from within the instance is not protected by any encryption method. Any user with access to the instance and metadata service can potentially see the metadata. As a precaution, do not store sensitive data, such as passwords or customer encryption keys, as user data.
 {: important}

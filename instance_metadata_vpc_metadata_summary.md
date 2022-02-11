@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-11-02"
+  years: 2021, 2022
+lastupdated: "2022-01-28"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -66,7 +66,8 @@ Use the information in the Table 1 to understand the type of metadata returned f
 | /instance	| total_network_bandwidth | The amount of bandwidth in megabits per second that is allocated exclusively to instance network interfaces. |
 | /instance	| total_volume_bandwidth | The amount of bandwidth in megabits per second allocated exclusively to the instance's block storage volumes. Incrreasing this value results in a corresponding decrease to total_network_bandwidth. |
 | /instance	| vcpu | The number of VCPUs assigned by way of a structure that includes count and architecture properties. |
-| /instance	| volume_attachments | A list of the virtual server instance's volume attachments, including the boot volume attachment. |
+| /instance	| volume_attachments | A list of the virtual server instance's volume attachments. |
+| /instance | boot_volume_attachment | Instance's boot volume attachment. |
 | /instance	| vpc |	The VPC in which the virtual server instance resides. |
 | /instance	| zone | The globally unique name for the zone. |
 | /instance_initialization | default_trusted_profile | The default trusted profile configuration specified at virtual server instance creation. |
@@ -95,7 +96,7 @@ Use the information in the Table 1 to understand the type of metadata returned f
 | /instance/volume_attachments/{id}	| status | The status of the volume attachment: attached, attaching, deleting, or detaching. |
 | /instance/volume_attachments/{id}	| type | The type of volume attachment, boot or data. |
 | /instance/volume_attachments/{id}	| volume | The attached volume, which contains the CRN, ID, name, and `deleted` value, when the volume is deleted. |
-{: caption="Table 1. Metadata for an instance" caption-side="top"}
+{: caption="Table 1. Metadata for an instance" caption-side="bottom"}
 
 ## Summary of metadata for SSH keys
 {: #imd-sshkeys-summary}
@@ -113,7 +114,7 @@ Use the information in the Table 2 to understand the type of metadata returned f
 | /keys/{id} | name	| The unique user-defined name for this key. If unspecified, the name will be a hyphenated list of randomly selected words (for example, "elderly-mountain-troup-opponent".) |
 public_key | The public SSH key. |
 | /keys/{id} | type | The crypto-system used by this key. |
-{: caption="Table 2. Metadata for SSH keys" caption-side="top"}
+{: caption="Table 2. Metadata for SSH keys" caption-side="bottom"}
 
 
 ## Summary of metadata for placement groups
@@ -131,7 +132,7 @@ Use the information in the Table 3 to understand the type of metadata returned f
 | /placement_groups/{id} | name | The user-defined name for the placement group. |
 | /placement_groups/{id} | resource_type | The resource type. |
 | /placement_groups/{id} | strategy | The strategy for this placement group. |
-{: caption="Table 3. Metadata for placement groups" caption-side="top"}
+{: caption="Table 3. Metadata for placement groups" caption-side="bottom"}
 
 ## Next steps
 {: #imd-summary-next-steps}

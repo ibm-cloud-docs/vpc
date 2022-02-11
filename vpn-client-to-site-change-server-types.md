@@ -112,7 +112,7 @@ To upgrade to an HA VPN server by using the API, follow these steps:
 
    Save the ID of the VPN server in a variable so that you can use it later, for example:
 
-   ```
+   ```bash
    VpnServer="r134-cb67562d-626c-488d-8c56-35879e238274"
    ```
    {: pre}

@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating an {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}}
 {: #load-balancer}
 
-You can create an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) to distribute inbound traffic across multiple instances.
+You can create an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) to distribute inbound traffic across multiple instances. IBM supports VSI and Bare Metal members. PowerVS will be supported soon.
 {: shortdesc}
 
 ## Creating an application load balancer using the UI

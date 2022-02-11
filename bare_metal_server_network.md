@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2021-01-21"
+lastupdated: "2021-02-09"
 
 keywords: bare metal server network, bare metal network, nics, pci, vlan, network overview
 
@@ -122,11 +122,9 @@ Before you create a server and vmKernel in vSphere, you must create the VLAN int
 
    For example, on a bare metal server host, the default Standard vSwitch is `vSwitch0`. You can create a Port Group with VLAN ID `111` and add it to `vSwitch0`. Traffic between network interfaces that is attached to Port Group `111` is controlled by `vSwitch0`.
 
-   This setting has the following consequences:
+   This setting has the following consequence:
    
    - Security Group rules that control traffic between the network interfaces in Port Group `111` aren't applied. If you need Security Group rules, you need to use separate VLAN IDs for the VLAN interfaces.
-   
-   - Traffic between a VLAN interface without a floating IP and one with a floating IP can fail. In the previous example, you create two VMs in Port Group `111`, VM1 and VM2. VM1 has an associated floating IP and VM2 doesn't. You can't access VM1 through its floating IP from VM2. To resolve this limitation, you can access VM1 through its private IP from VM2. Alternatively, you can use separate VLAN IDs for the VLAN interfaces.
 
 3. In a distributed vSwitch topology, to enable vMotion in a specific port group, you need to make sure that the VLAN ID of this port group is included in the VLAN allowlist of all the bare metal servers.
 

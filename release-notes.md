@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-01-31"
+lastupdated: "2022-02-11"
 
 keywords: VPC release notes
 
@@ -37,12 +37,29 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 ## February 2022
 {: #subcollection-feb22}
 
-### 2 February 2022
-{: #subcollection-feb222}
+### 11 February 2022
+{: #subcollection-feb1122}
 {: release-note}
 
 **Maximum bandwidth for each vNIC is increased**
 :   The maximum bandwidth for a vNIC is now 25 Gbps instead of the previous 16 Gbps to 25 Gbps. For more information, see [Optimizing network bandwidth allocation for profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles#network-perf-notes-for-profiles).   
+
+### 10 February 2022
+{: #subcollection-feb1022}
+{: release-note}
+
+**Block storage attachments**
+:    Limits on the number of block storage data volumes you can attach to an instance were amended. Previously, instances created from smaller vCPU profiles could only attach up to four data volumes. These limits are removed. For all instances, you can attach up to 12 block storage data volumes.
+
+### 08 February 2022
+{: #subcollection-feb0822}
+{: release-note}
+
+**Port ranges for public network load balancers**
+:    When [creating a public network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer&interface=api), you can now specify a range of listener ports.
+
+**Bare Metal server support for application load balancers**
+:    Bare Metal server members are now supported on application load balancers. See [Load balancers for VPC overview](/docs/vpc?topic=vpc-nlb-vs-elb&interface=ui) for more information.
 
 ## January 2022
 {: #subcollection-jan22}
@@ -53,7 +70,6 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 
 **Bare Metal Servers for VPC** 
 :    Bare Metal Servers for VPC is generally available (GA). For more information about bare metal servers, see [About Bare Metal Servers for VPC](/docs/vpc?topic=vpc-about-bare-metal-servers).
-
 
 ### 25 January 2022
 {: #subcollection-jan2522}

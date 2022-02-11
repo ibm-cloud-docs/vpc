@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-11-02"
+  years: 2022
+lastupdated: "2022-01-21"
 
 subcollection: vpc
 
@@ -30,7 +30,7 @@ This service is available only to accounts with special approval to use this ser
 {: #faq-rmds-1}
 {: faq}
 
-The instance metadata service is free service that uses a REST API that you invoke to get information about your running virtual server instance. Before you can access the metadata, the service lets you generate an access token, which is an instance identity token providing access to the metadata service. You can optionally exchange this token for an IAM token to access all IAM-enabled services. 
+The instance metadata service is free service that uses a REST API that you invoke to get information about your running virtual server instance. Before you can access the metadata, the service lets you generate an instance identity access token, for accessing the metadata service. You can optionally generate an IAM token from this token to access all IAM-enabled services. 
 
 The metadata service uses well-known IP address to retrieve instance metadata such as the instance name, CRN, resource groups, user data, as well as SSH key and placement group information. Use the initialization metadata to configure and launch new instances. For more information, see [About Instance Metadata for VPC](/docs/vpc?topic=vpc-imd-about).
 
@@ -64,7 +64,7 @@ Make a `GET "http://169.254.169.254/metadata/v1/instance/initialization"` call t
 ## How do I enable the metadata service? Can I later disable it?
 {: #faq-rdms-6}
 
-The metadata service is enabled for instances and instance templates you create on accounts authorized to use the service. It's enabled by default when you use the UI, CLI, or API. You can disable the service from these interfaces. For more information, see [Enable or disable the instance metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=cli#imd-metadata-service-enable).
+The metadata service is disabled by default. You can enable it from the UI, CLI, or API on accounts authorized to use the service. For more information, see [Enable or disable the instance metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=cli#imd-metadata-service-enable).
 
 ## How secure is the metadata service? Are their additional security measures I need to take?
 {: #faq-rdms-7}
@@ -74,5 +74,10 @@ Metadata is retrieved only from the instance to which you have access. Data comm
 ## What is a compute resource identity and how does it relate to the metadata service?
 {: #faq-rdms-9}
 
-Compute resource identities assign an IBM Cloud IAM identity to an individual compute resource. Instead of having to create a service ID, generate an API key, get the application to store and validate that key, you can assign IAM identity directly to the instance and acquire access tokens. The compute resource identity service creates IAM object called a _trusted profile_, against which you assign access rights to enable the instance to call IAM-enabled service. Use the trusted profile when accessing the instance metadata service. For more information, see [Using a trusted profile to call IAM-enabled services](/docs/vpc?topic=vpc-imd-trusted-profile-metadata).
+Compute resource identities assign an IBM Cloud IAM identity to an individual compute resource. Instead of having to create a service ID, generate an API key, get the application to store and validate that key, you can assign IAM identity directly to the instance and acquire access tokens. 
+
+## What is a trusted profile?
+{: faq-rdms-trusted-profile}
+
+A trusted profile is an IAM object created by the compute resource identity service, against which you assign access rights to enable the instance to call IAM-enabled service. You can use a trusted profile when accessing the instance metadata service. For more information, see [Using a trusted profile to call IAM-enabled services](/docs/vpc?topic=vpc-imd-trusted-profile-metadata).
 

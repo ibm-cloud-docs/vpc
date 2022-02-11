@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-09-01"
+  years: 2018, 2022
+lastupdated: "2022-02-02"
 
 keywords: instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, creating, CLI, command line interface, generation 2, gen 2, placement groups
 
@@ -57,7 +57,8 @@ Gather the following information:
 | Subnet                | `ibmcloud is subnets`           |
 | Zone                  | `ibmcloud is zones`             |  
 | Placement groups      | `ibmcloud is placement-groups`  |
-{: caption="Table 1. Required instance details" caption-side="top"}   
+| Manufacturer          | 'Intel'                         |
+{: caption="Table 1. Required instance details" caption-side="bottom"}   
 
 Use the following commands to determine the required information for creating a new instance.
 
@@ -128,15 +129,31 @@ Use the following commands to determine the required information for creating a 
 
    For this example, you'd see a response similar to the following output:
    ```
-   Name             Architecture   Family              vCPUs   Memory(GiB)   Network(Gbps)   GPUs   Storage(GB)   
-   bx2-2x8          amd64          balanced            2       8             4               -      -
-   bx2d-2x8         amd64          balanced            2       8             4               -      1x75
-   bx2-4x16         amd64          balanced            4       16            8               -      -
-   cx2-16x32        amd64          compute             16      32            32              -      -
-   mx2-4x32         amd64          memory              4       32            8               -      -   
-   mx2d-4x32        amd64          memory              4       32            8               -      1x150
-   gx2-16x128x1v00  amd64          gpu-v100            16      128           32              1      -
-   gx2-16x128x2v00  amd64          gpu-v100            16      128           32              2      -     
+   Name            vCPU Manufacturer   Architecture   Family        vCPUs   Memory(GiB)   Bandwidth(Mbps)   Volume bandwidth(Mbps)   GPUs   Storage(GB)   
+   ba2-2x8         AMD                 amd64          balanced      2       8             4000              1000                     -      -   
+   bx2-2x8         Intel               amd64          balanced      2       8             4000              1000                     -      -   
+   bx2d-2x8        Intel               amd64          balanced      2       8             4000              1000                     -      1x75   
+   ba2-8x32        AMD                 amd64          balanced      8       32            16000             4000                     -      -   
+   bx2d-8x32       Intel               amd64          balanced      8       32            16000             4000                     -      2x300   
+   ba2-32x128      AMD                 amd64          balanced      32      128           64000             16000                    -      -   
+   ba2-48x192      AMD                 amd64          balanced      48      192           80000             20000                    -      -   
+   ca2-2x4         AMD                 amd64          compute       2       4             4000              1000                     -      -   
+   cx2-2x4         Intel               amd64          compute       2       4             4000              1000                     -      -   
+   cx2d-48x96      Intel               amd64          compute       48      96            80000             20000                    -      2x400   
+   ca2-4x8         AMD                 amd64          cpu           4       8             8000              2000                     -      -   
+   ca2-16x32       AMD                 amd64          cpu           16      32            32000             8000                     -      -   
+   ca2-32x64       AMD                 amd64          cpu           32      64            64000             16000                    -      -   
+   gp2-16x128x4    Intel               amd64          gpu           16      128           32000             8000                     4      -   
+   ux2d-104x2912   Intel               amd64          high-memory   104     2912          80000             20000                    -      1x3120   
+   ux2d-128x3584   Intel               amd64          high-memory   128     3584          80000             20000                    -      1x3584   
+   ma2-2x16        AMD                 amd64          memory        2       16            4000              1000                     -      -   
+   mx2-2x16        Intel               amd64          memory        2       16            4000              1000                     -      -   
+   mx2d-2x32       Intel               amd64          memory        2       32            4000              1000                     -      1x75   
+   ma2-4x32        AMD                 amd64          memory        4       32            8000              2000                     -      -   
+   ma2-8x64        AMD                 amd64          memory        8       64            16000             4000                     -      -   
+   ma2-16x128      AMD                 amd64          memory        16      128           32000             8000                     -      -   
+   ma2-32x256      Intel               amd64          memory        32      256           64000             16000                    -      -   
+   bz2-2x8         IBM                 s390x          balanced      2       8             4000              1000
    ```
    {: screen}
 
@@ -202,25 +219,27 @@ After you know these values, use them to run the `instance-create` command. In a
        <PROFILE_ID> \
        <SUBNET_ID> \
        --image-id <IMAGE_ID> \
-       --key-ids <KEY_IDS>
-       --volume-attach <VOLUME_ATTACH_JSON or JSON file>
-       --placement-group <PLACEMENT_GROUP_NAME>
+       --key-ids <KEY_IDS> \
+       --volume-attach <VOLUME_ATTACH_JSON or JSON file> \
+       --placement-group <PLACEMENT_GROUP_NAME> \
+       --metadata-service <false | true>
    ```
    {: pre}
 
    For example, if you create an instance that is called _my-instance_ in _us-south-1_ and use the _b-2x4_ profile, your `instance-create` command would look similar to the following sample:
 
    ```
-   ibmcloud is instance-create \
-       my-instance \
-       0738-xxx1xx23-4xx5-6789-12x3-456xx7xx123x \
-       us-south-1 \
-       b-2x4 \
-       0738-1234x12x-345x-1x23-45x6-x7x891011x1x \
-       --image-id 1xx2x34x-5678-12x3-x4xx-567x81234567 \
-       --key-ids 1234xxxx-x12x-xxxx-34xx-xx1234xxxxxx
-       --volume-attach @/Users/myname/myvolume-attachment_create.json
-       --placement-group r134-a812ff17-cac5-4e20-8d2b-95b587be6637
+   ibmcloud is instance-create\
+       my-instance\
+       0738-xxx1xx23-4xx5-6789-12x3-456xx7xx123x\
+       us-south-1\
+       b-2x4\
+       0738-1234x12x-345x-1x23-45x6-x7x891011x1x\
+       --image-id 1xx2x34x-5678-12x3-x4xx-567x81234567\
+       --key-ids 1234xxxx-x12x-xxxx-34xx-xx1234xxxxxx\
+       --volume-attach @/Users/myname/myvolume-attachment_create.json\
+       --placement-group r134-a812ff17-cac5-4e20-8d2b-95b587be6637\
+       --metadata-service true
    ```
    {: screen}
 
@@ -234,6 +253,7 @@ After you know these values, use them to run the `instance-create` command. In a
    - `KEY_IDS` is _KEY_ID1, KEY_ID2, ..._
    - `VOLUME_ATTACH_JSON` is the volume attachment specification in JSON format, provided in the command or as a file. For an example volume attachment JSON file, see [Create a volume attachment JSON](/docs/vpc?topic=vpc-attaching-block-storage&interface=cli#volume_attachment_json).
    - `PLACEMENT_GROUP_ID` is _r134-a812ff17-cac5-4e20-8d2b-95b587be6637
+   - `METADATA-SERVICE` is set to `true` to enable it. By default, it is disabled and set to `false`.
 
    For this example, you'd see the following responses. **Note:** The following response varies depending on what optional values you use.
    ```
@@ -253,6 +273,7 @@ After you know these values, use them to run the `instance-create` command. In a
 
    Zone                         us-south-1
    Resource group               Default
+   Metadata service enabled     true
    Created                      2020-08-24T20:25:50+08:00
    Boot volume                  ID   Name           Attachment ID                               Attachment name
                                 -    PROVISIONING   0736-76436447-3262-4b3d-8b42-aa3fbb5927f6   volume-attachment
@@ -294,6 +315,7 @@ After you know these values, use them to run the `instance-create` command. In a
 
    Zone                         us-south-1
    Resource group               Default
+   Metadata service enabled     true   
    Created                      2020-08-24T20:25:50+08:00
    Network Interfaces           Interface   Name      ID                                          Subnet      Subnet ID                                       Private IP     Floating IP   Security Groups
                                 Primary     primary   0738-xx12x345-6xxx-7x89-123x-4x5xxx678x9x   my-subnet   0736-a50f4dbb-d374-492f-a8bf-877b4cbd8921   10.240.128.5   -             ajar-arrive-urging-daylong    

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-10-15"
+  years: 2018, 2022
+lastupdated: "2022-02-07"
 
 keywords: quotas, resources, limits
 
@@ -140,8 +140,6 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 |--------|-----|
 | Boot and secondary volumes | 300 total VPC volumes per account in a region |
 {: caption="Table 9. Quotas for block storage volumes" caption-side="top"}
-
-You can increase this quota by opening a [support case](/docs/vpc?topic=vpc-getting-help). Make sure that you specify which zone that you need more volumes. Use can use the [support form](/docs/get-support?topic=get-support-using-avatar).
 
 If you already have block storage volumes for Classic instances, you are limited to 300 total volumes for Classic and VPC. For example, if you have 200 Classic block storage volumes, you can request 100 VPC block storage volumes for a total of 300.
 {: note}

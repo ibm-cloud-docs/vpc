@@ -18,13 +18,13 @@ subcollection: vpc
 {{site.data.keyword.cloud_notm}} provides two families of load balancers for VPC, {{site.data.keyword.alb_full}} (ALB) and {{site.data.keyword.nlb_full}} (NLB). There are several differences between the two that you should be aware of when choosing a load balancer.
 {: shortdesc}
 
-{{site.data.keyword.cloud_notm}} provides public- and private-facing application load balancers. An application load balancer provides layer 7 and layer 4 load balancing on {{site.data.keyword.cloud_notm}} and supports SSL offloading. The incoming and outgoing packets flow through the load balancer.
+{{site.data.keyword.cloud_notm}} provides public- and private-facing application load balancers. An application load balancer provides layer 7 and layer 4 load balancing on {{site.data.keyword.cloud_notm}} and supports SSL offloading. All incoming and outgoing packets flow through the load balancer. 
 
-In contrast, a network load balancer provides only layer 4 load balancing on {{site.data.keyword.cloud_notm}}, and does not support SSL offloading. The client sends public network traffic to the network load balancer, which forwards it to target virtual machines (VMs). Then, the target VMs respond directly to the client by using Direct Server Return (DSR).
+Application load balancers are primarily intended for layer 7 web-based workloads, which can be run on virtual servers on VPC or bare metal servers on VPC. In contrast, a network load balancer provides only layer 4 load balancing on {{site.data.keyword.cloud_notm}}, and does not support SSL offloading. The client sends public network traffic to the network load balancer, which forwards it to target virtual servers. Then, the target virtual servers respond directly to the client by using Direct Server Return (DSR). Network load balancers are primarily intended for workloads that require low latency and high data throughput.
 
 This gives network load balancers an advantage over application load balancers by enhancing performance in the following ways:
 
-* The return traffic from the target VMs bypasses the network load balancer and responds directly to the client.
+* The return traffic from the target servers bypasses the network load balancer and responds directly to the client.
 * The network load balancer is only required to process incoming traffic, which allows it to be a fast distributor of traffic/load.
 * The network load balancer has a single highly available VIP that can be used directly, instead of through the assigned fully qualified domain name (FQDN). This helps clients that must use an IP to access the application/service served by the load balancer. It also helps with faster recovery in the event of failures compared to a DNS-based availability that the application load balancer uses.
 
@@ -43,7 +43,9 @@ The following table provides a comparison of the types of load balancers.
 | Transport layer             |   Layer 4  | Layer 4, Layer 7 |
 | Types of load balancers |  Public and private | Public and private |
 | Virtual IP Address (VIP)   |  Single    | Multiple |
-| Routing mode for VNFs   | Yes (see [About HA VNF deployments](/docs/vpc?topic=vpc-about-vnf-ha)) | No |
+| Route mode for VNFs   | Yes (see [Setting up high availability for Virtual Network Functions (VNF)](/docs/vpc?topic=vpc-about-vnf)) | No |
+| Virtual Servers on VPC   |  Yes    | Yes |
+| Bare Metal Servers on VPC   |  No    | Yes |
 {: caption="Table 1. Comparison of network and application load balancers" caption-side="bottom"}
 
 ## High Availability mode

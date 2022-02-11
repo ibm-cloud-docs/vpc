@@ -56,7 +56,7 @@ Note the following:
 If you plan to use default security groups for new endpoint gateways, review your default security group rules. If necessary, edit the rules to accommodate your endpoint gateway traffic.
 {: tip}   
 
-#### Security group example 
+### Security group example 
 {: #security-group-example}
 
 For example, configure the following inbound rule, which allows all traffic on port 80 for an HTTP listener (TCP port 80).
