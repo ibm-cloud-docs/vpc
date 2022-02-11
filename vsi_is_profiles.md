@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-02-09"
+lastupdated: "2022-02-11"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, generation 2, gen 2
 
@@ -416,15 +416,6 @@ When you create secondary data volumes, you select a volume profile that best me
 * A [3 IOPS general-purpose tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers) provides IOPS/GB performance suitable for a virtual server instance Balanced profile.
 * A [5-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance suitable for a virtual server instance Compute profile.
 * A [10-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance suitable for a virtual server instance Memory profile.
-
-## Network performance notes for profiles
-{: #network-perf-notes-for-profiles}
-
-Every profile has a maximum bandwidth cap of 80 Gbps. Network bandwidth is distributed evenly across network interfaces, and each network interface has a cap of 16 Gbps. You might need to attach multiple network interfaces to your virtual server instance to optimize network performance.
-
-For example, if you choose a profile with 16 vCPU, the bandwidth cap for the profile is 32 Gbps. The default network cap will be 24 Gbps, but can be adjusted up to a maximum of 31.5 Gbps. You need to attach more network interfaces (16 Gbps each) to reach the profile cap of 80 Gbps.
-
-The network bandwidth cap applies separately to egress (transmitted) and ingress (received) traffic. That is, even if an instance capped at 4 Gbps reaches its transmit cap of 4 Gbps, that does not impact its ability to receive up to its cap of 4 Gbps.
 
 ## Next steps
 {: nextsteps-profiles}

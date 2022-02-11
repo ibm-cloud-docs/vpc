@@ -5,7 +5,6 @@ copyright:
 
 lastupdated: "2022-02-11"
 
-
 keywords: VPC release notes
 
 subcollection: vpc
@@ -37,6 +36,13 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 
 ## February 2022
 {: #subcollection-feb22}
+
+### 11 February 2022
+{: #subcollection-feb1122}
+{: release-note}
+
+**Maximum bandwidth for each vNIC is increased**
+:   The maximum bandwidth for a vNIC is now 25 Gbps instead of the previous 16 Gbps to 25 Gbps. For more information, see [Optimizing network bandwidth allocation for profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles#network-perf-notes-for-profiles).   
 
 ### 10 February 2022
 {: #subcollection-feb1022}
