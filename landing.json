@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
-          "date": "31 January 2022",
-          "title": "Bare Metal Servers for VPC",
-          "description": "Bare Metal Servers for VPC is generally available (GA)."
+          "date": "10 February 2022",
+          "title": "Block storage attachments",
+          "description": "Limits on the number of block storage data volumes you can attach to an instance were amended. Previously, instances created from smaller vCPU profiles could only attach up to four data volumes. These limits are removed. For all instances, you can attach up to 12 block storage data volumes."
         },
         {
-          "date": "25 January 2022",
-          "title": "Security group support for Virtual Private Endpoint (VPE) gateways",
-          "description": "You can now attach security groups to your endpoint gateways and manage them for your application needs. Attach security groups when creating an endpoint gateway, or modify security groups bound to an endpoint gateway after provisioning."
+          "date": "08 February 2022",
+          "title": "Port ranges for public network load balancers",
+          "description": "When creating a public network load balancer, you can now specify a range of listener ports."
         },
         {
-          "date": "25 January 2022",
-          "title": "Update to Snapshots for VPC",
-          "description": "When you view details of a snapshot from the UI, CLI, or API, a new field shows when the snapshot was captured from the volume. This feature applies to snapshots created after January 2022."
+          "date": "08 February 2022",
+          "title": "Bare Metal server support for application load balancers",
+          "description": "Bare Metal server members are now supported on application load balancers."
         }
       ]
     }
