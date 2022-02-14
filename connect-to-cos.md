@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2019, 2020
-lastupdated: "2019-11-07"
+  years: 2019, 2022
+lastupdated: "2022-02-14"
 
 keywords: resource, storage, connection, COS, object, endpoints, cross-region, regional, datacenter
 
@@ -64,13 +64,16 @@ Buckets that are created at a regional endpoint distribute data across three dat
 
 | **Region** | **Endpoint** |
 |------------|-------------------------------|
-| U.S. South | `s3.direct.us-south.cloud-object-storage.appdomain.cloud`|
-| U.S. East | `s3.direct.us-east.cloud-object-storage.appdomain.cloud`|
-| E.U. United Kingdom | `s3.direct.eu-gb.cloud-object-storage.appdomain.cloud`|
-| E.U. Germany | `s3.direct.eu-de.cloud-object-storage.appdomain.cloud`|
-| A.P. Australia | `s3.direct.au-syd.cloud-object-storage.appdomain.cloud`
-| A.P. Japan | `s3.direct.jp-tok.cloud-object-storage.appdomain.cloud` |
-{: caption="Table 1. Regional endpoints" caption-side="top"}
+| US South | `s3.direct.us-south.cloud-object-storage.appdomain.cloud`|
+| US East | `s3.direct.us-east.cloud-object-storage.appdomain.cloud`|
+| United Kingdom | `s3.direct.eu-gb.cloud-object-storage.appdomain.cloud`|
+| EU - Germany | `s3.direct.eu-de.cloud-object-storage.appdomain.cloud`|
+| Sydney | `s3.direct.au-syd.cloud-object-storage.appdomain.cloud`
+| Tokyo | `s3.direct.jp-tok.cloud-object-storage.appdomain.cloud` |
+| Osaka | `s3.direct.jp-osa.cloud-object-storage.appdomain.cloud` |
+| Toronto | `s3.direct.ca-tor.cloud-object-storage.appdomain.cloud` |
+| São Paulo | `s3.direct.br-sao.cloud-object-storage.appdomain.cloud` |
+{: caption="Table 1. Regional endpoints" caption-side="bottom"}
 
 ### Cross-region endpoints
 {: #cross-region-endpoints}
