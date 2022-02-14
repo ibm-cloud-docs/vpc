@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-02-11"
+lastupdated: "2022-02-14"
 
 keywords: VPC release notes
 
@@ -36,6 +36,13 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 
 ## February 2022
 {: #subcollection-feb22}
+
+### 14 February 2022
+{: #subcollection-feb1422}
+{: release-note}
+
+**Snapshots for VPC** 
+:    The snapshots service is now integrated with the Security and Compliance Center to help you manage security and compliance for your organization. For information about this feature, see [Managing security and compliance](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-manage-security).
 
 ### 11 February 2022
 {: #subcollection-feb1122}
