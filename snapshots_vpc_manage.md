@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-01-17"
+lastupdated: "2022-02-14"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
@@ -367,6 +367,13 @@ The following example shows an event that was generated when you list snapshot d
 }
 ```
 {: screen}
+
+## Managing security and compliance
+{: #snapshots-vpc-manage-security}
+
+Snapshots for VPC is integrated with the Security and Compliance Center to help you manage security and compliance for your organization. For snapshots, you can set up a goal that checks whether snapshots are encrypted using customer-managed keys. By using the Security and Compliance Center to validate the snapshot resource configurations in your account against a profile, you can identify potential issues as they arise.
+
+Since snapshots are created from block storage volumes, Block Storage for VPC goals provide an additional level of security. For information about monitoring security and compliance for VPC, including snapshots and block storage volumes, see [Monitoring security and compliance posture with VPC](/docs/vpc?topic=vpc-manage-security-compliance#monitor-vpc). For information about creating security and compliance goals, see [Defining rules](/docs/security-compliance?topic=security-compliance-rules-define&interface=ui) in the Security and Compliance documentation.
 
 ## Next Steps
 {: #snapshots-vpc-manage-next-steps}

@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-09-23"
+  years: 2020, 2022
+lastupdated: "2022-02-14"
 
-keywords: security and compliance for vpc, security for vpc, compliance for vpc,
+keywords: security and compliance for vpc, security for vpc, compliance for vpc
 
 subcollection: vpc
 
@@ -94,6 +94,11 @@ To start monitoring your resources, check out [Getting started with {{site.data.
 * Check whether Block Storage for VPC is enabled with customer-managed encryption and Keep Your Own Key (KYOK)
 * Check whether Block Storage for VPC is enabled with customer-managed encryption and Bring Your Own Key (BYOK)
 * Check whether Block Storage for VPC is encrypted with customer-managed keys
+
+### Available goals for Snapshots
+{: #snapshots-available-goals}
+
+* Check whether Snapshots for VPC is encrypted with customer-managed keys
 
 ### Available goals for Virtual Servers
 {: #virtual-servers-available-goals}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-11-30"
+  years: 2021, 2022
+lastupdated: "2022-02-14"
 
 keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
@@ -46,8 +46,7 @@ Cost for snapshots is calculated based on GB capacity stored per month, unless t
 
 With IBM Cloud IAM, you can set up resource groups in your account to provide user-access to your snapshots. Your IAM role determines whether you can create and manage snapshots. For more information, see [IAM roles for creating and managing snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-iam).
 
-Before you take a snapshot, make sure that all cached data is present on disk - which applies to instances with Windows and Linux&reg; operating systems. For example, on Linux&reg; operating systems, run the `sync` command to force an immediate write of all cached data to disk.
-{: note}
+Snapshots for VPC is integrated with the Security and Compliance Center to help you manage security and compliance for your organization. For more information, see [Managing security and compliance](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-manage-security).
 
 ## How snapshots work
 {: #snapshots-vpc-operation}
@@ -59,6 +58,9 @@ Volume data that is retrieved for the requested snapshot is encrypted while in t
 The initial snapshot is the entire copy of your block storage volume. Subsequent snapshots copy only what was changed since the last snapshot.
 
 You restore a boot or data volume from a running virtual server instance in the UI, CLI, or API. Restoring a volume from a snapshot creates a new, fully provisioned volume. Restoring from a snapshot of a boot volume creates a new boot volume that you can use when you provision a new instance. Restoring from a snapshot of a data volume creates a secondary volume that is attached to the instance.
+
+Before you take a snapshot, make sure that all cached data is present on disk - which applies to instances with Windows and Linux&reg; operating systems. For example, on Linux&reg; operating systems, run the `sync` command to force an immediate write of all cached data to disk.
+{: note}
 
 ## Restrictions
 {: #snapshots-vpc-limitations}
