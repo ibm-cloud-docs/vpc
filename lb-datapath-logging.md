@@ -18,6 +18,9 @@ subcollection: vpc
 Data and health check logs are valuable for debugging and maintenance purposes. With the datapath logging feature enabled, {{site.data.keyword.vpc_full}} {{site.data.keyword.alb_full}} (ALB) forwards these logs to your account's [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/observe/logging){: external} dashboard.
 {: shortdesc}
 
+Data logging integration is currently being upgraded, and you will not be able to see your logs until this process completes. Please open a [support case](/docs/vpc?topic=vpc-getting-help) for more information on this issue.
+{: important}
+
 To enable or disable the datapath logging feature, you can:
 
 * Create a load balancer and enable or disable the toggle button.
