@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-02-08"
+lastupdated: "2022-02-15"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -47,6 +47,14 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 15 February 2022
+{: #15-february-2022}
+
+### For all version dates
+{: #15-february-2022-all-version-dates}
+
+**Resizable boot volumes.** You can now increase the capacity of a boot volume, up to 250 gigabytes (GB). When [creating an instance](/apidocs/vpc#create-instance) from an image or an [instance template](/apidocs/vpc#create-instance-template), you can specify a larger capacity than the image's `minimum_provisioned_size` default. Specify `capacity` in the `volume` sub-property of the `boot_volume_attachment` property.  You can also increase the size of an existing boot volume by specifying the `capacity` property when [updating the volume](/apidocs/vpc#update-volume).
 
 ## 8 February 2022
 {: #8-february-2022}
