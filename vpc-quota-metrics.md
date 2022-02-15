@@ -46,6 +46,7 @@ Resources that offer quota metrics, detailed in Table 1.
 <!--
 | `instance` | `instance-vcpu` | {region} | {account id} |
 | `instance` | `instance-memory` | {region} | {account id} |
+| `dedicated host` | `instance-vcpu` | {region} | {account id} |
 | `vpc` | `vpc` | {region} | {account id} |
 | `security-group` | `security-group` | {region} | {vpc id} |
 | `security-group` | `security-group-rule` | {region} | {security group id} |
