@@ -78,8 +78,12 @@ To start monitoring your resources, check out [Getting started with {{site.data.
 ### Available goals for VPN gateways
 {: #vpn-available-goals}
 
+* Check whether VPN for VPC has a Dead Peer Detection policy that is set to `restart`
+* Check whether VPN for VPC authentication is configured with a strong pre-shared key with at least 24 alphanumeric characters
+* Check whether VPN for VPC has an IPsec policy that does not have Perfect Forward Secrecy (PFS) disabled
 * Check whether VPN for VPC has IPsec policy authentication that is set to `sha256`
 * Check whether VPN for VPC has IPsec policy encryption that is not set to `triple_des`
+* Check whether VPN for VPC has a Diffie-Hellman group set to at least group #
 * Check whether VPN for VPC has Internet Key Exchange (IKE) policy authentication that is set to `sha256`
 * Check whether VPN for VPC has Internet Key Exchange (IKE) policy encryption that is not set to `triple_des`
 
@@ -95,6 +99,12 @@ To start monitoring your resources, check out [Getting started with {{site.data.
 {: #snapshots-available-goals}
 
 * Check whether Snapshots for VPC is encrypted with customer-managed keys
+
+### Available goals for File Storage
+{: #shares-available-goals}
+
+* Check whether File Storage for VPC is enabled with customer-managed encryption and Bring Your Own Key (BYOK).
+* Check whether File Storage for VPC is in a resource group other than _Default_.
 
 ### Available goals for Virtual Servers
 {: #virtual-servers-available-goals}

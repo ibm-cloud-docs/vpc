@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-12-31"
+  years: 2021, 2022
+lastupdated: "2022-02-15"
 
 keywords: file storage, virtual private cloud, file share
 
@@ -189,7 +189,7 @@ Make a `PATCH /shares/$share_id` call to rename a specific file share. For examp
 
 ```
 curl -X PATCH \
-"$vpc_api_endpoint/v1/shares/$share_id?version=2021-10-04&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id?version=2022-02-15&generation=2" \
   -H "Authorization: Bearer ${API_TOKEN}" \
   -d '{
     "name": "share-renamed1"
@@ -201,7 +201,7 @@ A successful response will look like this:
 
 ```json
 {
-  "created_at": "2021-10-07T23:31:59Z",
+  "created_at": "2022-02-15T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8",
@@ -238,7 +238,7 @@ Make a `POST /shares/{share_ID}/targets` call to create a mount target for an ex
 
 ```curl
 curl -X POST \
-"$rias_endpoint/v1/shares/$share_id/targets?version=2021-10-04&generation=2\
+"$rias_endpoint/v1/shares/$share_id/targets?version=2022-02-15&generation=2\
 -H "Authorization: $iam_token" \
 -H 'Content-Type: application/json' \
 -d '{
@@ -254,7 +254,7 @@ A successful response will look like this:
 
 ```json
 {
-  "created_at": "2021-10-07T23:31:59Z",
+  "created_at": "2022-02-15T23:31:59Z",
   "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "lifecycle_state": "pending",
@@ -279,7 +279,7 @@ Make a `PATCH /shares/$share_id/targets/$target_id` call to rename a mount targe
 
 ```curl
 curl -X PATCH \
-"$vpc_api_endpoint/v1/shares/$share_id/targets/$target_id?version=2021-10-04&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id/targets/$target_id?version=2022-02-15&generation=2" \
   -H "Authorization: Bearer ${API_TOKEN}" \
   -d '{
     "name": "target-renamed1"
@@ -291,7 +291,7 @@ A successful response will look like this:
 
 ```json
 {
-  "created_at": "2021-10-07T23:31:59Z",
+  "created_at": "2022-02-15T23:31:59Z",
   "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "lifecycle_state": "stable",
@@ -318,7 +318,7 @@ For example:
 
 ```
 curl -X DELETE \
-"$vpc_api_endpoint/v1/shares/$share_id/targets/$target_id?version=2021-10-04&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id/targets/$target_id?version=2022-02-15&generation=2" \
   -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: pre}
@@ -329,7 +329,7 @@ For example:
 
 ```json
 {
-  "created_at": "2021-10-07T23:31:59Z",
+  "created_at": "2022-02-15T23:31:59Z",
   "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "lifecycle_state": "pending_deletion",
@@ -358,7 +358,7 @@ For example:
 
 ```
 curl -X DELETE \
-"$vpc_api_endpoint/v1/shares/$share_id?version=2021-10-04&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id?version=02-02-15&generation=2" \
   -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: pre}
@@ -369,7 +369,7 @@ For example:
 
 ```json
 {
-  "created_at": "2021-10-07T23:31:59Z",
+  "created_at": "2022-02-15T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8",
@@ -451,6 +451,13 @@ Table 1 describes the states in the file share lifecycle.
 | Deleting | The file share or mount target being deleted. |
 | Deleted | The file share or mount target has been deleted. |
 {: caption="Table 2. File storage lifecycle states" caption-side="top"}
+
+## Managing security and compliance
+{: #fs-vpc-manage-security}
+
+File Storage for VPC is integrated with the Security and Compliance Center to help you manage security and compliance for your organization. You can set up goals that check whether file shares are encrypted using customer-managed keys. By using the Security and Compliance Center to validate the file service configurations in your account against a profile, you can identify potential issues as they arise.
+
+For information about monitoring security and compliance for VPC, see [Monitoring security and compliance posture with VPC](/docs/vpc?topic=vpc-manage-security-compliance#monitor-vpc). For information about creating security and compliance goals, see [Defining rules](/docs/security-compliance?topic=security-compliance-rules-define&interface=ui) in the Security and Compliance documentation.
 
 ## Next steps
 {: #fs-manage-next-steps}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-12-31"
+  years: 2021, 2022
+lastupdated: "2022-02-15"
 
 keywords: virtual private cloud, file storage, file share, mount point
 
@@ -38,6 +38,8 @@ File Storage for VPC provides file shares within the bounds of a VPC. You create
 You pay for only the capacity you need. File share capacity ranges from 10 GB up to 32,000 GB for all available profiles.
 
 File share data is encrypted by default with IBM-managed encryption for data-at-rest. For added security, you can also use your own root keys to protect your file shares. For more information, see [File share encryption](#FS-encryption).
+
+File Storage for VPC is integrated with the Security and Compliance Center to help you manage security and compliance for your organization. For more information, see [Managing security and compliance](/docs/vpc?topic=vpc-file-storage-managing#fs-vpc-manage-security).
 
 ### File storage IOPS profiles
 {: #fs-profiles-intro}
