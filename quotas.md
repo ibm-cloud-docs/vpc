@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-02-15"
 
 keywords: quotas, resources, limits
 
@@ -51,6 +51,9 @@ To increase a quota for a particular resource, [contact support](https://{Domain
 When you provision virtual server instances and dedicated hosts, the vCPU associated with these resources counts toward the vCPU quotas per region. Instances that are provisioned on dedicated hosts do not count against the vCPU quota.
 
 When you provision virtual server instances, the RAM and instance storage, along with vCPU, that is associated with the instances count toward the vCPU, RAM, and instance storage quotas per region.
+
+Bare metal servers use physical cores and don't count toward your vCPU quota.
+{: note}
 
 ### VPCs
 {: #vpc-quotas}
