@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-21"
+lastupdated: "2022-02-07"
 
 keywords: auto scale, autoscale, virtual server instance, creating, UI, console, instance group
 
@@ -101,7 +101,7 @@ To create an instance template, complete the following steps.
 | Metadata | Disabled by default, lets instances created from this template gather metadata about itself. Click the toggle to turn the metadata service on. For more information, see [About Instance Metadata for VPC](/docs/vpc?topic=vpc-imd-about). |
 | User data | You can add user data that automatically performs common configuration tasks or runs scripts. For more information, see [User data](/docs/vpc?topic=vpc-user-data). |
 | Placement group | Select a placement group for the instance. If you add a placement group, the instance is placed according to the placement group strategy. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc). |
-| Boot volume | The default boot volume size for all profiles is 100 GB. |
+| Boot volume | The default boot volume size for all profiles is 100 GB. You can specify a larger boot volume capacity, up to 250 GB, depending on what the image allows. |
 | Data volumes | You can add one or more secondary data volumes to be included when you provision the instance. To add volumes, click **New volume**. |
 | Virtual private cloud | Specify the IBM Cloud VPC where you want to create your instance. You can use an existing VPC or you can create a new VPC. To create a new VPC, click **New VPC**. |
 | Network interfaces | Defines the networking connection into the IBM Cloud VPC.  |

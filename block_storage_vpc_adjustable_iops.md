@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-01-12"
+lastupdated: "2022-02-08"
 
 keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, iops
 
@@ -25,7 +25,7 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Adjusting IOPS for block storage volumes
+# Adjusting block storage volume IOPS
 {: #adjusting-volume-iops}
 
 For {{site.data.keyword.block_storage_is_short}} volumes attached to a virtual server instance, you can increase or decrease IOPS to meet your performance needs. Adjust IOPs by specifying a different IOPS tier profile or different IOPS value withing a custom IOPS band. There's no outage or lack of access to the storage while adjusting IOPS.
@@ -275,7 +275,7 @@ curl -X PATCH \
 ## Next steps
 {: #next-step-adjustable-iops}
 
-Create more volumes or manage your existing block storage volumes. See this information:
+Create more volumes or manage your existing block storage volumes:
 
 * [Creating block storage volumes by using the UI](/docs/vpc?topic=vpc-creating-block-storage)
 * [Managing block storage volumes by using the UI](/docs/vpc?topic=vpc-managing-block-storage)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-02-02"
+lastupdated: "2022-02-04"
 
 keywords: instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, creating, UI, console, generation 2, gen 2, metadata
 
@@ -56,8 +56,10 @@ To create a virtual server instance:
 | | For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | User data | You can add user data that automatically performs common configuration tasks or runs scripts. For more information, see [User data](/docs/vpc?topic=vpc-user-data). |
 | Metadata | Disabled by default; click the toggle to enable. This setting informs the instance to collect the instance's configuration information and user data. For more information, see [About Instance Metadata for VPC](/docs/vpc?topic=vpc-imd-about). |
+| Host failure auto restart | Set the host failure recovery policy for your instance. For more information, see [Host failure recovery policys](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui). |
 | Trusted profiles (optional) | If you created trusted profiles, you can select one and link it to this instance. Click **Select a trusted profile**. In the side panel, select a trusted profile and click **Select trusted profile** to link it to the instance. A message displays if none exist or if you don't have access to link it. For information about creating a trusted profile, see [Create a trusted profile](/docs/account?topic=account-trustedprofile-compute-tutorial#trusted-profile-compute-create). For aquiring access, see [IAM authorizations for linking trusted profiles](/docs/vpc?topic=vpc-imd-trusted-profile-metadata&interface=ui#imd-iam-auth). |
-| Boot volume | The default boot volume size for all profiles is 100 GB. If you are importing a custom image, the boot volume capacity can be 10 GB to 250GB, depending on what the image requires. Specify a larger boot volume size if required. (Images smaller than 10 GB are rounded up to 10 GB.) |
+| Boot volume | The default boot volume size for all profiles is 100 GB. If you are importing a custom image, the boot volume capacity can be 10 GB to 250GB, depending on what the image requires. (Images smaller than 10 GB are rounded up to 10 GB.) | 
+| |You can increase the size of the boot volume up to 250 GB by clicking the **Size** pencil icon. In the side panel, increase the boot volume size in the **Create size** field. The size must be more than the current size up to 250 GB. |
 | Data volumes | You can add one or more secondary data volumes to be included when you provision the instance. To add volumes, click **Create** in the Data volumes section of the page. For more information about provisioning the volume, see [Create and attach a block storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi). |
 | Virtual private cloud | Specify the IBM Cloud VPC where you want to create your instance. You can use the default VPC, another existing VPC, or you can create a new VPC. To create a new VPC, click **New VPC**. |
 | Network interfaces | By default the virtual server instance is created with a single primary network interface. You can click the pencil icon to edit the details of the network interface, for example, the subnet or security group that's associated with the interface. To include extra secondary network interfaces, click **New interface**. You can create and assign up to five network interfaces to each instance. For more information, see [About network interfaces](/docs/vpc?topic=vpc-using-instance-vnics#about-network-interfaces). |
