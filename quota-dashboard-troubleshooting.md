@@ -2,7 +2,7 @@
 
 copyright:
   years:  2021, 2022
-lastupdated: "2022-01-20"
+lastupdated: "2022-02-15"
 
 keywords: IBM Cloud monitoring, platform metrics, metrics, vpc metrics, vpc monitoring metrics, quota
 
@@ -76,18 +76,18 @@ Creating or deleting one of the following resources sends metric events for the 
 - security-group-rule
    - [About security groups](/docs/vpc?topic=vpc-using-security-groups&interface=ui). -->
 
-<!--### Create, delete, or resize an instance
-{: update-instance}-->
+### Create, delete, or resize an instance
+{: update-instance}
 
 <!--Creating, deleting, or resizing a virtual server instance sends metric events for the following quota resource names.-->
 
-<!-- instance-vcpu
-- instance-memory-->
+- instance-vcpu
+- instance-memory
 
-<!--For more information, see:
+For more information, see:
    - [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers) or [Creating virtual server instances by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli).
    - [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui).
-   - [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance&interface=ui).-->
+   - [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance&interface=ui).
 
 <!--### Create or delete a dedicated host
 {: create-delete-dedicated-host}-->
