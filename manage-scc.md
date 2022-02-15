@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-14"
+lastupdated: "2022-02-15"
 
 keywords: security and compliance for vpc, security for vpc, compliance for vpc
 
@@ -78,12 +78,8 @@ To start monitoring your resources, check out [Getting started with {{site.data.
 ### Available goals for VPN gateways
 {: #vpn-available-goals}
 
-* Check whether VPN for VPC has a Dead Peer Detection policy that is set to `restart`
-* Check whether VPN for VPC authentication is configured with a strong pre-shared key with at least 24 alphanumeric characters
-* Check whether VPN for VPC has an IPsec policy that does not have Perfect Forward Secrecy (PFS) disabled
 * Check whether VPN for VPC has IPsec policy authentication that is set to `sha256`
 * Check whether VPN for VPC has IPsec policy encryption that is not set to `triple_des`
-* Check whether VPN for VPC has a Diffie-Hellman group set to at least group #
 * Check whether VPN for VPC has Internet Key Exchange (IKE) policy authentication that is set to `sha256`
 * Check whether VPN for VPC has Internet Key Exchange (IKE) policy encryption that is not set to `triple_des`
 
