@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-02-14"
+lastupdated: "2022-02-15"
 
 keywords: VPC release notes
 
@@ -36,6 +36,16 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 
 ## February 2022
 {: #subcollection-feb22}
+
+### 15 February 2022
+{: #subcollection-feb1522}
+{: release-note}
+
+**Resizable boot volumes** 
+:    You can now increase the capacity of a boot volume, up to 250 gigabytes (GB), when creating an instance from an image or instance template. You can also directly update an existing boot volume to increase its capacity. For more information, see [Increasing boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes).
+
+**File Storage for VPC** 
+:    The file service is now integrated with the Security and Compliance Center to help you manage security and compliance for your organization. For information about this feature, see [Managing security and compliance](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-vpc-manage-security).
 
 ### 14 February 2022
 {: #subcollection-feb1422}
