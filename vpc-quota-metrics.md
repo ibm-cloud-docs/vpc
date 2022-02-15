@@ -2,7 +2,7 @@
 
 copyright:
   years:  2021, 2022
-lastupdated: "2022-01-20"
+lastupdated: "2022-02-15"
 
 keywords: IBM Cloud monitoring, platform metrics, metrics, vpc metrics, vpc monitoring metrics
 
@@ -40,13 +40,13 @@ Resources that offer quota metrics, detailed in Table 1.
 | `share` | `share` | {region} | {account id} |
 | `volume` | `volume` | {region} | {account id} |
 | `load-balancer` | `load-balancer` | {region} | {account id} |
+| `instance` | `instance-vcpu` | {region} | {account id} |
+| `instance` | `instance-memory` | {region} | {account id} |
+| `dedicated host` | `instance-vcpu` | {region} | {account id} |
 
 {: caption="Table 1: Services offering quota metrics" caption-side="top"}
 
 <!--
-| `instance` | `instance-vcpu` | {region} | {account id} |
-| `instance` | `instance-memory` | {region} | {account id} |
-| `dedicated host` | `instance-vcpu` | {region} | {account id} |
 | `vpc` | `vpc` | {region} | {account id} |
 | `security-group` | `security-group` | {region} | {vpc id} |
 | `security-group` | `security-group-rule` | {region} | {security group id} |
