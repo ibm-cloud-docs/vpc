@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-10-26"
+  years: 2019, 2022
+lastupdated: "2022-02-16"
 
 keywords: block storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
@@ -364,16 +364,6 @@ curl -X DELETE "$vpc_api_endpoint/v1/volumes/$volume_id?version=2021-04-20&gener
 
 To verify that the volume is deleted, list the volumes by making a `GET /volumes` call.
 
-## Add tags to block storage volumes for backup policies
-{: #block-storage-add-tags}
-
-You can add tags to associate a volume with a backup policy. Backup policies schedule automatic creation of backup snapshots. When one volume tag matches a backup policy tag, it triggers creation of a backup snapshot. A backup policy defines a backup plan that schedules when backup snapshots are taken. For information about creating backups, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-about). For more information about tags, see [Working with tags](/docs/account?topic=account-tag).
-
-You can add tags to a volume in the following ways:
-
-* From the [volume details](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-vol-details-ui) page, click the pencil icon 
-* From the list of all [Block storage for VPC volumes](), select a volume and click **Add tags**. In the Add tags dialog box, enter a new tag and click **Save**.
-
 ## Access volume read/write metrics
 {: #block-storage-metrics}
 
@@ -451,6 +441,12 @@ The following table shows statuses that you might see when you create, view, or 
 | Unusable | A volume is unusable because the customer root key (CRK) was [deleted](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys) or [disabled](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-disable-root-keys). |
 {: caption="Table 2. Block storage statuses" caption-side="top"}
 
+## Managing security and compliance
+{: #block-storage-vpc-manage-security}
+
+Block Storage for VPC is integrated with the Security and Compliance Center to help you manage security and compliance for your organization. You can set up goals that check whether volumes are encrypted using customer-managed keys. By using the Security and Compliance Center to validate the block storage configurations in your account against a profile, you can identify potential issues as they arise.
+
+For information about monitoring security and compliance for VPC, see [Monitoring security and compliance posture with VPC](/docs/vpc?topic=vpc-manage-security-compliance#monitor-vpc). For information about creating security and compliance goals, see [Defining rules](/docs/security-compliance?topic=security-compliance-rules-define&interface=ui) in the Security and Compliance documentation.
 
 ## Next steps
 {: #next-step-managing-block-storage}
