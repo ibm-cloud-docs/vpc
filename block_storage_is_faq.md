@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019 - 2021
-lastupdated: "2021-08-17"
+  years: 2019, 2022
+lastupdated: "2022-02-10"
 
 keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, image, IOPS, FAQ
 
@@ -48,16 +48,18 @@ A block storage volume can be attached to only one instance at a time. Instances
 {: faq}
 {: #faq-block-storage-3}
 
-Instances with fewer than four cores can attach up to four block storage secondary volumes.
-
-Instances with four or more cores can attach up to 12 block storage secondary volumes.
+You can create 12 block storage secondary volumes per instance, plus the boot volume.
 
 ### How am I charged for usage?
 {: faq}
 {: #faq-block-storage-6}
 {: support}
 
-Block Storage for VPC is calculated hourly. The calculation is based on the total number of hours that the block storage volume exists on the account. It exists on the account until you delete the volume or you reach the end of a billing cycle, whichever comes first. For more information, see [Pricing](https://www.ibm.com/cloud/vpc/pricing).
+Cost for block storage is calculated based on GB capacity stored per month, unless the duration is less than one month. The volume exists on the account until you delete the volume or you reach the end of a billing cycle, whichever comes first. 
+
+Pricing is also affected when you [expand volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes) or [adjust IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) by specifying a different IOPS profile. For example, expanding volume capacity increases costs while changing an IOPS profile from a 5 IOPS/GB tier to a 3 IOPS/GB tier decreases the monthly and hourly rate.  Billing for an updated volume is automatically updated to add the prorated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
+
+Pricing for block storage volumes is also set by region. For more information, see [Pricing](https://www.ibm.com/cloud/vpc/pricing).
 
 ### Are there limits on the number of volumes I can create?
 {: faq}
@@ -65,14 +67,25 @@ Block Storage for VPC is calculated hourly. The calculation is based on the tota
 
 You can create up to 750 total block storage volumes (data and boot) per account in a region. To increase this [quota](/docs/vpc?topic=vpc-quotas#block-storage-quotas), open a [support case](/docs/vpc?topic=vpc-getting-help) and specifying in which zone you need more volumes.
 
-There are also service limits for your block storage volumes based on the number of cores per instance. For more information, see [Service limits](/docs/vpc?topic=vpc-quotas#service-limits).
-
 ### After creating a data volume with specific capacity, can the capacity later be increased?
 {: faq}
 {: #faq-block-storage-8}
 {: support}
 
-You can increase the capacity of data volumes attached to a virtual server instance. You can indicate capacity in GB increments up to 16,000 GB capacity, depending on your volume profile. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
+You can increase the capacity of data volumes attached to a virtual server instance. You can indicate capacity in GB increments up to 16,000 GB capacity, depending on your volume profile. For more information, see [Increasing block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
+
+### Can I increase capacity of a boot volume?
+{: faq}
+{: #faq-block-storge-rbv}
+
+Boot volume capacity can be increased during instance provisioning or later, by directly modifying the boot volume.
+This feature applies to instances created from stock or custom images. You can also specify a larger boot volume capacity when creating an instance template. The boot volume can't be unattached from an instance (that is, stored as standalone data volume). For more information and for UI, CLI, or API procedures, see [Increasing boot volume volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes).
+
+### Can I change boot volume capacity for an existing instance?
+{: faq}
+{: #faq-block-storge-rbv-instance}
+
+Yes, boot volume capacity can be increased for an existing instance. However, you increase capacity on the storage side. That is, by modifying the boot volume details. For example, in the UI, you'd select a boot volume from the list of block storage volumes and then resize the volume from the volume details page. For more information, see [Increase boot volume capacity from the list of block storage volumes in the UI](/docs/vpc?topic=vpc-resize-boot-volumes&interface=ui#resize-boot-vol-list-ui). You can also use the [CLI](/docs/vpc?topic=vpc-resize-boot-volumes&interface=cli#expand-existing-boot-vol-cli) and For the [API](/docs/vpc?topic=vpc-resize-boot-volumes&interface=api#expand-existing-boot-vol-api).
 
 ### How many volumes can I provision on my account?
 {: faq}
@@ -99,6 +112,7 @@ No. The VPC provides access to new availability zones in multi-zone regions. Com
 ### What is _image from volume_ and how does it relate to block storage volumes?
 {: faq}
 {: #faq-block-storage-ifv}
+
 Image from volume lets you create a custom image directly from a block storage boot volume. You then use the custom image to provision new virtual server instances. For more information, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc).
 
 
@@ -109,7 +123,7 @@ Image from volume lets you create a custom image directly from a block storage b
 {: faq}
 {: #faq-block-storage-14}
 
-The boot disk, also called a boot volume, is created when you provision a virtual server instance. The boot disk of an instance is a cloned image of the virtual machine image. For stock images, the boot volume capacity is 100 GB. If you are importing a custom image, the boot volume capacity can be 10 GB to 250GB, depending on what the image requires. Images smaller than 10 GB are rounded up to 10 GB. If the imported custom image is encrypted by the user, the boot volume will be 100 GB for a smaller size image. The boot volume is deleted when you delete the instance to which it is attached.
+The boot disk, also called a boot volume, is created when you provision a virtual server instance. The boot disk of an instance is a cloned image of the virtual machine image. For stock images, the boot volume capacity is 100 GB. If you are importing a custom image, the boot volume capacity can be 10 GB to 250GB, depending on what the image requires. Images smaller than 10 GB are rounded up to 10 GB. The boot volume is deleted when you delete the instance to which it is attached.
 
 ### When can I delete a block storage data volume?
 {: faq}
@@ -135,7 +149,7 @@ IBM guarantees that your data is completely inaccessible on the physical disk an
 
 Valid volume names can include a combination of lowercase alphanumeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Volume names must begin with a lowercase letter and be unique across the entire VPC infrastructure.
 
-You can change the name of an existing volume by using the UI. See [this information](/docs/vpc?topic=vpc-managing-block-storage#rename) for details.
+You can change the name of an existing volume in the UI. See [this information](/docs/vpc?topic=vpc-managing-block-storage#rename) for details.
 
 ### Does the volume need to be pre-warmed to achieve expected throughput?
 {: faq}
@@ -243,11 +257,13 @@ Also, consider setting up a key rotation policy that automatically rotates your 
 ### What is key rotation?
 {: faq}
 {: #faq-block-storage-25a}
+
 For {{site.data.keyword.vpc_short}} resources such as block storage volumes that are protected by your customer root key (CRK), you can rotate the root keys for additional security. When you rotate a root key by a schedule or on demand, the original key material is replaced. The old key remains active to decrypt existing volumes but can't be used to encrypt new volumes. For more information, see [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).
 
 ### How does key rotation work?
 {: faq}
 {: #faq-block-storage-25b}
+
 Customer-managed encrypted resources such as block storage volumes use your root key (CRK) as the root-of-trust key that encrypts a LUKS passphrase that encrypts a master key protecting the volume. You can import your CRK to a key management service (KMS) instance or instruct the KMS to generate one for you. Root keys are rotated in your KMS instance.
 
 When you rotate a root key, a new version of the key is created by generating or importing new cryptographic key material. The old root key is retired, which means its key material remains available for decrypting existing volumes, but not available for encrypting new ones. New resources are protected by the latest key. For more information, see [How key rotation works](https://test.cloud.ibm.com/docs/vpc?topic=vpc-vpc-key-rotation#vpc-key-rotation-function).
