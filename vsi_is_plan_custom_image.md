@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-02-10"
+lastupdated: "2022-02-16"
 
 keywords: custom image, creating a custom image, migrating a custom image
 
@@ -29,6 +29,7 @@ When you're planning to provision custom images in {{site.data.keyword.vpc_full}
 migrate an instance to VPC. 
 {: shortdesc}
 
+ISO images of licensed operating systems, such as Windows and Red Hat Enterprise Linux, and open source operating systems, such as CentOS and Ubuntu, are not provided by IBM. If you need these ISO images, you can download them from the respective vendor website.
 
 | Task              | Details           |
 |-------------------|-------------------|
