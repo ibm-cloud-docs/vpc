@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-02-10"
+lastupdated: "2022-02-16"
 
 keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, IOPS, Hyper Protect, Key Protect
 
@@ -19,11 +19,10 @@ subcollection: vpc
 {:tip: .tip}
 {:table: .aria-labeledby="caption"}
 {:note: .note}
-{:external: target="_blank" .external}
-[comment]: # (linked help topic)
 
 # About {{site.data.keyword.block_storage_is_short}}
 {: #block-storage-about}
+[comment]: # (linked help topic)
 
 {{site.data.keyword.block_storage_is_short}} provides hypervisor-mounted, high-performance data storage for your virtual server instances that you can provision within an {{site.data.keyword.vpc_full}} (VPC). The [VPC](/docs/vpc?topic=vpc-about-vpc) infrastructure provides rapid scaling across zones and extra performance and security. 
 {: shortdesc}
