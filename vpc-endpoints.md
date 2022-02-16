@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2019, 2021
+  years: 2019, 2022
 
-lastupdated: "2021-09-02"
+lastupdated: "2022-02-16"
 
 keywords: CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
 
@@ -46,7 +46,7 @@ Use one of the following public endpoints to connect to the VPC infrastructure A
 {: caption="Table 1. VPC API Regional Endpoints" caption-side="top"}
 
 
-LinuxONE (s390x processor architecture) profiles are supported on virtual server instances in Tokyo.   
+LinuxONE (s390x processor architecture) profiles are supported on virtual server instances in the Japan (Tokyo), United Kingdom (London), and São Paulo regions.   
 {: note}
 
 After you've created and are accessing the resources in your VPC, you're ready to run workloads. From inside the VPC infrastructure, you can access two types of {{site.data.keyword.cloud_notm}} endpoints: platform as a service (PaaS) endpoints, also known as service endpoints, and infrastructure as a service (IaaS) endpoints.
