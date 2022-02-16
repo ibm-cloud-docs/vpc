@@ -98,7 +98,7 @@ Balanced profiles provide a mix of performance and scalability for more common w
 
 The Balanced profile family includes both profiles that are provisioned with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
 
-LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Tokyo region.
+LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Japan (Tokyo), United Kingdom (London), and São Paulo regions.
 {: preview}
 
 | Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
@@ -150,7 +150,7 @@ Compute profiles are best for workloads with intensive CPU demands, such as high
 
 The Compute profile family includes both profiles that are provisioned with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
 
-LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Tokyo region.
+LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Japan (Tokyo), United Kingdom (London), and São Paulo regions.
 {: preview}
 
 | Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
@@ -200,7 +200,7 @@ Memory profiles are best for memory intensive workloads, such as large caching w
 
 The Memory profile family includes both profiles that are provisioned with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
 
-LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Tokyo region.
+LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Japan (Tokyo), United Kingdom (London), and São Paulo regions.
 {: preview}
 
 | Instance profile | vCPU | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
