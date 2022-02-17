@@ -1,13 +1,12 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-08-25"
+  years: 2019, 2022
+lastupdated: "2022-02-10"
 
 keywords: block storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
 
 subcollection: vpc
-
 
 ---
 
@@ -30,56 +29,60 @@ subcollection: vpc
 View details about a {{site.data.keyword.block_storage_is_short}} volume or summary information about all volumes.
 {: shortdesc}
 
-## View information about block storage volumes using the UI
+## View information about block storage volumes in the UI
 {: #viewvols}
 {: ui}
 
 List all block storage volumes and view details for a single volume. View attached block storage volume details in instance details. View all snapshots created from the block storage volume.
 
-### View information about all block storage volumes using the UI
+### View information about all block storage volumes in the UI
 {: #viewvols-ui}
 
-Navigate to the list of block storage volumes. In [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
+Navigate to the list of block storage volumes. In [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
 
 By default, block storage volumes display for all resource groups in your region. In the list of all **Block storage for VPC volumes**, you see the following information.
 
 | Field | Description |
 |-------|-------------|
-| Region | The region where these volumes are located, for example, US South. Click the dowwn arrow to see volumes in a different region in which you have an account.)
+| Region | The region where these volumes are located, for example, US South. Click the down arrow to see volumes in a different region in which you have an account.)
 | Name | Click the name of the volume to see individual volume details. |
 | Status | Status of the volume, which functions as the default filter for all rows. For information about volume statuses, see [Block Storage volume statuses](/docs/vpc?topic=vpc-managing-block-storage#status). |
-| Resource Group | Resource groups are defined when you set up your VPC. Resource groups help organize your account resources for access control and billing purposes. For more information, see [Managing resource groups](/docs/account?topic=account-rgs). |
 | Location | Availability zone in your region, inherited from the VPC (for example, US South 1).|
 | Size | Size of the volume you specified, in GBs.|
-| Max IOPS | Maximum IOPS available on the volume, which is defined by the general-purpose IOPS tier or custom IOPS value you specified. |
+| Max IOPS | Maximum IOPS based on the volume profile for the volume. |
 | Attachment type | Data, for a secondary volume attached to an instance, boot when attached as a boot volume, or blank for an unattached volume.|
 | Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also use your own root keys in a Key Protect or HPCS instance to protect your data. For information, see [Creating block storage volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption). |
-| Tags | Number of user tags applied to the volume. If there are no tags applied to the volume, click **Add tags**. A tag is a label that you assign to the volume for easy filtering of resources. For example, user tags applied to a volume can associate the volume with a backup policy for creating backup snapshots of the volume. For information about adding tags to a block storage volume, see [Add tags to block storage volumes for backup policies](https://test.cloud.ibm.com/docs/vpc?topic=vpc-managing-block-storage&interface=ui#block-storage-add-tags). For information about creating backups, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-about). 
-| Actions (...) | Click the icon (...) to display a menu of context-specific actions you can take. For example, an available, unattached volume would have menu options for attaching to an instance or deleting the volume.|
+| Tags | Number of user tags or access management tags applied to the volume. A tag is a label that you assign to the volume for easy filtering of resources. Click on the number in this column to view or edit the tags in the popup window. If there are no tags applied to the volume, click **Add tags** and add them in the popup window. For example, user tags applied to a volume can associate the volume with a backup policy for creating backups of the volume. For information about adding tags to a block storage volume, see [Add tags to block storage volumes for backup policies](https://test.cloud.ibm.com/docs/vpc?topic=vpc-managing-block-storage&interface=ui#block-storage-add-tags). For information about creating backups, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-about). Backup for VPC is only available to accounts authorized to preview the feature.
+| Actions (...) | Click the icon (...) to display a menu of context-specific actions you can take. For example, an available, unattached volume would have menu options for attaching to an instance, renaming, and deleting the volume. An attached volume would allow for unattaching the volume from an instance and creating an [image from the volume](/docs/vpc?topic=vpc-image-from-volume-vpc). |
 {: caption="Table 1. Details about all volumes" caption-side="top"}
 
 By default, 10 volumes are shown in the list of all block storage volumes.  Change this default by clicking the Page Control down arrow and increase the list to 20 or 50 volumes.  Use the Page Control arrows after the list to go to the following page or return to the current page.
 
-Overflow menu actions depend on whether the volume is a boot volume, attached data volume, or unattached data volume. Table 2 describes these actions.
+Actions menu selections change, depending on whether the volume is a boot volume, an attached data volume, or an unattached data volume. Table 2 describes these actions.
 
 | Volume type | Action | Description |
 |-------------|--------|-------------|
 | **Boot** | Create image | Create an image from the boot volume. For more information, see [Create an image from the list of boot volumes](/docs/vpc?topic=vpc-create-ifv#import-custom-image-vol).
-| | Create snapshot | Create a "bootable snapshot" from the boot volume. A snapshot is a point in time copy of the volume. For more information, see [Create a snaphot by using the UI](https://test.cloud.ibm.com/docs/vpc?topic=vpc-snapshots-vpc-create#snapshots-vpc-create-from-volume-list).
+| | Create snapshot | Create a "bootable snapshot" from the boot volume. A snapshot is a point in time copy of the volume. For more information, see [Create a snapshot in the UI](https://test.cloud.ibm.com/docs/vpc?topic=vpc-snapshots-vpc-create#snapshots-vpc-create-from-volume-list).
 | | Detach from instance | If the boot volume is attached as a secondary volume, you can [detach it](/docs/vpc?topic=vpc-managing-block-storage#detach) from the instance. |
 | **Data** | Create snapshot | Create a point in time copy of the data volume. | 
 | | Detach from instance | [Detach](/docs/vpc?topic=vpc-managing-block-storage#detach) the data volume from the instance. |
-| Delete | [Delete](/docs/vpc?topic=vpc-managing-block-storage#delete) the volume. You must first detach the volume from an instance before deleting it. |
+| | Delete | [Delete](/docs/vpc?topic=vpc-managing-block-storage#delete) the volume. You must first detach the volume from an instance before deleting it. |
 | Unattached (-) | Attach to an instance | [Attach](/docs/vpc?topic=vpc-attaching-block-storage) the volume to an available virtual server instance. |
 | | Delete | Delete the unattached volume. |
-{: caption="Table 2. Overflow menu options for volumes" caption-side="top"}
+{: caption="Table 2. Actions menu options for volumes." caption-side="top"}
 
 ### View details about a block storage volume
 {: #view-vol-details-ui}
 
-To view details about a block storage volume, navigate to the list of all block storage volumes and select a volume. By default, the Overview tab is selected for volume details. You can also see snapshots created from this volume. For more information about the snapshots service, see [About Snapshots for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about).
+To view details about a block storage volume, navigate to the list of all block storage volumes and select a volume. By default, the Overview tab is selected for volume details. Click the Snapshots and Backups tab to [view a list of snapshots](#view-snapshots-for-volume) and [backups](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-list-all-policies) created from this volume.
 
-Next to the name of the volume are the tags associated with this volume. Tags identify the resource. For example, user tags applied to a volume can associate the volume with a backup policy for creating backup snapshots of the volume. For information about creating backups, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-about). For more information about tags, see [Working with tags](/docs/account?topic=account-tag).
+Backup for VPC Beta is only available to accounts authorized to preview the feature.
+{: note}
+
+Next to the name of the volume is the [volume status](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#status) and tags associated with this volume. Tags identify the resource. For example, user tags applied to a volume can associate the volume with a backup policy for creating backup snapshots of the volume. For information about creating backups, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-about). For more information about tags, see [Working with tags](/docs/account?topic=account-tag).
+
+The Actions menu on the volume details page shows actions you can take, depending on whether the volume is a boot or data volume, and attached or unattached. For more information, see Table 4.
 
 The block storage volumes details page shows volume details, attached virtual server instances, and backup policies. Table 3 describes this information.
 
@@ -93,24 +96,39 @@ The block storage volumes details page shows volume details, attached virtual se
 | Created | System-generated date when the volume was created.|
 | Location | Availability zone in your region.|
 | Size | Size of the volume you specified. When the volume is attached to a virtual server instance and the volume is not at maximum capacity for its range, you can click the icon to expand the volume. For information on expanding volume capacity, see [Expanding block storage volume capacity (Beta)](/docs/vpc?topic=vpc-expanding-block-storage-volumes). |
-| Profile | [IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) or [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles#custom) profile.|
+| Profile | [IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) or [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles#custom) profile. Click the icon to [adjust IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) by selecting a different profile. |
 | Max IOPS | Maximum IOPS value for a predefined IOPS tier or the value you specified for custom IOPS. |
 | Throughput | The performance a disk can deliver, measured in Gigabits/second (Gbps). Based on your volume profile, throughput is calculated as the amount of IOPS * 16 K block size.|
 | Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also use your own root keys to protect your data. The Encryption field shows the name of the key management service (KMS) you provisioned (for example, Key Protect) and **customer-managed**. For more information, see [Creating block storage volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption)|
 | Encryption Instance | _Optional._ A link to the provisioned KMS instance for a customer-managed encryption volume. |
-| Key | _Optional._ The name and copyable ID of the root key used to encrypt the passphrase securing a customer-managed encryption volume. |
+| Key | _Optional._ The name and copiable ID of the root key used to encrypt the passphrase securing a customer-managed encryption volume. |
 | **Attached instances** | Volumes attached to a virtual server instance are listed here. Click **Attach instance** to select an instance to attach this volume. For more information, see [Attaching a volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage). |
 | Status | Attachment status, for example, _attached_ when the volume is attached to an instance and _attaching_ when in progress. |
 | Name | Click the name of the virtual server instance to see instance details. |
 | Auto delete | When _enabled_, the volume is automatically deleted when you delete the instance. Click the toggle to enable automatic deletion. |
+| **Backup policies** | View backup policies associated with the volume. All policies that have the tag applied to this volume are listed. |
+| Name | Click the policy name to go to that backup policy. |
+| Status | [Status of the backup policy](/docs/vpc?topic=vpc-backup-service-manage&interface=ui#backup-policy-statuses). |
 {: caption="Table 3. Volume details" caption-side="top"}
+
+Table 4 shows Actions menu options from the volume details page.
+
+| Action | Description |
+|--------|-------------|
+| Create snapshot | Create a snapshot from a data volume or a "bootable snapshot" from a boot volume. Data volumes must be attached to a virtual server instance. For more information, see [Create a snapshot in the UI](https://test.cloud.ibm.com/docs/vpc?topic=vpc-snapshots-vpc-create#snapshots-vpc-create-from-volume-list).
+| Create image | Create an image from the boot volume. For more information, see [Create an image from the list of boot volumes](/docs/vpc?topic=vpc-create-ifv#import-custom-image-vol).
+| Expand volume | [Increase the size](/docs/vpc?topic=vpc-expand-block-storage-vol-concepts) of a data volume in GBs. |
+| Edit IOPS profile | For data volumes that are attached to a virtual server instance, increase or decrease IOPS by [editing the IOPS profile](/docs/vpc?topic=vpc-adjusting-volume-iops). |
+| Delete | [Delete](/docs/vpc?topic=vpc-managing-block-storage#delete) the volume. You must first detach the volume from an instance before deleting it. |
+{: caption="Table 4. Actions menu options one the volume details page." caption-side="top"}
 
 ### View attached block storage volume details in instance details
 {: #view-vol-details-instance-ui}
 
 You can view information about an attached block storage volume from the **Virtual server instance details** page:
 
-1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances** and select an instance.
+1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances** and select an instance.
+
 2. Under **Attached block storage volumes**, click the name of a volume to go to the volume details page.
 
 ### View all snapshots created from the block storage volume
@@ -118,32 +136,32 @@ You can view information about an attached block storage volume from the **Virtu
 
 If you created snapshots of a block storage boot or data volume, you can see the snapshots on the volume details page.
 
-1. Navigate to the list of block storage volumes. In [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**. 
+1. Navigate to the list of block storage volumes. In [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**. 
 
 2. Select a volume from the list.
 
 3. On the volume details page, click the **Snapshots** tab. A list of snapshots displays with the name, status, size, encryption type, and when it was created. The snapshots display in descending order, with the most recently created snapshot on the top.
 
-You can see details for a snapshot, create a new snapshot, and manage snapshots from this page. For example, the overflow menu (hellipsis) lets you delete the most recent snapshot. For more information, see:
+You can see details for a snapshot, create a new snapshot, and manage snapshots from this page. For example, the overflow menu (ellipsis) lets you delete the most recent snapshot. For more information, see:
 
-* [View details of a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui)
-* [Create a new snapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui)
-* [Delete all snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete-all-ui)
+* [View details of a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui).
+* [Create asnapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui).
+* [Delete all snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete-all-ui).
 
-## Viewing block storage volumes by using the CLI
+## Viewing block storage volumes from the CLI
 {: #viewing-block-storage-cli}
 {: cli}
 
 View details about a block storage volume or summary information about all volumes from the CLI.
 
-Before you begin, [install the IBM Clous CLI and VPC CLI plugin](/docs/vpc?topic=vpc-creating-block-storage#before-creating-block-storage-cli).
+Before you begin, [install the IBM Cloud CLI and VPC CLI plug-in](/docs/vpc?topic=vpc-creating-block-storage#before-creating-block-storage-cli).
 
-### View details about a block storage volume by using the CLI
+### View details about a block storage volume from the CLI
 {: #viewvol-cli}
 
 Specify this command to show details about a volume.
 
-```
+```zsh
 ibmcloud is volume VOLUME_ID [--json]
 ```
 {: pre}
@@ -173,12 +191,12 @@ Volume Attachment Instance Reference    none
 
 If your volume is attached to a virtual server instance, the name and ID of the volume attachment and instance is also displayed.
 
-### View all block storage volumes by using the CLI
+### View all block storage volumes from the CLI
 {: #viewall-vol-cli}
 
 Run this command to list summary information about all volumes:
 
-```
+```zsh
 ibmcloud is volumes [--json]
 ```
 {: pre}
@@ -201,34 +219,34 @@ Specifying the resource group ID or name filters the list to volumes that belong
 
 By default, the first 25 volumes are displayed per page.
 
-### View details about a volume attachment by using the CLI
+### View details about a volume attachment from the CLI
 {: #viewvol-attachment-cli}
 
 Run this command to view details of a volume attachment to a virtual server instance:
 
-```
+```zsh
 ibmcloud is instance-volume-attachment INSTANCE_ID VOLUME_ATTACHMENT_ID [--json]
 ```
 {: pre}
 
 Specify an instance ID and a volume attachment ID.  Optionally, export the details in JSON format.
 
-### View details about all volume attachments by using the CLI
+### View details about all volume attachments from the CLI
 {: #viewvol-all-attachments-cli}
 
 Run this command to view all volume attachments for a virtual server instance.
 
-```
+```zsh
 ibmcloud is instance-volume-attachments INSTANCE_ID [--json]
 ```
 {: pre}
 
-### View volume profiles by using the CLI
+### View volume profiles from the CLI
 {: #viewvol-profiles-cli}
 
 Run this command to list all volume profiles available in your region.
 
-```
+```zsh
 ibmcloud is volume-profiles [--json]
 ```
 {: pre}
@@ -246,12 +264,12 @@ generalpurpose3  tiered   crn:v1:public:globalcatalog::::volume.profile:generalp
 ```
 {: screen}
 
-### View a specific volume profile by using the CLI
+### View a specific volume profile from the CLI
 {: #viewvol-profile-cli}
 
 Run this command to view a specific volume profile in your region.
 
-```
+```zsh
 ibmcloud is volume-profile PROFILE_NAME [--json]
 ```
 {: pre}
@@ -269,7 +287,7 @@ Crn      crn:v1:public:globalcatalog::::volume.profile:generalpurpose
 ```
 {: screen}
 
-## Viewing block storage volumes from the API
+## Viewing block storage volumes with the API
 {: #viewing-block-storage-api}
 {: api}
 
@@ -277,20 +295,20 @@ View block storage volumes programically by making calls to the [VPC REST APIs](
 
 Before you begin, make sure that you [set up your API environment](/docs/vpc?topic=vpc-creating-block-storage#block-storage-api-prereqs).
 
-### View all block storage volumes from the API
+### View all block storage volumes with the API
 {: #viewall-vol-api}
 
 Make a `GET /volumes` call to list summary information about all volumes. For example:
 
-```
+```curl
 curl -X GET "$vpc_api_endpoint/v1/volumes?version=2021-04-20&generation=2" \
 -H "Authorization: $iam_token"
 ```
 {: pre}
 
-A successful response will look like this. This example shows three data volumes. The first in the list is attached to an instance.
+A successful response looks like this. This example shows three data volumes. The first in the list is attached to an instance.
 
-```
+```json
 {
   "first": {
     "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes?limit=50"
@@ -409,12 +427,12 @@ A successful response will look like this. This example shows three data volumes
 {: codeblock}
 
 
-### View a specific volume profile from the API
+### View a specific volume profile with the API
 {: #viewvol-details-api}
 
 Make a `GET /volumes/{id}` call to see details of a volume. For example:
 
-```
+```curl
 curl -X GET "$vpc_api_endpoint/v1/volumes/$volume_id?version=2021-04-20&generation=2" \
 -H "Authorization: $iam_token"
 ```
@@ -422,7 +440,7 @@ curl -X GET "$vpc_api_endpoint/v1/volumes/$volume_id?version=2021-04-20&generati
 
 A successful response will provide details of the volume, including capacity and IOPS, the volume status, and whether the volume is attached to an instance.
 
-```
+```json
 {
   "active": true,
   "bandwidth": 128,
@@ -482,7 +500,7 @@ When viewing details for boot volumes, two additional properties are returned in
 
 Example response:
 
-```
+```json
   "active": "true",
   "busy": "false",
   "capacity": 100,
@@ -499,20 +517,20 @@ Example response:
 ```
 {: codeblock}
 
-### View volume profiles from the API
+### View volume profiles withh the API
 {: #viewvol-profiles-api}
 
 To list all volume profiles available in your region, make a `GET /volume/profiles` call. For example:
 
-```
+```curl
 curl -X GET "$vpc_api_endpoint/v1/volume/profiles?version=2021-04-20&generation=2" 
 -H "Authorization: $iam_token"
 ```
 {: pre}
 
-When all volume profiles are available, you'll see a response like this:
+When all volume profiles are available, you can see a response like this:
 
-```
+```json
 {
   "first": {
     "href": "https://us-south.iaas.cloud.ibm.com/v1/volume/profiles?limit=50"

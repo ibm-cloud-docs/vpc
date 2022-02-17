@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-01-17"
+lastupdated: "2022-02-10"
 
-keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
+keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, backup, virtual server instance, instance
 
 subcollection: vpc
 
@@ -16,6 +16,7 @@ subcollection: vpc
 {:important: .important}
 {:screen: .screen}
 {:pre: .pre}
+{:beta .beta}
 {:table: .aria-labeledby="caption"}
 {:note: .note}
 {:tip: .tip}
@@ -58,8 +59,9 @@ Table 1 describes the information for all snapshots in the list of snapshots.
 | Encryption | Encryption with [IBM-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-provider-managed-encryption) or [provider-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-customer-managed-encryption), inherited from the source volume. |
 | Source volume | The boot or data volume from which the snapshot was created. Click the name of the volume to see its [details](/docs/vpc?topic=vpc-viewing-block-storage). |
 | Bootable | Whether the snapshot is of a boot volume. |
-| Created | The date and time that snapshot was first taken. |
-| Tags | Number of tags applied to this snapshot from the source volume. If there are no tags applied to the snapshot that were inherited from the source volume, **Add tags** allows you to apply tags to the snapshot. | 
+| Created | The date and time the snapshot was created. |
+| Tags | Number of tags applied to this snapshot from the source volume. If there are no tags applied to the snapshot that were inherited from the source volume, **Add tags** allows you to apply tags to the snapshot. Tags inherited from the source volume might be associated with a backup policy. When you restore a volume from this snapshot, and the tags match a backup policy, then the newly restored volume will be backed up. For information about creating backups, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-about). | 
+| Created By | Indicates whether the snapshot was created by a [backup policy](/docs/vpc?topic=vpc-backup-policy-create) or manually by the user. |
 | Actions (ellipsis) | Click the overflow icon to display a menu of context-specific actions you can take: | 
 | | Copy the snapshot ID |
 | | Copy the Cloud Resource Name (CRN) |
@@ -81,13 +83,15 @@ To see details about a snapshot:
 | Field | Value |
 |-------|-------|
 | Status | Current status of the snapshot, such as _Stable_. For a list of snapshot statuses, see [Snapshot statuses](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status). |
-| Tags | User tags inherited from the source volume when the snapshot is created, or that you manually apply to a snapshot. |
+| Tags | User tags inherited from the source volume when the snapshot is created, or that you manually apply to a snapshot. When you restore a volume from this snapshot, and the new volume's tags match tags for target resources in a backup policy, the new volume is automatically backed up based on a backup plan schedule. For information about creating backups, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-about). For information about creating and using tags, see [Working with tags](/docs/account?topic=account-tag). |
 | Name  | The name of the snapshot, which you can change by clicking the pencil icon. For more information, see [Change the snapshot name](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-rename). |
 | Resource group | |
 | ID | Copiable GUID of the snapshot. |
 | CRN | Copiable CRN of the snapshot. |
 | Created | Date and time that the snapshot resource creation process started. |
-| Captured | The date and time that this snapshot was captured, that is, the volume data was snapshotted. If absent, the snapshot has not yet been captured or the snapshot was created before this feature was introduced (January 2022). |
+| Created by | Automatically by a [backup policy](/docs/vpc?topic=vpc-backup-policy-create) or manually by the user. If created by a backup policy, a link to the policy displays. |
+| Backup plan | Displays when the snapshot was created by a backup policy. |
+| Captured | The date and time that this snapshot was captured, that is, the volume data was snapshotted. If absent, the snapshot has not yet been captured or the snapshot was created before this feature was introduced (January 2022). ||
 | Region | Region of your account, such as us-south |
 | Size| Size in GBs of the snapshot, inherited from the source volume. |
 | Source volume | Source volume from which the first snapshot was taken. Click the link for volume details. If the volume was deleted, the name appears without a link. |

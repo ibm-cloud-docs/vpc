@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-02-14"
+lastupdated: "2022-02-10"
 
-keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance
+keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, backups
 
 subcollection: vpc
 
@@ -24,7 +24,7 @@ subcollection: vpc
 # Managing Snapshots
 {: #snapshots-vpc-manage}
 
-You can delete snapshots that you no longer need and free space for new snapshots. Rename existing snapshots to make them easier to identify. Verify IAM access. Verify snapshot statuses.
+You can delete snapshots that you no longer need and free space for new snapshots. Rename existing snapshots to make them easier to identify. Add user tags to snapshots for use by the VPC backup service. Verify IAM access. Verify snapshot statuses.
 {: shortdesc}
 
 ## Deleting snapshots
@@ -87,6 +87,41 @@ You can delete the most recently created snapshot from the list of snapshots fro
    2. Select **Delete** from the overflow menu. 
    3. Confirm the deletion.
 
+## Add user tags to a snapshot in the UI
+{: #snapshots-vpc-add-tags-ui}
+{: ui}
+
+### Add user tags from the list of snapshots using the UI
+{: #snapshots-vpc-add-tags-list-ui}
+
+You can add user tags to an existing snapshot or when creating a new snapshot. The tags can then be used by a backup policy to create backups of the snapshot.
+
+Backup for VPC Beta is only available to accounts authorized to preview the feature.
+{: note}
+
+1. Navigate to the [list of snapshots](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-list-ui). 
+
+2. Locate an _available_ snapshot created by _user_. (Snapshots that were created by a backup policy are identified as created by _Backup policy_.) 
+
+3. In the **Tags** column, snapshots with tags show a number indicating tags already applied. Snapshots without tags have an **Add tags** link. Click **Add tags**.
+
+4. In the popup, type a tag in the User tags text box.
+
+5. Click **Save**.
+
+### Add user tags from the snapshot details page using the UI
+{: #snapshots-vpc-add-tags-details-ui}
+
+1. Navigate to the [list of snapshots](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-list-ui). 
+
+2. Click on the name of a snapshot in the list.
+
+3. On the snapshot details page, click the pencil icon next to the snapshot name.
+
+4. In the popup, type a tag in the User tags text box.
+
+5. Click **Save**.
+
 ## Delete snapshots from the CLI
 {: #snapshots-vpc-delete-snapshot-cli}
 {: cli}
@@ -148,7 +183,7 @@ Make a `DELETE/snapshots/{snapshot_ID}` call to delete a specific snapshot by ID
 
 ```
 curl -X DELETE \
-"$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2022-01-12&generation=2" \
+"$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2022-02-22&generation=2" \
      -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: codeblock}
@@ -160,7 +195,7 @@ Make a `DELETE/snapshots` call and specify the source volume ID for the `source_
 
 ```
 curl -X DELETE \
-"$vpc_api_endpoint/v1/snapshots?source_volume.id=_volume-id_&version=2022-01-12&generation=2" \
+"$vpc_api_endpoint/v1/snapshots?source_volume.id=_volume-id_&version=2022-02-22&generation=2" \
      -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: codeblock}
@@ -205,14 +240,15 @@ CRN                crn:v1:public:is:us-south:a/23db6395-3466-4055-ada1-c072b6b74
 Status             stable
 Source Volume      ID                                          Name
                    c3f9ffa4-6609-4750-ad09-e8caea5d9e5c        demo-volume1
-                      
+
 Progress           -  
 Bootable           false   
-Encryption         provider_managed
-Encryption key     -
+Deletable          false   
+Encryption         provider_managed   
+Encryption key     -   
 Minimum Capacity   100
-Size               1
-Source Image       ID                                          Name      
+Size               1 
+Source Image       ID                                          Name
                    c348a188-bc70-4c08-afb7-cbcbde831be3        ibm-centos-7-6-minimal-amd64-2
                       
 Resource group     ID                                          Name
@@ -221,6 +257,45 @@ Created            2022-01-12T14:11:56+08:00
 Captured           2022-01-12T14:31:11+08:00
 ```
 {: screen}
+
+## Add user tags to a snapshot from the CLI
+{: #snapshots-vpc-add-tags-cli}
+{: cli}
+
+Specify a `snapshot-update` command with the `--user-tags` parameter to add user tags to a volume.
+
+Use the same parameter to add tags to a volume when creating a new snapshot using `ibmcloud is snapshot-create`.
+{: tip}
+
+The following example adds user tags `env:test` and `env:prod` to a volume identified by ID.
+
+```
+ibmcloud is snapshot-update52129844-d84d-45aa-a811-7bcc941f2172 --name mysnapshot60 --user-tags env:test,env:prod
+Updating snapshot52129844-d84d-45aa-a811-7bcc941f2172 under account VPC1 as user user@mycompany.com...
+                     
+ID                    52129844-d84d-45aa-a811-7bcc941f2172   
+Name                   mysnapshot60   
+CRN                    crn:v1:staging:public:is:us-east:a/80a55b0b-1dc6-4c9d-a08b-d6b8cb4cf905:51204475-7330-40bc-94f6-e288bbe58e9a::   
+Status                 stable   
+Source volume          ID   Name      
+                       -    -      
+                          
+Progress               -   
+Bootable               false   
+Deletable              true   
+Encryption             provider_managed   
+Encryption key         -   
+Minimum capacity(GB)   103   
+Size(GB)               57   
+Resource group         ID                                 Name      
+                       5018a8564e8120570150b0764d39ebcc   Default      
+                          
+Created                2022-01-27T11:47:46.365+05:30   
+Captured               2022-01-27T11:58:16.265+05:30
+User Tags              env:test,env:prod   
+```
+{: codeblock}
+
 
 ## Rename a snapshot with the API
 {: #snapshots-vpc-rename-api}
@@ -238,6 +313,26 @@ curl -X PATCH \
 ```
 {: codeblock}
 
+## Add user tags to a snaphot with the API
+{: #snapshots-vpc-add-tags-api}
+{: api}
+
+Make a `PATCH/snapshots` call and specify the snapshot ID and user tags. This example adds user tags `env:test` and `env:prod` to the snapshot. When these tags are matched in a backup policy, a backup will be triggered based on the backup plan schedule. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-policy-create).
+
+```
+curl -X PATCH \
+"$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2022-01-12&generation=2" \
+    -H "Authorization: Bearer ${API_TOKEN}" \
+    -d `{
+       "user_tags": [
+         "env:test",
+         "env:prod"
+       ]
+    }'
+```
+{: codeblock}
+
+
 ## IAM roles for creating and managing snapshots
 {: #snapshots-vpc-iam}
 
@@ -250,7 +345,7 @@ Snapshots require IAM permissions for role-based access control. Table 1 describ
 | Create volume from a snapshot<sup>1</sup> | Administrator, editor, operator |
 | List snapshots | Administrator, editor, operator, viewer |
 | View snapshot details | Administrator, editor, operator, viewer |
-{: caption="Table 1. IAM roles for snapshots" caption-side="top"}
+{: caption="Table 1. IAM roles for snapshots" caption-side="bottom"}
 <sup>1</sup>Need to have administrator and editor privileges on the volume.
 
 ## Snapshot lifecycle states
@@ -268,7 +363,7 @@ Table 1 describes the snapshot states in the snapshot lifecycle.
 | Updating | Information you changed about the snapshot is being updated. |
 | Deleting | The snapshot is being [deleted](#snapshots-vpc-delete). |
 | Deleted | The snapshot was deleted and is not available to restore volumes. |
-{: caption="Table 2. Snapshot lifecycle states" caption-side="top"}
+{: caption="Table 2. Snapshot lifecycle states" caption-side="bottom"}
 
 ## Activity Tracker events for snapshots
 {: #snapshots-vpc-at-events}
@@ -282,7 +377,7 @@ The following example shows JSON output of an Activity Tracker event that was ge
 
 ```
 {
-    "eventTime": "2022-01-16T17:59:07.57+0000",
+    "eventTime": "2022-02-22T17:59:07.57+0000",
     "action": "is.snapshot.create",
     "outcome": "success",
     "message": "Block Storage Snapshots for VPC: create my-snapshot-1",
