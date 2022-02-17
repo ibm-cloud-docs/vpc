@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-11-11"
+  years: 2019, 2022
+lastupdated: "2022-02-17"
 
 keywords: view instance details, restart, stop, instance details, delete
 
@@ -115,8 +115,22 @@ ibmcloud is instance-stop INSTANCE [--no-wait] [-f, --force] [--output JSON] [-q
 
 The stop action shuts down the guest operating system and then the virtual server instance is deprovisioned. This change frees the instance resources that were being consumed. The virtual server instance is transitioned to the Stop state. If the instance is stopped, the instance remains in the stopped state and must be started manually. Billing is [suspended](/docs/vpc?topic=vpc-suspend-billing) for some compute resources while the instance is stopped. You cannot interact with an instance if it is stopped, but volumes remain provisioned. If the instance is started, normal interaction and billing continues.
 
+The following example stops an instance without requesting confirmation. The instance has an ID of `0777_e7af506a-35d4-451d-aa9e-59330e62b77e`. The `--force` option indicates that the request for confirmation is skipped. 
+
+```
+ibmcloud is instance-stop 0777_e7af506a-35d4-451d-aa9e-59330e62b77e --force
+```
+{: pre}
+
 A Force stop action triggers a power cycle reset of the virtual server instance.
 {: note}
+
+If you have an instance that gets stuck in a *stopping* state, you can use the following example command with the `--force` and `--no-wait` options specified to stop the instance immediately without confirmation. The instance has an ID of `0757_5446c277-3190-48dd-ac67-5f02fab39ed5`. The `--force` option indicates that the request for confirmation is skipped. The `--no-wait` option runs the command immediately, dropping any queued actions. 
+
+```
+ibmcloud is instance-stop 0757_5446c277-3190-48dd-ac67-5f02fab39ed5 --force --no-wait
+```
+{: pre}
 
 For more information, see [ibmcloud is instance-stop](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-stop) on the VPC CLI reference page.
 
