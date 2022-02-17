@@ -2,7 +2,7 @@
 
 copyright:
   years:  2021, 2022
-lastupdated: "2022-02-15"
+lastupdated: "2022-02-17"
 
 keywords: IBM Cloud monitoring, platform metrics, metrics, vpc metrics, vpc monitoring metrics, quota
 
@@ -47,7 +47,7 @@ To adjust the time interval for the dashboard
 
 Creating or deleting one of the following resources sends metric events for the associated quota resource name.
 
-<!-- vpc
+- vpc
    - For more information on creating a VPC, see [Getting started with Virtual Private Cloud (VPC)](/docs/vpc?topic=vpc-getting-started&interface=ui#create-and-configure-vpc).
 - security-group
    - For more information, see [About security groups](/docs/vpc?topic=vpc-using-security-groups&interface=ui).
@@ -66,20 +66,20 @@ Creating or deleting one of the following resources sends metric events for the 
 - volume
    - For more information, see [Creating block storage volumes](/docs/vpc?topic=vpc-creating-block-storage) and [Delete a block storage data volume](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#delete).
 
-<!--### Add or remove a rule
-{: change-rule}-->
+### Add or remove a rule
+{: change-rule}
 
-<!--Adding or removing a rule for one of the following resources sends metric events for the associated quota resource name.-->
+Adding or removing a rule for one of the following resources sends metric events for the associated quota resource name.
 
-<!-- network-acl-rule
+- network-acl-rule
    - [Working with ACLs and ACL rules](/docs/vpc?topic=vpc-using-acls#working-with-acls-and-acl-rules).
 - security-group-rule
-   - [About security groups](/docs/vpc?topic=vpc-using-security-groups&interface=ui). -->
+   - [About security groups](/docs/vpc?topic=vpc-using-security-groups&interface=ui).
 
 ### Create, delete, or resize an instance
 {: update-instance}
 
-<!--Creating, deleting, or resizing a virtual server instance sends metric events for the following quota resource names.-->
+Creating, deleting, or resizing a virtual server instance sends metric events for the following quota resource names.
 
 - instance-vcpu
 - instance-memory
@@ -89,14 +89,14 @@ For more information, see:
    - [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui).
    - [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance&interface=ui).
 
-<!--### Create or delete a dedicated host
-{: create-delete-dedicated-host}-->
+### Create or delete a dedicated host
+{: create-delete-dedicated-host}
 
-<!--Creating or deleting a dedicated host generates a metric for the 'instance-vcpu' resource.
+Creating or deleting a dedicated host generates a metric for the 'instance-vcpu' resource.
 
-<!--- instance-vcpu
+- instance-vcpu
    For more information, see:
-   - [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances&interface=ui) and [Managing dedicated hosts and groups](/docs/vpc?topic=vpc-manage-dedicated-hosts-groups&interface=ui).-->
+   - [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances&interface=ui) and [Managing dedicated hosts and groups](/docs/vpc?topic=vpc-manage-dedicated-hosts-groups&interface=ui).
    
 ### Create or delete a file share
 {: create-delete-file-shares}
