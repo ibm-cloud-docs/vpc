@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2022-02-11",
+    "lastupdated": "2022-02-18",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc", 
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
-          "date": "10 February 2022",
-          "title": "Block storage attachments",
-          "description": "Limits on the number of block storage data volumes you can attach to an instance were amended. Previously, instances created from smaller vCPU profiles could only attach up to four data volumes. These limits are removed. For all instances, you can attach up to 12 block storage data volumes."
+          "date": "15 February 2022",
+          "title": "Resizable boot volumes",
+          "description": "You can now increase the capacity of a boot volume, up to 250 gigabytes (GB), when creating an instance from an image or instance template. You can also directly update an existing boot volume to increase its capacity."
         },
         {
-          "date": "08 February 2022",
-          "title": "Port ranges for public network load balancers",
-          "description": "When creating a public network load balancer, you can now specify a range of listener ports."
+          "date": "15 February 2022",
+          "title": "File Storage for VPC",
+          "description": "The file service is now integrated with the Security and Compliance Center to help you manage security and compliance for your organization."
         },
         {
-          "date": "08 February 2022",
-          "title": "Bare Metal server support for application load balancers",
-          "description": "Bare Metal server members are now supported on application load balancers."
+          "date": "14 February 2022",
+          "title": "Snapshots for VPC",
+          "description": "The snapshots service is now integrated with the Security and Compliance Center to help you manage security and compliance for your organization."
         }
       ]
     }
