@@ -117,8 +117,7 @@ toc:
         - topicgroup:
             label: Managing a VPC
             topics:
-            - hello-world-vpc.md
-            - example-code.md
+            - creating-vpc-resources.md 
             - vpc-regions.md
             - connectivity-options.md
             - topicgroup:
