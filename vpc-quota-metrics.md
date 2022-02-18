@@ -2,7 +2,7 @@
 
 copyright:
   years:  2021, 2022
-lastupdated: "2022-02-17"
+lastupdated: "2022-02-18"
 
 keywords: IBM Cloud monitoring, platform metrics, metrics, vpc metrics, vpc monitoring metrics
 
@@ -22,7 +22,7 @@ subcollection: cloud-infrastructure
 {:important: .important}
 {:note: .note}
 
-VPC Resource Quota Overview metrics is available for customers with special approval to preview this service in the Washington and Dallas regions.
+VPC Resource Quota Overview metrics is available for customers with special approval to preview this service.
 {: preview}
 
 # VPC Resource Quota Overview metrics definitions
