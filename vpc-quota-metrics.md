@@ -22,9 +22,6 @@ subcollection: cloud-infrastructure
 {:important: .important}
 {:note: .note}
 
-VPC Resource Quota Overview metrics is available for customers with special approval to preview this service.
-{: preview}
-
 # VPC Resource Quota Overview metrics definitions
 {: #vpc-quota-metrics}
 
