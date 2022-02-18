@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-10"
+lastupdated: "2022-02-18"
 
 keywords: storage, backup, virtual private cloud
 
@@ -35,13 +35,15 @@ This service is available only to accounts with special approval to preview this
 ## Backup service concepts
 {: #backup-service-concepts}
 
-The {{site.data.keyword.cloud_notm}} Backup for VPC service lets you create backup policies for your block storage volumes. A backup policy contains a backup plan, which defines a schedule for automated backups. When the schedule is triggered, a backup is created of your volume contents. A backup is actually a snapshot. Behind the scenes, the [Snapshots for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about) service is used to create a point-in-time copy of your data. The entire contents of the volume are copied (snapshotted) and retained. Subsequent backups of the same volume capture the changes since the previous backup.
+The {{site.data.keyword.cloud_notm}} Backup for VPC service lets you create backup policies for your block storage volumes. A backup policy contains a backup plan, which defines a schedule for automated backups. When the schedule is triggered, a backup is created of your volume contents. 
+
+A backup is actually a snapshot, created automatically. Behind the scenes, the [Snapshots for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about) service is used to create a point-in-time copy of your data. The entire contents of the volume are copied (snapshotted) and retained. Subsequent backups of the same volume capture the changes since the previous backup.
 
 You can take up to 100 backups of a volume, but it's best to set a retention policy so that older backups are deleted and your costs are reduced.
 
 Backup's require that the volume you're backing up is attached to a running virtual server instance. Put another way, you can't backup an unattached volume.
 
-A volume is backed up when [user-provided tags](#backup-service-about-tags) associated with a block storage volume match tags for target resources in a backup policy. The volume must have at least one of the backup policy’s tags for the target resources. When the scheduled backup is triggered by a backup plan, all volumes with matching tags in the policy are backed up. If a volume has multiple tags, only one tag has to match for a backup to trigger. 
+A volume is backed up when [user-provided tags](#backup-service-about-tags) associated with a block storage volume match tags for target resources in a backup policy. The volume must have at least one of the backup policy’s tags. When the scheduled backup is triggered according to the backup plan schedule, all volumes with matching tags in the policy are backed up. If a volume has multiple tags, only one tag has to match for a backup to trigger.
 
 Use the UI, CLI, or API to create backup policies and plans for your block storage volumes. Before creating backups, see this information on [planning your backups](/docs/vpc?topic=vpc-backups-vpc-planning). For best practices and other considerations when creating backups, see [Best practices for creating backups](/docs/vpc?topic=vpc-backups-vpc-best-practices).
 
@@ -50,7 +52,7 @@ Use the UI, CLI, or API to create backup policies and plans for your block stora
 
 While the snapshots service is used in the background to create backups, there are similarities and differences between backups and snapshots. Table 1 compares backups to snapshots.
 
-Backups and snapshots services are different than a disaster recovery (DR) solution, where your data is continually backed up with automatic failover. Restoring a volume from a backup or snapshot is a manual operation that takes time.
+Backups and snapshots services are not the same as a disaster recovery (DR) solution, where your data is continually backed up and has automatic failover. Restoring a volume from a backup or snapshot is a manual operation that takes time.
 {: note}
 
 | Feature | Backup | Snapshot |
