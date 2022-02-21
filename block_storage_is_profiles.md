@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019 - 2021
-lastupdated: "2021-08-25"
+  years: 2019, 2023
+lastupdated: "2022-02-21"
 
 keywords: block storage, virtual private cloud, volume, profile, volume profile, data storage, storage profile, virtual server instance, instance
 
@@ -29,7 +29,7 @@ subcollection: vpc
 When you provision {{site.data.keyword.block_storage_is_short}} data volumes by using the {{site.data.keyword.cloud_notm}} console, CLI, or API, you specify an IOPS profile that best meets your storage requirements. Profiles are available as three predefined IOPS tiers or as custom IOPS. IOPS tiers provide reliable IOPS/GB performance for volumes up to 16,000 GB capacity. You can also specify a custom IOPS profile and define volume capacity and IOPS within a range.
 {: shortdesc}
 
-IOPS is are based on either a 16 KB (for the 3 GB/ IOPS and 5 GB/IOPS tiers) or 256 KB block size (for the 10 GB/IOPS tier) with a 50-50 read/write random workload. Each 16/256 KB of data read/written counts as one read/write operation; a single write of less than 16/256 KB counts as a single write operation. Baseline throughput is determined by the amount of IOPS multiplied by the 16 KB block size. For more information, see [How block size affects performance](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
+IOPS is are based on either a 16 KB (for the 3 GB/ IOPS and 5 GB/IOPS tiers) or 256 KB block size (for the 10 GB/IOPS tier) with a 50-50 read/write random workload. Each 16/256 KB of data read/written counts as one read/write operation; a single write of less than 16/256 KB counts as a single write operation. Baseline throughput is determined by the amount of IOPS multiplied by the 16 KB block size. Maximum throughput is 1024 Mbps. For more information, see [How block size affects performance](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
 
 ## IOPS tiers
 {: #tiers}
