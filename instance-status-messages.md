@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-10-08"
+lastupdated: "2022-02-22"
 
 keywords: instance status message, instance status, VPC error message, error message, virtual server error
 
@@ -157,3 +157,19 @@ To resolve this error, try to start the instance again after the image creation 
 If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help).
 
 For more information about creating images, see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers) or [Creating virtual server instances by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli).
+
+## Error: `stopped_by_host_failure`
+{: stopped-by-host-failure}
+
+**Error message**: _Host not responding: instance stopped_
+
+The virtual server instance stopped because the host the instance is on has failed. The host failure policy for automatic restart is disabled and the instance has remained stopped.
+
+To address this error, try the follow possible resolutions:
+
+Stop and restart the instance.
+Delete the instance and try again.
+
+If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help).
+
+For morre information about unexpected host failures, see [Host Failure Recovery Policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui).
