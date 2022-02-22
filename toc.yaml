@@ -62,6 +62,7 @@ toc:
            - vsi_is_provisioning_scripts.md
            - ip-spoofing-about.md
            - instance-profiles-vpc-bandwidth.md
+           - host-failure-recovery.md
        - topicgroup:
            label: Storage
            topics:
