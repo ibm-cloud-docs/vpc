@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-10"
+lastupdated: "2022-02-22"
 
 keywords: storage, backup, virtual private cloud
 
@@ -116,6 +116,7 @@ User Tags                              env:test,env:prod
 
 ## Apply tags to block storage volumes with the API
 {: #backup-apply-tags-volumes-api}
+{: api}
 
 To apply tags to a block storage volume, follow these steps:
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-10"
+lastupdated: "2022-02-22"
 
 keywords: storage, backup, virtual private cloud
 
@@ -62,11 +62,11 @@ For information about adding tags, see [Apply tags to resources for backup polic
 
 | Field | Description |
 |-------|-------------|
-| **Details** | Enter details to define the policy. A policy schedules backups of your resources. |
-| Name  | Provide a unique name for your backup policy that easily identifies the policy. The standard naming conventions are used for policy and plan names. For information, see [these guidelines](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#volume-name-conventions). |
-| Resource group | Optionally, specify a resource group for your policy. It can't be changed after you enter it. |
+| **Details** | Enter details to define the policy. A policy defines what volumes are backed up. |
+| Name  | Provide a unique name for your backup policy that easily identifies the policy. Standard naming conventions apply to policies, plans, and backups. For example, see these [snapshots naming conventions](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-naming). |
+| Resource group | Optionally, specify a resource group for your policy. It can't be changed after you enter it.  For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup). |
 | Tags | Add tags that you want to apply to this policy. This tag must match a block storage volume tag. |
-| Access management tags | |
+| Access management tags | Tags to manage access to your resources. The only supported format for access management tags is key:value. |
 | Region | Select the region in which you want to create the backup policy. For Beta, you must specify one region where your volumes are located and your backups will exist. |
 | **Tags for target resources** | Specify the user tags to apply to your target resources (block storage volumes) in your region. If multiple resources use the same tag, backups will be created for all resources. If a resource has multiple tags, it only needs to match one tag associated with the backup policy. After creating the backup policy, existing resources with any of the tags for target resources are automatically associated with this policy. |
 | **Plan** | A backup plan specifies when to run the policy and the actions to perform. For Beta, you can have one plan per backup policy. Click **Create plan** to specify plan details in the side panel. When completed, the list populates with information about the plan associated with the backup policy and shows the frequency in which it executes. You can't modify a plan after you create it. See [Specify a backup plan](#backup-plan-ui) for information on the options for creating a plan. |

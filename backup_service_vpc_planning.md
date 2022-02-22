@@ -2,7 +2,7 @@
 
 Copyright:
   years:  2022
-lastupdated: "2022-02-17"
+lastupdated: "2022-02-22"
 
 keywords: bsckup, block storage, virtual private cloud, volume, data storage, virtual server instance, instance, snapshots
 
@@ -51,4 +51,4 @@ Consider the following prerequisites before you set up the VPC Backup Service.
 ## Next Steps
 {: #baas-planning-next-steps}
 
-[Create backup policies]() to backup your volumes.
+[Create backup policies](/docs/vpc?topic=vpc-backup-policy-create) to backup your volumes.

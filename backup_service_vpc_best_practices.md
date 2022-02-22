@@ -2,7 +2,7 @@
 
 Copyright:
   years:  2022
-lastupdated: "2022-02-17"
+lastupdated: "2022-02-22"
 
 keywords: bsckup, block storage, virtual private cloud, volume, data storage, virtual server instance, instance, snapshots
 
@@ -35,9 +35,9 @@ This service is available only to accounts with special approval to preview this
 
 * Assess the type of data you have when creating backup policies. Critical data that changes more often might require more frequent backups than static data. Ask which data is most critical and which should be archived.
 
-* Keep costs down by retaining backups for only as long as you need to prevent data loss. Plan timely backups to restore data that might be deleted or corrupted. Think about they type of events that might happen. Ask how much data you can afford to lose. That will help you decide on a backup interval. 
+* Keep costs down by retaining backups for only as long as you need them to prevent data loss. Plan timely backups to restore data that might be deleted or corrupted. Think about they type of events that might happen. Ask how much data you can afford to lose. That will help you decide on a backup interval. 
 
-* Ask how quickly you need to recover the data. Frequent backups cover smaller incremental changes to your data and afford quicker restoration. Run a test fail over and volume restore to get an idea of the time it will take.
+* Ask how quickly you need to recover the data. Frequent backups cover smaller incremental changes to your data afford quicker restoration. Run a test fail over and volume restore to get an idea of the time it will take.
 
 * For very large volumes, consider a shorter retention period so that you don't exceed the 10 TB limit for all volume backups.
 
