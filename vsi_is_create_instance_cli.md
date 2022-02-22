@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-02-02"
+lastupdated: "2022-02-22"
 
 keywords: instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, creating, CLI, command line interface, generation 2, gen 2, placement groups
 
@@ -57,7 +57,7 @@ Gather the following information:
 | Subnet                | `ibmcloud is subnets`           |
 | Zone                  | `ibmcloud is zones`             |  
 | Placement groups      | `ibmcloud is placement-groups`  |
-| Manufacturer          | 'Intel'                         |
+| Manufacturer          | `Intel`                         |
 {: caption="Table 1. Required instance details" caption-side="bottom"}   
 
 Use the following commands to determine the required information for creating a new instance.
@@ -240,6 +240,7 @@ After you know these values, use them to run the `instance-create` command. In a
        --volume-attach @/Users/myname/myvolume-attachment_create.json\
        --placement-group r134-a812ff17-cac5-4e20-8d2b-95b587be6637\
        --metadata-service true
+       --host-failure-policy true
    ```
    {: screen}
 
@@ -247,6 +248,7 @@ After you know these values, use them to run the `instance-create` command. In a
    - `INSTANCE_NAME` is _my-instance_
    - `VPC_ID` is _VPC_ID_
    - `ZONE_NAME` is _us-south-1_
+   - `Availability policy on host failure` is enabled by default and set to `start`. To disable it, set it to `stop`.
    - `PROFILE_ID` is _b-2x4_
    - `SUBNET_ID` is _SUBNET_ID_
    - `IMAGE_ID` is _IMAGE_ID_
@@ -255,32 +257,40 @@ After you know these values, use them to run the `instance-create` command. In a
    - `PLACEMENT_GROUP_ID` is _r134-a812ff17-cac5-4e20-8d2b-95b587be6637
    - `METADATA-SERVICE` is set to `true` to enable it. By default, it is disabled and set to `false`.
 
-   For this example, you'd see the following responses. **Note:** The following response varies depending on what optional values you use.
+   For this example, you'd see the following responses.
+   
+   The following response varies depending on what optional values you use.
+   {: note}
+  
    ```
-   ID                           0738-2x12xxx5-xx11-1234-x4x5-1xxx12345678
-   Name                         my-instance
-   Status                       pending
-   Profile                      b-2x4
-   Architecture                 amd64
-   vCPUs                        2
-   Memory                       4
-   Network Performance (Gbps)   4
-   Image                        ID                                          Name
-                                0738-7eb4e35b-4257-56f8-d7da-326d85452591   ubuntu-16.04-amd64
-
-   VPC                          ID                                          Name
-                                xxx1xx23-4xx5-6789-12x3-456xx7xx123x        my-vpc
-
-   Zone                         us-south-1
-   Resource group               Default
-   Metadata service enabled     true
-   Created                      2020-08-24T20:25:50+08:00
-   Boot volume                  ID   Name           Attachment ID                               Attachment name
-                                -    PROVISIONING   0736-76436447-3262-4b3d-8b42-aa3fbb5927f6   volume-attachment
-   Data volumes                 ID                                          Name        Attachment ID                               Attachment name
-                                r134-dd9cefce-8f3e-4a63-b92a-066c8505e25c   my-volume   0738-xx55xx44-3xx1-1234-42x1-234xx5x678xx   my-volume-attachment
-   Placement            ID                                          Name       Resource type      
-                     r134-a812ff17-cac5-4e20-8d2b-95b587be6637   mypg2-re   placement_group  
+   ibmcloud is inc test r134-a0162c41-6a75-4a04-aabb-da1c78539531 us-south-2  bx2-2x8  7284-47efd8c6-0efc-462e-89c0-e0457119f90b --image r134-63363662-a4ee-4ba4-a6c4-92e6c78c6b58 --host-failure-policy stop
+   Creating instance test under account VPC1 as user myuser@mycompany.com...
+                                            
+   ID                                    7284_683902df-85ce-4546-808c-3675247074d8   
+   Name                                  test   
+   CRN                                   crn:v1:staging:public:is:us-south-2:a/efe5afc483594adaa8325e2b4d1290df::instance:7284_683902df-85ce-4546-808c-3675247074d8   
+   Status                                pending   
+   Availability policy on host failure   start   
+   Startable                             true   
+   Profile                               bx2-2x8   
+   Architecture                          amd64   
+   vCPU Manufacturer                     Intel   
+   vCPUs                                 2   
+   Memory(GiB)                           8   
+   Bandwidth(Mbps)                       4000   
+   Image                                 ID                                          Name      
+                                         r134-63363662-a4ee-4ba4-a6c4-92e6c78c6b58   ibm-centos-7-9-minimal-amd64-3      
+                                            
+   VPC                                   ID                                          Name      
+                                         r134-a0162c41-6a75-4a04-aabb-da1c78539531   cli-vpc-1      
+                                            
+   Zone                                  us-south-2   
+   Resource group                        ID                                 Name      
+                                         11caaa983d9c4beb82690daab08717e9   Default      
+                                            
+   Created                               2021-10-25T16:39:30+05:30   
+   Boot volume                           ID   Name           Attachment ID                               Attachment name      
+                                         -    PROVISIONING   7284-69923add-65e2-4b93-bee4-a4bca3836696   collector-reverb-exiting-swinging
    ```
    {: screen}
 
