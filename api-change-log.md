@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-02-15"
+lastupdated: "2022-02-22"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -47,6 +47,16 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 22 February 2022
+{: #22-february-2022}
+
+### For all API version dates
+{: #22-february-2022-all-version-dates}
+
+**Instance availability policies for compute host failures.** A new `availability_policy` property has been added to the [create](/apidocs/vpc#create-instance) and [update](/apidocs/vpc#update-instances) instance methods to control the behavior when the instance's underlying compute host experiences a failure. The `host_failure` sub-property can be used to set the host failure `availability_policy` of the virtual server instance. The default policy is `restart`, which relocates the instance to a healthy host and restarts the instance. The policy may be set to `stop` to have the instance remain stopped if the compute host experiences a failure.
+
+For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=api).
 
 ## 15 February 2022
 {: #15-february-2022}
