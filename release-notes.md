@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-02-16"
+lastupdated: "2022-02-22"
 
 keywords: VPC release notes
 
@@ -36,6 +36,13 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 
 ## February 2022
 {: #subcollection-feb22}
+
+### 22 February 2022
+{: #subcollection-feb2222}
+{: release-note}
+
+**Host failure recovery policies**
+:    Host failure recovery policies for VPC is generally available (GA). For more information about host failure recovery policies, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui).
 
 ### 15 February 2022
 {: #subcollection-feb1522}
