@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-02-17"
+lastupdated: "2022-02-22"
 
 keywords: view instance details, restart, stop, instance details, delete
 
@@ -47,6 +47,7 @@ To manage your instances, complete the following steps.
 | Reboot | Immediately powers off a running instance and then powers it back on again. |
 | Resize | Vertically scale virtual server instances to any supported profile size. For more information, see [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance).
 | Delete | To delete an instance, the instance must have a powered off status. If the instance has a floating IP address, it must be unassociated or released before the instance is deleted. The delete action permanently removes an instance and its connected vNIC, boot volume, and data from your account. |
+| Host failure auto restart | Toggle on or off the host failure restart policy for an instance. For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=api). |
 {: caption="Table 1. Actions available for virtual server instances" caption-side="top"}
 
 ## Rename a virtual server instance using the UI
@@ -426,3 +427,31 @@ Windows
  Get-WmiObject Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID
  ```
 {: pre}
+
+## Setting the host failure auto restart using the UI
+{: #set-recovery-policy-ui}
+{: ui}
+
+To set the host failure auto restart for an existing instance, complete the following steps.
+   1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com){: external}, navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
+   2. On the **Virtual server instances** page, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the instance that you want to manage.
+   3. From the instance details page, locate 'Host failure auto restart'. Click the pencil icon and choose Enabled or Disabled to toggle the status of the host recovery policy on or off.
+
+For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=api).
+
+## Setting the host failure recovery policy by using the CLI
+{: #set-recovery-policy-cli}
+{: cli}
+
+You can update an instance in your IBM Cloud VPC with and change the availability policy on host failure by using the command-line interface (CLI). Run the ibmcloud `instance-update` command and set the `--host-failure-policy` property to `start` or `stop`. The host failure policy service is set to `restart` by default.
+
+```
+ibmcloud is instance-update {id} --total-volume-bandwidth VALUE --host-failure-policy stop
+```
+{: pre}
+
+## Setting the host failure recovery policy by using the API
+{: #set-policy-api}
+{: api}
+
+During instance [update](/apidocs/vpc#update-instances), the `host_failure` sub-property can be used to set the host failure `availability_policy` of the virtual server instance.
