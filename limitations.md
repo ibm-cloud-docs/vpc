@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-12-14"
+  years: 2018, 2022
+lastupdated: "2022-02-23"
 
 keywords: vpc, limitations, restrictions
 
@@ -87,7 +87,7 @@ Block storage volume names must be unique across the entire VPC infrastructure. 
 The following feature is currently not supported:
 
 * Dedicated hosts
-
+* VPC Instance Metadata service
 
 ## API considerations
 {: #api-considerations}
