@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-01-21"
+lastupdated: "2022-02-22"
 
 subcollection: vpc
 
@@ -33,6 +33,8 @@ This service is available only to accounts with special approval to use this ser
 The instance metadata service is free service that uses a REST API that you invoke to get information about your running virtual server instance. Before you can access the metadata, the service lets you generate an instance identity access token, for accessing the metadata service. You can optionally generate an IAM token from this token to access all IAM-enabled services. 
 
 The metadata service uses well-known IP address to retrieve instance metadata such as the instance name, CRN, resource groups, user data, as well as SSH key and placement group information. Use the initialization metadata to configure and launch new instances. For more information, see [About Instance Metadata for VPC](/docs/vpc?topic=vpc-imd-about).
+
+The VPC Instance Metadata service is currently supported only on x86 systems.
 
 ## How does the metadata service work?
 {: #faq-rmds-2}

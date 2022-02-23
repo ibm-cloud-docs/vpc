@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-01-22"
+lastupdated: "2022-02-22"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -27,7 +27,7 @@ subcollection: vpc
 # About VPC Instance Metadata
 {: #imd-about}
 
-Use the VPC Instance Metadata service to access information about your VPC resources. The metadata service is a REST API that you invoke using a well-known URI to retrieve instance-specific information from the metadata server. Access to API services is made available from within the instance itself and is inaccessible from outside the instance. 
+Use the VPC Instance Metadata service to access information about your VPC resources. The metadata service is a REST API that you invoke using a well-known URI to retrieve instance-specific information from the metadata server. Access to API services is made available from within the instance itself and is inaccessible from outside the instance.
 The service is free.
 {: shortdesc}
 
@@ -104,7 +104,7 @@ The metadata you access from within the instance is not protected by any encrypt
 You can use the metadata service in two ways:
 
 * Access the metadata from within the instance
-  
+
     In this scenario, you retrieve metadata from within the instance to bootstrap the instance. For example, you might want to specify custom user data when creating the instance and then retrieve that custom user data when initializing the instance. For more information, see [Accessing metadata from an instance](/docs/vpc?topic=vpc-imd-access-instance-metadata).
 
 * Access an instance identity IAM token and call IAM-enabled services
@@ -118,7 +118,7 @@ Figure 1 illustrates these scenarios.
 ## Data security
 {: #imd-security}
 
-IBM takes precaution to assure your data is secure. Metadata is retrieved only from the instance to which you have access. Data common to multiple instances will be retrieved but specific IP addresses of other instances are not exposed. 
+IBM takes precaution to assure your data is secure. Metadata is retrieved only from the instance to which you have access. Data common to multiple instances will be retrieved but specific IP addresses of other instances are not exposed.
 
 Calls to the metadata service are secure prior to leaving the compute host from which they originate. While access is over HTTP, data is wrapped using a secure protocol prior to leaving the compute host.
 
