@@ -98,7 +98,7 @@ Using the UI, you can schedule backups in your plan on a daily, weekly, or month
    
    * Or, under **Tags for backups**, specify any tags from the volume on this field.
    
-5. Click **Save**. The plan summary displays your selections. For example, the plan might be "Every Monday at -5:53 UTC (12:30 AM CDT) starting on September 8, 2021." 
+5. Click **Save**. The plan summary displays your selections. For example, the plan might be "Every Monday at -5:53 UTC (12:30 AM CDT) starting on February 28, 2022." 
 
 Note there is an **Edit** and **Delete** button, where you can modify the plan or remove it. For Beta, backup policies can have one plan, deleting it will mean you need to create a new plan. After you create the policy, you cannot modify the plan.
 
@@ -122,7 +122,7 @@ You can specify a backup plan to indicate frequency by way of a `cron-spec` expr
    
    * Under **Tags for backups**, manually any additional plan tags in this field.
    
-6. Click **Save**. The plan summary displays your selections. For example, the plan might be "Every day at 5:30 UTC starting on November 21, 2021."
+6. Click **Save**. The plan summary displays your selections. For example, the plan might be "Every day at 5:30 UTC starting on February 21, 2022."
 
 Note there is an **Edit** and **Delete** button, where you can modify the plan or remove it. For Beta, backup policies can have one plan, deleting it will mean you need to create a new plan. After you create the policy, you cannot modify the plan.
 
@@ -240,7 +240,7 @@ A successful response looks like this:
 
 ```text
 {
-  "created_at": "2021-11-12T18:10:58.060Z",
+  "created_at": "2022-02-12T18:10:58.060Z",
   "crn": "crn:v1:bluemix:public:is:us-south:a/123456::backup-policy:eca6556f-f67d-4a3e-8428-3db8819fc60c",
   "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/eca6556f-f67d-4a3e-8428-3db8819fc60c",
   "id": "eca6556f-f67d-4a3e-8428-3db8819fc60c",
@@ -304,7 +304,7 @@ A successful response looks like this:
     "my-daily-backup-plan"
   ],
   "copy_user_tags": true,
-  "created_at": "2021-11-12T22:51:31.303Z",
+  "created_at": "2022-02-12T22:51:31.303Z",
   "cron_spec": "*/5 1,2,3 * * *",
   "deletion_trigger": {
     "delete_after": 20

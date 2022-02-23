@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-10"
+lastupdated: "2022-02-22"
 
 keywords: storage, backup, virtual private cloud, block storage, volumes
 
@@ -76,13 +76,13 @@ Table 1 describes the information on the Backup policy list page. The default re
 | Created | Date the policy was created. |
 | CRN | Cloud resource name of the policy. |
 | ID | Backup policy ID. |
-| Tags for target resources | Tags for target block storage volumes that you are backing up. For information, see [Edit tags for target resources](#backup-edit-tags).|
+| Tags for target resources | Tags for target block storage volumes that you are backing up. For information, see [Applying backup policies to resources using tags](/docs/vpc?topic=vpc-backup-use-policie). |
 | **Plan** | |
 | Plan name | Unique name for the plan. |
 | Retention | Period you set for the plan to be in effect, for example, 30 days. |
 | Copy tags from source | Shows _enabled_ when tags are copied from the source volume. |
 | Tags for backups | Tags applied to all backups created by the policy. |
-| Settings icon | **TBD** |
+| Settings icon | Plan settings. |
 {: caption="Table 2. Backup policy details" caption-side="top"}
 
 ### View a list of volumes that have a backup policy
@@ -197,7 +197,7 @@ ID                                     Name         Active   Lifecycle State   C
 ### View backup plan details from the CLI
 {: backup-view-plan-details-cli}
 
-Run the `ibmcloud is backup-policy-plans/{plan_id}` command and specify the policy ID or policy name, and plan ID or plan name. This example specifies the policy ID and plan ID.
+Run the `ibmcloud is backup-policy-plans` command and specify the policy ID or policy name, and plan ID or plan name. This example specifies the policy ID and plan ID.
 
 ```text
 ibmcloud is backup-policy-plan POLICY_ID|POLICY_NAME PLAN_ID|PLAN_NAME [--output JSON] [-q, --quiet]
@@ -242,7 +242,7 @@ A successful response looks like this:
 
 ```text
 {
-  "created_at": "2021-10-25T23:29:55.833Z",
+  "created_at": "2022-02-22T23:29:55.833Z",
   "crn": "crn:v1:bluemix:public:is:us-south:a/123456::backup-policy:fb721535-2cc6-45d6-ade7-3ceb95b7f26f",
   "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/fb721535-2cc6-45d6-ade7-3ceb95b7f26f",
   "id": "fb721535-2cc6-45d6-ade7-3ceb95b7f26f",
@@ -298,7 +298,7 @@ A successful response looks like this:
         "my-daily-backup-plan"
       ],
       "copy_user_tags": true,
-      "created_at": "2021-10-25T00:45:28.421Z",
+      "created_at": "2022-02-22T00:45:28.421Z",
       "cron_spec": "*/5 1,2,3 * * *",
       "deletion_trigger": {
         "delete_after": 20
@@ -325,5 +325,5 @@ curl -X GET "$vpc_api_endpoint/v1/backup_policies/{backup_policy_id}/plans/{plan
 {: #backup-view-next-steps}
 
 * [Apply tags to your resources for backups](/docs/vpc?topic=vpc-backup-use-policies).
-* [Manage your backup policies and plans](/vpc?topic=vpc-backup-service-manage).
+* [Manage your backup policies and plans](/docs/vpc?topic=vpc-backup-service-manage).
 * [Restore a volume from a backup](/docs/vpc?topic=vpc-snapshots-vpc-restore).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-10"
+lastupdated: "2022-02-22"
 
 keywords: storage, backup, virtual private cloud
 
@@ -39,7 +39,7 @@ This service is available only to accounts with special approval to preview this
 {: #backup-manage-policy-ui}
 {: ui}
 
-Delete a backup policy, rename a policy, edit user tags using the ui.
+Delete a backup policy, rename a policy, edit user tags using the UI.
 
 ### Backup policy deletion overview
 {: #backup-delete}
@@ -120,7 +120,7 @@ Deletion request for backup policy 7759199b-bc1f-448e-84fa-2aa42bde29af has been
 ### Rename a backup policy using the CLI
 {: #backup-rename-policy-cli}
 
-Run the `ibmcloud is backup-policy-plan-update` command and specify the policy ID or policy name, and a new name for the backup policy. 
+Run the `ibmcloud is backup-policy-update` command and specify the policy ID or policy name, and a new name for the backup policy. 
 
 ```text
 ibmcloud is backup-policy-update POLICY_ID|POLICY_NAME [--name NEW_NAME] [--output JSON] [-q, --quiet]
@@ -143,7 +143,7 @@ Plans                  ID                                     Name         Resou
 Backup tags            env:dev   
 Backup resource type   volume   
 Resource group         Default   
-Created                2021-11-19T17:56:53+05:30 
+Created                2022-02-22T17:56:53+05:30 
 ```
 {: screen}
 
@@ -168,7 +168,7 @@ Example request:
 
 ```curl
 curl -X DELETE\
-"$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d?version=2021-08-31&generation=2"\
+"$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d?version=2022-02-22&generation=2"\
   -H "Authorization: $iam_token"
 ```
 {: codeblock}
@@ -184,8 +184,8 @@ Example request:
 
 ```curl
 curl -X DELETE\
-"$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d/plans/4cf9171a-0043-4434-8727-15b53dbc374c?version=2021-08-31&generation=2"\
-  -H "Authorization: $iam_token"
+"$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d/plans/4cf9171a-0043-4434-8727-15b53dbc374c?version=2022-02-22&generation=2"\
+   -H "Authorization: $iam_token"
 ```
 {: codeblock}
 
@@ -198,7 +198,7 @@ The response shows the backup plan was deleted.
     "my-daily-backup-plan"
   ],
   "copy_user_tags": true,
-  "created_at": "2021-09-03T01:44:49.070Z",
+  "created_at": "2022-02-22T01:44:49.070Z",
   "cron_spec": "*/5 1,2,3 * * *",
   "deletion_trigger": {
     "delete_after": 20
@@ -220,10 +220,10 @@ For example:
 
 ```curl
 curl -X PATCH\
-"$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d?version=2021-11-10&generation=2"\
+"$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d?version=2022-02-22&generation=2"\
   -H "Authorization: $iam_token"\
   -d '{
-     "name": "my-backup-policy1"
+        "name": "my-backup-policy1"
      }'
 ```
 {: codeblock}

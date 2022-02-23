@@ -37,9 +37,9 @@ This service is available only to accounts with special approval to preview this
 ## General procedure
 {: #backup-gen-proc-tags}
 
-1. [Create a backup policy and plan](/docs/vpc?topic=vpc-backup-about).
+1. [Create a backup policy and plan](/docs/vpc?topic=vpc-backup-policy-create).
 
-2. [Apply backup policy tags](#backup-apply-tags-ui) to your target block storage volumes by using the [UI](#backup-apply-tags-ui), [CLI](#backup-apply-tags-cli), or [API](#backup-apply-tags-api). Go to your block storage volume that you want to backup and add at least one tag to it.
+2. [Apply backup policy tags](#backup-apply-tags-ui) to your target block storage volumes by using the [UI](/docs/vpc?topic=vpc-backup-use-policies&interface=ui#backup-apply-tags-ui), [CLI](/docs/vpc?topic=vpc-backup-use-policies&interface=cli#backup-apply-tags-volumes-cli), or [API](/docs/vpc?topic=vpc-backup-use-policies&interface=api#backup-apply-tags-volumes-api). Go to your block storage volume that you want to backup and add at least one tag to it.
 
 3. Verify that your block storage volume is associated with a backup policy. For more information, see [View a list of volumes that have a backup policy](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-vol-backup-policies).
 
@@ -214,6 +214,6 @@ To apply tags to a block storage volume, follow these steps:
 ## Next steps
 {: #backup-next-steps-use}
 
-* [Manage your backup policies and plans](/vpc?topic=vpc-backup-service-manage)
+* [Manage your backup policies and plans](/docs/vpc?topic=vpc-backup-service-manage)
 * [Create additional backup policies](/docs/vpc?topic=vpc-backup-policy-create&interface=ui)
 * [Restore a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore)
