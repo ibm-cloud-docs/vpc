@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-01-21"
+lastupdated: "2022-02-24"
 
 keywords: bare metal servers, faq, bare metal faq
 
@@ -26,7 +26,7 @@ subcollection: vpc
 # FAQ for bare metal servers
 {: #bare-metal-server-faq}
 
-## What's the difference between Bare Metal Servers (classic infrastructure) and Bare Metal Servers for VPC?
+## What's the difference between Bare Metal Servers (Classic infrastructure) and Bare Metal Servers for VPC?
 {: #faq-bare-metal-0}
 {: faq}
 
@@ -36,7 +36,10 @@ Compared to the classic bare metal infrastructure, Bare Metal Servers for VPC pr
 * Integrates with other VPC services such as virtual server, security groups, networking, and more. 
 * Faster provisioning and deployment and simple hourly billing.
 
-Keep in mind that Bare Metal Servers for VPC is less customizable than classic bare metal servers. 
+Keep in mind that Bare Metal Servers for VPC is less customizable than classic bare metal servers.
+
+For more information about the differences between the Classic infrastructure and VPC, see [
+Comparing IBM Cloud Classic and VPC infrastructure environments](/docs/cloud-infrastructure?topic=cloud-infrastructure-compare-infrastructure). 
 
 ## What operating systems are supported?
 {: #faq-bare-metal-1}
@@ -68,7 +71,7 @@ When you are planning to create the bare metal servers, you can go through the c
 {: #faq-bare-metal-4}
 {: faq}
 
-Bare metal servers are available in eu-de and us-south regions.
+Bare metal servers are available in eu-de, us-east, and us-south regions.
 
 ## Do I need to configure multiple network interfaces on a bare metal server to support the full 100 Gbps bandwidth?
 {: #faq-bare-metal-5}
