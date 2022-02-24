@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-01-18"
+lastupdated: "2022-02-24"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -18,7 +18,6 @@ subcollection: vpc
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
-{:preview: .preview}
 {:table: .aria-labeledby="caption"}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
@@ -29,9 +28,6 @@ subcollection: vpc
 
 You can create a trusted profile for compute resource identities in IAM and then assign a virtual server instance access rights for IAM-enabled services. These services can be called from an instance without having to manage and distribute IAM secrets to the instance. Use this option when you want to call IAM-enabled services as part of instance initialization.
 {: shortdesc}
-
-This service is available only to accounts with special approval to use this service. Contact [IBM support](/docs/vpc?topic=vpc-getting-help) if you're interested in getting access.
-{: preview}
 
 ## About trusted profiles for compute resource identities
 {: #imd-compute-res-identity}

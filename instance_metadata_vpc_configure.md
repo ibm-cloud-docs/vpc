@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-01-21"
+lastupdated: "2022-02-24"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -18,7 +18,6 @@ subcollection: vpc
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
-{:preview: .preview}
 {:table: .aria-labeledby="caption"}
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
@@ -32,10 +31,6 @@ subcollection: vpc
 
 Configure the metadata service by obtaining an instance identity access token from the metadata service. Optionally, generate an IAM access token from this token to access IAM-enabled services in the account.
 {: shortdesc}
-
-This service is available only to accounts with special approval to use this service. Contact [IBM support](/docs/vpc?topic=vpc-getting-help) if you're interested in getting access.
-{: preview}
-
 
 ## Accessing the metadata service using the instance identity access token service
 {: #imd-get-token}
@@ -140,6 +135,9 @@ Trusted profiles for compute resource identities is a feature that lets you assi
 {: #imd-metadata-service-enable}
 
 To retrieve metadata from an instance, you must first enable the service. You can do this for new instances and existing instances.
+
+For this release, for instances created with metadata services disabled at time of creation and later updated to enable the metadata service, you must stop and restart the instance to fully enable the metadata service.
+{: note}
 
 ### Enable or disable instance metadata using the UI
 {: #imd-enable-service-ui}

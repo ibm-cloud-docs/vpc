@@ -3,23 +3,14 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-01-20"
+lastupdated: "2022-02-23"
 
-keywords: activity tracker, events
-
+keywords: activity tracker for vpc, events
 subcollection: vpc
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:codeblock: .codeblock}
-{:tip: .tip}
-{:note: .note}
-{:download: .download}
+{{site.data.keyword.attribute-definition-list}}
 
 # Activity Tracker events
 {: #at-events}
@@ -48,7 +39,7 @@ The following tables list the actions that are related to network resources and 
 | network-acl  | is.network-acl.rule.update  | Network ACL Rule was updated   |
 | network-acl  | is.network-acl.rule.delete  | Rule was removed from Network ACL  |
 | network-acl  | is.network-acl.rule.read | One or more network ACL rules was retrieved |
-{: caption="Table 1. Actions that generate events for Network ACL" caption-side="top"}
+{: caption="Table 1. Actions that generate events for Network ACL" caption-side="bottom"}
 
 ### Custom route events
 {: #events-custom-routes}
@@ -67,8 +58,7 @@ The following table lists the actions that are related to VPC routing tables and
 | route | is.vpc.routing-table_route.read | Routing table route was retrieved (get and list) |
 | subnet | is.subnet.routing-table.read | Subnets attached to a routing table were retrieved |
 | subnet | is.subnet.routing-table.attach | Routing table was attached to a subnet |
-
-{: caption="Table 2. Actions that generate events for VPC routing tables and routes" caption-side="top"}
+{: caption="Table 2. Actions that generate events for VPC routing tables and routes" caption-side="bottom"}
 
 ### Floating IP events
 {: #events-network-floatingIP}
@@ -79,7 +69,7 @@ The following table lists the actions that are related to VPC routing tables and
 | floating-ip  | is.floating-ip.floating-ip.update   | Floating IP was updated  |
 | floating-ip  | is.floating-ip.floating-ip.delete   | Floating IP was deleted  |
 | floating-ip  | is.floating-ip.floating-ip.read | One or more floating IP was retrieved |
-{: caption="Table 3. Actions that generate events for Floating IP" caption-side="top"}
+{: caption="Table 3. Actions that generate events for Floating IP" caption-side="bottom"}
 
 ### Flow log events
 {: #events-flow-logs}
@@ -92,7 +82,7 @@ The following table lists the actions that are related to flow logs and the gene
 | flow-log-collector | is.flow-log-collector.flow-log-collector.delete | Flow log collector was deleted |
 | flow-log-collector | is.flow-log-collector.flow-log-collector.read | Flow log collector was read |
 | flow-log-collector | is.flow-log-collector.flow-log-collector.update | Flow log collector was updated |
-{: caption="Table 4. Actions that generate events for flow log collectors" caption-side="top"}
+{: caption="Table 4. Actions that generate events for flow log collectors" caption-side="bottom"}
 
 ### Load balancer events
 {: #events-load-balancers}
@@ -119,7 +109,9 @@ The following table lists the actions that are related to load balancers and the
 | Rule |  is.load-balancer.load-balancer-listener-policy-rule.create | Rule was created |
 | Rule |  is.load-balancer.load-balancer-listener-policy-rule.update | Rule was updated |
 | Rule |  is.load-balancer.load-balancer-listener-policy-rule.delete | Rule was deleted |
-{: caption="Table 5. Actions that generate events for load balancers" caption-side="top"}
+{: caption="Table 5. Actions that generate events for load balancers" caption-side="bottom"}
+
+
 
 ### Public gateway events
 {: #events-network-public-gateway}
@@ -130,7 +122,7 @@ The following table lists the actions that are related to load balancers and the
 | public-gateway | is.public-gateway.public-gateway.update   | Public Gateway was updated   |
 | public-gateway | is.public-gateway.public-gateway.delete   | Public Gateway was deleted   |
 | public-gateway | is.public-gateway.public-gateway.read | One or more public gateways were retrieved  |
-{: caption="Table 6. Actions that generate events for Public Gateway" caption-side="top"}
+{: caption="Table 6. Actions that generate events for Public Gateway" caption-side="bottom"}
 
 ### Security group events
 {: #events-network-security-group}
@@ -148,7 +140,7 @@ The following table lists the actions that are related to load balancers and the
 | security-group | is.security-group.security-group-interface.attach | Interface was attached to Security Group   |
 | security-group | is.security-group.security-group-interface.detach | Interface was removed from Security Group   |
 | security-group | is.security-group.security-group-interface.read | One or more security group interfaces was retrieved |
-{: caption="Table 7. Actions that generate events for Security Group" caption-side="top"}
+{: caption="Table 7. Actions that generate events for Security Group" caption-side="bottom"}
 
 ### Subnet events
 {: #events-network-subnet}
@@ -163,7 +155,7 @@ The following table lists the actions that are related to load balancers and the
 | subnet   | is.subnet.public-gateway.attach  | Public Gateway was attached to Subnet  |
 | subnet   | is.subnet.public-gateway.detach  | Public Gateway was detached from Subnet  |
 | subnet   | is.subnet.public-gateway.read | A subnet public-gateway attachment was retrieved |
-{: caption="Table 8. Actions that generate events for Subnet" caption-side="top"}
+{: caption="Table 8. Actions that generate events for Subnet" caption-side="bottom"}
 
 ### Virtual private endpoints events
 {: #events-vpe}
@@ -175,7 +167,7 @@ The following table lists the actions that are related to virtual private endpoi
 | endpoint-gateway | is.endpoint-gateway.endpoint-gateway.create | Endpoint gateway was created |
 | endpoint-gateway | is.endpoint-gateway.endpoint-gateway.delete | Endpoint gateway was deleted |
 | endpoint-gateway | is.endpoint-gateway.endpoint-gateway.update | Endpoint gateway was updated |
-{: caption="Table 9. Actions that generate events for virtual private endpoints" caption-side="top"}
+{: caption="Table 9. Actions that generate events for virtual private endpoints" caption-side="bottom"}
 
 ### VPC events
 {: #events-network-vpc}
@@ -193,7 +185,7 @@ The following table lists the actions that are related to virtual private endpoi
 | vpc  | is.vpc.vpc-route.create   | Route was added to VPC   |
 | vpc  | is.vpc.vpc-route.update   | VPC Route was updated  |
 | vpc  | is.vpc.vpc-route.delete   | Route was removed from VPC   |
-{: caption="Table 10. Actions that generate events for VPC" caption-side="top"}
+{: caption="Table 10. Actions that generate events for VPC" caption-side="bottom"}
 
 ### VPN gateway events
 {: #events-vpns}
@@ -230,7 +222,7 @@ The following table lists the actions that are related to site-to-site VPN gatew
 | vpn  | is.vpn.ipsec-policy.update   | IPsec policy was updated |
 | vpn  | is.vpn.ipsec-policy.read   | IPsec policy was retrieved |
 | vpn  | is.vpn.ipsec-policy.list   | IPsec policies were listed |
-{: caption="Table 11. Actions that generate events for site-to-site VPN gateways" caption-side="top"}
+{: caption="Table 11. Actions that generate events for site-to-site VPN gateways" caption-side="bottom"}
 
 ### VPN server events (Beta)
 {: #events-vpn-server}
@@ -254,7 +246,7 @@ The following table lists the actions that are related to client-to-site VPN ser
 | vpn  | is.vpn-server.vpn-server-route.update  | VPN server route was updated |
 | vpn  | is.vpn-server.vpn-server-route.read  | VPN server route was retrieved |
 | vpn  | is.vpn-server.vpn-server-route.list  | VPN server routes were listed |
-{: caption="Table 12. Actions that generate events for client-to-site VPN servers" caption-side="top"}
+{: caption="Table 12 Actions that generate events for client-to-site VPN servers" caption-side="bottom"}
 
 ## Compute resources
 {: #events-compute}
@@ -266,7 +258,7 @@ The following tables list the actions that are related to compute resources and 
 
 | Resource  | Action  | Description  |
 |:----------------|:-----------------------|:-----------------------|
-| instance   | is.instance.instance.create   | - Instance was created<br /> - Includes the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces that are created on the virtual server. When set to `false`, IP spoofing is not allowed on the interface.  |
+| instance   | is.instance.instance.create   | - Instance was created \n - Includes the state of the `allow_ip_spoofing` parameter, which disables source/destination checks for network interfaces that are created on the virtual server. When set to `false`, IP spoofing is not allowed on the interface.  |
 | instance   | is.instance.instance.delete   | Instance was deleted   |
 | instance   | is.instance.instance.update   | Instance was updated   |
 | instance   | is.instance.instance.read | One or more instances was retrieved |
@@ -292,7 +284,29 @@ The following tables list the actions that are related to compute resources and 
 | instance | is.instance.disk.update | Instance storage disk name was updated |
 | instance | is.instance.disk.wipe | Instance storage disk was wiped clean |
 | instance | is.instance.gpu.wipe | Memory was wiped on the GPU for the Instance |
-{: caption="Table 13. Actions that generate events for Instance" caption-side="top"}
+{: caption="Table 13. Actions that generate events for Instance" caption-side="bottom"}
+
+
+### Instance Metadata service events
+{: #events-metadata}
+
+The instance metadata service events are undergoing changes and should not be used for automation. They are useful, however, for audit purposes.
+{: note}
+
+| Resource  | Action  | Description  |
+|:----------------|:-----------------------|:-----------------------|
+| Instance Metadata | is.metadata.jwt-token.create | A JSON web token was created for accessing the Metadata service |
+| Instance Metadata | is.metadata.instance.initialize | Initialization information was retrieved for the calling instance  |
+| Instance Metadata | is.metadata.instance.read | Metadata information was retrieved for the calling instance  |
+| Instance Metadata | is.metadata.instance-key.get | A public SSH key was retrieved for the calling instance |
+| Instance Metadata | is.metadata.instance-key.list | Public SSH keys were listed for the calling instance  |
+| Instance Metadata | is.metadata.instance-network-interface.get | Network interface information was retrieved for the calling instance |
+| Instance Metadata | is.metadata.instance-network-interface.list | Network intrefaces were listed for the calling instance  |
+| Instance Metadata | is.metadata.instance-placement-group.get | Placement group information was retrieved for the calling instance |
+| Instance Metadata | is.metadata.instance-placement-group.list | Placement group information was listed for the calling instance |
+| Instance Metadata | is.metadata.instance-volume-attachment.get | A volume attachment was retrieved for the calling instance |
+| Instance Metadata | is.metadata.instance-volume-attachment.list | Volume attachments were listed for the calling instance  |
+{: caption="Table 21. Actions that generate events for the Instance Metadata service" caption-side="bottom"}
 
 ### Bare metal server events
 {: #events-compute-bm}
@@ -322,7 +336,7 @@ Some fields for Bare Metal Servers for VPC AT events will be changing between th
 | Bare Metal Server | is.bare-metal-server.network-interface-floating-ip.attach | Floating IP was associated with a network interface |
 | Bare Metal Server | is.bare-metal-server.network-interface-floating-ip.detach | Floating IP was disassociated from a network interface |
 | Bare Metal Server | is.bare-metal-server.bare-metal-server-profile.read | One or more bare metal server profiles was retrieved |
-{: caption="Table 14. Actions that generate events for Bare Metal Server" caption-side="top"}
+{: caption="Table 14. Actions that generate events for Bare Metal Server" caption-side="bottom"}
 
 ### Key events
 {: #events-compute-key}
@@ -333,7 +347,7 @@ Some fields for Bare Metal Servers for VPC AT events will be changing between th
 | key  | is.key.key.delete   | Key was deleted  |
 | key  | is.key.key.update   | Key was updated  |
 | key | is.key.key.read | One or more keys was retrieved |
-{: caption="Table 15. Actions that generate events for Key" caption-side="top"}
+{: caption="Table 15. Actions that generate events for Key" caption-side="bottom"}
 
 ### Dedicated host events
 {: #events-compute-dedicated-host}
@@ -344,7 +358,7 @@ Some fields for Bare Metal Servers for VPC AT events will be changing between th
 | dedicated-host | is.dedicated-host.dedicated-host.update | Dedicated host or host disk was updated |
 | dedicated-host | is.dedicated-host.dedicated-host.delete  |Dedicated host was deleted |
 | dedicated-host | is.dedicated-host.dedicated-host.read | One or more dedicated hosts or host disks were retrieved |
-{: caption="Table 16. Actions that generate events for Dedicated Host" caption-side="top"}
+{: caption="Table 16. Actions that generate events for Dedicated Host" caption-side="bottom"}
 
 ### Dedicated host group events
 {: #events-compute-dedicated-host-group}
@@ -355,7 +369,7 @@ Some fields for Bare Metal Servers for VPC AT events will be changing between th
 | dedicated-host-group  | is.dedicated-host.dedicated-host-group.update | Dedicated host group was updated |
 | dedicated-host-group  | is.dedicated-host.dedicated-host-group.delete | Dedicated host group was deleted |
 | dedicated-host-group  | is.dedicated-host.dedicated-host-group.read | One or more dedicated host groups was retrieved |
-{: caption="Table 17. Actions that generate events for Dedicated Host Group" caption-side="top"}
+{: caption="Table 17. Actions that generate events for Dedicated Host Group" caption-side="bottom"}
 
 ### Instance group events
 {: #events-compute-instance-group}
@@ -384,7 +398,7 @@ Some fields for Bare Metal Servers for VPC AT events will be changing between th
 | instance-group  | is.instance-group.membership.update   | Instance group membership was updated  |
 | instance-group  | is.instance-group.membership.read     | Instance group membership was retrieved |
 | instance-group  | is.instance-group.instance.create     | Instance group instance was created |
-{: caption="Table 18. Actions that generate events for Instance Group" caption-side="top"}
+{: caption="Table 18. Actions that generate events for Instance Group" caption-side="bottom"}
 
 ### Image resources
 {: #events-images}
@@ -396,7 +410,7 @@ The following table lists the actions that are related to image resources and th
 | image  | is.image.image.create   | Image was created |
 | image  | is.image.image.delete   | Image was deleted |
 | image  | is.image.image.update   | Image was updated |
-{: caption="Table 19. Actions that generate events for image resources" caption-side="top"}
+{: caption="Table 19. Actions that generate events for image resources" caption-side="bottom"}
 
 For the image update event, if you are rotating the root key for an image, the CRN for the old key and new key remains the same. The ID for the new key that is rotated in is indicated in the `kmsKeyRefID` field of the image.
 {: note}
@@ -413,25 +427,8 @@ The following table lists the actions that are related to placement group resour
 | placement_group | is.placement-group.placement-group.update | Placement group was updated |
 | instance | is.instance.instance.create | Instance was created and includes a placement group reference |
 | instance | is.instance.instance.update | Instance was updated and includes updates to the placement group reference |
-{: caption="Table 20. Actions that generate events for placement group resources" caption-side="top"}
+{: caption="Table 20. Actions that generate events for placement group resources" caption-side="bottom"}
 
-### Instance Metadata service events
-{: #events-metadata}
-
-| Resource  | Action  | Description  |
-|:----------------|:-----------------------|:-----------------------|
-| Instance Metadata | is.metadata.jwt-token.create | Creates an instance identity access token for accessing the Metadata service |
-| Instance Metadata | is.metadata.instance.initialize | Gets initialization information for the calling instance  |
-| Instance Metadata | is.metadata.instance.read | Gets metadata information for the calling instance  |
-| Instance Metadata | is.metadata.instance-key.get | Gets a public SSH key for the calling instance |
-| Instance Metadata | is.metadata.instance-key.list | Lists public SSH keys for the calling instance  |
-| Instance Metadata | is.metadata.instance-network-interface.get | Gets a network interface for the calling instance |
-| Instance Metadata | is.metadata.instance-network-interface.list | Lists network intrefaces for the calling instance  |
-| Instance Metadata | is.metadata.instance-placement-group.get | Gets a placement group for the calling instance |
-| Instance Metadata | is.metadata.instance-placement-group.list | Lists placement groups for the calling instance |
-| Instance Metadata | is.metadata.instance-volume-attachment.get | Gets a volume attachment for the calling instance |
-| Instance Metadata | is.metadata.instance-volume-attachment.list | Lists volume attachments for the calling instance  |
-{: caption="Table 21. Actions that generate events for the Instance Metadata service" caption-side="top"}
 
 ## Storage resources
 {: #events-storage}
@@ -447,7 +444,7 @@ The following table lists the actions that are related to volume resources and t
 | volume  | is.volume.volume.update  | Volume was updated  |
 | volume  | is.volume.volume.delete  | Volume was deleted  |
 | volume  | is.volume.volume.read    | One or more volumes were retrieved  |
-{: caption="Table 22. Actions that generate events for block storage resources" caption-side="top"}
+{: caption="Table 22. Actions that generate events for block storage resources" caption-side="bottom"}
 
 An event does not contain a volume name if no information is available at the time of the event. For example, when you make a request to create a volume but do not provide a volume name, the information is not available and does not appear in the event.
 {: note}
@@ -459,16 +456,17 @@ The following table lists the actions that are related to snapshots resources an
 
 | Resource  | Action  | Description  |
 |:----------------|:-----------------------|:-----------------------|
-| snapshot  | is.snapshot.snapshot.create  | Snapshot was created  |
+| snapshot  | is.snapshot.snapshot.create  | Snapshot creation process started |
+| snapshot  | is.snapshot.snapshot.capture    | Volume data was captured  |
 | snapshot  | is.snapshot.snapshot.update  | Snapshot was updated  |
 | snapshot  | is.snapshot.snapshot.delete  | Snapshot was deleted  |
 | snapshot  | is.snapshot.snapshot.read    | One or more snapshots were retrieved  |
-{: caption="Table 23. Actions that generate events for snapshot resources" caption-side="top"}
+{: caption="Table 23. Actions that generate events for snapshot resources" caption-side="bottom"}
 
 ### File storage events
 {: #events-file-storage}
 
-The following table lists the actions that are related to file storage resources and the generation of events.
+The following table lists the actions that are related to file share resources and the generation of events.
 
 File Storage for VPC is available for customers with special approval to preview this service in select regions. Contact your IBM Sales representative if you are interested in getting access.
 {: note}
@@ -479,11 +477,13 @@ File Storage for VPC is available for customers with special approval to preview
 | shares  | is.share.share.read   | One or more file shares were retrieved  |
 | shares  | is.share.share.update   | File share was updated  |
 | shares  | is.share.share.delete | File share was deleted  |
+| shares  | is.share.replica.split | Replication relationship is removed between two file shares |
+| shares  | is.share.replica.failover | Replication relationship is reversed between two file shares |
 | share mount targets  | is.share.target.create  | Mount target for a file share was created  |
 | share mount targets  | is.share.target.read  | One or more mount targets for a file share were retrieved  |
 | share mount targets  | is.share.target.update  | Mount target for a file share was modified  |
 | share mount targets  | is.share.target.delete | Mount target for a file share was deleted  |
-{: caption="Table 24. Actions that generate events for file storage resources" caption-side="top"}
+{: caption="Table 24. Actions that generate events for file storage resources" caption-side="bottom"}
 
 ## Supported locations
 {: #at-supported-locations}
@@ -521,13 +521,13 @@ Refer to the following information when you are analyzing events:
 - The following fields for Bare Metal Servers for VPC AT events will be changing between the Beta and LA releases:
 
    1) The `severity` field in Beta events is not consistent with general practice within VPC and will be corrected in the LA release.
-
+  
    2) The `target resourceGroupID` field in Beta events does not include the CRN prefix. This will be corrected in the LA release.
-
+  
    3) Some Beta events include array data. If the array is too large, the event will not be recorded. For LA, these events will display an array element count rather than the actual data.
-
+  
 - Each time you open a console for a virtual server instance or bare metal server, two API calls are issued: the first one generates a console access token, the second one uses the generated token to open the console websocket.
 
-   This generates two Activity Tracker events: `is.instance.console-access-token.create` and `is.instance.console.read`, or `is.bare-metal-server.console-access-token.create` and `is.bare-metal-server.console.read`.
+   This will generate two Activity Tracker events: `is.instance.console-access-token.create` and `is.instance.console.read`, or `is.bare-metal-server.console-access-token.create` and `is.bare-metal-server.console.read`.
 
-   You cannot use `request id` to correlate console Activity Tracker events as each call generates a unique `request id`. Instead, you can use `initiator id` to correlate console events that are generated from API calls issued by the same user.
+   You cannot use `request id` to correlate console Activity Tracker events as each call will generate a unique `request id`. Instead, you can use `initiator id` to correlate console events that are generated from API calls issued by the same user.

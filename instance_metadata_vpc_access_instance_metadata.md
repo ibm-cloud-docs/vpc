@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-01-21"
+lastupdated: "2022-02-24"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -30,9 +30,6 @@ subcollection: vpc
 Most often, you'll want to access metadata from a running instance and use that metadata to bootstrap an instance. This topic describes the general procedure for enabling the metadata service, creating an instance identity access token, and accessing the metadata.
 
 {: shortdesc}
-
-This service is available only to accounts with special approval to use this feature. Contact [IBM support](/docs/vpc?topic=vpc-getting-help) if you're interested in getting access.
-{: preview}
 
 ## Before you begin
 {: #imd-byb-identities-procedure}

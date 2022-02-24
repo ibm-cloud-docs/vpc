@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-01-21"
+lastupdated: "2022-02-24"
 
 keywords: metadata service, security, virtual server instance, instance
 
@@ -17,7 +17,6 @@ subcollection: vpc
 {:external: target="_blank" .external}
 {:pre: .pre}
 {:tip: .tip}
-{:preview: .preview}
 {:table: .aria-labeledby="caption"}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
@@ -30,9 +29,6 @@ subcollection: vpc
 
 IBM takes data security seriously and recommends you follow these best practices to ensure the highest level of protection for your instance metadata.
 {: shortdesc}
-
-This service is available only to accounts with special approval to use this service. Contact [IBM support](/docs/vpc?topic=vpc-getting-help) if you're interested in getting access.
-{: preview}
 
 ## Overview
 {: #imd-sec-overview}
