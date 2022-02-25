@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-02-23"
+lastupdated: "2022-02-25"
 
 keywords: activity tracker for vpc, events
 subcollection: vpc
@@ -295,13 +295,14 @@ The instance metadata service events are undergoing changes and should not be us
 
 | Resource  | Action  | Description  |
 |:----------------|:-----------------------|:-----------------------|
-| Instance Metadata | is.metadata.jwt-token.create | A JSON web token was created for accessing the Metadata service |
-| Instance Metadata | is.metadata.instance.initialize | Initialization information was retrieved for the calling instance  |
+| Instance Metadata | is.metadata.jwt-token.create | An instance identity token was created for accessing the Metadata service |
+| Instance Metadata | is.metadata.computeresource-token.request | Synchronizes the metadata service and IAM activity tracker events when the requested instance identity token is created. |
+| Instance Metadata | is.metadata.instance.initialization | Initialization information was retrieved for the calling instance  |
 | Instance Metadata | is.metadata.instance.read | Metadata information was retrieved for the calling instance  |
 | Instance Metadata | is.metadata.instance-key.get | A public SSH key was retrieved for the calling instance |
 | Instance Metadata | is.metadata.instance-key.list | Public SSH keys were listed for the calling instance  |
 | Instance Metadata | is.metadata.instance-network-interface.get | Network interface information was retrieved for the calling instance |
-| Instance Metadata | is.metadata.instance-network-interface.list | Network intrefaces were listed for the calling instance  |
+| Instance Metadata | is.metadata.instance-network-interface.list | Network interfaces were listed for the calling instance  |
 | Instance Metadata | is.metadata.instance-placement-group.get | Placement group information was retrieved for the calling instance |
 | Instance Metadata | is.metadata.instance-placement-group.list | Placement group information was listed for the calling instance |
 | Instance Metadata | is.metadata.instance-volume-attachment.get | A volume attachment was retrieved for the calling instance |
