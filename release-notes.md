@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-02-23"
+lastupdated: "2022-02-25"
 
 keywords: VPC release notes
 
@@ -37,6 +37,13 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 ## February 2022
 {: #subcollection-feb22}
 
+### 24 February 2022
+{: #subcollection-feb2224}
+{: release-note}
+
+**VPC Instance Metadata service (GA)**
+:   The VPC Instance Metadata service is now generally available in all regions. This free service provides a REST API you invoke within an instance to get information about that instance. Access to the API is unavailable from outside the instance. The service is disabled by default. Before you can access the metadata, the service lets you generate an instance identity access token for accessing the metadata service. You can optionally get an IAM token from this token to access all IAM-enabled services. The VPC Instance Metadata service is currently supported only on x86 systems. For more information, see [About VPC Instance Metadata](/docs/vpc?topic=vpc-imd-about).
+
 ### 22 February 2022
 {: #subcollection-feb2222}
 {: release-note}
@@ -47,6 +54,12 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 ### 15 February 2022
 {: #subcollection-feb1522}
 {: release-note}
+
+**LinuxONE (s390x processor architecture)**
+:   You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud in the Japan (Tokyo), United Kingdom (London), and São Paulo regions. For more information about available LinuxONE (s390x processor architecture) profiles, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
+
+If you use the VPC Instance Metadata service to retrieve information about your virtual server instances, the metadata service is currently supported only on x86 systems.
+{: note}
 
 **Resizable boot volumes**
 :    You can now increase the capacity of a boot volume, up to 250 gigabytes (GB), when creating an instance from an image or instance template. You can also directly update an existing boot volume to increase its capacity. For more information, see [Increasing boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes).
@@ -60,12 +73,6 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 
 **Snapshots for VPC**
 :    The snapshots service is now integrated with the Security and Compliance Center to help you manage security and compliance for your organization. For information about this feature, see [Managing security and compliance](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-manage-security).
-
-**LinuxONE (s390x processor architecture)**
-:   You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud in the Japan (Tokyo), United Kingdom (London), and São Paulo regions. For more information about available LinuxONE (s390x processor architecture) profiles, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
-
-If you use the VPC Instance Metadata service to retrieve information about your virtual server instances, the metadata service is currently supported only on x86 systems.
-{: note}
 
 ### 11 February 2022
 {: #subcollection-feb1122}
