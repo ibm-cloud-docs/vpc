@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
-          "date": "15 February 2022",
-          "title": "Resizable boot volumes",
-          "description": "You can now increase the capacity of a boot volume, up to 250 gigabytes (GB), when creating an instance from an image or instance template. You can also directly update an existing boot volume to increase its capacity."
+          "date": "24 February 2022",
+          "title": "VPC Instance Metadata service (GA)",
+          "description": "The VPC Instance Metadata service is now generally available in all regions. This free service provides a REST API you invoke within an instance to get information about that instance. Access to the API is unavailable from outside the instance. The service is disabled by default. Before you can access the metadata, the service lets you generate an instance identity access token for accessing the metadata service. You can optionally get an IAM token from this token to access all IAM-enabled services. The VPC Instance Metadata service is currently supported only on x86 systems."
+        },
+        {
+          "date": "22 February 2022",
+          "title": "Host failure recovery policies",
+          "description": "Host failure recovery policies for VPC is generally available (GA). "
         },
         {
           "date": "15 February 2022",
-          "title": "File Storage for VPC",
-          "description": "The file service is now integrated with the Security and Compliance Center to help you manage security and compliance for your organization."
-        },
-        {
-          "date": "14 February 2022",
-          "title": "Snapshots for VPC",
-          "description": "The snapshots service is now integrated with the Security and Compliance Center to help you manage security and compliance for your organization."
+          "title": "LinuxONE (s390x processor architecture)",
+          "description": "You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud in the Japan (Tokyo), United Kingdom (London), and São Paulo regions. "
         }
       ]
     }
