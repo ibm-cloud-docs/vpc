@@ -36,14 +36,14 @@
           "description": "The VPC Instance Metadata service is now generally available in all regions. This free service provides a REST API you invoke within an instance to get information about that instance. Access to the API is unavailable from outside the instance. The service is disabled by default. Before you can access the metadata, the service lets you generate an instance identity access token for accessing the metadata service. You can optionally get an IAM token from this token to access all IAM-enabled services. The VPC Instance Metadata service is currently supported only on x86 systems."
         },
         {
+          "date": "24 February 2022",
+          "title": "UI Update",
+          "description": "There is a new Location cascading selector. For example, when you provision a virtual server, the Location section now has 3 new cascading selector boxes. You can now choose the geographic location, the metro (region) location, and the zone. The options available in these boxes are updated based on your selections. For example, if you select “Americas” for the Geography, then the Metro box displays only the Metros available for the Americas."
+        },
+        {
           "date": "22 February 2022",
           "title": "Host failure recovery policies",
           "description": "Host failure recovery policies for VPC is generally available (GA). "
-        },
-        {
-          "date": "15 February 2022",
-          "title": "LinuxONE (s390x processor architecture)",
-          "description": "You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud in the Japan (Tokyo), United Kingdom (London), and São Paulo regions. "
         }
       ]
     }
