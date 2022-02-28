@@ -59,9 +59,6 @@ Use the instance identity access token when calling the metadata service. The to
 
 You can also generate an IAM token from the instance identity access token. This IAM token can be used to access all IAM-enabled services. It has it's own expiration date, based on the IAM token service default. [Generate an IAM token from an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-token-exchange).
 
-Beta users must migrate to the latest metadata service API to generate an IAM token from an instance identity access token. Using the IAM API to pass the instance identity access token and generate an IAM token is being deprecated.
-{: note}
-
 ### Metadata service
 {: #imd-service}
 
