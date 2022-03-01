@@ -15,7 +15,7 @@ subcollection: vpc
 # Instance metadata API error codes
 {: #instance-metadata-error-codes}
 
-As covered in [Error handling](/apidocs/vpc-metadata-beta#api-http-response-codes), the metadata API uses standard HTTP response codes to indicate the outcome of a request. For example, a `4xx`-series response indicates a failure the client must resolve. A `5xx`-series response indicates a service failure.
+As covered in [Error handling](/apidocs/vpc-metadata#api-http-response-codes), the instance metadata API uses standard HTTP response codes to indicate the outcome of a request. For example, a `4xx`-series response indicates a failure the client must resolve. A `5xx`-series response indicates a service failure.
 {: shortdesc}
 
 Additionally, all `4xx` and `5xx` responses include a JSON error response object that provides additional information about the problem. This information includes a `trace` property whose value may be requested by IBM support when troubleshooting the failure, and an `errors` array property that contains one or more specific errors related to the problem. Each item in the `errors` array uses the following JSON schema:
@@ -50,7 +50,7 @@ Example `400` JSON error response object:
 ```
 {: pre}
 
-Error codes may be added, removed, or modified in subsequent releases, with updates announced in the VPC Instance Metadata API [change log](/apidocs/vpc-metadata-beta#api-instance-metadata-change-log). If you use error codes programmatically, we recommend that you code defensively, such that any code that checks for specific error codes must always have a "default" or "catch-all" clause to handle the case where the returned error code does not match any of the ones the code expected.
+Error codes may be added, removed, or modified in subsequent releases, with updates announced in the VPC Instance Metadata API change log. If you use error codes programmatically, we recommend that you code defensively, such that any code that checks for specific error codes must always have a "default" or "catch-all" clause to handle the case where the returned error code does not match any of the ones the code expected.
 {: important}
 
 ## `bad_field`
