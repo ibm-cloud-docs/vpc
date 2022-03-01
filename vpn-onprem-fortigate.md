@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-11-13"
+  years: 2020, 2022
+lastupdated: "2022-02-18"
 
 keywords: fortigate, fortigate peer
 
@@ -33,7 +33,7 @@ To support these functions, the following general configuration steps must be pe
 * Define the Phase 2 parameters that the FortiGate VPN requires to create a VPN tunnel with {{site.data.keyword.vpn_vpc_short}}.
 * Create security policies to control the permitted services and permitted direction of traffic between the IP source and destination addresses.
 
-Use the following configuration:
+Here's an example configuration:
 
 1. Choose IKEv2 in authentication.
 1. Enable `DH-group 2` in the Phase 1 proposal.
