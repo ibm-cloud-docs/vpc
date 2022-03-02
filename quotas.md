@@ -143,7 +143,15 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 |--------|-----|
 | Boot and secondary volumes | 750 total VPC volumes per account in a region |
 | Snapshots | 100 per volume in a region |
-{: caption="Table 9. Quotas for block storage volumes" caption-side="top"}
+{: caption="Table 9. Quotas for block storage volumes and snapshots" caption-side="top"}
+
+### File shares
+{: #file-storage-quotas}
+
+|Resource|Quota|
+|--------|-----|
+| File shares | 300 total file shares per account in a region |
+{: caption="Table 10. Quotas for file shares" caption-side="top"}
 
 ### Placement groups
 {: #placement-group-quotas}
@@ -153,7 +161,7 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 | Placement groups | 100 placement groups per account in a region |
 | Instances | 12 instances per placement group per region with host_spread placement group strategy. |
 | Instances | 4 instances per placement group per region with power_spread placement group strategy. |
-{: caption="Table 10. Quotas for placement groups" caption-side="top"}
+{: caption="Table 11. Quotas for placement groups" caption-side="top"}
 
 The quotas for placement groups are set and can't be adjusted.
 {: note}
