@@ -573,5 +573,6 @@ toc:
             - quota-dashboard-troubleshooting.md
         - limitations.md
         - known-issues.md
+        - metadata-error-codes.md
         - errors.md
         - getting-help.md
