@@ -38,7 +38,7 @@ After you completed all prerequisites, you can create your NLB. For more informa
 ## Types of network load balancers
 {: #types-network-load-balancers}  
 
-{{site.data.keyword.nlb_full}} supports public, private, and private with routing mode enabled. 
+{{site.data.keyword.nlb_full}} supports public, private, and private-type with routing mode enabled. 
 
 A public load balancer is a load balancer with a publicly accessible IP address that is registered with DNS. A private load balancer is a load balancer only accessible from within the VPC network and/or where the client has reachability to the VPC network (for example, through Direct Link or Transit Gateway).
 
@@ -118,7 +118,7 @@ Since layer 4 load balancing requires fewer computations compared to more sophis
 
 * [Network load balancer CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#nlb-anchor)
 * [Load balancer API reference](https://{DomainName}/apidocs/vpc#list-load-balancer-profiles)
-* [Network load balancer infrastructure resources for Terraform](/docs/terraform?topic=terraform-vpc-gen2-resources#lb)
+* [Network load balancer infrastructure resources for Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provide[…]orm-index-of-terraform-on-ibm-cloud-resources-and-data-sources)
 * [Network load balancer in {{site.data.keyword.cloud}} Kubernetes Service](/docs/containers?topic=containers-vpc-lbaas#nlb_vpc)
 * [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-load-balancers)
