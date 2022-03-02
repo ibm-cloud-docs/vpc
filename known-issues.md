@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-02-01"
+lastupdated: "2022-03-01"
 
 keywords: vpc, known issues, bugs, defects
 
@@ -17,6 +17,34 @@ subcollection: vpc
 
 Known issues might change over time, so check back occasionally.
 {: shortdesc}
+
+## Instance metadata service known issues
+{: #instance-metadata-known-issues}
+
+The following issues apply to the VPC API or Instance Metadata API. These issues will be resolved in a future release.
+
+- **Issue:** When using the [VPC API](/apidocs/vpc) to manage instances, if the metadata service is disabled at the time an instance is created, and is subsequently enabled while the instance is running, the metadata service will appear to be enabled but will not be fully functional for the running instance.
+
+- **Workaround:** Use the VPC API to stop and restart the instance after enabling the metadata service for the first time. This workaround is necessary only the first time an instance is started with metadata services enabled. The metadata service will be enabled and disabled as expected after this first time.
+
+- **Issue:** When using instance templates in the VPC API, default trusted profile information is not included in response. As a result, default trusted profile information does not appear in instance template information as expected. This issue occurs when you use the following methods:
+
+   - [Create an instance template](/apidocs/vpc#create-instance-template) and specify a default trusted profile
+   - [Retrieve an instance template](/apidocs/vpc#get-instance-template) to view its contents
+   - [Update an instance template](/apidocs/vpc#update-instance-template) to change the name of a template that has 'default_trusted_profile' information stored in its prototype.
+
+- **Workaround:** Do not use instance templates to create instances with a default trusted profile.
+
+- **Issue:** When using the Instance Metadata API to retrieve instance information for a calling instance that is not on a dedicated host, an invalid `dedicated_host` `{ }` value is returned.
+
+- **Workaround:** Do not parse this response value when using automation.
+
+- **Issue:** When using the Instance Metadata API to retrieve initialization information for the calling instance, the `resource_type` sub-property for the `default_trusted_profile` property is not returned.
+
+## Instance metadata service Activity Tracker events issues
+{: #instance-metadata-activity-tracker-event-known-issues}
+
+**Issue:** Activity Tracker events for the metadata service are undergoing changes and might not match the [events as documented](https://test.cloud.ibm.com/docs/vpc?topic=vpc-at-events#events-metadata). The documented events are still useful for audit purposes but should not be used for automation.
 
 ## Network load balancers don't support selectable port ranges
 {: #nlb-port-range}
