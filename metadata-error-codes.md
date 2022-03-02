@@ -15,7 +15,7 @@ subcollection: vpc
 # Instance metadata API error codes
 {: #instance-metadata-error-codes}
 
-As covered in [Error handling](/apidocs/vpc-metadata#api-http-response-codes), the instance metadata API uses standard HTTP response codes to indicate the outcome of a request. For example, a `4xx`-series response indicates a failure the client must resolve. A `5xx`-series response indicates a service failure.
+As covered in [Error handling](/apidocs/vpc-metadata#error-handling), the instance metadata API uses standard HTTP response codes to indicate the outcome of a request. For example, a `4xx`-series response indicates a failure the client must resolve. A `5xx`-series response indicates a service failure.
 {: shortdesc}
 
 Additionally, all `4xx` and `5xx` responses include a JSON error response object that provides additional information about the problem. This information includes a `trace` property whose value may be requested by IBM support when troubleshooting the failure, and an `errors` array property that contains one or more specific errors related to the problem. Each item in the `errors` array uses the following JSON schema:
