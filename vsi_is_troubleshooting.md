@@ -4,8 +4,6 @@ copyright:
   years: 2018, 2022
 lastupdated: "2022-03-02"
 
-keywords: 
-
 subcollection: vpc
 
 ---
