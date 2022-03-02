@@ -118,7 +118,7 @@ toc:
         - topicgroup:
             label: Managing a VPC
             topics:
-            - creating-vpc-resources.md 
+            - creating-vpc-resources.md
             - vpc-regions.md
             - connectivity-options.md
             - topicgroup:
@@ -471,6 +471,12 @@ toc:
                 label: Change log
                 href: https://{DomainName}/apidocs/vpc-beta#api-change-log-beta
         - topicgroup:
+            label: VPC instance metadata API
+            topics:
+            - link:
+               label: Reference
+               href: https://{DomainName}/apidocs/vpc-metadata
+        - topicgroup:
             label: Beta VPC instance metadata API
             topics:
             - link:
@@ -529,7 +535,7 @@ toc:
             - topicgroup:
                 label: Troubleshooting custom images
                 topics:
-                - vsi_is_tbs_rhel_classic_image.md    
+                - vsi_is_tbs_rhel_classic_image.md
                 - custom_image_vpc_troubleshoot.md
             - topicgroup:
                 label: Troubleshooting dedicated host
