@@ -145,7 +145,10 @@ SSL offloading requires you to provide an SSL certificate for the application lo
 The required authorization between the load balancer and certificate manager must be set to prevent errors in your load balancer.
 {: important}
 
-Only Transport Layer Security (TLS) 1.2 and 1.3 are supported. The following lists the supported ciphers (in order of precedence):
+Transport Layer Security (TLS) 1.2 and 1.3 are supported. However, TLS 1.3 is used by default unless you specifically configure the client side to utilize 1.2.
+{: note}
+
+The following lists the supported ciphers (in order of precedence):
 
 * `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
 * `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
