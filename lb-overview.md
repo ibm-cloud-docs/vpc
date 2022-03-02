@@ -145,7 +145,7 @@ SSL offloading requires you to provide an SSL certificate for the application lo
 The required authorization between the load balancer and certificate manager must be set to prevent errors in your load balancer.
 {: important}
 
-Only Transport Layer Security (TLS) 1.2 is supported. The following lists the supported ciphers (in order of precedence):
+Only Transport Layer Security (TLS) 1.2 and 1.3 are supported. The following lists the supported ciphers (in order of precedence):
 
 * `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
 * `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
@@ -194,7 +194,7 @@ With datapath logging enabled, load balancer logs are forwarded to the [{{site.d
 
 * [Load balancer CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#alb-anchor)
 * [Load balancer API reference](https://{DomainName}/apidocs/vpc#list-load-balancer-profiles)
-* [ALB for VPC infrastructure resources for Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-vpc-gen2-resources)
+* [ALB for VPC infrastructure resources for Terraform](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provide[…]orm-index-of-terraform-on-ibm-cloud-resources-and-data-sources)
 * [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
 * [{{site.data.keyword.cloudaccesstraillong_notm}} events](/docs/vpc?topic=vpc-at-events#events-load-balancers)
 * [FAQs for application load balancers](/docs/vpc?topic=vpc-load-balancer-faqs)
