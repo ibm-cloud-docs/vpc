@@ -136,12 +136,13 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 Each route has a destination property, which includes a prefix length (`/24` in `10.2.0.0/24`). The number of unique prefix lengths that are supported per custom routing table is 14. Multiple routes with the same prefix count as only one unique prefix.
 {: note}
 
-### Block storage volumes
+### Block storage volumes and snapshots
 {: #block-storage-quotas}
 
 |Resource|Quota|
 |--------|-----|
 | Boot and secondary volumes | 750 total VPC volumes per account in a region |
+| Snapshots | 100 per volume in a region |
 {: caption="Table 9. Quotas for block storage volumes" caption-side="top"}
 
 ### Placement groups
