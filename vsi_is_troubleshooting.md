@@ -189,7 +189,7 @@ You can remove the broadcast message by using the following procedure:
 
 When you copy an SSH key from a terminal to add the key to your VPC, sometimes extra line breaks are introduced which cause a parsing error. To avoid this issue, first paste your SSH key into a text editor and remove any extra line breaks. Then, copy the SSH key from text editor and paste it into the VPC UI, CLI, or API.
 
-## Why do I receive a SSH key persmission denied error?
+## Why do I receive an SSH key persmission denied error?
 {: troubleshooting-ssh-key-permission-denied-error}
 
 When you receive a SSH key permission denied error, your host might not be recognized as an authorized host. To add your host as a known host, run the following command in your terminal. Make sure that you replace `[sFTP]` with your host.
