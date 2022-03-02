@@ -1,8 +1,10 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-12-14"
+  years: 2018, 2022
+lastupdated: "2022-03-02"
+
+keywords: 
 
 subcollection: vpc
 
@@ -13,8 +15,8 @@ subcollection: vpc
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:screen: .screen}
-{:tip: .tip}
 {:note: .note}
+{:tip: .tip}
 {:download: .download}
 
 # Troubleshooting virtual server instances for VPC
@@ -25,7 +27,7 @@ If you experience difficulties with your {{site.data.keyword.vsi_is_full}} insta
 ## Permissions not set up in IBM Cloud
 {: #troubleshooting-permissions-in-ibm-cloud}
 
-Before you can create {{site.data.keyword.vsi_is_short}}, you need the correct permissions to be set up in {{site.data.keyword.cloud_notm}} console. If your permissions are not correct, you can create a server and it shows `Pending` status, which quickly turns into `Failed` status. Make sure that the administrator of the account assigns you the correct [permissions](/docs/vpc?topic=vpc-managing-user-permissions-for-vpc-resources#managing-user-permissions-for-vpc-resources).
+Before you can create {{site.data.keyword.vsi_is_short}}, you need to set up the correct permissions in {{site.data.keyword.cloud_notm}} console. If your permissions are not correct, you can create a server and it shows `Pending` status, which quickly turns into `Failed` status. Make sure that the administrator of the account assigns you the correct [permissions](/docs/vpc?topic=vpc-managing-user-permissions-for-vpc-resources#managing-user-permissions-for-vpc-resources).
 
 ## Servers are all in Unknown status
 {: #troubleshooting-servers-unknown-status}
@@ -58,16 +60,17 @@ If your instance is not responding to an `instance-reboot` request, you can try 
 
 If you try to add an SSH key to your account and get an error that the key can't be parsed, ensure there are no line breaks in the string. An SSH key is a continuous string of characters; sometimes line breaks are introduced when the SSH key is copied from a terminal. To avoid this issue, first paste your SSH key into a text editor and remove any line breaks. Then, copy the SSH key from the text editor and paste it into the VPC UI, CLI, or API.
 
-## How do I reregister a RHEL virtual server instance? 
+
+## How do I reregister a RHEL virtual server instance?
 {: #troubleshooting-reregister-RHEL-VSI}
 
-If you see this error message: 
+If you see this error message:
 ```
 This system is not registered with an entitlement server.
 ```
 {: pre}
 
-Your REHL virtual server instance was unregistered from the capsule server. To resolve this issue, run the `reregister-ng-rhel-vsi.sh` script to reregister the virtual server instance. 
+Your REHL virtual server instance was unregistered from the capsule server. To resolve this issue, run the `reregister-ng-rhel-vsi.sh` script to reregister the virtual server instance.
 
 ```
 #!/bin/bash
@@ -140,13 +143,13 @@ subscription-manager register --org="${organization}" --activationkey="${activat
 
 
 To run the script:
-1. chmod +x reregister-ng-rhel-vsi.sh 
+1. chmod +x reregister-ng-rhel-vsi.sh
 2. ./reregister-ng-rhel-vsi.sh
 
-If the script fails, provide the following parameters: 
+If the script fails, provide the following parameters:
 *	capsule hostname
 *	organization
-*	activation key 
+*	activation key
 *	profile name
 
 ## Can I configure nested virtualization on a virtual server instance?
@@ -154,3 +157,45 @@ If the script fails, provide the following parameters:
 
 Nested virtualization on virtual server instances is not a supported configuration.
 
+## *z/OS - Experimental* How to remove broadcast messages when working with a z/OS virtual server instance?
+{: #troubleshooting-broadcast-message-zos-VSI}
+
+If you attach a block storage to your z/OS virtual server instance, a broadcast message similar to the following one shows on your display terminal every time when you log on to the instance by using a TN3270 connection.
+```
+...
+Preparing attached block storage vde of size 15G
+Attached block storage vde on address DE00
+...
+```
+{: screen}
+
+You can remove the broadcast message by using the following procedure:
+
+1. Log on to the z/OS instance by [using a TN3270 terminal emulator](/docs/vpc?topic=vpc-vsi_is_connecting_zos).
+
+2. Enter `OPERATOR` on the command line and press Enter. The `OPERATOR` command along with its subcommands are used to regulate and maintain TSO/E from a terminal. For more details, see [OPERATOR command](https://www.ibm.com/docs/en/zos/2.4.0?topic=syntax-operator-command){: external}.
+
+3. Enter the subcommand `SE LIST` and press Enter. The `SE LIST` subcommand lists all the broadcast messages.
+
+   You might have to press Enter twice so that the subcommand takes effect.
+   {: tip}
+
+4. Enter the subcommand `SE NNNN,DELETE` to delete a particular message where `NNNN` is the message number of the broadcast message you want to delete. For example, `SE 002, DELETE`.
+
+5. Enter the subcommand `SE LIST` to verify the message is deleted successfully.
+
+6. Enter the subcommand `END` to terminate operation of the OPERATOR command.
+
+## How do I resolve a SSH key error?
+{: troubleshooting-ssh-keys-errors}
+
+When you copy an SSH key from a terminal to add the key to your VPC, sometimes extra line breaks are introduced which cause a parsing error. To avoid this issue, first paste your SSH key into a text editor and remove any extra line breaks. Then, copy the SSH key from text editor and paste it into the VPC UI, CLI, or API.
+
+## Why do I receive a SSH key persmission denied error?
+{: troubleshooting-ssh-key-permission-denied-error}
+
+When you receive a SSH key permission denied error, your host might not be recognized as an authorized host. To add your host as a known host, run the following command in your terminal. Make sure that you replace `[sFTP]` with your host.
+
+`ssh-keyscan -t rsa [sFTP] >> ~/.ssh/known_hosts`
+
+If you need more help, you can open a [support case](/docs/get-support?topic=get-support-using-avatar).
