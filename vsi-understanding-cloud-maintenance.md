@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-09-27"
+lastupdated: "2022-03-03"
 
 keywords: virtual server instances, VSI, compute, virtual machines, planning, best practices, instances, virtual servers, virtual server instance, Virtual servers for VPC, gen 2, generation 2, infrastructure, infrastructure as a service, IaaS
 
@@ -44,9 +44,12 @@ Most updates are done transparently to the host and the virtual servers that run
 ## Possible impacts to virtual server instances during maintenance operations
 {: #maintenance-impacts}
 
-Some of these changes might require that a virtual server needs to be live migrated to resolve an underlying issue on the hypervisor or host, such as a firmware update or a rare event where we can't live patch the hypervisor kernel. When live migration occurs, the virtual server experiences a brief pause of around 10 seconds, and in some cases up to 30 seconds. The virtual server instance is not restarted as part of this process.
+Some of these changes might require that a virtual server needs to be securely live migrated to resolve an underlying issue on the hypervisor or host, such as a firmware update or a rare event where we can't live patch the hypervisor kernel. When live migration occurs, the virtual server experiences a brief pause of around 10 seconds, and in some cases up to 30 seconds. The virtual server instance is not restarted as part of this process.
 
 In limited cases, a virtual server restart might be required to complete the host or data center maintenance. This scenario can occur when specialized VMs are used, such as virtual servers with Instance Storage, or if the virtual server encounters a migration problem. In this case, a scheduled maintenance event occurs.
+
+For information on unscheduled migrations resulting from an unexpected host failure, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=cli).
+{: note}
 
 ## What to expect during a scheduled maintenance event
 {: #about-scheduled-maintenance}
