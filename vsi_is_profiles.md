@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-02-16"
+lastupdated: "2022-03-03"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, generation 2, gen 2
 
@@ -36,6 +36,15 @@ When you provision {{site.data.keyword.vsi_is_full}}, you can select from six fa
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, and network bandwidth. The attributes define the size and capabilities of the virtual server instance that is provisioned. In the {{site.data.keyword.Bluemix_notm}} console, you can select the most recently used profile or click **View All Profiles** to choose the profile that best fits your needs.
 {: shortdesc}
 
+{{site.data.keyword.vpc_full}} offers different processor architectures to choose from. See the following table for a brief overview of each available architecture.
+
+| Architecture | Description |
+|-----|-----|
+| x86 | x86 is the general term that is used to refer to 32-bit processors that are compatible with the x86 instruction set of architectures (ISA). |
+| x64 | x64 is the general term that is used to refer to the x86 processor extension that allows 64-bit operations (sometimes referred to as x86-64). x64 is compatible with the x64 instruction set of architectures (ISA). |
+| s390x (LinuxONE) | IBM LinuxONE s390x is a uniquely secure and scalable architecture that provides dedicated CPU core, memory, and I/O channel to better manage your high-performance workloads. |
+{: caption="Table 1. Processor architectures" caption-side="bottom"}
+
 The following profile families are available:
 
 | Families | Description |
@@ -46,7 +55,7 @@ The following profile families are available:
 | [Very High Memory](#vhmemory) | Very High Memory profiles offer a core to RAM ratio of 1 vCPU to 14 GiB of RAM. This family is optimized for running high-compute-intensity in-memory workloads like SAP BW/4 HANA |
 | [Ultra High Memory](#uhmemory) | Ultra High Memory profiles offer the highest vCPU to memory ratios with 1 vCPU to 28 GiB of RAM to serve in-memory OLTP databases, such as SAP. |
 | [GPU](#gpu) | GPU enabled profiles provide on-demand access to NVIDIA V100 GPUs to accelerate AI,high performance computing, data science and graphics workloads. |
-{: caption="Table 1. Virtual server family selections" caption-side="top"}
+{: caption="Table 2. Virtual server family selections" caption-side="top"}
 
 Profiles with instance storage are deployed exclusively on the second-generation Intel&reg; Xeon&reg; Platinum 8260 (Cascade Lake) running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz.  
 {: note}
@@ -121,7 +130,7 @@ LinuxONE (s390x processor architecture) profiles can be used to provision virtua
 | bx2d-96x384 | 96 | 384 | 80 | 2x1800 |
 | bx2-128x512 | 128 | 512 | 80 | - |
 | bx2d-128x512 | 128 | 512 | 80 | 2x400 |
-{: caption="Table 2. Balance profiles options for x86-64 instances" caption-side="top"}
+{: caption="Table 3. Balance profiles options for x86-64 instances" caption-side="top"}
 {: #balanced-intel-x86-64}
 {: tab-title="Intel x86-64"}
 {: tab-group="Balanced"}
@@ -186,7 +195,7 @@ LinuxONE (s390x processor architecture) profiles can be used to provision virtua
 | cz2-4x8 | 4 | 8 | 8 | - |
 | cz2-8x16 | 8 | 16 | 16 | - |
 | cz2-16x32 | 16 | 32 | 32 | - |
-{: caption="Table 5. Balance profiles options for s390x instances" caption-side="top"}
+{: caption="Table 4. Balance profiles options for s390x instances" caption-side="top"}
 {: #compute-s390x}
 {: tab-title="s390x"}
 {: tab-group="Compute"}
@@ -237,7 +246,7 @@ LinuxONE (s390x processor architecture) profiles can be used to provision virtua
 | mz2-4x32 | 4 | 32 | 8 | - |
 | mz2-8x64 | 8 | 64 | 16 | - |
 | mz2-16x128 | 16 | 128 | 32 | - |
-{: caption="Table 7. Balance profiles options for s390x instances" caption-side="top"}
+{: caption="Table 5. Balance profiles options for s390x instances" caption-side="top"}
 {: #memory-s390x}
 {: tab-title="s390x"}
 {: tab-group="Memory"}
@@ -276,7 +285,7 @@ The following Very High Memory profiles are available for x86_64 processors:
 | vx2d-88x1232 | 88 | 1232 | 80 | 2x1320 |
 | vx2d-144x2016 | 144 | 2016 | 80 | 2x2160 |
 | vx2d-176x2464 | 176 | 2464 | 80 | 2x2640 |
-{: caption="Table 8. Very High Memory profiles options for x86-64 instances" caption-side="top"}
+{: caption="Table 6. Very High Memory profiles options for x86-64 instances" caption-side="top"}
 {: #vhmemory-intel-x86-64}
 {: tab-title="Intel x86-64"}
 {: tab-group="Very High Memory"}
@@ -309,7 +318,7 @@ The following Ultra High Memory profiles are available for x86_64 processors:
 | ux2d-72x2016 | 72 | 2016 | 72 | 2x1080 |
 | ux2d-100x2800 | 100 | 2800 | 80 | 2x1500 |
 | ux2d-200x5600 | 200 | 5600 | 80 | 2x3000 |
-{: caption="Table 9. Ultra High Memory profiles options for x86-64 instances" caption-side="top"}
+{: caption="Table 7. Ultra High Memory profiles options for x86-64 instances" caption-side="top"}
 {: #uhmemory-intel-x86-64}
 {: tab-title="Intel x86-64"}
 {: tab-group="Ultra High Memory"}
@@ -330,7 +339,7 @@ If you are using GPU profiles, you need to install the NVIDA driver onto your vi
 | gx2-16x128x1v100 | 16 | 128 | 32 | 1 |
 | gx2-16x128x2v100 | 16 | 128 | 32 | 2 |
 | gx2-32x256x2v100 | 32 | 256 | 64 | 2 |
-{: caption="Table 10. GPU profile options" caption-side="top"}
+{: caption="Table 8. GPU profile options" caption-side="top"}
 {: #gpu-intel-x86-64}
 {: tab-title="Intel x86-64"}
 {: tab-group="GPU"}
