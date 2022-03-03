@@ -20,7 +20,7 @@ In the lifecycle of an operating system, end of support (EOS) is the last date t
 ## CentOS
 {: #centos}
 
-The following table describes the end of support date and license model for CentOS operating systems. This guest OS is a free operating system. For more information, see [CentOS Linux](https://www.centos.org/centos-linux/){: external}. 
+The following table describes the end of support date and license model for CentOS operating systems. This guest OS is a free operating system. For more information, see [CentOS Linux](https://www.centos.org/about/){: external}. 
 
 | Operating sytem | End of support | License Model | 
 |-----------------|----------------|---------------|
