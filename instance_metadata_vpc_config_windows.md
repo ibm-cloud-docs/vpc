@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-01-28"
+lastupdated: "2022-03-03"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -29,9 +29,6 @@ subcollection: vpc
 
 To access instance metadata from Windows servers, there are additional requirements to locate a default gateway and add a route.
 {: shortdesc}
-
-This service is available only to accounts with special approval to use this feature. Contact [IBM support](/docs/vpc?topic=vpc-getting-help) if you're interested in getting access.
-{: preview}
 
 ## Overview
 {: #imd-windows-config-overview}
