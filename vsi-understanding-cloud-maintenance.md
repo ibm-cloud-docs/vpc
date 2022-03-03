@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2018, 2021
+  years: 2018, 2022
 lastupdated: "2022-03-03"
 
 keywords: virtual server instances, VSI, compute, virtual machines, planning, best practices, instances, virtual servers, virtual server instance, Virtual servers for VPC, gen 2, generation 2, infrastructure, infrastructure as a service, IaaS
@@ -32,7 +32,7 @@ subcollection: vpc
 ### Host maintenance
 {: #types-of-maintenance-host}
 
-{{site.data.keyword.cloud}} performs periodic maintenance on the underlying server hosts that run virtual servers. This maintenance can be upgrades to the software on the underlying hypervisor, updates to the firmware on the systems or other security and performance updates. In general, users don't experience any issues during these upgrades. Modifications that require host maintenance are, in most cases, which are applied with no or little impact to running services. Some infrequent scenarios can occur where the user might need to be involved during those operations, which are discussed in the [possible impacts](#maintenance-impacts) section.
+{{site.data.keyword.cloud}} performs periodic maintenance on the underlying server hosts that run virtual servers. This maintenance can be upgraded to the software on the underlying hypervisor, updates to the firmware on the systems or other security and performance updates. In general, users don't experience any issues during these upgrades. Modifications that require host maintenance are, in most cases, which are applied with no or little impact to running services. Some infrequent scenarios can occur where the user might need to be involved during those operations, which are discussed in the [possible impacts](#maintenance-impacts) section.
 
 Most updates are done transparently to the host and the virtual servers that run on those hosts do not see any disruption. Non-disruptive changes can occur multiple times per week or even daily if necessary, all without impacting the user experience.
 
