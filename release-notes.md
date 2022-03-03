@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-02-25"
+lastupdated: "2022-03-03"
 
 keywords: VPC release notes
 
@@ -48,7 +48,7 @@ Virtual server instances created on LinuxONE (s390x processor architecture) are 
 {: note}
 
 **UI Update**
-:   There is a new Location cascading selector. For example, when you provision a virtual server, the Location section now has 3 new cascading selector boxes. You can now choose the geographic location, the metro (region) location, and the zone. The options available in these boxes are updated based on your selections. For example, if you select “Americas” for the Geography, then the Metro box displays only the Metros available for the Americas.
+:   There is a new Location cascading selector. For example, when you provision a virtual server, the Location section now has 3 new cascading selector boxes. You can now choose the geographic location, the metro (region) location, and the zone. The options available in these boxes are updated based on your selections. If you select “Americas” for the Geography, then the Metro box displays only the Metros available for the Americas.
 
 ### 22 February 2022
 {: #subcollection-feb2222}
