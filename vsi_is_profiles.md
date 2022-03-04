@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-03-03"
+lastupdated: "2022-03-04"
 
 keywords: vsi, virtural server instances, profiles, balanced, compute, memory, generation 2, gen 2
 
@@ -35,15 +35,6 @@ When you provision {{site.data.keyword.vsi_is_full}}, you can select from six fa
 
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, and network bandwidth. The attributes define the size and capabilities of the virtual server instance that is provisioned. In the {{site.data.keyword.Bluemix_notm}} console, you can select the most recently used profile or click **View All Profiles** to choose the profile that best fits your needs.
 {: shortdesc}
-
-{{site.data.keyword.vpc_full}} offers different processor architectures to choose from. See the following table for a brief overview of each available architecture.
-
-| Architecture | Description |
-|-----|-----|
-| x86 | x86 is the general term that is used to refer to 32-bit processors that are compatible with the x86 instruction set of architectures (ISA). |
-| x64 | x64 is the general term that is used to refer to the x86 processor extension that allows 64-bit operations (sometimes referred to as x86-64). x64 is compatible with the x64 instruction set of architectures (ISA). |
-| s390x (LinuxONE) | IBM LinuxONE s390x is a uniquely secure and scalable architecture that provides dedicated CPU core, memory, and I/O channel to better manage your high-performance workloads. |
-{: caption="Table 1. Processor architectures" caption-side="bottom"}
 
 The following profile families are available:
 
