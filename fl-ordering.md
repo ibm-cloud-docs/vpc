@@ -42,13 +42,13 @@ Before you create a flow log collector, make sure that you meet the following pr
       For Source service:
 
       * Select **VPC Infrastructure Services**.
-      * Select **Services based on attributes**.
+      * Select **Resources based on selected attributes**.
       * For Resource type, select **Flow Logs for VPC**.
       * For Source service instance, select **All instances**.
 
       For Target service:
       * Select **Cloud Object Storage**.
-      * Select **Services based on attributes**.
+      * Select **Resources based on selected attributes**.
       * For Service instance, select **string equals > All instances**.
 
       For Service access, select the **Writer** role to assign access to the source service that accesses the target service.
