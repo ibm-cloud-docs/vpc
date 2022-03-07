@@ -35,9 +35,6 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | VPC default ACL and security group|  View, List | Viewer for the VPC |
 | VPC address prefixes |  Create, Update, Delete | Editor for the VPC |
 | VPC address prefixes |  View, List | Viewer for the VPC  |
-| VPC routing table | Create | Editor of a routing table for VPC resources |
-| VPC routing table | Update, Delete | Editor of a VPC routing table |
-| VPC routing table | View, List | Viewer of a VPC routing table |
 |——————|———————|————————|
 | ACL | Create | Editor for Network ACL and VPC resources |
 | ACL | Update, Delete | Editor for the ACL |
