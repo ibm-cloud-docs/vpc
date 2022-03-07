@@ -15,7 +15,7 @@ subcollection: vpc
 # Monitoring {{site.data.keyword.nlb_full}} metrics
 {: #nlb_monitoring-metrics}
 
-{{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} monitoring metrics are provided with {{site.data.keyword.mon_full_notm}}, a monitoring service that specializes in data aggregation, usage alerts, and in-depth visualizations. For more information, see [IBM Cloud Monitoring](/docs/Monitoring-with-Sysdig).
+{{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} monitoring metrics are provided with {{site.data.keyword.mon_full_notm}}, a monitoring service that specializes in data aggregation, usage alerts, and in-depth visualizations. For more information, see [IBM Cloud Monitoring](/docs/monitoring).
 
 Network load balancers calculate the metrics and send those metrics to your monitoring instance, which reflects different types of use and traffic. You can visualize and analyze metrics from either the {{site.data.keyword.mon_full_notm}}  dashboard, or its API.
 
