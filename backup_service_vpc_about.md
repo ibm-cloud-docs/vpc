@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-18"
+lastupdated: "2022-03-08"
 
 keywords: storage, backup, virtual private cloud
 
@@ -35,7 +35,7 @@ This service is available only to accounts with special approval to preview this
 ## Backup service concepts
 {: #backup-service-concepts}
 
-The {{site.data.keyword.cloud_notm}} Backup for VPC service lets you create backup policies for your block storage volumes. A backup policy contains a backup plan, which defines a schedule for automated backups. When the schedule is triggered, a backup is created of your volume contents. 
+The {{site.data.keyword.cloud_notm}} Backup for VPC service lets you create backup policies for your block storage volumes. A backup policy contains a backup plan, which defines a schedule for automated backups and defines a retention period, after which the backups are deleted. When the schedule is triggered, a backup is created of your volume contents. When the retention period is reached (number of days specified), the expired backups are deleted.
 
 A backup is actually a snapshot, created automatically. Behind the scenes, the [Snapshots for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about) service is used to create a point-in-time copy of your data. The entire contents of the volume are copied (snapshotted) and retained. Subsequent backups of the same volume capture the changes since the previous backup.
 
@@ -57,10 +57,12 @@ Backups and snapshots services are not the same as a disaster recovery (DR) solu
 
 | Feature | Backup | Snapshot |
 | ------- | ------ | -------- |
-| Backs up block storage boot and data volumes | ![Checkmark icon](../icons/checkmark-icon.svg)  | ![Checkmark icon](../icons/checkmark-icon.svg) | 
-| Manually restore a volume from a snapshot | ![Checkmark icon](../icons/checkmark-icon.svg)  | ![Checkmark icon](../icons/checkmark-icon.svg) | 
+| Backs up block storage boot and data volumes | ![Checkmark icon](../icons/checkmark-icon.svg)  | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| Manually restore a volume from a snapshot | ![Checkmark icon](../icons/checkmark-icon.svg)  | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Backup data by a schedule | ![Checkmark icon](../icons/checkmark-icon.svg) | |
 | Backup data immediately | | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| Older data is automatically deleted when retention period is reached | ![Checkmark icon](../icons/checkmark-icon.svg) | |
+| Manually delete snapshot data | | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Data copied is at a specific point in time | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Set retention period for automatic deletion | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Take up to 100 snapshots/volume | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
@@ -87,7 +89,7 @@ The {{site.data.keyword.cloud_notm}} Backup for VPC offers you the following ben
 
 Backup policies consist of plans that define schedules for automatic backup creation and data retention. You can schedule backups to from one day up to 30 days. The default creation and retention interval is 30 days.
 
-The interval for creating a backup and its retention period can be the same or different. Backups created by the backup plan inherit the parent volume resource group details.
+The interval for creating a backup and its retention period can be the same or different. Backups created by the backup plan inherit the parent volume resource group details. Backups are automatically deleted when the retention period is reached. For example, setting _7_ will delete backups that are a week old.
 
 The backups created by the policy can be restored to create a new volume.
 
