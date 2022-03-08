@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-24"
+lastupdated: "2022-03-08"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -46,7 +46,7 @@ The instance metadata service has two components:
 ### Limitations
 {: imd-limitations}
 
-You can enable the metadata service when you create a new instance and your account is added to the allow list to preview this feature. For information about enabling or disabling the metadata service, see [Enable or disable the metadata service](/docs/vpc?topic=vpc-imd-configure-service#imd-metadata-service-enable).
+You can enable the metadata service when you create a new instance. For information about enabling or disabling the metadata service, see [Enable or disable the metadata service](/docs/vpc?topic=vpc-imd-configure-service#imd-metadata-service-enable).
 
 The VPC Instance Metadata service is currently supported only on x86 systems.
 
