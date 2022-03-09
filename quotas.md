@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-03-02"
+lastupdated: "2022-03-09"
 
 keywords: quotas, resources, limits
 
@@ -46,6 +46,7 @@ To increase a quota for a particular resource, [contact support](https://{Domain
 | Floating IP addresses | 20 per zone |
 | SSH keys | 200 per account |
 | GPU | 16 per account |
+| Dedicated host groups | 100 per region |
 {: caption="Table 1. Quotas for virtual server instances" caption-side="top"}
 
 When you provision virtual server instances and dedicated hosts, the vCPU associated with these resources counts toward the vCPU quotas per region. Instances that are provisioned on dedicated hosts do not count against the vCPU quota.
