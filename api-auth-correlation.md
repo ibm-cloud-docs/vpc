@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-03-07"
+lastupdated: "2022-03-09"
 
 keywords: resource, resource authorizations, policies, authorization, resource type, resource groups, roles, API, CLI, editor, viewer, administrator, operator
 
@@ -123,8 +123,11 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | Public gateway | View, List | Viewer for the public gateway |
 |——————|———————|————————|
 | Shares | View, List | Viewer for file shares and mount targets |
-| Shares | Create | Editor for creating file shares and mount targets |
-| Shares | Update, Delete | Editor for updating and deleting file shares and mount targets |
+| Shares | Create | Editor for creating file shares |
+| Shares | Create | Operator role for creating mount targets |
+| Shares | Update, Delete | Editor for updating and deleting file shares |
+| Shares | Update | Editor role for updating mount targets |
+| Shares | Delete | Operator role for deleting mount targets |
 | Share profiles | View, List | Any account user |
 |——————|———————|————————|
 | Security group | View, List | Viewer for the security group |
