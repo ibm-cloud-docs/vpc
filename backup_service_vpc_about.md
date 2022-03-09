@@ -89,7 +89,7 @@ The {{site.data.keyword.cloud_notm}} Backup for VPC offers you the following ben
 
 Backup policies consist of plans that define schedules for automatic backup creation and data retention. You can schedule backups to from one day up to 30 days. The default creation and retention interval is 30 days.
 
-The interval for creating a backup and its retention period can be the same or different. Backups created by the backup plan inherit the parent volume resource group details. Backups are automatically deleted when the retention period is reached. For example, setting _7_ will delete backups that are a week old.
+The interval for creating a backup and its retention period can be the same or different. Backups created by the backup plan inherit the parent volume resource group details. Backups are automatically deleted when the retention period (in days) is reached. For example, setting _7_ will delete backups that are a week old.
 
 The backups created by the policy can be restored to create a new volume.
 

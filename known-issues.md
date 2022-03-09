@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-03-01"
+lastupdated: "2022-03-07"
 
 keywords: vpc, known issues, bugs, defects
 
@@ -25,7 +25,7 @@ The following issues apply to the VPC API or Instance Metadata API. These issues
 
 - **Issue:** When using the [VPC API](/apidocs/vpc) to manage instances, if the metadata service is disabled at the time an instance is created, and is subsequently enabled while the instance is running, the metadata service will appear to be enabled but will not be fully functional for the running instance.
 
-- **Workaround:** Use the VPC API to stop and restart the instance after enabling the metadata service for the first time. This workaround is necessary only the first time an instance is started with metadata services enabled. The metadata service will be enabled and disabled as expected after this first time.
+- **Workaround:** After enabling the metadata service for the first time, use the VPC API to stop the instance. After the instance is stopped, start the instance. This workaround is necessary once only. The metadata service will be enabled and disabled, as expected, after you've taken this action.
 
 - **Issue:** When using instance templates in the VPC API, default trusted profile information is not included in response. As a result, default trusted profile information does not appear in instance template information as expected. This issue occurs when you use the following methods:
 
