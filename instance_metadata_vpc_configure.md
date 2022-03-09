@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-24"
+lastupdated: "2022-03-07"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -64,13 +64,11 @@ The example uses `jq` as a parser, a third-party tool licensed under the [MIT li
 {: note}
 
 ```
-instance_identity_token=`curl -X PUT "http://169.254.169.254/instance_identity/v1/token?version=2021-10-12"\
+instance_identity_token=`curl -X PUT "http://169.254.169.254/instance_identity/v1/token?version=2022-03-08"\
   -H "Metadata-Flavor: ibm"\
-  -H "Accept: application/json"\
-  -H "Authorization: Bearer $instance_identity_token\
   -d '{
         "expires_in": 3600
-      }' | jq -r '(.instance_identity_token)'
+      }' | jq -r '(.access_token)'
 ```
 {: pre}
 
@@ -78,13 +76,14 @@ The JSON response shows the access token character string, date and time it was 
 
 ```
 {
-  "instance_identity_token": "eyJhbGciOiJSUzI1NiIsIm...SCfuUlecRTq5w",
-  "created_at": "2021-08-27T18:42:11.731Z",
-  "expires_at": "2021-08-27T19:42:11.731Z",
+  "access_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IlZTSS1DUl91cy1lYXN0X2I5...",
+  "created_at": "2022-03-04T11:08:39.363Z",
+  "expires_at": "2022-03-04T11:13:39.363Z",
   "expires_in": 3600
 }
 ```
 {: codeblock}
+
 
 ## Generate an IAM token from an instance identity access token
 {: #imd-token-exchange}
@@ -100,15 +99,13 @@ The IAM API used to pass the instance identity access token and generate an IAM 
 Example request:
 
 ```
-instance_identity_token=`curl -X POST "http://169.254.169.254/instance_identity/v1/iam_token?version=2021-10-10"\
-  -H "Metadata-Flavor: ibm"\
-  -H "Accept: application/json"\
-  -H "Authorization: Bearer $instance_identity_token\
-  -d '{
+iam_token=`curl -X POST "http://169.254.169.254/instance_identity/v1/iam_token?version=2022-03-08"\
+   -H "Authorization: Bearer $instance_identity_token"\
+   -d '{
        "trusted_profile": {
-           "id": "Profile-8dd84246-7df4-4667-94e4-8cede51d5ac5"
-        }
-       }' | jq -r '(.access_token)'
+          "id": "Profile-8dd84246-7df4-4667-94e4-8cede51d5ac5"
+       }
+      }' | jq -r '(.access_token)'`
 ```
 {: pre}
 
@@ -116,9 +113,9 @@ The JSON response shows the IAM token.
 
 ```
 {
-  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aGVfYmVzdCI6IkVyaWNhIn0.c4C_BKtyZ4g78TB6wjdsX_MNx4KPoYj8YiikB1jO4o8",
-  "created_at": "2021-10-22T14:10:15Z",
-  "expires_at": "2021-10-22T15:10:15Z",
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aGVfYmVzdCI6I8...",
+  "created_at": "2022-03-07T14:10:15Z",
+  "expires_at": "2022-03-07T15:10:15Z",
   "expires_in": 3600
 }
 ```
