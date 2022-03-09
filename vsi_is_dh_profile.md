@@ -3,7 +3,7 @@ copyright:
   years: 2020, 2022
 lastupdated: "2022-03-09"
 
-keywords: dedicated host profiles, balanced, compute, memory, very high memory, ultra high memory, generation 2, gen 2, OLTP, OLAP, SAP, NetWeaver, HANA
+keywords: dedicated host profiles, balanced, compute, memory, very high memory, ultra high memory, generation 2, gen 2, OLTP, OLAP, SAP, NetWeaver, HANA, cascade lake
 
 subcollection: vpc
 
