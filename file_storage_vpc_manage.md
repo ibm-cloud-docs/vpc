@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-02-15"
+lastupdated: "2022-03-09"
 
 keywords: file storage, virtual private cloud, file share
 
@@ -422,21 +422,7 @@ Further, when IBM decomissions a physical drive, the drive is destroyed prior to
 ## IAM Roles for creating and managing file shares
 {: #file-storage-vpc-iam}
 
-File Storage for VPC service require IAM permissions for role-based access control. Table 1 describes these roles are they pertain to snapshots actions.
-
-| VPC File Storage action | IAM role |
-|-----------------|----------|
-| Create a file share | Administrator, editor |
-| List all file shares | Administrator, editor, operator, viewer |
-| View file share details | Administrator, editor, operator, viewer |
-| Update a file share | Administrator, editor |
-| Delete a file share | Administrator, editor |
-| Create a mount target | Administrator, editor |
-| List all mount targets | Administrator, editor, operator, viewer |
-| View mount target details | Administrator, editor, operator, viewer |
-| Update a mount target | Administrator, editor |
-| Delete a mount target | Administrator, editor |
-{: caption="Table 1. IAM Roles for using the file service" caption-side="top"}
+File Storage for VPC service require IAM permissions for role-based access control. For example, to create a file share, you need to at least editor permissions. For more information, see the [required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls) for file shares.
 
 ## File share lifecycle states
 {: #file-storage-vpc-status}
