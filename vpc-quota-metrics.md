@@ -2,9 +2,9 @@
 
 copyright:
   years:  2021, 2022
-lastupdated: "2022-02-18"
+lastupdated: "2022-02-24"
 
-keywords: IBM Cloud monitoring, platform metrics, metrics, vpc metrics, vpc monitoring metrics
+keywords: IBM Cloud monitoring, platform metrics, metrics, vpc metrics, vpc monitoring metrics, Quota metrics
 
 subcollection: cloud-infrastructure
 
@@ -22,17 +22,18 @@ subcollection: cloud-infrastructure
 {:important: .important}
 {:note: .note}
 
-# VPC Resource Quota Overview metrics definitions
+
+# VPC Resource Quota Overview metrics definitions for quota dashboard
 {: #vpc-quota-metrics}
 
-Some VPC resources have quotas associated with them.  The following metrics definitions allow the user to see the consumption number related to the quota along with the associated limit.
+Some VPC resources have quotas associated with them.  The following metrics definitions allow the user to see the consumption number related to the quota along with the associated limit when using the quota dashboard.
 
 ## Quota metrics available by resource type
 {: metrics-by-plan}
 
 Resources that offer quota metrics, detailed in Table 1.
 
-| Resource type | Resource quota name | Region | Secondary resource ID |
+| Resource type | Resource quota name | Location | Secondary resource ID |
 |-----------|-----------|-----------|-----------|
 | `share` | `share` | {region} | {account id} |
 | `volume` | `volume` | {region} | {account id} |
