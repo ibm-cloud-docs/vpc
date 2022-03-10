@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2021
-lastupdated: "2021-11-24"
+  years: 2021, 2022
+lastupdated: "2022-03-10"
 
 keywords: virtual private cloud, private cloud network, cloud-native, workloads, high availability, generation 2, placement group, host spread, power spread
 
@@ -76,7 +76,7 @@ Since placement groups for high availability strategies can use instances from m
 ## Placement groups when an instance is resized
 {: #instance-resize-placement-groups-for-vpc}
 
-When an instance is resized, the instance is stopped, the profile is updated, and the instance is restarted. When the instance is stopped, it is removed from its assigned node. When the instance is started again, the instance is then placed according to its defined placement group strategy, if a placement strategy exists for that instance. For more information, see [Resizing a virtual server instance](docs/vpc?topic=vpc-resizing-an-instance).
+When an instance is resized, the instance is stopped, the profile is updated, and the instance is restarted. When the instance is stopped, it is removed from its assigned node. When the instance is started again, the instance is then placed according to its defined placement group strategy, if a placement strategy exists for that instance. For more information, see [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance).
 
 ## Common use cases
 {: #placement-group-use-cases}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2022-02-22"
+  years: 2021, 2022
+lastupdated: "2022-03-10"
 
 keywords: instance status message, instance status, VPC error message, error message, virtual server error
 
@@ -131,7 +131,7 @@ Your virtual server instance did not start because of a storage volume or storag
 If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help).
 
 For more information about storage, see the following topics:
-* [About file storage](docs/vpc?topic=vpc-file-storage-vpc-about)
+* [About file storage](/docs/vpc?topic=vpc-file-storage-vpc-about)
 * [About instance storage](/docs/vpc?topic=vpc-instance-storage)
 
 ## Error: `encryption_key_deleted`
