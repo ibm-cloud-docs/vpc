@@ -55,7 +55,6 @@ See the following table for the configurations of each profile.
 | bx2d-metal-96x384  | 96 | 384 | 960 GB  \n 25.6 TB (secondary)| 100 Gbps |
 | bx2-metal-192x768 | 192 | 768 | 960 GB | 100 |
 | bx2d-metal-192x768 | 192 | 768 | 960 GB  \n 3.2 TB (secondary storage) | 100 |
-
 {: caption="Table 2. Profile families" caption-side='top"}
 {: #bare-metal-balanced-profiles}
 {: tab-title="Balanced profile"}
