@@ -4,7 +4,7 @@ copyright:
   years: 2021, 2022
 lastupdated: "2022-03-10"
 
-keywords: bare metal server profile, profile, bare metal profiles, viewing profile, view profiles, bare metal profile family, bare metal profile families
+keywords: bare metal server profile, profile, bare metal profiles, viewing profile, view profiles, bare metal profile family, bare metal profile families, bare metal profile
 
 subcollection: vpc
 
@@ -49,12 +49,12 @@ Profiles are grouped by the _vCPUs:Memory_ ratio across all the VPC compute offe
 
 See the following table for the configurations of each profile.
 
-| Name | vCPU | Memory (GiB) | Local storage | Total network bandwidth (Gbps) | 
+| Name | vCPU | Memory (GB) | Local storage | Total network bandwidth (Gbps) | 
 |---------|---------|---------|---------|---------|
-| bx2-metal-96x384 | 96 | 384 | 960 GB | 100 Gbps |
-| bx2d-metal-96x384  | 96 | 384 | 960 GB  \n 25.6 TB (secondary)| 100 Gbps |
+| bx2-metal-96x384 | 96 | 384 | 960 GB | 100 |
+| bx2d-metal-96x384  | 96 | 384  | 960 GB  \n 25.6 TB (secondary)| 100 |
 | bx2-metal-192x768 | 192 | 768 | 960 GB | 100 |
-| bx2d-metal-192x768 | 192 | 768 | 960 GB  \n 3.2 TB (secondary storage) | 100 |
+| bx2d-metal-192x768 | 192 | 768 | 960 GB  \n 51.2 TB (secondary storage) | 100 |
 {: caption="Table 2. Profile families" caption-side='top"}
 {: #bare-metal-balanced-profiles}
 {: tab-title="Balanced profile"}
@@ -62,10 +62,10 @@ See the following table for the configurations of each profile.
 {: class="simple-tab-table"}
 {: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
 
-| Name | vCPU | Memory (GiB) | Local storage | Total network bandwidth (Gbps) |
+| Name | vCPU | Memory (GB) | Local storage | Total network bandwidth (Gbps) |
 |---------|---------|---------|---------|---------|
-| cx2-metal-96x192 | 96 | 192 GB | 100 Gbps |
-| cx2d-metal-96x192 | 96 | 192 GB  \n 25.6 TB (secondary) | 100 Gbps |
+| cx2-metal-96x192 | 96 | 192 | 960 GB | 100 |
+| cx2d-metal-96x192 | 96 | 192 | 960 GB  \n 25.6 TB (secondary) | 100 |
 {: caption="Table 2. Profile families" caption-side='top"}
 {: #bare-metal-compute-profiles}
 {: tab-title="Compute profile"}
@@ -73,12 +73,10 @@ See the following table for the configurations of each profile.
 {: class="simple-tab-table"}
 {: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
 
-| Name | vCPU | Memory (GiB) | Local storage | Total network bandwidth (Gbps) |
+| Name | vCPU | Memory (GB) | Local storage | Total network bandwidth (Gbps) |
 |---------|---------|---------|---------|---------|
-| mx2-metal-96x768 | 96 | 768 GB | 960 GB | 100 Gbps |
-| mx2d-metal-96x768 | 96 | 768 GB | 960 GB  \n 25.6 TB (secondary) | 100 Gbps |
-| mx2-metal-192x768 | 192 | 768 GB | 960 GB | 100 Gbps |
-| mx2d-metal-192x768 | 192 | 768 GB  \n 51.2 TB (secondary) | 100 Gbps |
+| mx2-metal-96x768 | 96 | 768 | 960 GB | 100 |
+| mx2d-metal-96x768 | 96 | 768 | 960 GB  \n 25.6 TB (secondary) | 100 |
 {: caption="Table 2. Profile families" caption-side='top"}
 {: #bare-metal-memory-profiles}
 {: tab-title="Memory profile"}
