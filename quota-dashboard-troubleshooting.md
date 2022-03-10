@@ -2,9 +2,9 @@
 
 copyright:
   years:  2021, 2022
-lastupdated: "2022-02-17"
+lastupdated: "2022-03-10"
 
-keywords: IBM Cloud monitoring, platform metrics, metrics, vpc metrics, vpc monitoring metrics, quota
+keywords: IBM Cloud monitoring troubleshooting, quota monitoring troubleshooting
 
 subcollection: cloud-infrastructure
 
@@ -21,7 +21,7 @@ subcollection: cloud-infrastructure
 {:important: .important}
 {:note: .note}
 
-# Quota metrics dashboard troubleshooting
+# Troubleshooting for quota dashboard
 {: quota-troubleshooting}
 
 If the quota dashboard does not display metrics as expected, the following methods are used for troubleshooting. 
