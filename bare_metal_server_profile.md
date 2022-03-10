@@ -163,4 +163,3 @@ Profiles for post-GA:
 | mx2d-metal-96x768 | 96 | 768 | 0.96 TB SATA M.2 mirrored drive * 1
 3.2 TB U.2 NVMe SSDs * 8 | 100 |
 -->
-
