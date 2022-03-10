@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-01-27"
+lastupdated: "2022-03-10"
 
-keywords: bare metal server profile, profile, bare metal profiles, viewing profile, view profiles
+keywords: bare metal server profile, profile, bare metal profiles, viewing profile, view profiles, bare metal profile family, bare metal profile families
 
 subcollection: vpc
 
@@ -35,29 +35,57 @@ When you create a bare metal server, you can select from a profile family that b
 ## About profile families
 {: #profile-familiy}
 
-Profiles are grouped by the "vCPUs:Memory" ratio across all the VPC compute offerings. You can choose from three profile families:
+Profiles are grouped by the _vCPUs:Memory_ ratio across all the VPC compute offerings. You can choose from three profile families:
 
-| Families | "vCPU:Memory" ratio |
-|---------|---------|
-| Balanced | 1:4 |
-| Compute | 1:2 |
-| Memory | 1:8 or 1:6 |
+| Families | vCPU:Memory ratio | Description |
+|-----|-----|-----|
+| Balanced | 1:4 | Best for midsize databases and common cloud applications with moderate traffic. |
+| Compute | 1:2 | Best for CPU-intensive demands with moderate to high web traffic, such as production batch processing and front-end web servers. |
+| Memory | 1:8 or 1:6 | Best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. |
 {: caption="Table 1. Profile families" caption-side="bottom"}
-
-For more information about profile families, see [Instance Profiles](/docs/vpc?topic=vpc-profiles).
-
-Bare metal server profiles are in the "Balanced" profile family because their "vCPU : Memory" ratios is "1:4".
 
 ## Profiles configurations
 {: #bare-metal-servers-profile-list}
 
-See table 2 for the configurations of each profile.
+See the following table for the configurations of each profile.
 
-| Name | vCPU | Memory (GiB) | Local storage | Total Network Bandwidth (Gbps) |
+| Name | vCPU | Memory (GiB) | Local storage | Total network bandwidth (Gbps) | 
 |---------|---------|---------|---------|---------|
-| bx2-metal-192x768 | 192 | 768 | 0.96 TB SATA M.2 mirrored drive * 1 | 100 |
-| bx2d-metal-192x768 | 192 | 768 | 0.96 TB SATA M.2 mirrored drive \* 1<br><br>3.2 TB U.2 NVMe SSDs \* 16 | 100 |
-{: caption="Table 2. Bare Metal Servers for VPC profiles" caption-side="bottom"}
+| bx2-metal-96x384 | 96 | 384 | 960 GB | 100 Gbps |
+| bx2d-metal-96x384  | 96 | 384 | 960 GB  \n 25.6 TB (secondary)| 100 Gbps |
+| bx2-metal-192x768 | 192 | 768 | 960 GB | 100 |
+| bx2d-metal-192x768 | 192 | 768 | 960 GB  \n 3.2 TB (secondary storage) | 100 |
+
+{: caption="Table 2. Profile families" caption-side='top"}
+{: #bare-metal-balanced-profiles}
+{: tab-title="Balanced profile"}
+{: tab-group="profile-configurations"}
+{: class="simple-tab-table"}
+{: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
+
+| Name | vCPU | Memory (GiB) | Local storage | Total network bandwidth (Gbps) |
+|---------|---------|---------|---------|---------|
+| cx2-metal-96x192 | 96 | 192 GB | 100 Gbps |
+| cx2d-metal-96x192 | 96 | 192 GB  \n 25.6 TB (secondary) | 100 Gbps |
+{: caption="Table 2. Profile families" caption-side='top"}
+{: #bare-metal-compute-profiles}
+{: tab-title="Compute profile"}
+{: tab-group="profile-configurations"}
+{: class="simple-tab-table"}
+{: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
+
+| Name | vCPU | Memory (GiB) | Local storage | Total network bandwidth (Gbps) |
+|---------|---------|---------|---------|---------|
+| mx2-metal-96x768 | 96 | 768 GB | 960 GB | 100 Gbps |
+| mx2d-metal-96x768 | 96 | 768 GB | 960 GB  \n 25.6 TB (secondary) | 100 Gbps |
+| mx2-metal-192x768 | 192 | 768 GB | 960 GB | 100 Gbps |
+| mx2d-metal-192x768 | 192 | 768 GB  \n 51.2 TB (secondary) | 100 Gbps |
+{: caption="Table 2. Profile families" caption-side='top"}
+{: #bare-metal-memory-profiles}
+{: tab-title="Memory profile"}
+{: tab-group="profile-configurations"}
+{: class="simple-tab-table"}
+{: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
 
 ## Understanding the naming rule of the profiles
 {: #profile-naming-rule}
