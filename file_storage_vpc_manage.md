@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-03-09"
+lastupdated: "2022-03-10"
 
 keywords: file storage, virtual private cloud, file share
 
@@ -404,7 +404,7 @@ The file share is deleted in background. Confirm the deletion by trying to view 
 ## Mount and unmount file shares from a virtual server instance
 {: #fs-mount-unmount-vsi}
 
-To mount a file share to a virtual server instance, [locate the mount path information](vpc?topic=vpc-file-storage-view). The mount path is created when you created mount target for a file share. See the following information for mounting on these Linux operating systems. Other Linux distributions follow similar procedures.
+To mount a file share to a virtual server instance, [locate the mount path information](/docs/vpc?topic=vpc-file-storage-view). The mount path is created when you created mount target for a file share. See the following information for mounting on these Linux operating systems. Other Linux distributions follow similar procedures.
 
 * [Mounting file shares on Red Hat Linux](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHEL)
 * [Mounting file shares in CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos)
