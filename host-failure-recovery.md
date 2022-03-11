@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2022-02-22"
+  years: 2021, 2022
+lastupdated: "2022-03-11"
 
 keywords: host failure recovery, recovery
 
@@ -17,6 +17,7 @@ subcollection: vpc
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
+{:shortdesc: .shortdesc} 
 {:important: .important}
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
@@ -28,7 +29,10 @@ subcollection: vpc
 # Host failure recovery policies
 {: #host-failure-recovery-policies}
 
-In the event that a host fails unexpectedly, each virtual server instance on the failed host is either stopped, or relocated and automatically restarted on a healthy host. The restart policy can be determined when creating an instance or on an existing instance.
+If a host fails unexpectedly and cannot be recovered, virtual server instances on the failed host will be automatically restarted on a healthy host.  The restart policy can be configured to not restart the virtual server instance when you create an instance or on an existing instance.
+{: shortdesc}
+
+{{site.data.keyword.cloud}} uses maintenance operations and procedures that help prevent disruption to your workloads during unplanned host failures. {{site.data.keyword.cloud}} continuously monitors your infrastructure to ensure that all hosts are healthy and responsive. Detection of a host issue occurs within 30 seconds of occurrence. In cases where a host failure is detected and the host cannot be immediately recovered, {{site.data.keyword.cloud}} initiates the selected failure recovery policy of all virtual servers on the affected host.
 
 ## Available recovery policies
 {: #available-policies}
@@ -172,8 +176,3 @@ For more information, see [Create an instance](/apidocs/vpc#create-instance) and
 {: #next-steps}
 
 For more information about planned and unplanned host outages, see the FAQ [In what cases is my virtual server migrated to a different host?](/docs/vpc?topic=vpc-faqs-for-vsis#faq-vsi-13).
-
-
-
-
-
