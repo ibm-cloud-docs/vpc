@@ -32,7 +32,7 @@ subcollection: vpc
 If a host fails unexpectedly and cannot be recovered, virtual server instances on the failed host will be automatically restarted on a healthy host.  The restart policy can be configured to not restart the virtual server instance when you create an instance or on an existing instance.
 {: shortdesc}
 
-{{site.data.keyword.cloud}} uses maintenance operations and procedures that help prevent disruption to your workloads during unplanned host failures. {{site.data.keyword.cloud}} continuously monitors your infrastructure to ensure that all hosts are healthy and responsive. Detection of a host issue occurs within 30 seconds of occurrence. In cases where a host failure is detected and the host cannot be immediately recovered, {{site.data.keyword.cloud}} initiates the selected failure recovery policy of all virtual servers on the affected host.
+{{site.data.keyword.cloud}} uses maintenance operations and procedures that help prevent disruption to your workloads during unplanned host failures. {{site.data.keyword.cloud}} continuously monitors your infrastructure to ensure that all hosts are healthy and responsive. Detection of a host issue occurs within 30 seconds of occurrence. In cases where a host failure is detected and the host cannot be immediately recovered, {{site.data.keyword.cloud}} initiates the selected failure recovery policy within 5 minutes for all virtual servers on the affected host.
 
 ## Available recovery policies
 {: #available-policies}
