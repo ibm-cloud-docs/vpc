@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-03-07"
+lastupdated: "2022-03-14"
 
 keywords: vpc, known issues, bugs, defects
 
@@ -44,7 +44,7 @@ The following issues apply to the VPC API or Instance Metadata API. These issues
 ## Instance metadata service Activity Tracker events issues
 {: #instance-metadata-activity-tracker-event-known-issues}
 
-**Issue:** Activity Tracker events for the metadata service are undergoing changes and might not match the [events as documented](https://test.cloud.ibm.com/docs/vpc?topic=vpc-at-events#events-metadata). The documented events are still useful for audit purposes but should not be used for automation.
+**Issue:** Activity Tracker events for the metadata service are undergoing changes and might not match the [events as documented](/docs/vpc?topic=vpc-at-events#events-metadata). The documented events are still useful for audit purposes but should not be used for automation.
 
 ## Network load balancers don't support selectable port ranges
 {: #nlb-port-range}
