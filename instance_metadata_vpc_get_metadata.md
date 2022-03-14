@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-24"
+lastupdated: "2022-03-14"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -36,7 +36,7 @@ When you make API calls to the instance metadata service, events are triggered i
 
 To access metadata service, you must have an instance identity access token. If you haven't already obtained one, see [Aquire an access token](/docs/vpc?topic=vpc-imd-configure-service#imd-json-token).
 
-The metadata service is disabled by default. To enable it, see [Enable or disable the metadata service](docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-metadata-service-enable).
+The metadata service is disabled by default. To enable it, see [Enable or disable the metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-metadata-service-enable).
 
 For detailed information and examples of the API calls described in this topic, see the [Metadata service Beta API reference](/apidocs/vpc-metadata-beta).
 
