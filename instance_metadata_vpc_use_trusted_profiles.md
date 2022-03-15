@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-24"
+lastupdated: "2022-03-15"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -51,7 +51,7 @@ The instance inherits the access rights defined in the default trusted profile. 
 
 4. Configure a floating IP so that you can ping the virtual servers over the floating IP address and SSH into them.
 
-5. Create a trusted profile. For information, see [Creating trusted profiles](/docs/account?topic=account-create-trusted-profile).
+5. Create a trusted profile. For information, see [Establishing trust with compute resources](/docs/account?topic=account-create-trusted-profile&interface=ui#create-profile-compute-ui).
 
 ## IAM authorizations for linking trusted profiles
 {: #imd-iam-auth}
