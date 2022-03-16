@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-02-16"
+lastupdated: "2022-03-16"
 
 keywords: CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
 
@@ -32,18 +32,41 @@ For more information about setting up your VPC API environment or referencing me
 
 Use one of the following public endpoints to connect to the VPC infrastructure API. The endpoints are based on the region of the service.
 
-| Region            | Public Endpoint                       | Private Endpoint |
-|-------------------|---------------------------------------|-------------------------|
-| US South          | `https://us-south.iaas.cloud.ibm.com` | `https://us-south.private.iaas.cloud.ibm.com` |
-| US East           | `https://us-east.iaas.cloud.ibm.com`  | `https://us-east.private.iaas.cloud.ibm.com` |
-| United Kingdom    | `https://eu-gb.iaas.cloud.ibm.com`    | `https://eu-gb.private.iaas.cloud.ibm.com` |
-| EU - Germany      | `https://eu-de.iaas.cloud.ibm.com`    | `https://eu-de.private.iaas.cloud.ibm.com` |
-| Sydney            | `https://au-syd.iaas.cloud.ibm.com`   | `https://au-syd.private.iaas.cloud.ibm.com` |
-| Tokyo             | `https://jp-tok.iaas.cloud.ibm.com`   | `https://jp-tok.private.iaas.cloud.ibm.com` |
-| Osaka             | `https://jp-osa.iaas.cloud.ibm.com`   | `https://jp-osa.private.iaas.cloud.ibm.com` |
-| Toronto           | `https://ca-tor.iaas.cloud.ibm.com`   | `https://ca-tor.private.iaas.cloud.ibm.com` |
-| São Paulo         | `https://br-sao.iaas.cloud.ibm.com`   | `https://br-sao.private.iaas.cloud.ibm.com` |
-{: caption="Table 1. VPC API Regional Endpoints" caption-side="top"}
+|   Location     | Region | Public Endpoint | Private Endpoint |
+| ------- | ------ | ------ | ------ |
+| US South (Dallas) | us-south | `https://us-south.iaas.cloud.ibm.com` | `https://us-south.private.iaas.cloud.ibm.com` |
+| US East (Washington DC) | us-east | `https://us-east.iaas.cloud.ibm.com`  | `https://us-east.private.iaas.cloud.ibm.com` |
+| Brazil (São Paulo) | br-sao | `https://br-sao.iaas.cloud.ibm.com`   | `https://br-sao.private.iaas.cloud.ibm.com` |
+| Canada (Toronto) | ca-tor | `https://ca-tor.iaas.cloud.ibm.com`   | `https://ca-tor.private.iaas.cloud.ibm.com` |
+{: class="simple-tab-table"}
+{: tab-title="Americas"}
+{: caption="Table 1. VPC API Regional Endpoints for North and South America" caption-side="bottom"}
+{: summary="This table displays the VPC API Regional Endpoints."}
+{: tab-group="vpc-api-endpoints"}
+{: #vpc-americas-endpoints}
+
+|   Location     | Region | Public Endpoint | Private Endpoint |
+| ------- | ------ | ------ | ------ |
+| United Kingdom (London) | eu-gb |  `https://eu-gb.iaas.cloud.ibm.com`    | `https://eu-gb.private.iaas.cloud.ibm.com` |
+| EU Germany (Frankfurt) | eu-de | `https://eu-de.iaas.cloud.ibm.com`    | `https://eu-de.private.iaas.cloud.ibm.com` |
+{: class="simple-tab-table"}
+{: tab-title="Europe"}
+{: caption="Table 1. VPC API Regional Endpoints for Europe" caption-side="bottom"}
+{: summary="This table displays the VPC API Regional Endpoints."}
+{: tab-group="vpc-api-endpoints"}
+{: #vpc-europe-endpoints}
+
+|   Location     | Region | Public Endpoint | Private Endpoint |
+| ------- | ------ | ------ | ------ |
+| Japan (Tokyo) | jp-tok | `https://jp-tok.iaas.cloud.ibm.com`   | `https://jp-tok.private.iaas.cloud.ibm.com` |
+| Japan (Osaka) | jp-osa | `https://jp-osa.iaas.cloud.ibm.com`   | `https://jp-osa.private.iaas.cloud.ibm.com` |
+| Australia (Sydney) | au-syd | `https://au-syd.iaas.cloud.ibm.com`   | `https://au-syd.private.iaas.cloud.ibm.com` |
+{: class="simple-tab-table"}
+{: tab-title="Asia Pacific"}
+{: caption="Table 1. VPC API Regional Endpoints for Asia Pacific" caption-side="bottom"}
+{: summary="This table displays the VPC API Regional Endpoints."}
+{: tab-group="vpc-api-endpoints"}
+{: #vpc-asia-pacific-endpoints}
 
 
 LinuxONE (s390x processor architecture) profiles are supported on virtual server instances in the Japan (Tokyo), United Kingdom (London), and São Paulo regions.   

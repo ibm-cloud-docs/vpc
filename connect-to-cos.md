@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2022
-lastupdated: "2022-02-14"
+lastupdated: "2022-03-16"
 
 keywords: resource, storage, connection, COS, object, endpoints, cross-region, regional, datacenter
 
@@ -62,18 +62,41 @@ There is no charge for traffic from your VPCs to all COS endpoints listed on thi
 
 Buckets that are created at a regional endpoint distribute data across three datacenters, which are spread across a metropolitan area. Any single one of these datacenters can suffer an outage, or even destruction, without affecting availability.
 
-| **Region** | **Endpoint** |
-|------------|-------------------------------|
-| US South | `s3.direct.us-south.cloud-object-storage.appdomain.cloud`|
-| US East | `s3.direct.us-east.cloud-object-storage.appdomain.cloud`|
-| United Kingdom | `s3.direct.eu-gb.cloud-object-storage.appdomain.cloud`|
-| EU - Germany | `s3.direct.eu-de.cloud-object-storage.appdomain.cloud`|
-| Sydney | `s3.direct.au-syd.cloud-object-storage.appdomain.cloud`
-| Tokyo | `s3.direct.jp-tok.cloud-object-storage.appdomain.cloud` |
-| Osaka | `s3.direct.jp-osa.cloud-object-storage.appdomain.cloud` |
-| Toronto | `s3.direct.ca-tor.cloud-object-storage.appdomain.cloud` |
-| São Paulo | `s3.direct.br-sao.cloud-object-storage.appdomain.cloud` |
-{: caption="Table 1. Regional endpoints" caption-side="bottom"}
+|   Location     | Region | Endpoint |
+| ------- | ------ | ------ | 
+| US South (Dallas) | us-south | `s3.direct.us-south.cloud-object-storage.appdomain.cloud`| 
+| US East (Washington DC) | us-east | `s3.direct.us-east.cloud-object-storage.appdomain.cloud`|
+| Brazil (São Paulo) | br-sao | `s3.direct.br-sao.cloud-object-storage.appdomain.cloud` |
+| Canada (Toronto) | ca-tor | `s3.direct.ca-tor.cloud-object-storage.appdomain.cloud` |
+{: class="simple-tab-table"}
+{: tab-title="Americas"}
+{: caption="Table 1. VPC Regional Endpoints for North and South America" caption-side="bottom"}
+{: summary="This table displays the VPC Regional Endpoints."}
+{: tab-group="vpc-reg-endpoints"}
+{: #vpc-americas-reg-endpoints}
+
+|   Location     | Region | Endpoint |
+| ------- | ------ | ------ | 
+| United Kingdom (London) | eu-gb | `s3.direct.eu-gb.cloud-object-storage.appdomain.cloud`|
+| EU Germany (Frankfurt) | eu-de | `s3.direct.eu-de.cloud-object-storage.appdomain.cloud`|
+{: class="simple-tab-table"}
+{: tab-title="Europe"}
+{: caption="Table 1. VPC Regional Endpoints for Europe" caption-side="bottom"}
+{: summary="This table displays the VPC Regional Endpoints."}
+{: tab-group="vpc-reg-endpoints"}
+{: #vpc-europe-reg-endpoints}
+
+|   Location     | Region | Endpoint |
+| ------- | ------ | ------ | 
+| Japan (Tokyo) | jp-tok | `s3.direct.jp-tok.cloud-object-storage.appdomain.cloud` |
+| Japan (Osaka) | jp-osa | `s3.direct.jp-osa.cloud-object-storage.appdomain.cloud` |
+| Australia (Sydney) | au-syd | `s3.direct.au-syd.cloud-object-storage.appdomain.cloud` |
+{: class="simple-tab-table"}
+{: tab-title="Asia Pacific"}
+{: caption="Table 1. VPC Regional Endpoints for Asia Pacific" caption-side="bottom"}
+{: summary="This table displays the VPC Regional Endpoints."}
+{: tab-group="vpc-reg-endpoints"}
+{: #vpc-asia-pacific-reg-endpoints}
 
 ### Cross-region endpoints
 {: #cross-region-endpoints}

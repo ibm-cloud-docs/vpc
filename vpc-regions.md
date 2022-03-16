@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-07-27"
+  years: 2020, 2022
+lastupdated: "2022-03-16"
 
 keywords: region, zone, deploy, datacenter, data, center, federated, CLI, API, account, failover, disaster, recovery, DR, data center
 
@@ -38,13 +38,37 @@ Virtual Private Cloud is available in the following {{site.data.keyword.cloud}} 
 | ------- | :------: | :------: |
 | US South (Dallas) | us-south | `us-south.iaas.cloud.ibm.com`| 
 | US East (Washington DC) | us-east | `us-east.iaas.cloud.ibm.com`| 
+| Brazil (São Paulo) | br-sao | `br-sao.iaas.cloud.ibm.com` |
+| Canada (Toronto) | ca-tor | `ca-tor.iaas.cloud.ibm.com` |
+{: class="simple-tab-table"}
+{: tab-title="Americas"}
+{: caption="Table 1. IBM Cloud regions for North and South America" caption-side="bottom"}
+{: summary="This table displays the IBM Cloud regions and is organized by geographical location. Click on the tab for the geographical location you are interested in. You then see all the IBM Cloud regions for that geographical location."}
+{: tab-group="vpc-regions-api-endpoint"}
+{: #vpc-north-america-regions}
+
+|   Location     | Region | API Endpoint | 
+| ------- | :------: | :------: |
 | United Kingdom (London) | eu-gb | `eu-gb.iaas.cloud.ibm.com`|
 | EU Germany (Frankfurt) | eu-de | `eu-de.iaas.cloud.ibm.com`| 
+{: class="simple-tab-table"}
+{: tab-title="Europe"}
+{: caption="Table 1. IBM Cloud regions for Europe" caption-side="bottom"}
+{: summary="This table displays the IBM Cloud regions and is organized by geographical location. Click on the tab for the geographical location you are interested in. You then see all the IBM Cloud regions for that geographical location."}
+{: tab-group="vpc-regions-api-endpoint"}
+{: #vpc-europe-regions}
+
+|   Location     | Region | API Endpoint | 
+| ------- | :------: | :------: |
 | Japan (Tokyo) | jp-tok | `jp-tok.iaas.cloud.ibm.com` |
 | Japan (Osaka) | jp-osa | `jp-osa.iaas.cloud.ibm.com` |
 | Australia (Sydney) | au-syd | `au-syd.iaas.cloud.ibm.com` |
-| Canada (Toronto) | ca-tor | `ca-tor.iaas.cloud.ibm.com` |
-| Brazil (São Paulo) | br-sao | `br-sao.iaas.cloud.ibm.com` |
+{: class="simple-tab-table"}
+{: tab-title="Asia Pacific"}
+{: caption="Table 1. IBM Cloud regions for Asia Pacific" caption-side="bottom"}
+{: summary="This table displays the IBM Cloud regions and is organized by geographical location. Click on the tab for the geographical location you are interested in. You then see all the IBM Cloud regions for that geographical location."}
+{: tab-group="vpc-regions-api-endpoint"}
+{: #vpc-asia-pacific-regions}
 
 The Regional API (VPC) endpoint is automatically set by the {{site.data.keyword.cloud}} CLI when you log in to a specific region.
 {: note}
