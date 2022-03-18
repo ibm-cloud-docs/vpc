@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-01-28"
+lastupdated: "2022-03-18"
 
 keywords: bare metal servers, create, create bare metal, create bare metal server, new bare metal, new bare metal server
 
@@ -57,6 +57,9 @@ Follow these steps to create a bare metal server by using the IBM Cloud console.
 | Virtual private cloud | Specify the IBM Cloud VPC where you want to create your server. You can use the default VPC, another existing VPC, or you can create a new VPC. To create a new VPC, click **New VPC**. | 
 | Network interfaces | By default the bare metal server is created with a single primary network interface. You can click the pencil icon to edit the details of the network interface. For example, the subnet or security group that's associated with the interface. To include extra secondary network interfaces, click **New interface**. You can create and assign up to eight PCI network interfaces and up to 20 PCI + VLAN network interfaces for each server. For more information about advanced networking configurations, see [Managing network interfaces for a bare metal server](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers). |
 {: caption="Table 1. Bare metal server provisioning selections" caption-side="bottom"}
+
+The DHCP response for all interfaces (PCI or VLAN) includes a gateway. So, if you create multiple interfaces on different subnets, consider a static IP configuration or use separate network namespaces to handle the different gateways.
+{: note}
 
 ## Creating a bare metal server by using the API
 {: #creating-using-api}
