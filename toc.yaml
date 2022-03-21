@@ -5,6 +5,7 @@
 toc:
   properties:
     subcollection: vpc
+    service-name: is-vpc
     version: 2
     category: network_vpc
     audience: service
