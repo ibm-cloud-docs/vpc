@@ -116,7 +116,7 @@ Currently, a VPE is not accessible from an on-premises network over {{site.data.
 To provision a private load balancer in your VPC, follow these steps:
 
 1. Create a VPE for VPC for your region. For instructions, see [Creating an endpoint gateway](/docs/vpc?topic=vpc-ordering-endpoint-gateway).
-1. Create a private load balancer within your VPC. The {{site.data.keyword.cloud_notm}} console prevents you from adding the IP of the VPE as a back-end endpoint so use the API or Terraform as an alternative (see [Example Terraform configuration](/docs/vpc?topic=vpc-end-to-end-private-dl#example-terraform-configuration)).
+1. Create a private load balancer within your VPC. The {{site.data.keyword.cloud_notm}} console prevents you from adding the IP of the VPE as a back-end endpoint so use the API or Terraform as an alternative (see [Example Terraform configuration](/docs/vpc?topic=vpc-end-to-end-private-connectivity&interface=cli#example-terraform-configuration)).
 
    Configure an application load balancer using the following values:
 
