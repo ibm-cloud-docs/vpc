@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-03"
+lastupdated: "2022-03-21"
 
 keywords: virtual private endpoints, endpoint gateway, VPE
 subcollection: vpc
@@ -39,7 +39,8 @@ subcollection: vpc
 * IAM Policy Management ([Endpoint URLs](/apidocs/iam-policy-management#endpoint-urls))
 * Key Protect ([Instructions](/docs/key-protect?topic=key-protect-virtual-private-endpoints))
 * Network Time Protocol
-* Resource Controller ([Endpoint URLs](/apidocs/resource-controller/resource-manager#endpoint-urls))
+* Resource Controller ([Endpoint URLs](/apidocs/resource-controller/resource-controller#endpoint-url)) 
+* Resource Manager ([Endpoint URLs](/apidocs/resource-controller/resource-manager#endpoint-urls))
 * {{site.data.keyword.secrets-manager_short}} ([Instructions](/docs/secrets-manager?topic=secrets-manager-virtual-private-endpoint))
 * Schematics ([Instructions](/docs/schematics?topic=schematics-private-endpoints#endpoint-setup))
 * Transit Gateway ([Instructions](/docs/transit-gateway?topic=transit-gateway-vpe-for-ibm-cloud-transit-gateway))
