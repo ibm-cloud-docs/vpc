@@ -105,6 +105,7 @@ toc:
             - /solution-tutorials/solution-tutorials-vpc-secure-management-bastion-server
             - /containers/containers-vpc_ks_tutorial
             - /solution-tutorials/solution-tutorials-vpc-tg-dns-iam
+            - /solution-tutorials/solution-tutorials-vpc-site2site-vpn
 
     - navgroup:
         id: howto
