@@ -4,7 +4,7 @@ copyright:
   years: 2021, 2022
 lastupdated: "2022-03-21"
 
-keywords: bare metal servers, create, create bare metal, create bare metal server, new bare metal, new bare metal server
+keywords: create bare metal, create bare metal server, new bare metal, new bare metal server
 
 subcollection: vpc
 
