@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-22"
+lastupdated: "2022-03-22"
 
 keywords: storage, backup, virtual private cloud, block storage, volumes
 
@@ -232,7 +232,7 @@ Created              2022-02-21T17:56:53+05:30
 Make a `GET /backup_policies/{backup_policy_id}` request to show details of a backup policy identified by ID.
 
 ```curl
-curl -X POST\
+curl -X GET\
 "$vpc_api_endpoint/v1/backup_policies/fb721535-2cc6-45d6-ade7-3ceb95b7f26f?version=2022-02-22&generation=2"\
    -H "Authorization: $iam_token"
 ```
@@ -281,7 +281,7 @@ A successful response looks like this:
 Make a `GET /backup_policies/{backup_policy_id}/plans` request to list plans associated for a backup policy. For Beta, you can have one plan per policy.
 
 ```curl
-curl -X POST\
+curl -X GET\
 "$vpc_api_endpoint/v1/backup_policies/fb721535-2cc6-45d6-ade7-3ceb95b7f26f/plans?version=2022-02-22&generation=2"\
    -H "Authorization: $iam_token"
 ```
