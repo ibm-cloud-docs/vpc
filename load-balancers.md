@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-03-30"
+  years: 2020, 2021, 2022
+lastupdated: "2022-02-22"
 
 keywords: load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network
 
@@ -20,7 +20,7 @@ subcollection: vpc
 
 {{site.data.keyword.cloud_notm}} provides public- and private-facing application load balancers. An application load balancer provides layer 7 and layer 4 load balancing on {{site.data.keyword.cloud_notm}} and supports SSL offloading. All incoming and outgoing packets flow through the load balancer. 
 
-Application load balancers are primarily intended for layer 7 web-based workloads, which can be run on virtual servers on VPC or bare metal servers on VPC. In contrast, a network load balancer provides only layer 4 load balancing on {{site.data.keyword.cloud_notm}}, and does not support SSL offloading. The client sends public network traffic to the network load balancer, which forwards it to target virtual servers. Then, the target virtual servers respond directly to the client by using Direct Server Return (DSR). Network load balancers are primarily intended for workloads that require low latency and high data throughput.
+Application load balancers are primarily intended for layer 7, web-based workloads, and support Virtual Server Instances, Bare Metal Servers on VPC, and Power Virtual Server instances connected over DirectLink 2.0 as back-end pool members. In contrast, a network load balancer provides only layer 4 load balancing on {{site.data.keyword.cloud_notm}}, and does not support SSL offloading. The client sends public network traffic to the network load balancer, which forwards it to target virtual servers. Then, the target virtual servers respond directly to the client by using Direct Server Return (DSR). Network load balancers are primarily intended for workloads that require low latency and high data throughput.
 
 This gives network load balancers an advantage over application load balancers by enhancing performance in the following ways:
 
@@ -39,13 +39,14 @@ The following table provides a comparison of the types of load balancers.
 | Security group support | No | Yes (see [Integrating an ALB for VPC with security groups](/docs/vpc?topic=vpc-alb-integration-with-security-groups)) |
 | Source IP address is preserved | Yes | Yes |
 | SSL offloading              |  No              | Yes |
-| Supported protocols         |  TCP | HTTPS, HTTP, TCP  |
+| Supported protocols         |  TCP, UDP | HTTPS, HTTP, TCP  |
 | Transport layer             |   Layer 4  | Layer 4, Layer 7 |
 | Types of load balancers |  Public and private | Public and private |
 | Virtual IP Address (VIP)   |  Single    | Multiple |
 | Route mode for VNFs   | Yes (see [Setting up high availability for Virtual Network Functions (VNF)](/docs/vpc?topic=vpc-about-vnf)) | No |
 | Virtual Servers on VPC   |  Yes    | Yes |
-| Bare Metal Servers on VPC   |  No    | Yes |
+| Member type  |  VSI    | VSI, Bare Metal, Power VS |
+| Power Virtual Server instances connected over DirectLink   |  No    | Yes (No support for instance groups) |
 {: caption="Table 1. Comparison of network and application load balancers" caption-side="bottom"}
 
 ## High Availability mode
