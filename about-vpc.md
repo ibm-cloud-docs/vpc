@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017, 2020, 2021
-lastupdated: "2021-08-06"
+  years: 2017, 2022
+lastupdated: "2022-03-28"
 
 keywords: vpc, virtual private cloud, private cloud network, quick provisioning, logical isolation, security, cloud-native, workloads, BYOIP, high availability, ACL, Access control list, block storage volumes, generation 2, gen 2
 
@@ -9,16 +9,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:download: .download}
-{:table: .aria-labeledby="caption"}
+{{site.data.keyword.attribute-definition-list}}
 {:DomainName: data-hd-keyref="DomainName"}
 
 # Overview
