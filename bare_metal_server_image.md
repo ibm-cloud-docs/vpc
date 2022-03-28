@@ -2,45 +2,52 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-02-02"
-
-keywords: bare metal license, esxi license, byol, bring your own license, ESXi 7.x BYOL
+lastupdated: "2022-03-26"
 
 subcollection: vpc
 
 ---
 
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:preview: .preview}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:table: .aria-labeledby="caption"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
-# Bare Metal Servers for VPC images
+# Bare metal server images
 {: #bare-metal-image}
 
-You can license the ESXi hypervisor that is installed on a bare metal server with your own license (bring-your-own-license), or IBM can handle the licensing for you.
+When you provision a bare metal server on your VPC, you need to select an image to determine the operating system for the server.
 {: shortdesc}
 
-You can specify how a bare metal server is licensed by selecting from different ESXi image options: "ESXi 7.x BYOL" or "ESXi 7.x".
+## Supported images
+{: #bare-metal-images-supported}
 
-* The "ESXi 7.x BYOL" option provides ESXi in evaluation mode. The evaluation period is 60 days and begins at the time of provisioning. At any time during the 60-day evaluation period, you can convert from evaluation mode to licensed mode with your appropriate customer provided license.
+The following operating systems are available as images when you create a bare metal server.
 
-* The "ESXi 7.x" option provides ESXi in licensed mode and is activated during the provisioning process. Billing applies for IBM rented licenses. 
+| Image | Architecture |
+|---|---|
+| RHEL 8.4 | x86-64 |
+| [VMware ESXi](#bare-metal-images-vmware-esxi) | x86-64 |
+{: caption="Table 1. Bare metal server images" caption-side="bottom"}
 
-VMware ESXi on a Bare Metal Server for VPC is charged monthly and is calculated per CPU based on the selected profile. If you choose to rent VMware ESXi with your server, you are subject to a prorated monthly cost for the license instead of an hourly rate. Proration amount is variable based on your billing anniversary date. 
+Support for Windows, Linux, and custom images is planned. 
 {: note}
 
-For more information about how to license ESXi, see [Licensing ESXi Hosts](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-28D25806-748B-49C0-97A1-E7DE5CB335A9.html){: external}.
+### Special considerations for VMware ESXi images 
+{: #bare-metal-images-vmware-esxi}
+
+You can specify how a bare metal server is licensed with VMware&reg; ESXi by either bringing your own license (_ESXi 7.x BYOL_), or you can rent a license through {{site.data.keyword.cloud}} (_ESXi 7.x_)
+
+* The _ESXi 7.x BYOL_ option provides ESXi in an evaluation mode. The evaluation period is 60 days and begins at the time of provisioning. Anytime during the 60-day evaluation period, you can convert from evaluation mode to licensed mode with your appropriate license that you provide.
+
+* The _ESXi 7.x_ option provides ESXi in licensed mode and is activated during the provisioning process. Billing applies for {{site.data.keyword.cloud}} rented licenses. 
+
+ESXi on a Bare Metal Servers for VPC is charged monthly and is calculated per CPU based on the selected profile. If you choose to rent VMware ESXi with your server, you are subject to a prorated monthly cost for the license instead of an hourly rate. Proration amount is variable based on your billing anniversary date. 
+{: note}
+
+For more information about how to license ESXi, see [Licensing ESXi hosts](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-28D25806-748B-49C0-97A1-E7DE5CB335A9.html){: external}.
 
 You can view and manage your VMWare licenses [here](https://cloud.ibm.com/classic/devices/vmwarelicenses){: external}.
+
+## Next steps
+{: #bare-metal-images-next-steps}
+
+* [Planning for bare metal servers](/docs/vpc?topic=vpc-planning-for-bare-metal-servers)
+* [Creating a bare metal server](/docs/vpc?topic=vpc-creating-bare-metal-servers)
