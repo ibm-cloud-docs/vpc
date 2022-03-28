@@ -2,9 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-02-24"
-
-keywords: bare metal servers, faq, bare metal faq
+lastupdated: "2022-03-26"
 
 subcollection: vpc
 
@@ -45,7 +43,7 @@ Comparing IBM Cloud Classic and VPC infrastructure environments](/docs/cloud-inf
 {: #faq-bare-metal-1}
 {: faq}
 
-Currently, only VMware ESXi 7.0 is supported. Support for RHEL, Windows, Linux, and custom image support is planned. 
+Currently, only VMware ESXi 7.0 and RHEL 8.4 are supported. Support for Windows, Linux, and custom images is planned.
 
 ## What storage options are available?
 {: #faq-bare-metal-2}
