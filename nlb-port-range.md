@@ -18,7 +18,7 @@ subcollection: vpc
 You can define the port range for the {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} listener using the information in this topic.
 {: shortdesc}
 
-Once you attach a pool to the listener, the back-end target will have the same port range as the listener.
+After you attach a pool to the listener, the back-end target has the same port range as the listener.
 {: important}
 
 The port range feature is not supported on private network load balancers. Only public NLBs can use this feature.
@@ -42,7 +42,7 @@ or afterwards using the following procedure:
    You can also click the **New Listener** button to create a new listener.
    {: tip}
 
-   Using the **Port Min** and **Port Max** fields, specify the range of ports that receive your in-bound customer traffic.
+   Using the **Port Min** and **Port Max** fields, specify the range of ports that receive your inbound customer traffic.
 
 ## Configuring the port range using the CLI
 {: #port-range-cli}
