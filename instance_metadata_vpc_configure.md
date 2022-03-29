@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-03-07"
+lastupdated: "2022-03-29"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -68,7 +68,7 @@ instance_identity_token=`curl -X PUT "http://169.254.169.254/instance_identity/v
   -H "Metadata-Flavor: ibm"\
   -d '{
         "expires_in": 3600
-      }' | jq -r '(.access_token)'
+      }' | jq -r '(.access_token)'`
 ```
 {: pre}
 
