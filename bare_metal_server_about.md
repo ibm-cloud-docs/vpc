@@ -49,12 +49,12 @@ You can choose different bare metal server profiles to match your individual wor
 For more information, see [Profiles for Bare Metal Servers for VPC](/docs/vpc?topic=vpc-bare-metal-servers-profile).
 
 ### Advanced Intel® Xeon® CPUs 
-{: #advanced-intel-xeon}
+{: #bare-metal-advanced-intel-xeon}
 
 IBM Cloud Bare Metal Servers for VPC Infrastructure are deployed only with second Gen Intel® Xeon® Platinum 8260 Processors that are built for cloud-enterprise applications, HPC workloads, IoT workloads, enhanced networking, and security. 
 
 ### SmartNIC technology
-{: #smart-nic}  
+{: #bare-metal-smart-nic}  
 
 Get 4x faster network throughput up to 100 Gbps. 
 
