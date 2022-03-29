@@ -4,7 +4,7 @@ copyright:
   years: 2020
 lastupdated: "2020-10-26"
 
-keywords: vpc, vpc network, flow, connections, connectivity, scenarios, hosts
+keywords: flow, connections, connectivity, scenarios, hosts
 
 subcollection: vpc
 
