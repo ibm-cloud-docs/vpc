@@ -3,7 +3,7 @@ copyright:
   years: 2021
 lastupdated: "2021-05-25"
 
-keywords: security and compliance for *Load Balancer for VPC*, security for *Load Balancer for VPC*, compliance for *Load Balancer for VPC*,
+keywords:
 
 subcollection: vpc
 
