@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-03-16"
+lastupdated: "2022-03-15"
 
 keywords: CSE, endpoint, service, DNS, resolver, mirror, object, storage, bandwidth, charges
 
@@ -12,16 +12,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Endpoints available
 {: #service-endpoints-for-vpc}
@@ -79,7 +70,7 @@ Although the addresses for these endpoints look as if they communicate through t
 ## Service endpoints
 {: #cloud-service-endpoints}
 
-Use service endpoints to securely connect to {{site.data.keyword.cloud_notm}} services over the {{site.data.keyword.cloud_notm}} private network. These endpoints are available through DNS (Domain Name System) names in the `cloud.ibm.com` domain and resolve to `166.8.x.x` addresses.
+Use service endpoints to securely connect to {{site.data.keyword.cloud_notm}} services over the {{site.data.keyword.cloud_notm}} private network. These endpoints are available through DNS (Domain Name System) names in the `cloud.ibm.com` domain and resolve to `166.8.0.0/14` addresses.
 
 Traffic to and from service endpoints are subject to ACL and security group rules. This means that these mechanisms can be used in cases where you want to limit what virtual server instances use a particular service endpoint.
 
@@ -104,12 +95,13 @@ The following ports must be open to allow ADN network traffic to flow for the fo
 | UDP      | 53          | DNS         |
 | TCP      | 80          | HTTP      |
 | TCP      | 443         | HTTPS       |
-{: caption="Table 2. Ports required for network traffic" caption-side="top"}
+{: caption="Table 2. Ports required for network traffic" caption-side="bottom"}
 
 ## Virtual private endpoints
 {: #virtual-private-endpoints}
 
 {{site.data.keyword.cloud_notm}} services available through {{site.data.keyword.cloud_notm}} Virtual Private Endpoints (VPE) for VPC are listed at [VPE supported services](/docs/vpc?topic=vpc-vpe-supported-services). VPE supports both service and IaaS endpoints. For information about private connectivity and VPE, see [About virtual private endpoint gateways](/docs/vpc?topic=vpc-about-vpe).
+
 ### DNS resolver endpoints
 {: #dns-domain-name-system-resolver-endpoints}
 
