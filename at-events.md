@@ -5,7 +5,7 @@ copyright:
 
 lastupdated: "2022-02-25"
 
-keywords: activity tracker for vpc, events
+keywords:
 subcollection: vpc
 
 ---
