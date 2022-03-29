@@ -4,7 +4,7 @@ copyright:
   years: 2020, 2022
 lastupdated: "2022-02-15"
 
-keywords: security and compliance for vpc, security for vpc, compliance for vpc
+keywords:
 
 subcollection: vpc
 
