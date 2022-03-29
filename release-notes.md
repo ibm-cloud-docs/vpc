@@ -5,7 +5,7 @@ copyright:
 
 lastupdated: "2022-03-10"
 
-keywords: VPC release notes
+keywords:
 
 subcollection: vpc
 
