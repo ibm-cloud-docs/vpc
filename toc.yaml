@@ -358,6 +358,7 @@ toc:
                 - vnf-deploy-nlb.md
                 - vnf-configure-custom-routes.md
                 - vnf-limitations.md
+        - ip-addresses.md
         - topicgroup:
             label: Backup service (Beta)
             topics:
@@ -466,6 +467,7 @@ toc:
                label: Reference
                href: https://{DomainName}/apidocs/vpc
             - api-change-log.md
+            - 2022-03-29-migration.md
         - topicgroup:
             label: Beta VPC API
             topics:
