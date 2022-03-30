@@ -18,6 +18,42 @@ subcollection: vpc
 Known issues might change over time, so check back occasionally.
 {: shortdesc}
 
+## Reserved IP known issues
+{: #ip-known-issues}
+
+The following issues apply to the VPC API for reserved IPs. These issues will be resolved in a future release.
+
+- **Issue:** The reserved IP functionality is not yet released for CLI.
+    The following reserved IP functionality will be added to the CLI at a later date.
+    - Create instance with reserved IP
+    - Create bare-metal server with reserved IP
+
+- **Workaround** Until the GA version of the CLI is released, set the following environment variables:
+
+    ```sh
+    export IBMCLOUD_IS_FEATURE_RESERVED_IP_PII=true
+    export IBMCLOUD_IS_FEATURE_BARE_METAL_SERVER=true
+    ```
+    {: pre}
+
+- **Issue:** Reserved IPs that are bound to VPN gateways, IKS worker nodes, or DNS service instances will appear as having no target (the `target` property is not included when retrieving the reserved IP resource).
+
+    As a result, such reserved IPs may appear to be unbound. Despite appearing to be unbound, these reserved IPs cannot be deleted until their target resource is deleted.
+
+    In the console, reserved IPs that are labeled "unbound" might be bound to a resource that can't be displayed.
+
+- **Issue:** The instance metadata API does not currently support reserved IPs.
+
+- **Workaround:** Continue to use the `primary_ipv4_address` property to retrieve the IP address for each network interface on an instance. See the [VPC Metadata API](/apidocs/vpc-metadata).
+
+- **Issue:** When you use the VPC API to [list floating IPs on a bare metal server network interface](/apidocs/vpc#list-bare-metal-server-network-interface-floating-), you might get an incomplete list of the floating IPs associated with the bare metal server network interface.
+
+    The floating IP associated with a bare metal network interface is not available before the network interface `status` is `available`.
+
+- **Workarounds:**
+    - Wait for the bare metal server network interfaces to be `available` before listing the floating IPs on the interfaces.
+    - [List all floating IPs](/apidocs/vpc#list-floating-ips) to view those associated with bare metal server interfaces that are not yet `available`.
+
 ## Instance metadata service known issues
 {: #instance-metadata-known-issues}
 
