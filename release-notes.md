@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-03-10"
+lastupdated: "2022-03-29"
 
 keywords:
 
@@ -34,11 +34,34 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 
 For information about changes to the {{site.data.keyword.vpc_short}} API , see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log)
 
+## March 2022
+{: #vpc-mar22}
+
+### 29 March 2022
+{: #vpc-march2922}
+{: release-note}
+
+**UDP support for Network Load Balancers (NLB)**
+:   You can now set User Datagram Protocol (UDP) as the communication protocol for the {{site.data.keyword.nlb_full}} (NLB) listener and pool. UDP is a communications protocol for establishing low-latency and loss-tolerating connections between applications on the internet. It speeds up transmissions by enabling the transfer of data before an agreement is provided by the receiving party. For more information, see [Configuring the UDP protocol for network load balancer](/docs/vpc?topic=vpc-configuring-the-udp-protocol-for-network-load-balancer&interface=ui).
+
+When configuring UDP and attaching a pool to your listener, you must configure the pool with the same protocol as the listener.
+{: important}
+
+**Reserved IPs**
+:   You can now assign an IP address to your virtual server instance by specifying an already reserved IP for private IPs and bind them to network interfaces. For more information, see [Managing IP addresses](/docs/vpc?topic=vpc-managing-ip-addresses). 
+
+## March 24 2022
+{: #vpc-march2422}
+
+**New stock image for virtual servers**
+:   Windows&reg; 2022 is now supported as a stock image when you provision {{site.data.keyword.vpc_short}} virtual servers.
+
+
 ## February 2022
 {: #vpc-feb22}
 
 ### 24 February 2022
-{: #vpc-feb2224}
+{: #vpc-feb2422}
 {: release-note}
 
 **VPC Instance Metadata Service (GA)**
