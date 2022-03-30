@@ -51,8 +51,22 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 ## 29 March 2022
 {: #29-march-2022}
 
-### For all API version dates
+The `2022-03-29` release includes incompatible changes. To avoid regressions in client functionality, be sure to read and follow the [`2022-03-29` API migration guide](/docs/vpc?topic=vpc-2022-03-29-migration) before specifying version `2022-03-29` or later in any API requests.
+{: important}
+
+### For version `2022-03-29` or later
+{: #version-2022-03-29}
+
+**Reserved IPs for compute.** You can now fully control the IP addresses assigned to your network interfaces by specifying a new or existing reserved IP when you [create an instance](/apidocs/vpc#create-instance) or [create a bare metal server](/apidocs/vpc#create-bare-metal-server).
+
+**Migration of network interface IP addresses.** In support of reserved IPs, as of version `2022-03-29`, the network interface `primary_ipv4_address` string property has been migrated to the `primary_ip` object property. See [Migrating use of IP addresses](/docs/vpc?topic=vpc-2022-03-29-migration#migrate-ip-addresses) for guidance on how to migrate to `primary_ip`.
+
+**Removal of security group network interfaces.** The methods for associating security groups with network interfaces that were deprecated in [API version `2021-02-23`](docs/vpc?topic=vpc-api-change-log#23-february-2021) have been removed as of version `2022-03-29`. See [Migrating use of security group associations](/docs/vpc?topic=vpc-2022-03-29-migration#migrate-security-group-assoc) for guidance on how to migrate to use security group targets, which allow security groups to be associated with VPC resources beyond network interfaces, such as endpoint gateways and load balancers.
+
+### For all version dates
 {: #29-march-2022-all-version-dates}
+
+**Reserved IP management.** You can explicitly [Reserve an IP in a subnet](/apidocs/vpc#create-subnet-reserved-ip) ahead of time, and [List all reserved IPs on a subnet](/apidocs/vpc#list-subnet-reserved-ips) to see all your VPC resources that are using IP addresses on that subnet, including load balancers and VPN gateways (with [limitations](/docs/vpc?topic=vpc-known-issues#ip-known-issues)). For more information, see [Managing IP addresses](/docs/vpc?topic=vpc-managing-ip-addresses).
 
 **UDP support for network load balancers.** When [creating a network load balancer](/apidocs/vpc#create-load-balancer) (NLB), you can now set User Datagram Protocol (UDP) as the communications protocol for NLB listeners and pools by specifying `udp` for the `protocol` sub-property of the [`listener`](/apidocs/vpc#create-load-balancer-listener-request) and [`pool`](/apidocs/vpc#create-load-balancer-pool) properties respectively. (Health checks do not support UDP for monitoring the health of pool members.) For more information, see [Configuring UDP for network load balancers](/docs/vpc?topic=vpc-nlb-udp&interface=api).
 
