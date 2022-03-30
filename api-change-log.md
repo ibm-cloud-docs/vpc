@@ -48,6 +48,20 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
+## 29 March 2022
+{: #29-march-2022}
+
+### For all API version dates
+{: #29-march-2022-all-version-dates}
+
+**UDP support for network load balancers.** When [creating a network load balancer](/apidocs/vpc#create-load-balancer) (NLB), you can now set User Datagram Protocol (UDP) as the communications protocol for NLB listeners and pools by specifying `udp` for the `protocol` sub-property of the [`listener`](/apidocs/vpc#create-load-balancer-listener-request) and [`pool`](/apidocs/vpc#create-load-balancer-pool) properties respectively. (Health checks do not support UDP for monitoring the health of pool members.) For more information, see [Configuring UDP for network load balancers](/docs/vpc?topic=vpc-nlb-udp&interface=api).
+
+You must set the same protocol for the load balancer pool and listeners using that pool.
+{: tip}
+
+Not all network load balancer offerings will support UDP. Before creating a UDP network load balancer (or updating an existing NLB listener to use UDP), check that the `udp_supported` property of the [load balancer profile](/apidocs/vpc#list-load-balancer-profiles) is `true`. 
+{: important}
+
 ## 22 March 2022
 {: 22-march-2022}
 
