@@ -52,9 +52,9 @@ To create an unassociated reserved IP, follow these steps:
 4. Click **Reserve IP**.
 
 ### Deleting a reserved IP
-{: #ui-create-vpe-no-ip}
+{: #ui-delete-reserved-ip}
 
-Currently, you can only [delete a reserved IP through the API](#api-delete-rip).
+To delete (release) a reserved IP using the UI, navigate to  **Subnets > Reserved IPs** and click the actions menu ![actions menu](images/overflow.png) next to the reserved IP that you want to delete. Select **Release**. 
 
 <!--### Unbinding a reserved IP
 {: #unbinding-reserved-ip}
@@ -67,6 +67,23 @@ When the auto-delete option is disabled, unbinding causes the reserved IP to bec
 {: cli}
 
 You can use the CLI to create, update, and delete reserved IP addresses.
+
+The reserved IP functionality is not yet released for CLI.
+{: note}
+
+The following reserved IP functionality will be added to the CLI at a later date:
+
+- Create instance with reserved IP
+- Create bare-metal server with reserved IP
+
+Until the GA version of the CLI is released, set the following environment variables.
+
+```sh
+export IBMCLOUD_IS_FEATURE_RESERVED_IP_PII=true
+export IBMCLOUD_IS_FEATURE_BARE_METAL_SERVER=true
+```
+{: codeblock}
+
 
 ### Creating a reserved IP using the CLI
 {: #cli-create-reserved-ip}

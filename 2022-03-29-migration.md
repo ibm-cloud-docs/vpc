@@ -286,7 +286,7 @@ The following table lists the operations that have had `primary_ipv4_address` ch
 | `GET`    | `/instances/{instance_id}/network_interfaces/{network_interface_id}/floating_ips/{id}`      |                                                   | `.target` |
 | `PUT`    | `/instances/{instance_id}/network_interfaces/{network_interface_id}/floating_ips/{id}`      |                                                   | `.target` |
 | `GET`    | `/vpcs/{id}/default_security_group`                                                         |                                                   | `.network_interfaces[]` |
-{: caption="Table 1. List of operations that have changed `primary_ipv4_address` to `primary_ip`" caption-side="bottom"}
+{: caption="Table 1. List of operations that have changed properties" caption-side="bottom"}
 
 ### Security group associations
 {: #sg-assoc-changes}
@@ -296,9 +296,9 @@ migration to security group targets.
 
 | Method   | Path                                                                                        | Changed request properties                        | Changed response properties                                            |
 |----------|---------------------------------------------------------------------------------------------|---------------------------------------------------|------------------------------------------------------------------------|
-| `GET`    | `/security_groups`                                                                          |                                                   | ~`.security_groups[].network_interfaces`~ |
-| `GET`    | ~`/security_groups/{id}/network_interfaces`~                                                |                                                   | |
-| `DELETE` | ~`/security_groups/{security_group_id}/network_interfaces/{id}`~                            |                                                   | |
-| `GET`    | ~`/security_groups/{security_group_id}/network_interfaces/{id}`~                            |                                                   | |
-| `PUT`    | ~`/security_groups/{security_group_id}/network_interfaces/{id}`~                            |                                                   | |
+| `GET`    | `/security_groups`                                                                          |                                                   | ~~`.security_groups[].network_interfaces`~~ |
+| `GET`    | ~~`/security_groups/{id}/network_interfaces`~~                                              |                                                   | |
+| `DELETE` | ~~`/security_groups/{security_group_id}/network_interfaces/{id}`~~                          |                                                   | |
+| `GET`    | ~~`/security_groups/{security_group_id}/network_interfaces/{id}`~~                          |                                                   | |
+| `PUT`    | ~~`/security_groups/{security_group_id}/network_interfaces/{id}`~~                          |                                                   | |
 {: caption="Table 2. List of methods or properties that have been removed" caption-side="bottom"}
