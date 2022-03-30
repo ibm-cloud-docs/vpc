@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-03-26"
+lastupdated: "2022-03-30"
 
 subcollection: vpc
 
@@ -23,15 +23,32 @@ The following operating systems are available as images when you create a bare m
 
 | Image | Architecture |
 |---|---|
-| RHEL 8.4 | x86-64 |
-| [VMware ESXi](#bare-metal-images-vmware-esxi) | x86-64 |
+| [RHEL 8.4](#bare-metal-images-rhel-considerations) | x86-64 |
+| [VMware ESXi](#bare-metal-images-vmware-esxi-considerations) | x86-64 |
 {: caption="Table 1. Bare metal server images" caption-side="bottom"}
 
 Support for Windows, Linux, and custom images is planned. 
 {: note}
 
+### Special considerations for RHEL 8.4
+{: #bare-metal-images-rhel-considerations}
+
+* By default, the release lock feature for RHEL 8.4 is disabled. To prevent the RHEL from going beyond version 8.4 when you run an update, run the following commands from the command line:
+
+   ```text
+   # subscription-manager release --set=8.4
+   ```
+ {: codeblock}
+
+   ```text
+   # yum clean all
+   ```
+   {: codeblock}
+
+* When you deploy a server with RHEL, it's possible that the deployment might not exit the pending state. If the server is in the pending state for longer than 15 minutes, delete the server and redeploy the server.
+
 ### Special considerations for VMware ESXi images 
-{: #bare-metal-images-vmware-esxi}
+{: #bare-metal-images-vmware-esxi-considerations}
 
 You can specify how a bare metal server is licensed with VMware&reg; ESXi by either bringing your own license (_ESXi 7.x BYOL_), or you can rent a license through {{site.data.keyword.cloud}} (_ESXi 7.x_)
 
