@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-08-25"
+  years: 2019, 2022
+lastupdated: "2022-03-28"
 
 keywords: address prefixes, regions, subnets, zones, IP, ranges, CIDR
 
@@ -11,16 +11,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:download: .download}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Bring your own subnet
 {: #configuring-address-prefixes}
@@ -32,36 +23,36 @@ Each zone of your VPC is assigned a default address prefix, which specifies the 
 
 When a new VPC is created, the default address prefixes are assigned to each zone in the region, as shown in the following table.
 
-Zone         | Address prefix
--------------|---------------
-`us-south-1`   | `10.240.0.0/18`
-`us-south-2`   | `10.240.64.0/18`
-`us-south-3`   | `10.240.128.0/18`
-`us-east-1`    | `10.241.0.0/18`
-`us-east-2`    | `10.241.64.0/18`
-`us-east-3`    | `10.241.128.0/18`
-`eu-gb-1`      | `10.242.0.0/18`
-`eu-gb-2`      | `10.242.64.0/18`
-`eu-gb-3`      | `10.242.128.0/18`
-`eu-de-1`      | `10.243.0.0/18`
-`eu-de-2`      | `10.243.64.0/18`
-`eu-de-3`      | `10.243.128.0/18`
-`jp-tok-1`     | `10.244.0.0/18`
-`jp-tok-2`     | `10.244.64.0/18`
-`jp-tok-3`     | `10.244.128.0/18`
-`au-syd-1`     | `10.245.0.0/18`
-`au-syd-2`     | `10.245.64.0/18`
-`au-syd-3`     | `10.245.128.0/18`
-`jp-osa-1`     | `10.248.0.0/18`
-`jp-osa-2`     | `10.248.64.0/18`
-`jp-osa-3`     | `10.248.128.0/18`
-`ca-tor-1`     | `10.249.0.0/18`
-`ca-tor-2`     | `10.249.64.0/18`
-`ca-tor-3`     | `10.249.128.0/18`
-`br-sao-1`     | `10.250.0.0/18`
-`br-sao-2`     | `10.250.64.0/18`
-`br-sao-3`     | `10.250.128.0/18`
-{: caption="Table 1. Address prefixes assigned to a zone in a region" caption-side="top"}
+Region name      |Zone           | Address prefix
+-----------------|---------------|---------------
+Dallas        |`us-south-1`   | `10.240.0.0/18`
+Dallas        |`us-south-2`   | `10.240.64.0/18`
+Dallas        |`us-south-3`   | `10.240.128.0/18`
+Washington DC |`us-east-1`    | `10.241.0.0/18`
+Washington DC |`us-east-2`    | `10.241.64.0/18`
+Washington DC |`us-east-3`    | `10.241.128.0/18`
+London        |`eu-gb-1`      | `10.242.0.0/18`
+London        |`eu-gb-2`      | `10.242.64.0/18`
+London        |`eu-gb-3`      | `10.242.128.0/18`
+Frankfurt     |`eu-de-1`      | `10.243.0.0/18`
+Frankfurt     |`eu-de-2`      | `10.243.64.0/18`
+Frankfurt     |`eu-de-3`      | `10.243.128.0/18`
+Tokyo         |`jp-tok-1`     | `10.244.0.0/18`
+Tokyo         |`jp-tok-2`     | `10.244.64.0/18`
+Tokyo         |`jp-tok-3`     | `10.244.128.0/18`
+Sydney        |`au-syd-1`     | `10.245.0.0/18`
+Sydney        |`au-syd-2`     | `10.245.64.0/18`
+Sydney        |`au-syd-3`     | `10.245.128.0/18`
+Osaka         |`jp-osa-1`     | `10.248.0.0/18`
+Osaka         |`jp-osa-2`     | `10.248.64.0/18`
+Osaka         |`jp-osa-3`     | `10.248.128.0/18`
+Toronto       |`ca-tor-1`     | `10.249.0.0/18`
+Toronto       |`ca-tor-2`     | `10.249.64.0/18`
+Toronto       |`ca-tor-3`     | `10.249.128.0/18`
+Sao Paulo     |`br-sao-1`     | `10.250.0.0/18`
+Sao Paulo     |`br-sao-2`     | `10.250.64.0/18`
+Sao Paulo     |`br-sao-3`     | `10.250.128.0/18`
+{: caption="Table 1. Address prefixes assigned to a zone in a region" caption-side="bottom"}
 
 If you don't want these default address prefixes, you can choose to not assign them when you create your VPC. For example, add the `"address_prefix_management": "manual"` parameter when you create the VPC by using the API.
 
@@ -71,8 +62,8 @@ To bring your own subnets:
 2. For each zone in which you plan to create subnets, create one or more address prefixes.
 3. When you create subnets in each zone, specify IP ranges that are within one of the address prefixes that you created for that zone.
 
-If you use an IP range outside of those ranges [RFC 1918](https://tools.ietf.org/html/rfc1918) (`10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`) defined for a subnet, the instances that you attach to that subnet might be unable to reach parts of the public internet. If you plan to configure VPCs that use both non-RFC-1918 addresses and also have public connectivity (floating IPs or public gateways), make sure to use a custom route that contains the `Delegate-VPC` action. 
-{:tip}
+If you use an IP range outside of those ranges [RFC 1918](https://tools.ietf.org/html/rfc1918){: external} (`10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`) defined for a subnet, the instances that you attach to that subnet might be unable to reach parts of the public internet. If you plan to configure VPCs that use both non-RFC-1918 addresses and also have public connectivity (floating IPs or public gateways), make sure to use a custom route that contains the `Delegate-VPC` action.
+{: tip}
 
 ## Address prefixes and the {{site.data.keyword.cloud_notm}} console
 {: #address-prefixes-and-the-ibm-cloud-console-ui}
@@ -86,28 +77,28 @@ The following example shows you how to use the CLI to bring your own IP addresse
 
 1. Create an address prefix named `my-first-prefix` in the `us-south-1` zone:
 
-   ```
+   ```sh
    ibmcloud is vpc-address-prefix-create my-first-prefix $VPC us-south-1 172.16.0.0/23
    ```
    {: pre}
 
 1. Create an address prefix named `another-prefix` in the `us-south-2` zone:
 
-   ```
+   ```sh
    ibmcloud is vpc-address-prefix-create another-prefix $VPC us-south-2 172.16.2.0/23
    ```
    {: pre}
 
 1. Create a subnet named `my-subnet` within your new address prefix in the `us-south-1` zone:
 
-   ```
+   ```sh
    ibmcloud is subnet-create my-subnet $vpc us-south-1 --ipv4-cidr-block "172.16.0.0/25"
    ```
    {: pre}
 
 1. Create a subnet named `another-subnet` within your new address prefix in the `us-south-2` zone:
 
-   ```
+   ```sh
    ibmcloud is subnet-create another-subnet $vpc us-south-2 --ipv4-cidr-block "172.16.2.0/25"
    ```
    {: pre}
