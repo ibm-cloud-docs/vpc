@@ -32,9 +32,9 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 {: release-note}
 
 UDP support for Network Load Balancers (NLB)
-:   You can now set User Datagram Protocol (UDP) as the communication protocol for the {{site.data.keyword.nlb_full}} (NLB) listener and pool. UDP is a communications protocol for establishing low-latency and loss-tolerating connections between applications on the internet. It speeds up transmissions by enabling the transfer of data before an agreement is provided by the receiving party. For more information, see [Configuring the UDP protocol for network load balancer](/docs/vpc?topic=vpc-configuring-the-udp-protocol-for-network-load-balancer&interface=ui).
+:   You can now set User Datagram Protocol (UDP) as the communication protocol for the {{site.data.keyword.nlb_full}} (NLB) listener and pool. UDP is a communications protocol for establishing low-latency and loss-tolerating connections between applications on the internet. It speeds up transmissions by enabling the transfer of data before an agreement is provided by the receiving party. For more information, see [Configuring the UDP protocol for network load balancers](/docs/vpc?topic=vpc-nlb-udp&interface=ui).
 
-When configuring UDP and attaching a pool to your listener, you must configure the pool with the same protocol as the listener.
+:   When configuring UDP and attaching a pool to your listener, you must configure the pool with the same protocol as the listener.
 {: important}
 
 Reserved IPs
@@ -57,7 +57,7 @@ New stock image for virtual servers
 VPC Instance Metadata Service (GA)
 :   The VPC Instance Metadata service is now generally available in all regions. This free service provides a REST API you invoke within an instance to get information about that instance. Access to the API is unavailable from outside the instance. The service is disabled by default. Before you can access the metadata, the service lets you generate an instance identity access token for accessing the metadata service. You can optionally get an IAM token from this token to access all IAM-enabled services. For more information, see [About VPC Instance Metadata](/docs/vpc?topic=vpc-imd-about).
 
-Virtual server instances created on LinuxONE (s390x processor architecture) are not enabled for the VPC Instance Metadata service. The metadata service is currently supported only on x86 systems.
+:   Virtual server instances created on LinuxONE (s390x processor architecture) are not enabled for the VPC Instance Metadata service. The metadata service is currently supported only on x86 systems.
 {: note}
 
 UI Update
