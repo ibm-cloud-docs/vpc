@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2022-02-25",
+    "lastupdated": "2022-04-01",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc", 
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
-          "date": "24 February 2022",
-          "title": "VPC Instance Metadata service (GA)",
-          "description": "The VPC Instance Metadata service is now generally available in all regions. This free service provides a REST API you invoke within an instance to get information about that instance. Access to the API is unavailable from outside the instance. The service is disabled by default. Before you can access the metadata, the service lets you generate an instance identity access token for accessing the metadata service. You can optionally get an IAM token from this token to access all IAM-enabled services. The VPC Instance Metadata service is currently supported only on x86 systems."
+          "date": "29 March 2022",
+          "title": "UDP support for Network Load Balancers (NLB)",
+          "description": "You can now set User Datagram Protocol (UDP) as the communication protocol for the Network Load Balancer for VPC (NLB) listener and pool. UDP is a communications protocol for establishing low-latency and loss-tolerating connections between applications on the internet. It speeds up transmissions by enabling the transfer of data before an agreement is provided by the receiving party. When configuring UDP and attaching a pool to your listener, you must configure the pool with the same protocol as the listener."
         },
         {
-          "date": "24 February 2022",
-          "title": "UI Update",
-          "description": "There is a new Location cascading selector. For example, when you provision a virtual server, the Location section now has 3 new cascading selector boxes. You can now choose the geographic location, the metro (region) location, and the zone. The options available in these boxes are updated based on your selections. For example, if you select “Americas” for the Geography, then the Metro box displays only the Metros available for the Americas."
+          "date": "29 March 2022",
+          "title": "Reserved IPs",
+          "description": "You can now assign an IP address to your virtual server instance by specifying an already reserved IP for private IPs and bind them to network interfaces."
         },
         {
-          "date": "22 February 2022",
-          "title": "Host failure recovery policies",
-          "description": "Host failure recovery policies for VPC is generally available (GA). "
+          "date": "24 March 2022",
+          "title": "New stock image for virtual servers",
+          "description": "Windows 2022 is now supported as a stock image when you provision IBM Cloud VPC virtual servers. "
         }
       ]
     }
