@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-03-26"
+lastupdated: "2022-04-01"
 
 subcollection: vpc
 
@@ -97,7 +97,7 @@ The boot disk supports RAID 1 by using a hardware RAID controller. If you use a 
 Secondary drives use a JBOD configuration and aren't supported by a hardware RAID controller. 
 
 ## Can I enable dual uplinks (uplink redundancy)?  
-{: faq-bare-metal-7}
+{: #faq-bare-metal-7}
 {: faq}
 
 No. The uplinks (PCI network interfaces) are redundant by design. The VLAN network that you create are on that default, redundant uplink. You don’t need to manage uplink redundancy because redundancy is automatic.   
@@ -105,7 +105,7 @@ No. The uplinks (PCI network interfaces) are redundant by design. The VLAN netwo
 For more information, see [Networking overview for Bare Metal Servers on VPC](/docs/vpc?topic=vpc-bare-metal-servers-network). 
 
 ## What storage replication is supported for Bare Metal Servers for VPC? 
-{: faq-bare-metal-8}
+{: #faq-bare-metal-8}
 {: faq}
 
 Replication isn't supported. 
@@ -147,7 +147,7 @@ The main difference between virtual server instances and the bare metal servers 
 To view your account invoices, follow these steps.
 
 1. Go to the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), 
-2. Then, click **Manage > Billing and Usage**.
+1. Then, click **Manage > Billing and Usage**.
 
 Each account receives a single bill. If you need separate billing for different sets of resources, then you need to create multiple accounts.
 
