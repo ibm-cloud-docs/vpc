@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-03-21"
+lastupdated: "2022-04-01"
 
 keywords: create bare metal, create bare metal server, new bare metal, new bare metal server
 
@@ -40,9 +40,9 @@ Follow these steps to create a bare metal server by using the {{site.data.keywor
 
 1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**
 
-2. Click **Create** and enter the information that is in Table 1. 
+1. Click **Create** and enter the information that is in Table 1. 
 
-3. Review the configuration **Summary** and click **Create**.
+1. Review the configuration **Summary** and click **Create**.
 
 | Field | Value |
 |---|---|
@@ -72,10 +72,10 @@ Follow these steps to create a bare metal server by using the API.
 
 1. Make sure that you set up your API environment. For more information, see [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment).
 
-To learn more about the API, click **Get sample API call** on the create pages in {{site.data.keyword.cloud}} console. You can view the correct sequence of API requests and better understand actions and their dependencies.
+   To learn more about the API, click **Get sample API call** on the create pages in {{site.data.keyword.cloud}} console. You can view the correct sequence of API requests and better understand actions and their dependencies.
    {: tip}
 
-2. Make sure that you create a VPC and a subnet before you create a bare metal server.
+1. Make sure that you create a VPC and a subnet before you create a bare metal server.
 
 ### Gathering information for the bare metal server
 {: #api-info}
@@ -85,7 +85,7 @@ Before you can use API to create bare metal server, see the following table for 
 | Server detail | Listing options |
 |---------|---------|
 | Image | [List all images](/apidocs/vpc#list-images) |
-| Keys | [List all keys](/apidocs/vpc#list-keys)<br><br>**Note:** If you don't have any available SSH keys, use [Create a key](/apidocs/vpc#create-key) to create one. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
+| Keys | [List all keys](/apidocs/vpc#list-keys) \n \n **Note:** If you don't have any available SSH keys, use [Create a key](/apidocs/vpc#create-key) to create one. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | Subnet | [List all subnets](/apidocs/vpc#list-subnets) |
 | Security groups (optional) | [List all security groups](/apidocs/vpc#list-security-groups) |
 | Profile | [List all bare metal server profiles](/apidocs/vpc#list-bare-metal-server-profiles) |
@@ -112,7 +112,7 @@ As an example, you create a bare metal server with the following configuration:
 
 The API request is similar to:
 
-```
+```sh
 curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers?version=2021-03-09&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
@@ -159,7 +159,7 @@ The example request uses the JSON processing utility _jq_ to format the response
 
 You see a response that is similar to the following example or bread:
 
-```
+```json
 "bandwidth": 100000,
 "boot_target": {
   "href": "https://us-south.iaas.cloud.ibm.com/v1/bare_metal_servers/2302-5e095b83-ceb4-49b5-9699-0aa5a2c996a4/disks/2302-3744f199-6ccc-4698-8772-bb3937348c96",
@@ -308,7 +308,7 @@ For more information about the API request, see [Create a bare metal server](/ap
 
 When the server status changes to "Running", use the following request to view it.
 
-```
+```sh
 curl -X GET "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id?version=2021-03-09&generation=2" \
 -H "Authorization: $iam_token"
 ```
@@ -324,7 +324,7 @@ Use the following steps to create a bare metal server by using the {{site.data.k
 {: #cli-prereq}
 
 1. Make sure that you set up your [CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
-2. Make sure that you create a VPC and a subnet before you create a bare metal server.
+1. Make sure that you create a VPC and a subnet before you create a bare metal server.
 
 For more information, see [Using the CLI to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
 
@@ -363,7 +363,7 @@ For example, you can create a bare metal server with the following configuration
 * Profile name: "bx2d-metal-192x768"
 * Zone: "us-south-1"
 
-```
+```sh
 ibmcloud is bare-metal-server-create --name my-bare-metal-server --zone us-south-1 --profile mx2-metal-96x768 --image r134-31c8ca90-2623-48d7-8cf7-737be6fc4c3e --keys a6b1a881-2ce8-41a3-80fc-36316a73f803 --pnic-subnet 7ec86020-1c6e-4889-b3f0-a15f2e50f87e –pnic-name my-primary-network-interface --pnic-allowed-vlans 4 --network-interfaces '[{"name": "my-vlan-interface", "interface_type": "vlan", "vlan": 4, "allow_interface_to_float": true, "subnet": {"id":"7ec86020-1c6e-4889-b3f0-a15f2e50f87e"}}]' --output JSON
 ```
 {: pre}
@@ -373,7 +373,7 @@ ibmcloud is bare-metal-server-create --name my-bare-metal-server --zone us-south
 
 When the server status changes to **Running**, use the following command to view it.
 
-```
+```sh
 ibmcloud is bare-metal-server $bare_metal_server_id --output JSON
 ```
 {: pre}
