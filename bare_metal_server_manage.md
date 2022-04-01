@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-01-21"
+lastupdated: "2022-04-01"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -54,7 +54,7 @@ To manage your servers, complete the following steps.
 2. On the **Bare metal servers** page, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the server that you want to manage. You can perform the following actions:
 
 ### Viewing your bare metal servers 
-{: viewing-bare-metal-server-ui}
+{: #viewing-bare-metal-server-ui}
 
 You can view the summary of all bare metal server on the bare metal server page, or you can click an individual server name to view details and make changes. From the details page, you can also view the associated network interface, access its subnet, and reserve or delete a floating IP address.
 
@@ -107,14 +107,14 @@ The delete action permanently removes a server and its connected vNIC, boot volu
 
 Use the following command to list all bare metal servers:
 
-   ```
+   ```sh
    ibmcloud is bare-metal-servers [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME | --all-resource-groups]
    ```
    {: pre}
 
 Use the following command to retrieve a bare metal server:
 
-   ```
+   ```sh
    ibmcloud is bare-metal-server $bare_metal_server_id
    ```
    {: pre}
@@ -124,7 +124,7 @@ Use the following command to retrieve a bare metal server:
 
 Use the following CLI command to reboot your bare metal server.
 
-```
+```sh
 ibmcloud is bare-metal-server-restart $bare_metal_server_id [-f, --force] [-q, --quiet]
 ```
 
@@ -138,14 +138,14 @@ Use the following CLI command to stop and start your bare metal server.
 
 To stop the bare metal server:
 
-```
+```sh
 ibmcloud is bare-metal-server-stop $bare_metal_server_id [--type soft | hard] [-f, --force] [-q, --quiet]
 ```
 {: pre}
 
 To start the bare metal server:
 
-```
+```sh
 ibmcloud is bare-metal-server-start $bare_metal_server_id [-q, --quiet]
 ```
 {: pre}
@@ -159,7 +159,7 @@ Billing continues after the bare metal server is stopped.
 
 Use the following CLI command to delete your bare metal server.
 
-```
+```sh
 ibmcloud is bare-metal-server-delete $bare_metal_server_id
 ```
 
@@ -175,7 +175,7 @@ The delete action permanently removes a server and its connected vNIC, boot volu
 
 Use the following API request to list all bare metal servers:
 
-   ```
+   ```sh
    curl -X GET "$vpc_api_endpoint/v1/bare_metal_servers?version=2021-03-09&generation=2" \
    -H "Authorization: $iam_token"
    ```
@@ -183,7 +183,7 @@ Use the following API request to list all bare metal servers:
 
 Use the following API request to retrieve a bare metal server:
 
-   ```
+   ```sh
    curl -X GET "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id?version=2021-03-09&generation=2" \
    -H "Authorization: $iam_token"
    ```
@@ -196,7 +196,7 @@ For more information of the API requests, see [List all bare metal servers](/api
 
 Use the following API request to reboot your bare metal server.
 
-```
+```sh
 curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/restart?version=2021-03-09&generation=2" \
 -H "Authorization: $iam_token"
 ```
@@ -217,7 +217,7 @@ Use the following API request to stop your bare metal server.
 You must specify the `type` for the stop action in the data payload. `soft` tells the running operating system to stop and shut down cleanly. `hard` immediately stops the bare metal server.
 {: important}
 
-```
+```sh
 curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/stop?version=2021-03-09&generation=2" \
 -H "Authorization: $iam_token"
 -d '{
@@ -236,7 +236,7 @@ For more information about the API request, see [Stop a bare metal server](/apid
 
 Use the following API request to start your bare metal server.
 
-```
+```sh
 curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/start?version=2021-03-09&generation=2" \
 -H "Authorization: $iam_token"
 ```
@@ -249,7 +249,7 @@ For more information about the API request, see [Start a bare metal server](/api
 
 Use the following API request to delete your bare metal server.
 
-```
+```sh
 curl -X DELETE "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id?version=2021-03-09&generation=2" \
 -H "Authorization: $iam_token"
 ```
