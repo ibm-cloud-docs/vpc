@@ -35,11 +35,11 @@ To create and configure {{site.data.keyword.nlb_full}} by using the {{site.data.
    * Optionally, add tags.
    * Select the **Network Load Balancer (NLB)** tile and the subnet where you want to deploy the load balancer.
    * Select type: **Public** or **Private**.
-1. **For Private type only**, you have the option to enable routing mode, which is used to deploy highly available virtual network functions (VNFs). For use cases and end-to-end instructions, see [About HA VNF deployments](/docs/vpc?topic=vpc-about-vnf-ha).
+1. **For Private type only**, you have the option to enable routing mode, which is used to deploy highly available virtual network functions (VNFs). For use cases and end-to-end instructions, see [About HA virtual network function deployments](/docs/vpc?topic=vpc-about-vnf-ha).
 1. Select a subnet from the list.
 1. Click **New Pool** and specify the following information to create a back-end pool. You can create one or more pools.
    * Type a name for the pool, such as `my-pool`.
-   * Enter a protocol for your instances in this pool. The protocol of the pool must match the protocol of its associated listener. For example, if the listener is TCP, the protocol of the pool must be TCP.
+   * Select a protocol for your instances in this pool. The protocol of the pool must match the protocol of its associated listener. For example, if the listener is TCP, the protocol of the pool must be TCP. Or, if the listener is UDP, the protocol of the pool must also be UDP.
    * Select the method, which is the load-balancing algorithm. The follow options are shown.
       * **Round robin** - Forward requests to each instance in turn. All instances receive approximately an equal number of client connections.
       * **Weighted round robin** - Forward requests to each instance in proportion to its assigned weight. For example, you have instances A, B, and C, and their weights are set to 60, 60 and 30. Instances A and B receive an equal number of connections, and instance C receives half as many connections.

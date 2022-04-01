@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-08-09"
+  years: 2020, 2022
+lastupdated: "2022-03-11"
 
 keywords:  VPN, network, encryption, authentication, algorithm, IKE, IPsec, policies, gateway
 
@@ -42,3 +42,41 @@ If you use ACLs or security groups on the VPC subnets that communicate over the 
 [^IP]:Set the source IP to the peer gateway public IP address. This allows traffic from the VPC and the on-premises subnets.
 
 [^IP2]:Set the source IP to the peer gateway public IP address. This allows traffic from the VPC and the on-premises subnets.
+
+## Rules for VPN traffic using NACLs
+{: #rules-vpn-traffic-using-nacls}
+
+There are two kinds of NACL; the first is attached to a subnet that you choose to create the VPN gateway, the second is attached to a subnet that you choose to create the virtual server instance.
+
+### NACL attached to the subnet that you chose to create the VPN gateway
+{: #nacl-vpn-gateway}
+
+The following rules apply to NACLs attached to subnets that you choose to create the VPN gateway: 
+
+#### Rules scenario 1
+{: #rules-1}
+
+Inbound/Outbound Rules|Protocol| Source IP| Destination|
+|---------------------|--------|----------|------------|
+|inbound |ALL |Your on-premises gateway public IP|Subnet CIDR which you choose to create the VPN gateway|
+|outbound |ALL |Subnet CIDR which you choose to create the VPN gateway|Your on-premises gateway public IP|
+{: caption="Table 3. Rules1: Allow IPsec protocol packet between IBM gateway and your on-premises gateway" caption-side="bottom"}
+
+#### Rules scenario 2
+{: #rules-2}
+
+Inbound/Outbound Rules|Protocol| Source IP| Destination|
+|---------------------|--------|----------|------------|
+|inbound |ALL |Your on-premises subnets|Subnet CIDR which you choose to create the VPC virtual server instance|
+|outbound |ALL |Subnet CIDR in which you choose to create the VPC virtual server instance|Your on-premises subnets|
+{: caption="Table 4. Rules2: Allow traffic between your on-premises private and VPC subnet in which you chose to create the virtual server instance" caption-side="bottom"}
+
+#### Rules scenario 3
+{: #rules-3}
+
+Allow ICMP to the VPN gateway for troubleshooting. (optional)
+
+### NACL attached to create the virtual server instance
+{: #nacl-vsi}
+
+Same as [table 4](#rules-2). 
