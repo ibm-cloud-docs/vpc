@@ -35,9 +35,9 @@ After you create a bare metal server, you can add new network interfaces or edit
 
 You can create two types of network interface on the bare metal servers - PCI interface and VLAN interface.
 
-* A PCI interface is a physical network interface. The VLAN interface is a virtual interface that is associated with a PCI interface. The maximum number of PCI interfaces per bare metal server is eight.
+* **PCI interface** is a physical network interface. The VLAN interface is a virtual interface that is associated with a PCI interface. The maximum number of PCI interfaces per bare metal server is eight.
 
-*  The VLAN interface automatically tags traffic that is routed through it with the VLAN ID. Inbound traffic that is tagged with a VLAN ID is directed to the appropriate VLAN interface. The VLAN interface has its own security groups and doesn't inherit security groups from the PCI interface. The maximum number of network interfaces per bare metal server (both PCI and VLAN) is 25. You can create up to 128 through the CLI and API. However, doing so might affect the performance of vMotion. We suggest that you use NSX-T for environments where you require large numbers of network interfaces.
+*  **VLAN interface** automatically tags traffic that is routed through it with the VLAN ID. Inbound traffic that is tagged with a VLAN ID is directed to the appropriate VLAN interface. The VLAN interface has its own security groups and doesn't inherit security groups from the PCI interface. The maximum number of network interfaces per bare metal server (both PCI and VLAN) is 25. You can create up to 128 through the CLI and API. However, doing so might affect the performance of vMotion. We suggest that you use NSX-T for environments where you require large numbers of network interfaces.
 
 When you create a bare metal server, a primary PCI interface is created for you. Optionally, you can add one or more secondary PCI or VLAN interfaces. You can also add, update, or delete the network interfaces.
 
