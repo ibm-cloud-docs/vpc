@@ -2,9 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-01-21"
-
-keywords: bare metal servers, managing network interface, bare metal network interface, configure network interface, create network interface, delete network interface, associate network interface, update network interface
+lastupdated: "2022-04-01"
 
 subcollection: vpc
 
@@ -39,7 +37,7 @@ You can create two types of network interface on the bare metal servers - PCI in
 
 * A PCI interface is a physical network interface. The VLAN interface is a virtual interface that is associated with a PCI interface. The maximum number of PCI interfaces per bare metal server is eight.
 
-*  The VLAN interface automatically tags traffic that is routed through it with the VLAN ID. Inbound traffic that is tagged with a VLAN ID is directed to the appropriate VLAN interface. The VLAN interface has its own security groups and doesn't inherit security groups from the PCI interface. You aren't limited on the maximum number of VLAN interfaces per bare metal server.
+*  The VLAN interface automatically tags traffic that is routed through it with the VLAN ID. Inbound traffic that is tagged with a VLAN ID is directed to the appropriate VLAN interface. The VLAN interface has its own security groups and doesn't inherit security groups from the PCI interface. The maximum number of network interfaces per bare metal server (both PCI and VLAN) is 25. You can create up to 128 through the CLI and API. However, doing so might affect the performance of vMotion. We suggest that you use NSX-T for environments where you require large numbers of network interfaces.
 
 When you create a bare metal server, a primary PCI interface is created for you. Optionally, you can add one or more secondary PCI or VLAN interfaces. You can also add, update, or delete the network interfaces.
 
@@ -56,7 +54,7 @@ You can specify the following configurations for both PCI and VLAN interfaces:
 |-----|-----|
 | Name | Name of the interface. |
 | Subnet | Specify the subnet that the network interface is associated with. |
-| Floating IP | After the network interface is created, you can associate one floating IP for external connectivity. |
+| Floating IP | After you create the network interface, you can associate one floating IP for external connectivity. |
 | Allow interface floating | Turning on "Allow interface to float" gives the VLAN interface the ability to float to another bare metal server. Example - VM migration or virtual IP. |
 | Primary IPv4 address | The primary IPv4 address of the network interface. If specified, it must be an available address on the network interface's subnet. If unspecified, an available address on the subnet is automatically selected. |
 | Allow IP spoofing | Turning IP spoofing _off_ prevents source IP spoofing on an interface. Turning IP spoofing _on_ allows source IP spoofing. The default option is _off_. You must have the **Advanced Network Operator** IAM role to modify this configuration. |
