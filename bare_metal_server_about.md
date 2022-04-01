@@ -62,7 +62,7 @@ Get 4x faster network throughput up to 100 Gbps.
 {: #bare-metal-benefits}
 
 ### BYOL
-{: bare-metal-byol-benefit}
+{: #bare-metal-byol-benefit}
 
 Renting licenses can get expensive. Bringing your own license is an option for IBM Cloud Bare Metal Servers for VPC.  
 
