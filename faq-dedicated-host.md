@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-20"
+lastupdated: "2022-04-01"
 
 subcollection: vpc
 
@@ -61,6 +61,8 @@ In IBM Cloud console, if you look at the details page of a dedicated host that w
 {: #faq-dedicated-host-5}
 {: faq}
 
-In case of a hardware failure, the dedicated host and instances running on it are migrated to a new node. 
+In case of a hardware failure, the dedicated host and instances running on it are migrated to a new hardware node.
 
-If you initially provisioned the instances to a dedicated host group, when a host hardware failure occurs, the instances running on the host might be migrated to another dedicated host in the group. 
+If a host hardware failure occurs, the instances that you initially provisioned to a dedicate host group might be migrated to another existing dedicated host in the group if capacity is available.
+
+For more information, see [Viewing notifications](/docs/get-support?topic=get-support-viewing-notifications) and [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui).
