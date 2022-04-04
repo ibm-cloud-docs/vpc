@@ -10,7 +10,7 @@ subcollection: vpc
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# Linux and Windows benchmark scores - DRAFT
+# Linux and Windows benchmark scores
 {: #profiles_benchmark}
 
 Linux&reg; and Windows&reg; benchmark scores are measured on high-performance virtual servers for {{site.data.keyword.vpc_full}} (VPC) by using [CoreMark](https://www.eembc.org/coremark/faq.php). CoreMark is an industry standard benchmark that measures the performance of CPUs on physical machines and virtual servers that are offered by Infrastructure-as-a-Service (IaaS) providers like {{site.data.keyword.vpc_short}}. 
