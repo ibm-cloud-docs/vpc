@@ -31,7 +31,7 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 {: #vpc-march3022}
 {: release-note}
 
-New image for bare metal servers
+New stock image for bare metal servers
 :   RHEL 8.4 is now supported as an image when you provision a bare metal server.
 
 ### 29 March 2022
@@ -53,6 +53,11 @@ Reserved IPs
 New stock image for virtual servers
 :   Windows&reg; 2022 is now supported as a stock image when you provision {{site.data.keyword.vpc_short}} virtual servers.
 
+## March 10 2022
+{: #vpc-march1022}
+
+New stock image for virtual servers
+:   Debian 11 is now supported as a stock image when you provision {{site.data.keyword.vpc_short}} virtual servers.
 
 ## February 2022
 {: #vpc-feb22}
