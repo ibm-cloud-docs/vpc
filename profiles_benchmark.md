@@ -77,7 +77,7 @@ You can provision virtual servers on Compute hosts with Broadwell, Skylake, or C
 {: tab-title="Windows"}
 {: tab-group="instance-profiles-benchmark"}
 
-## How IBM Cloud Measures Performance
+## How IBM Cloud measures performance
 {: #how_ibm_cloud_measures_performance}
 
 The CoreMark benchmark is created in [PerforKitBenchmarker](https://github.com/GoogleCloudPlatform/PerfKitBenchmarker), an open source cloud benchmarking framework with [ibmcloud provider](https://github.com/GoogleCloudPlatform/PerfKitBenchmarker/tree/master/perfkitbenchmarker/providers/ibmcloud) which is contributed by {{site.data.keyword.cloud}} engineers. 
