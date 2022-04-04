@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-04-01"
+lastupdated: "2022-04-04"
 
 keywords:
 
@@ -26,6 +26,13 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 
 ## March 2022
 {: #vpc-mar22}
+
+### 30 March 2022
+{: #vpc-march3022}
+{: release-note}
+
+New image for bare metal servers
+:   RHEL 8.4 is now supported as an image when you provision a bare metal server.
 
 ### 29 March 2022
 {: #vpc-march2922}
