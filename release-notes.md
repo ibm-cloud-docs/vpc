@@ -49,12 +49,14 @@ Reserved IPs
 
 ## March 24 2022
 {: #vpc-march2422}
+{: release-note}
 
 New stock image for virtual servers
 :   Windows&reg; 2022 is now supported as a stock image when you provision {{site.data.keyword.vpc_short}} virtual servers.
 
 ## March 10 2022
 {: #vpc-march1022}
+{: release-note}
 
 New stock image for virtual servers
 :   Debian 11 is now supported as a stock image when you provision {{site.data.keyword.vpc_short}} virtual servers.
