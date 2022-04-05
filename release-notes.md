@@ -423,6 +423,7 @@ Instance Identifier Update
 
 ### 6 July 2021
 {: #july-6-2021}
+{: release-note}
 
 File storage for VPC
 :   The file storage general purpose 3 IOPS/GB profile is expanded to allow you to create file shares up to 32 TB with potential max IOPS performance of 96,000 IOPS. For more information, see [File storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions.
