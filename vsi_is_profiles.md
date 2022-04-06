@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2022
-lastupdated: "2022-03-09"
+lastupdated: "2022-04-06"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -10,23 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
-{:preview: .preview}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:download: .download}
-{:beta: .beta}
-{:preview: .preview}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Instance profiles
 {: #profiles}
@@ -275,6 +259,7 @@ GPU profiles include 1 or 2 NVIDIA V100 PCIe 16GB GPUs. All OS images are suppor
 {: summary="GPU profiles options for Intel x86-64 virtual server instances."}
 
 ### Considerations for GPU profiles
+{: #considerations-for-gpu}
 
 When you create a GPU profile, keep the following recommendations in mind.
 
@@ -369,7 +354,8 @@ Using “bx2-4x16” as an example, you can know from the name that it is a bala
 {: cli}
 
 To view the list of available instance profiles by using the CLI, run the following command:
-```
+
+```sh
 $ ibmcloud is instance-profiles
 ```
 {: codeblock}
@@ -399,6 +385,7 @@ When you create secondary data volumes, you select a volume profile that best me
 * A [10-IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) profile provides IOPS/GB performance suitable for a virtual server instance Memory profile.
 
 ## Intel Hyper-Threading Technology
+{: #vpc-intel-hyper-threading}
 
 All Intel&reg; x86-64 servers have Hyper-Threading enabled by default. Intel&reg; Hyper-Threading Technology is a term that describes simultaneous multithreading (SMT). Hyper-Threading Technology splits each physical core into two virtual processors. Hyper-Threading Technology is like taking a wide road with a single lane and making it into two relatively narrower lanes. The two-lane highway provides better service over the single lane road if there is slow and fast moving traffic. Hyper-Threading Technology provides better application performance when there is File I/O, Network I/O and other slower operations mixed with CPU intensive operations. The performance advantage of Hyper-Threading Technology typically ranges in the range 0 - 30% over a single-thread mode. Some applications might also see a drop in performance.
 
