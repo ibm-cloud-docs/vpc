@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2022-01-11"
+  years: 2021, 2022
+lastupdated: "2022-04-06"
 
 keywords:
 
@@ -36,7 +36,7 @@ To create an NLB and a service-to-service authentication policy for your NLB, fo
    
    You cannot modify this configuration after your NLB finishes provisioning. 
    
-   Currently, the NLB routing mode feature is available only with a private IP and only supports TCP data traffic.  
+   Currently, the NLB routing mode feature is available only with a private IP and only supports TCP and UDP data traffic.
    {: note}
   
 ## Next step
