@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-03-29"
+lastupdated: "2022-04-06"
 
 keywords:
 
@@ -67,23 +67,6 @@ When the auto-delete option is disabled, unbinding causes the reserved IP to bec
 {: cli}
 
 You can use the CLI to create, update, and delete reserved IP addresses.
-
-The reserved IP functionality is not yet released for CLI.
-{: note}
-
-The following reserved IP functionality will be added to the CLI at a later date:
-
-- Create instance with reserved IP
-- Create bare-metal server with reserved IP
-
-Until the GA version of the CLI is released, set the following environment variables.
-
-```sh
-export IBMCLOUD_IS_FEATURE_RESERVED_IP_PII=true
-export IBMCLOUD_IS_FEATURE_BARE_METAL_SERVER=true
-```
-{: codeblock}
-
 
 ### Creating a reserved IP using the CLI
 {: #cli-create-reserved-ip}
