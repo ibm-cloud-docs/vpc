@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2021
 lastupdated: "2021-12-14"
 
-keywords: vpc, responsibilities, ha, high availability, disaster recovery
+keywords: responsibilities, ha, high availability, disaster recovery
 
 subcollection: vpc
 
