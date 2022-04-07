@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2020
 lastupdated: "2020-10-08"
 
-keywords: VPC, subnet, address prefixes, design, addressing
+keywords: subnet, address prefixes, design, addressing
 
 subcollection: vpc
 
