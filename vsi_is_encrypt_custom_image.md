@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2020
 lastupdated: "2020-10-01"
 
-keywords: creating an encrypted custom image for vpc, qcow2
+keywords: creating an encrypted custom image, qcow2
 
 subcollection: vpc
 
