@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2021
 lastupdated: "2021-11-12"
 
-keywords: creating a linux custom image for vpc, cloud-init, qcow2, vhd
+keywords: creating a linux custom image, cloud-init, qcow2, vhd
 
 subcollection: vpc
 
