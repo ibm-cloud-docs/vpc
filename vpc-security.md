@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2021
 lastupdated: "2019-11-10"
 
-keywords: security, groups, encryption, traffic, rules, subnet, instance, VSI, firewall, encryption, vpc, vpc network
+keywords: security, groups, encryption, traffic, rules, subnet, instance, VSI, firewall, encryption
 
 subcollection: vpc
 
