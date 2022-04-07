@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-03-29"
+lastupdated: "2022-04-06"
 
-keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, image, IOPS, FAQ
+keywords:
 
 subcollection: vpc
 
@@ -65,7 +65,7 @@ Pricing for block storage volumes is also set by region. For more information, s
 {: faq}
 {: #faq-block-storage-7}
 
-You can create up to 750 total block storage volumes (data and boot) per account in a region. To increase this [quota](/docs/vpc?topic=vpc-quotas#block-storage-quotas), open a [support case](/docs/vpc?topic=vpc-getting-help) and specifying in which zone you need more volumes.
+You can create up to 300 total block storage volumes (data and boot) per account in a region. To increase this [quota](/docs/vpc?topic=vpc-quotas#block-storage-quotas), open a [support case](/docs/vpc?topic=vpc-getting-help) and specifying in which zone you need more volumes.
 
 ### After creating a data volume with specific capacity, can the capacity later be increased?
 {: faq}
@@ -91,7 +91,7 @@ Yes, boot volume capacity can be increased for an existing instance. However, yo
 {: faq}
 {: #faq-block-storage-12}
 
-You can provision up to 750 block storage volumes per account in a region. You can request your quota to be increased by opening a [support case](https://cloud.ibm.com/unifiedsupport/cases/form){: external} and specifying in which region you need more volumes. For more information about preparing a support ticket when you're ordering block storage volumes or requesting an increase to your volume or capacity limits, see [Managing volume count and capacity limits](/docs/vpc?topic=vpc-manage-storage-limit).
+You can provision up to 300 block storage volumes per account in a region. You can request your quota to be increased by opening a [support case](https://cloud.ibm.com/unifiedsupport/cases/form){: external} and specifying in which region you need more volumes. For more information about preparing a support ticket when you're ordering block storage volumes or requesting an increase to your volume or capacity limits, see [Managing volume count and capacity limits](/docs/vpc?topic=vpc-manage-storage-limit).
 
 ### Can I set up shared storage in a multizone cluster?
 {: faq}
