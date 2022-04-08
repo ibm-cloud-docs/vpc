@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-03-31"
+lastupdated: "2022-04-08"
 
 keywords: known issues, bugs, defects
 
@@ -22,19 +22,6 @@ Known issues might change over time, so check back occasionally.
 {: #ip-known-issues}
 
 The following issues apply to reserved IPs. These issues will be resolved in a future release.
-
-**Issue:** The reserved IP functionality is not yet released for CLI. The following reserved IP functionality will be added to the CLI at a later date:
-
-- Create instance with reserved IP
-- Create bare-metal server with reserved IP
-
-**Workaround** Until the GA version of the CLI is released, set the following environment variables.
-
-```sh
-export IBMCLOUD_IS_FEATURE_RESERVED_IP_PII=true
-export IBMCLOUD_IS_FEATURE_BARE_METAL_SERVER=true
-```
-{: codeblock}
 
 **Issue:** Reserved IPs that are bound to VPN gateways, IKS worker nodes, or DNS service instances will appear as having no target (the `target` property is not included when retrieving the reserved IP resource).
 
