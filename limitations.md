@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2022
 lastupdated: "2022-02-23"
 
-keywords: vpc, limitations, restrictions
+keywords: limitations, restrictions
 
 subcollection: vpc
 
