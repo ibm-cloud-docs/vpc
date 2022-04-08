@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2022
 lastupdated: "2022-03-31"
 
-keywords: vpc, known issues, bugs, defects
+keywords: known issues, bugs, defects
 
 subcollection: vpc
 
