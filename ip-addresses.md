@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-04-06"
+lastupdated: "2022-04-11"
 
 keywords:
 
@@ -150,8 +150,6 @@ To create a reserved IP by using the API, follow these steps:
 
 ### Deleting a reserved IP
 {: #api-delete-rip}
-
-Currently, reserved IPs can only be deleted through the API.
 
 Use the following API to delete a reserved IP:
 
