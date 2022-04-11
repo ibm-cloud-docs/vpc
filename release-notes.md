@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-04-04"
+lastupdated: "2022-04-11"
 
 keywords:
 
@@ -23,6 +23,20 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 {: shortdesc}
 
 For information about changes to the {{site.data.keyword.vpc_short}} API , see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log)
+
+## April 2022
+{: #vpc-apr22}
+
+### 11 April 2022
+{: #vpc-april1122}
+{: release-note}
+
+2022-03-29 release of the VPC API introduced incompatible changes
+:    The `2022-03-29` release of the VPC API necessitated incompatible changes in support of the reserved IPs feature:
+     - IP addresses are now modeled as objects (resources), rather than strings.
+     - Security groups must now be associated with targets rather than network interfaces.
+
+:    Even if you are not planning to make use of reserved IPs, to avoid regressions in client functionality, be sure to reference [2022-03-29 API migration](/docs/vpc?topic=vpc-2022-03-29-migration) and follow the Action needed recommendations before specifying version `2022-03-29` or later. For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-log#version-2022-03-29) and [Reserved IP known issues](/docs/vpc?topic=vpc-known-issues#ip-known-issues).
 
 ## March 2022
 {: #vpc-mar22}
@@ -47,14 +61,21 @@ UDP support for Network Load Balancers (NLB)
 Reserved IPs
 :   You can now assign an IP address to your virtual server instance by specifying an already reserved IP for private IPs and bind them to network interfaces. For more information, see [Managing IP addresses](/docs/vpc?topic=vpc-managing-ip-addresses). 
 
-## March 24 2022
+## 25 March 2022
+{: #vpc-march2522}
+{: release-note}
+
+LinuxONE (s390x processor architecture)
+:   You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. For more information about available LinuxONE (s390x processor architecture) profiles, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
+
+## 24 March 2022
 {: #vpc-march2422}
 {: release-note}
 
 New stock image for virtual servers
 :   Windows&reg; 2022 is now supported as a stock image when you provision {{site.data.keyword.vpc_short}} virtual servers.
 
-## March 10 2022
+## 10 March 2022
 {: #vpc-march1022}
 {: release-note}
 
