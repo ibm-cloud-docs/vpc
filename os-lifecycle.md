@@ -25,7 +25,7 @@ The following table describes the end of support date and license model for Cent
 
 | Operating sytem | End of support | License Model | 
 |-----------------|----------------|---------------|
-| CentOS 8.3 minimal | 31 December 2021 | Free |
+| CentOS 8 minimal | 31 December 2021 | Free |
 | CentOS 7.9 minimal | 30 June 2024  | Free |
 | CentOS 6 | 30 November 2020  | Free |
 {: caption="Table 1. Lifecycle for CentOS operating systems" caption-side="bottom"}
@@ -117,6 +117,7 @@ The following table describes the end of support date and license model for Wind
 
 | Operating sytem | End of support | License Model |
 |-----------------|----------------|---------------|
+| Windows Server 2022 full standard | 14 October 2031 | Pay-as-you-Go / BYOL|
 | Windows Server 2019 core | 09 January 2029 | Pay-as-you-Go / BYOL|
 | Windows Server 2019 full standard | 09 January 2029 | Pay-as-you-Go / BYOL |
 | Windows Server 2016 core | 11 January 2027 | Pay-as-you-Go / BYOL |
@@ -126,4 +127,3 @@ The following table describes the end of support date and license model for Wind
 {: caption="Table 8. Lifecycle for Windows Server operating systems" caption-side="bottom"}
 
 **BYOL**: For Windows operating systems, you can bring your own license (BYOL) to {{site.data.keyword.vpc_short}} when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. Acquisition and activation of the license is between you and the OS vendor.
-
