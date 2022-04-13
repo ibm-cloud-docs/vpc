@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-11-13"
+  years: 2019, 2022
+lastupdated: "2022-04-12"
 
 keywords:  
 
@@ -12,36 +12,37 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Connecting to your on-premises network  
+# Connecting to your on-premises network
 {: #vpn-onprem-example}
 
-You can use IBM Cloud VPN Gateway for VPC to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your VPN gateway to connect to your on-premises network.
+You can use IBM Cloud VPN for VPC to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your VPN gateway to connect to your on-premises network.
 {: shortdesc}
 
-Create a VPN gateway in your VPC and create a VPN connection between the VPC and the peer gateway of the on-premises network by specifying the following information.
+Create a VPN gateway in your VPC and create a VPN connection between the VPC and the peer gateway of the on-prem network by specifying the following information.
+
 * **Connection name** - Enter a name for the connection, such as `onprem-connection`.
-* **Peer gateway address** - Specify the IP address of the VPN gateway for the on-premises network.
-* **Preshared key** - Specify the authentication key of the VPN gateway for the on-premises network.
-* **Local subnets** - Specify one or more subnets in the VPC you want to connect through the VPN tunnel.
-* **Peer subnets** - Specify one or more subnets in the on-premises network you want to connect through the VPN tunnel.
+* **Peer gateway address** - Specify the IP address of the VPN gateway for the on-prem network.
+* **Preshared key** - Specify the authentication key of the VPN gateway for the on-prem network.
+* **Local subnets (Policy-based VPN only)** - Specify one or more subnets in the VPC you want to connect through the VPN tunnel.
+* **Peer subnets (Policy-based VPN only)** - Specify one or more subnets in the on-prem network you want to connect through the VPN tunnel.
 
 For the Internet Key Exchange (IKE) and IPsec security parameters, select **Auto** so the cloud gateway uses auto-negotiation to automatically establish the connection with the on-premises gateway.
 
-The gateway status appears as **Pending** while the VPN gateway is being created, and the status changes to **Available** after the gateway is created.
+The gateway status appears as **Pending** while the VPN gateway is being created, and the status changes to **Available** after it is created.
 {: tip}
 
 ## Configuring the on-premises VPN gateway
 {: #configuring-onprem-gateway}
 
-The next step is configuring your on-premises VPN gateway peer to connect to your IBM Cloud VPN Gateway for VPC. The configuration depends on the type of VPN gateway. See the following topics for details.
+The next step is configuring your on-premises VPN gateway peer to connect to your IBM Cloud VPN for VPC. The configuration depends on the type of VPN gateway. See the following topics for details.
 
-- [Connecting to an AWS peer](/docs/vpc?topic=vpc-aws-config)
-- [Connecting to a Check Point Security Gateway peer](/docs/vpc?topic=vpc-check-point-config)
-- [Connecting to a Cisco ASAv peer](/docs/vpc?topic=vpc-cisco-asav-config)
-- [Connecting to a FortiGate peer](/docs/vpc?topic=vpc-fortigate-config)
-- [Connecting to a Juniper vSRX peer](/docs/vpc?topic=vpc-juniper-vsrx-config)
-- [Connecting to a strongSwan peer](/docs/vpc?topic=vpc-strongswan-config)
-- [Connecting to a Vyatta peer](/docs/vpc?topic=vpc-vyatta-config)
+* [Connecting to an AWS peer](/docs/vpc?topic=vpc-aws-config)
+* [Connecting to a Check Point Security Gateway peer](/docs/vpc?topic=vpc-check-point-config)
+* [Connecting to a Cisco ASAv peer](/docs/vpc?topic=vpc-cisco-asav-config)
+* [Connecting to a FortiGate peer](/docs/vpc?topic=vpc-fortigate-config)
+* [Connecting to a Juniper vSRX peer](/docs/vpc?topic=vpc-juniper-vsrx-config)
+* [Connecting to a strongSwan peer](/docs/vpc?topic=vpc-strongswan-config)
+* [Connecting to a Vyatta peer](/docs/vpc?topic=vpc-vyatta-config)
 
 These configurations are fully tested and supported by IBM. If you plan to use an on-premises VPN gateway peer other than those listed, IBM Support can assist in troubleshooting your configuration, but cannot guarantee a resolution.
 {: note}

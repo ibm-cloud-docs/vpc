@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-03-09"
+  years: 2020, 2022
+lastupdated: "2022-04-12"
 
 keywords: vyatta peer
 
@@ -15,15 +15,16 @@ subcollection: vpc
 # Connecting to a Vyatta peer
 {: #vyatta-config}
 
-You can use IBM Cloud VPN Gateway for VPC to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your Vyatta VPN gateway to connect to VPN Gateway for VPC.
+You can use IBM Cloud VPN for VPC to securely connect your VPC to an on-prem network through a VPN tunnel. This topic provides guidance about how to configure your Vyatta VPN gateway to connect to VPN for VPC.
 {: shortdesc}
 
 These instructions are based on Vyatta version: AT&T vRouter 5600 1801d.
-
-Read [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before continuing to connect to your on-premises peer. 
 {: note}
 
-When the Vyatta VPN receives a connection request from VPN Gateway for VPC, Vyatta uses IPsec Phase 1 parameters to establish a secure connection and authenticate the {{site.data.keyword.vpn_vpc_short}} gateway. Then, if the security policy permits the connection, the Vyatta VPN establishes the tunnel by using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
+Read [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before you continue to connect to your on-premises peer.
+{: important}
+
+When the Vyatta VPN receives a connection request from VPN for VPC, Vyatta uses IPsec Phase 1 parameters to establish a secure connection and authenticate the {{site.data.keyword.vpn_vpc_short}} gateway. Then, if the security policy permits the connection, the Vyatta VPN establishes the tunnel by using IPsec Phase 2 parameters and applies the IPsec security policy. Key management, authentication, and security services are negotiated dynamically through the IKE protocol.
 
 To support these functions, the following general configuration steps must be performed on the Vyatta VPN:
 
@@ -52,7 +53,7 @@ The following commands use the following variables where:
 ### Before you begin
 {: #vyatta-preparation}
 
-To set up your remote Vyatta peer, make sure that the following prerequisites are created.
+To set up your remote Vyatta peer, make sure that you create the following prerequisites.
 
 * A VPC
 * A subnet in the VPC
@@ -60,26 +61,27 @@ To set up your remote Vyatta peer, make sure that the following prerequisites ar
 
    After the VPN gateway gets provisioned, note its public IP address.
    {: tip}
-   
+
 * The Vyatta public IP address
 * The Vyatta subnet that you want to connect using a VPN
 
 ### Configuring the Vyatta
 {: #configure-policy-based-vyatta-peer}
 
-There are two ways you can run the configuration on your Vyatta:
+There are two ways that you can run the configuration on your Vyatta:
 
 1. Log in to the Vyatta and run the file `create_vpn.vcli` using the commands that follow.
 1. Run the following commands in the Vyatta console.
 
 Remember to:
-* Choose `IKEv2` in authentication
-* Enable `DH-group 2`
-* Set `lifetime = 36000`
-* Disable PFS
-* Set `lifetime = 10800`  
 
-The following commands use the following variables where:
+* Choose `IKEv2` in authentication.
+* Enable `DH-group 2`.
+* Set `lifetime = 36000`.
+* Disable PFS.
+* Set `lifetime = 10800`.
+
+The following commands use the following variables, where:
 
 * `{{ peer_address }}` is the VPN gateway public IP address.
 * `{{ peer_cidr }}` is the VPN gateway subnet.
@@ -127,7 +129,6 @@ end_configure
 ```
 {: codeblock}
 
-
 For example, you can run the following commands:
 
 ```sh
@@ -171,12 +172,137 @@ end_configure
 ```
 {: screen}
 
-Finally, make note of your `{{ psk }}` value, as you will need it to set up the VPN connection in the next step. 
+Finally, make note of your `{{ psk }}` value. You need it to set up the VPN connection in the next step.
+
+## Connecting an IBM route-based VPN to a Vyatta peer
+{: #vyatta-config-route-based}
+
+Use the following IKE and IPsec policy to create the VPN connection to Vyatta:
+
+1. Choose `IKEv2` in authentication.
+1. Enable `DH-group 19`, `aes256`, `sha256` in the Phase 1 proposal.
+1. Set `lifetime = 86400` in the Phase 1 proposal.
+1. Enable PFS, `aes256`, and `sha256` in the Phase 2 proposal.
+1. Set `lifetime = 10800` in the Phase 2 proposal.
+
+This policy is an example only. You can use any other values that are matched with the Vyatta proposal.
+{: note}
+
+### Before you begin
+{: #vyatta-route-based-vpn-preparation}
+
+To set up your remote Vyatta peer, make sure that you create the following prerequisites:
+
+* A VPC
+* A subnet in the VPC
+* A VPN gateway in the VPC without connections
+
+   After the VPN gateway gets provisioned, note its public IP address. The small IP address is the primary IP and the large IP address is the secondary IP.
+   {: tip}
+
+* The Vyatta public IP address
+* The Vyatta subnet that you want to connect using a VPN
+
+### Configuring the Vyatta
+{: #configuring-the-vyatta}
+
+The following commands use the following variables where:
+
+* `{{ primary_peer_address }}` is the route-based VPN gateway small public IP address.
+* `{{ peer_cidr }}` is the VPN gateway subnet.
+* `{{ secondary_peer_address }}` is the route-based VPN gateway large public IP address.
+* `{{ vyatta_address }}` is the Vyatta public IP address.
+
+Here's an example of configuring the Vyatta.
+
+1. Define the matched IKE proposal: 
+
+   ```sh
+   set security vpn ipsec ike-group ibm-vpc-ike-group
+   set security vpn ipsec ike-group ibm-vpc-ike-group dead-peer-detection interval 2
+   set security vpn ipsec ike-group ibm-vpc-ike-group dead-peer-detection action clear
+   set security vpn ipsec ike-group ibm-vpc-ike-group lifetime 86400
+   et security vpn ipsec ike-group ibm-vpc-ike-group ike-version 2
+   set security vpn ipsec ike-group ibm-vpc-ike-group proposal 1
+   set security vpn ipsec ike-group ibm-vpc-ike-group proposal 1 dh-group 19
+   set security vpn ipsec ike-group ibm-vpc-ike-group proposal 1 encryption aes256
+   set security vpn ipsec ike-group ibm-vpc-ike-group proposal 1 hash sha2_256
+   ```
+   {: codeblock}
+
+1. Define the matched IPsec proposal: 
+
+   ```sh
+   set security vpn ipsec esp-group ibm-vpc-ipsec-group compression disable
+   set security vpn ipsec esp-group ibm-vpc-ipsec-group lifetime 10800
+   set security vpn ipsec esp-group ibm-vpc-ipsec-group mode tunnel
+   set security vpn ipsec esp-group ibm-vpc-ipsec-group pfs dh-group19
+   set security vpn ipsec esp-group ibm-vpc-ipsec-group proposal 1 encryption aes256
+   set security vpn ipsec esp-group ibm-vpc-ipsec-group proposal 1 hash sha2_256
+   ```
+   {: codeblock}
+
+1. Create the VTI and VPN connection to the IBM primary tunnel: 
+
+   ```sh
+   set interfaces vti vti1 description "to-IBM-VPN-primary"
+   set interfaces vti vti1 address 168.254.0.2/30
+   set interfaces vti vti1 ip tcp-mss limit 1360
+   set security vpn ipsec site-to-site peer {{ primary_peer_address }} authentication mode pre-shared-secret
+   set security vpn ipsec site-to-site peer {{ primary_peer_address }} authentication pre-shared-secret {{your_pre_shared_key}}
+   set security vpn ipsec site-to-site peer {{ primary_peer_address }} ike-group ibm-vpc-ike-group
+   set security vpn ipsec site-to-site peer {{ primary_peer_address }} default-esp-group ibm-vpc-ipsec-group
+   set security vpn ipsec site-to-site peer {{ primary_peer_address }} description "to-IBM-VPN-primary"
+   set security vpn ipsec site-to-site peer {{ primary_peer_address }} local-address {{ vyatta_address }}
+   set security vpn ipsec site-to-site peer {{ primary_peer_address }} connection-type initiate
+   set security vpn ipsec site-to-site peer {{ primary_peer_address }} authentication remote-id {{ primary_peer_address }}
+   set security vpn ipsec site-to-site peer {{ primary_peer_address }} vti bind vti1
+   ```
+   {: codeblock}
+
+   The VTI IP address `168.254.0.2` is an example. You can use any other unused IP address.
+   {: tip}
+
+1. Create the primary route:
+
+   ```sh
+   set protocols static route {{ vyatta_address }} next-hop 168.254.0.1 distance 10
+   set protocols static route {{ vyatta_address }} next-hop 168.254.0.1 interface vti1
+   ```
+   {: codeblock}
+
+1. Create the VTI and VPN connection to the IBM secondary tunnel: 
+
+   ```sh
+   set interfaces vti vti2 description "to-IBM-VPN-secondary"
+   set interfaces vti vti2 address 168.254.0.6/30
+   set interfaces vti vti2 ip tcp-mss limit 1360
+   set security vpn ipsec site-to-site peer {{ secondary_peer_address }} authentication mode pre-shared-secret
+   set security vpn ipsec site-to-site peer {{ secondary_peer_address }} authentication pre-shared-secret {{your_pre_shared_key}}
+   set security vpn ipsec site-to-site peer {{ secondary_peer_address }} ike-group ibm-vpc-ike-group
+   set security vpn ipsec site-to-site peer {{ secondary_peer_address }} default-esp-group ibm-vpc-ipsec-group
+   set security vpn ipsec site-to-site peer {{ secondary_peer_address }} description "to-IBM-VPN-secondary"
+   set security vpn ipsec site-to-site peer {{ secondary_peer_address }} local-address {{ vyatta_address }}
+   set security vpn ipsec site-to-site peer {{ secondary_peer_address }} connection-type initiate
+   set security vpn ipsec site-to-site peer {{ secondary_peer_address }} authentication remote-id {{ secondary_peer_address }}
+   set security vpn ipsec site-to-site peer {{ secondary_peer_address }} vti bind vti2
+   ```
+   {: codeblock}
+
+   The VTI IP address `168.254.0.2` is an example. You can use any other unused IP address.
+   {: tip}
+
+1. Create the primary route: 
+
+   ```sh
+   set protocols static route {{ vyatta_address }} next-hop 168.254.0.5 distance 20
+   set protocols static route {{ vyatta_address }} next-hop 168.254.0.5 interface vti2
+   ```
+   {: codeblock}
 
 ## Troubleshooting
 {: #vyatta-troubleshooting}
 
-Remember that:
 
 * If you enable CPP firewall on Vyatta, you must configure the rules to allow traffic from IBM gateway. For example, if your CPP firewall name is `GATEWAY_CPP`, add these rules to the firewall:
 

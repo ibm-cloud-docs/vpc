@@ -15,7 +15,7 @@ subcollection: vpc
 # Connecting to a strongSwan peer
 {: #strongswan-config}
 
-You can use IBM Cloud VPN Gateway for VPC to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your strongSwan VPN gateway to connect to VPN Gateway for VPC.
+You can use IBM Cloud VPN for VPC to securely connect your VPC to an on-premises network through a VPN tunnel. This topic provides guidance about how to configure your strongSwan VPN gateway to connect to VPN for VPC.
 {: shortdesc}
 
 These instructions are based on Linux strongSwan U5.3.5/K4.4.0-133-generic.
@@ -73,21 +73,21 @@ Use the following configuration:
     ```
     {: codeblock}
 
-Set the preshared key in `/etc/ipsec.secrets`:
+1. Set the preshared key in `/etc/ipsec.secrets`:
 
-```sh
-vim ipsec.secrets
-# This file holds shared secrets or RSA private keys for authentication.
+   ```sh
+   vim ipsec.secrets
+   # This file holds shared secrets or RSA private keys for authentication.
 
-169.45.74.119 169.61.181.116 : PSK "******"
+   169.45.74.119 169.61.181.116 : PSK "******"
 
-```
-{: codeblock}
+   ```
+   {: codeblock}
 
-After the configuration file finishes running, restart the strongSwan VPN.
+1. After the configuration file finishes running, restart the strongSwan VPN.
 
-```sh
-ipsec restart
+   ```sh
+   ipsec restart
 
-```
-{: pre}
+   ```
+   {: pre}
