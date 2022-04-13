@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-04-06"
+lastupdated: "2022-04-13"
 
 keywords: quotas, resources, limits
 
@@ -40,7 +40,7 @@ To increase a quota for a particular resource, [contact support](https://{Domain
 |   Resource     | Quota |
 | ------- | ------ |
 | vCPU |  200 per region  |
-| RAM | 1600 GB per region |
+| RAM | 5600 GB per region |
 | Bare metal servers | 25 per account |
 | Instance storage | 18 TB per region |
 | Floating IP addresses | 20 per zone |
