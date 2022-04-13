@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-03-14"
+lastupdated: "2022-04-13"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -38,7 +38,7 @@ To access metadata service, you must have an instance identity access token. If 
 
 The metadata service is disabled by default. To enable it, see [Enable or disable the metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-metadata-service-enable).
 
-For detailed information and examples of the API calls described in this topic, see the [Metadata service Beta API reference](/apidocs/vpc-metadata-beta).
+For more information about these APIs, including required parameters and examples, see the [Metadata service API reference guide](/apidocs/vpc-metadata).
 
 Windows users have additional requirements to access and use the metadata service. For information, see [Setting up windows servers for using the metadata service](/docs/vpc?topic=vpc-imd-windows-configuration).
 {: note}
@@ -206,7 +206,7 @@ Table 1 shows additional endpoints for API GET calls that you can make to get sp
 | /metadata/v1/instance/volume_attachment/{id} | Retrieve metadata for a volume attachment by ID. |
 {: caption="Table 1. Instance metadata endpoints" caption-side="bottom"}
 
-For more information about these APIs, including required parameters and examples, see the [Metadata service Beta API reference guide](/apidocs/vpc-metadata-beta).
+For more information about these APIs, including required parameters and examples, see the [Metadata service API reference guide](/apidocs/vpc-metadata).
 
 ## Retrieve metadata about SSH keys
 {: #imd-retrieve-key-data}

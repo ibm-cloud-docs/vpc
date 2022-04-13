@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-03-08"
+lastupdated: "2022-04-13"
 
-keywords: metadata, virtual private cloud, instance, virtual server
+keywords:
 
 subcollection: vpc
 
@@ -46,8 +46,6 @@ The instance metadata service has two components:
 ### Limitations
 {: imd-limitations}
 
-You can enable the metadata service when you create a new instance. For information about enabling or disabling the metadata service, see [Enable or disable the metadata service](/docs/vpc?topic=vpc-imd-configure-service#imd-metadata-service-enable).
-
 The VPC Instance Metadata service is currently supported only on x86 systems.
 
 ### Instance identity token service
@@ -62,7 +60,7 @@ You can also generate an IAM token from the instance identity access token. This
 ### Metadata service
 {: #imd-service}
 
-You can enable the metadata service on all new instances in allow-listed accounts to retrieve data about the instance. Use this information to configure and launch new instances.
+You can enable the metadata service on all new instances to retrieve data about the instance. Use this information to configure and launch new instances.
 
 Metadata is obtained by calling REST APIs that provide instance-specific information. You make `GET` calls to endpoints accessible within a running virtual server instance. You can retrieve metadata about instances, keys, and placement groups by making calls invoke a well-known, non-routable IP address:
 
