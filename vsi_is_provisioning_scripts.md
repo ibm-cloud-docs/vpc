@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-11-11"
+lastupdated: "2022-04-13"
 
 keywords: user data, virtual server username
 
@@ -10,15 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:important: .important}
+{{site.data.keyword.attribute-definition-list}}
 
 # User data
 {: #user-data}
@@ -40,7 +32,7 @@ The size limit of the **User Data** field (or file) is 64 K bytes.
 ### Adding a user and SSH key
 The following cloud-init example shows how a Linux user can add a user and provide the user with an authorized SSH key. The **Name** field has the public key that is added to `~/.ssh/authorized_keys`. 
 
-```
+```yaml
 #cloud-config
 users:
   - name: demouser
@@ -56,10 +48,11 @@ users:
 
 The following shell script example shows how a Linux user can add an SSH key for the current user.
 
+```sh
+#!/bin/bash
+echo <sshKey> > ~/.ssh/authorized_keys
 ```
-hljs">#!/bin/sh
-echo &lt;sshKey&gt; &gt; ~/.ssh/authorized_keys
-```
+{: codeblock}
 
 You can paste one of these examples directly into the **User Data** field. The user data is then available to the virtual server instance during provisioning.
 
@@ -91,7 +84,7 @@ Do not specify the **User Data** field to automatically configure an instance st
 
 The following example shows user data that automatically configures an instance storage disk. This example can be used with an instance profile that specifies a single disk.
 
-```
+```yaml
 #cloud-config
 # Cloud-init supports simple partition and file system config.
 # This user data yaml will create a full partition on the first
@@ -119,6 +112,7 @@ mounts:
 
 mount_default_fields: [ None, None, "auto", "defaults,nofail", "0", "2" ]
 ```
+{: codeblock}
 
 This script configures /dev/vdb, the first instance storage device available on the virtual instance. This script can be pasted into the **User Data** field or imported by using the Import user data link on the UI. 
 
@@ -145,7 +139,7 @@ This cloud-config script example automatically configures an instance storage `/
 
 The following example shows user data that automatically configures an instance storage disk. This example can be used with an instance profile that specifies two disks.
 
-```
+```yaml
 #cloud-config
 # Cloud-init supports simple partition and file system config.
 # This user data yaml will create a full partition on the first two
@@ -184,6 +178,8 @@ mounts:
 
 mount_default_fields: [ None, None, "auto", "defaults,nofail", "0", "2" ]
 ```
+{: codeblock}
+
 This cloud-config script example automatically configures both the instance storage `/dev/vdb` and `dev/vdc` block devices. If you only reboot your virtual server, this configuration continues to work since the configuration and data persists. However, if you start a virtual server that was previously stopped, then the virtual server has a fresh set of instance storage disks when it boots up. This situation would require the cloud-init steps to be manually run again. By default, the cloud-config script is only run on first boot. You can also edit the cloud-init section of the cloud.config file so that the cloud-init steps are automatically run on each boot. For the steps, see the [Edit the cloud_cloud_init_modules section of the cloud.config file to run on each boot](#edit-cloud-init-run-cloud-config-each-boot) section.
 
 #### Edit the cloud_cloud_init_modules section of the cloud.config file to run on each boot
@@ -201,7 +197,7 @@ To run the cloud-config script on each successive boot, follow this procedure:
 1. Look for the `cloud_init_modules` section. This section contains the disk_setup and mount modules.
 1. Change the disk_setup and mount modules lines to `always`. The section looks like this.
 
-   ```
+   ```yaml
    # The modules that run in the 'init' stage
    cloud_init_modules:
    - migrator
@@ -219,7 +215,8 @@ To run the cloud-config script on each successive boot, follow this procedure:
    - rsyslog
    - users-groups
    - ssh
-    ```
+   ```
+   {: codeblock}
  
 1. Save the file, then stop and then start the instance. Your mount is automatically created to a newly partitioned and formatted file system.
 
@@ -247,26 +244,30 @@ Fedora Core OS user data must be in ignition format.
 
 Use the following example to boot a Fedora Core OS instance
 
-   ```
+   ```sh
    ibmcloud is instance-create $NAME $VPC $ZONE $PROFILE $SUBNET --image-id $IMAGE --key-ids $SSHKEY --user-data @example.ign
    ```
+   {: pre}
 
 Use the following example to create a local user.
 
 1. Write the Butane config in the YAML format.
    
    Butane config
-   ```
+   ```yaml
    variant: fcos
    version: 1.4.0
    passwd:
      users:
        - name: demouser
    ```
+   {: codeblock}
+
+   
 2. Use Butane to convert the Butane config into an Ignition config.
    
    Ignition config
-   ```
+   ```json
    
    "ignition": {
        "version": "1.4.0"
@@ -280,13 +281,15 @@ Use the following example to create a local user.
      }
    }
    ```
+   {: codeblock}
+
 
 Use the following sample user data shows how to add an SSH key for a local user.
 
 1. Write the Butane config in the YAML format.
    
    Butane config
-   ```
+   ```yaml
    variant: fcos
    version: 1.4.0
    passwd:
@@ -295,11 +298,13 @@ Use the following sample user data shows how to add an SSH key for a local user.
          ssh_authorized_keys:
            - <ssh public key>
    ```
+   {: codeblock}
+
 
 2. Use Butane to convert the Butane config into an Ignition config.
    
    Ignition config
-   ```
+   ```json
    
      "ignition": {
        "version": "1.4.0"
@@ -316,6 +321,8 @@ Use the following sample user data shows how to add an SSH key for a local user.
      }
    }
    ```
+   {: codeblock}
+
 
 For more Fedora Core OS user data examples and information, see [Fedora Project documentation](https://docs.fedoraproject.org/en-US/fedora-coreos/producing-ign/){: external}.
 
