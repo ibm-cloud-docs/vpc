@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-22"
+lastupdated: "2022-04-14"
 
-keywords: storage, backup, virtual private cloud
+keywords:
 
 subcollection: vpc
 
@@ -165,7 +165,7 @@ Create a backup policy by using the command line interface (CLI).
 The syntax for creating a backup policy and plan is:
 
 ```text
-ibmcloud is backup-policy-create [--match-user-tags MATCH_USER_TAGS] [--plan-cron-spec PLAN_CRON_SPEC [--plan-name PLAN_NAME] [--plan-attach-user-tags PLAN_ATTACH_USER_TAGS] [--plan-copy-user-tags true | false] [--plan-deletion-trigger PLAN_DELETION_TRIGGER]] [--name NAME] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
+ibmcloud is backup-policy-create [--match-tags MATCH_USER_TAGS] [--plan-cron-spec PLAN_CRON_SPEC [--plan-name PLAN_NAME] [--plan-attach-user-tags PLAN_ATTACH_USER_TAGS] [--plan-copy-user-tags true | false] [--plan-deletion-trigger PLAN_DELETION_TRIGGER]] [--name NAME] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
@@ -177,7 +177,7 @@ Run the `backup-policy-create` command to create a backup policy and plan. This 
 In this example, `plan-attach-user-tags` parameter indicates the same user tags will be attached to the backup. Setting the `plan-copy-user-tags` parameter to false indicates that the source volume's user tags are not copied to the backup. The deletion trigger indicates the number of days the backup will be kept.
 
 ```text
-ibmcloud is backup-policy-create --match-user-tags dev:test --name my-backup-policy-2 --plan-name my-plan-2 --plan-attach-user-tags dev:test --plan-copy-user-tags false --plan-deletion-trigger 60 --plan-cron-spec '0 1,2,3 * * *'
+ibmcloud is backup-policy-create --match-tags dev:test --name my-backup-policy-2 --plan-name my-plan-2 --plan-attach-user-tags dev:test --plan-copy-user-tags false --plan-deletion-trigger 60 --plan-cron-spec '0 1,2,3 * * *'
 Creating backup policy my-policy-2 under account VPC1 as user myuserf@mycompany.com...
                           
 ID                     17d8e1b7-3365-4a24-a023-26a0c26b9e73
