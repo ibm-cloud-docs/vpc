@@ -4,7 +4,7 @@ copyright:
   years: 2021, 2022
 lastupdated: "2022-01-21"
 
-keywords: bare metal server storage, storage, bare metal storage
+keywords: 
 
 subcollection: vpc
 
