@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-03-10"
+lastupdated: "2022-04-18"
 
 keywords: 
 
@@ -10,21 +10,7 @@ subcollection: vpc
 
 ---
 
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:preview: .preview}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:table: .aria-labeledby="caption"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Bare metal server profiles
 {: #bare-metal-servers-profile}
@@ -41,7 +27,7 @@ Profiles are grouped by the _vCPUs:Memory_ ratio across all the VPC compute offe
 |-----|-----|-----|
 | Balanced | 1:4 | Best for midsize databases and common cloud applications with moderate traffic. |
 | Compute | 1:2 | Best for CPU-intensive demands with moderate to high web traffic, such as production batch processing and front-end web servers. |
-| Memory | 1:8 or 1:6 | Best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. |
+| Memory | 1:8 or 1:6 | Best for memory intensive workloads, such as large caching workloads, large database applications, or in-memory analytics workloads. |
 {: caption="Table 1. Profile families" caption-side="bottom"}
 
 ## Profiles configurations
@@ -84,7 +70,7 @@ See the following table for the configurations of each profile.
 {: class="simple-tab-table"}
 {: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
 
-## Understanding the naming rule of the profiles
+### Understanding the naming rule of the profiles
 {: #profile-naming-rule}
 
 The following information describes the naming rule of the profiles.
@@ -99,6 +85,45 @@ The following information describes the naming rule of the profiles.
 Using “bx2d-metal-192x768” as an example, you can know that it's a *Balanced* bare metal profile with *192 vCPU and 768 GiB memory*. This profile has the Cascade Lake processors and NVMe U.2 SSDs for storage.
 
 Bare metal profiles are dedicated servers that provide physical cores. vCPU measurements are used in profile naming only. vCPU to physical cores are a 2:1 ratio (e.g 192 vCPU = 96 physical cores).
+
+## Profile availability by region
+{: #bare-metal-profile-availability-by-region}
+
+See the following table to see what bare metal profiles are available by region. 
+
+| Profile |  us-south-1 | us-south-2 | us-south-3 | us-east-2 |
+| ------- | ----------- | ---------- | ---------- | --------- |
+| cx2-metal-96x192   | ![Checkmark icon](../icons/checkmark-icon.svg) |  | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
+| cx2d-metal-96x192  | ![Checkmark icon](../icons/checkmark-icon.svg) |  | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
+| bx2-metal-96x384   | ![Checkmark icon](../icons/checkmark-icon.svg) |  | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
+| bx2d-metal-96x384  | ![Checkmark icon](../icons/checkmark-icon.svg) |  | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
+| mx2-metal-96x768   | ![Checkmark icon](../icons/checkmark-icon.svg) |  | ![Checkmark icon](../icons/checkmark-icon.svg) |  |
+| mx2d-metal-96x768  | ![Checkmark icon](../icons/checkmark-icon.svg) |  |  ![Checkmark icon](../icons/checkmark-icon.svg)|  |
+| bx2-metal-192x768  | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| bx2d-metal-192x768 | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+{: caption="Table 3. Bare metal profiles availability by region" caption-side='top"}
+{: #bare-metal-profiles-americas}
+{: tab-title="Americas"}
+{: tab-group="profile-regions"}
+{: class="simple-tab-table"}
+{: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
+
+| Profile | eu-de-1 | eu-de-2 |
+| ------- | ----------- | ---------- | 
+| cx2-metal-96x192    | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| cx2d-metal-96x192   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| bx2-metal-96x384    | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| bx2d-metal-96x384   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| mx2-metal-96x768    | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| mx2d-metal-96x768   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| bx2-metal-192x768   | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| bx2d-metal-192x768  | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+{: caption="Table 3. Bare metal profiles availability by region" caption-side='top"}
+{: #bare-metal-profiles-europe}
+{: tab-title="Europe"}
+{: tab-group="profile-regions"}
+{: class="simple-tab-table"}
+{: summary="Use the buttons before the table to change the context of the table. The column headers identify the hardware class."}
 
 ## Viewing profile configurations
 {: #view-bare-metal-servers-profile}
@@ -121,7 +146,7 @@ Use the following steps to view available bare metal profiles by using the UI.
 
 Use the following command to list all the bare metal server profiles that are available in a region:
 
-```
+```text
 ibmcloud is bare-metal-server-profiles [--output JSON] [-q, --quiet]
 ```
 {: pre}
@@ -132,7 +157,7 @@ ibmcloud is bare-metal-server-profiles [--output JSON] [-q, --quiet]
 
 List all bare metal server profiles available in a region by running the following API request:
 
-```
+```text
 curl -X GET \
 "$vpc_api_endpoint/v1/bare_metal_server/profiles?version=2021-03-09&generation=2" \
 -H "Authorization: $iam_token"
