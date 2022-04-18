@@ -143,23 +143,3 @@ curl -X GET \
 {: #bare-metal-servers-profile-next-step}
 
 After you choose a profile, you can [create bare metal servers on VPC](/docs/vpc?topic=vpc-creating-bare-metal-servers).
-
-<!--
-Profiles for post-GA:
-| Name | ** *vCPU* ** | Memory (GiB) | Local storage | Total Network Bandwidth (Gbps) |
-| bx2-metal-96x384 | 96 | 384 | 0.96 TB SATA M.2 mirrored drive * 1 | 100 |
-| bx2d-metal-96x384 | 96 | 384 | 0.96 TB SATA M.2 mirrored drive * 1
-3.2 TB U.2 NVMe SSDs * 8 | 100 |
-| mx2-metal-32x192 | 32 | 192 | 0.96 TB SATA M.2 mirrored drives * 1 | 100 |
-| mx2d-metal-32x192 |32 | 192 | 0.96 TB SATA M.2 mirrored drives * 1
-3.2 TB U.2 NVMe SSDs * 8 | 100 |
-| mx2-metal-48x384 | 48 | 384 | 0.96 TB SATA M.2 mirrored drive * 1 | 100 |
-| mx2d-metal-48x384 | 48 | 384 | 0.96 TB SATA M.2 mirrored drive * 1
-3.2 TB U.2 NVMe SSDs * 8 | 100 |
-| mx2-metal-64x384 | 64| 384 | 0.96 TB SATA M.2 mirrored drive * 1 | 100 |
-| mx2d-metal-64x384 | 64 | 384 | 0.96 TB SATA M.2 mirrored drive * 1
-3.2 TB U.2 NVMe SSDs * 8 | 100 |
-| mx2-metal-96x768 | 96 | 768 | 0.96 TB SATA M.2 mirrored drive * 1 | 100 |
-| mx2d-metal-96x768 | 96 | 768 | 0.96 TB SATA M.2 mirrored drive * 1
-3.2 TB U.2 NVMe SSDs * 8 | 100 |
--->
