@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-04-11"
+lastupdated: "2022-04-18"
 
 keywords:
 
@@ -40,6 +40,13 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 
 ## March 2022
 {: #vpc-mar22}
+
+### 31 March 2022
+{: #vpc-march3122}
+{: release-note}
+
+Add "Other" device types as Application Load Balancer (ALB) pool members
+:   You can now add "Other" device types as ALB back-end pool members, such as servers contained within a Power Systems Virtual Server instance connected over IBM Cloud Direct Link (2.0). In the past, you were only able to select virtual server instances or Bare Metal servers within a VPC. When creating a new member, select the **Other** tab from the Attach server screen and enter the device IP address. For more information, see [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancer&interface=ui).
 
 ### 30 March 2022
 {: #vpc-march3022}
