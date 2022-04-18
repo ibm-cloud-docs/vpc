@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-02-07"
+  years: 2021, 2022
+lastupdated: "2022-04-18"
 
-keywords: application load balancer, public, listener, back-end, front-end, pool, round-robin, weighted, connections, methods, policies, APIs, access, ports, vpc network
+keywords:  
 
 subcollection: vpc
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Creating an {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}}
 {: #load-balancer}
 
-You can create an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) to distribute inbound traffic across multiple instances. IBM supports VSI and Bare Metal members. PowerVS will be supported soon.
+You can create an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) to distribute inbound traffic across multiple instances. IBM supports virtual server instances, bare metal server instances, and other devices that are reachable to the application load balancer with a device IP address, such as Power Systems™ Virtual Server instances connected over Direct Link (2.0).
 {: shortdesc}
 
 ## Creating an application load balancer using the UI
@@ -25,64 +25,87 @@ You can create an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (AL
 To create an ALB:
 
 1. In the navigation pane, click **Network > Load balancers**.
-1. On the Load balancers page, click **New load balancer** and specify the following information.
-    * **Name**: Enter a name for the load balancer, such as `my-load-balancer`.
-    * **Virtual private cloud**: Select your VPC.
-    * **Resource group**: Select a resource group for the load balancer.
-    * **Tags**: (Optional) Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
-    * **Type**: Select the load balancer type.
+1. On the Load balancers page, click **Create**. The Load balancer for VPC provisioning page is shown.
+1. In the Location section, edit the following fields, if necessary.
+   * **Geography**: Indicates the geography where you want the load balancer created.
+   * **Region**: Indicates the region where you want the load balancer created.
+1. In the Details section, complete the following information:
+   * **Name**: Enter a name for the load balancer, such as `my-load-balancer`.    
+   * **Resource group**: Select a resource group for the load balancer.
+   * **Tags**: (Optional) Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).    
+   * Select the **Application Load Balancer (ALB)** tile. 
+   * **Virtual private cloud**: Select your VPC.
+   * **Type**: Select the load balancer type.
         * A public load balancer has a public IP address, which means that it can route requests from clients over the internet.
         * A private load balancer has a private IP address, which means that it is accessible only to internal clients on your private subnets, within the same region and VPC.
-    * **Region**: Indicates the region in which the load balancer will be created; that is, the region selected for your VPC.
-    * **Subnets**: Select the subnets in which to create your load balancer. To maximize the availability of your application, select subnets in different zones.
-    * **Security groups**: Select the security groups that you want to attach to your load balancer.
+   * **Subnets**: Select the subnets in which to create your load balancer. To maximize the availability of your application, select subnets in different zones.
+1. In the Back-end pools section, click **Create pool** and specify the following information to create a back-end pool. You can create one or more pools.
+   * **Name**: Enter a name for the pool, such as `my-pool`.
+   * **Protocol**: Select the protocol for your instances in this pool. The protocol of the pool must match the protocol of its associated listener. For example, if an HTTPS or HTTP protocol is selected for the listener, the protocol of the pool must be HTTP. Similarly, if the listener protocol is TCP, the protocol of the pool must be TCP.
+   * **Method**: Select how you want the load balancer to distribute traffic across the instances in the pool:
+       * **Round robin:** Forward requests to each instance in turn. All instances receive approximately an equal number of client connections.
+       * **Weighted round robin:** Forward requests to each instance in proportion to its assigned weight. For example, you have instances A, B, and C, and their weights are set to `60`, `60` and `30`. Instances A and B receive an equal number of connections, and instance C receives half as many connections.
+       * **Least connections:** Forward requests to the instance with the least number of connections at the current time.
+   * **Session stickiness**: Select whether all requests during a user's session are sent to the same instance.
+   * **Health check**: Configure how the load balancer checks the health of the instances.
+       * **Health check path**: The health check path is applicable only if HTTP is selected as the health check protocol. The health check path specifies the URL used by the load balancer to send the HTTP health check requests to the instances in the pool. By default, health checks are sent to the root path (`/`).
+       * **Health protocol**: The protocol used by the load balancer to send health check messages to the instances in the pool.
+       * **Health port**: The port on which to send health check requests. By default, health checks are sent on the same port on which traffic is sent to the instance.
+       * **Interval**: Interval in seconds between two consecutive health check attempts. By default, health checks are sent every 5 seconds.
+       * **Timeout**: Maximum amount of time the system waits for a response from a health check request. By default, the load balancer waits 2 seconds for a response.
+       * **Max retries**: Maximum number of health check attempts that the load balancer makes before an instance is declared unhealthy. By default, an instance is no longer considered healthy after two failed health checks.
 
-        Ensure that the security group allows for load balancing traffic (listener, back-end, and health check ports). If you do not specify a security group, the default security group from your VPC attaches instead.
-        {: note}
+       Although the load balancer stops sending connections to unhealthy instances, the load balancer continues monitoring the health of these instances and resumes their use if they're found healthy again (that is, if they successfully pass two consecutive health check attempts).
 
-1. Click **New pool** and specify the following information to create a back-end pool. You can create one or more pools.
-    * **Name**: Enter a name for the pool, such as `my-pool`.
-    * **Protocol**: Select the protocol for your instances in this pool. The protocol of the pool must match the protocol of its associated listener. For example, if an HTTPS or HTTP protocol is selected for the listener, the protocol of the pool must be HTTP. Similarly, if the listener protocol is TCP, the protocol of the pool must be TCP.
-    * **Method**: Select how you want the load balancer to distribute traffic across the instances in the pool:
-        * **Round robin:** Forward requests to each instance in turn. All instances receive approximately an equal number of client connections.
-        * **Weighted round robin:** Forward requests to each instance in proportion to its assigned weight. For example, you have instances A, B, and C, and their weights are set to 60, 60 and 30. Instances A and B receive an equal number of connections, and instance C receives half as many connections.
-        * **Least connections:** Forward requests to the instance with the least number of connections at the current time.
-    * **Session stickiness**: Select whether all requests during a user's session are sent to the same instance.
-    * **Health checks**: Configure how the load balancer checks the health of the instances.
-        * **Health check path**: Health path is applicable only if HTTP is selected as the health check protocol. The health path specifies the URL used by the load balancer to send the HTTP health check requests to the instances in the pool. By default, health checks are sent to the root path (`/`).
-        * **Health protocol**: The protocol used by the load balancer to send health check messages to the instances in the pool.
-        * **Health port**: The port on which to send health check requests. By default, health checks are sent on the same port on which traffic is sent to the instance.
-        * **Interval**: Interval in seconds between two consecutive health check attempts. By default, health checks are sent every 5 seconds.
-        * **Timeout**: Maximum amount of time the system waits for a response from a health check request. By default, the load balancer waits 2 seconds for a response.
-        * **Max retries**: Maximum number of health check attempts that the load balancer makes before an instance is declared unhealthy. By default, an instance is no longer considered healthy after two failed health checks.
+       If instances in the pool are unhealthy and you believe that your application is running fine, double check the health protocol and health path values. Also, check any security groups that are attached to the instances to ensure that the rules allow traffic between the load balancer and the instances.
+       {: tip}
 
-        Although the load balancer stops sending connections to unhealthy instances, the load balancer continues monitoring the health of these instances and resumes their use if they're found healthy again (that is, if they successfully pass two consecutive health check attempts).
+1. Click **Create** to create the back-end pool. 
 
-        If instances in the pool are unhealthy and you believe that your application is running fine, double check the health protocol and health path values. Also, check any security groups that are attached to the instances to ensure that the rules allow traffic between the load balancer and the instances.
-        {: tip}
+   You can attach server instances after you create your back-end pool.
+   
+1. To add a server instance to the new pool, click **Attach server** in the **Server instances** column of the table. 
 
-1. Click **Create**.
-1. Next to the entry for the new pool, click **Attach** in the **Instances** column to add an instance to the pool. Click **Add** to add more instances to the pool. Specify the following information for each instance:
-    * Select one or more subnets from which to select an instance.
-    * Select an instance. If an instance has multiple interfaces, make sure that you select the correct IP address.
-    * Specify the port on which traffic is sent to the instance.
-    * If your pool uses the **Weighted round robin** method, assign a weight for each instance.
+   * To add VPC devices to your pool, such as virtual server instances and Bare Metal servers, select the **VPC devices** tab. Specify the following information for each instance:
+      * Select one or more subnets from which to select an instance.
+      * Select an instance. If an instance has multiple interfaces, make sure that you select the correct IP address.
+      * Specify the port on which traffic is sent to the instance.
+      * If your pool uses the **Weighted round robin** method, assign a weight for each instance.
 
-        Assigning '0' weight to an instance means that no new connections are forwarded to that instance, but any existing traffic continues to flow while the current connection is active. Using a weight of '0' can help bring down an instance gracefully and remove it from service rotation.
-        {: tip}
+         Assigning `0` weight to an instance means that no new connections are forwarded to that instance, but any existing traffic continues to flow while the current connection is active. Using a weight of `0` can help bring down an instance gracefully and remove it from service rotation.
+         {: tip}
+        
+      * Click **Configure port and weight**, then specify the port on which traffic is sent to the instance.
+       
+   * To attach other server instances to your back-end pool, such as servers contained within an IBM Power Systems Virtual Server, select the **Other** tab, then click **Add more**. Specify the following information for each instance:
 
-1. Click **New listener** and specify the following information to create a listener. You can create one or more listeners.
+      * Specify a private IP address for the device.
+      * Specify the port on which traffic is sent to the instance.
+      * If your pool uses the **Weighted round robin** method, assign a weight for each instance.
+
+         Assigning `0` weight to an instance means that no new connections are forwarded to that instance, but any existing traffic continues to flow while the current connection is active. Using a weight of `0` can help bring down an instance gracefully and remove it from service rotation.
+         {: tip}
+    
+   * Click **Attach** to attach the server instance to your back-end pool.
+
+1. In the Front-end listeners section, click **Create listener** and specify the following information to create a listener. You can create one or more listeners.
+
     * **Protocol**: The protocol to use for receiving incoming requests.
     * **Port**: The listening port on which requests are received.
     * **Back-end pool**: The default back-end pool to which this listener forwards traffic.
     * **Max connections** (optional): Maximum number of concurrent connections the listener allows.
     * **SSL certificate**: If HTTPS is the selected protocol for this listener, you must select an SSL certificate. Make sure that the load balancer is authorized to access the SSL certificate.
-1. Click **Create**.
+1. Click **Create** to create the front-end listener.
+1. In the Security groups section, select the security groups that you want to attach to your load balancer, or click **Create** to create a new security group to attach to your ALB.
+
+   Ensure that the security group allows for load-balancing traffic (listener, back-end, and health check ports). If you do not specify a security group, the default security group from your VPC attaches instead.
+   {: note}
+
 1. After you finish creating pools and listeners, click **Create load balancer**.
 1. To view details of an existing load balancer, click the name of your load balancer on the **Load balancers** page.
 1. If you want to redirect the traffic from an HTTP listener to an HTTPS listener, you can create an HTTP listener with HTTPS redirect settings. 
 
-    Layer 7 load balancing policies will overwrite settings that you define here.
+    Layer 7 load-balancing policies overwrite settings that you define here.
     {: note}
     
     To do so:
@@ -91,9 +114,9 @@ To create an ALB:
     *  In the listener list page, click **Create**, then specify the following information:
         * **Protocol**: Select your **HTTP** protocol.
         * **Port**: Choose the listening port on which requests are received.
-        * **Max connections** (optional): Define the maximum number of concurrent connections the listener allows.
+        * **Max connections** (optional): Define the maximum number of concurrent connections that the listener allows.
         * **HTTPS redirect**: Click the toggle button to enable the HTTPS redirect configuration, then specify the following HTTPS redirect settings:
-            * **HTTPS listener**: The target HTTPS listener which the current HTTP listener incoming traffic will be redirected to. Note that you will only see a list of HTTPS listeners whose `accept_proxy_proxy` value is the same as the HTTP listener.
+            * **HTTPS listener**: The target HTTPS listener, which the current HTTP listener incoming traffic is redirected to. Note that you will only see a list of HTTPS listeners whose `accept_proxy_proxy` value is the same as the HTTP listener.
             * **Redirect URI** (optional): The URL to which the request redirects.
             * **Status code**: The status code of the response returned by the load balancer.
 1. If you want to redirect, forward, or reject particular incoming traffic for an HTTP or HTTPS front-end listener based on certain criteria, configure layer 7 policies.
@@ -107,7 +130,7 @@ To create an ALB:
         * **Forward**: The back-end pool of virtual server instances to which the request is forwarded, if the action is set to **Forward to pool**.
     * On the Policies page, you can also create an HTTPS redirect policy with the following configuration:
         * **Name**: Enter a name for the policy, such as `my-policy`. The name must be unique within the listener.
-        * **Action**: Select the **Redirect to HTTPS** option
+        * **Action**: Select the **Redirect to HTTPS** option.
         * **HTTPS listener**: The target HTTPS listener which the traffic from the current HTTP listener will redirect to. Note that you will only see a list of HTTPS listeners whose `accept_proxy_proxy` value is the same as the HTTP listener.
         * **Redirect URI** (optional): The URL to which the request redirects.
         * **Status code**: The status code of the response returned by the load balancer.
@@ -122,9 +145,9 @@ To create an ALB:
 {: #lb-cli-creating-network-load-balancer}
 {: cli}
 
-The following example illustrates using the CLI to create an {{site.data.keyword.alb_full}} (ALB). In this example, it is in front of one VPC virtual server instance (id `0716_6acdd058-4607-4463-af08-d4999d983945`) running a TCP server that listens on port 9090. The load balancer has a front-end listener, which allows secure access to the TCP server.
+The following example illustrates using the CLI to create an {{site.data.keyword.alb_full}} (ALB). In this example, it is in front of one VPC virtual server instance (ID `0716_6acdd058-4607-4463-af08-d4999d983945`) running a TCP server that listens on port 9090. The load balancer has a front-end listener, which allows secure access to the TCP server.
 
-To create an application load balancer by using the CLI, perform the following procedure:
+To create an application load balancer by using the CLI, follow these steps:
 
 1. Set up your [CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
@@ -284,12 +307,12 @@ To create an application load balancer by using the CLI, perform the following p
 {: #lb-api-creating-network-load-balancer}
 {: api}
 
-The following example illustrates using the API to create an applicatrion load balancer in front of two VPC virtual server instances (`192.168.100.5` and `192.168.100.6`) running a web application that listens on port 80. The load balancer has a front-end listener, which allows secure access to the web application by using HTTPS.
+The following example illustrates using the API to create an application load balancer in front of two VPC virtual server instances (`192.168.100.5` and `192.168.100.6`) running a web application that listens on port `80`. The load balancer has a front-end listener, which allows secure access to the web application by using HTTPS.
 
 The example skips the [prerequisite steps](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis) for using the API to provision a VPC, subnets, and instances.
 {: note}
 
-To create an application load balancer by using the API, perform the following procedure:
+To create an application load balancer by using the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 
