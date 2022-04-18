@@ -4,7 +4,7 @@ copyright:
   years: 2021, 2022
 lastupdated: "2022-03-10"
 
-keywords: bare metal server profile, profile, bare metal profiles, viewing profile, view profiles, bare metal profile family, bare metal profile families, bare metal profile
+keywords: 
 
 subcollection: vpc
 
