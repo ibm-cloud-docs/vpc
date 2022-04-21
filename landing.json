@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2022-04-01",
+    "lastupdated": "2022-04-21",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc", 
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
-          "date": "29 March 2022",
-          "title": "UDP support for Network Load Balancers (NLB)",
-          "description": "You can now set User Datagram Protocol (UDP) as the communication protocol for the Network Load Balancer for VPC (NLB) listener and pool. UDP is a communications protocol for establishing low-latency and loss-tolerating connections between applications on the internet. It speeds up transmissions by enabling the transfer of data before an agreement is provided by the receiving party. When configuring UDP and attaching a pool to your listener, you must configure the pool with the same protocol as the listener."
+          "date": "11 April 2022",
+          "title": "2022-03-29 release of the VPC API introduced incompatible changes",
+          "description": "The 2022-03-29 release of the VPC API necessitated incompatible changes in support of the reserved IPs feature. IP addresses are now modeled as objects (resources), rather than strings. Security groups must now be associated with targets rather than network interfaces. Even if you are not planning to make use of reserved IPs, to avoid regressions in client functionality, be sure to reference 2022-03-29 API migration and follow the Action needed recommendations before specifying version 2022-03-29 or later."
         },
         {
-          "date": "29 March 2022",
-          "title": "Reserved IPs",
-          "description": "You can now assign an IP address to your virtual server instance by specifying an already reserved IP for private IPs and bind them to network interfaces."
+          "date": "31 March 2022",
+          "title": "Add Other device types as Application Load Balancer (ALB) pool members",
+          "description": "You can now add Other device types as ALB back-end pool members, such as servers contained within a Power Systems Virtual Server instance connected over IBM Cloud Direct Link (2.0). In the past, you were only able to select virtual server instances or Bare Metal servers within a VPC. When creating a new member, select the Other tab from the Attach server screen and enter the device IP address."
         },
         {
-          "date": "24 March 2022",
-          "title": "New stock image for virtual servers",
-          "description": "Windows 2022 is now supported as a stock image when you provision IBM Cloud VPC virtual servers. "
+          "date": "30 March 2022",
+          "title": "New stock image for bare metal servers",
+          "description": "RHEL 8.4 is now supported as an image when you provision a bare metal server."
         }
       ]
     }
