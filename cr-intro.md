@@ -85,7 +85,7 @@ These links provide additional information about {{site.data.keyword.cloud_notm}
 * [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#custom-routes-section)
 * [VPC API reference](https://{DomainName}/apidocs/vpc)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-custom-routes)
-* [Routing tables for VPC infrastructure resources for Terraform](/docs/terraform?topic=terraform-vpc-gen2-resources#vpc-routing-table)
+* [Routing tables for VPC infrastructure resources for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpc_routing_table){: external} (VPC infrastructure > Resources)
 * [Required permissions for routing tables and routes](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
 * [Quotas and service limits](/docs/vpc?topic=vpc-quotas#routing-tables-routes-quotas)
 * Ingress traffic sources: IBM Cloud [Direct Link 2.0](/docs/dl?topic=dl-get-started-with-ibm-cloud-dl) and [Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started)
