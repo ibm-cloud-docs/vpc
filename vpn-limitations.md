@@ -37,10 +37,6 @@ Lists known limitations for IBM Cloud VPN for VPC.
    If possible, combine contiguous subnets into a single network range in a VPN configuration. For example, subnets `192.168.0.0/24` and `192.168.1.0/24` can be defined as `192.168.0.0/23` in a VPN or routing configuration.
    {: tip}
 
-* VPN gateways are supported as the next hop only in the same VPC as the source prefix in the custom routing table. Selecting a VPN gateway as the next hop of a different zone than the source prefix does not work. Though the custom routing table might allow you to select this configuration, it is not supported.
-
-   ![Mixed VPN Types Workaround use case](images/vpn-mixed-types-workaround.png){: caption="Figure 3. Mixed VPN Types Workaround use case" caption-side="bottom"}
-
 * An {{site.data.keyword.cloud_notm}} policy-based VPN gateway resides in the zone that is associated with the subnet that you select during provisioning. The VPN gateway serves only the virtual server instances in the same zone of the VPC. Therefore, instances in other zones can't use the VPN gateway to communicate with an on-premises private network. For zone fault tolerance, you must deploy one VPN gateway per zone.
 
 * An {{site.data.keyword.cloud_notm}} route-based VPN gateway resides in the zone that is associated with the subnet that you select during provisioning. It is recommended that a VPN gateway serves only virtual server instances in the same zone of the VPC. Instances in other zones can use the route-based VPN gateway to communicate with an on-premises private network, but this is not recommended. For zone fault tolerance, you must deploy one VPN gateway per zone.

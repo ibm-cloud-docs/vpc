@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-06"
+lastupdated: "2022-04-20"
 
 keywords: juniper, juniper peer, vSRX peer
 
@@ -67,7 +67,7 @@ Here's an example of how to set up security.
    ```
    {: codeblock}
 
-1. Configure an IKE gateway to a policy-based VPN gateway. 
+1. Configure an IKE gateway to a policy-based VPN gateway.
 
    ```sh
    set security ike gateway ibm-vpc-policy-vpn-gateway ike-policy ibm-vpc-ike-policy
@@ -80,7 +80,7 @@ Here's an example of how to set up security.
    ```
    {: codeblock}
 
-1. Configure an IPsec proposal for a policy-based VPN. 
+1. Configure an IPsec proposal for a policy-based VPN.
 
    ```sh
    set security ipsec proposal ibm-vpc-ipsec-proposal protocol esp
@@ -92,7 +92,7 @@ Here's an example of how to set up security.
    ```
    {: codeblock}
 
-1. Configure a VTI and VPN connection to a policy-based VPN gateway. 
+1. Configure a VTI and VPN connection to a policy-based VPN gateway.
 
    ```sh
    set interfaces st0 unit 2 description Tunnel-to-IBM-VPC-POLICY-VPN-GATEWAY
@@ -139,7 +139,7 @@ Here's an example of how to set up security.
    ```
    {: codeblock}
 
-1. Configure TCP MSS clamping on vSRX to avoid unnecessary fragmentation. 
+1. Configure TCP MSS clamping on vSRX to avoid unnecessary fragmentation.
 
    ```sh
    set security flow tcp-mss ipsec-vpn mss 1360
@@ -182,7 +182,7 @@ The VPN for VPC gateway should have a connection where the peer address is the v
 
 Here's an example to set the vSRX configuration.
 
-1. Configure an IKE proposal for a route-based VPN: 
+1. Configure an IKE proposal for a route-based VPN:
 
    ```sh
    set security ike proposal ibm-vpc-ike-proposal authentication-method pre-shared-keys
@@ -196,7 +196,7 @@ Here's an example to set the vSRX configuration.
    ```
    {: codeblock}
 
-1. Configure an IKE gateway to the primary tunnel: 
+1. Configure an IKE gateway to the primary tunnel:
 
    ```sh
    set security ike gateway ibm-vpc-gateway-primary ike-policy ibm-vpc-ike-policy
@@ -209,7 +209,7 @@ Here's an example to set the vSRX configuration.
    ```
    {: codeblock}
 
-1. Configure an IPsec proposal for a route-based VPN: 
+1. Configure an IPsec proposal for a route-based VPN:
 
    ```sh
    set security ipsec proposal ibm-vpc-ipsec-proposal protocol esp
@@ -221,12 +221,17 @@ Here's an example to set the vSRX configuration.
    ```
    {: codeblock}
 
-1. Configure a VTI and VPN connection to the primary VPN tunnel: 
+1. Configure a VTI and VPN connection to the primary VPN tunnel:
 
+   Create the virtual tunnel interface and configure the link-local address (`169.254.0.2/30`) on the interface. Be careful to choose the link-local address and make sure that it is not overlapping with other addresses on the device. There are two available IP addresses (`169.254.0.1` and `169.254.0.2`) in a subnet with a 30-bit netmask. The first IP address `169.254.0.1` is used as the IBM VPN gateway VTI address; the second, `169.254.0.2`, is used as the vSRX VTI address. If you have more than one VTI on the vSRX, you can choose another link-local subnet, such as `169.254.0.4/30`, `169.254.0.8/30`, and so on.
+
+   You do not need to configure `169.254.0.1` on the IBM VPN gateway. It is referenced only when you configure the routes on the vSRX.
+   {: note}
+   
    ```sh
    set interfaces st0 unit 2 multipoint
-   set interfaces st0 unit 2 family inet next-hop-tunnel 169.254.3.2 ipsec-vpn ibm-vpc-gateway-primary-vpn
-   set interfaces st0 unit 2 family inet address 169.254.3.1/30
+   set interfaces st0 unit 2 family inet next-hop-tunnel 169.254.0.1 ipsec-vpn ibm-vpc-gateway-primary-vpn
+   set interfaces st0 unit 2 family inet address 169.254.0.2/30
 
    set security ipsec vpn ibm-vpc-gateway-primary-vpn bind-interface st0.2
    set security ipsec vpn ibm-vpc-gateway-primary-vpn ike gateway ibm-vpc-gateway-primary
@@ -235,14 +240,14 @@ Here's an example to set the vSRX configuration.
    ```
    {: codeblock}
 
-1. Configure a route to the primary VPN tunnel: 
+1. Configure a route to the primary VPN tunnel:
 
    ```sh
-   set routing-options static route <your-VPC-subnet> next-hop 169.254.3.2
+   set routing-options static route <your-VPC-subnet> next-hop 169.254.0.1
    ```
    {: pre}
 
-1. Configure a control plane firewall to permit IKE/IPsec protocol traffic for a route-based VPN: 
+1. Configure a control plane firewall to permit IKE/IPsec protocol traffic for a route-based VPN:
 
    ```sh
    set firewall filter PROTECT-IN term IPSec-IKE from source-address <VPN for VPC Gateway Small Public IP>/32
@@ -274,14 +279,14 @@ Here's an example to set the vSRX configuration.
    ```
    {: codeblock}
 
-1. Configure TCP MSS clamping on vSRX to avoid unnecessary fragmentation for a route-based VPN: 
+1. Configure TCP MSS clamping on vSRX to avoid unnecessary fragmentation for a route-based VPN:
 
    ```sh
    set security flow tcp-mss ipsec-vpn mss 1360
    ```
    {: pre}
 
-1. Configure an IKE gateway to the secondary tunnel: 
+1. Configure an IKE gateway to the secondary tunnel:
 
    ```sh
    set security ike gateway ibm-vpc-gateway-secondary ike-policy ibm-vpc-ike-policy
@@ -294,12 +299,12 @@ Here's an example to set the vSRX configuration.
    ```
    {: codeblock}
 
-1. Configure a VTI and VPN connection to the secondary VPN tunnel: 
+1. Configure a VTI and VPN connection to the secondary VPN tunnel:
 
    ```sh
    set interfaces st0 unit 3 multipoint
-   set interfaces st0 unit 3 family inet next-hop-tunnel 169.254.3.6 ipsec-vpn ibm-vpc-gateway-secondary-vpn
-   set interfaces st0 unit 3 family inet address 169.254.3.5/30
+   set interfaces st0 unit 3 family inet next-hop-tunnel 169.254.0.5 ipsec-vpn ibm-vpc-gateway-secondary-vpn
+   set interfaces st0 unit 3 family inet address 169.254.0.6/30
 
    set security ipsec vpn ibm-vpc-gateway-secondary-vpn bind-interface st0.3
 
@@ -309,7 +314,7 @@ Here's an example to set the vSRX configuration.
    ```
    {: codeblock}
 
-1. Configure a control plane firewall to permit IKE/IPsec protocol traffic from the secondary tunnel: 
+1. Configure a control plane firewall to permit IKE/IPsec protocol traffic from the secondary tunnel:
 
    ```sh
    set firewall filter PROTECT-IN term IPSec-IKE from source-address <VPN for VPC Gateway Big Public IP>/32
@@ -318,7 +323,7 @@ Here's an example to set the vSRX configuration.
    ```
    {: codeblock}
 
-1. Add the VTI into a security zone: 
+1. Add the VTI into a security zone:
 
    ```sh
    set security zones security-zone vpn-zone interfaces st0.3
@@ -328,7 +333,7 @@ Here's an example to set the vSRX configuration.
 1. Add a route to the secondary tunnel:
 
    ```sh
-   set routing-options static route <your-VPC-subnet> qualified-next-hop 169.254.3.6 preference 30
+   set routing-options static route <your-VPC-subnet> qualified-next-hop 169.254.0.5 preference 30
    ```
    {: codeblock}
 
@@ -337,11 +342,8 @@ Here's an example to set the vSRX configuration.
 
 Follow these steps to verify the configuration:
 
-1. Verify IKE Phase 1 is working for both tunnels:
-   `run show security ike sa`
+1. Verify IKE Phase 1 is working for both tunnels: `run show security ike sa`
 
-1. Verify IKE Phase 2 is working for both tunnels:
-   `run show security ipsec sa`
+1. Verify IKE Phase 2 is working for both tunnels: `run show security ipsec sa`
 
-1. Show the route:
-   `run show route <static route>`
+1. Show the route: `run show route <static route>`

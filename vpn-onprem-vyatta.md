@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-12"
+lastupdated: "2022-04-20"
 
 keywords: vyatta peer
 
@@ -13,6 +13,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Connecting to a Vyatta peer
+
 {: #vyatta-config}
 
 You can use IBM Cloud VPN for VPC to securely connect your VPC to an on-prem network through a VPN tunnel. This topic provides guidance about how to configure your Vyatta VPN gateway to connect to VPN for VPC.
@@ -46,7 +47,7 @@ Use the following configuration:
 The following commands use the following variables where:
 
 * `{{ peer_address }}` is the VPN gateway public IP address.
-* `{{ peer_cidr }}` is the VPN gateway subnet.
+* `{{ ibm_vpc_cidr }}` is IBM VPC subnet.
 * `{{ vyatta_address }}` is the Vyatta public IP address.
 * `{{ vyatta_cidr }}` is the Vyatta subnet.
 
@@ -84,7 +85,7 @@ Remember to:
 The following commands use the following variables, where:
 
 * `{{ peer_address }}` is the VPN gateway public IP address.
-* `{{ peer_cidr }}` is the VPN gateway subnet.
+* `{{ ibm_vpc_cidr }}` is the IBM VPC subnet.
 * `{{ vyatta_address }}` is the Vyatta public IP address.
 * `{{ vyatta_cidr }}` is the Vyatta subnet.
 
@@ -122,7 +123,7 @@ set security vpn ipsec site-to-site peer {{ peer_address }} connection-type {{ c
 set security vpn ipsec site-to-site peer {{ peer_address }} authentication remote-id {{ peer_address }}
 
 set security vpn ipsec site-to-site peer {{ peer_address }} tunnel {{ ns.tunnel_index }} local prefix {{ vyatta_cidr }}
-set security vpn ipsec site-to-site peer {{ peer_address }} tunnel {{ ns.tunnel_index }} remote prefix {{ peer_cidr }}
+set security vpn ipsec site-to-site peer {{ peer_address }} tunnel {{ ns.tunnel_index }} remote prefix {{ ibm_vpc_cidr }}
 
 commit
 end_configure
@@ -209,20 +210,20 @@ To set up your remote Vyatta peer, make sure that you create the following prere
 The following commands use the following variables where:
 
 * `{{ primary_peer_address }}` is the route-based VPN gateway small public IP address.
-* `{{ peer_cidr }}` is the VPN gateway subnet.
+* `{{ ibm_vpc_cidr }}` is the IBM VPC subnet.
 * `{{ secondary_peer_address }}` is the route-based VPN gateway large public IP address.
 * `{{ vyatta_address }}` is the Vyatta public IP address.
 
 Here's an example of configuring the Vyatta.
 
-1. Define the matched IKE proposal: 
+1. Define the matched IKE proposal:
 
    ```sh
    set security vpn ipsec ike-group ibm-vpc-ike-group
    set security vpn ipsec ike-group ibm-vpc-ike-group dead-peer-detection interval 2
    set security vpn ipsec ike-group ibm-vpc-ike-group dead-peer-detection action clear
    set security vpn ipsec ike-group ibm-vpc-ike-group lifetime 86400
-   et security vpn ipsec ike-group ibm-vpc-ike-group ike-version 2
+   set security vpn ipsec ike-group ibm-vpc-ike-group ike-version 2
    set security vpn ipsec ike-group ibm-vpc-ike-group proposal 1
    set security vpn ipsec ike-group ibm-vpc-ike-group proposal 1 dh-group 19
    set security vpn ipsec ike-group ibm-vpc-ike-group proposal 1 encryption aes256
@@ -230,7 +231,7 @@ Here's an example of configuring the Vyatta.
    ```
    {: codeblock}
 
-1. Define the matched IPsec proposal: 
+1. Define the matched IPsec proposal:
 
    ```sh
    set security vpn ipsec esp-group ibm-vpc-ipsec-group compression disable
@@ -242,11 +243,16 @@ Here's an example of configuring the Vyatta.
    ```
    {: codeblock}
 
-1. Create the VTI and VPN connection to the IBM primary tunnel: 
+1. Create the VTI and VPN connection to the IBM primary tunnel:
+
+   Create the virtual tunnel interface and configure the link-local address (`169.254.0.2/30`) on the interface. Be careful to choose the link-local address and make sure that it is not overlapping with other addresses on the device. There are two available IP addresses (`169.254.0.1` and `169.254.0.2`) in a subnet with a 30-bit netmask. The first IP address `169.254.0.1` is used as the IBM VPN gateway VTI address; the second, `169.254.0.2`, is used as the Vyatta VTI address. If you have more than one VTI on the Vyatta, you can choose another link-local subnet, such as `169.254.0.4/30`, `169.254.0.8/30`, and so on.
+
+   You do not need to configure `169.254.0.1` on the IBM VPN gateway. It is referenced only when you configure the routes on the Vyatta.
+   {: note}
 
    ```sh
    set interfaces vti vti1 description "to-IBM-VPN-primary"
-   set interfaces vti vti1 address 168.254.0.2/30
+   set interfaces vti vti1 address 169.254.0.2/30
    set interfaces vti vti1 ip tcp-mss limit 1360
    set security vpn ipsec site-to-site peer {{ primary_peer_address }} authentication mode pre-shared-secret
    set security vpn ipsec site-to-site peer {{ primary_peer_address }} authentication pre-shared-secret {{your_pre_shared_key}}
@@ -260,22 +266,19 @@ Here's an example of configuring the Vyatta.
    ```
    {: codeblock}
 
-   The VTI IP address `168.254.0.2` is an example. You can use any other unused IP address.
-   {: tip}
-
 1. Create the primary route:
 
    ```sh
-   set protocols static route {{ vyatta_address }} next-hop 168.254.0.1 distance 10
-   set protocols static route {{ vyatta_address }} next-hop 168.254.0.1 interface vti1
+   set protocols static route {{ ibm_vpc_cidr }} next-hop 169.254.0.1 distance 10
+   set protocols static route {{ ibm_vpc_cidr }} next-hop 169.254.0.1 interface vti1
    ```
    {: codeblock}
 
-1. Create the VTI and VPN connection to the IBM secondary tunnel: 
+1. Create the VTI and VPN connection to the IBM secondary tunnel:
 
    ```sh
    set interfaces vti vti2 description "to-IBM-VPN-secondary"
-   set interfaces vti vti2 address 168.254.0.6/30
+   set interfaces vti vti2 address 169.254.0.6/30
    set interfaces vti vti2 ip tcp-mss limit 1360
    set security vpn ipsec site-to-site peer {{ secondary_peer_address }} authentication mode pre-shared-secret
    set security vpn ipsec site-to-site peer {{ secondary_peer_address }} authentication pre-shared-secret {{your_pre_shared_key}}
@@ -289,20 +292,19 @@ Here's an example of configuring the Vyatta.
    ```
    {: codeblock}
 
-   The VTI IP address `168.254.0.2` is an example. You can use any other unused IP address.
+   The VTI IP address `169.254.0.6` is an example. You can use any other unused IP address.
    {: tip}
 
-1. Create the primary route: 
+1. Create the primary route:
 
    ```sh
-   set protocols static route {{ vyatta_address }} next-hop 168.254.0.5 distance 20
-   set protocols static route {{ vyatta_address }} next-hop 168.254.0.5 interface vti2
+   set protocols static route {{ ibm_vpc_cidr }} next-hop 169.254.0.5 distance 20
+   set protocols static route {{ ibm_vpc_cidr }} next-hop 169.254.0.5 interface vti2
    ```
    {: codeblock}
 
 ## Troubleshooting
 {: #vyatta-troubleshooting}
-
 
 * If you enable CPP firewall on Vyatta, you must configure the rules to allow traffic from IBM gateway. For example, if your CPP firewall name is `GATEWAY_CPP`, add these rules to the firewall:
 

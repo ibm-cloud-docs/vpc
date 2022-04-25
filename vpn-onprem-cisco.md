@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-04-12"
+lastupdated: "2022-04-20"
 
 keywords: cisco peer, ASAv
 
@@ -134,7 +134,7 @@ nat (inside,outside) source static on-premise-subnets on-premise-subnets destina
 ```
 {: codeblock}
 
-Configure TCP MSS clamping on vSRX to avoid unnecessary fragmentation:
+Configure TCP MSS clamping on ASAv to avoid unnecessary fragmentation:
 
 ```sh
 sysopt connection tcpmss 1360
@@ -235,7 +235,7 @@ route ibm-gateway-primary-tunnel 10.240.65.0 255.255.255.0 169.254.0.1 1
 ```
 {: codeblock}
 
-Create the tunnel group to the IBM secondary tunnel. The peer address `169.59.210.200` is the large public IP of the IBM route-based VPN gateway, and the pre-shared key should be same as the IBM route-based VPN gateway. For more information about the large public IP, see this [important notice](/docs/vpc?topic=vpc-using-vpn#important-notice). 
+Create the tunnel group to the IBM secondary tunnel. The peer address `169.59.210.200` is the large public IP of the IBM route-based VPN gateway, and the pre-shared key should be same as the IBM route-based VPN gateway. For more information about the large public IP, see this [important notice](/docs/vpc?topic=vpc-using-vpn#important-notice).
 
 ```sh
 tunnel-group 169.59.210.200 type ipsec-l2l
@@ -271,7 +271,7 @@ route ibm-gateway-secondary-tunnel 10.240.65.0 255.255.255.0 169.254.0.5 10
 ```
 {: codeblock}
 
-Configure TCP MSS clamping on vSRX to avoid unnecessary fragmentation:
+Configure TCP MSS clamping on ASAv to avoid unnecessary fragmentation:
 
 ```sh
 sysopt connection tcpmss 1360
