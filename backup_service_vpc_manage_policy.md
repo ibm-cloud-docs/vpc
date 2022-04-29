@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2022,
-lastupdated: "2022-02-22"
+  years: 2022
+lastupdated: "2022-04-29"
 
-keywords: storage, backup, virtual private cloud
+keywords:
 
 subcollection: vpc
 
@@ -18,7 +18,7 @@ subcollection: vpc
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
-{:beta: .beta}
+{:preview: .preview}
 {:table: .aria-labeledby="caption"}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
@@ -26,30 +26,29 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Managing backup policies (Beta)
+# Managing backup policies
 {: #backup-service-manage}
 
-Manage backup policies your created for your block storage volumes. Delete policies that you no longer need. Update the policy name. Audit your policies by integrating Activity Tracker events. Check the status of your backup policies.
+Manage backup policies and their associated plans created for your block storage volumes. Delete policies and plans that you no longer need. Update the policy and plan. Audit your policies by integrating Activity Tracker events. Check the status of your backup policies.
 {: shortdesc}
 
-This service is available only to accounts with special approval to preview this beta feature. Contact your IBM Support if you are interested in getting access.
-{: beta}
+This service is available only to accounts with special approval to preview this feature. Contact IBM Support if you're interested in getting access.
+{: preview}
 
-## Manage backup policies using the UI
+## Backup policy deletion overview
+{: #backup-delete}
+
+When you delete a backup policy, you also delete a plan associated with it. You can also delete plans within a policy.
+
+When you delete a backup policy, any backups that were being created based on tags defined in the policy will no longer be made.
+
+## Manage backup policies with the UI
 {: #backup-manage-policy-ui}
 {: ui}
 
 Delete a backup policy, rename a policy, edit user tags using the UI.
 
-### Backup policy deletion overview
-{: #backup-delete}
-
-When you delete a backup policy, you also delete a plan associated with it. Any backups that were being created based on tags defined in the policy will no longer be made. Existing backups are defined by their retention policy and exist until their expiration date. 
-
-Be careful before deleting a backup policy. If you delete a policy to create a new plan, create the new policy with the same user tags and new plan first. Then, delete the old policy.
-{: note}
-
-### Delete a backup policy using the UI
+### Delete a backup policy with the UI
 {: #backup-delete-policy}
 {: ui}
 
@@ -65,7 +64,14 @@ Be careful before deleting a backup policy. If you delete a policy to create a n
 
 The policy is deleted. Existing backups will be retained until their expiration date. No further backups for the volumes will be made after you delete the plan.
 
-### Rename a backup policy using the UI
+### Delete a backup plan with the UI
+{: #backup-delete-plan}
+
+1. Navigate to the [list of backup policies](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-list-all-policies) and locate the backup policy.
+
+2. On the backup policy details page, select the plan you want to delete. You can have up to four backup plans per policy. 
+
+### Rename a backup policy with the UI
 {: #backup-rename-policy-ui}
 
 You can rename a policy from the list of backup policies or from the backup policies details page.
@@ -74,7 +80,7 @@ From the list of backup policies, click the overflow menu (elipisis) and select 
 
 From the policy details page, click the pencil icon next to the policy name.
 
-### Edit tags for target resources
+### Edit tags for target resources with the UI
 {: #backup-edit-tags}
 
 From the Backup policy details page, you can edit the tags for your block storage volumes target resources.
@@ -83,20 +89,35 @@ From the Backup policy details page, you can edit the tags for your block storag
 
 2. For **Tags for target resources**, click the pencil icon.
 
-3. In the popup window, enter the tag name. The name should be entered exactly as it appears in the block storage volume. Enter only one tag from the volume.
+3. In the popup window, enter a user tag name. For existing block storage volumes with user tags, enter the tag name exactly as it appears in the volume. You can also add a new user tag here and then go back an add it to a volume. You only need one tag for a volume to create a backup.
 
-### Edit or delete a backup plan using the UI
+4. Click **Next**. 
+
+5. Review the information on the next popup. If satisfied, check the disclaimer and click **Save changes**.
+
+### Edit or delete a backup plan with the UI
 {: #backup-edit-delete-plan-ui}
 
-When you provision a backup policy and create a backup plan, you can edit the plan settings or delete the plan by using the UI. Deleting the plan means you need to create a new one for the policy. After the policy is created, you can't edit or delete the backup plan. For Beta, you can have one plan per policy.
+When you provision a backup policy and create a backup plan, you can edit the plan details or delete the plan by using the UI. Deleting the plan means you must have at least one remaining for the policy to create backups. 
 
-## Manage backup policies from the CLI
+1. From the [backup plan details](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-policy) page, expand the Actions menu for the plan.
+
+2. Select **Edit** or **Delete**. When you edit, the plan details appear in the side panel. You can modify the same information you specified when creating the plan, such as the name and backup frequency.
+
+3. Confirm your selections when finished.
+
+### Reviewing backup jobs with the UI
+{: #backup-jobs-manage}
+
+You can see backup jobs that are running, completed, or failed when a backup is triggered. For more information, see [Viewing backup policy jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs).
+
+## Manage backup policies and plans with the CLI
 {: #backup-manage-policy-cli}
 {: cli}
 
 Delete a backup policy, rename a policy, edit user tags from the CLI.
 
-### Delete a backup policy from the CLI
+### Delete a backup policy with the CLI
 {: #backup-delete-policy-cli}
 
 Run the `backup-policy-delete` command and specify the policy ID or policy name for one or more backup policies. Backup plans associated with the policy are also deleted. For information about backup policy deletion, see [Backup policy deletion overview](#backup-delete).
@@ -117,7 +138,7 @@ Deletion request for backup policy 7759199b-bc1f-448e-84fa-2aa42bde29af has been
 ```
 {: screen}
 
-### Rename a backup policy using the CLI
+### Rename a backup policy with the CLI
 {: #backup-rename-policy-cli}
 
 Run the `ibmcloud is backup-policy-update` command and specify the policy ID or policy name, and a new name for the backup policy. 
@@ -143,14 +164,61 @@ Plans                  ID                                     Name         Resou
 Backup tags            env:dev   
 Backup resource type   volume   
 Resource group         Default   
-Created                2022-02-22T17:56:53+05:30 
+Created                2022-04-22T17:56:53+05:30 
 ```
 {: screen}
 
-### Rename a backup plan from the CLI
-{: #backup-rename-plan-cli}
+### Update a backup plan with the CLI
+{: #backup-update-plan-cli}
 
-For the Beta release, you cannot modify a backup plan after it's created.
+Run the `ibmcloud is backup-policy-plan-update` command to update a backup plan. Identify the policy and plan by ID or name in the command line. You can update the plan name, `cron-spec` backup schedule, attach user tags, and update backup retention period.
+
+Syntax:
+
+```zsh
+ibmcloud is backup-policy-plan-update POLICY PLAN --cron-spec CRON_SPEC [--name NAME] [--active] [--attach-tags ATTACH_TAGS] [--copy-tags true | false] [[--delete-after DELETE_AFTER] [--delete-over-count DELETE_OVER_COUNT]] [--output JSON] [-q, --quiet]
+```
+{: pre}
+
+This example specifies the backup policy and plan by name, specifies the following parameters to update the plan:
+
+* `--cron-spec` updates the `cron-spec` backup schedule.
+
+* `--name` updates the plan name.
+
+* `--attach-tags` attaches user tags in the backup policy to each backup created by the plan. Updating this value doesn't change the user tags for backups already created by this plan.
+
+* `--copy-tags` specifies whether source volume tags will be copied to the backup snapshot (`true` or `false`).
+
+* `--delete-after` sets the number of days to keep a backup to 20 days.
+
+* `--delete-over-count` sets the maximum number of recent backups to keep.
+
+For example, 
+
+```bash
+ibmcloud is backup-policy-plan-update backup-policy-1001 mybackup-plan --cron-spec '42 10 * * *' --name mybackup-plan-1 --attach-tags my-daily-backup-plan --copy-tags false --delete-after 20 --delete-over-count 1
+```
+{: screen}
+
+### Delete a backup plan with the CLI
+{: #backup-delete-plan-cli}
+
+Run the `ibmcloud is backup-policy-plan-delete` command and specify the backup policy and the plan or plans you want to delete. You can specify the backup policy and plans by ID or by name.
+
+Syntax:
+
+```zsh
+ibmcloud is backup-policy-plan-delete POLICY (PLAN1 PLAN2 ...) [--output JSON] [-f, --force] [-q, --quiet]
+```
+{: pre}
+
+This example deletes two backup plans for backup policy _backup-policy-1_.
+
+```bash
+ibmcloud is backup-policy-plan-delete backup-policy-1 my-plan-2 my-plan-3
+```
+{: screen}
 
 ## Manage backup policies and plans with the API
 {: #backup-manage-policy-api}
@@ -168,14 +236,14 @@ Example request:
 
 ```curl
 curl -X DELETE\
-"$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d?version=2022-02-22&generation=2"\
+"$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d?version=2022-04-28&generation=2"\
   -H "Authorization: $iam_token"
 ```
 {: codeblock}
 
 The response indicates all backup plans are deleted.
 
-### Delete a backup plan
+### Delete a backup plan with the API
 {: #backup-delete-plan-api}
 
 Make a `DELETE /backup_policies/{backup_policy_id}/plans/{plan_id}` request to delete a specific backup plan from a backup policy. Resources created by the plan remain but will no longer be subject to the plan's deletion trigger. During the deletion, the status shows `deleting`. When the deletion is complete (status = `deleted`), the backup plan cannot be recovered.
@@ -184,7 +252,7 @@ Example request:
 
 ```curl
 curl -X DELETE\
-"$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d/plans/4cf9171a-0043-4434-8727-15b53dbc374c?version=2022-02-22&generation=2"\
+"$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d/plans/4cf9171a-0043-4434-8727-15b53dbc374c?version=2022-04-28&generation=2"\
    -H "Authorization: $iam_token"
 ```
 {: codeblock}
@@ -198,7 +266,7 @@ The response shows the backup plan was deleted.
     "my-daily-backup-plan"
   ],
   "copy_user_tags": true,
-  "created_at": "2022-02-22T01:44:49.070Z",
+  "created_at": "2022-04-22T01:44:49.070Z",
   "cron_spec": "*/5 1,2,3 * * *",
   "deletion_trigger": {
     "delete_after": 20
@@ -220,7 +288,7 @@ For example:
 
 ```curl
 curl -X PATCH\
-"$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d?version=2022-02-22&generation=2"\
+"$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d?version=2022-04-28&generation=2"\
   -H "Authorization: $iam_token"\
   -d '{
         "name": "my-backup-policy1"
@@ -228,11 +296,36 @@ curl -X PATCH\
 ```
 {: codeblock}
 
-### Rename a backup plan with the API
-{: #backup-rename-plan-api}
+### Update a backup plan with the API
+{: #backup-update-plan-api}
 
-For the Beta release, you cannot modify a backup plan after it's created.
-{: note}
+Make a `PATCH /backup_policies/{backup_policy_id}/plans/{plan_id}` request to update the backup plan by specifying the following properties:
+
+* `attach_user_tags` specifies the user tags from the backup policy that will be attached to backups created by the plan. Updating this value doesn't change the user tags for backups already created by this plan.
+
+* `copy_user_tags` specifies whether source volume tags will be copied to the backup snapshot. The value is a boolean,`true` or `false`.
+
+* `deletion_trigger` has two properties, `delete_after` sets the number of days to keep a backup and `delete_over_count` sets the maximum number of recent backups to keep, after which they are deleted. Specify `null` to remove the existing maximum.
+
+```curl
+curl -X PATCH\
+"$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d/plans/78bb42ae-b82e-4560-861b-5bc4bca3fba6?version=2022-04-28&generation=2"\
+  -H "Authorization: $iam_token"\
+  -d '{
+      "active": true,
+      "attach_user_tags": [
+        "my-daily-backup-plan"
+      ],
+      "copy_user_tags": true,
+      "cron_spec": "*/5 1,2,3 * * *",
+      "deletion_trigger": {
+         "delete_after": 20,
+        "delete_over_count": 1
+      },
+      "name": "my-policy-plan"
+    }'
+```
+{: codeblock} 
 
 ## Backup policy statuses
 {: #backup-policy-statuses}
@@ -274,4 +367,4 @@ When a backup is created, an event is triggered in Activity Tracker. For more in
 
 * [Apply tags to your resources for backups](/docs/vpc?topic=vpc-backup-use-policies)
 * [Create additional backup policies](/docs/vpc?topic=vpc-backup-policy-create&interface=ui)
-* [Restore a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore)
+* [Restore a volume from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore)

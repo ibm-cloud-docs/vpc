@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-22"
+lastupdated: "2022-04-29"
 
-keywords: storage, backup, virtual private cloud
+keywords:
 
 subcollection: vpc
 
@@ -17,7 +17,7 @@ subcollection: vpc
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
-{:beta: .beta}
+{:preview: .preview}
 {:table: .aria-labeledby="caption"}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
@@ -25,14 +25,14 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Applying backup policies to resources using tags (Beta)
+# Applying backup policies to resources using tags
 {: #backup-use-policies}
 
 Apply backup policies by adding tags to new or existing block storage volumes. When these tags match a backup policy tag, a backup is created.
 {: shortdesc}
 
-This service is available only to accounts with special approval to preview this beta feature. Contact your IBM Support if you are interested in getting access.
-{: beta}
+This service is available only to accounts with special approval to preview this feature. Contact your IBM Support if you are interested in getting access.
+{: preview}
 
 ## General procedure
 {: #backup-gen-proc-tags}
@@ -43,7 +43,7 @@ This service is available only to accounts with special approval to preview this
 
 3. Verify that your block storage volume is associated with a backup policy. For more information, see [View a list of volumes that have a backup policy](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-vol-backup-policies).
 
-## Applying tags to block storage volumes using the UI
+## Applying tags to block storage volumes with the UI
 {: #backup-apply-tags-ui}
 {: ui}
 
@@ -105,7 +105,7 @@ Profile                                general-purpose
 Encryption key                         -   
 Encryption                             provider_managed   
 Resource group                         Default   
-Created                                2022-02-22T11:42:22.287+05:30   
+Created                                2022-04-28T11:42:22.287+05:30   
 Zone                                   us-south-1   
 Volume Attachment Instance Reference   -   
 Active                                 false   
@@ -124,7 +124,7 @@ To apply tags to a block storage volume, follow these steps:
 
    ```curl
    curl -sSL -D GET\
-   "https://us-south.iaas.cloud.ibm.com/v1/volumes/{volume_id}?version=2022-02-22&generation=2"\
+   "https://us-south.iaas.cloud.ibm.com/v1/volumes/{volume_id}?version=2022-04-25&generation=2"\
    -H "Authorization: Bearer $TOKEN" -o /dev/null
    ```
    {: pre}
@@ -133,7 +133,7 @@ To apply tags to a block storage volume, follow these steps:
 
    ```text
    HTTP/2 200
-   date: Mon, 21 Feb 2022 17:48:03 GMT
+   date: Tue, 28 Apr 2022 17:48:03 GMT
    content-type: application/json; charset=utf-8
    content-length: 1049
    cf-ray: 69903d250c4966ef-DFW
@@ -151,7 +151,7 @@ To apply tags to a block storage volume, follow these steps:
    ```
    {: codeblock}
 
-2. Make a `PATCH /volumes/{volume_id}` request. Specify the _Etag-hash-string_ for the `If-Match` property in the header. In the data section, specify the user tags in the `user_tags` property.
+2. Make a `PATCH /volumes/{volume_id}` request. Specify the _Etag-hash-string_ for the `If-Match` property in the header. Specify the user tags in the `user_tags` property.
 
    You can also add tags when making a `POST /volumes` call to create a new volume and specifying the `user_tags` property.
    {: tip}
@@ -160,7 +160,7 @@ To apply tags to a block storage volume, follow these steps:
 
    ```curl
    curl -X PATCH\
-   "$vpc_api_endpoint/v1/volumes/50fda9c3-eecd-4152-b473-a98018ccfb10?version=2022-02-22&generation=2"\
+   "$vpc_api_endpoint/v1/volumes/50fda9c3-eecd-4152-b473-a98018ccfb10?version=2022-04-25&generation=2"\
       -H "Authorization: Bearer"\
       -H "If-Match: <_Etag-hash-string_>"\
       -d `{
@@ -198,7 +198,7 @@ To apply tags to a block storage volume, follow these steps:
          "name":"Default"
       },
       "volume_attachments":[],
-      "created_at":"2022-02-22T17:46:17.000Z",
+      "created_at":"2022-04-28T17:46:17.000Z",
       "status_reasons":[],
       "active":false,
       "busy":false,
@@ -214,6 +214,6 @@ To apply tags to a block storage volume, follow these steps:
 ## Next steps
 {: #backup-next-steps-use}
 
-* [Manage your backup policies and plans](/docs/vpc?topic=vpc-backup-service-manage)
-* [Create additional backup policies](/docs/vpc?topic=vpc-backup-policy-create&interface=ui)
-* [Restore a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore)
+* [Manage your backup policies and plans](/docs/vpc?topic=vpc-backup-service-manage).
+* [Create additional backup policies](/docs/vpc?topic=vpc-backup-policy-create&interface=ui).
+* [Restore a volume from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).

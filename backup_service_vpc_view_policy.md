@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-03-22"
+lastupdated: "2022-04-29"
 
-keywords: storage, backup, virtual private cloud, block storage, volumes
+keywords:
 
 subcollection: vpc
 
@@ -18,7 +18,7 @@ subcollection: vpc
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
-{:beta: .beta}
+{:preview: .preview}
 {:table: .aria-labeledby="caption"}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
@@ -26,22 +26,22 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Viewing backup policies (Beta)
+# Viewing backup policies
 {: #backup-view-policies}
 
 Use the UI, CLI, or API to a list and view all backup policies you created for your block storage volumes. Look at details of individual policies.
 {: shortdesc}
 
-This service is available only to accounts with special approval to preview this beta feature. Contact your IBM Support if you are interested in getting access.
-{: beta}
+This service is available only to accounts with special approval to preview this feature. Contact IBM Support if you're interested in getting access.
+{: preview}
 
-## View backup policies using the UI
+## View backup policies with the UI
 {: #backup-view-ui}
 {: ui}
 
 List all backup policies and view details of a specific policy.
 
-### List all backup policies using the UI
+### List all backup policies with the UI
 {: #backup-list-all-policies}
 
 List all backup policies you created for volumes in your account for the selected region.
@@ -56,10 +56,12 @@ Table 1 describes the information on the Backup policy list page. The default re
 | Status | Current status of the policy, such as _Stable_. For a list of policy statuses, see [Backup policy statuses](/docs/vpc?topic=vpc-backup-service-manage#backup-policy-statuses) |
 | Applied resources | Number of block storage volumes being backed up by the policy. The number of volumes is a link that takes you to a [list of volumes](#backup-view-vol-backup-policies) applied to the policy. |
 | Tags for target resources | Tags for target block storage volumes you are backing up. |
-| Actions menu | Click the icon (...) for additional actions (for Beta, Delete). |
+| Last run time | The most recent time a job ran for the backup policy. If blank, there are no applied resources for a job to run. |
+| Created at | Date and time the backup created. |
+| Actions menu | Click the icon (...) for additional actions. These include restore and delete. |
 {: caption="Table 1. Backup policy list view" caption-side="top"}
 
-### View details of a backup policy using the UI
+### View details of a backup policy with the UI
 {: #backup-view-policy}
 
 1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Backup policies**. By default, the Overview tab is selected.
@@ -70,19 +72,18 @@ Table 1 describes the information on the Backup policy list page. The default re
 |-------|-------|
 | Actions | Actions on this policy: Add auditing and Delete. |
 | **Policy details** | |
-| Name | Click on the name of a policy to see it details. |
+| Name | Name of the backup policy. Click the pencil icon to edit. |
 | Resource group | [Resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups) for the block storage volume. |
 | Location | Policies for the selected region. |
 | Created | Date the policy was created. |
 | CRN | Cloud resource name of the policy. |
 | ID | Backup policy ID. |
-| Tags for target resources | Tags for target block storage volumes that you are backing up. For information, see [Applying backup policies to resources using tags](/docs/vpc?topic=vpc-backup-use-policie). |
-| **Plan** | |
-| Plan name | Unique name for the plan. |
+| Tags for target resources | User tags that when applied to any block storage volumes will create a backup.  Click the pencil icon to add more tags. For more information, see  [Edit tags for target resources](docs/vpc?topic=vpc-backup-service-manage&interface=ui#backup-edit-tags).  See also [Applying backup policies to resources using tags](/docs/vpc?topic=vpc-backup-use-policies). |
+| **Plan** | Show the plan name, retention policy, and plan status. Optionally, click **Create** to add additional plans for an existing policy. |
+| Plan name | Unique name for the plan. Expand to see plan details, status, and tags associated with this plan. |
 | Retention | Period you set for the plan to be in effect, for example, 30 days. |
-| Copy tags from source | Shows _enabled_ when tags are copied from the source volume. |
-| Tags for backups | Tags applied to all backups created by the policy. |
-| Settings icon | Plan settings. |
+| Status | Plan status. Shows `enabled` for an active plan. |
+| Actions menu | Edit or delete a plan. Let's you change the name and plan details such as retention, or delete a plan. For more information, see [Edit or delete a backup plan with the UI](/docs/vpc?topic=vpc-backup-service-manage&interface=ui). |
 {: caption="Table 2. Backup policy details" caption-side="top"}
 
 ### View a list of volumes that have a backup policy
@@ -103,17 +104,18 @@ Information about the volumes include the volume name, status, volume size, and 
 
 | Field | Description |
 |-------|-------------|
-| Name | Click the name of the volume to see individual volume details. |
+| Name | Name of the volume. Click the pencil icon to edit. |
 | Status | [Status of the volume](/docs/vpc?topic=vpc-managing-block-storage#status). |
 | Size | Size of the volume in GBs.|
 | Encryption | [IBM-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-provider-managed-encryption) or [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption). |
 | Add volume | Add a volume to this policy. The informational side panel provides a list of tags for target resources you can apply to the volume, and a link to the go to a [list of block storage volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui). You must apply at least one of the policy's tags for target resources to the volume. |
 {: caption="Table 3. List of block storage volumes for the backup policy" caption-side="top"}
 
-You can also view a more detailed list of all block storage volumes in your account region, including user tags applied to the volume. For more information, see [View information about all block storage volumes using the UI](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui).
+You can also view a more detailed list of all block storage volumes in your account region, including user tags applied to the volume. For more information, see [View information about all block storage volumes with the UI](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui).
 
 When you click on a volume name to see the details, you need administrator privileges to access the information.
 {: note}
+
 
 ## View backup policies from the CLI
 {: #backup-view-cli}
@@ -158,7 +160,7 @@ ibmcloud is backup-policy ac2a8be2-aa99-4571-baed-c3ec63a64ce7
 Getting backup policy ac2a8be2-aa99-4571-baed-c3ec63a64ce7 under account VPC1 as user myuser@mycompany.com...
                           
 ID                     ac2a8be2-aa99-4571-baed-c3ec63a64ce7   
-Name                   pooja-bkp-policy   
+Name                   bkp-policy-1
 CRN                    crn:v1:staging:public:is:us-south:a/2d1bace7b46e4815a81e52c6ffeba5cf::backup-policy:r134-ac2a8be2-aa99-4571-baed-c3ec63a64ce7   
 Status                 stable   
 Plans                  ID                                     Name              Resource type      
@@ -167,7 +169,7 @@ Plans                  ID                                     Name              
 Backup tags            env:dev   
 Backup resource type   volume   
 Resource group         Default   
-Created                2022-02-21T17:56:53+05:30 
+Created                2022-04-28T17:56:53+05:30 
 ```
 {: screen}
 
@@ -175,9 +177,6 @@ Created                2022-02-21T17:56:53+05:30
 {: #backup-view-plans-cli}
 
 Run the `ibmcloud is backup-policy-plans` and specify the either the policy ID or policy name to see all plans created for this policy. This example specifies the policy ID.  The backup plan uses a CRON expression to schedule backups.
-
-For Beta, you can have one plan per policy.
-{: note}
 
 ```text
 ibmcloud is backup-policy-plans POLICY_ID|POLICY_NAME [--output JSON] [-q, --quiet]
@@ -190,7 +189,8 @@ For example,
 ibmcloud is backup-policy-plans ac2a8be2-aa99-4571-baed-c3ec63a64ce7                 
 Listing plans of backup policy ac2a8be2-aa99-4571-baed-c3ec63a64ce7 under account VPC1 as user myuser@mycompany.com...
 ID                                     Name         Active   Lifecycle State   Cron specification   Delete after days   
-361ed7f8-ee19-4c74-86c1-e3aafcac8a0d   bkp-plan-1   true     stable            0 1,2,3 * * *        30      
+361ed7f8-ee19-4c74-86c1-e3aafcac8a0d   bkp-plan-1   true     stable            0 1,2,3 * * *        30     
+ea79b2ce-5b7a-463e-8356-fb2558531945   bkp-plan-2   true     stable            0 1,2,3 * * *        20   
 ```
 {: screen}
 
@@ -218,7 +218,7 @@ Tag                  -
 Copy tags            true   
 Cron specification   0 1,2,3 * * *   
 Delete after days    30   
-Created              2022-02-21T17:56:53+05:30 
+Created              2022-04-28T17:56:53+05:30 
 ```
 {: screen}
 
@@ -233,7 +233,7 @@ Make a `GET /backup_policies/{backup_policy_id}` request to show details of a ba
 
 ```curl
 curl -X GET\
-"$vpc_api_endpoint/v1/backup_policies/fb721535-2cc6-45d6-ade7-3ceb95b7f26f?version=2022-02-22&generation=2"\
+"$vpc_api_endpoint/v1/backup_policies/fb721535-2cc6-45d6-ade7-3ceb95b7f26f?version=2022-05-03&generation=2"\
    -H "Authorization: $iam_token"
 ```
 {: codeblock}
@@ -242,7 +242,7 @@ A successful response looks like this:
 
 ```text
 {
-  "created_at": "2022-02-22T23:29:55.833Z",
+  "created_at": "2022-05-04T23:29:55.833Z",
   "crn": "crn:v1:bluemix:public:is:us-south:a/123456::backup-policy:fb721535-2cc6-45d6-ade7-3ceb95b7f26f",
   "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/fb721535-2cc6-45d6-ade7-3ceb95b7f26f",
   "id": "fb721535-2cc6-45d6-ade7-3ceb95b7f26f",
@@ -278,11 +278,11 @@ A successful response looks like this:
 ### List all plans for a backup policy with the API
 {: #backup-view-plans-api}
 
-Make a `GET /backup_policies/{backup_policy_id}/plans` request to list plans associated for a backup policy. For Beta, you can have one plan per policy.
+Make a `GET /backup_policies/{backup_policy_id}/plans` request to list plans associated for a backup policy. YOU can have up to four plans per policy.
 
 ```curl
 curl -X GET\
-"$vpc_api_endpoint/v1/backup_policies/fb721535-2cc6-45d6-ade7-3ceb95b7f26f/plans?version=2022-02-22&generation=2"\
+"$vpc_api_endpoint/v1/backup_policies/{backup_policy_id}/plans?version=2022-05-03&generation=2"\
    -H "Authorization: $iam_token"
 ```
 {: codeblock}
@@ -298,7 +298,7 @@ A successful response looks like this:
         "my-daily-backup-plan"
       ],
       "copy_user_tags": true,
-      "created_at": "2022-02-22T00:45:28.421Z",
+      "created_at": "2022-05-04T00:45:28.421Z",
       "cron_spec": "*/5 1,2,3 * * *",
       "deletion_trigger": {
         "delete_after": 20
@@ -317,13 +317,14 @@ A successful response looks like this:
 To retrieve information about a single plan, specify the plan ID in the request:
 
 ```curl
-curl -X GET "$vpc_api_endpoint/v1/backup_policies/{backup_policy_id}/plans/{plan_id}?version=2022-02-22&generation=2"
+curl -X GET "$vpc_api_endpoint/v1/backup_policies/{backup_policy_id}/plans/{plan_id}?version=2022-05-03&generation=2"
 ```
 {: codeblock}
+
 
 ## Next steps
 {: #backup-view-next-steps}
 
 * [Apply tags to your resources for backups](/docs/vpc?topic=vpc-backup-use-policies).
 * [Manage your backup policies and plans](/docs/vpc?topic=vpc-backup-service-manage).
-* [Restore a volume from a backup](/docs/vpc?topic=vpc-snapshots-vpc-restore).
+* [Restore a volume from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).
