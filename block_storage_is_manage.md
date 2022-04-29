@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-02-10"
+lastupdated: "2022-04-25"
 
-keywords: block storage, virtual private cloud, boot volume, data volume, volume, backup, data storage, virtual server instance, instance
+keywords:
 
 subcollection: vpc
 
@@ -30,7 +30,7 @@ subcollection: vpc
 # Managing block storage volumes
 {: #managing-block-storage}
 
-Use the UI, CLI, or API to manage your block storage volumes. Detach a volume from a virtual server instance or transfer a volume from one instance to another. Attach a previously attached volume or rename a volume. Set automatic volume deletion or manually delete a volume. Assign access to a volume. Access volume read/write metrics for monitoring performance.
+Use the UI, CLI, or API to manage your block storage volumes. Detach a volume from a virtual server instance or transfer a volume from one instance to another. Attach a previously attached volume or rename a volume. Set automatic volume deletion or manually delete a volume. Assign access to a volume. Access volume read/write metrics for monitoring performance. Apply user tags associated with a backup policy to a volume to create automated backups.
 {: shortdesc}
 
 ## Manage block storage volumes in the UI
@@ -135,6 +135,36 @@ Alternatively, select a data volume from the list of block storage volumes (**St
 
 You can also enable Auto Delete on a new data volume when you create an instance. For information, see [Create and attach a block storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi).
 
+### Apply tags associated with a backup policy to a volume using the UI
+{: #apply-tags-volumes-ui}
+
+You can apply user tags associated with a backup policy to a block storage volume. Backup policies schedule automatic creation of backup snapshots. When one volume tag matches a backup policy tag for target resources, it triggers a backup of the volume contents. A backup policy defines a backup plan that schedules when backup snapshots are taken. 
+
+
+From the [volume details](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-vol-details-ui) page, you can view backup policies applied to the volume and add user tags associated with a backup policy.
+
+1. Navigate to the list of block storage volumes. In [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
+
+2. Locate the volume you want and click the name link.
+
+3. From the block storage volumes details page, click the **Backup policies** tab.
+
+4. Click **Attach**.
+
+5. In the side panel, select a backup policy from the drop down menu, and then select the policy tags to apply to the volume. You can also view the plan details that will help you decide whether to use that policy. 
+
+6. Click **Apply policy and tags**. The backup policy shows in the list of backup policies associated with the volume.
+
+You can also add tags to a volume in the following ways:
+
+* From the [volume details](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-vol-details-ui) page, click the pencil icon.
+
+* From the list of all [Block storage for VPC volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui), select a volume and click **Add tags**. In the Add tags dialog box, enter a new tag and click **Save**.
+
+When you go to the [backup policy page](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-vol-backup-policies), the volume for which you added tags shows up in the list of volumes.
+
+For information about creating backups, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-about). For more information about user tags, see [Working with tags](/docs/account?topic=account-tag).
+
 ## Manage block storage volumes from the CLI
 {: #managing-block-storage-cli}
 {: cli}
@@ -166,7 +196,7 @@ Profile                                 5iops-tier
 Encryption Key                          -
 Encryption                              provider-managed
 Status                                  available
-Created                                 2022-02-22 10:09:28
+Created                                 2022-04-22 10:09:28
 Resource Group                          Default(c16d1edde3fd4a71a0130aed371405a0)
 Zone                                    us-south-2
 Resource Group                          Default(c16d1edde3fd4a71a0130aed371405a0)
@@ -246,7 +276,7 @@ Manage your block storage volumes programically by making calls to the [VPC REST
 Make a `PATCH /volumes/{id}` call and specify a new name for the volume.
 
 ```curl
-curl -X PATCH "$vpc_api_endpoint/v1/volumes?version=2022-02-22&generation=2" \
+curl -X PATCH "$vpc_api_endpoint/v1/volumes?version=2022-04-22&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
       "name": "my-volume-4-update"
@@ -259,7 +289,7 @@ A successful response looks like the following example:
 ```text
 {
   "capacity": 50,
-  "created_at": "2022-02-22T23:16:53.000Z",
+  "created_at": "2022-04-22T23:16:53.000Z",
   "crn": "crn:[...]",
   "encryption": "user_managed",
   "encryption_key": {
@@ -300,7 +330,7 @@ PATCH /instances/{instance_id}/volume_attachments/{id}
 {: pre}
 
 ```curl
-curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments/$volume_attachment_id?version=2022-02-22&generation=2" \
+curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments/$volume_attachment_id?version=2022-04-22&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
       "delete_volume_on_instance_delete": false,
@@ -313,7 +343,7 @@ A successful response looks like the following example:
 
 ```text
 {
-  "created_at": "2022-02-22T16:35:47.000Z",
+  "created_at": "2022-04-22T16:35:47.000Z",
   "delete_volume_on_instance_delete": false,
   "href": "https://us-south.iaas.cloud.ibm.com/v1/instances/8f06378c-ed0e-481e-b98c-9a6dfbee1ed5/volume_attachments/9f2a645e-19c1-4f8f-b062-46b9e0671999",
   "id": "9f2a645e-19c1-4f8f-b062-46b9e0671999",
@@ -342,7 +372,7 @@ DELETE /instances/{instance_id}/volume_attachments/{id}
 {: pre}
 
 ```curl
-curl -X DELETE "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments/$volume_attachment_id?version=2022-02-22&generation=2" \
+curl -X DELETE "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments/$volume_attachment_id?version=2022-04-22&generation=2" \
 -H "Authorization: $iam_token"
 
 ```
@@ -351,34 +381,26 @@ curl -X DELETE "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments/$
 Verify that the volume is detached from the instance by making a `GET /instances/{instance_id}`
 call.
 
-### Delete a block storage volume by using the API
+### Delete a block storage volume from the API
 {: #delete-vol-api
 
 Make a `DELETE /volumes/{id}` call. 
 
 ```curl
-curl -X DELETE "$vpc_api_endpoint/v1/volumes/$volume_id?version=2022-02-22&generation=2" \
+curl -X DELETE "$vpc_api_endpoint/v1/volumes/$volume_id?version=2022-04-22&generation=2" \
 -H "Authorization: $iam_token"
 ```
 {: pre}
 
 To verify that the volume is deleted, list the volumes by making a `GET /volumes` call.
 
-## Add tags to block storage volumes for backup policies
-{: #block-storage-add-tags}
 
-You can add tags to associate a volume with a backup policy. Backup policies schedule automatic creation of backup snapshots. When one volume tag matches a backup policy tag, it triggers creation of a backup snapshot. A backup policy defines a backup plan that schedules when backup snapshots are taken. For information about creating backups, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-about). For more information about tags, see [Working with tags](/docs/account?topic=account-tag).
+### Apply tags associated with a backup policy to a volume from the API
+{: #block-storage-add-tags-api}
 
-Backup for VPC Beta is only available to accounts authorized to preview the feature.
-{: note}
+To add user tags to a volume, you first make a `GET /volumes/{volume_id}` call and copy the hash string from `Etag` property in the response header. You then use the hash string when you specify `If-Match` in a `PATCH /volumes/{volume_id}` request to create new user tags.
 
-You can add tags to a volume in the following ways:
-
-* From the [volume details](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-vol-details-ui) page, click the pencil icon 
-
-* From the list of all [Block storage for VPC volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui), select a volume and click **Add tags**. In the Add tags dialog box, enter a new tag and click **Save**.
-
-When you go to the [backup policy page](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-vol-backup-policies), the volume for which you added tags shows up in the list of volumes.
+For more information and examples, see [Apply tags to block storage volumes](/docs/vpc?topic=vpc-backup-use-policies&interface=api#backup-apply-tags-volumes-api) in the VPC backup service documentation.
 
 ## Access volume read/write metrics
 {: #block-storage-metrics}
@@ -439,6 +461,13 @@ To see these metrics in the UI:
 4. Select a volume to see its read or write metrics. Figure 1 shows this view.
 
 ![Figure showing volume metrics.](/images/volume-read-write-metrics.png "Figure showing volume read/write metrics."){: caption="Figure 1. Read/write metrics for block storage volumes." caption-side="bottom"}
+
+## Volume performance when restoring from a snapshot
+{: #block-vol-restore-snap}
+
+Boot and data volume performance is initially degraded when restoring from a snapshot. During the restoration, your data is copied from IBM COS to Block Storage for VPC. After the restoration process has completed, you should realize full IOPS on your new volume.
+
+Restoring a boot volume from a "bootable" snapshot and then using it to provision a new instance will exhibit slower performance because restored boot volume is not yet fully hydrated (that is, fully provisioned). Performance will be slower than creating an instance from a regular boot volume.
 
 ## Block storage volume status
 {: #status}
