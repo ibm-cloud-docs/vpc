@@ -1,18 +1,17 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-09-07"
+  years: 2019, 2022
+lastupdated: "2022-04-25"
 
-keywords: block storage, VPC, virtual private cloud, boot volume, data volume, volume, data storage, VSI, virtual server instance, instance, IOPS
+keywords:
 
 subcollection: vpc
-
 
 ---
 
 {:shortdesc: .Shortdesc}
-{: codeblock: .codeblock}
+{:codeblock: .codeblock}
 {:screen: .screen}
 {:external: target="_blank" .external}
 {:pre: .pre}
@@ -27,10 +26,8 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-
 # Creating block storage volumes 
 {: #creating-block-storage}
-[comment]: # (linked help topic)
 
 Create a block storage volume by using the UI, CLI, or programically with the API. You can create a volume as part of instance provisioning, or as a stand-alone volume that you can later attach to an instance.
 {: shortdesc}
@@ -38,7 +35,7 @@ Create a block storage volume by using the UI, CLI, or programically with the AP
 Before you get started, make sure that you [created a VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
 {: important}
 
-## Creating block storage volumes by using the UI
+## Creating block storage volumes in the UI
 {: #creating-block-storage-ui}
 {: ui}
 
@@ -49,9 +46,9 @@ Use the {{site.data.keyword.cloud_notm}} console to create a block storage volum
 {: help}
 {: support}
 
-1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
 
-Be sure to select VPC infrastructure from the Menu icon.  
+Be sure to select VPC infrastructure from the menu icon.  
 {: tip}
 
 1. Click **New instance** and enter the information in Table 1.
@@ -70,20 +67,20 @@ Be sure to select VPC infrastructure from the Menu icon.
 | | **Note:** Alpha-numeric combinations are limited to 100 characters. |
 | | For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | User data | You can add user data that automatically performs common configuration tasks or runs scripts. For more information, see [User data](/docs/vpc?topic=vpc-user-data). |
-| Boot volume | The default boot volume size for all profiles is 100 GB. If you are importing a custom image, the boot volume capacity can be 10 GB to 250GB, depending on what the image requires. (Images smaller than 10 GB are rounded up to 10 GB.) Boot volumes are encrypted by default using IBM-managed encryption. You can change the encryption method to customer-managed encryption and use your own root keys. For information, see [Provisioning virtual server instances customer-managed encryption volumes in the UI](/docs/vpc?topic=vpc-creating-instances-byok#provision-byok-ui). |
-| Attached block storage volume | You can add one or more secondary data volumes to be included when you provision the instance. To add a a volume, click **New block storage volume** and specify the information in Table 2. When finished, click **Create volume**. |
+| Boot volume | The default boot volume size for all profiles is 100 GB. If you are importing a custom image, the boot volume capacity can be 10 GB to 250 GB, depending on what the image requires. (Images smaller than 10 GB are rounded up to 10 GB.) Boot volumes are encrypted by default by using an IBM-managed encryption. You can change the encryption method to customer-managed encryption and use your own root keys. For information, see [Provisioning virtual server instances customer-managed encryption volumes in the UI](/docs/vpc?topic=vpc-creating-instances-byok#provision-byok-ui). |
+| Attached block storage volume | You can add one or more secondary data volumes to be included when you provision the instance. To add a volume, click **New block storage volume** and specify the information in Table 2. When finished, click **Create volume**. |
 | Network interfaces | Assign networking options to connect into the IBM Cloud VPC. You can create and assign up to five network interfaces to each instance. |
-{: caption="Table 1. Virtual Server Instance provisioning selections" caption-side="top"}
+{: caption="Table 1. Virtual Server Instance provisioning selections" caption-side="bottom"}
 
 | Field | Value |
 |-------|-------|
 | Name  | Specify a unique, meaningful name for your volume, for example, a name that describes your compute or workload function. The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want. Volume names must be unique the entire VPC infrastructure. |
 | Profile | Select [Tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) and select the performance level that you require from the IOPS list. If your performance requirements don't fall within a predefined IOPS tier, select [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) and select an IOPS value within the range for that volume size. Click the **storage size** link to see a table of size and IOPS ranges. |
 | Auto Delete | Enable this feature to automatically delete this volume when the attached virtual server instance is deleted. You can change this setting later on the virtual server details page. |
-| IOPS | Select 3, 5, or 10 IOPS/GB for a Tiered profile |
-| Size | Enter a volume size in GBs. Volume sizes can be between 10 GB and 16,000 GB. |
+| IOPS | Select 3, 5, or 10 IOPS/GB for a Tiered profile. |
+| Size | Enter a volume size in GBs. Volume sizes can be 10 - 16,000 GB. |
 | Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also choose **Customer Managed** and use your own encryption key. For a one-time set-up procedure, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs). |
-{: caption="Table 2. Block storage volume values specified when provisioning an instance" caption-side="top"}
+{: caption="Table 2. Block storage volume values specified when provisioning an instance." caption-side="bottom"}
 
 A block storage volume is created and attached to the virtual server instance. On the instance details page, the **Attached block storage volumes** list is updated to show the new volume.
 
@@ -96,9 +93,9 @@ A block storage volume can be attached to only one virtual server at a time. On 
 
 You can create a block storage volume independent of virtual server provisioning and attach the volume to an instance later.
 
-1.  [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
+1.  [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
 
-Be sure to select VPC infrastructure from the Menu icon.
+Be sure to select VPC infrastructure from the menu icon.
 {: tip}
 
 1. Select **New volume**.
@@ -109,22 +106,20 @@ Be sure to select VPC infrastructure from the Menu icon.
 | Field | Value |
 |-------|-------|
 | Name  | Specify a meaningful name for your volume. For example, provide a name that describes your compute or workload function. The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. Volume names must be unique across the entire VPC infrastructure. You can later edit the name. |
-| Resource Group | Specify a 
-[resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups). |
+| Resource Group | Specify a [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups). |
 | Tags | Specify a tag to organize your resources. A tag is a label that you assign to a resource for easy filtering of resources in your resource list. For more information about tags, see [Working with tags](/docs/account?topic=account-tag). |
 | Location | The availability zone, inherited from the VPC (for example, Dallas-1). You can select a different zone in your location from the dropdown menu. |
-| Size | Enter a volume size in GBs. Volume sizes can be between 10 GB - 16,000 GB. |
+| Size | Enter a volume size in GBs. Volume sizes can be 10 - 16,000 GB. |
 | IOPS | Select [IOPS Tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) and then select the tile with performance level you require. |
 | | Select [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) to specify a custom IOPS value based on the size of the volume you're creating. Click the **storage size** link to see a table of size and IOPS ranges. For more information, see [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom). |
 | Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also choose **Customer Managed** and use [your own encryption key](/docs/vpc?topic=vpc-block-storage-vpc-encryption). |
-{: caption="Table 3. Values for defining a block storage volume" caption-side="top"}
+{: caption="Table 3. Values for defining a block storage volume" caption-side="bottom"}
 
-
-## Create block storage volumes by using the CLI
+## Create block storage volumes from the CLI
 {: #creating-block-storage-cli}
 {: cli}
 
-You can create  block storage volumes by using the command line interface (CLI).
+You can create  block storage volumes by using the command-line interface (CLI).
 
 ### Before you begin
 {: #before-creating-block-storage-cli}
@@ -135,46 +130,54 @@ You can create  block storage volumes by using the command line interface (CLI).
    
 3. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli#create-a-vpc-cli).
 
-
-### Create a block storage volume by using the CLI
+### Create a block storage volume from the CLI
 {: #create-vol-cli}
 {: help}
 {: support}
 
 Run the following command to create a block storage volume. Provide a volume name, profile name, and the name of the availability zone in your region. For information about block storage profiles, see [Profiles](/docs/vpc?topic=vpc-block-storage-profiles). Optional parameters are shown in brackets.
 
-```
-$ ibmcloud is volume-create VOLUME_NAME PROFILE_NAME ZONE_NAME [--capacity CAPACITY] [--iops IOPS] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--json]
+```zsh
+ibmcloud is volume-create VOLUME_NAME PROFILE_NAME ZONE_NAME [--capacity CAPACITY] [--iops IOPS] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--user-tags  TAG_NAME1,TAG_NAME2,...] [--json]
 ```
 {: pre}
 
 Example:
 
 ```bash
-$ ibmcloud is volume-create demovolume1 custom us-south-1 --iops 1000
+$ ibmcloud is volume-create demovolume1 custom us-south-1 --capacity 500 --iops 3000 --user-tags env:test,env:prod
 Creating volume demovolume1 in resource group Default under account VPC 01 as user rtuser1@mycompany.com...
-ID                                      584ab34a-6d25-4226-a5a4-4c6c8aa9186d
-Name                                    demovolume1
-Capacity                                100
-IOPS                                    1000
-Profile                                 custom
-Encryption Key                          -
-Encryption                              provider_managed
-Status                                  pending
-Resource Group                          Default(dbb12715c2a22f2bb60df4ffd4a543f2)
-Created                                 2021-04-24 10:09:28
-Zone                                    us-south-1
-Volume Attachment Instance Reference    none
+
+ID                                     584ab34a-6d25-4226-a5a4-4c6c8aa9186d
+Name                                   my-volume
+CRN                                    crn:[...]
+Status                                 available
+Capacity                               500
+IOPS                                   3000
+Bandwidth(Mbps)                        393
+Profile                                general-purpose
+Encryption key                         -
+Encryption                             provider_managed
+Resource group                         Default
+Created                                2022-04-07T11:42:22.287+05:30
+Zone                                   us-south-1
+Volume Attachment Instance Reference   -
+Active                                 false
+Busy                                   false
+User Tags                              env:test,env:cli
 ```
 {: screen}
 
 Capacity, indicated in megabytes, can range 10 - 16,000 GBs. If not specified, the default capacity is 100 GBs. IOPS values can be 100 - 48,000 IOPS, depending on the profile and volume size. If not specified, the IOPS value defaults to the valid configuration per volume profile. For more information, see the table of [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles#custom).
 
-The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. Volume names must be unique across the entire VPC infrastructure.
+The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter.
+Volume names must be unique across the entire VPC infrastructure.
 
-You need to specify the volume ID when you attach block storage to a virtual server instance, view block storage volume details, or delete volumes.
+Note the volume ID. You need to specify the ID when you attach block storage to a virtual server instance, view block storage volume details, or delete volumes.
 
-## Create block storage volumes from the API
+User tags are added to identify the volume resource. When these tags are matched with the tags in a backup policy, the volume is backed up according to the schedule in the backup plan. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-policy-create).
+
+## Create block storage volumes with the API
 {: #creating-block-storage-api}
 {: api}
 
@@ -188,14 +191,14 @@ Define variables for the IAM token, API endpoint, and API version. For instructi
 A good way to learn more about the API is to click **Get sample API call** on the provisioning pages in {{site.data.keyword.cloud_notm}} console. You can view the correct sequence of API requests and better understand actions and their dependencies.
 {: tip}
 
-### Create a data volume as part of instance provisioning from the API
+### Create a data volume as part of instance provisioning with the API
 {: #block-storage-create-instance-api}
 
-Make a `POST /instances` request to create an instance, and define the volume using the `volume_attachments` parameter. Specify a volume name, capacity, and profile. Also specify `generation=2` in the request.
+Make a `POST /instances` request to create an instance, and define the volume by using the `volume_attachments` parameter. Specify a volume name, capacity, and profile. Also, specify `generation=2` in the request.
 
 This example also specifies customer-managed encryption.
 
-```sh
+```curl
 curl -X POST "$vpc_api_endpoint/v1/instances?version=2021-04-06&generation=2" -H "Authorization: $iam_token" -d '{
   "boot_volume_attachment": {
     "volume": {
@@ -253,9 +256,9 @@ curl -X POST "$vpc_api_endpoint/v1/instances?version=2021-04-06&generation=2" -H
 ```
 {: pre}
 
-A successful response will look like this:
+A successful response looks like this:
 
-```
+```json
 {
   "bandwidth": 4000,
   "boot_volume_attachment": {
@@ -387,14 +390,14 @@ A successful response will look like this:
 {: codeblock}
 
 
-### Create a stand-alone block storage volume from the API
+### Create a stand-alone block storage volume with the API
 {: #block-storage-create-vol-api}
 
-Make a `POST /volumes` request to create a volume. Specify a name, IOPS, capacity, the profile, and zone.  Also specify `generation=2` in the request.
+Make a `POST /volumes` request to create a volume. Specify a name, IOPS, capacity, the profile, and zone.  Also, specify `generation=2` in the request.
 
 This example also specifies customer-managed encryption and a resource group.
 
-```sh
+```curl
 curl -X POST "$vpc_api_endpoint/v1/volumes?version=2021-04-06&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
@@ -417,9 +420,9 @@ curl -X POST "$vpc_api_endpoint/v1/volumes?version=2021-04-06&generation=2" \
 ```
 {: pre}
 
-A successful response will look like this:
+A successful response looks like this:
 
-```
+```json
 {
   "capacity": 50,
   "created_at": "2021-04-06T23:16:53.000Z",
@@ -459,8 +462,7 @@ When you refresh the Block storage volumes page, the new volume appears at the b
 
 You can continue creating more block storage volumes or manage existing volumes.
 
-* [View details about a block storage volume](/docs/vpc?topic=vpc-viewing-block-storage)
-* [Detach a volume from a virtual server instance](/docs/vpc?topic=vpc-managing-block-storage#detach)
-* [Delete a block storage volume](/docs/vpc?topic=vpc-managing-block-storage#delete)
-
+* [View details about a block storage volume.](/docs/vpc?topic=vpc-viewing-block-storage)
+* [Detach a volume from a virtual server instance.](/docs/vpc?topic=vpc-managing-block-storage#detach)
+* [Delete a block storage volume.](/docs/vpc?topic=vpc-managing-block-storage#delete)
 
