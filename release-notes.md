@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-04-18"
+lastupdated: "2022-04-29"
 
 keywords:
 
@@ -27,6 +27,23 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 ## April 2022
 {: #vpc-apr22}
 
+### 29 April 2022
+{: #vpc-april2922}
+{: release-note}
+
+Backup for VPC (LA)
+:    Accounts authorized to preview this service can create backup policies and plans to automatically back up block storage volumes. Backup policies control which source volumes are selected for backup by matching user tags in the volume with tags defined in the backup policy. Policies can contain up to four backup plans, which specify how often backup snapshots are taken (daily, weekly, monthy, or using a `cron-spec`) and retained (by date or by count). You can also view backup jobs, which shows status of backup snapshots being created or deleted. This release also provides new functionality for restoring volumes from backup snapshots. For information about this service, see [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about) concepts.
+
+### 28 April 2022
+{: #vpc-april2822}
+{: release-note}
+
+UI Updates
+:   The following UI updates were made:
+    - The custom image details information was moved from the side panel to a separate custom image details page.
+    - Previously, when you changed the region or zone while you provision a virtual server instance, you had to click either Save or Cancel to continue. This behavior was changed and you don't need to make that selection when you change the region or zone.
+    - You can now delete the virtual server instance without manually unbinding the floating IP address. When you delete the virtual server instance, the floating IP address is now automatically unbound before the virtual server instance is deleted. This UI change now matches how the virtual server instance is deleted when you use the CLI or API.
+    - 
 ### 11 April 2022
 {: #vpc-april1122}
 {: release-note}
