@@ -1,31 +1,23 @@
 ---
 
 Copyright:
-  years: 2019, 2020
-lastupdated: "2021-11-18"
+  years: 2019, 2022
+lastupdated: "2022-04-29"
 
-keywords: block storage, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, planning, best practices
+keywords:
 
 subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:important: .important}
-{:new_window: target="_blank"}
-{:tip: .tip}
-{:note: .note}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
+{{site.data.keyword.attribute-definition-list}}
 
 
 # Planning data encryption
 {: #vpc-encryption-planning}
 
 When you're planning a data encryption strategy for your {{site.data.keyword.block_storage_is_short}} volumes, file shares, or custom images, you might find this checklist helpful to choose and set up your data encryption service.
-{:shortdesc}
+{: shortdesc}
 
 ## Planning for data encryption
 {: #planning-for-data-encryption}
@@ -39,7 +31,7 @@ Consider the following prerequisites before you set up data encryption for your 
 |__ Choose the UI, CLI, or API for provisioning customer-managed encryption. |
 |__ Evaluate which [key management service](#byok-encryption-prereqs) best meets your needs. Determine the availability of these services in your region and zone. |
 |__ When setting up authorization to the KMS, determine whether your account lets you authorize access:
-<br>For Cloud Block Storage as the [source service](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-volumes-prereqs). Lite accounts must [upgrade to a Pay-As-You-Go](/docs/account?topic=account-upgrading-account#upgrade-paygo) account or a Subscription account. For more information, see IBM Cloud [account types](/docs/account?topic=account-accounts).</br><br>For File Storage for VPC, specify VPC Infrastructure Services under (source service), check the box (Resource type), and choose File Storage for VPC and and Key Protect (target service).</br><br>For custom images, authorize between Image Service for VPC (source service) and IBM Cloud Object Storage (target service). Specify reader access for the role.</br> |
+ \n For Cloud Block Storage as the [source service](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-volumes-prereqs). Lite accounts must [upgrade to a Pay-As-You-Go](/docs/account?topic=account-upgrading-account#upgrade-paygo) account or a Subscription account. For more information, see IBM Cloud [account types](/docs/account?topic=account-accounts). \n \n For File Storage for VPC, specify VPC Infrastructure Services under (source service), check the box (Resource type), and choose File Storage for VPC and and Key Protect (target service). \n \n For custom images, authorize between Image Service for VPC (source service) and IBM Cloud Object Storage (target service). Specify reader access for the role. \n \n For all VPC Source services, do not filter by resource group. Do not select the resource group check box.|
 |__ For customer-managed encryption, consider importing or creating multiple root keys and [rotating your keys](/docs/vpc?topic=vpc-vpc-key-rotation) for greater security. |
 |__ If you're provisioning an instance with encrypted volumes, make sure that you [created a VPC](/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc). |
 |__ Decide how many secondary volumes you require and how many will use customer-managed encryption. |
@@ -59,21 +51,20 @@ Complete the following prerequisites to set up customer-managed encryption for y
 Provision a key management service (KMS) and authorize access between your VPC resource and KMS.
 
 The following steps are specific to {{site.data.keyword.keymanagementserviceshort}}, but the general flow also applies to {{site.data.keyword.hscrypto}}. If you're using {{site.data.keyword.hscrypto}}, see the [{{site.data.keyword.hscrypto}} information](/docs/hs-crypto?topic=hs-crypto-get-started) for corresponding instructions.
-{:note}
+{: note}
 
 1. Provision the [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-provision) service.
    
    Provisioning a new {{site.data.keyword.keymanagementserviceshort}} service instance ensures that it includes the most recent updates that are required for customer managed encryption of your resources.
    {: tip}
    
-2. [Create](/docs/key-protect?topic=key-protect-create-root-keys) or 
-[import](/docs/key-protect?topic=key-protect-import-root-keys) a customer root key (CRK) in
+1. [Create](/docs/key-protect?topic=key-protect-create-root-keys) or [import](/docs/key-protect?topic=key-protect-import-root-keys) a customer root key (CRK) in
 {{site.data.keyword.keymanagementservicelong_notm}}.
 
    Plan ahead for importing keys by [reviewing your options for creating and encrypting key material](/docs/key-protect?topic=key-protect-importing-keys#plan-ahead). For added security, you can enable the secure import of the key material by using an [import token](/docs/key-protect?topic=key-protect-importing-keys#using-import-tokens) to encrypt your key material before you bring it to the cloud.
    {: tip}
    
-3. From IBM {{site.data.keyword.iamshort}} (IAM), [authorize access](/docs/account?topic=account-serviceauth#serviceauth) between Cloud Block Storage or Cloud File Storage (source service) and {{site.data.keyword.keymanagementserviceshort}}(target service) for volumes. For custom images, authorize between Image Service for VPC (source service) and IBM Cloud Object Storage (target service). Specify _reader_ access for the role.
+1. From IBM {{site.data.keyword.iamshort}} (IAM), [authorize access](/docs/account?topic=account-serviceauth#serviceauth) between Cloud Block Storage or Cloud File Storage (source service) and {{site.data.keyword.keymanagementserviceshort}}(target service) for volumes. For custom images, authorize between Image Service for VPC (source service) and IBM Cloud Object Storage (target service). Specify _reader_ access for the role.
 
     You might need to upgrade your account to a Pay-as-you-go account to complete this set. For more information, see[Upgrading to a Pay-As-You-Go account](/docs/account?topic=account-upgrading-account#upgrade-paygo).
     {: tip}
