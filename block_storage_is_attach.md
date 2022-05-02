@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-05-06"
+  years: 2019, 2022
+lastupdated: "2022-04-29"
 
-keywords:  block storage, block storage volume, volume, volume attachment
+keywords:
 subcollection: vpc
 
 
@@ -35,16 +35,10 @@ When you create a {{site.data.keyword.block_storage_is_short}} volume for a virt
 ## Volume attachment limits
 {: #vol-attach-limits}
 
-You can attach only one block storage volume to a virtual server instance at a time, but you can attach several different block storage volumes to a single instance. 
+You can attach only one block storage volume to a virtual server instance at a time, but you can attach up to 12 block storage data volumes to a single instance.
 
 You can't use the UI to attach block storage volumes to IKS Cluster worker nodes. For information about using the CLI to attach volumes to cluster nodes, see [Storing data on Block Storage for VPC](/docs/containers?topic=containers-vpc-block).
-{: note}
 
-The following limits also apply:
-
-* When you create a new instance, you can create and attach up to four secondary block storage volumes, plus the boot volume. 
-* For instances with less than four virtual CPUs, you can attach up to four block storage secondary volumes, plus the boot volume.
-* For instances with four or more virtual CPUs, you can initially create and attach the four secondary volumes, plus the boot volume. You can later attach up to a total of 12 block storage secondary volumes.
 
 ## Attach a block storage volume to a virtual server instance
 {: #attach}
@@ -54,7 +48,7 @@ The following limits also apply:
 
 From the list of all block storage volumes, follow these steps.
 
-1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
+1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
 1. In the list of volumes, click the ellipsis at the end of a row for an available, unattached volume to display its action menu.
 1. Select **Attach to instance**.
 1. Select a compute resource (virtual server instance) from the list of available resources, and then click **Attach**.
@@ -62,12 +56,12 @@ From the list of all block storage volumes, follow these steps.
 
 You can also attach a block storage volume from the virtual server instance details page.
 
-1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
 1. Select an instance from the list of all virtual server instances. If any block storage volumes are attached, they are listed under **Attached block storage volumes**.
 1. Select **Attach volume**.
 1. Select a volume from the list of available resources and click **Attach**. Messages display on the instance details page to indicate that the volume is being attached. When it completes, the **Attached block storage volumes** list is updated to include the new volume.
 
-## Attaching a block storage volume by using the CLI
+## Attaching a block storage volume from the CLI
 {: #attaching-block-storage-cli}
 {: cli}
 
@@ -90,14 +84,14 @@ Follow these instructions to use the CLI to attach a block storage volume to a v
 
 To attach a volume to a virtual server instance in the current resource group, run this command.
 
-```
+```text
 ibmcloud is instance-volume-attachment-add NAME INSTANCE_ID VOLUME_ID [--auto-delete true | false] [--json]
 ```
 {: pre}
 
 `NAME` is the name that you provide for the volume attachment and INSTANCE_ID is the ID of the virtual server instance.
 
-The `VOLUME_ID `specifies the volume that you are attaching.
+The `VOLUME_ID` specifies the volume that you are attaching.
 
 Specify `--auto-delete true` if you want the volume to automatically delete when the virtual server instance is deleted.
 
@@ -105,7 +99,7 @@ To see a list of available virtual server instances, run the `ibmcloud is instan
 
 Example:
 
-```
+```text
 $ ibmcloud is instances
 Listing instances under account my-account-01 as user rtuser1@mycompany.com...
 ID                                     Name                  Address          Profile   Image                            Created        Status     VPC                               Zone         Resource Group
@@ -122,7 +116,7 @@ ID                                     Name                  Address          Pr
 
 After you attach a volume, you can display details by specifying the instance ID and volume attachment ID in the `instance-volume-attachment` command.
 
-```
+```text
 ibmcloud is instance-volume-attachment INSTANCE_ID VOLUME_ATTACHMENT_ID [--json]
 ```
 {: pre}
@@ -131,22 +125,22 @@ ibmcloud is instance-volume-attachment INSTANCE_ID VOLUME_ATTACHMENT_ID [--json]
 
 Use the `instance-volume-attachments` command and specify the instance ID to see all volume attachments for an instance.
 
-```
+```text
 ibmcloud is instance-volume-attachments INSTANCE_ID [--json]
 ```
 {: pre}
 
-Do you prefer to use the {{site.data.keyword.cloud}} console? For more information, see [Attaching a block storage volume by using the UI](/docs/vpc?topic=vpc-attaching-block-storage).
+Do you prefer to use the {{site.data.keyword.cloud}} console? For more information, see [Attaching a block storage volume in the UI](/docs/vpc?topic=vpc-attaching-block-storage).
 {: tip}
 
 ### Create a volume attachment JSON
 {: #volume_attachment_json}
 
-When you provision a virtual server instance by using the CLI and create a block storage volume as part of the process, you must specify a volume attachment JSON. The volume attachment JSON, specified in the command or as a file, defines the volume parameters. When you [create an instance](/docs/vpc?topic=vpc-creating-virtual-servers-cli) and specify the `--volume-attach` parameter, you specify the volume JSON. For example, `--volume-attach @/Users/myname/myvolume-attachment_create.json`.
+When you provision a virtual server instance from the CLI and create a block storage volume as part of the process, you must specify a volume attachment JSON. The volume attachment JSON, specified in the command or as a file, defines the volume parameters. When you [create an instance](/docs/vpc?topic=vpc-creating-virtual-servers-cli) and specify the `--volume-attach` parameter, you specify the volume JSON. For example, `--volume-attach @/Users/myname/myvolume-attachment_create.json`.
 
 Here is an example volume attachment JSON file that defines a custom volume:
 
-```
+```text
 [
     {
         "name": "myvolume-attachment",
@@ -164,11 +158,11 @@ Here is an example volume attachment JSON file that defines a custom volume:
 ```
 {: codeblock}
 
-## Attaching a block storage volume from the API
+## Attaching a block storage volume with the API
 {: #attaching-block-storage-api}
 {: api}
 
-### Attach a block storage volume from the API
+### Attach a block storage volume with the API
 {: #attach-block-storage-cli}
 {: help}
 {: support}
@@ -177,14 +171,14 @@ Attach block storage volumes to an instance by directly calling the [REST APIs](
 
 Create a volume attachment for an instance to attach a block storage volume. Make a `POST /instances` call and specify `volume_attachments`. This example creates a volume attachment and specifies the volume by ID.
 
-```
+```text
 POST/instances/{instance_id}/volume_attachments
 ```
 {: pre}
 
 Example request:
 
-```
+```curl
 curl -X POST "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments?version=2021-04-20&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
@@ -199,7 +193,7 @@ curl -X POST "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments?ver
 
 A successful response indicates that the volume is attached.
 
-```
+```text
 {
   "created_at": "2021-04-21T16:35:47.000Z",
   "delete_volume_on_instance_delete": true,
