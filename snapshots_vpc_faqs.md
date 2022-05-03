@@ -1,10 +1,11 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-11-30"
+  years: 2022
+lastupdated: "2022-05-02"
 
-keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, faqs
+keywords:
+
 subcollection: vpc
 
 ---
@@ -21,14 +22,20 @@ subcollection: vpc
 # FAQs for snapshots
 {: #snapshots-vpc-faqs}
 
-The following questions often arise about the Snapshot for VPC offering. If you have other questions you'd like to see answered here, provide feedback by using the **Open Issue** or **Edit Topic** links.
+The following questions often arise about the Snapshot for VPC offering. If you have other questions you'd like to see answered here, provide feedback by using the **Open doc issue** or **Edit topic** links at the end of the topic.
 {: shortdesc}
 
 ## What is a snapshot?
 {: faq}
 {: #faq-snapshot-1}
 
-Snapshots are a point-in-time copy of your block storage boot or data volume. To create a snapshot, the original volume must be attached to a running virtual server instance. The first snapshot is a full backup of the volume. Subsequent snapshots of the same volume record only the changes since the last snapshot. You can use a snapshot of a boot volume to provision an instance. If the snapshot was of a data volume, you can attach it to a virtual server instance. You can create a new volume from a snapshot (called _restoring_ a volume). Snapshots are persistent; they have a lifecycle independent from the original volume.
+Snapshots are a point-in-time copy of your block storage boot or data volume that you manually create. To create a snapshot, the original volume must be attached to a running virtual server instance. The first snapshot is a full backup of the volume. Subsequent snapshots of the same volume record only the changes since the last snapshot. You can access a snapshot of a boot volume and use it when provisioning a new instance.You can create a new volume from a snapshot (called _restoring_ a volume) and attach it to an instance. Snapshots are persistent; they have a lifecycle independent from the original volume.
+
+## What is a backup snapshot?
+{: faq}
+{: #faq-backup-snapshot}
+
+Backup snapshots, also called _backups_, are scheduled snapshots automatically-created by using the Backup for VPC service. For more information, see [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 
 ## What is a bootable snapshot?
 {: faq}
@@ -40,7 +47,7 @@ A bootable snapshot is a copy of a boot volume. You can use this new boot volume
 {: faq}
 {: #faq-snapshot-3}
 
-You can take up to 100 snapshots per volume in a region. [Deleting snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-delete) from this quota frees up space for additional snapshots. You can delete a single snapshot anywhere in the snapshots chain or all snapshots.
+You can take up to 750 snapshots per volume in a region. Deleting snapshots from this quota frees up space for additional snapshots. The cumulative size of all snapshots for a volume is 10 TB. For more information, see [these considerations](#snapshots_vpc_considerations) when creating snapshots.
 
 ## Is there a limit on the size of a volume that I can snapshot?
 {: faq}
@@ -72,7 +79,7 @@ Deleting a volume from which you created a snapshot has no effect on the snapsho
 {: faq}
 {: #faq-snapshot-8}
 
-In the initial offering of Snapshots for VPC, you can only take a manual snapshot. If you want to set up a snapshot schedule, you have to take independent action, such as setting up a Linux&reg; cron job similar to taking backups. However, this is not supported by IBM.
+Yes, you can use Backup for VPC to create a backup policy and plan. In the plan you can schedule daily, weekly, or monthly backup snapshots, or more frequent backups with a `cron-spec` expression. For more information about scheduling backup snapshots and how it works, see the [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about) overview.
 
 ## Can I detach or delete a volume after I take a snapshot?
 {: faq}

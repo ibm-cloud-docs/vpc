@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-04-29"
+lastupdated: "2022-05-02"
 
 keywords:
 
@@ -23,7 +23,7 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Viewing block storage volume details
+# Viewing block storage volumes
 {: #viewing-block-storage}
 
 View details about a {{site.data.keyword.block_storage_is_short}} volume or summary information about all volumes.

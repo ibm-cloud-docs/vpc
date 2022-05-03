@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-04-08"
+lastupdated: "2022-05-02"
 
 keywords:
 
@@ -157,13 +157,13 @@ You can change the name of an existing volume in the UI. See [this information](
 
 You do not have to pre-warm a volume. You can see the specified throughput immediately upon provisioning the volume.
 
-## What is a block storage snapshot?
+### What is a block storage snapshot?
 {: faq}
 {: #faq-block-storage-snapshot}
 
 Snapshots are a point-in-time copy of your block storage boot or data volume that you manually create. The first snapshot is a full backup of the volume. Subsequent snapshots of the same volume record only the changes since the last snapshot. For more information, see [About Block Storage Snapshots for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about).
 
-## What is a backup snapshot?
+### What is a backup snapshot?
 {: faq}
 {: #faq-block-storage-backup-snapshot}
 
