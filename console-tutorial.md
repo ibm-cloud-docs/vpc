@@ -175,17 +175,17 @@ You can create a block storage volume and attach it to your virtual server insta
 To create and attach a block storage volume:
 
 1. In the navigation pane, click **Storage > Block storage volumes**.
-1. On the Block storage volumes for VPC page, click **Create** and specify the following information.
+1. Click **New volume** and specify the following information.
    * **Name**: Enter a name for the block storage volume, such as `data-volume-1`.
    * **Resource group**: Select a resource group for the block storage volume. You can use resource groups to organize your account resources for access control and billing purposes. For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup).
    * **Tags**: _Optional:_ Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
    * **Location**: Select a location for the block storage volume. The location consists of a region and a zone, for example US South 1.
-   * **IOPs**: Select one of the IOPs Tiers or click **Custom** to enter an IOPs value based on volume size.
-   * **Size**: Specify the size of the volume between 10 GBs and 16000 GBs.
-   * **Encryption**: Encryption with IBM-managed keys is enabled by default on all volumes. You can also choose a customer-managed option and use [your own encryption key](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
+   * **Size**: Specify the size of the volume between 10 GBs and 2000 GBs.
+   * **IOPs**: Select one of the IOPs Tiers or click Custom to enter an IOPs value based on volume size.
+   * **Encryption**: Accept the default *Provider managed* encryption option.
 1. Click **Create volume**.
 1. In the list of block storage volumes, find the volume that you created. When the status is Available, click "..." and select **Attach to instance**.
-1. Select the instance to which you want to attach the volume and click **Attach volume**.
+1. Select the instance to which you want to attach the volume and click **Attach**.
 
 ## Configuring the security group for the instance
 {: #configuring-the-security-group}
