@@ -13,7 +13,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Getting Started with IAM
+# Getting started with IAM
 {: #iam-getting-started}
 
 Access to {{site.data.keyword.vpc_full}} (VPC) resources for users in your account is controlled by {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM). Every user that accesses infrastructure services resources in your account must be assigned one or more access policies that define their IAM roles. The policies determine what actions a user can perform within the context of the service or instance that you select. The allowable actions are customized and defined by the {{site.data.keyword.cloud_notm}} service as operations that are allowed to be performed on the service. The actions are then mapped to IAM user roles.
