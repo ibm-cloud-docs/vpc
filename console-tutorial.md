@@ -216,7 +216,7 @@ To configure the security group:
 {: #reserving-a-floating-ip-address}
 {: step}
 
-Reserve and associate a floating IP address if you want your instance to be reachable from the internet.  
+Reserve and associate a floating IP address if you want your instance to be reachable from the internet.
 
 Your instance must be running before you can associate a floating IP address. It can take a few minutes for the instance to be up and running.
 {: tip}
@@ -225,11 +225,9 @@ To reserve and associate a floating IP address:
 
 1. In the navigation pane, click **Compute > Virtual server instances**.
 1. Click your instance to view its details.
-1. In the **Network interfaces** section, click the pencil icon to edit the interface that you want to associate with a floating IP address. 
-1. On the Edit network interface page, find the Floating IP address drop-down menu and select **Reserve a new floating IP**.
-1. Click **Save**.
+1. In the **Network interfaces** section, click **Reserve** for the interface that you want to associate with a floating IP address.
 
-You can later reassign this floating IP address to another instance in the same zone. To do this, you can find the floating IP address on the **Network > Floating IPs** page, click its overflow menu (**...**), and click **Release**. Then, click **Bind** to select the instance and network interface that you want to associate with the floating IP address.
+You can later reassign this floating IP address to another instance in the same zone. To do this, you can find the floating IP address on the **Network > Floating IPs** page, click its overflow menu (**...**), and click **Unassociate**. Then, click **Associate** to select the instance and network interface that you want to associate with the floating IP address.
 {: tip}
 
 ## Connecting to your instance
@@ -238,7 +236,7 @@ You can later reassign this floating IP address to another instance in the same 
 
 Using the floating IP address that you created, ping your instance to make sure it's up and running:
 
-```
+```sh
 ping <public-ip-address>
 ```
 {: pre}
@@ -248,7 +246,7 @@ ping <public-ip-address>
 
 Since you created your instance with a public SSH key, you can now connect to it directly by using your private key:
 
-```
+```sh
 ssh -i <path-to-private-key-file> root@<public-ip-address>
 ```
 {: pre}
