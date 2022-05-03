@@ -23,6 +23,7 @@ Each user must also have access to the resource group that contains the infrastr
 Policies enable access to be granted at different levels, for example:
 
 * Access to all VPC infrastructure resources in your account
+* Access to resources tagged with a specific access management tag
 * Access to resources in a specific resource group
 * Access to a specific resource
 
@@ -48,11 +49,6 @@ The following table details what actions are mapped to platform management roles
 - Access to a container resource doesn't automatically grant access to its subresources. For example, granting access to a VPC doesn't grant access to subnets in that VPC.
 - Similarly, access to a subresource does not grant access to its container resource. For example, granting access to a subnet doesn't grant access to that subnet's VPC.
 - In general, to change the relationship between multiple resources, the user must have access to each resource. For example, to attach a network interface to a security group, the user must have access to both the network interface and the security group. For more information, see [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
-
-Some services require specific service access roles. These service access roles are defined by the service and contain specific actions related to the role. For example, users who are assigned the **IP Spoofing Operator** role can enable or disable the IP spoofing check on virtual server instances.
-
-The current default platform management roles are hierarchical, while service access roles are unique to the actions that require these roles.
-{: note}
 
 For more information about assigning user roles in the UI, see [Managing user permissions for VPC resources](/docs/vpc?topic=vpc-managing-user-permissions-for-vpc-resources).
 
