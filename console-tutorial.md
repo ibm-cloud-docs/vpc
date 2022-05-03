@@ -1,12 +1,12 @@
 ---
 
 copyright:
-  years: 2018, 2021
+  years: 2018, 2022
 
-lastupdated: "2021-12-20"
+lastupdated: "2022-05-03"
 
 
-keywords: vpc, virtual private cloud, vpc ui, console, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range, generation 2, gen 2
+keywords: vpc, virtual private cloud, vpc ui, console, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range
 
 subcollection: vpc
 
@@ -198,38 +198,19 @@ To configure the security group:
 1. In the navigation pane, click **Compute > Virtual server instances**.
 1. Click your instance to view its details.
 1. In the **Network interfaces** section, click the name of the security group.
-1. On the **Rules** tab of the security group details page, click **Create** to configure inbound and outbound rules that define what type of traffic is allowed to and from the instance. For each rule, specify the following information: 
-   * Select the protocols and ports to which the rule applies. 
-   * Specify a CIDR block or IP address for the permitted traffic. Alternatively, you can specify a security group in the same VPC to allow traffic to or from all instances that are attached to the selected security group.      
+1. On the **Rules** tab of the security group details page, click **Create** to configure inbound and outbound rules that define what type of traffic is allowed to and from the instance. For each rule, specify the following information:  
+   * Select the protocols and ports to which the rule applies.    
+   * Specify a CIDR block or IP address for the permitted traffic. Alternatively, you can specify a security group in the same VPC to allow traffic to or from all instances that are attached to the selected security group. 
 
    **Tips:**  
    * All rules are evaluated, regardless of the order in which they're added.
    * Rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, you created a rule that allows inbound TCP traffic on port 80. That rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
    * For Windows images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
-1. _Optional:_ To view interfaces that are attached to the security group, click the **Attached resources** tab and review the Attached interfaces section.
-1. When you finish creating rules, click the **Security groups for VPC** breadcrumb at the beginning of the page.
+1. _Optional:_ To view interfaces that are attached to the security group, click **Attached resources** tab and review the Attached interfaces section.
+1. When you finish creating rules, click the **Security groups** breadcrumb at the beginning of the page.
 
-
-### Example security group
-{: #example-security-group}
-
-For example, you can configure the following inbound rules:
-
-   * Allow all SSH traffic (TCP port 22)
-   * Allow all ping traffic (ICMP type 8)
-
-| Protocol | Source Type | Source | Value |
-|-----------|------|------|------|
-| TCP| Any | 0.0.0.0/0 | Ports 22-22 |
-| ICMP | Any | 0.0.0.0/0 | Type: 8, Code: Any|
-{: caption="Table 1. Configuration information for inbound rules" caption-side="bottom"}
-
-Then, configure outbound rules that allow all TCP traffic:
-
-| Protocol | Destination Type | Source | Value |
-|-----------|------|------|------|
-| TCP| Any | 0.0.0.0/0 | Any port|
-{: caption="Table 2. Configuration information for outbound rules" caption-side="bottom"}
+   For more information about security groups, see [About security groups](/docs/vpc?topic=vpc-using-security-groups).
+   {: note}
 
 ## Reserving a floating IP address
 {: #reserving-a-floating-ip-address}
