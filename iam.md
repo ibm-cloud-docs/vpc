@@ -79,7 +79,7 @@ If you want to use multiple resource groups, it’s good to have a plan for how 
 ### Access Management Tags
 {: #access-management-tags}
 
-Access Management Tags are Metadata added to resources to help organize access control relationships.
+Access Management Tags are metadata added to resources to help organize access control relationships.
 They create flexible and easy to administer resource groupings.
 
 When you use tags to control access to your resources, your team's projects can
