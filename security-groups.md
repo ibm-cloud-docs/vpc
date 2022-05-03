@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2019, 2020
+  years: 2019, 2021
 
-lastupdated: "2020-10-12"
+lastupdated: "2021-05-03"
 
 keywords:  
 
@@ -26,6 +26,31 @@ Rules are _stateful_, which means that reverse traffic in response to allowed tr
 Security groups are scoped to a single VPC. This scoping implies that a security group can be attached _only_ to network interfaces of instances within the same VPC.
 
 When an instance is created and no security groups are specified, the instance's primary network interface is attached to the _default_ security group of that instance's VPC. For more information, see [Updating the default security group](/docs/vpc?topic=vpc-updating-the-default-security-group#updating-the-default-security-group).
+
+## Security groups versus network ACLs
+{: #security-groups-vs-network-acls}
+
+Security groups are tied to an instance whereas Network ACLs (NACLs) are tied to the subnet.
+{: shortdesc}
+
+NACLs are applicable at the subnet level, so any instance (for example, a virtual server instance) in the subnet with an associated NACL will follow rules of the NACL. However, that’s not the case with security groups. Security groups must be assigned explicitly to the instance. Also, unlike NACLs, a security group can be applied to multiple instances across subnets and even across zones.
+
+![Security groups across instances and zones](/images/security-groups-across-zones.png){: caption="Security groups across instances and zones" caption-side="bottom"}
+
+Every security group consists of a set of rules. The security group examines all of its rules before allowing any traffic to enter or leave the instance. The rules that are used to control the inbound traffic are independent of the rules that are used to control the outbound traffic. 
+
+When a new security group is created, initially all inbound traffic is restricted and outbound traffic is allowed. Therefore, you must add rules to the group to permit incoming traffic and to apply restrictions on the outbound traffic. 
+
+Because an instance can have multiple security groups associated with it, all the rules from each security group associated with the instance are combined together to form a single set of rules. This set of rules is used to determine whether the traffic should be denied or allowed into the instance. For every security rule that you add to the security group, you must specify the values for the following fields: 
+
+* Direction - The direction of traffic to enforce, either inbound or outbound.
+* Protocol - Indicates the prototype that this rule applies for. Values are `TCP`, `UDP`, `ICMP`, or `ALL`. 
+
+   * If its value is `ALL`, it means that this rule applies to all protocols. Then, it's invalid to specify the port range (PortMin, PortMax). 
+   * If protocol is either `TCP` or `UDP`, then the rule can also contain the port range (PortMin, PortMax). You must set either both ports, or neither. When neither is set, then traffic is allowed on all ports. For a single port, you must set both ports to the same value. 
+   * When protocol is `ICMP`, you can optionally specify the `Type` property. If specified, then ICMP traffic is allowed for only the specified ICMP type. Further, if you specify `Type`, you can optionally specify the code property to allow traffic for only the specified ICMP code. 
+
+*	Remote - Describes the set of network interfaces to which this rule allows traffic (or from which, for outbound rules). You can specify this value as either an IP address, a CIDR block, or all the identifiers of a single security group (ID, CRN, and name). If this value is omitted, a CIDR block of `0.0.0.0/0` is used to allow traffic from any source (or to any source, for outbound rules).
 
 ## Related links
 {: #sg-related-links}
