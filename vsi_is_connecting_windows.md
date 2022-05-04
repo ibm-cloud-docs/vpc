@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2018, 2021
+  years: 2018, 2022
 
-lastupdated: "2021-08-06"
+lastupdated: "2022-05-03"
 
 keywords: connecting, windows
 
@@ -12,15 +12,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:table: .aria-labeledby="caption"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Connecting to Windows instances
 {: #vsi_is_connecting_windows}
@@ -30,7 +22,6 @@ After you created your Windows instance, you can connect to it by completing the
 
 Windows instances are not supported for LinuxONE (s390x processor architecture).
 {: note}
-
 
 ## Before you begin
 {: #before_vsi_connecting_windows}
@@ -44,6 +35,23 @@ Complete the following prerequisites:
     * For more information, see [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 1. Have Microsoft Remote Desktop client software available.
 1. Make sure the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
+
+   For example, to allow all SSH traffic (3389) and ping traffic (ICMP type 8):
+
+   | Protocol | Source Type | Source | Value |
+   |-----------|------|------|------|
+   | TCP| Any | <cidr_range> | 3389 |
+   | UDP| Any | <cidr_range> | 3389 |
+   | ICMP | Any | <cidr_range> | Type: 8, Code: Any|
+   {: caption="Table 1. Configuration information for inbound rules" caption-side="bottom"}
+
+   Then, configure outbound rules that allow all TCP traffic:
+
+   | Protocol | Destination Type | Source | Value |
+   |-----------|------|------|------|
+   | TCP| Any | <cidr_range> | Any port|
+   {: caption="Table 2. Configuration information for outbound rules" caption-side="bottom"}
+
 1. Make sure that you reserve and associate a floating IP address to your Windows instance.
 
 ## Connecting to your Windows instance
