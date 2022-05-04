@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2022
-lastupdated: "2022-04-06"
+lastupdated: "2022-05-04"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -40,7 +40,7 @@ Profiles with instance storage and profiles with 64 or more vCPUs are deployed e
 
 Balanced profiles provide a mix of performance and scalability for more common workloads with a ratio of 4 GiB of memory for every 1 vCPU of compute. The Balanced profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Balanced profiles available for Intel&reg; x86-64 and LinuxOne s390x processors.
 
-LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Japan (Tokyo), United Kingdom (London), and São Paulo regions.
+LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions.
 {: preview}
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
@@ -90,8 +90,9 @@ LinuxONE (s390x processor architecture) profiles can be used to provision virtua
 
 Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers that can benefit from 2 GiB of memory for every 1 vCPU of compute. The Compute profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Compute profiles available for &reg; x86-64 and LinuxOne s390x processors.
 
-LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Japan (Tokyo), United Kingdom (London), and São Paulo regions.
+LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions.
 {: preview}
+
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|---------|
@@ -138,7 +139,7 @@ LinuxONE (s390x processor architecture) profiles can be used to provision virtua
 
 Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads with 8 GiB of memory for every 1 vCPU of compute. The Memory profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Memory profiles available for Intel&reg; x86-64 and LinuxOne s390x processors.
 
-LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Japan (Tokyo), United Kingdom (London), and São Paulo regions.
+LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions.
 {: preview}
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
@@ -223,14 +224,14 @@ The following Ultra High Memory profiles are available for x86-64 processors:
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|---------|
-| ux2d-2x56 | 2 | 1 | 56 | 4 | 1x60 | 
-| ux2d-4x112 | 4 | 2 | 112 | 8 | 1x120 | 
-| ux2d-8x224 | 8 | 4 | 224 | 16 | 1x240 | 
+| ux2d-2x56 | 2 | 1 | 56 | 4 | 1x60 |
+| ux2d-4x112 | 4 | 2 | 112 | 8 | 1x120 |
+| ux2d-8x224 | 8 | 4 | 224 | 16 | 1x240 |
 | ux2d-16x448 | 16 | 8 | 448 | 32 | 1x480 |
-| ux2d-36x1008 | 36 | 18 | 1008 | 64 | 1x1080 | 
+| ux2d-36x1008 | 36 | 18 | 1008 | 64 | 1x1080 |
 | ux2d-48x1344| 48 | 24 | 1344 | 80 | 2x720 |
 | ux2d-72x2016 | 72 | 36 |  2016 | 80 | 2x1080 |
-| ux2d-100x2800 | 100 | 50 | 2800 | 80 | 2x1500 | 
+| ux2d-100x2800 | 100 | 50 | 2800 | 80 | 2x1500 |
 | ux2d-200x5600 | 200 | 100 | 5600 | 80 | 2x3000 |
 {: caption="Table 7. Ultra High Memory profiles options for x86-64 instances" caption-side="bottom"}
 {: #uhmemory-intel-x86-64}
