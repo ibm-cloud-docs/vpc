@@ -6,6 +6,8 @@ lastupdated: "2022-02-28"
 
 keywords: public isolation for VPC, compute isolation for VPC, VPC architecture, workload isolation in VPC
 
+subcollection: vpc
+
 ---
 
 {:external: target="_blank" .external}
