@@ -82,20 +82,9 @@ Before you create a flow log collector, make sure that you meet the following pr
    ```
    {: codeblock}
 
-   You can obtain the `COS_INSTANCE_GUID` from the Service Credentials section for the COS instance as shown.
+   You can obtain the `COS_INSTANCE_GUID` from the Service credentials section for the COS instance as shown.
 
-   ```text
-   {
-   "apikey": "",
-   "endpoints": "https://control.cloud-object-storage.test.cloud.ibm.com/v2/endpoints",
-   "iam_apikey_description": "Auto-generated for key 0808416e-bbd1-4336-a0d7-ff1c28ec168c",
-   "iam_apikey_name": "cos-nfv-test-us-south",
-   "iam_role_crn": "crn:v1:bluemix:public:iam::::serviceRole:Writer",
-   "iam_serviceid_crn": "crn:v1:staging:public:iam-identity::a/c2c081da4afe48ee89809ef4ee5453d1::serviceid:ServiceId-04f7e7e2-709e-4964-a7c5-a1a61ba2402d",
-   "resource_instance_id": "crn:v1:staging:public:cloud-object-storage:global:a/c2c081da4afe48ee89809ef4ee5453d1:41062d66-34eb-4f1d-b6cb-118fed00ec41::"
-   }
-   ```
-   {: codeblock}
+   ![COS Service credentials](images/flow-logs-service-credentials.png){: caption="COS Service credentials" caption-side="bottom"}
  
    For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth#create-auth).
    {: note}
