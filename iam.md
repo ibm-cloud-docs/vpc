@@ -1,29 +1,36 @@
 ---
 
 copyright:
-  years: 2019, 2022
+  years: 2019, 2020
 
-lastupdated: "2022-05-03"
+lastupdated: "2020-09-24"
 
-keywords: resource, policies, authorization, resource type, resource groups, roles, load balancer, VPN, operator, editor, viewer, admin, access management tags, tags
+keywords: resource, policies, authorization, resource type, resource groups, roles, load balancer, VPN, operator, editor, viewer, admin
 
 subcollection: vpc
 
 ---
 
-{{site.data.keyword.attribute-definition-list}}
+{:new_window: target="_blank"}
+{:shortdesc: .shortdesc}
+{:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:download: .download}
 
-# Getting started with IAM
+
+# Getting Started with IAM 
 {: #iam-getting-started}
 
 Access to {{site.data.keyword.vpc_full}} (VPC) resources for users in your account is controlled by {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM). Every user that accesses infrastructure services resources in your account must be assigned one or more access policies that define their IAM roles. The policies determine what actions a user can perform within the context of the service or instance that you select. The allowable actions are customized and defined by the {{site.data.keyword.cloud_notm}} service as operations that are allowed to be performed on the service. The actions are then mapped to IAM user roles.
 
-Each user must also have access to the resource group that contains the infrastructure services resources. A _resource group_ organizes account resources in customizable groupings so that you can quickly assign access to more than one resource at a time. Every resource that is managed by IAM belongs to a resource group within your account.
+Each user must also have access to the resource group that contains the infrastructure resources. A _resource group_ organizes account resources in customizable groupings so that you can quickly assign access to more than one resource at a time. Every resource that is managed by IAM belongs to a resource group within your account.
 
 Policies enable access to be granted at different levels, for example:
 
 * Access to all VPC infrastructure resources in your account
-* Access to resources tagged with a specific access management tag
 * Access to resources in a specific resource group
 * Access to a specific resource
 
@@ -53,39 +60,21 @@ The following table details what actions are mapped to platform management roles
 For more information about assigning user roles in the UI, see [Managing user permissions for VPC resources](/docs/vpc?topic=vpc-managing-user-permissions-for-vpc-resources).
 
 You can also assign user roles by using {{site.data.keyword.cloud}} Command Line Interface (CLI). You can select resource(s) by using resource attributes. For more information, see [VPC resource attributes](/docs/vpc?topic=vpc-resource-attributes).
-
-## Resource groups and access management tags
+ 
+## Resources and resource groups
 {: #resources-and-resource-groups}
-
-### Resource groups
-{: #iam-resource-groups}
 
 A _resource group_ is a collection of resources, such as an entire VPC or a single subnet, that are associated for the purpose of establishing authorization and usage. You can think of a resource group as a collection of infrastructure resources that might be used by a project, a department, or a team.
 
 Large enterprises might divide a VPC into various resource groups, whereas smaller companies might need only one resource group because all team members have access to the entire VPC. If you are familiar with _OpenStack_, a resource group is similar in concept to a _Project_ in _OpenStack Keystone_.
 
-Assignment of a resource to a resource group can be done only when the resource is created. Resources can't change resource groups after they are created.
+Assignment of a resource to a resource group can be done only when the resource is created. Resources can't change resource groups after they are created. 
 
 If you want to use multiple resource groups, it’s good to have a plan for how you want to assign the resources and the users in your organization to each resource group.
 {: tip}
 
-### Access management tags
-{: #iam-access-management-tags}
-
-Access management tags are metadata added to resources to help organize access control relationships.
-They create flexible and easy to administer resource groupings.
-
-When you use tags to control access to your resources, your team's projects can grow without requiring updates to IAM policies.
-
-Currently, the autoscale and dedicated hosts services can't be managed or used by only IAM access tags.
-{: note}
-
-## Related links
-{: #iam-related-links}
-
-For more information about IAM, resource groups, access groups, and access management tags, refer to these {{site.data.keyword.cloud_notm}} topics:
+For more information about IAM, resource groups, and access groups in general, refer to these {{site.data.keyword.cloud_notm}} topics:
 
 * [{{site.data.keyword.cloud_notm}} IAM](/docs/account?topic=account-iamoverview)
-* [Resource groups](/docs/account?topic=account-rgs)
-* [Access groups](/docs/account?topic=account-cloudaccess)
-* [Access management tags](/docs/account?topic=account-access-tags-tutorial)
+* [Resource Groups](/docs/account?topic=account-rgs)
+* [Access Groups](/docs/account?topic=account-cloudaccess)
