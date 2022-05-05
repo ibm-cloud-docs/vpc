@@ -6,6 +6,8 @@ lastupdated: "2022-01-21"
 
 keywords: data encryption, data storage, bring your own keys, BYOK, key management, key encryption, personal data, data deletion, data security
 
+subcollection: vpc
+
 ---
 
 {:external: target="_blank" .external}
