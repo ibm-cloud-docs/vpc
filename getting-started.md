@@ -69,7 +69,7 @@ To create and configure your VPC and other attached resources:
 To learn how to create VPC resources, see these tutorials:
 
 * [Using the {{site.data.keyword.cloud_notm}} console to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console)
-* [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources&interface=cli)
+* [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli)
 * [Using Terraform: Provisioning a virtual server instance in a VPC](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-sample_vpc_config)
 
 For a general overview of the VPC infrastructure and related compute, networking and storage concepts, see the following topics:
