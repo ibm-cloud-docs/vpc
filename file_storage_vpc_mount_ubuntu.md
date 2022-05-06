@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-12-31"
+  years: 2021, 2022
+lastupdated: "2022-05-06"
 
-keywords: file Storage, NFS, mounting file Storage, mounting file shares on Ubuntu,
+keywords:
 
 subcollection: FileStorage
 
@@ -56,49 +56,49 @@ VPC File Storage service requires NFS versions v4.1 or higher.
 
 1. Update and upgrade the distribution:
 
-    ```
+    ```zsh
     apt update && apt upgrade
     ```
     {: pre}
 
 2. Create a `/mnt/nfs` directory.
 
-    ```
+    ```zsh
     mkdir -p /mnt/nfs
     ```
     {: pre}
 
 3. Install `nfs-common`: 
 
-    ```
+    ```zsh
     apt install nfs-common
     ```
     {: pre}
 
 4. Reboot your instance:
 
-    ```
+    ```zsh
     reboot
     ```
     {: pre}
 
 5. Mount the remote file share:
 
-   ```
+   ```zsh
    mount -t nfs4 -o <options> <host:/mount_target> /mnt/nfs
    ```
    {: pre}
 
    For example:
 
-   ```
+   ```zsh
    mount -t nfs4 -o sec=sys,nfsvers=4.1 fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_mz0726_c391f0ba-50ed-4460-8704-a36032c96a4c /mnt/nfs
    ```
    {: pre}
 
 6. Verify that the mount was successful by using the disk file system command:
 
-    ```
+    ```zsh
     $ df -h
     Filesystem                                                                                    Size  Used Avail Use% Mounted on
     /dev/root                                                                                      97G  1.6G   96G   2% /
@@ -112,13 +112,13 @@ VPC File Storage service requires NFS versions v4.1 or higher.
     /dev/loop1                                                                                     71M    71M     0 100% /snap/lxd/16922
     /dev/loop2                                                                                     31M   31M     0 100% /snap/snapd/9279
     tmpfs                                                                                         798M     0  798M   0% /run/user/0
-    fsf-dal1099a-fz.adn.networklayer.com:/voll_58fd55a_685c_4ccd_b42e_25d5b61129e2   95G  256K   95G   1% /mnt/nfs{code}
+    fsf-dal1099a-fz.adn.networklayer.com:/voll_58fd55a_685c_4ccd_b42e_25d5b61129e2   95G  256K   95G   1% /mnt/nfs
     ```
     {: codeblock}
 
 7. Go to the mount point and read/write files.
 
-   ```
+   ```zsh
    touch /mnt/nfs/test.txt
    ls -al /mnt/nfs
    total 12
@@ -130,14 +130,14 @@ VPC File Storage service requires NFS versions v4.1 or higher.
   
 8. Verify that the configuration file has no errors.
 
-   ```
+   ```zsh
    mount -fav
    ```
    {: pre}
 
    If the command completes with no errors, your setup is complete.
 
-   For NFS 4.1, add `sec=sys` to the mount command to prevent file ownership issues. Use `_netdev` to wait for the storage mounted until after all network components have started.
+   For NFS 4.1, add `sec=sys` to the mount command to prevent file ownership issues. Use `_netdev` to wait for the storage to be mounted until after all network components have started.
    {: tip}
 
 ## Unmounting the file system
@@ -145,12 +145,12 @@ VPC File Storage service requires NFS versions v4.1 or higher.
 
 To unmount any currently mounted file system on your host, run the `umount` command with disk name or mount point name.
 
-```
+```zsh
 umount /dev/sdb
 ```
 {: pre}
 
-```
+```zsh
 umount /mnt/nfs
 ```
 {: pre}
