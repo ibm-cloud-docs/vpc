@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-04-01"
+lastupdated: "2022-05-12"
 
 keywords: operating system end of support (eos)
 
@@ -27,7 +27,6 @@ The following table describes the end of support date and license model for Cent
 |-----------------|----------------|---------------|
 | CentOS 8 minimal | 31 December 2021 | Free |
 | CentOS 7.9 minimal | 30 June 2024  | Free |
-| CentOS 6 | 30 November 2020  | Free |
 {: caption="Table 1. Lifecycle for CentOS operating systems" caption-side="bottom"}
 
 ## Debian
@@ -68,7 +67,6 @@ The following table describes the end of support date and license model for Red 
 | RHEL 8.1 (SAP HANA & SAP applications) | 30 November 2023 | Pay-as-you-Go |
 | RHEL 7.9 minimal | 30 June 2024 | Pay-as-you-Go / BYOL |
 | RHEL 7.6 (SAP HANA & SAP applications) | 31 October 2022 | Pay-as-you-Go |
-| RHEL 6 | 30 November 2020  | Pay-as-you-Go / BYOL |
 {: caption="Table 4. Lifecycle for Red Hat Enterprise Linux (RHEL) operating systems" caption-side="bottom"}
 
 **BYOL**: For Red Hat Enterprise Linux® (RHEL) operating systems, you can bring your own license (BYOL) to {{site.data.keyword.vpc_short}} when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. Acquisition and activation of the license is between you and the OS vendor. BYOL is not supported on Red Hat Enterprise Linux for SAP.
