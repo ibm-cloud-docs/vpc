@@ -432,6 +432,7 @@ toc:
             label: High availability and disaster recovery
             topics:
             - ha-dr.md
+            - bc-dr.md
             - topicgroup:
                 label: Backup and recovery using Veeam
                 topics:
