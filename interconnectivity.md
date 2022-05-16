@@ -22,21 +22,21 @@ Given that VPCs are regional constructs, the following questions quickly arise:
 ## Interconnecting with on-premises networks
 {: #interconnectivity-onprem}
 
-IBM has the following offerings that can help you interconnect a VPC with an on-premises network:
+IBM has the following offerings that can help you interconnect a VPC with an on-premises network.
 
-* {{site.data.keyword.dl_full_notm}} Direct Link (2.0)
+* IBM Cloud Direct Link (2.0)
 
-You can interconnect a VPC with an on-prem network through both Direct Link Dedicated and Connect offerings. Keep in mind that you can connect direct links to either a local or remote {{site.data.keyword.dl_full_notm}} transit gateway, which allows the on-prem network to access all networks connected the transit gateway.
+   You can interconnect a VPC with an on-prem network through both Direct Link Dedicated and Connect offerings. Keep in mind that you can connect direct links to either a local or remote IBM Cloud Transit Gateway, which allows the on-prem network to access all networks connected the transit gateway.
 
-   * {{site.data.keyword.dl_full_notm}} Dedicated provides low-latency, high-throughput connections between {{site.data.keyword.cloud_notm}} VPC networks direct to a service provider-managed WAN, or a client-managed cloud backbone. You can optimize egress traffic from your VPC network and reduce your egress costs. If you can’t connect at an {{site.data.keyword.cloud_notm}} data center, or don’t need more than 5 Gbps of bandwidth on a Virtual Network Connection, you can use {{site.data.keyword.dl_full_notm}} Connect to connect to {{site.data.keyword.cloud_notm}} through a supported service provider.
-   
+   * **{{site.data.keyword.dl_full_notm}} Dedicated** provides low-latency, high-throughput connections between {{site.data.keyword.cloud_notm}} VPC networks direct to a service provider-managed WAN, or a client-managed cloud backbone. You can optimize egress traffic from your VPC network and reduce your egress costs. If you can’t connect at an {{site.data.keyword.cloud_notm}} data center, or don’t need more than 5 Gbps of bandwidth on a Virtual Network Connection, you can use {{site.data.keyword.dl_full_notm}} Connect to connect to {{site.data.keyword.cloud_notm}} through a supported service provider.
+
    With {{site.data.keyword.dl_full_notm}} Global Routing capabilities, you can connect to all {{site.data.keyword.cloud_notm}} regions worldwide from a single {{site.data.keyword.dl_full_notm}} connection. You can also take advantage of {{site.data.keyword.dl_full_notm}} service provider partners to establish more secure hybrid connections for your workloads across the globe, as well as easily provision multiple connections as your capacity requirements increase.   
 
-      ![Sample Direct Link on-premises interconnect use case](images/direct-link-dedicated.png){: caption="Example Direct Link on-premises interconnect use case" caption-side="bottom"}
+   ![Sample Direct Link on-premises interconnect use case](/images/direct-link-dedicated.png){: caption="Example Direct Link on-premises interconnect use case" caption-side="bottom"}
 
-   * {{site.data.keyword.dl_full_notm}} Connect provides connectivity between your on-premises and {{site.data.keyword.cloud_notm}} VPC networks through a supported service provider. A service provider connection is useful if your data center is in a physical location that can't reach a dedicated colocation facility, or if your data needs don't warrant a 5 Gbps+ connection. Connect service providers  are often used to facilitate multicloud connectivity (public clouds from multiple vendors) through their network. Connect service providers offer layer 2 connectivity, layer 3 connectivity, or both. Work with your service provider to understand their offerings and requirements.
+   * **{{site.data.keyword.dl_full_notm}} Connect** provides connectivity between your on-premises and {{site.data.keyword.cloud_notm}} VPC networks through a supported service provider. A service provider connection is useful if your data center is in a physical location that can't reach a dedicated colocation facility, or if your data needs don't warrant a 5 Gbps+ connection. Connect service providers  are often used to facilitate multicloud connectivity (public clouds from multiple vendors) through their network. Connect service providers offer layer 2 connectivity, layer 3 connectivity, or both. Work with your service provider to understand their offerings and requirements.
 
-* {{site.data.keyword.vpn_vpc_short}} can securely connect your virtual private cloud to another private network. You can use VPN to set up an IPsec site-to-site tunnel between your VPC and your on-premises private network or another VPC. See [Connecting to your on-premises network using a VPN gateway](/docs/vpc?topic=vpc-vpn-onprem-example) for details.
+* **{{site.data.keyword.vpn_vpc_short}}** can securely connect your virtual private cloud to another private network. You can use VPN to set up an IPsec site-to-site tunnel between your VPC and your on-premises private network or another VPC. See [Connecting to your on-premises network using a VPN gateway](/docs/vpc?topic=vpc-vpn-onprem-example) for details.
 
 ## Interconnecting VPCs
 {: #interconnecting-vpcs}
