@@ -411,6 +411,13 @@ toc:
                 - file_storage_vpc_mount_rhel.md
                 - file_storage_vpc_mount_centos.md
                 - file_storage_vpc_mount_ubuntu.md
+            - topicgroup:
+                label: Replication
+                topics:
+                - file_storage_vpc_replication.md
+                - file_storage_vpc_create_replication.md
+                - file_storage_vpc_manage_replication.md
+                - file_storage_vpc_replication_failover.md
         - topicgroup:
             label: Auto scale
             topics:
