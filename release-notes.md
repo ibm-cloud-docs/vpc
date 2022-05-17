@@ -24,6 +24,18 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 
 For information about changes to the {{site.data.keyword.vpc_short}} API , see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log)
 
+## May 2022
+{: #vpc-may22}
+
+### 17 May 2022
+{: #vpc-may1722}
+{: release-note}
+
+File storage for VPC
+:    For accounts authorized to preview this service, you can configure replication for new and existing file shares. Replication creates a read-only copy of your file share data in a different zone. You can fail over to the relica share if the source share becomes damaged or compromised. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
+
+:    You can now add user tags from the UI, CLI, or API when you create a new file share or update file shares. For more information, see [Adding user tags](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-tags-shares-ui).
+
 ## April 2022
 {: #vpc-apr22}
 
