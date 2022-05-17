@@ -1,10 +1,10 @@
 ---
 
 copyright:
-years: 2021
-lastupdated: "2021-12-31"
+years: 2021, 2022
+lastupdated: "2022-05-17"
 
-keywords: file storage, virtual private cloud, file shares, profile
+keywords:
 
 subcollection: vpc
 
@@ -26,7 +26,7 @@ subcollection: vpc
 When you provision File Storage for VPC file shares by using the {{site.data.keyword.cloud_notm}} console, CLI, or API, you specify a profile that best meets your file storage requirements. Profiles are available as three predefined IOPS tiers or a custom IOPS you can tailor to your needs.
 {: shortdesc}
 
-File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, Sao Paulo, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## IOPS tiers
@@ -39,7 +39,7 @@ File file shares are based on IOPS tiers you can select when creating a file sha
 | 3 IOPS/GB | General-purpose workloads - Workloads that host small databases for web applications or store virtual machine disk images for a hypervisor | 10 GB to 32,000 GB | 48,000/96,000&sup1; IOPS |
 | 5 IOPS/GB | High I/O intensity workloads - Workloads characterized by a large percentage of active data, such as transactional and other performance-sensitive databases| 10 GB to 9,600 GB | 48,000 IOPS|
 | 10 IOPS/GB | Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics | 10 GB to 4,800 GB | 48,000 IOPS |
-{: caption="Table 1. IOPS tier profiles and performance levels for each tier" caption-side="top"}
+{: caption="Table 1. IOPS tier profiles and performance levels for each tier" caption-side="bottom"}
 
 &sup1; For 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share/instance is limited to 48,000 IOPS.
 
@@ -51,11 +51,11 @@ The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS ca
 ## Custom IOPS profile
 {: #custom}
 
-Custom IOPS is a good option when you have well-defined performance requirements that do not fall within a predefined IOPS tier. You can customize the IOPS by specifying the total max IOPS for the file share within the range for its size. You can provision file shares with IOPS performance from 100 IOPS to 48,000 IOPS, based on the size.
+Custom IOPS is a good option when you have well-defined performance requirements that do not fall within a predefined IOPS tier. You can customize the IOPS by specifying the total IOPS for the file share within the range for its size. You can provision file shares with IOPS performance from 100 IOPS to 48,000 IOPS, based on the size.
 
-Table 2 shows the available max IOPS ranges based on file share size.
+Table 2 shows the available IOPS ranges based on file share size.
 
-| File Share size (GB) | Max IOPS range |
+| File Share size (GB) | IOPS range |
 |-------------|--------------|
 | 10 - 39   | 100 - 1,000 |
 | 40 - 79 | 100 -2,000 |
@@ -67,7 +67,7 @@ Table 2 shows the available max IOPS ranges based on file share size.
 | 4000 - 7,999 | 300 - 40,000 |
 | 8000 - 9,999 | 500 - 48,000 |
 | 10,000 - 16,000 | 1,000 - 48,000 |
-{: caption="Table 2. Available IOPS based on file share size." caption-side="top"}
+{: caption="Table 2. Available IOPS based on file share size." caption-side="bottom"}
 
 The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS calculation results in IOPS less than or equal to 48,000 IOPS.
 {: note}
@@ -91,7 +91,7 @@ Table 1 shows examples of how block size affects throughput, calculated as Avera
 | 128 | 128 | 16 |
 | 512 | 32 | 16 |
 | 1024 | 16 | 16 |
-{: caption="Table 1. How block size and IOPS affect throughput." caption-side="top"}
+{: caption="Table 1. How block size and IOPS affect throughput." caption-side="bottom"}
 
 ## View IOPS profiles
 {: #fs-view-iops-profiles}

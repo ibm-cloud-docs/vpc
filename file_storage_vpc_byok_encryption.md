@@ -1,10 +1,10 @@
 ---
 
 Copyright:
-  years: 2021,
-lastupdated: "2021-12-31"
+  years: 2022
+lastupdated: "2022-05-17"
 
-keywords: file storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, customer-managed encryption
+keywords:
 
 subcollection: vpc
 
@@ -31,7 +31,7 @@ subcollection: vpc
 By default, File Storage for VPC file shares are encrypted with IBM-managed encryption. You can also create customer-managed encrypted file shares by using a supported key management service to create or import and use your own root keys. After you specify the encryption type for a file share, you can't change it.
 {: shortdesc}
 
-File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, Sao Paulo, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Before you begin
@@ -121,7 +121,7 @@ Encryption Key                          crn:v1:bluemix:public:kms:us-south:a/8d6
 Encryption                              customer_managed
 Status                                  pending
 Resource Group                          Default(dbb12715c2a22f2bb60df4ffd4a543f2)
-Created                                 2021-11-20 10:09:28
+Created                                 2021-07-20 10:09:28
 Zone                                    us-south-2
 Targets                                 none
 ```
@@ -139,7 +139,7 @@ The following example creates a file share with a mount target, and specifies th
 
    ```curl
    curl -X POST \
-   "$vpc_api_endpoint/v1/shares?version=2021-11-12&generation=2" \
+   "$vpc_api_endpoint/v1/shares?version=2021-10-12&generation=2" \
    -H "Authorization: $iam_token" \
    -d '{
        "encryption_key": {
@@ -173,7 +173,7 @@ A successful response looks like this:
 
    ```json
    {
-     "created_at": "2021-11-12T22:58:49.000Z",
+     "created_at": "2021-10-12T22:58:49.000Z",
      "crn": "crn:[...]",
      "encryption": "customer_managed",
      "encryption_key": {

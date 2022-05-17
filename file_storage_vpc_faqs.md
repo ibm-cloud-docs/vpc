@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-12-31"
+  years: 2021, 2022
+lastupdated: "2022-05-17"
 
-keywords: file storage, virtual private cloud, file share, troubleshooting
+keywords:
 
 subcollection: vpc
 
@@ -31,7 +31,7 @@ subcollection: vpc
 The following questions often arise about File Storage for VPC. If you have other questions you'd like to see addressed here, provide feedback by using the **Open Issue** or **Edit Topic** links.
 {: shortdesc}
 
-File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, Sao Paulo, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Offering questions
@@ -68,6 +68,9 @@ In this release, you can:
 *	Delete all mount targets or delete a single mount target. When you delete one or several mount targets, the instances that are mounting the file share for the VPCs where the mount target is deleted can't access the file share.
 *	List file shares and mount targets.
 *	Update file share and mount target name.
+* Create replication between the source file share and a replica file share.
+* Fail over to a replica file share when the source share is compromised. Fall back to the original share when the issue is resolved.
+* Add, manage, and delete file share user tags.
 
 ### Who do I contact to help with any issues? What information do I need to provide?
 {: faq}
@@ -122,6 +125,36 @@ File shares are not elastic. Currently, you can provision minimum of 10 GB to ma
 
 You can increase the size of a file share from its original capacity in GB increments up to 32,000 GB capacity, depending on your file share profile. For more information, see [Expanding file share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity).
 
+### Is there a way to replicate my file shares in case of events?
+{: faq}
+{: #faq-fs-mgt-9}
+
+Yes. You can create replicas of your file shares by setting up a replication relationship between primary file shares in one zone to replica file shares in another zone. Using replication is a good way to recover from incidents at the primary site, when data becomes inaccessible or applications fail. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication&interface=ui)
+
+### How does file share replication work?
+{: faq}
+{: #faq-fs-mgt-10}
+
+when you create a new file share, you set up a replication relationship between a primary source file share to a replica file share in a different zone. When the file share is created, so is the replica share in the other zone. When the replication relationship is established, the replica file share begins pulling data from the source file share. The relica file share is read-only until you break the replication relationship, creating two independent file shares, or fail over to the replica file share. For more information on setting up replication, see [Creating replica file shares](/docs/vpc?topic=vpc-file-storage-create-replication&interface=ui).
+
+### How do I schedule replication?
+{: faq}
+{: #faq-fs-mgt-11}
+
+You can choose the frequency of replication by creating a schedule by using a `cronspec` and can replicate as frequently as every hour. Set up replication from the UI, CLI, or programatically by calling the API.
+
+### I want to set up replication. Is there automatic failover?
+{: faq}
+{: #faq-fs-mgt-12}
+
+No, choosing to failover to the relica site is a manual operation, so you'll have to reconcile your data after failing over the the replica share. To see how failover works for disaster recovery, see [Failover for disaster recovery](https://test.cloud.ibm.com/docs/vpc?topic=vpc-file-storage-failover&interface=ui#fs-failover-dr).
+
+### Can I add user tags to my file shares?
+{: faq}
+{: #faq-fs-mgt-13}
+
+Yes. You can specify user tags when creating a new file share or updating an existing file share. Adding user tags to a file share or replica share can make organizing your resources easier. For details, see [Add user tags to a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=api#fs-add-user-tags).
+
 
 ## Performance questions
 {: #file-storage-vpc-performance-questions}
@@ -132,6 +165,12 @@ You can increase the size of a file share from its original capacity in GB incre
 {: support}
 
 You can expect an average latency less than 100 ms for writes and less than 50 ms for reads for block sizes less than one MB.
+
+### Can I adjust the performance of my file shares?
+{: faq}
+{: #faq-fs-perf-2}
+
+Yes, you can increase or decrease IOPS by specifying a different IOPS tier profile or different IOPS value withing a custom IOPS profile. There's no outage or lack of access to the storage while adjusting IOPS. For more information, see [Adjusting file share IOPS](/docs/vpc?topic=vpc-adjusting-share-iops&interface=ui).
 
 ## Data security and encryption questions
 {: #file-storage-vpc-security-questions}
@@ -156,3 +195,4 @@ No.
 {: #faq-fs-sec-3}
 
 By default, your file share data is protected at rest with IBM-managed encryption. You can also bring your own keys to the IBM Cloud and use them to encrypt your file shares. For more information, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption).
+

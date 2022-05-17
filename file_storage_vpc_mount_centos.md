@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-12-31"
+  years: 2021, 2022
+lastupdated: "2022-05-16"
 
-keywords: file Storage, mounting file storage, Linux, CentOS, NFS
+keywords:
 
 subcollection: vpc
 
@@ -35,7 +35,7 @@ subcollection: vpc
 Use these instructions to connect a CentOS Linux&reg;-based {{site.data.keyword.cloud}} Compute Instance to a Network File System (NFS) file share.
 {: shortdesc}
 
-File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, Sao Paulo, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Before you begin - Create a VSI
@@ -59,35 +59,35 @@ SSH into the virtual server instance where you want to mount the file share, the
 
 1. Install the required tools.
 
-   ```
+   ```zsh
    yum install nfs-utils
    ```
    {: pre}
 
 2. Create a directory in your instance.
 
-   ```
+   ```zsh
    mkdir /mnt/test
    ```
    {: pre}
 
 3. Mount the remote file share.
 
-   ```
+   ```zsh
    mount -t nfs4 -o <options> <host:/mount_target> /mnt
    ```
    {: pre}
 
    For example:
 
-   ```
+   ```zsh
    mount -t nfs4 -o sec=sys,nfsvers=4.1 fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_246a9cb9-4679-4dc5-9522-4a7ed2575136 /mnt/test
    ```
    {: pre}
 
 4. Verify that the mount was successful with the disk file system command.
 
-   ```
+   ```text
    $ df -h
    Filesystem                                                                                    Size  Used Avail Use% Mounted on
    udev                                                                                          3.9G     0  3.9G   0% /dev
@@ -104,7 +104,7 @@ SSH into the virtual server instance where you want to mount the file share, the
 
 5. Go to the mount point and the read/write files.
 
-   ```
+   ```zsh
    $ touch /mnt/test/test.txt
    ls -al /mnt/test
    total 12
@@ -120,13 +120,13 @@ SSH into the virtual server instance where you want to mount the file share, the
 
    **a.** Get the `hostname.com` portion of mount path, `for example: fsf-dal2433a-dz.adn.networklayer.com` and get the IP address. Run the following command from the instance to get the IP address.
 
-      ```
+      ```text
       host hostname.com
       ```
       {: pre}
 
       For example:
-      ```
+      ```text
       host fsf-dal2433a-dz.adn.networklayer.com
       fsf-dal2433a-dz.adn.networklayer.com has address 203.0.113.0
       ```
@@ -137,35 +137,35 @@ SSH into the virtual server instance where you want to mount the file share, the
 
    **b.** Edit `/etc/hosts` and add an IP to the hostname entry.
 
-      ```
+      ```text
       <IP_Address> hostname.comhostname.com
       ```
       {: pre}
 
       For example:
 
-      ```
+      ```text
       198.51.100.0 fsf-dal2433a-dz.adn.networklayer.com
       ```
       {: pre}
 
    **c.** Edit the file systems table (`/etc/fstab`) and add an entry
 
-      ```
+      ```text
       (hostname):/(file_share_path) /mnt nfs_version options 0 0
       ```
       {: pre}
 
       For example:
 
-      ```
+      ```text
       fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_246a9cb9-4679-4dc5-9522-4a7ed2575136 /mnt/test nfs4 nfsvers=4.1,sec=sys,_netdev 0 0
       ```
       {: pre}
 
 7. Verify that the configuration file has no errors.
 
-   ```
+   ```zsh
    mount -fav
    ```
    {: pre}
@@ -189,7 +189,7 @@ For example:
 
 1. From the host, set domain setting in `/etc/idmapd.conf`.
 
-   ```
+   ```text
    $ vi /etc/idmapd.conf
    [General]
    #Verbosity = 0
@@ -209,12 +209,12 @@ For example:
 
 To unmount any currently mounted file system on your host, run the `umount` command with disk name or mount point name.
 
-```
+```zsh
 umount /dev/sdb
 ```
 {: pre}
 
-```
+```zsh
 umount /mnt
 ```
 {: pre}
