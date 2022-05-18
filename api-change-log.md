@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-05-17"
+lastupdated: "2022-05-18"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
