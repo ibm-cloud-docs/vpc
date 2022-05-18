@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-17"
+lastupdated: "2022-05-18"
 
 keywords:
 
@@ -36,9 +36,6 @@ View all file shares and mount targets in the UI, CLI, or API. View details of a
 File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, Sao Paulo, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
-Before you get started, to create mount targets for file shares, make sure that you created a [VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
-{: important}
-
 ## View file shares and mount targets in the UI
 {: #file-storage-view-shares-targets-ui}
 {: ui}
@@ -66,12 +63,17 @@ Before you get started, to create mount targets for file shares, make sure that 
 
 1. Go to the list of all file shares. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**.
 
-2. Click the name of a file share to see the details page. The editable name and [status](/docs/vpc?topic=vpc-file-storage-managing#file-storage-vpc-status) of the file share is shown. The following table describes the information on files shares details page.
+2. Click the name of a file share to see the details page. 
+
+The editable name and [status](/docs/vpc?topic=vpc-file-storage-managing#file-storage-vpc-status) of the file share is shown. If you applied user tags to the file share, they are listed. Click **Add tags** to apply new [user tags](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-user-tags) to the share.
+
+The following table describes the information on files shares details page.
 
 | Field | Value |
 |-------|-------|
+| **File share details** | |
 | Name  | The file share name. Click the pencil icon to change the name. |
-| Zone | Zone in which the file share was created and resides (for example, _US South 2_). |
+| Zone | zone for the file share (for example, Dallas 2). |
 | Max IOPS | Maximum IOPS for the IOPS tier profile associated with the file share. |
 | Resource group | Resource groups associated with the file share in your account. |
 | Replication role | Source file share or replica. |
@@ -82,8 +84,15 @@ Before you get started, to create mount targets for file shares, make sure that 
 | Size | File share size in GB. |
 | Created | Date the file share was created. |
 | IOPS tier | [IOPS tier profile](/docs/vpc?topic=vpc-file-storage-profiles#fs-tiers) defining the file share performance (for example 3 IOPS/GB). |
-| Mount targets | Number of mount targets associated with the file share. You can have one mount target per VPC per file share. \n You can create more mount targets for other VPCs. \n Click the **Virtual private cloud** to go to the details page for that VPC, where you can see a [list of file shares](#fs-view-shares-vpc) that have a mount target to the VPC]. |
-| File share replication relationship | Shows the replica file share in relationship to the source file share. If you make changes to the source file share size or profile applied, the replica will be updated at the next replication interval. Hover over the information icon to see an explanation of the cron replication frequency. Click the file share name to see its details. \n Click **Remove replication relationship** to break the replication relationship. The replica file share is now an independent read/write file share. If no replica file shares were created, click **Create replica** to [create one](/docs/vpc?topic=vpc-file-storage-create-replication). |
+| **Mount targets** | Number of mount targets associated with the file share. You can have one mount target per VPC per file share. You can create more mount targets for other VPCs. |
+| Name | Name of the mount target. |
+| Virtual private cloud | Click the name to go to the details page for that VPC, where you can see a [list of file shares](#fs-view-shares-vpc) that have a mount target to the VPC]. |
+| Status | Status of the mount target on the VPC. |
+| **File share replication relationship** | Shows the replica file share in relationship to the source file share. If you make changes to the source file share size or profile applied, the replica will be updated at the next replication interval. \n Click **Remove replication relationship** to break the replication relationship. The replica file share is now an independent read/write file share. If no replica file shares were created, click **Create replica** to [create one](/docs/vpc?topic=vpc-file-storage-create-replication).|
+| Replication frequency | Hover over the information icon to see an explanation of the cron replication frequency. |
+| Replication role | Source or replica file share. |
+| File share Name | Click the file share name to see its details. |
+| Status | Replication status; for example, _suspended_ or _available_. |
 | Actions menu | Options for managing the file share, depending on its state. Options include add auditing, expand share, edit IOPS profile, perform failover, create replica, and delete share. Expand share, create replica, and delete are disabled if you set up replication to a replica file share. For more information, see [Creating replica file shares](/docs/vpc?topic=vpc-file-storage-create-replication&interface=ui). |
 {: caption="Table 2. File shares details page" caption-side="top"}
 
