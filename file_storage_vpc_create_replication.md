@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-16"
+lastupdated: "2022-05-18"
 
 keywords:
 
@@ -149,12 +149,12 @@ Use the CLI to create a file share with replication, or update a file share to i
 
 Run the `ibmcloud is share-create` command and specify the following properties to define the replica share for a new file share:
 
-`--replica-share-iops`: The maximum input/output operation performance bandwidth per second for the file share; applicable for custom profile file share.
-`--replica-share-name`: Specify a name for the replica file share.
-`--replica-share-profile`:` The profile the file share uses.
-`--replica-cron-spec`: The cron specification for the file share replication schedule.
-`--replica-target`: TARGETS_JSON|@TARGETS_JSON_FILE, specify file share targets in JSON or in a JSON file.
-`--replica-zone`: The zone in which th  replica file share will reside. It must be a different zone in the same region as the source share.
+* `--replica-share-iops`: The maximum input/output operation performance bandwidth per second for the file share; applicable for custom profile file share.
+* `--replica-share-name`: Specify a name for the replica file share.
+* `--replica-share-profile`:` The profile the file share uses.
+* `--replica-cron-spec`: The cron specification for the file share replication schedule.
+* `--replica-target`: TARGETS_JSON|@TARGETS_JSON_FILE, specify file share targets in JSON or in a JSON file.
+* `--replica-zone`: The zone in which th  replica file share will reside. It must be a different zone in the same region as the source share.
 
 Syntax:
 

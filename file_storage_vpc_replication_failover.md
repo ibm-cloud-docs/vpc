@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-17"
+lastupdated: "2022-05-18"
 
 keywords:
 
@@ -68,6 +68,8 @@ Note these restrictions when preforming failover.
 
 * The default timeout for a successful failover is 5 minutes. You can modify this value when [configuring failover](/docs/vpc?topic=vpc-file-storage-failover&interface=ui#fs-failover-procedure-ui) options.
 
+* A failover will remain pending when other operations are being performed on the source file share, such as expanding the share size. When the operation completes, the failover resumes.
+
 ## Failover procedure with the UI
 {: #fs-failover-procedure-ui}
 {: ui}
@@ -114,8 +116,6 @@ The file share 8b07129c-e376-4572-9ef3-68c729b315d5 failover request was accepte
 The file share failover request was accepted.
 ```
 {: screen}
-
-You 
 
 ## Failover procedure with the API
 {: #fs-failover-procedure-api}

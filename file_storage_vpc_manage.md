@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-05-17"
+lastupdated: "2022-05-18"
 
 keywords:
 
@@ -131,8 +131,6 @@ Add tags to a file shares in any of these ways:
 * Add tags from the file share details page in the UI.
 
 * Use the [VPC API](#fs-add-tags-shares-api) or GhoST API to add tags to existing file shares. This information covers the VPC API only.
-
-In the API, in addition to creating user tags, you can modify existing tags. This makes use of the `ETag` hash string value you obtain from the share's `If-Match` header. In addition, specifying an `ETag` value ensures any updates to or deletions of a file share will fail if the `ETag` value does not match the file share's current `ETag`.
 
 For more information about managing tags for your account, see [Working with tags](/docs/account?topic=account-tag&interface=ui).
 
