@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-03-22"
+lastupdated: "2022-05-17"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -40,6 +40,10 @@ SDK changes are based on API changes. For information about the latest changes t
 
 ### For all version dates
 {: #upcoming-changes-all-version-dates}
+
+**`Instance` response schema change.** In an upcoming release, volume attachments returned in the `boot_volume_attachment` and `volume_attachments[]` properties of an instance will not include the `volume` sub-property if the volume has not yet been provisioned. Such volumes are currently represented with empty `crn`, `id`, and `href` properties along with an undocumented sentinel value for `name`.
+
+To prepare for this change, verify that your client checks that the `volume` property exists for a volume attachment before attempting to access its `crn`, `id`, `href`, or `name` sub-properties.
 
 **Asynchronous `DELETE` response code change.** In an upcoming release, the response code output for asynchronous `DELETE` operations will change from `204` to `202`. A response code of `204` implies the action is completed, which could be misleading for operations that are still processing. A response code of `202` is more appropriate. This behavior change will occur only for an API version date after its release. A response code of `204` will continue to be returned for API versions up to this version date.
 
