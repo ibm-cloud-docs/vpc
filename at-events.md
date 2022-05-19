@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-02-25"
+lastupdated: "2022-05-19"
 
 keywords:
 subcollection: vpc
@@ -485,6 +485,24 @@ File Storage for VPC is available for customers with special approval to preview
 | share mount targets  | is.share.target.update  | Mount target for a file share was modified  |
 | share mount targets  | is.share.target.delete | Mount target for a file share was deleted  |
 {: caption="Table 24. Actions that generate events for file storage resources" caption-side="bottom"}
+
+### Backup service events
+{: #events-backup-service}
+
+The following table lists the actions that are related to the VPC Backup service resources and the generation of events.
+
+| Resource  | Action  | Description  |
+|:----------------|:-----------------------|:-----------------------|
+| backup-policy  | is.backup-policy.backup-policy.create  | Backup policy was created |
+| backup-policy  | is.backup-policy.backup-policy.update  | Backup policy was updated  |
+| backup-policy  | is.backup-policy.backup-policy.delete  | Backup policy was deleted  |
+| backup-policy  | is.backup-policy.backup-policy.list    | One or more backup policies were retrieved  |
+| backup-policy  | is.backup-policy.backup-policy.read    | Backup policy was retrieved  |
+| backup-policy  | is.backup-policy.backup-plan.create   | Backup plan was created  |
+| backup-policy  | is.backup-policy.backup-plan.delete  | Backup plan was deleted  |
+| backup-policy  | is.backup-policy.backup-plan.read    | One or more backup plans were retrieved  |
+| backup-policy  | is.backup-policy.backup-job.read    | One or more backup jobs were retrieved  |
+{: caption="Table 25. Actions that generate events for VPC Backup service resources" caption-side="bottom"}
 
 ## Supported locations
 {: #at-supported-locations}

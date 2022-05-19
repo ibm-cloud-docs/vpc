@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-04-29"
+lastupdated: "2022-05-19"
 
 keywords:
 
@@ -360,7 +360,7 @@ Backups require IAM permissions for role-based access control. Table 1 describes
 ## Activity Tracker events
 {: #backup-activity-tracker}
 
-When a backup is created, an event is triggered in Activity Tracker. For more information, see [Activity Tracker Storage resources](/docs/vpc?topic=vpc-at-events#events-storage]).
+When a backup is created, an event is triggered in Activity Tracker for the [Backup service](/docs/vpc?topic=vpc-at-events&interface=ui#events-backup-service) and [Snapshots service](/docs/vpc?topic=vpc-at-events&interface=ui#events-snapshots). For more information, see [Activity Tracker events](/docs/vpc?topic=vpc-at-events).
 
 ## Next steps
 {: #backup-next-steps-manage}
