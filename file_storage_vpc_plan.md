@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-05-17"
+lastupdated: "2022-05-18"
 
 keywords:
 
@@ -33,9 +33,6 @@ When you're planning a to create file shares on your VPC, you might find this ch
 File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, Sydney, Sao Paulo, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
-Before you get started, to create mount targets for file shares, make sure that you created a [VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
-{: important}
-
 ## Planning for creating file shares
 {: #planning-for-file-shares}
 
@@ -50,7 +47,7 @@ Consider the following prerequisites before you set up File Storage for VPC.
 |__ Evaluate how you plan to use your file shares. |
 |__ Make sure that you have a unique name for your file shares that easily identify the file share as your list of shares grows. Associate it with a resource group in your IBM Cloud customer account. |
 |__ When creating a file share, choose the encryption type that best suits your needs. By default, your file shares are encrypted with IBM-managed encryption. For greater control, consider using customer-managed encryption. Your data is protected at rest with your own root keys. For information about his option, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption). |
-|__ When creating a file share, decide when to create a mount target. You can create additional mount targets separate from file share creation. |
+|__ When creating a file share, decide when to create a mount target. You can create additional mount targets separate from file share creation. Also, make sure that you created a [VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).|
 |__ Estimate the size of the file share you require for your current needs. You can later [increase the size of the file share](/docs/vpc?topic=vpc-file-storage-expand-capacity), depending on what the file share profile allows. |
 |__ To mount a file share on a target, you must create at least one mount target. |
 |__ To create a mount target you must have a VPC. Identify an existing VPC or create a new one. |
