@@ -217,7 +217,7 @@ Response:
 ```
 {: codeblock}
 
-You can also add user tags when creating a new file share by making a `POST /shares` request. For information, see the example in [Create file shares and mount targets in the API](/docs/vpc?topic=vpc-file-storage-create&interface=cli#fs-create-share-target-api).
+You can also add user tags when creating a new file share by making a `POST /shares` request. For information, see the example in [Create file shares and mount targets in the API](/docs/vpc?topic=vpc-file-storage-create&interface=api#fs-create-share-target-api).
 {: note}
 
 ## Manage file shares and mount points in the CLI
