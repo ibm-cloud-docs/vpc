@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-05-17"
+lastupdated: "2022-05-19"
 
 keywords:
 
@@ -117,9 +117,9 @@ with the API, you can set these attributes for controlling access to your file s
 ## User tags for file shares
 {: #fs-about-user-tags}
 
-File storage for VPC is enabled for Global Searching and Tagging (GhoST). From the file service you can create user tags to organize your file shares across the VPC. You can create new user tags or add existing tags when provisioning a new file share or updating an existing file share. You can remove them at any time. Create, view, and manage tags from the UI or API. 
+File storage for VPC is enabled for Global Searching and Tagging (GhoST). From the file service you can create user tags to organize your file shares across the VPC. You can create new user tags or add existing tags when provisioning a new file share or updating an existing file share. You can sreate, view, and manage tags from the UI or API, and remove then at any time.
 
-Tags are uniquely identified by a Cloud Resource Name (CRN) identifier. When you create a tag, you provide a unique name within your billing account. You can define tags in a key-value format. The file service sends and receives tags directly to the GhoST service. The Telemetry service is not used for these actions.
+Tags are uniquely identified by a Cloud Resource Name (CRN) identifier. When you create a tag, you provide a unique name within your billing account. You can define tags in a key-value format. Behind the scenes, the file service sends and receives tags directly to the GhoST service. GhoST stores its key attributes and the array of tags. GhoST also stores user resource information, which let's you view, tag, and search for resources you own.
 
 For information about adding tags to file shares, see [Add user tags to file shares](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-user-tags). For more information about managing tags for your account, see [Working with tags](/docs/account?topic=account-tag&interface=ui).
 

@@ -128,9 +128,10 @@ Add tags to a file shares in any of these ways:
 
 * Add tags to volumes directly from the file shares list view in the [UI](#fs-add-tags-shares-ui) using the tags column.
 
-* Add tags from the file share details page in the UI.
+* Add tags from the file share details page in the UI or use the [VPC API](#fs-add-tags-shares-api). 
 
-* Use the [VPC API](#fs-add-tags-shares-api) or GhoST API to add tags to existing file shares. This information covers the VPC API only.
+You can also manage your tags in IBM Cloud by using the [Global Tagging API](/apidocs/tagging). With this API, you can create, delete, search, attach, or detach tags.
+{: note}
 
 For more information about managing tags for your account, see [Working with tags](/docs/account?topic=account-tag&interface=ui).
 
