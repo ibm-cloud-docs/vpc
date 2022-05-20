@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2022-04-29",
+    "lastupdated": "2022-05-20",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc", 
@@ -31,6 +31,11 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "17 May 2022",
+          "title": "File storage for VPC",
+          "description": "For accounts authorized to preview this service, you can configure replication for new and existing file shares. Replication creates a read-only copy of your file share data in a different zone. You can fail over to the relica share if the source share becomes damaged or compromised. You can now add user tags from the UI, CLI, or API when you create a new file share or update file shares."
+        },
+          {
           "date": "29 April 2022",
           "title": "Backup for VPC (LA)",
           "description": "Accounts authorized to preview this service can create backup policies and plans to automatically back up block storage volumes. Backup policies control which source volumes are selected for backup by matching user tags in the volume with tags defined in the backup policy. Policies can contain up to four backup plans, which specify how often backup snapshots are taken (daily, weekly, monthy, or using a cron-spec) and retained (by date or by count). You can also view backup jobs, which shows status of backup snapshots being created or deleted. This release also provides new functionality for restoring volumes from backup snapshots."
@@ -39,11 +44,6 @@
           "date": "28 April 2022",
           "title": "UI Updates",
           "description": "There were updates to the UI. The custom image details information was moved from the side panel to a separate custom image details page. Previously, when you changed the region or zone while you provision a virtual server instance, you had to click either Save or Cancel to continue. This behavior was changed and you don't need to make that selection when you change the region or zone. Also, you can now delete the virtual server instance without manually unbinding the floating IP address. When you delete the virtual server instance, the floating IP address is now automatically unbound before the virtual server instance is deleted. This UI change now matches how the virtual server instance is deleted when you use the CLI or API."
-        },
-        {
-          "date": "31 March 2022",
-          "title": "Add Other device types as Application Load Balancer (ALB) pool members",
-          "description": "You can now add Other device types as ALB back-end pool members, such as servers contained within a Power Systems Virtual Server instance connected over IBM Cloud Direct Link (2.0). In the past, you were only able to select virtual server instances or Bare Metal servers within a VPC. When creating a new member, select the Other tab from the Attach server screen and enter the device IP address."
         }
       ]
     }
