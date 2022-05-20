@@ -2,7 +2,7 @@
 
 Copyright:
   years:  2022
-lastupdated: "2022-04-25"
+lastupdated: "2022-05-20"
 
 keywords:
 
@@ -16,7 +16,6 @@ subcollection: vpc
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
-{:preview: .preview}
 {:screen: .screen}
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
@@ -26,9 +25,6 @@ subcollection: vpc
 
 When you plan a strategy for backing up your {{site.data.keyword.block_storage_is_short}} volumes, you might find this checklist helpful to set up and use the backup service.
 {: shortdesc}
-
-This service is available only to accounts with special approval to preview this feature. Contact IBM Support if you're interested in getting access.
-{: preview}
 
 ## Planning backups
 {: #baas-planning}

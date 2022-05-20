@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-04-29"
+lastupdated: "2022-05-20"
 
 keywords:
 
@@ -18,7 +18,6 @@ subcollection: vpc
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
-{:preview: .preview}
 {:table: .aria-labeledby="caption"}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
@@ -32,9 +31,6 @@ subcollection: vpc
 
 Create backup policies for your block storage volumes by using the UI, CLI, or API. Create up to four backup plans to schedule backup creation and retention. Specify user tags in the policy ensure your data is backed up regularly. Create backups on schedule when tags applied to a volume match tags in a backup policy.
 {: shortdesc}
-
-This service is available only to accounts with special approval to preview this feature. Contact IBM Support if you're interested in getting access.
-{: preview}
 
 ## Before you begin
 {: #backup-prereqs}

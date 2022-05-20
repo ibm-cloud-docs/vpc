@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-04-26"
+lastupdated: "2022-05-20"
 
 keywords:
 
@@ -28,9 +28,6 @@ subcollection: vpc
 
 Use {{site.data.keyword.cloud}} Backup for VPC to automatically back up, manage, and restore block storage volumes from backups. By using this service, you prevent data loss, manage risk, and improve data compliance. The backup service let's you create and manage backup policies for your block storage volumes. Apply these policies to your volumes to assure your data is backed up regularly. Retain the backups as long as you need.
 {: shortdesc}
-
-This service is available only to accounts with special approval to preview this feature. Contact IBM Support if you're interested in getting access.
-{: preview}
 
 ## Backup service concepts
 {: #backup-service-concepts}

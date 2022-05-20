@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-04-29"
+lastupdated: "2022-05-20"
 
 keywords:
 
@@ -18,7 +18,6 @@ subcollection: vpc
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
-{:preview: .preview}
 {:table: .aria-labeledby="caption"}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
@@ -31,9 +30,6 @@ subcollection: vpc
 
 Use the UI, CLI, or API to a list and view all backup policies you created for your block storage volumes. Look at details of individual policies.
 {: shortdesc}
-
-This service is available only to accounts with special approval to preview this feature. Contact IBM Support if you're interested in getting access.
-{: preview}
 
 ## View backup policies with the UI
 {: #backup-view-ui}

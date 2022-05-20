@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-04-29"
+lastupdated: "2022-05-20"
 
 keywords:
 
@@ -16,7 +16,6 @@ subcollection: vpc
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
-{:preview: .preview}
 {:table: .aria-labeledby="caption"}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
@@ -30,9 +29,6 @@ subcollection: vpc
 
 Before you can create backup policies, you need to establish service-to-service authorizations and specify user roles. This will enable the Backup for VPC service to detect volume tags and create backups.
 {: shortdesc}
-
-This service is available only to accounts with special approval to preview this feature. Contact IBM Support if you're interested in getting access.
-{: preview}
 
 ## Overview
 {: #backup-s2s-auth-overview}

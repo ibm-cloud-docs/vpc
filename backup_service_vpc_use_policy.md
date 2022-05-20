@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-04-29"
+lastupdated: "2022-05-20"
 
 keywords:
 
@@ -17,7 +17,6 @@ subcollection: vpc
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
-{:preview: .preview}
 {:table: .aria-labeledby="caption"}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
@@ -30,9 +29,6 @@ subcollection: vpc
 
 Apply backup policies by adding tags to new or existing block storage volumes. When these tags match a backup policy tag, a backup is created.
 {: shortdesc}
-
-This service is available only to accounts with special approval to preview this feature. Contact your IBM Support if you are interested in getting access.
-{: preview}
 
 ## General procedure
 {: #backup-gen-proc-tags}

@@ -2,7 +2,7 @@
 
 Copyright:
   years:  2022
-lastupdated: "2022-04-29"
+lastupdated: "2022-05-20"
 
 keywords:
 
@@ -16,7 +16,6 @@ subcollection: vpc
 {:new_window: target="_blank"}
 {:tip: .tip}
 {:note: .note}
-{:preview: .preview}
 {:screen: .screen}
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
@@ -26,9 +25,6 @@ subcollection: vpc
 
 To assure you're using the VPC Backup Service most effectively and economically, consider following these best practices.
 {: shortdesc}
-
-This service is available only to accounts with special approval to preview this feature. Contact IBM Support if you're interested in getting access.
-{: preview}
 
 ## General best practices
 {: #baas-general-bp}

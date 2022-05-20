@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-04-29"
+lastupdated: "2022-05-20"
 
 keywords:
 
@@ -16,16 +16,12 @@ subcollection: vpc
 {:support: data-reuse='support'}
 {:external: target="_blank" .external}
 {:note: .note}
-{:preview: .preview}
 
 # FAQs for Backup for VPC
 {: #backup-service-vpc-faq}
 
 The following questions pertain to the VPC Backup service. If you have other questions you'd like to see answered here, provide feedback by using the **Open Issue** or **Edit Topic** links after the FAQs.
 {: shortdesc}
-
-This service is available only to accounts with special approval to preview this feature. Contact IBM Support if you're interested in getting access.
-{: preview}
 
 ## What is the VPC backup service?
 {: faq}

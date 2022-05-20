@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-04-29"
+lastupdated: "2022-05-20"
 
 keywords:
 
@@ -30,9 +30,6 @@ subcollection: vpc
 
 When you use the Backup for VPC service, you might encounter issues. Often, you can recover by following a few steps. Issues, symptoms, likely causes, and resolutions are described in the following sections.
 {: shortdesc}
-
-This service is available only to accounts with special approval to preview this feature.
-{: preview}
 
 ## Volume backups were not made according to backup plan
 {: #baas-ts-1}

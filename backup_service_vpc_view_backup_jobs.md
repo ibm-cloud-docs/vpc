@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-04-29"
+lastupdated: "2022-05-20"
 
 keywords:
 
@@ -18,7 +18,6 @@ subcollection: vpc
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
-{:preview: .preview}
 {:screen: .screen}
 {:table: .aria-labeledby="caption"}
 {:DomainName: data-hd-keyref="APPDomain"}
@@ -32,9 +31,6 @@ subcollection: vpc
 
 When a backup policy is being created or deleted, you can view the backup job status. Use the UI, CLI, or API to a list all backup jobs for a policy and view job details.
 {: shortdesc}
-
-This service is available only to accounts with special approval to preview this feature. Contact IBM Support if you're interested in getting access.
-{: preview}
 
 A job creates a snapshot from a volume, on behalf of a backup policy and plan.
 

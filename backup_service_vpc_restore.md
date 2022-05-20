@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-04-29"
+lastupdated: "2022-05-20"
 
 keywords: 
 subcollection: vpc
@@ -27,9 +27,6 @@ subcollection: vpc
 
 Restoring from a backup snapshot create a new, fully-provisioned boot or data volume. When you restore a backup snapshot of a boot volume, you create a new boot volume that you can use when you provision a new instance. Similarly, restoring from a backup of a data volume creates a secondary volume that's attached to the instance.
 {: shortdesc}
-
-This service is available only to accounts with special approval to preview this feature. Contact IBM Support if you're interested in getting access.
-{: preview}
 
 ## About restoring a volume from a backup snapshot
 {: #baas-vpc-restore-concepts}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-19"
+lastupdated: "2022-05-20"
 
 keywords:
 
@@ -18,7 +18,6 @@ subcollection: vpc
 {:pre: .pre}
 {:tip: .tip}
 {:note: .note}
-{:preview: .preview}
 {:table: .aria-labeledby="caption"}
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
@@ -31,9 +30,6 @@ subcollection: vpc
 
 Manage backup policies and their associated plans created for your block storage volumes. Delete policies and plans that you no longer need. Update the policy and plan. Audit your policies by integrating Activity Tracker events. Check the status of your backup policies.
 {: shortdesc}
-
-This service is available only to accounts with special approval to preview this feature. Contact IBM Support if you're interested in getting access.
-{: preview}
 
 ## Backup policy deletion overview
 {: #backup-delete}
