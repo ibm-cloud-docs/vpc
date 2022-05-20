@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-18"
+lastupdated: "2022-05-19"
 
 keywords:
 
@@ -44,6 +44,7 @@ File Storage for VPC is available for customers with special approval to preview
 {: #fs-view-all-shares-ui}
 
 1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**.
+
 2. The File Shares for VPC list page shows all file shares that are created in that zone. Overflow menu options are used to manage the file shares. The following table describes the information and actions on the list page.
 
 | Field | Value |

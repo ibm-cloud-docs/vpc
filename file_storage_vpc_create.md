@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-05-17"
+lastupdated: "2022-05-19"
 
 keywords:
 
@@ -230,7 +230,7 @@ This example show a request to create a 4800 GB file share with a 10 IOPS/GB pro
 
 ```curl
 curl -X POST \
-"$rias_endpoint/v1/shares?version=2022-05-10&generation=2\
+"$rias_endpoint/v1/shares?version=2022-05-10&generation=2"\
 -H "Authorization: $iam_token" \
 -d '{
     "size": 4800,
@@ -289,12 +289,12 @@ A successful response looks like this:
 ### Create a file share and mount target together with the API
 {: #fs-create-share-target-api}
 
-This request creates a file share and a mount target for the file share.
+This request creates a file share and a mount target, and adds [user tags](/docs/vpc?topic=vpc-file-storage-managing&interface=api#fs-add-user-tags) to the share.
 
 ```curl
 curl -X POST \
-"$rias_endpoint/v1/shares?version=2022-05-10&generation=2\
--H "Authorization: $iam_token" \
+"$rias_endpoint/v1/shares?version=2022-05-10&generation=2"\
+-H "Authorization: Bearer $iam_token"\
 -H 'Content-Type: application/json' \
 -d '{
     "size": 4800,
@@ -383,9 +383,9 @@ This request creates or adds a mount target to an already existing file share.
 
 ```curl
 curl -X POST \
-"$rias_endpoint/v1/shares/$share_id/targets?version=2022-05-10&generation=2\
--H "Authorization: $iam_token" \
--H 'Content-Type: application/json' \
+"$rias_endpoint/v1/shares/$share_id/targets?version=2022-05-10&generation=2"\
+-H "Authorization: Bearer $iam_token"\
+-H 'Content-Type: application/json'\
 -d '{
     "name": "target-name1",
     "vpc": {
@@ -393,7 +393,7 @@ curl -X POST \
     }
   }'
 ```
-{: pre}
+{: codeblock}
 
 A successful response looks like this:
 

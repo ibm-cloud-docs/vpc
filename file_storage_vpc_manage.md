@@ -120,15 +120,15 @@ The file share must be in a `stable` state or `failed` state (i.e., when provisi
 ## Add user tags to a file share
 {: #fs-add-user-tags}
 
-You can add user tags when to new or existing file shares, and modify tags for a file share. You can view tags throughout your account by filtering by tags from your resource list. You can delete user tags for a file share. 
+You can add user tags when to new or existing file shares, and modify and delete tags for a file share. You can view tags throughout your account by filtering by tags from your resource list.
 
 Add tags to a file shares in any of these ways:
 
-* Specify user tags when [creating a new file share](/docs/vpc?topic=vpc-file-storage-createfs-create-share-add-tags-api) from the UI, CLI, or API.
+* Specify user tags when creating a new file share from the [UI](/docs/vpc?topic=vpc-file-storage-create&interface=ui#file-storage-create-ui) or [API](#fs-add-tags-api).
 
-* Add tags to volumes directly from the file shares list view in the [UI](#fs-add-tags-shares-ui) using the tags column.
+* Add or update tags to an existing file share from the [file share details page](#fs-add-tags-shares-ui) in the UI.
 
-* Add tags from the file share details page in the UI or use the [VPC API](#fs-add-tags-shares-api). 
+* Use the [VPC API](#fs-add-tags-shares-api) to add or modify tags.
 
 You can also manage your tags in IBM Cloud by using the [Global Tagging API](/apidocs/tagging). With this API, you can create, delete, search, attach, or detach tags.
 {: note}
@@ -143,7 +143,7 @@ You can add user tags to a file share in the UI.
 
 1. Navigate to the list of file shares. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**.
 
-2. Click **Create** to provision a new file share. For existing file shares, select a file share to view its details.
+2. Select a file share to view its details.
 
 3. On the file share details page, user tags next to the file share name. Click the pencil icon to edit tags.
 
@@ -155,12 +155,44 @@ You can add user tags to a file share in the UI.
 {: #fs-add-tags-api}
 {: api}
 
+#### Add user tags when creating a new file share
+{: #fs-add-tags-new-share-api}
+
+Make a `POST /shares` request and specify the `user_tags` property. This example creates a share with three user tags, `env:test1`, `env:test2`, and `env:prod`.
+
+```curl
+curl -X POST \ 
+"$rias_endpoint/v1/shares?version=2022-05-10&generation=2"\
+    -H "Authorization: Bearer $iam_token"\
+    -H 'Content-Type: application/json'\
+    -d '{
+        "name": "share-name1",
+        "size": 2300,
+        "profile": {
+           "name": "tier-3iops"
+        },
+        "user_tags": [
+           "env:test1",
+           "env:test2",
+           "env:prod"
+        ],
+        "zone": {
+          "name": "us-south-1"
+        }
+      }'
+```
+{: pre}
+
+#### Modify user tags for an existing file share
+{: #fs-add-tags-share-api}
+
 Add new user tags to an existing file by making a `PATCH /shares` call and specify the user tags in the `user_tags` property. You can specify new tags for a file share without any tags and the user tags are added. If you specify different tags, the existing tags are modified.
 
 The following example modifies a file share identified by ID by renaming the share and adding user tags.
 
-```zsh
-PATCH/"$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2022-05-10&generation=2\
+```curl
+curl -X PATCH\
+"$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2022-05-10&generation=2"\
 -H "Authorization: $iam_token" \
 -d '{
     "name": "myshare-patch-1",
@@ -170,7 +202,7 @@ PATCH/"$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=202
     ],
   }'
 ```
-{: pre}
+{: codeblock}
 
 Response:
 
@@ -217,8 +249,61 @@ Response:
 ```
 {: codeblock}
 
-You can also add user tags when creating a new file share by making a `POST /shares` request. For information, see the example in [Create file shares and mount targets in the API](/docs/vpc?topic=vpc-file-storage-create&interface=api#fs-create-share-target-api).
-{: note}
+#### Modify file share user tags with ETag verification
+{: #fs-modify-etag-api}
+
+To assure updates to a file share are valid, you can obtain an `ETag` hash string value and specify it in the `If-Match` header while making a `PATCH /shares/{share_id}` call. This assures that no change has happened to the share object between the last observed state and the state at the time of the PATCH call.
+
+To modify existing user tags added to a file share, you first make a `GET /shares/{share_id}` call and copy the hash value from `ETag` property in the response header. You then send the `ETag` value using the `If-Match` header in a `PATCH /shares/{share_id}` request. Specifying an Etag value ensures any updates to or deletions of a file share will fail if the `If-Match` value does not match the file share's current `Etag`. Follow these steps:
+
+1. Make a `GET /shares/{share_id}` call and copy the hash string from `ETag` property in the response header. You will use the hash string when you specify `If-Match` in the `PATCH /shares/{share_id}` request to modify user tags for the share in step 2. For example, to generate the response header information, make a call similar to this:
+
+   ```curl
+   curl -sSL -D GET\
+   "https://us-south.iaas.cloud.ibm.com/v1/shares/{share_id}?version=2022-05-26&generation=2"\
+   -H "Authorization: Bearer $TOKEN" -o /dev/null
+   ```
+   {: pre}
+
+   In the response header, you'll see something like this:
+
+   ```text
+   HTTP/2 200
+   date: Tue, 26 May 2022 17:48:03 GMT
+   content-type: application/json; charset=utf-8
+   content-length: 1049
+   cf-ray: 69903d250c4966ef-DFW
+   cache-control: max-age=0, no-cache, no-store, must-revalidate
+   expires: -1
+   strict-transport-security: max-age=31536000; includeSubDomains
+   cf-cache-status: DYNAMIC
+   expect-ct: max-age=604800, report-uri="[uri...]"
+   pragma: no-cache
+   x-content-type-options: nosniff
+   x-request-id: 1fbe2384-6828-4503-ae7d-050426d1b11b
+   x-xss-protection: 1; mode=block
+   server: cloudflare
+   etag: W/xxxyyyzzz123
+   ```
+   {: codeblock}
+
+2. Make a `PATCH /shares/{share_id}` request. Specify the `ETag` hash string for the `If-Match` property in the header. Specify the user tags in the `user_tags` property.
+
+   This example updates the file share user tags to `env:test` and `env:prod`. Note that the hash string value you obtained from the `ETag` property (W/xxxyyyzzz123) is specified in the `If-Match` header in the call.
+
+   ```curl
+   curl -X PATCH\
+   "$vpc_api_endpoint/v1/shares/50fda9c3-eecd-4152-b473-a98018ccfb10?version=2022-05-26&generation=2"\
+      -H "Authorization: Bearer"\
+      -H "If-Match: W/xxxyyyzzz123"\
+      -d `{
+         "user_tags": [
+            "env:test2",
+            "env:prod2"
+         ]
+      }'
+   ```
+   {: codeblock}
 
 ## Manage file shares and mount points in the CLI
 {: #file-storage-manage-cli}
