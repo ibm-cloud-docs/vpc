@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-04-08"
+lastupdated: "2022-05-24"
 
 keywords: known issues, bugs, defects
 
@@ -17,6 +17,13 @@ subcollection: vpc
 
 Known issues might change over time, so check back occasionally.
 {: shortdesc}
+
+## `resource_type` known issues
+{: resource-type-known-issues}
+
+**Issue**: Currently, not all operations that return responses with embedded `VPCReference` and `SubnetReference` schemas include the documented `resource_type` sub-property.
+
+**Workaround**: Before developing a client that makes use of the `resource_type` property of the `VPCReference` or `SubnetReference` schemas, check that the property is included in the responses returned for the operations used by your client.
 
 ## Reserved IP known issues
 {: #ip-known-issues}
