@@ -236,7 +236,7 @@ The following table lists the actions that are related to client-to-site VPN ser
 | vpn  | is.vpn-server.vpn-server.update   | VPN server was updated |
 | vpn  | is.vpn-server.vpn-server.read   | VPN server was retrieved |
 | vpn  | is.vpn-server.vpn-server.list   | VPN servers were listed |
-| vpn  | is.vpn-server.vpn-server.configuration.read | VPN server configuration was downloaded |
+| vpn  | is.vpn-server.vpn-server-configuration.read | VPN server configuration was downloaded |
 | vpn  | is.vpn-server.vpn-server-client.delete | VPN client was disconnected and deleted from a VPN server |
 | vpn  | is.vpn-server.vpn-server-client.read   | VPN client was retrieved from a VPN server |
 | vpn  | is.vpn-server.vpn-server-client.list   | VPN server clients were listed |
