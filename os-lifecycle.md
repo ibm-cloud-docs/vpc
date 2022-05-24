@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-13"
+lastupdated: "2022-05-24"
 
 keywords: operating system end of support (eos)
 
@@ -38,7 +38,7 @@ The following table describes the end of support date and license model for Debi
 |-----------------|----------------|---------------|
 | Debian 11 minimal | 01 June 2026 | Free |
 | Debian 10 minimal | 01 June 2024 | Free |
-| Debian 9 minimal | 01 June 2022 | Free |
+| Debian 9 minimal | 30 June 2022 | Free |
 {: caption="Table 2. Lifecycle for Debian operating systems" caption-side="bottom"}
 
 ## Fedora CoreOS
