@@ -2,23 +2,17 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-04-13"
 
-keywords: quotas, resources, limits
+lastupdated: "2022-05-24"
+
+keywords:
 
 subcollection: vpc
 
+
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:external: target="_blank" .external}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
-{:download: .download}
+{{site.data.keyword.attribute-definition-list}}
 
 # Quotas and service limits
 {: #quotas}
@@ -43,7 +37,7 @@ To increase a quota for a particular resource, [contact support](https://{Domain
 | RAM | 5600 GB per region |
 | Bare metal servers | 25 per account |
 | Instance storage | 18 TB per region |
-| Floating IP addresses | 20 per zone |
+| Floating IP addresses | 40 per zone |
 | SSH keys | 200 per account |
 | GPU | 16 per account |
 | Dedicated host groups | 100 per region |
@@ -54,7 +48,7 @@ When you provision virtual server instances and dedicated hosts, the vCPU associ
 When you provision virtual server instances, the RAM and instance storage, along with vCPU, that is associated with the instances count toward the vCPU, RAM, and instance storage quotas per region.
 
 Bare metal servers use physical cores and don't count toward your vCPU quota.
-{: note}
+{: note} 
 
 ### VPCs
 {: #vpc-quotas}
@@ -63,7 +57,7 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 | ------- | ------ |
 | Virtual private clouds | 10 per region|
 | Subnets | 15 per VPC |
-| Address prefixes | 15 per VPC |
+| Address prefixes | 25 per VPC |
 {: caption="Table 2. Quotas for the VPC service" caption-side="bottom"}
 
 ### Access control lists
@@ -130,8 +124,8 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 
 |Resource|Quota|
 |--------|-----|
-| Routing tables per VPC | Default limit: 15<br />Maximum limit: 200 |
-| Routes per routing table | Default limit: 100<br />Maximum limit: 400 |
+| Routing tables per VPC | Default limit: 50  \n Maximum limit: 200 |
+| Routes per routing table | Default limit: 200  \n Maximum limit: 400 |
 {: caption="Table 8. Quotas for routing tables and routes" caption-side="bottom"}
 
 Each route has a destination property, which includes a prefix length (`/24` in `10.2.0.0/24`). The number of unique prefix lengths that are supported per custom routing table is 14. Multiple routes with the same prefix count as only one unique prefix.
