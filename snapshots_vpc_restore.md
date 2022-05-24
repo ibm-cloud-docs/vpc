@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-04-29"
+lastupdated: "2022-05-24"
 
 keywords:
 
@@ -40,7 +40,7 @@ When you restore from a data volume snapshot, you can attach it to an instance w
 
 You can restore a volume from a snapshot from the [list of block storage snapshots](#snapshots-vpc-restore-snaphot-list-ui), from the [snapshot details page](#snapshots-vpc-restore-vol-details-ui), or when you [provision a new instance](#snapshots-vpc-restore-vol-ui). You can also restore a volume from a snapshot to create a volume for [an existing instance](#snapshots-vpc-create-from-vol-ui).  
 
-To restore a volume, it must be in a _stable_ state. When you restore, the service immediately creates the new volume. The volume appears first as _pending_ while it's being created. After the volume is hydrated, you can use the new boot volume to start a new instance or write data to the new attached data volume. For more performance considerations, see [Performance considerations when using snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-perf).
+To restore a volume, it must be in a _stable_ state. When you restore, the service immediately creates the new volume. The volume appears first as _pending_ while it's being created. After the volume is hydrated, you can use the new boot volume to start a new instance or write data to the new attached data volume. For more information, see [Performance considerations](#snapshots-performance-considerations).
 
 You can't simultaneously restore a boot and data volume.
 {: note}
@@ -362,6 +362,25 @@ curl -X POST \
 }'
 ```
 {: codeblock}
+
+## Performance considerations
+{: #snapshots-performance-considerations}
+
+Restoring boot and data volumes from a snapshot have the following performance implications:
+
+### Performance considerations when using restoring a volume from a snapshot
+{: #snapshot-vol-perf}
+
+Boot and data volume performance is initially degraded when restoring from a snapshot. During the restoration, your data is copied from IBM COS to VPC Block Storage. After the restoration process has completed, you should realize full IOPS on your new volume.
+
+### Performance considerations when using a bootable snapshot to provision a new instance
+{: #snapshot-boot-perf}
+
+Before you select a snapshot of a boot volume to provision a new instance, keep in mind these performance considerations:
+
+* Because the bootable snapshot is not fully hydrated, performance will be slower than using a regular boot volume.
+
+* To achieve the best performance and efficiency when provisioning multiple instances, boot from an existing image. Custom images you provide are better than stock images for this purpose. Images can have a maximum size of 250 GB.
 
 ## Next Steps
 {: #snapshots_vpc_restore_next_steps}

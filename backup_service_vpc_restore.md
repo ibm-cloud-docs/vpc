@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-20"
+lastupdated: "2022-05-24"
 
 keywords: 
 subcollection: vpc
@@ -173,7 +173,7 @@ These are the same API requests as restoring from a manually-created snapshot. F
 ## Performance considerations
 {: #baas-performance-considerations}
 
-Restoring boot and data volumes from a backup snapshot has the following performance implications:
+Restoring boot and data volumes from a backup snapshot have the following performance implications:
 
 ### Performance considerations when using restoring a volume from a backup snapshot
 {: #baas-vol-perf}
@@ -183,7 +183,7 @@ Boot and data volume performance is initially degraded when restoring from a sna
 ### Performance considerations when using a bootable backup snapshot to provision a new instance
 {: #baas-boot-perf}
 
-Before you choose to use a backup snapshot of a boot volume to provision a new instance, keep in mind these performance considerations:
+Before you select a backup snapshot of a boot volume to provision a new instance, keep in mind these performance considerations:
 
 * Because the bootable backup snapshot is not fully hydrated, performance will be slower than using a regular boot volume.
 

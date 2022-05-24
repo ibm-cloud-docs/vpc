@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-18"
+lastupdated: "2022-05-24"
 
 keywords:
 
@@ -48,7 +48,7 @@ If the failover operation fails or times out, it "falls back" to the source shar
 A replica split or failover operation will not occur when another operation is being performed on the source or replica file share (for example, the file share size is being expanded). The split or failover operations will remain pending until the other operation completes.
 {: note}
 
-## Failover for disaster rcovery
+## Failover for disaster recovery
 {: #fs-failover-dr}
 
 Failover is also an option for disaster recovery, should the source data center become unavailable. Failover for disaster recovery works like this:
@@ -150,6 +150,9 @@ curl -X POST \
 {: pre}
 
 A successful response indicates that the file share failover request was accepted.
+
+You can use the API to verify that replication failover succeeded, is pending, or failed. Make a `GET /shares/{replica_id}` call. Look at the `latest_job` property. For more information, see [Verify replication with the API](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=api#fs-verify-replica-api).
+{: note}
 
 ## Next steps
 {: #fs-failover-next-steps}
