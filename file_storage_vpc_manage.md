@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-05-19"
+lastupdated: "2022-05-23"
 
 keywords:
 
@@ -120,7 +120,10 @@ The file share must be in a `stable` state or `failed` state (i.e., when provisi
 ## Add user tags to a file share
 {: #fs-add-user-tags}
 
-You can add user tags when to new or existing file shares, and modify and delete tags for a file share. You can view tags throughout your account by filtering by tags from your resource list.
+You can add user tags when to new or existing file shares, and modify and delete tags for a file share. You can view tags throughout your account by filtering by tags from your resource list. 
+
+You can create as many tags as you like for a file share. However, to keep tags managable, create only as many user tags as you require to effectively manage the resource.
+{: note}
 
 Add tags to a file shares in any of these ways:
 

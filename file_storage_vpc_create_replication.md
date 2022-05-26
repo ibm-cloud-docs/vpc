@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-18"
+lastupdated: "2022-05-23"
 
 keywords:
 
@@ -296,7 +296,6 @@ curl -X POST\
 ```
 {: pre}
 
-
 ### Update an existing file share to add replication with the API
 {: #fs-create-share-replica-api}
 
@@ -322,6 +321,9 @@ curl -X POST\
   }'
 ```
 {: pre}
+
+You can use the API to verify that replication succeeded, is pending, or failed. Make a `GET /shares/{replica_id}` call. Look at the `latest_job` property. For more information, see [Verify replication with the API](/docs/vpc?topic=vpc-file-storage-manage-replication&interface=api#fs-verify-replica-api).
+{: note}
 
 ## Next steps
 {: #fs-repl-next-steps}

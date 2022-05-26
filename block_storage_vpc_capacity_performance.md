@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-02-21"
+lastupdated: "2022-05-26"
 
-keywords: block storage, volume, data storage, volume capacity, classic, virtual server
+keywords:
 
 subcollection: vpc
 
@@ -34,7 +34,7 @@ Choosing the optimal block storage volume size and performance level for your wo
 {: #block-storage-vpc-capacity}
 
 {{site.data.keyword.block_storage_is_short}} offers a range of storage capacities to meet your requirements.
-Based on the [storage profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers). you chose, you can specify 10 - 16,000 GB of capacity per block storage data volume in 1 GB increments. This capacity depends on the [block storage IOPS profile](#iops-profiles) you're using. Boot volumes by default are 100 GB. If you provision an instance from a custom image, you can specify boot volume capacity up to 250 GB.
+Based on the [storage profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers). you chose, you can specify 10-16,000 GB of capacity per block storage data volume in 1 GB increments. This capacity depends on the [block storage IOPS profile](#iops-profiles) you're using. Boot volumes by default are 100 GB. If you provision an instance from a custom image, you can specify boot volume capacity up to 250 GB.
 
 ## Block storage IOPS profiles
 {: #iops-profiles}
@@ -63,19 +63,21 @@ The following table provides some examples of how block size and IOPS affect the
 
 | Block Size (KB) | IOPS | Throughput (Mbps) |
 |-----------------|------|-------------------|
-| 4 (typical for Linux&reg;) | 1,000 | 4 |
-| 8 (typical for Oracle) | 1,000  | 8 |
+| 4 (typical for Linux&reg;) | 1,000 | 4&sup1; |
+| 8 (typical for Oracle) | 1,000  | 8&sup1; |
 | 16 | 1,000 | 16 |
 | 32 (typical for SQL Server) | 500 | 16 |
 | 64 | 250 | 16 |
 | 128 | 128 | 16 |
 {: caption="Table 1. Examples of how block size and IOPS affect the throughput" caption-side="top"}
 
+&sup1;If you cap is 1000 IOPS or 16K block size, throughput will cap at whatever limit is reached first.
+
 Maximum IOPS can still be obtained when you use smaller block sizes, but throughput is less. The following example shows how throughput decreases for smaller block sizes, when max IOPS is maintained.
 
-* 16 KB * 6000 IOPS == ~93.75 Mbpsec
-* 8 KB * 6000 IOPS == ~46.88 Mbpsec
-* 4 KB * 6000 IOPS == ~23.44 Mbpsec
+* 16 KB * 6000 IOPS == ~94 Mbpsec
+* 8 KB * 6000 IOPS == ~47 Mbpsec
+* 4 KB * 6000 IOPS == ~23 Mbpsec
 
 ## Storage-compute performance metrics 
 {: #storage-performance-metrics}

@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2019, 2023
-lastupdated: "2022-02-21"
+  years: 2019, 2022
+lastupdated: "2022-05-25"
 
-keywords: block storage, virtual private cloud, volume, profile, volume profile, data storage, storage profile, virtual server instance, instance
+keywords:
 
 subcollection: vpc
 
@@ -37,6 +37,9 @@ IOPS is are based on either a 16 KB (for the 3 GB/ IOPS and 5 GB/IOPS tiers) or 
 Block storage data volumes have three predefined IOPS tiers you can select when creating a volume. These profiles are backed by solid-state drives (SSDs). 
 
 Choose the profile that provides optimal performance for your compute workloads. Table 1 describes the IOPS performance you can expect when create volumes in your availability zone. 
+
+Max IOPS for all tiers starts at 3,000 IOPS. Max IOPS then increases, based on the storage tier and volume size, up to the Max IOPS in Table 1.
+{: note}
 
 | IOPS Tier | Workload | Volume size | Max IOPS |
 |-----------|----------|-------------|--------------|

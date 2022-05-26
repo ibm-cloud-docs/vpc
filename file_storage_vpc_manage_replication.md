@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-17"
+lastupdated: "2022-05-25"
 
 keywords:
 
@@ -42,6 +42,8 @@ File Storage for VPC is available for customers with special approval to preview
 You can remove replication by removing the replication relationship between the source file share and replica file share. The operation is called _splitting_ the file shares. Data is no longer synced between the file shares. Removing the replication relationship creates two independent, read/write file shares. You can then separately manage each file share, expand capacity and adjust IOPS, and create replicas.
 
 Use the [UI](#fs-remove-replication-ui), [CLI](#fs-remove-replication-cli), or [API](#fs-remove-replication-api) to remove the replication relationship. You can also specify that the source and replica file shares are split if a [failover](/docs/vpc?topic=vpc-file-storage-failover) operation does not succeed.
+
+Removing the replication relationship will not occur when another operation is being performed on the source or replica file share (for example, the file share size is being expanded). The split operations will remain pending until the other operation completes.
 
 When you remove the replication relationship, you can't undo the action. Also, the data on the replica will not be synced with the source file before removal of the replication relationship.
 {: note}
@@ -95,7 +97,7 @@ A successful response indicates that the request to disassociate a replica file 
 ## Deleting a replica file share
 {: #fs-delete-replicas}
 
-The process for deleting a replica file share is similar to deleting a source file share. For example, you  [delete mount targets](https://test.cloud.ibm.com/docs/vpc?topic=vpc-file-storage-managing&interface=api#delete-mount-target-api) for the share prior to deleting the share. Because the replica file share is in active replication from the source share, the relica file share must be split from the source before deletion. You can do this in two ways:
+The process for deleting a replica file share is similar to deleting a source file share. For example, you  [delete mount targets](https://test.cloud.ibm.com/docs/vpc?topic=vpc-file-storage-managing&interface=api#delete-mount-target-api) for the share prior to deleting the share. Because the replica file share is in active replication from the source share, the replica file share must be split from the source before deletion. You can do this in two ways:
 
 * Perform a manual split, which [removes the replication relationship](#fs-remove-replication-ui) and creates two independent, read-write file shares. You can then delete the mount target and the replica file share as a normal file share. 
 
@@ -125,6 +127,66 @@ You need Administrator or Editor IAM user roles to create and manage file share 
 {: #fs-repl-status}
 
 Replication status shows when a replica file share is being created, when failover is underway, and when a split operation is creating independent file shares. For information, see [File share lifecycle states](/docs/vpc?topic=vpc-file-storage-managing&interface=api#file-storage-vpc-status).
+
+## Verify replication with the API
+{: #fs-verify-replica-api}
+{:api}
+
+You can use the API to verify that replication succeeded, is pending, or failed. Make a `GET /shares/{replica_id}` call. Look at the `latest_job` property. For example, this call shows the replication failover succeeded:
+
+```
+  "created_at": "2022-05-24T23:31:59Z",
+  "crn": "crn:[...]",
+  "encryption": "provider_managed",
+  "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",
+  "id": "199d78ec-b971-4a5c-a904-8f37ae710c63",
+  "iops": 3000,
+  "lifecycle_state": "stable",
+  "name": "share-name1",
+  .
+  .
+  .
+  "latest_job": {
+      "status": "succeeded",
+      "status_reason": {
+          "code": "",
+          "message": "",
+          "more_info": ""
+      },
+      "type": "replication_failover"
+  }
+}
+```
+{: codeblock}
+
+For a replication split, when the replica share is being split from the source share, you'll see a `running` status for `latest_job`. For example: 
+
+```
+"latest_job": {
+    "status": "running",
+     "status_reason": {
+          "code": "",
+          "message": "",
+         "more_info": ""
+    },
+    "type": "replication_split"
+},
+```
+{: codeblock}
+
+A replication `failover` or `split` operation will not happen if there is any other operation being performed on the file share, such as expanding size. You'll see a 409 error in the response indicating the issue. For example:
+
+```
+"errors": [
+    {
+        "code": "share_operation_pending",
+          "message": "An operation 'replication_failover' is pending on file share, request to 'replication_split' cannot be accepted.",
+          "more_info": "Before sending another request wait for the current operation to complete and try again."
+     }
+],
+"trace": "4634eee2-0a9b-43b7-b35e-8885cc258500"
+```
+{: codeblock}
 
 ## Next steps
 {: #fs-failover-next-steps}

@@ -2,7 +2,7 @@
 
 copyright:
 years: 2021, 2022
-lastupdated: "2022-05-17"
+lastupdated: "2022-05-25"
 
 keywords:
 
@@ -46,8 +46,6 @@ File file shares are based on IOPS tiers you can select when creating a file sha
 The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS calculation results in IOPS less than or equal to 48,000 IOPS. The total maximum IOPS is rounded up to the next multiple of 100 for IOPS calculations results in IOPS greater than 48,000 IOPS up to 96,000 IOPS.
 {: note}
 
-
-
 ## Custom IOPS profile
 {: #custom}
 
@@ -72,19 +70,21 @@ Table 2 shows the available IOPS ranges based on file share size.
 The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS calculation results in IOPS less than or equal to 48,000 IOPS.
 {: note}
 
-### Profile Block size
+### How block size affects file share performance
 {: #fs-profiles-block-size}
 
-The IOPS value for File Storage for VPC profiles is based on a 16-KB block size with a 50/50 read/write 50/50 random/sequential workload. A 16-KB block is the equivalent of one write to the storage system.
+IOPS are based on either a 16 KB (for the 3 GB/ IOPS and 5 GB/IOPS tiers) or 256 KB block size (for the 10 GB/IOPS tier) with a 50-50 read/write random workload. Each 16 KB of data read/written counts as one read/write operation; a single write of less than 16 KB counts as a single write operation.
 
-The block size used by your application directly impacts the storage performance. If the block size that is used by your application is smaller than 16 KB, the IOPS limit is realized before the throughput limit. Conversely, if the block size that is used by your application is larger than 16 KB, the throughput limit is realized before to the IOPS limit.
+Baseline throughput is determined by the amount of IOPS multiplied by the 16 KB or 256 KB block size. The higher the IOPS you specify, the higher the throughput. Maximum throughput is 1024 Mbps.
 
-Table 1 shows examples of how block size affects throughput, calculated as Average I/O size x IOPS = Throughput in Mbps.
+The block size that you choose for I/O from your application directly impacts storage performance. If the block size is smaller than the block size used by the profile to calculate the share’s bandwidth limit, the IOPS limit is reached before the throughput limit. Conversely, if the block size is larger, the throughput limit is reached before the IOPS limit. 
+
+Table 1 provides some examples of how block size and IOPS affect the throughput, calculated average I/O block size x IOPS = Throughput in Mbps.
 
 | Block Size (KB) | IOPS | Throughput (Mbps) |
 |-----|-----|-----|
-| 4 | 1,000 | 16 |
-| 8 | 1,000 | 16 |
+| 4 | 1,000 | 4&sup1;|
+| 8 | 1,000 | 8&sup1;|
 | 16 | 1,000 | 16 |
 | 32 | 500 | 16 |
 | 64 | 250 | 16 |
@@ -92,6 +92,14 @@ Table 1 shows examples of how block size affects throughput, calculated as Avera
 | 512 | 32 | 16 |
 | 1024 | 16 | 16 |
 {: caption="Table 1. How block size and IOPS affect throughput." caption-side="bottom"}
+
+&sup1;If you cap is 1000 IOPS or 16K block size, throughput will cap at whatever limit is reached first.
+
+Maximum IOPS can still be obtained when you use smaller block sizes, but throughput is less. The following example shows how throughput decreases for smaller block sizes, when max IOPS is maintained.
+
+* 16 KB * 6000 IOPS == ~94 Mbpsec
+* 8 KB * 6000 IOPS == ~47 Mbpsec
+* 4 KB * 6000 IOPS == ~23 Mbpsec
 
 ## View IOPS profiles
 {: #fs-view-iops-profiles}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-17"
+lastupdated: "2022-05-23"
 
 keywords:
 
@@ -47,13 +47,13 @@ You can choose how often you want to sync changes from the source share to the r
 
 Data on the replica share is read-only. You can obtain read-write access to the data in two ways:
 
-* [Break the replication relationship](/docs/vpc?topic=vpc-file-storage-manage-replication) - In this case, data is not longer written to the replica share and it becomes read/write accessible. You can then configure a new replica share in the original zone, or choose another zone within the region. In the [API]/docs/vpc?topic=vpc-file-storage-failover&interface=ui#fs-failover-concepts), this operation is called a replica `split` operation.
+* [Remove the replication relationship](/docs/vpc?topic=vpc-file-storage-manage-replication) - In this case, data is not longer written to the replica share and it becomes read/write accessible. You can then configure a new replica share in the original zone, or choose another zone within the region. In the [API]/docs/vpc?topic=vpc-file-storage-failover&interface=ui#fs-failover-concepts), this operation is called a replica `split` operation.
 
 * [Failover to the replication site](/docs/vpc?topic=vpc-file-storage-failover&interface=ui) - The read/writes from the source file share are paused and a final copy of the file share data is pulled into the replica share. The replica share then becomes read/write accessible, and a reverse replication relationship is established. The original source file share now becomes the replica share and set to read-only. It then begins pulling data from the new source file share. 
 
     If the original site is unavailable, the replica share site pauses reads/writes and pulls the final copy of the source file share's data, the service assumes this is a disaster recovery situation and breaks the replication process, to bring the replica share online as soon as possible. In this case, you most likely need to manually reconcile the state your application, then set up new replication.
 
-Breaking the replication relationship or failing over to the replica will not occur when another operation is being performed on the source or replica file share (for example, the file share size is being expanded). The split or failover operations will remain pending until the other operation completes.
+Removing the replication relationship or failing over to the replica will not occur when another operation is being performed on the source or replica file share (for example, the file share size is being expanded). The split or failover operations will remain pending until the other operation completes.
 {: note}
     
 ## Scenarios for using replication
