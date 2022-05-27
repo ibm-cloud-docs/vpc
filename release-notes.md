@@ -35,6 +35,7 @@ Secrets Manager for application load balancers
 :    Application load balancers now support [IBM Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started). With Secrets Manager, you can create, lease, and centrally manage secrets that are used in {{site.data.keyword.cloud}} services or your custom-built applications. 
 
 :    Secrets Manager will replace the use of [IBM Certificate Manager](/docs/certificate-manager?topic=certificate-manager-getting-started). IBM will continue to support Certificate Manager until September 30 2022. To migrate your existing certificates to Secrets Manager, refer to the information in [this topic](https://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager). After your certificates are migrated, you must then update the existing listener configuration with the new certificate CRN.
+{: important}
 
 ### 17 May 2022
 {: #vpc-may1722}
