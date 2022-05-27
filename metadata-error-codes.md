@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-03-01"
+lastupdated: "2022-05-27"
 
 keywords: api, errors, error codes, status codes, metadata, http status codes
 
@@ -52,15 +52,6 @@ Example `400` JSON error response object:
 
 Error codes may be added, removed, or modified in subsequent releases, with updates announced in the VPC Instance Metadata API change log. If you use error codes programmatically, we recommend that you code defensively, such that any code that checks for specific error codes must always have a "default" or "catch-all" clause to handle the case where the returned error code does not match any of the ones the code expected.
 {: important}
-
-## `bad_field`
-{: bad-field-error-code}
-
-Used when the request cannot be parsed, such as when the JSON request is malformed or the request body is too large.
-
-`bad_field` error code can accompany a `400` HTTP status code.
-
-Example message: Failed to parse error template.
 
 ## `invalid_request`
 {: invalid-request-error-code}
