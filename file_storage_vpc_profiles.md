@@ -73,15 +73,15 @@ The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS ca
 ### How block size affects file share performance
 {: #fs-profiles-block-size}
 
-IOPS are based on a 16 KB for all profiles, with a 50-50 read/write random workload. Each 16 KB of data read/written counts as one read/write operation; a single write of less than 16 KB counts as a single write operation.
+IOPS are based on a 16 KB block size for all profiles, with a 50-50 read/write random workload. Each 16 KB of data read/written counts as one read/write operation; a single write of less than 16 KB counts as a single write operation.
 
-Baseline throughput is determined by the amount of IOPS multiplied by the 16 KB block size. The higher the IOPS you specify, the higher the throughput. Maximum throughput is 1024 Mbps.
+Baseline throughput is determined by the amount of IOPS multiplied by the 16 KB block size. The higher the IOPS you specify, the higher the throughput. Maximum throughput is 1536 MBps.
 
 The block size that you choose for I/O from your application directly impacts storage performance. If the block size is smaller than the block size used by the profile to calculate the share’s bandwidth limit, the IOPS limit is reached before the throughput limit. Conversely, if the block size is larger, the throughput limit is reached before the IOPS limit. 
 
-Table 1 provides some examples of how block size and IOPS affect the throughput, calculated average I/O block size x IOPS = Throughput in Mbps.
+Table 1 provides some examples of how block size and IOPS affect the throughput, calculated average I/O block size x IOPS = Throughput in MBps.
 
-| Block Size (KB) | IOPS | Throughput (Mbps) |
+| Block Size (KB) | IOPS | Throughput (MBps) |
 |-----|-----|-----|
 | 4 | 1,000 | 4&sup1;|
 | 8 | 1,000 | 8&sup1;|
@@ -97,9 +97,9 @@ Table 1 provides some examples of how block size and IOPS affect the throughput,
 
 Maximum IOPS can still be obtained when you use smaller block sizes, but throughput is less. The following example shows how throughput decreases for smaller block sizes, when max IOPS is maintained.
 
-* 16 KB * 6000 IOPS == ~94 Mbpsec
-* 8 KB * 6000 IOPS == ~47 Mbpsec
-* 4 KB * 6000 IOPS == ~23 Mbpsec
+* 16 KB * 6000 IOPS == ~94 MBps
+* 8 KB * 6000 IOPS == ~47 MBps
+* 4 KB * 6000 IOPS == ~23 MBps
 
 ## View IOPS profiles
 {: #fs-view-iops-profiles}

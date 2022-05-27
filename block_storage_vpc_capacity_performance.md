@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-05-26"
+lastupdated: "2022-05-27"
 
 keywords:
 
@@ -53,15 +53,15 @@ You can reallocate volume and network bandwidth when creating a new instance or 
 ## How block size affects performance
 {: #how-block-size-affects-performance}
 
-IOPS are based on either a 16 KB (for the 3 GB/ IOPS and 5 GB/IOPS tiers) or 256 KB block size (for the 10 GB/IOPS tier) with a 50-50 read/write random workload. Each 16 KB of data read/written counts as one read/write operation; a single write of less than 16 KB counts as a single write operation.
+IOPS are based on either a 16 KB block size (for the 3 GB/ IOPS and 5 GB/IOPS tiers) or 256 KB block size (for the 10 GB/IOPS tier) with a 50-50 read/write random workload. Each 16 KB of data read/written counts as one read/write operation; a single write of less than 16 KB counts as a single write operation.
 
-Baseline throughput is determined by the amount of IOPS multiplied by the 16 KB or 256 KB block size. The higher the IOPS you specify, the higher the throughput. Maximum throughput is 1024 Mbps.
+Baseline throughput is determined by the amount of IOPS multiplied by the 16 KB block size or 256 KB block size. The higher the IOPS you specify, the higher the throughput. Maximum throughput is 1024 MBps.
 
 The block size that you choose for I/O from your application directly impacts storage performance. If the block size is smaller than the block size used by the profile to calculate the volume’s bandwidth limit, the IOPS limit is reached before the throughput limit. Conversely, if the block size is larger, the throughput limit is reached before the IOPS limit. 
 
-The following table provides some examples of how block size and IOPS affect the throughput, calculated average I/O block size x IOPS = Throughput in Mbps.
+The following table provides some examples of how block size and IOPS affect the throughput, calculated average I/O block size x IOPS = Throughput in MBps.
 
-| Block Size (KB) | IOPS | Throughput (Mbps) |
+| Block Size (KB) | IOPS | Throughput (MBps) |
 |-----------------|------|-------------------|
 | 4 (typical for Linux&reg;) | 1,000 | 4&sup1; |
 | 8 (typical for Oracle) | 1,000  | 8&sup1; |
@@ -75,9 +75,9 @@ The following table provides some examples of how block size and IOPS affect the
 
 Maximum IOPS can still be obtained when you use smaller block sizes, but throughput is less. The following example shows how throughput decreases for smaller block sizes, when max IOPS is maintained.
 
-* 16 KB * 6000 IOPS == ~94 Mbpsec
-* 8 KB * 6000 IOPS == ~47 Mbpsec
-* 4 KB * 6000 IOPS == ~23 Mbpsec
+* 16 KB * 6000 IOPS == ~94 MBps
+* 8 KB * 6000 IOPS == ~47 MBps
+* 4 KB * 6000 IOPS == ~23 MBps
 
 ## Storage-compute performance metrics 
 {: #storage-performance-metrics}
