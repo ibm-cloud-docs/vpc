@@ -2,7 +2,7 @@
 
 copyright:
 years: 2021, 2022
-lastupdated: "2022-05-26"
+lastupdated: "2022-05-27"
 
 keywords:
 
@@ -73,7 +73,7 @@ The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS ca
 ### How block size affects file share performance
 {: #fs-profiles-block-size}
 
-IOPS are based on either a 16 KB for all profiles, with a 50-50 read/write random workload. Each 16 KB of data read/written counts as one read/write operation; a single write of less than 16 KB counts as a single write operation.
+IOPS are based on a 16 KB for all profiles, with a 50-50 read/write random workload. Each 16 KB of data read/written counts as one read/write operation; a single write of less than 16 KB counts as a single write operation.
 
 Baseline throughput is determined by the amount of IOPS multiplied by the 16 KB block size. The higher the IOPS you specify, the higher the throughput. Maximum throughput is 1024 Mbps.
 
