@@ -138,11 +138,14 @@ SSL offloading allows the application load balancer service to terminate all inc
 
 When an HTTPS listener is configured with an HTTP pool, the HTTPS request is terminated at the front-end and the load balancer establishes a plain-text HTTP communication with the back-end server instance. With this technique, CPU-intensive SSL handshakes and encryption or decryption tasks are shifted away from the back-end server instances, allowing them to use all their CPU cycles for processing application traffic.
 
-SSL offloading requires you to provide an SSL certificate for the application load balancer to perform SSL offloading tasks. You can manage the SSL certificates through the [IBM Certificate Manager](/docs/certificate-manager?topic=certificate-manager-getting-started).
+SSL offloading requires you to provide an SSL certificate for the application load balancer to perform SSL offloading tasks. You can manage the SSL certificates through the [IBM Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started). 
+
+Application load balancer will continue to support [IBM Certificate Manager](/docs/certificate-manager?topic=certificate-manager-getting-started) until September 30 2022. Please see the [deprecation announcement](/docs/certificate-manager?topic=certificate-manager-getting-started) for more information. In order to update the certificates hosted in Certificate Manager with ones hosted in Secrets Manager, the listener configuration must be updated with the new certificate CRN.
+{: deprecated}
 
 {{site.data.content.load-balancer-grant-service-auth}} 
 
-The required authorization between the load balancer and certificate manager must be set to prevent errors in your load balancer.
+To prevent errors, you must establish the required authorization between your load balancer and the Secrets Manager.
 {: important}
 
 Transport Layer Security (TLS) 1.2 and 1.3 are supported. However, TLS 1.3 is used by default unless you specifically configure the client side to utilize 1.2.

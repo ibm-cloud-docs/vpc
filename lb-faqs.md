@@ -51,7 +51,7 @@ Make sure that the proper ACL rules are in place to allow incoming traffic for c
 {: #error-certificate-instance}
 {: faq}
 
-* The certificate instance CRN might not be valid.
+* The Secrets Manager instance CRN might not be valid.
 * You probably don't have authorization granted service-to-service. See [SSL offloading](#ssl-offloading-and-required-authorizations) for details.
 
 ## Why am I receiving a `401 Unauthorized Error` code?
@@ -62,7 +62,7 @@ Check the following access policies for your user:
 
 * The access policy for the ALB resource type
 * The access policy for the resource group
-* If `HTTPS` listeners are used, also check the service-to-service authorization for the Certificate Manager instance.
+* If `HTTPS` listeners are used, also check the service-to-service authorization for the Secrets Manager instance.
 
 ## Why is my application load balancer in `maintenance_pending` state?
 {: #lb-maintenance-pending}
@@ -137,7 +137,7 @@ Yes, the load balancer supports layer 7 switching.
 Check for these possibilities:
 
 * The provided certificate CRN might not be valid.
-* The certificate instance in the Certificate Manager might not have an associated private key.
+* The certificate instance in the Secrets Manager might not have an associated private key.
 
 ### What is the role of application load balancer front-end listeners?
 {: #role-load-balancer-listeners}
@@ -162,6 +162,7 @@ If you are receiving the HTTP status code `409`, it might be for one of the foll
 * You cannot `delete` a load balancer if it has one or more pools that are attached to instance groups.
 * You cannot `delete` a load balancer pool if it is attached to an instance group.
 * You cannot `add`/`delete`/`update` members to a pool that is managed by an instance group.
+
 
 ### If a pool is attached to an instance group, what is the maximum number of back-end members that I can have in a pool?
 {: #lbaas-ig-pool-member}
@@ -191,3 +192,9 @@ Ensure that:
 {: faq}
 
 Approved Scanning Vendor (ASV) quarterly scanning is a requirement of the Payment Card Industry (PCI) Security Standards Council. ASV scanning of LBaaS data-plane appliances is solely a customer responsibility. IBM does not use ASVs to scan data-plane appliances because these scans can negatively impact customer workload functions and performance.
+
+## How can I migrate from Certificate Manager to Secrets Manager for my existing HTTPS listeners?
+{: #migrate-to-secrets-manager}
+{: faq}
+
+Application load balancer will continue to support [IBM Certificate Manager](/docs/certificate-manager?topic=certificate-manager-getting-started) until September 30 2022. To migrate your existing certificates to Secrets Manager, refer to the information in [this topic](https://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager). After your certificates are migrated, you must then update the existing listener configuration with the new certificate CRN.
