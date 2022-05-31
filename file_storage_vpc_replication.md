@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-23"
+lastupdated: "2022-05-31"
 
 keywords:
 
@@ -67,7 +67,7 @@ Replication allows you to provide a way to address disaster recovery concerns of
 
 * Disaster Recovery due to Cloud infrastructure failure.
 
-    In this scenario, the IBM Cloud availability zone in which your application is running has become unusable. You need to bring up your application as quickly as possible and recover your data. Because the service can't tell the state of the application, the replication is stopped to protect data in the replication relationship. If the source file share zone becomes available again, data will be available from the replica share to reconcile from the time of the incident to the recovery point.
+    In this scenario, the IBM Cloud availability zone in which your application is running has become unusable. You need to bring up your application as quickly as possible and use the replicated data from the last replication event. Because the service can't tell the state of the application, the replication is stopped to protect data in the replication relationship. If the source file share zone becomes available again, data will be available from the replica share to reconcile from the time of the incident to the recovery point.
 
 * Facilitate regular maintenance of your applications.
 
