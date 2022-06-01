@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-05-27"
+lastupdated: "2022-06-01"
 
 keywords:
 
@@ -22,7 +22,9 @@ content-type: release-note
 Use the release notes to learn the latest updates to {{site.data.keyword.vpc_full}} that are grouped by date.
 {: shortdesc}
 
-For information about changes to the {{site.data.keyword.vpc_short}} API , see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log)
+For information about changes to the {{site.data.keyword.vpc_short}} API , see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
+
+For information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI) , see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
 
 ## May 2022
 {: #vpc-may22}
