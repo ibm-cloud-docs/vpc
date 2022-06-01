@@ -26,6 +26,16 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 
 For information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI) , see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
 
+## June 2022
+{: #vpc-june01}
+
+### 01 June 2022
+{: #vpc-june0122}
+{: release-note}
+
+File Storage for VPC
+:    For accounts authorized to preview this service, you can increase or decrease file share IOPS to meet your performance needs. Adjust IOPS within an IOPS tier profile or a custom profile. Or, adjust IOPS between profiles, for example, from a 3 IOPS/GB tiered profile to a custom profile. Adjusting IOPS within a profile or between profiles is dependent on the file share size. For more information, see [Adjusting file share IOPS](/docs/vpc?topic=vpc-adjusting-share-iops).
+
 ## May 2022
 {: #vpc-may22}
 
