@@ -34,7 +34,7 @@ For information about changes to the {{site.data.keyword.vpc_short}} command lin
 {: release-note}
 
 File Storage for VPC
-:    For accounts authorized to preview this service, you can increase or decrease file share IOPS to meet your performance needs. Adjust IOPS within an IOPS tier profile or a custom profile. Or, adjust IOPS between profiles, for example, from a 3 IOPS/GB tiered profile to a custom profile. Adjusting IOPS within a profile or between profiles is dependent on the file share size. For more information, see [Adjusting file share IOPS](/docs/vpc?topic=vpc-adjusting-share-iops).
+:    For accounts authorized to preview this service, you can increase or decrease file share IOPS to meet your performance needs. Adjust IOPS for IOPS tier profile or a custom profile. Adjusting IOPS is dependent on the file share size. For more information, see [Adjusting file share IOPS](/docs/vpc?topic=vpc-adjusting-share-iops).
 
 ## May 2022
 {: #vpc-may22}
@@ -66,7 +66,7 @@ File storage for VPC
 {: release-note}
 
 Backup for VPC (LA)
-:    Accounts authorized to preview this service can create backup policies and plans to automatically back up block storage volumes. Backup policies control which source volumes are selected for backup by matching user tags in the volume with tags defined in the backup policy. Policies can contain up to four backup plans, which specify how often backup snapshots are taken (daily, weekly, monthy, or using a `cron-spec`) and retained (by date or by count). You can also view backup jobs, which shows status of backup snapshots being created or deleted. This release also provides new functionality for restoring volumes from backup snapshots. For information about this service, see [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about) concepts.
+:    Accounts authorized to preview this service can create backup policies and plans to automatically back up block storage volumes. Backup policies control which source volumes are selected for backup by matching user tags in the volume with tags defined in the backup policy. Policies can contain up to four backup plans, which specify how often backup snapshots are taken (daily, weekly, monthly, or using a `cron-spec`) and retained (by date or by count). You can also view backup jobs, which shows status of backup snapshots being created or deleted. This release also provides new functionality for restoring volumes from backup snapshots. For information about this service, see [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about) concepts.
 
 ### 28 April 2022
 {: #vpc-april2822}
