@@ -34,7 +34,7 @@ For information about changes to the {{site.data.keyword.vpc_short}} command lin
 {: release-note}
 
 File Storage for VPC
-:    For accounts authorized to preview this service, you can increase or decrease file share IOPS to meet your performance needs. Adjust IOPS for IOPS tier profile or a custom profile. Adjusting IOPS is dependent on the file share size. For more information, see [Adjusting file share IOPS](/docs/vpc?topic=vpc-adjusting-share-iops).
+:    For accounts authorized to preview this service, you can increase or decrease file share IOPS to meet your performance needs. Adjust IOPS for an IOPS tier profile or a custom profile. Adjusting IOPS is dependent on the file share size. For more information, see [Adjusting file share IOPS](/docs/vpc?topic=vpc-adjusting-share-iops).
 
 ## May 2022
 {: #vpc-may22}
