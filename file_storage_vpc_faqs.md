@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-05-17"
+lastupdated: "2022-06-01"
 
 keywords:
 
@@ -170,7 +170,7 @@ You can expect an average latency less than 100 ms for writes and less than 50 m
 {: faq}
 {: #faq-fs-perf-2}
 
-Yes, you can increase or decrease IOPS by specifying a different IOPS tier profile or different IOPS value withing a custom IOPS profile. There's no outage or lack of access to the storage while adjusting IOPS. For more information, see [Adjusting file share IOPS](/docs/vpc?topic=vpc-adjusting-share-iops&interface=ui).
+Yes, you can increase or decrease IOPS for file shares based on an IOPS tier profile or custom profile. Adjusting IOPS is dependent on the file share size. There's no outage or lack of access to the storage while adjusting IOPS. For more information, see [Adjusting file share IOPS](/docs/vpc?topic=vpc-adjusting-share-iops&interface=ui).
 
 ## Data security and encryption questions
 {: #file-storage-vpc-security-questions}
