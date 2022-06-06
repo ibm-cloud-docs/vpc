@@ -32,25 +32,31 @@ Client-to-site VPN servers support certificate authentication and user/passcode 
 
 You can use both authentication methods together to authenticate client access. Use the following guidelines for best results.
 
-### Authenticate with a username/passcode
+### Authenticating with a username/passcode
 {: #vpn-server-authenticate-with-username-passcode}
 
-* From the IAM Authentication section (`Manage` > `Access (IAM)` > `Settings` > `Authentication`), [enable multifactor authentication](/docs/account?topic=account-enablemfa). This option requires VPN client users to authenticate with your wanted MFA method before a valid passcode can be acquired and used for a VPN connection.
-* Username/passcode authentication requires a user to have the IAM VPN server user role. For more information, see [Creating an IAM access group and granting the role to connect to the VPN server](/docs/vpc?topic=vpc-create-iam-access-group). Configure IAM access groups or access policies to enable this role only for users that require VPN access.
+To authenticate with a username or passcode, be aware of the following:
 
-### Authenticate with client certificates
+* This option requires VPN client users to authenticate with your wanted MFA method before a valid passcode can be acquired and used for a VPN connection. It can be configured from the IAM Authentication section (**Manage > Access (IAM) > Settings > Authentication**). Refer to [Enable multifactor authentication](/docs/account?topic=account-enablemfa) for more information. 
+* Username/passcode authentication requires a user to have the IAM VPN server user role. For more information, see [Creating an IAM access group and granting the role to connect to the VPN server](/docs/vpc?topic=vpc-create-iam-access-group). You must configure IAM access groups or access policies to enable this role only for users that require VPN access.
+
+### Authenticating with client certificates
 {: #vpn-server-authenticate-with-client-certs}
 
-* Use unique client certificates. VPN server configuration of client certificate authentication requires a client certificate as input. However, unique client certificates that are signed by the same CA can be created separately and used for different users.
+To authenticate with client certficates, be aware of the following:
+
+* Use unique client certificates. The VPN server configuration of client certificate authentication requires a client certificate as input. However, unique client certificates signed by the same Certificate Authority (CA) can be created separately and used for different users.
 * Use a Certificate Revocation List (CRL) to revoke client certificates. Client-to-site VPN servers support CRL to revoke client certificates. For more information, see [Creating a VPN server](/docs/vpc?topic=vpc-vpn-create-server).
-* Do not use a client certificate signed with a public CA such as LetsEncrypt certificates created through Certificate Manager or Secrets Manager. Using public-CA-signed client certificates means that anyone can provision a client certificate and authenticate successfully. Also, certificates that are created with a public CA cannot be easily tracked and revoked with a CRL.
+* Do not use a client certificate signed with a public CA, such as LetsEncrypt certificates created through Certificate Manager or Secrets Manager. Using public-CA-signed client certificates means that anyone can provision a client certificate and authenticate successfully. Also, certificates that are created with a public CA cannot be easily tracked and revoked with a CRL.
 
 ## Additional VPN server configurations
 {: #vpn-server-additional-configurations}
 
-Client-to-site VPN servers support a number of additional options that you can configure for improved security and to meet compliance requirements. For more information, see [Creating a VPN server](/docs/vpc?topic=vpc-vpn-create-server) and [Planning considerations for VPN servers](/docs/vpc?topic=vpc-client-to-site-vpn-planning).
+Client-to-site VPN servers support a number of additional options that you can configure for improved security and to meet compliance requirements. For more information, see [Creating a VPN server](/docs/vpc?topic=vpc-vpn-create-server) and [Planning considerations for VPN servers](/docs/vpc?topic=vpc-client-to-site-vpn-planning). 
+
+You should be aware of the following issues with VPN server configurations:
 
 * VPN servers support client idle timeout. By default, a VPN client connection disconnects after 10 minutes without active traffic. You can edit the timeout to add your required value. 
 * Enable full-tunnel mode on VPN servers. Full-tunnel mode is more secure and preferred, especially if connecting from an untrusted network. In full-tunnel mode, all traffic from a VPN client is routed to the VPN server. 
-* Configure transport protocol and VPN ports. In some cases, you might not want to leave well-known ports such as TCP/443 open. Edit this option to use non-default transport protocol and VPN ports.
+* Configure the transport protocol and VPN ports. In some cases, you might not want to leave well-known ports, such as TCP/443, open. Edit this option to use a non-default transport protocol and VPN ports.
 * Configure IBM Log Analysis and Activity Tracker to receive and analyze VPN server logs. For more information, see [Using IBM Log Analysis to view VPN server logs](/docs/vpc?topic=vpc-client-vpn-log-analysis-c2s) and [Activity Tracker events](/docs/vpc?topic=vpc-at-events&interface=ui#events-vpn-server).
