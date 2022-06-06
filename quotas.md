@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2022
 
-lastupdated: "2022-05-30"
+lastupdated: "2022-06-06"
 
 keywords:
 
@@ -40,7 +40,7 @@ To increase a quota for a particular resource, [contact support](https://{Domain
 | Floating IP addresses | 40 per zone |
 | SSH keys | 200 per account |
 | GPU | 16 per account |
-| Dedicated host groups | 100 per region |
+| Dedicated host groups | 100 per region | 
 {: caption="Table 1. Quotas for virtual server instances" caption-side="bottom"}
 
 When you provision virtual server instances and dedicated hosts, the vCPU associated with these resources counts toward the vCPU quotas per region. Instances that are provisioned on dedicated hosts do not count against the vCPU quota.
@@ -98,12 +98,14 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 
 |Resource|Quota|
 |--------|-----|
-| Active connections per VPN server | 500 |
+| Active connections per VPN server | 2000 |
 | Active VPN servers | 10 per region |
 | Active routes per VPN server | 50 |
 | Number of certificate revocations lists | 20,000 |
-| Number of security groups attached on a VPN server | 5 |
-{: caption="Table 6. Quotas for the client-to-site VPN server service" caption-side="bottom"}
+| Number of security groups attached on a VPN server | 5 | 
+| Number of VPN servers in a security group | 10 |
+| Number of auth clients per second per VPN server | 10 | 
+{: caption="Table 6. Quotas for the client-to-site VPN server service" caption-side="bottom"} 
 
 ### Load balancers
 {: #load-balancer-quotas}
@@ -137,7 +139,7 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 |Resource|Quota|
 |--------|-----|
 | Boot and secondary volumes | 300 total VPC volumes per account in a region |
-| Snapshots and backup snapshots| 100 per volume in a region |
+| Snapshots and backup snapshots | 100 per volume in a region |
 {: caption="Table 9. Quotas for block storage volumes and snapshots" caption-side="bottom"}
 
 ### File shares

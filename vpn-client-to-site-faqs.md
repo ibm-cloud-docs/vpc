@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-08-26"
+  years: 2021, 2022
+lastupdated: "2022-06-06"
 
 keywords: VPN server, faq, faqs, frequently asked questions, vpn, VPN
 
@@ -12,28 +12,12 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# FAQs for client-to-site VPN servers (Beta)
+# FAQs for client-to-site VPN servers
 {: #faqs-vpn-server}
-
-Client VPN for VPC is available to all IBM Cloud users. After the Beta period ends, you will be given a time period to migrate your VPN servers to the standard pricing plan to avoid disruption of service.
-{: beta}
 
 You might encounter these frequently asked questions when you use {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_short}}.
 {: shortdesc}
 {: #vpn-faq}
-
-## Who should I contact if I have questions about this beta or need help?
-{: #faq-vpn-slack-channel}
-{: faq}
-{: support}
-
-We actively monitor our Slack channel for questions about IBM Cloud VPN for VPC. Join a community of customers and subject matter experts where you can ask questions or discuss this release.
-
-To sign up, complete the following steps:
-
-1. Request to [join the public Slack channel](https://cloud.ibm.com/kubernetes/slack).
-2. Next, [sign in to Slack](https://ibm-cloud-success.slack.com).
-3. Finally, join our `#ibmcloud-vpn` channel.
 
 ## What does a VPN health status indicate?
 {: #faq-vpn-server-health-status}
@@ -120,7 +104,7 @@ Yes, it supports high availability in an Active/Active configuration. You must c
 {: faq}
 {: support}
 
-Up to 200 Mbps of throughput is supported with a stand-alone VPN server. A maximum of 400 Mbps of throughput is supported with a high availability VPN server.
+Up to 600 Mbps of throughput is supported with a stand-alone VPN server. A maximum of 1200 Mbps of throughput is supported with a high availability VPN server.
 
 ## Can I use a VPN server for IBM Cloud classic infrastructure?
 {: #faq-vpn-server-with-classic}

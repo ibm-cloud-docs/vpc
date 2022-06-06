@@ -3,9 +3,10 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-05-19"
+lastupdated: "2022-06-06"
 
 keywords:
+
 subcollection: vpc
 
 ---
@@ -19,7 +20,6 @@ As a security officer, auditor, or manager, you can use the {{site.data.keyword.
 {: shortdesc}
 
 {{site.data.keyword.at_full_notm}} records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. In addition, you can be alerted about actions as they happen. The events that are collected comply with the Cloud Auditing Data Federation (CADF) standard. For more information, see the [getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/activity-tracker?topic=activity-tracker-getting-started).
-
 
 ## Network resources
 {: #events-network}
@@ -110,8 +110,6 @@ The following table lists the actions that are related to load balancers and the
 | Rule |  is.load-balancer.load-balancer-listener-policy-rule.update | Rule was updated |
 | Rule |  is.load-balancer.load-balancer-listener-policy-rule.delete | Rule was deleted |
 {: caption="Table 5. Actions that generate events for load balancers" caption-side="bottom"}
-
-
 
 ### Public gateway events
 {: #events-network-public-gateway}
@@ -224,29 +222,30 @@ The following table lists the actions that are related to site-to-site VPN gatew
 | vpn  | is.vpn.ipsec-policy.list   | IPsec policies were listed |
 {: caption="Table 11. Actions that generate events for site-to-site VPN gateways" caption-side="bottom"}
 
-### VPN server events (Beta)
+### VPN server events
 {: #events-vpn-server}
 
 The following table lists the actions that are related to client-to-site VPN servers and the generation of events.
 
 | Resource  | Action  | Description  |
-|:----------------|:-----------------------|:-----------------------|
-| vpn  | is.vpn-server.vpn-server.create   | VPN server was created |
-| vpn  | is.vpn-server.vpn-server.delete   | VPN server was deleted |
-| vpn  | is.vpn-server.vpn-server.update   | VPN server was updated |
-| vpn  | is.vpn-server.vpn-server.read   | VPN server was retrieved |
-| vpn  | is.vpn-server.vpn-server.list   | VPN servers were listed |
-| vpn  | is.vpn-server.vpn-server-configuration.read | VPN server configuration was downloaded |
-| vpn  | is.vpn-server.vpn-server-client.delete | VPN client was disconnected and deleted from a VPN server |
-| vpn  | is.vpn-server.vpn-server-client.read   | VPN client was retrieved from a VPN server |
-| vpn  | is.vpn-server.vpn-server-client.list   | VPN server clients were listed |
-| vpn  | is.vpn-server.vpn-server-client.disconnect | VPN client was disconnected from a VPN server, and deleted according to the VPN server's auto-deletion policy |
-| vpn  | is.vpn-server.vpn-server-route.create  | VPN server route was created |
-| vpn  | is.vpn-server.vpn-server-route.delete   | VPN server route was deleted |
-| vpn  | is.vpn-server.vpn-server-route.update  | VPN server route was updated |
-| vpn  | is.vpn-server.vpn-server-route.read  | VPN server route was retrieved |
-| vpn  | is.vpn-server.vpn-server-route.list  | VPN server routes were listed |
-{: caption="Table 12 Actions that generate events for client-to-site VPN servers" caption-side="bottom"}
+|:----------------|:-----------------------|:-----------------------| 
+| vpn-server  | is.vpn-server.vpn-server.create   | VPN server was created |
+| vpn-server  | is.vpn-server.vpn-server.delete   | VPN server was deleted |
+| vpn-server  | is.vpn-server.vpn-server.update   | VPN server was updated |
+| vpn-server  | is.vpn-server.vpn-server.read   | VPN server was retrieved |
+| vpn-server  | is.vpn-server.vpn-server.list   | VPN servers were listed |
+| vpn-server  | is.vpn-server.vpn-server.configuration.read | VPN server configuration was downloaded |
+| vpn-server  | is.vpn-server.vpn-server-client.create | A VPN client connected to a VPN server |
+| vpn-server  | is.vpn-server.vpn-server-client.delete | VPN client was disconnected and deleted from a VPN server |
+| vpn-server  | is.vpn-server.vpn-server-client.read   | VPN client was retrieved from a VPN server |
+| vpn-server  | is.vpn-server.vpn-server-client.list   | VPN server clients were listed |
+| vpn-server  | is.vpn-server.vpn-server-client.disconnect | VPN client was disconnected from a VPN server, and deleted according to the VPN server's auto-deletion policy |
+| vpn-server  | is.vpn-server.vpn-server-route.create  | VPN server route was created |
+| vpn-server  | is.vpn-server.vpn-server-route.delete   | VPN server route was deleted |
+| vpn-server  | is.vpn-server.vpn-server-route.update  | VPN server route was updated |
+| vpn-server  | is.vpn-server.vpn-server-route.read  | VPN server route was retrieved |
+| vpn-server  | is.vpn-server.vpn-server-route.list  | VPN server routes were listed |
+{: caption="Table 12. Actions that generate events for client-to-site VPN servers" caption-side="bottom"}
 
 ## Compute resources
 {: #events-compute}
@@ -286,7 +285,6 @@ The following tables list the actions that are related to compute resources and 
 | instance | is.instance.gpu.wipe | Memory was wiped on the GPU for the Instance |
 {: caption="Table 13. Actions that generate events for Instance" caption-side="bottom"}
 
-
 ### Instance Metadata service events
 {: #events-metadata}
 
@@ -307,7 +305,7 @@ The instance metadata service events are undergoing changes and should not be us
 | Instance Metadata | is.metadata.instance-placement-group.list | Placement group information was listed for the calling instance |
 | Instance Metadata | is.metadata.instance-volume-attachment.get | A volume attachment was retrieved for the calling instance |
 | Instance Metadata | is.metadata.instance-volume-attachment.list | Volume attachments were listed for the calling instance  |
-{: caption="Table 21. Actions that generate events for the Instance Metadata service" caption-side="bottom"}
+{: caption="Table 14. Actions that generate events for the Instance Metadata service" caption-side="bottom"}
 
 ### Bare metal server events
 {: #events-compute-bm}
@@ -337,7 +335,7 @@ Some fields for Bare Metal Servers for VPC AT events will be changing between th
 | Bare Metal Server | is.bare-metal-server.network-interface-floating-ip.attach | Floating IP was associated with a network interface |
 | Bare Metal Server | is.bare-metal-server.network-interface-floating-ip.detach | Floating IP was disassociated from a network interface |
 | Bare Metal Server | is.bare-metal-server.bare-metal-server-profile.read | One or more bare metal server profiles was retrieved |
-{: caption="Table 14. Actions that generate events for Bare Metal Server" caption-side="bottom"}
+{: caption="Table 15. Actions that generate events for Bare Metal Server" caption-side="bottom"}
 
 ### Key events
 {: #events-compute-key}
@@ -348,7 +346,7 @@ Some fields for Bare Metal Servers for VPC AT events will be changing between th
 | key  | is.key.key.delete   | Key was deleted  |
 | key  | is.key.key.update   | Key was updated  |
 | key | is.key.key.read | One or more keys was retrieved |
-{: caption="Table 15. Actions that generate events for Key" caption-side="bottom"}
+{: caption="Table 16. Actions that generate events for Key" caption-side="bottom"}
 
 ### Dedicated host events
 {: #events-compute-dedicated-host}
@@ -359,7 +357,7 @@ Some fields for Bare Metal Servers for VPC AT events will be changing between th
 | dedicated-host | is.dedicated-host.dedicated-host.update | Dedicated host or host disk was updated |
 | dedicated-host | is.dedicated-host.dedicated-host.delete  |Dedicated host was deleted |
 | dedicated-host | is.dedicated-host.dedicated-host.read | One or more dedicated hosts or host disks were retrieved |
-{: caption="Table 16. Actions that generate events for Dedicated Host" caption-side="bottom"}
+{: caption="Table 17. Actions that generate events for Dedicated Host" caption-side="bottom"}
 
 ### Dedicated host group events
 {: #events-compute-dedicated-host-group}
@@ -370,7 +368,7 @@ Some fields for Bare Metal Servers for VPC AT events will be changing between th
 | dedicated-host-group  | is.dedicated-host.dedicated-host-group.update | Dedicated host group was updated |
 | dedicated-host-group  | is.dedicated-host.dedicated-host-group.delete | Dedicated host group was deleted |
 | dedicated-host-group  | is.dedicated-host.dedicated-host-group.read | One or more dedicated host groups was retrieved |
-{: caption="Table 17. Actions that generate events for Dedicated Host Group" caption-side="bottom"}
+{: caption="Table 18. Actions that generate events for Dedicated Host Group" caption-side="bottom"}
 
 ### Instance group events
 {: #events-compute-instance-group}
@@ -399,7 +397,7 @@ Some fields for Bare Metal Servers for VPC AT events will be changing between th
 | instance-group  | is.instance-group.membership.update   | Instance group membership was updated  |
 | instance-group  | is.instance-group.membership.read     | Instance group membership was retrieved |
 | instance-group  | is.instance-group.instance.create     | Instance group instance was created |
-{: caption="Table 18. Actions that generate events for Instance Group" caption-side="bottom"}
+{: caption="Table 19. Actions that generate events for Instance Group" caption-side="bottom"}
 
 ### Image resources
 {: #events-images}
@@ -411,7 +409,7 @@ The following table lists the actions that are related to image resources and th
 | image  | is.image.image.create   | Image was created |
 | image  | is.image.image.delete   | Image was deleted |
 | image  | is.image.image.update   | Image was updated |
-{: caption="Table 19. Actions that generate events for image resources" caption-side="bottom"}
+{: caption="Table 20. Actions that generate events for image resources" caption-side="bottom"}
 
 For the image update event, if you are rotating the root key for an image, the CRN for the old key and new key remains the same. The ID for the new key that is rotated in is indicated in the `kmsKeyRefID` field of the image.
 {: note}
@@ -428,7 +426,7 @@ The following table lists the actions that are related to placement group resour
 | placement_group | is.placement-group.placement-group.update | Placement group was updated |
 | instance | is.instance.instance.create | Instance was created and includes a placement group reference |
 | instance | is.instance.instance.update | Instance was updated and includes updates to the placement group reference |
-{: caption="Table 20. Actions that generate events for placement group resources" caption-side="bottom"}
+{: caption="Table 21. Actions that generate events for placement group resources" caption-side="bottom"}
 
 
 ## Storage resources
