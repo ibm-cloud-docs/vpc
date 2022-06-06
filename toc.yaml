@@ -286,7 +286,8 @@ toc:
                 label: Client-to-site-servers (Beta)
                 topics:
                 - vpn-client-to-site.md
-                - vpn-client-to-site-planning.md
+                - vpn-client-to-site-planning.md                
+                - vpn-client-to-site-securing-environment.md
                 - vpn-client-to-site-access-groups.md
                 - vpn-client-to-site-auth.md
                 - vpn-client-to-site-configure-security-groups.md
