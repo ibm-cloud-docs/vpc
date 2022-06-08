@@ -1,8 +1,8 @@
 ---
 
 Copyright:
-  years: 2021
-lastupdated: "2021-08-20"
+  years: 2021, 2022
+lastupdated: "2022-06-08"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
 
@@ -97,7 +97,7 @@ You can create an image from a volume in several ways:
 
 When you create an image from a volume, the encryption for that image depends on the way that you created the image:
 
-* If you're creating a new instance and boot volume with default IBM-managed encryption, then the image from that boot volume inherits the IBM-managed encryption. However,
+* If you're creating a new instance and boot volume with default IBM-managed encryption, then the image from that boot volume inherits the IBM-managed encryption.
   
 * You can specify your own root key when you create the image. This key is called a [customer root key](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption), or CRK. In the API, for example, you'd make a `POST/images` call and specify the boot volume ID and the CRN of your root key.
   
