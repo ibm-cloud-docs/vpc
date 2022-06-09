@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-11-12"
+  years: 2019, 2022
+lastupdated: "2022-06-09"
 
 keywords: custom image
 
@@ -98,3 +98,16 @@ You can manage an image by using the {{site.data.keyword.cloud_notm}} console.
 1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com/vpc-ext){: external}, 
 navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Custom Images**.
 2. From your list of custom images, you can click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for a specific image and select from the available options. Encrypted custom images are identified by a lock icon after the image name.
+
+## Viewing custom image details 
+{: #viewing-custom-image-details}
+
+You can view details about a custom image, such as the image name, assigned resource group, image ID, size of the image, location, date that the image was created in VPC, the operating system and version, and type of encryption used for the image. The name of the custom image is editable, and you can add tags for the image. You can also view and copy the unique Cloud Resource Name (CRN) for the image. Finally, you can access the SHA256 checksum value for the image. 
+
+To view details for a custom image, complete the following steps.
+
+1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com/vpc-ext){: external}, 
+navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Custom Images**.
+2. From the list of **Custom images for VPC**, click the name of a custom image to view details about that image. 
+3. On the **Image details** page you can edit the name of the image, add tags, and copy the CRN for the image. 
+4. From the **Actions** menu of the Image details page, you can create a virtual server instance from the custom image, or delete the image.
