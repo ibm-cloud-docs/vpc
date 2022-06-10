@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-04-25"
+lastupdated: "2022-06-09"
 
 keywords:
 
@@ -29,7 +29,7 @@ subcollection: vpc
 # Creating block storage volumes 
 {: #creating-block-storage}
 
-Create a block storage volume by using the UI, CLI, or programically with the API. You can create a volume as part of instance provisioning, or as a stand-alone volume that you can later attach to an instance.
+Create a block storage volume by using the UI, CLI, or programically with the API. You can create a volume as part of instance provisioning, as a stand-alone volume that you can later attach to an instance, or by restoring from a snapshot.
 {: shortdesc}
 
 Before you get started, make sure that you [created a VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
@@ -199,7 +199,7 @@ Make a `POST /instances` request to create an instance, and define the volume by
 This example also specifies customer-managed encryption.
 
 ```curl
-curl -X POST "$vpc_api_endpoint/v1/instances?version=2021-04-06&generation=2" -H "Authorization: $iam_token" -d '{
+curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-06-14&generation=2" -H "Authorization: $iam_token" -d '{
   "boot_volume_attachment": {
     "volume": {
       "encryption_key": {
@@ -275,7 +275,7 @@ A successful response looks like this:
       "name": "my-boot-volume"
     }
   },
-  "created_at": "2021-04-24T16:11:57Z",
+  "created_at": "2022-06-15T16:11:57Z",
   "crn": "crn:[...]",
   "dedicated_host": {
     "crn": "crn:[...]",
@@ -389,7 +389,6 @@ A successful response looks like this:
 ```
 {: codeblock}
 
-
 ### Create a stand-alone block storage volume with the API
 {: #block-storage-create-vol-api}
 
@@ -398,7 +397,7 @@ Make a `POST /volumes` request to create a volume. Specify a name, IOPS, capacit
 This example also specifies customer-managed encryption and a resource group.
 
 ```curl
-curl -X POST "$vpc_api_endpoint/v1/volumes?version=2021-04-06&generation=2" \
+curl -X POST "$vpc_api_endpoint/v1/volumes?version=2022-06-14&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
       "name": "my-volume-4",
@@ -425,7 +424,7 @@ A successful response looks like this:
 ```json
 {
   "capacity": 50,
-  "created_at": "2021-04-06T23:16:53.000Z",
+  "created_at": "2022-06-14T23:16:53.000Z",
   "crn": "crn:[...]",
   "encryption": "user_managed",
   "encryption_key": {
@@ -455,10 +454,15 @@ A successful response looks like this:
 ```
 {: codeblock}
 
+### Create a data volume from a snapshot with the API
+{: #block-storage-create-vol-snapshot-api}
+
+You can specify a snapshot ID in a `POST /volumes` call to create an unattached, stand-alone data volume. The standalone volume that is created from the snapshot is fully hydrated when you later attach it to the instance. The data is restored at that time. For more information, see [About restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-restore-concepts). For an example API call, see [Restoring an unattached data volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-restore-unattached-api).
+
 ## Next steps
 {: #next-step-creating-block-storage-vpc}
 
-When you refresh the Block storage volumes page, the new volume appears at the beginning of the list of volumes. If the volume was created successfully, it shows a status of Available. For stand-alone volumes, the Attachment Type column is blank (-). The Action menu (...) at the end of a table row provides a link for [attaching a block storage volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage).
+When you refresh the Block storage volumes page, the new volume appears at the beginning of the list of volumes. If the volume was created successfully, it shows a status of Available. For stand-alone volumes, the Attachment Type column is blank (-). The Action menu (...) at the end of a table row provides a link for [attaching a block storage volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage#snapshots-vpc-restore-unattached-vol).
 
 You can continue creating more block storage volumes or manage existing volumes.
 
