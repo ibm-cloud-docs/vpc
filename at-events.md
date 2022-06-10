@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-06-06"
+lastupdated: "2022-06-09"
 
 keywords:
 
@@ -443,6 +443,7 @@ The following table lists the actions that are related to volume resources and t
 | volume  | is.volume.volume.update  | Volume was updated  |
 | volume  | is.volume.volume.delete  | Volume was deleted  |
 | volume  | is.volume.volume.read    | One or more volumes were retrieved  |
+| volume | is.volume.volume.operate | Volume ID was specified |
 {: caption="Table 22. Actions that generate events for block storage resources" caption-side="bottom"}
 
 An event does not contain a volume name if no information is available at the time of the event. For example, when you make a request to create a volume but do not provide a volume name, the information is not available and does not appear in the event.
@@ -460,6 +461,8 @@ The following table lists the actions that are related to snapshots resources an
 | snapshot  | is.snapshot.snapshot.update  | Snapshot was updated  |
 | snapshot  | is.snapshot.snapshot.delete  | Snapshot was deleted  |
 | snapshot  | is.snapshot.snapshot.read    | One or more snapshots were retrieved  |
+| snapshot  | is.snapshot.snapshot.restore | Volume was restored from a snapshot |
+| snapshot  | is.snapshot.snapshot.operate | Source snapshot ID was specified |
 {: caption="Table 23. Actions that generate events for snapshot resources" caption-side="bottom"}
 
 ### File storage events
