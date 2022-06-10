@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2022-06-03",
+    "lastupdated": "2022-06-10",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc", 
@@ -31,6 +31,11 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "10 June 2022",
+          "title": "Block storage for VPC",
+          "description": "You can use the volumes API to restore an unattached data volume from a snapshot. Restoring from a snapshot creates a new, fully-provisioned volume. The data volume created from the snapshot is fully hydrated (data is restored) when you later attach it to an instance."
+        },
+        {
           "date": "01 June 2022",
           "title": "File Storage for VPC",
           "description": "For accounts authorized to preview this service, you can increase or decrease file share IOPS to meet your performance needs. Adjust IOPS for an IOPS tier profile or a custom profile. "
@@ -39,11 +44,6 @@
           "date": "27 May 2022",
           "title": "Secrets Manager for application load balancers",
           "description": "Application load balancers now support IBM Secrets Manager. With Secrets Manager, you can create, lease, and centrally manage secrets that are used in IBM Cloud® services or your custom-built applications. Secrets Manager will replace the use of IBM Certificate Manager. IBM will continue to support Certificate Manager until September 30 2022. To migrate your existing certificates to Secrets Manager, refer to the information in this topic. After your certificates are migrated, you must then update the existing listener configuration with the new certificate CRN."
-        },
-        {
-          "date": "17 May 2022",
-          "title": "File storage for VPC",
-          "description": "For accounts authorized to preview this service, you can configure replication for new and existing file shares. Replication creates a read-only copy of your file share data in a different zone. You can fail over to the relica share if the source share becomes damaged or compromised. You can now add user tags from the UI, CLI, or API when you create a new file share or update file shares."
         }
       ]
     }
