@@ -94,21 +94,27 @@ The following table lists the actions that are related to load balancers and the
 | Load balancer |  is.load-balancer.load-balancer.create | Load balancer was created |
 | Load balancer |  is.load-balancer.load-balancer.update | Load balancer was updated |
 | Load balancer |  is.load-balancer.load-balancer.delete | Load balancer was deleted |
+| Load balancer | is.load-balancer.load-balancer.read | Load balancer was read |
 | Listener |  is.load-balancer.load-balancer-listener.create | Listener was created |
 | Listener |  is.load-balancer.load-balancer-listener.update | Listener was updated |
 | Listener |  is.load-balancer.load-balancer-listener.delete | Listener was deleted |
+| Listener | is.load-balancer.load-balancer-listener.read | Listener was read |
 | Pool |  is.load-balancer.load-balancer-pool.create | Pool was created |
 | Pool |  is.load-balancer.load-balancer-pool.update | Pool was updated |
 | Pool |  is.load-balancer.load-balancer-pool.delete | Pool was deleted |
+| Pool | is.load-balancer.load-balancer-pool.read | Pool was read |
 | Member |  is.load-balancer.load-balancer-pool-member.create | Member was created |
 | Member |  is.load-balancer.load-balancer-pool-member.update | Member was updated |
 | Member |  is.load-balancer.load-balancer-pool-member.delete | Member was deleted |
+| Member | is.load-balancer.load-balancer-pool-member.read | Member was read |
 | Policy |  is.load-balancer.load-balancer-listener-policy.create | Policy was created |
 | Policy |  is.load-balancer.load-balancer-listener-policy.update | Policy was updated |
 | Policy |  is.load-balancer.load-balancer-listener-policy.delete | Policy was deleted |
+| Policy | is.load-balancer.load-balancer-listener-policy.read | Policy was read |
 | Rule |  is.load-balancer.load-balancer-listener-policy-rule.create | Rule was created |
 | Rule |  is.load-balancer.load-balancer-listener-policy-rule.update | Rule was updated |
 | Rule |  is.load-balancer.load-balancer-listener-policy-rule.delete | Rule was deleted |
+| Rule | is.load-balancer.load-balancer-listener-policy-rule.read | Rule was read |
 {: caption="Table 5. Actions that generate events for load balancers" caption-side="bottom"}
 
 ### Public gateway events
