@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-20"
+lastupdated: "2022-06-15"
 
 keywords:
 
@@ -93,19 +93,33 @@ You can view a list of backup jobs by specifying the ID or name of the backup po
 Run the `backup-policy-jobs` command to view the backup jobs for your backup snapshots. Status indicates when backup snapshots are being created, failed completion, or succeeded completion. In this example, the ID of the backup policy lists jobs for that backup policy. You can also specify the backup policy name.
 
 ```text
+ibmcloud is backup-policy-jobs POLICY [--volume VOLUME] [--snapshot SNAPSHOT] [--snapshot-crn SNAPSHOT_CRN] [--status failed | running | succeeded] [--plan PLAN] [--output JSON] [-q, --quiet] 
+```
+{: pre}
+
+For example:
+
+```text
 ibmcloud is backup-policy-jobs bd8e95e1-e63a-468e-9df8-6a8747f03ffc
 Listing jobs of backup policy bd8e95e1-e63a-468e-9df8-6a8747f03ffc under account VPC as user muuser@mycompany.com...
 ID                                          Auto delete   Auto delete after   Completed at                Created                     Job type   Status
-934c7e39-f1ba-4e62-b9ae-d5d3773874c0   true          15                  2022-04-24T17:02:14+05:30   2022-04-24T17:01:16+05:30   creation   succeeded
-d3b0d928-1a3a-4302-9b12-cc0a17bdd1d5   true          15                  2022-04-25T17:00:35+05:30
-2022-04-25T17:00:20+05:30   creation   succeeded
+934c7e39-f1ba-4e62-b9ae-d5d3773874c0   true          15                  2022-06-24T17:02:14+05:30   2022-06-24T17:01:16+05:30   creation   succeeded
+d3b0d928-1a3a-4302-9b12-cc0a17bdd1d5   true          15                  2022-06-25T17:00:35+05:30
+2022-06-25T17:00:20+05:30   creation   succeeded
 ```
 {: screen}
 
 ### View details of a backup job with the CLI
 {: #backup-view-jobs-details-cli}
 
-Run the `backup-policy-jobs` command and specify the ID of the backup policy and backup job to see the job details. Alterntively, you can specify the backup policy name. For example:
+Run the `backup-policy-jobs` command and specify the ID of the backup policy and backup job to see the job details. Alterntively, you can specify the backup policy name.
+
+```text
+ibmcloud is backup-policy-job POLICY JOB_ID [--output JSON] [-q, --quiet] 
+```
+{: pre}
+
+For example:
 
 ```text
 ibmcloud is backup-policy-job 7003cdf1-48bb-4af2-9ceb-1edbe8fcb818 a0d4eac1-6473-4c3b-a123-5543cdecaf45 
@@ -116,13 +130,13 @@ Auto delete             true
 Auto delete after       15   
 Plans                   ID                                          Name                         Resource type
                         392d5e3a-4596-407f-9ca6-2c78afce8d6e        test-p1-plan-2               backup_policy_plan
-Completed at            2022-04-21T16:59:52+05:30   
-Created                 2022-04-21T16:59:30+05:30   
+Completed at            2022-06-21T16:59:52+05:30   
+Created                 2022-06-21T16:59:30+05:30   
 Source volume           CRN                                                                                                                        ID                                          Name                          Resource type      
                         crn:v1:staging:public:is:us-south-3:a/fee5afc483594adaa8325e2b4d1290df::volume:a11e25f2-3fc3-4507-8725-e5f1d07256ea   a11e25f2-3fc3-4507-8725-e5f1d07256ea   volume-2      
                            
 Status                  succeeded   
-Completed at            2022-04-21T16:59:52+05:30   
+Completed at            2022-06-21T16:59:52+05:30   
 Current status reason   Code   Message      
                            
 Target snapshot         CRN                                                                                                                        ID                                          Name                                                 Resource type      
@@ -147,7 +161,7 @@ Make a `GET /backup_policies/{backup_policy_id}/jobs` request to list all backup
 
 ```curl
 curl -X GET\
-"$vpc_api_endpoint/v1/backup_policies/{backup_policy_id}/jobs?version=2022-04-22&generation=2"\
+"$vpc_api_endpoint/v1/backup_policies/{backup_policy_id}/jobs?version=2022-06-22&generation=2"\
    -H "Authorization: $iam_token"
 ```
 {: codeblock}
@@ -172,8 +186,8 @@ A successful response will look like this:
         "name": "my-policy-plan",
         "resource_type": "backup_policy_plan"
       },
-      "completed_at": "2022-04-23T13:37:11.549Z",
-      "created_at": "2022-04-23T13:37:11.549Z",
+      "completed_at": "2022-06-23T13:37:11.549Z",
+      "created_at": "2022-06-23T13:37:11.549Z",
       "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/0fe9e5d8-0a4d-4818-96ec-e99708644a58/jobs/4cf9171a-0043-4434-8727-15b53dbc374c",
       "id": "4cf9171a-0043-4434-8727-15b53dbc374c",
       "job_type": "creation",
@@ -223,7 +237,7 @@ Make a `GET /backup_policies/{backup_policy_id}/jobs/{backup_job_id}` request to
 
 ```curl
 curl -X GET\
-"$vpc_api_endpoint/v1/backup_policies/{backup_policy_id}/jobs{backup_job_id}?version=2022-04-22&generation=2"\
+"$vpc_api_endpoint/v1/backup_policies/{backup_policy_id}/jobs{backup_job_id}?version=2022-06-22&generation=2"\
    -H "Authorization: $iam_token"
 ```
 
@@ -242,8 +256,8 @@ A successful response will look like this:
     "name": "my-policy-plan",
     "resource_type": "backup_policy_plan"
   },
-  "completed_at": "2022-04-30T01:58:32.163Z",
-  "created_at": "2022-04-30T01:58:32.163Z",
+  "completed_at": "2022-06-30T01:58:32.163Z",
+  "created_at": "2022-06-30T01:58:32.163Z",
   "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/0fe9e5d8-0a4d-4818-96ec-e99708644a58/jobs/4cf9171a-0043-4434-8727-15b53dbc374c",
   "id": "4cf9171a-0043-4434-8727-15b53dbc374c",
   "job_type": "creation",
