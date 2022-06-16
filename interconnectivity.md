@@ -26,7 +26,7 @@ IBM has the following offerings that can help you interconnect a VPC with an on-
 
 * IBM Cloud Direct Link (2.0)
 
-   You can interconnect a VPC with an on-prem network through both Direct Link Dedicated and Connect offerings. Keep in mind that you can connect direct links to either a local or remote IBM Cloud Transit Gateway, which allows the on-prem network to access all networks connected the transit gateway.
+   You can interconnect a VPC with an on-prem network through both Direct Link Dedicated and Connect offerings. Keep in mind that you can connect direct links to either a local or remote IBM Cloud Transit Gateway, which allows the on-prem network to access all networks connected to the transit gateway.
 
    * **{{site.data.keyword.dl_full_notm}} Dedicated** provides low-latency, high-throughput connections between {{site.data.keyword.cloud_notm}} VPC networks direct to a service provider-managed WAN, or a client-managed cloud backbone. You can optimize egress traffic from your VPC network and reduce your egress costs. If you can’t connect at an {{site.data.keyword.cloud_notm}} data center, or don’t need more than 5 Gbps of bandwidth on a Virtual Network Connection, you can use {{site.data.keyword.dl_full_notm}} Connect to connect to {{site.data.keyword.cloud_notm}} through a supported service provider.
 
