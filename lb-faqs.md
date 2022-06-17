@@ -36,6 +36,12 @@ The auto-assigned DNS name for the application load balancer is not customizable
 
 50 is the maximum number of virtual server instances that you can attach to a back-end pool.
 
+## What's the maximum number of subnets I can attach to my application load balancer?
+{: #max-number-subnets-alb}
+{: faq}
+
+15 is the maximum number of subnets that you can define with your ALB.
+
 ## Is the load balancer horizontally scalable?
 {: #horizontally-scalable}
 {: faq}
@@ -187,7 +193,7 @@ Ensure that:
 * Your load balancer security group rules allow outgoing traffic from load balancers on your back-end member port
 * Your back-end member's security group rules, if any, allow all incoming traffic from the load balancer
 
-## Does IBM complete quarterly ASV scans of data-plane LBaaS appliances?  
+## Does IBM complete quarterly ASV scans of data-plane LBaaS appliances?
 {: #alb-asv}
 {: faq}
 
@@ -198,3 +204,9 @@ Approved Scanning Vendor (ASV) quarterly scanning is a requirement of the Paymen
 {: faq}
 
 Application load balancer will continue to support [IBM Certificate Manager](/docs/certificate-manager?topic=certificate-manager-getting-started) until September 30 2022. To migrate your existing certificates to Secrets Manager, refer to the information in [this topic](https://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager). After your certificates are migrated, you must then update the existing listener configuration with the new certificate CRN.
+
+## How are active connections handled when a load balancer is scaled down?
+{: #faqs-active-connections}
+{: faq}
+
+When a load balancer appliance undergoes a scale down due to horizontal scaling or maintenance, the service waits for the active connections to close to allow for traffic to move to other appliances. After 24 hours, the service will complete its scale down event, which may terminate any active connections on those scaled down appliances.
