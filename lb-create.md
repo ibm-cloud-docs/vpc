@@ -18,7 +18,7 @@ subcollection: vpc
 You can create an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) to distribute inbound traffic across multiple instances. IBM supports virtual server instances, bare metal server instances, and other devices that are reachable to the application load balancer with a device IP address, such as Power Systems™ Virtual Server instances connected over Direct Link (2.0).
 {: shortdesc}
 
-## Creating an application load balancer using the UI
+## Creating an application load balancer by using the UI
 {: #lb-ui-creating-network-load-balancer}
 {: ui}
 
@@ -145,7 +145,7 @@ To create an ALB:
         * **Value**: The value to be matched.
         * **Key**: The name of the HTTP header field to evaluate, if the rule type is **Header**. For example, to match a cookie in the HTTP header, enter **Cookie** for the key.
   
-## Creating an application load balancer using the CLI
+## Creating an application load balancer by using the CLI
 {: #lb-cli-creating-network-load-balancer}
 {: cli}
 
@@ -307,7 +307,7 @@ To create an application load balancer by using the CLI, follow these steps:
     ```
     {: screen}
 
-## Creating an application load balancer using the API
+## Creating an application load balancer by using the API
 {: #lb-api-creating-network-load-balancer}
 {: api}
 

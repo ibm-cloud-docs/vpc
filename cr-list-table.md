@@ -47,6 +47,8 @@ The overflow menu ![overflow menu](images/overflow.png) is used to delete a rout
 {: #cr-list-tables-using-the-cli}
 {: cli}
 
+Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+
 To list the routing tables for a VPC by using the CLI, run the following command:
 
 ```sh

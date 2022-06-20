@@ -30,6 +30,7 @@ To support routing mode, you must first create a service-to-service authenticati
    For scope access, select **Resources based on selected attributes** > **Resource Type** > **Load Balancer for VPC**.
 1. For the target service, select **VPC Infrastructure Services**.
    For scope access, select **Resources based on selected attributes** > **Resource Type** > **Virtual Private Cloud**.
+1. Select the **Editor** checkbox to give yourself Editor access, then click **Authorize**.
 
 ## Creating a network load balancer with routing mode using the UI
 {: #nlb-vnf-ui}
@@ -79,15 +80,15 @@ To create and configure {{site.data.keyword.nlb_full}} with routing mode using t
    
 1. An order summary shows pricing estimates. Review the Cloud Services terms. Then, click **Create** to complete your order.
 
-## Creating a network load balancer with routing mode using the CLI
+## Creating a network load balancer with routing mode by using the CLI
 {: #nlb-vnf-cli}
 {: cli}
 
-To create a network load balancer using the CLI, follow these steps:
+To create a network load balancer by using the CLI, follow these steps:
 
 1. Set up your [CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
-1. Log in to your account using the CLI. After you enter the password, the system prompts which account and region that you want to use:
+1. Log in to your account. After you enter the password, the system prompts which account and region that you want to use:
 
    ```sh
    ibmcloud login --sso

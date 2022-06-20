@@ -44,9 +44,11 @@ To reassign a routing table to a subnet, follow these steps:
 
    ![Reassign routing table side panel](/images/reassign-routing-table.png "Reassign routing table side panel"){: caption="Figure 2. Reassign routing table side panel" caption-side="bottom"}
    
-## Attaching subnets to a routing table using the CLI
+## Attaching subnets to a routing table by using the CLI
 {: #cr-attach-subnets-using-the-cli}
 {: cli}
+
+Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
 To attach subnets to a routing table by using the CLI, run the following command:
 

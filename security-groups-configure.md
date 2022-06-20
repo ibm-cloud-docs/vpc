@@ -19,7 +19,7 @@ subcollection: vpc
 You can configure security groups to define the inbound and outbound traffic that they allow for your instance. For example, after you configure ACL rules for the subnet based on your company's security policies, you can further restrict traffic for specific instances depending on their workloads.
 {: shortdesc}
 
-## Setting up the security groups for your virtual server instance using the UI
+## Setting up the security groups for your virtual server instance by using the UI
 {: #sgg-using-ui}
 {: ui}
 
@@ -39,7 +39,7 @@ To configure your security group using the UI:
 1. _Optional:_ To view interfaces that are attached to the security group, click **Attached resources** tab and review the Attached interfaces section.
 1. When you finish creating rules, click the **Security groups** breadcrumb at the beginning of the page.
 
-## Setting up the security groups for your virtual server instance using the CLI
+## Setting up the security groups for your virtual server instance by using the CLI
 {: #sg-using-cli}
 {: cli}
 
@@ -119,7 +119,7 @@ ibmcloud is security-group-rule-add $sg inbound icmp --icmp-type 8 --icmp-code 0
 ```
 {: pre}
 
-## Setting up the security groups for your virtual server instance using the API
+## Setting up the security groups for your virtual server instance by using the API
 {: #sg-using-api}
 {: api}
 

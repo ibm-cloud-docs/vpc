@@ -15,7 +15,7 @@ subcollection: vpc
 # Adding connections to a VPN gateway
 {: #vpn-adding-connections}
 
-You can add connections when you create an IBM Cloud VPN Gateway for VPC, or after you provision a VPN gateway. When you configure a VPN connection, you can choose to connect with auto-negotiation or use a pre-defined custom IKE or IPsec policy. For more information, see [About policy negotiation](/docs/vpc?topic=vpc-using-vpn#policy-negotiation).
+You can add connections when you create an IBM Cloud VPN for VPC, or after you provision a VPN gateway. When you configure a VPN connection, you can choose to connect with auto-negotiation or use a pre-defined custom IKE or IPsec policy. For more information, see [About policy negotiation](/docs/vpc?topic=vpc-using-vpn#policy-negotiation).
 {: shortdesc}
 
 The IKE Phase 1 and Phase 2 (IPsec) security options that you specify for the connection must be the same options that are set on the peer gateway for the network outside your VPC.
@@ -52,6 +52,8 @@ To add a VPN connection to an existing VPN gateway, follow these steps:
 ## Adding a connection by using the CLI
 {: #vpn-using-cli-add-connection}
 {: cli}
+
+Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
 To create a VPN connection by using the CLI, enter the following command:
 

@@ -27,18 +27,18 @@ Each flow log object contains individual flow logs. To view or analyze the flow 
 1. Launch {{site.data.keyword.sqlquery_full}}.
 1. Start querying flow logs from the bucket that you specified when [Creating a flow log collector](/docs/vpc?topic=vpc-ordering-flow-log-collector).
 
-    To view the most frequent flow object, run the following query:
+   To view the most frequent flow object, run the following query:
     
-    ```json
-    SELECT * FROM cos://<region>/<bucket>/ibm_vpc_flowlogs_v1/ STORED AS JSON ORDER BY `stream-id` LIMIT 1 INTO cos://<region>/<target_bucket>/result/ STORED AS JSON
-    ```
-    {: pre}
+   ```json
+   SELECT * FROM cos://<region>/<bucket>/ibm_vpc_flowlogs_v1/ STORED AS JSON ORDER BY `stream-id` LIMIT 1 INTO cos://<region>/<target_bucket>/result/ STORED AS JSON
+   ```
+   {: pre}
     
-    Where:
+   Where:
 
-    * **bucket** - The bucket where your flow logs are stored.
-    * **region** - The [region alias](/docs/sql-query#endpoints) of the bucket that holds your flow logs.
-    * **target_bucket** - A bucket that is different from the bucket where your flow logs are stored. It is recommended to use the target location that was created by {{site.data.keyword.sqlquery_full}}. 
+   * **bucket** - The bucket where your flow logs are stored.
+   * **region** - The [region alias](/docs/sql-query#endpoints) of the bucket that holds your flow logs.
+   * **target_bucket** - A bucket that is different from the bucket where your flow logs are stored. It is recommended to use the target location that was created by {{site.data.keyword.sqlquery_full}}. 
     
       You can find the **Target location** listed under the query editor field in the IBM SQL Query UI.   
       {: note}

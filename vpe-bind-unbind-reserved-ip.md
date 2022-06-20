@@ -20,7 +20,7 @@ subcollection: vpc
 You can bind and unbind a reserved IP address to an endpoint gateway by using the UI, CLI, and API.  
 {: shortdesc}
 
-## Using the UI
+## Binding and unbinding a reserved IP address by using the UI
 {: #bind-reserved-ip-ui}
 {: ui}
 
@@ -57,11 +57,13 @@ To unbind an IP address by using the IBM Cloud console, follow these steps:
 1. From the Virtual private endpoint gateways for VPC page, highlight the row of the gateway in the table, then click **Unbind IP** from the overflow menu ![overflow menu](images/overflow.png). Alternatively, you can unbind a reserved IP from an endpoint gateway's details page.
 1. Click **Unbind IP** to confirm that you want to unbind this IP from the specified subnet.  
 
-## Using the CLI
+## Binding and unbinding a reserved IP address by using the CLI
 {: #vpe-binding-unbinding-endpoint-gateway-cli}
 {: cli}
 
 You can bind or unbind a reserved IP address by using the CLI.
+
+Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
 ### Binding a reserved IP to an endpoint gateway
 {: #vpe-binding-endpoint-gateway-cli}
@@ -80,7 +82,7 @@ Where:
 * **--reserved-ip-id** is the reserved IP identity to be used as the primary IP for the network interface. If not specified, an available address on the subnet is selected and reserved automatically.
 * **--json** forces the operation without confirmation.
 
-### Unbinding a reserved IP to an endpoint gateway
+### Unbinding a reserved IP to an endpoint gateway by using the CLI
 {: #vpe-unbinding-endpoint-gateway-cli}
 
 To unbind a reserved IP to an endpoint gateway by using the CLI, run the following command:
@@ -98,7 +100,7 @@ Where:
 * **--reserved-ip-id** is the ID of the reserved IP address to be unbound.
 * **-f, --force** forces the operation without confirmation.
 
-## Using the API
+## Binding and unbinding a reserved IP address by using the API
 {: #vpe-bind-unbind-api}
 {: api}
 

@@ -11,18 +11,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:external: target="_blank" .external}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating a network ACL
 {: #acl-create-ui}
@@ -35,7 +24,7 @@ Each subnet can be attached to only one ACL. However, each ACL can be attached t
 
 Before you begin, ensure that you have created a VPC and subnet.
 
-## Creating a network ACL using the UI
+## Creating a network ACL by using the UI
 {: #configuring-the-acl}
 {: ui}
 
@@ -57,14 +46,16 @@ To configure an ACL using the IBM Cloud console, follow these steps:
       If the subnet has an existing ACL connection, the ACL is replaced by the ACL being created.
       {: note}
 
-## Creating a network ACL using the CLI
+## Creating a network ACL by using the CLI
 {: #cr-using-the-cli}
 {: cli}
+
+Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
 To create a network ACL by using the CLI, run the following command:
 {: shortdesc}
 
-```
+```sh
 ibmcloud is network-acl-create ACL_NAME VPC \
 [--rules (RULES_JSON|@RULES_JSON_FILE) | --source-acl-id SOURCE_ACL_ID] \
 [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] \
@@ -88,7 +79,7 @@ For example:
 - `ibmcloud is network-acl-create my-acl 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479`
 - `ibmcloud is network-acl-create my-acl 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --source-acl-id 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3`
 
-## Creating a network ACL using the API
+## Creating a network ACL by using the API
 {: #cr-using-the-api}
 {: api}
 
@@ -139,7 +130,7 @@ For example, you can configure the following inbound rules:
 | 1 | Allow | TCP | Any IP, ports 80 - 80 |Any IP, any port|
 | 2 | Allow | ALL | 10.10.20.0/24, any port |Any IP, any port|
 | 3 | Deny| ALL | Any IP, any port |Any IP, any port|
-{: caption="Table 1. Information for configuring inbound rules" caption-side="top"}
+{: caption="Table 1. Information for configuring inbound rules" caption-side="bottom"}
 
 Then, configure the following outbound rules:
 
@@ -152,4 +143,4 @@ Then, configure the following outbound rules:
 | 1 | Allow | TCP | Any IP, any port |Any IP, ports 80 - 80  |
 | 2 | Allow | ALL | Any IP, any port | 10.10.20.0/24, any port |
 | 3 | Deny| ALL | Any IP, any port |Any IP, any port|
-{: caption="Table 2. Information for configuring outbound rules" caption-side="top"}
+{: caption="Table 2. Information for configuring outbound rules" caption-side="bottom"}

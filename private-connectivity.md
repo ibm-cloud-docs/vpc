@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-05-25"
+lastupdated: "2021-08-12"
 
 keywords:  
 
@@ -51,7 +51,7 @@ Before you begin, you must have a VPC, a subnet created in the VPC, and {{site.d
    {: note}
 
 1. After provisioning and configuring the private load balancer, you must update your on-premises Domain Name Server (DNS) resolver to be authoritative for a zone containing the endpoint, and add a CNAME record to the zone to access your IBM Cloud service. For example, if you created a VPE for a VPC API `us-south` endpoint, you must add a zone file as follows:
-
+   
    ```
    $TTL 600        ; 5 minutes
    private.iaas.cloud.ibm.com.     IN SOA  ns1.example.com. admin.example.com. (
@@ -192,11 +192,11 @@ resource "ibm_is_lb_pool_member" "lb_member" {
 }
 ```
 
-## Accessing the VPC API private endpoint using the CLI
+## Accessing the VPC API private endpoint by using the CLI
 {: #vpc-api-private-endpoint-setup-cli}
 {: cli}
 
-To access the VPC API private endpoint using the CLI, follow these steps:
+To access the VPC API private endpoint by using the CLI, follow these steps:
 
 1. Update the core {{site.data.keyword.cloud_notm}} CLI (`1.3.0` or higher) and the VPC infrastructure service plug-in (`0.8.0` or higher) to the latest versions:
 
@@ -325,9 +325,23 @@ To access the VPC API private endpoint using the API, follow these steps:
 {: #vpc-api-private-endpoint-terraform}
 {: terraform}
 
-To access the VPC API private endpoint using Terraform, set the following environment variable for the region that you want to access. For example, for `us-south`, enter:
+To access the VPC API private endpoint using Terraform, do one of the following:
 
-```
-export IBMCLOUD_IS_NG_API_ENDPOINT=https://us-south.private.iaas.cloud.ibm.com/v1
-```
-{: pre}
+* Set the following environment variable for the region that you want to access. For example, for `us-south`, enter:
+
+   ```
+   export IBMCLOUD_IS_NG_API_ENDPOINT=https://us-south.private.iaas.cloud.ibm.com/v1
+   ```
+   {: pre}
+   
+ * Declare the provider block. For example:
+    
+   ```
+   provider "ibm" {
+   region     = "us-south"
+   visibility = "private"
+   }
+   ```
+   {: pre}
+
+

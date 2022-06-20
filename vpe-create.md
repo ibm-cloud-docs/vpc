@@ -30,7 +30,7 @@ Prior to creating an endpoint gateway, ensure that you review [Planning for virt
 * Appropriate [IAM permissions](/docs/vpc?topic=vpc-vpe-iam) to create an endpoint gateway, create or bind a reserved IP, and view or list the target service
 * Verification that the service you are configuring supports VPE  
 
-## Creating an endpoint gateway using the UI
+## Creating an endpoint gateway by using the UI
 {: #vpe-creating-ui}
 {: ui}
 
@@ -67,9 +67,11 @@ To create an endpoint gateway by using the {{site.data.keyword.cloud_notm}} cons
 
 1. The order Summary shows pricing estimates for your review. Review and click **Create endpoint gateway**.
 
-## Creating an endpoint gateway using the CLI
+## Creating an endpoint gateway by using the CLI
 {: #vpe-ordering-cli}
 {: cli}
+
+Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
 To create an endpoint gateway by using the CLI, follow these steps:
 
@@ -113,7 +115,7 @@ Where:
 * **--output** is the output format. Only JSON is supported.
 * **-q, --quiet** suppresses verbose output.
 
-## Creating an endpoint gateway using the API
+## Creating an endpoint gateway by using the API
 {: #vpe-ordering-api}
 {: api}
 
