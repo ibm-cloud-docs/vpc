@@ -144,7 +144,6 @@ toc:
             topics:
             - vsi_best_practices.md
             - vsi_is_create_instance.md
-            - vsi_is_create_instance_cli.md
             - topicgroup:
                 label: Connecting to instances
                 topics:
