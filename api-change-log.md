@@ -60,7 +60,7 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Backup for VPC.** You can now create backup policies to schedule automatic backups of your block storage volumes. Backups are made when a user tag in a block storage volume matches a user tag defined in a backup policy. Backups are created by a schedule defined in a [backup plan](/apidocs/vpc-beta#create-backup-policy-plan). Each plan also has a deletion policy for managing backups created by the plan, which you can customize by specifying the `deletion_trigger` sub-property. At the scheduled interval, a backup snapshot is created of that volume. You can have up to four backup plans per policy. See [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 
-The backup policy jobs feature is still in [beta](/apidocs/vpc-beta#24-may-2022).
+The backup policy jobs API remains at [beta](/apidocs/vpc-beta#24-may-2022).
 {: note}
 
 ## 29 March 2022
