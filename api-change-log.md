@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-05-18"
+lastupdated: "2022-06-21"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -51,6 +51,17 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 21 June 2022
+{: #21-june-2022}
+
+### For all version dates
+{: #21-june-2022-all-version-dates}
+
+**Backup for VPC.** You can now create backup policies to schedule automatic backups of your block storage volumes. Backups are made when a user tag in a block storage volume matches a user tag defined in a backup policy. Backups are created by a schedule defined in a [backup plan](/apidocs/vpc-beta#create-backup-policy-plan). Each plan also has a deletion policy for managing backups created by the plan, which you can customize by specifying the `deletion_trigger` sub-property. At the scheduled interval, a backup snapshot is created of that volume. You can have up to four backup plans per policy. See [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
+
+The backup policy jobs feature is still in [beta](/apidocs/vpc-beta#24-may-2022).
+{: note}
 
 ## 29 March 2022
 {: #29-march-2022}
