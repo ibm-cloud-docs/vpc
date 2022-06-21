@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-18"
+lastupdated: "2022-06-21"
 
 keywords: custom routes
 
@@ -21,7 +21,7 @@ subcollection: vpc
 The default routing table functions the same as other routing tables, except that it is created automatically, and is used when you create a subnet without specifying a routing table.
 {: note}
 
-You can define routes within any routing table to shape traffic the way that you want. Each subnet has one routing table assigned to it, which is responsible for managing the subnet's traffic. You can change the routing table that a subnet uses to manage its traffic at any time.
+You can define routes within any routing table to shape traffic the way that you want. Each subnet has one routing table assigned to it, which is responsible for managing the subnet's traffic. You can change the routing table that a subnet uses to manage its egress traffic at any time.
 
 This service also allows the use of Network Functions Virtualization (NFV) for advanced networking services, such as third-party routing, firewalls, local/global load balancing, web application firewalls, and more. Custom routing tables are also currently being integrated in {{site.data.keyword.cloud_notm}} services.
 
@@ -30,7 +30,7 @@ This service also allows the use of Network Functions Virtualization (NFV) for a
 
 When you create a routing table, you can select one of the following traffic types:
 
-* **Egress routes** control traffic, which originates within a private network and travels towards the public internet, or to another VM in same or different zone.
+* **Egress routes** control traffic, which originates within a subnet and travels towards the public internet, or to another VM in same or different zone.
 
 * **Ingress routes** enable you to customize routes on incoming traffic to a VPC from traffic sources external to the VPC's availability zone (IBM Cloud Direct Link 2.0, IBM Cloud Transit Gateway, or another availability zone in the same VPC). You must choose at least one traffic source to enable ingress routing.
 
@@ -169,7 +169,7 @@ The following limitations and guidelines apply to {{site.data.keyword.cloud_notm
 {: #routes-general}
 
 * Currently, you cannot use a custom routing table for both ingress (attached to a traffic source) and egress (attached to a subnet) traffic. In addition, the default custom routing table cannot be associated with an ingress traffic source.
-* The abiltiy to reach a next hop IP address in a custom route is not a determining factor in whether the route is used for forward traffic. This can cause issues when multiple routes with the same prefix (but different next hop IP addresses) are used, as traffic to unreachable next hop IP addresses might not be delivered.
+* The ability to reach a next hop IP address in a custom route is not a determining factor in whether the route is used for forward traffic. This can cause issues when multiple routes with the same prefix (but different next hop IP addresses) are used, as traffic to unreachable next hop IP addresses might not be delivered.
 * {{site.data.keyword.cloud_notm}} VPC permits the use of RFC-1918 and IANA-registered IPv4 address spaces privately within your VPC, with some exceptions in the IANA special-purpose ranges, and select ranges assigned to {{site.data.keyword.cloud_notm}} services. When using IANA-registered ranges within your enterprise, and within VPCs in conjunction with {{site.data.keyword.cloud_notm}} Transit Gateway or {{site.data.keyword.cloud_notm}} Direct Link, you must install custom routes in each zone. For more information, see [Routing considerations for IANA-registered IP assignments](/docs/vpc?topic=vpc-interconnectivity#routing-considerations-iana).
 
 ### Unique prefix lengths
@@ -202,7 +202,7 @@ The implicit router performs ECMP routing (multiple routes with the same destina
 {: #routes-ingress}
 
 * Ingress traffic from a particular traffic source is routed using the routes in the custom routing table that is associated with that traffic source.
-* Custom routes in a custom routing table associated with an ingress traffic source, and with an action of `deliver`, must have a next hop IP contained by one of the root prefixes of the VPC in the availability zone where the route is added. In addition, the next hop IP must be configured on a virtual server interface in the VPC and availability zone where the route is targeted.  
+* Custom routes in a custom routing table associated with an ingress traffic source, and with an action of `deliver`, must have a next hop IP contained by one of the address prefixes of the VPC in the availability zone where the route is added. In addition, the next hop IP must be configured on a virtual server interface in the VPC and availability zone where the route is targeted.  
 * Ingress traffic from a particular traffic source is routed using the routes in the custom routing table that is associated with that traffic source. 
 
 ## Related links
