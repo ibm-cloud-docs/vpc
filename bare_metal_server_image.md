@@ -31,25 +31,6 @@ The following operating systems are available as images when you create a bare m
 Support for Windows and Linux is planned. 
 {: note}
 
-## Custom images
-{: #bare-metal-custom-images}
-
-You can import an image from IBM Cloud Object Storage that you can use to create a bare metal server.
-
-### Custom image considerations
-{: #bare-metal-custom-images-requirements}
-
-Custom images must meet the following requirements:
-
-* Must support UEFI boot mode
-* A Pensando driver for networking
-* Support x86 architecture
-
-Custom images have the following limitations:
-
-* Supports only QCOW2 images
-* Encrypted images aren't supported
-
 ### Special considerations for RHEL 8.4
 {: #bare-metal-images-rhel-considerations}
 
@@ -93,9 +74,6 @@ Ubuntu images don't include the VMD device driver in the standard kernel package
 # modprobe vmd 
 ```
 {: codeblock}
-
-### Special considerations for custom images 
-{: #bare-metal-images-custom-considerations}
 
 ## Next steps
 {: #bare-metal-images-next-steps}
