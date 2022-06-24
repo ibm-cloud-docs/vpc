@@ -34,7 +34,7 @@ Support for Windows and Linux is planned.
 ### Special considerations for RHEL 8.4
 {: #bare-metal-images-rhel-considerations}
 
-* By default, the release lock feature for RHEL 8.4 is disabled. To prevent the RHEL from going beyond version 8.4 when you run an update, run the following commands from the command line:
+By default, the release lock feature for RHEL 8.4 is disabled. To prevent the RHEL from going beyond version 8.4 when you run an update, run the following commands from the command line:
 
    ```text
    # subscription-manager release --set=8.4
