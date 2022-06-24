@@ -1,29 +1,16 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-05-14"
+  years: 2019, 2022
+lastupdated: "2022-06-24"
 
-keywords: create virtual server with encryption, root key, encrypted volume, virtual server instance, create virtual server, provision virtual server, virtual machine, instance, virtual server, deploy virtual server, block storage volume
+keywords:
 
 subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:tip: .tip}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:important: .important}
-{:preview: .preview}
-{:external: target="_blank" .external}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating virtual server instances with customer-managed encryption volumes
 {: #creating-instances-byok}
@@ -50,9 +37,9 @@ When you provision a virtual server instance, you can specify customer-managed e
 Follow these steps to create an instance with a new block storage volume.
 
 1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com/vpc){: external}, navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
-2. Click **New instance** and complete the required fields. (For information about these required fields, see _Table 1 - Instance provisioning selections_ in [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).)
-3. In the **Boot volume** section, the default mode of encryption is _Provider managed_ encryption. To specify customer-managed encryption, click the pencil icon in the boot volume row. On the **Edit boot volume** page, update the fields in the **Encryption** section. See Table 1 for more information. When your changes are complete, click **Apply**.
-4. In the **Attached block storage volume** section, you can click **New block storage volume** to add a data volume and specify customer-managed encryption. On the **New block storage volume** page, update the fields in the **Encryption** section. See Table 1 for more information. When your changes are complete, click **Attach**.
+1. Click **New instance** and complete the required fields. (For information about these required fields, see _Table 1 - Instance provisioning selections_ in [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).)
+1. In the **Boot volume** section, the default mode of encryption is _Provider managed_ encryption. To specify customer-managed encryption, click the pencil icon in the boot volume row. On the **Edit boot volume** page, update the fields in the **Encryption** section. See Table 1 for more information. When your changes are complete, click **Apply**.
+1. In the **Attached block storage volume** section, you can click **New block storage volume** to add a data volume and specify customer-managed encryption. On the **New block storage volume** page, update the fields in the **Encryption** section. See Table 1 for more information. When your changes are complete, click **Attach**.
 
 | Field | Value |
 | ----- | ----- |
@@ -60,7 +47,7 @@ Follow these steps to create an instance with a new block storage volume.
 | Encryption service instance | If you have multiple key management service instances that are provisioned in your account, select the one that includes the customer root key that you want to use for customer-managed encryption. |
 | Key name | Select the root key within the key management service instance that you want to use for encrypting the volume. | 
 | Key ID | Displays the key ID that is associated with the root key that you selected. | 
-{: caption="Table 1. Values for specifying customer-managed encryption of volumes" caption-side="top"}
+{: caption="Table 1. Values for specifying customer-managed encryption of volumes" caption-side="bottom"}
 
 ## Provisioning instances with customer-managed encrypted volumes from the CLI
 {: #provision-byok-cli}
@@ -75,14 +62,14 @@ Obtain the ID of the key management service instance and the CRN of the root key
 
 1. If you need to install the {{site.data.keyword.keymanagementserviceshort}} CLI plug-in, run the following command:
 
-   ```
+   ```sh
    ibmcloud plugin install key-protect -r 'IBM Cloud'
    ```
    {: pre}
 
-2. List the {{site.data.keyword.keymanagementserviceshort}} service instances for your account:
+1. List the {{site.data.keyword.keymanagementserviceshort}} service instances for your account:
 
-   ```
+   ```sh
    ibmcloud resource service-instances
    ```
    {: pre}
@@ -101,7 +88,7 @@ Obtain the ID of the key management service instance and the CRN of the root key
     
 3. Retrieve the instance ID for the {{site.data.keyword.keymanagementserviceshort}} service instance where your customer root keys are stored. `Key Protect-17` is the name of the {{site.data.keyword.keymanagementserviceshort}} service instance.
 
-   ```
+   ```sh
    ibmcloud resource service-instance "Key Protect-17" --id
    ```
    {: pre}
@@ -120,7 +107,7 @@ Obtain the ID of the key management service instance and the CRN of the root key
     
 4. List the available keys and their associated CRNs for the {{site.data.keyword.keymanagementserviceshort}} service instance by specifying the instance ID:
 
-   ```
+   ```sh
    ibmcloud kp keys -c --instance-id 7mnxxxo8-91xx-23px-q4rs-xxtuv5w6xxx7
    ```
    {: pre}
@@ -156,7 +143,7 @@ See the following JSON examples for boot or data volumes. Copy the example and r
 
 This example defines the data in a boot volume JSON file. The `encryption key` parameter defines the root key CRN for customer-managed encryption.
 
-```
+```json
 {  
    "name":"volume-attachment-1",
    "volume":{  
@@ -179,7 +166,7 @@ This example defines the data in a boot volume JSON file. The `encryption key` p
 
 This example defines two general-purpose secondary (data) volumes with customer-managed encryption.
 
-```
+```json
    {  
       "name":"volume-attachment-2",
       "volume":{  
@@ -203,22 +190,22 @@ This example defines two general-purpose secondary (data) volumes with customer-
 
 Use the [ibmcloud is instance-create](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-create) command to create an instance with customer-managed encryption for your boot and data volumes. Specify the `--boot-volume` and `--volume-attach` parameters to reference JSON files that define volume encryption.
 
-```
+```sh
 ibmcloud is instance-create INSTANCE_NAME VPC ZONE_NAME PROFILE_NAME SUBNET --image-id IMAGE_ID [--boot-volume @BOOT_VOLUME_JSON_FILE] [--volume-attach @VOLUME_ATTACH_JSON_FILE]...
 ```
 {: pre}
 
-## Provisioning instances with customer-managed encryption data volumes with the API
+## Provisioning instances with customer-managed encryption volumes with the API
 {: #provision-byok-api}
 {: api}
 
-You can provision instances with customer-managed encryption data volumes by calling the Virtual Private Cloud (VPC) API.
+You can provision instances with customer-managed encryption volumes by calling the Virtual Private Cloud (VPC) API.
 
 Make a `POST/instances` request to create an instance and new volume encrypted using your own encryption keys. The `encryption_key` parameter identifies the CRN of your customer root key, shown in the example as `crn:[...key:...]`.
 
 The following example creates an instance with a boot volume with customer-managed encryption and two secondary volumes with customer-managed encryption.
 
-```
+```sh
 curl -X POST \
  "$vpc_api_endpoint/v1/instances?version=version=2020-03-10&generation=2" \
  -H "Authorization: $iam_token" \
@@ -287,7 +274,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-A successful response will look like this. Note that the boot volume appears under both `boot_volume_attachment` and `volume_attachment`.
+A successful response looks like this. Note that the boot volume appears under both `boot_volume_attachment` and `volume_attachment`.
 
 ```
 {
@@ -424,7 +411,7 @@ A successful response will look like this. Note that the boot volume appears und
     }
 }
 ```
-{: codeblock}
+{: screen}
 
 ## Next steps
 {: #next-steps-creating-byok-instances}
