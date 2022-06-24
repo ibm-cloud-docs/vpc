@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-06-10"
+lastupdated: "2022-06-24"
 
 keywords:
 
@@ -28,6 +28,13 @@ For information about changes to the {{site.data.keyword.vpc_short}} command lin
 
 ## June 2022
 {: #vpc-june01}
+
+### 21 June 2022
+{: #vpc-june1522}
+{: release-note}
+
+Backup for VPC (GA)
+:    You can now create automated backup snapshots of your block storage volumes. Should your original volume be compromised, you can restore it from a backup snapshot. You create a backup policy to control which source volumes are selected for backup by matching user tags in the volume with tags defined in the policy. Each policy contains up to four backup plans, which define how often backup snapshots are taken (daily, weekly, monthy, or more frequently using a cron-spec) and retained (by date or by count). You can also view backup jobs, which shows status of backup snapshots being created or deleted. For information about this service, see [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 
 ### 01 June 2022
 {: #vpc-june0122}
