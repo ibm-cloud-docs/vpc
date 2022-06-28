@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-06-09"
+lastupdated: "2022-06-28"
 
 keywords:
 
@@ -138,14 +138,14 @@ You can create  block storage volumes by using the command-line interface (CLI).
 Run the following command to create a block storage volume. Provide a volume name, profile name, and the name of the availability zone in your region. For information about block storage profiles, see [Profiles](/docs/vpc?topic=vpc-block-storage-profiles). Optional parameters are shown in brackets.
 
 ```zsh
-ibmcloud is volume-create VOLUME_NAME PROFILE_NAME ZONE_NAME [--capacity CAPACITY] [--iops IOPS] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--user-tags  TAG_NAME1,TAG_NAME2,...] [--json]
+ibmcloud is volume-create VOLUME_NAME PROFILE_NAME ZONE_NAME [--capacity CAPACITY] [--iops IOPS] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--tags  TAG_NAME1,TAG_NAME2,...] [--json]
 ```
 {: pre}
 
 Example:
 
 ```bash
-$ ibmcloud is volume-create demovolume1 custom us-south-1 --capacity 500 --iops 3000 --user-tags env:test,env:prod
+$ ibmcloud is volume-create demovolume1 custom us-south-1 --capacity 500 --iops 3000 --tags env:test,env:prod
 Creating volume demovolume1 in resource group Default under account VPC 01 as user rtuser1@mycompany.com...
 
 ID                                     584ab34a-6d25-4226-a5a4-4c6c8aa9186d
@@ -164,7 +164,7 @@ Zone                                   us-south-1
 Volume Attachment Instance Reference   -
 Active                                 false
 Busy                                   false
-User Tags                              env:test,env:cli
+Tags                                   env:test,env:cli
 ```
 {: screen}
 
@@ -454,10 +454,10 @@ A successful response looks like this:
 ```
 {: codeblock}
 
-### Create a data volume from a snapshot with the API
+### Create a data volume from a snapshot of an unattached volume with the API
 {: #block-storage-create-vol-snapshot-api}
 
-You can specify a snapshot ID in a `POST /volumes` call to create an unattached, stand-alone data volume. The standalone volume that is created from the snapshot is fully hydrated when you later attach it to the instance. The data is restored at that time. For more information, see [About restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-restore-concepts). For an example API call, see [Restoring an unattached data volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-restore-unattached-api).
+You can specify a snapshot ID in a `POST /volumes` call to create a stand-alone data volume. Data is fully restored when you attach the data volume to a virtual server instance. For more information, see [About restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-restore-concepts). For an example API call, see [Restoring a data volume from a snapshot of an unattached volume](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-restore-unattached-api).
 
 ## Next steps
 {: #next-step-creating-block-storage-vpc}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-09"
+lastupdated: "2022-06-28"
 
 keywords:
 
@@ -67,7 +67,7 @@ Snapshots retain the encryption from the original volume, IBM-managed or custome
 {: faq}
 {: #faq-snapshot-6}
 
-Restoring a volume from a snapshot creates an entirely new boot or data volume. The new volume has the same properties of the original volume, including encryption. If you restore from a bootable snapshot, you create a boot volume. Similarly, you can create a new data volume from a snapshot of a data volume. The volume you create from the snapshot uses the same volume profile and contains the same data and meta-data as the original volume. You restore a volume when you provision a new instance or update an existing instance using the UI, CLI, or API. You can also use the `volumes` API to restore an unattached data volume from a snapshot. For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
+Restoring a volume from a snapshot creates an entirely new boot or data volume. The new volume has the same properties of the original volume, including encryption. If you restore from a bootable snapshot, you create a boot volume. Similarly, you can create a new data volume from a snapshot of a data volume. The volume you create from the snapshot uses the same volume profile and contains the same data and meta-data as the original volume. You restore a volume when you provision a new instance or update an existing instance using the UI, CLI, or API.  You can also use the `volumes` API to restore a data volume from a snapshot of an unattached volume, therefore creating a stand-alone volume. For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
 
 ## What happens to snapshots when I delete my volume?
 {: faq}

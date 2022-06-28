@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-06-09"
+lastupdated: "2022-06-28"
 
 keywords:
 
@@ -55,10 +55,10 @@ Restoring from a data volume snapshot creates secondary storage attached to the 
 
 You can restore a volume from a snapshot from the [list of block storage snapshots](#snapshots-vpc-restore-snaphot-list-ui), from the [snapshot details page](#snapshots-vpc-restore-vol-details-ui), or when you [provision a new instance](#snapshots-vpc-restore-vol-ui). You can also restore a volume from a snapshot to create a volume for [an existing instance](#snapshots-vpc-create-from-vol-ui).
 
-### Restoring an unattached data volume from a snapshot
+### Restoring a data volume from a snapshot of an unattached volume
 {: #snapshots-vpc-restore-unattached-vol}
 
-With the API, you can create an new unattached data volume from a snapshot by making a `POST /volumes` call and specifying the snapshot ID. The stand-alone volume created from the snapshot is fully hydrated (data is restored) when you later attach it to an instance. For an example API call, see [Restoring a standalone data volume from a snapshot](#snapshots-vpc-restore-unattached-api) Also see the [limitations](#snapshots-vpc-restore-unattach-limits) when restoring an unattached volume from a snapshot.
+With the API, you can create an new data volume from a snapshot of an unattached data volume by making a `POST /volumes` call and specifying the snapshot ID. The stand-alone volume created from the snapshot is fully hydrated (data is restored) when you later attach it to an instance. Volume performance is initially degraded until the volume data is fully restored. For an example API call, see [Restoring a data volume from a snapshot of an unattached volume](#snapshots-vpc-restore-unattached-api). Also see the [limitations](#snapshots-vpc-restore-unattach-limits) when restoring a volume from a snapshot of an unattached volume.
 
 ### Additional considerations
 {: #snapshots-vpc-restore-vsi-concepts}
@@ -410,10 +410,10 @@ curl -X POST \
 ```
 {: codeblock}
 
-### Restoring an unattached data volume from a snapshot with the API
+### Restoring a data volume from a snapshot of an unattached volume with the API
 {: #snapshots-vpc-restore-unattached-api}
 
-To restore an unattached (stand-alone) data volume from a snapshot, make a `POST /volumes` request and specify the ID, CRN, or URL of the snapshot in the `source_snapshot` property. The restored volume capacity (in GBs) must be at least the snapshot's minimum_capacity.
+To restore a data volume from a snapshot of an unattached data volume, make a `POST /volumes` request and specify the ID, CRN, or URL of the snapshot in the `source_snapshot` property. The restored volume capacity (in GBs) must be at least the snapshot's minimum_capacity.
 
 This example request creates a new 100 GB volume based on a 5 IOPS/GB profile. It specifies a different root key than the original snapshot. The source snapshot is specified by ID.
 
