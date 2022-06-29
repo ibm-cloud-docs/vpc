@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-27"
+lastupdated: "2022-06-22"
 
 keywords:
 
@@ -83,7 +83,7 @@ The following limitations apply to this release.
 
 Follow these steps to adjust IOPS by selecting a new IOPS tier or custom IOPS band:
 
-1. Navigate to the list of file shares. In [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File shares**. By default, file shares isplay for all resource groups in your region.
+1. Navigate to the list of file shares. In [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File shares**. By default, file shares display for all resource groups in your region.
 
 2. In the **File shares for VPC** list page, click the name of a file share to see its details.
 
@@ -101,7 +101,6 @@ Follow these steps to adjust IOPS by selecting a new IOPS tier or custom IOPS ba
 
 Your new IOPS allocation will be realized when you restart the instance.
 
-
 ## Adjust IOPS using the CLI
 {: #adjust-vpc-iops-cli}
 {: cli}
@@ -112,31 +111,33 @@ Your new IOPS allocation will be realized when you restart the instance.
 From the CLI, use the `share-update` command with the `--iops` property to indicate the new IOPS size for a custom profile. The IOPS you indicate must be within the range for the size of the file share (see [Custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#custom)).
 
 ```
-ibmcloud is share-update SHARE_ID --iops IOPS
+ibmcloud is share-update SHARE_NAME --iops IOPS
 ```
 {: pre}
 
-This example shows an increase of IOPS from 100 IOPS to 3,000 IOPS for a 100 GB file share based on a 100 - 499 custom profile. (The IOPS range for this custom band is 100 - 6,000 IOPS.)
+This example shows an increase of IOPS from 100 IOPS to 1,200 IOPS for a 100 GB file share based on a 100 - 499 custom profile. (The IOPS range for this custom band is 100 - 6,000 IOPS.)
 
 ```bash
-$ ibmcloud is share-update 933c8781-f7f5-4a8f-8a2d-3bfc711788ee --iops 3000
-Updating share 933c8781-f7f5-4a8f-8a2d-3bfc711788ee under account MyAccount 01 as user user1@mycompany.com...
-ID                                      0738-933c8781-f7f5-4a8f-8a2d-3bfc711788ee
-Name                                    demo-share-update
-Capacity                                100
-IOPs                                    3000
-Profile                                 custom
-Encryption Key                          -
-Encryption                              provider managed
-Status                                  stable
-Created                                 2022-05-17 10:09:28
-Resource Group                          Default(c16d1edde3fd4a71a0130aed371405a0)
-Zone                                    us-south-2
-Resource Group                          Default(c16d1edde3fd4a71a0130aed371405a0)
-Volume Attachment Instance Reference    Vdisk Name    Vdisk ID                                    Vdisk Type   Auto Delete
-                                        Vdisk-data1   0738-fd146b1f-e1bb-4eab-ba78-3109e6bc3a2d   data         true   
-    									Instance Name   Instance ID 
-       									vsi-test1       0738-8b56da93-7990-4ccf-9dc5-5aee6a5f08f9
+ibmcloud is share-update my-file-share --profile custom-iops --iops 1200
+Updating file share my-file-share under account VPC1 as user user1@mycompany.com...
+                     
+ID                e1180bae-6799-4156-8bb7-e4d24013cda2
+Name              my-file-share
+CRN               crn:v1:staging:public:is:us-south-1:a/0ef3f509-04f4-465e-88c6-2d60b164d805::share:e1180bae-6799-4156-8bb7-e4d24013cda2
+Lifecycle state   updating
+Zone              us-south-1
+Profile           custom-iops
+Size(GB)          100
+IOPS              1200
+Encryption        provider_managed   
+Targets           ID                          Name   VPC ID   VPC Name
+                  No mounted targets found.
+
+Resource group    ID                                     Name
+                  7f1645c5-8afa-4a7e-860d-3df563e0aa8d   Default
+                     
+Created           2022-06-26T20:01:18+05:30
+Last sync at      2022-06-26T05:53:28+05:53
 ```
 {: screen}
 
@@ -148,10 +149,35 @@ From the CLI, use the `share-update` command with the `--profile` property and i
 This example changes a 3 IOPS/GB profile to 5 IOPS/GB profile. In this case, the file share can't exceed 9,600 GB to move to the higher profile.
 
 ```
-ibmcloud is share-update {share-id} --profile 5iops-tier
+ibmcloud is share-update SHARE_NAME --profile 5iops-tier
 ```
 {: pre}
 
+```bash
+ibmcloud is share-update my-file-share --profile tier-5iops 
+Updating file share my-file-share under account VPC1 as user user@mycompany.com...
+                     
+ID                ba7c7c8a-c111-4f54-a7fe-bb6d3d66eb2a
+Name              my-file-share
+CRN               crn:v1:staging:public:is:us-south-1:a/0ef3f509-04f4-465e-88c6-2d60b164d805::share:ba7c7c8a-c111-4f54-a7fe-bb6d3d66eb2a
+Lifecycle state   updating
+Zone              us-south-1
+Profile           tier-5iops
+Size(GB)          100
+IOPS              3000
+Encryption        provider_managed   
+Targets           ID                          Name   VPC ID   VPC Name 
+                  No mounted targets found.
+
+Resource group    ID                                     Name
+                  7f1645c5-8afa-4a7e-860d-3df563e0aa8d   Default
+                     
+Created           2022-06-26T20:01:18+05:30   
+Last sync at      2022-06-26T05:53:28+05:53   
+Latest job        Job status   Job status reasons
+                  succeeded    -
+```
+{: codeblock}
 
 ## Adjust IOPS with the API
 {: #adjust-vpc-iops-api}

@@ -18,7 +18,7 @@ subcollection: vpc
 You can delete an endpoint gateway by using the UI, the CLI, or the API.  
 {: shortdesc}
 
-## Deleting an endpoint gateway using the UI
+## Deleting an endpoint gateway by using the UI
 {: #vpe-deleting-ui}
 {: ui}
 
@@ -33,9 +33,11 @@ To delete an endpoint gateway, follow these steps:
 If you previously selected the auto-delete option for attached IP addresses, any attached reserved IPs are also deleted.
 {: note}
 
-## Deleting an endpoint gateway using the CLI
+## Deleting an endpoint gateway by using the CLI
 {: #vpe-deleting-cli}
 {: cli}
+
+Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
 To delete an endpoint gateway by using the CLI, run the following command:
 
@@ -49,7 +51,7 @@ Where:
 * **ENDPOINT_GATEWAY** is the ID of the endpoint gateway.
 * **-f, --force** forces the operation without confirmation.
 
-## Deleting an endpoint gateway using the API
+## Deleting an endpoint gateway by using the API
 {: #vpe-deleting-api}
 {: api}
 

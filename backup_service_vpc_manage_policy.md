@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-20"
+lastupdated: "2022-06-15"
 
 keywords:
 
@@ -119,7 +119,7 @@ Delete a backup policy, rename a policy, edit user tags from the CLI.
 Run the `backup-policy-delete` command and specify the policy ID or policy name for one or more backup policies. Backup plans associated with the policy are also deleted. For information about backup policy deletion, see [Backup policy deletion overview](#backup-delete).
 
 ```text
-ibmcloud is backup-policy-delete (POLICY_ID1 POLICY_ID2 ...)|(POLICY_NAME1 POLICY_NAME2 ...) [--output JSON] [-f, --force] [-q, --quiet]
+ibmcloud is backup-policy-delete (POLICY1 POLICY2 ...) [--output JSON] [-f, --force] [-q, --quiet]
 ```
 {: pre}
 
@@ -140,7 +140,7 @@ Deletion request for backup policy 7759199b-bc1f-448e-84fa-2aa42bde29af has been
 Run the `ibmcloud is backup-policy-update` command and specify the policy ID or policy name, and a new name for the backup policy. 
 
 ```text
-ibmcloud is backup-policy-update POLICY_ID|POLICY_NAME [--name NEW_NAME] [--output JSON] [-q, --quiet]
+ibmcloud is backup-policy-update POLICY [--match-tags MATCH_TAGS] [--name NEW_NAME] [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
@@ -160,7 +160,26 @@ Plans                  ID                                     Name         Resou
 Backup tags            env:dev   
 Backup resource type   volume   
 Resource group         Default   
-Created                2022-04-22T17:56:53+05:30 
+Created                2022-06-22T17:56:53+05:30 
+```
+This example updates a backup policy user tags identified by ID:
+
+```text
+ibmcloud is backup-policy-updatee7d5f916-6eff-490a-88d3-e20c029efab7 --match-tags dev:env
+Updating backup policy e7d5f916-6eff-490a-88d3-e20c029efab7 under account VPC1 as user myuser@mycompany.com...
+                          
+ID                     e7d5f916-6eff-490a-88d3-e20c029efab7   
+Name                   demo-bkp-policy-new   
+CRN                    crn:v1:bluemix:public:is:us-south:a/1431ea2a7958ad20f0fee592ff85f746::backup-policy:r134-e7d5f916-6eff-490a-88e6-e20c029efab9   
+Status                 stable   
+Plans                  ID                                          Name              Resource type      
+                       r134-71ec208e-902b-4153-96e6-f81c2928d2f5   demo-bkp-plan-2   backup_policy_plan      
+                       r134-c525d9dc-6d80-49ed-b8d8-3ca3470fbdfd   new-plan1         backup_policy_plan      
+                          
+Backup tags            dev:env   
+Backup resource type   volume   
+Resource group         Default   
+Created                2022-06-08T19:22:15+05:30   
 ```
 {: screen}
 
@@ -172,7 +191,7 @@ Run the `ibmcloud is backup-policy-plan-update` command to update a backup plan.
 Syntax:
 
 ```zsh
-ibmcloud is backup-policy-plan-update POLICY PLAN --cron-spec CRON_SPEC [--name NAME] [--active] [--attach-tags ATTACH_TAGS] [--copy-tags true | false] [[--delete-after DELETE_AFTER] [--delete-over-count DELETE_OVER_COUNT]] [--output JSON] [-q, --quiet]
+ibmcloud is backup-policy-plan-update POLICY PLAN [--name NAME] [--active] [--attach-tags ATTACH_TAGS] [--copy-tags true | false] [--cron-spec CRON_SPEC] [[--delete-after DELETE_AFTER] [--delete-over-count DELETE_OVER_COUNT]] [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
@@ -232,7 +251,7 @@ Example request:
 
 ```curl
 curl -X DELETE\
-"$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d?version=2022-04-28&generation=2"\
+"$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d?version=2022-06-28&generation=2"\
   -H "Authorization: $iam_token"
 ```
 {: codeblock}
@@ -248,7 +267,7 @@ Example request:
 
 ```curl
 curl -X DELETE\
-"$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d/plans/4cf9171a-0043-4434-8727-15b53dbc374c?version=2022-04-28&generation=2"\
+"$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d/plans/4cf9171a-0043-4434-8727-15b53dbc374c?version=2022-06-28&generation=2"\
    -H "Authorization: $iam_token"
 ```
 {: codeblock}
@@ -262,7 +281,7 @@ The response shows the backup plan was deleted.
     "my-daily-backup-plan"
   ],
   "copy_user_tags": true,
-  "created_at": "2022-04-22T01:44:49.070Z",
+  "created_at": "2022-06-22T01:44:49.070Z",
   "cron_spec": "*/5 1,2,3 * * *",
   "deletion_trigger": {
     "delete_after": 20
@@ -284,7 +303,7 @@ For example:
 
 ```curl
 curl -X PATCH\
-"$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d?version=2022-04-28&generation=2"\
+"$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d?version=2022-06-28&generation=2"\
   -H "Authorization: $iam_token"\
   -d '{
         "name": "my-backup-policy1"
@@ -305,7 +324,7 @@ Make a `PATCH /backup_policies/{backup_policy_id}/plans/{plan_id}` request to up
 
 ```curl
 curl -X PATCH\
-"$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d/plans/78bb42ae-b82e-4560-861b-5bc4bca3fba6?version=2022-04-28&generation=2"\
+"$vpc_api_endpoint/v1/backup_policies/5063bfe5-c16f-4606-ba26-fba0f099b97d/plans/78bb42ae-b82e-4560-861b-5bc4bca3fba6?version=2022-06-28&generation=2"\
   -H "Authorization: $iam_token"\
   -d '{
       "active": true,

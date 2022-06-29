@@ -18,7 +18,7 @@ subcollection: vpc
 You can list all virtual private endpoint gateways in the region by using the UI, CLI, or API.
 {: shortdesc}
 
-## Listing endpoint gateways using the UI
+## Listing endpoint gateways by using the UI
 {: #vpe-listing-endpoint-gateways-ui}
 {: ui}
 
@@ -30,9 +30,11 @@ The Virtual private endpoint gateways for VPC page appears. Use this table to vi
 
 ![Virtual private endpoint gateways for VPC page](./images/vpe-dashboard.png "Virtual private endpoint gateways for VPC page"){: caption="Figure 1. Virtual private endpoint gateways for VPC page" caption-side="bottom}
 
-## Listing endpoint gateways using the CLI
+## Listing endpoint gateways by using the CLI
 {: #vpe-listing-endpoint-gateways-cli}
 {: cli}
+
+Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
 To list all endpoint gateways in the region by using the CLI, run the following command:
 
@@ -48,7 +50,7 @@ Where:
 * **--resource-group-name** is the name of the resource group. This option is mutually exclusive with **--resource-group-id**.
 * **--json** formats output in JSON.
 
-## Listing endpoint gateways using the API
+## Listing endpoint gateways by using the API
 {: #vpe-listing-endpoint-gateways-api}
 {: api}
 

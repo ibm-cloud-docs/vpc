@@ -162,7 +162,7 @@ Create a backup policy by using the command line interface (CLI).
 The general syntax for creating a backup policy and optional backup plan is like this: 
 
 ```zsh
-ibmcloud is backup-policy-create [--match-tags MATCH_TAGS] [--name NAME] [[--plans PLANS_JSON | @PLANS_JSON_FILE] | --plan-cron-spec PLAN_CRON_SPEC [--plan-name PLAN_NAME] --plan-active [--plan-attach-tags PLAN_ATTACH_TAGS] [--plan-copy-tags true | false] [[--plan-delete-after PLAN_DELETE_AFTER] [--plan-delete-over-count PLAN_DELETE_OVER_COUNT]]] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
+ibmcloud is backup-policy-create --match-tags MATCH_TAGS [--name NAME] [[--plans PLANS_JSON | @PLANS_JSON_FILE] | --plan-cron-spec PLAN_CRON_SPEC [--plan-name PLAN_NAME] --plan-active [--plan-attach-tags PLAN_ATTACH_TAGS] [--plan-copy-tags true | false] [[--plan-delete-after PLAN_DELETE_AFTER] [--plan-delete-over-count PLAN_DELETE_OVER_COUNT]]] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
@@ -170,9 +170,11 @@ ibmcloud is backup-policy-create [--match-tags MATCH_TAGS] [--name NAME] [[--pla
 
 * `--cron-spec` indicates the `cron-spec` expression defining the backup schedule.
 
-* `--name` specifies the plan name.
+* `--name` specifies the policy name.
 
 * `--attach-tags` attaches user tags in the backup policy to each backup created by the plan. Updating this value doesn't change the user tags for backups already created by this plan.
+
+* `--match-tags` attaches user tags in the backup policy to match tags to source volume tags.
 
 * `--copy-tags` specifies whether source volume tags will be copied to the backup snapshot (`true` or `false`).
 
@@ -213,23 +215,23 @@ Run the `backup-policy-create` command to create a backup policy and a backup pl
 
 This example uses the `--match_tags` parameter to match tags to volumes with the user tag `dev:test` and specifies a plan as a `cron-spec` expression.
 
-The `--plan-attach-user-tags` parameter indicates that the same user tags will be attached to the backup snapshot. Setting the `--plan-copy-user-tags` parameter to false indicates that the source volume's user tags are not copied to the backup. The deletion trigger indicates the number of days the backup will be kept.
+The `--plan-attach-user-tags` parameter indicates that the same user tags will be attached to the backup snapshot. Setting the `--plan-copy-user-tags` parameter to false indicates that the source volume's user tags are not copied to the backup. The `--plan-delete-after` parameter indicates the maximum number of days the backup will be kept and the `--plan-delete-over-count` paramter indicates the maximum number of recent backups to keep.
 
 ```text
-ibmcloud is backup-policy-create --match-tags dev:test --name my-backup-policy-2 --plan-name my-plan-2 --plan-attach-user-tags dev:test --plan-copy-user-tags false --plan-deletion-trigger 60 --plan-cron-spec '0 1,2,3 * * *'
-Creating backup policy my-policy-2 under account VPC1 as user myuserf@mycompany.com...
+ibmcloud is backup-policy-create --match-tags dev:test --name my-backup-policy-2 --plan-name my-plan-2 --plan-attach-tags dev:test --plan-copy-tags false --plan-delete-after 60 --plan-cron-spec '45 09 * * *' --plan-active  --plan-delete-over-count 2
+Creating backup policy my-backup-policy-2 under account VPC1 as user myuserf@mycompany.com...
                           
-ID                     17d8e1b7-3365-4a24-a023-26a0c26b9e73
-Name                   my-backup-policy-2
-CRN                    crn:v1:staging:public:is:us-south:a/dff5afc483594adaa8325e2b4d1290de::backup-policy:17d8e1b7-3365-4a24-a023-26a0c26b9e73
-Status                 pending
-Plans                  ID                                          Name              Resource type
-                       bc743eb1-8fe7-4b0d-a5f3-4a4cf2fe8648        my-plan-2         backup_policy_plan
+ID                     r134-16a6e20b-a99b-4275-9662-832bc6af14f6   
+Name                   my-backup-policy-2   
+CRN                    crn:v1:bluemix:public:is:us-south:a/1431ea2a7958ad20f0fee592ff85f746::backup-policy:r134-16a6e20b-a99b-4275-9662-832bc6af14f6   
+Status                 pending   
+Plans                  ID                                          Name              Resource type      
+                       r134-bf262998-1ed8-4658-b235-7d0e62c0098d   my-plan-2        backup_policy_plan      
                           
-Backup user tags       dev:test
-Backup resource type   volume
-Resource group         Default
-Created                2022-05-03T09:00:32+05:30 
+Backup tags            dev:test   
+Backup resource type   volume   
+Resource group         Default   
+Created                2022-06-14T21:48:47+05:30
 ```
 {: screen}
 
@@ -242,22 +244,22 @@ Run the `backup-policy-plan-create` command to create a backup plan and attach i
 Syntax:
 
 ```zsh
-ibmcloud is backup-policy-plan-create POLICY --cron-spec CRON_SPEC [--name NAME] [--active] [--attach-tags ATTACH_TAGS] [--copy-tags true | false] [[--delete-after DELETE_AFTER] [--delete-over-count DELETE_OVER_COUNT]] [[]] [--output JSON] [-q, --quiet]
+ibmcloud is backup-policy-plan-create POLICY --cron-spec CRON_SPEC [--name NAME] [--active] [--attach-tags ATTACH_TAGS] [--copy-tags true | false] [[--delete-after DELETE_AFTER] [--delete-over-count DELETE_OVER_COUNT]] [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
 This example creates a backup plan for an existing policy, identified by name. It attaches backup policy tags to backup snapshots created by the policy, and copies source volume tags to the backup snapshot.
 
 ```text
-ibmcloud is backup-policy-plan-create demo-bkp-cli-2 --attach-tags dev:test --copy-tags true --cron-spec '05 01 * * *' --delete-after 80 --name my-policy-plan-2               
-Creating plan my-policy-plan-2 of backup policy demo-bkp-cli-2 under account VPCUI-DEV as user Pooja.Mittal3@ibm.com...
+ibmcloud is backup-policy-plan-create my-backup-policy-2  --attach-tags dev:test --copy-tags true --cron-spec '05 01 * * *' --delete-after 80 --name my-policy-plan-2               
+Creating plan my-policy-plan-2 of backup policy my-backup-policy-2 under account VPC1 as user myuserf@mycompany.com...
                         
 ID                   r134-2a2e4537-db65-4b11-873e-f652d1391973   
 Name                 my-policy-plan-2   
 Active               true   
 Lifecycle state      pending   
 Deletion trigger     Delete after   Delete over count      
-                     80             0      
+                     80             -      
                         
 Attached tags        dev:test   
 Copy tags            true   

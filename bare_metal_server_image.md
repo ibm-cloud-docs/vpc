@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-03-30"
+lastupdated: "2022-06-24"
 
 subcollection: vpc
 
@@ -24,16 +24,17 @@ The following operating systems are available as images when you create a bare m
 | Image | Architecture |
 |---|---|
 | [RHEL 8.4](#bare-metal-images-rhel-considerations) | x86-64 |
+| [Ubuntu 20.04, 18.04](#bare-metal-images-ubuntu-considerations) | x86-64 |
 | [VMware ESXi](#bare-metal-images-vmware-esxi-considerations) | x86-64 |
 {: caption="Table 1. Bare metal server images" caption-side="bottom"}
 
-Support for Windows, Linux, and custom images is planned. 
+Support for Windows and Linux is planned. 
 {: note}
 
 ### Special considerations for RHEL 8.4
 {: #bare-metal-images-rhel-considerations}
 
-* By default, the release lock feature for RHEL 8.4 is disabled. To prevent the RHEL from going beyond version 8.4 when you run an update, run the following commands from the command line:
+By default, the release lock feature for RHEL 8.4 is disabled. To prevent the RHEL from going beyond version 8.4 when you run an update, run the following commands from the command line:
 
    ```text
    # subscription-manager release --set=8.4
@@ -44,8 +45,6 @@ Support for Windows, Linux, and custom images is planned.
    # yum clean all
    ```
    {: codeblock}
-
-* When you deploy a server with RHEL, it's possible that the deployment might not exit the pending state. If the server is in the pending state for longer than 15 minutes, delete the server and redeploy the server.
 
 ### Special considerations for VMware ESXi images 
 {: #bare-metal-images-vmware-esxi-considerations}
@@ -62,6 +61,19 @@ ESXi on Bare Metal Servers for VPC is charged monthly and is calculated per CPU 
 For more information about how to license ESXi, see [Licensing ESXi hosts](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-28D25806-748B-49C0-97A1-E7DE5CB335A9.html){: external}.
 
 You can view and manage your VMWare licenses [here](https://cloud.ibm.com/classic/devices/vmwarelicenses){: external}.
+
+### Special considerations for Ubuntu images 
+{: #bare-metal-images-ubuntu-considerations}
+
+Ubuntu images don't include the VMD device driver in the standard kernel package that is needed to view attached NVMe drives on the system. To obtain this driver, install the `linux-modules-extra-ibm` package and then run `modprobe vmd`.
+
+```java
+# export DEBIAN_FRONTEND=noninteractive
+# apt update
+# apt install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" linux-modules-extra-ibm linux-modules-extra-$(uname -r)
+# modprobe vmd 
+```
+{: codeblock}
 
 ## Next steps
 {: #bare-metal-images-next-steps}

@@ -48,9 +48,11 @@ Descriptions of these columns are as follows:
 
 1 - A system routing table is maintained for each VPC. A VPC can have a presence in multiple zones, and the VPC's system routing table is different in each zone. It is used for routing traffic when no matching route is found in the custom routing table that is associated with the subnet of which the traffic is egressing.
 
-## Listing routes of a routing table using the CLI
+## Listing routes of a routing table by using the CLI
 {: #cr-view-details-route-using-the-cli}
 {: cli}
+
+Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
 To view details of a route by using the CLI, run the following command:
 

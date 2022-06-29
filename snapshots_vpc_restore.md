@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-05-24"
+lastupdated: "2022-06-28"
 
 keywords:
 
@@ -26,29 +26,72 @@ subcollection: vpc
 # Restoring a volume from a snapshot
 {: #snapshots-vpc-restore}
 
-Restoring from a snapshot create a new, fully-provisioned boot or data volume. When you restore a snapshot of a boot volume, you create a new boot volume that you can use when you provision a new instance. Similarly, restoring from a snapshot of a data volume creates a secondary volume that's attached to the instance. You can restore a volume from a snapshot created manually or by a backup policy.
+Restoring from a snapshot create a new, fully-provisioned boot or data volume. You can restore boot and data volumes during instance creation or by modifying an existing instance. For data volumes, you can also use the `volumes` API to restore a volume that's not attached to an instance.
 {: shortdesc}
+
+When you restore a boot volume from the instance, you can use it when you provision the new instance. When you a data volume on the instance, it's automatically attached. You can create an unattached data volume from a snapshot and attach it later. 
+
+Volumes can be restored from snapshots created manually or by a backup policy.
 
 ## About restoring a volume from a snapshot
 {: #snapshots-vpc-restore-concepts}
 
-Restoring a volume from a snapshot creates a new volume. The new volume inherits properties from the original volume, but you can specify a larger volume size, different IOPS, and customer-managed encryption, if the source snapshot used provider-managed encryption. 
+Restoring a volume from a snapshot creates a new volume. The new volume inherits properties from the original volume, but you can specify a larger volume size, different IOPS, and customer-managed encryption.
 
-When you restore from a "bootable" snapshot, you create a boot volume that you can use when [provisioning a new instance](#snapshots-vpc-restore-vol-ui). The boot volume uses a general purpose profile and is limited to 250 GB. Note that when you provision an instance using a bootable snapshot, performance might be slower as the boot volume is hydrated (that is, fully provisioned). 
+Restore a volume from a snapshot in the following ways:
 
-When you restore from a data volume snapshot, you can attach it to an instance when provisioning a new instance or to an existing instance. During the create and attach process, you select a snapshot of the volume to restore the volume. A new volume is then created and attached to the instance as secondary storage. The restored volume inherits the same [profile](/docs/vpc?topic=vpc-block-storage-profiles), capacity, data, and metadata as the original volume. You can choose a different profile and capacity if you prefer. If the source volume used [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption), the volume inherits that encryption.
+* When provisioning a new instance, specify a snapshot of a boot or data volume. Data volumes are automatically attached to the instance as secondary storage. Use the restored boot volume to start the new instance.
+* When modifying an existing instance, specify a snapshot of a boot or data volume. Data volumes are automatically attached to the instance as secondary storage.
+* From the `volumes` API, create a new stand-alone (unattached) data volume from the snapshot. You can later attach the data volume to an instance. Restoring boot volumes in this way is not supported.
 
-You can restore a volume from a snapshot from the [list of block storage snapshots](#snapshots-vpc-restore-snaphot-list-ui), from the [snapshot details page](#snapshots-vpc-restore-vol-details-ui), or when you [provision a new instance](#snapshots-vpc-restore-vol-ui). You can also restore a volume from a snapshot to create a volume for [an existing instance](#snapshots-vpc-create-from-vol-ui).  
+### Restoring a volume during instance provisioning or update
+{: #snapshots-vpc-restore-vsi-concepts}
 
-To restore a volume, it must be in a _stable_ state. When you restore, the service immediately creates the new volume. The volume appears first as _pending_ while it's being created. After the volume is hydrated, you can use the new boot volume to start a new instance or write data to the new attached data volume. For more information, see [Performance considerations](#snapshots-performance-considerations).
+Use the UI, CLI, or API to restore boot and data volumes during instance provisioning or when modifying an instance.
 
-You can't simultaneously restore a boot and data volume.
-{: note}
+Restoring from a "bootable" snapshot creates a boot volume that you can use when [provisioning a new instance](#snapshots-vpc-restore-vol-ui). The boot volume uses a general purpose profile and is limited to 250 GB. Note that when you provision an instance using a bootable snapshot, performance might be slower as the boot volume is hydrated (that is, fully provisioned).
+
+Restoring from a data volume snapshot creates secondary storage attached to the instance. You can restore the volume when provisioning a new instance or by modifying an existing instance. During the create and attach process, you select a snapshot of the volume to restore the volume. A new volume is then created and attached to the instance. 
+
+You can restore a volume from a snapshot from the [list of block storage snapshots](#snapshots-vpc-restore-snaphot-list-ui), from the [snapshot details page](#snapshots-vpc-restore-vol-details-ui), or when you [provision a new instance](#snapshots-vpc-restore-vol-ui). You can also restore a volume from a snapshot to create a volume for [an existing instance](#snapshots-vpc-create-from-vol-ui).
+
+### Restoring a data volume from a snapshot of an unattached volume
+{: #snapshots-vpc-restore-unattached-vol}
+
+With the API, you can create an new data volume from a snapshot of an unattached data volume by making a `POST /volumes` call and specifying the snapshot ID. The stand-alone volume created from the snapshot is fully hydrated (data is restored) when you later attach it to an instance. Volume performance is initially degraded until the volume data is fully restored. For an example API call, see [Restoring a data volume from a snapshot of an unattached volume](#snapshots-vpc-restore-unattached-api). Also see the [limitations](#snapshots-vpc-restore-unattach-limits) when restoring a volume from a snapshot of an unattached volume.
+
+### Additional considerations
+{: #snapshots-vpc-restore-vsi-concepts}
+
+The restored volume inherits the same [profile](/docs/vpc?topic=vpc-block-storage-profiles), capacity, data, and metadata as the original volume. You can choose a different profile and capacity if you prefer. If the source volume used [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption), the volume inherits that encryption.
+
+To restore a volume, it must be in a _stable_ state. When you restore from a snapshot attached to an instance, the service immediately creates the new volume. The volume appears first as _pending_ while it's being created. After the volume is hydrated, you can use the new boot volume to start a new instance or write data to the new attached data volume. [Performance](#snapshots-performance-considerations) is initially degraded by this operation.
 
 You can also restore a volume from a snapshot created by a backup policy. This type of snapshot is called a backup. When you restore a volume from a backup, tags are inherited from the source volume. When any of these tags match a tag in the backup policy, a backup is created. For more information, see [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 
 Backup for VPC is available only to accounts with special approval to preview the feature.
 {: note}
+
+## Limitations when restoring a volume from a snapshot
+{: #snapshots-vpc-restore-limitations}
+
+The following limitations apply when restoring a volume from a snapshot.
+
+### General limitations
+{: #snapshots-vpc-restore-general-limitations}
+
+* Simultaneously restoring a boot and data volume during instance provisioning or when modifying an instance is not allowed.
+* UI, CLI, and API can be used to restore a volume from a snapshot during instance provisioning or when modifying an instance. However, you must use the API to restore an unattached data volume.
+* Restoring a boot volume from a snapshot using the `volumes` API is not supported.
+
+### Limitations when restoring an unattached data volume
+{: #snapshots-vpc-restore-unattach-limits}
+
+* The new volume is created but is hydrated (data is restored) only after the volume is attached to an instance.
+* You can delete the new volume at any time, including the time before it is fully hydrated. However, you can't delete the snapshot from which the volume is restored unless the hydration is completed or the volume is deleted, whichever happens first.
+* The parent snapshot is used to restore the volume.
+* After attaching the restored volume to an instance, the volume will have [degraded performance](#snapshots-performance-considerations) until the volume is fully hydrated.
+* If snapshot is encrypted and you don't specify a root key CRN in the `POST /volumes` request, the new volume is encrypted with the snapshot's encryption key.
 
 ## Restore a volume from a snapshot with the UI
 {: #snapshots-vpc-restore-ui}
@@ -155,7 +198,6 @@ You can also create a data volume from a snapshot for an existing instance. Choo
 
 The new volume appears in the list of Storage volumes. Hover over the camera icon to see the name of the snapshot from which it was created. 
 
-
 ## Restore a volume from a snapshot with the CLI
 {: #snapshots-vpc-restore-CLI}
 {: cli}
@@ -223,7 +265,7 @@ Zone             us-south-1
 Resource group   ID                                         Name
                  cdc21b72d4f557b195de988b175e3d81           Default
 
-Created          2022-05-03T17:03:30+08:00
+Created          2022-06-14T17:03:30+08:00
 Boot volume      ID                                   Name                  Attachment ID                            Attachment name
                  0651dacb-4589-4147-86b3-a77544598f93 boot-from-snapshot1                  7101-abf9dd2b-9d5d-41f1-849d-55a8ab580ddb                            boot-from-snapshot1
 
@@ -238,7 +280,7 @@ When you create a new instance using the `instance-create` command, specify the 
 For example:
 
 ```zsh
-bmcloud is instance-create my-instance-restore1 ea002578-ff10-41fe-9652-e63f7e0e3cba us-south-1 bx2-2x8 ba11a6f2-6c17-4fee-a4b5-5c016fe64376 --volume-attach
+ibmcloud is instance-create my-instance-restore1 ea002578-ff10-41fe-9652-e63f7e0e3cba us-south-1 bx2-2x8 ba11a6f2-6c17-4fee-a4b5-5c016fe64376 --volume-attach
 '{
    "name":"datavol-from-snapshot",
    "volume":{
@@ -273,13 +315,16 @@ ibmcloud is instance-volume-attachment-add data-vol-name 72251a2e-d6c5-42b4-97b0
 {: #snapshots-vpc-restore-API}
 {: api}
 
-To restore a boot volume from a bootable snapshot, specify the boot volume attachment and snapshot ID in the `POST /instances` request.
+Use the VPC API to restore a volume from a snapshot.
 
-For example:
+### Restore a boot volume when creating a new instance with the API
+{: #snapshots-vpc-restore-boot-api}
+
+To restore a boot volume from a bootable snapshot, make a `POST /instances` request and specify the boot volume attachment and snapshot ID. For example:
 
 ```curl
 curl -X POST \
-"$vpc_api_endpoint/v1/instances?version=2022-05-03&generation=2" \
+"$vpc_api_endpoint/v1/instances?version=2022-06-14&generation=2" \
 -H "Authorization: $iam_token" \
 -H "Content-Type: application/json" \
 -d '{
@@ -318,12 +363,14 @@ curl -X POST \
 ```
 {: codeblock}
 
+### Restoring a data volume when creating a new instance with the API
+{: #snapshots-vpc-restore-data-api}
 
-To restore a data volume from a snapshot and attach it at boot time, specify the data volume attachment and snapshot ID in the `POST /instances` request.
+To restore a data volume from a snapshot and attach it at boot time, make a `POST /instances` request and specify the data volume attachment and snapshot ID.
 
 ```curl
 curl -X POST \
-"$vpc_api_endpoint/v1/instances?version=2022-05-03&generation=2" \
+"$vpc_api_endpoint/v1/instances?version=2022-06-14&generation=2" \
 -H "Authorization: $iam_token" \
 -H "Content-Type: application/json" \
 -d '{
@@ -362,6 +409,37 @@ curl -X POST \
 }'
 ```
 {: codeblock}
+
+### Restoring a data volume from a snapshot of an unattached volume with the API
+{: #snapshots-vpc-restore-unattached-api}
+
+To restore a data volume from a snapshot of an unattached data volume, make a `POST /volumes` request and specify the ID, CRN, or URL of the snapshot in the `source_snapshot` property. The restored volume capacity (in GBs) must be at least the snapshot's minimum_capacity.
+
+This example request creates a new 100 GB volume based on a 5 IOPS/GB profile. It specifies a different root key than the original snapshot. The source snapshot is specified by ID.
+
+```curl
+curl -X POST \
+"$vpc_api_endpoint/v1/volumes/?version=2022-06-14&generation=2" \
+-H "Authorization: $iam_token" \
+-H "Content-Type: application/json" \
+-d '{
+     "name": "volume-from-snapshot-1",
+     "capacity": 100,
+     "profile": {
+        "name": "5iops-tier"
+     },
+     "zone": {
+        "name": "us-south-1"
+     },
+     "encryption_key":{
+       "crn":"crn:[...]"
+     },
+     "source_snapshot:" {
+        id": "bdcdc984-ba4e-4aef-84fb-e8448c3116b1"
+     }
+   }`
+```
+{: pre}
 
 ## Performance considerations
 {: #snapshots-performance-considerations}

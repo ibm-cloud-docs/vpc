@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-20"
+lastupdated: "2022-06-15"
 
 keywords:
 
@@ -123,7 +123,7 @@ When you click on a volume name to see the details, you need administrator privi
 Run the `backup-policies` command to list all backup policies you created in your account and region. 
 
 ```text
-ibmcloud is backup-policies [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME | --all-resource-groups] [--output JSON] [-q, --quiet]
+ibmcloud is backup-policies [--tag TAG_NAME] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME | --all-resource-groups] [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
@@ -139,13 +139,31 @@ d8a0e8d9-c592-4175-80bc-3056f6fd1da5   demopolicy20                  pending   D
 ```
 {: screen}
 
+### List all backup policies filter by user tags from the CLI
+{: @backup-view-all-filter-by-tags-cli}
+
+Run the `backup-policies` command to list all backup policies you created in your account and region. The `--tag` parameter filters the collection of backup policies with the exact user tag value.
+
+{: pre}
+
+For example:
+
+```text
+$ ibmcloud is backup-policies --tag dev:test
+Listing backup policies in all resource groups and region us-south under account vpcdemo as user myuser.mycompany.com...
+ID                                          Name                 Status   Resource group 
+16a6e20b-a99b-4275-9662-832bc6af23f6        demo-bkp-policy-x    stable   Default 
+ab94137e-7794-454e-9b4b-6274082172d9        demo-bkp-policy-x2   stable   Default
+```
+{: screen}
+
 ### View backup policy details from the CLI
 {: #backup-view-details-cli}
 
 Run the `backup-policy` command and specify either the backup policy ID or policy name. This example uses the policy ID. 
 
 ```text
-ibmcloud is backup-policy POLICY_ID|POLICY_NAME [--output JSON] [-q, --quiet]
+ibmcloud is backup-policy POLICY [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
@@ -165,7 +183,7 @@ Plans                  ID                                     Name              
 Backup tags            env:dev   
 Backup resource type   volume   
 Resource group         Default   
-Created                2022-04-28T17:56:53+05:30 
+Created                2022-06-28T17:56:53+05:30 
 ```
 {: screen}
 
@@ -175,46 +193,48 @@ Created                2022-04-28T17:56:53+05:30
 Run the `ibmcloud is backup-policy-plans` and specify the either the policy ID or policy name to see all plans created for this policy. This example specifies the policy ID.  The backup plan uses a CRON expression to schedule backups.
 
 ```text
-ibmcloud is backup-policy-plans POLICY_ID|POLICY_NAME [--output JSON] [-q, --quiet]
+ibmcloud is backup-policy-plans POLICY [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
 For example, 
 
-```text
-ibmcloud is backup-policy-plans ac2a8be2-aa99-4571-baed-c3ec63a64ce7                 
+```text                 
+ibmcloud is backup-policy-plans ac2a8be2-aa99-4571-baed-c3ec63a64ce7
 Listing plans of backup policy ac2a8be2-aa99-4571-baed-c3ec63a64ce7 under account VPC1 as user myuser@mycompany.com...
-ID                                     Name         Active   Lifecycle State   Cron specification   Delete after days   
-361ed7f8-ee19-4c74-86c1-e3aafcac8a0d   bkp-plan-1   true     stable            0 1,2,3 * * *        30     
-ea79b2ce-5b7a-463e-8356-fb2558531945   bkp-plan-2   true     stable            0 1,2,3 * * *        20   
+ID                                          Name               Active   Lifecycle state   Cron specification   
+2dc6ecf9-8f09-4c34-86c6-c10ea6526563        my-policy-plan-1   true     stable            42 10 * * *   
 ```
 {: screen}
 
 ### View backup plan details from the CLI
 {: backup-view-plan-details-cli}
 
-Run the `ibmcloud is backup-policy-plans` command and specify the policy ID or policy name, and plan ID or plan name. This example specifies the policy ID and plan ID.
+Run the `ibmcloud is backup-policy-plan` command and specify the policy ID or policy name, and plan ID or plan name. This example specifies the policy ID and plan ID.
 
 ```text
-ibmcloud is backup-policy-plan POLICY_ID|POLICY_NAME PLAN_ID|PLAN_NAME [--output JSON] [-q, --quiet]
+ibmcloud is backup-policy-plan POLICY PLAN [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
 For example:
 
 ```text
-ibmcloud is backup-policy-plan ac2a8be2-aa99-4571-baed-c3ec63a64ce7 361ed7f8-ee19-4c74-86c1-e3aafcac8a0d 
-Getting plan r134-361ed7f8-ee19-4c74-86c1-e3aafcac8a0d under account VPC1 as user myuser@mycompany.com...
+ibmcloud is backup-policy-plan 16a6e20b-a99b-4275-9662-832bc6af14f6 bf262998-1ed8-4658-b235-7d0e62c0098d
+Getting plan bf262998-1ed8-4658-b235-7d0e62c0098d under account VPC1 as user myuser@mycompany.com...
                         
-ID                   361ed7f8-ee19-4c74-86c1-e3aafcac8a0d   
-Name                 bkp-plan-1   
+ID                   bf262998-1ed8-4658-b235-7d0e62c0098d   
+Name                 demo-bkp-plan-2   
 Active               true   
-Lifecycle State      stable   
-Tag                  -   
-Copy tags            true   
-Cron specification   0 1,2,3 * * *   
-Delete after days    30   
-Created              2022-04-28T17:56:53+05:30 
+Lifecycle state      stable   
+Deletion trigger     Delete after   Delete over count      
+                     60             2      
+                        
+Attached tags        dev:test   
+Copy tags            false   
+Cron specification   45 09 * * *   
+Created              2022-06-14T21:48:48+05:30   
+Resource type        backup_policy_plan   
 ```
 {: screen}
 
@@ -229,7 +249,7 @@ Make a `GET /backup_policies/{backup_policy_id}` request to show details of a ba
 
 ```curl
 curl -X GET\
-"$vpc_api_endpoint/v1/backup_policies/fb721535-2cc6-45d6-ade7-3ceb95b7f26f?version=2022-05-03&generation=2"\
+"$vpc_api_endpoint/v1/backup_policies/fb721535-2cc6-45d6-ade7-3ceb95b7f26f?version=2022-06-03&generation=2"\
    -H "Authorization: $iam_token"
 ```
 {: codeblock}
@@ -238,7 +258,7 @@ A successful response looks like this:
 
 ```text
 {
-  "created_at": "2022-05-04T23:29:55.833Z",
+  "created_at": "2022-06-06T23:29:55.833Z",
   "crn": "crn:v1:bluemix:public:is:us-south:a/123456::backup-policy:fb721535-2cc6-45d6-ade7-3ceb95b7f26f",
   "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/fb721535-2cc6-45d6-ade7-3ceb95b7f26f",
   "id": "fb721535-2cc6-45d6-ade7-3ceb95b7f26f",
@@ -278,7 +298,7 @@ Make a `GET /backup_policies/{backup_policy_id}/plans` request to list plans ass
 
 ```curl
 curl -X GET\
-"$vpc_api_endpoint/v1/backup_policies/{backup_policy_id}/plans?version=2022-05-03&generation=2"\
+"$vpc_api_endpoint/v1/backup_policies/{backup_policy_id}/plans?version=2022-06-03&generation=2"\
    -H "Authorization: $iam_token"
 ```
 {: codeblock}
@@ -294,7 +314,7 @@ A successful response looks like this:
         "my-daily-backup-plan"
       ],
       "copy_user_tags": true,
-      "created_at": "2022-05-04T00:45:28.421Z",
+      "created_at": "2022-06-15T00:45:28.421Z",
       "cron_spec": "*/5 1,2,3 * * *",
       "deletion_trigger": {
         "delete_after": 20
@@ -313,7 +333,7 @@ A successful response looks like this:
 To retrieve information about a single plan, specify the plan ID in the request:
 
 ```curl
-curl -X GET "$vpc_api_endpoint/v1/backup_policies/{backup_policy_id}/plans/{plan_id}?version=2022-05-03&generation=2"
+curl -X GET "$vpc_api_endpoint/v1/backup_policies/{backup_policy_id}/plans/{plan_id}?version=2022-06-03&generation=2"
 ```
 {: codeblock}
 

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2022
-lastupdated: "2022-04-21"
+lastupdated: "2022-06-21"
 
 keywords: resource, storage, connection, COS, object, endpoints, cross-region, regional, data center
 
@@ -31,7 +31,7 @@ Use the following information to learn how to connect to {{site.data.keyword.clo
 
 {{site.data.keyword.cloud}} Object Storage is a web-scale platform that stores unstructured data. It provides reliability, security, availability, and disaster recovery without replication.
 
-Information that is stored with {{site.data.keyword.cloud_notm}} Object Storage is encrypted and dispersed across multiple geographic locations. It is accessible through an implementation of the S3 API. This service uses the distributed storage technologies that are provided by the IBM Cloud Object Storage System.
+Information that is stored with {{site.data.keyword.cloud_notm}} Object Storage is encrypted and dispersed across multiple geographic locations. It is accessible through an implementation of the S3 API. This service uses the distributed storage technologies that are provided by the {{site.data.keyword.cloud}} Object Storage System.
 
 Cloud Object Storage is available with three types of configurations for resiliency: **Cross Region**, **Regional**, and **Single data center**.
 * **Cross Region** service provides higher durability and availability than using a single region, at the cost of slightly higher latency. This service is available today in the US, E.U., and A.P. areas.
@@ -47,8 +47,8 @@ You don't incur charges for traffic from your VPCs to all Cloud Object Storage e
 {: note}
 
 * A VPC client also has access to the Cloud Object Storage bucket over the public endpoint.
-* A VPC client has access only to the [Cloud Object Storage configuration API](https://{DomainName}/apidocs/cos/cos-configuration) over the public endpoint, not the direct endpoint. You can use the Cloud Object Storage configuration API to configure some Cloud Object Storage features on buckets, and to view bucket metadata.
-* A VPC client doesn't have access to a Cloud Object Storage bucket when the firewall is enabled.
+* A VPC client has access to the [Cloud Object Storage configuration API](https://{DomainName}/apidocs/cos/cos-configuration) over the public endpoint and direct endpoint. You can use the Cloud Object Storage configuration API to configure some Cloud Object Storage features on buckets, and to view bucket metadata.
+* A VPC client can access to a Cloud Object Storage bucket when [context-based restrictions are in place](/docs/cloud-object-storage?topic=cloud-object-storage-setting-a-firewall) by setting the network zone to the VPC ID. VPC clients can't access buckets that are restricted to using a legacy bucket firewall.
 
 ## How to connect to IBM Cloud Object Storage from a VPC
 {: #how-to-connect-to-ibm-cloud-object-storage-cos-from-a-vpc}
@@ -133,7 +133,7 @@ If an outage occurs, requests are automatically rerouted to an active region. Ad
 
 Single data centers aren't colocated with {{site.data.keyword.cloud}} services, such as IAM or Key Protect, and they offer no resiliency if a site has an outage or is destroyed.
 
-If a networking failure results in a partition, such that the data center is unable to reach a core {{site.data.keyword.cloud}} region for access to IAM, authentication and authorization information is read from a cache that might become stale. This action can result in a lack of enforcement of new or altered IAM policies for up to 24 hours.
+If a networking failure results in a partition, such that the data center can't reach a core {{site.data.keyword.cloud}} region for access to IAM, authorization information is read from a cache that might become stale. This action can result in a lack of enforcement of new or altered IAM policies for up to 24 hours.
 {: important}
 
 | **Region** | **Endpoint** |

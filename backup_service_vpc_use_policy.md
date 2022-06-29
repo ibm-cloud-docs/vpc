@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-20"
+lastupdated: "2022-06-15"
 
 keywords:
 
@@ -79,7 +79,7 @@ Apply tags to new or existing block storage volumes in any of these ways:
 {: #backup-apply-tags-volumes-cli}
 {: cli}
 
-Run the `ibmcloud is volume-update` command with the ``--user-tags` parameter to add user tags to a volume.
+Run the `ibmcloud is volume-update` command with the ``--tags` parameter to add user tags to a volume.
 
 Use the same parameter to add tags to a volume when creating a new volume using `ibmcloud is volume-create`.
 {: tip}
@@ -87,7 +87,7 @@ Use the same parameter to add tags to a volume when creating a new volume using 
 The following example adds user tags `env:test` and `env:prod` to a volume identified by ID.
 
 ```text
-$ ibmcloud is volume-update 50fda9c3-eecd-4152-b473-a98018ccfb10 --user-tags env:test,env:prod
+$ ibmcloud is volume-update 50fda9c3-eecd-4152-b473-a98018ccfb10 --tags env:test,env:prod
 Updating volume 50fda9c3-eecd-4152-b473-a98018ccfb10 under account VPC1 as user user.mycompany.com...
 
 ID                                     50fda9c3-eecd-4152-b473-a98018ccfb10   

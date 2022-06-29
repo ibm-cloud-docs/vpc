@@ -18,7 +18,7 @@ subcollection: vpc
 You can create an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) to distribute inbound traffic across multiple instances. IBM supports virtual server instances, bare metal server instances, and other devices that are reachable to the application load balancer with a device IP address, such as Power Systems™ Virtual Server instances connected over Direct Link (2.0).
 {: shortdesc}
 
-## Creating an application load balancer using the UI
+## Creating an application load balancer by using the UI
 {: #lb-ui-creating-network-load-balancer}
 {: ui}
 
@@ -39,6 +39,10 @@ To create an ALB:
         * A public load balancer has a public IP address, which means that it can route requests from clients over the internet.
         * A private load balancer has a private IP address, which means that it is accessible only to internal clients on your private subnets, within the same region and VPC.
    * **Subnets**: Select the subnets in which to create your load balancer. To maximize the availability of your application, select subnets in different zones.
+
+        You cannot assign more than 15 subnets per ALB.
+        {: important}
+
 1. In the Back-end pools section, click **Create pool** and specify the following information to create a back-end pool. You can create one or more pools.
    * **Name**: Enter a name for the pool, such as `my-pool`.
    * **Protocol**: Select the protocol for your instances in this pool. The protocol of the pool must match the protocol of its associated listener. For example, if an HTTPS or HTTP protocol is selected for the listener, the protocol of the pool must be HTTP. Similarly, if the listener protocol is TCP, the protocol of the pool must be TCP.
@@ -141,7 +145,7 @@ To create an ALB:
         * **Value**: The value to be matched.
         * **Key**: The name of the HTTP header field to evaluate, if the rule type is **Header**. For example, to match a cookie in the HTTP header, enter **Cookie** for the key.
   
-## Creating an application load balancer using the CLI
+## Creating an application load balancer by using the CLI
 {: #lb-cli-creating-network-load-balancer}
 {: cli}
 
@@ -303,7 +307,7 @@ To create an application load balancer by using the CLI, follow these steps:
     ```
     {: screen}
 
-## Creating an application load balancer using the API
+## Creating an application load balancer by using the API
 {: #lb-api-creating-network-load-balancer}
 {: api}
 
@@ -333,9 +337,6 @@ To create an application load balancer by using the API, follow these steps:
       -d '{
           "name": "example-balancer",
           "is_public": true,
-          "profile": {
-              "name": "network-fixed"
-          },
           "listeners": [
               {
                   "certificate_instance": {

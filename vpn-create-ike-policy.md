@@ -41,6 +41,8 @@ To create an IKE policy using the UI, follow these steps:
 {: #vpn-using-cli-create-ike-policy}
 {: cli}
 
+Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+
 To create an IKE policy using the CLI, enter the following command:
 
 ```sh

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-06-01"
+lastupdated: "2022-06-23"
 
 keywords:
 
@@ -180,7 +180,7 @@ Yes, you can increase or decrease IOPS for file shares based on an IOPS tier pro
 {: #faq-fs-sec-1}
 {: support}
 
-All data-at-rest is encrypted by default using IBM-managed encryption. You can also encrypt your file shares with your own root keys, which gives your more control over your data security. For information about his option, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption).
+All data-at-rest is encrypted by default using IBM-managed encryption. You can also encrypt your file shares with your own root keys, which gives your more control over your data security. For example, you can rotate, suspend, delete, and restore your root keys. For information about his option, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption).
 
 Data-in-transit is not supported in this release.
 

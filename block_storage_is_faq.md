@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-05-02"
+lastupdated: "2022-06-28"
 
 keywords:
 
@@ -168,6 +168,12 @@ Snapshots are a point-in-time copy of your block storage boot or data volume tha
 {: #faq-block-storage-backup-snapshot}
 
 Backup snapshots, simply called "backups", are automatically-created snapshots using the Backup for VPC service. For more information, see [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
+
+### What is restoring a volume from a snapshot?
+{: faq}
+{: #faq-block-storage-restore-vol}
+
+Restoring from a snapshot creates a new, fully-provisioned boot or data volume. You can restore boot and data volumes during instance creation or by modifying an existing instance. For data volumes, you can also use the `volumes` API to restore a data volume from a snapshot of an unattached volume, therefore creating a stand-alone volume. For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
 
 ## Performance questions
 {: #block-storage-vpc-performance-questions}

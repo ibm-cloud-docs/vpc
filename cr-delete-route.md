@@ -34,6 +34,8 @@ To delete a route by using the {{site.data.keyword.cloud_notm}} console, follow 
 {: #cr-delete-using-the-cli}
 {: cli}
 
+Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+
 To delete a route by using the CLI, run the following command:
 
 ```sh
