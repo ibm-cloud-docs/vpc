@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-06-24"
+lastupdated: "2022-06-30"
 
 keywords:
 
@@ -28,6 +28,13 @@ For information about changes to the {{site.data.keyword.vpc_short}} command lin
 
 ## June 2022
 {: #vpc-june01}
+
+### 30 June 2022
+{: #vpc-june0630}
+{: release-note}
+
+IBM Wazi as a Service (s390x processor architecture)
+:   You can now create virtual server instances of IBM z/OS with IBM Wazi as a Service (Wazi aaS) iamge on IBM Z (s390x processor architecture) in IBM Cloud in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. Wazi aaS image is offered as an IBM Cloud allow-listed service. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service).
 
 ### 21 June 2022
 {: #vpc-june2122}

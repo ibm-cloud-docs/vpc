@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2022
-lastupdated: "2022-05-04"
+lastupdated: "2022-06-30"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -85,6 +85,9 @@ LinuxONE (s390x processor architecture) profiles can be used to provision virtua
 {: class="simple-tab-table"}
 {: summary="Balanced profiles options for LinuxONE s390x virtual server instances."}
 
+IBM Wazi as a Service (Wazi aaS) image is offered as an IBM Cloud allow-listed service and is available in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service).
+{: note}
+
 ## Compute
 {: #compute}
 
@@ -134,6 +137,9 @@ LinuxONE (s390x processor architecture) profiles can be used to provision virtua
 {: class="simple-tab-table"}
 {: summary="Compute profiles options for LinuxONE s390x virtual server instances."}
 
+IBM Wazi as a Service (Wazi aaS) image is offered as an IBM Cloud allow-listed service and is available in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service).
+{: note}
+
 ## Memory
 {: #memory}
 
@@ -181,6 +187,9 @@ LinuxONE (s390x processor architecture) profiles can be used to provision virtua
 {: tab-group="Memory"}
 {: class="simple-tab-table"}
 {: summary="Memory profiles options for LinuxONE s390x virtual server instances."}
+
+IBM Wazi as a Service (Wazi aaS) image is offered as an IBM Cloud allow-listed service and is available in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service).
+{: note}
 
 {: #callout-note}
 

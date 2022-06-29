@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-02-16"
+lastupdated: "2022-06-30"
 
 keywords: custom image, creating a custom image, migrating a custom image
 
@@ -38,6 +38,7 @@ ISO images of licensed operating systems, such as Windows and Red Hat Enterprise
 | ☐ Provision an instance of {{site.data.keyword.cos_full_notm}} if you don't have one. | You must also create an IAM authorization between the Image Service for VPC and Cloud Object Storage. For more information, see [Granting access to IBM Cloud Object Storage to import images](/docs/vpc?topic=vpc-object-storage-prereq). |
 | ☐ Create a Linux custom image. | For more information, see [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image). |
 | ☐ Or create a Windows custom image. | For more information, see [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image). | 
+| ☐ Create an IBM z/OS (Wazi as a Service) custom image. | The IBM Wazi as a Service (Wazi aaS) custom image can be created by using IBM Wazi Image Builder, which is a separately orderable product from IBM’s Passport Advantage. There are additional requirements to order and use Wazi Image Builder. The image cost is the premium applied to cover the cost of technologies that allows for z/OS dev and test images to run on IBM Z hardware in IBM’s cloud infrastructure as a service layer. For more information, see [Bringing your own image with Wazi Image Builder](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=bringing-your-own-image-wazi-image-builder){: external}. | 
 | ☐ Or use an image template from IBM Cloud classic intrastructure. | For more information, see [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc). |
 | ☐ Optionally, encrypt your custom image with LUKS encryption and your own passphrase. | Importing encrypted VHD images is not supported. For more information, see [Creating an encrypted custom image](/docs/vpc?topic=vpc-create-encrypted-custom-image). |
 | ☐ Optionally, generate a SHA256 checksum locally for validating your image. You can compare the output with the checksum that's generated for the image when it's imported.| Example Linux command: `sha256sum ubuntu_image.qcow2` <br> Example Mac command: `shasum -a 256 ubuntu_image.qcow2` <br> You receive output similar to: `6809606da67eb83670e6249e54e94043eb43c0471669fb96ea4050c4c07e2df7`.  |
