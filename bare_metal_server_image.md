@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-06-24"
+lastupdated: "2022-06-28"
 
 subcollection: vpc
 
@@ -23,18 +23,39 @@ The following operating systems are available as images when you create a bare m
 
 | Image | Architecture |
 |---|---|
-| [RHEL 8.4](#bare-metal-images-rhel-considerations) | x86-64 |
+| [Red Hat Enterprise Linux 8.4](#bare-metal-images-rhel-considerations) | x86-64 |
+| Red Hat Enterprise Linux for SAP | x86-64 |
+| SUSE Red Hat Enterprise Linux for SAP  \n  \n For more information about SAP and bare metal servers, see [Fast Path of IBM Cloud Intel Bare Metal](https://cloud.ibm.com/docs/sap?topic=sap-fast-path-site-map-intel-bm). | x86-64 |
 | [Ubuntu 20.04, 18.04](#bare-metal-images-ubuntu-considerations) | x86-64 |
 | [VMware ESXi](#bare-metal-images-vmware-esxi-considerations) | x86-64 |
 {: caption="Table 1. Bare metal server images" caption-side="bottom"}
 
-Support for Windows and Linux is planned. 
+Support for custom images, Debian, and Windows is planned. 
 {: note}
 
-### Special considerations for RHEL 8.4
+<!--## Custom images
+{: #bare-metal-custom-images}-->
+
+<!--You can import an image from IBM Cloud Object Storage that you can use to create a bare metal server.-->
+
+<!--### Custom image considerations
+{: #bare-metal-custom-images-requirements}-->
+
+<!--Custom images must meet the following requirements:-->
+
+<!--* Must support UEFI boot mode
+* A Pensando driver for networking
+* Support x86 architecture-->
+
+<!--Custom images have the following limitations:-->
+
+<!--* Supports only QCOW2 images
+* Encrypted images aren't supported-->
+
+### Special considerations for Red Hat Enterprise Linux 8.4
 {: #bare-metal-images-rhel-considerations}
 
-By default, the release lock feature for RHEL 8.4 is disabled. To prevent the RHEL from going beyond version 8.4 when you run an update, run the following commands from the command line:
+* By default, the release lock feature for Red Hat Enterprise Linux 8.4 is disabled. To prevent the Red Hat Enterprise Linux from going beyond version 8.4 when you run an update, run the following commands from the command line:
 
    ```text
    # subscription-manager release --set=8.4
