@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2022
-lastupdated: "2022-05-04"
+lastupdated: "2022-06-30"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -38,9 +38,9 @@ Profiles with instance storage and profiles with 64 or more vCPUs are deployed e
 ## Balanced
 {: #balanced}
 
-Balanced profiles provide a mix of performance and scalability for more common workloads with a ratio of 4 GiB of memory for every 1 vCPU of compute. The Balanced profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Balanced profiles available for Intel&reg; x86-64 and LinuxOne s390x processors.
+Balanced profiles provide a mix of performance and scalability for more common workloads with a ratio of 4 GiB of memory for every 1 vCPU of compute. The Balanced profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Balanced profiles available for Intel&reg; x86-64 and s390x processors.
 
-LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions.
+s390x processor architecture profiles can be used to provision LinuxONE virtual server instances and IBM Wazi as a Service (Wazi aaS) virtual server instances. These profiles are available in Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. Provisioning Wazi aaS instances requires allow-list access. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service).
 {: preview}
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
@@ -83,16 +83,16 @@ LinuxONE (s390x processor architecture) profiles can be used to provision virtua
 {: tab-title="s390x"}
 {: tab-group="Balanced"}
 {: class="simple-tab-table"}
-{: summary="Balanced profiles options for LinuxONE s390x virtual server instances."}
+{: summary="Balanced profiles options for s390x virtual server instances."}
+
 
 ## Compute
 {: #compute}
 
-Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers that can benefit from 2 GiB of memory for every 1 vCPU of compute. The Compute profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Compute profiles available for &reg; x86-64 and LinuxOne s390x processors.
+Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers that can benefit from 2 GiB of memory for every 1 vCPU of compute. The Compute profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Compute profiles available for &reg; x86-64 and s390x processors.
 
-LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions.
+s390x processor architecture profiles can be used to provision LinuxONE virtual server instances and IBM Wazi as a Service (Wazi aaS) virtual server instances. These profiles are available in Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. Provisioning Wazi aaS instances requires allow-list access. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service).
 {: preview}
-
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|---------|
@@ -132,14 +132,15 @@ LinuxONE (s390x processor architecture) profiles can be used to provision virtua
 {: tab-title="s390x"}
 {: tab-group="Compute"}
 {: class="simple-tab-table"}
-{: summary="Compute profiles options for LinuxONE s390x virtual server instances."}
+{: summary="Compute profiles options for s390x virtual server instances."}
+
 
 ## Memory
 {: #memory}
 
-Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads with 8 GiB of memory for every 1 vCPU of compute. The Memory profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Memory profiles available for Intel&reg; x86-64 and LinuxOne s390x processors.
+Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads with 8 GiB of memory for every 1 vCPU of compute. The Memory profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Memory profiles available for Intel&reg; x86-64 and s390x processors.
 
-LinuxONE (s390x processor architecture) profiles can be used to provision virtual server instances in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions.
+s390x processor architecture profiles can be used to provision LinuxONE virtual server instances and IBM Wazi as a Service (Wazi aaS) virtual server instances. These profiles are available in Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. Provisioning Wazi aaS instances requires allow-list access. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service).
 {: preview}
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
@@ -180,7 +181,7 @@ LinuxONE (s390x processor architecture) profiles can be used to provision virtua
 {: tab-title="s390x"}
 {: tab-group="Memory"}
 {: class="simple-tab-table"}
-{: summary="Memory profiles options for LinuxONE s390x virtual server instances."}
+{: summary="Memory profiles options for s390x virtual server instances."}
 
 {: #callout-note}
 

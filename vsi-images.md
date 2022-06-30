@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-04-04"
+lastupdated: "2022-06-30"
 
 subcollection: vpc
 
@@ -48,7 +48,7 @@ The following operating systems are available as stock images when you create a 
 CentOS 8 is scheduled for End of Life (EOL) on 31 December 2021. On 01 January 2022, CentOS 8 stock images are deprecated and can no longer be selected to provision in {{site.data.keyword.cloud_notm}} console. Existing CentOS instances are not affected.
 {: note}
 
-### Supported LinuxONE (s390x processor architecture) stock image operating systems
+### Supported s390x stock image operating systems
 {: #s390x-supported-os}
 
 | Image | Architectures |
@@ -56,7 +56,11 @@ CentOS 8 is scheduled for End of Life (EOL) on 31 December 2021. On 01 January 2
 |  Ubuntu 20.04.x | s390x |
 |  SUSE Linux Enterprise server (SLES) 15 SP1 | s390x |
 |  Red Hat Enterprise Linux 8.x | s390x |
+|  IBM z/OS (IBM Wazi as a Service) | s390x |
 {: caption="Table 2. Supported s390x stock image operating systems" caption-side="top"}
+
+IBM Wazi as a Service (Wazi aaS) image is offered as an IBM Cloud allow-listed service and is available in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service).
+{: note}
 
 When you order an instance, the images are cloud-init enabled to optimize creation times. With a cloud-init enabled image, you can provide user data. In the **User Data** field on the order form, you can enter optional cloud-init user data for the server. For more information about user data and automation, see [User data](/docs/vpc?topic=vpc-user-data).
 
