@@ -26,8 +26,18 @@ For information about changes to the {{site.data.keyword.vpc_short}} API , see [
 
 For information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI) , see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
 
+## July 2022
+{: #vpc-july22}
+
+### 01 July 2022
+{: #vpc-july0122}
+{: release-note}
+
+Data encryption
+:   You can now access a customer root key (CRK) from one account and use the key to encrypt storage resources created in another account with the VPC API. When you create a block storage volume, a file share, or instance in a secondary account, you can specify the CRN of a root key from a primary account. For more information, see [Cross-account encryption for multitenant storage resources](/docs/vpc?topic=vpc-vpc-byok-cross-acct-key).
+
 ## June 2022
-{: #vpc-june01}
+{: #vpc-june22}
 
 ### 30 June 2022
 {: #vpc-june0630}
