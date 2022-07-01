@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-10-30"
+  years: 2020, 2022 
+lastupdated: "2022-06-23"
 
 keywords: anti-spoofing, source destination check, ip spoofing
 
@@ -37,7 +37,28 @@ Only operators with **IP Spoofing Operator** Identity and Access Management (IAM
 
 After a virtual server instance is created, a network administrator with the **IP Spoofing Operator** role in IAM can update the network interface to enable or disable the IP spoofing check.
 
+The IAM IP Spoofing Operator is disabled by default for all users.
+{: note}
+
 For information about IAM permissions, see [Required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
+
+To enable IP spoofing using the UI, take the following steps:
+
+1. Navigate to **Manage > Access (IAM)** in the top navigation bar of your instance.
+2. Select **Users** in the **Manage identities** section and choose to which user you want to grant the IP spoofing role.
+3. In the **Access policies** tab, click **Assign access**.
+4. Select the **Access policy** tile.
+5. Select "VPC Infrastructure Services" in the **Service** section.
+6. Select "All" in the **Resources** section.
+7. Check "IP Spoofing Operator" in the **Roles and actions** section.
+8. Click **Add**.
+
+To enable IP spoofing using the CLI, run the following command:
+
+```sh
+ibmcloud iam user-policy-create YOUR_USER_EMAIL_ADDRESS --roles "IP Spoofing Operator" --service-name is
+```
+{: pre}
 
 ## Understanding the risks
 {: #ip-spoofing-risks}
