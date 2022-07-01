@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2022-06-24",
+    "lastupdated": "2022-07-01",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc", 
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "01 July 2022",
+          "title": "Data encryption",
+          "description": "You can now access a customer root key (CRK) from one account and use the key to encrypt storage resources created in another account with the VPC API. When you create a block storage volume, a file share, or instance in a secondary account, you can specify the CRN of a root key from a primary account."
+        },
+        {
+          "date": "June 30 2022",
+          "title": "IBM Wazi as a Service (s390x processor architecture)",
+          "description": "You can now create virtual server instances of IBM z/OS with IBM Wazi as a Service (Wazi aaS) iamge on IBM Z (s390x processor architecture) in IBM Cloud in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. Wazi aaS image is offered as an IBM Cloud allow-listed service."
+        },
+        {
           "date": "21 June 2022",
           "title": "Backup for VPC (GA)",
           "description": "You can now create automated backup snapshots of your block storage volumes. Should your original volume be compromised, you can restore it from a backup snapshot. You create a backup policy to control which source volumes are selected for backup by matching user tags in the volume with tags defined in the policy. Each policy contains up to four backup plans, which define how often backup snapshots are taken (daily, weekly, monthy, or more frequently using a cron-spec) and retained (by date or by count). You can also view backup jobs, which shows status of backup snapshots being created or deleted."
-        },
-        {
-          "date": "01 June 2022",
-          "title": "File Storage for VPC",
-          "description": "For accounts authorized to preview this service, you can increase or decrease file share IOPS to meet your performance needs. Adjust IOPS for an IOPS tier profile or a custom profile. "
-        },
-        {
-          "date": "27 May 2022",
-          "title": "Secrets Manager for application load balancers",
-          "description": "Application load balancers now support IBM Secrets Manager. With Secrets Manager, you can create, lease, and centrally manage secrets that are used in IBM Cloud® services or your custom-built applications. Secrets Manager will replace the use of IBM Certificate Manager. IBM will continue to support Certificate Manager until September 30 2022. To migrate your existing certificates to Secrets Manager, refer to the information in this topic. After your certificates are migrated, you must then update the existing listener configuration with the new certificate CRN."
         }
       ]
     }
