@@ -22,7 +22,7 @@ The following diagram illustrates the deployment architecture for a network load
 
 ![Network load balancer for VPC](images/nlb_arc.png "Network load balancer"){: caption="Network load balancer" caption-side="bottom"}
 
-The NLB is zonal, which means that the members must be in the same zone as the load balancer. For more information, see [Multi-zone support](/docs/vpc?topic=vpc-nlb-vs-elb#nlb-mz-support).
+Network load balancers can accept members across all three availability zones, but the NLB itself resides in one specific zone. For more information, see [Multi-zone support](/docs/vpc?topic=vpc-nlb-vs-elb#nlb-mz-support).
 
 ## Getting started
 {: #nlb-getting-started}
@@ -31,7 +31,7 @@ To configure a network load balancer, make sure that you have met the following 
 
 * If you don't have a VPC, create a VPC in the region that you want to create your NLB.
 * Create a subnet in your preferred zone in your VPC.
-* Create instances in the same zone as your network load balancer. You can also attach instances to your load balancer later.
+* Create instances. You can also attach instances to your load balancer later.
 
 After you completed all prerequisites, you can create your NLB. For more information, see [Creating a network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer).
 
@@ -83,14 +83,14 @@ Often times a client might submit a request that is fairly small with a minor pe
 
 ![Network load balancer traffic flow](images/nlb-use-case.png){: caption="Figure 2. Network load balancer traffic flow" caption-side="bottom}
 
-## Use case 2: Multi-zone network load balancer reference architecture
+## Use case 2: Multi-zone public network load balancer reference architecture
 {: #nlb-use-case-2}
 
 The following diagram illustrates how you can deploy {{site.data.keyword.cloud_notm}} {{site.data.keyword.nlb_full}} (NLB) to support multiple zones. This deployment scenario requires the use of the global load balancer option in [IBM Cloud Internet Services (CIS)](/docs/cis?topic=cis-configure-glb).
 
 You may want to leverage the high throughput performance (and low latency) the NLB gains through DSR. In addition, it is recommended that you deploy your workloads in multiple zones to increase their availability in an HA environment.
 
-![Multi-zone network load balancer](images/nlb_glb.png){: caption="Figure 3. Multi-zone network load balancer" caption-side="bottom}
+![Multi-zone public network load balancer](images/nlb_glb.png){: caption="Figure 3. Multi-zone network load balancer" caption-side="bottom}
 
 ## Front-end listeners and back-end pools
 {: #nlb-front-end-listeners-and-back-end-pools}

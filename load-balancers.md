@@ -35,7 +35,7 @@ The following table provides a comparison of the types of load balancers.
 | HA mode                     | Active-standby (with single VIP)   |  Active-active (with multiple VIPs assigned to a DNS name) |
 | Instance group support | No | Yes (see [Integrating an ALB for VPC with instance groups](/docs/vpc?topic=vpc-lbaas-integration-with-instance-groups)) |
 | Monitoring metrics| Yes | Yes |
-| Multi-zone support          |  No (see [Multi-zone support](/docs/vpc?topic=vpc-network-load-balancers#nlb-use-case-2)) | Yes |     
+| Multi-zone support          |  Yes [^footnote1] (see [Multi-zone support](/docs/vpc?topic=vpc-network-load-balancers#nlb-use-case-2)) | Yes |     
 | Security group support | No | Yes (see [Integrating an ALB for VPC with security groups](/docs/vpc?topic=vpc-alb-integration-with-security-groups)) |
 | Source IP address is preserved | Yes | Yes |
 | SSL offloading              |  No              | Yes |
@@ -49,6 +49,8 @@ The following table provides a comparison of the types of load balancers.
 | Power Systems Virtual Server instances connected over Direct Link (2.0)  |  No | Yes (No support for instance groups) |
 {: caption="Table 1. Comparison of network and application load balancers" caption-side="bottom"}
 
+[^footnote1]: Network load balancers can accept members across all three availability zones, but the NLB itself resides in one specific zone.
+
 ## High Availability mode
 {: #nlb-ha-mode}
 
@@ -61,9 +63,9 @@ An NLB is configured in active-standby mode. A single VIP is registered with DNS
 ## Multi-zone support
 {: #nlb-mz-support}
 
-The network load balancer is limited to a single zone. All back-end servers must be in the same zone. A zone is identified by the subnet that is selected when a load balancer is created. Cloud Internet Services (CIS) Global Load Balancer can be used with multiple zonal network load balancers for multi-zone availability.
+Network load balancers can accept members across all three availability zones, but the NLB itself resides in one specific zone. A zone is identified by the subnet that is selected when a load balancer is created. Cloud Internet Services (CIS) Global Load Balancer or Private DNS can be used with multiple zonal network load balancers for multi-zone availability.
 
-The application load balancer can be configured to span multiple zones. The back-end servers can be in any zone within a region.
+The application load balancer can also be configured to span multiple zones. The back-end servers can be in any zone within a region.
 
 ## Integration with private catalogs
 {: #load-balancer-integration-with-private-catalog}
