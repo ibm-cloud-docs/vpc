@@ -33,8 +33,11 @@ For information about changes to the {{site.data.keyword.vpc_short}} command lin
 {: #vpc-july0122}
 {: release-note}
 
-Data encryption
-:   You can now access a customer root key (CRK) from one account and use the key to encrypt storage resources created in another account with the VPC API. When you create a block storage volume, a file share, or instance in a secondary account, you can specify the CRN of a root key from a primary account. For more information, see [Cross-account encryption for multitenant storage resources](/docs/vpc?topic=vpc-vpc-byok-cross-acct-key).
+Cross-zone member support for network load balancers 
+:    You can now attach members across any zone in the region for IBM Cloud Network Load Balancer for VPC. The zone of the network load balancer is still identified by the subnet that you specify when you [create your load balancer](/docs/vpc?topic=vpc-nlb-vnf&interface=ui). 
+
+ :    [Network load balancers with routing mode](/docs/vpc?topic=vpc-nlb-vnf&interface=ui) do not support cross zone members.
+ {: note}
 
 ## June 2022
 {: #vpc-june22}
