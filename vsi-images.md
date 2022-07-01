@@ -59,7 +59,7 @@ CentOS 8 is scheduled for End of Life (EOL) on 31 December 2021. On 01 January 2
 |  IBM z/OS (IBM Wazi as a Service) | s390x |
 {: caption="Table 2. Supported s390x stock image operating systems" caption-side="top"}
 
-IBM Wazi as a Service (Wazi aaS) image is offered as an IBM Cloud allow-listed service and is available in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service).
+The option to select the Wazi aaS z/OS dev and test image is offered as an IBM Cloud allow-listed service and the image is available in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service).
 {: note}
 
 When you order an instance, the images are cloud-init enabled to optimize creation times. With a cloud-init enabled image, you can provide user data. In the **User Data** field on the order form, you can enter optional cloud-init user data for the server. For more information about user data and automation, see [User data](/docs/vpc?topic=vpc-user-data).

@@ -34,7 +34,7 @@ For information about changes to the {{site.data.keyword.vpc_short}} command lin
 {: release-note}
 
 IBM Wazi as a Service (s390x processor architecture)
-:   You can now create virtual server instances of IBM z/OS with IBM Wazi as a Service (Wazi aaS) iamge on IBM Z (s390x processor architecture) in IBM Cloud in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. Wazi aaS image is offered as an IBM Cloud allow-listed service. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service).
+:   You can now create virtual server instances of IBM z/OS with IBM Wazi as a Service (Wazi aaS) image on IBM Z (s390x processor architecture) in IBM Cloud in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. The option to select the Wazi aaS z/OS dev and test image is offered as an IBM Cloud allow-listed service. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service).
 
 ### 21 June 2022
 {: #vpc-june2122}
