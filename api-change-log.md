@@ -120,10 +120,10 @@ Not all network load balancer offerings will support UDP. Before creating a UDP 
 {: important}
 
 ## 22 March 2022
-{: 22-march-2022}
+{: #22-march-2022}
 
 ### For all version dates
-{: 22-march-2022-all-version-dates}
+{: #22-march-2022-all-version-dates}
 
 **Concurrent update protection.** To prevent multiple clients from unknowingly overwriting each other's updates, select API methods support entity-tags and conditional requests. For details, see [Concurrent update protection](/apidocs/vpc#concurrent-update-protection) in the Virtual Private Cloud API.
 
@@ -511,10 +511,10 @@ The quantity of memory for virtual server instance profiles is now provisioned i
 Memory for virtual server instances is now expressed in gibibytes (GiB), instead of gigabytes (GB). For example, the `memory` property returned from `GET /instances/{id}` now reports in GiB (truncated to a whole number).
 
 ## 16 December 2020
-{: 16-december-2020}
+{: #16-december-2020}
 
 ### For all version dates
-{: 16-december-2020-all-version-dates}
+{: #16-december-2020-all-version-dates}
 
 **Customer-managed encryption for block storage volumes and encrypted custom images.** When you disable or delete a customer root key (CRK) that is encrypting your block storage or custom image resources, the API displays a status of `unusable` for these resources, along with the reason codes `encryption_key_deleted` or `encryption_key_disabled`.
 
