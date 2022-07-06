@@ -277,6 +277,7 @@ toc:
                 - vpn-access-service-endpoint.md
                 - vpn-ha.md
                 - vpn-configure-acls-security-groups.md
+                - vpn-site-to-site-routes-propagating.md
                 - vpn-view-logs.md
                 - vpn-monitoring-metrics.md
                 - vpn-limitations.md
@@ -290,6 +291,7 @@ toc:
                 - vpn-client-to-site-access-groups.md
                 - vpn-client-to-site-auth.md
                 - vpn-client-to-site-configure-security-groups.md
+                - vpn-client-to-site-routes-propagating.md
                 - vpn-create-server.md
                 - vpn-client-to-site-routes.md
                 - vpn-client-to-site-setup.md
