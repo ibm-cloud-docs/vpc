@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-06-28"
+  years: 2021, 2022
+lastupdated: "2022-07-07"
 
 keywords: virtual private network, VPN, VPN server, troubleshooting
 
@@ -17,7 +17,7 @@ subcollection: vpc
 {: troubleshoot}
 {: support}
 
-The VPN server uses your IAM username and passcode, not your IAM password to authentication your VPN client. To generate a passcode, you must go to `https://iam.cloud.ibm.com/identity/passcode`. The passcode is a Time-based One-time passcode (TOTP) and cannot be reused. You must have permission to access the VPN server. Ask your VPN server administrator to check that you have been granted the action `is.vpn-server.vpn-server.connect`.
+The VPN server uses your IAM username and passcode, not your IAM password to authenticate your VPN client. To generate a passcode, you must go to `https://iam.cloud.ibm.com/identity/passcode`. The passcode is a Time-based One-time passcode (TOTP) and cannot be reused. You must have permission to access the VPN server. Ask your VPN server administrator to check that you have been granted the action `is.vpn-server.vpn-server.connect`.
 {: shortdesc}
 
 The OpenVPN connect V2 shows the error `auth-failure`.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-08-07"
+  years: 2021, 2022
+lastupdated: "2022-07-07"
 
 keywords: virtual private network, VPN, VPN server, troubleshooting
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Why isn't the DNS resolution request sent to DNS server specified on the VPN server?
+# Why isn't the DNS resolution request sent to the DNS server specified on the VPN server?
 {: #troubleshoot-dns-request}
 {: troubleshoot}
 {: support}

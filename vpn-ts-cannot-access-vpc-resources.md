@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-06-28"
+  years: 2022
+lastupdated: "2022-06-27"
 
 keywords: virtual private network, VPN, VPN server, troubleshooting
 
@@ -32,6 +32,8 @@ Follow these steps to resolve this issue:
 1. Check the security group attached to the VPN server to allow traffic between your VPN client and destination.
 1. Check the security group attached to the VPC virtual server instance to allow traffic between your VPN client and destination.
 1. Check the ACL on the subnet of the VPN server to allow traffic between your VPN client and destination.
-1. Check the ACL on the subnet of the VPC VSI to allow traffic between your VPN client and destination.
+1. Check the ACL on the subnet of the VPC virtual server instance to allow traffic between your VPN client and destination.
+1. Check the routing table where the VPC virtual server instance's subnet attaches, and make sure the VPN server is included in the `accept routes from` flag.
+1. Check the routing table where the VPC virtual server instance's subnet attaches, make sure there is one route in each zone, and that the destination is a subset of the VPN server's client IP pool. The next hop is the private IP of the VPN server member. There are are total of 6 routes if the VPN server is in high-availability mode, and a total of 3 routes if the VPN server is in stand-alone mode. You can remove the VPN server from the `accept routes from` flag, wait for 2 minutes, then add it back if you see that either the next hop is not the private IP of the VPN server member, or the number of routes is incorrect.
 1. Check that there is a VPN route to allow traffic between your VPN client and destination. If you can connect to the VPN server successfully with an OpenVPN client, but cannot access the cloud resources in VPC, verify that you have added the server routes to the destination CIDR.
 1. Check the firewall configuration on your VPN client to allow traffic between your VPN client and destination.
