@@ -31,8 +31,6 @@ To disconnect a VPN client from the VPN server, follow these steps:
 1. Click the Clients tab to view VPN clients that connected in the last 5 minutes.
 1. Click the Actions menu ![Actions menu](images/overflow.png) next to the client that you want to disconnect, then click **Disconnect**. The disconnected VPN client is automatically deleted after one hour.
 
-   ![VPN clients](images/vpn-clients.png){: caption="VPN clients" caption-side="bottom"}
-
    You can also specify to **Delete** the VPN client, which deletes the client session immediately.
    {: note}
 
