@@ -590,6 +590,7 @@ toc:
                 - vpn-ts-unable-establish-connection.md
                 - vpn-ts-traffic-not-getting-through.md
                 - vpn-ts-unstable-connection.md
+                - vpn-ts-routing-issues.md
             - topicgroup:
                 label: Troubleshooting client-to-site VPN servers (Beta)
                 topics:
