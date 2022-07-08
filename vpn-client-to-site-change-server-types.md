@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-11-30"
+  years: 2021, 2022
+lastupdated: "2022-07-07"
 
 keywords: upgrading VPN, VPN server types
 
@@ -13,7 +13,10 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Upgrading to an HA VPN server (Beta)
-{: #vpn-client-to-site-change-server-types}  
+{: #vpn-client-to-site-change-server-types} 
+
+Client VPN for VPC is available to all IBM Cloud users. After the Beta period ends, you will be given a time period to migrate your VPN servers to the standard pricing plan to avoid disruption of service.
+{: beta}
 
 You can change VPN server types after you create a VPN server. For example, you can upgrade a stand-alone VPN server (pilot deployment) to a High Availability (HA) VPN server (production deployment). You can also detach a subnet to downgrade an HA VPN server to a stand-alone deployment, or change a VPN subnet after your VPN server is provisioned.
 {: shortdesc}
@@ -47,6 +50,8 @@ To change the VPN server type, follow these steps:
 {: #vpn-upgrade-ha-cli}
 {: cli}
 
+Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+
 To upgrade to an HA VPN server by using the CLI, enter the following command:
 
 ```sh
@@ -66,7 +71,11 @@ Where:
 * **--subnet** - Comma-separated IDs or names of the subnets to provision this VPN server. Use two subnets in different zones for high availability. At most, two subnets can be set.
 * **--client-ip-pool** - The VPN client IPv4 address pool, expressed in CIDR format. The request must not overlap with any existing address prefixes in the VPC or any of the following reserved address ranges: `127.0.0.0/8` (IPv4 loopback addresses), `161.26.0.0/16` (IBM services), `166.8.0.0/14` (Cloud Service Endpoints), `169.254.0.0/16` (IPv4 link-local addresses), `224.0.0.0/4` (IPv4 multicast addresses). The prefix length of the client IP address pool's CIDR must be between `/9` (8,388,608 addresses) and `/22` (1024 addresses). A CIDR block that contains twice the number of IP addresses that are required to enable the maximum number of concurrent connections is recommended.
 * **--cert** - The certificate instance CRN for this VPN server.
-* **--client-auth-methods** - Comma-separated client authentication methods. One of: **`certificate`**, **`username`**, **`certificate,username`**, **`username,certificate`**.
+* **--client-auth-methods** - Comma-separated client authentication methods. One of: 
+    * **`certificate`**
+    * **`username`**
+    * **`certificate,username`**
+    * **`username,certificate`**
 * **--client-ca** - The CRN of the certificate instance to use for the VPN client certificate authority (CA).
 * **--client-crl** - CRL | @CRL-file. The certificate revocation list contents, encoded in PEM format.
 * **--client-dns** - Comma-separated of DNS server addresses that is provided to VPN clients connected to this VPN server. Two DNS servers can be set at most.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-08-26"
+  years: 2021, 2022
+lastupdated: "2022-07-07"
 
 keywords:  network, encryption, client VPN, server VPN
 
@@ -12,8 +12,8 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Configuring security groups and ACLs for use with VPN (Beta)
-{: #vpn-client-to-site-security-groups}  
+# Configuring security groups and ACLs for use with a VPN server (Beta)
+{: #vpn-client-to-site-security-groups} 
 
 Client VPN for VPC is available to all IBM Cloud users. After the Beta period ends, you will be given a time period to migrate your VPN servers to the standard pricing plan to avoid disruption of service.
 {: beta}
@@ -23,7 +23,7 @@ Security groups and access control lists (ACLs) can be configured on the VPN ser
 
 If you configure security groups and ACLs on the VPN server's subnet, make sure that the following rules are in place to allow VPN tunnel traffic. For more information, see [About security groups](/docs/vpc?topic=vpc-using-security-groups) and [Setting up network ACLs](/docs/vpc?topic=vpc-using-acls).
 
-If you don't specify a security group when you provision the VPN server, the default security group of the VPC is attached to the VPN server. Keep in mind that you cannot change the attached security group after a VPN server is provisioned, but you can change the rules in the security group.  
+If you don't specify a security group when you provision the VPN server, the default security group of the VPC is attached to the VPN server. You can attach other security groups to the VPN server after provisioning your server. 
 {: note}
 
 ## Rules for VPN protocol traffic
@@ -57,12 +57,12 @@ For example, by default, the VPN server runs on UDP port `443`, so you should co
 | outbound | UDP  | `VPN server subnet` | `443` | Any | Any |
 {: caption="Table 4. Configuration information for ACL of a VPN server with default protocol and port" caption-side="bottom"}
 
-## Rules for VPN traffic with deliver route
+## Rules for VPN traffic with `deliver` route action
 {: #rules-vpn-traffic-with-deliver-route}
 
 When the client is connected to the VPN server, the VPN server drops all traffic from the client by default. You have to configure the VPN route on the VPN server to allow this traffic. The action of the route may be either `deliver` or `translate`.
 
-* When the action is `deliver`, after the packet is decrypted from the tunnel, the packet is forwarded directly, so the source IP of the packet is the VPN client IP, which ifrom the client IP pool.
+* When the action is `deliver`, after the packet is decrypted from the tunnel, the packet is forwarded directly, so the source IP of the packet is the VPN client IP, which is from the client IP pool.
 * When the action is `translate`, after the packet is decrypted from the tunnel, the source IP of the packet is translated to the private IP of the VPN server, then the packet is sent.
 
 Note which CIDR should be specified when you create the security group and ACL rules.
@@ -119,10 +119,10 @@ For example, if you use `172.16.0.0/20` as the client IP pool when you provision
 | outbound | ALL  | `10.240.128.0/24` | Any | `172.16.0.0/20` | Any |
 {: caption="Table 12. ACL rules for a VPN deliver route on the VPC VSI subnet" caption-side="bottom"}
 
-## Rules for VPN traffic with translate route
+## Rules for VPN traffic with `translate` route action
 {: #rules-vpn-traffic-with-translate-route}
 
-The rules for the VPN translate route are almost the same as the deliver route. The only difference is the source IP of the packet is translated to the VPN server's private IP. So you need to use the VPN server's subnet instead of the VPN server's client IP pool.
+The rules for the VPN translate route are almost the same as the deliver route. The only difference is the source IP of the packet is translated to the VPN server's private IP. Therefore, you must use the VPN server's subnet instead of the VPN server's client IP pool.
 
 If you select multiple subnets when you provision the VPN server, you must include all subnets in the security group and ACL rules.
 {: important}
@@ -139,9 +139,9 @@ If you select multiple subnets when you provision the VPN server, you must inclu
 | outbound | ALL  | `VPN server subnet CIDR` | Any | `VPN route destination CIDR` | Any |
 {: caption="Table 14. ACL rules for a VPN translate route on the VPN server subnet" caption-side="bottom"}
 
-Normally, the destination of the VPN translate route is out of the VPC. For example, you want to use a VPN server to access the IBM classic infrastructure VSI. At the same time, you need to configure firewall rules on the destination to unblock traffic from the VPN client.
+Normally, the destination of the VPN translate route is out of the VPC. For example, suppose that you want to use a VPN server to access the IBM classic infrastructure virtual server instance. At the same time, you must configure firewall rules on the destination to unblock traffic from the VPN client.
 
-For example, if you use the subnets `10.240.64.0/24` and `10.240.129.0/24` when provisioning the VPN server, there is a subnet `10.187.190.0/26` in IBM classic infrastructure, and you want the access classic VSI from the VPN client, then you need to create a VPN route with destination: `10.187.190.0/26`, action: `translate` and configure security group and ACL rules as follows:
+For example, if you use the subnets `10.240.64.0/24` and `10.240.129.0/24` when provisioning the VPN server, there is a subnet `10.187.190.0/26` in the IBM classic infrastructure, and you want to access the classic virtual server instance from the VPN client. Then, you must create a VPN route with destination: `10.187.190.0/26`, action: `translate`, and configure security group and ACL rules as follows:
 
 |Inbound/Outbound Rules| Protocol | Source/Destination Type | Source | Value |
 |-----------|-----------|------|------|-------|

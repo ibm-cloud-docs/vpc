@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-11-17"
+  years: 2021, 2022
+lastupdated: "2022-07-07"
 
 keywords:
 
@@ -15,10 +15,10 @@ subcollection: vpc
 # About client-to-site VPN servers (Beta)
 {: #vpn-client-to-site-overview}
 
-Client VPN for VPC is available to all IBM Cloud users. After the Beta period ends, you are given a time period to migrate your VPN servers to the standard pricing plan to avoid disruption of service.
+Client VPN for VPC is available to all IBM Cloud users. After the Beta period ends, you will be given a time period to migrate your VPN servers to the standard pricing plan to avoid disruption of service.
 {: beta}
 
-Until now, the IBM Cloud VPN for VPC service supported only site-to-site connectivity, which connects your on-premises network to the IBM Cloud VPC network. This beta release adds client-to-site connectivity, which allows clients from the internet, such as a laptop, to connect to the VPC network while still maintaining secure connectivity. This solution is useful for telecommuters who want to connect to the IBM Cloud from a remote location, such as a home office.
+Client VPN for VPC provides client-to-site connectivity, which allows remote devices to securely connect to the VPC network using an OpenVPN software client. This solution is useful for telecommuters who want to connect to the IBM Cloud from a remote location, such as a home office, while still maintaining secure connectivity.  
 
 Highlights include:
 
@@ -42,7 +42,7 @@ A DNS service is deployed as part of the VPN service. The DNS name provided ends
 ## Getting started
 {: #vpn-client-to-site-getting-started}
 
-To get started using the Client VPN for VPC beta, follow these steps:
+To get started using Client VPN for VPC, follow these steps:
 
 1. Review [Planning considerations for VPN servers](/docs/vpc?topic=vpc-client-to-site-vpn-planning).
 1. Complete all prerequisites in [Before you begin](/docs/vpc?topic=vpc-vpn-create-server#vpn-client-to-site-prerequisites).
@@ -85,7 +85,6 @@ When you integrate the client-to-site VPN server with the transit gateway, you m
 Integrate with a site-to-site VPN gateway if you want to access your on-premises private network at the same time as when you connect to IBM VPCs. This use case removes the requirement to maintain multiple VPN servers simultaneously. You can access your on-premises private network from a client-to-site VPN server directly.  
 
 ![Network topology: Integrating with a site-to-site VPN gateway](images/vpn-server-use-case-vpn-gateway.png){: caption="Figure 5. Network topology: Integrating with a site-to-site VPN gateway" caption-side="bottom"}
-
 
 ## Related links
 {: #vin-client-to-site-related-links}
