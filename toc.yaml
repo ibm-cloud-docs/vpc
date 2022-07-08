@@ -97,6 +97,7 @@ toc:
             - console-tutorial.md
             - user-access-to-dedicated-hosts-and-groups.md
             - creating-and-using-an-image-from-volume.md
+            - vpn-openvpn-client-tutorial.md
         - topicgroup:
             label: Solution tutorials
             topics:
