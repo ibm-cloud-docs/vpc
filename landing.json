@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2022-07-01",
+    "lastupdated": "2022-07-08",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc", 
@@ -31,6 +31,10 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "07 July 2022",
+          "title": "Client VPN for VPC (Beta)",
+          "description": "Client VPN for VPC now supports Secrets Manager certificate authentication in addition to Certificate Manager. VPN server is a new resource type that is permitted as a security group target. As of 10 February 2022, IBM Cloud Certificate Manager is deprecated. The strategic alternative for managing certificates in IBM Cloud is Secrets Manager. To maintain current functionality, be sure to migrate to Secrets Manager prior to 30 September 2022. Secrets Manager is a separate product that incurs added costs separate from Client VPN for VPC billing."
+        },
           "date": "01 July 2022",
           "title": "Cross-zone member support for network load balancers",
           "description": "You can now attach members across any zone in the region for IBM Cloud Network Load Balancer for VPC. The zone of the network load balancer is still identified by the subnet that you specify when you create your load balancer. Network load balancers with routing mode do not support cross zone members."
@@ -39,11 +43,6 @@
           "date": "June 30 2022",
           "title": "IBM Wazi as a Service (s390x processor architecture)",
           "description": "You can now create virtual server instances of IBM z/OS with IBM Wazi as a Service (Wazi aaS) iamge on IBM Z (s390x processor architecture) in IBM Cloud in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. Wazi aaS image is offered as an IBM Cloud allow-listed service."
-        },
-        {
-          "date": "21 June 2022",
-          "title": "Backup for VPC (GA)",
-          "description": "You can now create automated backup snapshots of your block storage volumes. Should your original volume be compromised, you can restore it from a backup snapshot. You create a backup policy to control which source volumes are selected for backup by matching user tags in the volume with tags defined in the policy. Each policy contains up to four backup plans, which define how often backup snapshots are taken (daily, weekly, monthy, or more frequently using a cron-spec) and retained (by date or by count). You can also view backup jobs, which shows status of backup snapshots being created or deleted."
         }
       ]
     }
