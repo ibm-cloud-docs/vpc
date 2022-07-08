@@ -35,7 +35,7 @@ The following profile families are available:
 | [Memory](#vs-memory) | Memory profiles offer a core to RAM ratio 1 vCPU to 8 GiB of RAM ratio and are best for memory caching and real-time analytics workloads. Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. |
 {: caption="Table 1. Virtual server family selections" caption-side="bottom"}
 
-s390x processor architecture profiles can be used to provision LinuxONE virtual server instances and IBM Wazi as a Service (Wazi aaS) virtual server instances. These profiles are available in Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. The secure execution profiles are currently available in Brazil (São Paulo), and Canada (Toronto) regions. Provisioning Wazi aaS instances requires allow-list access. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service).
+s390x processor architecture profiles can be used to provision LinuxONE virtual server instances and IBM Wazi as a Service (Wazi aaS) virtual server instances. These profiles are available in Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. The secure execution profiles are currently available in Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. Provisioning Wazi aaS instances requires allow-list access. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service).
 {: preview}
 
 ## Balanced
