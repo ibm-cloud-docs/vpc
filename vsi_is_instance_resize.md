@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-08-31"
+lastupdated: "2022-07-08"
 
 subcollection: vpc
 
@@ -30,7 +30,7 @@ You can resize your virtual server instance and vertically scale to any supporte
 {: shortdesc}
 
 Virtual servers are configured by using profiles, or a combination of instance attributes, such as the number of vCPUs, amount of RAM, network bandwidth, and more that define the size and capabilities of the virtual server instance.
-When you upgrade or downgrade an existing server, you choose another profile that has the pre-defined specifications that you need. You cannot customize the configuration of a virtual server. The virtual server profile that you select determines the valid cores, RAM, bandwidth, and disk sizes on the resized instance. For more information about profiles, see [Instance Profiles](/docs/vpc?topic=vpc-profiles).
+When you upgrade or downgrade an existing server, you choose another profile that has the pre-defined specifications that you need. You cannot customize the configuration of a virtual server. The virtual server profile that you select determines the valid cores, RAM, bandwidth, and disk sizes on the resized instance. For more information about profiles, see [Instance Profiles](/docs/vpc?topic=vpc-profiles) and [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles)..
 
 When you resize an instance, keep the following information in mind:
 * You need to stop, update, and start the instance that you want to resize.
@@ -39,7 +39,8 @@ When you resize an instance, keep the following information in mind:
 * All network configurations are maintained, such as private IPs, floating IPs, vNICs, and security groups.
 * The instance name doesn't change.
 * The data center location doesn't change.
-* An instance with a profile that does not include instance storage cannot be resized to a profile that does include instance storage. 
+* An instance with a profile that does not include instance storage cannot be resized to a profile that does include instance storage.
+* You must select a secure execution enabled profile when you want to resize an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instance. Selecting a profile that is not secure execution enabled will cause the provisioning to fail.
 
 After the instance is resized, you are billed the hourly rate of the new instance profile.
 
@@ -66,11 +67,11 @@ Attached data volumes remain intact and are attached in the resized instance.
 ## Resizing instances associated with instance templates and instance groups
 {: #resizing-instance-templates-groups}  
 
-When you resize an instance that's provisioned from an instance template or that's provisioned as part of an instance group, the following rules apply. 
+When you resize an instance that's provisioned from an instance template or that's provisioned as part of an instance group, the following rules apply.
 
-* An instance that is provisioned from an instance template can be resized with a new instance profile. 
+* An instance that is provisioned from an instance template can be resized with a new instance profile.
 * Instance templates are not editable, except for the name. You cannot update an instance profile within an instance template. To choose a different profile for an instance template, you must create a new template.
-* Resizing an instance that is part of an instance group removes it from the instance group. An instance must be stopped to resize it. When the instance is stopped, the instance group replaces it with a new instance with the same profile as the instance template describes. 
+* Resizing an instance that is part of an instance group removes it from the instance group. An instance must be stopped to resize it. When the instance is stopped, the instance group replaces it with a new instance with the same profile as the instance template describes.
 
 ## Resizing a virtual server instance using the UI
 {: #resizing-a-virtual-server-UI}
@@ -121,7 +122,7 @@ Use the `instance-update` command to resize a virtual server.
    curl  -s -X GET "<api_endpoint>/v1/instance/profiles?generation=2&version=2021-02-01" -H "Authorization: Bearer <IAM token>"
    ```
    {: pre}
-   
+
 2. Select a compatible profile for your instance.
     * For a virtual server that is running on a dedicated host, choose a profile that the dedicated host supports.
     * If you use instance storage, choose a profile that has instance storage.
@@ -138,7 +139,7 @@ Use the `instance-update` command to resize a virtual server.
    } '
    ```
    {: pre}
-   
+
    Where:
       * `instance-id` is the ID of the instance that you want to resize
       * `profile-id` is the ID of the profile that you want to use

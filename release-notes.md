@@ -29,12 +29,20 @@ For information about changes to the {{site.data.keyword.vpc_short}} command lin
 ## July 2022
 {: #vpc-july22}
 
+### 12 July 2022
+{: #vpc-july1222}
+{: release-note}
+
+IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}}
+:   You can now create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture) in the Brazil (São Paulo), and Canada (Toronto) regions. Confidential computing is enabled on LinuxONE (s390x processor architecture) by using the IBM Secure Execution for Linux technology. For more information, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se). A new set of secure execution enabled profiles are available, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). To create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers), and [IBM Hyper Protect Container Runtime image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime). A valid contract is required for creating an instance. For more information, see [About the contract](/docs/vpc?topic=vpc-about-contract_se&interface=ui).  
+
+
 ### 01 July 2022
 {: #vpc-july0122}
 {: release-note}
 
-Cross-zone member support for network load balancers 
-:    You can now attach members across any zone in the region for IBM Cloud Network Load Balancer for VPC. The zone of the network load balancer is still identified by the subnet that you specify when you [create your load balancer](/docs/vpc?topic=vpc-nlb-vnf&interface=ui). 
+Cross-zone member support for network load balancers
+:    You can now attach members across any zone in the region for IBM Cloud Network Load Balancer for VPC. The zone of the network load balancer is still identified by the subnet that you specify when you [create your load balancer](/docs/vpc?topic=vpc-nlb-vnf&interface=ui).
 
  :    [Network load balancers with routing mode](/docs/vpc?topic=vpc-nlb-vnf&interface=ui) do not support cross zone members.
  {: note}
@@ -74,7 +82,7 @@ File Storage for VPC
 {: release-note}
 
 Secrets Manager for application load balancers
-:    Application load balancers now support [IBM Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started). With Secrets Manager, you can create, lease, and centrally manage secrets that are used in {{site.data.keyword.cloud}} services or your custom-built applications. 
+:    Application load balancers now support [IBM Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started). With Secrets Manager, you can create, lease, and centrally manage secrets that are used in {{site.data.keyword.cloud}} services or your custom-built applications.
 
 :    Secrets Manager will replace the use of [IBM Certificate Manager](/docs/certificate-manager?topic=certificate-manager-getting-started). IBM will continue to support Certificate Manager until September 30 2022. To migrate your existing certificates to Secrets Manager, refer to the information in [this topic](https://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager). After your certificates are migrated, you must then update the existing listener configuration with the new certificate CRN.
 {: important}

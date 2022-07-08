@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-08-27"
+  years: 2021, 2022
+lastupdated: "2021-07-08"
 
 keywords: custom os, creating a custom os, custom operating system, creating a custom operating system, kernel, custom kernel
 
@@ -127,3 +127,6 @@ The following kernel options are required for LinuxONE (s390x processor architec
    - tty on virtual ascii console
 - CONFIG_SCLP_VT220_CONSOLE=Y
    - Boot console on virtual ascii console
+
+To create secure execution based custom images by using the Cloud Object Storage option, see [Preparing the workload](https://www.ibm.com/docs/en/linux-on-systems?topic=tasks-prepare-workload). For information about creating secure execution based images, [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=overview-introducing-secure-execution-linux).
+{: note}

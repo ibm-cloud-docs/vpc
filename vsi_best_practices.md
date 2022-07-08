@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-06-30"
+  years: 2018, 2022
+lastupdated: "2021-07-08"
 
 keywords: virtual server instances, VSI, planning, best practices
 
@@ -40,12 +40,13 @@ The default VPC is selected automatically. If another VPC is not selected the de
 |__ Make sure your [SSH key](/docs/vpc?topic=vpc-ssh-keys#ssh-keys) is available.
 |__ Determine what region and zone to select.|
 |__ Determine which subnets you want the instance to connect to.|
-|__ Consider the popular [profile options](/docs/vpc?topic=vpc-profiles#profiles) of vCPU and RAM combinations for your workload. Profiles contain preconfigured instances that are ready to use in a matter of minutes. It's important to ensure that your instances have the necessary resources to keep your workloads and your environment up and running.|
+|__ Consider the popular [profile options](/docs/vpc?topic=vpc-profiles#profiles) of vCPU and RAM combinations for your workload. Profiles contain preconfigured instances that are ready to use in a matter of minutes. It's important to ensure that your instances have the necessary resources to keep your workloads and your environment up and running. For IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles).|
 |__ Determine what operating system [image](/docs/vpc?topic=vpc-about-images) to select for your instance. You can choose among the current stock images or specify your own custom image. |
 |__ Make sure you have a unique name for the instance. The instance name must be unique within an account and region. If you have a method to naming virtual server instances, it's much easier to filter and search on them later. |
 |__ Determine how many secondary storage [volumes](/docs/vpc?topic=vpc-block-storage-about#secondary-data-volumes) you need. |
 |__ Determine how many [network interfaces](/docs/vpc?topic=vpc-using-instance-vnics#about-network-interfaces) you need and which [security group](/docs/vpc?topic=vpc-using-security-groups) to attach to each interface.|
 |__ Determine if you want to use placement groups. If you add an instance to an existing placement group, the instance is placed according to the placement group strategy. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc). |
+| For IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances, make sure that you either [enable a public gateway](/docs/vpc?topic=vpc-about-networking-for-vpc#public-gateway-for-external-connectivity) in the subnet, or [reserve a floating IP address](/docs/vpc?topic=vpc-about-networking-for-vpc#floating-ip-for-external-connectivity) and associate it with the network interface of the instance just after instance creation. |
 {: caption="Table 1. Checklist for planning to provision instances" caption-side="top"}
 
 ## Next steps
