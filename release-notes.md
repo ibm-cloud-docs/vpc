@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-07-01"
+lastupdated: "2022-07-08"
 
 keywords:
 
@@ -28,6 +28,19 @@ For information about changes to the {{site.data.keyword.vpc_short}} command lin
 
 ## July 2022
 {: #vpc-july22}
+
+### 07 July 2022
+{: #vpc-july072022}
+{: release-note}
+
+Client VPN for VPC (Beta)
+:    Client VPN for VPC now supports Secrets Manager certificate authentication in addition to Certificate Manager. 
+:    Client VPN for VPC now supports Secrets Manager certificate authentication in addition to Certificate Manager. For more information, see [Creating a VPN server](/docs/vpc?topic=vpc-vpn-create-server).
+
+:    As of 10 February 2022, IBM Cloud Certificate Manager is deprecated. The strategic alternative for managing certificates in IBM Cloud is Secrets Manager. To maintain current functionality, be sure to migrate to Secrets Manager prior to 30 September 2022. Secrets Manager is a separate product that incurs added costs separate from Client VPN for VPC billing. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager).
+
+:    VPN server is a new resource type that is permitted as a security group target. 
+:    As of 10 February 2022, IBM Cloud Certificate Manager is deprecated. The strategic alternative for managing certificates in IBM Cloud is Secrets Manager. To maintain current functionality, be sure to migrate to Secrets Manager prior to 30 September 2022. Secrets Manager is a separate product that incurs added costs separate from Client VPN for VPC billing. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager). 
 
 ### 01 July 2022
 {: #vpc-july0122}
