@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-07-07"
+lastupdated: "2022-07-11"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -40,7 +40,7 @@ A contract file can have the following four valid high-level sections, of which 
 * [`workload`](#hpcr_contract_workload). Is a mandatory section.
 * [`env`](#hpcr_contract_env). Is a mandatory section.
 * [`attestationPublicKey`](/docs/vpc?topic=vpc-about-attestation#attest_pubkey). Is an optional section. You can provide a public RSA key as part of the contract, which is used to encrypt the attestation document and the attribute must be named as `attestationPublicKey`.
-* `envWorkloadSignature`. Is an optional section. In this section, the signature of the other sections of the contract is added.
+* `EnvWorkloadSignature`. Is an optional section. In this section, the signature of the other sections of the contract is added.
 
 The two primary sections in a contract are the `workload` and `env` sections. These two sections are needed because the information that is added into the contract comes from two different personas, namely the "workload" and the "deployer" persona.
 
@@ -270,7 +270,22 @@ You can encrypt the contents of a contract. Although you can also pass in the co
 
 You can decide which sections of the contract needs encryption. For example, you can choose to [encrypt only the `workload` section](#hpcr_contract_encrypt_workload), or [encrypt only the `env` section](#hpcr_contract_encrypt_env).
 
-When the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance boots, the bootloader decrypts the contract. It takes the value of each of the sections in the contract and decrypts it if it is encrypted. If it finds that a section is not encrypted, it considers it as it is without any decryption. The key used to encrypt the contract is available to the user through public documentation. You must use the public key to encrypt the contract before you pass it as an input through the **User Data** section.
+When the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance boots, the bootloader decrypts the contract. It takes the value of each of the sections in the contract and decrypts it if it is encrypted. If it finds that a section is not encrypted, it considers it as it is without any decryption. You must use the public key to encrypt the contract before you pass it as an input through the **User Data** section.
+
+The encryption and attestation certificates are signed by the IBM intermediate certificate and this has been signed by the IBM Digicert intermediate cert (which in turn is signed by DigiCert Trusted Root G4). For more information about the certificates, see [DigiCert Trusted Root Authority Certificates](https://www.digicert.com/kb/digicert-root-certificates.htm).
+
+
+### Downloading the certificates and extracting the public key
+{: #encrypt_downloadcert}
+
+1. Download the certificates to encrypt the contract [here](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-1-encrypt.crt).
+
+2. Extract the encryption public key from the IBM certificate by using the following command:
+   ```sh
+   openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-1-encrypt.crt > contract-public-key.pub
+   ```
+   {: pre}
+
 
 ### Creating the encrypted `workload` section of a contract
 {: #hpcr_contract_encrypt_workload}
@@ -289,8 +304,11 @@ Complete the following steps to encrypt the workload section used in a contract:
    {: codeblock}
 
    For more information, see [Overview of Docker Compose](https://docs.docker.com/compose/).
-2. Create the [workload section](#hpcr_contract_workload) of the contract and add the contents in the `workload.yaml` file.    
-3. Export the complete path of the `workload.yaml` file and the [`contract-public-key.pub`].
+
+2. Create the [workload section](#hpcr_contract_workload) of the contract and add the contents in the `workload.yaml` file.  
+
+3. Export the complete path of the `workload.yaml` file and the `contract-public-key.pub`
+(from step 3 of [this section](#hpcr_contract_encrypt_env)).
    ```sh
    WORKLOAD="<PATH to workload.yaml>"
    CONTRACT_KEY="<PATH to contract-public-key.pub>"
@@ -303,7 +321,8 @@ Complete the following steps to encrypt the workload section used in a contract:
    ```
    {: pre}
 
-5. Use the following command to encrypt password with [`contract-public-key.pub`]:
+5. Use the following command to encrypt password with `contract-public-key.pub`
+(from step 3 of [this section](#hpcr_contract_encrypt_env)):
    ```sh  
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey cerin.cert -certin | base64 -w0 )"
    ```
@@ -328,7 +347,8 @@ Complete the following steps to encrypt the workload section used in a contract:
 Complete the following steps to encrypt the `env` section used in a contract:
 
 1. Create the [env section](#hpcr_contract_env) of the contract and add the contents in the `env.yaml` file.
-2. Export the complete path of the the `env.yaml` file and the [`contract-public-key.pub`].
+
+2. Export the complete path of the `env.yaml` file and the `contract-public-key.pub` (from step 3 of [this section](#hpcr_contract_encrypt_env)).
    ```sh
    ENV="<PATH to env.yaml>"
    CONTRACT_KEY="<PATH to contract-public-key.pub>"
@@ -341,7 +361,8 @@ Complete the following steps to encrypt the `env` section used in a contract:
    ```
    {: pre}
 
-4. Use the following command to encrypt password with [`contract-public-key.pub`]:
+4. Use the following command to encrypt password with `contract-public-key.pub`
+(from step 3 of [this section](#hpcr_contract_encrypt_env)):
    ```sh  
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey "$CONTRACT_KEY" -pubin | base64 -w0 )"
    ```
@@ -400,7 +421,8 @@ Complete the following steps to create the contract signature:
    ```
    {: codeblock}   
 
-4. Use the following command to export complete path of `env.yaml` and `contract-public-key.pub`:
+4. Use the following command to export complete path of `env.yaml` and `contract-public-key.pub`
+(from step 3 of [this section](#hpcr_contract_encrypt_env)):
    ```sh
    ENV="<PATH to env.yaml>"
    CONTRACT_KEY="<PATH to contract-public-key.pub>"
@@ -413,7 +435,8 @@ Complete the following steps to create the contract signature:
    ```
    {: pre}
 
-6. Use the following command to encrypt password with [`contract-public-key.pub.`]:
+6. Use the following command to encrypt password with `contract-public-key.pub.`
+(from step 3 of [this section](#hpcr_contract_encrypt_env)):
    ```sh
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey "$CONTRACT_KEY" -pubin | base64 -w0 )"  
    ```
