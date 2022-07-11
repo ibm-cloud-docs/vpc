@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-08-26"
+  years: 2021, 2022
+lastupdated: "2022-07-07"
 
 keywords:
 
@@ -20,7 +20,7 @@ Client VPN for VPC is available to all IBM Cloud users. After the Beta period en
 
 Connections are VPN sessions that are established by VPN clients. After a VPN client connects to the VPN server, you can view all VPN clients that connected to the server in the last hour. VPN client information includes the client IP, user ID, status, remote IP, remote port, and session start/end time (if applicable). 
 
-## Disconnecting VPN clients using the UI
+## Disconnecting VPN clients by using the UI
 {: #vpn-client-to-site-ending-connections}
 {: ui}
 
@@ -28,17 +28,17 @@ To disconnect a VPN client from the VPN server, follow these steps:
 
 1. Navigate to the [VPNs for VPC](https://cloud.ibm.com/vpc-ext/network/vpngateways){: external} page and click the **Client-to-site servers** tab. 
 1. Click the name of the VPN server to display its details.
-1. Scroll to the Clients section to view VPN clients that connected in the last hour.
-1. Click the overflow menu ![overflow menu](images/overflow.png) next to the client you want to disconnect, then click **Disconnect**. The disconnected VPN client is automatically deleted after one hour.
-
-   ![Disconnect a VPN client](images/vpn-client-section.png){: caption="VPN client connections" caption-side="bottom"}
+1. Click the Clients tab to view VPN clients that connected in the last 5 minutes.
+1. Click the Actions menu ![Actions menu](images/overflow.png) next to the client that you want to disconnect, then click **Disconnect**. The disconnected VPN client is automatically deleted after one hour.
 
    You can also specify to **Delete** the VPN client, which deletes the client session immediately.
    {: note}
 
-## Disconnecting VPN clients using the CLI
+## Disconnecting VPN clients by using the CLI
 {: #vpn-client-to-site-ending-connections-cli}
 {: cli}
+
+Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
 To disconnect a VPN client by using the CLI, enter the following command:
 
@@ -69,7 +69,7 @@ Disconnection request for VPN client 86b1f0cc-6e83-45e5-bd78-1bef291be6e7 has be
 ```
 {: screen}
 
-## Disconnecting VPN clients using the API
+## Disconnecting VPN clients by using the API
 {: #vpn-client-to-site-ending-connections-api}
 {: api}
 

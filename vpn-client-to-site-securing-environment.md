@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-02"
+lastupdated: "2022-07-07"
 
 keywords:
 
@@ -12,10 +12,13 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Securing your environment with VPN server
+# Securing your environment with VPN server (Beta)
 {: #client-to-site-vpn-securing-environment}
 
-Client-to-site VPN server can help you secure your environment and meet compliance requirements.
+Client VPN for VPC is available to all IBM Cloud users. After the Beta period ends, you will be given a time period to migrate your VPN servers to the standard pricing plan to avoid disruption of service.
+{: beta}
+
+A client-to-site VPN server can help you secure your environment and meet compliance requirements.
 {: shortdesc}
 
 ## Using security groups and ACLs for boundary protection
@@ -37,7 +40,7 @@ You can use both authentication methods together to authenticate client access. 
 
 To authenticate with a username or passcode, be aware of the following:
 
-* This option requires VPN client users to authenticate with your wanted MFA method before a valid passcode can be acquired and used for a VPN connection. It can be configured from the IAM Authentication section (**Manage > Access (IAM) > Settings > Authentication**). Refer to [Enable multifactor authentication](/docs/account?topic=account-enablemfa) for more information. 
+* This option requires VPN client users to authenticate with your wanted MFA method before a valid passcode can be acquired and used for a VPN connection. It can be configured from the IAM Authentication section (**Manage > Access (IAM) > Settings > Authentication**). For more information, see [Enabling multifactor authentication](/docs/account?topic=account-enablemfa). 
 * Username/passcode authentication requires a user to have the IAM VPN server user role. For more information, see [Creating an IAM access group and granting the role to connect to the VPN server](/docs/vpc?topic=vpc-create-iam-access-group). You must configure IAM access groups or access policies to enable this role only for users that require VPN access.
 
 ### Authenticating with client certificates

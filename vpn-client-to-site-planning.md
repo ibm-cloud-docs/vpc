@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-08-26"
+  years: 2021, 2022
+lastupdated: "2022-07-07"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Planning considerations for VPN servers (Beta)
 {: #client-to-site-vpn-planning}
 
-Client VPN for VPC is available to all {{site.data.keyword.cloud}} users. After the Beta period ends, you will be given a time period to migrate your VPN servers to the standard pricing plan to avoid disruption of service.
+Client VPN for VPC is available to all IBM Cloud users. After the Beta period ends, you will be given a time period to migrate your VPN servers to the standard pricing plan to avoid disruption of service.
 {: beta}
 
 Review the following considerations before creating a client-to-site VPN server.
@@ -63,7 +63,7 @@ When you create a VPN server, you can specify either high-availability or stand-
 ### VPN server authentication
 {: #server-authentication}
 
-You must specify a VPN server certificate during provisioning. You can create a certificate using the {{site.data.keyword.cloud_notm}} Certificate Manager, or use one of your own.
+You must specify a VPN server certificate during provisioning. You can create a certificate using the {{site.data.keyword.cloud_notm}} Secrets Manager or Certificate Manager, or use one of your own.
 
    If using the CLI or API, you must specify the certificate's CRN. To obtain the certificate CRN, see [Locating the certificate CRN](/docs/vpc?topic=vpc-client-to-site-authentication#locating-cert-crn).
    {: note}
@@ -80,12 +80,12 @@ For more information, see [Setting up client-to-server authentication](/docs/vpc
 ### VPN client authentication
 {: #client-authentication}
 
-As the VPN server administrator, you must choose at least one authentication method and configure it during the VPN server provisioning. You can choose a client certificate, two-factor authentication with a user ID and passcode, or both types of client authentication.
+As the VPN server administrator, you must choose at least one authentication method and configure it during the VPN server provisioning. You can choose a client certificate, added security with a user ID and passcode, or both types of client authentication.
 
    Multiple VPN clients can share one client certificate.
    {: note}
 
-If you plan to use the client certificate, the user must edit the client profile provided by the server administrator and include the client certificate (also called the public key) and the private key.  Note that modification of the client profile is not necessary if using only two-factor (user ID and passcode) client authentication.
+If you plan to use the client certificate, the user must edit the client profile provided by the server administrator and include the client certificate (also called the public key) and the private key. Note that modification of the client profile is not necessary if using only using "user ID and passcode" client authentication.
 
 VPN users don't use their password directly to connect to the VPN server. They get the passcode from the IBM Access Manager (IAM) via a browser, and if the MFA is enabled, the MFA enforcement is always done via the browser. The user must configure the MFA properly to make sure the MFA enforcement can be done on the browser. After a user gets the passcode, they input the passcode on the OpenVPN client and initiate the connection.
 
@@ -126,7 +126,7 @@ The transport layer oversees the delivery of data from a process on one device t
 
    The sender keeps a record of each packet it sends, and waits for acknowledgment before sending the next packet. The sender also keeps a timer from when the packet was sent, and retransmits a packet if the timer expires. This timer is needed in case a packet becomes lost or corrupted.
 
-### Full versus split tunnel mode
+### Full versus split-tunnel mode
 {: #full-versus-split-tunnels}
 
 When a VPN connection is set up, an encrypted tunnel is created over the internet to the VPN server. The VPN connection appears as a virtual network interface to the computer in addition to the existing LAN interface. You can now use both interfaces simultaneously by sending the private traffic destined to the VPC inside the VPN tunnel and the public traffic (internet traffic) over the other interface (outside the VPN tunnel). When the traffic is split between the VPN interface and other interfaces, _split tunneling_ is said to be in use. When split tunneling is not in use, all the traffic uses the VPN interface, resulting in the internet traffic being sent into the VPN tunnel, which is _full-tunnel_.
@@ -139,11 +139,10 @@ Other considerations:
 
 No matter which tunnel mode you choose, you must use the API `/vpn_servers/{id}/routes` to define how the VPN server forwards the traffic from the VPN client. For example, if you want the internet traffic from the client to go through the VPN tunnel, a `0.0.0.0/0` route must be configured using the VPN service routes API.
 
-
 ### Supported VPN client software
 {: #vpn-client-software}
 
-You must provide VPN client software for your users. The following client software versions are verified for use with this beta release:
+You must provide VPN client software for your users. The following client software versions are verified for use:
 
 * For macOS Catalina and later: [OpenVPN Connect v3](https://openvpn.net/vpn-client/#tab-macos){: external}, OpenVPN Connect v2, and Tunnelblick 3.8.4
 * Windows 8 and later: [OpenVPN Connect v3](https://openvpn.net/vpn-client/#tab-windows){: external}, OpenVPN Connect v2

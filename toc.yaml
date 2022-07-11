@@ -105,6 +105,7 @@ toc:
             - console-tutorial.md
             - user-access-to-dedicated-hosts-and-groups.md
             - creating-and-using-an-image-from-volume.md
+            - vpn-openvpn-client-tutorial.md
         - topicgroup:
             label: Solution tutorials
             topics:
@@ -599,6 +600,7 @@ toc:
                 - vpn-ts-unable-establish-connection.md
                 - vpn-ts-traffic-not-getting-through.md
                 - vpn-ts-unstable-connection.md
+                - vpn-ts-routing-issues.md
             - topicgroup:
                 label: Troubleshooting client-to-site VPN servers (Beta)
                 topics:

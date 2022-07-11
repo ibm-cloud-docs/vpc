@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-08-26"
+  years: 2021, 2022
+lastupdated: "2022-07-07"
 
 keywords:
 
@@ -24,17 +24,29 @@ To create an IAM access group and grant the user role to connect to the VPN serv
 
 1. From the IBM Cloud console, navigate to the [Access groups](https://cloud.ibm.com/iam/groups){: external} page (**Manage > Access (IAM) > Access groups**) and click **Create**.
 1. Type a name for your access group and optional description, then click **Create**.
-1. Click the **Access policies** tab, then click **Assign access**.
-1. From the drop-down menu, select **VPC Infrastructure Services**. 
+1. Click the **Access** tab, then click **Assign access**.
+1. From the drop-down menu, select **VPC Infrastructure Services**. Then, click **Next**.
 
-   ![Assigning access to an access group](images/vpn-access-role.png){: caption="Assigning access to an access group" caption-side="bottom"}
+   ![Assigning access to an access group](images/vpn-iam1.png){: caption="Assigning access to an access group" caption-side="bottom"}
 
-1. For Service access, select **Users of the VPN server need this role to connect to the VPN server**, then click **Add**.
+1. For Resources, select **All resources**, then click **Next**.
+1. For Roles and actions, select **Users of the VPN server need this role to connect to the VPN server**, then click **Review**.
 
-   ![Assigning access role to an access group](images/vpn-access.png ){: caption="Assigning an access role to an access group" caption-side="bottom"}
+   ![Selecting level of access](images/vpn-iam2.png ){: caption="Selecting level of access" caption-side="bottom"}
 
-1. Review the Access summary panel and click **Assign**.
-1. Click the **Users** tab and then click **Add users** to add users to the new access group.
+1. Review the Create policy summary and click **Add**.
+1. In the Access summary side panel, click **Assign**.
+3. Add users to your group.
 
+   * For existing users:
+      * Click the **Users** tab, then click **Add users**.
+      * Select the checkboxes next to each user that requires VPN Client for VPC access, then click **Add to group**.
+   * For new users:
+      * Click **Manage > Access (IAM)**, then click **Invite users** in the upper right.
+      * Enter the email address of each user that needs to be invited in the "Enter email address" box. Separate emails by commas, spaces, or line breaks. You can enter up to 100 email addresses.
+      * In the group table, click the **Add** link next to the IAM group that you just created, then click **Invite**. 
+        
+        Each user receives an email asking them to join an account in IBM Cloud.
+      
 For more information, see [Setting up access groups](/docs/account?topic=account-groups). For IAM required permissions and the minimum IAM role to perform a task, see [Client-to-site VPN server tasks](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls#vpn-server-authorizations-required-for-api-and-cli-calls).
 {: note}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-08-26"
+  years: 2021, 2022
+lastupdated: "2022-07-07"
 
 keywords:  
 
@@ -16,6 +16,9 @@ subcollection: vpc
 {: #vpn-create-server}
 {: help}
 {: support}
+
+Client VPN for VPC is available to all IBM Cloud users. After the Beta period ends, you will be given a time period to migrate your VPN servers to the standard pricing plan to avoid disruption of service.
+{: beta}
 
 Create a VPN server to allow clients from the internet to connect to the VPC network while maintaining secure connectivity.
 {: shortdesc}
@@ -42,34 +45,33 @@ Before you provision a VPN server, complete the following prerequisites in the f
 
 1. Optionally, if you plan to configure access control lists (ACLs) for use with the VPN, see [Configuring security groups and ACLs for use with VPN](/docs/vpc?topic=vpc-vpn-client-to-site-security-groups).
 
-   To configure security groups for use with a VPN, you must do so during VPN server provisioning ([VPN server limitation](/docs/vpc?topic=vpc-vpn-client-vpn-limitations)). At least one security group is required.
-   {: important}         
+   To configure security groups for use with a VPN, you must do so during VPN server provisioning. At least one security group is required.
+   {: note}   
 
-## Creating a VPN server using the UI
+## Creating a VPN server by using the UI
 {: #creating-vpn-server-ui}
 {: ui}
 
-To create a client-to-site VPN server using the UI:
+To create a client-to-site VPN server by using the UI:
 
 1. Complete all prerequisites in the "Before you begin" section.
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
 1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) on the upper left of the page, then click **VPC Infrastructure > VPNs** in the Network section.
-
-    If starting from the VPC Infrastructure menu, click **VPN gateways** in the Network section to open the {{site.data.keyword.vpn_vpc_short}} page.
-    {: tip}
-
 1. Click **Create** in the upper right of the page.
-1. In the VPN type section, click **Client-to-site server**.
+1. In the VPN type section, click **Client-to-site servers**.
 
    ![VPN type section](images/vpn-type.png){: caption="VPN type section" caption-side="bottom"}
 
+   
+   The Locations section shows the region where the VPC is located and where the VPN server will be provisioned.
+   {: tip}
 
 1. In the Details section, specify the following information:
 
    * **VPN server name** - Enter a name for the VPN server, such as `my-vpn-server`.
    * **Resource group** - Select a resource group for the VPN server.
-   * **Region** - Shows the region where the VPC is located and where the VPN server will be provisioned.
-   * **Virtual Private Cloud** - Select the VPC for the VPN server.
+   * **Tags** - Add tags to organize, track usage costs, or manage access to your resources. 
+   * **Virtual private cloud** - Select the VPC for the VPN server.
    * **Client IPv4 address pool** - Enter a CIDR range. The client is assigned an IP address for its session from this address pool.
 
       ![VPN details section](images/vpn-details.png){: caption="VPN details section" caption-side="bottom"}
@@ -87,27 +89,27 @@ To create a client-to-site VPN server using the UI:
 
 1. In the Authentication section, specify the following information:
 
-   * **VPN server authentication** - Select the server certificate manager and server SSL certificate.   
+   * **VPN server authentication** - Select the server SSL certificate from Secrets Manager or Certificate Manager. Complete all required fields.
 
       ![VPN server authentication section](images/vpn-server-authentication.png){: caption="VPN server authentication section" caption-side="bottom"}
 
    * **Client authentication modes** - Select to configure user authentication through the use of a client certificate, user ID and passcode, or both.   
 
-      * Client certificate - You can select a client certificate and configure a user ID and passcode for optimal security. A user ID and passcode provides two-factor authentication, which is an added layer of security that requires additional login credentials for account access.
+      * Client certificate - You can select a client certificate and configure a user ID and passcode for optimal security. A user ID and passcode provides an added layer of security that requires additional login credentials for account access.
 
          Optionally, you can upload a Certificate Revocation List (CRL) in PEM format. After you upload a CRL, the PEM file shows as the name of the VPN server.
          {: note}
 
-      * User ID and passcode - Configure Two-Factor Authentication (2FA) for your account. 2FA offers an added layer of security that integrates with IBM Cloud IAM to complete the 2FA authentication. When 2FA is completed, the system passes the code to the openVPN client for authentication.
+      * User ID and passcode - Configure added authentication for VPN client users. This authentication method offers an added layer of security that integrates with IBM Cloud IAM to complete the client authentication. When authentication is completed, the system passes the code to the openVPN client for authentication.
 
       ![VPN client authentication section](images/vpn-client-authentication.png){: caption="VPN client authentication section" caption-side="bottom"}
 
 1. In the Security groups section, select at least one security group. To configure one or more security groups and their rules, see [Configuring ACLs and security groups for use with VPN](/docs/vpc?topic=vpc-acls-security-groups-vpn).
 
-   Currently, you can attach security groups only during VPN server provisioning.
-   {: note}
-
-   ![VPN security groups section](images/vpn-security-groups.png){: caption="VPN security groups section" caption-side="bottom"}
+   ![VPN security groups section](images/vpn-security-groups.png){: caption="VPN security groups section" caption-side="bottom"}   
+   
+   You can attach security groups after provisioning from the VPN server's details page (Security Groups tab). 
+   {: tip}
 
 1. In the **Additional configuration** section, specify the following information:
 
@@ -127,6 +129,8 @@ To create a client-to-site VPN server using the UI:
 ## Creating a VPN server using the CLI
 {: #vpn-create-server-cli}
 {: cli}
+
+Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
 
 To create a VPN server by using the CLI, enter the following command:
 
