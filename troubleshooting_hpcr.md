@@ -77,7 +77,7 @@ If the contract schema is incorrect, the contract validation fails when the inst
 ### Contract encryption key
 {: #hpcr_troubleshoot_contract_encryptkey}
 
-If you opt to use contract encryption, then you must take the [correct key](/docs/vpc?topic=vpc-about-contract_se##encrypt_downloadcert). The contract is decrypted by the bootloader and if it is not encrypted by the correct key, then you see decryption failures errors in the serial console of the instance.
+If you opt to use contract encryption, then you must take the [correct key](/docs/vpc?topic=vpc-about-contract_se#encrypt_downloadcert). The contract is decrypted by the bootloader and if it is not encrypted by the correct key, then you see decryption failures errors in the serial console of the instance.
 
 ### Logging configuration failure
 {: #hpcr_troubleshoot_logconfig}
