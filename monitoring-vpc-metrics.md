@@ -2,7 +2,7 @@
 
 copyright:
   years:  2020, 2022
-lastupdated: "2022-06-20"
+lastupdated: "2022-07-08"
 
 keywords: IBM Cloud monitoring, platform metrics, metrics, vpc metrics, vpc monitoring metrics
 
@@ -216,6 +216,9 @@ The cumulative number of dropped outgoing packets for a network interface since 
 
 ## Memory monitoring metrics
 {: #memory-metrics}
+
+For IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances, the memory metrics cannot be collected because IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances are created using Secure Execution images and the memory of a secure execution instance is not accessible.
+{: note}
 
 ### Free memory
 {: #free-memory-gen2}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-10"
+lastupdated: "2022-07-08"
 
 keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -30,7 +30,7 @@ subcollection: vpc
 
 For {{site.data.keyword.block_storage_is_short}} boot and data volumes, you can increase volume capacity from its initial setting, within limits.
 {: shortdesc}
- 
+
 ## Expandable volume concepts
 {: #expandable-volume-concepts}
 
@@ -59,13 +59,16 @@ Volumes that are created from a [Custom profile](/docs/vpc?topic=vpc-block-stora
 
 You can monitor the progress of your volume expansion from the UI or CLI. You can also use the [Activity Tracker](/docs/vpc?topic=vpc-at-events) to verify that the volume was expanded. After a volume is expanded, you can't reduce capacity.
 
+You can resize a data volume that is attached to an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instance, however you must restart the instance to use the resized volume.
+{: note}
+
 *z/OS - Experimental* When you expand block storage volume capacity on an existing z/OS virtual server instance, a new device address is broadcasted to the users with the additional storage size.
 {: note}
 
 ### Boot volumes
 {: #expand-boot-vols}
 
-By default, when you create an instance from a stock image, a 100 GB, 3,000 IOPS boot volume is created and attached to the instance. Instances created from a custom image can have a boot volume capacity 10 GB to 250 GB. 
+By default, when you create an instance from a stock image, a 100 GB, 3,000 IOPS boot volume is created and attached to the instance. Instances created from a custom image can have a boot volume capacity 10 GB to 250 GB.
 
 For either stock or custom images, you can increase boot volume capacity from it's minimum provisioned size up to 250 GB, either when provisioning a new instance or by updating the boot volume from the list of block storage volumes. For more information, see [Increasing boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes).
 

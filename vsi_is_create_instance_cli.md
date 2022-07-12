@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-02-22"
+lastupdated: "2022-07-08"
 
 keywords: instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, creating, CLI, command line interface, generation 2, gen 2, placement groups
 
@@ -130,32 +130,52 @@ Use the following commands to determine the required information for creating a 
    For this example, you'd see a response similar to the following output:
    ```
    Name            vCPU Manufacturer   Architecture   Family        vCPUs   Memory(GiB)   Bandwidth(Mbps)   Volume bandwidth(Mbps)   GPUs   Storage(GB)   
-   ba2-2x8         AMD                 amd64          balanced      2       8             4000              1000                     -      -   
-   bx2-2x8         Intel               amd64          balanced      2       8             4000              1000                     -      -   
-   bx2d-2x8        Intel               amd64          balanced      2       8             4000              1000                     -      1x75   
-   ba2-8x32        AMD                 amd64          balanced      8       32            16000             4000                     -      -   
-   bx2d-8x32       Intel               amd64          balanced      8       32            16000             4000                     -      2x300   
-   ba2-32x128      AMD                 amd64          balanced      32      128           64000             16000                    -      -   
-   ba2-48x192      AMD                 amd64          balanced      48      192           80000             20000                    -      -   
-   ca2-2x4         AMD                 amd64          compute       2       4             4000              1000                     -      -   
-   cx2-2x4         Intel               amd64          compute       2       4             4000              1000                     -      -   
-   cx2d-48x96      Intel               amd64          compute       48      96            80000             20000                    -      2x400   
-   ca2-4x8         AMD                 amd64          cpu           4       8             8000              2000                     -      -   
-   ca2-16x32       AMD                 amd64          cpu           16      32            32000             8000                     -      -   
-   ca2-32x64       AMD                 amd64          cpu           32      64            64000             16000                    -      -   
-   gp2-16x128x4    Intel               amd64          gpu           16      128           32000             8000                     4      -   
-   ux2d-104x2912   Intel               amd64          high-memory   104     2912          80000             20000                    -      1x3120   
-   ux2d-128x3584   Intel               amd64          high-memory   128     3584          80000             20000                    -      1x3584   
-   ma2-2x16        AMD                 amd64          memory        2       16            4000              1000                     -      -   
-   mx2-2x16        Intel               amd64          memory        2       16            4000              1000                     -      -   
-   mx2d-2x32       Intel               amd64          memory        2       32            4000              1000                     -      1x75   
-   ma2-4x32        AMD                 amd64          memory        4       32            8000              2000                     -      -   
-   ma2-8x64        AMD                 amd64          memory        8       64            16000             4000                     -      -   
-   ma2-16x128      AMD                 amd64          memory        16      128           32000             8000                     -      -   
-   ma2-32x256      Intel               amd64          memory        32      256           64000             16000                    -      -   
-   bz2-2x8         IBM                 s390x          balanced      2       8             4000              1000
+   bz2-1x4         IBM                 s390x          balanced           1       4             2000              500                      -     -
+   bz2e-1x4        IBM                 s390x          balanced           1       4             2000              500                      -      
+   ba2-2x8         AMD                 amd64          balanced           2       8             4000              1000                     -      -   
+   bx2-2x8         Intel               amd64          balanced           2       8             4000              1000                     -      -  
+   bz2-2x8         IBM                 s390x          balanced           2       8             4000              1000                     -      
+   bz2e-2x8        IBM                 s390x          balanced           2       8             4000              1000                     -       
+   bx2d-2x8        Intel               amd64          balanced           2       8             4000              1000                     -      1x75   
+   ba2-8x32        AMD                 amd64          balanced           8       32            16000             4000                     -      -   
+   bx2d-8x32       Intel               amd64          balanced           8       32            16000             4000                     -      2x300   
+   ba2-32x128      AMD                 amd64          balanced           32      128           64000             16000                    -      -   
+   ba2-48x192      AMD                 amd64          balanced           48      192           80000             20000                    -        
+   ca2-2x4         AMD                 amd64          compute            2       4             4000              1000                     -      -   
+   cx2-2x4         Intel               amd64          compute            2       4             4000              1000                     -      -   
+   cz2-2x4         IBM                 s390x          compute            2       4             4000              1000                     -      -
+   cz2e-2x4        IBM                 s390x          compute            2       4             4000              1000                     -      -
+   cx2d-48x96      Intel               amd64          compute           48      96            80000             20000                    -      2x400   
+   ca2-4x8         AMD                 amd64          cpu               4       8             8000              2000                     -      -   
+   ca2-16x32       AMD                 amd64          cpu               16      32            32000             8000                     -      -   
+   ca2-32x64       AMD                 amd64          cpu               32      64            64000             16000                    -      -   
+   gp2-16x128x4    Intel               amd64          gpu               16      128           32000             8000                     4      -   
+   ux2d-104x2912   Intel               amd64          high-memory       104     2912          80000             20000                    -      1x3120   
+   ux2d-128x3584   Intel               amd64          high-memory       128     3584          80000             20000                    -      1x3584   
+   ma2-2x16        AMD                 amd64          memory            2       16            4000              1000                     -      -   
+   mx2-2x16        Intel               amd64          memory            2       16            4000              1000                     -      -   
+   mz2-2x16        IBM                 s390x          memory            2       16            4000              1000                     -      -
+   mz2e-2x16       IBM                 s390x          memory            2       16            4000              1000                     -      -
+   mx2d-2x32       Intel               amd64          memory            2       32            4000              1000                     -      1x75   
+   ma2-4x32        AMD                 amd64          memory            4       32            8000              2000                     -      -   
+   ma2-8x64        AMD                 amd64          memory            8       64            16000             4000                     -      -   
+   ma2-16x128      AMD                 amd64          memory            16      128           32000             8000                     -      -   
+   ma2-32x256      Intel               amd64          memory            32      256           64000             16000                    -      -   
+   mz2-16x128      IBM                 s390x          memory            16      128           32000             8000                     -      -
+   mz2e-16x128     IBM                 s390x          memory            16      128           32000             8000                     -      -
+
    ```
    {: screen}
+
+   Secure execution enabled profiles are now available, and they can be identified by the fourth character of the profile name which is an "e", such as bz2e. For more information, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). The secure execution enabled profiles are available for balanced, compute, and memory families. You must ensure that you use secure enabled profiles when using the IBM Hyper Protect Container Runtime image. Profile validation for the IBM provided stock images and the IBM Hyper Protect Container Runtime image is done in the RIAS layer and any profile mismatch results in an error message similar to the following:
+   ```
+   FAILED
+   Response HTTP Status Code: 400
+   Error code: bad_field
+   Error message: Image OS IBM Hyper Protect is not supported by the instance profile <profile_name>
+   Error target name: profile, type: field
+   ```
+   {: note}
 
 6. List the available images for creating your instance.
    ```
@@ -258,14 +278,14 @@ After you know these values, use them to run the `instance-create` command. In a
    - `METADATA-SERVICE` is set to `true` to enable it. By default, it is disabled and set to `false`.
 
    For this example, you'd see the following responses.
-   
+
    The following response varies depending on what optional values you use.
    {: note}
-  
+
    ```
    ibmcloud is inc test r134-a0162c41-6a75-4a04-aabb-da1c78539531 us-south-2  bx2-2x8  7284-47efd8c6-0efc-462e-89c0-e0457119f90b --image r134-63363662-a4ee-4ba4-a6c4-92e6c78c6b58 --host-failure-policy stop
    Creating instance test under account VPC1 as user myuser@mycompany.com...
-                                            
+
    ID                                    7284_683902df-85ce-4546-808c-3675247074d8   
    Name                                  test   
    CRN                                   crn:v1:staging:public:is:us-south-2:a/efe5afc483594adaa8325e2b4d1290df::instance:7284_683902df-85ce-4546-808c-3675247074d8   
@@ -280,14 +300,14 @@ After you know these values, use them to run the `instance-create` command. In a
    Bandwidth(Mbps)                       4000   
    Image                                 ID                                          Name      
                                          r134-63363662-a4ee-4ba4-a6c4-92e6c78c6b58   ibm-centos-7-9-minimal-amd64-3      
-                                            
+
    VPC                                   ID                                          Name      
                                          r134-a0162c41-6a75-4a04-aabb-da1c78539531   cli-vpc-1      
-                                            
+
    Zone                                  us-south-2   
    Resource group                        ID                                 Name      
                                          11caaa983d9c4beb82690daab08717e9   Default      
-                                            
+
    Created                               2021-10-25T16:39:30+05:30   
    Boot volume                           ID   Name           Attachment ID                               Attachment name      
                                          -    PROVISIONING   7284-69923add-65e2-4b93-bee4-a4bca3836696   collector-reverb-exiting-swinging

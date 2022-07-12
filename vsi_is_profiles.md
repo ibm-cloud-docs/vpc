@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2022
-lastupdated: "2022-06-30"
+lastupdated: "2022-07-08"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -19,6 +19,8 @@ When you provision {{site.data.keyword.vsi_is_full}}, you can select from six fa
 
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, network bandwidth, and default bandwidth allocation. The attributes define the size and capabilities of the virtual server instance that is provisioned. In the {{site.data.keyword.Bluemix_notm}} console, you can select the most recently used profile or click **View All Profiles** to choose the profile that best fits your needs.
 {: shortdesc}
+
+For more information about profiles for IBM Z (s390x processor architecture), see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles).
 
 The following profile families are available:
 
@@ -38,10 +40,7 @@ Profiles with instance storage and profiles with 64 or more vCPUs are deployed e
 ## Balanced
 {: #balanced}
 
-Balanced profiles provide a mix of performance and scalability for more common workloads with a ratio of 4 GiB of memory for every 1 vCPU of compute. The Balanced profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Balanced profiles available for Intel&reg; x86-64 and s390x processors.
-
-s390x processor architecture profiles can be used to provision LinuxONE virtual server instances and IBM Wazi as a Service (Wazi aaS) virtual server instances. These profiles are available in Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. Provisioning Wazi aaS instances requires allow-list access. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service).
-{: preview}
+Balanced profiles provide a mix of performance and scalability for more common workloads with a ratio of 4 GiB of memory for every 1 vCPU of compute. The Balanced profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Balanced profiles available for Intel&reg; x86-64  processors.
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|---------|
@@ -70,29 +69,10 @@ s390x processor architecture profiles can be used to provision LinuxONE virtual 
 {: class="simple-tab-table"}
 {: summary="Balanced profiles options for Intel x86-64 virtual server instances."}
 
-| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
-|---------|---------|---------|---------|---------|--------|
-| bz2-1x2 | 1 | - | 2 | 2 | - |
-| bz2-1x4 | 1 | - | 4 | 2 | - |
-| bz2-2x8 | 2 | 1 | 8 | 4 | - |
-| bz2-4x16 | 4 | 2 | 16 | 8 | - |
-| bz2-8x32 | 8 | 4 | 32 | 16 | - |
-| bz2-16x64 | 16 | 8 | 64 | 32 | - |
-{: caption="Table 3. Balance profiles options for s390x instances" caption-side="bottom"}
-{: #balanced-s390x}
-{: tab-title="s390x"}
-{: tab-group="Balanced"}
-{: class="simple-tab-table"}
-{: summary="Balanced profiles options for s390x virtual server instances."}
-
-
 ## Compute
 {: #compute}
 
-Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers that can benefit from 2 GiB of memory for every 1 vCPU of compute. The Compute profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Compute profiles available for &reg; x86-64 and s390x processors.
-
-s390x processor architecture profiles can be used to provision LinuxONE virtual server instances and IBM Wazi as a Service (Wazi aaS) virtual server instances. These profiles are available in Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. Provisioning Wazi aaS instances requires allow-list access. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service).
-{: preview}
+Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers that can benefit from 2 GiB of memory for every 1 vCPU of compute. The Compute profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Compute profiles available for &reg; x86-64 processors.
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|---------|
@@ -121,27 +101,10 @@ s390x processor architecture profiles can be used to provision LinuxONE virtual 
 {: class="simple-tab-table"}
 {: summary="Compute profiles options for Intel x86-64 virtual server instances."}
 
-| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
-|---------|---------|---------|---------|---------|---------|
-| cz2-2x4 | 2 | 1 | 4 | 2 | - |
-| cz2-4x8 | 4 | 2 | 8 | 8 | - |
-| cz2-8x16 | 8 | 4 | 16 | 16 | - |
-| cz2-16x32 | 16 | 8 | 32 | 32 | - |
-{: caption="Table 4. Compute profiles options for s390x instances" caption-side="bottom"}
-{: #compute-s390x}
-{: tab-title="s390x"}
-{: tab-group="Compute"}
-{: class="simple-tab-table"}
-{: summary="Compute profiles options for s390x virtual server instances."}
-
-
 ## Memory
 {: #memory}
 
-Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads with 8 GiB of memory for every 1 vCPU of compute. The Memory profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Memory profiles available for Intel&reg; x86-64 and s390x processors.
-
-s390x processor architecture profiles can be used to provision LinuxONE virtual server instances and IBM Wazi as a Service (Wazi aaS) virtual server instances. These profiles are available in Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. Provisioning Wazi aaS instances requires allow-list access. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service).
-{: preview}
+Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads with 8 GiB of memory for every 1 vCPU of compute. The Memory profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Memory profiles available for Intel&reg; x86-64 processors.
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|---------|
@@ -170,18 +133,6 @@ s390x processor architecture profiles can be used to provision LinuxONE virtual 
 {: class="simple-tab-table"}
 {: summary="Memory profiles options for Intel x86-64 virtual server instances."}
 
-| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
-|---------|---------|---------|---------|---------|---------|
-| mz2-2x16 | 2 | 1 | 16 | 4 | - |
-| mz2-4x32 | 4 | 2 | 32 | 8 | - |
-| mz2-8x64 | 8 | 4 | 64 | 16 | - |
-| mz2-16x128 | 16 | 8 | 128 | 32 | - |
-{: caption="Table 5. Memory profiles options for s390x instances" caption-side="bottom"}
-{: #memory-s390x}
-{: tab-title="s390x"}
-{: tab-group="Memory"}
-{: class="simple-tab-table"}
-{: summary="Memory profiles options for s390x virtual server instances."}
 
 {: #callout-note}
 
@@ -330,7 +281,6 @@ The first character represents the profile families. Different profile families 
 
 The second character represents the CPU architecture.
 - "x": x86_64
-- "z": s390x
 <!-- * POWER deprecates on Aug. 22 -->
 
 The third character represents the generation of the IBM Cloud infrastructure where the profile is provisioned.

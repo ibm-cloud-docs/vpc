@@ -52,12 +52,14 @@ toc:
                label: Images
                topics:
                - vsi-images.md
+               - s390x-vsi-images.md
                - os-lifecycle.md
                - bare_metal_server_image.md
            - topicgroup:
                label: Profiles
                topics:
                - vsi_is_profiles.md
+               - s390x-vsi-profiles.md
                - vsi_is_dh_profile.md
                - bare_metal_server_profile.md
                - profiles_benchmark.md
@@ -65,6 +67,12 @@ toc:
            - vsi_is_provisioning_scripts.md
            - ip-spoofing-about.md
            - instance-profiles-vpc-bandwidth.md
+           - topicgroup:
+               label: Confidential computing with LinuxONE
+               topics:
+               - about-confidential-computing.md
+               - about-attestation.md
+               - about-contract.md
            - host-failure-recovery.md
        - topicgroup:
            label: Storage
@@ -287,7 +295,7 @@ toc:
                 label: Client-to-site-servers (Beta)
                 topics:
                 - vpn-client-to-site.md
-                - vpn-client-to-site-planning.md                
+                - vpn-client-to-site-planning.md
                 - vpn-client-to-site-securing-environment.md
                 - vpn-client-to-site-access-groups.md
                 - vpn-client-to-site-auth.md
@@ -557,6 +565,7 @@ toc:
             topics:
             - troubleshooting.md
             - bare_metal_server_troubleshoot.md
+            - troubleshooting_hpcr.md
             - block_storage_is_troubleshoot.md
             - backup_service_vpc_troubleshoot.md
             - topicgroup:

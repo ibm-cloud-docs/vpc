@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-04-25"
+lastupdated: "2022-07-08"
 
 keywords:
 
@@ -61,6 +61,9 @@ To detach a volume:
 
 Alternatively, you can click an individual volume in the list of all block storage volumes and go to the **Volume Details** page for that volume. Under **Attached instances**, click the minus sign next to the virtual server instance to detach the volume from that instance.
 
+When you create an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instance, detaching the data volume attached to a running instance causes the workload running on the instance to fail, therefore it is recommended that you do not detach the data volume.
+{: note}
+
 ### Transfer a block storage volume from one virtual server instance to another
 {: #transfer}
 
@@ -107,7 +110,7 @@ Volume names must be unique across the entire VPC infrastructure. For example, i
 
 Deleting a block storage volume completely removes its data. The volume cannot be restored.
 
-You cannot delete an active block storage volume. To delete a volume, first [detach it](#detach) from the virtual server instance. If you took snapshots of the volume, all snapshots must be in a `stable` state. 
+You cannot delete an active block storage volume. To delete a volume, first [detach it](#detach) from the virtual server instance. If you took snapshots of the volume, all snapshots must be in a `stable` state.
 
 To delete a volume:
 
@@ -131,14 +134,14 @@ To enable Auto Delete for an existing block storage data volume that is attached
 1. On the next page, click **Auto Delete** to enable.
 1. Confirm your selection.
 
-Alternatively, select a data volume from the list of block storage volumes (**Storage > Block storage volumes**). On the volume details page, under **Attached instances**, click the **Auto delete** toggle to enable or disable automatic deletion. 
+Alternatively, select a data volume from the list of block storage volumes (**Storage > Block storage volumes**). On the volume details page, under **Attached instances**, click the **Auto delete** toggle to enable or disable automatic deletion.
 
 You can also enable Auto Delete on a new data volume when you create an instance. For information, see [Create and attach a block storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi).
 
 ### Apply tags associated with a backup policy to a volume using the UI
 {: #apply-tags-volumes-ui}
 
-You can apply user tags associated with a backup policy to a block storage volume. Backup policies schedule automatic creation of backup snapshots. When one volume tag matches a backup policy tag for target resources, it triggers a backup of the volume contents. A backup policy defines a backup plan that schedules when backup snapshots are taken. 
+You can apply user tags associated with a backup policy to a block storage volume. Backup policies schedule automatic creation of backup snapshots. When one volume tag matches a backup policy tag for target resources, it triggers a backup of the volume contents. A backup policy defines a backup plan that schedules when backup snapshots are taken.
 
 
 From the [volume details](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-vol-details-ui) page, you can view backup policies applied to the volume and add user tags associated with a backup policy.
@@ -151,7 +154,7 @@ From the [volume details](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui
 
 4. Click **Attach**.
 
-5. In the side panel, select a backup policy from the drop down menu, and then select the policy tags to apply to the volume. You can also view the plan details that will help you decide whether to use that policy. 
+5. In the side panel, select a backup policy from the drop down menu, and then select the policy tags to apply to the volume. You can also view the plan details that will help you decide whether to use that policy.
 
 6. Click **Apply policy and tags**. The backup policy shows in the list of backup policies associated with the volume.
 
@@ -322,7 +325,7 @@ A successful response looks like the following example:
 ### Update a volume attachment with the API
 {: #update-vol-attachment-api}
 
-Make a `PATCH /instances` call and specify the ID of the new volume attachment. 
+Make a `PATCH /instances` call and specify the ID of the new volume attachment.
 
 ```zsh
 PATCH /instances/{instance_id}/volume_attachments/{id}
@@ -384,7 +387,7 @@ call.
 ### Delete a block storage volume from the API
 {: #delete-vol-api
 
-Make a `DELETE /volumes/{id}` call. 
+Make a `DELETE /volumes/{id}` call.
 
 ```curl
 curl -X DELETE "$vpc_api_endpoint/v1/volumes/$volume_id?version=2022-04-22&generation=2" \
@@ -405,7 +408,7 @@ For more information and examples, see [Apply tags to block storage volumes](/do
 ## Access volume read/write metrics
 {: #block-storage-metrics}
 
-You can view read/write metrics for your block storage volumes attached to a virtual server instance: 
+You can view read/write metrics for your block storage volumes attached to a virtual server instance:
 
 * [Cumulative number of bytes read for a volume](/docs/vpc?topic=vpc-vpc-monitoring-metrics#bytes-read-for-volume-gen2) since the virtual server instance started.
 * [Cumulative number of bytes written for a volume](/vpc?topic=vpc-vpc-monitoring-metrics#bytes-written-for-volume-gen2) since virtual server instance started.
@@ -413,7 +416,7 @@ You can view read/write metrics for your block storage volumes attached to a vir
 ## Block storage data eradication
 {: #block-storage-data-eradication}
 
-When you delete a block storage volume, that data immediately becomes inaccessible. All pointers to the data on the physical disk are removed. If you later create a new volume in the same or another account, a new set of pointers is assigned. The account can't access any data that was on the physical storage because those pointers are deleted. When new data is written to the disk, any inaccessible data from the deleted volume is overwritten. 
+When you delete a block storage volume, that data immediately becomes inaccessible. All pointers to the data on the physical disk are removed. If you later create a new volume in the same or another account, a new set of pointers is assigned. The account can't access any data that was on the physical storage because those pointers are deleted. When new data is written to the disk, any inaccessible data from the deleted volume is overwritten.
 
 IBM guarantees that data deleted cannot be accessed and that deleted data is eventually overwritten and eradicated. Further, when you delete a block storage volume, those blocks must be overwritten before that block storage is made available again, either to you or to another customer.
 

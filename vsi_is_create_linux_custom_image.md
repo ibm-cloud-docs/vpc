@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-11-12"
+  years: 2019, 2022
+lastupdated: "2021-07-08"
 
 keywords: creating a linux custom image, cloud-init, qcow2, vhd
 
@@ -36,9 +36,11 @@ Your image must adhere to the following custom image requirements:
 * Contains a single file or volume in qcow2 or VHD format.
 * Is cloud-init enabled.
 * The operating system is supported as a stock image operating system.
-* The image is configured to use BIOS boot mode. UEFI boot mode is not supported. 
+* The image is configured to use BIOS boot mode. UEFI boot mode is not supported.
 * Image size doesn't exceed 250 GB.
 * Image size isn't below 10 GB. Images below 10 GB are rounded up to 10 GB.
+
+To create secure execution-based custom images by using the Cloud Object Storage option, see [Preparing the workload](https://www.ibm.com/docs/en/linux-on-systems?topic=tasks-prepare-workload). For information about creating secure execution-based images, [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=overview-introducing-secure-execution-linux).
 
 Complete the following steps to ensure that your own Linux custom image can be successfully deployed in the
 {{site.data.keyword.vpc_short}} infrastructure environment.

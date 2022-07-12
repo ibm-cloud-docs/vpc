@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-06-30"
+lastupdated: "2022-07-08"
 
 subcollection: vpc
 
@@ -20,7 +20,7 @@ subcollection: vpc
 {:external: target="_blank" .external}
 
 
-# Virtual server images
+# x86 virtual server images
 {: #about-images}
 
 When you provision {{site.data.keyword.vsi_is_full}}, you can select from the supported stock images or a custom image that you import from {{site.data.keyword.cos_full_notm}}. The image that you select determines the operating system that is provisioned for your instance.
@@ -48,19 +48,7 @@ The following operating systems are available as stock images when you create a 
 CentOS 8 is scheduled for End of Life (EOL) on 31 December 2021. On 01 January 2022, CentOS 8 stock images are deprecated and can no longer be selected to provision in {{site.data.keyword.cloud_notm}} console. Existing CentOS instances are not affected.
 {: note}
 
-### Supported s390x stock image operating systems
-{: #s390x-supported-os}
-
-| Image | Architectures |
-|---------|---------|
-|  Ubuntu 20.04.x | s390x |
-|  SUSE Linux Enterprise server (SLES) 15 SP1 | s390x |
-|  Red Hat Enterprise Linux 8.x | s390x |
-|  IBM z/OS (IBM Wazi as a Service) | s390x |
-{: caption="Table 2. Supported s390x stock image operating systems" caption-side="top"}
-
-The option to select the Wazi aaS z/OS dev and test image is offered as an IBM Cloud allow-listed service and the image is available in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service).
-{: note}
+For information about images for IBM Z (s390x processor architecture), see [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images).
 
 When you order an instance, the images are cloud-init enabled to optimize creation times. With a cloud-init enabled image, you can provide user data. In the **User Data** field on the order form, you can enter optional cloud-init user data for the server. For more information about user data and automation, see [User data](/docs/vpc?topic=vpc-user-data).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-02-18"
+lastupdated: "2022-07-08"
 
 keywords: cli, command line interface, tutorial, create, API, IAM, token, permissions, endpoint, region, zone, profile, status, subnet, gateway, floating IP, delete, resource, provision, vpc, virtual private cloud, vpc ui, console, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range, generation 2, gen 2
 
@@ -14,7 +14,7 @@ subcollection: vpc
 
 # Creating VPC resources with CLI and API
 
-In addition to creating a VPC, you can also create VPC resources such as an instance, a subnet, and a block storage volume. 
+In addition to creating a VPC, you can also create VPC resources such as an instance, a subnet, and a block storage volume.
 
 If you are looking for information to create VPC resources by using {{site.data.keyword.cloud_notm}} console, see [Using the {{site.data.keyword.cloud_notm}} console to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console).
 {: tip}
@@ -353,6 +353,9 @@ To connect to a Windows image, log in using its decrypted password. For instruct
 
 You can monitor the CPU, volume, memory, and network usage of your instance over time in the {{site.data.keyword.cloud_notm}} console. Because the monitoring data is stored in {{site.data.keyword.monitoringlong_notm}}, you must be authenticated to an instance of the Monitoring service in your account. For more information, see [Getting started with monitoring](/docs/monitoring?topic=monitoring-getting-started).
 
+For IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances, the memory metrics cannot be collected because IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances are created using Secure Execution images and the memory of a secure execution instance is not accessible.
+{: note}
+
 ### Create a VPN gateway
 {: #create-a-vpn-gateway}
 
@@ -404,7 +407,7 @@ You've successfully created and configured your VPC using the {{site.data.keywor
 {: api}
 
 You can create and configure an {{site.data.keyword.vpc_full}} resources using the REST APIs.
-{: shortdesc} 
+{: shortdesc}
 
 To create and configure your virtual private cloud (VPC) and other attached resources, perform the steps in the sections that follow, in this order:
 
@@ -437,7 +440,7 @@ curl -X POST "$vpc_api_endpoint/v1/vpcs?version=$api_version&generation=2" \
 ```
 {: pre}
 
-You must send the `generation` parameter with every API request to specify which generation to use. For generation 2 virtual server instances, specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API](https://{DomainName}/apidocs/vpc#api-generation-parameter) 
+You must send the `generation` parameter with every API request to specify which generation to use. For generation 2 virtual server instances, specify `generation=2`. For more information, see **Generation** in the [Virtual Private Cloud API](https://{DomainName}/apidocs/vpc#api-generation-parameter)
 {: important}
 
 For the rest of the calls, you'll need to know the ID of the newly created VPC. Save the ID in a variable, for example:
@@ -447,7 +450,7 @@ vpc="0738-59de4046-3434-4d87-bb29-0c99c428c96e"
 ```
 {: pre}
 
-To verify that the variable was saved, run `echo $vpc` and make sure the response is not empty. 
+To verify that the variable was saved, run `echo $vpc` and make sure the response is not empty.
 
 The previous example does not create a VPC with classic access. If you require the VPC to have access to your classic resources, see [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure). You can only enable a VPC for classic access while creating it. In addition, you can only have one classic access VPC in your account at any time.
 {: important}
@@ -459,13 +462,13 @@ Before you create a subnet, select the zone and address prefix in which to creat
 
 ```bash
 curl -X GET "$vpc_api_endpoint/v1/vpcs/$vpc/address_prefixes?version=$api_version&generation=2" \
-  -H "Authorization:$iam_token" 
+  -H "Authorization:$iam_token"
 ```
 {: pre}
 
-Let's pick the default address prefix for the us-south-3 zone. From the response, note the CIDR block of the address prefix. When you create a subnet, you must specify an IP range that's within one of the address prefixes of the selected zone. 
+Let's pick the default address prefix for the us-south-3 zone. From the response, note the CIDR block of the address prefix. When you create a subnet, you must specify an IP range that's within one of the address prefixes of the selected zone.
 
-A subnet cannot be resized after it is created. 
+A subnet cannot be resized after it is created.
 {: important}
 
 ```bash
@@ -498,7 +501,7 @@ curl -X GET "$vpc_api_endpoint/v1/subnets/$subnet?version=$api_version&generatio
 ### Attach a public gateway
 {: #attach-public-gateway-api-tutorial}
 
-Attach a public gateway to the subnet if you want to allow all attached resources to communicate with the public internet. 
+Attach a public gateway to the subnet if you want to allow all attached resources to communicate with the public internet.
 
 Create a public gateway for the zone:
 
@@ -774,7 +777,7 @@ floating_ip="0738-35fb0489-7105-41b9-99de-033fae723006"
 {: pre}
 
 
-### Log in to your instance 
+### Log in to your instance
 {: #log-in-to-instance-api-tutorial}
 
 To connect to the instance, use the floating IP address you created. To get the floating IP address, run the following command:
@@ -796,7 +799,7 @@ To connect to a Windows image, log in using its decrypted password. For instruct
 {: tip}
 
 ### Monitoring your instance
-{: #monitoring-your-instance-api-tutorial} 
+{: #monitoring-your-instance-api-tutorial}
 
 You can monitor the CPU, volume, memory, and network usage of your instance over time in the {{site.data.keyword.cloud_notm}} console. Because the monitoring data is stored in {{site.data.keyword.mon_full_notm}}, you must be authenticated to an {{site.data.keyword.mon_full_notm}} instance in your account. For more information, see [IBM Cloud monitoring services](/docs/cloud-infrastructure?topic=cloud-infrastructure-monitoring).
 
@@ -810,4 +813,3 @@ For example, a VPC can't be deleted if it contains instances, subnets, or public
 {: #congratulations-api-tutorial}
 
 You've successfully created and configured your VPC by using the REST APIs. To try out more API commands, see the [Virtual Private Cloud API](https://{DomainName}/apidocs/vpc).
-

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-04-29"
+lastupdated: "2022-07-08"
 
 keywords:
 subcollection: vpc
@@ -37,6 +37,9 @@ When you create a {{site.data.keyword.block_storage_is_short}} volume for a virt
 
 You can attach only one block storage volume to a virtual server instance at a time, but you can attach up to 12 block storage data volumes to a single instance.
 
+When you create an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instance, only one data volume can be added currently. If you attach more volumes, they will not be used by the instance.
+{: note}
+
 You can't use the UI to attach block storage volumes to IKS Cluster worker nodes. For information about using the CLI to attach volumes to cluster nodes, see [Storing data on Block Storage for VPC](/docs/containers?topic=containers-vpc-block).
 
 
@@ -53,6 +56,9 @@ From the list of all block storage volumes, follow these steps.
 1. Select **Attach to instance**.
 1. Select a compute resource (virtual server instance) from the list of available resources, and then click **Attach**.
 1. Messages display on the volume details page to indicate that the volume is being attached to the image. When it completes, the image name appears under **Attached instances**.
+
+When you create an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instance and the contract mentions volumes, you can attach a data volume during the creation of the instance, or within 15 minutes after the creation of the instance. Failure to do so causes the instance to go into a shut down state after the 15 minute window.   
+{: note}
 
 You can also attach a block storage volume from the virtual server instance details page.
 
@@ -73,7 +79,7 @@ Follow these instructions to use the CLI to attach a block storage volume to a v
 1. Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 
 2. After you install the vpc-infrastructure plug-in, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
-   
+
 3. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli#create-a-vpc-cli).
 
 
