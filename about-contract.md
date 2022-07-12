@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-07-11"
+lastupdated: "2022-07-12"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -401,7 +401,7 @@ Complete the following steps to create the contract signature:
    {: pre}
 
 2. Use the following command to get the signing key in the required format:
-   ```sh
+   ```
    $ key=$(awk -vRS="\n" -vORS="\\\n" '1' public.pem)
    $ echo ${key%\\n}
    ```
