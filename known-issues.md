@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-06-20"
+lastupdated: "2022-07-12"
 
 keywords: known issues, bugs, defects
 
@@ -54,14 +54,6 @@ The floating IP associated with a bare metal network interface is not available 
 The following issues apply to the VPC API or Instance Metadata API. These issues will be resolved in a future release.
 
 **Issue:** When you use the [VPC API](/apidocs/vpc) to manage instances, if the metadata service is disabled when an instance is created, and is subsequently enabled while the instance is running, the metadata service appear enabled but isn't fully functional for the running instance.
-
-**Workaround:** After metadata service is enabled for the first time, use the VPC API to stop the instance. After the instance is stopped, start the instance. This workaround is necessary once only. The metadata service is enabled and disabled, as expected, after you take this action.
-
-**Issue:** When you use instance templates in the VPC API, default trusted profile information is not included in the response. As a result, default trusted profile information does not appear in instance template information as expected. This issue occurs when you use the following methods:
-
-- [Create an instance template](/apidocs/vpc#create-instance-template) and specify a default trusted profile
-- [Retrieve an instance template](/apidocs/vpc#get-instance-template) to view its contents
-- [Update an instance template](/apidocs/vpc#update-instance-template) to change the name of a template that has 'default_trusted_profile' information stored in its prototype.
 
 **Workaround:** Do not use instance templates to create instances with a default trusted profile.
 
