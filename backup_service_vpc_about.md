@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-07-12"
 
 keywords:
 
@@ -34,7 +34,7 @@ Use {{site.data.keyword.cloud}} Backup for VPC to automatically back up, manage,
 
 The {{site.data.keyword.cloud_notm}} Backup for VPC service lets you create backup policies for your block storage volumes. A backup policy contains a backup plan, which defines a schedule for automated backups. You can create up to four plans per policy, and edit and delete them as needed. You can view and manage backup jobs to see these actions. If you're undecided on how often to schedule backups or you don't know all the tags yet for your target resources, you can optionally create a backup policy without a plan and add one later.
 
-When the backup is triggered at the scheduled interval, a backup is created of your volume contents. A backup is actually a snapshot. Behind the scenes, the [Snapshots for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about) service is used to create a point-in-time copy of your data. The entire contents of the volume are copied (snapshotted) and retained. Subsequent backups of the same volume capture the changes since the previous backup. You can take up to 100 backups of a volume. 
+When the backup is triggered at the scheduled interval, a backup is created of your volume contents. A backup is actually a snapshot. Behind the scenes, the [Snapshots for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about) service is used to create a point-in-time copy of your data. The entire contents of the volume are copied (snapshotted) and retained. Subsequent backups of the same volume capture the changes since the previous backup. You can take up to 750 backups of a volume. 
 
 Backups appear in the list of block storage snapshots. They are identified by how they were created, in this case, by backup policy. Backups are in effect, backup snapshots. These terms are used interchangeably in the documentation, depending on the context.
 {: note}
@@ -70,7 +70,7 @@ Backups and snapshots services are different than a disaster recovery (DR) solut
 | Backup data immediately | | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Data copied is at a specific point in time | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Set retention period for automatic deletion | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
-| Take up to 100 snapshots/volume | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| Take up to 750 snapshots/volume | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Costs are based on GBs per month | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 {: caption="Table 1. Comparison of backups and snapshots" caption-side="bottom"}
 
@@ -94,7 +94,7 @@ The {{site.data.keyword.cloud_notm}} Backup for VPC offers you the following ben
 
 Backup policies consist of plans that define schedules for automatic backup creation and data retention. You can schedule backups on a daily, weekly, or monthly basis.
 
-You specify the retention period or total number of backups before the oldest are deleted. The default retention period is 30 days. Alternatively, you can set the total number of backups to retain up to 100 per volume backed up, after which the oldest backups are deleted.
+You specify the retention period or total number of backups before the oldest are deleted. The default retention period is 30 days. Alternatively, you can set the total number of backups to retain up to 750 per volume backed up, after which the oldest backups are deleted.
 
 The interval for creating a backup and its retention period can be the same or different. 
 
@@ -169,7 +169,7 @@ Limitations for this release include the following:
 
 * Backups are restricted to a single region. You cannot share backups or create backup policies across regions.
 * You can create up to 10 backup polices per account.
-* You can take a total of 100 backups per volume based on your backup policy, in your account and region. Backups will fail if you exceed this limit.
+* You can take a total of 750 backups per volume based on your backup policy, in your account and region. Backups will fail if you exceed this limit.
 * The first backup and/or the entire volume backup cannot exceed 10 TB.
 * You can't take a backups of a detached volume.
 

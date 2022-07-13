@@ -57,7 +57,7 @@ Enabling your backups is two-part process. First, you [specify user tags](/docs/
 {: faq}
 {: #faq-baas-total}
 
-You can create up to 100 backups per volume per account.
+You can create up to 750 backups per volume per account. Consider how your [billing changes](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=api#snapshots_vpc_considerations) when you increase the number of snapshots that you take and retain.
 
 ## Can I backup my volume snapshots?
 {: faq}
@@ -71,13 +71,13 @@ Tags for snapshots are inherited from the source volume. When you restore a volu
 
 You can specify that backups be kept from 1 to 30 days (default). The retention period can't be shorter than the backup frequency or you'll get an error.
 
-You can also specify the number of backups to retain, 100 per volume, after which the oldest backups are deleted.
+You can also specify the number of backups to retain, up to 750 per volume, after which the oldest backups are deleted.
 
 ## Are there limitations on how many backups I can take?
 {: faq}
 {: #faq-baas-limitations}
 
-Yes. You can create 10 backup policies per account and up to 100 backups of a volume. For other limitations of this release, see [Limitations in this release](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-limitations).
+Yes. You can create 10 backup policies per account and up to 750 backups of a volume. For other limitations of this release, see [Limitations in this release](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-limitations).
 
 ## How do I create a new volume from a backup?
 
