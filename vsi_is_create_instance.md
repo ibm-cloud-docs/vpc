@@ -2,9 +2,10 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-07-08"
+lastupdated: "2022-07-12"
 
 keywords: instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, vsi, create virtual server
+
 subcollection: vpc
 
 
@@ -25,7 +26,7 @@ You can create one or more virtual server instances in your {{site.data.keyword.
 Use the following steps to create a virtual server instance.
 
 1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
-2. Click **Create** and enter the information in Table 1.
+2. Click **Create** and enter the information that is in Table 1.
 3. Click **Create virtual server instance** when you are ready to provision.
 
 | Field | Value |
@@ -33,21 +34,21 @@ Use the following steps to create a virtual server instance.
 | Name  | A name is required for your virtual server instance. |
 | Resource group | Select a resource group for the instance. |
 | Tags | You can assign a label to this resource so that you can easily filter resources in your resource list. |
-| Location | Locations are composed of regions (specific geographic areas) and zones (fault-tolerant data centers within a region). Select the location where you want your virtual server instance to be created. |
-| Placement group | Select a placement group for the instance. If you add a placement group, the instance is placed according to the placement group policy. See [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc) for more information. |
-| | **Note:** This field is only available if `Add instance to placement group` is selected during provisioning. |
-| Type of virtual server | A **Public** virtual server instance, created in a multi-tenant environment, is the default selection for a new instance. You can also select a **Dedicated** virtual server instance to create the instance in a single-tenant space. To provision a dedicated instance, you must have a dedicated host available or [create one](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances). A dedicated host is required if you are using a Windows custom image and [your own license](/docs/vpc?topic=vpc-byol-vpc-about#byol-vpc-windows). |
-| Processor architecture | Select the processor architecture that your instance is created with. *x86* means x86_64 bit processor, and *s390x* is IBM Z (s390x processor architecture). |
-| Operating system | Image \n \n Select a stock image or a custom image for the operating system. \n \n   \n \n * For more information about available stock images, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images) and [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images). All operating system images use cloud-init that you can use to enter user metadata that is associated with the instance for post provisioning scripts. Metadata is not supported for IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances. \n * A custom image can be one that you created externally and imported to {{site.data.keyword.cloud}}, which you can then import into {{site.data.keyword.vpc_short}} or a private catalog. For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-about-custom-images). \n * You can also use a custom image that was created from a boot volume and was attached to an instance. For more information about creating an image from a volume, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc). \n * You can also select either a RHEL or Windows custom image and bring your own license (BYOL). For more information about creating BYOL custom images, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about).|
+| Location | Locations are composed of regions (specific geographic areas) and zones (fault-tolerant data centers within a region). Select the location where you want to create your virtual server instance. |
+| Placement group | Select a placement group for the instance. If you add a placement group, the instance is placed according to the placement group policy. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc). |
+| | **Note:** This field is available only if `Add instance to placement group` is selected during provisioning. |
+| Type of virtual server | A **Public** virtual server instance, created in a multi-tenant environment, is the default selection for a new instance. You can also select a **Dedicated** virtual server instance to create the instance in a single-tenant space. To provision a dedicated instance, you must have a dedicated host available or [create one](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances). A dedicated host is required if you use a Windows custom image and [your own license](/docs/vpc?topic=vpc-byol-vpc-about#byol-vpc-windows). |
+| Processor architecture | Select the processor architecture that your instance is created with. *x86* means x86_64 bit processor, and *s390x* is LinuxONE (s390x processor architecture). |
+| Operating system | Image \n \n Select a stock image, `Custom image`, or `Catalog image` for the operating system. \n \n   \n \n * For more information about available stock images, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images) and [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images). All operating system images use cloud-init that you can use to enter user metadata that is associated with the instance for post provisioning scripts. Metadata isn't supported for {{site.data.keyword.cloud}} Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances. \n * A `custom image` is an image that you create externally and import to {{site.data.keyword.cloud}}, which you can then import into {{site.data.keyword.vpc_short}}. For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-about-custom-images). \n * You can also use a custom image that was created from a boot volume and was attached to an instance. For more information about creating an image from a volume, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc). \n * A `Catalog image` is a custom image that is imported into a private catalog. You can either import an custom image that was already imported into {{site.data.keyword.vpc_short}} or an image from a volume. For more information, see [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui) \n * You can also select either a RHEL or Windows custom image and bring your own license (BYOL). For more information about creating BYOL custom images, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about).|
 | | Snapshot \n \n Select a snapshot of a boot volume that includes an operating system. \n * If you created a boot volume from a bootable snapshot, it appears under Boot Volume. \n * If you want to use another bootable snapshot and create a new boot volume, click **Change** to select a different snapshot from the list of snapshots. \n For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore). |
-| Profile |  Select from popular profiles or all available vCPU and RAM combinations. The profile families are Balanced, Compute, Memory, and GPU. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles). When you create an IBM Hyper Protect Container Runtime (HPCR) instance, make sure that you select secure execution-enabled profiles, otherwise provisioning fails. For more information, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). |
-| SSH Key | You must select an existing SSH key or upload a new SSH key to use before you can create the instance. SSH keys are used to securely connect to the instance after it's running. |
+| Profile |  Select from popular profiles or all available vCPU and RAM combinations. The profile families are Balanced, Compute, Memory, Ultra High Memory, Very High Memory, and GPU. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles). When you create an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instance, make sure that you select secure execution-enabled profiles, otherwise provisioning fails. For more information, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles).  \n  \n Some profiles might not be available because the amount network interfaces in the virtual server exceed profile limits. You can remove network interfaces to select from more profiles. For more information, see [Resizing a virtual server](/docs/vpc?topic=vpc-resizing-an-instance). |
+| SSH Key | You must select an existing SSH key or upload a new SSH key to use before you create the instance. SSH keys are used to securely connect to the instance after it's running. |
 | | **Note:** Alpha-numeric combinations are limited to 100 characters. |
 | | For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
-| User data | You can add user data that automatically performs common configuration tasks or runs scripts. For more information, see [User data](/docs/vpc?topic=vpc-user-data). For more information about using a contract to specify user data when you create an HPCR instance, see [About the contract](/docs/vpc?topic=vpc-about-contract_se). |
-| Metadata | Disabled by default. Click the toggle to enable. This setting informs the instance to collect the instance configuration information and user data. For more information, see [About instance metadata for VPC](/docs/vpc?topic=vpc-imd-about). Metadata is not supported for IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances. |
+| User data | You can add user data that automatically performs common configuration tasks or runs scripts. For more information, see [User data](/docs/vpc?topic=vpc-user-data). For more information about using a contract to specify user data when you create an {{site.data.keyword.cloud}} Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instance, see [About the contract](/docs/vpc?topic=vpc-about-contract_se). |
+| Metadata | Disabled by default. Click the toggle to enable. This setting informs the instance to collect the instance configuration information and user data. For more information, see [About instance metadata for VPC](/docs/vpc?topic=vpc-imd-about). Metadata isn't supported for {{site.data.keyword.cloud}} Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances. |
 | Host failure auto restart | Set the host failure recovery policy for your instance. For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui). |
-| Trusted profiles (optional) | If you created trusted profiles, you can select one and link it to this instance. Click **Select a trusted profile**. In the side panel, select a trusted profile and click **Select trusted profile** to link it to the instance. A message displays if none exist or if you don't have access to link it. For information, see [Create a trusted profile](/docs/account?topic=account-trustedprofile-compute-tutorial#trusted-profile-compute-create). For acquiring access, see [IAM authorizations for linking trusted profiles](/docs/vpc?topic=vpc-imd-trusted-profile-metadata&interface=ui#imd-iam-auth). |
+| Trusted profiles (optional) | If you created trusted profiles, you can select one and link it to this instance. Click **Select a trusted profile**. In the side panel, select a trusted profile and click **Select trusted profile** to link it to the instance. A message displays if none exist or if you don't have access to link it. For more information, see [Create a trusted profile](/docs/account?topic=account-trustedprofile-compute-tutorial#trusted-profile-compute-create). For more information about acquiring access, see [IAM authorizations for linking trusted profiles](/docs/vpc?topic=vpc-imd-trusted-profile-metadata&interface=ui#imd-iam-auth). |
 | Boot volume | The default boot volume size for all profiles is 100 GB. If you are importing a custom image, the boot volume capacity can be 10 - 250 GB, depending on what the image requires. Images that are smaller than 10 GB are rounded up to 10 GB. |
 | |You can increase the size of the boot volume up to 250 GB by clicking the **Size** pencil icon. In the side panel, increase the boot volume size in the **Create size** field. The size must be more than the current size up to 250 GB. |
 | Data volumes | You can add one or more secondary data volumes to be included when you provision the instance. To add volumes, click **Create** in the Data volumes section of the page. For more information about provisioning the volume, see [Create and attach a block storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi). |
@@ -81,7 +82,7 @@ You can create instances by using the command-line interface (CLI).
 
 Ready to create an instance? Before you can run the `ibmcloud is instances` command, you need to know the details about the instance, such as what profile or image that you want to use.
 
-Gather the following information by using the assocoated commands.
+Gather the following information by using the associated commands.
 
 |    Instance details   |  Listing options                |
 | --------------------- | --------------------------------|
@@ -103,7 +104,7 @@ Use the following commands to determine the required information for creating a 
    ```
    {: pre}
 
-   For this example, you'd see a response similar to the following output:
+   For this example, you see a response that is similar to the following output:
    ```
    Name       Endpoint               Status   
    us-south   /v1/regions/us-south   available
@@ -116,20 +117,20 @@ Use the following commands to determine the required information for creating a 
    ```
    {: pre}
 
-   For this example, you'd see a response similar to the following output:
+   For this example, you see a response that is similar to the following output:
    ```
    Name         Region     Status   
    us-south-1   us-south   available
    ```
    {: screen}
 
-3. List the {{site.data.keyword.vpc_short}}s that are associated with your account.
+3. List the VPCs that are associated with your account.
    ```
    ibmcloud is vpcs
    ```
    {: pre}
 
-   For this example, you'd see a response similar to the following output:
+   For this example, you see a response that is similar to the following output:
    ```
    ID                                          Name                                  Default   Created       Status      Tags   
    0738-xxx1xx23-4xx5-6789-12x3-456xx7xx123x   my-vpc                                yes       1 month ago   available   -   
@@ -137,7 +138,7 @@ Use the following commands to determine the required information for creating a 
    ```
    {: screen}
 
-   If you do not have one available, you can create an {{site.data.keyword.vpc_short}} by using the `ibmcloud is vpc-create` command. For more information about creating an {{site.data.keyword.vpc_short}}, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpcs).
+   If you do not have an available VPC, you can create one by using the `ibmcloud is vpc-create` command. For more information about creating a VPC, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpcs).
 
 4. List the subnets that are associated with the {{site.data.keyword.vpc_short}}.
    ```
@@ -145,7 +146,7 @@ Use the following commands to determine the required information for creating a 
    ```
    {: pre}
 
-   For this example, you'd see a response similar to the following output:
+   For this example, you see a response that is similar to the following output:
    ```
    ID                                          Name                                     IPv*   Subnet CIDR         Addresses   Gen   Gateway   Created   Status      VPC                    Zone         Resource Group   Tags   
    0738-1234x12x-345x-1x23-45x6-x7x891011x1x   my-subnet                                ipv4   172.16.1.0/24       0/0         -     -         1 week ago    available   my-vpc(xxx1xx23-.)     us-south-1   -                -   
@@ -154,7 +155,7 @@ Use the following commands to determine the required information for creating a 
    ```
    {: screen}
 
-   If you do not have one available, you can create a subnet by using the `ibmcloud is subnet-create` command. For more information about creating a subnet, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#subnets).
+   If you do not have a subnet available, you can create one by using the `ibmcloud is subnet-create` command. For more information about creating a subnet, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#subnets).
 
 5. List the available profiles for creating your instance.
    ```
@@ -163,7 +164,7 @@ Use the following commands to determine the required information for creating a 
    {: pre}
 
 
-   For this example, you'd see a response similar to the following output:
+   For this example, you see a response that is similar to the following output:
    ```
    Name            vCPU Manufacturer   Architecture   Family        vCPUs   Memory(GiB)   Bandwidth(Mbps)   Volume bandwidth(Mbps)   GPUs   Storage(GB)   
    bz2-1x4         IBM                 s390x          balanced           1       4             2000              500                      -     -
@@ -203,9 +204,9 @@ Use the following commands to determine the required information for creating a 
    ```
    {: screen}
 
-   Secure execution-enabled profiles are now available, and they can be identified by the fourth character of the profile name that is an "e", such as _bz2e_. For more information, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se).
+   Secure execution-enabled profiles are now available and are identified by the fourth character of the profile name that is an "e", such as _bz2e_. For more information, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se).
 
-   The secure execution-enabled profiles are available for Balanced, Compute, and Memory families. Make sure that you use secure-enabled profiles when you use the IBM Hyper Protect Container Runtime image. Profile validation for the IBM-provided stock images and the IBM Hyper Protect Container Runtime image is done in the RIAS layer and any profile mismatch results in an error message similar to the following example.
+   The secure execution-enabled profiles are available for Balanced, Compute, and Memory families. Make sure that you use secure-enabled profiles when you use the IBM Hyper Protect Container Runtime image. Profile validation for the IBM-provided stock images and the IBM Hyper Protect Container Runtime occurs in the RIAS layer and any profile mismatch results in an error message similar to the following example.
    ```
    FAILED
    Response HTTP Status Code: 400
@@ -221,7 +222,7 @@ Use the following commands to determine the required information for creating a 
    ```
    {: pre}
 
-   For this example, you see a response that similar to the following output.
+   For this example, you see a response that is similar to the following output.
    ```
    ID                                          Name                 OS                                                       Arch    Created         Status   Visibility   Tags   
    0738-cc8debe0-1b30-6e37-2e13-744bfb2a0c11   centos-7.x-amd64     CentOS (7.x - Minimal Install)                           amd64      9 hours ago     READY    public       -   
@@ -235,7 +236,7 @@ Use the following commands to determine the required information for creating a 
    ```
    {: pre}
 
-   For this example, you see a response that similar to the following output.
+   For this example, you see a response that is similar to the following output.
    ```
    ID                                          Name           Type   Length   FingerPrint          Created        Resource Group   Tags
    0738-1234xxxx-x12x-xxxx-34xx-xx1234xxxxxx   my-key         RSA    2048     PHcP/zyw/PNGIe/u..   5 days ago     -                -   
@@ -267,7 +268,9 @@ Use the following commands to determine the required information for creating a 
 {: #create-instance-cli}
 {: cli}
 
-After you know the needed values, use them to run the `instance-create` command. You also need to specify a unique name for the instance. Use the following steps to create a virtual server instance by using the CLI.
+After you know the needed values, use them to run the `instance-create` command. You also need to specify a unique name for the instance. 
+
+Use the following steps to create a virtual server instance by using the CLI.
 
 1. Create an instance by using the following command.
 
@@ -354,7 +357,7 @@ After you know the needed values, use them to run the `instance-create` command.
    ```
    {: screen}
 
-   Information about the network interfaces that are created for the new instance isn't returned after the instance is created. You can view it by using the command that was provided in **Step 2**.
+   Information about the network interfaces that are created for the new instance aren't returned after the instance is created. You can view the information by using the command that was provided in **Step 2**.
 
    The status displays pending until the instance is created.
    {: note}
@@ -442,6 +445,8 @@ After the instance is created, associate a floating IP address to the instance. 
 {: #next-steps-creating-virtual-servers-ui}
 {: ui}
 
+<!---A series of emails is sent to your administrator: Acknowledgment of the virtual server instance order, order approval and processing, and a message that the instance is created.--->
+
 After the instance is created, you need to [associate a floating IP address to the instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#reserving-a-floating-ip-address). Then, you can connect to your instance. For more information, see [Connecting to your Linux instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux) or [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
 
-If you have an existing instance with a floating IP address, it isn't necessary to assign a second floating IP to another instance. You can connect to the first instnace with a floating IP, then SSH to the second instance by using the private subnet IP address that is automatically assigned to it.
+If you have an existing instance with a floating IP address, it isn't necessary to assign a second floating IP to another instance. You can connect to the first instance with a floating IP, then SSH to the second instance by using the private subnet IP address that is automatically assigned to it.
