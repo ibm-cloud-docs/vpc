@@ -220,7 +220,7 @@ Host failure recovery policies
 {: release-note}
 
 LinuxONE (s390x processor architecture)
-:   You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud in the Japan (Tokyo), United Kingdom (London), and São Paulo regions. For more information about available LinuxONE (s390x processor architecture) profiles, see [x86 instance profiles](/docs/vpc?topic=vpc-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
+:   You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud in the Japan (Tokyo), United Kingdom (London), and São Paulo regions. For more information about available LinuxONE (s390x processor architecture) profiles, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
 
 Resizable boot volumes
 :    You can now increase the capacity of a boot volume, up to 250 gigabytes (GB), when creating an instance from an image or instance template. You can also directly update an existing boot volume to increase its capacity. For more information, see [Increasing boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes).
@@ -507,7 +507,7 @@ Auto scale supports data volumes and private catalog
 {: release-note}
 
 LinuxONE (s390x processor architecture)
-:   You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud™ in the Tokyo region. For more information about available LinuxONE (s390x processor architecture) profiles, see [x86 instance profiles](/docs/vpc?topic=vpc-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
+:   You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud™ in the Tokyo region. For more information about available LinuxONE (s390x processor architecture) profiles, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
 For more information about some of the limitations of LinuxONE (s390x processor architecture), see [Service limitations](/docs/vpc?topic=vpc-limitations).
 
 ## July 2021
