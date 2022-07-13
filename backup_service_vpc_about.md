@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-07-12"
 
 keywords:
 
@@ -69,8 +69,8 @@ Backups and snapshots services are different than a disaster recovery (DR) solut
 | Backup data by a schedule | ![Checkmark icon](../icons/checkmark-icon.svg) | |
 | Backup data immediately | | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Data copied is at a specific point in time | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
-| Set retention period for automatic deletion | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
-| Take up to 100 snapshots/volume | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| Set retention period for automatic deletion | | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| Take up to 750 snapshots/volume | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Costs are based on GBs per month | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 {: caption="Table 1. Comparison of backups and snapshots" caption-side="bottom"}
 
