@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2015, 2021
+  years: 2015, 2022
 
-lastupdated: "2021-12-17"
+lastupdated: "2022-07-13"
 
 keywords: 
 
@@ -29,3 +29,24 @@ the dropdown menu. Select **Load Balancer for VPC** as the resource type from th
 service instance access to **All instances** or to your specific Secrets Manager instance. Assign the **Writer** service access role. For more information, see 
 [Granting access between services](/docs/account?topic=account-serviceauth#create-auth).
 {: #load-balancer-grant-service-auth}
+
+# Content referenced for  x86 instance profiles
+{: #x86-instance-profile-conrefs}
+
+The profile families are Balanced, Compute, Memory, Ultra High Memory, Very High Memory, and GPU.
+{: #x86-profile-families}
+
+# Content referenced for custom images
+{: #custom-image-conrefs}
+
+All custom images must meet the following requirements:
+- Contain a single file or volume
+- Is in qcow2 or vhd format
+- Is cloud-init enabled
+- The operating system is supported as a [stock image](/docs/vpc?topic=vpc-about-images#stock-images)
+- Size doesn't exceed 250 GB
+- The minimum size is 10 GB. For any image that is less than 10 GB, the size is rounded up to 10 GB.
+{: #custom-image-requirements-list}
+
+For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-about-custom-images).
+{: #custom-image-information-link}
