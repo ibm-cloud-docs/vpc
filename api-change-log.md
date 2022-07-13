@@ -312,7 +312,7 @@ Additional API restrictions are enforced after an HTTPS redirect is configured:
 ### For all version dates
 {: #10-august-2021-all-version-dates}
 
-**LinuxONE (s390x processor architecture).** You can now [create virtual server instances](/apidocs/vpc#create-instance) on LinuxONE in {{site.data.keyword.Bluemix}} using new virtual server instance profiles. Instances provisioned with these profiles will have a VCPU architecture of s390x and interoperate with other VPC storage and networking features such as block storage volumes, floating IPs, and security groups. For more information, see [Instance Profiles](/docs/vpc?topic=vpc-profiles&interface=api#balanced-s390x-profiles), and  [Service limitations](/docs/vpc?topic=vpc-limitations).
+**LinuxONE (s390x processor architecture).** You can now [create virtual server instances](/apidocs/vpc#create-instance) on LinuxONE in {{site.data.keyword.Bluemix}} using new virtual server instance profiles. Instances provisioned with these profiles will have a VCPU architecture of s390x and interoperate with other VPC storage and networking features such as block storage volumes, floating IPs, and security groups. For more information, see [x86 instance profiles](/docs/vpc?topic=vpc-profiles&interface=api#balanced-s390x-profiles), and  [Service limitations](/docs/vpc?topic=vpc-limitations).
 
 ## 27 July 2021
 {: #27-july-2021}
