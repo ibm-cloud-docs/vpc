@@ -29,9 +29,9 @@ subcollection: vpc
 # Managing instance storage
 {: #instance-storage-provisioning}
 
-Instance storage provides fast, affordable, temporary storage that can improve the performance of some cloud native workloads (or apps or services). For more information, see [About instance storage](/docs/vpc?topic=vpc-instance-storage). 
+Instance storage provides fast, affordable, temporary storage that can improve the performance of some cloud native workloads (or apps or services). For more information, see [About instance storage](/docs/vpc?topic=vpc-instance-storage).
 
-If you want instance storage disk to be provisioned with your virtual server instance, select a profile that has instance storage included. The instance storage disk devices cannot be live attached or detached, as they are purchased as part of the instance profile itself. The general purpose profile families (Balanced, Compute, and Memory) all have profile options with instance storage. The amount of instance storage is proportionally allocated based on the number of vCPUs assigned to the profile. For more information about profiles, see [Instance profiles](/docs/vpc?topic=vpc-profiles).
+If you want instance storage disk to be provisioned with your virtual server instance, select a profile that has instance storage included. The instance storage disk devices cannot be live attached or detached, as they are purchased as part of the instance profile itself. The general purpose profile families (Balanced, Compute, and Memory) all have profile options with instance storage. The amount of instance storage is proportionally allocated based on the number of vCPUs assigned to the profile. For more information about profiles, see [x86 instance profiles](/docs/vpc?topic=vpc-profiles).
 
 ## Provisioning a Virtual Server Instance with instance storage with the UI
 {: ui}
@@ -39,11 +39,11 @@ If you want instance storage disk to be provisioned with your virtual server ins
 Before you can create a virtual server instance with instance storage, you need to create an {{site.data.keyword.vpc_short}}. {: important}
 
 To provision a with instance storage, complete the following steps:
-1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Virtual server instances**. 
-2. On the Virtual server instances for VPC page click **Create** and enter the required information. For more information about specific fields, see [Creating virtual servers](/docs/vpc?topic=vpc-creating-virtual-servers). 
-3. To choose your instances storage profile, click **View all profiles**. The profiles that include instance storage are indicated with the letter "d" in the fourth position of the Profile name, for example bx2d-2x8. Use the checkboxes on the left to filter the list. 
-4. Choose the profile that you want to use and click **Save**. The instance storage disks are attached to the virtual server instance after the boot volume, and before remote block storage volumes, if any. 
-5. When you are ready to provision your instance, click **Create virtual server instance**. 
+1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Virtual server instances**.
+2. On the Virtual server instances for VPC page click **Create** and enter the required information. For more information about specific fields, see [Creating virtual servers](/docs/vpc?topic=vpc-creating-virtual-servers).
+3. To choose your instances storage profile, click **View all profiles**. The profiles that include instance storage are indicated with the letter "d" in the fourth position of the Profile name, for example bx2d-2x8. Use the checkboxes on the left to filter the list.
+4. Choose the profile that you want to use and click **Save**. The instance storage disks are attached to the virtual server instance after the boot volume, and before remote block storage volumes, if any.
+5. When you are ready to provision your instance, click **Create virtual server instance**.
 
 ### Next steps
 {: #next-steps-creating-virtual-servers-ui}
@@ -55,17 +55,17 @@ After the instance is created, [associate a floating IP address to the instance]
 ## Provisioning a Virtual Server Instance with instance storage with the CLI
 {: cli}
 
-To provision a virtual server instance with instance storage, follow the instructions for [Creating virtual servers by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli) and be sure to choose a profile that includes an instance storage disk. For more information about profiles, see [Instance profiles](https://test.cloud.ibm.com/docs/vpc?topic=vpc-profiles).
+To provision a virtual server instance with instance storage, follow the instructions for [Creating virtual servers by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli) and be sure to choose a profile that includes an instance storage disk. For more information about profiles, see [x86 instance profiles](https://test.cloud.ibm.com/docs/vpc?topic=vpc-profiles).
 
 ## Provisioning a Virtual Server Instance with instance storage with the API
 {: api}
 
-To provision a virtual server instance with instance storage, follow the instructions for [Using the REST APIs to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis#create-instance-api-tutorial) and be sure to choose a profile that includes an instance storage disk. For more information about profiles, see [Instance profiles](https://test.cloud.ibm.com/docs/vpc?topic=vpc-profiles).
+To provision a virtual server instance with instance storage, follow the instructions for [Using the REST APIs to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis#create-instance-api-tutorial) and be sure to choose a profile that includes an instance storage disk. For more information about profiles, see [x86 instance profiles](https://test.cloud.ibm.com/docs/vpc?topic=vpc-profiles).
 
 ## Using custom images with instance storage disk 
 If you are using custom images, make sure that you load the correct device drivers in the image to use the disks. 
 
-If your instance storage device has a connection type of virtio_blk (all General Purpose profiles with instance storage - Balanced, Compute and Memory - offer only virtio_blk connections), then the libvirt virtio driver must be installed. The libvirt virtio driver is automatically installed with all IBM provided operating systems. 
+If your instance storage device has a connection type of virtio_blk (all General Purpose profiles with instance storage - Balanced, Compute and Memory - offer only virtio_blk connections), then the libvirt virtio driver must be installed. The libvirt virtio driver is automatically installed with all IBM provided operating systems.
 
 ## Using instance storage from your instance
 
@@ -94,7 +94,7 @@ vdg            44K 252:96  disk     512     512
 In this example all of the block storage devices are virtio devices: 
 * vda is the boot volume
 * vdb and vdc are the 600 GB instance storage disks. Since the lsblk command is displaying “G” units as base-2 Gibibytes, the size displays as 558.8 GiBs
-* vdd and vde are remote data volumes that are attached to the instance. Since these data volumes are requested in the same units as lsblk is displaying, their size remains as whole GiBs (50). 
+* vdd and vde are remote data volumes that are attached to the instance. Since these data volumes are requested in the same units as lsblk is displaying, their size remains as whole GiBs (50).
 * Notice that the physical sector size and logical sector size are much larger for the instance storage disks. To identify the disk name for all instance storage, you can run the following command. In this example, the command would return `/dev/vdb and /dev/vdc`.
 
 ```
@@ -157,7 +157,7 @@ Instance Storage Disks   Quantity   Size   Supported Interface Types
 Currently, the only supported Interface Type is virtio_blk . This is the standard virtualization block device and the disk shows up as a virtio block device. For more information about virtio, see Virtio.
 
 ### Reporting instance storage information
-You can report instance storage information for your virtual server instance by using the following CLI example. 
+You can report instance storage information for your virtual server instance by using the following CLI example.
 
 ```
 $ ibmcloud is instance-disks 0716_f8c0fd3b-cada-46c3-91f6-c271937ef488

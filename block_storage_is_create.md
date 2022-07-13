@@ -26,7 +26,7 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Creating block storage volumes 
+# Creating block storage volumes
 {: #creating-block-storage}
 
 Create a block storage volume by using the UI, CLI, or programically with the API. You can create a volume as part of instance provisioning, as a stand-alone volume that you can later attach to an instance, or by restoring from a snapshot.
@@ -62,7 +62,7 @@ Be sure to select VPC infrastructure from the menu icon.
 | Resource group | Select a [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups) for the instance. Resource groups help organize your account resources for access control and billing purposes. |
 | Location | Locations are specific geographic areas where the data center is located (for example, Dallas) and zone (for example, Dallas 01). Select the location where you want your virtual server instance to be created. |
 | Image | All images use cloud-init, which allows you to enter user metadata associated with the instance for post provisioning scripts. |
-| Profile |  Select from popular profiles or all available vCPU and RAM combinations. For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles). |
+| Profile |  Select from popular profiles or all available vCPU and RAM combinations. For more information, see [x86 instance profiles](/docs/vpc?topic=vpc-profiles). |
 | SSH Key | Required; select an existing SSH key or upload a new SSH key. SSH keys are used to securely connect to the instance after it's running. |
 | | **Note:** Alpha-numeric combinations are limited to 100 characters. |
 | | For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
@@ -127,7 +127,7 @@ You can create  block storage volumes by using the command-line interface (CLI).
 1. Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 
 2. After you install the VPC CLI plug-in, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
-   
+
 3. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli#create-a-vpc-cli).
 
 ### Create a block storage volume from the CLI
@@ -469,4 +469,3 @@ You can continue creating more block storage volumes or manage existing volumes.
 * [View details about a block storage volume.](/docs/vpc?topic=vpc-viewing-block-storage)
 * [Detach a volume from a virtual server instance.](/docs/vpc?topic=vpc-managing-block-storage#detach)
 * [Delete a block storage volume.](/docs/vpc?topic=vpc-managing-block-storage#delete)
-
