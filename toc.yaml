@@ -292,7 +292,7 @@ toc:
                 - vpn-limitations.md
                 - vpn-api-example.md
             - topicgroup:
-                label: Client-to-site-servers (Beta)
+                label: Client-to-site-servers
                 topics:
                 - vpn-client-to-site.md
                 - vpn-client-to-site-planning.md
@@ -602,7 +602,7 @@ toc:
                 - vpn-ts-unstable-connection.md
                 - vpn-ts-routing-issues.md
             - topicgroup:
-                label: Troubleshooting client-to-site VPN servers (Beta)
+                label: Troubleshooting client-to-site VPN servers
                 topics:
                 - vpn-ts-auth-error-connecting-to-server.md
                 - vpn-ts-auth-failure-error.md
