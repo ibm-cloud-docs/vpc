@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-06-09"
+lastupdated: "2022-07-14"
 
 keywords:
 
@@ -234,24 +234,24 @@ The following table lists the actions that are related to site-to-site VPN gatew
 The following table lists the actions that are related to client-to-site VPN servers and the generation of events.
 
 | Resource  | Action  | Description  |
-|:----------------|:-----------------------|:-----------------------| 
-| vpn-server  | is.vpn-server.vpn-server.create   | VPN server was created |
-| vpn-server  | is.vpn-server.vpn-server.delete   | VPN server was deleted |
-| vpn-server  | is.vpn-server.vpn-server.update   | VPN server was updated |
-| vpn-server  | is.vpn-server.vpn-server.read   | VPN server was retrieved |
-| vpn-server  | is.vpn-server.vpn-server.list   | VPN servers were listed |
-| vpn-server  | is.vpn-server.vpn-server.configuration.read | VPN server configuration was downloaded |
-| vpn-server  | is.vpn-server.vpn-server-client.create | A VPN client connected to a VPN server |
-| vpn-server  | is.vpn-server.vpn-server-client.delete | VPN client was disconnected and deleted from a VPN server |
-| vpn-server  | is.vpn-server.vpn-server-client.read   | VPN client was retrieved from a VPN server |
-| vpn-server  | is.vpn-server.vpn-server-client.list   | VPN server clients were listed |
-| vpn-server  | is.vpn-server.vpn-server-client.disconnect | VPN client was disconnected from a VPN server, and deleted according to the VPN server's auto-deletion policy |
-| vpn-server  | is.vpn-server.vpn-server-route.create  | VPN server route was created |
-| vpn-server  | is.vpn-server.vpn-server-route.delete   | VPN server route was deleted |
-| vpn-server  | is.vpn-server.vpn-server-route.update  | VPN server route was updated |
-| vpn-server  | is.vpn-server.vpn-server-route.read  | VPN server route was retrieved |
-| vpn-server  | is.vpn-server.vpn-server-route.list  | VPN server routes were listed |
+|:----------------|:-----------------------|:-----------------------|
+| vpn  | is.vpn-server.vpn-server.create   | VPN server was created |
+| vpn  | is.vpn-server.vpn-server.delete   | VPN server was deleted |
+| vpn  | is.vpn-server.vpn-server.update   | VPN server was updated |
+| vpn  | is.vpn-server.vpn-server.read   | VPN server was retrieved |
+| vpn  | is.vpn-server.vpn-server.list   | VPN servers were listed |
+| vpn  | is.vpn-server.vpn-server-configuration.read | VPN server configuration was downloaded |
+| vpn  | is.vpn-server.vpn-server-client.delete | VPN client was disconnected and deleted from a VPN server |
+| vpn  | is.vpn-server.vpn-server-client.read   | VPN client was retrieved from a VPN server |
+| vpn  | is.vpn-server.vpn-server-client.list   | VPN server clients were listed |
+| vpn  | is.vpn-server.vpn-server-client.disconnect | VPN client was disconnected from a VPN server, and deleted according to the VPN server's auto-deletion policy |
+| vpn  | is.vpn-server.vpn-server-route.create  | VPN server route was created |
+| vpn  | is.vpn-server.vpn-server-route.delete   | VPN server route was deleted |
+| vpn  | is.vpn-server.vpn-server-route.update  | VPN server route was updated |
+| vpn  | is.vpn-server.vpn-server-route.read  | VPN server route was retrieved |
+| vpn  | is.vpn-server.vpn-server-route.list  | VPN server routes were listed |
 {: caption="Table 12. Actions that generate events for client-to-site VPN servers" caption-side="bottom"}
+
 
 ## Compute resources
 {: #events-compute}
