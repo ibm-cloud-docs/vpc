@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2022-07-07"
+  years: 2022
+lastupdated: "2022-07-14"
 
 keywords:
 
@@ -115,6 +115,9 @@ To import VPN server certificates into a Secrets Manager or Certificate Manager 
 * In this example, the VPN server and client certificates are signed by the same CA, so you need to only upload the VPN server certificate. You must also use the certificate as a VPN server certificate and authenticate the VPN client. If your VPN server and client certificate are signed by different CAs, you must upload them respectively.
 * If you updated the certificate in the certificate manager, the VPN server is not aware of the certificate update. You must re-import the certificate with a different CRN, then update the VPN server with the new certificate CRN.
 * If the certificate is used as VPN server certificate, you must upload the `Certificate file`, `Private key file` and `Intermediate certificate file`. If the certificate is used as the VPN client certificate to authenticate the client, you must upload the `Certificate file` and `Intermediate certificate file`.
+
+   You can use a CA chain to bundle the certificates (Intermediate CA 1, Intermediate CA 2, and root CA) into a single file and upload to the Intermediate certificate file.
+   {: note}
 
 ### Ordering a certificate using the certificate manager
 {: #order-certificate}
