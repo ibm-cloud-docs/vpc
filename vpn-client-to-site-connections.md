@@ -12,11 +12,8 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Disconnecting VPN clients (Beta)
+# Disconnecting VPN clients
 {: #vpn-client-to-site-connections}
-
-Client VPN for VPC is available to all IBM Cloud users. After the Beta period ends, you will be given a time period to migrate your VPN servers to the standard pricing plan to avoid disruption of service.
-{: beta}
 
 Connections are VPN sessions that are established by VPN clients. After a VPN client connects to the VPN server, you can view all VPN clients that connected to the server in the last hour. VPN client information includes the client IP, user ID, status, remote IP, remote port, and session start/end time (if applicable). 
 
@@ -30,6 +27,8 @@ To disconnect a VPN client from the VPN server, follow these steps:
 1. Click the name of the VPN server to display its details.
 1. Click the Clients tab to view VPN clients that connected in the last 5 minutes.
 1. Click the Actions menu ![Actions menu](images/overflow.png) next to the client that you want to disconnect, then click **Disconnect**. The disconnected VPN client is automatically deleted after one hour.
+
+   ![VPN clients](images/vpn-clients.png){: caption="VPN clients" caption-side="bottom"}
 
    You can also specify to **Delete** the VPN client, which deletes the client session immediately.
    {: note}
@@ -91,7 +90,7 @@ The disconnected VPN client is automatically deleted after one hour.
 1. When all variables are initiated, disconnect the VPN client:
 
    ```sh
-      curl -X POST "$vpc_api_endpoint/v1/vpn_servers/$vpnServerID/clients/$vpnClientID/disconnect?version=$api_version&maturity=beta&generation=2" \
+      curl -X POST "$vpc_api_endpoint/v1/vpn_servers/$vpnServerID/clients/$vpnClientID/disconnect?version=$api_version&generation=2" \
         -H "Authorization: $iam_token"
    ```
    {: codeblock}

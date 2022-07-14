@@ -12,11 +12,8 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Securing your environment with VPN server (Beta)
+# Securing your environment with VPN server
 {: #client-to-site-vpn-securing-environment}
-
-Client VPN for VPC is available to all IBM Cloud users. After the Beta period ends, you will be given a time period to migrate your VPN servers to the standard pricing plan to avoid disruption of service.
-{: beta}
 
 A client-to-site VPN server can help you secure your environment and meet compliance requirements.
 {: shortdesc}

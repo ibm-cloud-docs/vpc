@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-08-26"
+  years: 2020, 2022
+lastupdated: "2022-03-08"
 
 keywords: virtual private network, faq, faqs, frequently asked questions, vpn, vpn gateway
 
@@ -78,7 +78,7 @@ Make sure that ACL rules are in place to allow traffic between virtual server in
 {: #faq-vpn-8}
 {: faq}
 
-Yes, it supports high availability in an Active-Standby configuration for policy-based VPN, and Active-Active configuration for a static, route-based VPN.
+Yes, {{site.data.keyword.vpn_vpc_short}} supports high availability in an Active-Standby configuration for policy-based VPNs, and Active-Active configuration for a static, route-based VPN.
 
 ## Are there plans to support SSL VPN?
 {: #faq-vpn-9}
@@ -116,13 +116,24 @@ If you use IKEv1, rekey collision deletes the IKE/IPsec security association (SA
 
 Yes. You can find more information in [Using IBM Log Analysis to view VPN logs](/docs/vpc?topic=vpc-using-log-analysis-to-view-vpn-logs).
 
+## How can I send all traffic from the VPC side to the on-premises side in a policy-based VPN?
+{: #faq-vpn-16}
+{: faq}
+{: support}
+
+To send all traffic from the VPC side to the on-premises side, set peer CIDRs to `0.0.0.0/0` when creating a connection.
+
+When a connection is created successfully, the VPN service adds a `0.0.0.0/0` via `<VPN gateway private IP>` route into the default routing table of the VPC. However, this new route can cause routing issues, such as virtual servers in different subnets not being able to communicate with each other, and VPN gateways not communicating with on-premises VPN gateways. 
+
+   To troubleshooting routing issues, see [Why aren't my VPN gateways or virtual server instances communicating?](/docs/vpc?topic=vpc-troubleshoot-routing-issues). 
+
 ## Does IBM complete quarterly ASV scans of data-plane VPN appliances?  
 {: #vpn-asv}
 {: faq}
 
 Approved Scanning Vendor (ASV) quarterly scanning is a requirement of the Payment Card Industry (PCI) Security Standards Council. ASV scanning of VPN data-plane appliances is solely a customer responsibility. IBM does not use ASVs to scan data-plane appliances because these scans can negatively impact customer workload functions and performance.
 
-## What metrics will I be charged for if I am using VPN gateway for VPC?  
+## What metrics am I charged for if I am using VPN gateway for VPC?  
 {: #vpn-billing}
 {: faq}
 
@@ -134,4 +145,5 @@ The following metrics are collected for VPN gateway billing on a monthly basis:
 
 See the **IBM Cloud VPN** tab on the [Pricing](https://www.ibm.com/cloud/vpc/pricing) page for the unit pricing per hour in each region for VPN gateway.
 
-**Note:** While using a VPN gateway, you are also charged for all outbound public internet traffic billed at VPC data rates. See the *Data Transfer* tab on the [Pricing](https://www.ibm.com/cloud/vpc/pricing) page for details about the unit pricing for outbound data transfer.
+While using a VPN gateway, you are also charged for all outbound public internet traffic billed at VPC data rates. See the *Data Transfer* tab on the [Pricing](https://www.ibm.com/cloud/vpc/pricing) page for details about the unit pricing for outbound data transfer.
+{: note}

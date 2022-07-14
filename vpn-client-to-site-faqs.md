@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-06-06"
+  years: 2022
+lastupdated: "2022-07-07"
 
 keywords: VPN server, faq, faqs, frequently asked questions, vpn, VPN
 
@@ -71,12 +71,13 @@ You cannot delete the subnet if any VPN servers are present.
 {: faq}
 {: support}
 
-You cannot update the security group attached to the VPN server after the server is provisioned. However, you can change the rules of the security group. The rules take effect immediately on the VPN server.
+1. In the navigation pane, click **VPNs > Client-to-site servers**, and select the VPN server you want to update.
+1. Click **Attached security groups > Attach**, and select the security group you want to attach.
 
-## Can I create routes and use the private IPs?
+## Can I create routes and use the private IPs of the VPN server as next hop?
 {: #create-routes-and-use-private-ips}
 
-No, you cannot create routes and use the private IPs because the private IPs are not static. They can change at any time.
+No, you cannot create routes and use the private IPs. The private IPs are not static and can change at any time. The VPN for VPC service updates routes in the VPC routing table automatically. If you create a VPC routing table and you want the VPN for VPC service to inject routes into the new routing table, you have to add the VPN server to the `accept routes from` flag. You must also remove the VPN server from the `accept routes from` flag if you do not want the VPN server to inject routes into the routing table. For more information, see [Configuring route propagation for VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-route-propagation).
 
 ## What happens to a VPN server if I try to delete the security group that the VPN server is attached to?
 {: #faq-vpn-server-delete-sg}
@@ -97,7 +98,7 @@ The server resides in the VPN subnet that you choose. A VPN server needs two ava
 {: faq}
 {: support}
 
-Yes, it supports high availability in an Active/Active configuration. You must choose two subnets if you want to deploy a high availability VPN server with two fault domains.
+Yes, it supports high availability in an Active/Active configuration. You must choose two subnets if you want to deploy a high availability VPN server with two fault domains. You can also upgrade the stand-alone VPN server to high-availability mode, and downgrade the high-availability VPN server to stand-alone mode.
 
 ## Are there any caps on throughput for VPN server?
 {: #faq-vpn-server-caps}
@@ -153,18 +154,14 @@ DNS server IP addresses are optional when you provision a VPN server. You should
 {: faq}
 {: support}
 
-The VPN server is not aware of updates made to a certificate in the certificate manager. You must re-import the certificate with a different CRN, and then update the VPN server with the new certificate CRN.
+The VPN server is not aware of updates made to a certificate in Certificate Manager or Secrets Manager. You must re-import the certificate with a different CRN, and then update the VPN server with the new certificate CRN.
 
 ## What information should I provide in an IBM Support case if I need help?
 {: #faq-vpn-server-support-info}
 {: faq}
 {: support}
 
-What information should I provide if I need support?
-{: shortdesc}
-
 Supply the following content in your [IBM Support case](/docs/get-support?topic=get-support-open-case):
-{: tsResolve}
 
 1. Your VPN server ID.
 1. Your VPN client and operating system version.

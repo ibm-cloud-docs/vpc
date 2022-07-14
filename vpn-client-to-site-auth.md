@@ -12,11 +12,8 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Setting up client-to-site authentication (Beta)
+# Setting up client-to-site authentication
 {: #client-to-site-authentication}
-
-Client VPN for VPC is available to all IBM Cloud users. After the Beta period ends, you will be given a time period to migrate your VPN servers to the standard pricing plan to avoid disruption of service.
-{: beta}
 
 Configure your authentication settings for the VPN server and VPN clients. Certificates are managed through either IBM Cloud Secrets Manager (recommended) or IBM Cloud Certificate Manager.  
 
@@ -41,8 +38,9 @@ To create an IAM service-to-service authorization for your VPN server and IBM Cl
 ## Managing VPN server and client certificates
 {: #creating-cert-manager-instance-import}
 
-For now, only the imported certificate and public certificate in Secrets Manager are supported by the VPN server. The private certificate in Secrets Manager is not supported.
-{: note}
+
+For now, only the imported certificate and public certificate in the secrets manager are supported by the VPN server. The private certificate in the secrets manager is not supported by the VPN server.
+   {: note}
 
 ### Importing a certificate into Secrets Manager or Certificate Manager
 {: #import-certificate}

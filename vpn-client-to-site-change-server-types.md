@@ -12,11 +12,8 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Upgrading to an HA VPN server (Beta)
-{: #vpn-client-to-site-change-server-types} 
-
-Client VPN for VPC is available to all IBM Cloud users. After the Beta period ends, you will be given a time period to migrate your VPN servers to the standard pricing plan to avoid disruption of service.
-{: beta}
+# Upgrading to an HA VPN server
+{: #vpn-client-to-site-change-server-types}  
 
 You can change VPN server types after you create a VPN server. For example, you can upgrade a stand-alone VPN server (pilot deployment) to a High Availability (HA) VPN server (production deployment). You can also detach a subnet to downgrade an HA VPN server to a stand-alone deployment, or change a VPN subnet after your VPN server is provisioned.
 {: shortdesc}
@@ -114,7 +111,7 @@ To upgrade to an HA VPN server by using the API, follow these steps:
    {: tip}
 
    ```bash
-   curl -X GET "$vpc_api_endpoint/v1/vpn_servers?version=$api_version&maturity=beta&generation=2" \
+   curl -X GET "$vpc_api_endpoint/v1/vpn_servers?version=$api_version&generation=2" \
         -H "Authorization:$iam_token"
    ```
    {: pre}
@@ -147,7 +144,7 @@ To upgrade to an HA VPN server by using the API, follow these steps:
 1. Get the ETag of the VPN server:
 
    ```bash
-   curl -X GET -i "$vpc_api_endpoint/v1/vpn_servers/$VpnServer?version=$api_version&maturity=beta&generation=2" \
+   curl -X GET -i "$vpc_api_endpoint/v1/vpn_servers/$VpnServer?version=$api_version&generation=2" \
         -H "Authorization:$iam_token"
    ```
    {: pre}
@@ -162,7 +159,7 @@ To upgrade to an HA VPN server by using the API, follow these steps:
 1. When all variables are initiated, upgrade the VPN server to HA by adding a second subnet:
 
    ```sh
-      curl -X PATCH "$vpc_api_endpoint/v1/vpn_servers/$VpnServer?version=$api_version&maturity=beta&generation=2" \
+      curl -X PATCH "$vpc_api_endpoint/v1/vpn_servers/$VpnServer?version=$api_version&generation=2" \
         -H "Authorization: $iam_token" \
         -H "If-Match: $ETag" \
         -d '{

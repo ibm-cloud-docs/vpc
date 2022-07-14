@@ -14,7 +14,7 @@ subcollection: vpc
 # Creating a VPN gateway
 {: #vpn-create-gateway}
 
-You can create an IBM Cloud VPN Gateway for VPC to securely connect your VPC to another private network, such as an on-premises network or another VPC.
+You can create an IBM Cloud VPN for VPC to securely connect your VPC to another private network, such as an on-premises network or another VPC.
 {: shortdesc}
 
 ## Planning considerations
@@ -25,8 +25,8 @@ Review the following considerations before creating a VPN gateway:
 * The VPN gateway is created in the zone that is associated with the subnet that you select. Because the VPN gateway can connect to virtual server instances in this zone only, instances in other zones can't use this VPN gateway to communicate with the other network. For zone fault tolerance, deploy one VPN gateway per zone.
 * Make sure that there's enough space in the subnet for the gateway. To ensure VPN management and fail-over functions are able to function properly, create the VPN gateway in a subnet without any other VPC resources to guarantee that there are enough available private IPs for the gateway. A VPN gateway needs four private IP addresses to accommodate high availability and rolling upgrades. Since up to five private IPs in a subnet are reserved, the minimum subnet size that can be used to host a VPN gateway is 16 IPs (prefix `/28` or netmask `255.255.255.240`).
 * If you plan to set a default route (`0.0.0.0/0`) in a VPC routing table to let egress traffic from your VPC resources pass through a VPN gateway, and you plan to use a route-based VPN, create your VPN gateway in a subnet different from the one associated with the routing table. Otherwise, this default route causes a routing conflict for the VPN gateway and brings the VPN connection down.
-* By default, PFS (Perfect Forward Secrecy) is disabled for IBM Cloud VPN Gateway for VPC. Some vendors require PFS enablement for Phase 2. Check your vendor instruction and use custom policies if PFS is required.
-* IBM Cloud VPN Gateway for VPC supports only one route-based VPN per zone per VPC.
+* By default, PFS (Perfect Forward Secrecy) is disabled for IBM Cloud VPN for VPC. Some vendors require PFS enablement for Phase 2. Check your vendor instruction and use custom policies if PFS is required.
+* IBM Cloud VPN for VPC supports only one route-based VPN per zone per VPC.
 
 ## Creating a VPN gateway by using the UI
 {: #vpn-create-ui}
@@ -81,6 +81,8 @@ To create a VPN gateway using the UI:
 {: #vpn-create-cli}
 {: cli}
 
+Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+
 To create a VPN gateway by using the CLI, enter the following command:
 
 ```sh
@@ -115,7 +117,7 @@ Where:
 {: #vpn-create-api}
 {: api}
 
-To create a policy-based IBM Cloud VPN Gateway for VPC by using the API, follow these steps:
+To create a policy-based IBM Cloud VPN for VPC by using the API, follow these steps:
 
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
 1. Store any additional variables to be used in the API commands; for example:

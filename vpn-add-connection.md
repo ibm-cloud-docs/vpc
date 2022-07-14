@@ -94,6 +94,69 @@ Where:
 - Create a VPN connection with the same core parameters and custom policies with specified IDs:
    `ibmcloud is vpn-gateway-connection-create my-connection fee82deba12e4c0fb69c3b09d1f12345 169.21.50.5 lkj14b1oi0alcniejkso --local-cidr 10.240.0.0/24 --peer-cidr 192.168.1.0/24 --ipsec-policy 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --ike-policy 72251a2e-d6c5-42b4-97b0-b5f8e8d1f480`
 
+
+## Adding a local CIDR to a VPN gateway connection by using the CLI
+{: #vpn-using-cli-vpn-gateway-connection-local-cidr-add}
+{: cli}
+
+Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+
+To add a local CIDR to a VPN gateway connection by using the CLI, enter the following command:
+
+This command is supported only by policy mode VPN gateway.
+   {: note}
+
+```sh
+bx is vpn-gateway-connection-local-cidr-add VPN_GATEWAY CONNECTION PREFIX_ADDRESS PREFIX_LENGTH [--vpc VPC] [--output JSON] [-q, --quiet]
+```
+{: codeblock}
+
+Where:
+
+- **VPN_GATEWAY** - ID of the VPN gateway.
+- **CONNECTION** - ID or name of the VPN connection.
+- **PREFIX_ADDRESS** - The prefix address part of the CIDR.
+- **PREFIX_LENGTH** - The prefix length part of the CIDR.
+- **--output value** - Specify the output in JSON format.
+- **-q, --quiet** - Suppress verbose output.
+
+### Command examples
+{: #command-examples-vpn-gateway-connection-local-cidr-add}
+
+- Add a local CIDR for a specific connection name with required configuration values:
+   `ibmcloud is vpn-gateway-connection-local-cidr-add my-vpn-gateway my-connection 3.3.3.0 24`
+
+## Adding a peer CIDR to a VPN gateway connection by using the CLI
+{: #vpn-using-cli-vpn-gateway-connection-peer-cidr-add}
+{: cli}
+
+Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
+
+To add a peer CIDR to a VPN gateway connection by using the CLI, enter the following command:
+
+This command is supported only by policy mode VPN gateway.
+   {: note}
+
+```sh
+bx is vpn-gateway-connection-peer-cidr-add VPN_GATEWAY CONNECTION PREFIX_ADDRESS PREFIX_LENGTH [--vpc VPC] [--output JSON] [-q, --quiet]
+```
+{: codeblock}
+
+Where:
+
+- **VPN_GATEWAY** - ID of the VPN gateway.
+- **CONNECTION** - ID or name of the VPN connection.
+- **PREFIX_ADDRESS** - The prefix address part of the CIDR.
+- **PREFIX_LENGTH** - The prefix length part of the CIDR.
+- **--output value** - Specify the output in JSON format.
+- **-q, --quiet** - Suppress verbose output.
+
+### Command examples
+{: #command-examples-vpn-gateway-connection-peer-cidr-add}
+
+- Add a peer CIDR for a specific connection name with required configuration values:
+   `ibmcloud is vpn-gateway-connection-peer-cidr-add my-vpn-gateway my-connection 4.4.4.0 24`
+
 ## Adding a connection by using the API
 {: #vpn-using-api-add-connection}
 {: api}
@@ -154,7 +217,107 @@ To create a VPN connection by using the API, follow these steps:
         }'
    ```
    {: codeblock}
-  
+
+## Adding a local CIDR to a VPN gateway connection by using the API
+{: #vpn-using-api-vpn-gateway-connection-local-cidr-add}
+{: api}
+
+To add a local CIDR to a VPN gateway connection by using the API, follow these steps:
+
+This API is supported only by policy mode VPN gateway.
+   {: note}
+
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
+
+1. Store any additional variables to be used in the API commands, for example:
+
+   * `vpnGatewayId` - The VPN gateway identifier
+
+       ```sh
+       export vpnGatewayId=<your_vpn_gateway_id>
+       ```
+       {: pre}
+
+   * `connectionId` - The unique identifier for this VPN connection
+   
+      ```sh
+      export connectionId=<your_connection_id>
+      ```
+      {: pre}
+    
+    * `cidr_prefix` - The prefix address part of the CIDR
+   
+      ```sh
+      export cidr_prefix=<your_cidr_prefix>
+      ```
+      {: pre}
+    
+    * `prefix_length` - The prefix length part of the CIDR.
+   
+      ```sh
+      export prefix_length=<your_prefix_length>
+      ```
+      {: pre}
+
+
+1. When all variables are initiated, add a local CIDR to a VPN gateway connection. For example:
+
+   ```sh
+      curl -X PUT "$vpc_api_endpoint/v1/vpn_gateways/$vpnGatewayId/connections/$connectionId/local_cidrs/${cidr_prefix}/${prefix_length}?version=$api_version&generation=2" \
+        -H "Authorization: $iam_token"
+   ```
+   {: codeblock}
+
+## Adding a peer CIDR to a VPN gateway connection by using the API
+{: #vpn-using-api-vpn-gateway-connection-peer-cidr-add}
+{: api}
+
+To add a peer CIDR to a VPN gateway connection by using the API, follow these steps:
+
+This API is supported only by policy mode VPN gateway.
+   {: note}
+
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
+
+1. Store any additional variables to be used in the API commands, for example:
+
+   * `vpnGatewayId` - The VPN gateway identifier
+
+       ```sh
+       export vpnGatewayId=<your_vpn_gateway_id>
+       ```
+       {: pre}
+
+   * `connectionId` - The unique identifier for this VPN connection
+   
+      ```sh
+      export connectionId=<your_connection_id>
+      ```
+      {: pre}
+    
+    * `cidr_prefix` - The prefix address part of the CIDR
+   
+      ```sh
+      export cidr_prefix=<your_cidr_prefix>
+      ```
+      {: pre}
+    
+    * `prefix_length` - The prefix length part of the CIDR.
+   
+      ```sh
+      export prefix_length=<your_prefix_length>
+      ```
+      {: pre}
+
+
+1. When all variables are initiated, add a peer CIDR to a VPN gateway connection. For example:
+
+   ```sh
+      curl -X PUT "$vpc_api_endpoint/v1/vpn_gateways/$vpnGatewayId/connections/$connectionId/peer_cidrs/${cidr_prefix}/${prefix_length}?version=$api_version&generation=2" \
+        -H "Authorization: $iam_token"
+   ```
+   {: codeblock}
+
 ## Adding a connection by using Terraform
 {: #vpn-using-cli-add-terraform}
 {: terraform}
