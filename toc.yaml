@@ -495,7 +495,6 @@ toc:
                label: Reference
                href: https://{DomainName}/apidocs/vpc
             - api-change-log.md
-            - 2022-03-29-migration.md
         - topicgroup:
             label: Beta VPC API
             topics:
@@ -615,6 +614,10 @@ toc:
                 - vpn-ts-vpn-client-hangs.md
             - instance-status-messages.md
             - quota-dashboard-troubleshooting.md
+        - topicgroup:
+            label: Migration
+            topics:
+            - 2022-03-29-migration.md
         - limitations.md
         - known-issues.md
         - metadata-error-codes.md
