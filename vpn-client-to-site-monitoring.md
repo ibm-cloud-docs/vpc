@@ -388,7 +388,7 @@ To access metrics for a specific VPN server, follow these steps:
 1. Click the name of the VPN server to display its details.
 1. Click the **Monitoring** tab to view the VPN server metrics. 
 
-   ![VPN server metrics(images/vpn-monitoring.png){: caption="VPN monitoring" caption-side="bottom"}
+   ![VPN server metrics](images/vpn-monitoring.png){: caption="VPN monitoring" caption-side="bottom"}
    
 1. Configure the history, dates, and time zone to generate the output you are looking for. 
 
