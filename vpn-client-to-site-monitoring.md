@@ -378,3 +378,20 @@ If the time range that is specified by `from` and `to` is large (for example, 4 
  }'
 ```
 {: codeblock}
+
+## Accessing and viewing metrics
+{: vpn-access-view-metrics}
+
+To access metrics for a specific VPN server, follow these steps:
+
+1. Navigate to the [VPNs for VPC](https://cloud.ibm.com/vpc-ext/network/vpngateways){: external} page and click the **Client-to-site servers** tab. 
+1. Click the name of the VPN server to display its details.
+1. Click the **Monitoring** tab to view the VPN server metrics. 
+
+   ![VPN server metrics(images/vpn-monitoring.png){: caption="VPN monitoring" caption-side="bottom"}
+   
+1. Configure the history, dates, and time zone to generate the output you are looking for. 
+
+You can download the metrics or launch monitoring from your VPN dashboard by selecting **Launch monitoring.**
+
+   
