@@ -89,7 +89,10 @@ If you need to create more VPN client certificates, repeat step 4.
 
 * In the preceding example, the VPN server and client certificates are signed by the same CA. To use different CAs to sign the client certificate, copy the `easyrsa3` folder into a new path and follow steps 2 and 4.
 * If you already have the VPN server certificate from other CAs, make sure that the certificate has the Extended key usage: `TLS Web Client Authentication`. You can use the following command to check the certificate information:  `openssl x509 -noout -text -in certificate_file_name` 
-* If the certificate is used as the VPN client certificate to authenticate the client, you must upload the `Certificate file` and the `Intermediate certificate file`. For example, if you use different client certificates to authenticate different users, make sure that these certificates are signed by the same CA and that you have uploaded one of the client certificates (`Certificate file` and `Intermediate certificate file` only) to Certificate Manager or Secrets Manager. 
+* If the certificate is used as the VPN client certificate to authenticate the client, you must upload the `Certificate file` and the `Intermediate certificate file`. For example, if you use different client certificates to authenticate different users, make sure that these certificates are signed by the same CA and that you have uploaded one of the client certificates (`Certificate file` and `Intermediate certificate file` only) to Secrets Manager or Certificate Manager.
+   
+   You can use a CA chain to bundle the certificates (Intermediate CA 1, Intermediate CA 2, and root CA) into a single file and upload to the Intermediate certificate file. Also, keep in mind that you can create multiple client certificates offline using the same CA without having to upload the certificates to Secrets Manager or Certificate Manager.
+   {: note}
 
 To import VPN server certificates into a Secrets Manager or Certificate Manager instance, follow these steps:
 
