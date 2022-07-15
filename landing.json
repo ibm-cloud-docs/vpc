@@ -38,7 +38,7 @@
         {
           "date": "12 July 2022",
           "title": "IBM Cloud Hyper Protect Virtual Server for VPC",
-          "description": "You can now create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture) in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. Confidential computing is enabled on LinuxONE (s390x processor architecture) by using the IBM Secure Execution for Linux technology."
+          "description": "You can now create IBM Cloud Hyper Protect Virtual Server for VPC instances on LinuxONE (s390x processor architecture) in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. Confidential computing is enabled on LinuxONE (s390x processor architecture) by using the IBM Secure Execution for Linux technology."
         },
         {
           "date": "07 July 2022",
