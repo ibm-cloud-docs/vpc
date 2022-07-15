@@ -93,7 +93,7 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 | Route-based VPN gateway | 1 per zone per VPC |
 {: caption="Table 5. Quotas for the site-to-site VPN gateway service" caption-side="bottom"}
 
-### VPN servers (client-to-site) BETA
+### VPN servers (client-to-site)
 {: #vpn-server-quotas}
 
 |Resource|Quota|
