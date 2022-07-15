@@ -156,6 +156,19 @@ DNS server IP addresses are optional when you provision a VPN server. You should
 
 The VPN server is not aware of updates made to a certificate in Certificate Manager or Secrets Manager. You must re-import the certificate with a different CRN, and then update the VPN server with the new certificate CRN.
 
+## Can I use a customized hostname for the VPN server?
+{: #faq-vpn-server-customized-hostname}
+{: faq}
+{: support}
+
+Yes, you can. You must create a CNAME DNS record and point it to the VPN server hostname in your DNS provider. After that, edit the client profile by replacing direct `remote 445df6c234345.us-south.vpn-server.appdomain.cloud` with `remote your-customized-hostname.com`.
+
+`445df6c234345.us-south.vpn-server.appdomain.cloud` is an example VPN server hostname.
+{: note}
+
+If you are using [IBM Cloud Internet Services](/docs/cis?topic=cis-getting-started) as your DNS provider, refer to [CNAME Type record](/docs/cis?topic=cis-set-up-your-dns-for-cis#cname-type-record) for information about how to add a CNAME DNS record.
+{: note}
+
 ## What information should I provide in an IBM Support case if I need help?
 {: #faq-vpn-server-support-info}
 {: faq}
