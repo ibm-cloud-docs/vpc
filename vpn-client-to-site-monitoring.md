@@ -392,6 +392,5 @@ To access metrics for a specific VPN server, follow these steps:
    
 1. Configure the history, dates, and time zone to generate the output you are looking for. 
 
-You can download the metrics or launch monitoring from your VPN dashboard by selecting **Launch monitoring.**
-
-   
+You can download the metrics, or launch monitoring from your VPN dashboard by selecting **Launch monitoring.**
+{: note}   
