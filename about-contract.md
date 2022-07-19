@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-07-12"
+lastupdated: "2022-07-19"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -40,7 +40,7 @@ A contract file can have the following four valid high-level sections, of which 
 * [`workload`](#hpcr_contract_workload). Is a mandatory section.
 * [`env`](#hpcr_contract_env). Is a mandatory section.
 * [`attestationPublicKey`](/docs/vpc?topic=vpc-about-attestation#attest_pubkey). Is an optional section. You can provide a public RSA key as part of the contract, which is used to encrypt the attestation document and the attribute must be named as `attestationPublicKey`.
-* `EnvWorkloadSignature`. Is an optional section. In this section, the signature of the other sections of the contract is added.
+* `envWorkloadSignature`. Is an optional section. In this section, the signature of the other sections of the contract is added.
 
 The two primary sections in a contract are the `workload` and `env` sections. These two sections are needed because the information that is added into the contract comes from two different personas, namely the "workload" and the "deployer" persona.
 
@@ -52,6 +52,7 @@ The deployer persona works closely with IBM Cloud. This persona receives the wor
 {: #hpcr_contract_workload}
 
 This is one of the most important sections of the contract. The `workload` section can have multiple subsections and the purpose of the subsections is to provide information that is required for bringing up the workload. Currently, only a single container workload is supported. The `workload` section is the parent section that can have the following subsections:
+* type: workload. This subsection is mandatory.
 * [`auths`](#hpcr_contract_auths). This subsection is optional.
 * [`compose`](#hpcr_contract_compose). This subsection is mandatory.
 * [`images`](#hpcr_contract_images). This subsection is optional.
@@ -60,6 +61,7 @@ This is one of the most important sections of the contract. The `workload` secti
 Here is a high-level sample of the workload section of the contract. The minimum that a workload section needs is the compose section. The other sections can be added based on the requirement.
 
 ```yaml
+type: workload
 auths:
   <registry url>:
     password: <password>
@@ -211,7 +213,8 @@ volumes:
 
 The `env` section is also one of the most important sections in a contract. The `env` section of a contract deals with information that is specific to the cloud environment and is not known to the workload persona. This section is created by the deployer persona.
 
-The three subsections for the `env` section are:
+The subsections for the `env` section are:
+* type: env. This subsection is mandatory.
 * [`logging`](#hpcr_contract_env_log). This subsection is mandatory.
 * [`volumes`](#hpcr_contract_env_vol). This subsection must be used only when there is a data volume attached.
 * [`signingKey`](#hpcr_contract_env_signkey). This subsection must be used only when you want to use a contract signature.
@@ -270,7 +273,7 @@ You can encrypt the contents of a contract. Although you can also pass in the co
 
 You can decide which sections of the contract needs encryption. For example, you can choose to [encrypt only the `workload` section](#hpcr_contract_encrypt_workload), or [encrypt only the `env` section](#hpcr_contract_encrypt_env).
 
-When the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance boots, the bootloader decrypts the contract. It takes the value of each of the sections in the contract and decrypts it if it is encrypted. If it finds that a section is not encrypted, it considers it as it is without any decryption. You must use the public key to encrypt the contract before you pass it as an input through the **User Data** section.
+When the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance boots, the bootloader decrypts the contract. It takes the value of each of the sections in the contract and decrypts it if it is encrypted. If it finds that a section is not encrypted, it considers it as it is without any decryption. The key used to encrypt the contract is available to the user through public documentation. You must use the public key to encrypt the contract before you pass it as an input through the **User Data** section.
 
 The encryption and attestation certificates are signed by the IBM intermediate certificate and this has been signed by the IBM Digicert intermediate cert (which in turn is signed by DigiCert Trusted Root G4). For more information about the certificates, see [DigiCert Trusted Root Authority Certificates](https://www.digicert.com/kb/digicert-root-certificates.htm).
 
@@ -401,7 +404,7 @@ Complete the following steps to create the contract signature:
    {: pre}
 
 2. Use the following command to get the signing key in the required format:
-   ```
+   ```sh
    $ key=$(awk -vRS="\n" -vORS="\\\n" '1' public.pem)
    $ echo ${key%\\n}
    ```
@@ -409,6 +412,7 @@ Complete the following steps to create the contract signature:
 
 3. Create the `env.yaml` file. The following is an example:
    ```yaml
+   type: env
    logging:
      logDNA:
        hostname: syslog-a.eu-gb.logging.cloud.ibm.com
@@ -505,6 +509,7 @@ Ensure that you do not miss the pipe symbol '|' if you are using a plain text co
 
 ```yaml
 env: |
+  type: env
   logging:
     logDNA:
       hostname: syslog-a.au-syd.logging.cloud.ibm.com
@@ -556,6 +561,7 @@ base64 -i compose.tgz -o compose.b64
 
 ```yaml
 workload: |
+  type: workload
   compose:
     archive: H4sIADXNg2IAA+3W326CMBQGcK59it555XbanraMq70KlOLIJhjqzPb2q6g3S9xiIi7T75eQlj+hDYcP6vvVuo/hMZsQJc6YsU2+t2NfsmKyyhHLjKRUSmbCTDmpo/e4KQchsqHvNz9d99v5f8of6l/3/jUMi8Puw+fq7XJj7ApsmU/WX2m7r7/j9Abs6s/W2kzQ5aZw2p3XfxuG2PZdIeZ6Poth2LY+xGImRLdsu49dR4h2VS5DsT/yHF9KZWxRSU02NCGkxJJ0FQVSoSlrn8Jba5eyrEsOT55dlduq9sY55sbrhlJpda7HG6/7YRP3YyxETkVOhz6zLtI2++unc/tO5b+84AfgrPyn4JM0pDXyfw3I/32bMvdH5+SfOK0TpdZWIv/XgPzftynX/Udn/f/NmH+l8P+/CuQfAAAAAAAAAAAAAOD2fAEPQbuiACgAAA==
 ```
@@ -566,12 +572,14 @@ workload: |
 
 ```yaml
 env: |
+  type: env
   logging:
     logDNA:
       hostname: syslog-a.au-syd.logging.cloud.ibm.com
       ingestionKey: xxxxxxxxxx
       port: 6514
 workload: |
+  type: workload
   compose:
     archive: H4sIADXNg2IAA+3W326CMBQGcK59it555XbanraMq70KlOLIJhjqzPb2q6g3S9xiIi7T75eQlj+hDYcP6vvVuo/hMZsQJc6YsU2+t2NfsmKyyhHLjKRUSmbCTDmpo/e4KQchsqHvNz9d99v5f8of6l/3/jUMi8Puw+fq7XJj7ApsmU/WX2m7r7/j9Abs6s/W2kzQ5aZw2p3XfxuG2PZdIeZ6Poth2LY+xGImRLdsu49dR4h2VS5DsT/yHF9KZWxRSU02NCGkxJJ0FQVSoSlrn8Jba5eyrEsOT55dlduq9sY55sbrhlJpda7HG6/7YRP3YyxETkVOhz6zLtI2++unc/tO5b+84AfgrPyn4JM0pDXyfw3I/32bMvdH5+SfOK0TpdZWIv/XgPzftynX/Udn/f/NmH+l8P+/CuQfAAAAAAAAAAAAAOD2fAEPQbuiACgAAA==
 ```
