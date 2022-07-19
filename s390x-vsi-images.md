@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-07-11"
+lastupdated: "2022-07-19"
 
-keywords: image, stock image, linuxone image, hpcr, container runtime, virtual private cloud, virtual server, generation 2, gen 2
+keywords: image, stock image, linuxone image, hpcr, container runtime, virtual private cloud, virtual server, generation 2, gen 2, wazi aas
 
 
 subcollection: vpc
@@ -46,7 +46,7 @@ You can choose a profile based on your requirements. You can choose from balance
 |  IBM z/OS (IBM Wazi as a Service) | s390x |
 {: caption="Table 1. Supported s390x stock image operating systems" caption-side="bottom"}
 
-The option to select the Wazi aaS z/OS dev and test image is offered as an IBM Cloud allow-listed service and the image is available in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service).
+The option to select the Wazi aaS z/OS dev and test image is offered as an IBM Cloud allow-listed service and the image is available in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), and US East (Washington DC) regions. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service){: external}.
 {: note}
 
 For information about images for x86 processor architecture, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images).
