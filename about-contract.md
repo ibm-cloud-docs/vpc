@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-07-19"
+lastupdated: "2022-07-20"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -32,6 +32,8 @@ When you create a virtual server instance by using the IBM Hyper Protect Contain
 
 The contract is a definition file in the YAML format that is specific to the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instance. This file must be created by the cloud user as a prerequisite for creating an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance. After this file is created, it must be passed as an input as part of the **User Data** field when an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance is created. You cannot create an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance without a valid contract. If you create an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance without a contract, the deployment starts and then fails and the instance goes into a shutdown state. The contract is specific to creating an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance and is an extension of the IBM Secure Execution technology by Hyper Protect.
 
+If the workload exposes the decrypted tokens (either through SSH or REST APIs), then the decrypted data contains both the workload as well as the environment secrets (however it does not contain the seeds that were used for volume encryption).
+{: note}
 
 ## Contract sections
 {: #hpcr_contract_sections}
