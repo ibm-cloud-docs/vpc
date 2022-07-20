@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2017, 2021
+  years: 2017, 2022
 
-lastupdated: "2021-02-01"
+lastupdated: "2022-07-20"
 
 keywords: pricing, billing, data, instance, VSI, suspend 
 
@@ -28,7 +28,7 @@ subcollection: vpc
 
 When you stop a virtual server instance by using the {{site.data.keyword.cloud_notm}} console, CLI, or API, you don't accrue costs for certain compute resources. Billing stops automatically when you stop the instance. The suspend billing feature helps you reduce cost and prevents you from having to re-create an instance when you need its resources again.
 
-In situations where you want to scale your infrastructure up and down in response to workload needs, you can stop an instance  (and suspend billing) as a faster alternative to creating and deleting instances.
+In situations where you want to scale your infrastructure up and down in response to workload needs, you can stop an instance (and stop billing) as a faster alternative to creating and deleting instances.
 {: tip}
 
 ## Billing details
@@ -36,10 +36,7 @@ In situations where you want to scale your infrastructure up and down in respons
 
 It's important to understand what costs stop accruing and what costs persist when your virtual server instance is powered off.
 
-Billing is suspended only when you stop your virtual server instance through the {{site.data.keyword.cloud_notm}} console, CLI, or API. If you power off your virtual server instance directly through the OS, billing isn't suspended for that instance.
-{: note}
-
-Review the following table for details on how suspend billing impacts various resource charges.
+Review the following table for details on how suspended billing impacts various resource charges.
 
 | Resource                      | Billing stopped   | Billing persists |
 | ----------------------------- | ----------------- | ---------------- |
@@ -48,7 +45,7 @@ Review the following table for details on how suspend billing impacts various re
 | Operating system licenses     |          X        |                  |
 | Floating IPs, Load balancers, or other attached networking offerings |                   |         X        |
 | Storage                       |                   |         X        |
-{: caption="Table 7. Resource billing details" caption-side="top"}
+{: caption="Table 7. Resource billing details" caption-side="bottom"}
 
 Usage times are calculated per second, for both the in use time and suspended time of your virtual server instance. Even if you never initiate the suspend billing feature by powering off your instance, the billing is calculated per second of the instance's lifecycle. No minimum usage requirement exists for an instance. 
 {: note}
@@ -61,7 +58,7 @@ For sustained usage discounts, a suspended image picks up from where it was on t
 ### Billing invoice
 {: #billing-invoice}
 
-When you suspend billing on a virtual server, you'll see a few changes in your billing invoice. The relevant charges now appear as usage-based details. For example, you might see the following additions that reflect hours available, hours that instances were used, and total number of hours charged:
+When you suspend billing on a virtual server, you see a few changes in your billing invoice. The relevant charges now appear as usage-based details. For example, you might see the following additions that reflect hours available, hours that instances were used, and total number of hours charged:
 
 ```
 Computing instance usage...
@@ -76,7 +73,7 @@ Operating system usage...
 ### Storage
 {: #suspend-billing-storage}
 
-When you suspend billing on a virtual server instance, the associated storage persists, but you can't access data while the virtual server instance is powered off. When you resume billing on the instance, you can then access your data and normal billing begins again.
+When you suspend billing on a virtual server instance, the associated storage persists, but you can't access data while the virtual server instance is powered off. When you resume billing on the instance, you can then access your data, and normal billing begins again.
 
 ### IP addresses
 {: #suspend-billing-ip-addresses}
@@ -88,4 +85,5 @@ You can use the [Activity Tracker](/docs/vpc?topic=vpc-at-events) to check the s
 ### Limitations
 {: #suspend-billing-limitations}
 
-Suspended virtual servers continue to count towards your account-wide device quota.
+Suspended virtual servers continue to count toward your account-wide device quota.
+
