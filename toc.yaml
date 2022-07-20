@@ -612,6 +612,7 @@ toc:
                 - vpn-ts-connection-failure.md
                 - vpn-ts-dns-configuration-not-working.md
                 - vpn-ts-vpn-client-hangs.md
+            - resource-suspension.md
             - instance-status-messages.md
             - quota-dashboard-troubleshooting.md
         - topicgroup:
