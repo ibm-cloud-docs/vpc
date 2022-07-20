@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2022
-lastupdated: "2022-07-08"
+lastupdated: "2022-07-20"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -42,6 +42,9 @@ Profiles with instance storage and profiles with 64 or more vCPUs are deployed e
 
 Balanced profiles provide a mix of performance and scalability for more common workloads with a ratio of 4 GiB of memory for every 1 vCPU of compute. The Balanced profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Balanced profiles available for Intel&reg; x86-64  processors.
 
+Balanced profiles with the bx2d prefix are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
+{: preview}
+
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|---------|
 | bx2-2x8 | 2 | 1 | 8 | 4 | - |
@@ -74,6 +77,9 @@ Balanced profiles provide a mix of performance and scalability for more common w
 
 Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers that can benefit from 2 GiB of memory for every 1 vCPU of compute. The Compute profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Compute profiles available for &reg; x86-64 processors.
 
+Compute profiles with the cx2d prefix are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
+{: preview}
+
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|---------|
 | cx2-2x4 | 2 | 1 | 4 | 4 | - |
@@ -105,6 +111,9 @@ Compute profiles are best for workloads with intensive CPU demands, such as high
 {: #memory}
 
 Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads with 8 GiB of memory for every 1 vCPU of compute. The Memory profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Memory profiles available for Intel&reg; x86-64 processors.
+
+Memory profiles with the mx2d prefix are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
+{: preview}
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|---------|
