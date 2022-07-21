@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-07-20"
+lastupdated: "2022-07-29"
 
 
 keywords:
@@ -31,6 +31,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## July 2022
 {: #vpc-july22}
+
+### 29 July 2022
+{: #vpc-july2919}
+{: release-note}
+
+Enterprise account sharing images (beta)
+:    You can now share or publish custom images to other accounts using a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts. You can use any existing x86 virtual server custom image with a private catalog, with the exception of an encrypted image. For more information, see [Getting started with custom images](https://test.cloud.ibm.com/docs/vpc?topic=vpc-planning-custom-images&interface=ui#custom-image-cloud-private-catalog).
 
 ### 19 July 2022
 {: #vpc-july0719}
