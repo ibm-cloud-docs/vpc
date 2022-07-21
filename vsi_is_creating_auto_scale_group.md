@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-07-29"
 
 keywords: auto scale, autoscale, virtual server instance, creating, UI, console, instance group
 
@@ -110,6 +110,7 @@ To create an instance template, complete the following steps.
 **Important:** Instance groups do not support instance templates that have the following configurations:
 - Secondary network interfaces are not supported. Only one, primary network interface for an instance template is supported in an instance group.
 - A primary IP address or floating IP addresses assigned to the primary interface is not supported.
+- - An instance template that uses a custom image that is managed by a private catalog isn't supported.
 
 When you create an instance template, validation steps are performed to ensure that you can use this template to provision a virtual server instance. 
 {: tip}
