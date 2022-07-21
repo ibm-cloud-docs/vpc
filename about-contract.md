@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-07-20"
+lastupdated: "2022-07-21"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -32,7 +32,7 @@ When you create a virtual server instance by using the IBM Hyper Protect Contain
 
 The contract is a definition file in the YAML format that is specific to the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instance. This file must be created by the cloud user as a prerequisite for creating an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance. After this file is created, it must be passed as an input as part of the **User Data** field when an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance is created. You cannot create an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance without a valid contract. If you create an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance without a contract, the deployment starts and then fails and the instance goes into a shutdown state. The contract is specific to creating an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance and is an extension of the IBM Secure Execution technology by Hyper Protect.
 
-If the workload exposes the decrypted tokens (either through SSH or REST APIs), then the decrypted data contains both the workload as well as the environment secrets (however it does not contain the seeds that were used for volume encryption).
+If the workload discloses the decrypted tokens (either through SSH or REST APIs), then the decrypted data contains both the workload and the environment secrets (however it does not contain the seeds that were used for volume encryption).
 {: note}
 
 ## Contract sections
@@ -134,7 +134,7 @@ compose:
 ```
 {: screen}
 
-If the workload provider expects `env` variables from the deployer, `docker-compose.yaml` and use the following snippet as an example:
+If the workload provider expects `env` variables from the deployer, use the following snippet as an example:
 ```sh
 environment:
   KEY1: "${Value1}"
@@ -283,13 +283,112 @@ The encryption and attestation certificates are signed by the IBM intermediate c
 ### Downloading the certificates and extracting the public key
 {: #encrypt_downloadcert}
 
-1. Download the certificates to encrypt the contract [here](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-1-encrypt.crt).
+1. Download the certificates that are used to encrypt the contract [here](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-2-encrypt.crt).
 
-2. Extract the encryption public key from the IBM certificate by using the following command:
+2. Get the [IBM intermediate certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-2-intermediate.crt). Get the [IBM attestation certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-2-attestation.crt).
+
+3. Extract the encryption public key from the encryption certificate by using the following command:
    ```sh
-   openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-1-encrypt.crt > contract-public-key.pub
+   openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-2-encrypt.crt > contract-public-key.pub
    ```
    {: pre}
+
+
+### Verifying the contract encryption and attestation certificates
+{: #validation_certificates}
+
+Complete the following steps on an Ubuntu system, to validate the encryption certificate:
+1. Use the following command to verify the CA certificate:
+   ```
+   openssl verify -crl_download -crl_check DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt.pem
+   ```
+   {: pre}
+
+ 2. Use the following command to verify the signing key certificate:
+    ```
+    openssl verify -crl_download -crl_check -untrusted DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt.pem ibm-hyper-protect-container-runtime-1-0-s390x-2-intermediate.crt
+    ```
+    {: pre}
+
+  3. Complete the following steps to verify the signature of the encrypted certificate document:
+     1. Extract the public signing key into a file. In the following example, the file is called `pubkey.pem`:
+        ```
+        openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-2-intermediate.crt -pubkey -noout >  pubkey.pem
+         ```
+        {: pre}
+
+     2. Extract the encrypt key signature from the encrypt certificate document.
+        The following command returns the offset value of the signature:
+        ```
+        openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-2-encrypt.crt | tail -1 | cut -d : -f 1
+        ```
+        {: pre}
+
+        Use the resulting value to extract the encrypt key signature into a file called signature:
+        ```
+        openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-2-encrypt.crt -out signature -strparse 1008  -noout
+        ```
+        {: pre}
+
+     3. Extract the body of the encrypt key document into a file called body.
+        ```
+        openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-2-encrypt.crt -out body -strparse 4 -noout
+        ```
+        {:pre}
+
+     4. Verify the signature by using the signature and body files:
+        ```
+        openssl sha512 -verify pubkey.pem -signature signature body
+        ```
+        {:pre}
+
+  4. Verify the host key document issuer. Compare the output of the following two commands. The output should match.
+     ```
+     openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-2-encrypt.crt  -issuer -noout
+     openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-2-intermediate.crt -subject -noout
+     ```
+     {: pre}
+
+  5. Verify that the encrypt document is still valid by checking the output of the following command:
+     ```
+     openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-2-encrypt.crt -dates -noout
+     ```
+     {: pre}
+
+     You must follow [this process](#validation_certificates) for validating the attestation certificate.  
+
+### Verifying if the certificate is revoked
+{: #verify_cert_revoke}
+
+1. Get the Certificate Revocation List (CRL) link from the intermediate certificate by using the following command:
+   ```
+   openssl x509 -noout -text -in ibm-hyper-protect-container-runtime-1-0-s390x-2-intermediate.crt | grep -A 4 'X509v3 CRL Distribution Points'
+   ```
+   {: pre}
+
+ 2. Download the CRL file in '.der' format:
+    ```
+    wget -O crl.der <crllink>
+    ```
+    {: pre}
+
+ 3. Expand all CRLs and add into a text file:
+    ```
+    openssl crl -inform DER -text -noout -in crl.der > crl.txt
+    ```
+    {: pre}
+
+  4. Get the serial number from the intermediate cert file:
+     ```
+     openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-2-intermediate.crt  -serial -noout
+     ```
+     {: pre}
+
+  5. This serial number should not be present in the `crl.txt` file:
+     ```
+     cat crl.txt | grep <serialnumber>
+     ```
+     {: pre}
 
 
 ### Creating the encrypted `workload` section of a contract

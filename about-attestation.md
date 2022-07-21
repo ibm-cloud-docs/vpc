@@ -50,11 +50,11 @@ Use the following procedure to validate the attestation record and hashes:
 
 * Get the attestation record `se-checksums.txt` and the signature file `se-signature.bin` from your instance.
 * Get the DigiCert certificates. The DigiCert Trusted Root G4 certificate can be downloaded [here](https://cacerts.digicert.com/DigiCertTrustedRootG4.crt.pem), and the Digicert G4 intermediate certificate can be downloaded [here](https://cacerts.digicert.com/DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt.pem).
-* Get the [IBM intermediate certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-1-intermediate.crt)
-* Get the [IBM attestation certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-1-attestation.crt)
+* Get the [IBM intermediate certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-2-intermediate.crt)
+* Get the [IBM attestation certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-2-attestation.crt)
 * Verify the IBM attestation key:  
   - extract the attestation public key from the IBM attestation certificate  
-  - `openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-1-attestation.crt -pubkey -noout > pubkey.pem`.
+  - `openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-2-attestation.crt -pubkey -noout > pubkey.pem`.
 * Verify the attestation record, containing the hashes:  
   - `openssl dgst -sha256 -verify pubkey.pem -signature se-signature.bin se-checksums.txt`.  
 * You can now use the hashes from the attestation record for validation
