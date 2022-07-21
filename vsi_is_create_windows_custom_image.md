@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-10-07"
+  years: 2019, 2022
+lastupdated: "2022-07-29"
 
 keywords: creating a Windows custom image, cloudbase-init, qcow2
 
@@ -28,20 +28,10 @@ You can create your own custom Windows-based image to deploy a virtual server in
 infrastructure.
 {: shortdesc}
 
-You can begin with an image template from the {{site.data.keyword.cloud_notm}} classic infrastructure. For more information, see [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc).
-Did you know that your can also create a custom image of a boot volume attached to an instance at import time? For more information, see [About creating an image from volume](/docs/vpc?topic=vpc-image-from-volume-vpc).
+You can begin with an image template from the {{site.data.keyword.cloud_notm}} classic infrastructure. For more information, see [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc). Did you know that your can also create a custom image of a boot volume that is attached to a server at import time? For more information, see [About creating an image from volume](/docs/vpc?topic=vpc-image-from-volume-vpc). Keep in mind that Windows custom images aren't supported for LinuxONE (s390x processor architecture).  
 {: tip}
 
-Windows custom image are not supported for LinuxONE (s390x processor architecture).  
-{: note}
-
-
-Your image must adhere to the following custom image requirements:
-* Contains a single file or volume.
-* Is cloud-init enabled.
-* The operating system is supported as a stock image operating system.
-* The image is configured to use BIOS boot mode. UEFI boot mode is not supported. 
-* The min/max volume size is 10 GB to 250 GB. Images below 10 GB are rounded up to 10 GB.
+{{site.data.content.custom-image-requirements-list}}
 
 You cannot create an image from an encrypted boot volume (Image from a volume feature) that is not 100GB.  The operation will be blocked.
 {: note}
@@ -198,5 +188,9 @@ Upload your image to {{site.data.keyword.cos_full_notm}}. On the **Objects** pag
 ## Next steps
 {: #next-steps-creating-windows-image}
 
-When your Windows custom image is created and available in {{site.data.keyword.cos_full_notm}}, you can [import](/docs/vpc?topic=vpc-managing-images) it to VPC to provision images.
-Make sure that you have [Granted access to IBM Cloud Object Storage to import images](/docs/vpc?topic=vpc-object-storage-prereq).
+When your Windows&reg;custom image is created and available in {{site.data.keyword.cos_full_notm}}, you can [import the custom image into VPC](/docs/vpc?topic=vpc-importing-custom-images-into-vpc&interface=ui) and [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui). Make sure that you have [Granted access to IBM Cloud Object Storage to import images](/docs/vpc?topic=vpc-object-storage-prereq).
+
+If you plan to use a private catalog to manage your custom images, you must first import that image into {{site.data.keyword.vpc_short}} and then onboard the virtual server image into a private catalog.
+{: note}
+
+After the custom image is imported, you can then use the custom image to deploy a virtual server in the {{site.data.keyword.vpc_full}} infrastructure.
