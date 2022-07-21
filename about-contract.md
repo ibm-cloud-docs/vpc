@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-07-12"
+lastupdated: "2022-07-21"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -32,6 +32,8 @@ When you create a virtual server instance by using the IBM Hyper Protect Contain
 
 The contract is a definition file in the YAML format that is specific to the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instance. This file must be created by the cloud user as a prerequisite for creating an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance. After this file is created, it must be passed as an input as part of the **User Data** field when an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance is created. You cannot create an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance without a valid contract. If you create an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance without a contract, the deployment starts and then fails and the instance goes into a shutdown state. The contract is specific to creating an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance and is an extension of the IBM Secure Execution technology by Hyper Protect.
 
+If the workload discloses the decrypted tokens (either through SSH or REST APIs), then the decrypted data contains both the workload and the environment secrets (however it does not contain the seeds that were used for volume encryption).
+{: note}
 
 ## Contract sections
 {: #hpcr_contract_sections}
@@ -40,7 +42,7 @@ A contract file can have the following four valid high-level sections, of which 
 * [`workload`](#hpcr_contract_workload). Is a mandatory section.
 * [`env`](#hpcr_contract_env). Is a mandatory section.
 * [`attestationPublicKey`](/docs/vpc?topic=vpc-about-attestation#attest_pubkey). Is an optional section. You can provide a public RSA key as part of the contract, which is used to encrypt the attestation document and the attribute must be named as `attestationPublicKey`.
-* `EnvWorkloadSignature`. Is an optional section. In this section, the signature of the other sections of the contract is added.
+* `envWorkloadSignature`. Is an optional section. In this section, the signature of the other sections of the contract is added.
 
 The two primary sections in a contract are the `workload` and `env` sections. These two sections are needed because the information that is added into the contract comes from two different personas, namely the "workload" and the "deployer" persona.
 
@@ -52,6 +54,7 @@ The deployer persona works closely with IBM Cloud. This persona receives the wor
 {: #hpcr_contract_workload}
 
 This is one of the most important sections of the contract. The `workload` section can have multiple subsections and the purpose of the subsections is to provide information that is required for bringing up the workload. Currently, only a single container workload is supported. The `workload` section is the parent section that can have the following subsections:
+* type: workload. This subsection is mandatory.
 * [`auths`](#hpcr_contract_auths). This subsection is optional.
 * [`compose`](#hpcr_contract_compose). This subsection is mandatory.
 * [`images`](#hpcr_contract_images). This subsection is optional.
@@ -60,6 +63,7 @@ This is one of the most important sections of the contract. The `workload` secti
 Here is a high-level sample of the workload section of the contract. The minimum that a workload section needs is the compose section. The other sections can be added based on the requirement.
 
 ```yaml
+type: workload
 auths:
   <registry url>:
     password: <password>
@@ -130,7 +134,7 @@ compose:
 ```
 {: screen}
 
-If the workload provider expects `env` variables from the deployer, `docker-compose.yaml` and use the following snippet as an example:
+If the workload provider expects `env` variables from the deployer, use the following snippet as an example:
 ```sh
 environment:
   KEY1: "${Value1}"
@@ -211,7 +215,8 @@ volumes:
 
 The `env` section is also one of the most important sections in a contract. The `env` section of a contract deals with information that is specific to the cloud environment and is not known to the workload persona. This section is created by the deployer persona.
 
-The three subsections for the `env` section are:
+The subsections for the `env` section are:
+* type: env. This subsection is mandatory.
 * [`logging`](#hpcr_contract_env_log). This subsection is mandatory.
 * [`volumes`](#hpcr_contract_env_vol). This subsection must be used only when there is a data volume attached.
 * [`signingKey`](#hpcr_contract_env_signkey). This subsection must be used only when you want to use a contract signature.
@@ -278,13 +283,112 @@ The encryption and attestation certificates are signed by the IBM intermediate c
 ### Downloading the certificates and extracting the public key
 {: #encrypt_downloadcert}
 
-1. Download the certificates to encrypt the contract [here](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-1-encrypt.crt).
+1. Download the certificates that are used to encrypt the contract [here](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-2-encrypt.crt).
 
-2. Extract the encryption public key from the IBM certificate by using the following command:
+2. Get the [IBM intermediate certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-2-intermediate.crt). Get the [IBM attestation certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-2-attestation.crt).
+
+3. Extract the encryption public key from the encryption certificate by using the following command:
    ```sh
-   openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-1-encrypt.crt > contract-public-key.pub
+   openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-2-encrypt.crt > contract-public-key.pub
    ```
    {: pre}
+
+
+### Verifying the contract encryption and attestation certificates
+{: #validation_certificates}
+
+Complete the following steps on an Ubuntu system, to validate the encryption certificate:
+1. Use the following command to verify the CA certificate:
+   ```
+   openssl verify -crl_download -crl_check DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt.pem
+   ```
+   {: pre}
+
+ 2. Use the following command to verify the signing key certificate:
+    ```
+    openssl verify -crl_download -crl_check -untrusted DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt.pem ibm-hyper-protect-container-runtime-1-0-s390x-2-intermediate.crt
+    ```
+    {: pre}
+
+  3. Complete the following steps to verify the signature of the encrypted certificate document:
+     1. Extract the public signing key into a file. In the following example, the file is called `pubkey.pem`:
+        ```
+        openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-2-intermediate.crt -pubkey -noout >  pubkey.pem
+         ```
+        {: pre}
+
+     2. Extract the encrypt key signature from the encrypt certificate document.
+        The following command returns the offset value of the signature:
+        ```
+        openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-2-encrypt.crt | tail -1 | cut -d : -f 1
+        ```
+        {: pre}
+
+        Use the resulting value to extract the encrypt key signature into a file called signature:
+        ```
+        openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-2-encrypt.crt -out signature -strparse 1008  -noout
+        ```
+        {: pre}
+
+     3. Extract the body of the encrypt key document into a file called body.
+        ```
+        openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-2-encrypt.crt -out body -strparse 4 -noout
+        ```
+        {:pre}
+
+     4. Verify the signature by using the signature and body files:
+        ```
+        openssl sha512 -verify pubkey.pem -signature signature body
+        ```
+        {:pre}
+
+  4. Verify the host key document issuer. Compare the output of the following two commands. The output should match.
+     ```
+     openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-2-encrypt.crt  -issuer -noout
+     openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-2-intermediate.crt -subject -noout
+     ```
+     {: pre}
+
+  5. Verify that the encrypt document is still valid by checking the output of the following command:
+     ```
+     openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-2-encrypt.crt -dates -noout
+     ```
+     {: pre}
+
+     You must follow [this process](#validation_certificates) for validating the attestation certificate.  
+
+### Verifying if the certificate is revoked
+{: #verify_cert_revoke}
+
+1. Get the Certificate Revocation List (CRL) link from the intermediate certificate by using the following command:
+   ```
+   openssl x509 -noout -text -in ibm-hyper-protect-container-runtime-1-0-s390x-2-intermediate.crt | grep -A 4 'X509v3 CRL Distribution Points'
+   ```
+   {: pre}
+
+ 2. Download the CRL file in '.der' format:
+    ```
+    wget -O crl.der <crllink>
+    ```
+    {: pre}
+
+ 3. Expand all CRLs and add into a text file:
+    ```
+    openssl crl -inform DER -text -noout -in crl.der > crl.txt
+    ```
+    {: pre}
+
+  4. Get the serial number from the intermediate cert file:
+     ```
+     openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-2-intermediate.crt  -serial -noout
+     ```
+     {: pre}
+
+  5. This serial number should not be present in the `crl.txt` file:
+     ```
+     cat crl.txt | grep <serialnumber>
+     ```
+     {: pre}
 
 
 ### Creating the encrypted `workload` section of a contract
@@ -401,7 +505,7 @@ Complete the following steps to create the contract signature:
    {: pre}
 
 2. Use the following command to get the signing key in the required format:
-   ```
+   ```sh
    $ key=$(awk -vRS="\n" -vORS="\\\n" '1' public.pem)
    $ echo ${key%\\n}
    ```
@@ -409,6 +513,7 @@ Complete the following steps to create the contract signature:
 
 3. Create the `env.yaml` file. The following is an example:
    ```yaml
+   type: env
    logging:
      logDNA:
        hostname: syslog-a.eu-gb.logging.cloud.ibm.com
@@ -505,6 +610,7 @@ Ensure that you do not miss the pipe symbol '|' if you are using a plain text co
 
 ```yaml
 env: |
+  type: env
   logging:
     logDNA:
       hostname: syslog-a.au-syd.logging.cloud.ibm.com
@@ -556,6 +662,7 @@ base64 -i compose.tgz -o compose.b64
 
 ```yaml
 workload: |
+  type: workload
   compose:
     archive: H4sIADXNg2IAA+3W326CMBQGcK59it555XbanraMq70KlOLIJhjqzPb2q6g3S9xiIi7T75eQlj+hDYcP6vvVuo/hMZsQJc6YsU2+t2NfsmKyyhHLjKRUSmbCTDmpo/e4KQchsqHvNz9d99v5f8of6l/3/jUMi8Puw+fq7XJj7ApsmU/WX2m7r7/j9Abs6s/W2kzQ5aZw2p3XfxuG2PZdIeZ6Poth2LY+xGImRLdsu49dR4h2VS5DsT/yHF9KZWxRSU02NCGkxJJ0FQVSoSlrn8Jba5eyrEsOT55dlduq9sY55sbrhlJpda7HG6/7YRP3YyxETkVOhz6zLtI2++unc/tO5b+84AfgrPyn4JM0pDXyfw3I/32bMvdH5+SfOK0TpdZWIv/XgPzftynX/Udn/f/NmH+l8P+/CuQfAAAAAAAAAAAAAOD2fAEPQbuiACgAAA==
 ```
@@ -566,12 +673,14 @@ workload: |
 
 ```yaml
 env: |
+  type: env
   logging:
     logDNA:
       hostname: syslog-a.au-syd.logging.cloud.ibm.com
       ingestionKey: xxxxxxxxxx
       port: 6514
 workload: |
+  type: workload
   compose:
     archive: H4sIADXNg2IAA+3W326CMBQGcK59it555XbanraMq70KlOLIJhjqzPb2q6g3S9xiIi7T75eQlj+hDYcP6vvVuo/hMZsQJc6YsU2+t2NfsmKyyhHLjKRUSmbCTDmpo/e4KQchsqHvNz9d99v5f8of6l/3/jUMi8Puw+fq7XJj7ApsmU/WX2m7r7/j9Abs6s/W2kzQ5aZw2p3XfxuG2PZdIeZ6Poth2LY+xGImRLdsu49dR4h2VS5DsT/yHF9KZWxRSU02NCGkxJJ0FQVSoSlrn8Jba5eyrEsOT55dlduq9sY55sbrhlJpda7HG6/7YRP3YyxETkVOhz6zLtI2++unc/tO5b+84AfgrPyn4JM0pDXyfw3I/32bMvdH5+SfOK0TpdZWIv/XgPzftynX/Udn/f/NmH+l8P+/CuQfAAAAAAAAAAAAAOD2fAEPQbuiACgAAA==
 ```
