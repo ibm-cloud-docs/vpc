@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-02-24"
+lastupdated: "2022-07-29"
 
 keywords: metadata, virtual private cloud, instance, virtual server
 
@@ -40,6 +40,7 @@ Use the information in the Table 1 to understand the type of metadata returned f
 | /instance | availability_policy | The availability policy for this virtual server instance. |
 | /instance	| bandwidth | The total bandwidth in megabits per second that are shared across the virtual server instance's network interfaces and block storage volumes. |
 | /instance | boot_volume_attachment | Boot volume attachment, with volume name, CRN, and ID. |
+| /instance | catalog_offering | This is displayed if the virtual server instance was provisioned with a custom image in a private catalog. |
 | /instance	| created_at | The date and time that the virtual server instance was created. |
 | /instance	| crn | The Cloud Resource Name for this virtual server instance. |
 | /instance	| dedicated_host | Collection of the dedicated host references which includes the CRN, deleted hosts, ID, name, and resource_type. |
