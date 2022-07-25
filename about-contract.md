@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-07-21"
+lastupdated: "2022-07-25"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -30,7 +30,7 @@ When you create a virtual server instance by using the IBM Hyper Protect Contain
 ## What is a contract?
 {: #hpcr_contract}
 
-The contract is a definition file in the YAML format that is specific to the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instance. This file must be created by the cloud user as a prerequisite for creating an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance. After this file is created, it must be passed as an input as part of the **User Data** field when an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance is created. You cannot create an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance without a valid contract. If you create an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance without a contract, the deployment starts and then fails and the instance goes into a shutdown state. The contract is specific to creating an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance and is an extension of the IBM Secure Execution technology by Hyper Protect.
+The contract is a definition file in the YAML format that is specific to the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instance. This file must be created by the cloud user as a prerequisite for creating an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance. After this file is created, it must be passed as an input as part of the **User Data** field when an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance is created. You cannot create an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance without a valid contract. If you create an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance without a contract, the deployment starts and then fails, and the instance goes into a shutdown state. The contract is specific to creating an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance and is an extension of the IBM Secure Execution technology by Hyper Protect.
 
 If the workload discloses the decrypted tokens (either through SSH or REST APIs), then the decrypted data contains both the workload and the environment secrets (however it does not contain the seeds that were used for volume encryption).
 {: note}
@@ -42,13 +42,13 @@ A contract file can have the following four valid high-level sections, of which 
 * [`workload`](#hpcr_contract_workload). Is a mandatory section.
 * [`env`](#hpcr_contract_env). Is a mandatory section.
 * [`attestationPublicKey`](/docs/vpc?topic=vpc-about-attestation#attest_pubkey). Is an optional section. You can provide a public RSA key as part of the contract, which is used to encrypt the attestation document and the attribute must be named as `attestationPublicKey`.
-* `envWorkloadSignature`. Is an optional section. In this section, the signature of the other sections of the contract is added.
+* `envWorkloadSignature`. Is an optional section and contains the signature of the other sections of the contract.
 
 The two primary sections in a contract are the `workload` and `env` sections. These two sections are needed because the information that is added into the contract comes from two different personas, namely the "workload" and the "deployer" persona.
 
 The workload persona provides information about the containers (or workload) that needs to be brought up on the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance. It includes information about the name of the container, the container registry where it resides, credentials of the container registry, the image digest, the notary server information (required for image validation), the environment variables that need to be passed to the container, and the docker compose file with the container information.
 
-The deployer persona works closely with IBM Cloud. This persona receives the workload information (preferably an encrypted workload section) from the workload persona. The deployer then creates the `env` section of the contract. The `env` section has information that is specific to the IBM Cloud environment. Usually, it is information that the workload persona does not have and does not need to know. An example is information about the IBM Cloud Logging instance, which the deployer persona creates before adding information to the `env` section of the contract.
+The deployer persona works closely with IBM Cloud. This persona receives the workload information (preferably an encrypted workload section) from the workload persona. The deployer then creates the `env` section of the contract. The `env` section has information that is specific to the IBM Cloud environment. Usually, it is information that the workload persona does not have and does not need to know. An example is information about the IBM Cloud Logging instance, which the deployer persona creates, before adding information to the `env` section of the contract.
 
 ## The workload section
 {: #hpcr_contract_workload}
@@ -60,7 +60,7 @@ This is one of the most important sections of the contract. The `workload` secti
 * [`images`](#hpcr_contract_images). This subsection is optional.
 * [`volumes`](#hpcr_contract_volumes). This subsection is optional.
 
-Here is a high-level sample of the workload section of the contract. The minimum that a workload section needs is the compose section. The other sections can be added based on the requirement.
+The following snippet shows a high-level sample of the workload section of the contract. The minimum that a workload section needs is the compose section. The other sections can be added based on the requirement.
 
 ```yaml
 type: workload
@@ -94,7 +94,7 @@ volumes:
 ### The `auths` subsection
 {: #hpcr_contract_auths}
 
-The `auths` section consists of information about the container's registry. Currently, only one container is supported, so there is only one registry and credentials to this registry, that must be populated here. If a public image is used in the contract, then you do not need the `auths` section because there are no credentials to be added. The `auths` subsection is required only if the container images are private. This subsection does not have any image information, as shown in the following sample. This subsection needs to contain only the container image registry, URL, user, and password.
+The `auths` section consists of information about the container's registry. Currently, only one container is supported, so there is only one registry and credentials to this registry, that must be populated here. If a public image is used in the contract, then you do not need the `auths` section because no credentials are required. The `auths` subsection is required only if the container images are private. This subsection does not have any image information, as shown in the following sample. This subsection needs to contain only the container image registry, URL, user, and password. The key must be the hostname of the container registry or the string 'https://index.docker.io/v1/' for the default docker registry.
 
 ```yaml
 auths:
@@ -110,7 +110,7 @@ auths:
 It consists of an archive subsection. The archive subsection contains the base64 encoded compressed archive of the `docker-compose.yaml` file. As the Hyper Protect Container Runtime image uses Docker Engine and Docker Compose to start containers, the information about containers must first be created by using a standard docker-compose file. This file is then archived and base64 encoded and the output of this is provided as the value to the archive subsection, within the compose section. For more information, see [Overview of Docker Compose](https://docs.docker.com/compose/).  
 
 The mount points specified under the volumes information of the docker-compose file might be aligned with the volume mount point that is specified in the workload section of the contract. Both "yaml" and "yml" formats are supported for docker-compose file.
-Currently, only one container is supported. This is an example of a docker-compose file.
+This is an example of a docker-compose file.
 
 ![Sample docker compose file](images/docker_compose_sample.png "Figure showing docker_compose_sample"){: caption="Figure 1. Sample of a docker-compose file" caption-side="bottom"}
 
@@ -122,7 +122,7 @@ base64 -i compose.tgz | tr -d '\n' > compose.b64
 {: pre}
 
 Copy the content of compose.b64 as a value of compose -> archive.
-```
+```buildoutcfg
 compose:
   archive: <paste the content of compose.b64 >
 ```
@@ -148,13 +148,13 @@ environment:
 The container image that is listed in the docker-compose file can be signed or not signed by using Docker Content Trust (DCT). The `images` subsection is meant only for an image that is signed. Currently, only DCT images are supported and Red Hat Signing Service (RHSS) is not supported.
 
 The following example shows an image URL:
-```
+```buildoutcfg
 <container registry>/<username or namespace>/<image name>
 eg- us.icr.io/mynamespace/my-haproxy:
 ```
 
 The following shows an example of a notary URL:
-```
+```buildoutcfg
 notary: "https://notary.us.icr.io"
 ```
 
@@ -164,7 +164,7 @@ cat ~/.docker/trust/tuf/us.icr.io/<username>/<imagename>/metadata/root.json
 ```
 {: pre}
 
-The following is an example:
+The following snippet is an example:
 ```yaml
 images:
   dct:
@@ -191,15 +191,15 @@ services:
 ### The `workload` - `volumes` subsection
 {: #hpcr_contract_volumes}
 
-The `volumes` subsection has support for auto encryption of the data volume that uses user-provided keys (seeds). If a data volume has been attached to the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance, it is encrypted automatically, if the customer keys are provided as part of the user-data contract. These keys can be provided in the contract through the "seed" field in the "volumes" subsections of the contract. If a data volume is attached to the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance, it is automatically encrypted, if the user keys are provided as part of the contract. These keys can be provided in the contract through the "seed" field in the `volumes` subsections of the contract. The keys (or seeds) are captured in the contract from both the workload and the deployer persona. Thus two seeds must be provided, one through the `workload` section and the other through the `env` section. These two seeds provided as input are internally converted to UTF8 sequences and then concatenated. Subsequently, the hash (SHA256) of the concatenated sequence is computed as a hexdigest, which is used as the LUKS passphrase to encrypt the data volume. You can use the following command to validate the hexdigest:
-```
+The `volumes` subsection has support for auto encryption of the data volume that uses user-provided keys (seeds). If a data volume has been attached to the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance, it is encrypted automatically, if the customer keys are provided as part of the user-data contract. These keys can be provided in the contract through the "seed" field in the "volumes" subsections of the contract. If a data volume is attached to the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance, it is automatically encrypted, if the user keys are provided as part of the contract. These keys can be provided in the contract through the "seed" field in the `volumes` subsections of the contract. The keys (or seeds) are captured in the contract from both the workload and the deployer persona. Thus two seeds must be provided, one through the `workload` section and the other through the `env` section. These two seeds provided as input are internally converted to UTF8 sequences and then concatenated. Later, the hash (SHA256) of the concatenated sequence is computed as a hexdigest, which is used as the LUKS passphrase to encrypt the data volume. You can use the following command to validate the hexdigest:
+```buildoutcfg
 echo -n "seed1seed2" | sha256sum
 ```
 {: pre}
 
-Here you can learn how the 'seed' can be provided in the workload section of the contract. For more information about how the "seed" input can be provided through the `env` section, see [The `env` section](#hpcr_contract_env). It is mandatory to provide both the seeds for encryption. Encryption fails if only one of the seeds is provided and this will lead to the shutdown of the instance.
+Here you can learn how the 'seed' can be provided in the workload section of the contract. For more information about how the "seed" input can be provided through the `env` section, see [The `env` section](#hpcr_contract_env). It is mandatory to provide both the seeds for encryption. Encryption fails if only one of the seeds is provided instance shuts down.
 
-The following is an example for the volumes section:
+The following snippet is an example for the volumes section:
 ```yaml
 volumes:
   test:
@@ -218,7 +218,7 @@ The `env` section is also one of the most important sections in a contract. The 
 The subsections for the `env` section are:
 * type: env. This subsection is mandatory.
 * [`logging`](#hpcr_contract_env_log). This subsection is mandatory.
-* [`volumes`](#hpcr_contract_env_vol). This subsection must be used only when there is a data volume attached.
+* [`volumes`](#hpcr_contract_env_vol). This subsection must be used only when a data volume is attached.
 * [`signingKey`](#hpcr_contract_env_signkey). This subsection must be used only when you want to use a contract signature.
 * [`env`](#hpcr_contract_env_env). This subsection is used to specify values for `env` variables if they are defined by the workload provider.
 
@@ -227,7 +227,7 @@ The subsections for the `env` section are:
 
 The minimum subsection that is required for this section is the logging subsection. For more information, see [Setting up logging for IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} provisioning](/docs/vpc?topic=vpc-about-se&interface=ui#hpcr_setup_logging).
 
-The following is an example of the `logging` subsection:
+The following snippet is an example of the `logging` subsection:
 ```yaml
 logging:
   logDNA:
@@ -241,7 +241,7 @@ logging:
 ### The `env` - `volumes` subsection
 {: #hpcr_contract_env_vol}
 
-Read the [workload - volumes](#hpcr_contract_volumes) subsection of the workload section before proceeding with this section. As already mentioned, for auto disk encryption of the attached data volume (currently only one disk is supported), you must provide two customer seeds, one in the `workload` - `volumes` subsection, and the other in the `env`- `volumes` subsection. The seeds can be any random text of your choice.
+Read the [workload - volumes](#hpcr_contract_volumes) subsection of the workload section before you continue with this section. As already mentioned, for auto disk encryption of the attached data volume (currently only one disk is supported), you must provide two customer seeds, one in the `workload` - `volumes` subsection, and the other in the `env`- `volumes` subsection. The seeds can be any random text of your choice.
 
 This is an example of the `env` - `volumes` subsection:
 ```yaml
@@ -260,7 +260,7 @@ For information about how to use the `signingKey`, see [Contract signature](#hpc
 {: #hpcr_contract_env_env}
 
 If the `docker-compose.yaml`file has an `env` section, use the following as an example to specify the values for the `env` variables:
-```
+```buildoutcfg
 env:
  value1:"abc"
  value2: "xyz"
@@ -273,128 +273,29 @@ env:
 
 You can encrypt the contents of a contract. Although you can also pass in the contract through the **User Data** without encryption, it is recommended that you encrypt the contract. It is also recommended that you initially try to use a nonencrypted contract for testing purposes, and after it works as expected, you can use an encrypted contract for your production environment.
 
-You can decide which sections of the contract needs encryption. For example, you can choose to [encrypt only the `workload` section](#hpcr_contract_encrypt_workload), or [encrypt only the `env` section](#hpcr_contract_encrypt_env).
+You can decide which sections of the contract need encryption. For example, you can choose to [encrypt only the `workload` section](#hpcr_contract_encrypt_workload), or [encrypt only the `env` section](#hpcr_contract_encrypt_env).
 
 When the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance boots, the bootloader decrypts the contract. It takes the value of each of the sections in the contract and decrypts it if it is encrypted. If it finds that a section is not encrypted, it considers it as it is without any decryption. You must use the public key to encrypt the contract before you pass it as an input through the **User Data** section.
 
-The encryption and attestation certificates are signed by the IBM intermediate certificate and this has been signed by the IBM Digicert intermediate cert (which in turn is signed by DigiCert Trusted Root G4). For more information about the certificates, see [DigiCert Trusted Root Authority Certificates](https://www.digicert.com/kb/digicert-root-certificates.htm).
+The encryption and attestation certificates are signed by the IBM intermediate certificate and this is signed by the IBM Digicert intermediate cert (which in turn is signed by DigiCert Trusted Root G4). For more information about the certificates, see [DigiCert Trusted Root Authority Certificates](https://www.digicert.com/kb/digicert-root-certificates.htm).
 
 
-### Downloading the certificates and extracting the public key
+### Downloading the encryption certificate and extracting the public key
 {: #encrypt_downloadcert}
 
-1. Download the certificates that are used to encrypt the contract [here](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-2-encrypt.crt).
-
-2. Get the [IBM intermediate certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-2-intermediate.crt). Get the [IBM attestation certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-2-attestation.crt).
-
+1. Download the certificate that is used to encrypt the contract [here](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-3-encrypt.crt).
+2. Validate the encryption certificate by following the instructions [here](/docs/vpc?topic=vpc-cert_validate#validate_encrypt_cert).
 3. Extract the encryption public key from the encryption certificate by using the following command:
    ```sh
-   openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-2-encrypt.crt > contract-public-key.pub
+   openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-3-encrypt.crt > contract-public-key.pub
    ```
    {: pre}
-
-
-### Verifying the contract encryption and attestation certificates
-{: #validation_certificates}
-
-Complete the following steps on an Ubuntu system, to validate the encryption certificate:
-1. Use the following command to verify the CA certificate:
-   ```
-   openssl verify -crl_download -crl_check DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt.pem
-   ```
-   {: pre}
-
- 2. Use the following command to verify the signing key certificate:
-    ```
-    openssl verify -crl_download -crl_check -untrusted DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt.pem ibm-hyper-protect-container-runtime-1-0-s390x-2-intermediate.crt
-    ```
-    {: pre}
-
-  3. Complete the following steps to verify the signature of the encrypted certificate document:
-     1. Extract the public signing key into a file. In the following example, the file is called `pubkey.pem`:
-        ```
-        openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-2-intermediate.crt -pubkey -noout >  pubkey.pem
-         ```
-        {: pre}
-
-     2. Extract the encrypt key signature from the encrypt certificate document.
-        The following command returns the offset value of the signature:
-        ```
-        openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-2-encrypt.crt | tail -1 | cut -d : -f 1
-        ```
-        {: pre}
-
-        Use the resulting value to extract the encrypt key signature into a file called signature:
-        ```
-        openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-2-encrypt.crt -out signature -strparse 1008  -noout
-        ```
-        {: pre}
-
-     3. Extract the body of the encrypt key document into a file called body.
-        ```
-        openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-2-encrypt.crt -out body -strparse 4 -noout
-        ```
-        {:pre}
-
-     4. Verify the signature by using the signature and body files:
-        ```
-        openssl sha512 -verify pubkey.pem -signature signature body
-        ```
-        {:pre}
-
-  4. Verify the host key document issuer. Compare the output of the following two commands. The output should match.
-     ```
-     openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-2-encrypt.crt  -issuer -noout
-     openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-2-intermediate.crt -subject -noout
-     ```
-     {: pre}
-
-  5. Verify that the encrypt document is still valid by checking the output of the following command:
-     ```
-     openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-2-encrypt.crt -dates -noout
-     ```
-     {: pre}
-
-     You must follow [this process](#validation_certificates) for validating the attestation certificate.  
-
-### Verifying if the certificate is revoked
-{: #verify_cert_revoke}
-
-1. Get the Certificate Revocation List (CRL) link from the intermediate certificate by using the following command:
-   ```
-   openssl x509 -noout -text -in ibm-hyper-protect-container-runtime-1-0-s390x-2-intermediate.crt | grep -A 4 'X509v3 CRL Distribution Points'
-   ```
-   {: pre}
-
- 2. Download the CRL file in '.der' format:
-    ```
-    wget -O crl.der <crllink>
-    ```
-    {: pre}
-
- 3. Expand all CRLs and add into a text file:
-    ```
-    openssl crl -inform DER -text -noout -in crl.der > crl.txt
-    ```
-    {: pre}
-
-  4. Get the serial number from the intermediate cert file:
-     ```
-     openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-2-intermediate.crt  -serial -noout
-     ```
-     {: pre}
-
-  5. This serial number should not be present in the `crl.txt` file:
-     ```
-     cat crl.txt | grep <serialnumber>
-     ```
-     {: pre}
 
 
 ### Creating the encrypted `workload` section of a contract
 {: #hpcr_contract_encrypt_workload}
 
-The value of any section in a contract can be plain text or encrypted.   
+The value of any section in a contract can be plain text or encrypted.
 Complete the following steps to encrypt the workload section used in a contract:
 
 1. Create the `docker-compose.yaml` file based on your workload requirements. For example,
@@ -409,13 +310,12 @@ Complete the following steps to encrypt the workload section used in a contract:
 
    For more information, see [Overview of Docker Compose](https://docs.docker.com/compose/).
 
-2. Create the [workload section](#hpcr_contract_workload) of the contract and add the contents in the `workload.yaml` file.  
+2. Create the [workload section](#hpcr_contract_workload) of the contract and add the contents in the `workload.yaml` file.
 
-3. Export the complete path of the `workload.yaml` file and the `contract-public-key.pub`
-(from step 3 of [this section](#hpcr_contract_encrypt_env)).
+3. Export the complete path of the `workload.yaml` file and the `contract-public-key.pub`:
    ```sh
    WORKLOAD="<PATH to workload.yaml>"
-   CONTRACT_KEY="<PATH to contract-public-key.pub>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-3-encrypt.crt>"
    ```
    {: pre}
 
@@ -425,22 +325,21 @@ Complete the following steps to encrypt the workload section used in a contract:
    ```
    {: pre}
 
-5. Use the following command to encrypt password with `contract-public-key.pub`
-(from step 3 of [this section](#hpcr_contract_encrypt_env)):
-   ```sh  
-   ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey cerin.cert -certin | base64 -w0 )"
+5. Use the following command to encrypt password with `contract-public-key.pub`:
+   ```sh
+   ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY -certin | base64 -w0 )"
    ```
    {: pre}
 
 6. Use the following command to encrypt the `workload.yaml` file with a random password:
-   ```sh  
+   ```sh
    ENCRYPTED_WORKLOAD="$(echo -n "$PASSWORD" | base64 -d | openssl enc -aes-256-cbc -pbkdf2 -pass stdin -in "$WORKLOAD" | base64 -w0)"
    ```
    {: pre}
 
 7. Use the following command to get the encrypted section of the contract:
    ```sh
-   echo "hyper-protect-basic.${ENCRYPTED_PASSWORD}.${ENCRYPTED_WORKLOAD}"   
+   echo "hyper-protect-basic.${ENCRYPTED_PASSWORD}.${ENCRYPTED_WORKLOAD}"
    ```
    {: pre}
 
@@ -452,10 +351,10 @@ Complete the following steps to encrypt the `env` section used in a contract:
 
 1. Create the [env section](#hpcr_contract_env) of the contract and add the contents in the `env.yaml` file.
 
-2. Export the complete path of the `env.yaml` file and the `contract-public-key.pub` (from step 3 of [this section](#hpcr_contract_encrypt_env)).
+2. Export the complete path of the `env.yaml` file and the `contract-public-key.pub:
    ```sh
    ENV="<PATH to env.yaml>"
-   CONTRACT_KEY="<PATH to contract-public-key.pub>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-3-encrypt.crt>"
    ```
    {: pre}
 
@@ -465,22 +364,21 @@ Complete the following steps to encrypt the `env` section used in a contract:
    ```
    {: pre}
 
-4. Use the following command to encrypt password with `contract-public-key.pub`
-(from step 3 of [this section](#hpcr_contract_encrypt_env)):
-   ```sh  
-   ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey "$CONTRACT_KEY" -pubin | base64 -w0 )"
+4. Use the following command to encrypt password with `contract-public-key.pub`:
+   ```sh
+   ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY  -certin | base64 -w0)"
    ```
    {: pre}
 
 5. Use the following command to encrypt workload.yaml with a random password:
-   ```sh  
+   ```sh
    ENCRYPTED_ENV="$(echo -n "$PASSWORD" | base64 -d | openssl enc -aes-256-cbc -pbkdf2 -pass stdin -in "$ENV" | base64 -w0)"
    ```
    {: pre}
 
 6. Use the following command to get the encrypted section of the contract:
    ```sh
-   echo "hyper-protect-basic.${ENCRYPTED_PASSWORD}.${ENCRYPTED_ENV}"  
+   echo "hyper-protect-basic.${ENCRYPTED_PASSWORD}.${ENCRYPTED_ENV}"
    ```
    {: pre}
 
@@ -494,7 +392,7 @@ Contract signature is an optional feature that can be used with the contract. Yo
 The purpose of this signature feature is to ensure that the `workload` and `env` sections are always used together and are not tampered with by a third party. The signature of the `workload` and the `env` sections are added as the value to the `envWorkloadSignature` section.
 The following are two sections in a contract that are relevant while creating and adding a contract signature:
 * `envWorkloadSignature`: This is section where the signature of the other sections of the contract is added. This section is not required for a contract that is not signed.
-* `signingKey`: This is a subsection that must be added to the `env` section of the contract. This should hold the value to the user generated public key, whose corresponding private key was used to create the contract signature.
+* `signingKey`: This is a subsection that must be added to the `env` section of the contract. This holds the value to the user-generated public key, whose corresponding private key was used to create the contract signature.
 
 Complete the following steps to create the contract signature:
 1. Use the following command to generate key pair to sign the contract (note that "test1234" is the passphrase to generate keys, you can use your own):
@@ -506,8 +404,8 @@ Complete the following steps to create the contract signature:
 
 2. Use the following command to get the signing key in the required format:
    ```sh
-   $ key=$(awk -vRS="\n" -vORS="\\\n" '1' public.pem)
-   $ echo ${key%\\n}
+   key=$(awk -vRS="\n" -vORS="\\\n" '1' public.pem)
+   echo ${key%\\n}
    ```
    {: pre}
 
@@ -524,11 +422,10 @@ Complete the following steps to create the contract signature:
        seed: hogwarts
    signingKey: -----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAvLaeSA8Nc3p99HNUMwon\n5lMMALAsIxRRpWUaEZ5IcUky2sgCi/rSmxU2sm6FK/BmCftk33f5W2BsYHdY9R/0\nELZ9A4POQcJsPF3ronU2QHwnRjcqYuUFXmf1VqfPPLpELriFNoCb2FN2zCa+VUmu\n+fGhroZ3Fr9kBPwJhGr917E5jeCQ+MzsGkulcTvr0SfvThiZQQ/KlU0R35ThamF3\n8C0F5IQBpqDUwDFmWvD5lF2SmprpluDBFEj8LLfLxvW9M2Qwku6nGUnnFReg3vNH\n7IF0SRr1K1AdO5hEmevCdyG9hgTdUY6dXcjntiN/kbqXErILknvzDnb4jyPZZRdK\ndrOzVt8hjbdmkS396SrMFtA++QrV3GNZl5zCscpn6d8S7BEA8mDzroo2UAbrypVP\n9l9AmzUnmnPCpZQySUUHoY0xG2vgMSA50CWH7Uwjmpixr02Td4/LU8fE7NWCO6ci\nx4++ANSaxu+uuZ2Pe1OjjgV98r06ZUs38eaxptLZqLpn3N6w8WAJxGwSLapZwNtP\ng2spUXu2Eh/TN5t4/ly5iXOsyIy8IPtTrUPX7rpaaqFZ72P6BJLj3WLEvOG/eF/8\nBTjrsZAjb8YjkO1uGk10IPa63sniZWe5vlm9w9UKy2uGuy6RhWxwoVHRRbfhboQF\nsO20dsVwgTZn8c46HMD2PoMCAwEAAQ==\n-----END PUBLIC KEY----
    ```
-   {: codeblock}   
+   {: codeblock}
 
-4. Use the following command to export complete path of `env.yaml` and `contract-public-key.pub`
-(from step 3 of [this section](#hpcr_contract_encrypt_env)):
-   ```sh
+4. Use the following command to export complete path of `env.yaml` and `contract-public-key.pub`:
+   ```buildoutcfg
    ENV="<PATH to env.yaml>"
    CONTRACT_KEY="<PATH to contract-public-key.pub>"
    ```
@@ -540,14 +437,13 @@ Complete the following steps to create the contract signature:
    ```
    {: pre}
 
-6. Use the following command to encrypt password with `contract-public-key.pub.`
-(from step 3 of [this section](#hpcr_contract_encrypt_env)):
+6. Use the following command to encrypt password with `contract-public-key.pub.`:
    ```sh
-   ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey "$CONTRACT_KEY" -pubin | base64 -w0 )"  
+   ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY  -certin | base64 -w0)"
    ```
    {: pre}
 
-7. Use the following command to encrypt `env.yaml` with a random password:  
+7. Use the following command to encrypt `env.yaml` with a random password:
    ```sh
    ENCRYPTED_ENV="$(echo -n "$PASSWORD" | base64 -d | openssl enc -aes-256-cbc -pbkdf2 -pass stdin -in "$ENV" | base64 -w0)"
    ```
@@ -557,9 +453,9 @@ Complete the following steps to create the contract signature:
    ```sh
    echo "hyper-protect-basic.${ENCRYPTED_PASSWORD}.${ENCRYPTED_ENV}"
    ```
-   {: pre}   
+   {: pre}
 
-Steps 4 to 8 are used to encrypt the `env` section. If you choose to not encrypt this section, skip these steps.
+Steps 4 - 8 are used to encrypt the `env` section. If you choose to not encrypt this section, skip these steps.
 {: note}
 
 ## Preparing the signature
@@ -603,10 +499,10 @@ Complete the following steps to prepare the signature:
 
 The minimum that you need to get started with just any contract is an instance of IBM Logging from [cloud.ibm.com](https://cloud.ibm.com/login). There are different plans that you can choose from. To understand how you get the required details, that is the hostname and the ingestion key, see [Setting up logging for IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} provisioning](/docs/vpc?topic=vpc-about-se#hpcr_setup_logging).
 
-### 2. Create the env section
+### 2. Create the end section
 {: #step2}
 
-Ensure that you do not miss the pipe symbol '|' if you are using a plain text contract. This is not required if you are planning to encrypt the section.
+Ensure that you do not miss the pipe symbol '|' if you are using a plain text contract. It is not required if you are planning to encrypt the section.
 
 ```yaml
 env: |
@@ -622,8 +518,7 @@ env: |
 ### 3. Prepare the docker-compose file
 {: #step3}
 
-Assuming that you have the logging details, find a simple docker compose file. The following is example with a public NGINX container. Create a docker-compose.yaml by using the example.
-of it.
+Assuming that you have the logging details, find a simple docker compose file. The following example has a public NGINX container. Create a docker-compose.yaml by using the example.
 
 ```yaml
 services:

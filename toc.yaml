@@ -73,6 +73,7 @@ toc:
                - about-confidential-computing.md
                - about-attestation.md
                - about-contract.md
+               - certificate_validate.md
            - host-failure-recovery.md
        - topicgroup:
            label: Storage

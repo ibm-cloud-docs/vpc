@@ -74,7 +74,7 @@ The following example shows the image naming convention.
 
 
 ```
-ibm-hyper-protect-container-runtime-1-0-s390x-2
+ibm-hyper-protect-container-runtime-1-0-s390x-3
 ```
 
 The following list explains the variables that make up the components of the image name:
