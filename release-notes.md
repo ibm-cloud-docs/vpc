@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-07-20"
+lastupdated: "2022-07-25"
 
 
 keywords:
@@ -60,7 +60,7 @@ Configuring route propagation for VPN gateways and servers
 {: release-note}
 
 IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}}
-:   You can now create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture) in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. Confidential computing is enabled on LinuxONE (s390x processor architecture) by using the IBM Secure Execution for Linux technology. For more information, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se). A new set of secure execution enabled profiles are available, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). To create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers), and [IBM Hyper Protect Container Runtime image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime). A valid contract is required for creating an instance. For more information, see [About the contract](/docs/vpc?topic=vpc-about-contract_se&interface=ui).
+:   You can now create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture) in the Brazil (São Paulo), and Canada (Toronto) regions. Confidential computing is enabled on LinuxONE (s390x processor architecture) by using the IBM Secure Execution for Linux technology. For more information, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se). A new set of secure execution enabled profiles are available, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). To create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers), and [IBM Hyper Protect Container Runtime image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime). A valid contract is required for creating an instance. For more information, see [About the contract](/docs/vpc?topic=vpc-about-contract_se&interface=ui).
 
 ### 07 July 2022
 {: #vpc-july072022}
