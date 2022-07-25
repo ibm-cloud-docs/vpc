@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-07-11"
+lastupdated: "2022-07-25"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -30,34 +30,34 @@ When you create a virtual server instance by using the IBM Hyper Protect Contain
 
 The boot process creates a unique root disk encryption key to ensure protection of the root disk. To perform attestation, the virtual server instance image contains an attestation-signing key and the hash of the root partition at build time. The boot process validates the root partition. If the hash of the root partition does not match, the boot process does not continue because it assumes that the image was modified before boot. The attestation signing key is a random RSA 4 K key that is signed by an IBM root key that is maintained in Hyper Protect Crypto Services. The IBM root key is signed by Digicert.
 
-During deployment of the virtual server instance in the cloud, an attestation record is created. It contains hashes of the following items  
+During deployment of the virtual server instance in the cloud, an attestation record is created. It contains hashes of the following items:
 
 * The original base image
 * The root partition at the moment of the first boot
 * The root partition at build time
-* The cloud initialization options  
+* The cloud initialization options
 
 The attestation record is signed by the attestation key. As an extra protection layer, you can provide a public key during deployment, against which the attestation record is encrypted. The hash of this public key is added to the attestation record to ensure that the record can be viewed only by the compliance authority, and the expected authority can be easily identified through that hash.
 
 Before you upload any workload to your instance, you need to validate the attestation record. After an instance is created, you can validate the attestation record within the created instance. Your instance must have access to the `/var/hyperprotect` directory. If so, follow these procedures:
 
 * The attestation record is signed by the attestation signing key.
-* The attestation signing key can be confirmed by the IBM intermediate certificate. The IBM intermediate certificate is signed by DigiCert, which is proven by the root certificate of DigiCert, thus completing the chain of trust. 
+* The attestation signing key can be confirmed by the IBM intermediate certificate. The IBM intermediate certificate is signed by DigiCert, which is proven by the root certificate of DigiCert, thus completing the chain of trust.
 
 The encryption and attestation certificates are signed by the IBM intermediate certificate and this has been signed by the IBM Digicert intermediate cert (which in turn is signed by DigiCert Trusted Root G4). For more information about the certificates, see [DigiCert Trusted Root Authority Certificates](https://www.digicert.com/kb/digicert-root-certificates.htm).
 
 Use the following procedure to validate the attestation record and hashes:
 
 * Get the attestation record `se-checksums.txt` and the signature file `se-signature.bin` from your instance.
-* Get the DigiCert certificates. The DigiCert Trusted Root G4 certificate can be downloaded [here](https://cacerts.digicert.com/DigiCertTrustedRootG4.crt.pem), and the Digicert G4 intermediate certificate can be downloaded [here](https://cacerts.digicert.com/DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt.pem).
-* Get the [IBM intermediate certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-2-intermediate.crt)
-* Get the [IBM attestation certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-2-attestation.crt)
-* Verify the IBM attestation key:  
-  - extract the attestation public key from the IBM attestation certificate  
-  - `openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-2-attestation.crt -pubkey -noout > pubkey.pem`.
-* Verify the attestation record, containing the hashes:  
-  - `openssl dgst -sha256 -verify pubkey.pem -signature se-signature.bin se-checksums.txt`.  
-* You can now use the hashes from the attestation record for validation
+* Get the [IBM attestation certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-3-attestation.crt).
+* Validate the attestation certificate by following the instructions [here](/docs/vpc?topic=vpc-cert_validate#validate_attest_cert).
+* Extract the encryption public key from the encryption certificate by using the following command:
+  ```sh
+  openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-3-attestion.crt > contract-public-key.pub
+  ```
+  {: pre}
+
+* You can now use the hashes from the attestation record for validation.
 
 In case you provided a public key for encrypting the attestation record, the following script might help in decrypting the record.
 
