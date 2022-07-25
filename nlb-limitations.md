@@ -17,8 +17,9 @@ subcollection: vpc
 
 Known limitations for {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) are as follows:
 
-* The NLB requires the member and port combination to be unique. In other words,
+* The NLB requires the member and port combination to be unique across both ALBs and NLBs within a VPC. In other words,
    * A member with instance X and port Y cannot be added to a pool of NLB A, if a member with instance X and port Y exists in a pool of NLB B.
+   * A member with instance X and port Y cannot be added to a pool of ALB A, if a member with instance X and port Y exists in a pool of NLB A.
 * There is a one-to-one mapping between listener and pool.
 * The NLB uses the primary network interfaces of its associated members for data traffic. Non-primary network interfaces are not supported.
 * To ensure service availability, use a dedicated subnet with your NLBs. Clients and members should reside in an alternate subnet.
