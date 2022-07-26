@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-07-25"
+lastupdated: "2022-07-26"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -107,7 +107,7 @@ auths:
 ### The `compose` subsection
 {: #hpcr_contract_compose}
 
-It consists of an archive subsection. The archive subsection contains the base64 encoded compressed archive of the `docker-compose.yaml` file. As the Hyper Protect Container Runtime image uses Docker Engine and Docker Compose to start containers, the information about containers must first be created by using a standard docker-compose file. This file is then archived and base64 encoded and the output of this is provided as the value to the archive subsection, within the compose section. For more information, see [Overview of Docker Compose](https://docs.docker.com/compose/).  
+It consists of an archive subsection. The archive subsection contains the Base64 encoded TGZ file archive of the `docker-compose.yaml` file. As the Hyper Protect Container Runtime image uses Docker Engine and Docker Compose to start containers, the information about containers must first be created by using a standard docker-compose file. This file is then archived and base64 encoded and the output of this is provided as the value to the archive subsection, within the compose section. For more information, see [Overview of Docker Compose](https://docs.docker.com/compose/).  
 
 The mount points specified under the volumes information of the docker-compose file might be aligned with the volume mount point that is specified in the workload section of the contract. Both "yaml" and "yml" formats are supported for docker-compose file.
 This is an example of a docker-compose file.
@@ -116,8 +116,7 @@ This is an example of a docker-compose file.
 
 Use the following command to get the base64 encoded archive file. The base64 output is available in the compose.b64 file.
 ```sh
-tar -czvf compose.tgz docker-compose.yml
-base64 -i compose.tgz | tr -d '\n' > compose.b64
+tar czvf - -C <COMPOSE_FOLDER> . | base64 -w0
 ```
 {: pre}
 
@@ -523,7 +522,7 @@ Assuming that you have the logging details, find a simple docker compose file. T
 ```yaml
 services:
   nginx:
-    image: nginx@sha256:b1306efee704017b0e02efadc011d374063a4e9c47b86bdc57744fc3f0666383
+    image: docker.io/library/nginx@sha256:b1306efee704017b0e02efadc011d374063a4e9c47b86bdc57744fc3f0666383
     ports:
     - 80:80
     - 443:443

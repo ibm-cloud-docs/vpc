@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-07-25"
+lastupdated: "2022-07-26"
 
 
 keywords:
@@ -31,6 +31,14 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## July 2022
 {: #vpc-july22}
+
+### 26 July 2022
+{: #vpc-july0726}
+{: release-note}
+
+IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}}
+:   You can now create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture) in Japan (Tokyo), United Kingdom (London), and US East (Washington DC) regions, in addition to Brazil (São Paulo), and Canada (Toronto). Confidential computing is enabled on LinuxONE (s390x processor architecture) by using the IBM Secure Execution for Linux technology. For more information, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se). A new set of secure execution enabled profiles are available, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). To create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers), and [IBM Hyper Protect Container Runtime image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime). A valid contract is required for creating an instance. For more information, see [About the contract](/docs/vpc?topic=vpc-about-contract_se&interface=ui).
+
 
 ### 19 July 2022
 {: #vpc-july0719}
