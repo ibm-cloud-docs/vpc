@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-07-05"
+lastupdated: "2022-07-26"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -51,6 +51,14 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 26 July 2022
+{: #26-july-2022}
+
+### For all version dates
+{: #26-july-2022-all-version-dates}
+
+**Resource suspension for virtual server instances.** The [list all instances](/apidocs/vpc/latest#list-instances) and [retrieve an instance](/apidocs/vpc/latest#get-instance) methods now return `lifecycle_reasons` and `lifecycle_state` properties. A virtual server instance that violates IBM Cloud’s [Acceptable Use Policy](https://www.ibm.com/services/us/imc/html/aup1.html){: external} will now have its `lifecycle_state` property set to `suspended`. A suspended instance is automatically powered off and you cannot update, delete, or power it on. For more information, see [Viewing instance status and lifecycle_state in the API](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=api#instance-status-api) and [Resource suspension](/docs/vpc?topic=vpc-resource-suspension).
 
 ## 5 July 2022
 {: #5-july-2022}
