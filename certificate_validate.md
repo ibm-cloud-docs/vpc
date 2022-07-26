@@ -64,7 +64,7 @@ Complete the following steps on an Ubuntu system, to validate the encryption cer
       ```
       Consider that the output of the command is <offset_value>. Use this <offset_value> to extract the encrypt key signature into a file called signature:
       ```sh
-      openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-3-encrypt.crt -out signature -strparse <key_signature> -noout
+      openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-3-encrypt.crt -out signature -strparse <offset_value> -noout
       ```
       {: pre}
 
@@ -123,7 +123,7 @@ Complete the following steps on an Ubuntu system, to validate the encryption cer
       ```
       Consider that the output of the command is <offset_value>. Use this <offset_value> to extract the encrypt key signature into a file called signature:
       ```sh
-      openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-3-attestation.crt -out signature -strparse <key_signature> -noout
+      openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-3-attestation.crt -out signature -strparse <offset_value> -noout
       ```
       {: pre}
 
