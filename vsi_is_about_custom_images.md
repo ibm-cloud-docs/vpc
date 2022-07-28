@@ -15,7 +15,7 @@ subcollection: vpc
 # Getting started with custom images
 {: #planning-custom-images}
 
-Custom images are used to create new virtual servers with your own settings and configurations. You can create a Linux&reg; custom image, a Windows&reg; custom image, a z/OS custom image, or a VMware custom image. You can import your custom image directly into {{site.data.keyword.vpc_full}} from {{site.data.keyword.cos_full}} or create one from an existing virtual server boot volume. You can also create an image template to migrate a virtual server from the Classic infrastructure. After a custom image is created and imported into {{site.data.keyword.vpc_short}}, you can import it into a private catalog, with some limitations. For more information regarding these limitations, see [Private catalog considerations](/docs/vpc?topic=vpc-about-custom-images#custom-image-cloud-private-catalog).
+Custom images are used to create new virtual servers with your own settings and configurations. You can create a Linux&reg; custom image, a Windows&reg; custom image, a z/OS custom image, or a VMware custom image. You can import your custom image directly into {{site.data.keyword.vpc_full}} from {{site.data.keyword.cos_full}} or create one from an existing virtual server boot volume. You can also create an image template to migrate a virtual server from the Classic infrastructure. After a custom image is created and imported into {{site.data.keyword.vpc_short}}, you can import it into a private catalog, with some limitations. For more information regarding these limitations, see [Private catalog considerations](/docs/vpc?topic=vpc-planning-custom-images#custom-image-cloud-private-catalog).
 {: shortdesc}
 
 ## Prerequisites and limitations
