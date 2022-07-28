@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022
-lastupdated: "2022-07-26"
+lastupdated: "2022-07-28"
 
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, storage optimized
@@ -35,7 +35,7 @@ The following profile families are available:
 | [Memory](#vs-memory) | Memory profiles offer a core to RAM ratio 1 vCPU to 8 GiB of RAM ratio and are best for memory caching and real-time analytics workloads. Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. |
 {: caption="Table 1. Virtual server family selections" caption-side="bottom"}
 
-s390x processor architecture profiles can be used to provision IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}}, LinuxONE virtual server instances, and IBM Wazi as a Service (Wazi aaS) virtual server instances. The secure execution, LinuxONE virtual server instance profiles, and Wazi aaS profiles are available in Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), and US East (Washington DC) regions. The option to select the Wazi aaS z/OS dev and test image is offered as an IBM Cloud allow-listed service. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service).
+s390x processor architecture profiles can be used to provision IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}}, LinuxONE virtual server instances, and IBM Wazi as a Service (Wazi aaS) virtual server instances. The secure execution profiles are available in Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and US East (Washington DC) regions. The LinuxONE virtual server instance and Wazi aaS profiles are available in Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), and US East (Washington DC) regions. The option to select the Wazi aaS z/OS dev and test image is offered as an IBM Cloud allow-listed service. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service).
 {: preview}
 
 
