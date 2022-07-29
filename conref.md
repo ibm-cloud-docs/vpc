@@ -51,7 +51,7 @@ All custom images must meet the following requirements:
 For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-about-custom-images).
 {: #custom-image-information-link}
 
-To import a a custom image into a private catalog, see [Importing software to your private catalogOnboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui).
+To import a a custom image into a private catalog, see [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui).
 {: #access-custom-image-private-catalog}
 
 When you want to delete an {{site.data.keyword.vpc_short}} custom image that is part of a private catalog offering, you must first remove that image from the associated version in the private catalog offering. Then, you can delete the custom image from {{site.data.keyword.vpc_short}}.  To delete the custom image from the private catalog, see [Deprecating a private product](/docs/account?topic=account-deprecate-product&interface=ui).
