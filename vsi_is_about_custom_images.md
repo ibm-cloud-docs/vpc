@@ -46,7 +46,7 @@ If you plan to import an image from a file, you must provision an instance of {{
 This is a Beta feature that is available for evaluation and testing purposes for customers with special approval to preview this feature.
 {: beta}
 
-If you plan to share or publish a custom image to other accounts within your enterprise, you need to create a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts as long as those accounts are within the same enterprise. You can use any existing x86 virtual server custom image with a private catalog, with the exception of an encrypted image.
+If you plan to share or publish an custom image to other accounts within your enterprise, you need to create a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts as long as those accounts are within the same enterprise. You can use any existing x86 virtual server custom image with a private catalog, with the exception of an encrypted image.
 
 Before you can import a custom image into a private catalog, the following items must be completed.
 
