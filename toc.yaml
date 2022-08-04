@@ -520,6 +520,7 @@ toc:
             - link:
                label: Reference
                href: https://{DomainName}/apidocs/vpc-metadata
+            - api-metadata-change-log.md 
         - topicgroup:
             label: Beta VPC instance metadata API
             topics:
