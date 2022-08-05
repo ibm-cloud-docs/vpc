@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-08-03"
+lastupdated: "2022-08-09"
 
 keywords: api, change log, metadata, new features, restrictions, migration, versioned change
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Change log
+# VPC Instance Metadata API change log
 {: #metadata-api-change-log}
 
 Read the API change log to learn about updates and improvements to the {{site.data.keyword.vpc_full}} (VPC) [Instance Metadata API](/apidocs/vpc-metadata). The change log lists changes that are ordered by the date they were released. Changes to existing API versions are designed to be compatible with existing client applications.
