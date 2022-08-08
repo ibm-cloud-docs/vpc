@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-08-01"
+lastupdated: "2022-08-08"
 
 keywords:
 
@@ -29,6 +29,14 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## August 2022
 {: #vpc-august22}
+
+### 08 August 2022
+{: #vpc-august0822}
+{: release-note}
+
+Snapshot and Backup for VPC
+
+: The [quota of snapshots and backup snapshots](/docs/vpc?topic=vpc-quotas#block-storage-quotas) you can create per volume has been increased to 750. For more information about how these quotas are applied, see [Considerations when creating snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_considerations).
 
 ### 01 August 2022
 {: #vpc-august0122}
