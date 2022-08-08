@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2022
 
-lastupdated: "2022-06-06"
+lastupdated: "2022-07-12"
 
 keywords:
 
@@ -93,7 +93,7 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 | Route-based VPN gateway | 1 per zone per VPC |
 {: caption="Table 5. Quotas for the site-to-site VPN gateway service" caption-side="bottom"}
 
-### VPN servers (client-to-site)
+### VPN servers (client-to-site) BETA
 {: #vpn-server-quotas}
 
 |Resource|Quota|
@@ -140,7 +140,8 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 |Resource|Quota|
 |--------|-----|
 | Boot and secondary volumes | 300 total VPC volumes per account in a region |
-| Snapshots and backup snapshots | 100 per volume in a region |
+| Snapshots and backup snapshots | Up to 750 per volume in a region |
+
 {: caption="Table 9. Quotas for block storage volumes and snapshots" caption-side="bottom"}
 
 ### File shares

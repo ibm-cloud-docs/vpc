@@ -2,7 +2,7 @@
 
 Copyright:
   years:  2022
-lastupdated: "2022-06-15"
+lastupdated: "2022-07-12"
 
 keywords:
 
@@ -40,6 +40,7 @@ Consider the following prerequisites before you set up the VPC Backup Service.
 | __ Decide how many backup plans you need for a policy. For example, you can have separate plans for daily backups, weekly, and monthly. |
 | __ Choose the UI, CLI, or API for creating and managing your backups. |
 | __ Evaluate the volumes that you intend to backup. A volume with numerous changes and a lengthy retention period requires more attention than a volume with moderate changes. Also, the cumulative size of all backups for a volume can't exceed 10 TB. |
+| __ Consider how many backup snapshots you want to take and [billing considerations](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=api#snapshots_vpc_considerations) as the number of backup snapshots grows. |
 | __ Evaluate when you might want to restore a volume from a backup. Keep in mind that restoring from a backup is a manual operation and not immediate such as a disaster recovery solution. |
 | __ Make sure you have a unique name for your backup policies. For example, if you have a method for naming volumes, you might name a backup policy using a similar conventions. Naming conventions for backups created by the plan are the same as snapshots. For more information, see [Naming snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-naming). |
 |**When creating backups**: |
