@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-07-12"
+lastupdated: "2022-08-08"
 
 keywords:
 
@@ -99,13 +99,13 @@ Because a full backup is created every 200 snapshots, the maximum number of snap
 | Snapshot number (Volume type) | Snapshot | How you're billed |
 |-------------------------------|----------|-------------------|
 | 1 (data and boot) | full | Billed for full copy |
-| 2-200 (data) /n 2-199 (boot) | incremental | Billed for incremental updates |
-| 201 (data) /n 200 (boot) | full | Billed for full copy |
-| 202-399 (data) /n 201-397 (boot) | incremental | Billed for incremental updates |
-| 400 (data) /n 398 (boot) | full | Billed for full copy |
-| 401-598 (data) /n 399-595 (boot)| incremental | | Billed for incremental updates |
-| 599 (data) /n 596 (boot) | full | Billed for full copy |
-| 600-750 (data) /n 597-750 (boot) |  incremental | | Billed for incremental updates |
+| 2-200 (data) \n 2-199 (boot) | incremental | Billed for incremental updates |
+| 201 (data) \n 200 (boot) | full | Billed for full copy |
+| 202-399 (data) \n 201-397 (boot) | incremental | Billed for incremental updates |
+| 400 (data) \n 398 (boot) | full | Billed for full copy |
+| 401-598 (data) \n 399-595 (boot)| incremental | | Billed for incremental updates |
+| 599 (data) \n 596 (boot) | full | Billed for full copy |
+| 600-750 (data) \n 597-750 (boot) |  incremental | | Billed for incremental updates |
 {: caption="Table 1. Snapshot count and billing considerations" caption-side="bottom"}
 
 ## Next steps
