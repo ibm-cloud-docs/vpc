@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-08-08"
+lastupdated: "2022-08-09"
 
 keywords:
 
@@ -29,6 +29,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## August 2022
 {: #vpc-august22}
+
+### 09 August 2022
+{: #vpc-august0922}
+{: release-note}
+
+VPC Instance Metadata service
+:   A restriction was removed from the [instance metadata service](/docs/vpc?topic=vpc-imd-about&interface=ui) in which you had to stop and restart the virtual server instance to fully enable the metadata service. You can now create instances with the metadata service disabled and then enable the service for the instance to start using it immediately.
 
 ### 08 August 2022
 {: #vpc-august0822}
