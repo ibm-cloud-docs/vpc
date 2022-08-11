@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-04-13"
+lastupdated: "2022-08-10"
 
 keywords:
 
@@ -35,7 +35,7 @@ The VPC Instance Metadata service is free service that let's you access informat
 
 You can programmatically access metadata about a virtual server instance and use it to initialize new instances. Metadata provided by API services pertains only to the instance from which the request is made. You can't use the metadata service within an instance to obtain information about another instance or to obtain information concerning resources not currently associated with the instance.
 
-The instance metadata service uses a REST API and well-known IP address to retrieve metadata. You can enable it on all new instances you create. (The service is disabled by default.) Metadata you can access includes the instance name, CRN, resource groups, user data, as well as information about SSH keys and placement groups. For a list of all metadata returned from the service see the [summary of data returned by the metadata service](/docs/vpc?topic=vpc-imd-metadata-summary).
+The instance metadata service uses a REST API and well-known IP address to retrieve metadata. You can enable the on all new instances you create from the VPC API, CLI, or UI. The metadata service is disabled by default. Metadata you can access includes the instance name, CRN, resource groups, user data, as well as information about SSH keys and placement groups. For a list of all metadata returned from the service see the [summary of data returned by the metadata service](/docs/vpc?topic=vpc-imd-metadata-summary).
 
 The instance metadata service has two components:
 
@@ -123,6 +123,6 @@ For additional security measures you can take, see [Security best practices for 
 ## Next steps
 {: #imd-next-steps-about}
 
-* [Create a JSON web token for accessing the metadata service](/docs/vpc?topic=vpc-imd-configure-service#imd-get-token).
+* [Create an instance identity access token for accessing the metadata service](/docs/vpc?topic=vpc-imd-configure-service#imd-get-token).
 
 * [Retrieve data using the metadata service](/docs/vpc?topic=vpc-imd-get-metadata).

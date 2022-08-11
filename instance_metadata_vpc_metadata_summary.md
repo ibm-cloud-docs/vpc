@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-08-01"
+lastupdated: "2022-08-08"
 
-keywords: metadata, virtual private cloud, instance, virtual server
+keywords:
 
 subcollection: vpc
 
