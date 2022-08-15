@@ -30,6 +30,18 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## August 2022
 {: #vpc-august22}
 
+### 15 August 2022
+{: #vpc-august1522}
+{: release-note}
+
+Health check metrics for application load balancer pools
+:    Two new health check metrics have now been added to IBM Cloud Monitoring for application load balancers, specifically for pools:
+
+   * A metric for reporting the total number of members in a pool.
+   * A second metric for reporting the total number of healthy (or active) members in a pool.
+
+:    For more information on these new metrics or the IBM Cloud Monitoring service, refer to [Monitoring Application Load Balancer for VPC metrics](/docs/vpc?topic=vpc-monitoring-metrics-alb).
+
 ### 09 August 2022
 {: #vpc-august0922}
 {: release-note}
