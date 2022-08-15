@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-13"
+lastupdated: "2022-08-15"
 
 keywords: l7, layer 7, monitor, metrics, connection
 
@@ -33,6 +33,8 @@ The supported monitoring metrics include:
 * Count of responses with the HTTP 3xx back-end response code (redirect)
 * Count of responses with the HTTP 4xx back-end response code (client side failure)
 * Count of responses with the HTTP 5xx back-end response code (server side error)
+* Count of total back-end members in a pool
+* Count of active back-end members in a pool
 
 These metrics help track the traffic and usage patterns for your load balancers and can provide insight about peak traffic hours, usage drop offs, and overall usage patterns.
 
@@ -173,6 +175,32 @@ from the back-end per minute. This metric is only available for HTTP and HTTPS l
 | Segment by | `Application load balancer appliance metrics` and `Application load balancer listener metrics` |
 {: caption="Table 9: Application load balancer HTTP 5xx response count metric metadata" caption-side="bottom"}
 
+### Total Members
+{: #ibm_is_load_balancer_backend_total_members}
+
+The total members count is the number of members created in a pool. This metric is only available for TCP, HTTP, and HTTPS listeners.
+
+| Metadata | Description |
+|----------|-------------|
+| Metric name | `ibm_is_load_balancer_backend_total_members`|
+| Metric type | `gauge` |
+| Value type  | `none` |
+| Segment by | `Application load balancer appliance metrics`, `Application load balancer listener metrics` and `Application load balancer pool metrics`|
+{: caption="Table 10: Application load balancer total members count metric metadata" caption-side="bottom"}
+
+### Active Members
+{: #ibm_is_load_balancer_backend_active_members}
+
+The active members count is the number of healthy members in a pool. This metric is only available for TCP, HTTP, and HTTPS listeners.
+
+| Metadata | Description |
+|----------|-------------|
+| Metric name | `ibm_is_load_balancer_backend_active_members`|
+| Metric type | `gauge` |
+| Value type  | `none` |
+| Segment by | `Application load balancer appliance metrics`, `Application load balancer listener metrics` and `Application load balancer pool metrics`|
+{: caption="Table 11: Application load balancer active members count metric metadata" caption-side="bottom"}
+
 ## Metric segmentation
 {: #attributes}
 
@@ -190,7 +218,7 @@ The following attributes are available for segmenting the three metrics.
 | `Resource` | `ibm_resource` | A load balancer's unique ID |
 | `Scope` | `ibm_scope` | The account that is associated with a given load balancer |
 | `Service name` | `ibm_service_name` | ibm-is-load-balancer |
-{: caption="Table 10: Global attributes" caption-side="bottom"}
+{: caption="Table 12: Global attributes" caption-side="bottom"}
 
 ### Additional attributes
 {: #lb-additional-attributes}
@@ -201,7 +229,19 @@ The following attributes are available to segment one or more of the global attr
 |-----------|----------------|-----------------------|
 | Application load balancer appliance metrics | `ibm_is_load_balancer_appliance_ip` | The metrics coming from the load balancer back-end. Because the load balancer is highly available, multiple appliances support each load balancer for redundancy.  |
 | Application load balancer listener metrics | `ibm_is_load_balancer_listener_port` | The metrics that are gathered from individual listeners and their ports. Configure the listeners in your load balancer settings. The monitoring metrics reflect the metrics coming from those listeners. |
-{: caption="Table 11: Additional attributes" caption-side="bottom"}
+| Application load balancer pool metrics | `ibm_is_load_balancer_pool_name` | The metrics that are gathered from individual listener ports and the health check port (if a health check port is configured) or the back-end member ports (if a health check port is not configured). You must configure the listeners, back-end pool with members and, if needed, the health check port in your load balancer settings. The monitoring metrics reflect the metrics coming from those listeners and health check port, or the back-end member ports. |
+{: caption="Table 13: Additional attributes" caption-side="bottom"}
+
+The following sample values are for the `ibm_is_load_balancer_pool_name` attribute in its different configurations. If the pool has no members, then this value will be in the format `Pool_ListenerPort`. If the pool has members and the health check port is configured, then this value will be in the format `Pool_ListenerPort:HealthCheckPort`. Otherwise, if the pool has members but no health check port configured, then the value will be `Pool_ListenerPort:Member1Port/Member2Port/...`.
+
+| Listener Port | HealthCheck Port | Member1 Port | Member2 Port | Member3 Port | 'ibm_is_load_balancer_pool_name Value' |
+| --- | --- | ---  | --- | --- | --- |
+| 9999 | - | - | - | - | Pool_9999 |
+| 80 | 80 | 80| 8090| - | Pool_80:80 |
+| 8099 | 443 | 9080 | 7080 | 8888 | Pool_8099:443 |
+| 8081 | - | 80| 8090| 9090 | Pool_8081:9090/8090/80 |
+| 8088 | - | 9080 | 7080 | - | Pool_8088:9080/7080 |
+{: caption="Table 14: Pool name attribute" caption-side="bottom"}
 
 The displayed metrics contain a timestamp in UNIX epoch time and the metric value for the time interval ending at that timestamp. You can specify different scopes, as well as the time interval over which to report the metrics.
 
@@ -283,7 +323,7 @@ To view and work with your metrics, follow these steps:
 
 1. Select **Dashboards** on the left sidebar to open the IBM Load Balancer Monitoring Metrics dashboard. Then, click **Default Dashboards > IBM > Load Balancer Monitoring Metrics**. The default dashboard is not editable.
 
-1. Nine main metrics in the dashboard are shown: Throughput, Active Connections, Connection Rate, Request Count, Request Latency, HTTP_2xx Response Count, HTTP_3xx Response Count, HTTP_4xx Response Count, and HTTP_5xx Response Count. To modify parameters and segment your metrics by load balancer ID or listener port, you must create a custom dashboard.
+1. Eleven main metrics in the dashboard are shown: Throughput, Active Connections, Connection Rate, Request Count, Request Latency, HTTP_2xx Response Count, HTTP_3xx Response Count, HTTP_4xx Response Count, HTTP_5xx Response Count, Total Members and Active Members. You must create a custom dashboard to modify parameters and segment of your metrics by load balancer ID or listener port.
 
    ![{{site.data.keyword.mon_full_notm}} dashboard](images/metrics_3.png "{{site.data.keyword.mon_full_notm}} dashboard"){: caption="Figure 3. {{site.data.keyword.mon_full_notm}} dashboard" caption-side="bottom}
 
