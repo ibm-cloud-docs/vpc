@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-04-01"
+lastupdated: "2022-08-15"
 
 subcollection: vpc
 
@@ -23,6 +23,8 @@ subcollection: vpc
 
 # FAQ for bare metal servers
 {: #bare-metal-server-faq}
+
+You might encounter the following frequently asked questions when you use a Bare Metal Server for VPC.
 
 ## What's the difference between Bare Metal Servers (Classic infrastructure) and Bare Metal Servers for VPC?
 {: #faq-bare-metal-0}
@@ -114,7 +116,7 @@ Replication isn't supported.
 {: #faq-bare-metal-10}
 {: faq}
 
-The boot drive is 960 Gb. You can configure each image differently for its partition sizes.  
+The boot disk is 960 GB. You can configure each image differently for its partition sizes.  
  
 Bare Metal Servers for VPC supports only UEFI images. 
 {: important}
