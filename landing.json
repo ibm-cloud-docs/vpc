@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2022-07-15",
+    "lastupdated": "2022-08-16",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
-          "date": "14 July 2022",
-          "title": "Client VPN for VPC",
-          "description": "Client-to-site connectivity is now available. This feature allows remote devices to securely connect to a VPC by using an OpenVPN (or other compatible) software client."
+          "date": "09 August 2022",
+          "title": "VPC Instance Metadata service",
+          "description": "A restriction was removed from the instance metadata service in which you had to stop and restart the virtual server instance to fully enable the metadata service. You can now create instances with the metadata service disabled and then enable the service for the instance to start using it immediately."
         },
         {
-          "date": "12 July 2022",
-          "title": "IBM Cloud Hyper Protect Virtual Server for VPC",
-          "description": "You can now create IBM Cloud Hyper Protect Virtual Server for VPC instances on LinuxONE (s390x processor architecture) in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. Confidential computing is enabled on LinuxONE (s390x processor architecture) by using the IBM Secure Execution for Linux technology."
+          "date": "08 August 2022",
+          "title": "Snapshot and Backup for VPC",
+          "description": "The quota of snapshots and backup snapshots you can create per volume has been increased to 750."
         },
         {
-          "date": "07 July 2022",
-          "title": "Client VPN for VPC (Beta)",
-          "description": "Client VPN for VPC now supports Secrets Manager certificate authentication in addition to Certificate Manager. VPN server is a new resource type that is permitted as a security group target. As of 10 February 2022, IBM Cloud Certificate Manager is deprecated. The strategic alternative for managing certificates in IBM Cloud is Secrets Manager. To maintain current functionality, be sure to migrate to Secrets Manager prior to 30 September 2022. Secrets Manager is a separate product that incurs added costs separate from Client VPN for VPC billing."
+          "date": "01 August 2022",
+          "title": "Enterprise account sharing images (Beta)",
+          "description": "You can now share or publish custom images to other accounts within your enterprise by using a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts. You can use any existing x86 virtual server custom image with a private catalog, with the exception of an encrypted image."
         }
       ]
     }
