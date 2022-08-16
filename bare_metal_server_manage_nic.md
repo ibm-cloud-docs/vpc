@@ -2,27 +2,13 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-06-17"
+lastupdated: "2022-08-16"
 
 subcollection: vpc
 
 ---
 
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:preview: .preview}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:table: .aria-labeledby="caption"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Managing network interfaces for Bare Metal Servers on VPC
 {: #managing-nic-for-bare-metal-servers}
@@ -63,9 +49,6 @@ You can specify the following configurations for both PCI and VLAN interfaces:
 | Associated PCI interface | If more than one PCI interfaces are created on the bare metal server, you must select a PCI interface to associate to this VLAN interface. Make sure that you associate the VLAN interfaces with the same VLAN ID that is on a bare metal server with one subnet. You can't create two VLAN interfaces with the same ID in two subnets. However, you can associate VLAN interfaces with different VLAN ID with one subnet. |
 | Allowed VLANs (PCI interface only) | Specify the VLAN IDs of the VLAN interfaces that can use the PCI interface. |
 {: caption="Table 1. Bare metal server network interface configurations" caption-side="bottom"}
-
-You can't add the same VLAN ID to the Allowed VLANs lists of two PCI interfaces on a single bare metal server. You can't create a new PCI interface if it contains VLAN IDs that are specified in the Allowed VLANs list of any existing PCI interface.
-{: note}
 
 ## Creating a network interface
 {: #create-nic}
