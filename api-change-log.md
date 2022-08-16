@@ -52,6 +52,17 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
+## 23 August 2022
+ {: #23-august-2022}
+
+ ### For all version dates
+ {: #23-august-2022-all-version-dates}
+
+ **Updating subnets for application load balancers.** You can now update the subnets attached to an application load balancer by specifying `subnets` when [updating a load balancer](/apidocs/vpc/latest#update-load-balancer). If the update requires moving your load balancer to a different zone, its `provisioning_status` will change to `migrate_pending` until the move is complete. For more information, see [Updating subnets for Application Load Balancers for VPC](/docs/vpc?topic=alb-updating-subnets). 
+
+ Because the `subnets` property is an array, the specified value will replace the load balancer's existing array of subnets. To guard against concurrent updates, you must provide the resource's current ETag using the `If-Match` header. For guidance on the use of ETags, see [Concurrent update protection](apidocs/vpc/vpc/latest#concurrent-update-protection).
+ {: important}
+
 ## 26 July 2022
 {: #26-july-2022}
 
