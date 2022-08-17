@@ -243,11 +243,11 @@ A successful response looks like the following example:
     {
       "id": "1eeae628-b24c-41fb-91b9-bc0e02167f1e",
       "crn": "crn: [...]",
-      "href": "https://resource-controller.test.cloud.ibm.com/v2/
+      "href": "https://resource-controller.cloud.ibm.com/v2/
       resource_groups/bd081e1c-3c0d-4242-84fb-9d02fc963402",
       "resource_group": {
         "id": "bd081e1c-3c0d-4242-84fb-9d02fc963402",
-        "href": "https://resource-controller.test.cloud.ibm.com/v2/
+        "href": "https://resource-controller.cloud.ibm.com/v2/
         resource_groups/bd081e1c-3c0d-4242-84fb-9d02fc963402",
         "name": "Default"
       },

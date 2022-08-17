@@ -48,7 +48,7 @@ Consider the following prerequisites before you set up the VPC Backup Service.
 |__ Verify the plan you selected is creating backups at the desired interval. Note that backups do not occur instaneously like a manually-created snapshots. Backups usually occur within an hour of being triggered by a backup plan schedule. |
 |__ Verify that at at least one of your policy tags match at least one tag of each volume you want to back up. |
 |**When restoring a volume from a backup snapshot**: |
-|__ Take into consideration [performance considerations](://test.cloud.ibm.com/docs/vpc?topic=vpc-baas-vpc-restore&interface=ui#baas-performance-considerations) when restoring a volume from a backup snapshot. You might also experience different regional performance when restoring a volume. |
+|__ Take into consideration [performance considerations](/docs/vpc?topic=vpc-baas-vpc-restore&interface=ui#baas-performance-considerations) when restoring a volume from a backup snapshot. You might also experience different regional performance when restoring a volume. |
 |__ Review these performance considerations when [provisioning a new instance from a bootable snapshot](/docs/vpc?topic=vpc-baas-vpc-restore&interface=ui#baas-boot-perf).
 {: caption="Table 1. Checklist for planning backup policies" caption-side="bottom"}
 

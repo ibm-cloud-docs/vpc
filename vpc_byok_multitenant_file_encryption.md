@@ -185,7 +185,7 @@ In the response, the CRN of the encryption key is from the account that owns the
   "replication_status_reasons": [],
   "resource_group": {
     "crn": "crn:v1:staging:public:resource-controller::a/b5c782a8f47a2d1527257e3465f21568::resource-group:5400b7d6ac9f0a183f70abbe8b8d54c6",
-    "href": "https://resource-controller.test.cloud.ibm.com/v2/resource_groups/5400b7d6ac9f0a183f70abbe8b8d54c6",
+    "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/5400b7d6ac9f0a183f70abbe8b8d54c6",
     "id": "5400b7d6ac9f0a183f70abbe8b8d54c6",
     "name": "Default"
   },

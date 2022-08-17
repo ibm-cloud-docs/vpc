@@ -233,7 +233,7 @@ Response:
     "replication_status_reasons": [],
     "resource_group": {
       "crn": "crn": "crn:[...]",
-      "href": "https://resource-controller.test.cloud.ibm.com/v2/resource_groups/86ccf0a1315646d4bc719fe34ff4d1e3",
+      "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/86ccf0a1315646d4bc719fe34ff4d1e3",
       "id": "86ccf0a1315646d4bc719fe34ff4d1e3",
       "name": "Default"
     },

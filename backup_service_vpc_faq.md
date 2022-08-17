@@ -45,7 +45,7 @@ You add [user tags](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup
 {: faq}
 {: #faq-baas-resources}
 
-Block storage data and boot volumes with user tags that match the tags in a [backup policy](https://test.cloud.ibm.com/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-policies) are backed up.
+Block storage data and boot volumes with user tags that match the tags in a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-policies) are backed up.
 
 ## How do enable my volumes to be backed up?
 {: faq}
