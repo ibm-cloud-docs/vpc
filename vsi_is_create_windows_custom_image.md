@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-08-01"
+lastupdated: "2022-08-17"
 
 keywords: creating a Windows custom image, cloudbase-init, qcow2
 
@@ -105,8 +105,8 @@ Complete the following steps to customize the virtual machine.
      ```
      [DEFAULT]
      #  "cloudbase-init.conf" is used for every boot
-     config_drive_types=vfat
-     config_drive_locations=hdd
+     config_drive_types=vfat,iso
+     config_drive_locations=hdd,partition
      activate_windows=true
      kms_host=kms.adn.networklayer.com:1688
      mtu_use_dhcp_config=false
