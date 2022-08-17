@@ -25,7 +25,7 @@ subcollection: vpc
 # Configuration requirements for custom Linux kernels
 {: #configuration-requirements-for-custom-linux-kernels}
 
-Custom Linux kernels can be used in {{site.data.keyword.vpc_full}} VPC. You can build a custom kernel locally on your virtual server instance or on-premises. Use Image from Volume to capture an image by using your custom kernel, or use [Custom Image Import](https://test.cloud.ibm.com/docs/vpc?topic=vpc-managing-images#import-custom-image) to bring your on-premises image into the account's image catalog.
+Custom Linux kernels can be used in {{site.data.keyword.vpc_full}} VPC. You can build a custom kernel locally on your virtual server instance or on-premises. Use Image from Volume to capture an image by using your custom kernel, or use [Custom Image Import](/docs/vpc?topic=vpc-importing-custom-images-vpc) to bring your on-premises image into the account's image catalog.
 
 When you build your own custom Linux kernel for use in the {{site.data.keyword.vpc_full}}, refer to these requirements. It is also recommended that you [enable virtual server instance console access](/docs/vpc?topic=vpc-vsi_is_connecting_console) when you build your own custom kernel. Doing so helps facilitate debugging any potential boot issues.
 {: shortdesc}

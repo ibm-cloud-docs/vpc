@@ -242,7 +242,7 @@ You can use the UI to disable, enable, delete, or restore your root keys. Table 
 | Enable key | [Enabling a root key](/docs/key-protect?topic=key-protect-disable-keys#enable-ui) | [Enabling a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#enable-ui) |
 | Delete key | [Deleting keys in the console (single authorization)](/docs/key-protect?topic=key-protect-delete-keys#delete-key-gui) | [Deleting keys with the GUI (single authorization)](/docs/hs-crypto?topic=hs-crypto-delete-keys#delete-keys-gui) |
 | | [Deleting a key using dual authorization](/docs/key-protect?topic=key-protect-delete-dual-auth-keys#delete-dual-auth-keys-api) | [Authorize deletion for a key with the GUI (dual authorization)](/docs/hs-crypto?topic=hs-crypto-delete-dual-auth-keys#set-key-deletion-console) |
-| Restore key | [Restoring a deleted key with the console](/docs/key-protect?topic=key-protect-restore-keys#restore-ui) | [Restoring a deleted key with the GUI](https://test.cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-restore-keys#restore-ui) |
+| Restore key | [Restoring a deleted key with the console](/docs/key-protect?topic=key-protect-restore-keys#restore-ui) | [Restoring a deleted key with the GUI](/docs/hs-crypto?topic=hs-crypto-restore-keys&interface=ui#restore-ui) |
 {: caption="Table 5. UI procedures for managing root keys" caption-side="bottom"}
 
 ### Using the API to manage root keys

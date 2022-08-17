@@ -121,7 +121,7 @@ Your new IOPS allocation will be realized when you restart the instance.
 ### Adjust IOPS for a Custom profile
 {: #adjust-iops-cli}
 
-From the CLI, use the `volume-update` command with the `--iops` parameter to indicate the new IOPS size for a custom profile. The IOPS you indicate must be within the range for the size of the volume (see [Custom IOPS profile](https://test.cloud.ibm.com/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#custom)).
+From the CLI, use the `volume-update` command with the `--iops` parameter to indicate the new IOPS size for a custom profile. The IOPS you indicate must be within the range for the size of the volume (see [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#custom)).
 
 ```
 ibmcloud is volume-update VOLUME_ID --iops IOPS

@@ -55,12 +55,12 @@ After the instance is created, [associate a floating IP address to the instance]
 ## Provisioning a Virtual Server Instance with instance storage with the CLI
 {: cli}
 
-To provision a virtual server instance with instance storage, follow the instructions for [Creating virtual servers by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli) and be sure to choose a profile that includes an instance storage disk. For more information about profiles, see [x86 instance profiles](https://test.cloud.ibm.com/docs/vpc?topic=vpc-profiles).
+To provision a virtual server instance with instance storage, follow the instructions for [Creating virtual servers by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli) and be sure to choose a profile that includes an instance storage disk. For more information about profiles, see [x86 instance profiles](/docs/vpc?topic=vpc-profiles).
 
 ## Provisioning a Virtual Server Instance with instance storage with the API
 {: api}
 
-To provision a virtual server instance with instance storage, follow the instructions for [Using the REST APIs to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis#create-instance-api-tutorial) and be sure to choose a profile that includes an instance storage disk. For more information about profiles, see [x86 instance profiles](https://test.cloud.ibm.com/docs/vpc?topic=vpc-profiles).
+To provision a virtual server instance with instance storage, follow the instructions for [Using the REST APIs to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis#create-instance-api-tutorial) and be sure to choose a profile that includes an instance storage disk. For more information about profiles, see [x86 instance profiles](/docs/vpc?topic=vpc-profiles).
 
 ## Using custom images with instance storage disk 
 If you are using custom images, make sure that you load the correct device drivers in the image to use the disks. 
