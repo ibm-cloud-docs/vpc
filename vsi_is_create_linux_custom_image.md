@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-08-01"
+lastupdated: "2022-08-17"
 
 keywords: creating a linux custom image, cloud-init, qcow2, vhd
 
@@ -86,6 +86,13 @@ Follow the instructions for your Linux distribution to update the kernel command
 
     ```
     lsinitrd /boot/initramfs-$(uname -r).img | grep virtio
+    ```
+    {: pre}
+
+    If you are using a Debian operating system, use the following command:
+
+    ```
+    lsinitramfs /boot/initrd.img-$(uname -r) | grep virtio
     ```
     {: pre}
 
