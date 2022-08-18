@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2022-08-16",
+    "lastupdated": "2022-08-18",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "17 August 2022",
+          "title": "New stock image for bare metal servers",
+          "description": "Debian 11 is now supported as an image when you provision a bare metal server."
+        },
+        {
+          "date": "15 August 2022",
+          "title": "Health check metrics for application load balancer pools",
+          "description": "Two new health check metrics have now been added to IBM Cloud Monitoring for application load balancers, specifically for pools. A metric for reporting the total number of members in a pool and a second metric for reporting the total number of healthy (or active) members in a pool."
+        },
+        {
           "date": "09 August 2022",
           "title": "VPC Instance Metadata service",
           "description": "A restriction was removed from the instance metadata service in which you had to stop and restart the virtual server instance to fully enable the metadata service. You can now create instances with the metadata service disabled and then enable the service for the instance to start using it immediately."
-        },
-        {
-          "date": "08 August 2022",
-          "title": "Snapshot and Backup for VPC",
-          "description": "The quota of snapshots and backup snapshots you can create per volume has been increased to 750."
-        },
-        {
-          "date": "01 August 2022",
-          "title": "Enterprise account sharing images (Beta)",
-          "description": "You can now share or publish custom images to other accounts within your enterprise by using a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts. You can use any existing x86 virtual server custom image with a private catalog, with the exception of an encrypted image."
         }
       ]
     }
