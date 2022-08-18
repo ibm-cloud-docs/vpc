@@ -30,6 +30,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## August 2022
 {: #vpc-august22}
 
+### 17 August 2022
+{: #vpc-august1722}
+{: release-note}
+
+New stock image for bare metal servers
+:   Debian 11 is now supported as an image when you provision a bare metal server.
+
 ### 15 August 2022
 {: #vpc-august1522}
 {: release-note}
