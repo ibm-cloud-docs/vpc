@@ -149,4 +149,4 @@ curl -X GET "$vpc_api_endpoint/v1/subnets/$subnet/public_gateway?version=$api_ve
 ## Next steps
 {: #pg-next-steps}
 
-[Viewing resources associated with a VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console&interface=cli#vpc-layout)
+- [Viewing resources associated with a VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console&interface=cli#vpc-layout)
