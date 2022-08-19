@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-08-01"
+lastupdated: "2022-08-29"
 
 keywords:
 
@@ -43,9 +43,6 @@ If you plan to import an image from a file, you must provision an instance of {{
 ### Private catalog considerations
 {: #custom-image-cloud-private-catalog}
 
-This is a Beta feature that is available for evaluation and testing purposes for customers with special approval to preview this feature.
-{: beta}
-
 If you plan to share or publish a custom image to other accounts within your enterprise, you need to create a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts as long as those accounts are within the same enterprise. You can use any existing x86 virtual server custom image with a private catalog, with the exception of an encrypted image.
 
 Before you can import a custom image into a private catalog, the following items must be completed.
@@ -61,7 +58,9 @@ Custom images in a private catalog have the following restrictions:
 * Must be an x86 image
 * Can't be encrypted
 * Can't be used with a bare metal profile
-* Can't be used with instance groups
+* Can only exist in one version of one catalog product offering in one private catalog at a time.
+
+You can use a custom image in a private catalog to create an instance group. However, you must first create a service-to-service policy to `globalcatalog-collection.instance.retrieve` before you can create the instance group. See [Using a custom image in a private catalog with an instance group](/docs/vpc?topic=vpc-private-catalog-image-instance-group&interface=ui) for more information.
 
 The information about which custom image that is in a private catalog that was used for provisioning an instance doesn't persist across all {{site.data.keyword.vpc_short}} resources. Information about the custom image in a private catalog isn't available on Snapshot for VPC or Image from Volume. The operating system information, which is required when you provision a virtual server, is available.
 
@@ -101,6 +100,8 @@ After your custom image is imported into {{site.data.keyword.vpc_short}}, you ca
 {: #custom-image-create-vsi}
 
 When you [create a virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers), you select the custom image in the `Image` tab of the `Operating system` section of the Create virtual server for VPC page. To select from the list of {{site.data.keyword.vpc_short}} custom images, select `Custom image`. To select from the list of private catalog images, select `Catalog image` instead.
+
+To use a private catalog custom image to create an instance using the API, see [create an instance using API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api#create-instance-private-catalog-image) for an example.
 
 
 ## Additional information about custom images

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-08-01"
+lastupdated: "2022-08-29"
 
 keywords: instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, vsi, create virtual server
 
@@ -16,7 +16,7 @@ subcollection: vpc
 # Creating virtual server instances
 {: #creating-virtual-servers}
 
-You can create one or more virtual server instances in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console or by using the CLI.
+You can create one or more virtual server instances in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console or by using the CLI. If you are planning on using a custom image in a private catalog for your instance, see [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api) for those CLI examples.
 {: shortdesc}
 
 ## Creating a virtual server instance by using the UI
