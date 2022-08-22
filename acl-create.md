@@ -98,21 +98,8 @@ To create a network ACL by using the API, follow these steps:
 
    ```sh
    curl -X POST -sH "Authorization:${iam_token}" \
-   "$vpc_api_endpoint/v1/vpcs/$vpc_id/routing_tables?version=$api_version&generation=2" \
-   -d '{"name": "testvpc","resource_group": {"id": "'$ResourceGroupId'"}}' | jq
-   ```
-   {: pre}
-
-   For example, the following network ACL is created on mzr05.
-
-   ```sh
-   curl -X POST -sH "Authorization:${iam_token}" \
-   "$vpc_api_endpoint/v1/vpcs/$vpc_id/routing_tables?version=$api_version&generation=2" \
-   -d  '{"name": "routing-table-3", "routes": [{"name": "route-1", "zone": {"name": "us-south-2"}, \
-   "action": "deliver", "destination": "1.2.3.0/24", "next_hop": {"address": "10.0.0.1"}}, \
-   {"name": "route-2", "zone": {"name": "us-south-2"}, "action": "drop", "destination": "1.2.4.0/24"}, \
-   {"name": "route-3", "zone": {"name": "us-south-2"}, "action": "delegate", "destination": "1.2.5.0/24", \
-   "next_hop": {"address": "0.0.0.0"}}]}' | jq
+   "$vpc_api_endpoint/v1/network_acls?version=$api_version&generation=2" \
+   -d '{"name": "testacl", "vpc":{"id": "'$VpcId'"},"resource_group": {"id": "'$ResourceGroupId'"}}' | jq
    ```
    {: pre}
 
