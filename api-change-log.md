@@ -58,6 +58,11 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 ### For all version dates
 {: #23-august-2022-all-version-dates}
 
+**Updating subnets for application load balancers.** You can now update the subnets attached to an application load balancer by specifying `subnets` when [updating a load balancer](/apidocs/vpc/latest#update-load-balancer). The specified subnets must be in the same VPC as the load balancer's current subnets. If the update requires moving your load balancer to a different zone, its `provisioning_status` will change to `migrate_pending` until the move is complete. For more information, see [Updating subnets for Application Load Balancers for VPC](/docs/vpc?topic=vpc-alb-updating-subnets&interface=api).
+
+Because the `subnets` property is an array, the specified value will replace the load balancer's existing array of subnets. To guard against concurrent updates, you must provide the resource's current ETag using the `If-Match` header. For guidance on the use of ETags, see [Concurrent update protection](apidocs/vpc/vpc/latest#concurrent-update-protection).
+{: important}
+
 **Additional user tag support for boot and data volumes.** You can now add user tags to boot and data volumes when provisioning a virtual server instance or adding a volume attachment. You can specify the `user_tags` property when you [create an instance](/apidocs/vpc/latest#create-instance), [create an instance template](/apidocs/vpc/latest#create-instance-template), and [create a volume attachment](/apidocs/vpc/latest#create-instance-volume-attachment). For more information, see [Create and attach a block storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage&interface=api) and [Working with tags](/docs/account?topic=account-tag&interface=api).
 
 ## 16 August 2022
