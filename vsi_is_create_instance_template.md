@@ -40,12 +40,14 @@ The instance template defines the details of the virtual server instances that a
 
 To create an instance template, complete the following steps.
 1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Auto scale > Instance templates**. 
-2. On the Instance templates for VPC page click **Create** and enter the required information. For more information about specific fields, see [Creating an instance template](/docs/vpc?topic=vpc-creating-auto-scale-instance-group#creating-instance-template). 
+2. Click **New instance template** and enter the information in Table 1.
 3. Click **Create instance template** when the information is complete.
 
 When you create an instance template, validation steps are performed that ensure you can use your template to provision a 
 virtual server instance. 
 {: tip}
+
+{{site.data.content.create-instance-template-table}}
 
 ## Creating an instance template with the CLI
 {: #solo-instance-template-cli}
