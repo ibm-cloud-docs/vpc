@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-02-10"
+lastupdated: "2022-08-22"
 
-keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, backups
+keywords:
 
 subcollection: vpc
 
@@ -30,7 +30,7 @@ You can delete snapshots that you no longer need and free space for new snapshot
 ## Deleting snapshots
 {: #snapshots-vpc-delete}
 
-You can delete a snapshot anywhere in the chain of snapshots for a volume, or all snapshots for a volume. When you delete a snapshot, the it must meet to the following prerequisites:
+You can delete any snapshot for a volume or all snapshots for a volume. When you delete a snapshot, the it must meet to the following prerequisites:
 
 * Be in a `stable` or `pending` state.
 * Not be actively restoring a volume.
@@ -96,7 +96,7 @@ You can delete the most recently created snapshot from the list of snapshots fro
 
 You can add user tags to an existing snapshot or when creating a new snapshot. The tags can then be used by a backup policy to create backups of the snapshot.
 
-Backup for VPC Beta is only available to accounts authorized to preview the feature.
+Backup for VPC is only available to accounts authorized to preview the feature.
 {: note}
 
 1. Navigate to the [list of snapshots](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-list-ui). 
@@ -121,6 +121,13 @@ Backup for VPC Beta is only available to accounts authorized to preview the feat
 4. In the popup, type a tag in the User tags text box.
 
 5. Click **Save**.
+
+### Add user tags to volumes created from a snapshot when provisioning an instance
+{: #snapshots-vpc-instancevol-tags-ui}
+
+You can add tags to block storage volumes created during instance provisioning, when you specify a snapshot for the volume. 
+
+When you [create a block storage volume during instance provisioning](/docs/vpc?topic=vpc-creating-block-storage&interface=ui#create-from-vsi), you can choose to **Import from snapshot** when provisioning the volume. The volume details are populated from the source snapshot you select, including any user tags. You can edit these tags and also add additional user tags.
 
 ## Delete snapshots from the CLI
 {: #snapshots-vpc-delete-snapshot-cli}
@@ -262,7 +269,7 @@ Captured           2022-01-12T14:31:11+08:00
 {: #snapshots-vpc-add-tags-cli}
 {: cli}
 
-Specify a `snapshot-update` command with the `--user-tags` parameter to add user tags to a volume.
+Specify a `snapshot-update` command with the `--tags` parameter to add user tags to a volume.
 
 Use the same parameter to add tags to a volume when creating a new snapshot using `ibmcloud is snapshot-create`.
 {: tip}
@@ -270,7 +277,7 @@ Use the same parameter to add tags to a volume when creating a new snapshot usin
 The following example adds user tags `env:test` and `env:prod` to a volume identified by ID.
 
 ```
-ibmcloud is snapshot-update52129844-d84d-45aa-a811-7bcc941f2172 --name mysnapshot60 --user-tags env:test,env:prod
+ibmcloud is snapshot-update52129844-d84d-45aa-a811-7bcc941f2172 --name mysnapshot60 --tags env:test,env:prod
 Updating snapshot52129844-d84d-45aa-a811-7bcc941f2172 under account VPC1 as user user@mycompany.com...
                      
 ID                    52129844-d84d-45aa-a811-7bcc941f2172   
@@ -292,7 +299,7 @@ Resource group         ID                                 Name
                           
 Created                2022-01-27T11:47:46.365+05:30   
 Captured               2022-01-27T11:58:16.265+05:30
-User Tags              env:test,env:prod   
+Tags                   env:test,env:prod   
 ```
 {: codeblock}
 
@@ -462,6 +469,11 @@ The following example shows an event that was generated when you list snapshot d
 }
 ```
 {: screen}
+
+## Performance considerations when restoring a volume from a snapshot
+{: #snapshots-perf}
+
+Boot and data volume performance is initially degraded when restoring from a snapshot. During the restoration, your data is copied from IBM COS to VPC Block Storage. After the restoration process has completed, you should realize full IOPS on your new volume.
 
 ## Managing security and compliance
 {: #snapshots-vpc-manage-security}
