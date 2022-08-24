@@ -131,8 +131,8 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 | Listeners | 10 per load balancer |
 | Pools | 10 per load balancer |
 | Members | 50 per pool |
-| Policies | 10 per listener |
-| Rules | 10 per policy |
+| Policies | N/A |
+| Rules | N/A |
 | Security Groups | N/A |
 | Subnets | 1 per load balancer |
 {: caption="Table 8. Quotas for load balancers" caption-side="bottom"}
