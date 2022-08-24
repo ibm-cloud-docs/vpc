@@ -62,7 +62,7 @@ To create a public gateway by using the {{site.data.keyword.cloud_notm}} console
 
 1. Copy a **sample API call** (optional).
 1. Click **Create**. 
-1. If your account type does not ???, **Upgrade your account** might appear instead of **Create**. If this option is shown, click to update your account to a paid account before creating your public gateway. For more information, see [Upgrading your account](/docs/account?topic=account-upgrading-account).
+1. If you don't have a paid account, **Upgrade your account** might appear instead of **Create**. If this option is shown, click to update your account to a paid account before creating your public gateway. For more information, see [Upgrading your account](/docs/account?topic=account-upgrading-account).
 
   For example:
 
