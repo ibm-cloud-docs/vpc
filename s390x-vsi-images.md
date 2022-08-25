@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-07-19"
+lastupdated: "2022-08-25"
 
 keywords: image, stock image, linuxone image, hpcr, container runtime, virtual private cloud, virtual server, generation 2, gen 2, wazi aas
 
@@ -40,9 +40,8 @@ You can choose a profile based on your requirements. You can choose from balance
 
 | Image | Architectures |
 |---------|---------|
-|  Ubuntu 20.04.x | s390x |
-|  SUSE Linux Enterprise server (SLES) 15 SP1 | s390x |
-|  Red Hat Enterprise Linux 8.x | s390x |
+|  Ubuntu 18.04.x | s390x |
+|  SUSE Linux Enterprise server (SLES) 15 SP2 | s390x |
 |  IBM z/OS (IBM Wazi as a Service) | s390x |
 {: caption="Table 1. Supported s390x stock image operating systems" caption-side="bottom"}
 
