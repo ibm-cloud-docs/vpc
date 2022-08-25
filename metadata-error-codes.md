@@ -143,7 +143,7 @@ Example message: The metadata service is not enabled on the provided instance.
 ## `unknown_field`
 {: unknown_field-error-code}
 
-Used in any situation where an unknown query parameter or property is provided.
+Used when an unknown query parameter or property is provided.
 
 `unknown_field` error code can accompany a `400` HTTP status code.
 
