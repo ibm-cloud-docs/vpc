@@ -35,7 +35,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: release-note}
 
 Sharing images across an enterprise account (GA)
-:    This feature is now generally available. You can now share or publish custom images to other accounts within your enterprise by using a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts. You can use any existing x86 virtual server custom image with a private catalog, with the exception of an encrypted image. For more information, see [Getting started with custom images](https://test.cloud.ibm.com/docs/vpc?topic=vpc-planning-custom-images&interface=ui#custom-image-cloud-private-catalog).
+:    You can now share or publish custom images to other accounts within your enterprise by using a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts. You can use any existing x86 virtual server custom image with a private catalog, with the exception of an encrypted image. For more information, see [Getting started with custom images](https://test.cloud.ibm.com/docs/vpc?topic=vpc-planning-custom-images&interface=ui#custom-image-cloud-private-catalog).
 
 ### 17 August 2022
 {: #vpc-august1722}
