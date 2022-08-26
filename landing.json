@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2022-08-19",
+    "lastupdated": "2022-08-26",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,6 +31,11 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "23 August 2022",
+          "title": "Additional user tag support for boot and data volumes",
+          "description": "You can now add user tags to boot and data volumes when provisioning a virtual server instance or creating an instance template. You can add tags to the boot volume by editing it during instance provisioning. You can also add user tags for any data volumes you create and attach. If you import from a snapshot, any tags defined for the snapshot will be applied to the new volume."
+        },
+        {
           "date": "17 August 2022",
           "title": "New stock image for bare metal servers",
           "description": "Debian 11 is now supported as an image when you provision a bare metal server."
@@ -39,11 +44,6 @@
           "date": "15 August 2022",
           "title": "Health check metrics for application load balancer pools",
           "description": "Two new health check metrics have now been added to IBM Cloud Monitoring for application load balancers, specifically for pools. A metric for reporting the total number of members in a pool and a second metric for reporting the total number of healthy (or active) members in a pool."
-        },
-        {
-          "date": "09 August 2022",
-          "title": "VPC Instance Metadata service",
-          "description": "A restriction was removed from the instance metadata service in which you had to stop and restart the virtual server instance to fully enable the metadata service. You can now create instances with the metadata service disabled and then enable the service for the instance to start using it immediately."
         }
       ]
     }
