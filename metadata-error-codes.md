@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-08-25"
+lastupdated: "2022-08-26"
 
 keywords: api, errors, error codes, status codes, metadata, http status codes
 
