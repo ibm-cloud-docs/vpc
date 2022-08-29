@@ -27,15 +27,18 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API , 
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI) , see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
 
-## August 2022
-{: #vpc-august22}
+## September 2022
+{: #vpc-september22}
 
-### 29 August 2022
-{: #vpc-august0122}
+### 09 September 2022
+{: #vpc-september0922}
 {: release-note}
 
 Sharing images across an enterprise account (GA)
 :    You can now share or publish custom images to other accounts within your enterprise by using a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts. You can use any existing x86 virtual server custom image with a private catalog, with the exception of an encrypted image. For more information, see [Getting started with custom images](https://test.cloud.ibm.com/docs/vpc?topic=vpc-planning-custom-images&interface=ui#custom-image-cloud-private-catalog).
+
+## August 2022
+{: #vpc-august22}
 
 ### 17 August 2022
 {: #vpc-august1722}
