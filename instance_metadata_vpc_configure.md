@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-03-29"
+lastupdated: "2022-08-10"
 
-keywords: metadata, virtual private cloud, instance, virtual server
+keywords:
 
 subcollection: vpc
 
@@ -35,7 +35,7 @@ Configure the metadata service by obtaining an instance identity access token fr
 ## Accessing the metadata service using the instance identity access token service
 {: #imd-get-token}
 
-To access the instance metadata service, you must first obtain an instance identity access token (a JSON web token). You can later generate an IAM token from the instance identity token, and then use it to access IAM-enabled services.
+To access the instance metadata service, you must first obtain an instance identity access token (a JSON web token). You can later generate an IAM token from the instance identity access token and then use it to access IAM-enabled services.
 
 Windows users have additional requirements to set up the metadata service. For information, see [Setting up windows servers for using the metadata service](/docs/vpc?topic=vpc-imd-windows-configuration).
 {: note}
@@ -43,11 +43,11 @@ Windows users have additional requirements to set up the metadata service. For i
 ### Instance identity access token concepts
 {: #imd-token-concepts}
 
-An instance identity access token provides your security credential for accessing the metadata service. It's a signed token with a set of claims based on information about the instance and information passed in the token request.
+An instance identity access token provides a security credential for accessing the metadata service. It's a signed token with a set of claims based on information about the instance and information passed in the token request.
 
-To access the instance identity, you make a REST API `PUT "http://169.254.169.254/instance_identity/v1/token` call that invokes a well-known, non-routable IP address. You acquire the token from within the instance. Communication between the instance and metadata service never leaves the host.
+To access the instance identity, you make a `PUT "http://169.254.169.254/instance_identity/v1/token` call using the [Metadata service API](/apidocs/vpc-metadata#create-access-token) that invokes a well-known, non-routable IP address. You acquire the token from within the instance. Communication between the instance and metadata service never leaves the host.
 
-In the data section of the request, you specify an expiration time for the token. The default is five minutes, but you can specify that it expire sooner or later (5 seconds to one hour).
+In the request, you specify an expiration time for the token. The default is five minutes, but you can specify that it expire sooner or later (5 seconds to one hour).
 
 The response (a JSON payload) contains the instance identity access token. Use this token to access the metadata service. 
 
@@ -56,7 +56,7 @@ You can also generate an IAM token from this token and use the RIAS API to call 
 ### Acquire an instance identity access token
 {: #imd-json-token}
 
-Make `PUT "http://169.254.169.254/instance_identity/v1/token` call to get an instance identity access token from the token service. The following example uses `jq` to parse the JSON API response and then extract the access token value. You can use your preferred JSON parser.
+Using the Metadata service API, make `PUT "http://169.254.169.254/instance_identity/v1/token` call to get an instance identity access token from the token service. The following example uses `jq` to parse the JSON API response and then extract the access token value. You can use your preferred JSON parser.
 
 In the example, the return value of the cURL command is the instance identity access token, which is extracted by `jq` and placed in the `instance_identity_token` evironment variable. You use specify this variable in a `GET` call to the metadata service to reach the metadata endpoint. For more information, see [Retrieve metadata from your running instances](/docs/vpc?topic=vpc-imd-get-metadata&interface=api#imd-retrieve-instance-data).
 
@@ -64,7 +64,7 @@ The example uses `jq` as a parser, a third-party tool licensed under the [MIT li
 {: note}
 
 ```
-instance_identity_token=`curl -X PUT "http://169.254.169.254/instance_identity/v1/token?version=2022-03-08"\
+instance_identity_token=`curl -X PUT "http://169.254.169.254/instance_identity/v1/token?version=2022-08-08"\
   -H "Metadata-Flavor: ibm"\
   -d '{
         "expires_in": 3600
@@ -77,8 +77,8 @@ The JSON response shows the access token character string, date and time it was 
 ```
 {
   "access_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IlZTSS1DUl91cy1lYXN0X2I5...",
-  "created_at": "2022-03-04T11:08:39.363Z",
-  "expires_at": "2022-03-04T11:13:39.363Z",
+  "created_at": "2022-08-08T11:08:39.363Z",
+  "expires_at": "2022-08-08T11:13:39.363Z",
   "expires_in": 3600
 }
 ```
@@ -99,7 +99,7 @@ The IAM API used to pass the instance identity access token and generate an IAM 
 Example request:
 
 ```
-iam_token=`curl -X POST "http://169.254.169.254/instance_identity/v1/iam_token?version=2022-03-08"\
+iam_token=`curl -X POST "http://169.254.169.254/instance_identity/v1/iam_token?version=2022-08-08"\
    -H "Authorization: Bearer $instance_identity_token"\
    -d '{
        "trusted_profile": {
@@ -114,8 +114,8 @@ The JSON response shows the IAM token.
 ```
 {
   "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aGVfYmVzdCI6I8...",
-  "created_at": "2022-03-07T14:10:15Z",
-  "expires_at": "2022-03-07T15:10:15Z",
+  "created_at": "2022-08-08T14:10:15Z",
+  "expires_at": "2022-08-08T15:10:15Z",
   "expires_in": 3600
 }
 ```
@@ -131,10 +131,7 @@ Trusted profiles for compute resource identities is a feature that lets you assi
 ## Enable or disable the instance metadata service
 {: #imd-metadata-service-enable}
 
-To retrieve metadata from an instance, you must first enable the service. You can do this for new instances and existing instances.
-
-For this release, for instances created with metadata services disabled at time of creation and later updated to enable the metadata service, you must stop and restart the instance to fully enable the metadata service.
-{: note}
+The instance metadata service is disabled by default. To retrieve metadata from an instance, enable the service on new instances or existing instances by using the VPC UI, CLI, or API.
 
 ### Enable or disable instance metadata using the UI
 {: #imd-enable-service-ui}
@@ -234,7 +231,7 @@ Zone                       us-south-1
 Resource group             ID                                  Name
                            21cabbd983d9c4beb82690daab08717e8   Default
                               
-Created                    2021-12-27T22:12:11+05:30
+Created                    2022-08-08T22:12:11+05:30
 Boot volume                ID   Name           Attachment ID                               Attachment name
                            -    PROVISIONING   954c1c47-906d-423f-a8c8-dd3adfafd278        my-vol-attachment1
 ```
@@ -289,7 +286,7 @@ You can enable the service by specifying the `metadata_service` parameter and se
 This example shows enabling the metadata service at instance creation:
 
 ```
-curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-01-12&generation=2"\
+curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-08-08&generation=2"\
 -H "Authorization: Bearer $iam_token"\
 -d '{
       "image": {
@@ -321,7 +318,7 @@ To enable or disable the service from an existing instance, make a `PATCH /insta
 This example call shows enabling the metadata service for an instance:
 
 ```
-curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2022-01-12&generation=2"\
+curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2022-08-08&generation=2"\
     -H "Authorization: Bearer $iam_token"\ 
     -d '{
           "metadata_service": {
@@ -341,7 +338,7 @@ When you create an instance template, you can set this value by making a `POST /
 For example:
 
 ```
-curl -X POST "$vpc_api_endpoint/v1/instance/templates?version=2022-01-12&generation=2"\
+curl -X POST "$vpc_api_endpoint/v1/instance/templates?version=2022-08-08&generation=2"\
     -H "Authorization: Bearer $iam_token"\ 
     -d '{
          "image": {

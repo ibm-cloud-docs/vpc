@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-07-05"
+lastupdated: "2022-08-23"
 
 keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Change log
+# VPC API change log
 {: #api-change-log}
 
 Read the VPC API change log to learn about updates and improvements to the {{site.data.keyword.vpc_full}} (VPC) [API](/apidocs/vpc). The change log lists changes that are ordered by the date they were released. Changes to existing API versions are designed to be compatible with existing client applications.
@@ -51,6 +51,30 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 23 August 2022
+{: #23-august-2022}
+
+### For all version dates
+{: #23-august-2022-all-version-dates}
+
+**Additional user tag support for boot and data volumes.** You can now add user tags to boot and data volumes when provisioning a virtual server instance or adding a volume attachment. You can specify the `user_tags` property when you [create an instance](/apidocs/vpc/latest#create-instance), [create an instance template](/apidocs/vpc/latest#create-instance-template), and [create a volume attachment](/apidocs/vpc/latest#create-instance-volume-attachment). For more information, see [Create and attach a block storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage&interface=api) and [Working with tags](/docs/account?topic=account-tag&interface=api).
+
+## 16 August 2022
+{: #16-august-2022}
+
+### For all version dates
+{: #16-august-all-version-dates}
+
+**Improved VLAN support for bare metal servers.** The restriction limiting a VLAN ID in the `allowed_vlans` property to a single PCI [network interface on a bare metal server](apidocs/vpc/latest#get-bare-metal-server-network-interface) has been removed. As a result, you can now move VLAN interfaces between PCI interfaces on the same bare metal server.
+
+## 26 July 2022
+{: #26-july-2022}
+
+### For all version dates
+{: #26-july-2022-all-version-dates}
+
+**Resource suspension for virtual server instances.** The [list all instances](/apidocs/vpc/latest#list-instances) and [retrieve an instance](/apidocs/vpc/latest#get-instance) methods now provide `lifecycle_reasons` and `lifecycle_state` properties. A virtual server instance that violates IBM Cloud’s [Acceptable Use Policy](https://www.ibm.com/services/us/imc/html/aup1.html){: external} will now have its `lifecycle_state` property set to `suspended`. A suspended instance is automatically powered off and you cannot update, delete, or power it on. For more information, see [Viewing instance status and lifecycle_state in the API](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=api#instance-status-api) and [Resource suspension](/docs/vpc?topic=vpc-resource-suspension).
 
 ## 5 July 2022
 {: #5-july-2022}

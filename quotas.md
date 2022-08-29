@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2022
 
-lastupdated: "2022-06-06"
+lastupdated: "2022-07-12"
 
 keywords:
 
@@ -93,7 +93,7 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 | Route-based VPN gateway | 1 per zone per VPC |
 {: caption="Table 5. Quotas for the site-to-site VPN gateway service" caption-side="bottom"}
 
-### VPN servers (client-to-site)
+### VPN servers (client-to-site) BETA
 {: #vpn-server-quotas}
 
 |Resource|Quota|
@@ -107,8 +107,8 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 | Number of auth clients per second per VPN server | 10 | 
 {: caption="Table 6. Quotas for the client-to-site VPN server service" caption-side="bottom"} 
 
-### Load balancers
-{: #load-balancer-quotas}
+### Application load balancers
+{: #alb-quotas}
 
 |Resource|Quota|
 |--------|-----|
@@ -122,6 +122,21 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 | Subnets | 15 per load balancer |
 {: caption="Table 7. Quotas for load balancers" caption-side="bottom"}
 
+### Network load balancers
+{: #nlb-quotas}
+
+|Resource|Quota|
+|--------|-----|
+| Load balancers | 50 per region |
+| Listeners | 10 per load balancer |
+| Pools | 10 per load balancer |
+| Members | 50 per pool |
+| Policies | N/A |
+| Rules | N/A |
+| Security Groups | N/A |
+| Subnets | 1 per load balancer |
+{: caption="Table 8. Quotas for load balancers" caption-side="bottom"}
+
 ### Routing tables and routes
 {: #routing-tables-routes-quotas}
 
@@ -129,7 +144,7 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 |--------|-----|
 | Routing tables per VPC | Default limit: 50  \n Maximum limit: 200 |
 | Routes per routing table | Default limit: 200  \n Maximum limit: 400 |
-{: caption="Table 8. Quotas for routing tables and routes" caption-side="bottom"}
+{: caption="Table 9. Quotas for routing tables and routes" caption-side="bottom"}
 
 Each route has a destination property, which includes a prefix length (`/24` in `10.2.0.0/24`). The number of unique prefix lengths that are supported per custom routing table is 14. Multiple routes with the same prefix count as only one unique prefix.
 {: note}
@@ -140,8 +155,9 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 |Resource|Quota|
 |--------|-----|
 | Boot and secondary volumes | 300 total VPC volumes per account in a region |
-| Snapshots and backup snapshots | 100 per volume in a region |
-{: caption="Table 9. Quotas for block storage volumes and snapshots" caption-side="bottom"}
+| Snapshots and backup snapshots | Up to 750 per volume in a region |
+
+{: caption="Table 10. Quotas for block storage volumes and snapshots" caption-side="bottom"}
 
 ### File shares
 {: #file-storage-quotas}
@@ -149,7 +165,7 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 |Resource|Quota|
 |--------|-----|
 | File shares | 300 total file shares per account in a region |
-{: caption="Table 10. Quotas for file shares" caption-side="bottom"}
+{: caption="Table 11. Quotas for file shares" caption-side="bottom"}
 
 ### Placement groups
 {: #placement-group-quotas}
@@ -159,7 +175,7 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 | Placement groups | 100 placement groups per account in a region |
 | Instances | 12 instances per placement group per region with host_spread placement group strategy. |
 | Instances | 4 instances per placement group per region with power_spread placement group strategy. |
-{: caption="Table 11. Quotas for placement groups" caption-side="bottom"}
+{: caption="Table 12. Quotas for placement groups" caption-side="bottom"}
 
 The quotas for placement groups are set and can't be adjusted.
 {: note}
@@ -180,4 +196,4 @@ The following table displays current VPC service limits. Unlike quotas, these li
 | Secondary volumes per instance | Up to 12 secondary volumes |
 | Instance groups for auto scale and more | 200 per account|
 | Instance group memberships  | 1000 per instance group|
-{: caption="Table 12. Limits for VPC resources" caption-side="bottom"}
+{: caption="Table 13. Limits for VPC resources" caption-side="bottom"}

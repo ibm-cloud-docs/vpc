@@ -31,7 +31,7 @@ The custom resource group that hosts the images can contain a set of images. The
 control either a single image or multiple images. It's common for a family of images to be hosted within a resource group. This hosting can make management of the control of the images easier because the access rules are attached to the resource group.
 
 The process is described by using the User Interface. However, this function can also be carried
-out by the [API](https://test.cloud.ibm.com/apidocs/iam-identity-token-api) and
+out by the [API](/apidocs/iam-identity-token-api) and
 [CLI](/docs/account?topic=account-rgs#rgs_cli).
 {: shortdesc}
 

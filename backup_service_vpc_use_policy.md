@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-15"
+lastupdated: "2022-08-22"
 
 keywords:
 
@@ -48,6 +48,7 @@ Apply tags to new or existing block storage volumes in any of these ways:
 * Add tags to volumes directly from the block volumes list view using the tags column.
 * Add tags from the volume details page.
 * Click the Apply button for backup policies on the volume details page to associate backup policies by using tags
+* Add user tags to volumes when [provisioning a new instance](/docs/vpc?topic=vpc-backup-use-policies&interface=api#backup-apply-tags-volumes-api).
 
 ### Add tags from the block storage volumes list view
 {: #backup-tags-volumes-list-ui}

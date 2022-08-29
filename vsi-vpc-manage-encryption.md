@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-07-18"
 
 keywords:
 
@@ -81,7 +81,7 @@ Root keys move to various states depending on the action you take and impacts re
 | Boot volume | _available_ | Boot volumes remain encrypted with the suspended key. If you stop the instance using that boot volume, it won't restart. |
 | Data volume |  _available_ | Data volumes remain encrypted, attached, and available until you stop the instance. Standalone data volumes that are encrypted by the suspended key can't be attached to an instance. |
 | Snapshot | _unusable_ | Snapshot cannot be used to restore a volume. |
-| File shares | _stable_ | Data on the file share is accessible but you can't create a new file share using that key. |
+| File shares | _stable_ | Data on the file share is accessible but you can't create a new file Share using that key. |
 | Instance |  _available_ | Instance workloads remain running with an _available_ status in the CLI and API, and with a _running_ status in the UI. If you stop instances, they won't restart. |
 {: class="simple-tab-table"}
 {: caption="Table 1. Disable root key" caption-side="bottom"}
@@ -110,8 +110,8 @@ Root keys move to various states depending on the action you take and impacts re
 |<td colspan=4>Root key state = _destroyed_<sup>2</sup></td> | | |
 | All | _unusable_ | The key can't be used for any encryption actions. You have 30 days to restore a deleted root key that you imported, afterwhich the status changes to _failed_ and the resources are no longer recoverable. (KMS-generated root keys can't be restored.) Review the Activity Tracker events to see when you deleted the key. For more information, see [Deleting root keys](#byok-delete-root-keys) |
 | Custom image | _unusable_ | Images can't be used for creating boot volumes to provision a new virtual server instance. |
-| Boot volume | _unusable_ | Associated virtual server instances are stopped. The boot volume can't be used to boot up instances. |
-| Data volume | _unusable_ | Instances are stopped and data volumes are detached. Standalone data volumes can't be attached to instances. You can delete the volume. |
+| Boot volume | _unusable_ | The associated virtual server instance is stopped. A stopped instance cannot be started while the instance boot volume is in an _unusable_ state. |
+| Data volume | _unusable_ | If the data volume is attached to a running instance, the instance is stopped. Standalone data volumes cannot be attached to instances. You can delete the volume. |
 | Snapshot | _unusable_ | Snapshot is inaccessible and can't be used to restore a volume. |
 | File share | _suspended_ | File storage system is offline and data cannot be accessed. |
 | Instance | _unusable_ | Instances with a deleted boot volume that were automatically stopped will not restart. |
@@ -175,7 +175,7 @@ By default, the KMS prevents you from deleting a root key that's actively protec
 When you force delete a root key, the following actions happen automatically:
 
    * If the deleted root key is protecting boot volumes, the associated virtual server instance is stopped.
-   * If the deleted root key is protecting data volumes, the associated virtual server instance is stopped and the volume is detached.
+   * If the deleted root key is protecting data volumes, the associated virtual server instance is stopped.
    * If the deleted root key is protecting file shares, the file share is suspended.
    * Deleting a root key purges usage of the key for all resources in the VPC.
    * Events are logged in the Activity Tracker.
@@ -242,7 +242,7 @@ You can use the UI to disable, enable, delete, or restore your root keys. Table 
 | Enable key | [Enabling a root key](/docs/key-protect?topic=key-protect-disable-keys#enable-ui) | [Enabling a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#enable-ui) |
 | Delete key | [Deleting keys in the console (single authorization)](/docs/key-protect?topic=key-protect-delete-keys#delete-key-gui) | [Deleting keys with the GUI (single authorization)](/docs/hs-crypto?topic=hs-crypto-delete-keys#delete-keys-gui) |
 | | [Deleting a key using dual authorization](/docs/key-protect?topic=key-protect-delete-dual-auth-keys#delete-dual-auth-keys-api) | [Authorize deletion for a key with the GUI (dual authorization)](/docs/hs-crypto?topic=hs-crypto-delete-dual-auth-keys#set-key-deletion-console) |
-| Restore key | [Restoring a deleted key with the console](/docs/key-protect?topic=key-protect-restore-keys#restore-ui) | [Restoring a deleted key with the GUI](https://test.cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-restore-keys#restore-ui) |
+| Restore key | [Restoring a deleted key with the console](/docs/key-protect?topic=key-protect-restore-keys#restore-ui) | [Restoring a deleted key with the GUI](/docs/hs-crypto?topic=hs-crypto-restore-keys&interface=ui#restore-ui) |
 {: caption="Table 5. UI procedures for managing root keys" caption-side="bottom"}
 
 ### Using the API to manage root keys

@@ -97,7 +97,7 @@ A successful response indicates that the request to disassociate a replica file 
 ## Deleting a replica file share
 {: #fs-delete-replicas}
 
-The process for deleting a replica file share is similar to deleting a source file share. For example, you  [delete mount targets](https://test.cloud.ibm.com/docs/vpc?topic=vpc-file-storage-managing&interface=api#delete-mount-target-api) for the share prior to deleting the share. Because the replica file share is in active replication from the source share, the replica file share must be split from the source before deletion. You can do this in two ways:
+The process for deleting a replica file share is similar to deleting a source file share. For example, you  [delete mount targets](/docs/vpc?topic=vpc-file-storage-managing&interface=api#delete-mount-target-api) for the share prior to deleting the share. Because the replica file share is in active replication from the source share, the replica file share must be split from the source before deletion. You can do this in two ways:
 
 * Perform a manual split, which [removes the replication relationship](#fs-remove-replication-ui) and creates two independent, read-write file shares. You can then delete the mount target and the replica file share as a normal file share. 
 

@@ -3,8 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-07-19"
-
+lastupdated: "2022-08-23"
 
 keywords:
 
@@ -28,31 +27,87 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API , 
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI) , see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
 
+## August 2022
+{: #vpc-august22}
+
+### 23 August 2022
+{: #vpc-august2322}
+{: release-note}
+
+Additional user tag support for boot and data volumes
+:  You can now add user tags to boot and data volumes when provisioning a virtual server instance or creating an instance template. You can add tags to the boot volume by editing it during instance provisioning. You can also add user tags for any data volumes you create and attach. If you import from a snapshot, any tags defined for the snapshot will be applied to the new volume. For more information, see [Create and attach a block storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage&interface=api). For more information about user tags, see [Working with tags](/docs/account?topic=account-tag&interface=api).
+
+### 17 August 2022
+{: #vpc-august1722}
+{: release-note}
+
+New stock image for bare metal servers
+:   Debian 11 is now supported as an image when you provision a bare metal server.
+
+### 15 August 2022
+{: #vpc-august1522}
+{: release-note}
+
+Health check metrics for application load balancer pools
+:    Two new health check metrics have now been added to IBM Cloud Monitoring for application load balancers, specifically for pools:
+
+   * A metric for reporting the total number of members in a pool.
+   * A second metric for reporting the total number of healthy (or active) members in a pool.
+
+:    For more information on these new metrics or the IBM Cloud Monitoring service, refer to [Monitoring Application Load Balancer for VPC metrics](/docs/vpc?topic=vpc-monitoring-metrics-alb).
+
+### 09 August 2022
+{: #vpc-august0922}
+{: release-note}
+
+VPC Instance Metadata service
+:   A restriction was removed from the [instance metadata service](/docs/vpc?topic=vpc-imd-about&interface=ui) in which you had to stop and restart the virtual server instance to fully enable the metadata service. You can now create instances with the metadata service disabled and then enable the service for the instance to start using it immediately.
+
+### 08 August 2022
+{: #vpc-august0822}
+{: release-note}
+
+Snapshot and Backup for VPC
+
+: The [quota of snapshots and backup snapshots](/docs/vpc?topic=vpc-quotas#block-storage-quotas) you can create per volume has been increased to 750. For more information about how these quotas are applied, see [Considerations when creating snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_considerations).
+
+### 01 August 2022
+{: #vpc-august0122}
+{: release-note}
+
+Enterprise account sharing images (beta)
+:    You can now share or publish custom images to other accounts within your enterprise by using a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts. You can use any existing x86 virtual server custom image with a private catalog, with the exception of an encrypted image. For more information, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#custom-image-cloud-private-catalog).
 
 ## July 2022
 {: #vpc-july22}
 
+### 26 July 2022
+{: #vpc-july2622}
+{: release-note}
+
+IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}}
+:   You can now create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture) in Japan (Tokyo), and US East (Washington DC) regions, in addition to Brazil (São Paulo), and Canada (Toronto). Confidential computing is enabled on LinuxONE (s390x processor architecture) by using the IBM Secure Execution for Linux technology. For more information, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se). A new set of secure execution enabled profiles are available, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). To create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers), and [IBM Hyper Protect Container Runtime image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime). A valid contract is required for creating an instance. For more information, see [About the contract](/docs/vpc?topic=vpc-about-contract_se&interface=ui).
+
 ### 19 July 2022
-{: #vpc-july0719}
+{: #vpc-july1922}
 {: release-note}
 
 IBM Wazi as a Service (s390x processor architecture)
 :   You can now create virtual server instances of IBM z/OS with IBM Wazi as a Service (Wazi aaS) image on IBM Z (s390x processor architecture) in IBM Cloud in the US East (Washington DC) region in addition to the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. The option to select the Wazi aaS z/OS dev and test image is offered as an IBM Cloud allow-listed service. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service){: external}.
 
-IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}}
-:   You can now create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture) in IBM Cloud in the US East (Washington DC) region, in addition to the Brazil (São Paulo) and Canada (Toronto) regions. Confidential computing is enabled on LinuxONE (s390x processor architecture) by using the IBM Secure Execution for Linux technology. For more information, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se). A new set of secure execution enabled profiles are available, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). To create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers), and [IBM Hyper Protect Container Runtime image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime). A valid contract is required for creating an instance. For more information, see [About the contract](/docs/vpc?topic=vpc-about-contract_se&interface=ui).
-
+LinuxONE (s390x processor architecture)
+:   You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud in the US East (Washington DC) region, in addition to the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London)  regions. For more information about available  LinuxONE (s390x processor architecture) profiles, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
 
 ### 14 July 2022
 {: #vpc-july1422}
 {: release-note}
 
-Client VPN for VPC 
+Client VPN for VPC
 :   Client-to-site connectivity is now available. This feature allows remote devices to securely connect to a VPC by using an OpenVPN (or other compatible) software client. For more information about VPN client-to-site connectivity and how it complements the existing VPN site-to-site connectivity, see [About client-to-site VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-overview).
 :   You can change VPN server types after you create a VPN server. For example, you can upgrade a stand-alone VPN server to a High Availability (HA) VPN server. You can also detach a subnet to downgrade an HA VPN server to a stand-alone deployment, or change a VPN subnet after your VPN server is provisioned.
 :   VPN server is a new resource type that is permitted as a security group target.
 
-Configuring route propagation for VPN gateways and servers 
+Configuring route propagation for VPN gateways and servers
 :   You can now control whether a routing table accepts routes that were added by a VPN gateway or server and controlled through the accept_routes_from routing table property. A new origin routes property is also introduced, which indicates who created the route (either user or service). For more information, see [Configuring route propagation for VPN gateways](/docs/vpc?topic=vpc-vpn-site-to-site-routes-propagating) and [Configuring route propagation for VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-route-propagation).
 
 ### 12 July 2022
@@ -60,7 +115,7 @@ Configuring route propagation for VPN gateways and servers
 {: release-note}
 
 IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}}
-:   You can now create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture) in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. Confidential computing is enabled on LinuxONE (s390x processor architecture) by using the IBM Secure Execution for Linux technology. For more information, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se). A new set of secure execution enabled profiles are available, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). To create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers), and [IBM Hyper Protect Container Runtime image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime). A valid contract is required for creating an instance. For more information, see [About the contract](/docs/vpc?topic=vpc-about-contract_se&interface=ui).
+:   You can now create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture) in the Brazil (São Paulo), and Canada (Toronto) regions. Confidential computing is enabled on LinuxONE (s390x processor architecture) by using the IBM Secure Execution for Linux technology. For more information, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se). A new set of secure execution enabled profiles are available, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). To create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers), and [IBM Hyper Protect Container Runtime image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime). A valid contract is required for creating an instance. For more information, see [About the contract](/docs/vpc?topic=vpc-about-contract_se&interface=ui).
 
 ### 07 July 2022
 {: #vpc-july072022}
@@ -68,9 +123,9 @@ IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}}
 
 Client VPN for VPC (Beta)
 :    Client VPN for VPC now supports Secrets Manager certificate authentication in addition to Certificate Manager. For more information, see [Creating a VPN server](/docs/vpc?topic=vpc-vpn-create-server).
-:    VPN server is a new resource type that is permitted as a security group target. 
+:    VPN server is a new resource type that is permitted as a security group target.
 
-:    As of 10 February 2022, IBM Cloud Certificate Manager is deprecated. The strategic alternative for managing certificates in IBM Cloud is Secrets Manager. To maintain current functionality, be sure to migrate to Secrets Manager before 30 September 2022. Secrets Manager is a separate product that incurs added costs separate from Client VPN for VPC billing. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager). 
+:    As of 10 February 2022, IBM Cloud Certificate Manager is deprecated. The strategic alternative for managing certificates in IBM Cloud is Secrets Manager. To maintain current functionality, be sure to migrate to Secrets Manager before 30 September 2022. Secrets Manager is a separate product that incurs added costs separate from Client VPN for VPC billing. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager).
 
 ### 01 July 2022
 {: #vpc-july0122}
@@ -222,7 +277,7 @@ Reserved IPs
 {: release-note}
 
 LinuxONE (s390x processor architecture)
-:   You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. For more information about available LinuxONE (s390x processor architecture) profiles, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
+:   You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. For more information about available LinuxONE (s390x processor architecture) profiles, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
 
 ## 24 March 2022
 {: #vpc-march2422}
@@ -266,7 +321,7 @@ Host failure recovery policies
 {: release-note}
 
 LinuxONE (s390x processor architecture)
-:   You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud in the Japan (Tokyo), United Kingdom (London), and São Paulo regions. For more information about available LinuxONE (s390x processor architecture) profiles, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
+:   You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud in the Japan (Tokyo), United Kingdom (London), and São Paulo regions. For more information about available LinuxONE (s390x processor architecture) profiles, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
 
 Resizable boot volumes
 :    You can now increase the capacity of a boot volume, up to 250 gigabytes (GB), when you create an instance from an image or instance template. You can also directly update an existing boot volume to increase its capacity. For more information, see [Increasing boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes).
@@ -562,7 +617,7 @@ Auto scale supports data volumes and private catalog
 {: release-note}
 
 LinuxONE (s390x processor architecture)
-:   You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud in the Tokyo region. For more information about available LinuxONE (s390x processor architecture) profiles, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
+:   You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud in the Tokyo region. For more information about available LinuxONE (s390x processor architecture) profiles, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
 For more information about some of the limitations of LinuxONE (s390x processor architecture), see [Service limitations](/docs/vpc?topic=vpc-limitations).
 
 ## July 2021
@@ -670,7 +725,7 @@ Virtual Private Cloud (VPC) Gen 1 end of service
 {: release-note}
 
 New Ultra High Memory instance profile family (LA)
-:   Ultra High Memory profiles are hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts and are optimized for running memory intensive applications and in-memory database such as SAP HANA, Memcached, or Redis. This profile family offers our highest vCPU to memory ratio with 28 GiB of memory for every 1 vCPU of compute and up to 5.7 TiB of available RAM. For more information, see [Instance Profiles](/docs/vpc?topic=vpc-profiles).
+:   Ultra High Memory profiles are hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts and are optimized for running memory intensive applications and in-memory database such as SAP HANA, Memcached, or Redis. This profile family offers our highest vCPU to memory ratio with 28 GiB of memory for every 1 vCPU of compute and up to 5.7 TiB of available RAM. For more information, see [x86 instance profiles](/docs/vpc?topic=vpc-profiles).
 
 :   The Ultra High Memory family of profiles is currently available in the Dallas and Frankfurt multizone regions(MZRs). For more information, see the Multizone regions section in [Locations for resource deployment](/docs/overview?topic=overview-locations#mzr-table). Contact your IBM Sales representative if you need Ultra High Memory profiles in a MZR other than Dallas or Frankfurt.
 

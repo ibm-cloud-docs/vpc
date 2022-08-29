@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-07-08"
+lastupdated: "2022-08-19"
 
-keywords: cli, command line interface, tutorial, create, API, IAM, token, permissions, endpoint, region, zone, profile, status, subnet, gateway, floating IP, delete, resource, provision, vpc, virtual private cloud, vpc ui, console, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range, generation 2, gen 2
+keywords:
 
 subcollection: vpc
 
@@ -43,9 +43,9 @@ Make sure that you set up your CLI [environment](/docs/vpc?topic=vpc-set-up-envi
 ### Log in to IBM Cloud
 {: #log-in-to-ibm-cloud}
 
-```
+```sh
 ibmcloud login --sso -a cloud.ibm.com
- ```
+```
 {: pre}
 
 This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After the authentication steps, you'll be prompted to choose your account. If you have access to multiple users, select the user you want to log in as.
@@ -59,7 +59,7 @@ Respond to any remaining prompts to finish logging in.
 
 Use the following command to configure the CLI plug-in to target generation 2 virtual server instances for VPC.
 
-```
+```sh
 ibmcloud is target --gen 2
 ```
 {: pre}
@@ -69,14 +69,14 @@ ibmcloud is target --gen 2
 
 Use the following command to create a VPC named _my-vpc_.
 
-```
+```sh
 ibmcloud is vpc-create my-vpc
 ```
 {: pre}
 
 From the output that's returned, save the ID in a variable so you can use it later, for example:
 
-```
+```sh
 vpc="0738-59de4046-3434-4d87-bb29-0c99c428c96e"
 ```
 {: pre}
@@ -84,12 +84,20 @@ vpc="0738-59de4046-3434-4d87-bb29-0c99c428c96e"
 The previous example does not create a VPC with classic access. If you require the VPC to have access to your classic resources, see [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure). You can only enable a VPC for classic access while creating it. In addition, you can only have one classic access VPC in your account at any time.
 {: important}
 
+### Create a private catalog
+{: #cli-create-private-catalog}
+
+This is a Beta feature that is available for evaluation and testing purposes for customers with special approval to preview this feature.
+{: beta}
+
+This step is optional. If you plan to use images that are shared from a private catalog, the private catalog must be created first. See [Onboarding software to your catalog by using the CLI](/docs/account?topic=account-create-private-catalog&interface=cli#create-cicd-product).
+
 ### Create a subnet
 {: #create-a-subnet-cli}
 
 Before you create a subnet, select the zone and address prefix in which to create it. To list the address prefixes for each zone in your VPC, run the following command:
 
-```
+```sh
 ibmcloud is vpc-address-prefixes $vpc
 ```
 {: pre}
@@ -99,7 +107,7 @@ Let's pick the default address prefix for the `us-south-3` zone. From the comman
 A subnet cannot be resized after it is created.
 {: important}
 
-```
+```sh
 ibmcloud is subnet-create my-subnet $vpc us-south-3 --ipv4-cidr-block "10.0.1.0/24"
 ```
 {: pre}
@@ -113,7 +121,7 @@ subnet="0738-658756a4-1106-4914-969a-3b43b338524a"
 
 The status of the subnet is `pending` when it's first created. Before you can create resources in the subnet, the subnet needs to move to the `available` status, which takes a few seconds. To check the status of the subnet, run this command:
 
-```
+```sh
 ibmcloud is subnet $subnet
 ```
 {: pre}
@@ -125,20 +133,21 @@ Attach a public gateway to the subnet if you want to allow all attached resource
 
 To create a public gateway, run the following command:
 
-```
+```sh
 ibmcloud is public-gateway-create my-gateway $vpc us-south-3
 ```
 {: pre}
 
 From the output that's returned, save the ID in a variable so you can use it later, for example:
 
-```
+```sh
 gateway="0738-446c0c63-f0b1-4043-b30d-644f55fde391"
 ```
 {: pre}
 
 To attach the public gateway to your subnet, run the following command:
-```
+
+```sh
 ibmcloud is subnet-update $subnet --public-gateway-id $gateway
 ```
 {: pre}
@@ -153,82 +162,146 @@ Add your public SSH key to your {{site.data.keyword.cloud_notm}} account. This k
 
 To see the available keys in your IBM Cloud account, run this command:
 
-```
+```sh
 ibmcloud is keys
 ```
 {: pre}
 
 To add a key, run the following command. Substitute the path to your `id_rsa.pub` file.
 
-```
+```sh
 ibmcloud is key-create my-key @$HOME/.ssh/id_rsa.pub
 ```
 {: pre}
 
 From the output that's returned, save the ID in a variable so you can use it later, for example:
 
-```
+```sh
 key="0738-859b4e97-7540-4337-9c64-384792b85653"
 ```
 {: pre}
 
-### Select a profile and image for the instance
-{: #select-a-profile-and-image-for-the-instance}
+### Select a profile for the instance
+{: #cli-select-a-profile-for-the-instance}
 
 To list all available instance profiles, run the following command:
 
-```
+```sh
 ibmcloud is instance-profiles
 ```
 {: pre}
 
-To list all available images, run the following command:
+Save the profile you plan to use as a variable, which will be used later to provision an instance.
 
-```
-ibmcloud is images
-```
-{: pre}
 
-Deprecated images do not include the most current support.
-{: tip}
+### Select an image for the instance
+{: #cli-select-a-image-for-the-instance}
 
-Let's pick instance profile `bx2-2x8` and image `debian-9.x-amd64`. To get the image ID, run the following command:
+You can create an instance using a stock image, a custom image from your account, or an image that was shared with your account from a private catalog. Run one of the following commands based on the image you plan to use.
 
-```
-image=$(ibmcloud is images | grep -i "debian.*available.*amd64.*public" | cut -d" " -f1)
-```
-{: pre}
+* Select a stock image or a custom image from your account for your instance.
+
+    To list all available images, run the following command:
+
+    ```sh
+    ibmcloud is images
+    ```
+    {: pre}
+
+    Deprecated images do not include the most current support.
+    {: tip}
+
+    Let's pick image `ibm-debian-11-3-minimal-amd64-1`. To get the image ID, run the following command:
+
+    ```sh
+    image=$(ibmcloud is images | grep -i "debian.*available.*amd64.*public" | cut -d" " -f1)
+    ```
+    {: pre}
+
+    Save the image ID as a variable, which will be used later to provision an instance.
+
+* Select an image shared from a private catalog for the instance
+
+    - To list all available private catalog image offerings, run the following command.
+
+       ```sh
+       ibmcloud is catalog-image-offerings
+       ```
+       {: pre}
+
+       This command returns the identifier of each image offering and the identifier of the private catalog where the image resides. Save the `offering_id` and `catalog_id` in variables, which will be used later to provision an instance.
+
+       ```sh
+       offering_id=6bf79f7b-de48-4ce8-8cae-866b376f2889
+       catalog_id=71306253-8444-4cae-a45d-64d35e5393ec
+       ```
+       {: pre}
+
+    - To get the `offering_crn` for the offering and the `offering_version_crn` for each version in the offering, run the following command.
+
+       ```sh
+       ibmcloud is catalog-image-offering $catalog_id $offering_id
+       ```
+       {: pre}
+
+       When you provision an instance, you can either provision the instance from the custom image in private catalog image using latest version in a catalog product offering using the `offering_crn` value or from the specific version in the catalog product offering using the `offering_version_crn` value.
+
+       Save the `offering_crn` and `offering_version_crn`in variables, which will be used later to provision an instance.
+
+       ```sh
+       offering_crn="crn:v1:staging:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:offering:136559f6-4588-4af2-8585-f3c625eee09d"
+       offering_version_crn="crn:v1:staging:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:version:136559f6-4588-4af2-8585-f3c625eee09d/8ae92879-e253-4a7c-b09f-8d30af12e518"
+       ```
+       {: pre}
 
 ### Create an instance
 {: #create-an-instance}
 
 Create an instance in the newly created subnet. Pass in your public SSH key so that you can log in after the instance is provisioned.
 
-```
-ibmcloud is instance-create my-instance $vpc us-south-3 bx2-2x8 $subnet --image-id $image --key-ids $key
-```
-{: pre}
+You can create an instance using a stock image, a custom image from your account, or an image that was shared with your account from a private catalog. Run one of the following CLI commands based on the image you plan to use.
+
+* Create an instance using a stock image or custom image from your account for your instance.
+
+    ```sh
+    ibmcloud is instance-create my-instance $vpc us-south-3 bx2-2x8 $subnet --image-id $image --key-ids $key
+    ```
+    {: pre}
+
+* Create an instance using a private catalog managed image from the latest image version.
+
+    ```sh
+    ibmcloud is instance-create my-instance $vpc us-south-3 bx2-2x8 $subnet --catalog-offering $offering_crn --keys $key
+    ```
+    {: pre}
+
+* Create an instance using a private catalog managed image from a specific version of the image.
+
+    ```sh
+    ibmcloud is instance-create my-instance $vpc us-south-3 bx2-2x8 $subnet --catalog-offering-version $offering_version_crn --keys $key
+    ```
+    {: pre}
 
 Information about the network interface that is created for the new instance is not returned after the instance is created.
 {: note}
 
 From the output that's returned, save the ID of the instance in a variable so you can use it later, for example:
 
-```
+```sh
 instance="0738-21179496-964e-4c00-8210-cf23d75750b3"
 ```
 {: pre}
 
 The status of the instance is `pending` when it's first created. Before you can proceed, the instance needs to move to the `running` status, which takes a few minutes. To check the status of the instance, run this command:
 
-```
+```sh
 ibmcloud is instance $instance
 ```
 {: pre}
 
 From the output that's returned, save the ID of the primary network interface (`Primary Interface`) in a variable so you can use it later, for example:
 
-```
+```sh
 nic="0738-4d9b3a58-f796-4e6a-b5ac-84f4216e9b68-glhvl"
 ```
 {: pre}
@@ -240,21 +313,21 @@ You can create a block storage volume and attach it to your virtual server insta
 
 To see a list of volume profiles, run:
 
-```
+```sh
 ibmcloud is volume-profiles
 ```
 {: pre}
 
 Run this command to create a block storage data volume. Specify a name for your volume, volume profile, and the zone where you are creating the volume. To attach a block storage data volume to an instance, the instance and the block storage data volume must be created in the same zone.
 
-```
+```sh
 ibmcloud is volume-create my-volume custom us-south-2 --iops 1000
 ```
 {: pre}
 
 From the output that's returned, save the ID of the volume in a variable so you can use it later:
 
-```
+```sh
 vol=0738-933c8781-f7f5-4a8f-8a2d-3bfc711788ee
 ```
 {: pre}
@@ -263,7 +336,7 @@ The status of the volume is `pending` when it first is created. Before you can p
 
 To check the status of the volume, run this command:
 
-```
+```sh
 ibmcloud is volume $vol
 ```
 {: pre}
@@ -273,7 +346,7 @@ ibmcloud is volume $vol
 
 Use the following command to attach the volume to the virtual server instance, by using the variables that we created:
 
-```
+```sh
 ibmcloud is instance-volume-attachment-add my-volume-attachment $instance $vol --auto-delete true
 ```
 {: pre}
@@ -285,28 +358,28 @@ You can configure the security group to define the inbound and outbound traffic 
 
 Find the security group for the VPC:
 
-```
+```sh
 ibmcloud is vpc-sg $vpc
 ```
 {: pre}
 
 From the output that's returned, save the ID in a variable so you can use it later:
 
-```
+```sh
 sg=0738-2d364f0a-a870-42c3-a554-000000981149
 ```
 {: pre}
 
 Now create a rule to allow SSH traffic:
 
-```
+```sh
 ibmcloud is sg-rulec $sg inbound tcp --port-min=22 --port-max=22
 ```
 {: pre}
 
 Optionally, you can also add a rule to allow ping traffic:
 
-```
+```sh
 ibmcloud is sg-rulec $sg inbound icmp --icmp-type 8 --icmp-code 0
 ```
 {: pre}
@@ -319,14 +392,14 @@ For Windows images, make sure the security group that is associated with the ins
 
 Create a floating IP address if you want your instance to be reachable from the internet.
 
-```
+```sh
 ibmcloud is floating-ip-reserve my-fip --nic-id $nic
 ```
 {: pre}
 
 From the output that's returned, save the `Address` in a variable so you can use it later:
 
-```
+```sh
 address=169.48.88.0
 ```
 {: pre}
@@ -336,7 +409,7 @@ address=169.48.88.0
 
 For example, on Linux you can use a command of this form:
 
-```
+```sh
 ssh -i $HOME/.ssh/id_rsa root@$address
 ```
 {: pre}
@@ -363,35 +436,35 @@ Create a VPN gateway on the subnet if you want to securely connect your VPC to a
 
 To create a VPN gateway, run the following command:
 
-```
+```sh
 ibmcloud is vpn-gateway-create my-vpn-gateway $subnet
 ```
 {: pre}
 
 From the output that's returned, save the ID of the VPN gateway in a variable so you can use it later, for example:
 
-```
+```sh
 vpn_gateway="0757-7e91085b-dc11-4707-aa4d-66e735e9a2bc"
 ```
 {: pre}
 
 The status of the VPN gateway is `pending` when it's first created. Before you can proceed, the VPN gateway needs to move to the `available` status, which takes a few minutes. To check the status of the VPN gateway, run this command:
 
-```
+```sh
 ibmcloud is vpn-gateway $vpn_gateway
 ```
 {: pre}
 
 To create a VPN connection on the VPN gateway to peer address `169.61.161.150` and pre-shared key `mykey`, run the following command:
 
-```
+```sh
 ibmcloud is vpn-gateway-connection-create my-vpn-conn $vpn_gateway 169.61.161.150 mykey
 ```
 {: pre}
 
 The status of the VPN connection is `down` when it is first created and becomes `up` after the connection is established. To check the status of VPN connections on a VPN gateway, run this command:
 
-```
+```sh
 ibmcloud is vpn-gateway-connections $vpn_gateway
 ```
 {: pre}
@@ -445,7 +518,7 @@ You must send the `generation` parameter with every API request to specify which
 
 For the rest of the calls, you'll need to know the ID of the newly created VPC. Save the ID in a variable, for example:
 
-```
+```bash
 vpc="0738-59de4046-3434-4d87-bb29-0c99c428c96e"
 ```
 {: pre}
@@ -454,6 +527,14 @@ To verify that the variable was saved, run `echo $vpc` and make sure the respons
 
 The previous example does not create a VPC with classic access. If you require the VPC to have access to your classic resources, see [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure). You can only enable a VPC for classic access while creating it. In addition, you can only have one classic access VPC in your account at any time.
 {: important}
+
+### Create a private catalog
+{: #api-create-private-catalog}
+
+This is a Beta feature that is available for evaluation and testing purposes for customers with special approval to preview this feature.
+{: beta}
+
+This step is optional. If you plan to use images that are shared from a private catalog, the private catalog must be created first. See [Onboarding software to your catalog by using the API](/docs/account?topic=account-create-private-catalog&interface=api#create-cicd-product).
 
 ### Create a subnet
 {: #create-subnet-api-tutorial}
@@ -567,69 +648,161 @@ key="0738-35fb0489-7105-41b9-8764-033fae723006"
 ```
 {: pre}
 
-### Select a profile and image for your instance
-{: #select-profile-and-image}
+### Select a profile for your instance
+{: #select-profile}
 
-Call the APIs to list all profiles and images available for your instance, and choose a combination. The following command lists the profiles available.
+Call the API to list all profiles. The following command lists the profiles available.
 
-```
+```bash
 curl -X GET "$vpc_api_endpoint/v1/instance/profiles?version=$api_version&generation=2" \
   -H "Authorization:$iam_token"
 ```
 {: pre}
 
-The following command lists the images available.
-
-```
-curl -X GET "$vpc_api_endpoint/v1/images?version=$api_version&generation=2" \
-  -H "Authorization:$iam_token"
-```
-{: pre}
-
-Save the name of the profile and the ID of the image in variables, which will be used later to provision an instance. For example:
+Save the name of the profile in a variable, which will be used later to provision an instance. For example:
 
 ```bash
 profile_name="b2-2x8"
-image_id="0738-660198a6-52c6-21cd-7b57-e37917cef586"
 ```
 {: pre}
 
+### Select an image for your instance
+{: #api-select-image}
+
+ You can create an instance using a stock image, a custom image from your account, or an image that was shared with your account from a private catalog. Run one of the following API calls based on the image you plan to use.
+
+* Select a stock image or a custom image from your account for your instance.
+
+    The following command lists the images available.
+
+    ```bash
+    curl -X GET "$vpc_api_endpoint/v1/images?version=$api_version&generation=2" \
+      -H "Authorization:$iam_token"
+    ```
+    {: pre}
+
+    Save the ID of the image in a variable, which will be used later to provision an instance. For example:
+
+    ```bash
+    image_id="0738-660198a6-52c6-21cd-7b57-e37917cef586"
+    ```
+    {: pre}
+
+* Select an image shared from a private catalog for your instance.
+
+    You can either provision an instance from the private catalog image at the latest version in a catalog product offering or from a specific version in the catalog product offering.
+
+    To select the private catalog image from the latest version of a catalog product offering, see [Catalog Management API - Get offering](https://cloud.ibm.com/apidocs/resource-catalog/private-catalog?code=java#get-offering), find the offering CRN, and save it into a variable for later use:
+
+    ```bash
+     offering_crn="crn:v1:bluemix:public:globalcatalog-collection:global::1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc:offering:00111601-0ec5-41ac-b142-96d1e64e6442-global"
+     ```
+     {: pre}
+
+     To select the private catalog image from a specific version of a catalog product offering, see [Catalog Management API - Get offering](https://cloud.ibm.com/apidocs/resource-catalog/private-catalog?code=java#get-offering) and go to **Get offering > Kinds > Versions > CRN** to retrieve the version's CRN and save it into a variable for later use:
+
+     ```bash
+     version_crn="crn:v1:bluemix:public:globalcatalog-collection:global::1082e7d2-5e2f-0a11-a3bc-f88a8e1931fc:version:00111601-0ec5-41ac-b142-96d1e64e6442-global/ec66bec2-6a33-42d6-9323-26dd4dc8875d-global"
+     ```
+     {: pre}
 
 ### Create an instance
 {: #create-instance-api-tutorial}
 
-Create an instance in the newly created subnet. Pass in your public SSH key so that you can log in after the instance is provisioned.
+Create an instance in the newly created subnet. Pass in your public SSH key so that you can log in after the instance is provisioned. You can create an instance using a stock image, a custom image from your account, or an image that was shared with your account from a private catalog. Run one of the following API calls based on the image you plan to use.
 
-```bash
-curl -X POST "$vpc_api_endpoint/v1/instances?version=$api_version&generation=2" \
-  -H "Authorization:$iam_token" \
-  -d '{
-        "name": "my-instance",
-        "zone": {
-          "name": "us-south-3"
-        },
-        "vpc": {
-          "id": "'$vpc'"
-        },
-        "primary_network_interface": {
-          "subnet": {
-            "id": "'$subnet'"
-          }
-        },
-        "keys":[{"id": "'$key'"}],
-        "profile": {
-          "name": "'$profile_name'"
-         },
-        "image": {
-          "id": "'$image_id'"
-         }
-        }'
-```
-{: pre}
+* Select a stock image or a custom image from your account for your instance.
+
+    ```bash
+    curl -X POST "$vpc_api_endpoint/v1/instances?version=$api_version&generation=2" \
+      -H "Authorization:$iam_token" \
+      -d '{
+            "name": "my-instance",
+            "zone": {
+              "name": "us-south-3"
+            },
+            "vpc": {
+              "id": "'$vpc'"
+            },
+            "primary_network_interface": {
+              "subnet": {
+                "id": "'$subnet'"
+              }
+            },
+            "keys":[{"id": "'$key'"}],
+            "profile": {
+              "name": "'$profile_name'"
+             },
+            "image": {
+              "id": "'$image_id'"
+             }
+            }'
+    ```
+    {: pre}
+
+* Create an instance using a private catalog image from the latest version of a catalog product offering.
+
+    ```bash
+    curl -X POST "$vpc_api_endpoint/v1/instances?version=$api_version&generation=2" \
+      -H "Authorization:$iam_token" \
+      -d '{
+            "name": "my-instance",
+            "zone": {
+              "name": "us-south-3"
+            },
+            "vpc": {
+              "id": "'$vpc'"
+            },
+            "primary_network_interface": {
+              "subnet": {
+                "id": "'$subnet'"
+              }
+            },
+            "keys":[{"id": "'$key'"}],
+            "profile": {
+              "name": "'$profile_name'"
+             },
+            "catalog_offering": {
+              "offering": {
+                "crn": "'$offering_crn'"
+             }
+            }'
+    ```
+    {: pre}
+
+* Create an instance using a private catalog image from a specific version of a catalog product offering.
+
+    ```bash
+    curl -X POST "$vpc_api_endpoint/v1/instances?version=$api_version&generation=2" \
+      -H "Authorization:$iam_token" \
+      -d '{
+            "name": "my-instance",
+            "zone": {
+              "name": "us-south-3"
+            },
+            "vpc": {
+              "id": "'$vpc'"
+            },
+            "primary_network_interface": {
+              "subnet": {
+                "id": "'$subnet'"
+              }
+            },
+            "keys":[{"id": "'$key'"}],
+            "profile": {
+              "name": "'$profile_name'"
+             },
+            "catalog_offering": {
+              "version": {
+                "crn": "'$version_crn'"
+             }
+            }'
+    ```
+    {: pre}
 
 Save the ID of the instance in a variable, for example:
 
-```
+```bash
 instance="0738-35fb0489-7105-41b9-99de-033fae723006"
 ```
 {: pre}
@@ -652,12 +825,12 @@ network_interface="0738-7710e766-dd6e-41ef-9d36-06f7adbef33d"
 You can't get the ID of the primary network interface until you query the specific instance.
 {: important}
 
-### Create and attach a block storage volume
+### (Optional) Create and attach a block storage data volume
 {: #create-and-attach-storage-api-tutorial}
 
-You can create a block storage volume and attach it to your virtual server instance if you want more storage. Create a block storage volume with a request similar to this example, and specify a volume name, zone, and profile.
+You can create a block storage data volume and attach it to your virtual server instance as secondary storage. Create a data volume with a request similar to this example. This procedure shows the volume profiles, crreates a volume, saves the volume ID in a variable, checks the status of the volume, and then creates the volume attachment.
 
-To see a list of volume profiles, provide this request:
+Show a list of volume profiles:
 
 ```bash
 curl -X GET "$vpc_api_endpoint/v1/volumes/profiles?version=$api_version&generation=2" \
@@ -667,7 +840,9 @@ curl -X GET "$vpc_api_endpoint/v1/volumes/profiles?version=$api_version&generati
 
 Profiles can be general-purpose (3 IOPS/GB), 5iops-tier, 10-iops-tier, and custom. See [Profiles](/docs/vpc?topic=vpc-block-storage-profiles#block-storage-profiles) for information about volume capacity and IOPS ranges based on the volume profile you select.
 
-```
+Create the data volume:
+
+```bash
 curl -X POST "$vpc_api_endpoint/v1/volumes?version=$api_version&generation=2" \
   -H "Authorization: $iam_token" \
   -d '{
@@ -684,14 +859,16 @@ curl -X POST "$vpc_api_endpoint/v1/volumes?version=$api_version&generation=2" \
 ```
 {: pre}
 
-Save the ID of the volume in a variable, for example:
+Save the ID of the volume in a variable:
 
-```
+```bash
 volume_id="0738-640774d7-2adc-4609-add9-6dfd96167a8f"
 ```
 {: pre}
 
-The status of the volume is pending when it first is created. Before you can proceed, the volume needs to move to available status, which takes a few minutes. To check the status of the volume, run this command:
+The status of the volume is `pending` when it first is created. Before you can proceed, the volume needs to move to `available` status, which takes a few minutes.
+
+Check the status of the volume:
 
 ```bash
 curl -X GET "$vpc_api_endpoint/v1/volumes/$volume_id?version=$api_version&generation=2" \
@@ -699,10 +876,12 @@ curl -X GET "$vpc_api_endpoint/v1/volumes/$volume_id?version=$api_version&genera
 ```
 {: pre}
 
-Create a volume attachment to attach the new volume to the virtual server instance. Use the instance ID variable that you created earlier in the request. Use the volume ID, CRN of the volume, or URL to specify the volume in the data parameter. This example uses the variable previously created for the volume ID.
+Create a volume attachment to attach the new data volume to the virtual server instance. Use the instance ID variable that you created earlier in the request. Use the volume ID variable to specify the volume.
+
+Create the volume attachment:
 
 ```bash
-curl -X POST "$vpc_api_endpoint/v1/instances/$server/volume_attachments?version=$version&generation=2" \
+curl -X POST "$vpc_api_endpoint/v1/instances/$instance/volume_attachments?version=$version&generation=2" \
   -H "Authorization: $iam_token" \
   -d '{
         "name": "my-volume-attachment",
@@ -720,7 +899,7 @@ You can configure the security group to define the inbound and outbound traffic 
 
 Find the security group for the VPC:
 
-```
+```bash
 curl -X GET "$vpc_api_endpoint/v1/vpcs/$vpc/default_security_group?version=$api_version&generation=2" \
   -H "Authorization:$iam_token"
 ```
@@ -735,7 +914,7 @@ sg=0738-2d364f0a-a870-42c3-a554-000000981149
 
 Now create a rule to allow inbound SSH traffic so that you'll be able to connect to the instance:
 
-```
+```bash
 curl -X POST "$vpc_api_endpoint/v1/security_groups/$sg/rules?version=$api_version&generation=2" \
   -H "Authorization: $iam_token" \
   -d '{
@@ -782,7 +961,7 @@ floating_ip="0738-35fb0489-7105-41b9-99de-033fae723006"
 
 To connect to the instance, use the floating IP address you created. To get the floating IP address, run the following command:
 
-```
+```bash
 curl -X GET "$vpc_api_endpoint/v1/floating_ips/$floating_ip?version=$api_version&generation=2" \
   -H "Authorization:$iam_token"
 ```
@@ -790,7 +969,7 @@ curl -X GET "$vpc_api_endpoint/v1/floating_ips/$floating_ip?version=$api_version
 
 On Linux, use the `address` of the floating IP to connect to the instance with SSH:
 
-```
+```bash
 ssh -i <private_key_file> root@<floating ip address>
 ```
 {: pre}

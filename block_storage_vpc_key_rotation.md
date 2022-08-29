@@ -59,7 +59,7 @@ After your root keys are rotated, the new root key version becomes available for
 For more information about the key rotation process, see:
 
 * {{site.data.keyword.keymanagementserviceshort}} - [Understanding the key rotation process](/docs/key-protect?topic=key-protect-key-rotation#understand-key-rotation-process).
-* {{site.data.keyword.hscrypto}} - [Root key rotation](https://test.cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-key-rotation#root-key-rotation-intro).
+* {{site.data.keyword.hscrypto}} - [Root key rotation](/docs/hs-crypto?topic=hs-crypto-root-key-rotation-intro).
 
 ### Benefits of key rotation
 {: #vpc-key-rotation-benefits}
@@ -290,7 +290,7 @@ Follow these steps to rotate a root key by using the Key Protect API.
    ```
    {: pre}
 
-   Use the `limit` and `offset` parameters to retrieve a subset of your keys, beginning with the offset value that you specify. For more information, see [Retrieving a subset of keys](https://test.cloud.ibm.com/docs/key-protect?topic=key-protect-view-keys#retrieve-subset-keys-api).
+   Use the `limit` and `offset` parameters to retrieve a subset of your keys, beginning with the offset value that you specify. For more information, see [Retrieving a subset of keys](/docs/key-protect?topic=key-protect-view-keys#retrieve-subset-keys-api).
    {: tip}
 
 3. Copy the ID of the root key that you want to rotate.

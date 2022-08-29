@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2021-07-08"
+lastupdated: "2022-08-25"
 
 keywords: creating a linux custom image, cloud-init, qcow2, vhd
 
@@ -32,13 +32,7 @@ You can begin with an image template from the {{site.data.keyword.cloud_notm}} c
 Did you know that your can also create a custom image of a boot volume attached to an instance at import time? For more information, see [About creating an image from volume](/docs/vpc?topic=vpc-image-from-volume-vpc).
 {: tip}
 
-Your image must adhere to the following custom image requirements:
-* Contains a single file or volume in qcow2 or VHD format.
-* Is cloud-init enabled.
-* The operating system is supported as a stock image operating system.
-* The image is configured to use BIOS boot mode. UEFI boot mode is not supported.
-* Image size doesn't exceed 250 GB.
-* Image size isn't below 10 GB. Images below 10 GB are rounded up to 10 GB.
+{{site.data.content.custom-image-requirements-list}}
 
 To create secure execution-based custom images by using the Cloud Object Storage option, see [Preparing the workload](https://www.ibm.com/docs/en/linux-on-systems?topic=tasks-prepare-workload). For information about creating secure execution-based images, [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=overview-introducing-secure-execution-linux).
 
@@ -95,6 +89,13 @@ Follow the instructions for your Linux distribution to update the kernel command
     ```
     {: pre}
 
+    If you are using a Debian operating system, use the following command:
+
+    ```
+    lsinitramfs /boot/initrd.img-$(uname -r) | grep virtio
+    ```
+    {: pre}
+
     Verify the the virtio blk driver and its dependencies *virtio.ko*, *virtio_pci*, and *virtio_ring* are present.  If the    virtio dependencies are not present, you must recover the root filesystem.
 
 ## Step 4 - Network interface is set to auto-configure
@@ -144,5 +145,9 @@ Upload your image to {{site.data.keyword.cos_full_notm}}. On the **Objects** pag
 ## Next steps
 {: #next-steps-creating-linux-image}
 
-When your Linux custom image is created, you can [import](/docs/vpc?topic=vpc-managing-images) it to VPC to provision images.
-Make sure that you have [Granted access to IBM Cloud Object Storage to import images](/docs/vpc?topic=vpc-object-storage-prereq).  
+When your Linux custom image is created and available in {{site.data.keyword.cos_full_notm}}, you can [import the custom image into VPC](/docs/vpc?topic=vpc-importing-custom-images-vpc) and [Onboard a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui). Make sure that you have [Granted access to IBM Cloud Object Storage to import images](/docs/vpc?topic=vpc-object-storage-prereq).
+
+If you plan to use a private catalog to manage your custom images, you must first import that image into {{site.data.keyword.vpc_short}} and then onboard the virtual server image into a private catalog.
+{: note}
+
+After the custom image is imported, you can then use the custom image to deploy a virtual server in the {{site.data.keyword.vpc_full}} infrastructure.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-04-01"
+lastupdated: "2022-08-15"
 
 subcollection: vpc
 
@@ -23,6 +23,8 @@ subcollection: vpc
 
 # FAQ for bare metal servers
 {: #bare-metal-server-faq}
+
+You might encounter the following frequently asked questions when you use a Bare Metal Server for VPC.
 
 ## What's the difference between Bare Metal Servers (Classic infrastructure) and Bare Metal Servers for VPC?
 {: #faq-bare-metal-0}
@@ -89,7 +91,7 @@ No other drive configurations are supported and drive size, type, and quantity c
 For more information about profiles, see [Profiles for Bare Metal Servers for VPC](/docs/vpc?topic=vpc-bare-metal-servers-profile).
 
 ## Does Bare Metal Servers for VPC support RAID?
-{: #faq-bare-metal-6}
+{: #faq-bare-metal-7}
 {: faq}
 
 The boot disk supports RAID 1 by using a hardware RAID controller. If you use a profile with NVMe drives, it is recommended that you use a software RAID option.  
@@ -97,7 +99,7 @@ The boot disk supports RAID 1 by using a hardware RAID controller. If you use a 
 Secondary drives use a JBOD configuration and aren't supported by a hardware RAID controller. 
 
 ## Can I enable dual uplinks (uplink redundancy)?  
-{: #faq-bare-metal-7}
+{: #faq-bare-metal-8}
 {: faq}
 
 No. The uplinks (PCI network interfaces) are redundant by design. The VLAN network that you create are on that default, redundant uplink. You don’t need to manage uplink redundancy because redundancy is automatic.   
@@ -105,49 +107,42 @@ No. The uplinks (PCI network interfaces) are redundant by design. The VLAN netwo
 For more information, see [Networking overview for Bare Metal Servers on VPC](/docs/vpc?topic=vpc-bare-metal-servers-network). 
 
 ## What storage replication is supported for Bare Metal Servers for VPC? 
-{: #faq-bare-metal-8}
+{: #faq-bare-metal-9}
 {: faq}
 
 Replication isn't supported. 
 
 ## What is the size of the boot drive for Bare Metal Servers for VPC? 
-{: faq-bare-metal-9}
+{: #faq-bare-metal-10}
 {: faq}
 
-The boot drive is 960 Gb. You can configure each image differently for its partition sizes.  
+The boot disk is 960 GB. You can configure each image differently for its partition sizes.  
  
 Bare Metal Servers for VPC supports only UEFI images. 
 {: important}
 
 ## How does billing work?
-{: #faq-bare-metal-10}
+{: #faq-bare-metal-11}
 {: faq}
 
 You are billed for Bare Metal Servers for VPC based on the server profile that you selected. Billing stops only when you delete the bare metal server. Powering off the server doesn't change billing. For more information about billing and pricing, contact your IBM Sales representative.
 
-<!--See the following table for the available price plans. Billing and pricing are subject to change. -->
-
-<!--| Profile | Price per hour |-->
-<!--| bx2-metal-192x768 | USD 9.219 |-->
-<!--| bx2d-metal-192x768 | USD 12.726 |-->
-<!--{: caption="Table 1. Price plans" caption-side="bottom"}-->
-
 You are also billed for other VPC services and resources that are attached to any bare metal servers. For more information about pricing for Bare Metal Servers on VPC, see [Pricing](https://www.ibm.com/cloud/vpc/pricing).
 
 ## How is billing for bare metal severs different from virtual server instances?
-{: #faq-bare-metal-11}
+{: #faq-bare-metal-12}
 {: faq}
 
 The main difference between virtual server instances and the bare metal servers is that powering off a bare metal server has no effect on the billing cycle. Meaning that hourly billed servers still accrue at the normal rate whether the server is powered off or on. The billing stops only when the bare metal server is deleted. 
 
 ## How do I view my invoices?
-{: #faq-bare-metal-12}
+{: #faq-bare-metal-13}
 {: faq}
 
 To view your account invoices, follow these steps.
 
 1. Go to the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), 
-1. Then, click **Manage > Billing and Usage**.
+2. Then, click **Manage > Billing and Usage**.
 
 Each account receives a single bill. If you need separate billing for different sets of resources, then you need to create multiple accounts.
 

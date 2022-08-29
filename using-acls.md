@@ -42,6 +42,10 @@ For more information about using ICMP, TCP, and UDP protocols in your ACL rules,
 You can attach an ACL to a subnet two different ways:
 
 * You can create a new subnet, and specify an ACL to attach. If you don't specify an ACL, a default network ACL is attached. The default ACL allows all inbound traffic to this subnet, and all outbound traffic from this subnet.
+
+Creating a VPC automatically creates a default network ACL. You can modify the default network ACL and specify a different ACL to attach.
+{: note}
+
 * You can attach an ACL to an existing subnet. If another ACL is attached to this subnet already, that ACL is detached before the new ACL is attached.
 
 ## ACL example

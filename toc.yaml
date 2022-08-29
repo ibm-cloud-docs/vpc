@@ -73,6 +73,7 @@ toc:
                - about-confidential-computing.md
                - about-attestation.md
                - about-contract.md
+               - certificate_validate.md
            - host-failure-recovery.md
        - topicgroup:
            label: Storage
@@ -202,22 +203,35 @@ toc:
         - topicgroup:
             label: Custom images
             topics:
-            - vsi_is_plan_custom_image.md
-            - vsi_is_object_storage_auth.md
-            - vsi_is_create_linux_custom_image.md
-            - vsi_is_create_windows_custom_image.md
-            - vsi_is_migrate_from_classic_infra.md
-            - vsi_is_encrypt_custom_image.md
-            - vsi_is_manage_images.md
-            - vsi_is_byol_about.md
-            - image-rbac-permissions.md
-            - building-custom-os.md
             - topicgroup:
-                label: Image from volume
+                label: Planning for custom images
                 topics:
+                - vsi_is_about_custom_images.md
                 - vpc_image_from_volume.md
-                - vpc_image_from_volume_create.md
-                - vpc_image_from_volume_manage.md
+                - vsi_is_object_storage_auth.md
+                - vsi_is_byol_about.md
+                - image-rbac-permissions.md
+            - topicgroup:
+                label: Creating custom images
+                topics:
+                 - vsi_is_create_linux_custom_image.md
+                 - vsi_is_create_windows_custom_image.md
+                 - vpc_image_from_volume_create.md
+                 - vsi_is_create_zos_custom_image.md
+                 - vsi_is_migrate_from_classic_infra.md
+                 - vsi_is_encrypt_custom_image.md
+                 - building-custom-os.md
+            - vsi_is_import_images.md
+            - topicgroup:
+                label: Managing custom images
+                topics:
+                 - vsi_is_manage_images.md
+                 - vpc_image_from_volume_manage.md
+        - topicgroup:
+            label: Public gateways
+            topics:
+            - pg-about.md
+            - pg-create.md
         - topicgroup:
             label: Virtual private endpoint gateways
             topics:
@@ -296,6 +310,7 @@ toc:
                 topics:
                 - vpn-client-to-site.md
                 - vpn-client-to-site-planning.md
+                - vpn-client-to-site-migration.md
                 - vpn-client-to-site-securing-environment.md
                 - vpn-client-to-site-access-groups.md
                 - vpn-client-to-site-auth.md
@@ -510,6 +525,7 @@ toc:
             - link:
                label: Reference
                href: https://{DomainName}/apidocs/vpc-metadata
+            - api-metadata-change-log.md 
         - topicgroup:
             label: Beta VPC instance metadata API
             topics:
@@ -612,6 +628,7 @@ toc:
                 - vpn-ts-connection-failure.md
                 - vpn-ts-dns-configuration-not-working.md
                 - vpn-ts-vpn-client-hangs.md
+            - resource-suspension.md
             - instance-status-messages.md
             - quota-dashboard-troubleshooting.md
         - topicgroup:

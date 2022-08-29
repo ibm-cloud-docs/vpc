@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-05-02"
+lastupdated: "2022-08-19"
 
 keywords:
 
@@ -52,10 +52,9 @@ Want to set up automatic backups of your volumes? The cards at the top of the bl
 | Status | Status of the volume, which functions as the default filter for all rows. For information about volume statuses, see [Block Storage volume statuses](/docs/vpc?topic=vpc-managing-block-storage#status). |
 | Location | Availability zone in your region, inherited from the VPC (for example, US South 1).|
 | Size | Size of the volume you specified, in GBs.|
-| Max IOPS | Maximum IOPS based on the volume profile for the volume. |
 | Attachment type | Data, for a secondary volume attached to an instance, boot when attached as a boot volume, or blank for an unattached volume.|
 | Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also use your own root keys in a Key Protect or HPCS instance to protect your data. For information, see [Creating block storage volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption). |
-| Tags | Number of user tags or access management tags applied to the volume. A tag is a label that you assign to the volume for easy filtering of resources. Click on the number in this column to view or edit the tags in the popup window. If there are no tags applied to the volume, click **Add tags** and add them in the popup window. For example, user tags applied to a volume can associate the volume with a backup policy for creating backups of the volume. For information about adding tags to a block storage volume, see [Add tags to block storage volumes for backup policies](https://test.cloud.ibm.com/docs/vpc?topic=vpc-managing-block-storage&interface=ui#block-storage-add-tags). For information about creating backups, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-about). Backup for VPC is only available to accounts authorized to preview the feature.
+| Tags | Number of user tags applied to the volume. A tag is a label that you assign to the volume for easy filtering of resources. Click on the number in this column to view or edit the tags in the popup window. If there are no tags applied to the volume, click **Add tags** and add them in the popup window. For example, user tags applied to a volume can associate the volume with a backup policy for creating backups of the volume. For information about adding tags to a block storage volume, see [Add tags to block storage volumes for backup policies](https://test.cloud.ibm.com/docs/vpc?topic=vpc-managing-block-storage&interface=ui#block-storage-add-tags). For information about creating backups, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-about). Backup for VPC is only available to accounts authorized to preview the feature.
 | Actions (...) | Click the icon (...) to display a menu of context-specific actions you can take. For example, an available, unattached volume would have menu options for attaching to an instance, renaming, and deleting the volume. An attached volume would allow for unattaching the volume from an instance and creating an [image from the volume](/docs/vpc?topic=vpc-image-from-volume-vpc). |
 {: caption="Table 1. Details about all volumes" caption-side="bottom"}
 

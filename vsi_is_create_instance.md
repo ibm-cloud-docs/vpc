@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-07-12"
+lastupdated: "2022-08-15"
 
-keywords: instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, vsi, create virtual server
+keywords:
 
 subcollection: vpc
 
@@ -19,7 +19,7 @@ subcollection: vpc
 You can create one or more virtual server instances in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console or by using the CLI.
 {: shortdesc}
 
-## Creating a virtual server instance by using the UI
+## Creating a virtual server instance with the UI
 {: #creating-virtual-servers-ui}
 {: ui}
 
@@ -33,13 +33,13 @@ Use the following steps to create a virtual server instance.
 |-------|-------|
 | Name  | A name is required for your virtual server instance. |
 | Resource group | Select a resource group for the instance. |
-| Tags | You can assign a label to this resource so that you can easily filter resources in your resource list. |
+| Tags | You can assign a user tag to the instance so that you can easily filter instance resources in your resource list. For more information, see [Working with tags](/docs/account?topic=account-tag&interface=ui).|
 | Location | Locations are composed of regions (specific geographic areas) and zones (fault-tolerant data centers within a region). Select the location where you want to create your virtual server instance. |
 | Placement group | Select a placement group for the instance. If you add a placement group, the instance is placed according to the placement group policy. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc). |
 | | **Note:** This field is available only if `Add instance to placement group` is selected during provisioning. |
 | Type of virtual server | A **Public** virtual server instance, created in a multi-tenant environment, is the default selection for a new instance. You can also select a **Dedicated** virtual server instance to create the instance in a single-tenant space. To provision a dedicated instance, you must have a dedicated host available or [create one](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances). A dedicated host is required if you use a Windows custom image and [your own license](/docs/vpc?topic=vpc-byol-vpc-about#byol-vpc-windows). |
 | Processor architecture | Select the processor architecture that your instance is created with. *x86* means x86_64 bit processor, and *s390x* is LinuxONE (s390x processor architecture). |
-| Operating system | Image \n \n Select a stock image, `Custom image`, or `Catalog image` for the operating system. \n \n   \n \n * For more information about available stock images, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images) and [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images). All operating system images use cloud-init that you can use to enter user metadata that is associated with the instance for post provisioning scripts. Metadata isn't supported for {{site.data.keyword.cloud}} Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances. \n * A `custom image` is an image that you create externally and import to {{site.data.keyword.cloud}}, which you can then import into {{site.data.keyword.vpc_short}}. For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-about-custom-images). \n * You can also use a custom image that was created from a boot volume and was attached to an instance. For more information about creating an image from a volume, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc). \n * A `Catalog image` is a custom image that is imported into a private catalog. You can either import an custom image that was already imported into {{site.data.keyword.vpc_short}} or an image from a volume. For more information, see [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui) \n * You can also select either a RHEL or Windows custom image and bring your own license (BYOL). For more information about creating BYOL custom images, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about).|
+| Operating system | Image \n \n Select a stock image, `Custom image`, or `Catalog image` for the operating system. \n \n   \n \n * For more information about available stock images, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images) and [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images). All operating system images use cloud-init that you can use to enter user metadata that is associated with the instance for post provisioning scripts. Metadata isn't supported for {{site.data.keyword.cloud}} Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances. If you plan to use Windows operating systems with SQL Server, see the [About Microsoft SQL on VPC](/docs/microsoft?topic=microsoft-mssql-about). \n * A `custom image` is an image that you create externally and import to {{site.data.keyword.cloud}}, which you can then import into {{site.data.keyword.vpc_short}}. For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-about-custom-images). \n * You can also use a custom image that was created from a boot volume and was attached to an instance. For more information about creating an image from a volume, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc). \n * A `Catalog image` is a custom image that is imported into a private catalog. You can either import a custom image that was already imported into {{site.data.keyword.vpc_short}} or an image from a volume. For more information, see [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui) \n * You can also select either a RHEL or Windows custom image and bring your own license (BYOL). For more information about creating BYOL custom images, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about).|
 | | Snapshot \n \n Select a snapshot of a boot volume that includes an operating system. \n * If you created a boot volume from a bootable snapshot, it appears under Boot Volume. \n * If you want to use another bootable snapshot and create a new boot volume, click **Change** to select a different snapshot from the list of snapshots. \n For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore). |
 | Profile |  Select from popular profiles or all available vCPU and RAM combinations. The profile families are Balanced, Compute, Memory, Ultra High Memory, Very High Memory, and GPU. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles). When you create an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instance, make sure that you select secure execution-enabled profiles, otherwise provisioning fails. For more information, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles).  \n  \n Some profiles might not be available because the amount network interfaces in the virtual server exceed profile limits. You can remove network interfaces to select from more profiles. For more information, see [Resizing a virtual server](/docs/vpc?topic=vpc-resizing-an-instance). |
 | SSH Key | You must select an existing SSH key or upload a new SSH key to use before you create the instance. SSH keys are used to securely connect to the instance after it's running. |
@@ -51,7 +51,10 @@ Use the following steps to create a virtual server instance.
 | Trusted profiles (optional) | If you created trusted profiles, you can select one and link it to this instance. Click **Select a trusted profile**. In the side panel, select a trusted profile and click **Select trusted profile** to link it to the instance. A message displays if none exist or if you don't have access to link it. For more information, see [Create a trusted profile](/docs/account?topic=account-trustedprofile-compute-tutorial#trusted-profile-compute-create). For more information about acquiring access, see [IAM authorizations for linking trusted profiles](/docs/vpc?topic=vpc-imd-trusted-profile-metadata&interface=ui#imd-iam-auth). |
 | Boot volume | The default boot volume size for all profiles is 100 GB. If you are importing a custom image, the boot volume capacity can be 10 - 250 GB, depending on what the image requires. Images that are smaller than 10 GB are rounded up to 10 GB. |
 | |You can increase the size of the boot volume up to 250 GB by clicking the **Size** pencil icon. In the side panel, increase the boot volume size in the **Create size** field. The size must be more than the current size up to 250 GB. |
-| Data volumes | You can add one or more secondary data volumes to be included when you provision the instance. To add volumes, click **Create** in the Data volumes section of the page. For more information about provisioning the volume, see [Create and attach a block storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi). |
+| | You can edit the boot volume an add user tags to identify it in the resource list. |
+| Data volumes | You can create one or more secondary data volumes to be attached when you provision the instance. |
+| |To create a data volume, click **Create** in the Data volumes section. Define the volume in the side panel. For more information about provisioning the volume, see [Create and attach a block storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi). |
+| | Specify any user tags that you want to associate with the data volume you're creating and attaching to the instance. |
 | Virtual private cloud | Specify the IBM Cloud VPC where you want to create your instance. You can use the default VPC, another existing VPC, or you can create a new VPC. To create a new VPC, click **New VPC**. |
 | Network interfaces | By default the virtual server instance is created with a single primary network interface. You can click the pencil icon to edit the details of the network interface, for example, the subnet or security group that's associated with the interface. To include extra secondary network interfaces, click **New interface**. You can create and assign up to five network interfaces to each instance. For more information, see [About network interfaces](/docs/vpc?topic=vpc-using-instance-vnics#about-network-interfaces). |
 {: caption="Table 1. Instance provisioning selections" caption-side="bottom"}|
@@ -316,7 +319,7 @@ Use the following steps to create a virtual server instance by using the CLI.
    - `SUBNET_ID` is _SUBNET_ID_
    - `IMAGE_ID` is _IMAGE_ID_
    - `KEY_IDS` is _KEY_ID1, KEY_ID2, ..._
-   - `VOLUME_ATTACH_JSON` is the volume attachment specification in JSON format, provided in the command or as a file. For an example volume attachment JSON file, see [Create a volume attachment JSON](/docs/vpc?topic=vpc-attaching-block-storage&interface=cli#volume_attachment_json).
+   - `VOLUME_ATTACH_JSON` is the volume attachment specification in JSON format, provided in the command or as a file. For an example volume attachment JSON file, see [Create a volume attachment JSON](/docs/vpc?topic=vpc-attaching-block-storage&interface=cli#volume_attachment_json). You can also include [user tags for the volumes](/docs/vpc?topic=vpc-creating-block-storage&interface=cli#create-instance-vol-cli) in the volume attachment.
    - `PLACEMENT_GROUP_ID` is _r134-a812ff17-cac5-4e20-8d2b-95b587be6637
    - `METADATA-SERVICE` is set to `true` to enable it. By default, it is disabled and set to `false`.
 
@@ -326,7 +329,7 @@ Use the following steps to create a virtual server instance by using the CLI.
    {: note}
 
    ```
-   ibmcloud is inc test r134-a0162c41-6a75-4a04-aabb-da1c78539531 us-south-2  bx2-2x8  7284-47efd8c6-0efc-462e-89c0-e0457119f90b --image r134-63363662-a4ee-4ba4-a6c4-92e6c78c6b58 --host-failure-policy stop
+   ibmcloud is instance create test a0162c41-6a75-4a04-aabb-da1c78539531 us-south-2  bx2-2x8  7284-47efd8c6-0efc-462e-89c0-e0457119f90b --image r134-63363662-a4ee-4ba4-a6c4-92e6c78c6b58 --host-failure-policy stop
    Creating instance test under account VPC1 as user myuser@mycompany.com...
 
    ID                                    7284_683902df-85ce-4546-808c-3675247074d8   
@@ -342,18 +345,18 @@ Use the following steps to create a virtual server instance by using the CLI.
    Memory(GiB)                           8   
    Bandwidth(Mbps)                       4000   
    Image                                 ID                                          Name      
-                                         r134-63363662-a4ee-4ba4-a6c4-92e6c78c6b58   ibm-centos-7-9-minimal-amd64-3      
+                                         63363662-a4ee-4ba4-a6c4-92e6c78c6b58   ibm-centos-7-9-minimal-amd64-3      
 
    VPC                                   ID                                          Name      
-                                         r134-a0162c41-6a75-4a04-aabb-da1c78539531   cli-vpc-1      
+                                         a0162c41-6a75-4a04-aabb-da1c78539531   cli-vpc-1      
 
    Zone                                  us-south-2   
    Resource group                        ID                                 Name      
                                          11caaa983d9c4beb82690daab08717e9   Default      
 
-   Created                               2021-10-25T16:39:30+05:30   
+   Created                               2022-08-25T16:39:30+05:30   
    Boot volume                           ID   Name           Attachment ID                               Attachment name      
-                                         -    PROVISIONING   7284-69923add-65e2-4b93-bee4-a4bca3836696   collector-reverb-exiting-swinging
+                                         -    PROVISIONING   7284-69923add-65e2-4b93-bee4-a4bca3836696   boot-attachment-12
    ```
    {: screen}
 
