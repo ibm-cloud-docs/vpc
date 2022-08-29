@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-11-12"
+  years: 2020, 2022
+lastupdated: "2022-08-26"
 
 keywords: license, virtual private cloud, BYOL, virtual server instance, instance, custom image, encryption
 subcollection: vpc
@@ -96,11 +96,6 @@ To see all of the operating system versions from the API, make a`GET /operating_
 After you create a dedicated host, you can create virtual server instances by using a BYOL custom image and your license. For the UI procedure, see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
 
 For more information about creating a Windows custom image, see [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image).
-
-## BYOL for SLES
-{: #byol-zvsi-sles}
-
-If you are running LinuxONE (s390x processor architecture), you can use an {{site.data.keyword.cloud}} provided SLES image and the `SUSEConnect` command line tool to add the license to your installation and perform all the activation steps. For the procedure, see [How to register SLES by using the SUSEConnect command line tool](https://www.suse.com/support/kb/doc/?id=000018564).
 
 
 For more information about creating dedicated hosts and groups, see [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances).
