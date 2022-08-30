@@ -30,6 +30,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## August 2022
 {: #vpc-august22}
 
+### 30 August 2022
+{: #vpc-august3022}
+{: release-note}
+
+IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}}
+:   You can now create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture) in United Kingdom (London) region, in additional to Brazil (São Paulo), Canada (Toronto), Japan (Tokyo), and US East (Washington DC) regions. To create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers), and [IBM Hyper Protect Container Runtime image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime). A valid contract is required for creating an instance. For more information, see [About the contract](/docs/vpc?topic=vpc-about-contract_se&interface=ui).
+
 ### 23 August 2022
 {: #vpc-august2322}
 {: release-note}
