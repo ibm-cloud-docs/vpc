@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-06-17"
+lastupdated: "2022-08-31"
 
 keywords:
 
@@ -105,17 +105,14 @@ To start monitoring your resources, check out [Getting started with {{site.data.
 
 * Check whether File Storage for VPC is enabled with customer-managed encryption and Bring Your Own Key (BYOK).
 * Check whether File Storage for VPC is in a resource group other than _Default_.
-
 ### Available goals for Virtual Servers
 {: #virtual-servers-available-goals}
 
 * Check whether Virtual Servers for VPC instances are identifiable by the workload they are running based on the Auto Scale for VPC instance group definition
 * Check whether Virtual Servers for VPC is provisioned from customer-defined list of images
 * Check whether Virtual Servers for VPC is provisioned from an encrypted image
-* Check whether Virtual Servers for VPC data volumes are enabled with customer-managed encryption and Keep Your Own Key (KYOK)
-* Check whether Virtual Servers for VPC data volumes are enabled with customer-managed encryption and Bring Your Own Key (BYOK)
-* Check whether Virtual Servers for VPC boot volumes are enabled with customer-managed encryption and Keep Your Own Key (KYOK)
-* Check whether Virtual Servers for VPC boot volumes are enabled with customer-managed encryption and Bring Your Own Key (BYOK)
+* Check whether Virtual Servers for VPC data volumes are enabled with customer-managed encryption.  Supported key managment services are HPCS - Keep Your Own Key (KYOK), and Key Protect for Bring Your Own Key (BYOK) 
+* Check whether Virtual Servers for VPC boot volumes are enabled with customer-managed encryption.  Supported key managment services are HPCS - Keep Your Own Key (KYOK), and Key Protect for Bring Your Own Key (BYOK)
 * Check whether Virtual Servers for VPC resource group other than "Default" is selected
 * Check whether Virtual Servers for VPC instance has all interfaces with IP-spoofing disabled
 * Check whether Virtual Servers for VPC instance doesn't have a floating IP
@@ -123,27 +120,36 @@ To start monitoring your resources, check out [Getting started with {{site.data.
 * Check whether all network interfaces of a virtual server instance have at least one Virtual Private Cloud (VPC) security group attached
 * Check whether all virtual server instances have at least one Virtual Private Cloud (VPC) security group attached
 
+### Available goals for Images
+{: #images-available-goals}
+
+* Check whether Images for VPC instance is encrypted with customer-managed key
+
 ### Available goals for Flow Logs
 {: #flow-logs-available-goals}
 
 * Check whether Flow Logs for VPC are enabled
 
+
 ## Governing VPC resource configuration
 {: #govern-vpc}
 
-As a security or compliance focal, you can use the {{site.data.keyword.compliance_short}} to define configuration rules for the {{site.data.keyword.alb_full}} (ALB) and {{site.data.keyword.nlb_full}} (NLB) instances that you create.
+As a security or compliance focal, you can use the {{site.data.keyword.compliance_short}} to define configuration rules for the VPC resources that you create.
 
-[Config rules](#x3084914){: term} are used to enforce the configuration standards that you want to implement across your accounts. To learn more about the data that you can use to create a rule for application and network load balancers, review the following table.
+[Config rules](#x3084914){: term} are used to enforce the configuration standards that you want to implement across your accounts. To learn more about the data that you can use to create a rule for VPC resources, review the following table.
 
 To learn more about constructing config rules, check out [Formatting rules and templates](/docs/security-compliance?topic=security-compliance-formatting-rules-templates).
 
 | VPC Service | Resource kind | Property | Operator type | Value | Description |
 |-------------|---------------|----------|---------------|-------|-------------|
-| Load Balancer | *instance* | *profile_family* | String| *["application", "network"]* | *A list of strings that match load balancer profile family name from load balancer profile family.* |
-| Load Balancer | *instance* | *load_balancer_type* | String| *["private", "public"]* | *A list of strings that indicate what type of  load balancer can be provisioned.* |
 | Auto Scale | *instance* | *membership_count* | Numeric | *["1"]* | *A number that indicates the total number of instances in the instance group.* |
 | Block Storage | *instance* | *user_managed_encryption* | Boolean | - | *A Boolean that indicates whether customer managed key encryption is enabled.* |
-{: caption="Table 1. Rule properties for VPC" caption-side="top"}
+| Image | *instance* | *encryption* | String | *["user_managed", "none"]* | *A string that indicates whether customer managed key encryption is enabled.* |
+| Load Balancer | *instance* | *profile_family* | String| *["application", "network"]* | *A list of strings that match load balancer profile family name from load balancer profile family.* |
+| Load Balancer | *instance* | *load_balancer_type* | String| *["private", "public"]* | *A list of strings that indicate what type of  load balancer can be provisioned.* |
+| Virtual Server | *instance* | *floating_ips_allowed* | boolean | *["is_true", "is_false"]* | *A boolean indicating whether or not floating IPs can be associated with the network interfaces of the instance.* |
+| Virtual Server | *instance* | *metadata_service_enabled* | boolean | *["is_true", "is_false"]* | *A boolean indicating whether or not the metadata service can be enabled for the instance.* |
+{: caption="Table 1. Rule properties for VPC" caption-side="bottom"}
 
 ### Example: Governing load balancer resource configuration
 {: #govern-lb}
