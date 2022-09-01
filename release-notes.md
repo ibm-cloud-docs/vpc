@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-08-23"
+lastupdated: "2022-09-01"
 
 keywords:
 
@@ -29,6 +29,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## August 2022
 {: #vpc-august22}
+
+### 31 August 2022
+{: #vpc-august3122}
+{: release-note}
+
+Configuration governance
+:   New VPC config rules for the Image service and Virtual Servers are now available with the Security and Compliance Center. For more information, see [Governing VPC Resource configuration](/docs/vpc?topic=vpc-manage-security-compliance#govern-vpc) in [Managing security and compliance with VPC Infrastructure Services](/docs/vpc?topic=vpc-manage-security-compliance).
 
 ### 30 August 2022
 {: #vpc-august3022}
