@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-08-31"
+lastupdated: "2022-09-01"
 
 keywords: known issues, bugs, defects
 
@@ -90,12 +90,6 @@ The following issues are currently present in the Cloud Console with no known wo
 **Issue:** Backup policy details show zero (0) as the number of applied resources, even though the backup is still applied to the list of volumes.
 
 **Issue:** The block storage details page might not show all the matched backup policies if the volume has more than one user tag.
-
-
-## VSI monitoring known issues
-{: #vsi-monitoring-known-issues}
-
-**Issue:** Volumes that are created from snapshots and volumes that are resized do not display metrics on the VSI monitoring console page or in the IBM Cloud Monitoring dashboard for "VPC VSI Gen 2 Overview". No known workaround.
 
 ## VPC property issue for Security and Compliance Center
 {: #RCS-4957}
