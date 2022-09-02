@@ -148,7 +148,8 @@ Application load balancer will continue to support [{{site.data.keyword.cloudcer
 To prevent errors, you must establish the required authorization between your load balancer and {{site.data.keyword.secrets-manager_full_notm}}.
 {: important}
 
-Transport Layer Security (TLS) 1.2 and 1.3 are supported. However, TLS 1.3 is used by default unless you specifically configure the client side to utilize 1.2.
+Transport Layer Security (TLS) 1.2 and 1.3 are supported. However, TLS 1.3 is used by default unless you specifically configure the client side to utilize 1.2. Application load balancers honor all supported TLS 1.3 ciphers sent by the client-side request.
+
 {: note}
 
 The following lists the supported ciphers (in order of precedence):
