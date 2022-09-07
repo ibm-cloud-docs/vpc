@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-07"
+lastupdated: "2022-09-09"
 
 keywords: operating system end of support (eos)
 
@@ -122,6 +122,9 @@ The following table describes the end of support date and license model for Wind
 | Windows Server 2016 full standard  | 11 January 2027  |  Pay-as-you-Go / BYOL |
 | Windows Server 2012 full standard | 10 October 2023 | Pay-as-you-Go / BYOL |
 | Windows Server 2012 r2 full standard | 10 October 2023 | Pay-as-you-Go / BYOL |
+| Windows Server 2019 Standard Edition with SQL Server 2019 Web Edition | 08 January 2030 | Pay-as-you-Go |
 {: caption="Table 8. Lifecycle for Windows Server operating systems" caption-side="bottom"}
 
 **BYOL**: For Windows operating systems, you can bring your own license (BYOL) to {{site.data.keyword.vpc_short}} when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. Acquisition and activation of the license is between you and the OS vendor.
+
+**SQL Server**: For Windows operating systems with SQL Server, see the [About Microsoft SQL on VPC](/docs/microsoft?topic=microsoft-mssql-about) documentation for information on creating the SQL server.
