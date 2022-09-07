@@ -146,8 +146,6 @@ Keep the following information in mind when you delete network interfaces:
 
 A VIP is used for moving between interfaces to achieve high availability. Typically, two interfaces belong to two VMs. Each interface has a primary IP that negotiates with VRRP to determine which VM owns the VIP.
 
-<!--![Figure showing the primary IP and VRRP relationship](images/vip-vrrp.png "Figure showing the primary IP and VRRP relationship"){: caption="Figure 1. Primary IP and VRRP relationship" caption-side="bottom"}-->
-
 From a RIAS perspective, you create a VIP the same way that you create a primary IP.
 
 1. Use the following command to create a VIP.

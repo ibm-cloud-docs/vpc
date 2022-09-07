@@ -64,7 +64,6 @@ toc:
                - os-lifecycle.md
                - bare_metal_server_image.md
                - bare_metal_server_image_s390x.md
-               - bare_metal_server_profile_s390x.md
            - topicgroup:
                label: Profiles
                topics:
@@ -72,6 +71,7 @@ toc:
                - s390x-vsi-profiles.md
                - vsi_is_dh_profile.md
                - bare_metal_server_profile.md
+               - bare_metal_server_profile_s390x.md
                - profiles_benchmark.md
            - vsi_is_ssh_keys_about.md
            - vsi_is_provisioning_scripts.md
