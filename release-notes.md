@@ -27,6 +27,16 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API , 
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI) , see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
 
+## September 2022
+{: #vpc-september22}
+
+### 09 September 2022
+{: #vpc-september0922}
+{: release-note}
+
+New stock image for VPC
+:   The Windows Server 2019 Standard Edition with SQL Server 2019 Web Edition bundle is now supported as an image when you provision a {{site.data.keyword.vpc_short}} server. If you select this stock image when you provision a virtual server instance, the software that is part of that bundle is also included in your instance.
+
 ## August 2022
 {: #vpc-august22}
 
