@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-02-23"
+lastupdated: "2022-09-12"
 
 keywords: limitations, restrictions
 
@@ -86,6 +86,17 @@ The following feature is currently not supported:
 
 * Dedicated hosts
 * VPC Instance Metadata service
+
+## LinuxONE Bare Metal server instance restrictions
+{: #LinuxONE-bm-restrictions}
+
+The following features are currently not supported:
+
+* Dedicated hosts
+* SmartNIC
+* VNC console
+* Infrastructure NAT
+* Encryption of data at rest and at flight. Note that you must follow the LUKS disk encryption best practices as an alternative.
 
 ## API considerations
 {: #api-considerations}

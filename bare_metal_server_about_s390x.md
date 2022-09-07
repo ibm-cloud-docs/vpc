@@ -1,0 +1,68 @@
+---
+
+copyright:
+  years: 2022
+lastupdated: "2022-09-12"
+
+keywords: About, LinuxONE Bare Metal servers, Overview
+
+subcollection: vpc
+
+---
+
+{{site.data.keyword.attribute-definition-list}}
+
+# About LinuxONE bare metal servers
+{: #about-linuxone-bare-metal-servers}
+
+LinuxONE bare metal servers provide dedicated CPU cores, memory, and I/O channels to host your Linux&reg; workloads on s390x mainframes in the {{site.data.keyword.vpc_full}}. You can use {{site.data.keyword.cloud}}-provided Linux operating system images on the LinuxONE bare metal servers. As bare metal servers are integrated with the VPC platform, you can take advantage of the network, storage, and security capacity provided by the VPC.
+
+The LinuxONE bare metal servers that you provision are supported by Processor Resource/Systems Manager (PR/SM). PR/SM is a hypervisor firmware that allows for virtualization of hardware and can manage multiple operating systems in a single central processing complex. The PR/SM separates or shares physical resources such as cores, I/O channels, and LAN interfaces across multiple logical partitions (LPARs). LPARs are the equivalent of LinuxONE bare metal server instances, and each LPAR supports an independent operating system (OS) that is loaded by a separate initial program load (IPL) operation.
+
+
+## Key features
+{: #bare-metal-features}
+
+The following features are included with a LinuxONE bare metal server.
+
+### Workload profiles
+{: #bare-metal-features-profiles}
+
+You can choose different profiles to meet your individual workload needs and help accelerate deployment of your compute resources. You get maximum performance without oversubscribing.
+
+For more information, see [Profiles for LinuxONE Bare Metal servers](/docs/vpc?topic=vpc-linuxone-bare-metal-servers-profile).
+
+### Latest semiconductor technology
+
+LinuxONE bare metal servers use IBM® Integrated Facility for Linux (IFL) that are dedicated to Linux workloads on s390x servers and offer on-chip acceleration for compression and encryption.
+
+### EAL5+ isolation
+
+LinuxONE Bare metal servers LPARs are under the control of a PR/SM Hypervisor, which is designed for Common Criteria Evaluation Assurance Level 5+ (EAL5+) security certification.
+
+For more information, see [Security target for PR/SM for IBM z15 and IBM LinuxONE III systems](https://commoncriteriaportal.org/files/epfiles/1133b_pdf.pdf){: external}.
+
+## Benefits
+{: #bare-metal-benefits}
+
+You have the following benefits when you provision a LinuxONE bare metal server.
+
+### Rapid scaling
+{: #bare-metal-rapid-scaling-benefit}
+
+Quickly scale your dedicated environment - often, in 10 minutes or less when resources are available.
+
+### Network orchestration
+{: #bare-metal-network-orchestration-benefit}
+
+A network orchestration layer handles the networking for all bare metal servers that are within an {{site.data.keyword.vpc_full}} across regions and zones. Create multiple, virtual private clouds in multizone regions. Network orchestration also helps improve security, reduce latency, and increase high availability.
+
+You are responsible for security on your LinuxONE bare metal server. That means you need upgrade or update the operating system as needed to make sure that vulnerabilities are addressed in a timely manner. LinuxONE Bare metal servers with floating IPs are internet-facing and you need to take appropriate precautions. For more information, see [Understanding your responsibilities](/docs/vpc?topic=vpc-responsibilities-vpc#security-compliance).
+{: note}
+
+## Pricing options
+{: #bare-metal-pricing-options}
+
+Pay-as-you-go bandwidth is per gigabyte. Your billing charges accrue from provision to cancellation, and are billed in arrears. Total pricing includes server profiles and software, internet data transfers, and optional VPC services. Each extra component is priced separately and is included as part of your total {{site.data.keyword.vpc_full}} charges. Service tiers are bound to your account, not to any specific VPC.
+
+For more information about pricing, see [Pricing](https://www.ibm.com/cloud/vpc/pricing#tab_2651670){: external}.
