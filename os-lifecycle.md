@@ -86,7 +86,7 @@ The version of Rocky Linux is updated on a regular basis, with the previous rele
 
 The following table describes the end of support date and license model for SUSE Linux Enterprise Server (SLES) operating systems. This guest OS is a paid operating system. For more information, see [SUSE Linux Enterprise Server](https://www.suse.com/products/server/){: external}. 
 
-| Operating sytem | End of support | License model |
+| Operating sytem | End of support | License Model |
 |-----------------|----------------|---------------|
 | SLES 15 SP4 | Release SP5 +6 Months | Pay-as-you-Go |
 | SLES 15 SP3 | 31 December 2025 | Pay-as-you-Go |
