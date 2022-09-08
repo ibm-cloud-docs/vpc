@@ -43,4 +43,4 @@ You can install IBM provided Linux operating system images on your LinuxONE Bare
 |  Red Hat Enterprise Linux 8.x | s390x |
 {: caption="Table 1. Supported s390x stock image operating systems" caption-side="bottom"}
 
-Besides those IBM provided Linux distributions, you can use your own license of the Red Hat or SUSE Linux with LinuxONE Bare Metal servers. For more information, see [Bring your own license](docs/vpc?topic=vpc-byol-vpc-about).
+Besides those IBM provided Linux distributions, you can use your own license of the Red Hat or SUSE Linux with LinuxONE Bare Metal servers. For more information, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about).
