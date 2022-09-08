@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-09-06"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -53,6 +53,8 @@ You can use two types of logging to view the IBM Cloud Hyper Protect Virtual Ser
 * LogDNA logs - The LogDNA configuration that is passed as part of the contract works only if the instance has either a public gateway or a floating IP associated with it. If logging is not configured successfully, the instance shuts down automatically. For more details, see [Setting up logging for IBM Cloud Hyper Protect Virtual Server for VPC deployment](#hpcr_setup_logging).
 
 The ports that are associated with the containers or workloads must be explicitly opened up through security groups for them to be accessible. Therefore, you must create a security group based on the ports that are associated with the containers and attach it to the corresponding VPC that is used with the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance.
+
+When you create an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instance, detaching the data volume attached to a running instance causes the workload running on the instance to fail, therefore it is recommended that you do not detach the data volume.
 
 ## Recover or upgrade an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance by using {{site.data.keyword.vpc_short}} Snapshots.
 {: #hpcr_snapshots}
