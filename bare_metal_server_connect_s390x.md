@@ -18,6 +18,9 @@ subcollection: vpc
 After your bare metal server is running, you can connect to the server by using the serial console, or your private SSH key through a floating IP.
 {: shortdesc}
 
+Using a VNC console to connect to the LinuxONE Bare Metal server is not supported.
+{: note}
+
 ## Accessing LinuxONE bare metal server by using a serial console
 {: #access-linuxone-bm-using-console}
 
