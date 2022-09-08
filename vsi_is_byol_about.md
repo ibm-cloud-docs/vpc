@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-08-26"
+lastupdated: "2022-09-12"
 
 keywords: license, virtual private cloud, BYOL, virtual server instance, instance, custom image, encryption
 subcollection: vpc
@@ -20,7 +20,7 @@ subcollection: vpc
 # Bring your own license
 {: #byol-vpc-about}
 
-For Red Hat Enterprise Linux&reg; (RHEL) and Windows&reg; operating systems, you can bring your own license (BYOL) to the {{site.data.keyword.cloud}} VPC when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. Acquisition and activation of the license is between you and the OS vendor.
+For Enterprise Linux&reg; and Windows&reg; operating systems, you can bring your own license (BYOL) to the {{site.data.keyword.cloud}} VPC when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. Acquisition and activation of the license is between you and the OS vendor.
 {: shortdesc}
 
 ## BYOL concepts
