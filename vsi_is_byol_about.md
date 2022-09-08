@@ -38,7 +38,7 @@ You don't have extra licensing charges for any virtual server instances that you
 
 You can use your own license for a [custom RHEL image](/docs/vpc?topic=vpc-create-linux-custom-image) that you create on premises. This BYOL custom image is a single qcow2 or vhd file that you upload to Cloud Object Storage and then import to the VPC. When you import your BYOL custom image, you must select a _BYOL_ operating system from the list of OS versions. Supported Linux versions are 64-bit RHEL 7 and RHEL 8.
 
-To see all of the operating system versions from the API, make a`GET /operating_systems` call. In the response, you see Red Hat Enterprise Linux BYOL OS versions among the list of operating systems. This example response shows information that is returned for RHEL 7:
+To see all of the operating system versions from the API, make a `GET /operating_systems` call. In the response, you see Red Hat Enterprise Linux BYOL OS versions among the list of operating systems. This example response shows information that is returned for RHEL 7:
 
 ```
 {
