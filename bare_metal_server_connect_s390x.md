@@ -4,7 +4,7 @@ copyright:
   years: 2022
 lastupdated: "2022-09-12"
 
-keywords: LinuxONE Bare Metal, Connecting, connect to LinuxONE Bare Metal
+keywords: LinuxONE Bare Metal, Connecting, connect to LinuxONE Bare Metal, serial console, floating IP
 
 subcollection: vpc
 
@@ -15,30 +15,11 @@ subcollection: vpc
 # Connecting to LinuxONE bare metal servers
 {: #connect-to-linuxone-bare-metal-servers}
 
-After your bare metal server is running, you can connect to the server by using the serial console, or your private SSH key through a floating IP.
+After your bare metal server is running, you can connect to the server by using your private SSH key through a floating IP.
 {: shortdesc}
 
-Using a VNC console to connect to the LinuxONE Bare Metal server is not supported.
+Using a VNC console or a serial console to connect to the LinuxONE Bare Metal server is not supported.
 {: note}
-
-## Accessing LinuxONE bare metal server by using a serial console
-{: #access-linuxone-bm-using-console}
-
-You can access the LinuxONE Bare metal server by connecting to the serial console.
-
-To connect to a console, you need to be assigned **Operator** (or greater) and **Bare Metal Console Administrator** roles for the bare metal server in IBM Cloud Identity and Access Management (IAM). If you are an administrator of your account, you also need to self-assign the **Bare Metal Console Administrator** role.
-
-### Connecting to a serial console
-{: #connect-to-serial-console}
-
-You can use a serial console to access LinuxONE Bare metal server. You must first manually switch to the serial console mode by using the following steps:
-
-1. Restart your server.
-
-2. Click **Open serial console** from the IBM Cloud UI. A new tab opens in your terminal.
-
-If the login window doesn’t show up in the terminal, press **ESC**.
-{: tip}
 
 ## Accessing the LinuxONE bare metal server by using a floating IP
 {: #access-linuxone-bm-using-fip}
@@ -129,3 +110,25 @@ curl -X PUT "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/netwo
    ```
    {: pre}
 
+
+<!--
+## Accessing LinuxONE bare metal server by using a serial console
+{: #access-linuxone-bm-using-console}
+
+You can access the LinuxONE Bare metal server by connecting to the serial console.
+
+To connect to a console, you need to be assigned **Operator** (or greater) and **Bare Metal Console Administrator** roles for the bare metal server in IBM Cloud Identity and Access Management (IAM). If you are an administrator of your account, you also need to self-assign the **Bare Metal Console Administrator** role.
+
+### Connecting to a serial console
+{: #connect-to-serial-console}
+
+You can use a serial console to access LinuxONE Bare metal server. You must first manually switch to the serial console mode by using the following steps:
+
+1. Restart your server.
+
+2. Click **Open serial console** from the IBM Cloud UI. A new tab opens in your terminal.
+
+If the login window doesn’t show up in the terminal, press **ESC**.
+{: tip}
+
+--->

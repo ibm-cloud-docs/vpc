@@ -95,6 +95,7 @@ The following features are currently not supported:
 * Dedicated hosts
 * SmartNIC
 * VNC console
+* Serial console
 * Infrastructure NAT
 * Encryption of data at rest and at flight. Note that you must follow the LUKS disk encryption best practices as an alternative.
 

@@ -1,130 +1,105 @@
 ---
 
 copyright:
-  years: 2022
+  years: 2020, 2022
 lastupdated: "2022-09-12"
 
-keywords: LinuxONE Bare Metal, Connecting, connect to LinuxONE Bare Metal, serial console, floating IP
-
+keywords: license, virtual private cloud, BYOL, virtual server instance, instance, custom image, encryption
 subcollection: vpc
 
 ---
+{:new_window: target="_blank"}
+{:shortdesc: .shortdesc}
+{:codeblock: .codeblock}
+{:important: .important}
+{:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:note: .note}
 
-{{site.data.keyword.attribute-definition-list}}
+# Bring your own license
+{: #byol-vpc-about}
 
-# Connecting to LinuxONE bare metal servers
-{: #connect-to-linuxone-bare-metal-servers}
-
-After your bare metal server is running, you can connect to the server by using your private SSH key through a floating IP, or the serial console on the IBM Cloud console.
+For Enterprise Linux&reg; and Windows&reg; operating systems, you can bring your own license (BYOL) to the {{site.data.keyword.cloud}} VPC when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. Acquisition and activation of the license is between you and the OS vendor.
 {: shortdesc}
 
-Using a VNC console to connect to the LinuxONE Bare Metal server is not supported.
-{: note}
+## BYOL concepts
+{: #byol-vpc-concepts}
+With the BYOL feature, you can use your own license for a custom image that you create and upload it to Cloud Object Storage. When you import your custom image from Cloud Object Storage to the VPC, {{site.data.keyword.cloud}} provides Red Hat Enterprise Linux and Windows *BYOL* operating system options that you must select to indicate that you are using a BYOL operating system. You use your BYOL custom images to create virtual server instances, just as you would from a stock image.
 
-## Accessing the LinuxONE bare metal server by using a floating IP
-{: #access-linuxone-bm-using-fip}
+The BYOL feature on LinuxONE (s390x processor architecture) supports Red Hat Enterprise Linux (RHEL), and SUSE Linux Enterprise Server (SLES) operating systems.
 
-You can access the LinuxONE Bare Metal server through a floating IP.
+Images with a Red Hat Enterprise Linux BYOL operating system can be used to provision any public or dedicated host instance. Images with a Windows BYOL operating system can be provisioned only to instances on a dedicated host or in a dedicated host group.
 
-### Attaching a floating IP to a bare metal server network interface
-{: #attaching-fip-to-nic}
+You don't have extra licensing charges for any virtual server instances that you create by using your BYOL custom image. For auditing and reporting purposes, {{site.data.keyword.cloud}} retains information for virtual server instances that you create from BYOL custom images.
 
-Before you can access the bare metal server through the public internet, you need to attach a floating IP to its primary HiperSocket network interface. You can attach a floating IP by using the UI, [CLI](#attaching-fip-to-nic-cli), or [API](#attaching-fip-to-nic-api).
+## BYOL for Red Hat Linux operating systems
+{: #byol-vpc-linux}
 
-### Attaching a floating IP by using the UI
-{: #attaching-fip-to-nic-ui}
+You can use your own license for a [custom RHEL image](/docs/vpc?topic=vpc-create-linux-custom-image) that you create on premises. This BYOL custom image is a single qcow2 or vhd file that you upload to Cloud Object Storage and then import to the VPC. When you import your BYOL custom image, you must select a _BYOL_ operating system from the list of OS versions. Supported Linux versions are 64-bit RHEL 7 and RHEL 8.
 
-1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**
+To see all of the operating system versions from the API, make a `GET /operating_systems` call. In the response, you see Red Hat Enterprise Linux BYOL OS versions among the list of operating systems. This example response shows information that is returned for RHEL 7:
 
-2. Click the name of the bare metal server.
-
-3. On the **Bare metal server details** page, scroll to the **Network Interfaces** section and click **Edit** of a network interface.
-
-4. On **Edit network interface**, select a reserved floating IP or **Reserve a new floating IP**.
-
-5. Click **Save**
-
-### Attaching a floating IP by using the CLI
-{: #attaching-fip-to-nic-cli}
-
-You need the following information to attach a floating IP to a bare metal server:
-
-* Bare metal server ID
-* Network interface ID
-* Floating IP ID
-
-Use the [List the network interfaces](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#bare-metal-server-network-interfaces) command to find the ID of the network interface.
-Use the [ibmcloud is floating-ips](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#floating-ips) command to find the reserved floating IP IDs.
-Or, use the [ibmcloud is floating-ip-reserve](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#floating-ip-reserve) command to reserve a new one.
-
-After you collect all the required information, use the following command to attach the floating IP to the bare metal server:
-
-```sh
-ibmcloud is bare-metal-server-network-interface-floating-ip-add $bare_metal_server_id $network_interface_id $floating_ip_id
 ```
-{: pre}
-
-### Attaching a floating IP by using the API
-{: #attaching-fip-to-nic-api}
-
-You need the following information when you attach a floating IP to a bare metal server network interface:
-
-* Bare metal server ID
-* Network interface ID
-* Floating IP ID
-
-Use the [List that all network interfaces](/apidocs/vpc#list-bare-metal-server-network-interfaces) command to find the ID of the network interface. Use the [List all floating IP](/apidocs/vpc#list-floating-ips) command to find the reserved floating IP IDs, or, use the [Reserve a floating IP](/apidocs/vpc#create-floating-ip) command to reserve a new one.
-{: tip}
-
-After you collect all the required information, use the following API request to attach the floating IP to the bare metal server:
-
-```sh
-curl -X PUT "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/network_interfaces/$network_interface_id/floating_ips/$floating_ip_id?version=2022-03-09&generation=2" \
--H "Authorization: $iam_token"
+{
+      "href": "https://cloud.ibm.com/v1/operating_systems/red-7-amd64-byol",
+      "name": "red-7-amd64-byol",
+      "architecture": "amd64",
+      "display_name": "Red Hat Enterprise Linux 7.x - BYOL (amd64)",
+      "family": "Red Hat Enterprise Linux",
+      "vendor": "Red Hat",
+      "version": "7.x - Minimal Install"
+    },
+    .
+    .
+    .
 ```
-{: pre}
+{: codeblock}
 
-## Accessing the LinuxONE Bare metal server
-{: #login-linuxone-bm}
+For more information about creating and importing Linux custom images, see:
 
-1. To connect to your LinuxONE bare metal server instance, use your private key and run the following command:
+* [Creating a Linux custom image](/docs/vpc?topic=vpc-create-linux-custom-image)
+* [Importing a custom image](/docs/vpc?topic=vpc-managing-images#import-custom-image)
 
-   ```sh
-   ssh -i <path to your private key file> root@<floating ip address>
-   ```
-   {: pre}
+## BYOL for Windows operating systems
+{: #byol-vpc-windows}
 
-   You receive a response similar to the following example. When prompted to continue connecting, type `yes`.
-   ```
-   The authenticity of host 'xxx.xxx.xxx.xxx (xxx.xxx.xxx.xxx)' can't be established.
-   ECDSA key fingerprint is SHA256:abcdef1Gh/aBCd1EFG1H8iJkLMnOP21qr1s/8a3a8aa.
-   Are you sure you want to continue connecting (yes/no)? yes
-   Warning: Permanently added 'xxx.xxx.xxx.xxx' (ECDSA) to the list of known hosts.
-   ```
-   {: screen}
+You can create a Windows BYOL custom image by using your own license, upload it to Cloud Object Storage, and import it to the VPC. The Windows BYOL custom image must be provisioned on a dedicated host single-tenantfor privileged users within your account.
 
-2. When you are ready to end your connection, run the following command:
+Windows BYOL custom images can be used to provision virtual server instances on dedicated hosts only. Windows BYOL custom images cannot be used to provision public instances.  
+{: important}
 
-   ```sh
-   exit
-   ```
-   {: pre}
+When you import your BYOL custom image, you must select a _BYOL_ operating system from the list of operating system versions. The following are supported Windows versions:
 
-## Accessing LinuxONE bare metal server by using a serial console
-{: #access-linuxone-bm-using-console}
+* Windows 2012 and Windows 2012 R2 64-bit
+* Windows 2016 and Windows 2016 64-bit
+* Windows 2019 and Windows 2019 64-bit
 
-You can access the LinuxONE Bare metal server by connecting to the serial console.
+To see all of the operating system versions from the API, make a`GET /operating_systems` call. In the response, you see Windows BYOL OS versions among the list of operating systems. This example response shows information that is returned for Windows 2012:
 
-To connect to a console, you need to be assigned **Operator** (or greater) and **Bare Metal Console Administrator** roles for the bare metal server in IBM Cloud Identity and Access Management (IAM). If you are an administrator of your account, you also need to self-assign the **Bare Metal Console Administrator** role.
+```
+{
+      "href": "https://cloud.ibm.com/v1/operating_systems/windows-2012-amd64-byol",
+      "name": "windows-2012-amd64-byol",
+      "architecture": "amd64",
+      "display_name": "Windows 2012 - BYOL (amd64)",
+      "family": "Windows",
+      "vendor": "Microsoft",
+      "version": "2012"
+    },
+    .
+    .
+    .
+```
+{: codeblock}
 
-### Connecting to a serial console
-{: #connect-to-serial-console}
+After you create a dedicated host, you can create virtual server instances by using a BYOL custom image and your license. For the UI procedure, see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
 
-You can use a serial console to access LinuxONE Bare metal server. You must first manually switch to the serial console mode by using the following steps:
+For more information about creating a Windows custom image, see [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image).
 
-1. Restart your server.
 
-2. Click **Open serial console** from the IBM Cloud UI. A new tab opens in your terminal.
+For more information about creating dedicated hosts and groups, see [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances).
 
-If the login window doesn’t show up in the terminal, press **ESC**.
-{: tip}
+For more information about importing yoåur BYOL custom image to the VPC, see [Importing a custom image](/docs/vpc?topic=vpc-managing-images#import-custom-image).
+
+For the UI procedure for creating a new instance and specifying a BYOL custom image, see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
