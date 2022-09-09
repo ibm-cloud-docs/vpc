@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-09-09"
 
 keywords:
 
@@ -40,7 +40,7 @@ Customer-managed encryption lets you bring your own customer root key (CRK) to t
 
 Customer-managed encryption for volumes, file shares, and custom images lets you use root keys in the same region as your resources. You can also use root keys from another region to encrypt your resources. For best performance and security, collocate your KMS instance/root keys and your encrypted resources in the same region. For more information, see [Root key regional and cross-regional considerations](#byok-cross-region-keys).
 
-You can share root keys across accounts by linking accounts. Root keys in a primary account can be accessed and used to encrypt new volumes and file shares created in a secondary account. For information, see [Cross-account encryption for multitenant storage resources](/docs/vpc?topic=vpc-vpc-byok-cross-acct-key).
+You can share root keys across accounts by linking accounts. Root keys in a primary account can be accessed and used to encrypt new volumes and file shares created in a secondary account. For information, see [Cross-account encryption for file storage resources](/docs/vpc?topic=vpc-vpc-byok-cross-acct-key-file).
 
 With customer-managed encryption, you can import your own root keys to the cloud. This process is commonly called "bring your own key". You can also have the KMS generate root keys for you. After provisioning the key management service, you must authorize access between the source service (for example, Cloud Block Storage, Cloud File Storage) and the KMS. For custom images, authorize between Image Service for VPC (source service) and IBM Cloud Object Storage (target service). This authorization is required so that the image service has authority to import custom images from the ICOS bucket containing your custom image.
 
