@@ -98,6 +98,9 @@ The following features are currently not supported:
 * Serial console
 * Infrastructure NAT
 * Encryption of data at rest and at flight. Note that you must follow the LUKS disk encryption best practices as an alternative.
+* Block Storage for VPC
+* File Storage for VPC
+
 
 ## API considerations
 {: #api-considerations}
