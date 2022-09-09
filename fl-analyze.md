@@ -216,7 +216,7 @@ You can analyze flow logs with SQL that uses {{site.data.keyword.sqlquery_full}}
 
 The view flattens the flow log data structure; thus, making it easier to analyze your flows.
 
-For more elaborate and repeatable analysis, such as when you want to collaborate and share your log analysis, it is recommended that you use {{site.data.keyword.sqlquery_full}} through Jupyter Notebooks (for example, through IBM Watson Studio). For a generic starter and demo notebook for {{site.data.keyword.sqlquery_full}} that you can use as basis for your work, see [Using IBM Cloud SQL Query](https://dataplatform.cloud.ibm.com/exchange/public/entry/view/4a9bb1c816fb1e0f31fec5d580e4e14d).
+For more elaborate and repeatable analysis, such as when you want to collaborate and share your log analysis, it is recommended that you use {{site.data.keyword.sqlquery_full}} through Jupyter Notebooks (for example, through IBM Watson Studio). For a generic starter and demo notebook for {{site.data.keyword.sqlquery_full}} that you can use as basis for your work, see [Using IBM Cloud SQL Query](https://dataplatform.cloud.ibm.com/analytics/notebooks/v2/656c7d43-7ccd-4e50-a3c0-bbc37c001132/view?access_token=baaa77ad715e17a8f823615d45431329fde0fe92fecb85abb9fc55a877939fe8){: external}.
 {: note}
 
 **Important**: Replace these variables in the following steps:
