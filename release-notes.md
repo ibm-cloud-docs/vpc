@@ -30,8 +30,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## September 2022
 {: #vpc-september22}
 
-### 09 September 2022
-{: #vpc-september0922}
+### 12 September 2022
+{: #vpc-september1222}
 {: release-note}
 
 New stock image for VPC
