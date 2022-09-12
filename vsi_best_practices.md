@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-09-09"
+lastupdated: "2022-09-12"
 
 keywords: virtual server instances, VSI, virtual server, best practices
 
