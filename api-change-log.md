@@ -41,14 +41,6 @@ SDK changes are based on API changes. For information about the latest changes t
 ### For all version dates
 {: #upcoming-changes-all-version-dates}
 
-**VPC route naming restriction.** In an upcoming release, you will no longer be able to create VPC routes that begin with the name `ibm-`. Existing routes that begin with the name `ibm-` will not be affected. To prepare for this change, review the names used by any automation that creates routes, and update the names used as necessary.
-
-**References to inaccessible images** In an upcoming release, image references may refer to custom images in other accounts. Such references are used in the `image` properties of the `Instance` and `BareMetalServerInitialization` response schemas and in the `source_image` properties of the `Volume` and `Snapshot` response schemas. Such an image cannot be accessed by its `id`, `crn`, or `href`, regardless of the caller's authorizations, and attempts will fail as if the image does not exist.
-
-Additionally, if your account has an image with the same name as the referenced image, attempting to access the referenced image by its `name` will access your account's image, rather than the image in the other account. This may result in the retrieval or use of the wrong image.
-
-To prepare for this change, verify that your clients handle image reference lookup failures gracefully and do not assume inaccessible images have been deleted, even when running with full access to your images.  To avoid possible retrieval or use of the wrong image by `name`, consider specifying the image `id`, `crn`, or `href` instead.
-
 **Load balancer provisiong status enumeration expansion.** In an upcoming release, a new value will be added to the load balancer `provisioning_status` property. 
 
 To prepare for this change, verify that any clients retrieving the `provisioning_status` property will gracefully handle unknown values. For example, a client might bypass the load balancer, log a message, or halt processing and surface an error.
@@ -63,6 +55,24 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+**References to inaccessible images** In an upcoming release, image references may refer to custom images in other accounts. Such references are used in the `image` properties of the `Instance` and `BareMetalServerInitialization` response schemas and in the `source_image` properties of the `Volume` and `Snapshot` response schemas. Such an image cannot be accessed by its `id`, `crn`, or `href`, regardless of the caller's authorizations, and attempts will fail as if the image does not exist.
+
+Additionally, if your account has an image with the same name as the referenced image, attempting to access the referenced image by its `name` will access your account's image, rather than the image in the other account. This may result in the retrieval or use of the wrong image.
+
+To prepare for this change, verify that your clients handle image reference lookup failures gracefully and do not assume inaccessible images have been deleted, even when running with full access to your images.  To avoid possible retrieval or use of the wrong image by `name`, consider specifying the image `id`, `crn`, or `href` instead.
+
+**VPC route naming restriction.** In an upcoming release, you will no longer be able to create VPC routes that begin with the name `ibm-`. Existing routes that begin with the name `ibm-` will not be affected. To prepare for this change, review the names used by any automation that creates routes, and update the names used as necessary.
+
+## 06 September 2022
+{: #06-september-2022}
+
+### For all version dates
+{: #06-september-2022-all-version-dates}
+
+**Improved reserved IP support for bare metal servers**. The following methods have been added for convenience and parity with the virtual server instance reserved IP methods:
+- [List all reserved IPs bound to a network interface](/apidocs/vpc/latest#list_bare_metal_server_network_interface_ips) for a bare metal server
+- [Retrieve bound reserved IP](/apidocs/vpc/latest#get_bare_metal_server_network_interface_ip) for a bare metal server
 
 ## 23 August 2022
 {: #23-august-2022}
