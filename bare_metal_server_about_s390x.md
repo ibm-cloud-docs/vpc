@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-12"
+lastupdated: "2022-09-19"
 
 keywords: About, LinuxONE Bare Metal servers, Overview
 

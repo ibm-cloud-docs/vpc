@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-09-12"
+lastupdated: "2022-09-19"
 
 keywords:
 
@@ -31,7 +31,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## September 2022
 {: #vpc-september22}
 
-### 12 September 2022
+### 19 September 2022
 {: #vpc-september2222}
 {: release-note}
 

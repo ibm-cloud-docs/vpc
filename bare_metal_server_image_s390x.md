@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-12"
+lastupdated: "2022-09-19"
 
 keywords: linuxone bare metal license, linux license, byol, bring your own license
 

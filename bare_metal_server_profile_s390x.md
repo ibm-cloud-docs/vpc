@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-12"
+lastupdated: "2022-09-19"
 
 keywords: bare metal server profile, profile, LinuxONE bare metal profiles, viewing profile, view profiles
 

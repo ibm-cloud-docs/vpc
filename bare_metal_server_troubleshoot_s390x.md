@@ -3,7 +3,7 @@
 copyright:
   years: 2021,2022
 
-lastupdated: "2022-09-12"
+lastupdated: "2022-09-19"
 
 keywords: troubleshooting LinuxONE bare metal servers, hardware issues
 
