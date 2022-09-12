@@ -34,7 +34,7 @@ You can install IBM provided Linux operating system images on your LinuxONE Bare
 {: shortdesc}
 
 
-### IBM provided Linux (s390x processor architecture) operating system images
+## IBM provided Linux (s390x processor architecture) operating system images
 {: #s390x-supported-os}
 
 | Image | Architectures |
@@ -50,12 +50,12 @@ To register your own license for the LinuxONE Bare Metal server, see [How to reg
 ### Special considerations for Red Hat Enterprise Linux 8.4
 {: #bare-metal-images-rhel-considerations}
 
-* By default, the release lock feature for Red Hat Enterprise Linux 8.4 is disabled. To prevent the Red Hat Enterprise Linux from going beyond version 8.4 when you run an update, run the following commands from the command line:
+By default, the release lock feature for Red Hat Enterprise Linux 8.4 is disabled. To prevent the Red Hat Enterprise Linux from going beyond version 8.4 when you run an update, run the following commands from the command line:
 
    ```text
    # subscription-manager release --set=8.4
    ```
- {: codeblock}
+   {: codeblock}
 
    ```text
    # yum clean all
