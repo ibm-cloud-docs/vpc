@@ -92,7 +92,7 @@ The underlying deletion operations were already asynchronous, and remain unchang
 To avoid regressions, before issuing requests using a `version` query parameter of `2022-09-13` or later, ensure that any clients deleting load balancer resources will also regard a response code of `202` as success.
 {: important}
 
-A response code of `204` will continue to be returned for API requests using `version` query parameter `2022-09-12` and earlier.
+A response code of `204` will continue to be returned for API requests using a `version` query parameter of `2022-09-12` and earlier.
 
 ## 6 September 2022
 {: #6-september-2022}
