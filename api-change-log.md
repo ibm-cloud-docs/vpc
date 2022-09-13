@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-08-30"
+lastupdated: "2022-09-13"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -63,6 +63,16 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 6 September 2022
+{: #6-september-2022}
+
+### For all version dates
+{: #6-september-2022-all-version-dates}
+
+**Improved reserved IP support for bare metal servers**. The following methods have been added for convenience and parity with the virtual server instance reserved IP methods:
+- [List all reserved IPs bound to a network interface](/apidocs/vpc/latest#list_bare_metal_server_network_interface_ips) for a bare metal server
+- [Retrieve bound reserved IP](/apidocs/vpc/latest#get_bare_metal_server_network_interface_ip) for a bare metal server
 
 ## 23 August 2022
 {: #23-august-2022}
