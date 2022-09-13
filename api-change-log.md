@@ -64,6 +64,28 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
+## 13 September 2022
+{: #13-september-2022}
+
+### For version `2022-09-13` or later
+{: #version-2022-09-13}
+
+**Load balancer DELETE response code change.** For requests using a `version` query parameter of `2022-09-13` or later, all load balancer `DELETE` methods will return an HTTP response code of `202` upon success:
+
+- [Delete a load balancer](/apidocs/vpc/latest#delete-load-balancer)
+- [Delete a load balancer listener](/apidocs/vpc/latest#delete-load-balancer-listener)
+- [Delete a load balancer listener policy](/apidocs/vpc/latest#delete-load-balancer-listener-policy)
+- [Delete a load balancer listener policy rule](/apidocs/vpc/latest#delete-load-balancer-listener-policy-rule)
+- [Delete a load balancer pool](/apidocs/vpc/latest#delete-load-balancer-pool)
+- [Delete a load balancer pool member](/apidocs/vpc/latest#delete-load-balancer-pool-member)
+
+The underlying deletion operations were already asynchronous, and remain unchanged.
+
+To avoid regressions, before issuing requests using a `version` query parameter of `2022-09-13` or later, ensure that any clients deleting load balancer resources will also regard a response code of `202` as success.
+{: important}
+
+A response code of `204` will continue to be returned for API requests using `version` query parameter `2022-09-12` and earlier.
+
 ## 6 September 2022
 {: #6-september-2022}
 
