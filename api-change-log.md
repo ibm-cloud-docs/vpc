@@ -67,6 +67,14 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 ## 13 September 2022
 {: #13-september-2022}
 
+### For all version dates
+{: #13-september-2022-all-version-dates}
+
+**Updating subnets for application load balancers.** You can now update the subnets attached to an application load balancer by specifying `subnets` when [updating a load balancer](/apidocs/vpc/latest#update-load-balancer). The specified subnets must be in the same VPC as the load balancer's current subnets. If the update requires moving your load balancer to a different zone, its `provisioning_status` will change to `migrate_pending` until the move is complete. For more information, see [Updating subnets for Application Load Balancers for VPC](/docs/vpc?topic=alb-updating-subnets).
+
+Because the `subnets` property is an array, the specified value will replace the load balancer's existing array of subnets. To guard against concurrent updates, you must provide the resource's current ETag using the `If-Match` header. For guidance on the use of ETags, see [Concurrent update protection](apidocs/vpc/vpc/latest#concurrent-update-protection).
+{: important}
+
 ### For version `2022-09-13` or later
 {: #version-2022-09-13}
 
