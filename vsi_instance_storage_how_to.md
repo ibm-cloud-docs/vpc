@@ -58,6 +58,7 @@ After the instance is created, [associate a floating IP address to the instance]
 To provision a virtual server instance with instance storage, follow the instructions for [Creating virtual servers by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli) and be sure to choose a profile that includes an instance storage disk. For more information about profiles, see [x86 instance profiles](/docs/vpc?topic=vpc-profiles).
 
 ## Provisioning a Virtual Server Instance with instance storage with the API
+{: #provision-vsi}
 {: api}
 
 To provision a virtual server instance with instance storage, follow the instructions for [Using the REST APIs to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis#create-instance-api-tutorial) and be sure to choose a profile that includes an instance storage disk. For more information about profiles, see [Instance profiles](https://test.cloud.ibm.com/docs/vpc?topic=vpc-profiles).
@@ -78,10 +79,12 @@ The API (or CLI) is useful for determining the interface type that is used for a
 
 This example shows an interface type of `virtio_blk`.
 
-## Using custom images with instance storage disk 
-If you are using custom images, make sure that you load the correct device drivers in the image to use the disks. 
+## Using custom images with instance storage disk
+{: #using-custom-images}
 
-If your instance storage device has a connection type of virtio_blk (all General Purpose profiles with instance storage - Balanced, Compute and Memory - offer only virtio_blk connections), then the libvirt virtio driver must be installed. The libvirt virtio driver is automatically installed with all IBM provided operating systems.
+If you are using custom images, make sure that you load the correct device drivers in the image to use the disks. 
+
+If your instance storage device has an interface type of virtio_blk, then the libvirt virtio driver must be installed. The libvirt virtio driver is automatically installed with all IBM provided operating systems. All general-purpose profiles with instance storage only offer virtio_blk connections.
 
 ## Using instance storage from your instance
 
