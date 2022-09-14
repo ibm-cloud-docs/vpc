@@ -26,6 +26,13 @@ subcollection: vpc
 The {{site.data.keyword.cloud}} Virtual Private Cloud (VPC) provides block storage, file storage, and snapshots solutions to meet your cloud storage needs. Instance storage provides dedicated drives directly attached to your virtual server instances. 
 {: shortdesc}
 
+## Instance storage
+{: #vpc-instance-storage-overview}
+
+Instance storage is allocated from one or more local SSDs on the server hosting the instance. An instance storage disk provides fast, affordable, temporary storage to improve the performance of cloud native workloads with scratch space, caching buffers, or a place for replicated data.
+
+Data stored on instance storage is tied directly to the instance lifecycle and is only held temporarily. The instance storage disk is automatically created and destroyed with the instance. Instance storage data is not lost, however, when an instance is rebooted. For more information, see [About instance storage](/docs/vpc?topic=vpc-instance-storage).
+
 ## Block Storage for VPC
 {: #vpc-block-storage-overview}
 
