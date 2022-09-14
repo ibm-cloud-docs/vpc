@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-08-29"
+lastupdated: "2022-09-16"
 
 keywords: creating a linux custom image, cloud-init, qcow2, vhd
 
