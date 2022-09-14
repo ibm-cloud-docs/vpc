@@ -60,7 +60,23 @@ To provision a virtual server instance with instance storage, follow the instruc
 ## Provisioning a Virtual Server Instance with instance storage with the API
 {: api}
 
-To provision a virtual server instance with instance storage, follow the instructions for [Using the REST APIs to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis#create-instance-api-tutorial) and be sure to choose a profile that includes an instance storage disk. For more information about profiles, see [x86 instance profiles](/docs/vpc?topic=vpc-profiles).
+To provision a virtual server instance with instance storage, follow the instructions for [Using the REST APIs to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis#create-instance-api-tutorial) and be sure to choose a profile that includes an instance storage disk. For more information about profiles, see [Instance profiles](https://test.cloud.ibm.com/docs/vpc?topic=vpc-profiles).
+The API (or CLI) is useful for determining the interface type that is used for attaching the instance storage disks. The instance object that is returned from a create operation (or get) reports the instance disks in the `disks` array as shown in the following example partial output.
+
+```json
+  "disks": [
+    {
+      "created_at": "2022-04-19T17:13:28Z",
+      "href": "https://sample-region.iaasdev.cloud.ibm.com/v1/instances/vsi_aba03916-8804-46ae-9275-b7dc196e94b3/disks/c4e4d137-a44f-47b8-beb0-a22dc8f8c6ea",
+      "id": "c4e4d137-a44f-47b8-beb0-a22dc8f8c6ea",
+      "interface_type": "virtio_blk",
+      "name": "babbling-drove-grove-catnap",
+      "resource_type": "instance_disk",
+      "size": 600
+    }]
+```
+
+This example shows an interface type of `virtio_blk`.
 
 ## Using custom images with instance storage disk 
 If you are using custom images, make sure that you load the correct device drivers in the image to use the disks. 
