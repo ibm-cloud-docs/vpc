@@ -74,7 +74,6 @@ Instance storage is rate-limited. If the instance storage allocated to the virtu
 {: #multiple-instance-storage-disks}
 
 When there are multiple instance disks on your virtual server instance, each disk is provisioned from a separate underlying physical device. This allows for better independent performance as well as software high-availability solutions to be implemented like software-based RAID.
-Make sure to review the Life Cycle section to understand when data loss may occur.
 
 ## Billing
 {: #billing-instance-storage}
@@ -89,7 +88,7 @@ Using instance storage comes with some restrictions. Keep the following in mind 
 *	The instance storage disk cannot be used as a boot disk.
 *	Bring your own key (BYOK) is not supported for instance storage.
 
-Review the Lifecycle of instance section to understand the data retention policy differences between instance storage and volumes.
+To prevent loss of critical data, review the data retention policy and ensure that critical data is stored on persistent storage. For more information, see [Lifecycle of instance storage](#instance-storage-lifecycle).
 {: tip}
 
 For information about provisioning a virtual server instance with instance storage, see [Managing instance storage](/docs/vpc?topic=vpc-instance-storage-provisioning).
