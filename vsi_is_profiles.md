@@ -15,7 +15,7 @@ subcollection: vpc
 # x86 instance profiles
 {: #profiles}
 
-When you provision {{site.data.keyword.vsi_is_full}}, you can select from six families of profiles: Balanced, Compute, Memory, Very High Memory, Ultra High Memory, and GPU.
+When you provision {{site.data.keyword.vsi_is_full}}, you can select from six families of profiles: Balanced, Compute, Memory, Very High Memory, Ultra High Memory, Storage Optimized, and GPU.
 
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, network bandwidth, and default bandwidth allocation. The attributes define the size and capabilities of the virtual server instance that is provisioned. In the {{site.data.keyword.Bluemix_notm}} console, you can select the most recently used profile or click **View All Profiles** to choose the profile that best fits your needs.
 {: shortdesc}
@@ -308,12 +308,13 @@ You can view available profile configurations by using the {{site.data.keyword.c
 The following information describes the naming rule of the profiles.
 
 The first character represents the profile families. Different profile families have different ratios of vCPU to memory and other characteristics that are designed for different workloads.
--	"b": balanced family of profiles, 1 vCPU to 4 GiB of memory ratio
--	"c": compute family of profiles (higher on the CPUs), 1 vCPU to 2 GiB of memory ratio
--	"m": memory family of profiles (higher on the memory), 1 vCPU to 8 GiB of memory ratio
+- "b": balanced family of profiles, 1 vCPU to 4 GiB of memory ratio
+- "c": compute family of profiles (higher on the CPUs), 1 vCPU to 2 GiB of memory ratio
+- "m": memory family of profiles (higher on the memory), 1 vCPU to 8 GiB of memory ratio
 - "u": ultra high memory family of profiles, 1 vCPU to 28 GiB of memory ratio
 - "v": very high memory family of profiles, 1 vCPU to 14 GiB of memory ratio
--  "g" is GPU, which is a 1:8 or 1:16 ratio
+- "g": GPU profiles, which is a 1:8 or 1:16 ratio
+- "o": storage optimized family of profiles, 1 vCPU to 8 GiB memory ratio and 1 vCPU to 300 GB instance storage ratio
 
 The second character represents the CPU architecture.
 - "x": x86_64
