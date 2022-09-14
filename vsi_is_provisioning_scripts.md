@@ -90,7 +90,7 @@ The following example shows user data that automatically configures an instance 
 #cloud-config
 # Cloud-init supports simple partition and file system config.
 # This user data yaml will create a full partition on the first
-# block device after the boot device, initialize ext4 on it and
+# virtio_blk device after the boot device, initialize ext4 on it and
 # mount it on a folder matching the label.
 #
 disk_setup:
@@ -116,20 +116,20 @@ mount_default_fields: [ None, None, "auto", "defaults,nofail", "0", "2" ]
 ```
 {: codeblock}
 
-This script configures /dev/vdb, the first instance storage device available on the virtual instance. This script can be pasted into the **User Data** field or imported by using the Import user data link on the UI. 
-
+This script configures /dev/vdb, the first instance storage device with virtio_blk interface type available on the virtual instance. This script can be pasted into the **User Data** field or imported by using the Import user data link on the UI.
 
 This script was tested with a stock image of `Ubuntu 20.04 LTS Focal Fossa`. While the script might be appropriate for other Linux stock and custom images, it is possible that adjustments to the script might be required. 
 
 The cloud-config script is not appropriate for Windows virtual servers. If your instance does not contain instance storage, do not use this script. It might configure an unintended device.
-{: note}
+{: important}
 
-Here are some details about items that are found in the cloud-config script: 
+Here are some details about items that are found in the cloud-config script:
+
 * disk_setup: creates a single default partition spanning the entire disk with a master boot record. The “overwrite: false” causes this operation to be skipped if the device is already partitioned. 
 * fs_setup: creates an ext4 file system on the first partition of the vdb block device and gives it the label “inststg1”. You can adjust the file system type and label to suit your needs. The “overwrite: false” setting prevents formatting the partition if it is already formatted with a file system.
 * runcmd: creates a directory to use as a mount-point off ‘/’ in the hierarchical parent file system.
 * mounts: performs the mount of the file system device onto /inststg1. You can rename the directory path here and under runcmd.
-* mount_default_fields: creates a permanent mount directive in the /etc/fstab file. If you issue a reboot command, the virtual server comes back up with the instance storage file system still mounted. 
+* mount_default_fields: creates a permanent mount directive in the /etc/fstab file. If you issue a reboot command, the virtual server comes back up with the instance storage file system still mounted.
 
 The CLI and API also supports the **User Data** field.
 {: note}
@@ -145,7 +145,7 @@ The following example shows user data that automatically configures an instance 
 #cloud-config
 # Cloud-init supports simple partition and file system config.
 # This user data yaml will create a full partition on the first two
-# block devices after the boot device, initialize ext4 on them and
+# virtio_blk devices after the boot device, initialize ext4 on them and
 # mount them on new folders off of ‘/mnt/’.
 #
 disk_setup:
@@ -182,7 +182,9 @@ mount_default_fields: [ None, None, "auto", "defaults,nofail", "0", "2" ]
 ```
 {: codeblock}
 
-This cloud-config script example automatically configures both the instance storage `/dev/vdb` and `dev/vdc` block devices. If you only reboot your virtual server, this configuration continues to work since the configuration and data persists. However, if you start a virtual server that was previously stopped, then the virtual server has a fresh set of instance storage disks when it boots up. This situation would require the cloud-init steps to be manually run again. By default, the cloud-config script is only run on first boot. You can also edit the cloud-init section of the cloud.config file so that the cloud-init steps are automatically run on each boot. For the steps, see the [Edit the cloud_cloud_init_modules section of the cloud.config file to run on each boot](#edit-cloud-init-run-cloud-config-each-boot) section.
+This cloud-config script example automatically configures both the instance storage `/dev/vdb` and `dev/vdc` block devices, and assumes a `virtio_blk` interface type for instance storage. If you only reboot your virtual server, this configuration continues to work since the configuration and data persists.
+
+If you start a virtual server that was previously stopped, then the virtual server has a fresh set of instance storage disks when it boots up. This situation requires the cloud-init steps to be manually run again. By default, the cloud-config script is only run on first boot. You can also edit the cloud-init section of the cloud.config file so that the cloud-init steps are automatically run on each boot. For more information, see [Edit the cloud_cloud_init_modules section of the cloud.config file to run on each boot](#edit-cloud-init-run-cloud-config-each-boot).
 
 #### Edit the cloud_cloud_init_modules section of the cloud.config file to run on each boot
 {: #edit-cloud-init-run-cloud-config-each-boot}
