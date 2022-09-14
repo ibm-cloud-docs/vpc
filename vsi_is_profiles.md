@@ -229,6 +229,33 @@ When you create a GPU profile, keep the following recommendations in mind.
 - If you are using GPU profiles, you might need to install the CUDA toolkit onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
 - For more information about persistent storage options, see [Storage notes for profiles](#storage-notes-for-profiles).
 
+## Storage Optimized
+{: #storageopt}
+
+Storage Optimized profiles are hosted exclusively on Intel® Xeon® Platinum Cascade Lake servers. This profile family offers our highest vCPU to [instance storage](/docs/vpc?topic=vpc-instance-storage) ratio with 300 GB of storage for every 1 vCPU and is optimized for running data lake and other workloads requiring more intensive data capabilities. All storage optimized profiles are provisioned with temporary SSD-backed instance storage at no additional charge. For more information, see [Lifecycle of instance storage](/docs/vpc?topic=vpc-instance-storage#instance-storage-lifecycle).
+
+Storage Optimized profiles are available in the US East (Washington) and Japan (Osaka) regions.
+{: preview}
+
+The following Storage Optimized profiles are available for x86-64 processors:
+
+| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) | Interface Type |
+|---------|---------|---------|---------|---------|---------|--------|
+| ox2-2x16     | 2    | 1  | 16    | 4     | 1x600   | virtio_blk   |
+| ox2-4x32     | 4    | 2  | 32    | 8     | 1x1200  | virtio_blk   |
+| ox2-8x64     | 8    | 4  | 64    | 16    | 2x1200  | virtio_blk   |
+| ox2-16x128   | 16   | 8  | 128   | 32    | 2x2400  | virtio_blk   |
+| ox2-32x256   | 32   | 16 | 256   | 64    | 3x3200  | virtio_blk   |
+| ox2-64x512   | 64   | 32 | 512   | 80    | 6x3200  | virtio_blk   |
+| ox2-96x768   | 96   | 48 | 768   | 80    | 9x3200  | virtio_blk   |
+| ox2-128x1024 | 128  | 64 | 1024  | 80    | 12x3200 | virtio_blk   |
+{: caption="Table 8. Storage Optimized profiles options for x86-64 instances" caption-side="bottom"}
+{: #storageopt-intel-x86-64}
+{: tab-title="Intel x86-64"}
+{: tab-group="Storage Optimized"}
+{: class="simple-tab-table"}
+{: summary="Storage Optimized profiles options for Intel x86-64 virtual server instances."}
+
 ## How the bandwidth is allocated using the UI
 {: #bandwidth-allocation-ui}
 {: ui}
