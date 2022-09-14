@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-08-29"
+lastupdated: "2022-09-16"
 
 keywords: auto scale, autoscale, virtual server instance, creating, UI, console, instance group
 
@@ -286,43 +286,43 @@ Use the following commands to determine the required information for creating a 
 
    * Select a stock image or image from your account for your instance.
 
-       To list all available images, run the following command:
+    To list all available images, run the following command:
 
-       ```sh
-       ibmcloud is images
-       ```
-       {: pre}
+    ```sh
+    ibmcloud is images
+    ```
+    {: pre}
 
-       Deprecated images do not include the most current support.
-       {: tip}
+    Deprecated images do not include the most current support.
+    {: tip}
 
-       Let's pick image `ibm-debian-11-3-minimal-amd64-1`. To get the image ID, run the following command:
+    Let's pick image `ibm-debian-11-3-minimal-amd64-1`. To get the image ID, run the following command:
 
-       ```sh
-       image=$(ibmcloud is images | grep -i "debian.*available.*amd64.*public" | cut -d" " -f1)
-       ```
-       {: pre}
+    ```sh
+    image=$(ibmcloud is images | grep -i "debian.*available.*amd64.*public" | cut -d" " -f1)
+    ```
+    {: pre}
 
-       Save the image ID as a variable, which will be used later to provision an instance.
+    Save the image ID as a variable, which will be used later to provision an instance.
 
-   * Select an image shared from a private catalog for the instance
+* Select an image shared from a private catalog for the instance
 
-       To list all available images, run the following command.
+    To list all available images, run the following command.
 
-       ```sh
-       ibmcloud is catalog-image-offerings
-       ```
-       {: pre}
+    ```sh
+    ibmcloud is catalog-image-offerings
+    ```
+    {: pre}
 
-       This command returns both the `offering_crn` and the `offering_version_crn` for the available images. When you create an instance, you can either provision an instance from the private catalog image at the latest version in a catalog product offering using the `offering_crn` or from a specific version in the catalog product offering using the `offering_version_crn`.
+    This command returns both the `offering_crn` and the `offering_version_crn` for the available images. When you create an instance, you can either provision an instance from the private catalog image at the latest version in a catalog product offering using the `offering_crn` or from a specific version in the catalog product offering using the `offering_version_crn`.
 
-       Save the `offering_crn` and `offering_version_crn`in variables, which will be used later to provision an instance.
+    Save the `offering_crn` and `offering_version_crn`in variables, which will be used later to provision an instance.
 
-       ```sh
-       offering_crn="crn:v1:staging:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:offering:136559f6-4588-4af2-8585-f3c625eee09d"
-       offering_version_crn="crn:v1:staging:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:version:136559f6-4588-4af2-8585-f3c625eee09d/8ae92879-e253-4a7c-b09f-8d30af12e518"
-       ```
-       {: pre}
+    ```sh
+    offering_crn="crn:v1:staging:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:offering:136559f6-4588-4af2-8585-f3c625eee09d"
+    offering_version_crn="crn:v1:staging:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:version:136559f6-4588-4af2-8585-f3c625eee09d/8ae92879-e253-4a7c-b09f-8d30af12e518"
+    ```
+    {: pre}
 
 
 After you know these values, use them to run the `instance-template-create` command. In addition to the information that you gathered, you must specify a name for the instance.

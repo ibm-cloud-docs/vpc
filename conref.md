@@ -3,7 +3,7 @@
 copyright:
   years: 2015, 2022
 
-lastupdated: "2022-08-01"
+lastupdated: "2022-09-16"
 
 keywords: 
 
@@ -39,7 +39,7 @@ The profile families are Balanced, Compute, Memory, Ultra High Memory, Very High
 # Content referenced for custom images
 {: #custom-image-conrefs}
 
-All custom images must meet the following requirements:
+All custom images must meet the following requirements：
 - Contain a single file or volume
 - Is in qcow2 or vhd format
 - Is cloud-init enabled
@@ -51,7 +51,7 @@ All custom images must meet the following requirements:
 For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-about-custom-images).
 {: #custom-image-information-link}
 
-To import a a custom image into a private catalog, see [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui).
+To import a a custom image into a private catalog, see [Importing software to your private catalogOnboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui).
 {: #access-custom-image-private-catalog}
 
 When you want to delete an {{site.data.keyword.vpc_short}} custom image that is part of a private catalog offering, you must first remove that image from the associated version in the private catalog offering. Then, you can delete the custom image from {{site.data.keyword.vpc_short}}.  To delete the custom image from the private catalog, see [Deprecating a private product](/docs/account?topic=account-deprecate-product&interface=ui).
@@ -68,15 +68,44 @@ When you want to delete an {{site.data.keyword.vpc_short}} custom image that is 
 | Tags |  You can assign a label to this resource so that you can easily filter resources in your resource list. |
 | Location | Locations are composed of regions (specific geographic areas) and zones (fault tolerant data centers within a region). Select the location where you want your virtual server instance to be created. |
 | Processor architecture |  Select the processor architecture that your instance is created with. *x86* means x86_64 bit processor, and *s390x* is LinuxONE (s390x processor architecture). |
-| Operating system | Select a stock image or a custom image to use for the operating system image. \n For more information about stock images, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images&interface=ui). \n For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-about-custom-images&interface=ui).|
+| Operating system | Select a a stock image, a custom image from your account, or a custom image that was shared with your account from a private catalog. For more information about stock images, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images&interface=ui). \n * A `Custom image` is an image that you create externally and import to {{site.data.keyword.cloud}}, which you can then import into {{site.data.keyword.vpc_short}}. \n * A `Catalog image` is a custom image that is imported into a private catalog. \n For more information about catalog images, see [Custom images in a private catalog](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#custom-image-cloud-private-catalog). \n  **Note** If you select a catalog image that belongs to a different account, there are additional considerations and limitations to review. See [Using cross-account image references in a private catalog in the UI](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-ui). To create a private catalog, see the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui). |
 | Profile |  Select from popular profiles or all available vCPU and RAM combinations. The profile families are Balanced, Compute, Memory, and GPU. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles). |
-| SSH Key | You must select an existing SSH key or upload a new SSH key to use before you can create the instance. SSH keys are used to securely connect to the instance after it's running. \n **Note:** Alpha-numeric combinations are limited to 100 characters. \n For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
+| SSH Key | You must select an existing SSH key or upload a new SSH key to use before you can create the instance. SSH keys are used to securely connect to the instance after it's running. \n  **Note:** Alpha-numeric combinations are limited to 100 characters. \n For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | Metadata | Disabled by default, lets instances created from this template gather metadata about itself. Click the toggle to turn the metadata service on. For more information, see [About Instance Metadata for VPC](/docs/vpc?topic=vpc-imd-about). |
 | User data | You can add user data that automatically performs common configuration tasks or runs scripts. For more information, see [User data](/docs/vpc?topic=vpc-user-data). |
 | Placement group | Select a placement group for the instance. If you add a placement group, the instance is placed according to the placement group strategy. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc). |
-| Boot volume | The default boot volume size for all profiles is 100 GB. You can specify a larger boot volume capacity, up to 250 GB, depending on what the image allows. |
-| Data volumes | You can add one or more secondary data volumes to be included when you provision the instance. To add volumes, click **New volume**. |
+| Boot volume | The default boot volume size for all profiles is 100 GB. You can specify a larger boot volume capacity, up to 250 GB, depending on what the image allows. You can also specify user tags. |
+| Data volumes | You can add one or more secondary data volumes to be included when you provision the instance. To add volumes, click **Create**. You can specify customer-managed encryption and user tags for the volume. |
 | Virtual private cloud | Specify the IBM Cloud VPC where you want to create your instance. You can use an existing VPC or you can create a new VPC. To create a new VPC, click **New VPC**. |
 | Network interfaces | Defines the networking connection into the IBM Cloud VPC.  |
 {: caption="Table 1. Instance template selections" caption-side="bottom"}
 {: #create-instance-template-table}
+
+# Content references for VPC resource attributes
+{: #vpc-resource-attributes-conrefs}
+
+|   Resource     | Resource Attribute |
+| ------- | ------ |
+| Auto Scale for VPC | `instanceGroupId:<instance-group-id>` |
+| Backup service | `backupPolicyId: <backup-policy-id>`|
+| Block Storage for VPC | `volumeId: <volume-id>` |
+| Baremetal server | `bareMetalServerId: <bare-metal-server-id>` |
+| Dedicated Host for VPC | `dedicatedHostId:<dedicated-host-id>` <!--(staging)--> |
+| File Storage | `shareId: <share-id>` | 
+| Floating IP for VPC | `floatingIpId: <fip-id>` |
+| Flow Logs for VPC | `flowLogCollectorId: <flc-id>` |
+| Image Service for VPC | `imageId:<image-id>` |
+| Load Balancer for VPC | `loadBalancerId: <load-balancer-id>` |
+| Network ACL | `networkAclId: <nacl-id>` |
+| Placement Group for VPC | `placementGroupId: <placement-group-id>` |
+| Public Gateway for VPC | `publicGatewayId: <pgw-id>` |
+| Security Group for VPC | `securityGroupId: <default-sec-grp-id>` |
+| Snapshots | `snapshotId: <snapshot-id>`|
+| SSH Key for VPC | `keyId:<key-id>` |
+| Subnet | `subnetId: <subnet-id>` |
+| Virtual Private Endpoint for VPC | `endpointGatewayId:<endpoint-gateway-id>`<!--(staging)--> |
+| Virtual Private Cloud |  `vpcId: <vpc-id>`  |   
+| Virtual Server for VPC | `instanceId: <instance-id>` |   
+| {{site.data.keyword.vpn_vpc_short}} | `vpnGatewayID: <vpn-gateway-id>` |
+{: caption="Table 1. VPC resource attributes" caption-side="bottom"}
+{: #vpc-resource-attributes-table}
