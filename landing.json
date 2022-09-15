@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2022-09-01",
+    "lastupdated": "2022-09-16",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
-          "date": "31 August 2022",
-          "title": "Configuration governance",
-          "description": "New VPC config rules for the Image service and Virtual Servers are now available with the Security and Compliance Center."
+          "date": "16 September 2022",
+          "title": "Sharing images across an enterprise account (GA)",
+          "description": "You can now share or publish custom images to other accounts within your enterprise by using a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts. You can use any existing x86 virtual server custom image with a private catalog, with the exception of an encrypted image."
         },
         {
-          "date": "23 August 2022",
-          "title": "Additional user tag support for boot and data volumes",
-          "description": "You can now add user tags to boot and data volumes when provisioning a virtual server instance or creating an instance template. You can add tags to the boot volume by editing it during instance provisioning. You can also add user tags for any data volumes you create and attach. If you import from a snapshot, any tags defined for the snapshot will be applied to the new volume."
+          "date": "15 September 2022",
+          "title": "Updating subnets for existing application load balancers",
+          "description": "You can now add or remove subnets for existing ALBs using the UI, API, or CLI. ETag support has also been added for load balancer resources, as it is required for any resource that allows arrays to be updated."
         },
         {
-          "date": "17 August 2022",
-          "title": "New stock image for bare metal servers",
-          "description": "Debian 11 is now supported as an image when you provision a bare metal server."
+          "date": "12 September 2022",
+          "title": "New stock images for VPC",
+          "description": "The Windows Server 2019 Standard Edition with SQL Server 2019 Web Edition bundle and SUSE Linux Enterprise Server are now supported as an operating system stock image when you provision an x86-64 virtual server."
         }
       ]
     }
