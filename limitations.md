@@ -58,9 +58,7 @@ An {{site.data.keyword.vpc_short}} cannot be peered with other VPCs natively. It
 ## Network restrictions
 {: #network-restrictions}
 
-* Multi-zone regions:
-    * A security group can be configured in a single zone only.
-    * A security group can’t reference another security group in a different zone in the same region.
+* Multi-zone regions: A security group can’t reference another security group in a different zone in the same region.
 
 * VPN: A VPN gateway serves only subnets that are in the zone in which the VPN is created. For more information, see [About VPN](/docs/vpc?topic=vpc-using-vpn).
 

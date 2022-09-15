@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-06-17"
+lastupdated: "2022-09-07"
 
 keywords:
 
@@ -24,7 +24,10 @@ subcollection: vpc
 {{site.data.keyword.vpc_full}} is integrated with the {{site.data.keyword.compliance_short}} to help you manage security and compliance for your organization.
 {: shortdesc}
 
-With the {{site.data.keyword.compliance_short}}, you can monitor controls and goals that pertain to {{site.data.keyword.vpc_short}} infrastructure.
+With the {{site.data.keyword.compliance_short}}, you can:
+
+* Monitor for controls and goals that pertain to {{site.data.keyword.vpc_short}} infrastructure.
+* Define rules for {{site.data.keyword.vpc_short}} infrastructure that can help standardize resource configuration.
 
 
 ## Monitoring security and compliance posture with VPC
@@ -32,7 +35,7 @@ With the {{site.data.keyword.compliance_short}}, you can monitor controls and go
 
 As a security or compliance focal, you can use the {{site.data.keyword.vpc_short}} [goals](x2117978){: term} to help ensure that your organization is adhering to the external and internal standards for your industry. By using the {{site.data.keyword.compliance_short}} to validate the resource configurations in your account against a [profile](x2034950){: term}, you can identify potential issues as they arise.
 
-All of the goals for {{site.data.keyword.vpc_short}} are added to the {{site.data.keyword.cloud_notm}} Control Library profile but can also be mapped to other profiles.
+All of the goals for {{site.data.keyword.vpc_short}} are added to the {{site.data.keyword.cloud_notm}} Control Library but can also be mapped to other profiles.
 {: note}
 
 To start monitoring your resources, check out [Getting started with {{site.data.keyword.compliance_short}}](/docs/security-compliance?topic=security-compliance-getting-started).
@@ -62,6 +65,8 @@ To start monitoring your resources, check out [Getting started with {{site.data.
 ### Available goals for VPC load balancers
 {: #lb-available-goals}
 
+* Check whether Application Load Balancer for VPC instances belog to a specific profile family
+* Check whether Application Load Balancer for VPC are configured with no public access
 * Check whether Application Load Balancer for VPC is configured with at least one VPC security group
 * Check whether Application Load Balancer for VPC is attached with an Auto Scale for VPC instance group that is provided with health check
 * Check whether Application Load Balancer for VPC has subnet identifiers of the workload that are identifiable by the Auto Scale for VPC instance group definition
@@ -78,12 +83,8 @@ To start monitoring your resources, check out [Getting started with {{site.data.
 ### Available goals for VPN gateways
 {: #vpn-available-goals}
 
-* Check whether VPN for VPC has a Dead Peer Detection policy that is set to `restart`
-* Check whether VPN for VPC authentication is configured with a strong pre-shared key with at least 24 alphanumeric characters
-* Check whether VPN for VPC has an IPsec policy that does not have Perfect Forward Secrecy (PFS) disabled
 * Check whether VPN for VPC has IPsec policy authentication that is set to `sha256`
 * Check whether VPN for VPC has IPsec policy encryption that is not set to `triple_des`
-* Check whether VPN for VPC has a Diffie-Hellman group set to at least group #
 * Check whether VPN for VPC has Internet Key Exchange (IKE) policy authentication that is set to `sha256`
 * Check whether VPN for VPC has Internet Key Exchange (IKE) policy encryption that is not set to `triple_des`
 
@@ -91,20 +92,25 @@ To start monitoring your resources, check out [Getting started with {{site.data.
 {: #block-storage-available-goals}
 
 * Check whether Block Storage for VPC is enabled with IBM Activity Tracker
+* Check whether Block Storage for VPC is enabled with IBM Cloud Monitoring
 * Check whether Block Storage for VPC is enabled with customer-managed encryption and Keep Your Own Key (KYOK)
 * Check whether Block Storage for VPC is enabled with customer-managed encryption and Bring Your Own Key (BYOK)
 * Check whether Block Storage for VPC is encrypted with customer-managed keys
+* Check whether Block Storage for VPC unattached disks are encrypted
+* Check whether Block Storage for VPC data disks are encrypted
+* Check whether Block Storage for VPC OS disks are encrypted
 
-### Available goals for Snapshots
+### Available goals for Block Storage Snapshots
 {: #snapshots-available-goals}
 
-* Check whether Snapshots for VPC is encrypted with customer-managed keys
+* Check whether Snapshots for VPC is enabled with customer-managed encryption and Bring Your Own Key (BYOK)
+* Check whether Snapshots for VPC is in a resource group other than “Default”
 
 ### Available goals for File Storage
 {: #shares-available-goals}
 
-* Check whether File Storage for VPC is enabled with customer-managed encryption and Bring Your Own Key (BYOK).
-* Check whether File Storage for VPC is in a resource group other than _Default_.
+* Check whether File Storage for VPC is enabled with customer-managed encryption and Bring Your Own Key (BYOK)
+* Check whether File Storage for VPC is in a resource group other than “Default”
 
 ### Available goals for Virtual Servers
 {: #virtual-servers-available-goals}
@@ -112,16 +118,19 @@ To start monitoring your resources, check out [Getting started with {{site.data.
 * Check whether Virtual Servers for VPC instances are identifiable by the workload they are running based on the Auto Scale for VPC instance group definition
 * Check whether Virtual Servers for VPC is provisioned from customer-defined list of images
 * Check whether Virtual Servers for VPC is provisioned from an encrypted image
-* Check whether Virtual Servers for VPC data volumes are enabled with customer-managed encryption and Keep Your Own Key (KYOK)
-* Check whether Virtual Servers for VPC data volumes are enabled with customer-managed encryption and Bring Your Own Key (BYOK)
-* Check whether Virtual Servers for VPC boot volumes are enabled with customer-managed encryption and Keep Your Own Key (KYOK)
-* Check whether Virtual Servers for VPC boot volumes are enabled with customer-managed encryption and Bring Your Own Key (BYOK)
+* Check whether Virtual Servers for VPC data volumes are enabled with customer-managed encryption.  Supported key managment services are HPCS - Keep Your Own Key (KYOK) - Key Protect for Bring Your Own Key (BYOK). and Bring Your Own Key (BYOK)
+* Check whether Virtual Servers for VPC boot volumes are enabled with customer-managed encryption.  Supported key managment services are HPCS - Keep Your Own Key (KYOK) - Key Protect for Bring Your Own Key (BYOK).
 * Check whether Virtual Servers for VPC resource group other than "Default" is selected
 * Check whether Virtual Servers for VPC instance has all interfaces with IP-spoofing disabled
 * Check whether Virtual Servers for VPC instance doesn't have a floating IP
 * Check whether Virtual Servers for VPC instance has the minimum # interfaces
 * Check whether all network interfaces of a virtual server instance have at least one Virtual Private Cloud (VPC) security group attached
 * Check whether all virtual server instances have at least one Virtual Private Cloud (VPC) security group attached
+
+### Available goals for Images
+{: #images-available-goals}
+
+* Check whether Images for VPC instance is encrypted with customer-managed key
 
 ### Available goals for Flow Logs
 {: #flow-logs-available-goals}
@@ -131,74 +140,90 @@ To start monitoring your resources, check out [Getting started with {{site.data.
 ## Governing VPC resource configuration
 {: #govern-vpc}
 
-As a security or compliance focal, you can use the {{site.data.keyword.compliance_short}} to define configuration rules for the {{site.data.keyword.alb_full}} (ALB) and {{site.data.keyword.nlb_full}} (NLB) instances that you create.
+As a security or compliance focal, you can use the {{site.data.keyword.compliance_short}} to define configuration rules for the VPC resources that you create.
 
-[Config rules](#x3084914){: term} are used to enforce the configuration standards that you want to implement across your accounts. To learn more about the data that you can use to create a rule for application and network load balancers, review the following table.
+[Config rules](#x3084914){: term} are used to enforce the configuration standards that you want to implement across your accounts. To learn more about the data that you can use to create a rule for VPC resources, review the following table.
 
 To learn more about constructing config rules, check out [Formatting rules and templates](/docs/security-compliance?topic=security-compliance-formatting-rules-templates).
 
 | VPC Service | Resource kind | Property | Operator type | Value | Description |
 |-------------|---------------|----------|---------------|-------|-------------|
+| Auto Scale | *instance* | *membership_count* | Numeric | *["1"]* | *A number that indicates the total number of instances in the instance group.* |
+| Block Storage volumes | *instance* | *encryption* | String | *["user_managed", "provider_managed"]*  | *A String that indicates the type of encryption for volumes.* |
+| File shares | *instance* | *encryption* | String | *["user_managed", "provider_managed"]* | *A String that indicates the type of encryption for file shares.* |
+| Image | *instance* | *encryption* | String | *["user_managed", "none"]* | *A string that indicates whether customer managed key encryption is enabled.* |
 | Load Balancer | *instance* | *profile_family* | String| *["application", "network"]* | *A list of strings that match load balancer profile family name from load balancer profile family.* |
 | Load Balancer | *instance* | *load_balancer_type* | String| *["private", "public"]* | *A list of strings that indicate what type of  load balancer can be provisioned.* |
-| Auto Scale | *instance* | *membership_count* | Numeric | *["1"]* | *A number that indicates the total number of instances in the instance group.* |
-| Block Storage | *instance* | *user_managed_encryption* | Boolean | - | *A Boolean that indicates whether customer managed key encryption is enabled.* |
-{: caption="Table 1. Rule properties for VPC" caption-side="top"}
+| Snapshots | *instance* | *encryption* | String | *["user_managed", "provider_managed"]* | *A String that indicates the type of encryption used for snapshots.*|
+| Virtual Server | *instance* | *floating_ips_allowed* | boolean | *["is_true", "is_false"]* | *A boolean indicating whether or not floating IPs can be associated with the network interfaces of the instance.* |
+| Virtual Server | *instance* | *metadata_service_enabled* | boolean | *["is_true", "is_false"]* | *A boolean indicating whether or not the metadata service can be enabled for the instance.* |
+| VPN | *connection* | *ike_policy* | String | *triple_des* | *A list of strings that are not allowed to be used for the VPN IKE policy encryption algorithm.* |
+| VPN | *connection* | *ipsec_policy* | String | *triple_des* | *A list of strings that are not allowed to be used for the VPN IPsec policy encryption algorithm.* |
+{: caption="Table 1. Rule properties for VPC" caption-side="bottom"}
 
 ### Example: Governing load balancer resource configuration
 {: #govern-lb}
 
+As a security or compliance focal, you can use the {{site.data.keyword.compliance_short}} to define configuration rules for the ALB and NLB instances that you create.
+
+[Config rules](#x3084914){: term} are used to enforce the configuration standards that you want to implement across your accounts. To learn more about the data that you can use to create a rule for application and network load balancers, review the following table.
+
+| Resource kind | Property | Operator | Value | Description |
+|---------------|----------|---------------|-------|-------------|
+| *instance* | *profile_family* | *string_equals* | *['application', 'network']* | *A list of strings that match load balancer profile family name from load balancer profile family. Ex: ['application', 'network']* |
+| *instance* | *load_balancer_type* | *string_equals* | *['private', 'public']* | *A list of strings that indicate what type of the load balancer can be provisioned. Ex: ['public', 'private']* |
+{: caption="Table 1. Rule properties for application and network load balancers*" caption-side="bottom"}
+
 The following example is a rule configuration with only private access enabled:
 
-```
+```sh
 {
-  "target": {
-    "service_name": "is.load-balancer",
-    "resource_kind": "instance",
-    "additional_target_attributes": []
+  target: {
+    service_name: "is.load-balancer",
+    resource_kind: "instance",
+    additional_target_attributes: []
   },
-  "required_config": {
-    "description": "Public access disabled",
-    "and": [
+  required_config: {
+    description: "Public access disabled",
+    and: [
       {
-        "property": "load_balancer_type",
-        "operator": "string_equals",
-        "value": "private"
+        property: "load_balancer_type",
+        operator: "string_equals",
+        value: "private"
       }
     ]
   }
 }
 ```
-{: codeblock}
 
 The following example is a rule configuration that prevents users from creating public type application load balancers:
 
-```
+```sh
 {
-  "target": {
-    "service_name": "is.load-balancer",
-    "resource_kind": "instance",
-    "additional_target_attributes": []
+  target: {
+    service_name: "is.load-balancer",
+    resource_kind: "instance",
+    additional_target_attributes: []
   },
-  "required_config": {
-    "description": "Public access disabled for application load balancer",
-    "or": [
+  required_config: {
+    description: "Public access disabled for application load balancer",
+    or: [
       {
-        "property": "profile_family",
-        "operator": "string_equals",
-        "value": "network"
+        property: "profile_family",
+        operator: "string_equals",
+        value: "network"
       },
       {
-        "and": [
+        and: [
           {
-            "property": "profile_family",
-            "operator": "string_equals",
-            "value": "application"
+            property: "profile_family",
+            operator: "string_equals",
+            value: "application"
           },
           {
-            "property": "load_balancer_type",
-            "operator": "string_equals",
-            "value": "private"
+            property: "load_balancer_type",
+            operator: "string_equals",
+            value: "private"
           }
         ]
       }
@@ -206,9 +231,8 @@ The following example is a rule configuration that prevents users from creating 
   }
 }
 ```
-{: codeblock}
 
-Make sure that *enforcement_actions* is set with *action: disallow* to apply the rule and meet the compliance criteria. For more information, see [Formatting rules and templates](/docs/security-compliance?topic=security-compliance-formatting-rules-templates).
+Make sure that *enforcement_actions* is set with *action: disallow* to apply the rule and meet the compliance criteria. For more information, see [How to configure Rules](/docs/security-compliance?topic=security-compliance-rules).
 {: note}
 
 ### Checking results for load balancers
@@ -218,3 +242,6 @@ As a security or compliance focal, you can use the {{site.data.keyword.complianc
 
 The evaluation results are only available for a limited time and are updated once a day. It is recommended that reports are downloaded and organized to maintain a history of compliance for audit purposes. For more information about reporting results, see [View evaluation results](https://cloud.ibm.com/security-compliance/compliance-posture/rules).
 {: note}
+
+For more information about config rules, check out [What is a config rule?](/docs/security-compliance?topic=security-compliance-what-is-rule).
+
