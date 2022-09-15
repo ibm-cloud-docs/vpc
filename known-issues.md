@@ -107,4 +107,4 @@ The following issues are currently present in the Cloud Console with no known wo
 ## Custom images in a private catalog known issue
 {: #custom-images-private-catalog-known-issues}
 
-**Issue:** If you edit a version within a catalog product offering, an additional version ending in "draft" is created. You can't provision an instance from an image in this draft version. Draft versions might appear on the Virtual server instance creation page in the UI or as output of the CLI command `ibmcloud is catalog-image-offering`.
+**Issue:** If you have imported one or more images into a virtual server image for a VPC catalog product offering version and you edit that version, an additional version ending in "draft" is created. You can't provision an instance from an image in this draft version. Draft versions might appear on the Virtual server instance creation page in the UI or in the output of the CLI command `ibmcloud is catalog-image-offering`.
