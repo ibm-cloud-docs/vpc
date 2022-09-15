@@ -33,7 +33,7 @@
         {
           "date": "16 September 2022",
           "title": "Sharing images across an enterprise account (GA)",
-          "description": "You can now share or publish custom images to other accounts within your enterprise by using a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts. You can use any existing x86 virtual server custom image with a private catalog, with the exception of an encrypted image."
+          "description": "You can now share or publish custom images to other accounts within your enterprise by using a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts. You can use any existing x86 virtual server custom image with a private catalog, with the exception of an encrypted image. Custom images can't be deleted while being managed from a catalog and can only be managed from one catalog product offering version at a time. Deleting the catalog does not free its managed resources for a 7-day reclamation period. If you plan to share images with other accounts, users in those accounts should be aware of considerations related to cross-account references to those images."
         },
         {
           "date": "15 September 2022",
