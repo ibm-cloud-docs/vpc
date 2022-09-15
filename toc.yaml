@@ -260,11 +260,6 @@ toc:
             - security-groups-configure.md
             - security-groups-default.md
         - topicgroup:
-            label: Floating IP addresses
-            topics: 
-            - fip-about.md
-            - fip-create.md
-        - topicgroup:
             label: Routing tables
             topics:
             - cr-intro.md
