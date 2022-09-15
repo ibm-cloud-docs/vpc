@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-08-15"
+lastupdated: "2022-09-16"
 
 keywords:
 
@@ -30,12 +30,12 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## September 2022
 {: #vpc-september22}
 
-### 12 September 2022
-{: #vpc-september1222}
+### 16 September 2022
+{: #vpc-september1622}
 {: release-note}
 
 Sharing images across an enterprise account (GA)
-:    You can now share or publish custom images to other accounts within your enterprise by using a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts. You can use any existing x86 virtual server custom image with a private catalog, with the exception of an encrypted image. For more information, see [Getting started with custom images](https://test.cloud.ibm.com/docs/vpc?topic=vpc-planning-custom-images&interface=ui#custom-image-cloud-private-catalog).
+:    You can now share or publish custom images to other accounts within your enterprise by using a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts. You can use any existing x86 virtual server custom image with a private catalog, with the exception of an encrypted image. For more information, see [Custom images in a private catalog](/docs/vpc?topic=vpc-planning-custom-images&interface=api#private-catalog-image-reference-vpc-ui) and the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial).  If you plan share an image that belongs to a different account than your instance, there are additional considerations to keep in mind. For example, the image may not be deleted or used in a different catalog product offering version while it is managed from a catalog. For more information, see [Using cross-account image references in a private catalog](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-ui). And if the catalog is deleted, a 7 day reclamation period will apply that prevents any images managed by the catalog from being deleted or re-used during the reclamation period. For more information on the reclamation process, see [Using resource reclamations](/docs/account?topic=account-resource-reclamation&interface=api#restore-resource-cli).
 
 ## August 2022
 {: #vpc-august22}
