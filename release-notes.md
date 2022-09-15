@@ -34,8 +34,10 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-september1222}
 {: release-note}
 
-New stock image for VPC
-:   The Windows Server 2019 Standard Edition with SQL Server 2019 Web Edition bundle is now supported as an image when you provision a {{site.data.keyword.vpc_short}} server. If you select this stock image when you provision a virtual server instance, the software that is part of that bundle is also included in your instance.
+New stock images for VPC
+:   The following stock images are now available for x86-64 virtual server instances:
+    - The Windows Server 2019 Standard Edition with SQL Server 2019 Web Edition bundle is now supported as an image when you provision a   {{site.data.keyword.vpc_short}} server. If you select this stock image when you provision a virtual server instance, the software that is part of that bundle is also included in your instance.
+    - SUSE Linux Enterprise Server is now supported as an operating system stock image when you provision an x86-64 virtual server. For more information, see [x86-64 virtual server images](/docs/vpc?topic=vpc-about-images).
 
 ## August 2022
 {: #vpc-august22}
