@@ -3,7 +3,11 @@
 copyright:
   years: 2019, 2022
 
+<<<<<<< HEAD
 lastupdated: "2022-09-19"
+=======
+lastupdated: "2022-09-12"
+>>>>>>> 11dc9cd592941c9aa9dfe69dd8130328eef14d6a
 
 keywords:
 
@@ -39,6 +43,15 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 :   LinuxONE Bare Metal server on s390x processor architecture is available in the US east (Washington DC) region. You can create LinuxONE Bare Metal server instances with IBM provided licensed Linux operating system images based on RHEL and SUSE distributions on LinuxONE in IBM Cloud. The LinuxONE Bare metal servers are equivalent to logical partitions (LPAR) on LinuxONE, and you have dedicated IFLs, memory, and I/O devices for your workloads. For more information about LinuxONE bare metal servers, see [About LinuxONE Bare Metal servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
 
+## September 2022
+{: #vpc-september22}
+
+### 12 September 2022
+{: #vpc-september1222}
+{: release-note}
+
+New stock image for VPC
+:   The Windows Server 2019 Standard Edition with SQL Server 2019 Web Edition bundle is now supported as an image when you provision a {{site.data.keyword.vpc_short}} server. If you select this stock image when you provision a virtual server instance, the software that is part of that bundle is also included in your instance.
 
 ## August 2022
 {: #vpc-august22}

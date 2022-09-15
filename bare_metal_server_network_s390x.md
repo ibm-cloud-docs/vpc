@@ -4,7 +4,7 @@ copyright:
   years: 2022
 lastupdated: "2022-09-19"
 
-keywords: bare metal server network, bare metal network, nics, hipersocket, network overview
+keywords: linuxone bare metal server network, linuxone bare metal network, nics, hipersocket, network overview
 
 subcollection: vpc
 
@@ -35,13 +35,13 @@ The following information is an overview of the networking features of LinuxONE 
 {: shortdesc}
 
 
-The following information is for customers with basic network knowledge of {{site.data.keyword.cloud}} VPC and LinuxONE. If you aren't familiar with VPC networking, see [About networking](/docs/vpc?topic=vpc-about-networking-for-vpc). If you are not familiar with HiperSockets, see [IBM HiperSockets Implementation Guide](https://www.redbooks.ibm.com/redbooks/pdfs/sg246816.pdf){: external}.
+The following information is for customers with basic network knowledge of {{site.data.keyword.cloud}} VPC and LinuxONE. If you aren't familiar with VPC networking, see [About networking](/docs/vpc?topic=vpc-about-networking-for-vpc). If you are not familiar with HiperSockets, see [IBM HiperSockets Implementation Guide ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.redbooks.ibm.com/redbooks/pdfs/sg246816.pdf).
 
 LinuxONE Bare Metal Server for VPC provides full support for VPC networking features. The network is fully software-defined, so you can configure it through the API.
 
-Each LinuxONE bare metal server supports 10 Gbps bandwidth. The bandwidth is shared by the network interfaces that are on the LinuxONE bare metal server.
+Based on the profile you select for the LinuxONE bare metal server, the supported bandwidth can be 2 or 10 Gbps. The bandwidth is shared by the network interfaces that are created on the LinuxONE bare metal server. For more informationb about the profiles for LinuxONE Bare Metal servers, see [LinuxONE Bare Metal server profiles](/dcos/vpc?topic=vpc-linuxone-bare-metal-servers-profile).
 
-For more information about managing network interfaces, see [Managing network interfaces for a bare metal server](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers).
+For more information about managing network interfaces, see the s390x specific information on [Managing network interfaces for a bare metal server](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers).
 
 ## LinuxONE Bare metal server network interfaces
 {: #bare-metal-servers-nics-intro}
@@ -73,29 +73,11 @@ The following list highlights characteristics of the HiperSocket interface.
 
 * You can attach security groups to HiperSockets interfaces to handle incoming and outgoing traffic to the network interface.
 
-## Mapping network concepts between Bare Metal Servers for VPC and LinuxONE
-{: #mapping-network-concepts}
 
-LinuxONE Bare Metal servers fully supports LinuxONE networking functions. To set up networks in the LinuxONE environment, you need to first understand the mapping of the networking concepts between your bare metal server and LinuxONE.
-
-The following table describes the mapping of network concepts between LinuxONE Bare Metal servers and LinuxONE.
-
-| Bare Metal Servers for VPC | LinuxONE |
-|---------|---------|
-| HiperSockets interface | The HiperSockets device is represented by the IQD channel ID (CHPID) and its associated subchannel devices. All LPARs that are configured in HCD/IOCP to use the same IQD CHPID have internal connectivity and the capability to communicate by using HiperSockets. |
-{: caption="Table 2. Mapping of network concepts between Bare Metal Servers for VPC and LinuxONE" caption-side="bottom"}
-
-
-### Configuration tips for HiperSockets network interfaces
-{: #nic-config-tips}
-
-HiperSockets are configured and ready for use.
-
-
-### Limitations of HiperSockets network interfaces
+### Limitations of network interfaces on LinuxONE Bare Metal servers
 {: #nic-limits}
 
 * You can attach maximum two network interfaces to each LinuxONE Bare Metal server based on the profile you choose.
-* VLAN is not supported.
+* PCI and VLAN are not supported.
 
 
