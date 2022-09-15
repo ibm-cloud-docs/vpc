@@ -3,9 +3,7 @@
 copyright:
   years: 2019, 2022
 
-
 lastupdated: "2022-09-16"
-
 
 keywords:
 
@@ -39,12 +37,21 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 Sharing images across an enterprise account (GA)
 :    You can now share or publish custom images to other accounts within your enterprise by using a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts. You can use any existing x86 virtual server custom image with a private catalog, with the exception of an encrypted image. For more information, see [Custom images in a private catalog](/docs/vpc?topic=vpc-planning-custom-images&interface=api#private-catalog-image-reference-vpc-ui) and the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial).  If you plan share an image that belongs to a different account than your instance, there are additional considerations to keep in mind. For example, the image may not be deleted or used in a different catalog product offering version while it is managed from a catalog. For more information, see [Using cross-account image references in a private catalog](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-ui). And if the catalog is deleted, a 7 day reclamation period will apply that prevents any images managed by the catalog from being deleted or re-used during the reclamation period. For more information, see [Deleting a custom image in a private catalog](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#deleting-private-catalog-custom-image-vpc) and [Using resource reclamations](/docs/account?topic=account-resource-reclamation&interface=api#restore-resource-cli).
 
+### 15 September 2022
+{: #vpc-september1522}
+{: release-note}
+
+Updating subnets for existing application load balancers
+:   You can now add or remove subnets for existing ALBs using the UI, API, or CLI. ETag support has also been added for load balancer resources, as it is required for any resource that allows arrays to be updated. For more information, refer to [Updating subnets for existing application load balancers](/docs/vpc?topic=vpc-alb-updating-subnets&interface=ui).
+
 ### 12 September 2022
 {: #vpc-september1222}
 {: release-note}
 
-New stock image for VPC
-:   The Windows Server 2019 Standard Edition with SQL Server 2019 Web Edition bundle is now supported as an image when you provision a {{site.data.keyword.vpc_short}} server. If you select this stock image when you provision a virtual server instance, the software that is part of that bundle is also included in your instance.
+New stock images for VPC
+:   The following stock images are now available for x86-64 virtual server instances:
+    - The Windows Server 2019 Standard Edition with SQL Server 2019 Web Edition bundle is now supported as an image when you provision a   {{site.data.keyword.vpc_short}} server. If you select this stock image when you provision a virtual server instance, the software that is part of that bundle is also included in your instance.
+    - SUSE Linux Enterprise Server is now supported as an operating system stock image when you provision an x86-64 virtual server. For more information, see [x86-64 virtual server images](/docs/vpc?topic=vpc-about-images).
 
 ## August 2022
 {: #vpc-august22}
