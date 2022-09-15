@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-08-09"
+lastupdated: "2022-09-15"
 
 keywords: known issues, bugs, defects
 
@@ -103,3 +103,8 @@ The following issues are currently present in the Cloud Console with no known wo
 {: #vsi-monitoring-known-issues}
 
 **Issue:** Volumes that are created from snapshots and volumes that are resized do not display metrics on the VSI monitoring console page or in the IBM Cloud Monitoring dashboard for "VPC VSI Gen 2 Overview". No known workaround.
+
+## Custom images in a private catalog known issue
+{: #custom-images-private-catalog-known-issues}
+
+**Issue:** If you edit a version within a catalog product offering, an additional version ending in "draft" is created. You can't provision an instance from an image in this draft version. Draft versions might appear on the Virtual server instance creation page in the UI or as output of the CLI command `ibmcloud is catalog-image-offering`.
