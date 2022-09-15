@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-08-03"
+lastupdated: "2022-08-19"
 
-keywords: cli, command line interface, tutorial, create, API, IAM, token, permissions, endpoint, region, zone, profile, status, subnet, gateway, floating IP, delete, resource, provision, vpc, virtual private cloud, vpc ui, console, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range, generation 2, gen 2
+keywords:
 
 subcollection: vpc
 
@@ -85,6 +85,10 @@ The previous example does not create a VPC with classic access. If you require t
 {: important}
 
 ### Create a private catalog
+{: #cli-create-private-catalog}
+
+This is a Beta feature that is available for evaluation and testing purposes for customers with special approval to preview this feature.
+{: beta}
 
 This step is optional. If you plan to use images that are shared from a private catalog, the private catalog must be created first. See [Onboarding software to your catalog by using the CLI](/docs/account?topic=account-create-private-catalog&interface=cli#create-cicd-product).
 
@@ -110,7 +114,7 @@ ibmcloud is subnet-create my-subnet $vpc us-south-3 --ipv4-cidr-block "10.0.1.0/
 
 From the output that's returned, save the ID in a variable so you can use it later, for example:
 
-```sh
+```
 subnet="0738-658756a4-1106-4914-969a-3b43b338524a"
 ```
 {: pre}
@@ -193,9 +197,9 @@ Save the profile you plan to use as a variable, which will be used later to prov
 ### Select an image for the instance
 {: #cli-select-a-image-for-the-instance}
 
-You can create an instance using a stock image or image from your account, or an image that has been shared with your account from a private catalog. Run one of the following commands based on the image you plan to use.
+You can create an instance using a stock image, a custom image from your account, or an image that was shared with your account from a private catalog. Run one of the following commands based on the image you plan to use.
 
-* Select a stock image or image from your account for your instance.
+* Select a stock image or a custom image from your account for your instance.
 
     To list all available images, run the following command:
 
@@ -218,31 +222,46 @@ You can create an instance using a stock image or image from your account, or an
 
 * Select an image shared from a private catalog for the instance
 
-    To list all available images, run the following command.
+    - To list all available private catalog image offerings, run the following command.
 
-    ```sh
-    ibmcloud is catalog-image-offerings
-    ```
-    {: pre}
+       ```sh
+       ibmcloud is catalog-image-offerings
+       ```
+       {: pre}
 
-    This command returns both the `offering_crn` and the `offering_version_crn` for the available images. When you create an instance, you can either provision an instance from the private catalog image at the latest version in a catalog product offering using the `offering_crn` or from a specific version in the catalog product offering using the `offering_version_crn`.
+       This command returns the identifier of each image offering and the identifier of the private catalog where the image resides. Save the `offering_id` and `catalog_id` in variables, which will be used later to provision an instance.
 
-    Save the `offering_crn` and `offering_version_crn`in variables, which will be used later to provision an instance.
+       ```sh
+       offering_id=6bf79f7b-de48-4ce8-8cae-866b376f2889
+       catalog_id=71306253-8444-4cae-a45d-64d35e5393ec
+       ```
+       {: pre}
 
-    ```sh
-    offering_crn="crn:v1:staging:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:offering:136559f6-4588-4af2-8585-f3c625eee09d"
-    offering_version_crn="crn:v1:staging:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:version:136559f6-4588-4af2-8585-f3c625eee09d/8ae92879-e253-4a7c-b09f-8d30af12e518"
-    ```
-    {: pre}
+    - To get the `offering_crn` for the offering and the `offering_version_crn` for each version in the offering, run the following command.
+
+       ```sh
+       ibmcloud is catalog-image-offering $catalog_id $offering_id
+       ```
+       {: pre}
+
+       When you provision an instance, you can either provision the instance from the custom image in private catalog image using latest version in a catalog product offering using the `offering_crn` value or from the specific version in the catalog product offering using the `offering_version_crn` value.
+
+       Save the `offering_crn` and `offering_version_crn`in variables, which will be used later to provision an instance.
+
+       ```sh
+       offering_crn="crn:v1:staging:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:offering:136559f6-4588-4af2-8585-f3c625eee09d"
+       offering_version_crn="crn:v1:staging:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:version:136559f6-4588-4af2-8585-f3c625eee09d/8ae92879-e253-4a7c-b09f-8d30af12e518"
+       ```
+       {: pre}
 
 ### Create an instance
 {: #create-an-instance}
 
 Create an instance in the newly created subnet. Pass in your public SSH key so that you can log in after the instance is provisioned.
 
-You can create an instance using a stock image or image from your account, or an image that has been shared with your account from a private catalog. Run one of the following CLI commands based on the image you plan to use.
+You can create an instance using a stock image, a custom image from your account, or an image that was shared with your account from a private catalog. Run one of the following CLI commands based on the image you plan to use.
 
-* Select a stock image or image from your account for your instance.
+* Create an instance using a stock image or custom image from your account for your instance.
 
     ```sh
     ibmcloud is instance-create my-instance $vpc us-south-3 bx2-2x8 $subnet --image-id $image --key-ids $key
@@ -510,6 +529,10 @@ The previous example does not create a VPC with classic access. If you require t
 {: important}
 
 ### Create a private catalog
+{: #api-create-private-catalog}
+
+This is a Beta feature that is available for evaluation and testing purposes for customers with special approval to preview this feature.
+{: beta}
 
 This step is optional. If you plan to use images that are shared from a private catalog, the private catalog must be created first. See [Onboarding software to your catalog by using the API](/docs/account?topic=account-create-private-catalog&interface=api#create-cicd-product).
 
@@ -646,9 +669,9 @@ profile_name="b2-2x8"
 ### Select an image for your instance
 {: #api-select-image}
 
- You can create an instance using a stock image or image from your account, or an image that has been shared with your account from a private catalog. Run one of the following API calls based on the image you plan to use.
+ You can create an instance using a stock image, a custom image from your account, or an image that was shared with your account from a private catalog. Run one of the following API calls based on the image you plan to use.
 
-* Select a stock image or image from your account for your instance.
+* Select a stock image or a custom image from your account for your instance.
 
     The following command lists the images available.
 
@@ -686,9 +709,9 @@ profile_name="b2-2x8"
 ### Create an instance
 {: #create-instance-api-tutorial}
 
-Create an instance in the newly created subnet. Pass in your public SSH key so that you can log in after the instance is provisioned. You can create an instance using a stock image or image from your account, or an image that has been shared with your account from a private catalog. Run one of the following API calls based on the image you plan to use.
+Create an instance in the newly created subnet. Pass in your public SSH key so that you can log in after the instance is provisioned. You can create an instance using a stock image, a custom image from your account, or an image that was shared with your account from a private catalog. Run one of the following API calls based on the image you plan to use.
 
-* Select a stock image or image from your account for your instance.
+* Select a stock image or a custom image from your account for your instance.
 
     ```bash
     curl -X POST "$vpc_api_endpoint/v1/instances?version=$api_version&generation=2" \
@@ -802,12 +825,12 @@ network_interface="0738-7710e766-dd6e-41ef-9d36-06f7adbef33d"
 You can't get the ID of the primary network interface until you query the specific instance.
 {: important}
 
-### Create and attach a block storage volume
+### (Optional) Create and attach a block storage data volume
 {: #create-and-attach-storage-api-tutorial}
 
-You can create a block storage volume and attach it to your virtual server instance if you want more storage. Create a block storage volume with a request similar to this example, and specify a volume name, zone, and profile.
+You can create a block storage data volume and attach it to your virtual server instance as secondary storage. Create a data volume with a request similar to this example. This procedure shows the volume profiles, crreates a volume, saves the volume ID in a variable, checks the status of the volume, and then creates the volume attachment.
 
-To see a list of volume profiles, provide this request:
+Show a list of volume profiles:
 
 ```bash
 curl -X GET "$vpc_api_endpoint/v1/volumes/profiles?version=$api_version&generation=2" \
@@ -816,6 +839,8 @@ curl -X GET "$vpc_api_endpoint/v1/volumes/profiles?version=$api_version&generati
 {: pre}
 
 Profiles can be general-purpose (3 IOPS/GB), 5iops-tier, 10-iops-tier, and custom. See [Profiles](/docs/vpc?topic=vpc-block-storage-profiles#block-storage-profiles) for information about volume capacity and IOPS ranges based on the volume profile you select.
+
+Create the data volume:
 
 ```bash
 curl -X POST "$vpc_api_endpoint/v1/volumes?version=$api_version&generation=2" \
@@ -834,14 +859,16 @@ curl -X POST "$vpc_api_endpoint/v1/volumes?version=$api_version&generation=2" \
 ```
 {: pre}
 
-Save the ID of the volume in a variable, for example:
+Save the ID of the volume in a variable:
 
 ```bash
 volume_id="0738-640774d7-2adc-4609-add9-6dfd96167a8f"
 ```
 {: pre}
 
-The status of the volume is pending when it first is created. Before you can proceed, the volume needs to move to available status, which takes a few minutes. To check the status of the volume, run this command:
+The status of the volume is `pending` when it first is created. Before you can proceed, the volume needs to move to `available` status, which takes a few minutes.
+
+Check the status of the volume:
 
 ```bash
 curl -X GET "$vpc_api_endpoint/v1/volumes/$volume_id?version=$api_version&generation=2" \
@@ -849,10 +876,12 @@ curl -X GET "$vpc_api_endpoint/v1/volumes/$volume_id?version=$api_version&genera
 ```
 {: pre}
 
-Create a volume attachment to attach the new volume to the virtual server instance. Use the instance ID variable that you created earlier in the request. Use the volume ID, CRN of the volume, or URL to specify the volume in the data parameter. This example uses the variable previously created for the volume ID.
+Create a volume attachment to attach the new data volume to the virtual server instance. Use the instance ID variable that you created earlier in the request. Use the volume ID variable to specify the volume.
+
+Create the volume attachment:
 
 ```bash
-curl -X POST "$vpc_api_endpoint/v1/instances/$server/volume_attachments?version=$version&generation=2" \
+curl -X POST "$vpc_api_endpoint/v1/instances/$instance/volume_attachments?version=$version&generation=2" \
   -H "Authorization: $iam_token" \
   -d '{
         "name": "my-volume-attachment",
@@ -878,7 +907,7 @@ curl -X GET "$vpc_api_endpoint/v1/vpcs/$vpc/default_security_group?version=$api_
 
 Save the ID of the security group in a variable, for example:
 
-```bash
+```
 sg=0738-2d364f0a-a870-42c3-a554-000000981149
 ```
 {: pre}

@@ -34,17 +34,22 @@ To configure an ACL using the IBM Cloud console, follow these steps:
 1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left of the page, then click **VPC Infrastructure > Access control lists** in the Network section.
 1. Click **Create** in the upper right of the page.
 1. In the order form, complete the following information:
-   * Type a unique name for your ACL and select a VPC.
+   * Select a Geography and Region for your ACL. 
+   * Type a unique name for your ACL.
    * Select a resource group. Use the default group, or select from the list (if defined for your account). Remember that you cannot change the resource group after the ACL is created.
-   * Click **Add** to configure inbound and outbound rules that define what traffic is allowed in or out of the subnet. For each rule, specify the following information:
+   * Add Tags (optional). Remember that user tags are visible account-wide. 
+   * Select a VPC. 
+   * Click **Create** to configure inbound and outbound rules that define what traffic is allowed in or out of the subnet. For each rule, specify the following information:
       * Select whether to allow or deny the specified traffic.
       * Select the protocol to which the rule applies.  
       * For the source and destination of the rule, specify the IP range and ports for which the rule applies. For example, if you want all inbound traffic to be allowed to the IP range `192.168.0.0/24` in your subnet, specify **Any** as the source and `192.168.0.0/24` as the destination. However, if you want to allow inbound traffic only from `169.168.0.0/24` to your entire subnet, specify `169.168.0.0/24` as the source and **Any** as the destination for the rule.
       * Specify the rule's priority. Rules with lower numbers are evaluated first and override rules with higher numbers. For example, if a rule with priority `2` allows HTTP traffic and a rule with priority `5` denies all traffic, HTTP traffic is still allowed.   
-   * Select a subnet to attach to this ACL. Click **Attach subnets** to attach additional subnets.  
+      * Click **Create** 
+   * Select a subnet to attach to this ACL. Click **Attach** to attach additional subnets.  
 
       If the subnet has an existing ACL connection, the ACL is replaced by the ACL being created.
       {: note}
+1. View your Total estimated cost in the Summary menu in the lower right of the page. 
 
 ## Creating a network ACL by using the CLI
 {: #cr-using-the-cli}
@@ -98,21 +103,8 @@ To create a network ACL by using the API, follow these steps:
 
    ```sh
    curl -X POST -sH "Authorization:${iam_token}" \
-   "$vpc_api_endpoint/v1/vpcs/$vpc_id/routing_tables?version=$api_version&generation=2" \
-   -d '{"name": "testvpc","resource_group": {"id": "'$ResourceGroupId'"}}' | jq
-   ```
-   {: pre}
-
-   For example, the following network ACL is created on mzr05.
-
-   ```sh
-   curl -X POST -sH "Authorization:${iam_token}" \
-   "$vpc_api_endpoint/v1/vpcs/$vpc_id/routing_tables?version=$api_version&generation=2" \
-   -d  '{"name": "routing-table-3", "routes": [{"name": "route-1", "zone": {"name": "us-south-2"}, \
-   "action": "deliver", "destination": "1.2.3.0/24", "next_hop": {"address": "10.0.0.1"}}, \
-   {"name": "route-2", "zone": {"name": "us-south-2"}, "action": "drop", "destination": "1.2.4.0/24"}, \
-   {"name": "route-3", "zone": {"name": "us-south-2"}, "action": "delegate", "destination": "1.2.5.0/24", \
-   "next_hop": {"address": "0.0.0.0"}}]}' | jq
+   "$vpc_api_endpoint/v1/network_acls?version=$api_version&generation=2" \
+   -d '{"name": "testacl", "vpc":{"id": "'$VpcId'"},"resource_group": {"id": "'$ResourceGroupId'"}}' | jq
    ```
    {: pre}
 

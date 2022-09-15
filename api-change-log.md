@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-08-16"
+lastupdated: "2022-09-13"
 
-keywords: api, change log, new features, restrictions, migration, generation 2, gen2,
+keywords: api, change log, new features, restrictions, migration
 
 subcollection: vpc
 
@@ -41,6 +41,18 @@ SDK changes are based on API changes. For information about the latest changes t
 ### For all version dates
 {: #upcoming-changes-all-version-dates}
 
+**VPC route naming restriction.** In an upcoming release, you will no longer be able to create VPC routes that begin with the name `ibm-`. Existing routes that begin with the name `ibm-` will not be affected. To prepare for this change, review the names used by any automation that creates routes, and update the names used as necessary.
+
+**References to inaccessible images** In an upcoming release, image references may refer to custom images in other accounts. Such references are used in the `image` properties of the `Instance` and `BareMetalServerInitialization` response schemas and in the `source_image` properties of the `Volume` and `Snapshot` response schemas. Such an image cannot be accessed by its `id`, `crn`, or `href`, regardless of the caller's authorizations, and attempts will fail as if the image does not exist.
+
+Additionally, if your account has an image with the same name as the referenced image, attempting to access the referenced image by its `name` will access your account's image, rather than the image in the other account. This may result in the retrieval or use of the wrong image.
+
+To prepare for this change, verify that your clients handle image reference lookup failures gracefully and do not assume inaccessible images have been deleted, even when running with full access to your images.  To avoid possible retrieval or use of the wrong image by `name`, consider specifying the image `id`, `crn`, or `href` instead.
+
+**Load balancer provisiong status enumeration expansion.** In an upcoming release, a new value will be added to the load balancer `provisioning_status` property. 
+
+To prepare for this change, verify that any clients retrieving the `provisioning_status` property will gracefully handle unknown values. For example, a client might bypass the load balancer, log a message, or halt processing and surface an error.
+
 **`Instance` response schema change.** In an upcoming release, volume attachments returned in the `boot_volume_attachment` and `volume_attachments[]` properties of an instance will not include the `volume` sub-property if the volume has not yet been provisioned. Such volumes are currently represented with empty `crn`, `id`, and `href` properties along with an undocumented sentinel value for `name`.
 
 To prepare for this change, verify that your client checks that the `volume` property exists for a volume attachment before attempting to access its `crn`, `id`, `href`, or `name` sub-properties.
@@ -51,6 +63,54 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 13 September 2022
+{: #13-september-2022}
+
+### For all version dates
+{: #13-september-2022-all-version-dates}
+
+**Updating subnets for application load balancers.** You can now update the subnets attached to an application load balancer by specifying `subnets` when [updating a load balancer](/apidocs/vpc/latest#update-load-balancer). The specified subnets must be in the same VPC as the load balancer's current subnets. If the update requires moving your load balancer to a different zone, its `provisioning_status` will change to `migrate_pending` until the move is complete. For more information, see [Updating subnets for Application Load Balancers for VPC](/docs/vpc?topic=alb-updating-subnets).
+
+Because the `subnets` property is an array, the specified value will replace the load balancer's existing array of subnets. To guard against concurrent updates, you must provide the resource's current ETag using the `If-Match` header. For guidance on the use of ETags, see [Concurrent update protection](apidocs/vpc/vpc/latest#concurrent-update-protection).
+{: important}
+
+### For version `2022-09-13` or later
+{: #version-2022-09-13}
+
+**Load balancer DELETE response code change.** For requests using a `version` query parameter of `2022-09-13` or later, all load balancer `DELETE` methods will return an HTTP response code of `202` upon success:
+
+- [Delete a load balancer](/apidocs/vpc/latest#delete-load-balancer)
+- [Delete a load balancer listener](/apidocs/vpc/latest#delete-load-balancer-listener)
+- [Delete a load balancer listener policy](/apidocs/vpc/latest#delete-load-balancer-listener-policy)
+- [Delete a load balancer listener policy rule](/apidocs/vpc/latest#delete-load-balancer-listener-policy-rule)
+- [Delete a load balancer pool](/apidocs/vpc/latest#delete-load-balancer-pool)
+- [Delete a load balancer pool member](/apidocs/vpc/latest#delete-load-balancer-pool-member)
+
+The underlying deletion operations were already asynchronous, and remain unchanged.
+
+To avoid regressions, before issuing requests using a `version` query parameter of `2022-09-13` or later, ensure that any clients deleting load balancer resources will also regard a response code of `202` as success.
+{: important}
+
+A response code of `204` will continue to be returned for API requests using a `version` query parameter of `2022-09-12` and earlier.
+
+## 6 September 2022
+{: #6-september-2022}
+
+### For all version dates
+{: #6-september-2022-all-version-dates}
+
+**Improved reserved IP support for bare metal servers**. The following methods have been added for convenience and parity with the virtual server instance reserved IP methods:
+- [List all reserved IPs bound to a network interface](/apidocs/vpc/latest#list_bare_metal_server_network_interface_ips) for a bare metal server
+- [Retrieve bound reserved IP](/apidocs/vpc/latest#get_bare_metal_server_network_interface_ip) for a bare metal server
+
+## 23 August 2022
+{: #23-august-2022}
+
+### For all version dates
+{: #23-august-2022-all-version-dates}
+
+**Additional user tag support for boot and data volumes.** You can now add user tags to boot and data volumes when provisioning a virtual server instance or adding a volume attachment. You can specify the `user_tags` property when you [create an instance](/apidocs/vpc/latest#create-instance), [create an instance template](/apidocs/vpc/latest#create-instance-template), and [create a volume attachment](/apidocs/vpc/latest#create-instance-volume-attachment). For more information, see [Create and attach a block storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage&interface=api) and [Working with tags](/docs/account?topic=account-tag&interface=api).
 
 ## 16 August 2022
 {: #16-august-2022}
@@ -120,7 +180,7 @@ The `2022-03-29` release includes incompatible changes. To avoid regressions in 
 
 **Migration of network interface IP addresses.** In support of reserved IPs, as of version `2022-03-29`, the network interface `primary_ipv4_address` string property has been migrated to the `primary_ip` object property. See [Migrating use of IP addresses](/docs/vpc?topic=vpc-2022-03-29-migration#migrate-ip-addresses) for guidance on how to migrate to `primary_ip`.
 
-**Removal of security group network interfaces.** The methods for associating security groups with network interfaces that were deprecated in [API version `2021-02-23`](docs/vpc?topic=vpc-api-change-log#23-february-2021) have been removed as of version `2022-03-29`. See [Migrating use of security group associations](/docs/vpc?topic=vpc-2022-03-29-migration#migrate-security-group-assoc) for guidance on how to migrate to use security group targets, which allow security groups to be associated with VPC resources beyond network interfaces, such as endpoint gateways and load balancers.
+**Removal of security group network interfaces.** The methods for associating security groups with network interfaces that were deprecated in [API version `2021-02-23`](/docs/vpc?topic=vpc-api-change-log#23-february-2021) have been removed as of version `2022-03-29`. See [Migrating use of security group associations](/docs/vpc?topic=vpc-2022-03-29-migration#migrate-security-group-assoc) for guidance on how to migrate to use security group targets, which allow security groups to be associated with VPC resources beyond network interfaces, such as endpoint gateways and load balancers.
 
 ### For all version dates
 {: #29-march-2022-all-version-dates}

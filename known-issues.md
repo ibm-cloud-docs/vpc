@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-08-09"
+lastupdated: "2022-09-01"
 
 keywords: known issues, bugs, defects
 
@@ -60,13 +60,6 @@ The floating IP associated with a bare metal network interface is not available 
 
 Currently, the `port_min` and `port_max` properties are supported only when routing mode is enabled, and only when the entire port range is specified (`port_min` of `1` and `port_max` of `65535`). Support for allowing an arbitrary port range to be specified is planned for a future release.
 
-## Virtual server instances must be stopped before they can be deleted
-{: #API-1144}
-
-**Issue:** The virtual server instances cannot be deleted.
-
-**Workaround:** Stop the instance before you attempt to delete it.
-
 ## Checksum not available for some public images
 {: #RIOS-1410}
 
@@ -98,8 +91,7 @@ The following issues are currently present in the Cloud Console with no known wo
 
 **Issue:** The block storage details page might not show all the matched backup policies if the volume has more than one user tag.
 
+## VPC property issue for Security and Compliance Center
+{: #RCS-4957}
 
-## VSI monitoring known issues
-{: #vsi-monitoring-known-issues}
-
-**Issue:** Volumes that are created from snapshots and volumes that are resized do not display metrics on the VSI monitoring console page or in the IBM Cloud Monitoring dashboard for "VPC VSI Gen 2 Overview". No known workaround.
+**Issue:** If you set a [config rule](/docs/vpc?topic=vpc-manage-security-compliance&interface=ui#govern-vpc) for a virtual server instance with the `metadata_service_enabled` property set to *is_false*, the compliance policy currently has no effect.

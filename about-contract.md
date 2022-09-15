@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-08-09"
+lastupdated: "2022-08-18"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -95,11 +95,12 @@ volumes:
 {: #hpcr_contract_auths}
 
 The `auths` section consists of information about the container's registry. Currently, only one container is supported, so there is only one registry and credentials to this registry, that must be populated here. If a public image is used in the contract, then you do not need the `auths` section because no credentials are required. The `auths` subsection is required only if the container images are private. This subsection does not have any image information, as shown in the following sample. This subsection needs to contain the name of the image registry and the credentials such as username-password for the same. The key must be the hostname of the container registry or the string 'https://index.docker.io/v1/' for the default docker registry.
+The following snippet shows an example for IBM Cloud Registry:
 
 ```yaml
 auths:
   us.icr.io:
-    password: xxxxxxxx
+    password: <apikey>
     username: iamapikey
 ```    
 {: codeblock}
@@ -282,13 +283,8 @@ The encryption and attestation certificates are signed by the IBM intermediate c
 ### Downloading the encryption certificate and extracting the public key
 {: #encrypt_downloadcert}
 
-1. Download the certificate that is used to encrypt the contract [here](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-3-encrypt.crt).
+1. Download the certificate that is used to encrypt the contract [here](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-4-encrypt.crt).
 2. Validate the encryption certificate by following the instructions [here](/docs/vpc?topic=vpc-cert_validate#validate_encrypt_cert).
-3. Extract the encryption public key from the encryption certificate by using the following command:
-   ```
-   openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-3-encrypt.crt > contract-public-key.pub
-   ```
-   {: pre}
 
 
 ### Creating the encrypted `workload` section of a contract
@@ -311,10 +307,10 @@ Complete the following steps to encrypt the workload section used in a contract:
 
 2. Create the [workload section](#hpcr_contract_workload) of the contract and add the contents in the `workload.yaml` file.
 
-3. Export the complete path of the `workload.yaml` file and the `contract-public-key.pub`:
+3. Export the complete path of the `workload.yaml` file and the `ibm-hyper-protect-container-runtime-1-0-s390x-4-encrypt.crt`:
    ```
    WORKLOAD="<PATH to workload.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-3-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-4-encrypt.crt>"
    ```
    {: pre}
 
@@ -324,7 +320,7 @@ Complete the following steps to encrypt the workload section used in a contract:
    ```
    {: pre}
 
-5. Use the following command to encrypt password with `contract-public-key.pub`:
+5. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-4-encrypt.crt`:
    ```
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY -certin | base64 -w0 )"
    ```
@@ -342,6 +338,14 @@ Complete the following steps to encrypt the workload section used in a contract:
    ```
    {: pre}
 
+8. Get the output from step 7 and add it to the `user-data.yaml` file.
+   ```
+   workload: hyper-protect-basic.js7TGt77EQ5bgTIKk5C0pViFTRHqWtn..............
+   ```
+   {: pre}   
+
+   The prefix `hyper-protect-basic` is mandatory.
+   {: note}
 
 ### Creating encrypted `env` section of a contract
 {: #hpcr_contract_encrypt_env}
@@ -350,10 +354,10 @@ Complete the following steps to encrypt the `env` section used in a contract:
 
 1. Create the [env section](#hpcr_contract_env) of the contract and add the contents in the `env.yaml` file.
 
-2. Export the complete path of the `env.yaml` file and the `contract-public-key.pub`:
+2. Export the complete path of the `env.yaml` file and the `ibm-hyper-protect-container-runtime-1-0-s390x-4-encrypt.crt`:
    ```
    ENV="<PATH to env.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-3-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-4-encrypt.crt>"
    ```
    {: pre}
 
@@ -363,13 +367,13 @@ Complete the following steps to encrypt the `env` section used in a contract:
    ```
    {: pre}
 
-4. Use the following command to encrypt password with `contract-public-key.pub`:
+4. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-4-encrypt.crt`:
    ```
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY  -certin | base64 -w0)"
    ```
    {: pre}
 
-5. Use the following command to encrypt workload.yaml with a random password:
+5. Use the following command to encrypt `env.yaml` with a random password:
    ```
    ENCRYPTED_ENV="$(echo -n "$PASSWORD" | base64 -d | openssl enc -aes-256-cbc -pbkdf2 -pass stdin -in "$ENV" | base64 -w0)"
    ```
@@ -382,6 +386,12 @@ Complete the following steps to encrypt the `env` section used in a contract:
    {: pre}
 
 7. To encrypt the workload section, see [Creating the encrypted `workload` section of a contract](#hpcr_contract_encrypt_workload).
+
+8. Get the output from step 6 and add it to the `user-data.yaml` file.
+   ```
+   env: hyper-protect-basic.VWg/5/SWE+9jLfhr8q4i.........
+   ```
+   {: pre}
 
 
 ## Contract signature
@@ -423,10 +433,10 @@ Complete the following steps to create the contract signature:
    ```
    {: codeblock}
 
-4. Use the following command to export complete path of `env.yaml` and `contract-public-key.pub`:
+4. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-4-encrypt.crt`:
    ```
    ENV="<PATH to env.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-3-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-4-encrypt.crt>"
    ```
    {: pre}
 
@@ -436,7 +446,7 @@ Complete the following steps to create the contract signature:
    ```
    {: pre}
 
-6. Use the following command to encrypt password with `contract-public-key.pub.`:
+6. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-4-encrypt.crt.`:
    ```
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY  -certin | base64 -w0)"
    ```
@@ -461,15 +471,19 @@ Steps 4 - 8 are used to encrypt the `env` section. If you choose to not encrypt 
 {: #hpcr_signature_prepare}
 
 Complete the following steps to prepare the signature:
+
+If you have got the encrypted `user-data.yaml` from the [Creating the encrypted `workload` section of a contract](#hpcr_contract_encrypt_workload), and [Creating encrypted `env` section of a contract](#hpcr_contract_encrypt_env) sections, then skip to step 3.
+
 1. Get the encrypted `workload.yaml` and encrypted `env.yaml` files.
-2. Add them into the `vi user-data.yaml` file.
+
+2. Add them into the `user-data.yaml` file.
    ```
    workload: hyper-protect-basic.js7TGt77EQ5bgTIKk5C0pViFTRHqWtn..............
    env: hyper-protect-basic.VWg/5/SWE+9jLfhr8q4i.........
    ```
    {: pre}
 
-3. Create the `vi contract.txt` file. Add the value of `workload` first then add the value of `env` from the `user-data.yaml` file. Ensure that there is no space or new line after `workload` and before `env`. Also, ensure that there is no new line or space at the end of the file.
+3. Create the `contract.txt` file. Add the value of `workload` first then add the value of `env` from the `user-data.yaml` file. Ensure that there is no space or new line after `workload` and before `env`. Also, ensure that there is no new line or space at the end of the file.
    ```
    hyper-protect-basic.js7TGt77EQ5bgTIKk5C0pViFTRHqWtn..............hyper-protect-basic.VWg/5/SWE+9jLfhr8q4i.........
    ```
@@ -533,7 +547,7 @@ services:
 {: #step4}
 
 ```
-tar -czvf compose.tgz docker-compose.yml .env
+tar -czvf compose.tgz docker-compose.yaml
 ```
 {: pre}
 

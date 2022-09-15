@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-08-08"
+lastupdated: "2022-08-23"
 
 keywords:
 
@@ -37,7 +37,7 @@ The first time that you take a snapshot of a volume, all the volume's contents a
 
 When you take a second snapshot, only the change to the volume since the last snapshot is captured. As such, the size of snapshots that you take can grow or shrink, depending on what is being uploaded to Cloud Object Storage. The number of snapshots increases with each successive snapshot you take. You can take up to 750 snapshots per volume in your region. Deleting snapshots from this quota frees up space for additional snapshots. The cumulative size of all snapshots for a volume can't exceed 10 TB. For more information, see [these considerations](#snapshots_vpc_considerations) when creating snapshots.
 
-You can create a new virtual server instance with a boot volume that was initialized from a snapshot. The instance profile of the new instance is not required to match the instance that was used to create the snapshot.
+You can create a new virtual server instance with a boot volume that was initialized from a snapshot. The instance profile of the new instance is not required to match the instance that was used to create the snapshot. You can also import a snaphot of a data volume when creating and attaching a new data volume to the instance. You can also specify user tags for these snapshots.
 
 You can create a new volume from a snapshot at any time. This process, called restoring a volume, can be performed when creating a new instance, modifying an instance, or for an unattached volume (no instance provisioning is required). For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
 
@@ -107,6 +107,15 @@ Because a full backup is created every 200 snapshots, the maximum number of snap
 | 599 (data) \n 596 (boot) | full | Billed for full copy |
 | 600-750 (data) \n 597-750 (boot) |  incremental | | Billed for incremental updates |
 {: caption="Table 1. Snapshot count and billing considerations" caption-side="bottom"}
+
+## User tags for snapshots
+{: #snapshots-about-user-tags}
+
+You can create new user tags or add existing tags to snapshots of your block storage volumes. You can also add tags when using a snapshot of a volume during [instance creation](/docs/vpc?topic=vpc-creating-block-storage&interface=ui#create-from-vsi). You can create, view, and manage user tags from the [UI](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-add-tags-ui), [CLI](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=cli#snapshots-vpc-add-tags-cli), or [API](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=cli#snapshots-vpc-add-tags-cli), and remove then at any time. 
+
+User tags are uniquely identified by a Cloud Resource Name (CRN) identifier. When you create a user tag, you provide a unique name within your billing account. You can define user tags in label or key-value format.
+
+For more information about managing tags for your account, see [Working with tags](/docs/account?topic=account-tag&interface=ui).
 
 ## Next steps
 {: #snapshots-vpc-about-next-steps}

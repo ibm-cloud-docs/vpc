@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2022
-lastupdated: "2022-07-12"
+lastupdated: "2022-09-09"
 
 keywords:
 
@@ -12,10 +12,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Cross-account encryption for multitenant file storage resources
+# Cross-account encryption for file storage resources
 {: #vpc-byok-cross-acct-key-file}
 
-File Storage for VPC now supports multitenancy customer-managed encryption. With this feature, users can access a customer root key (CRK) from another user account and then use that CRK to encrypt a new file share.
+File Storage for VPC now supports cross-account customer-managed encryption. With this feature, users can access a customer root key (CRK) from another user account and then use that CRK to encrypt a new file share.
 {: shortdesc}
 
 File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, Sao Paulo, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
@@ -36,7 +36,7 @@ Creating an encrypted file share in the account that owns the root key and using
 ## Before you begin
 {: #byok-cross-key-acct-prereqs}
 
-From IBM Cloud Identity and Access Management (IAM), authorize access between Cloud File Storage (source service) and Key Protect(target service). For custom images, authorize between Image Service for VPC (source service) and IBM Cloud Object Storage (target service). Specify reader access for the role. For more information, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning&interface=api#byok-encryption-prereqs).
+From IBM Cloud Identity and Access Management (IAM), authorize access between Cloud File Storage (source service) and Key Protect (target service). Specify reader access for the role. For more information, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning&interface=api#byok-encryption-prereqs).
 
 ## General Procedure
 {: #byok-cross-key-acct-procedure}
@@ -67,10 +67,11 @@ For encrypted file shares, make a `POST /policies` call to the IAM API to create
 
 In the following example: 
 
-* The `roles` section specifies `AuthorizationDelegator` to the account where you are creating the file share, to use the root key from the account that owns the root key.
-* The`resources` section specifies information about the account that owns the root key, including the key management service. 
- In this example, `kms` indicates a Key Protect instance. If it were a Hyper Protect Crypto Service instance, you would specify `hs-crypto`. 
-* The `subjects` section specifies the account where you are creating the file share and the service that will use the root key. In this example, it is `share`.
+* Account A (owns key) grants `AuthorizationDelegator` and `Reader` access to Account B, where the encrypted file share will be created.
+
+* The`resources` section specifies information about Account A that owns the root key, including the key management service (KMS). In this example, `kms` indicates a Key Protect instance. If it were a Hyper Protect Crypto Service instance, you would specify `hs-crypto`. 
+
+* The `subjects` section specifies Account B, where the file share will be created.  Account B creates the policy and grants reader access for `share` to the KMS. In this example, `kms` indicates a Key Protect instance.
 
 ```
 curl -X "POST" "https://iam.cloud.ibm.com/v1/policies" \
@@ -89,12 +90,12 @@ curl -X "POST" "https://iam.cloud.ibm.com/v1/policies" \
             {
             "attributes": [
                 {
-                "name": "accountId",
+                "name": "Account-A",
                 "operator": "stringEquals",
-                "value": "<CRK-Account-ID>"
+                "value": "<CRK-Account-A-ID>"
                 },
                 {
-                "name": "serviceName",
+                "name": "Key-Protect",
                 "operator": "stringEquals",
                 "value": "kms" // For HPCS use hs-crypto
                 }
@@ -115,8 +116,8 @@ curl -X "POST" "https://iam.cloud.ibm.com/v1/policies" \
                 "value": "share"
                 },
                 {
-                "name": "accountId",
-                "value": "<SecondaryAccountID>"
+                "name": "Account-B",
+                "value": "<Account-B-ID>"
                 }
               ]
             }
@@ -128,13 +129,13 @@ curl -X "POST" "https://iam.cloud.ibm.com/v1/policies" \
 ## Create a cross-account encrypted file share with the API
 {: #byok-cross-key-acct-create-API}
 
-With the VPC API, [create a file share](/docs/vpc?topic=vpc-file-storage-vpc-encryption&interface=api#fs-byok-api) in an account using the root key from the account that owns the key. The API calls for doing this are the same as when you create an encrypted file share using a root key from the same account. Make a `POST /shares` call and specify the CRN of the root key from the account that owns the root key in the `encryption_key` property.
+With the VPC API, [create a file share](/docs/vpc?topic=vpc-file-storage-vpc-encryption&interface=api#fs-byok-api) in one account and specify root key from another account that owns the key. The API calls for doing this are the same as when you create an encrypted file share using a root key from the same account. Make a `POST /shares` call and specify the CRN of the root key from the account that owns the root key in the `encryption_key` property.
 
 For example:
 
  ```curl
    curl -X POST \
-   "$vpc_api_endpoint/v1/shares?version=2022-07-14&generation=2" \
+   "$vpc_api_endpoint/v1/shares?version=2022-08-09&generation=2" \
    -H "Authorization: $iam_token" \
    -d '{
        "encryption_key": {
@@ -160,7 +161,7 @@ In the response, the CRN of the encryption key is from the account that owns the
 
 ```json
 {
-  "created_at": "2022-07-14T23:28:45Z",
+  "created_at": "2022-08-09T23:28:45Z",
   "crn": "crn:v1:staging:public:is:us-south-1:a/b5c782a8f47a2d1527257e3465f21568::share:r134-fe7219eb-c9a9-4aab-8636-9a57141f0cee",
   "encryption": "user_managed",
   "encryption_key": {

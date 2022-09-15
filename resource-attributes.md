@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-06-30"
+  years: 2020, 2022
+lastupdated: "2022-09-01"
 
 keywords: resource attribute, iam access policy, terraform, cli
 
@@ -46,8 +46,12 @@ See Table 1 for the full list of VPC resource attributes.
 
 |   Resource     | Resource Attribute |
 | ------- | ------ |
-| Auto Scale for VPC | `instanceGroupId:<instance-group-id>` | 
-| Block Storage for VPC | `volumeId: <volume-id>` |  
+| Auto Scale for VPC | `instanceGroupId:<instance-group-id>` |
+| Backup service | `backupPolicyId: <backup-policy-id>`|
+| Block Storage for VPC | `volumeId: <volume-id>` |
+| Bare metal server | `bareMetalServerId: <bare-metal-server-id>` |
+| Dedicated Host for VPC | `dedicatedHostId:<dedicated-host-id>` <!--(staging)--> |
+| File Storage | `shareId: <share-id>` | 
 | Floating IP for VPC | `floatingIpId: <fip-id>` |
 | Flow Logs for VPC | `flowLogCollectorId: <flc-id>` |
 | Image Service for VPC | `imageId:<image-id>` |
@@ -56,14 +60,12 @@ See Table 1 for the full list of VPC resource attributes.
 | Placement Group for VPC | `placementGroupId: <placement-group-id>` |
 | Public Gateway for VPC | `publicGatewayId: <pgw-id>` |
 | Security Group for VPC | `securityGroupId: <default-sec-grp-id>` |
+| Snapshots | `snapshotId: <snapshot-id>`|
 | SSH Key for VPC | `keyId:<key-id>` |
 | Subnet | `subnetId: <subnet-id>` |
+| Virtual Private Endpoint for VPC | `endpointGatewayId:<endpoint-gateway-id>`<!--(staging)--> |
 | Virtual Private Cloud |  `vpcId: <vpc-id>`  |   
 | Virtual Server for VPC | `instanceId: <instance-id>` |   
-| VPN for VPC | `vpnId:<vpn-id>` |
-{: caption="Table 1. VPC resource attributes" caption-side="top"}
-
-<!--| Dedicated Host for VPC | `dedicatedHostId:<dedicated-host-id>` | -->
-<!--| Virtual Private Endpoint for VPC | `endpointGatewayId:<endpoint-gateway-id>` |--> 
-<!--Exclude "Snapshot snapshotId" and "Share shareId" as they are neither in production nor staging. Don't push those labeled with "staging" to production-->
+| {{site.data.keyword.vpn_vpc_short}} | `vpnGatewayID: <vpn-gateway-id>` |
+{: caption="Table 1. VPC resource attributes" caption-side="bottom"}
 
