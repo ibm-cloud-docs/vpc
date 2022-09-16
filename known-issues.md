@@ -98,11 +98,12 @@ The following issues are currently present in the Cloud Console with no known wo
 
 **Issue:** The block storage details page might not show all the matched backup policies if the volume has more than one user tag.
 
-
 ## VSI monitoring known issues
 {: #vsi-monitoring-known-issues}
 
 **Issue:** Volumes that are created from snapshots and volumes that are resized do not display metrics on the VSI monitoring console page or in the IBM Cloud Monitoring dashboard for "VPC VSI Gen 2 Overview". No known workaround.
+
+**Issue:** AT event log entries are missing `target.resourceGroupId` for some actions related to virtual server instances, such as updating or creating a virtual server instance. Instead, the resource group ID might appear in either the `requestData` or `responseData` sections of the event.
 
 ## Custom images in a private catalog known issue
 {: #custom-images-private-catalog-known-issues}
