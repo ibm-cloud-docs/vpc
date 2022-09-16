@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-07-08"
+lastupdated: "2022-08-22"
 
 keywords:
 subcollection: vpc
@@ -144,7 +144,7 @@ Do you prefer to use the {{site.data.keyword.cloud}} console? For more informati
 
 When you provision a virtual server instance from the CLI and create a block storage volume as part of the process, you must specify a volume attachment JSON. The volume attachment JSON, specified in the command or as a file, defines the volume parameters. When you [create an instance](/docs/vpc?topic=vpc-creating-virtual-servers-cli) and specify the `--volume-attach` parameter, you specify the volume JSON. For example, `--volume-attach @/Users/myname/myvolume-attachment_create.json`.
 
-Here is an example volume attachment JSON file that defines a custom volume:
+Here is an example volume attachment JSON file that defines a custom volume and specifies user tags:
 
 ```text
 [
@@ -157,6 +157,9 @@ Here is an example volume attachment JSON file that defines a custom volume:
             "iops": 1000,
             "profile": {
                 "name": "custom"
+            },
+            "user_tags": {
+                "env:test"
             }
         }
     }

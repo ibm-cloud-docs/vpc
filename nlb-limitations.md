@@ -29,7 +29,6 @@ Known limitations for {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}}
    * Only one listener is supported.
    * The NLB and the VNF back-end targets must be in the same subnet.
 * The default load balancer quota is 50 per region. To increase the number, you must [create a support case](/docs/get-support?topic=get-support-open-case).
-* The port range feature for public network load balancers supports a single port range listener with scaling up to 400 configurations. This means that the number of listener ports, multiplied by the number of listener pool members, must be less than or equal to 400.
 * For Private NLB, the NLB service might add rules to custom routing tables to ensure service availability for some failure conditions. As a result, if the client is outside the zone and/or VPC of the NLB, you must add an ingress custom routing table to the VPC where the NLB resides with the proper traffic source selected.
 
    For Private NLB, depending on the location of the clients, you must ensure that ingress routing tables exist (as described in Table 1).

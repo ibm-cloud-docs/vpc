@@ -2,6 +2,7 @@
 
 copyright:
   years: 2019, 2022
+
 lastupdated: "2022-09-16"
 
 keywords: creating a linux custom image, cloud-init, qcow2, vhd
@@ -136,7 +137,7 @@ Upload your image to {{site.data.keyword.cos_full_notm}}. On the **Objects** pag
 ## Next steps
 {: #next-steps-creating-linux-image}
 
-When your Linux custom image is created and available in {{site.data.keyword.cos_full_notm}}, you can [import the custom image into VPC](/docs/vpc?topic=vpc-importing-custom-images-into-vpc&interface=ui) and [Onboard a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui). Make sure that you have [Granted access to IBM Cloud Object Storage to import images](/docs/vpc?topic=vpc-object-storage-prereq).
+When your Linux custom image is created and available in {{site.data.keyword.cos_full_notm}}, you can [import the custom image into VPC](/docs/vpc?topic=vpc-importing-custom-images-vpc) and [Onboard a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui). Make sure that you have [Granted access to IBM Cloud Object Storage to import images](/docs/vpc?topic=vpc-object-storage-prereq).
 
 If you plan to use a private catalog to manage your custom images, you must first import that image into {{site.data.keyword.vpc_short}} and then onboard the virtual server image into a private catalog.
 {: note}

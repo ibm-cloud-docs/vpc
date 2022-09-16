@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-24"
+lastupdated: "2022-09-15"
 
 subcollection: vpc
 

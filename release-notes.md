@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-08-15"
+lastupdated: "2022-09-15"
 
 keywords:
 
@@ -27,8 +27,41 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API , 
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI) , see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
 
+## September 2022
+{: #vpc-september22}
+
+### 12 September 2022
+{: #vpc-september1222}
+{: release-note}
+
+New stock images for VPC
+:   The following stock images are now available for x86-64 virtual server instances:
+    - The Windows Server 2019 Standard Edition with SQL Server 2019 Web Edition bundle is now supported as an image when you provision a   {{site.data.keyword.vpc_short}} server. If you select this stock image when you provision a virtual server instance, the software that is part of that bundle is also included in your instance.
+    - SUSE Linux Enterprise Server is now supported as an operating system stock image when you provision an x86-64 virtual server. For more information, see [x86-64 virtual server images](/docs/vpc?topic=vpc-about-images).
+
 ## August 2022
 {: #vpc-august22}
+
+### 31 August 2022
+{: #vpc-august3122}
+{: release-note}
+
+Configuration governance
+:   New VPC config rules for the Image service and Virtual Servers are now available with the Security and Compliance Center. For more information, see [Governing VPC Resource configuration](/docs/vpc?topic=vpc-manage-security-compliance#govern-vpc) in [Managing security and compliance with VPC Infrastructure Services](/docs/vpc?topic=vpc-manage-security-compliance).
+
+### 30 August 2022
+{: #vpc-august3022}
+{: release-note}
+
+IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}}
+:   You can now create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture) in United Kingdom (London) region, in additional to Brazil (São Paulo), Canada (Toronto), Japan (Tokyo), and US East (Washington DC) regions. To create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers), and [IBM Hyper Protect Container Runtime image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime). A valid contract is required for creating an instance. For more information, see [About the contract](/docs/vpc?topic=vpc-about-contract_se&interface=ui).
+
+### 23 August 2022
+{: #vpc-august2322}
+{: release-note}
+
+Additional user tag support for boot and data volumes
+:  You can now add user tags to boot and data volumes when provisioning a virtual server instance or creating an instance template. You can add tags to the boot volume by editing it during instance provisioning. You can also add user tags for any data volumes you create and attach. If you import from a snapshot, any tags defined for the snapshot will be applied to the new volume. For more information, see [Create and attach a block storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage&interface=api). For more information about user tags, see [Working with tags](/docs/account?topic=account-tag&interface=api).
 
 ### 17 August 2022
 {: #vpc-august1722}

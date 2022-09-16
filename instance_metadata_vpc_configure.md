@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-08-10"
+lastupdated: "2022-09-15"
 
 keywords:
 
@@ -56,7 +56,7 @@ You can also generate an IAM token from this token and use the RIAS API to call 
 ### Acquire an instance identity access token
 {: #imd-json-token}
 
-Using the Metadata service API, make `PUT "http://169.254.169.254/instance_identity/v1/token` call to get an instance identity access token from the token service. The following example uses `jq` to parse the JSON API response and then extract the access token value. You can use your preferred JSON parser.
+Using the Metadata service API, make `PUT "http://169.254.169.254/instance_identity/v1/token` call to get an instance identity access token from the token service. The following example uses `jq` to parse the JSON API response and then extract the instance identity access token value. You can use your preferred JSON parser.
 
 In the example, the return value of the cURL command is the instance identity access token, which is extracted by `jq` and placed in the `instance_identity_token` evironment variable. You use specify this variable in a `GET` call to the metadata service to reach the metadata endpoint. For more information, see [Retrieve metadata from your running instances](/docs/vpc?topic=vpc-imd-get-metadata&interface=api#imd-retrieve-instance-data).
 
@@ -72,7 +72,7 @@ instance_identity_token=`curl -X PUT "http://169.254.169.254/instance_identity/v
 ```
 {: pre}
 
-The JSON response shows the access token character string, date and time it was created, date and time it expires, and expiration time you set.  Note that the token expires in 5 minutes. For example:
+The JSON response shows the instance identity access token character string, date and time it was created, date and time it expires, and expiration time you set.  Note that the token expires in 5 minutes. For example:
 
 ```
 {
@@ -381,4 +381,4 @@ Activity Tracker events are triggered when you get an [instance access identity 
 ## Next steps
 {: #imd-token-next}
 
-After creating an access token and enabling the metadata service, you can retrieve metadata for the instance, SSH keys, and placement groups. For information, see [Use the instance metadata service](/docs/vpc?topic=vpc-imd-get-metadata).
+After creating an instance identity access token and enabling the metadata service, you can retrieve metadata for the instance, SSH keys, and placement groups. For information, see [Use the instance metadata service](/docs/vpc?topic=vpc-imd-get-metadata).

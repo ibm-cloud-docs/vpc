@@ -49,11 +49,11 @@ The encryption and attestation certificates are signed by the IBM intermediate c
 Use the following procedure to validate the attestation record and hashes:
 
 * Get the attestation record `se-checksums.txt` and the signature file `se-signature.bin` from your instance.
-* Get the [IBM attestation certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-3-attestation.crt).
+* Get the [IBM attestation certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-4-attestation.crt).
 * Validate the attestation certificate by following the instructions [here](/docs/vpc?topic=vpc-cert_validate#validate_attest_cert).
 * Extract the encryption public key from the encryption certificate by using the following command:
   ```sh
-  openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-3-attestion.crt > contract-public-key.pub
+  openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-4-attestion.crt > contract-public-key.pub
   ```
   {: pre}
 

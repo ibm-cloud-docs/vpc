@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-07"
+lastupdated: "2022-09-12"
 
 keywords: operating system end of support (eos)
 
@@ -88,11 +88,14 @@ The following table describes the end of support date and license model for SUSE
 
 | Operating sytem | End of support | License Model |
 |-----------------|----------------|---------------|
-| SLES 15 SP3 (SAP HANA & SAP applications) | Release SP4 +6 Months | Pay-as-you-Go |
-| SLES 15 SP2 (SAP HANA & SAP applications) | 31 December 2024 | Pay-as-you-Go  |
-| SLES 15 SP1 (SAP HANA & SAP applications) | 31 January 2024 | Pay-as-you-Go  |
-| SLES 12 SP5 (SAP HANA & SAP applications) | 31 October 2024 |  Pay-as-you-Go  |
-| SLES 12 SP4 (SAP HANA & SAP applications) | 30 June 2023 | Pay-as-you-Go  |
+| SLES 15 SP4 | Release SP5 +6 Months | Pay-as-you-Go |
+| SLES 15 SP3 | 31 December 2025 | Pay-as-you-Go |
+| SLES 15 SP3 (SAP HANA and SAP applications) | 31 December 2025 | Pay-as-you-Go |
+| SLES 15 SP2 (SAP HANA and SAP applications) | 31 December 2024 | Pay-as-you-Go  |
+| SLES 15 SP1 (SAP HANA and SAP applications) | 31 January 2024 | Pay-as-you-Go  |
+| SLES 12 SP5 | 31 October 2024 |  Pay-as-you-Go  |
+| SLES 12 SP5 (SAP HANA and SAP applications) | 31 October 2024 |  Pay-as-you-Go  |
+| SLES 12 SP4 (SAP HANA and SAP applications) | 30 June 2023 | Pay-as-you-Go  |
 {: caption="Table 6. Lifecycle for SUSE Linux Enterprise Server (SLES) operating systems" caption-side="bottom"}
 
 
@@ -122,6 +125,9 @@ The following table describes the end of support date and license model for Wind
 | Windows Server 2016 full standard  | 11 January 2027  |  Pay-as-you-Go / BYOL |
 | Windows Server 2012 full standard | 10 October 2023 | Pay-as-you-Go / BYOL |
 | Windows Server 2012 r2 full standard | 10 October 2023 | Pay-as-you-Go / BYOL |
+| Windows Server 2019 Standard Edition with SQL Server 2019 Web Edition | 08 January 2030 | Pay-as-you-Go |
 {: caption="Table 8. Lifecycle for Windows Server operating systems" caption-side="bottom"}
 
 **BYOL**: For Windows operating systems, you can bring your own license (BYOL) to {{site.data.keyword.vpc_short}} when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. Acquisition and activation of the license is between you and the OS vendor.
+
+**SQL Server**: For Windows operating systems with SQL Server, see the [About Microsoft SQL on VPC](/docs/microsoft?topic=microsoft-mssql-about) documentation for information on creating the SQL server.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-07-12"
+lastupdated: "2022-08-22"
 
 keywords:
 
@@ -45,7 +45,7 @@ You also set a [retention period](/docs/vpc?topic=vpc-backup-policy-create&inter
 
 Backup's require that the volume you're backing up is attached to a running virtual server instance. Put another way, you can't backup an unattached volume.
 
-A volume is backed up when [user-provided tags](#backup-service-about-tags) associated with a block storage volume match tags for target resources in a backup policy. The volume must have at least one of the backup policy’s tags for the target resources. When the scheduled backup is triggered by a backup plan, all volumes with matching tags in the policy are backed up. If a volume has multiple tags, only one tag has to match for a backup to trigger. 
+A volume is backed up when [user-provided tags](#backup-service-about-tags) associated with a block storage volume match tags for target resources in a backup policy. The volume must have at least one of the backup policy’s tags for the target resources. When the scheduled backup is triggered by a backup plan, all volumes with matching tags in the policy are backed up. If a volume has multiple tags, only one tag has to match for a backup to trigger. You can add user tags to boot and data volumes at any time and when [creating a virtual server instance](/docs/vpc?topic=vpc-creating-block-storage&interface=ui#create-from-vsi) or in an instance template. Any instance volumes with tags matching the backup policy will be backed up.
 
 Use the UI, CLI, or API to create backup policies and plans for your block storage volumes. Before creating backups, see this information on [planning your backups](/docs/vpc?topic=vpc-backups-vpc-planning). For best practices and other considerations when creating backups, see [Best practices for creating backups](/docs/vpc?topic=vpc-backups-vpc-best-practices).
 

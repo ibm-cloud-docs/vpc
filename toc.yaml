@@ -228,6 +228,11 @@ toc:
                  - vsi_is_manage_images.md
                  - vpc_image_from_volume_manage.md
         - topicgroup:
+            label: Public gateways
+            topics:
+            - pg-about.md
+            - pg-create.md
+        - topicgroup:
             label: Virtual private endpoint gateways
             topics:
             - vpe-intro.md

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-24"
+lastupdated: "2022-09-15"
 
-keywords: metadata, virtual private cloud, instance, virtual server
+keywords:
 
 subcollection: vpc
 
@@ -74,7 +74,7 @@ Table 1 describes the steps involved to access instance metadata. The informatio
 
 5.	Log into the virtual server. You can be running a stock image or custom image. The metadata service is supported on all stock and custom images, and CPU profiles. At this point, the floating IP has been assigned, the security groups are there, and you're now working within the virtual server.
 
-6.	Make a call to the metadata token service to retrieve an access token.  Specify how long the token is valid, for example 3600 seconds (1hour). In this example, the command is run through the `jq` parser to format the JSON response. You can choose the parser that you prefer.
+6.	Make a call to the metadata token service to retrieve an instance identity access token.  Specify how long the token is valid, for example 3600 seconds (1hour). In this example, the command is run through the `jq` parser to format the JSON response. You can choose the parser that you prefer.
 
    ```
    instance_identity_token=`curl -X PUT "http://169.254.169.254/instance_identity/v1/token?version=2021-12-28"\
@@ -86,7 +86,7 @@ Table 1 describes the steps involved to access instance metadata. The informatio
    ```
    {: pre}
 
-   The response is the access token payload. 
+   The response is the instance identity access token payload. 
 
 7. You can now make a call to the metadata service. The first call is to initialization information:
 

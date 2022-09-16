@@ -2,7 +2,9 @@
 
 copyright:
   years: 2018, 2022
+
 lastupdated: "2022-09-15"
+
 
 keywords: known issues, bugs, defects
 
@@ -60,13 +62,6 @@ The floating IP associated with a bare metal network interface is not available 
 
 Currently, the `port_min` and `port_max` properties are supported only when routing mode is enabled, and only when the entire port range is specified (`port_min` of `1` and `port_max` of `65535`). Support for allowing an arbitrary port range to be specified is planned for a future release.
 
-## Virtual server instances must be stopped before they can be deleted
-{: #API-1144}
-
-**Issue:** The virtual server instances cannot be deleted.
-
-**Workaround:** Stop the instance before you attempt to delete it.
-
 ## Checksum not available for some public images
 {: #RIOS-1410}
 
@@ -112,3 +107,8 @@ The following issues are currently present in the Cloud Console with no known wo
 {: #custom-images-private-catalog-known-issues}
 
 **Issue:** If you have imported one or more images into a virtual server image for VPC catalog product offering version and you edit that version, an additional version ending in "draft" is created. You can't provision an instance from this draft version. Draft versions might appear on the Virtual server instance creation page in the UI or in the output of the CLI command `ibmcloud is catalog-image-offering`.
+
+## VPC property issue for Security and Compliance Center
+{: #RCS-4957}
+
+**Issue:** If you set a [config rule](/docs/vpc?topic=vpc-manage-security-compliance&interface=ui#govern-vpc) for a virtual server instance with the `metadata_service_enabled` property set to *is_false*, the compliance policy currently has no effect.

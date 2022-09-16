@@ -2,9 +2,10 @@
 
 copyright:
   years: 2018, 2022
+  
 lastupdated: "2022-09-16"
 
-keywords: cli, command line interface, tutorial, create, API, IAM, token, permissions, endpoint, region, zone, profile, status, subnet, gateway, floating IP, delete, resource, provision, vpc, virtual private cloud, vpc ui, console, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range, generation 2, gen 2
+keywords:
 
 subcollection: vpc
 
@@ -111,7 +112,7 @@ ibmcloud is subnet-create my-subnet $vpc us-south-3 --ipv4-cidr-block "10.0.1.0/
 
 From the output that's returned, save the ID in a variable so you can use it later, for example:
 
-```sh
+```
 subnet="0738-658756a4-1106-4914-969a-3b43b338524a"
 ```
 {: pre}
@@ -219,6 +220,7 @@ You can create an instance using a stock image, a custom image from your account
 
 * Select an image shared from a private catalog for the instance
 
+
      If you select a catalog image that belongs to a different account, there are additional considerations and limitations to review. See [Using cross-account image references in a private catalog in the CLI](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-cli)
      {: note}
 
@@ -244,6 +246,7 @@ You can create an instance using a stock image, a custom image from your account
        ```
        {: pre}
 
+
        When you provision an instance, you can either provision the instance from the private catalog managed image in the latest version in a catalog product offering using the `offering_crn` value or from the specific version in the catalog product offering using the `offering_version_crn` value.
 
        Save the `offering_crn` and `offering_version_crn`in variables, which will be used later to provision an instance.
@@ -259,7 +262,9 @@ You can create an instance using a stock image, a custom image from your account
 
 Create an instance in the newly created subnet. Pass in your public SSH key so that you can log in after the instance is provisioned.
 
+
 Run one of the following CLI commands based on the image you plan to use.
+
 
 * Create an instance using a stock image or custom image from your account for your instance.
 
@@ -827,12 +832,12 @@ network_interface="0738-7710e766-dd6e-41ef-9d36-06f7adbef33d"
 You can't get the ID of the primary network interface until you query the specific instance.
 {: important}
 
-### Create and attach a block storage volume
+### (Optional) Create and attach a block storage data volume
 {: #create-and-attach-storage-api-tutorial}
 
-You can create a block storage volume and attach it to your virtual server instance if you want more storage. Create a block storage volume with a request similar to this example, and specify a volume name, zone, and profile.
+You can create a block storage data volume and attach it to your virtual server instance as secondary storage. Create a data volume with a request similar to this example. This procedure shows the volume profiles, crreates a volume, saves the volume ID in a variable, checks the status of the volume, and then creates the volume attachment.
 
-To see a list of volume profiles, provide this request:
+Show a list of volume profiles:
 
 ```bash
 curl -X GET "$vpc_api_endpoint/v1/volumes/profiles?version=$api_version&generation=2" \
@@ -841,6 +846,8 @@ curl -X GET "$vpc_api_endpoint/v1/volumes/profiles?version=$api_version&generati
 {: pre}
 
 Profiles can be general-purpose (3 IOPS/GB), 5iops-tier, 10-iops-tier, and custom. See [Profiles](/docs/vpc?topic=vpc-block-storage-profiles#block-storage-profiles) for information about volume capacity and IOPS ranges based on the volume profile you select.
+
+Create the data volume:
 
 ```bash
 curl -X POST "$vpc_api_endpoint/v1/volumes?version=$api_version&generation=2" \
@@ -859,14 +866,16 @@ curl -X POST "$vpc_api_endpoint/v1/volumes?version=$api_version&generation=2" \
 ```
 {: pre}
 
-Save the ID of the volume in a variable, for example:
+Save the ID of the volume in a variable:
 
 ```bash
 volume_id="0738-640774d7-2adc-4609-add9-6dfd96167a8f"
 ```
 {: pre}
 
-The status of the volume is pending when it first is created. Before you can proceed, the volume needs to move to available status, which takes a few minutes. To check the status of the volume, run this command:
+The status of the volume is `pending` when it first is created. Before you can proceed, the volume needs to move to `available` status, which takes a few minutes.
+
+Check the status of the volume:
 
 ```bash
 curl -X GET "$vpc_api_endpoint/v1/volumes/$volume_id?version=$api_version&generation=2" \
@@ -874,10 +883,12 @@ curl -X GET "$vpc_api_endpoint/v1/volumes/$volume_id?version=$api_version&genera
 ```
 {: pre}
 
-Create a volume attachment to attach the new volume to the virtual server instance. Use the instance ID variable that you created earlier in the request. Use the volume ID, CRN of the volume, or URL to specify the volume in the data parameter. This example uses the variable previously created for the volume ID.
+Create a volume attachment to attach the new data volume to the virtual server instance. Use the instance ID variable that you created earlier in the request. Use the volume ID variable to specify the volume.
+
+Create the volume attachment:
 
 ```bash
-curl -X POST "$vpc_api_endpoint/v1/instances/$server/volume_attachments?version=$version&generation=2" \
+curl -X POST "$vpc_api_endpoint/v1/instances/$instance/volume_attachments?version=$version&generation=2" \
   -H "Authorization: $iam_token" \
   -d '{
         "name": "my-volume-attachment",
@@ -903,7 +914,7 @@ curl -X GET "$vpc_api_endpoint/v1/vpcs/$vpc/default_security_group?version=$api_
 
 Save the ID of the security group in a variable, for example:
 
-```bash
+```
 sg=0738-2d364f0a-a870-42c3-a554-000000981149
 ```
 {: pre}

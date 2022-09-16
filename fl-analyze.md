@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-10"
+lastupdated: "2022-09-09"
 
 keywords: flow logs, viewing objects, SQL, analyze
 
@@ -95,7 +95,7 @@ Flows are tagged as rejected if their packets were blocked by security group or 
 Flow logs are written to the user-specified COS bucket in the following naming convention:
 
 ```sh
-ibm_vpc_flowlogs_v1/account={account}/region={region}/vpc-id={vpc-id}/subnet-id={subnet-id}/endpoint-type=vnics/instance-id={vsi-id}/vnic-id={vnic-id}/record-type={all|ingress|egress|internal}/year={xxxx}/month={yy}/day={zz}/hour={hh}/stream-id={stream-id}/{sequence-number}.gz
+ibm_vpc_flowlogs_v1/account={account}/region={region}/vpc-id={vpc-id}/subnet-id={subnet-id}/endpoint-type=vnics/instance-id={vsi-id}/vnic-id={vnic-id}/record-type={all|ingress|egress}/year={xxxx}/month={yy}/day={zz}/hour={hh}/stream-id={stream-id}/{sequence-number}.gz
 ```
 {: screen}
 
@@ -103,7 +103,7 @@ Where:
 
 * `{stream-id}` is a date and time string in ISO 8601 format `yyyymmddThhmmssZ` (Coordinated Universal Time), defined as the time the first object in the `directory` was created.
 * `{sequence-number}` is a running counter of objects within the stream, represented as an eight-character, zero-filled field (`%08d`).
-* `{all|ingress|egress|internal}` shows the type of traffic the flow includes.
+* `{all|ingress|egress}` shows the type of traffic the flow includes.
 * `{xxxx}` is the year in four-digit format.
 * `{yy}` is the month in two-digit, zero-leading format.
 * `{zz}` is the day of the month in two-digit, zero-leading format.
@@ -216,7 +216,7 @@ You can analyze flow logs with SQL that uses {{site.data.keyword.sqlquery_full}}
 
 The view flattens the flow log data structure; thus, making it easier to analyze your flows.
 
-For more elaborate and repeatable analysis, such as when you want to collaborate and share your log analysis, it is recommended that you use {{site.data.keyword.sqlquery_full}} through Jupyter Notebooks (for example, through IBM Watson Studio). For a generic starter and demo notebook for {{site.data.keyword.sqlquery_full}} that you can use as basis for your work, see [Using IBM Cloud SQL Query](https://dataplatform.cloud.ibm.com/exchange/public/entry/view/4a9bb1c816fb1e0f31fec5d580e4e14d).
+For more elaborate and repeatable analysis, such as when you want to collaborate and share your log analysis, it is recommended that you use {{site.data.keyword.sqlquery_full}} through Jupyter Notebooks (for example, through IBM Watson Studio). For a generic starter and demo notebook for {{site.data.keyword.sqlquery_full}} that you can use as basis for your work, see [Using IBM Cloud SQL Query](https://dataplatform.cloud.ibm.com/analytics/notebooks/v2/656c7d43-7ccd-4e50-a3c0-bbc37c001132/view?access_token=baaa77ad715e17a8f823615d45431329fde0fe92fecb85abb9fc55a877939fe8){: external}.
 {: note}
 
 **Important**: Replace these variables in the following steps:
