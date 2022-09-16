@@ -103,6 +103,9 @@ The following issues are currently present in the Cloud Console with no known wo
 
 **Issue:** Volumes that are created from snapshots and volumes that are resized do not display metrics on the VSI monitoring console page or in the IBM Cloud Monitoring dashboard for "VPC VSI Gen 2 Overview". No known workaround.
 
+## Virtual server instance Activity Tracker events known issues
+{: #at-virtual-server-instances-known-issues}
+
 **Issue:** AT event log entries are missing `target.resourceGroupId` for some actions related to virtual server instances, such as updating or creating a virtual server instance. Instead, the resource group ID might appear in either the `requestData` or `responseData` sections of the event.
 
 ## Custom images in a private catalog known issue
