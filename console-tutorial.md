@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2022
 
-lastupdated: "2022-05-03"
+lastupdated: "2022-09-19"
 
 
 keywords: vpc, virtual private cloud, vpc ui, console, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range
@@ -149,12 +149,20 @@ To create a virtual server instance in the newly created subnet:
 1. Select the type of virtual server that you want to create. By default, Public is selected. 
 1. Select the processor architecture for the virtual server that you want to create. By default, x86 is selected. 
 1. Select an image (that is, operating system and version), such as *Debian GNU/Linux* and *ibm-debian-9-13-minimal-amd64-4*. Alternatively, you can select a snapshot. 
+
+    _For z/OS Wazi aaS custom image only:_ If you use the custom image that is created by using Wazi Image Builder and [Terraform automation](https://github.com/ibm-hyper-protect/zos-vpc-custom-image-builder){: external}, select **Custom image** for the operating system and the image is called `wazi-custom-image` by default.
+    {: note}
+
 1. To set the instance size, select a profile. If you want to choose something other than the default, click **View all profiles** to choose a different core, RAM, and network performance combination that's most appropriate for your workload. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles).
 1. Select an existing SSH key or add an SSH key that is to be used to access the virtual server instance. To add an SSH key, click **Create key** and name the key. After you enter your previously generated public key value, click **Add SSH key**.
 1. _Optional:_ Enter user data to run common configuration tasks when your instance starts. For example, you can specify cloud-init directives or shell scripts for Linux images. For more information, see [User Data](/docs/vpc?topic=vpc-user-data).
 1. _Optional:_ If you want the virtual server instance to be included in a placement group, select **Add instance to placement group**. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc).
 1. Note the boot volume. In the current release, 100 GB is allotted for the boot volume. *Auto Delete* is enabled for the volume; the boot volume is deleted automatically if the instance is deleted.
 1. In the **Data volumes** area, click **Create** to attach a block storage volume to your instance if you want more storage. In this tutorial, we'll create a block storage volume and attach it to the instance later.
+
+    _For z/OS Wazi aaS custom image only:_ When you create a z/OS virtual server instance with the z/OS Wazi aaS custom image, you need to add a data volume by selecting `Import from Snapshot`. The snapshot is called `wazi-custom-image-data` by default.
+    {: note}
+
 1. In the **Networking** area, select the VPC that you created.
 1. In the **Network interfaces** area, you can edit the network interface and change its name. If you have more than one subnet in the selected zone and VPC, you can attach a different subnet to the interface. If you want the instance to exist in multiple subnets, you can create more interfaces.
 
@@ -186,6 +194,7 @@ To create and attach a block storage volume:
 1. Click **Create volume**.
 1. In the list of block storage volumes, find the volume that you created. When the status is Available, click "..." and select **Attach to instance**.
 1. Select the instance to which you want to attach the volume and click **Attach**.
+1. _For z/OS virtual server instances only:_ To verify the newly attached block storage volume with its address assigned, you can find the information on your z/OS virtual server instance console via a broadcast message sent to you with the affected device address.
 
 ## Configuring the security group for the instance
 {: #configuring-the-security-group}
@@ -255,7 +264,9 @@ For more information about how to connect to your instance, see [Connecting to L
 
 To connect to a Windows image, log in using its decrypted password. For instructions, see [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
 
-You can now access your IBM Cloud virtual server instance by connecting to a VNC or serial console. This is a quick-and-easy way for you to interact with the instance without using a Secure Shell. For more information about this feature, see [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console)
+To connect to your z/OS virtual server instance, see [Connecting to z/OS virtual server instances](/docs/vpc?topic=vpc-vsi_is_connecting_zos).
+
+You can now access your IBM Cloud virtual server instance by connecting to a VNC or serial console. This is a quick-and-easy way for you to interact with the instance without using a Secure Shell. However, accessing your z/OS virtual server instance by using a VNC console on the IBM Cloud UI is not supported. For more information about this feature, see [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console).
 {: note}
 
 ## Monitoring your instance
