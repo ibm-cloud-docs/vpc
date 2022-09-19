@@ -15,7 +15,7 @@ subcollection: vpc
 # Getting started with custom images
 {: #planning-custom-images}
 
-Custom images are used to create new virtual servers with your own settings and configurations. You can create a Linux&reg; custom image, a Windows&reg; custom image, a z/OS custom image, or a VMware custom image. You can import your custom image directly into {{site.data.keyword.vpc_full}} from {{site.data.keyword.cos_full}} or create one from an existing virtual server boot volume. You can also create an image template to migrate a virtual server from the Classic infrastructure. After a custom image is created and imported into {{site.data.keyword.vpc_short}}, you can import it into a private catalog, with some limitations. For more information regarding these limitations, see [Private catalog considerations](/docs/vpc?topic=vpc-planning-custom-images#custom-image-cloud-private-catalog).
+Custom images are used to create new virtual servers with your own settings and configurations. You can create a Linux&reg; custom image, a Windows&reg; custom image, a z/OS Wazi aaS custom image, or a VMware custom image. You can import your custom image directly into {{site.data.keyword.vpc_full}} from {{site.data.keyword.cos_full}} or create one from an existing virtual server boot volume. You can also create an image template to migrate a virtual server from the Classic infrastructure. After a custom image is created and imported into {{site.data.keyword.vpc_short}}, you can import it into a private catalog, with some limitations. For more information regarding these limitations, see [Private catalog considerations](/docs/vpc?topic=vpc-planning-custom-images#custom-image-cloud-private-catalog).
 {: shortdesc}
 
 ## Prerequisites and limitations
@@ -39,6 +39,19 @@ Before you create a custom image, you must verify that your custom image meets t
 {: #custom-image-cloud-object-storage}
 
 If you plan to import an image from a file, you must provision an instance of {{site.data.keyword.cos_full_notm}} if you don't already have one. You can then upload the file to a bucket there. You must also create an IAM authorization between the Image Service for VPC and {{site.data.keyword.cos_full_notm}}. For more information, see [Granting access to {{site.data.keyword.cos_full_notm}} to import images](/docs/vpc?topic=vpc-object-storage-prereq&interface=cli).
+
+## z/OS Wazi aaS custom images
+{: #custom-image-zos}
+
+You can use IBM Wazi Image Builder to create your own custom z/OS-based {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) image and import the custom image into {{site.data.keyword.vpc_full}}.
+
+IBM Wazi Image Builder is a separately orderable product from [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/){: external}. There are additional requirements to order and use Wazi Image Builder. The image cost is the premium applied to cover the cost of technologies that allows for z/OS dev and test images to run on IBM Z hardware in IBM’s cloud infrastructure as a service layer. 
+
+The z/OS Wazi aaS custom image must meet the following requirements: 
+* Is in qcow2 format
+* The operating system is z/OS 2.4 or z/OS 2.5
+
+For more information, see [Bringing your own image with Wazi Image Builder](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=bringing-your-own-image-wazi-image-builder){: external}.
 
 ### Private catalog considerations
 {: #custom-image-cloud-private-catalog}
@@ -76,7 +89,7 @@ Use one of the following procedures to create the custom image.
 * [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image)
 * [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc)
 * [Creating an image from a volume](/docs/vpc?topic=vpc-create-ifv&interface=ui)
-* For IBM z/OS software, see [Bringing your own image with Wazi Image Builder](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=bringing-your-own-image-wazi-image-builder)
+* [Creating a z/OS Wazi aaS custom image](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=builder-creating-zos-images){: external}
 
 Did you know that you can use the IBM Cloud [Packer Plug-in](https://github.com/IBM/packer-plugin-ibmcloud){: external} to create and manage custom images on IBM Cloud? For more information, see this [blog post](https://www.ibm.com/cloud/blog/build-hardened-and-pre-configured-vpc-custom-images-with-packer){: external} for an example of how to use the IBM Cloud plugin for Packer.
 {: tip}
