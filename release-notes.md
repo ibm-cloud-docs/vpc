@@ -766,7 +766,7 @@ File Storage for VPC
 :   File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions. With this feature, you can create NFS-based file shares in a single zone in a region. You can share file storage over multiple virtual service instances within the same zone across multiple VPCs. For more information about this service, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about). Contact your IBM Sales representative if you are interested in getting access.
 
 ### 07 April 2021
-{: #vpc-may2521}
+{: #vpc-april2521}
 {: release-note}
 
 File Storage for VPC (beta)
@@ -941,7 +941,7 @@ Customer-managed encryption (GA)
 :   You can now bring your own license (BYOL) when you import a custom image to {{site.data.keyword.vpc_short}}. This is a Beta feature that is available for evaluation and testing purposes. Contact your IBM Sales representative if you are interested in getting access. For more information, see [Bring your own license (Beta)](/docs/vpc?topic=vpc-byol-vpc-about).
 
 ### 17 December 2020
-{: #vpc-dec2220}
+{: #vpc-dec1720}
 {: release-note}
 
 Checksum (SHA256) for imported images (Beta)
@@ -1397,7 +1397,7 @@ Advanced routing
 :   Control the flow of network traffic in your VPC by configuring VPC routes. For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes).
 
 ## June 2019
-{: #vpc-oct19}
+{: #vpc-june19}
 
 ### 04 June 2019
 {: #vpc-jun-0419}
