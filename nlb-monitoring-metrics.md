@@ -120,7 +120,7 @@ To receive monitoring metrics, you must set up {{site.data.keyword.mon_full_notm
 
 To do so, follow these steps:
 
-1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring), then click **Create a monitoring instance**.
+1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring){: external}, then click **Create a monitoring instance**.
 
 2. Select a region for your monitoring instance.
 
@@ -158,7 +158,7 @@ Within a few minutes, your new monitoring instance is displayed with several con
 
 To view and work with your monitoring metrics, follow these steps:
 
-1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring).
+1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring){: external}.
 
 2. Click **Open Dashboard** next to the service name of the monitoring instance that you want to work with.
 
@@ -181,7 +181,7 @@ You can create your own dashboard to customize your monitoring metrics, such as 
 
 To customize your dashboard, follow these steps:
 
-1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring).
+1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring){: external}.
 
 2. Click **Open Dashboard** next to the service name of the monitoring instance you want to work with. The dashboard displays.
 
@@ -225,7 +225,7 @@ After creating your {{site.data.keyword.mon_full_notm}} instance, you must colle
 
 To collect this information and start working with your monitoring instance using metric query API, follow these steps:
 
-1. Access the [Monitoring home page](https://cloud.ibm.com/observe/monitoring), and click **Open Dashboard** next to the instance you want to work with. After the {{site.data.keyword.mon_full_notm}} dashboard displays, select your Account Profile icon on the left sidebar, then select **Settings**. Your account settings display.
+1. Access the [Monitoring home page](https://cloud.ibm.com/observe/monitoring){: external}, and click **Open Dashboard** next to the instance you want to work with. After the {{site.data.keyword.mon_full_notm}} dashboard displays, select your Account Profile icon on the left sidebar, then select **Settings**. Your account settings display.
 
    ![Settings](images/metrics_settings.png "Settings"){: caption="Figure 5. Settings" caption-side="bottom}
 
