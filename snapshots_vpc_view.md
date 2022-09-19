@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-02-10"
+lastupdated: "2022-09-19"
 
-keywords: snapshots, virtual private cloud, boot volume, data volume, volume, data storage, backup, virtual server instance, instance
+keywords:
 
 subcollection: vpc
 
@@ -16,7 +16,6 @@ subcollection: vpc
 {:important: .important}
 {:screen: .screen}
 {:pre: .pre}
-{:beta .beta}
 {:table: .aria-labeledby="caption"}
 {:note: .note}
 {:tip: .tip}
@@ -32,7 +31,7 @@ You can view a list of all snapshots and drill down to see information about a p
 {: shortdesc}
 
 ## List snapshots in the UI
-{: #snapshots-vpc-view-list-ui}
+{: #snapshots-vpc-view-ui}
 {: ui}
 
 ### List all snapshots in the UI
@@ -42,7 +41,7 @@ View a list of all snapshots that you created, with the most recent one at the b
 
 1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage snapshots**. By default, the newest snapshots display at the beginning of the list.
 
-You can also view a list of snapshots for a volume. For more information, see [View all snapshots created from the block storage volume](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-snapshots-for-volume).
+You can also view a list of snapshots for a volume. For more information, see [View all snapshots that were created from the block storage volume](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-snapshots-for-volume).
 {: tip}
 
 1. View snapshots in your account region. If you created snapshots in a different region, expand the list and select the region.
@@ -51,8 +50,8 @@ You can also view a list of snapshots for a volume. For more information, see [V
 
 Table 1 describes the information for all snapshots in the list of snapshots. 
 
-| Field | Value |
-|-------|-------|
+| Field | Description |
+|-------|-------------|
 | Name  | The name you provided when you created the snapshot. Click the name of the snapshot to see its [details](#snapshots-vpc-view-snapshot-ui). |
 | Status | Status of the snapshot, depending on whether it's usable (_active_ status), unusable, being created, and so on. For more information, see [Snapshot statuses](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-status). |
 | Size | Size of the snapshot in GBs, inherited from the source volume. |
@@ -60,14 +59,16 @@ Table 1 describes the information for all snapshots in the list of snapshots.
 | Source volume | The boot or data volume from which the snapshot was created. Click the name of the volume to see its [details](/docs/vpc?topic=vpc-viewing-block-storage). |
 | Bootable | Whether the snapshot is of a boot volume. |
 | Created | The date and time the snapshot was created. |
-| Tags | Number of tags applied to this snapshot from the source volume. If there are no tags applied to the snapshot that were inherited from the source volume, **Add tags** allows you to apply tags to the snapshot. Tags inherited from the source volume might be associated with a backup policy. When you restore a volume from this snapshot, and the tags match a backup policy, then the newly restored volume will be backed up. For information about creating backups, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-about). | 
+| Tags | Number of tags that are applied to this snapshot from the source volume. If no tags were applied to the snapshot that were inherited from the source volume, you use **Add tags** to apply tags to the snapshot. Tags that are inherited from the source volume might be associated with a backup policy. When you restore a volume from this snapshot, and the tags match a backup policy, then the newly restored volume is backed up. For more information about creating backups, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-about). | 
 | Created By | Indicates whether the snapshot was created by a [backup policy](/docs/vpc?topic=vpc-backup-policy-create) or manually by the user. |
-| Actions (ellipsis) | Click the overflow icon to display a menu of context-specific actions you can take: | 
+| Overflow menu | Click the overflow menu icon to display a menu of context-specific actions that you can take: | 
+| | Rename |
 | | Copy the snapshot ID |
 | | Copy the Cloud Resource Name (CRN) |
+| | [Create volume](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-vpc-restore-ui) |
 | | [Delete the snapshot](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete) |
 | | [Delete all snapshots for a volume](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete-all-ui) | 
-{: caption="Table 1. List of all snapshots" caption-side="top"}
+{: caption="Table 1. List of all snapshots" caption-side="bottom"}
 
 You can also list all snapshots that were created from a block storage volume from the volume details page. For more information, see [List all snapshots for a volume](/docs/vpc?topic=vpc-view-snapshots-for-volume).
 
@@ -78,33 +79,30 @@ To see details about a snapshot:
 
 1. Go to the list of all snapshots. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage snapshots**.
 
-1. Click the name of a snapshot. The snapshot details side panel shows the information that is described in Table 2.
+2. Click the name of a snapshot. The snapshot details side panel shows the information that is described in Table 2.
 
-| Field | Value |
-|-------|-------|
+| Field | Description |
+|-------|-------------|
 | Status | Current status of the snapshot, such as _Stable_. For a list of snapshot statuses, see [Snapshot statuses](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status). |
-| Tags | User tags inherited from the source volume when the snapshot is created, or that you manually apply to a snapshot. When you restore a volume from this snapshot, and the new volume's tags match tags for target resources in a backup policy, the new volume is automatically backed up based on a backup plan schedule. For information about creating backups, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-about). For information about creating and using tags, see [Working with tags](/docs/account?topic=account-tag). |
+| Tags | User tags are inherited from the source volume when the snapshot is created appear near the snapshot name. Click the pencil icon to add tags. When you restore a volume from this snapshot, and the new volume's tags match tags for target resources in a backup policy, the new volume is automatically backed up based on a backup plan schedule. For more information about creating backups, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-about). For more information about working with tags, see [Working with tags](/docs/account?topic=account-tag). |
 | Name  | The name of the snapshot, which you can change by clicking the pencil icon. For more information, see [Change the snapshot name](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-rename). |
-| Resource group | |
-| ID | Copiable GUID of the snapshot. |
+| Snapshot ID | Copiable GUID of the snapshot. |
+| Bootable | Shows yes if a boot volume snapshot or no if a data volume snapshot. |
 | CRN | Copiable CRN of the snapshot. |
-| Created | Date and time that the snapshot resource creation process started. |
-| Created by | Automatically by a [backup policy](/docs/vpc?topic=vpc-backup-policy-create) or manually by the user. If created by a backup policy, a link to the policy displays. |
-| Backup plan | Displays when the snapshot was created by a backup policy. |
-| Captured | The date and time that this snapshot was captured, that is, the volume data was snapshotted. If absent, the snapshot has not yet been captured or the snapshot was created before this feature was introduced (January 2022). ||
-| Region | Region of your account, such as us-south |
+| Created date | Date and time that the snapshot resource creation process started. |
+| Captured date | The date and time that this snapshot was captured, that is, the volume data was snapshotted. If absent, the snapshot wasn't captured or the snapshot was created before this feature was introduced (January 2022). |
 | Size| Size in GBs of the snapshot, inherited from the source volume. |
 | Source volume | Source volume from which the first snapshot was taken. Click the link for volume details. If the volume was deleted, the name appears without a link. |
-| KMS instance | Link to the Key Protect or HPCS instance that is used for customer-managed encryption. |
-| Key name | Name of the root key that is protecting the volume. |
-| Key | Copiable GUID of the root key. |
-{: caption="Table 2. Snapshot details" caption-side="top"}
+| Encryption | Provider-managed or customer-managed encryption. |
+{: caption="Table 2. Snapshot details" caption-side="bottom"}
+
+You can use the Actions menu to [create a volume from the snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-restore-create-vol-ui) or delete the snapshot. 
 
 ## View snapshots from the CLI
 {: #snapshots-vpc-view-cli}
 {: cli}
 
-You can list all snapshots, all snapshots for a volume, and details about a particular snapshot.
+You can use the CLI to list all snapshots, all snapshots for a volume, and details about a particular snapshot.
 
 ### View all snapshots
 {: #snapshots-vpc-view-all-cli}
@@ -203,11 +201,11 @@ Captured               2022-01-14T01:53:34+05:30
 ### List all snapshots with the API
 {: #snapshots-vpc-view-all-api}
 
-Using the [VPC API](https://{DomainName}/apidocs/vpc), make a `GET/snapshots` request to list all snapshots of your volumes. By default, the list shows the most recent snapshots first, followed by older snapshots in descending order. 
+Using the [VPC API](/apidocs/vpc), make a `GET/snapshots` request to list all snapshots of your volumes. By default, the list shows the most recent snapshots first, followed by older snapshots in descending order. 
 
    ```curl
    curl -X GET \
-   "$vpc_api_endpoint/v1/snapshots?version=2022-01-16&generation=2" \
+   "$vpc_api_endpoint/v1/snapshots?version=2022-08-16&generation=2" \
    -H "Authorization: $iam_token"
    ```
    {: pre}
@@ -218,13 +216,13 @@ You can filter the list by using the resource group ID, source volume ID, or sou
 * Start - To specify which snapshot (by ID) to start the list.
 * Sort - To control the order in which you sort the page, such as by date created or alphabetically by snapshot name.
 
-For more information, see the [VPC API reference](https://{DomainName}/apidocs/vpc).
+For more information, see the [VPC API reference](/apidocs/vpc).
 
 For example, this call filters the list to show snapshots that were created for a single volume and limits the results to five per page.
 
 ```curl
 curl -X GET \
-"$vpc_api_endpoint/v1/snapshots?version=2022-01-16&generation=2" \
+"$vpc_api_endpoint/v1/snapshots?version=2022-08-16&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
       "limit": 5,
@@ -259,8 +257,8 @@ A successful response looks like the following example:
         volumes/8948ad59-bc0f-7510-812f-5dc64f59fab8",
         "name": "my-data-volume-1"
       },
-      "created_at": "2022-01-12T07:02:01Z",
-      "captured_at": "2022-01-12T07:02:17Z",
+      "created_at": "2022-08-16T07:02:01Z",
+      "captured_at": "2022-08-16T07:02:17Z",
       "lifecycle_state": "stable",
       "minimum_capacity": 100,
       "operating_system": {
@@ -328,7 +326,7 @@ For details about a single snapshot, use the VPC API to make a `GET/snapshots` c
 
    ```curl
    curl -X GET \
-   "$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2022-01-12&generation=2" \
+   "$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2022-08-16&generation=2" \
    -H "Authorization: $iam_token"
    ```
    {: pre}
@@ -355,8 +353,8 @@ A successful response looks like the following example:
     "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/7528eb61-bc01-4763-a67a-a414a103f96d",
     "name": "my-data-volume-1"
   },
-  "created_at": "2022-01-12T07:02:01Z",
-  "captured_at": "2022-01-12T07:02:17Z",
+  "created_at": "2022-08-16T07:02:01Z",
+  "captured_at": "2022-08-16T07:02:17Z",
   "lifecycle_state": "stable",
   "minimum_capacity": 100,
   "operating_system": {
