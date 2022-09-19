@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-08-25"
+lastupdated: "2022-09-19"
 
 keywords: image, stock image, linuxone image, hpcr, container runtime, virtual private cloud, virtual server, generation 2, gen 2, wazi aas
 
@@ -35,7 +35,7 @@ You can now choose IBM Hyper Protect as the operating system for the virtual ser
 You can choose a profile based on your requirements. You can choose from balanced, compute, and memory secure execution enabled profiles. For more information, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). Ensure that you select a secure execution enabled profile (for example, bz2e-1x4) when you enable the **Run your workload with an OS and a profile protected by Secure Execution** toggle. Selecting any profile that is not secure execution enabled will cause the provisioning of the virtual instance to fail.
 
 
-### Supported s390x stock image operating systems
+### Supported IBM Z or LinuxONE stock image operating systems
 {: #vs-s390x-supported-os}
 
 | Image | Architectures |
@@ -45,7 +45,7 @@ You can choose a profile based on your requirements. You can choose from balance
 |  IBM z/OS (IBM Wazi as a Service) | s390x |
 {: caption="Table 1. Supported s390x stock image operating systems" caption-side="bottom"}
 
-The option to select the Wazi aaS z/OS dev and test image is offered as an IBM Cloud allow-listed service and the image is available in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), and US East (Washington DC) regions. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service){: external}.
+The {{site.data.keyword.waziaas_short}} z/OS dev and test stock image is available in all regions supported for the s390x architecture including: Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), and US East (Washington DC). For more information, see [{{site.data.keyword.waziaas_full_notm}} documentation](https://www.ibm.com/docs/en/wazi-aas/1.0.0){: external}.
 {: note}
 
 For information about images for x86 processor architecture, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images).
@@ -96,7 +96,12 @@ You can import an image from {{site.data.keyword.cos_full_notm}} to use for crea
 
 To create secure execution based custom images by using the Cloud Object Storage option, see [Preparing the workload](https://www.ibm.com/docs/en/linux-on-systems?topic=tasks-prepare-workload). For information about creating secure execution based images, see [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=overview-introducing-secure-execution-linux).
 
-The IBM Wazi as a Service (Wazi aaS) custom image can be created by using IBM Wazi Image Builder, which is a separately orderable product from IBM’s Passport Advantage. There are additional requirements to order and use Wazi Image Builder. The image cost is the premium applied to cover the cost of technologies that allows for z/OS dev and test images to run on IBM Z hardware in IBM’s cloud infrastructure as a service layer. For more information, see [Bringing your own image with Wazi Image Builder](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=bringing-your-own-image-wazi-image-builder){: external}.
+The {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) custom image can be created only by using IBM Wazi Image Builder, which is a separately orderable product from [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/){: external}. There are additional requirements to order and use Wazi Image Builder. The image cost is the premium applied to cover the cost of technologies that allows for z/OS dev and test images to run on IBM Z hardware in IBM’s cloud infrastructure as a service layer. The z/OS Wazi aaS custom image must meet the following requirements: 
+
+* Is in qcow2 format
+* The operating system is z/OS 2.4 or z/OS 2.5
+
+For more information, see [Bringing your own image with Wazi Image Builder](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=bringing-your-own-image-wazi-image-builder){: external}.
 
 ### Requirements
 {: #vs_custom-image-reqs}
