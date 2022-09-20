@@ -39,7 +39,7 @@ The following information is for customers with basic network knowledge of {{sit
 
 LinuxONE Bare Metal Server for VPC provides full support for VPC networking features. The network is fully software-defined, so you can configure it through the API.
 
-Based on the profile you select for the LinuxONE bare metal server, the supported bandwidth can be 2 or 10 Gbps. The bandwidth is shared by the network interfaces that are created on the LinuxONE bare metal server. For more informationb about the profiles for LinuxONE Bare Metal servers, see [LinuxONE Bare Metal server profiles](/dcos/vpc?topic=vpc-linuxone-bare-metal-servers-profile).
+Based on the profile you select for the LinuxONE bare metal server, the supported bandwidth can be 2 or 10 Gbps. The bandwidth is shared by the network interfaces that are created on the LinuxONE bare metal server. For more informationb about the profiles for LinuxONE Bare Metal servers, see [s390x Bare Metal server profiles](/dcos/vpc?topic=vpc-s390x-bare-metal-servers-profile).
 
 For more information about managing network interfaces, see the s390x specific information on [Managing network interfaces for a bare metal server](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers).
 

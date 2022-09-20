@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-19"
+lastupdated: "2022-09-27"
 
 keywords: bare metal server profile, profile, LinuxONE bare metal profiles, viewing profile, view profiles
 
@@ -27,19 +27,19 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# LinuxONE Bare Metal server profiles
-{: #linuxone-bare-metal-servers-profile}
+# s390x Bare Metal server profiles
+{: #s390x-bare-metal-servers-profile}
 
-When you create a LinuxONE bare metal server, you can select from a profile family that best fits your needs. A profile provides a different combination of hardware configurations that include number of CPU cores, amount of RAM, and size of local storage. The attributes define the size and capabilities of the bare metal server that is provisioned.
+When you create a LinuxONE bare metal server, you can select from a s390x architecture based profile that best fits your needs. A profile provides a different combination of hardware configurations that include number of CPU cores, amount of RAM, and size of local storage. The attributes define the size and capabilities of the bare metal server that is provisioned.
 {: shortdesc}
 
 
-LinuxONE bare metal server profiles are in the "Memory" profile family because their "vCPU : Memory" ratios is larger than "1:16". For more information about profile families, see [Instance Profiles](/docs/vpc?topic=vpc-profiles).
+The s390x bare metal server profiles are in the "Memory" profile family because their "vCPU : Memory" ratios is larger than "1:16". For more information about profile families, see [Instance Profiles](/docs/vpc?topic=vpc-profiles).
 
 ## Profiles configurations
 {: #bare-metal-servers-profile-list}
 
-See table 2 for the configurations of each profile.
+See table 2 for the configurations of each profile. Each CPU core of the LinuxONE Bare Metal server has 2 Simultaneous Multithreading (SMT) threads for increasing the efficiency of CPUs to deliver more throughput per processor core.
 
 | Name | CPU Cores | vCPU |Memory (GiB) | SAN storage | Total Network Bandwidth (Gbps) | number of supported interfaces |
 |---------|---------|---------|---------|---------|---------|------|
@@ -47,8 +47,8 @@ See table 2 for the configurations of each profile.
 | mz2d-metal-16x512 | 8 | 16 | 512 | 100 GB FCP boot storage on IBM FlashSystem 9200 <br><br>4096 GB FCP Data storage | 10 | 2 |
 {: caption="Table 2. LinuxONE Bare Metal servers profile" caption-side="bottom"}
 
-**Note:** Each CPU core of the LinuxONE Bare Metal server has 2 Simultaneous Multithreading (SMT) threads for increasing the efficiency of CPUs to deliver more throughput per processor core.
-{: note}
+The s390x architecture based Bare Metal profiles can be used to provision LinuxONE Bare Metal server instances. These profiles are available in the US East (Washington DC) region.
+{: preview}
 
 ## Understanding the naming rule of the profiles
 {: #profile-naming-rule}

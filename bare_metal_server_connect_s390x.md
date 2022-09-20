@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-19"
+lastupdated: "2022-09-27"
 
 keywords: LinuxONE Bare Metal, Connecting, connect to LinuxONE Bare Metal, floating IP
 

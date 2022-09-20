@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-19"
+lastupdated: "2022-09-27"
 
 keywords: linuxone bare metal license, linux license, byol, bring your own license
 
@@ -27,8 +27,8 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# LinuxONE Bare Metal servers images
-{: #linuxone-bare-metal-image}
+# s390x Bare Metal servers images
+{: #s390x-bare-metal-image}
 
 You can install IBM provided Linux operating system images on your LinuxONE Bare metal server.
 {: shortdesc}

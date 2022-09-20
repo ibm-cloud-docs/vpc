@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-19"
+lastupdated: "2022-09-27"
 
 keywords: About, LinuxONE Bare Metal servers, Overview
 
@@ -30,7 +30,7 @@ The following features are included with a LinuxONE bare metal server.
 
 You can choose different profiles to meet your individual workload needs and help accelerate deployment of your compute resources. You get maximum performance without oversubscribing.
 
-For more information, see [Profiles for LinuxONE Bare Metal servers](/docs/vpc?topic=vpc-linuxone-bare-metal-servers-profile).
+For more information, see [s390x Bare Metal server profiles](/docs/vpc?topic=vpc-s390x-bare-metal-servers-profile).
 
 ### Latest semiconductor technology
 
