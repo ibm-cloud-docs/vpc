@@ -24,7 +24,6 @@ subcollection: vpc
 {:preview: .preview}
 {:external: target="_blank" .external}
 
-<!-- DO NOT MOVE WAZI AAS TO PUBLISH-->
 
 # Connecting to z/OS virtual server instances
 {: #vsi_is_connecting_zos}
@@ -32,12 +31,12 @@ subcollection: vpc
 A z/OS virtual server instance is typically a private backend infrastructure component that must never be directly accessed from the outside world. Even environments that are used for development, testing, or demonstration must follow good practices for logical isolation.
 {: shortdesc}
 
-You can refer to the solution tutorial [Public front end and private backend in a Virtual Private Cloud](/docs/vpc?topic=solution-tutorials-vpc-public-app-private-backend) to learn how to use subnets to isolate and control traffic to backend infrastructure such as a z/OS virtual server instance.
+You can refer to the solution tutorial [Public frontend and private backend in a Virtual Private Cloud](/docs/vpc?topic=solution-tutorials-vpc-public-app-private-backend) to learn how to use subnets to isolate and control traffic to backend infrastructure such as a z/OS virtual server instance.
 
 Additionally, good practices be can be used to securely connect to a VPC subnet by containing a z/OS virtual server instance.
 
 *  [Securely access remote instances with a bastion host](/docs/vpc?topic=solution-tutorials-vpc-secure-management-bastion-server)
-*  [Using client-to-site VPN servers (Beta)](/docs/vpc?topic=vpc-vpn-client-to-site-overview)
+*  [About client-to-site VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-overview)
 
 After you connected to the VPC network by using the client-to-site VPN server, you can access the z/OS virtual server instance by using the private IP address.
 
@@ -86,7 +85,7 @@ If you are using your z/OS Wazi aaS custom images, you do not need to configure 
     * The z/OS virtual server instance retains the last five passwords for each user and prevents these passwords from being reused.
     * Inactive user IDs are not automatically revoked.                        
                                                                 
-   For more information about the commands, see [tsocmd - Run a TSO/E command from the shell (including authorized commands)](https://www.ibm.com/docs/en/zos/2.4.0?topic=scd-tsocmd-run-tsoe-command-from-shell-including-authorized-commands){: external} and [ALTUSER](https://www.ibm.com/docs/en/zos/2.4.0?topic=syntax-altuser-alter-user-profile){: external}.
+   For more information about the commands, see [tsocmd - Run a TSO/E command from the shell (including authorized commands)](https://www.ibm.com/docs/en/zos/2.4.0?topic=scd-tsocmd-run-tsoe-command-from-shell-including-authorized-commands){: external} and [ALTUSER (Alter user profile)](https://www.ibm.com/docs/en/zos/2.4.0?topic=syntax-altuser-alter-user-profile){: external}.
 
 ## Step 2. Getting connected
 {: #getting-connected}
@@ -179,7 +178,7 @@ For more information about the authorized_key file and z/OS user profiles, see [
 
 
 ## Next steps
-{: #next-manage-vsi}
+{: #connect-zos-next}
 
 After you connected to your virtual server instance, you can [manage your instance](/docs/vpc?topic=vpc-managing-virtual-server-instances). 
 

@@ -42,10 +42,10 @@ You can choose a profile based on your requirements. You can choose from balance
 |---------|---------|
 |  Ubuntu 18.04.x | s390x |
 |  SUSE Linux Enterprise server (SLES) 15 SP2 | s390x |
-|  IBM z/OS (IBM Wazi as a Service) | s390x |
+|  IBM z/OS ({{site.data.keyword.waziaas_full_notm}}) | s390x |
 {: caption="Table 1. Supported s390x stock image operating systems" caption-side="bottom"}
 
-The {{site.data.keyword.waziaas_short}} z/OS dev and test stock image is available in all regions supported for the s390x architecture including: Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), and US East (Washington DC). For more information, see [{{site.data.keyword.waziaas_full_notm}} documentation](https://www.ibm.com/docs/en/wazi-aas/1.0.0){: external}.
+The {{site.data.keyword.waziaas_short}} z/OS dev and test stock image is available in all regions supported for the s390x architecture, including Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), and US East (Washington DC). For more information, see [{{site.data.keyword.waziaas_full_notm}} documentation](https://www.ibm.com/docs/en/wazi-aas/1.0.0){: external}.
 {: note}
 
 For information about images for x86 processor architecture, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images).
