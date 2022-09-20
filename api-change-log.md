@@ -76,7 +76,7 @@ You have until 13 December 2022 to upgrade to more secure ciphers. After this da
 
 **Additional VPN for VPC ciphers.** VPN gateways now provide new algorithms to help meet your security and compliance requirements.
 
-[IKE policy](/apidocs/vpc/latest#list-ike-policies) methods now support the `sha384` value for the `authentication_algorithm` property, `aes192` value for the `encryption_algorithm` property, and groups 15-18, 20-24, and 31 for the `dh_group` property. \
+[IKE policy](/apidocs/vpc/latest#list-ike-policies) methods now support the `sha384` value for the `authentication_algorithm` property, `aes192` value for the `encryption_algorithm` property, and groups 15-18, 20-24, and 31 for the `dh_group` property.
 
 [IPsec policy](/apidocs/vpc/latest#list-ipsec-policies) methods now support `sha384` and `disabled` values for the `authentication_algorithm` property, `aes192`, `aes128gcm16`, `aes192gcm16`, and `aes256gcm16` values for the `encryption_algorithm` property, and groups 15-18, 20-24, and 31 for the `dh_group` property.
 
