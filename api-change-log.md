@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-09-13"
+lastupdated: "2022-09-20"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -37,9 +37,6 @@ SDK changes are based on API changes. For information about the latest changes t
 
 ## Upcoming changes
 {: #upcoming-changes}
-
-### For all version dates
-{: #upcoming-changes-all-version-dates}
 
 **VPC route naming restriction.** In an upcoming release, you will no longer be able to create VPC routes that begin with the name `ibm-`. Existing routes that begin with the name `ibm-` will not be affected. To prepare for this change, review the names used by any automation that creates routes, and update the names used as necessary.
 
