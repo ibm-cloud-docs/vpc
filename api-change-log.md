@@ -38,9 +38,6 @@ SDK changes are based on API changes. For information about the latest changes t
 ## Upcoming changes
 {: #upcoming-changes}
 
-### For all version dates
-{: #upcoming-changes-all-version-dates}
-
 **VPC route naming restriction.** In an upcoming release, you will no longer be able to create VPC routes that begin with the name `ibm-`. Existing routes that begin with the name `ibm-` will not be affected. To prepare for this change, review the names used by any automation that creates routes, and update the names used as necessary.
 
 **References to inaccessible images** In an upcoming release, image references may refer to custom images in other accounts. Such references are used in the `image` properties of the `Instance` and `BareMetalServerInitialization` response schemas and in the `source_image` properties of the `Volume` and `Snapshot` response schemas. Such an image cannot be accessed by its `id`, `crn`, or `href`, regardless of the caller's authorizations, and attempts will fail as if the image does not exist.
