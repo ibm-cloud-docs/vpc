@@ -286,6 +286,7 @@ toc:
                 topics:
                 - vpn-using.md
                 - vpn-create.md
+                - vpn-upgrade-ciphers.md
                 - vpn-add-connection.md
                 - vpn-create-ike-policy.md
                 - vpn-create-ipsec-policy.md
@@ -338,6 +339,7 @@ toc:
                 - lb-health-checks.md
                 - lb-adv-traffic-mgmt.md
                 - lb-layer-7-policies-rules.md
+                - lb-updating-subnets.md
                 - lb-monitoring-metrics.md
                 - lb-ig-integration.md
                 - lb-sg-integration.md

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-01-24"
+  years: 2020, 2021
+lastupdated: "2021-08-06"
 
 keywords: flow logs, getting started
 

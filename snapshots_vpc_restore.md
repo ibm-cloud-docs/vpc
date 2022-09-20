@@ -60,8 +60,8 @@ You can restore a volume from a snapshot from the [list of block storage snapsho
 
 With the API, you can create an new data volume from a snapshot of an unattached data volume by making a `POST /volumes` call and specifying the snapshot ID. The stand-alone volume created from the snapshot is fully hydrated (data is restored) when you later attach it to an instance. Volume performance is initially degraded until the volume data is fully restored. For an example API call, see [Restoring a data volume from a snapshot of an unattached volume](#snapshots-vpc-restore-unattached-api). Also see the [limitations](#snapshots-vpc-restore-unattach-limits) when restoring a volume from a snapshot of an unattached volume.
 
-### Additional considerations
-{: #snapshots-vpc-restore-vsi-concepts}
+### Extra considerations
+{: #extra-considerations-snapshots-vpc-restore-vsi-concepts}
 
 The restored volume inherits the same [profile](/docs/vpc?topic=vpc-block-storage-profiles), capacity, data, and metadata as the original volume. You can choose a different profile and capacity if you prefer. If the source volume used [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption), the volume inherits that encryption.
 
