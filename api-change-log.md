@@ -64,6 +64,9 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 ## 20 September 2022
 {: #20-september-2022}
 
+### For all version dates
+{: #20-september-2022-all-version-dates}
+
 **Deprecated VPN for VPC ciphers.** The following VPN IKE and IPsec ciphers are now deprecated:
 - Authentication algorithms `md5` and `sha1`
 - Encryption algorithm `triple_des`
