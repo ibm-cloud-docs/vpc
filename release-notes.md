@@ -42,6 +42,15 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## September 2022
 {: #vpc-september22}
 
+### 20 September 2022
+{: #vpc-september2022}
+{: release-note}
+
+Updating subnets for existing application load balancers
+:   You can now add or remove subnets for existing ALBs using the UI, API, or CLI. ETag support has also been added for load balancer resources, as it is required for any resource that allows arrays to be updated. For more information, refer to [Updating subnets for existing application load balancers](/docs/vpc?topic=vpc-alb-updating-subnets&interface=ui).
+
+:   For guidance on the use of ETags, see [Concurrent update protection](/apidocs/vpc/latest#concurrent-update-protection).
+
 ### 12 September 2022
 {: #vpc-september1222}
 {: release-note}
