@@ -90,7 +90,7 @@ toc:
            topics:
            - vpc_storage_overview.md
            - topicgroup:
-               label: Storage overview for Bare Metal Servers
+               label: Storage overview for bare metal servers
                topics:
                - bare_metal_server_storage.md
                - bare_metal_server_storage_s390x.md
