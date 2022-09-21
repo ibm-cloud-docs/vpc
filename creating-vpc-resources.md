@@ -30,7 +30,7 @@ To create and configure your virtual private cloud (VPC) and other attached reso
 
 1. Create a VPC and subnet to define the network.
 1. If you want to allow all resources in the subnet to communicate with the public internet, attach a public gateway.
-1. Create a virtual server instance. By default, a boot volume is attached to the instance. 
+1. Create a virtual server instance. By default, a boot volume is attached to the instance. For most virtual server instances the default boot volume size is 100 GB. The default boot volume size for a z/OS virtual server instance is 250 GB.
 1. If you want more storage, create a block storage volume and attach it to your instance.
 1. To define the inbound and outbound traffic that's allowed for the instance, configure its security group.
 1. If you want your instance to be reachable from the internet, reserve and associate a floating IP address.
