@@ -51,7 +51,7 @@ toc:
            topics:
            - vsi_is_about_vpc.md
            - topicgroup:
-               label: About Bare Metal Servers
+               label: About bare metal servers
                topics:
                - bare_metal_server_about.md
                - bare_metal_server_about_s390x.md
