@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-09-19"
+lastupdated: "2022-09-27"
 
 keywords: bare metal servers, planning, planning bare metal server
 
@@ -36,7 +36,7 @@ When you are planning to create a bare metal server on {{site.data.keyword.vpc_f
 |----------|---------|
 | Required IAM permissions | ___ Make sure that your account has the required user permissions. You must be assigned the `Editor` role of the target resource group to create bare metal servers in this resource group. <ul><li>For x86 architecture: You also need `Bare Metal Console Administrator` to access the ESXi Direct Console User Interface (DCUI) and `Bare Metal Advanced Network Operator` to modify IP spoofing and infrastructure NAT configuration on network interfaces.</li><li>For s390x architecture: Only IP spoofing is supported. </li></ul> <br><br> If you have authorization as an `Editor` or `Admin` for a VPC resource group, then you also inherit authorization to create, delete, and modify servers within that resource group. |
 | Account limits | ___ Check your [account limits](/docs/vpc?topic=vpc-quotas#service-limits) for concurrent resources. The maximum number of servers per account is 25. |
-| Image | <ul><li>For x86 architecture: You have two VMware ESXi image licensing options: Licensed ESXi 7.x image and BYOL (bring-your-own) ESXi 7.x image. You can manage the licensing yourself by selecting the BYOL option. </li><li>For s390x architecture: Choose one of the IBM provided Linux images. Note that the BYOL option is not supported for LinuxONE Bare metal servers. </li></ul>|
+| Image | <ul><li>For x86 architecture: You have two VMware ESXi image licensing options: Licensed ESXi 7.x image and BYOL (bring-your-own) ESXi 7.x image. You can manage the licensing yourself by selecting the BYOL option. </li><li>For s390x architecture: Choose one of the IBM provided Linux images or select a suppported custom image for BYOL (Bring your own license). </li></ul>|
 | SSH key | ___ Make sure that your [SSH key](/docs/vpc?topic=vpc-ssh-keys#ssh-keys) is available. |
 | Location | ___ Determine what region and zone to select. |
 | Subnet | ___ Determine which subnets that you want the server to connect to. |

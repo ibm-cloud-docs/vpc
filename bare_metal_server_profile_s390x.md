@@ -4,7 +4,7 @@ copyright:
   years: 2022
 lastupdated: "2022-09-27"
 
-keywords: bare metal server profile, profile, LinuxONE bare metal profiles, viewing profile, view profiles
+keywords: LinuxONE bare metal profiles, s390x bare metal profiles
 
 subcollection: vpc
 
@@ -27,42 +27,42 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# s390x Bare Metal server profiles
+# s390x bare metal server profiles
 {: #s390x-bare-metal-servers-profile}
 
-When you create a LinuxONE bare metal server, you can select from a s390x architecture based profile that best fits your needs. A profile provides a different combination of hardware configurations that include number of CPU cores, amount of RAM, and size of local storage. The attributes define the size and capabilities of the bare metal server that is provisioned.
+When you create a s390x bare metal server, you can select from an s390x architecture-based profile that best fits your needs. A profile provides a different combination of hardware configurations that include number of CPU cores, amount of RAM, and size of local storage. The attributes define the size and capabilities of the bare metal server that is provisioned.
 {: shortdesc}
 
 
-The s390x bare metal server profiles are in the "Memory" profile family because their "vCPU : Memory" ratios is larger than "1:16". For more information about profile families, see [Instance Profiles](/docs/vpc?topic=vpc-profiles).
+The s390x bare metal server profiles are in the "Memory" profile family because their "vCPU : Memory" ratio is larger than "1:16". For more information about profile families, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles).
 
 ## Profiles configurations
 {: #bare-metal-servers-profile-list}
 
-See table 2 for the configurations of each profile. Each CPU core of the LinuxONE Bare Metal server has 2 Simultaneous Multithreading (SMT) threads for increasing the efficiency of CPUs to deliver more throughput per processor core.
+See table 2 for the configurations of each profile. Each CPU core of the s390x bare metal server has 2 Simultaneous Multithreading (SMT) threads for increasing the efficiency of CPUs to deliver more throughput per processor core.
 
 | Name | CPU Cores | vCPU |Memory (GiB) | SAN storage | Total Network Bandwidth (Gbps) | number of supported interfaces |
 |---------|---------|---------|---------|---------|---------|------|
-| mz2d-metal-2x64 | 1 | 2 | 64 | 100 GB FCP boot storage on IBM FlashSystem 9200 <br><br>512 GB FCP Data storage | 2 | 1 |
-| mz2d-metal-16x512 | 8 | 16 | 512 | 100 GB FCP boot storage on IBM FlashSystem 9200 <br><br>4096 GB FCP Data storage | 10 | 2 |
-{: caption="Table 2. LinuxONE Bare Metal servers profile" caption-side="bottom"}
+| mz2d-metal-2x64 | 1 | 2 | 64 | 100 GB FCP boot storage on IBM FlashSystem 9200  \n  \n 512 GB FCP Data storage | 2 | 1 |
+| mz2d-metal-16x512 | 8 | 16 | 512 | 100 GB FCP boot storage on IBM FlashSystem 9200  \n  \n 4096 GB FCP Data storage | 10 | 2 |
+{: caption="Table 2. s390x bare metal server profiles" caption-side="bottom"}
 
-The s390x architecture based Bare Metal profiles can be used to provision LinuxONE Bare Metal server instances. These profiles are available in the US East (Washington DC) region.
+The s390x architecture-based bare metal profiles can be used to provision s390x bare metal server instances. These profiles are available in the US East (Washington DC) region.
 {: preview}
 
-## Understanding the naming rule of the profiles
+## Understanding the naming rule of profiles
 {: #profile-naming-rule}
 
 The following information describes the naming rule of the profiles.
 
 * *m* represents a *Memory* family profile.
 * *x* represents the *x86_64* and *z* represents the *s390x* CPU architecture.
-* *2* represents this profile has the current generation of processors (LinuxONE mainframe).
-* *d* represents FCP storage based on SAN provided by IBM FlashSystem 9200.
+* *2* represents the current generation of processors (LinuxONE mainframe).
+* *d* represents FCP storage on SAN provided by IBM FlashSystem 9200.
 * The field between the two dashes is "metal" for bare metal servers.
-* The field after the second dash contains information on the number of CPU cores and the size of memory (GB), for example, "4x256" means that this profile has 4 CPU cores with 2 SMT threads and a memory of 256 GB.
+* The field after the second dash contains information on the number of CPU cores and the size of memory (GB). For example, "4x256" means that this profile has four CPU cores with two SMT threads and 256 GB of memory.
 
-Using “mz2d-metal-8x256 as an example, you can know that it's a *Memory* bare metal profile with *4 CPU cores (2 SMT threads in each CPU core) and 256 GiB memory*. This profile has the s390x architecture processors and FCP storage based on SAN.
+Use `mz2d-metal-8x256` as an example. You can know that it's a *Memory* bare metal profile with *four CPU cores (two SMT threads in each CPU core) and 256 GiB memory*. This profile has the s390x architecture processors and FCP storage based on SAN.
 
 ## Viewing profile configurations
 {: #view-bare-metal-servers-profile}
@@ -75,7 +75,7 @@ You can view available profile configurations by using the UI, [CLI](#view-bare-
 
 Use the following steps to view available bare metal profiles by using the UI.
 
-1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**.
+1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC infrastructure > Compute > Bare metal servers**.
 2. From the **Bare metal servers for VPC** page, click **Create**.
 3. On the **New bare metal server for VPC** page, you can view and select profiles under **Profile**.
 
@@ -103,7 +103,7 @@ curl -X GET \
 ```
 {: pre}
 
-## Next Steps
+## Next steps
 {: #bare-metal-servers-profile-next-step}
 
-After you choose a profile, you can [create bare metal servers on VPC](/docs/vpc?topic=vpc-creating-bare-metal-servers).
+After you choose a profile, you can [create a bare metal server for VPC](/docs/vpc?topic=vpc-creating-bare-metal-servers).

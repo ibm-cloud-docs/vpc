@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-09-19"
+lastupdated: "2022-09-27"
 
 keywords: creating bare metal servers
 subcollection: vpc
@@ -52,7 +52,7 @@ Follow these steps to create a bare metal server by using the {{site.data.keywor
 | Tags | You can assign labels to your server so that you can easily filter resources in your resource list. |
 | Access management tags | Access management tags help you apply flexible access policies on specific resources. |
 | Operating system | Select the operating system and version from an image. <ul><li>For x86 architecture: `ibm-esxi-7-amd64-1` installs a licensed ESXi 7.x hypervisor. `ibm-esxi-7-byol-amd64-1` installs bring-your-own-license ESXi 7.x and control the licensing for your bare metal server. </li><li>For s390x architecture: `sles-15-sp3-metal-s390x` installs a licensed SUSE Linux Enterprise Server 15 SP3 (s390x). `red-8-metal-s390x` installs Red Hat Enterprise Linux 8.x - Minimal Install (s390x) for your bare metal server. </li></ul>|
-| Profile | Select from popular profiles or all available vCPU and RAM combinations. The profile families are Balanced, Compute, and Memory. For more information, see [Bare Metal Servers for VPC profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile) or [s390x Bare Metal server profiles](/docs/vpc?topic=vpc-s390x-bare-metal-servers-profile). |
+| Profile | Select from popular profiles or from all available vCPU and RAM combinations. The profile families are Balanced, Compute, and Memory. For more information, see [Bare metal servers profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile) or [s390x bare metal server profiles](/docs/vpc?topic=vpc-s390x-bare-metal-servers-profile). |
 | SSH key | Select an existing public SSH key or click **New SSH key** to add a new one. You must specify at least one SSH key. <ul><li>For x86 architecture: This key is used to automatically generate a password that is required for accessing VMware&reg; ESXi Direct Console User Interface (DCUI) and ESXi’s web client.</li><li>For s390x architecture: SSH keys are used to securely connect to the LinuxONE Bare Metal server instance after it's running.</li></ul> |
 | User data | Paste your user data to the **User data (optional)** field or click **Import user data** to upload from your user data. For example, you can enable SSH by adding the following script to the **User data (optional)** field. For more information about user data, see [User data](/docs/vpc?topic=vpc-user-data).|
 | Virtual private cloud | Specify the VPC where you want to create your server. You can use the default VPC, another existing VPC, or you can create a new VPC. |
@@ -299,11 +299,11 @@ After you have all the information, use the [Create bare metal server](/apidocs/
     {: pre}
 
 
-* For s390x architecture: you create a LinuxONE bare metal server with the following example configuration:
+* For s390x architecture: you create a s390x bare metal server with the following example configuration:
 
    * s390x image ID: "r134-8c5b280e-5310-4117-90e3-46ebe360e70f"
    * SSH Key ID: "a6b1a881-2ce8-41a3-80fc-36316a73f803"
-   * Name of the bare metal server: "my-linuxone-bare-metal-server"
+   * Name of the bare metal server: "my-s390x-bare-metal-server"
    * A primary network interface with the following configurations:
      * Interface type: "hipersocket"
      * Name: "my-primary-network-interface"
@@ -330,7 +330,7 @@ After you have all the information, use the [Create bare metal server](/apidocs/
         "id": "220e-1be7f42a-f2f3-4177-9610-7368389ab971"
         }
     },
-    "name": "my-linuxone-bare-metal-server",
+    "name": "my-s390x-bare-metal-server",
     "profile": {
         "name": "mz2d-metal-2x32"
     },
@@ -429,7 +429,7 @@ For example, you can create a bare metal server with the following configuration
 * For s390x architecture:
     * Image ID: "zbm-sles15sp3-s390x-v1"
     * SSH Key ID: "r134-8dd9283b-c0ca-47b9-8239-217d2d9801fc"
-    * Name of the bare metal server: "my-linuxone-bare-metal-server"
+    * Name of the bare metal server: "my-s390x-bare-metal-server"
     * A primary network interface with the following configurations:
 
       * Network interface name: "bm-nic-1
@@ -440,7 +440,7 @@ For example, you can create a bare metal server with the following configuration
     * Zone: "toronto-1"
 
     ```sh
-    ibmcloud is bare-metal-server-create --name my-linuxone-bare-metal-server --zone toronto-1 --profile mz2d-metal-2x64 --image zbm-sles15sp3-s390x-v1 --keys r134-8dd9283b-c0ca-47b9-8239-217d2d9801fc --pnic-name bm-nic-1 --pnic-interface-type hipersocket --pnic-subnet 220e-1be7f42a-f2f3-4177-9610-7368389ab971 --pnic-ein true  --network-interfaces '[{"name": "bm-nic-2", "allow_ip_spoofing": true, "enable_infrastructure_nat": true, "interface_type": "hipersocket", "subnet":{"id":"220e-1be7f42a-f2f3-4177-9610-7368389ab971"}}]' --output JSON
+    ibmcloud is bare-metal-server-create --name my-s390x-bare-metal-server --zone toronto-1 --profile mz2d-metal-2x64 --image zbm-sles15sp3-s390x-v1 --keys r134-8dd9283b-c0ca-47b9-8239-217d2d9801fc --pnic-name bm-nic-1 --pnic-interface-type hipersocket --pnic-subnet 220e-1be7f42a-f2f3-4177-9610-7368389ab971 --pnic-ein true  --network-interfaces '[{"name": "bm-nic-2", "allow_ip_spoofing": true, "enable_infrastructure_nat": true, "interface_type": "hipersocket", "subnet":{"id":"220e-1be7f42a-f2f3-4177-9610-7368389ab971"}}]' --output JSON
     ```
     {: pre}
 
@@ -460,4 +460,4 @@ ibmcloud is bare-metal-server $bare_metal_server_id --output JSON
 
 When the bare metal server status changes to **Running**, you can try connecting to the instance.
 * For x86 architecture: You can connect to VMware ESXi Direct Console User Interface (DCUI) and ESXi's web client. For more information, see [Connecting to ESXi bare metal servers](/docs/vpc?topic=vpc-connect-to-ESXi-bare-metal-servers).
-* For s390x architecture: You can connect to Linux system by using the SSH key or serial console. For more information, see [Connecting to LinuxONE bare metal servers](/docs/vpc?topic=vpc-connect-to-linuxone-bare-metal-servers)
+* For s390x architecture: You can connect to the s390x bare metal server by using the SSH key and its floating IP. For more information, see [Connecting to s390x bare metal servers](/docs/vpc?topic=vpc-connect-to-s390x-bare-metal-servers)

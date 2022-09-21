@@ -3,9 +3,9 @@
 copyright:
   years: 2021,2022
 
-lastupdated: "2022-09-19"
+lastupdated: "2022-09-27"
 
-keywords: troubleshooting LinuxONE bare metal servers, hardware issues
+keywords: troubleshooting s390x bare metal servers, hardware issues
 
 subcollection: vpc
 
@@ -26,15 +26,15 @@ subcollection: vpc
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Troubleshooting LinuxONE Bare Metal servers
-{: #troubleshoot_linuxone_bare_metal}
+# Troubleshooting s390x bare metal servers
+{: #troubleshoot_s390x_bare_metal}
 
 ## Bare metal servers have hardware issues
 {: #hardware_issues}
 
 When hardware issues occur, you can request support from IBM by creating a support case.
 
-Click [here](https://cloud.ibm.com/unifiedsupport/cases/add%C2%A0) to create a case. For information about how to create a case, see [Support tickets](/docs/vpc?topic=vpc-getting-help#support-tickets).
+Click [here](https://cloud.ibm.com/unifiedsupport/cases/add%C2%A0){: external} to create a case. For information about how to create a case, see [Support cases](/docs/vpc?topic=vpc-getting-help#support-tickets).
 
 After receiving the case, IBM operation team will put the bare metal server into maintenance mode.
 
