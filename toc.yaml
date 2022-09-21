@@ -42,7 +42,7 @@ toc:
            - private-wan.md
            - private-connectivity.md
            - topicgroup:
-               label: Networking overview for Bare Metal Servers
+               label: Networking overview for bare metal servers
                topics:
                - bare_metal_server_network.md
                - bare_metal_server_network_s390x.md
@@ -51,7 +51,7 @@ toc:
            topics:
            - vsi_is_about_vpc.md
            - topicgroup:
-               label: About Bare Metal Servers
+               label: About bare metal servers
                topics:
                - bare_metal_server_about.md
                - bare_metal_server_about_s390x.md
@@ -90,7 +90,7 @@ toc:
            topics:
            - vpc_storage_overview.md
            - topicgroup:
-               label: Storage overview for Bare Metal Servers
+               label: Storage overview for bare metal servers
                topics:
                - bare_metal_server_storage.md
                - bare_metal_server_storage_s390x.md

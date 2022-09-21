@@ -35,7 +35,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-september2222}
 {: release-note}
 
-**LinuxONE Bare Metal Servers (s390x processor architecture)**
+**IBM&reg; LinuxONE Bare Metal Servers (s390x processor architecture)**
 
 :   LinuxONE Bare Metal server on s390x processor architecture is available in the US east (Washington DC) region. You can create LinuxONE Bare Metal server instances with IBM provided licensed Linux operating system images based on RHEL and SUSE distributions on LinuxONE in IBM Cloud. The LinuxONE Bare metal servers are equivalent to logical partitions (LPAR) on LinuxONE, and you have dedicated IFLs, memory, and I/O devices for your workloads. For more information about LinuxONE bare metal servers, see [About LinuxONE Bare Metal servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
 
