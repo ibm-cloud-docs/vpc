@@ -30,6 +30,19 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## September 2022
 {: #vpc-september22}
 
+<!-- 
+### 23 September 2022
+{: #vpc-september2322}
+{: release-note}
+
+IBM Wazi as a Service
+:   {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) is now generally available in IBM Cloud in Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), and US East (Washington DC) regions. For more information, see [{{site.data.keyword.waziaas_full_notm}} product page](https://www.ibm.com/cloud/wazi-as-a-service){: external}.
+    - For the latest updates of z/OS dev and test stock images, see [Change log for z/OS stock images](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=vpc-change-log-zos-stock-images){: external}.
+    - For instructions on creating custom images by using IBM Wazi Image Builder, see [Creating a z/OS Wazi aaS custom image](/docs/vpc?topic=vpc-create-zos-custom-image).
+    - For instructions on creating z/OS virtual server instances, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
+
+-->
+
 ### 20 September 2022
 {: #vpc-september2022}
 {: release-note}
