@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-09-23"
+lastupdated: "2022-09-15"
 
 keywords:
 
@@ -30,18 +30,14 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## September 2022
 {: #vpc-september22}
 
-<!-- 
-### 23 September 2022
-{: #vpc-september2322}
+### 20 September 2022
+{: #vpc-september2022}
 {: release-note}
 
-IBM Wazi as a Service
-:   {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) is now generally available in IBM Cloud in Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), and US East (Washington DC) regions. For more information, see [{{site.data.keyword.waziaas_full_notm}} product page](https://www.ibm.com/cloud/wazi-as-a-service){: external}.
-    - For the latest updates of z/OS dev and test stock images, see [Change log for z/OS stock images](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=vpc-change-log-zos-stock-images){: external}.
-    - For instructions on creating custom images by using IBM Wazi Image Builder, see [Creating a z/OS Wazi aaS custom image](/docs/vpc?topic=vpc-create-zos-custom-image).
-    - For instructions on creating z/OS virtual server instances, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
+Updating subnets for existing application load balancers
+:   You can now add or remove subnets for existing ALBs using the UI, API, or CLI. ETag support has also been added for load balancer resources, as it is required for any resource that allows arrays to be updated. For more information, refer to [Updating subnets for existing application load balancers](/docs/vpc?topic=vpc-alb-updating-subnets&interface=ui).
 
--->
+:   For guidance on the use of ETags, see [Concurrent update protection](/apidocs/vpc/latest#concurrent-update-protection).
 
 ### 12 September 2022
 {: #vpc-september1222}
@@ -779,7 +775,7 @@ File Storage for VPC
 :   File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions. With this feature, you can create NFS-based file shares in a single zone in a region. You can share file storage over multiple virtual service instances within the same zone across multiple VPCs. For more information about this service, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about). Contact your IBM Sales representative if you are interested in getting access.
 
 ### 07 April 2021
-{: #vpc-may2521}
+{: #vpc-april2521}
 {: release-note}
 
 File Storage for VPC (beta)
@@ -954,7 +950,7 @@ Customer-managed encryption (GA)
 :   You can now bring your own license (BYOL) when you import a custom image to {{site.data.keyword.vpc_short}}. This is a Beta feature that is available for evaluation and testing purposes. Contact your IBM Sales representative if you are interested in getting access. For more information, see [Bring your own license (Beta)](/docs/vpc?topic=vpc-byol-vpc-about).
 
 ### 17 December 2020
-{: #vpc-dec2220}
+{: #vpc-dec1720}
 {: release-note}
 
 Checksum (SHA256) for imported images (Beta)
@@ -1410,7 +1406,7 @@ Advanced routing
 :   Control the flow of network traffic in your VPC by configuring VPC routes. For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes).
 
 ## June 2019
-{: #vpc-oct19}
+{: #vpc-june19}
 
 ### 04 June 2019
 {: #vpc-jun-0419}
