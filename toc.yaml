@@ -42,7 +42,7 @@ toc:
            - private-wan.md
            - private-connectivity.md
            - topicgroup:
-               label: Networking overview for Bare Metal Servers
+               label: Networking overview for bare metal servers
                topics:
                - bare_metal_server_network.md
                - bare_metal_server_network_s390x.md
