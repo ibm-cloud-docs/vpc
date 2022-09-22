@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021 
-lastupdated: "2021-08-06"
+lastupdated: "2021-09-22"
 
 keywords: create instance template, vsis, virtual server instance
 
@@ -53,7 +53,7 @@ virtual server instance.
 {: #solo-instance-template-cli}
 {: cli}
 
-You can create one or more instance templates in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
+You can create one or more instance templates in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI). For information on creating a virtual server instance using a custom image shared from a private catalog, see [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli).
 
 ### Before you begin
 {: #before-instance-cli}

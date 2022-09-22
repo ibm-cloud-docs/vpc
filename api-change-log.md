@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-09-13"
+lastupdated: "2022-09-20"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -38,9 +38,6 @@ SDK changes are based on API changes. For information about the latest changes t
 ## Upcoming changes
 {: #upcoming-changes}
 
-### For all version dates
-{: #upcoming-changes-all-version-dates}
-
 **VPC route naming restriction.** In an upcoming release, you will no longer be able to create VPC routes that begin with the name `ibm-`. Existing routes that begin with the name `ibm-` will not be affected. To prepare for this change, review the names used by any automation that creates routes, and update the names used as necessary.
 
 **References to inaccessible images** In an upcoming release, image references may refer to custom images in other accounts. Such references are used in the `image` properties of the `Instance` and `BareMetalServerInitialization` response schemas and in the `source_image` properties of the `Volume` and `Snapshot` response schemas. Such an image cannot be accessed by its `id`, `crn`, or `href`, regardless of the caller's authorizations, and attempts will fail as if the image does not exist.
@@ -64,15 +61,37 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
+## 20 September 2022
+{: #20-september-2022}
+
+### For all version dates
+{: #20-september-2022-all-version-dates}
+
+**Deprecated VPN for VPC ciphers.** The following VPN IKE and IPsec ciphers are now deprecated:
+- Authentication algorithms `md5` and `sha1`
+- Encryption algorithm `triple_des`
+- Diffie–Hellman groups `2` and `5`
+
+You have until 13 December 2022 to upgrade to more secure ciphers. After this date, VPN connections using deprecated ciphers will have a `status` of `down` (and no longer transfer data) until you upgrade from the weak cipher. For more information, see [Upgrading weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers).
+
+**Additional VPN for VPC ciphers.** VPN gateways now provide new algorithms to help meet your security and compliance requirements.
+
+[IKE policy](/apidocs/vpc/latest#list-ike-policies) methods now support the `sha384` value for the `authentication_algorithm` property, `aes192` value for the `encryption_algorithm` property, and groups 15-18, 20-24, and 31 for the `dh_group` property.
+
+[IPsec policy](/apidocs/vpc/latest#list-ipsec-policies) methods now support `sha384` and `disabled` values for the `authentication_algorithm` property, `aes192`, `aes128gcm16`, `aes192gcm16`, and `aes256gcm16` values for the `encryption_algorithm` property, and groups 15-18, 20-24, and 31 for the `dh_group` property.
+
+Specifying IKE and IPsec policies when configuring a VPN connection is optional. If a policy is not specified, one is chosen through _auto-negotiation_. For more information, see [About policy negotiation](/docs/vpc?topic=vpc-using-vpn#policy-negotiation).
+{: note}
+
 ## 13 September 2022
 {: #13-september-2022}
 
 ### For all version dates
 {: #13-september-2022-all-version-dates}
 
-**Updating subnets for application load balancers.** You can now update the subnets attached to an application load balancer by specifying `subnets` when [updating a load balancer](/apidocs/vpc/latest#update-load-balancer). The specified subnets must be in the same VPC as the load balancer's current subnets. If the update requires moving your load balancer to a different zone, its `provisioning_status` will change to `migrate_pending` until the move is complete. For more information, see [Updating subnets for Application Load Balancers for VPC](/docs/vpc?topic=alb-updating-subnets).
+**Updating subnets for application load balancers.** You can now update the subnets attached to an application load balancer by specifying `subnets` when [updating a load balancer](/apidocs/vpc/latest#update-load-balancer). The specified subnets must be in the same VPC as the load balancer's current subnets. If the update requires moving your load balancer to a different zone, its `provisioning_status` will change to `migrate_pending` until the move is complete. For more information, see [Updating subnets for Application Load Balancers for VPC](/docs/vpc?topic=vpc-alb-updating-subnets&interface=api).
 
-Because the `subnets` property is an array, the specified value will replace the load balancer's existing array of subnets. To guard against concurrent updates, you must provide the resource's current ETag using the `If-Match` header. For guidance on the use of ETags, see [Concurrent update protection](apidocs/vpc/vpc/latest#concurrent-update-protection).
+Because the `subnets` property is an array, the specified value will replace the load balancer's existing array of subnets. To guard against concurrent updates, you must provide the resource's current ETag using the `If-Match` header. For guidance on the use of ETags, see [Concurrent update protection](/apidocs/vpc/latest#concurrent-update-protection).
 {: important}
 
 ### For version `2022-09-13` or later

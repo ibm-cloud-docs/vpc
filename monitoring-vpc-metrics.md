@@ -2,9 +2,9 @@
 
 copyright:
   years:  2020, 2022
-lastupdated: "2022-07-08"
+lastupdated: "2022-09-19"
 
-keywords: IBM Cloud monitoring, platform metrics, metrics, vpc metrics, vpc monitoring metrics
+keywords: monitoring metrics, platform metrics, metrics, vpc metrics, vpc monitoring metrics
 
 subcollection: cloud-infrastructure
 
@@ -133,7 +133,7 @@ The cumulative number of bytes sent for a network interface since virtual server
 ### Number of packets received for a network interface
 {: #network-packets-received-gen2}
 
-The cumulative number of packets received for a network interface since virtual server instance start.
+The cumulative number of packets that were received for a network interface since virtual server instance start.
 
 | Metadata | Description |
 |----------|-------------|
@@ -217,7 +217,7 @@ The cumulative number of dropped outgoing packets for a network interface since 
 ## Memory monitoring metrics
 {: #memory-metrics}
 
-For IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances, the memory metrics cannot be collected because IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances are created using Secure Execution images and the memory of a secure execution instance is not accessible.
+For {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instances, the memory metrics can't be collected because {{site.data.keyword.hpvs}} for VPC instances are created by using Secure Execution images and the memory of a secure execution instance isn't accessible.
 {: note}
 
 ### Free memory
@@ -307,13 +307,13 @@ The cumulative number of write requests for a volume since virtual server instan
 
 {: caption="Table 19: Number of write requests for a volume metric metadata" caption-side="bottom"}
 
-## Instance monitoring metrics
-{: #instance-metrics}
+## Virtual server instance monitoring metrics
+{: #virtual-server-metrics}
 
-### Instance running state
-{: #network-bytes-sent}
+### Virtual server instance state
+{: #virtual-server-state}
 
-The state of the VSI. A value of 1 indicates that the VSI is running. A value of -1 indicates that the VSI is stopped. 0 indicates an unknown value.
+The state of the virtual server instance. A value of 1 indicates that the virtual server instance is running. A value of -1 indicates that the virtual server instance is stopped. 0 indicates an unknown value.
 
 | Metadata | Description |
 |----------|-------------|
@@ -322,7 +322,7 @@ The state of the VSI. A value of 1 indicates that the VSI is running. A value of
 | `Value type`  | `none` |
 | `Segment by` | `IBM IS Generation 2, resource name` |
 
-{: caption="Table 20: The state of the VSI" caption-side="bottom"}
+{: caption="Table 20: The state of the virtual server" caption-side="bottom"}
 
 ## Attributes for segmentation
 {: #segmentation-attributes}
@@ -343,17 +343,17 @@ These attributes are available for segmenting all of the previously listed metri
 
 {: caption="Table 21: Available attributes for segmenting" caption-side="bottom"}
 
-### Additional Attributes
+### Additional attributes
 {: #additional-segmentation-attributes}
 
-These attributes are available for segmenting one or more attributes as described in the preceding table. See the individual metrics for segmentation options.
+These attributes are available to segment one or more attributes as described in the preceding table. See the individual metrics for segmentation options.
 
-| Attribute | Attribute Name | Attribute Description |
+| Attribute | Attribute name | Attribute description |
 |-----------|----------------|-----------------------|
-| `Disk name of the volume` | `ibm_is_disk_name` | Disk name of the volume attached to the virtual server instance, corresponds to output of `'ls -l /dev/disk/by-id'` |
+| `Disk name of the volume` | `ibm_is_disk_name` | Disk name of the volume that is attached to the virtual server instance, corresponds to output of `'ls -l /dev/disk/by-id'` |
 | `IBM IS Generation, 1 or 2` | `ibm_is_generation` | IBM IS Generation (`1` for Gen. 1 (Classic) or `2` for Gen. 2 (VPC) ) |
 | `MAC address of the network interface` | `ibm_is_mac_address` | MAC address of the corresponding network interface that is attached to the virtual server instance |
-| `Network interface index` | `ibm_is_nic_index` | Index of the network interface that is attached to the virtual server instance, starting from 0 |
+| `Network interface index` | `ibm_is_nic_index` | Index of the network interface that is attached to the virtual server, starting from 0 |
 | `Resource name` | `ibm_resource_name` | Resource name - for example, the virtual server instance name |
 | `ID of the volume` | `ibm_is_volume_id` | UUID of storage volume that is attached to the virtual server instance |
 | `Virtual CPU index` | `ibm_is_vcpu_index` | Index of the virtual CPU within the virtual server instance, starting from 0 |

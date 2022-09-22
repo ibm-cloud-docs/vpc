@@ -2,7 +2,9 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-09-01"
+
+lastupdated: "2022-09-22"
+
 
 keywords: known issues, bugs, defects
 
@@ -90,6 +92,21 @@ The following issues are currently present in the Cloud Console with no known wo
 **Issue:** Backup policy details show zero (0) as the number of applied resources, even though the backup is still applied to the list of volumes.
 
 **Issue:** The block storage details page might not show all the matched backup policies if the volume has more than one user tag.
+
+## VSI monitoring known issues
+{: #vsi-monitoring-known-issues}
+
+**Issue:** Volumes that are created from snapshots and volumes that are resized do not display metrics on the VSI monitoring console page or in the IBM Cloud Monitoring dashboard for "VPC VSI Gen 2 Overview". No known workaround.
+
+## Virtual server instance Activity Tracker events known issues
+{: #at-virtual-server-instances-known-issues}
+
+**Issue:** AT event log entries are missing `target.resourceGroupId` for some actions related to virtual server instances, such as updating or creating a virtual server instance. Instead, the resource group ID might appear in either the `requestData` or `responseData` sections of the event.
+
+## Custom images in a private catalog known issue
+{: #custom-images-private-catalog-known-issues}
+
+**Issue:** If you have imported one or more images into a virtual server image for VPC catalog product offering version and you edit that version, an additional version ending in "draft" is created. You can't provision an instance from this draft version. Draft versions might appear on the Virtual server instance creation page in the UI or in the output of the CLI command `ibmcloud is catalog-image-offering`.
 
 ## VPC property issue for Security and Compliance Center
 {: #RCS-4957}

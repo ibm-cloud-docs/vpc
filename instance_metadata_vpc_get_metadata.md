@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-04-13"
+lastupdated: "2022-09-15"
 
-keywords: metadata, virtual private cloud, instance, virtual server
+keywords: 
 
 subcollection: vpc
 
@@ -34,11 +34,11 @@ When you make API calls to the instance metadata service, events are triggered i
 ## Before you begin
 {: #imd-md-prereqs}
 
-To access metadata service, you must have an instance identity access token. If you haven't already obtained one, see [Aquire an access token](/docs/vpc?topic=vpc-imd-configure-service#imd-json-token).
+To access metadata service, you must have an instance identity access token. If you haven't already obtained one, see [Aquire an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service#imd-json-token).
 
 The metadata service is disabled by default. To enable it, see [Enable or disable the metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-metadata-service-enable).
 
-For more information about these APIs, including required parameters and examples, see the [Metadata service API reference guide](/apidocs/vpc-metadata).
+For detailed information and examples of the API calls described in this topic, see the [Metadata service API reference](/apidocs/vpc-metadata).
 
 Windows users have additional requirements to access and use the metadata service. For information, see [Setting up windows servers for using the metadata service](/docs/vpc?topic=vpc-imd-windows-configuration).
 {: note}
@@ -55,7 +55,7 @@ Make a `GET "http://169.254.169.254/metadata/v1/instance/initialization"` call t
 
 This request:
 
-* Invokes the API to retrieve the access token
+* Invokes the API to retrieve the instance identity access token
 * Uses the token to access the metadata service 
 * Extracts the user data from the JSON payload using `jq`
 
