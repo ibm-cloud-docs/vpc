@@ -2,7 +2,9 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-09-07"
+
+lastupdated: "2022-09-16"
+
 
 keywords: creating a Windows custom image, cloudbase-init, qcow2
 
@@ -10,16 +12,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:important: .important}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating a Windows custom image
 {: #create-windows-custom-image}

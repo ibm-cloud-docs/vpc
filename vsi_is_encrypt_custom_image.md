@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-08-01"
+lastupdated: "2022-09-16"
 
 keywords: creating an encrypted custom image, qcow2
 
@@ -10,17 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:important: .important}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:external: target="_blank" .external}
-{:beta: .beta}
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating an encrypted custom image
 {: #create-encrypted-custom-image}
