@@ -488,6 +488,7 @@ toc:
             - data-security.md
             - manage-scc.md
             - load-balancer-security.md
+            - storagedurability.md
         - topicgroup:
             label: Logging and monitoring
             topics:
