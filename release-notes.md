@@ -42,7 +42,6 @@ Sharing images across an enterprise account
 
 ### 20 September 2022
 {: #vpc-september2022}
-
 {: release-note}
 
 Updating subnets for existing application load balancers
