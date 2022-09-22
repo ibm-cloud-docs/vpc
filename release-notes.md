@@ -3,7 +3,8 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-09-21"
+lastupdated: "2022-09-22"
+
 
 keywords:
 
@@ -29,6 +30,15 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## September 2022
 {: #vpc-september22}
+
+
+### 22 September 2022
+{: #vpc-september2222}
+{: release-note}
+
+Sharing images across an enterprise account 
+:    You can now share or publish custom images to other accounts within your enterprise by using a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts. You can use any existing x86 virtual server custom image with a private catalog, with the exception of an encrypted image. For more information, see [Custom images in a private catalog](/docs/vpc?topic=vpc-planning-custom-images) and the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial). Custom images can't be deleted while being managed from a catalog and can only be managed from one catalog product offering version at a time. Deleting the catalog does not free its managed resources for a 7-day reclamation period. For more information, see [Deleting a custom image in a private catalog](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#deleting-private-catalog-custom-image-vpc) and [Using resource reclamations](/docs/account?topic=account-resource-reclamation). If you plan to share images with other accounts, users in those accounts should be aware of considerations related to cross-account references to those images. For more information, see [Using cross-account image references in a private catalog](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-ui).
+
 
 ### 20 September 2022
 {: #vpc-september2022}
