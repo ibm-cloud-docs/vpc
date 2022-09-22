@@ -460,6 +460,7 @@ toc:
             - vsi_is_creating_auto_scale_group.md
             - vsi_is_managing_auto_scale_group.md
             - vsi_is_managing_instance_template.md
+            - vsi_private_catalog_autoscale.md
             - vsi_is_scheduled_scaling.md
         - topicgroup:
             label: Data encryption
@@ -491,6 +492,7 @@ toc:
             - data-security.md
             - manage-scc.md
             - load-balancer-security.md
+            - storagedurability.md
         - topicgroup:
             label: Logging and monitoring
             topics:

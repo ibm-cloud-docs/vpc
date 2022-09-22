@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-08-01"
+lastupdated: "2022-09-22"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Getting started with custom images
 {: #planning-custom-images}
 
-Custom images are used to create new virtual servers with your own settings and configurations. You can create a Linux&reg; custom image, a Windows&reg; custom image, a z/OS Wazi aaS custom image, or a VMware custom image. You can import your custom image directly into {{site.data.keyword.vpc_full}} from {{site.data.keyword.cos_full}} or create one from an existing virtual server boot volume. You can also create an image template to migrate a virtual server from the Classic infrastructure. After a custom image is created and imported into {{site.data.keyword.vpc_short}}, you can import it into a private catalog, with some limitations. For more information regarding these limitations, see [Private catalog considerations](/docs/vpc?topic=vpc-planning-custom-images#custom-image-cloud-private-catalog).
+Custom images are used to create new virtual servers with your own settings and configurations. You can create a Linux&reg; custom image, a Windows&reg; custom image, or a VMware custom image. You can import your custom image directly into {{site.data.keyword.vpc_full}} from {{site.data.keyword.cos_full}} or create one from an existing virtual server boot volume. You can also create an image template to migrate a virtual server from the Classic infrastructure. After a custom image is created and imported into {{site.data.keyword.vpc_short}}, you can import it into a private catalog, with some limitations. For more information about these limitations, see [Custom images in a private catalog](/docs/vpc?topic=vpc-planning-custom-images#custom-image-cloud-private-catalog).
 {: shortdesc}
 
 ## Prerequisites and limitations
@@ -54,32 +54,133 @@ The z/OS Wazi aaS custom image must meet the following requirements:
 
 For more information, see [Bringing your own image with Wazi Image Builder](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=bringing-your-own-image-wazi-image-builder){: external}.
 
-### Private catalog considerations
+## Custom images in a private catalog
 {: #custom-image-cloud-private-catalog}
 
-This is a Beta feature that is available for evaluation and testing purposes for customers with special approval to preview this feature.
-{: beta}
+If you plan to share or publish a custom image to other accounts within your enterprise, you need to create a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts as long as those accounts are within the same enterprise. You can share any existing x86 virtual server custom image with a private catalog, except for an encrypted image.
 
-If you plan to share or publish a custom image to other accounts within your enterprise, you need to create a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts as long as those accounts are within the same enterprise. You can use any existing x86 virtual server custom image with a private catalog, with the exception of an encrypted image.
+For more information about private catalogs, see the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui).
+
+### Prerequisites and limitations
+{: #private-catalog-custom-image-prerequisites}
 
 Before you can import a custom image into a private catalog, the following items must be completed.
 
 * Create a private catalog
 * Create and import the custom image into {{site.data.keyword.vpc_short}}
-* The custom image must be in `available` status
-
-{{site.data.content.delete-custom-image-private-catalog}}
 
 Custom images in a private catalog have the following restrictions:
 
 * Must be an x86 image
 * Can't be encrypted
 * Can't be used with a bare metal profile
-* Can't be used with instance groups
+* Can exist in only one version of one catalog product offering in one private catalog at a time
+* Must be in `available` status
+
+### Using cross-account image references in a private catalog in the UI
+{: #private-catalog-image-reference-vpc-ui}
+{: ui}
+
+Instances you provision belong to your account. Images shared to your account through a private catalog might belong to other accounts. When you provision an instance from an image that belongs to another account or from an instance template specifying such an image, the image still belongs to the other account even though the instance belongs to your account. A reference to such an image might exist in details of the instance and related resources. For example, details about its boot volume and any snapshot created from that boot volume might reference that image. Regardless of your authorizations, you will be unable to access the referenced image by its ID or CRN and attempts will fail as if the image does not exist.
+
+Additionally, it is possible that the referenced image might have the same name as a custom image in your account. But these image names are for two different images in two different accounts. The ID and CRN each uniquely identifies an image across IBM Cloud. To avoid possible retrieval or use of the wrong image, when using cut-and-paste to copy an image’s identity outside of the UI, use its ID or CRN, rather than its name.
+
+### Using cross-account image references in a private catalog in the CLI
+{: #private-catalog-image-reference-vpc-cli}
+{: cli}
+
+Instances you provision belong to your account. Images shared to your account through a private catalog might belong to other accounts. When you provision an instance from an image that belongs to another account or from an instance template specifying such an image, the image still belongs to the other account even though the instance belongs to your account. A reference to such an image might exist in details of the instance and related resources. For example, details about its boot volume and any snapshot created from that boot volume might reference that image. Regardless of your authorizations, you can't access this type of custom image by its ID and attempts fail as if the image does not exist.
+{: cli}
+
+Image references are used in a few different places in the CLI. For example, if you use the `ibmcloud is instance` command to retrieve instance data, you see the following within the output.
+
+```text
+Image                                 ID                                          Name
+                                      r006-6cab2dbd-4e57-4dc5-810b-b7366cb78999   test-image
+```
+{: screen}
+
+If you try to retrieve information about this image using its ID,
+
+```sh
+ibmcloud is image r006-6cab2dbd-4e57-4dc5-810b-b7366cb78999
+```
+{: pre}
+
+then this attempt will fail with an error such as:
+
+```text
+FAILED
+Response HTTP Status Code: 404
+Error code: not_found
+Error message: The requested resource does not exist, or cannot be accessed.
+Error target name: id, type: parameter
+Trace ID: d8b4d382-2993-4a89-a371-1db991b510d8
+```
+{: screen}
+
+This error means that the image doesn't exist in your account. If the instance was provisioned by using a shared catalog image in another account, this output is the output that you will always see even if the image still exists in the owning account.
+
+Additionally, it is possible that the referenced image might have the same name as a custom image in your account. But these image names are for two different images in two different accounts. While the CLI uses both ID and Name to identify an image, only the ID uniquely identifies an image across IBM Cloud.
+
+Verify that your CLI-based automation handles image reference lookup failures gracefully and do not assume that inaccessible images were deleted, even when running with full access to your images. To avoid possible retrieval or use of the wrong image by Name, specify the image ID instead.
+
+### Using cross-account image references in a private catalog in the API
+{: #private-catalog-image-reference-vpc-api}
+{: api}
+
+Instances you provision belong to your account. Images shared to your account through a private catalog might belong to other accounts. When you provision an instance from an image that belongs to another account or from an instance template specifying such an image, the image still belongs to the other account even though the instance belongs to your account. A reference to such an image might exist in details of the instance and related resources. For example, details about its boot volume and any snapshot created from that boot volume might reference that image. Regardless of your authorizations, you can't access such an image by its `id`, `crn`, or `href` and attempts fail as if the image does not exist.
+
+In the API, an image reference appears in places such as the `image` properties of the `Instance` and `BareMetalServerInitialization` response schemas and in the `source_image` properties of the `Volume` and `Snapshot` response schemas. The following example uses retrieving instance data to illustrate how this error can occur.
+
+```sh
+curl -X GET "$vpc_api_endpoint/v1/instances/r006-44905aa4-119d-5622-00ce-face32b78999?version=2022-09-06&generation=2" -H "Authorization: Bearer $iam_token" | jq -r '(.image)'
+```
+{: pre}
+
+When you run this command, you see the following output.
+
+```text
+{
+  "crn": "crn:v1:bluemix:public:is:us-south:a/123456::image:r006-6cab2dbd-4e57-4dc5-810b-b7366cb78999",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/images/r006-6cab2dbd-4e57-4dc5-810b-b7366cb78999",
+  "id": "r006-6cab2dbd-4e57-4dc5-810b-b7366cb78999",
+  "name": "test-image"
+}
+```
+{: screen}
+
+If you try to retrieve information about this image using its `id`
+
+```sh
+curl -X GET "$vpc_api_endpoint/v1/images/r006-6cab2dbd-4e57-4dc5-810b-b7366cb78999?version=2022-09-06&generation=2" -H "Authorization: Bearer $iam_token"
+```
+{: pre}
+
+then this attempt will fail with HTTP status code 404 (not found). This status code means that the image doesn't exist in your account. If the instance was provisioned by using a shared catalog image in another account, this response is the response that you will always get even if the image still exists in the owning account.
+
+Additionally, it is possible that the referenced image might have the same name as a custom image in your account. But these image names are for two different images in two different accounts. The `id`, `crn`, and `href` each uniquely identifies an image across IBM Cloud. 
+
+Verify that your clients handle image reference lookup failures gracefully and do not assume that inaccessible images were deleted, even when running with full access to your images. To avoid possible retrieval or use of the wrong image by `name`, specify the image `id`, `crn`, or `href` instead.
+
+### Deleting a custom image in a private catalog
+{: #deleting-private-catalog-custom-image-vpc}
+
+A custom image can't be deleted, reused for a different version, or reused for a different product offering while that custom image is managed from a private catalog.
+
+Deleting the private catalog that contains product offerings directly does not remove the offerings immediately. The custom images that are managed by the private catalog continue to be managed by the catalog for 7 days beyond the date you deleted the private catalog.
+
+If you want to immediately reuse or delete the custom image, ensure that you first remove that custom image from the associated version in the private catalog product offering or delete the product offering completely.
+
+To delete a published or shared custom image from the private catalog, see the tutorial [Deprecating a private product](/docs/account?topic=account-deprecate-product&interface=ui). To delete the entire private catalog, see the tutorial [Deleting a private catalog by using the console](/docs/account?topic=account-restrict-by-user&interface=ui#delete-private-catalog-ui).
+
+### Instance groups and private catalog
+{: #private-catalog-instance-groups}
+
+You can use a custom image in a private catalog to create an instance group. However, you must first create a service-to-service policy to `globalcatalog-collection.instance.retrieve` before you can create the instance group. See [Using a custom image in a private catalog with an instance group](/docs/vpc?topic=vpc-private-catalog-image-instance-group&interface=ui) for more information.
 
 The information about which custom image that is in a private catalog that was used for provisioning an instance doesn't persist across all {{site.data.keyword.vpc_short}} resources. Information about the custom image in a private catalog isn't available on Snapshot for VPC or Image from Volume. The operating system information, which is required when you provision a virtual server, is available.
 
-For more information, see [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui).
 
 ## Create a custom image
 {: #custom-image-creation}
@@ -114,7 +215,9 @@ After your custom image is imported into {{site.data.keyword.vpc_short}}, you ca
 ## Using a custom image to create a virtual server instance
 {: #custom-image-create-vsi}
 
-When you [create a virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers), you select the custom image in the `Image` tab of the `Operating system` section of the Create virtual server for VPC page. To select from the list of {{site.data.keyword.vpc_short}} custom images, select `Custom image`. To select from the list of private catalog images, select `Catalog image` instead.
+When you [create a virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers) using the UI, you select the custom image in the `Image` tab of the `Operating system` section of the Create virtual server for VPC page. To select from the list of {{site.data.keyword.vpc_short}} custom images, select `Custom image`. To select from the list of private catalog images, select `Catalog image` instead.
+
+To use a private catalog custom image to create an instance using the API or CLI, see [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api) for examples.
 
 
 ## Additional information about custom images
@@ -123,5 +226,6 @@ When you [create a virtual server instance](/docs/vpc?topic=vpc-creating-virtual
 * [Using granular RBAC permissions for custom images](/docs/vpc?topic=vpc-using-granular-RBAC-permissions-for-custom-images)
 * [Configuration requirements for custom Linux kernel](/docs/vpc?topic=vpc-configuration-requirements-for-custom-linux-kernels)
 * [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc&interface=ui)
+* [Importing and validating custom images into VPC](/docs/vpc?topic=vpc-importing-custom-images-vpc).
 * [Managing custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=ui)
 * [Managing image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc-manage&interface=ui)

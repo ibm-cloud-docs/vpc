@@ -2,7 +2,9 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-09-12"
+
+lastupdated: "2022-09-22"
+
 
 keywords: virtual server instances, VSI, virtual server, best practices
 
@@ -48,5 +50,4 @@ The default VPC is selected automatically. If another VPC is not selected, the d
 
 When you're ready to get started, see the following tutorials:
  * [Using the {{site.data.keyword.cloud_notm}} console to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console)
- * [Using the CLI to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-cli)
- * [Using the REST APIs to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis)
+ * [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli)
