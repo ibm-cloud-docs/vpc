@@ -16,6 +16,7 @@ subcollection: vpc
 {:note: .note}
 {:tip: .tip}
 {:download: .download}
+{:external: target="_blank" .external}
 
 # Troubleshooting virtual server instances for VPC
 {: #troubleshooting-your-virtual-servers-for-vpc}
