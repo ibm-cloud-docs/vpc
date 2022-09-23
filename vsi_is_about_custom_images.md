@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-22"
+lastupdated: "2022-09-23"
 
 keywords:
 
@@ -60,6 +60,8 @@ For more information, see [Bringing your own image with Wazi Image Builder](http
 If you plan to share or publish a custom image to other accounts within your enterprise, you need to create a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts as long as those accounts are within the same enterprise. You can share any existing x86 virtual server custom image with a private catalog, except for an encrypted image.
 
 For more information about private catalogs, see the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui).
+
+Custom images can also be published to the IBM Cloud catalog and to other (non-enterprise) accounts. This process requires onboarding to the [IBM Cloud Partner Center](https://cloud.ibm.com/partner-center/sell).
 
 ### Prerequisites and limitations
 {: #private-catalog-custom-image-prerequisites}
