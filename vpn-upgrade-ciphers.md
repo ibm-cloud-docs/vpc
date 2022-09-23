@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-20"
+lastupdated: "2022-09-21"
 
 keywords: auto-negotiation, ciphers, upgrading ciphers, migrating ciphers
 
@@ -75,13 +75,14 @@ To upgrade the auto-negotiation policy by using the CLI, follow these steps:
 1. Store the VPN gateway ID (or name) and VPN connection ID (or name) variables to be used in the CLI command, for example:
 
    `vpn_gateway` - Find the VPN gateway ID (or name) by using the [get VPN gateways](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference&interface=cli#vpn-gateways) command, and then populate the variable.
+   
    `connection` - Find the VPN gateway connection ID (or name) by using the [get VPN gateway connections](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference&interface=cli#vpn-gateway-connections) command, and then populate the variable.
 
     ```sh
     export vpn_gateway=<vpn_gateway_id_or_name>
     export connection=<vpn_gateway_connection_id_or_name>
     ```
-    {: pre}
+    {: codeblock}
 
 1. Set **--admin-state-up value** to `false` to disable the VPN connection, then wait for `Status` to change to `down`. If your **--admin-state-up value** is already set to `false`, skip this step.
 
@@ -92,7 +93,7 @@ To upgrade the auto-negotiation policy by using the CLI, follow these steps:
     # check the VPN connection status to be changed to down
     ibmcloud is vpn-gateway-connection $vpn_gateway $connection
     ```
-    {: pre}
+    {: codeblock}
 
 1. Set **--admin-state-up value** to `true` to re-enable the VPN connection, then wait for the `Status` to change to `up`.
 
@@ -103,7 +104,7 @@ To upgrade the auto-negotiation policy by using the CLI, follow these steps:
     # check the VPN connection status to be changed to up
     ibmcloud is vpn-gateway-connection $vpn_gateway $connection
     ```
-    {: pre}
+    {: codeblock}
 
 ### Upgrading the auto-negotiation policy by using the API
 {: #upgrade-vpn-old-auto-procedure-ui-api}
@@ -116,13 +117,14 @@ To upgrade the auto-negotiation policy by using the API, follow these steps:
 1. Store the VPN gateway ID and VPN connection ID variables to be used in the API, for example:
 
    `vpn_gateway_id` - Find the VPN gateway ID by using the [get VPN gateways](/apidocs/vpc/latest#list-vpn-gateways) API, and then populate the variable.
+   
    `vpn_connection_id` - Find the VPN gateway connection ID by using the [get VPN gateway connections](/apidocs/vpc/latest#list-vpn-gateway-connections) API, and then populate the variable.
 
     ```sh
     export vpn_gateway_id=<your_vpn_gateway_id>
     export vpn_connection_id=<your_vpn_gateway_connection_id>
     ```
-    {: pre}
+    {: codeblock}
 
 1. When all variables are initiated, set the **admin_state_up** parameter to `false` to disable the VPN connection, then wait for the `Status` to change to `down`. If your **admin_state_up** is already set to `false`, skip this step.
 
@@ -169,7 +171,7 @@ On 20 September 2022, VPN for VPC IKE and IPsec weak ciphers were deprecated. To
 You will experience a network outage during the upgrade. The duration of the outage depends on the time that it takes to update the weak ciphers and to re-establish the VPN connection. It is recommended that you plan a maintenance window for this upgrade.
 {: important}
 
-Before you begin, it is a good idea to first configure your on-premises VPN gateway peer to contain both the weak and secure ciphers for Phase 1 and Phase 2 negotiation. Then, change the IBM VPN gateway to remove the use of the weak ciphers by following these steps. Afterward, remove the weak ciphers from the on-premises VPN gateway. This step might also reduce the outage time.
+Before you begin, it is a good idea to first configure your on-prem VPN gateway peer to contain both the weak and secure ciphers for Phase 1 and Phase 2 negotiation. Then, change the IBM VPN gateway to remove the use of the weak ciphers by following these steps. Afterward, remove the weak ciphers from the on-prem VPN gateway. This step might also reduce the outage time.
 
 ### Upgrading a VPN from a custom IKE policy by using the UI
 {: #upgrade-vpn-custom-ike-policy-procedure-ui}
@@ -181,6 +183,7 @@ To upgrade the IKE policy by using the UI, follow these steps:
 1. Select the IKE policy configured in the VPN connection that you want to upgrade.
 1. Highlight the row of the IKE policy in the table, then click **Edit** from the Actions menu ![Actions menu](images/overflow.png).
 1. Update the following algorithms to replace the weak ciphers with secure ones:
+
    * **Encryption** - Encryption algorithm to use for IKE Phase 1. One of: `aes128`, `aes192`, `aes256`.
    * **Authentication** - Authentication algorithm to use for IKE Phase 1. One of: `sha256`, `sha384`, `sha512`.
    * **Diffie-Hellman group** - DH group to use for IKE Phase 1. One of: `14`, `15`, `16`, `17`, `18`, `19`, `20`, `21`, `22`, `23`, `24`, `31`.
@@ -196,6 +199,7 @@ To upgrade a custom IPsec policy by using the UI, follow these steps:
 1. Select the IPsec policy configured in the VPN connection that you want to upgrade.
 1. Highlight the row of the IPsec policy in the table, then click **Edit** from the Actions menu ![Actions menu](images/overflow.png).
 1. Update the following algorithms to replace the weak ciphers with secure ones:
+
    * **Encryption** - Encryption algorithm to use for IKE Phase 2. One of: `aes128`, `aes192`, `aes256`, `aes128gcm16`, `aes192gcm16`, `aes256gcm16`.
    * **Authentication** - Authentication algorithm to use for IKE Phase 2. One of: `sha256`, `sha384`, `sha512`, `disabled`.
 
@@ -224,12 +228,14 @@ To upgrade a custom IKE policy by using the CLI, following these steps:
     ```sh
     export ike_policy=<your_ike_policy_id_or_name>
     ```
-    {: pre}
+    {: codeblock}
 
 1. Find and replace IKE policies **authentication_algorithm**, **dh_group**, and **encryption_algorithm** to use secure ciphers, and populate these variables in your CLI code.
 
    `authentication_algorithm` - The authentication algorithm. One of: `sha256`, `sha384`, `sha512`. 
-   `dh_group` - The Diffie-Hellman group. One of: `14`, `15`, `16`, `17`, `18`, `19`, `20`, `21`, `22`, `23`, `24`, `31`. 
+   
+   `dh_group` - The Diffie-Hellman group. One of: `14`, `15`, `16`, `17`, `18`, `19`, `20`, `21`, `22`, `23`, `24`, `31`.
+   
    `encryption_algorithm` - The encryption algorithm. One of: `aes128`, `aes192`, `aes256`.
 
     ```sh
@@ -237,7 +243,7 @@ To upgrade a custom IKE policy by using the CLI, following these steps:
     export dh_group=<your_secure_dh_group>
     export encryption_algorithm=<your_secure_encryption_algorithm>
     ```
-    {: pre}
+    {: codeblock}
 
 1. Replace IKE policies **--authentication-algorithm value**, **--dh-group value**, and **--encryption-algorithm value** with secure ciphers in your CLI code.
 
@@ -280,12 +286,14 @@ To upgrade a custom IPsec policy by using the CLI, follow these steps:
     ```sh
     export ipesc_policy=<your_ipsec_policy_id_or_name>
     ```
-    {: pre}
+    {: codeblock}
 
 1. Find and replace IPsec policies **authentication_algorithm**, **dh_group**, and **encryption_algorithm** to use secure ciphers, and populate these variables in your CLI code.
 
-   `authentication_algorithm` - The authentication algorithm. One of: `sha256`, `sha384`, `sha512`. 
-   `pfs` - Perfect Forward Secrecy. One of: `disabled`, `group_14`, `group_15`, `group_16`, `group_17`, `group_18`, `group_19`, `group_20`, `group_21`, `group_22`, `group_23`, `group_24`, `group_31`. 
+   `authentication_algorithm` - The authentication algorithm. One of: `sha256`, `sha384`, `sha512`.
+   
+   `pfs` - Perfect Forward Secrecy. One of: `disabled`, `group_14`, `group_15`, `group_16`, `group_17`, `group_18`, `group_19`, `group_20`, `group_21`, `group_22`, `group_23`, `group_24`, `group_31`.
+   
    `encryption_algorithm` - The encryption algorithm. One of: `aes128`, `aes192`, `aes256`.
 
       The `authentication_algorithm` must be `disabled` if and only if `encryption_algorithm` is `aes128gcm16`, `aes192gcm16`, or `aes256gcm16`.
@@ -296,7 +304,7 @@ To upgrade a custom IPsec policy by using the CLI, follow these steps:
     export pfs=<your_secure_pfs_group>
     export encryption_algorithm=<your_secure_encryption_algorithm>
     ```
-    {: pre}
+    {: codeblock}
 
 1. Replace IPsec policies **--authentication-algorithm value**, **--pfs value**, and **--encryption-algorithm value** with secure ciphers in your CLI code.
 
@@ -342,12 +350,14 @@ To upgrade a custom IKE policy by using the API, follow these steps:
 
     export ike_policy_id=<your_ike_policy_id>
     ```
-    {: pre}
+    {: codeblock}
 
 1. Find and replace IKE policies **authentication_algorithm**, **dh_group**, and **encryption_algorithm** to use secure ciphers, and populate these variables in your API code.
  
-   `authentication_algorithm` - The authentication algorithm. One of: `sha256`, `sha384`, `sha512`. 
-   `dh_group` - The Diffie-Hellman group. One of: `14`, `15`, `16`, `17`, `18`, `19`, `20`, `21`, `22`, `23`, `24`, `31`. 
+   `authentication_algorithm` - The authentication algorithm. One of: `sha256`, `sha384`, `sha512`.
+   
+   `dh_group` - The Diffie-Hellman group. One of: `14`, `15`, `16`, `17`, `18`, `19`, `20`, `21`, `22`, `23`, `24`, `31`.
+   
    `encryption_algorithm` - The encryption algorithm. One of: `aes128`, `aes192`, `aes256`.
 
     ```sh
@@ -355,7 +365,7 @@ To upgrade a custom IKE policy by using the API, follow these steps:
     export dh_group=<your_secure_dh_group>
     export encryption_algorithm=<your_secure_encryption_algorithm>
     ```
-    {: pre}
+    {: codeblock}
 
 1. When IKE policy variables are initiated, replace the IKE policy with secure ciphers in your API code.
 
@@ -385,12 +395,14 @@ To upgrade the IPsec policy by using the API, follow these steps:
     ```sh
     export ipsec_policy_id=<your_ipsec_policy_id>
     ```
-    {: pre}
+    {: codeblock}
 
 1. Find and replace IPsec policies **authentication_algorithm**, **pfs**, and **encryption_algorithm** to use secure ciphers and populate these variables in your API code.
 
    `authentication_algorithm` - The authentication algorithm. One of: `sha256`, `sha384`, `sha512`.
-   `pfs` - Perfect Forward Secrecy. One of: `disabled`, `group_14`, `group_15`, `group_16`, `group_17`, `group_18`, `group_19`, `group_20`, `group_21`, `group_22`, `group_23`, `group_24`, `group_31`. 
+   
+   `pfs` - Perfect Forward Secrecy. One of: `disabled`, `group_14`, `group_15`, `group_16`, `group_17`, `group_18`, `group_19`, `group_20`, `group_21`, `group_22`, `group_23`, `group_24`, `group_31`.
+   
    `encryption_algorithm` - The encryption algorithm. One of: `aes128`, `aes192`, `aes256`.
 
       The `authentication_algorithm` must be `disabled` if and only if `encryption_algorithm` is `aes128gcm16`, `aes192gcm16`, or `aes256gcm16`.
@@ -401,7 +413,7 @@ To upgrade the IPsec policy by using the API, follow these steps:
     export pfs=<your_secure_pfs_group>
     export encryption_algorithm=<your_secure_encryption_algorithm>
     ```
-    {: pre}
+    {: codeblock}
 
 1. When the IPsec policy variables are initiated, replace the IPsec policy with secure ciphers in your API code.
 

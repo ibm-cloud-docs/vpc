@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 022
-lastupdated: "2022-04-12"
+  years: 2019, 2022
+lastupdated: "2022-08-25"
 
 keywords: check point peer
 
@@ -18,7 +18,7 @@ subcollection: vpc
 You can use IBM Cloud VPN for VPC to securely connect your VPC to an on-prem network through a VPN tunnel. This topic provides guidance about how to configure your Check Point Security Gateway to connect to {{site.data.keyword.vpn_vpc_short}}.
 {: shortdesc}
 
-These instructions are based on Check Point Security Gateway, Software Release [R80.40]. Earlier versions of Check Point software are not supported.
+These instructions are based on Check Point Security Gateway, Software Release [R81.10]. Earlier versions of Check Point software are not supported.
 {: note}
 
 Read [VPN gateway limitations](/docs/vpc?topic=vpc-vpn-limitations) before you continue to connect to your on-premises peer.
@@ -39,7 +39,7 @@ Here's an example of how to connect an IBM policy-vased VPN to a Check Point Sec
    * Go to the **Network Management** page to define the topology.
    * Go to the **Network Management > VPN Domain** page to define the VPN domain.
 1. To create an interoperable device on the Check Point SmartConsole, follow these steps:
-   * Go to Object Explorer and click **New > Network Object > More > Interoperable Device** to open the new interoperable device page.
+   * Go to Object Explorer and click **New > More > Network Object > More > Interoperable Device** to open the new interoperable device page.
    * Go to the **General Properties** page and enter the IBM VPN gateway name and public IP address.
    * Go to the **Topology** page and add the IBM VPN gateway public IP address and IBM VPC subnets. Add the IBM VPN public IP address as an external network with netmask `255.255.255.255`. Add the IBM VPC subnets as an internal network.
 1. To add the VPN Community, follow these steps. 
@@ -75,14 +75,14 @@ To connect an IBM route-based VPN to a Check Point Security Gateway peer, follow
 
    * Select **SmartConsole > Gateways & Services**, then click the name of security gateway to open the Security Gateway configuration page.
    * Click **Network Management > VPN Domain**.
-   * Select **Manually define**.
+   * Select **User defined**.
    * Click the [...] button.
    * Click **New > Group > Simple Group** and enter a name.
    * Click **OK** (leave the Group object empty).
 
    ![CheckPoint Connection Enable IPsec](images/vpn-checkpoint-using-empty-vpn-domain.png){: caption="Figure 2: CheckPoint connection enable IPsec" caption-side="bottom"}
    
-1. To add the IBM VPN gateway as the interoperable device, go to Object Explorer. Then, click **New > Network Object > More > Interoperable Device** to open the new interoperable device page. Enter the small public IP address of the IBM route-based VPN gateway in the IPv4 address field.
+1. To add the IBM VPN gateway as the interoperable device, go to Object Explorer. Then, click **New > More > Network Object > More > Interoperable Device** to open the new interoperable device page. Enter the small public IP address of the IBM route-based VPN gateway in the IPv4 address field.
 
    For more information about the small public IP, see this [important notice](/docs/vpc?topic=vpc-using-vpn#important-notice).
    {: note}
@@ -109,7 +109,7 @@ To connect an IBM route-based VPN to a Check Point Security Gateway peer, follow
 
    ![CheckPoint Connection Configure Pre-shared Key](images/vpn-checkpoint-configure-pre-shared-key.png){: caption="Figure 8: CheckPoint connection configure pre-shared key" caption-side="bottom"}
    
-1. To enable directional match, select **Menu > Menu > VPN > Advanced**, then click **Enable VPN Directional Match in VPN Column**.
+1. To enable directional match, select **Menu > Global properties > VPN > Advanced**, then click **Enable VPN Directional Match in VPN Column**.
 
    ![CheckPoint Connection Enable Directional Match](images/vpn-checkpoint-enable-directional-match.png){: caption="Figure 9: CheckPoint connection enable directional match" caption-side="bottom"}
 
@@ -149,9 +149,9 @@ To use a custom IKE policy in {{site.data.keyword.vpn_vpc_short}}:
 1. On the {{site.data.keyword.vpn_vpc_short}} page in the IBM Cloud console, select the **IKE policies** tab.
 1. Click **New IKE policy** and specify the following values:
    * For the **IKE Version** field, select **1**.
-   * For the **Authentication** field, select **sha1**.
+   * For the **Authentication** field, select **sha256**.
    * For the **Encryption** field, select **aes256**.
-   * For the **DH Group** field, select **2**.
+   * For the **DH Group** field, select **19**.
    * For the **Key lifetime** field, specify **86400**.
 1. When you create the VPN connection in your VPC, select this custom IKE policy.
 
@@ -162,8 +162,8 @@ To use a custom IPsec policy in {{site.data.keyword.vpn_vpc_short}}:
 
 1. On the {{site.data.keyword.vpn_vpc_short}} page in the IBM Cloud console, select the **IPsec policies** tab.
 1. Click **New IPsec policy** and specify the following values:
-   * For the **Authentication** field, select **sha1**.
-   * For the **Encryption** field, select **aes128**.
+   * For the **Authentication** field, select **sha256**.
+   * For the **Encryption** field, select **aes256**.
    * For the **Key lifetime** field, specify **3600**.
 1. When you create the VPN connection in your VPC, select this custom IPsec policy.
 

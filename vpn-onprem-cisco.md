@@ -65,17 +65,17 @@ Create an IKE version 2 proposal object. IKEv2 proposal objects contain the para
 In this block, the following parameters are set as an example. You can choose other parameters according to your company's security policy; however, make sure to use identical parameters on the IBM VPN gateway and ASAv.
 
 * **Encryption algorithm** - Set to `aes-256` for this example.
-* **Integrity algorithm** - Set to `sha` for this example.
-* **Diffie-Hellman group** - IPsec uses the Diffie-Hellman algorithm to generate the initial encryption key between the peers. In this example, it is set to group `5`.
-* **Pseudo-Random Function (PRF)** - IKEv2 requires a separate method that is used as the algorithm to derive keying material and hashing operations that are required for the IKEv2 tunnel encryption. This is referred to as the pseudo-random function and is set to `sha`.
+* **Integrity algorithm** - Set to `sha256` for this example.
+* **Diffie-Hellman group** - IPsec uses the Diffie-Hellman algorithm to generate the initial encryption key between the peers. In this example, it is set to group `19`.
+* **Pseudo-Random Function (PRF)** - IKEv2 requires a separate method that is used as the algorithm to derive keying material and hashing operations that are required for the IKEv2 tunnel encryption. This is referred to as the pseudo-random function and is set to `sha256`.
 * **SA Lifetime** - Set the lifetime of the security associations (after which time a reconnection occurs) to `36000` seconds.
 
 ```sh
 crypto ikev2 policy 100
 encryption aes-256
-integrity sha
-group 5
-prf sha
+integrity sha256
+group 19
+prf sha256
 lifetime seconds 36000
 crypto ikev2 enable outside
 ```
@@ -86,8 +86,8 @@ Create an IPsec policy for the connection. The IKEv2 supports multiple encryptio
 ```sh
 # Create IPsec policy, IKEv2 support multiple proposals 
 crypto ipsec ikev2 ipsec-proposal ibm-vpc-proposal
- protocol esp encryption aes-256 aes 3des
- protocol esp integrity sha-256 sha-1 md5
+ protocol esp encryption aes-256
+ protocol esp integrity sha-256
 ```
 {: codeblock}
 
@@ -122,8 +122,8 @@ Create a crypto map to pull together the various elements of the VPN tunnel, and
 crypto map ibm_vpc 1 match address outside_cryptomap_ibm_vpc_zone2
 crypto map ibm_vpc 1 set peer 150.239.170.57
 crypto map ibm_vpc 1 set ikev2 ipsec-proposal ibm-vpc-proposal
-crypto map ibm_vpc 1 set pfs group14
-crypto map outside_map interface outside
+crypto map ibm_vpc 1 set pfs group19
+crypto map ibm_vpc interface outside
 ```
 {: codeblock}
 
@@ -168,11 +168,11 @@ Create an IKE version 2 proposal object. IKEv2 proposal objects contain the para
 
 In this block, the following parameters are set as an example. You can choose other parameters according to your company's security policy; however, make sure to use identical parameters on IBM VPN gateway and ASAv.
 
-* **Encryption algorithm** - Set to `AES-256` for this example.
+* **Encryption algorithm** - Set to `aes-256` for this example.
 * **Integrity algorithm** - Set to `sha256` for this example.
 * **Diffie-Hellman group** - IPsec uses the Diffie-Hellman algorithm to generate the initial encryption key between the peers. In this example, it is set to group `19`.
 * **Pseudo-Random Function (PRF)** - IKEv2 requires a separate method that is used as the algorithm to derive keying material and hashing operations that are required for the IKEv2 tunnel encryption. This is referred to as the pseudo-random function and is set to `sha256`.
-* **SA Lifetime** - Set the lifetime of the security associations (after which time a reconnection occurs) to `86,400` seconds.
+* **SA Lifetime** - Set the lifetime of the security associations (after which time a reconnection occurs) to `86400` seconds.
 
 ```sh
 crypto ikev2 policy 100

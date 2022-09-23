@@ -43,11 +43,11 @@ To authenticate with a username or passcode, be aware of the following:
 ### Authenticating with client certificates
 {: #vpn-server-authenticate-with-client-certs}
 
-To authenticate with client certficates, be aware of the following:
+To authenticate with client certificates, be aware of the following:
 
 * Use unique client certificates. The VPN server configuration of client certificate authentication requires a client certificate as input. However, unique client certificates signed by the same Certificate Authority (CA) can be created separately and used for different users.
 * Use a Certificate Revocation List (CRL) to revoke client certificates. Client-to-site VPN servers support CRL to revoke client certificates. For more information, see [Creating a VPN server](/docs/vpc?topic=vpc-vpn-create-server).
-* Do not use a client certificate signed with a public CA, such as LetsEncrypt certificates created through Certificate Manager or Secrets Manager. Using public-CA-signed client certificates means that anyone can provision a client certificate and authenticate successfully. Also, certificates that are created with a public CA cannot be easily tracked and revoked with a CRL.
+* Do not use a client certificate signed with a public CA, such as LetsEncrypt certificates created through Secrets Manager. Using public-CA-signed client certificates means that anyone can provision a client certificate and authenticate successfully. Also, certificates that are created with a public CA cannot be easily tracked and revoked with a CRL.
 
 ## Additional VPN server configurations
 {: #vpn-server-additional-configurations}
