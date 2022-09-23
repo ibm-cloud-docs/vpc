@@ -28,7 +28,7 @@ When you are provisioning a flow log collector, keep in mind that [the finest gr
 Before you create a flow log collector, make sure that you meet the following prerequisites:
 
 1. Make sure that at least one VPC, a subnet, and a virtual server instance exist. For instructions, see [Creating a VPC and subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vpc-and-subnet) and [Creating a virtual server instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vsi).
-1. Make sure that a Cloud Object Storage (COS) instance with a bucket exists for your flow logs. To create a COS bucket, see the [Cloud Object Storage](https://cloud.ibm.com/catalog/services/cloud-object-storage){: external} ordering page.  
+1. Make sure that a Cloud Object Storage (COS) instance with a bucket exists for your flow logs. To create a COS bucket, see the [Cloud Object Storage](/catalog/services/cloud-object-storage){: external} ordering page.  
 
    The COS bucket must be a single-region bucket in the same region as the target resource. Additionally, it is recommended that you secure the bucket through IAM access groups and audit logging.
    {: important}
@@ -66,7 +66,7 @@ Before you create a flow log collector, make sure that you meet the following pr
 Before you create a flow log collector, make sure that you meet the following prerequisites:
 
 1. Make sure that at least one VPC, a subnet, and a virtual server instance exist. For instructions, see [Creating a VPC and subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vpc-and-subnet) and [Creating a virtual server instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vsi).
-1. Make sure that a Cloud Object Storage (COS) instance with a bucket exists for your flow logs. To create a COS bucket, see the [Cloud Object Storage](https://cloud.ibm.com/catalog/services/cloud-object-storage) ordering page.  
+1. Make sure that a Cloud Object Storage (COS) instance with a bucket exists for your flow logs. To create a COS bucket, see the [Cloud Object Storage](/catalog/services/cloud-object-storage) ordering page.  
 
    The COS bucket must be a single-region bucket in the same region as the target resource. Additionally, it is recommended that you secure the bucket through IAM access groups and audit logging.
    {: important}
@@ -96,7 +96,7 @@ Before you create a flow log collector, make sure that you meet the following pr
 Before you create a flow log collector, make sure that you meet the following prerequisites:
 
 1. Make sure that at least one VPC, a subnet, and a virtual server instance exist. For instructions, see [Creating a VPC and subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vpc-and-subnet) and [Creating a virtual server instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vsi).
-1. Make sure that a Cloud Object Storage (COS) instance with a bucket exists for your flow logs. To create a COS bucket, see the [Cloud Object Storage](https://cloud.ibm.com/catalog/services/cloud-object-storage){: external} ordering page.  
+1. Make sure that a Cloud Object Storage (COS) instance with a bucket exists for your flow logs. To create a COS bucket, see the [Cloud Object Storage](/catalog/services/cloud-object-storage){: external} ordering page.  
 
    The COS bucket must be a single-region bucket in the same region as the target resource. Additionally, it is recommended that you secure the bucket through IAM access groups and audit logging.
    {: important}
@@ -135,9 +135,9 @@ To create a flow log collector by using the IBM Cloud console, follow these step
 
 1. Go to the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 
-1. Select the Menu icon ![Menu icon](./images/menu_icon.png), then click **VPC Infrastructure** > **Flow Logs**. The Flow logs for VPC dashboard appears.
+1. Select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure** > **Flow Logs**. The Flow logs for VPC dashboard appears.
 
-   ![Flow log collector dashboard](./images/list-view-01.png "Flow Log Collector dashboard"){: caption="Figure 1. Flow log collector dashboard" caption-side="bottom}
+   ![Flow log collector dashboard](/images/list-view-01.png "Flow Log Collector dashboard"){: caption="Figure 1. Flow log collector dashboard" caption-side="bottom}
 
 1. Click **Create flow log collector** to go to the flow logs provisioning page.
 1. Enter values for the following fields:
