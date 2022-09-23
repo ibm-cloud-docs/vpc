@@ -32,7 +32,6 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-september22}
 
 
-<!-- 
 ### 23 September 2022
 {: #vpc-september2322}
 {: release-note}
