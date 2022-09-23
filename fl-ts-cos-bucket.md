@@ -33,7 +33,7 @@ A bucket that is associated with a flow log collector was deleted, or is not acc
 Follow these steps to resolve this issue:
 {: tsResolve}
 
-1. Create a Cloud Object Storage bucket with the same `<BucketName>` specified in the error message. To create a Cloud Object Storage bucket, see the [Cloud Object Storage](https://cloud.ibm.com/catalog/services/cloud-object-storage){: external} ordering page.
+1. Create a Cloud Object Storage bucket with the same `<BucketName>` specified in the error message. To create a Cloud Object Storage bucket, see the [Cloud Object Storage](/catalog/services/cloud-object-storage){: external} ordering page.
 
    The Cloud Object Storage bucket must be a single-region bucket in the same region as the target resource. Additionally, it is recommended that you secure the bucket through IAM access groups and audit logging.
    {: note}

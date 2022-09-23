@@ -133,7 +133,7 @@ Before you create a flow log collector, make sure that you meet the following pr
 
 To create a flow log collector by using the IBM Cloud console, follow these steps:
 
-1. Go to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
+1. Go to the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 
 1. Select the Menu icon ![Menu icon](./images/menu_icon.png), then click **VPC Infrastructure** > **Flow Logs**. The Flow logs for VPC dashboard appears.
 
@@ -154,7 +154,7 @@ To create a flow log collector by using the IBM Cloud console, follow these step
 
    For example:
 
-   ![Example Network Subnet Target](./images/flow-log-provision-subnet-target-example.png "Example Network Subnet Target"){: caption="Figure 2. Example network subnet target" caption-side="bottom}
+   ![Example Network Subnet Target](/images/flow-log-provision-subnet-target-example.png "Example Network Subnet Target"){: caption="Figure 2. Example network subnet target" caption-side="bottom}
 
 1. Specify where the logs are written. Flow logs are written to a COS bucket, which must be created as a single-region bucket in the same region as the target resource.
 
