@@ -50,22 +50,22 @@ IBM Wazi as a Service
 Sharing images across an enterprise account 
 :    You can now share or publish custom images to other accounts within your enterprise by using a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts. You can use any existing x86 virtual server custom image with a private catalog, with the exception of an encrypted image. For more information, see [Custom images in a private catalog](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#custom-image-cloud-private-catalog) and the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial). Custom images can't be deleted while being managed from a catalog and can only be managed from one catalog product offering version at a time. Deleting the catalog does not free its managed resources for a 7-day reclamation period. For more information, see [Deleting a custom image in a private catalog](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#deleting-private-catalog-custom-image-vpc) and [Using resource reclamations](/docs/account?topic=account-resource-reclamation). If you plan to share images with other accounts, users in those accounts should be aware of considerations related to cross-account references to those images. For more information, see [Using cross-account image references in a private catalog](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-ui). Custom images can also be published to the IBM Cloud catalog and to other (non-enterprise) accounts. This process requires onboarding to the [IBM Cloud Partner Center](https://cloud.ibm.com/partner-center/sell).
 
-:   Deprecated VPN for VPC ciphers. 
+Deprecated VPN for VPC ciphers
 
-   The following VPN for VPC IKE and IPsec ciphers are now deprecated: 
+:    The following VPN for VPC IKE and IPsec ciphers are now deprecated: 
    - Authentication algorithms `md5` and `sha1`
    - Encryption algorithm `triple_des`
    - Diffie–Hellman groups `2` and `5`
 
    You have until 13 December 2022 to upgrade to more secure ciphers. After this date, VPN connections using deprecated ciphers show a `status` of `down` (and no longer transfer data) until you upgrade from the weak cipher. For more information, see [Upgrading weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers).
  
-:   Additional VPN for VPC ciphers. 
+Additional VPN for VPC ciphers
 
-   VPN gateways now provide new algorithms to help meet your security and compliance requirements.
+:    VPN gateways now provide new algorithms to help meet your security and compliance requirements.
    
-   IKE policy now supports the `sha384` value for authentication, `aes192` for encryption, and `15`, `16`, `17`, `18`, `20`, `21`, `22`, `23`, `24`, and `31` values for Diffie–Hellman groups.
+   * IKE policy now supports the `sha384` value for authentication, `aes192` for encryption, and `15`, `16`, `17`, `18`, `20`, `21`, `22`, `23`, `24`, and `31` values for Diffie–Hellman groups.
    
-   IPsec policy now supports `sha384` and `disabled` values for authentication, `aes192`, `aes128gcm16`, `aes192gcm16`, and `aes256gcm16` values for encryption, and `group_15`, `group_16`, `group_17`, `group_18`, `group_20`, `group_21`, `group_22`, `group_23` , `group_24`, and `group_31` Diffie–Hellman groups.
+   * IPsec policy now supports `sha384` and `disabled` values for authentication, `aes192`, `aes128gcm16`, `aes192gcm16`, and `aes256gcm16` values for encryption, and `group_15`, `group_16`, `group_17`, `group_18`, `group_20`, `group_21`, `group_22`, `group_23` , `group_24`, and `group_31` Diffie–Hellman groups.
    
    Specifying IKE and IPsec policies when configuring a VPN connection is optional. If a policy is not selected, one is chosen through _auto-negotiation_. For more information, see [About policy negotiation](/docs/vpc?topic=vpc-using-vpn#policy-negotiation).
    {: note}
