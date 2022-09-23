@@ -220,7 +220,6 @@ toc:
                  - vsi_is_create_windows_custom_image.md
                  - vsi_is_create_zos_custom_image.md
                  - vpc_image_from_volume_create.md
-                 - vsi_is_create_zos_custom_image.md
                  - vsi_is_migrate_from_classic_infra.md
                  - vsi_is_encrypt_custom_image.md
                  - building-custom-os.md
