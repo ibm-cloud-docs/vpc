@@ -120,8 +120,8 @@ A response code of `204` will continue to be returned for API requests using a `
 {: #6-september-2022-all-version-dates}
 
 **Improved reserved IP support for bare metal servers**. The following methods have been added for convenience and parity with the virtual server instance reserved IP methods:
-- [List all reserved IPs bound to a network interface](/apidocs/vpc/latest#list_bare_metal_server_network_interface_ips) for a bare metal server
-- [Retrieve bound reserved IP](/apidocs/vpc/latest#get_bare_metal_server_network_interface_ip) for a bare metal server
+- [List all reserved IPs bound to a network interface](/apidocs/vpc/latest#list-instance-network-interface-ips) for a bare metal server
+- [Retrieve bound reserved IP](/apidocs/vpc/latest#get-instance-network-interface-ip) for a bare metal server
 
 ## 23 August 2022
 {: #23-august-2022}
