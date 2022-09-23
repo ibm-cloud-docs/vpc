@@ -40,6 +40,20 @@ Before you create a custom image, you must verify that your custom image meets t
 
 If you plan to import an image from a file, you must provision an instance of {{site.data.keyword.cos_full_notm}} if you don't already have one. You can then upload the file to a bucket there. You must also create an IAM authorization between the Image Service for VPC and {{site.data.keyword.cos_full_notm}}. For more information, see [Granting access to {{site.data.keyword.cos_full_notm}} to import images](/docs/vpc?topic=vpc-object-storage-prereq&interface=cli).
 
+## z/OS Wazi aaS custom images
+{: #custom-image-zos}
+
+You can use IBM Wazi Image Builder to create your own custom z/OS-based {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) image and import the custom image into {{site.data.keyword.vpc_full}}.
+
+IBM Wazi Image Builder is a separately orderable product from [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/){: external}. There are additional requirements to order and use Wazi Image Builder. The image cost is the premium applied to cover the cost of technologies that allows for z/OS dev and test images to run on IBM Z hardware in IBM’s cloud infrastructure as a service layer. 
+
+The z/OS Wazi aaS custom image must meet the following requirements: 
+* Is in qcow2 format
+* The operating system is z/OS 2.4 or z/OS 2.5
+* The zHYPaaS host control program creates a virtual machine (VM) runtime environment for each guest operating system (OS) and can host many guests at the same time. For required program temporary fixes (PTFs) on z/OS and other IBM software products, see [Hardware and software requirements](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=builder-hardware-software-requirements){: external}. 
+
+For more information, see [Bringing your own image with Wazi Image Builder](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=bringing-your-own-image-wazi-image-builder){: external}.
+
 ## Custom images in a private catalog
 {: #custom-image-cloud-private-catalog}
 
@@ -177,6 +191,7 @@ Use one of the following procedures to create the custom image.
 * [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image)
 * [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc)
 * [Creating an image from a volume](/docs/vpc?topic=vpc-create-ifv&interface=ui)
+* [Creating a z/OS Wazi aaS custom image](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=builder-creating-zos-images){: external}
 
 Did you know that you can use the IBM Cloud [Packer Plug-in](https://github.com/IBM/packer-plugin-ibmcloud){: external} to create and manage custom images on IBM Cloud? For more information, see this [blog post](https://www.ibm.com/cloud/blog/build-hardened-and-pre-configured-vpc-custom-images-with-packer){: external} for an example of how to use the IBM Cloud plugin for Packer.
 {: tip}

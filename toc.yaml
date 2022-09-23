@@ -159,6 +159,8 @@ toc:
                 topics:
                 - vsi_is_connecting_linux_gc.md
                 - vsi_is_connecting_windows.md
+                - vsi_is_connecting_zos.md
+            - vsi_is_configuring_zos.md
             - vsi_is_create_instance_template.md
             - vsi_is_bulk_provision.md
             - vsi_is_connecting_console.md
@@ -216,6 +218,7 @@ toc:
                 topics:
                  - vsi_is_create_linux_custom_image.md
                  - vsi_is_create_windows_custom_image.md
+                 - vsi_is_create_zos_custom_image.md
                  - vpc_image_from_volume_create.md
                  - vsi_is_create_zos_custom_image.md
                  - vsi_is_migrate_from_classic_infra.md
@@ -443,6 +446,7 @@ toc:
                 - file_storage_vpc_mount_rhel.md
                 - file_storage_vpc_mount_centos.md
                 - file_storage_vpc_mount_ubuntu.md
+            - file_storage_vpc_mount_zos.md
             - topicgroup:
                 label: Replication
                 topics:
@@ -542,6 +546,7 @@ toc:
         - vpc-responsibilities.md
         - vsi-understanding-cloud-maintenance.md
         - vsi_is_disable_hyper-threading.md
+        - security-best-practices-zos.md
         - vpc-endpoints.md
         - topicgroup:
             label: Terraform
