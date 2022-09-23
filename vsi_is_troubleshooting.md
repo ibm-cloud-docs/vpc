@@ -171,3 +171,8 @@ When you receive a SSH key permission denied error, your host might not be recog
 If you need more help, you can open a [support case](/docs/get-support?topic=get-support-using-avatar).
 
 For troubleshooting information about z/OS virtual server instances, see [{{site.data.keyword.waziaas_full_notm}} documentation](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=vpc-troubleshooting-zos-virtual-server-instances){: external}.
+
+## Why am I getting an error when I attempt to add more than 5 network interfaces for an existing virtual server instance?
+{: #error-above-5-network-interfaces}
+
+If the [x86-64 instance profile](/docs/vpc?topic=vpc-profiles) that you used to provision your virtual server includes 17 or more vCPUs, you can now add more than 5 network interfaces. To take advantage of the ability to add more network interfaces to a virtual server that existed before the network interface limit increased, you must first stop and restart the virtual server. For more information about multiple network interfaces, see [Managing network interfaces](/docs/vpc?topic=vpc-using-instance-vnics).
