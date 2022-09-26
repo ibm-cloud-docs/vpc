@@ -86,7 +86,7 @@ To create a client-to-site VPN server by using the UI:
 
 1. In the Authentication section, specify the following information:
 
-   * **VPN server authentication** - Select the server SSL certificate from Secrets Manager or Certificate Manager. Complete all required fields.
+   * **VPN server authentication** - Select the server SSL certificate from Secrets Manager. Complete all required fields.
 
       ![VPN server authentication section](images/vpn-server-authentication.png){: caption="VPN server authentication section" caption-side="bottom"}
 

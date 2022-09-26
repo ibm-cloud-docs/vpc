@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-07-14"
+lastupdated: "2022-09-27"
 
 keywords:
 
@@ -557,3 +557,5 @@ Refer to the following information when you are analyzing events:
    This will generate two Activity Tracker events: `is.instance.console-access-token.create` and `is.instance.console.read`, or `is.bare-metal-server.console-access-token.create` and `is.bare-metal-server.console.read`.
 
    You cannot use `request id` to correlate console Activity Tracker events as each call will generate a unique `request id`. Instead, you can use `initiator id` to correlate console events that are generated from API calls issued by the same user.
+
+- You can find the detailed information and fields included in the requestData and responseData for the Bare Metal Servers for VPC AT events in the [API documentation](/apidocs/vpc/latest).

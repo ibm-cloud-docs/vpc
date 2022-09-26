@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-09-19"
+lastupdated: "2022-09-27"
 
 keywords: limitations, restrictions
 
@@ -13,6 +13,7 @@ subcollection: vpc
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:screen: .screen}
@@ -86,6 +87,11 @@ The following feature is currently not supported:
 
 * Dedicated hosts
 * VPC Instance Metadata service
+  
+## z/OS virtual server instance restrictions
+{: #zos-vsi-restrictions}
+
+* For limitations of z/OS virtual server instances, see [{{site.data.keyword.waziaas_full_notm}} documentation](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=known-limitations){: external}.
 
 ## LinuxONE Bare Metal server instance restrictions
 {: #LinuxONE-bm-restrictions}

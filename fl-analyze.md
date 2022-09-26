@@ -23,7 +23,11 @@ Currently, flow logs collect Transmission Control Protocol (TCP) and User Datagr
 
 Each flow log object contains individual flow logs. To view or analyze the flow logs, follow these steps.
 
-1. Ensure that you created an instance of {{site.data.keyword.sqlquery_full}}.
+1. Ensure that you created an instance of {{site.data.keyword.sqlquery_full}}. To create a service instance, see [Getting started with IBM Cloud Data Engine](/docs/sql-query).
+   
+   Cloud Object Storage offers Lite (free) and Standard pricing plans. If you are using the Lite plan, you will not be able to perform tasks that are available with the Standard plan, such as creating tables or using SQL queries. Instead, see [Viewing generated flow log object files from the COS bucket](/docs/vpc?topic=vpc-fl-analyze&interface=ui#viewing-generated-flow-log-object-files-from-the-cos-bucket) and alternative methods documented in the following procedures.
+   {: note}
+   
 1. Launch {{site.data.keyword.sqlquery_full}}.
 1. Start querying flow logs from the bucket that you specified when [Creating a flow log collector](/docs/vpc?topic=vpc-ordering-flow-log-collector).
 
@@ -239,7 +243,7 @@ To analyze flow logs, follow these steps:
     capture_start_time timestamp,
     capture_end_time timestamp,
     number_of_flow_logs int,
-    flow_logs array<struct<
+    flow_logs array<struct>
          start_time: string,
          end_time: string,
          connection_start_time: string,
@@ -290,11 +294,14 @@ To analyze flow logs, follow these steps:
    FROM EXPLODED_FLOW
    ```
    {: codeblock}
+     
+You can verify that flow log data is being collected by using IBM Cloud Monitoring. For more information, see [Monitoring flow logs for VPC metrics](/docs/vpc?topic=vpc-fl-monitoring-metrics).
+{: tip} 
 
 #### Optimizing flow logs layout with {{site.data.keyword.sqlquery_full}}
 {: #optimizing-flow-logs-layout}
 
-When large amounts of flow logs are analyzed, it is recommended to convert flow logs to a layout optimal for queries. This conversion improves query execution time by at least one order of magnitude. For more information about data optimization on COS, see [How to Layout Big Data in IBM Cloud Object Storage for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout).
+When large amounts of flow logs are analyzed, it is recommended to convert flow logs to a layout optimal for queries. This conversion improves query execution time by at least one order of magnitude. For more information about data optimization on COS, see [How to Layout Big Data in IBM Cloud Object Storage for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout){: external}.
 
 The following SQL statement is an ETL job addresses two aspects that contribute significantly to query execution time:
 
@@ -338,7 +345,7 @@ To optimize flow logs layout with {{site.data.keyword.sqlquery_full}}, follow th
 
 1. Use the table `FLOW_PARQUET` instead of `FLOW_FLAT`.  
 
-   For more information about how data layout influences query execution times, see [How to Layout Big Data in IBM Cloud Object Storage for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout "data layout").
+   For more information about how data layout influences query execution times, see [How to Layout Big Data in IBM Cloud Object Storage for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout "data layout"){: external}.
 
 #### Example queries for flow logs with {{site.data.keyword.sqlquery_full}}
 {: #example-queries-for-flow-logs-with-sql}
@@ -409,7 +416,29 @@ ORDER BY `bytes` DESC LIMIT 5
 ```
 {: codeblock}
 
-### Example solution: Analyzing flow Logs for VPC
+### Example solution: Analyzing flow logs
 {: #example-analyzing-flow-logs}
 
-You can download an example solution of how to use IBM Log Analysis to analyze flow logs from [https://github.com/IBM-Cloud/vpc-flowlogs-logdna](https://github.com/IBM-Cloud/vpc-flowlogs-logdna). This project ([Readme file](https://github.ibm.com/portfolio-solutions/vpc-flowlogs-logdna/blob/master/README.md)) shows how to use a trigger function to read a flow log COS object and write it to IBM Log Analysis.
+You can download an example solution of how to use IBM Log Analysis to analyze flow logs from [https://github.com/IBM-Cloud/vpc-flowlogs-logdna](https://github.com/IBM-Cloud/vpc-flowlogs-logdna){: external}. This project ([Readme file](https://github.ibm.com/portfolio-solutions/vpc-flowlogs-logdna/blob/master/README.md){: external}) shows how to use a trigger function to read a flow log COS object and write it to IBM Log Analysis.
+
+### Viewing generated flow log files from the COS bucket
+{: alternative-method}
+
+If you use the Lite (free) pricing plan for Cloud Object Storage, you cannot use an SQL query to confirm the creation of flow log objects in the COS bucket without purchasing the Standard pricing plan. As an alternative, you can access generated flow log object files directly from the COS bucket to verify that the files were created successfully and that the objects are being generated.
+
+To view generated flow log files from the COS bucket, follow these steps:
+
+1. To ensure that the flow logs are being captured, check the COS bucket. For example, check the `ibm_vpc_flowlogs_v1` entry as shown:
+ 
+   ![Viewing flow log files in a COS bucket](images/fl-objects.png){: caption="Viewing flow log files in a COS bucket" caption-side="bottom"}
+
+1. Navigate in the folder to find your VPC or the resource where you configured monitoring.
+
+   ![Viewing flow log files in a COS bucket](images/flow-logs-cos1.png){: caption="Viewing flow log files in a COS bucket" caption-side="bottom"}
+   
+1. Drill-down into the resource to find the network resource that you are monitoring. 
+
+   If configured correctly, you should see several gzip files for each log entry.
+
+Using SQL queries, you can flatten and view these objects or any other type of view of all these files. In our case, we want to ensure that data is being captured. Download one of the files to view its contents to ensure that traffic is being captured.
+{: note}

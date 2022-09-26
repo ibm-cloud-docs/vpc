@@ -36,7 +36,7 @@ Status descriptions are as follows:
 {: faq}
 {: support}
 
-The passcode generated from [IBM IAM](https://iam.cloud.ibm.com/identity/passcode) is a Time-based One-Time Passcode (TOTP), which cannot be reused. You must regenerate it each time.
+The passcode generated from [IBM IAM](https://iam.cloud.ibm.com/identity/passcode){: external} is a Time-based One-Time Passcode (TOTP), which cannot be reused. You must regenerate it each time.
 
 ## If I update a VPN server with connected VPN clients, what happens to the VPN clients?
 {: #faq-vpn-server-update-VPN-server}
@@ -154,7 +154,7 @@ DNS server IP addresses are optional when you provision a VPN server. You should
 {: faq}
 {: support}
 
-The VPN server is not aware of updates made to a certificate in Certificate Manager or Secrets Manager. You must re-import the certificate with a different CRN, and then update the VPN server with the new certificate CRN.
+The VPN server is not aware of updates made to a certificate in Secrets Manager. You must re-import the certificate with a different CRN, and then update the VPN server with the new certificate CRN.
 
 ## Can I use a customized hostname for the VPN server?
 {: #faq-vpn-server-customized-hostname}

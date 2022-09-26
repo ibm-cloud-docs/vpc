@@ -2,7 +2,8 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-08-25"
+
+lastupdated: "2022-09-16"
 
 keywords: creating a linux custom image, cloud-init, qcow2, vhd
 
@@ -10,16 +11,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:important: .important}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating a Linux custom image
 {: #create-linux-custom-image}
