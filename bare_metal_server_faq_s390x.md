@@ -39,7 +39,7 @@ When you are planning to create an s390x bare metal server, you can go through t
 {: #faq-s390x-bare-metal-4}
 {: faq}
 
-The s390x bare metal servers are available in the US East (Washington DC) region with plans to expand to other regions. 
+The s390x bare metal servers are available in the Brazil (São Paulo) region with plans to expand to other regions. 
 
 ## Do I need to configure multiple network interfaces on an s390x bare metal server to support the full 10 Gbps bandwidth?
 {: #faq-s390x-bare-metal-5}
