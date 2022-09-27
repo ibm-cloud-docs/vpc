@@ -15,7 +15,7 @@ subcollection: vpc
 # About LinuxONE Bare Metal Servers
 {: #about-linuxone-bare-metal-servers}
 
-LinuxONE Bare Metal Servers provide dedicated CPU cores, memory, and I/O channels to host your Linux&reg; workloads on s390x architecture-based bare metal servers on your {{site.data.keyword.vpc_full}}. You can use supported Linux operating system images on your s390x bare metal servers. As s390x bare metal servers are integrated with the VPC platform, you can take advantage of the network, storage, and security capacity provided by the VPC.
+LinuxONE Bare Metal Servers provide dedicated CPU cores, memory, and I/O channels to host your Linux&reg; workloads on s390x bare metal servers on your {{site.data.keyword.vpc_full}}. You can use supported Linux operating system images on your s390x bare metal servers. As s390x bare metal servers are integrated with the VPC platform, you can take advantage of the network, storage, and security capacity provided by the VPC.
 {: shortdesc}
 
 The s390x bare metal servers that you provision are supported by Processor Resource/Systems Manager (PR/SM). PR/SM is a hypervisor firmware that allows for virtualization of hardware and can manage multiple operating systems in a single central processing complex. The PR/SM separates or shares physical resources such as cores, I/O channels, and LAN interfaces across multiple logical partitions (LPARs). LPARs are the equivalent of LinuxONE bare metal server instances, and each LPAR supports an independent operating system (OS) that is loaded by a separate initial program load (IPL) operation.
