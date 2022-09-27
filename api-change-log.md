@@ -67,6 +67,41 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 ### For all version dates
 {: #27-september-2022-all-version-dates}
 
+**Sharing images across accounts within an enterprise.** You can now use a [catalog to share custom
+images](/docs/vpc?topic=vpc-planning-custom-images#custom-image-cloud-private-catalog) with users in
+other accounts within the same enterprise. When you [create an
+image](/apidocs/vpc/latest#create-image), a new `catalog_offering` property includes a `managed`
+sub-property that is set to `false` by default.  When the custom image is imported to a catalog the
+`managed` sub-property is set to `true`, indicating that the image is added to a catalog offering
+`version` and is managed from a catalog. Any user who has been authorized to the catalog
+offering version can [provision a virtual server instance](/apidocs/vpc/latest#create-instance)
+with that image by specifying the offering version's CRN as `catalog_offering.version.crn`.
+Alternatively, users can specify the offering's CRN as `catalog_offering.offering.crn` to provision
+a virtual server instance with the latest image associated with the catalog offering. For more
+information, see [Custom images in a private
+catalog](/docs/vpc?topic=vpc-planning-custom-images&interface=api#private-catalog-image-reference-vpc-api)
+in Getting started with custom images, the tutorial [Onboarding a virtual server image for
+VPC](/docs/account?topic=account-catalog-vsivpc-tutorial), and the [Import
+offering](/apidocs/resource-catalog/private-catalog#import-offering){: external} method in the
+Catalog Management API.
+
+The image may not be deleted or used in a different catalog product offering version while it is
+managed from a catalog. If the catalog is deleted, a 7 day reclamation period will apply that
+prevents any images managed by the catalog from being deleted or re-used during the reclamation
+period. For more information, see [Deleting a custom image in a private
+catalog](/docs/vpc?topic=vpc-planning-custom-images&interface=api#deleting-private-catalog-custom-image-vpc)
+and [Using resource
+reclamations](/docs/account?topic=account-resource-reclamation&interface=api#restore-resource-cli).
+
+Image references may refer to custom images in other accounts. Before using this feature, verify
+that your clients handle image reference lookup failures gracefully and do not assume inaccessible
+images have been deleted, even when running with full access to your images.  To avoid possible
+retrieval or use of the wrong image by `name`, specify the image `id`, `crn`, or `href` instead. See
+[Using cross-account image references in a private catalog in the
+API](/docs/vpc?topic=vpc-planning-custom-images&interface=api#private-catalog-image-reference-vpc-api)
+for more information.
+{: important}
+
 **Increased network interface limits for virtual server instances.** You can now have up to 14 secondary network interfaces on a virtual server instance. The previous limit for secondary network interfaces was 4. The number of interfaces that a virtual server instance supports is dependent on the VCPU count that is included in the [instance profile](/docs/vpc?topic=vpc-profiles). For more information about the number of interfaces that a virtual server supports, see [Bandwidth allocation with multiple network interfaces](/docs/vpc?topic=vpc-profiles&interface=ui#bandwidth-multi-vnic). To utilize the increased limit for network interfaces, you can create secondary network interfaces by specifying `network_interfaces` when you [create an instance](/apidocs/vpc/latest#create-instance). You also can add secondary network interfaces to an existing instance by [creating a network interface on an instance](/apidocs/vpc/latest#create-instance-network-interface). 
 
 For an existing, running instance with 17 or more vCPUs to take advantage of the new network interface limits, it must be stopped and then started again. A reboot action on the running virtual server does not activate the increased network interface limit. 
