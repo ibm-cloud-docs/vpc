@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-08-09"
+lastupdated: "2022-09-27"
 
 keywords: api, change log, metadata, new features, restrictions, migration, versioned change
 
@@ -27,3 +27,14 @@ Some changes, such as new response properties or new optional request parameters
 - Follow HTTP redirect rules for any `3xx` HTTP status code
 - Consume only the resources and properties your application needs to function
 - Avoid depending on behavior that is not explicitly documented
+
+### 27 September 2022
+{: #27-september-2022}
+
+#### For all version dates
+{: #27-september-2022-all-version-dates}
+
+**Sharing images across an enterprise account.** If a virtual server instance was provisioned from a catalog offering, [retrieving the instance metadata](/apidocs/vpc-metadata#get-instance) will now include a `catalog_offering` property in the response. For more information, see the [Virtual Private Cloud Instance Metadata API](/apidocs/vpc-metadata).
+
+See also the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial) and the [Import offering](/apidocs/resource-catalog/private-catalog#import-offering){: external} method in the Catalog Management API.
+
