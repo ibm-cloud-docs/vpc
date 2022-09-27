@@ -15,6 +15,9 @@ subcollection: vpc
 # Storage overview for s390x bare metal servers
 {: #s390x-bare-metal-servers-storage}
 
+s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the São Paulo (br-sao) region. 
+{: preview}
+
 Storage for both boot and data volumes for s390x bare metal servers are provided through Fibre Channel Protocol (FCP) that is connected to IBM FlashSystems 9200.
 {: shortdesc}
 
