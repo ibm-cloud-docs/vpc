@@ -12,6 +12,9 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
+s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the São Paulo (br-sao) region. 
+{: preview}
+
 # FAQ for s390x bare metal servers
 {: #s390x-bare-metal-server-faq}
 
