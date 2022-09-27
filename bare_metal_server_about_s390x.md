@@ -46,7 +46,7 @@ For more information, see [Security target for PR/SM for IBM z15 and IBM LinuxON
 ## Benefits
 {: #bare-metal-benefits}
 
-You have the following benefits when you provision a s390x bare metal server.
+You have the following benefits when you provision an s390x bare metal server.
 
 ### Rapid scaling
 {: #bare-metal-rapid-scaling-benefit}

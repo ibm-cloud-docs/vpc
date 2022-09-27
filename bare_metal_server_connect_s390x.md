@@ -26,7 +26,7 @@ You can't use a VNC console or a serial console to connect to s390x bare metal s
 
 You can access the s390x bare metal server through a floating IP.
 
-### Attaching a floating IP to a s390x bare metal server network interface
+### Attaching a floating IP to an s390x bare metal server network interface
 {: #attaching-fip-to-nic}
 
 Before you can access the bare metal server through the public internet, you need to attach a floating IP to its primary HiperSocket network interface. You can attach a floating IP by using the UI, [CLI](#attaching-fip-to-nic-cli), or [API](#attaching-fip-to-nic-api).

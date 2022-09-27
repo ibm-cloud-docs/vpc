@@ -15,7 +15,7 @@ subcollection: vpc
 # FAQ for s390x bare metal servers
 {: #s390x-bare-metal-server-faq}
 
-You might encounter the following frequently asked questions when you use a s390x bare metal server.
+You might encounter the following frequently asked questions when you use an s390x bare metal server.
 
 ## What operating systems are supported?
 {: #faq-s390x-bare-metal-1}
@@ -29,11 +29,11 @@ Currently, only SUSE Linux Enterprise Server 15 SP3 and Red Hat Enterprise Linux
 
 Storage is provided by Fibre Channel Protocol (FCP) that is connected to IBM FlashSystems 9200.
 
-## What is required to set up a s390x bare metal server? 
+## What is required to set up an s390x bare metal server? 
 {: #faq-s390x-bare-metal-3}
 {: faq}
 
-When you are planning to create a s390x bare metal server, you can go through the configuration checklist on [Planning for s390x bare metal servers](/docs/vpc?topic=vpc-planning-for-bare-metal-servers). 
+When you are planning to create an s390x bare metal server, you can go through the configuration checklist on [Planning for s390x bare metal servers](/docs/vpc?topic=vpc-planning-for-bare-metal-servers). 
 
 ## What regions are s390x bare metal servers available?
 {: #faq-s390x-bare-metal-4}
@@ -41,7 +41,7 @@ When you are planning to create a s390x bare metal server, you can go through th
 
 The s390x bare metal servers are available in the US East (Washington DC) region with plans to expand to other regions. 
 
-## Do I need to configure multiple network interfaces on a s390x bare metal server to support the full 10 Gbps bandwidth?
+## Do I need to configure multiple network interfaces on an s390x bare metal server to support the full 10 Gbps bandwidth?
 {: #faq-s390x-bare-metal-5}
 {: faq}
 
@@ -65,7 +65,7 @@ No.
 
 Replication isn't supported.
 
-## What is the size of the boot drive for a s390x bare metal server?
+## What is the size of the boot drive for an s390x bare metal server?
 {: faq-s390x-bare-metal-9}
 {: faq}
 

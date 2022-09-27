@@ -15,7 +15,7 @@ subcollection: vpc
 # s390x bare metal server profiles
 {: #s390x-bare-metal-servers-profile}
 
-When you create a s390x bare metal server, you can select a s390x architecture based profile that best fits your needs. A profile provides a different combination of hardware configurations that include number of CPU cores, amount of RAM, and size of local storage. The attributes define the size and capabilities of the bare metal server that is provisioned.
+When you create an s390x bare metal server, you can select an s390x architecture based profile that best fits your needs. A profile provides a different combination of hardware configurations that include number of CPU cores, amount of RAM, and size of local storage. The attributes define the size and capabilities of the bare metal server that is provisioned.
 {: shortdesc}
 
 The s390x bare metal server profiles are in the "Memory" profile family because their "vCPU : Memory" ratio is larger than "1:16". For more information about profile families, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles).

@@ -15,7 +15,7 @@ subcollection: vpc
 # Networking overview for s390x bare metal servers
 {: #s390x-bare-metal-servers-network}
 
-The following information is an overview of the networking features of s390x bare metal servers and how it supports VPC networking. It is recommended that you go through this information before you build a s390x bare metal server. s390x bare metal servers on VPC provide full support for VPC networking features. The network is fully software-defined, so you can configure it through the API.
+The following information is an overview of the networking features of s390x bare metal servers and how it supports VPC networking. It is recommended that you go through this information before you build an s390x bare metal server. s390x bare metal servers on VPC provide full support for VPC networking features. The network is fully software-defined, so you can configure it through the API.
 {: shortdesc}
 
 The following information is for users that have basic network knowledge of {{site.data.keyword.cloud}} VPC and LinuxONE. If you aren't familiar with VPC networking, see [About networking](/docs/vpc?topic=vpc-about-networking-for-vpc). If you are not familiar with HiperSockets, see [IBM HiperSockets Implementation Guide ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.redbooks.ibm.com/redbooks/pdfs/sg246816.pdf).
@@ -29,7 +29,7 @@ For more information about managing network interfaces, see [Managing network in
 ## s390x bare metal server network interfaces
 {: #bare-metal-servers-nics-intro}
 
-You can create only one type of network interface on a s390x bare metal server:
+You can create only one type of network interface on an s390x bare metal server:
 
 | Network interface | Description |
 |-----|-----|
