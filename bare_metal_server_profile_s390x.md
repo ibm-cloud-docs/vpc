@@ -15,7 +15,7 @@ subcollection: vpc
 # s390x bare metal server profiles
 {: #s390x-bare-metal-servers-profile}
 
-When you create a s390x bare metal server, you can select from an s390x architecture-based profile that best fits your needs. A profile provides a different combination of hardware configurations that include number of CPU cores, amount of RAM, and size of local storage. The attributes define the size and capabilities of the bare metal server that is provisioned.
+When you create a s390x bare metal server, you can select a s390x architecture based profile that best fits your needs. A profile provides a different combination of hardware configurations that include number of CPU cores, amount of RAM, and size of local storage. The attributes define the size and capabilities of the bare metal server that is provisioned.
 {: shortdesc}
 
 The s390x bare metal server profiles are in the "Memory" profile family because their "vCPU : Memory" ratio is larger than "1:16". For more information about profile families, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles).
@@ -23,13 +23,13 @@ The s390x bare metal server profiles are in the "Memory" profile family because 
 ## Profile configurations
 {: #bare-metal-servers-profile-list}
 
-See table 2 for the configurations of each profile. Each CPU core of the s390x bare metal server has two Simultaneous Multithreading (SMT) threads for increased CPU efficiency to deliver more throughput per processor core.
+See table 1 for the configurations of each profile. Each CPU core of the s390x bare metal server has two Simultaneous Multithreading (SMT) threads for increased CPU efficiency to deliver more throughput per processor core.
 
 | Name | CPU cores | vCPU |Memory (GiB) | SAN storage | Total network bandwidth (Gbps) | Number of supported interfaces |
 |---------|---------|---------|---------|---------|---------|------|
 | mz2d-metal-2x64 | 1 | 2 | 64 | 100 GB FCP boot storage on IBM FlashSystem 9200  \n  \n 512 GB FCP Data storage | 2 | 1 |
 | mz2d-metal-16x512 | 8 | 16 | 512 | 100 GB FCP boot storage on IBM FlashSystem 9200  \n  \n 4096 GB FCP Data storage | 10 | 2 |
-{: caption="Table 2. s390x bare metal server profiles" caption-side="bottom"}
+{: caption="Table 1. s390x bare metal server profiles" caption-side="bottom"}
 
 s390x architecture-based bare metal profiles are used to provision s390x bare metal server. These profiles are available in the US East (Washington DC) region.
 {: preview}
