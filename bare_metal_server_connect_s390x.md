@@ -15,6 +15,9 @@ subcollection: vpc
 # Connecting to s390x bare metal servers 
 {: #connect-to-s390x-bare-metal-servers}
 
+s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the São Paulo (br-sao) region. 
+{: preview} 
+
 After your s390x bare metal server is running, you can connect to the server by using your private SSH key through a floating IP.
 {: shortdesc}
 
