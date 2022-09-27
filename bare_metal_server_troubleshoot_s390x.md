@@ -17,6 +17,9 @@ subcollection: vpc
 # Troubleshooting s390x bare metal servers
 {: #troubleshoot_s390x_bare_metal}
 
+s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the São Paulo (br-sao) region. 
+{: preview}
+
 The following sections cover common difficulties that you might encounter, and offers some helpful tips.
 
 ## Bare metal servers have hardware issues
