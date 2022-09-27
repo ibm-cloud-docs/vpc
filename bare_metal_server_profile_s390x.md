@@ -10,22 +10,7 @@ subcollection: vpc
 
 ---
 
-{:beta: .beta}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:preview: .preview}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:table: .aria-labeledby="caption"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # s390x bare metal server profiles
 {: #s390x-bare-metal-servers-profile}
@@ -33,21 +18,20 @@ subcollection: vpc
 When you create a s390x bare metal server, you can select from an s390x architecture-based profile that best fits your needs. A profile provides a different combination of hardware configurations that include number of CPU cores, amount of RAM, and size of local storage. The attributes define the size and capabilities of the bare metal server that is provisioned.
 {: shortdesc}
 
+The s390x bare metal server profiles are in the "Memory" profile family because their "vCPU : Memory" ratio is larger than "1:16". For more information about profile families, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles).
 
-The s390x bare metal server profiles are in the "Memory" profile family because their "vCPU : Memory" ratio is larger than "1:16". For more information about profile families, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles).
-
-## Profiles configurations
+## Profile configurations
 {: #bare-metal-servers-profile-list}
 
-See table 2 for the configurations of each profile. Each CPU core of the s390x bare metal server has 2 Simultaneous Multithreading (SMT) threads for increasing the efficiency of CPUs to deliver more throughput per processor core.
+See table 2 for the configurations of each profile. Each CPU core of the s390x bare metal server has two Simultaneous Multithreading (SMT) threads for increased CPU efficiency to deliver more throughput per processor core.
 
-| Name | CPU Cores | vCPU |Memory (GiB) | SAN storage | Total Network Bandwidth (Gbps) | number of supported interfaces |
+| Name | CPU cores | vCPU |Memory (GiB) | SAN storage | Total network bandwidth (Gbps) | Number of supported interfaces |
 |---------|---------|---------|---------|---------|---------|------|
 | mz2d-metal-2x64 | 1 | 2 | 64 | 100 GB FCP boot storage on IBM FlashSystem 9200  \n  \n 512 GB FCP Data storage | 2 | 1 |
 | mz2d-metal-16x512 | 8 | 16 | 512 | 100 GB FCP boot storage on IBM FlashSystem 9200  \n  \n 4096 GB FCP Data storage | 10 | 2 |
 {: caption="Table 2. s390x bare metal server profiles" caption-side="bottom"}
 
-The s390x architecture-based bare metal profiles can be used to provision s390x bare metal server instances. These profiles are available in the US East (Washington DC) region.
+s390x architecture-based bare metal profiles are used to provision s390x bare metal server. These profiles are available in the US East (Washington DC) region.
 {: preview}
 
 ## Understanding the naming rule of profiles
@@ -57,7 +41,7 @@ The following information describes the naming rule of the profiles.
 
 * *m* represents a *Memory* family profile.
 * *x* represents the *x86_64* and *z* represents the *s390x* CPU architecture.
-* *2* represents the current generation of processors (LinuxONE mainframe).
+* *2* represents the current generation of processors.
 * *d* represents FCP storage on SAN provided by IBM FlashSystem 9200.
 * The field between the two dashes is "metal" for bare metal servers.
 * The field after the second dash contains information on the number of CPU cores and the size of memory (GB). For example, "4x256" means that this profile has four CPU cores with two SMT threads and 256 GB of memory.

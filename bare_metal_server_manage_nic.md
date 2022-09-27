@@ -13,37 +13,33 @@ subcollection: vpc
 # Managing network interfaces for Bare Metal Servers on VPC
 {: #managing-nic-for-bare-metal-servers}
 
-After you create a bare metal server, you can add new network interfaces or edit existing network interfaces. When you edit a network interface, you can change its name, associate or unassociate a floating IP address, or access the security group that is associated with an interface. For more information about the networking features of Bare Metal Server for VPC, see [Networking overview for Bare Metal Servers on VPC](/docs/vpc?topic=vpc-bare-metal-servers-network) or [Networking overview for LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-linuxone-bare-metal-server-network).
+After you create a bare metal server, you can add new network interfaces or edit existing network interfaces. When you edit a network interface, you can change its name, associate or disassociate a floating IP address, or access the security group that is associated with an interface. For more information about the networking features of Bare Metal Server for VPC, see [Networking overview for Bare Metal Servers on VPC](/docs/vpc?topic=vpc-bare-metal-servers-network) or [Networking overview for s390x bare metal servers](/docs/vpc?topic=vpc-s390x-bare-metal-servers-network).
 {: shortdesc}
 
 ## Overview of bare metal server network interfaces
 {: #overview-bare-metal-network-interfaces}
 
-
-* For x86 Bare Metal Servers: You can create two types of network interface on the bare metal servers - PCI interface and VLAN interface.
+For x86 Bare Metal Servers, you can create two types of network interfaces - PCI interface and VLAN interface.
 
    * A PCI interface is a physical network interface. The VLAN interface is a virtual interface that is associated with a PCI interface. The maximum number of PCI interfaces per bare metal server is eight.
-
    * The VLAN interface automatically tags traffic that is routed through it with the VLAN ID. Inbound traffic that is tagged with a VLAN ID is directed to the appropriate VLAN interface. The VLAN interface has its own security groups and doesn't inherit security groups from the PCI interface. You aren't limited on the maximum number of VLAN interfaces per bare metal server.
 
-   When you create a bare metal server, a primary PCI interface is created for you. Optionally, you can add one or more secondary PCI or VLAN interfaces. You can also add, update, or delete the network interfaces.
+   - When you create a bare metal server, a primary PCI interface is created for you. Optionally, you can add one or more secondary PCI or VLAN interfaces. You can also add, update, or delete the network interfaces.
 
-   You can associate one or more floating IPs with a network interface. The multiple floating IPs feature enables the VMware&reg; NSX-T Data Center to assign floating IPs. For more information about associating floating IP, see [Associate floating IPs with a network interface](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers#add-fips-to-nic).
+   - You can associate one or more floating IPs with a network interface. The multiple floating IPs feature enables the VMware&reg; NSX-T Data Center to assign floating IPs. For more information about associating floating IP, see [Associate floating IPs with a network interface](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers#add-fips-to-nic).
 
+For s390x bare metal servers, you can create one type of network interface - HiperSockets interface.
 
-* For s390x LinuxONE Bare Metal Servers: You can create one type of network interface on the LinuxONE bare metal servers - HiperSockets interface.
+   - Mainframe HiperSockets is a technology that provides high-speed TCP/IP connectivity within a central processor complex. It eliminates the need for any physical cabling or external networking connection between LinuxONE Bare Metal servers.
 
-  Mainframe HiperSockets is a technology that provides high-speed TCP/IP connectivity within a central processor complex. It eliminates the need for any physical cabling or external networking connection between LinuxONE Bare Metal servers.
+   - When you create a bare metal server, a primary HiperSockets interface is created for you. Optionally, you can add one or more secondary HiperSockets interfaces. You can also add, update, or delete the network interfaces.
 
-  When you create a bare metal server, a primary HiperSockets interface is created for you. Optionally, you can add one or more secondary HiperSockets interfaces. You can also add, update, or delete the network interfaces.
-
-  For more information about associating floating IP, see [Associate floating IPs with a network interface](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers#add-fips-to-nic).
-
+For more information about associating floating IP, see [Associate floating IPs with a network interface](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers#add-fips-to-nic).
 
 If you want to control the flow of network traffic in your VPC, you can configure routes. VPC routes specify the next hop for packets, based on their destination addresses. For more information, see [Creating a route](/docs/vpc?topic=vpc-create-vpc-route).
 
 ## Network interface configurations
-{: #nic-configs}
+{: #bare-metal-nic-configurations}
 
 You can specify the following configurations for both PCI and VLAN interfaces:
 
@@ -52,19 +48,19 @@ You can specify the following configurations for both PCI and VLAN interfaces:
 | Name | Name of the interface. |
 | Subnet | Specify the subnet that the network interface is associated with. |
 | Floating IP | After you create the network interface, you can associate one floating IP for external connectivity. |
-| Allow interface floating | Turning on "Allow interface to float" gives the VLAN interface the ability to float to another bare metal server. Example - VM migration or virtual IP. |
+| Allow interface floating | Turning on "Allow interface to float" gives the VLAN interface the ability to float to another bare metal server. Example - server migration or virtual IP. |
 | Primary IPv4 address | The primary IPv4 address of the network interface. If specified, it must be an available address on the network interface's subnet. If unspecified, an available address on the subnet is automatically selected. |
 | Allow IP spoofing | Turning IP spoofing _off_ prevents source IP spoofing on an interface. Turning IP spoofing _on_ allows source IP spoofing. The default option is _off_. You must have the **Advanced Network Operator** IAM role to modify this configuration. |
-| Enable infrastructure NAT | Turning on infrastructure NAT allows the VPC infrastructure to perform any needed NAT operations. If infrastructure NAT is off, the packet passes unmodified to and from the network interface, allowing the workload to perform NAT operations. The default option is _on_. You must have the **Advanced Network Operator** IAM role to modify this configuration. **Allow IP spoofing** must be turned off if **Enable infrastructure NAT** is turned _off_. <br> Note: **Enable infrastructure NAT** is not supported on LinuxONE Bare Metal Servers.|
-| Security groups | You can select the security groups that are used to control the traffic for the network interface. <br>Note: For VLAN interfaces on x86 architecture-based bare metal servers, you need to specify the following two configurations: 1. **Allow interface to float**: Decide whether the interface needs to float to any other server within the same resource group. If enabled, the interface automatically floats if the network detects a GARP or RARP on another bare metal server within the resource group. The default option is _off_. You can't change this configuration after the VLAN interface is created. 2. **VLAN ID**: You must specify the VLAN ID tag to use for all traffic on this VLAN interface. |
+| Enable infrastructure NAT | Turning on infrastructure NAT allows the VPC infrastructure to perform any needed NAT operations. If infrastructure NAT is off, the packet passes unmodified to and from the network interface, allowing the workload to perform NAT operations. The default option is _on_. You must have the **Advanced Network Operator** IAM role to modify this configuration. **Allow IP spoofing** must be turned off if **Enable infrastructure NAT** is turned _off_.  \n **Enable infrastructure NAT** is not supported on LinuxONE Bare Metal Servers.|
+| Security groups | You can select the security groups that are used to control the traffic for the network interface.  \n For VLAN interfaces on x86 architecture-based bare metal servers, you need to specify the following two configurations: 1. **Allow interface to float**: Decide whether the interface needs to float to any other server within the same resource group. If enabled, the interface automatically floats if the network detects a GARP or RARP on another bare metal server within the resource group. The default option is _off_. You can't change this configuration after the VLAN interface is created. 2. **VLAN ID**: You must specify the VLAN ID tag to use for all traffic on this VLAN interface. |
 | Associated PCI interface | If more than one PCI interfaces are created on the bare metal server, you must select a PCI interface to associate to this VLAN interface. Make sure that you associate the VLAN interfaces with the same VLAN ID that is on a bare metal server with one subnet. You can't create two VLAN interfaces with the same ID in two subnets. However, you can associate VLAN interfaces with different VLAN ID with one subnet. |
 | Allowed VLANs (PCI interface only) | Specify the VLAN IDs of the VLAN interfaces that can use the PCI interface. |
 {: caption="Table 1. Bare metal server network interface configurations" caption-side="bottom"}
 
 ## Creating a network interface
-{: #create-nic}
+{: #bare-metal-create-nic}
 
-You can create one or more network interfaces on a bare metal server when you create the server. You can also add new interfaces to an existing bare metal server.
+You can create one or more network interfaces when you create a bare metal server. You can also add new interfaces to an existing bare metal server.
 
 For x86 architecture-based bare metal servers, a VLAN interface must be associated with a PCI interface. When you use {{site.data.keyword.cloud}} UI to create VLAN interfaces, you must specify the **Associated PCI interface** field. If you use the CLI or API, you need to use the `allowed_vlans` property of the PCI interface to specify the VLAN IDs that can be associated with it. Then, when you create VLAN interfaces, the ID of the VLAN interface must be added to the `allowed_vlans` field of a PCI interface. Otherwise, the VLAN interface can't be created.
 {: important}
@@ -74,7 +70,7 @@ For x86 architecture-based bare metal servers, a VLAN interface must be associat
 
 To create a new interface or update the primary PCI network interface while you create a bare metal server, use the following steps.
 
-1. On the **New bare metal server for VPC** page, go to the **Network interfaces** section.
+1. From the **New bare metal server for VPC** page, go to the **Network interfaces** section.
 
 2. Click **New interface** to create a secondary interface.
 
@@ -87,24 +83,24 @@ To add a network interface to an existing bare metal server, do the following st
 
 1. In the **Network interfaces** section of the **Bare metal server details** page, click **New interface** to create a new interface.
 
-For x86 architecture-based bare metal servers, PCI interfaces can be only created or deleted when the bare metal server is in **Stopped** state.
+For x86 architecture-based bare metal servers, PCI interfaces can be only created or deleted when the bare metal server is **Stopped**.
 {: important}
 
 ## Associating floating IPs with a network interface
-{: #add-fips-to-nic}
+{: #bare-metal-add-fips-to-nic}
 
 You can associate one or more floating IPs with one network interface.
 
-To associate multiple floating IPs to a network interface, make sure that both **Allow IP spoofing** and **Enable infrastructure NAT** are off on the network interface. Note that **Enable infrastructure NAT** is not supported on LinuxONE Bare Metal servers.
+To associate multiple floating IPs to a network interface, make sure that both **Allow IP spoofing** and **Enable infrastructure NAT** are disabled on the network interface. **Enable infrastructure NAT** isn't supported on s390x Bare Metal Servers.
 {: important}
 
-Follow these steps to associate a floating IP with the network interface:
+Use the following steps to associate a floating IP with the network interface:
 
 1. Under the **Network interfaces** section of the **Bare metal server details** page, identify the interface that you want to associate the floating IP with.
 
 2. Click the edit icon of the target interface.
 
-3. On the **Edit network interface** page, locate the **Floating IP address** field, check the floating IPs that you want to associate with the network interface.
+3. On the **Edit network interface** page, locate the **Floating IP address** field and select the floating IPs that you want to associate with the network interface. Keep in mind that you can associate a floating IP to the secondary network interface only when you configure a default gateway to the secondary network interface within the operating system.
 
     Associating a floating IP to the secondary network interface only works when you configure a default gateway to the secondary network interface within the operating system.
     {: note}
@@ -115,11 +111,11 @@ You can disassociate the associated floating IP from the network interface.
 {: tip}
 
 ## Updating a network interface
-{: #update-nic}
+{: #bare-metal-update-nic}
 
-After you created a network interface, you can change its **Enable infrastructure NAT** and **Allow IP spoofing** setting. You can also change the floating IPs that are attached to it. For PCI interface, updating its associated VLAN IDs is available. Note that **Enable infrastructure NAT** is not supported on LinuxONE Bare Metal servers.
+After you create a network interface, you can change the **Enable infrastructure NAT** and **Allow IP spoofing** setting. You can also change the floating IPs that are attached to it. For PCI interface, updating its associated VLAN IDs is available. **Enable infrastructure NAT** isn't supported on s390x Bare Metal Servers.
 
-Follow these steps to update the network interface:
+Use the following steps to update the network interface:
 
 1. Under the **Network interfaces** section of the ***Bare metal server details** page, identify the interface that you want to update.
 
@@ -130,23 +126,21 @@ Follow these steps to update the network interface:
 4. Click **Save**.
 
 ## Deleting a network interface
-{: #delete-nic}
+{: #bare-metal-delete-nic}
 
-You can delete the network interfaces that you created by clicking the delete icon of the network interface on the **Bare metal server details** page.
+You can delete a network interface by clicking the delete icon of a network interface on the **Bare metal server details** page.
 
-Keep the following information in mind when you delete network interfaces:
+Keep the following information in mind when you delete a network interface:
 
 * Network interface deletion can't be reversed.
 * The floating IPs that are associated with the network interface are implicitly disassociated.
-* You can delete the network interfaces only when the bare metal server is **Stopped**.
+* You can delete a network interface only when the bare metal server is **Stopped**.
 * You can't delete the primary network interface.
 
 ## Creating a virtual IP (VIP)
 {: #bare-metal-virtual-ips}
 
-A VIP is used for moving between interfaces to achieve high availability. Typically, two interfaces belong to two VMs. Each interface has a primary IP that negotiates with VRRP to determine which VM owns the VIP.
-
-<!--![Figure showing the primary IP and VRRP relationship](images/vip-vrrp.png "Figure showing the primary IP and VRRP relationship"){: caption="Figure 1. Primary IP and VRRP relationship" caption-side="bottom"}-->
+A VIP is used for moving between interfaces to achieve high availability. Typically, two interfaces belong to two servers. Each interface has a primary IP that negotiates with VRRP to determine which server owns the VIP.
 
 From a RIAS perspective, you create a VIP the same way that you create a primary IP.
 
@@ -162,7 +156,7 @@ From a RIAS perspective, you create a VIP the same way that you create a primary
 ## Creating a custom route
 {: #bare-metal-create-custom-route}
 
-Custom routes achieve communication without NAT rules between VMWare VMS within an NSX-T cluster and virtual server outside the NSX-T cluster, but within the same VPC. To create a custom route, use the following steps.
+Custom routes communication without NAT rules between VMWare VMS within an NSX-T cluster and virtual server outside the NSX-T cluster, but within the same VPC. To create a custom route, use the following steps.
 
 1. Use the following command to create the custom route.
 
@@ -180,5 +174,5 @@ Custom routes achieve communication without NAT rules between VMWare VMS within 
 
 3. Associate the custom route with specific subnets.
 
-You can also use a custom route so segment VMs can communicate to infrastructure VMs or VPNs.
+You can also use a custom route so segment servers can communicate to infrastructure servers or VPNs.
 {: tip}

@@ -4,7 +4,7 @@ copyright:
   years: 2022
 lastupdated: "2022-09-27"
 
-keywords: s390x bare metal server, connecting, floating IP, serial console, vnc console
+keywords: connecting to s390x bare metal server, floating IP, serial console, vnc console
 
 subcollection: vpc
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Connecting to s390x bare metal servers
+# Connecting to s390x bare metal servers 
 {: #connect-to-s390x-bare-metal-servers}
 
 After your s390x bare metal server is running, you can connect to the server by using your private SSH key through a floating IP.
@@ -22,7 +22,6 @@ You can't use a VNC console or a serial console to connect to s390x bare metal s
 {: note}
 
 ## Accessing the s390x bare metal server by using a floating IP 
-<!-- is this topic about accessing or attaching? It might be better to have separate Accessing the server with floating ip and Attaching the floating ip topics -->
 {: #access-s390x-bm-using-fip}
 
 You can access the s390x bare metal server through a floating IP.
@@ -37,7 +36,7 @@ Before you can access the bare metal server through the public internet, you nee
 
 1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**
 
-2. Click the name of the s390x bare metal server.
+2. Click the name of the server that you want to attach a floating IP.
 
 3. On the **Bare metal server details** page, scroll to the **Network interfaces** section and click **Edit**.
 
@@ -50,7 +49,7 @@ Before you can access the bare metal server through the public internet, you nee
 
 You need the following information to attach a floating IP to a bare metal server:
 
-* s390x bare metal server ID
+* Server ID
 * Network interface ID 
    - You can use the [List the network interfaces](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#bare-metal-server-network-interfaces) command to find the ID of the network interface.
 * Floating IP ID 
@@ -68,7 +67,7 @@ ibmcloud is bare-metal-server-network-interface-floating-ip-add $bare_metal_serv
 
 You need the following information when you attach a floating IP to a bare metal server network interface:
 
-* s390x Bare metal server ID
+* Server ID
 * Network interface ID
 * Floating IP ID
 
@@ -110,25 +109,3 @@ curl -X PUT "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/netwo
    ```
    {: pre}
 
-
-<!--
-## Accessing the s390x bare metal server by using a serial console
-{: #access-s390x-bm-using-console}
-
-You can access the s390x bare metal server by connecting to the serial console.
-
-To connect to a console, you need to be assigned **Operator** (or greater) and **Bare Metal Console Administrator** roles for the bare metal server in IBM Cloud Identity and Access Management (IAM). If you are an administrator of your account, you also need to self-assign the **Bare Metal Console Administrator** role.
-
-### Connecting to a serial console
-{: #connect-to-serial-console}
-
-You can use a serial console to access the s390x bare metal server. You must first manually switch to the serial console mode by using the following steps:
-
-1. Restart your server.
-
-2. Click **Open serial console** from the IBM Cloud UI. A new tab opens in your terminal.
-
-If the login window doesn’t show up in the terminal, press **ESC**.
-{: tip}
-
---->

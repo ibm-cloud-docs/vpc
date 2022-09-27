@@ -9,21 +9,7 @@ subcollection: vpc
 
 ---
 
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:preview: .preview}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:table: .aria-labeledby="caption"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating Bare Metal Servers on VPC
 {: #creating-bare-metal-servers}
@@ -32,10 +18,10 @@ Use the following information to create a bare metal server on your {{site.data.
 {: shortdesc}
 
 ## Creating a bare metal server by using the UI
-{: #creating-using-ui}
+{: #creating-bare-metal-ui}
 {: ui}
 
-Follow these steps to create a bare metal server by using the {{site.data.keyword.cloud}} console. You can also check out the following [video](https://mediacenter.ibm.com/media/t/1_j2pdfua6){: external} to learn more about creating a bare metal server.
+Use the following steps to create a bare metal server by using the {{site.data.keyword.cloud}} console. You can also check out the following [video](https://mediacenter.ibm.com/media/t/1_j2pdfua6){: external} to learn more about creating a bare metal server.
 
 1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**
 
@@ -51,25 +37,25 @@ Follow these steps to create a bare metal server by using the {{site.data.keywor
 | Resource group | Select a resource group for the server. |
 | Tags | You can assign labels to your server so that you can easily filter resources in your resource list. |
 | Access management tags | Access management tags help you apply flexible access policies on specific resources. |
-| Operating system | Select the operating system and version from an image. <ul><li>For x86 architecture: `ibm-esxi-7-amd64-1` installs a licensed ESXi 7.x hypervisor. `ibm-esxi-7-byol-amd64-1` installs bring-your-own-license ESXi 7.x and control the licensing for your bare metal server. </li><li>For s390x architecture: `sles-15-sp3-metal-s390x` installs a licensed SUSE Linux Enterprise Server 15 SP3 (s390x). `red-8-metal-s390x` installs Red Hat Enterprise Linux 8.x - Minimal Install (s390x) for your bare metal server. </li></ul>|
+| Operating system | Select the operating system and version from an image.  \n - For x86 architecture, `ibm-esxi-7-amd64-1` installs a licensed ESXi 7.x hypervisor. `ibm-esxi-7-byol-amd64-1` installs bring-your-own-license ESXi 7.x and control the licensing for your bare metal server.  \n - For s390x architecture, `sles-15-sp3-metal-s390x` installs a licensed SUSE Linux Enterprise Server 15 SP3 (s390x). `red-8-metal-s390x` installs Red Hat Enterprise Linux 8.x - Minimal Install (s390x) for your bare metal server. |
 | Profile | Select from popular profiles or from all available vCPU and RAM combinations. The profile families are Balanced, Compute, and Memory. For more information, see [Bare metal servers profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile) or [s390x bare metal server profiles](/docs/vpc?topic=vpc-s390x-bare-metal-servers-profile). |
-| SSH key | Select an existing public SSH key or click **New SSH key** to add a new one. You must specify at least one SSH key. <ul><li>For x86 architecture: This key is used to automatically generate a password that is required for accessing VMware&reg; ESXi Direct Console User Interface (DCUI) and ESXi’s web client.</li><li>For s390x architecture: SSH keys are used to securely connect to the LinuxONE Bare Metal server instance after it's running.</li></ul> |
+| SSH key | Select an existing public SSH key or click **New SSH key** to add a new one. You must specify at least one SSH key.  \n - For x86 architecture, the SSH key is used to automatically generate a password that is required for accessing VMware&reg; ESXi Direct Console User Interface (DCUI) and the ESXi web client.  \n - For s390x architecture, SSH keys are used to securely connect to the server after it's running. |
 | User data | Paste your user data to the **User data (optional)** field or click **Import user data** to upload from your user data. For example, you can enable SSH by adding the following script to the **User data (optional)** field. For more information about user data, see [User data](/docs/vpc?topic=vpc-user-data).|
 | Virtual private cloud | Specify the VPC where you want to create your server. You can use the default VPC, another existing VPC, or you can create a new VPC. |
-| Network interfaces | By default the bare metal server is created with a single primary network interface. You can click the pencil icon to edit the details of the network interface. For example, the subnet or security group that's associated with the interface. To include extra secondary network interfaces, click **New interface**. <ul><li>For x86 architecture: You can create and assign up to eight PCI network interfaces and up to 20 PCI + VLAN network interfaces for each server. For more information about advanced networking configurations, see [Managing network interfaces for a bare metal server](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers).</li><li>For s390x architecture: You can attach maximum two network interfaces to each LinuxONE Bare Metal server based on the profile you choose. </li></ul> |
+| Network interfaces | By default the bare metal server is created with a single primary network interface. You can click the pencil icon to edit the details of the network interface. For example, the subnet or security group that's associated with the interface. To include extra secondary network interfaces, click **New interface**.  \n - For x86 architecture, you can create and assign up to eight PCI network interfaces and up to 20 PCI + VLAN network interfaces for each server. For more information about advanced networking configurations, see [Managing network interfaces for a bare metal server](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers).  \n - For s390x architecture, based on the profile that you choose, you can attach up to two network interfaces. |
 {: caption="Table 1. Bare metal server provisioning selections" caption-side="bottom"}
 
 For x86 architecture-based bare metal servers, the DHCP response for all interfaces (PCI or VLAN) includes a gateway. So, if you create multiple interfaces on different subnets, consider a static IP configuration or use separate network namespaces to handle the different gateways.
 {: note}
 
 ## Creating a bare metal server by using the API
-{: #creating-using-api}
+{: #bare-metal-creating-using-api}
 {: api}
 
-Follow these steps to create a bare metal server by using the API.
+You can create a bare metal server by using the API. Use the following steps to create a bare metal server by using the API.
 
 ### Before you begin
-{: #api-prereq}
+{: #bare-metal-server-api-prereq}
 
 1. Make sure that you set up your API environment. For more information, see [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment).
 
@@ -79,14 +65,14 @@ Follow these steps to create a bare metal server by using the API.
 1. Make sure that you create a VPC and a subnet before you create a bare metal server.
 
 ### Gathering information for the bare metal server
-{: #api-info}
+{: #bare-metal-server-api-gather-info}
 
-Before you can use API to create bare metal server, see the following table for the required information.
+Before you use the API to create bare metal server, see the following table for the required information.
 
 | Server detail | Listing options |
 |---------|---------|
 | Image | [List all images](/apidocs/vpc#list-images) |
-| Keys | [List all keys](/apidocs/vpc#list-keys) \n \n **Note:** If you don't have any available SSH keys, use [Create a key](/apidocs/vpc#create-key) to create one. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
+| Keys | [List all keys](/apidocs/vpc#list-keys) \n \n If you don't have any available SSH keys, use [Create a key](/apidocs/vpc#create-key) to create one. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | Subnet | [List all subnets](/apidocs/vpc#list-subnets) |
 | Security groups (optional) | [List all security groups](/apidocs/vpc#list-security-groups) |
 | Profile | [List all bare metal server profiles](/apidocs/vpc#list-bare-metal-server-profiles) |
@@ -94,11 +80,11 @@ Before you can use API to create bare metal server, see the following table for 
 {: caption="Table 2. Information that you need to create a bare metal server by using the API" caption-side="bottom"}
 
 ### Creating a bare metal server
-{: #api-request}
+{: #api-request-create-bare-metal-server}
 
 After you have all the information, use the [Create bare metal server](/apidocs/vpc#create-bare-metal-server) API request to create a bare metal server.
 
-* For x86 architecture: you create a bare metal server with the following example configuration:
+* For x86 architecture, you can create a bare metal server with the following example configuration:
 
    * ESXi image ID: "r134-31c8ca90-2623-48d7-8cf7-737be6fc4c3e"
    * SSH Key ID: "a6b1a881-2ce8-41a3-80fc-36316a73f803"
@@ -157,7 +143,7 @@ After you have all the information, use the [Create bare metal server](/apidocs/
     The example request uses the JSON processing utility _jq_ to format the response. You can modify the command to use another parsing tool or remove `" | jq"` to receive an unformatted response.
     {: note}
 
-    You see a response that is similar to the following example or bread:
+    You see a response that is similar to the following example:
 
     ```json
     "bandwidth": 100000,
@@ -298,8 +284,7 @@ After you have all the information, use the [Create bare metal server](/apidocs/
     ```
     {: pre}
 
-
-* For s390x architecture: you create a s390x bare metal server with the following example configuration:
+* For s390x architecture, you create a bare metal server with the following example configuration:
 
    * s390x image ID: "r134-8c5b280e-5310-4117-90e3-46ebe360e70f"
    * SSH Key ID: "a6b1a881-2ce8-41a3-80fc-36316a73f803"
@@ -344,7 +329,7 @@ After you have all the information, use the [Create bare metal server](/apidocs/
     The example request uses the JSON processing utility _jq_ to format the response. You can modify the command to use another parsing tool or remove `" | jq"` to receive an unformatted response.
     {: note}
 
-    To attach a second network interface to your LinuxONE bare metal server, you can use the following example API request. 
+    To attach a second network interface to your s390x bare metal server, you can use the following example API request. 
 
     ```sh
     curl -X POST "$URL/v1/bare_metal_servers/220e-ef3a9818-ea70-4e22-be91-ac2dd5bd5c6a/network_interfaces?generation=2&version=2019-10-01" -H "Authorization: $ACCESS_TOKEN" -d '{ 
@@ -355,7 +340,7 @@ After you have all the information, use the [Create bare metal server](/apidocs/
 	  }'| jq
     ```
 
-The status displays "Pending" until the bare metal server is created.
+The status displays "Pending" until the server is created.
 {: tip}
 
 For more information about the API request, see [Create a bare metal server](/apidocs/vpc#create-bare-metal-server).
@@ -372,13 +357,13 @@ curl -X GET "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id?versi
 {: pre}
 
 ## Creating a bare metal server by using the CLI
-{: #creating-using-cli}
+{: #creating-bare-metal-server-using-cli}
 {: cli}
 
-Use the following steps to create a bare metal server by using the {{site.data.keyword.cloud}} CLI.
+You can use the CLI to create a bare metal server. Use the following steps to create a bare metal server by using the {{site.data.keyword.cloud}} CLI.
 
 ### Before you begin
-{: #cli-prereq}
+{: #bare-metal-server-cli-prereq}
 
 1. Make sure that you set up your [CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 1. Make sure that you create a VPC and a subnet before you create a bare metal server.
@@ -386,14 +371,14 @@ Use the following steps to create a bare metal server by using the {{site.data.k
 For more information, see [Using the CLI to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
 
 ### Gathering information to create a bare metal server
-{: #cli-info}
+{: #bare-metal-server-cli-gather-info}
 
 Before you can use the CLI to create bare metal server, you need to gather the information that is needed.
 
 | Server details | Listing options |
 |---------|---------|
 | Image | [List all images](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#images) |
-| Keys | [List all keys](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#keys)  \n **Note:** If you don't have any available SSH keys, use [Create a key](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#key-create) to create one. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
+| Keys | [List all keys](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#keys)  \n  \n If you don't have any available SSH keys, use [Create a key](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#key-create) to create one. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
 | Subnet | [List all subnets](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#subnets) |
 | Security groups (optional) | [List all security groups](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#security-groups) |
 | Profile | [List all bare metal server profiles](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#bare-metal-server-profiles) |
@@ -401,7 +386,7 @@ Before you can use the CLI to create bare metal server, you need to gather the i
 {: caption="Table 3. Information that you need to create a bare metal server by using the CLI" caption-side="bottom"}
 
 ### Creating a bare metal server
-{: #cli-command}
+{: #cli-command-create-bare-metal-server}
 
 After you have all the information ready, you can use the CLI to create a bare metal server.
 
@@ -455,9 +440,8 @@ ibmcloud is bare-metal-server $bare_metal_server_id --output JSON
 {: pre}
 
 ## Next steps
-{: #next-step}
+{: #next-steps-after-creating-bare-metal-server}
 
-
-When the bare metal server status changes to **Running**, you can try connecting to the instance.
-* For x86 architecture: You can connect to VMware ESXi Direct Console User Interface (DCUI) and ESXi's web client. For more information, see [Connecting to ESXi bare metal servers](/docs/vpc?topic=vpc-connect-to-ESXi-bare-metal-servers).
-* For s390x architecture: You can connect to the s390x bare metal server by using the SSH key and its floating IP. For more information, see [Connecting to s390x bare metal servers](/docs/vpc?topic=vpc-connect-to-s390x-bare-metal-servers)
+When the bare metal server status changes to **Running**, you can connect to it. 
+* For x86 architecture, you can connect to VMware ESXi Direct Console User Interface (DCUI) and ESXi's web client. For more information, see [Connecting to ESXi bare metal servers](/docs/vpc?topic=vpc-connect-to-ESXi-bare-metal-servers).
+* For s390x architecture, you can connect to the s390x bare metal server by using the SSH key and its floating IP. For more information, see [Connecting to s390x bare metal servers](/docs/vpc?topic=vpc-connect-to-s390x-bare-metal-servers).

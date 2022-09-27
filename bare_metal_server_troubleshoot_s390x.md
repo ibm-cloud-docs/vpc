@@ -5,47 +5,37 @@ copyright:
 
 lastupdated: "2022-09-27"
 
-keywords: troubleshooting s390x bare metal servers, hardware issues
+keywords: troubleshooting LinuxONE bare metal servers, hardware issues, troubleshoot s390x bare metal server
 
 subcollection: vpc
 
 
 ---
 
-{:beta: .beta}
-{:codeblock: .codeblock}
-{:important: .important}
-{:new_window: target="_blank"}
-{:note: .note}
-{:pre: .pre}
-{:preview: .preview}
-{:screen: .screen}
-{:shortdesc: .shortdesc}
-{:tip: .tip}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Troubleshooting s390x bare metal servers
 {: #troubleshoot_s390x_bare_metal}
+
+The following sections cover common difficulties that you might encounter, and offers some helpful tips.
 
 ## Bare metal servers have hardware issues
 {: #hardware_issues}
 
 When hardware issues occur, you can request support from IBM by creating a support case.
 
-Click [here](https://cloud.ibm.com/unifiedsupport/cases/add%C2%A0){: external} to create a case. For information about how to create a case, see [Support cases](/docs/vpc?topic=vpc-getting-help#support-tickets).
+Click [here](https://cloud.ibm.com/unifiedsupport/cases/add%C2%A0){: external} to create a case. For more information about creating a case, see [Support cases](/docs/vpc?topic=vpc-getting-help#support-tickets).
 
-After receiving the case, IBM operation team will put the bare metal server into maintenance mode.
+After the IBM operations team receives the case, the bare metal server is put in maintenance mode.
 
-You must first power off the bare metal server before it can be turned to the **Maintenance** state by the IBM operation team.
+You need to power off the server before so it can go into the **Maintenance** state.
 {: note}
 
-You cannot start a bare metal server that is in the **Maintenance** state. The Serial console will also be disabled. You will not be able to connect to the system over the network.
+You cannot start a bare metal server that is in the **Maintenance** state. The serial console is also disabled. You can't connect to the system over the network.
 
-During the maintenance, IBM also has no access to your network and workloads in any way. The data on the disks will not be examined. But we still recommend you use software encryption for added security.
+During maintenance, IBM also has no access to your network and workloads. The data on the disks isn't examined. But it is recommended that you use software encryption for added security.
 
 You can delete the bare metal server that is in the **Maintenance** state.
 {: note}
 
-When the issues are fixed, the server will be handed back to you, and the state will be turned back to **Stopped**.
+When the issues are fixed, the state returns to **Stopped**.
