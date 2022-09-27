@@ -22,7 +22,7 @@ The following information is for users that have basic network knowledge of {{si
 
 s390x bare metal servers provide full support for VPC networking features. The network is fully software-defined, so you can configure it through the API.
 
-Based on the profile that you select, the supported bandwidth can be 2 or 10 Gbps. The bandwidth is shared by the network interfaces. For more information, see [s390x bare metal server profiles](/dcos/vpc?topic=vpc-s390x-bare-metal-servers-profile).
+Based on the profile that you select, the supported bandwidth can be 2 or 10 Gbps. The bandwidth is shared by the network interfaces. For more information, see [s390x bare metal server profiles](/docs/vpc?topic=vpc-s390x-bare-metal-servers-profile).
 
 For more information about managing network interfaces, see [Managing network interfaces for a bare metal server](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers).
 
