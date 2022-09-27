@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-07-27"
+lastupdated: "2022-09-23"
 
 keywords:
 
@@ -33,7 +33,10 @@ instance, you can use network interfaces to assign multiple IP addresses.
 
 The following list highlights how network interfaces work with your instance.
 
-* You can create and assign up to 5 network interfaces for each virtual server instance.
+* You can create and assign multiple network interfaces for each virtual server instance. The number of network interfaces that you can assign to a virtual server instance depends on the vCPU count that is included in the [profile](/docs/vpc?topic=vpc-profiles) that is used to provision an instance.
+    * 2-16 vCPUs: Up to 5 network interfaces
+    * 17-48 vCPUs: Up to 10 network interfaces
+    * 49 or more vCPUs: Up to 15 network interfaces
 * You can attach each network interface to a different subnet in the same zone.
 * Each network is assigned a unique and immutable Media Access Control (MAC) address and receives a private IP address from the subnet range.
 * You can attach one floating IP address to the virtual server instance. Initially, the floating IP address must be attached to the primary network interface to establish the data path. By default the primary interface is `eth0` in {{site.data.keyword.cloud_notm}} console.
@@ -41,7 +44,7 @@ The following list highlights how network interfaces work with your instance.
 * You can assign security groups to each network interface.
 * You can change the name of any existing network interface.
 
-Bandwidth is distributed across the network interfaces that are attached to the virtual server instance. For more information, see [Network performance notes for profiles](/docs/vpc?topic=vpc-profiles#network-perf-notes-for-profiles).
+Bandwidth is distributed across the network interfaces that are attached to the virtual server instance. For more information, see [Bandwidth allocation](/docs/vpc?topic=vpc-profiles&interface=ui#bandwidth-allocation).
 
 If you assign a new network interface to a virtual server instance while it is running, you must take action to configure the network interface for the instance to use. You can either stop and then restart the instance, or you can manually configure the interface in the guest operating system. For example, on a Linux-based operating sytem, you can use the `ip link set dev <interface> up` to retrieve the IP address configuration for the interface.
 {: note}
@@ -73,7 +76,7 @@ floating IP address.
 ### Adding a network interface
 {: #add-network-interface}
 
-You can add up to 5 network interfaces to your virtual server instance. A network interface establishes a unique IP address,
+You can add up to 15 network interfaces to your virtual server instance, depending on the vCPU count that is included in the instance profile. A network interface establishes a unique IP address,
 giving the option of multiple IP address for your virtual server instance. Before you begin adding a new interface, make sure that
 you have already created a unique subnet to associate with the new network interface. Each network interface should be on a different subnet within
 the same zone.

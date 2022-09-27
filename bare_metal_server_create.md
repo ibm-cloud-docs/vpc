@@ -284,7 +284,7 @@ After you have all the information, use the [Create bare metal server](/apidocs/
     ```
     {: pre}
 
-* For s390x architecture, you create a bare metal server with the following example configuration:
+* For s390x architecture, you can create a bare metal server with the following example configuration:
 
    * s390x image ID: "r134-8c5b280e-5310-4117-90e3-46ebe360e70f"
    * SSH Key ID: "a6b1a881-2ce8-41a3-80fc-36316a73f803"
