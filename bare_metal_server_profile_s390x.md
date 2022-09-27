@@ -15,6 +15,9 @@ subcollection: vpc
 # s390x bare metal server profiles
 {: #s390x-bare-metal-servers-profile}
 
+s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the São Paulo (br-sao) region. 
+{: preview}
+
 When you create an s390x bare metal server, you can select an s390x bare metal server profile that best fits your needs. A profile provides a different combination of hardware configurations that include number of CPU cores, amount of RAM, and size of local storage. The attributes define the size and capabilities of the bare metal server that is provisioned.
 {: shortdesc}
 
@@ -30,9 +33,6 @@ See table 1 for the configurations of each profile. Each CPU core of the s390x b
 | mz2d-metal-2x64 | 1 | 2 | 64 | 100 GB FCP boot storage on IBM FlashSystem 9200  \n  \n 512 GB FCP Data storage | 2 | 1 |
 | mz2d-metal-16x512 | 8 | 16 | 512 | 100 GB FCP boot storage on IBM FlashSystem 9200  \n  \n 4096 GB FCP Data storage | 10 | 2 |
 {: caption="Table 1. s390x bare metal server profiles" caption-side="bottom"}
-
-s390x bare metal profiles are used to provision s390x bare metal servers. These profiles are available in the Brazil (São Paulo) region.
-{: preview}
 
 ## Understanding the naming rule of profiles
 {: #profile-naming-rule}
