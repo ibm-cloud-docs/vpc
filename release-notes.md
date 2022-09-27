@@ -35,7 +35,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: release-note}
 
 IBM&reg; LinuxONE Bare Metal Servers (s390x processor architecture)
-:   Accounts with access to the profiles for s390x bare metal servers can now create LinuxONE Bare Metal Server instances. These profiles have a `cpu_architecture` of `s390x` and must be used with s390x Red Hat Enterprise Linux and SUSE Linux Enterprise Server (SLES) distributions. Each LinuxONE Bare Metal Server is equivalent to a logical partition (LPAR) on the IBM LinuxONE or IBM Z with dedicated s390x CPU cores, memory, and I/O devices for your Linux workloads. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
+:   Accounts with access to the profiles for s390x bare metal servers can now create LinuxONE Bare Metal Server instances. These profiles have a `cpu_architecture` of `s390x` and must be used with Red Hat Enterprise Linux for s390x and SUSE Linux Enterprise Server (SLES) for s390x. Each LinuxONE Bare Metal Server is equivalent to a logical partition (LPAR) on the IBM LinuxONE or IBM Z with dedicated s390x CPU cores, memory, and I/O devices for your Linux workloads. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
 
 ## September 2022
 {: #vpc-september22}

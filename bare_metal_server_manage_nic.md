@@ -100,10 +100,9 @@ Use the following steps to associate a floating IP with the network interface:
 
 2. Click the edit icon of the target interface.
 
-3. On the **Edit network interface** page, locate the **Floating IP address** field and select the floating IPs that you want to associate with the network interface. Keep in mind that you can associate a floating IP to the secondary network interface only when you configure a default gateway to the secondary network interface within the operating system.
+3. On the **Edit network interface** page, locate the **Floating IP address** field and select the floating IPs that you want to associate with the network interface. 
 
-    Associating a floating IP to the secondary network interface only works when you configure a default gateway to the secondary network interface within the operating system.
-    {: note}
+    Keep in mind that you can associate a floating IP to the secondary network interface only when you configure a default gateway to the secondary network interface within the operating system.
 
 4. Click **Save** when you finish adding floating IPs.
 
