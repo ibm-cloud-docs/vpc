@@ -15,6 +15,9 @@ subcollection: vpc
 # s390x bare metal server images
 {: #s390x-bare-metal-images}
 
+s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the São Paulo (br-sao) region. 
+{: preview}
+
 When you provision an s390x bare metal server on your VPC, you need to select an image to determine the operating system for the server.
 {: shortdesc}
 
