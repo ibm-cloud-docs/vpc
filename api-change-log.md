@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-09-20"
+lastupdated: "2022-09-27"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -60,6 +60,17 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 27 September 2022
+{: #27-september-2022}
+
+### For all version dates
+{: #27-september-2022-all-version-dates}
+
+**Increased network interface limits for virtual server instances.** You can now have up to 14 secondary network interfaces on a virtual server instance. The previous limit for secondary network interfaces was 4. The number of interfaces that a virtual server instance supports is dependent on the VCPU count that is included in the [instance profile](/docs/vpc?topic=vpc-profiles). For more information about the number of interfaces that a virtual server supports, see [Bandwidth allocation with multiple network interfaces](/docs/vpc?topic=vpc-profiles&interface=ui#bandwidth-multi-vnic). To utilize the increased limit for network interfaces, you can create secondary network interfaces by specifying `network_interfaces` when you [create an instance](/apidocs/vpc/latest#create-instance). You also can add secondary network interfaces to an existing instance by [creating a network interface on an instance](/apidocs/vpc/latest#create-instance-network-interface). 
+
+For an existing, running instance with 17 or more vCPUs to take advantage of the new network interface limits, it must be stopped and then started again. A reboot action on the running virtual server does not activate the increased network interface limit. 
+{: note}
 
 ## 20 September 2022
 {: #20-september-2022}
