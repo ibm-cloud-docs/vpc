@@ -2,9 +2,7 @@
 
 copyright:
   years: 2019, 2022
-
-lastupdated: "2022-09-26"
-
+lastupdated: "2022-09-27"
 
 keywords:
 
@@ -27,6 +25,17 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API , see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI) , see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
+
+
+## September 2022
+{: #vpc-september22}
+
+### 27 September 2022
+{: #vpc-september2722}
+{: release-note}
+
+IBM&reg; LinuxONE Bare Metal Servers (s390x processor architecture) (select availability)
+:   Accounts with access to the profiles for s390x bare metal servers can now create LinuxONE Bare Metal Server instances. These profiles have a `cpu_architecture` of `s390x` and must be used with Red Hat Enterprise Linux for s390x and SUSE Linux Enterprise Server (SLES) for s390x. Each LinuxONE Bare Metal Server is equivalent to a logical partition (LPAR) on the IBM LinuxONE or IBM Z with dedicated s390x CPU cores, memory, and I/O devices for your Linux workloads. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
 
 ## September 2022
 {: #vpc-september22}
