@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-09-23"
+lastupdated: "2022-09-29"
 
 subcollection: vpc
 
@@ -176,4 +176,4 @@ For troubleshooting information about z/OS virtual server instances, see [{{site
 ## Why am I getting an error when I attempt to add more than 5 network interfaces for an existing virtual server instance?
 {: #error-above-5-network-interfaces}
 
-If the [x86-64 instance profile](/docs/vpc?topic=vpc-profiles) that you used to provision your virtual server includes 17 or more vCPUs, you can now add more than 5 network interfaces. To take advantage of the ability to add more network interfaces to a virtual server that existed before the network interface limit increased, you must first stop and restart the virtual server. For more information about multiple network interfaces, see [Managing network interfaces](/docs/vpc?topic=vpc-using-instance-vnics).
+If the [x86 instance profile](/docs/vpc?topic=vpc-profiles) that you used to provision your virtual server includes 17 or more vCPUs, you can now add more than 5 network interfaces. To take advantage of the ability to add more network interfaces to a virtual server that existed before the network interface limit increased, you must first stop a running virtual server and then start it again. For more information about multiple network interfaces, see [Managing network interfaces](/docs/vpc?topic=vpc-using-instance-vnics).
