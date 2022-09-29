@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-09-27"
+lastupdated: "2022-09-29"
 
 keywords:
 
@@ -250,9 +250,6 @@ New stock image for bare metal servers
 
 Backup for VPC (GA)
 :    You can now create automated backup snapshots of your block storage volumes. If your original volume is compromised, you can restore it from a backup snapshot. You create a backup policy to control which source volumes are selected for backup by matching user tags in the volume with tags that are defined in the policy. Each policy contains up to four backup plans, which define how often backup snapshots are taken (daily, weekly, monthly, or more frequently by using a cron-spec) and retained (by date or by count). You can also view backup jobs, which show status of backup snapshots that are being created or deleted. For more information about this service, see [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
-
-The backup policy jobs API remains in [beta](/apidocs/vpc-beta#24-may-2022).
-{: note}
 
 ### 10 June 2022
 {: #vpc-june0610}
