@@ -484,7 +484,6 @@ toc:
             - vsi_vpc_instance_byok_encryption.md
             - block_storage_vpc_byok_encryption.md
             - file_storage_vpc_byok_encryption.md
-            - vpc_byok_multitenant_file_encryption.md
             - block_storage_vpc_key_rotation.md
             - vsi-vpc-manage-encryption.md
         - topicgroup:
