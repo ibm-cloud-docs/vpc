@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-08-26"
+lastupdated: "2022-10-03"
 
 keywords: custom routes
 
@@ -189,6 +189,8 @@ The implicit router performs ECMP routing (multiple routes with the same destina
 ### Ingress routes
 {: #routes-ingress}
 
+
+* Currently, public ingress routing (`public internet` traffic choice) is available in the UI only. CLI and API are forthcoming. 
 * Each ingress source type can be associated with up to one ingress route table per VPC, however, a VPC can have multiple ingress route tables and each ingress route table can have one or more ingress types associated.
 * Ingress traffic from a particular traffic source is routed using the routes in the custom routing table that is associated with that traffic source.
 * Custom routes in a custom routing table associated with an ingress traffic source, and with an action of `deliver`, must have a next hop IP contained by one of the address prefixes of the VPC in the availability zone where the route is added. In addition, the next hop IP must be configured on a virtual server interface in the VPC and availability zone where the route is targeted.  
