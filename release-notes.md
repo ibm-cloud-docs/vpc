@@ -29,18 +29,14 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## October 2022
 {: #vpc-october22}
 
-### October 3 2022
-{: #vpc-october0322}
-{: release-note}
+### 03 October 2022
+{: #vpc-oct0322}
 
-Flow Logs for VPC
-:   Flow log collectors now support the following cross-account service virtual interfaces at VPC and subnet levels: 
+VPC Public Ingress Routing
+:   You can now route public internet ingress traffic (destined to a floating IP) to a VPN next-hop IP, such as a managed firewall. For more information, see [Creating a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table) and limitations and guidelines for [Ingress routes](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#routes-ingress).
 
-   - IBM Cloud Kubernetes Service (IKS) workers
-   - RedHat OpenShift Kubernetes Service (ROKS)
-   - Load Balancer as a Service (LBaaS)
-
-   For more information, see [About IBM Cloud Flow Logs for VPC](/docs/vpc?topic=vpc-flow-logs).
+   Currently, public ingress routing (`public internet` traffic choice) is available in the UI only. CLI and API are forthcoming. 
+   {: note}
 
 ## September 2022
 {: #vpc-september22}
