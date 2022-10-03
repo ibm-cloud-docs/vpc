@@ -24,7 +24,7 @@ You can view details of a routing table by using the UI, CLI, or API. From the R
 
 To view the details of a routing table by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
 
 1. Click the name of the routing table that you want details for. The Routing table details page appears.
 
