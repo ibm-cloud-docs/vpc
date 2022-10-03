@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-08-22"
+lastupdated: "2022-10-03"
 
 keywords:
 
@@ -61,7 +61,7 @@ To detach a volume:
 
 Alternatively, you can click an individual volume in the list of all block storage volumes and go to the **Volume Details** page for that volume. Under **Attached instances**, click the minus sign next to the virtual server instance to detach the volume from that instance.
 
-When you create an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instance, detaching the data volume attached to a running instance causes the workload running on the instance to fail, therefore it is recommended that you do not detach the data volume.
+When you create an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance, detaching the data volume attached to a running instance causes the workload running on the instance to fail, therefore it is recommended that you do not detach the data volume.
 {: note}
 
 ### Transfer a block storage volume from one virtual server instance to another
@@ -149,7 +149,7 @@ Add user tags to block storage volumes from the list of volumes or the volumes d
 
 3. In the **tags** column, click **Add tags**.  
 
-4. In the Add tags menu, enter the user tags you want to apply to this volume. Tags display as you type. 
+4. In the Add tags menu, enter the user tags you want to apply to this volume. Tags display as you type.
 
 5. When you're done adding tags, click **Save**. The list of block storage volumes will show the number of tags added in the **Tags** column when you refresh the screen.
 

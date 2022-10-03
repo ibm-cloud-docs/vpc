@@ -40,7 +40,7 @@ When you resize an instance, keep the following information in mind:
 * The instance name doesn't change.
 * The data center location doesn't change.
 * An instance with a profile that does not include instance storage cannot be resized to a profile that does include instance storage.
-* You must select a secure execution enabled profile when you want to resize an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instance. Selecting a profile that is not secure execution enabled will cause the provisioning to fail.
+* You must select a secure execution enabled profile when you want to resize an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance. Selecting a profile that is not secure execution enabled will cause the provisioning to fail.
 
 After the instance is resized, you are billed the hourly rate of the new instance profile.
 
