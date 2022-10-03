@@ -41,6 +41,9 @@ toc:
            - interconnectivity.md
            - private-wan.md
            - private-connectivity.md
+           - private-connectivity-vpe.md
+           - vsi-network-bandwidth.md
+           - vpc-ips.md
            - topicgroup:
                label: Networking overview for bare metal servers
                topics:
@@ -121,6 +124,7 @@ toc:
             - user-access-to-dedicated-hosts-and-groups.md
             - creating-and-using-an-image-from-volume.md
             - vpn-openvpn-client-tutorial.md
+
         - topicgroup:
             label: Solution tutorials
             topics:
@@ -136,10 +140,12 @@ toc:
         id: howto
         topics:
         - set-up-environment.md
+        - terraform.md
         - topicgroup:
             label: Managing access
             topics:
             - iam.md
+            - vsi-is-iam-access.md
             - vpc-user-permissions.md
             - api-auth-correlation.md
             - resource-attributes.md
@@ -181,6 +187,7 @@ toc:
             - vsi_is_manage_instances.md
             - vsi_is_ssh_keys.md
             - vsi_is_instance_vnics.md
+            - vsi_is_configuring_network_performance.md
             - vsi_instance_storage_how_to.md
             - monitoring-vpc-metrics.md
             - vsi_is_instance_resize.md
@@ -233,8 +240,8 @@ toc:
                 topics:
                  - vsi_is_create_linux_custom_image.md
                  - vsi_is_create_windows_custom_image.md
-                 - vsi_is_create_zos_custom_image.md
                  - vpc_image_from_volume_create.md
+                 - vsi_is_create_zos_custom_image.md
                  - vsi_is_migrate_from_classic_infra.md
                  - vsi_is_encrypt_custom_image.md
                  - building-custom-os.md
@@ -246,9 +253,14 @@ toc:
                  - vpc_image_from_volume_manage.md
         - topicgroup:
             label: Public gateways
-            topics:
+            topics: 
             - pg-about.md
             - pg-create.md
+        - topicgroup:
+            label: Floating IP addresses
+            topics: 
+            - fip-about.md
+            - fip-create.md
         - topicgroup:
             label: Virtual private endpoint gateways
             topics:
@@ -261,6 +273,7 @@ toc:
             - vpe-view-details.md
             - vpe-list.md
             - vpe-delete.md
+            - vpe-attach-detach-sqs.md
             - vpe-iam.md
             - vpe-limitations.md
             - vpe-supported-services.md
@@ -307,6 +320,8 @@ toc:
                 - vpn-add-connection.md
                 - vpn-create-ike-policy.md
                 - vpn-create-ipsec-policy.md
+                - vpn-site-to-site-routes.md
+                - vpn-site-to-site-routes-propagating.md
                 - vpn-onprem.md
                 - vpn-onprem-aws.md
                 - vpn-onprem-check-point.md
@@ -318,7 +333,6 @@ toc:
                 - vpn-access-service-endpoint.md
                 - vpn-ha.md
                 - vpn-configure-acls-security-groups.md
-                - vpn-site-to-site-routes-propagating.md
                 - vpn-view-logs.md
                 - vpn-monitoring-metrics.md
                 - vpn-limitations.md
@@ -360,8 +374,8 @@ toc:
                 - lb-monitoring-metrics.md
                 - lb-ig-integration.md
                 - lb-sg-integration.md
-                - lb-datapath-logging.md
                 - lb-api.md
+                - lb-datapath-logging.md
                 - lb-limitations.md
             - topicgroup:
                 label: Network Load Balancer for VPC
@@ -373,11 +387,11 @@ toc:
                 - nlb-delete.md
                 - nlb-health-checks.md
                 - nlb-listeners.md
-                - nlb-udp.md
                 - nlb-port-range.md
                 - nlb-pools.md
-                - nlb-privatelb.md
+                - nlb-udp.md
                 - nlb-monitoring-metrics.md
+                - nlb-privatelb.md
                 - nlb-limitations.md
         - topicgroup:
             label: Flow logs
@@ -389,6 +403,7 @@ toc:
             - fl-managing.md
             - fl-activate.md
             - fl-delete.md
+            - fl-limitations.md
             - fl-monitoring.md
         - topicgroup:
             label: Virtual network functions
@@ -425,7 +440,6 @@ toc:
             - block_storage_is_view.md
             - block_storage_is_manage.md
             - block_storage_vpc_manage_storage_limits.md
-            - modifying-the-linux-os-expanded-boot-volume.md
             - block_storage_is_use_volume_cli.md
             - topicgroup:
                 label: Modifying volume capacity and IOPS
@@ -433,7 +447,16 @@ toc:
                 - block_storage_vpc_expand_vol_about.md
                 - block_storage_vpc_expandable_volumes.md
                 - block_storage_vpc_resize_boot_volume.md
+                - modifying-the-linux-os-expanded-boot-volume.md
                 - block_storage_vpc_adjustable_iops.md
+        - topicgroup:
+            label: Block storage Acadia platform - Experimental
+            topics:
+            - block_storage_acadia_about.md
+            - block_storage_acadia_getting_started.md
+            - block_storage_acadia_troubleshoot_known_issues.md
+            - block_storage_acadia_support.md
+            - block_storage_acadia_faq.md
         - topicgroup:
             label: Snapshots
             topics:
@@ -450,7 +473,7 @@ toc:
             - file_storage_vpc_view.md
             - file_storage_vpc_manage.md
             - topicgroup:
-                label: Modifying file share size and IOPS
+                label:  Modifying file share size and IOPS
                 topics:
                 - file_storage_vpc_expandable_shares.md
                 - file_storage_vpc_adjustable_iops.md
@@ -484,35 +507,25 @@ toc:
             - vsi_vpc_instance_byok_encryption.md
             - block_storage_vpc_byok_encryption.md
             - file_storage_vpc_byok_encryption.md
-            - block_storage_vpc_key_rotation.md
+            - vpc_byok_multitenant_file_encryption.md
+            - vpc_byok_multitenant_block_encryption.md
+            - vsi_vpc_key_rotation.md
             - vsi-vpc-manage-encryption.md
-        - topicgroup:
-            label: High availability and disaster recovery
-            topics:
-            - ha-dr.md
-            - bc-dr.md
-            - topicgroup:
-                label: Backup and recovery using Veeam
-                topics:
-                - about-veeam.md
-                - ordering-veeam-licenses.md
-                - using-veeam-agent.md
-                - using-veeam-backup-replication.md
         - topicgroup:
             label: Enhancing security
             topics:
             - architecture-workload-isolation.md
             - data-security.md
             - manage-scc.md
-            - load-balancer-security.md
+            - cbr.md
             - storagedurability.md
         - topicgroup:
             label: Logging and monitoring
             topics:
             - ibm-monitoring.md
-            - at-events.md
             - logging.md
             - vpc-quota-metrics.md
+            - at-events.md
 #  Links to your REST API docs should be included in the Reference navigation group. For details on publishing API docs, see https://test.cloud.ibm.com/docs/api-docs.
 #  Links to your command line reference docs should be included in the Reference navigation group.
 
@@ -546,7 +559,7 @@ toc:
             - link:
                label: Reference
                href: https://{DomainName}/apidocs/vpc-metadata
-            - api-metadata-change-log.md 
+            - api-metadata-change-log.md
         - topicgroup:
             label: Beta VPC instance metadata API
             topics:
@@ -556,11 +569,24 @@ toc:
             - link:
                label: Change log
                href: https://{DomainName}/apidocs/vpc-metadata-beta#api-instance-metadata-change-log
+        - topicgroup:
+            label: High availability and disaster recovery
+            topics:
+            - ha-dr.md
+            - bc-dr.md
+            - topicgroup:
+                label: Backup and recovery using Veeam
+                topics:
+                - about-veeam.md
+                - ordering-veeam-licenses.md
+                - using-veeam-agent.md
+                - using-veeam-backup-replication.md
         - vpc-responsibilities.md
         - vsi-understanding-cloud-maintenance.md
         - vsi_is_disable_hyper-threading.md
         - security-best-practices-zos.md
         - vpc-endpoints.md
+        - vpc-sdks.md
         - topicgroup:
             label: Terraform
             topics:
@@ -583,30 +609,41 @@ toc:
             topics:
             - faq-vpc.md
             - faq-auto-scale.md
-            - bare_metal_server_faq.md
-            - bare_metal_server_faq_s390x.md
+            - topicgroup:
+                label: FAQs for bare metal servers
+                topics:
+                - bare_metal_server_faq.md
+                - bare_metal_server_faq_s390x.md
             - backup_service_vpc_faq.md
-            - block_storage_is_faq.md
             - faq-dedicated-host.md
-            - file_storage_vpc_faqs.md
+            - topicgroup:
+                label: FAQs for storage
+                topics:
+                - file_storage_vpc_faqs.md
+                - block_storage_is_faq.md
             - fl-faq.md
             - nlb-faqs.md
             - lb-faqs.md
-            - instance_metadata_vpc_faqs.md
-            - faqs-placement-groups.md
+            - dnlb-faqs.md
             - snapshots_vpc_faqs.md
             - vpe-faqs.md
             - vpn-faqs.md
             - vpn-client-to-site-faqs.md
             - faq-vsi.md
+            - faqs-placement-groups.md
+            - instance_metadata_vpc_faqs.md
         - topicgroup:
             label: Troubleshooting
             topics:
             - troubleshooting.md
-            - bare_metal_server_troubleshoot.md
-            - bare_metal_server_troubleshoot_s390x.md
+            - topicgroup:
+                label: Troubleshooting bare metal servers
+                topics:
+                - bare_metal_server_troubleshoot.md
+                - bare_metal_server_troubleshoot_s390x.md
             - troubleshooting_hpcr.md
             - block_storage_is_troubleshoot.md
+            - snapshots_vpc_troubleshooting.md
             - backup_service_vpc_troubleshoot.md
             - topicgroup:
                 label: Troubleshooting custom images
@@ -623,6 +660,16 @@ toc:
                 - fl-ts-failed-write.md
                 - fl-ts-cos-bucket.md
                 - fl-ts-unauth-access-cos.md
+            - topicgroup:
+                label: Troubleshooting placement groups
+                topics:
+                - placement-group-failed.md
+            - topicgroup:
+                label: Troubleshooting public ingress routes
+                topics:
+                - ingressroutes-ts-traffic.md
+                - ingressroutes-ts-configuration.md
+                - ingressroutes-ts-response.md
             - vsi_is_troubleshooting.md
             - topicgroup:
                 label: Troubleshooting VPE gateways
@@ -652,6 +699,7 @@ toc:
                 - vpn-ts-connection-failure.md
                 - vpn-ts-dns-configuration-not-working.md
                 - vpn-ts-vpn-client-hangs.md
+            - flc_troubleshooting.md
             - resource-suspension.md
             - instance-status-messages.md
             - quota-dashboard-troubleshooting.md
