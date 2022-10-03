@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-09-29"
+lastupdated: "2022-10-03"
 
 keywords:
 
@@ -26,6 +26,21 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API , 
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI) , see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
 
+## October 2022
+{: #vpc-october22}
+
+### October 3 2022
+{: #vpc-october0322}
+{: release-note}
+
+Flow Logs for VPC
+:   Flow log collectors now support the following cross-account service virtual interfaces at VPC and subnet levels: 
+
+   - IBM Cloud Kubernetes Service (IKS) workers
+   - RedHat OpenShift Kubernetes Service (ROKS)
+   - Load Balancer as a Service (LBaaS)
+
+   For more information, see [About IBM Cloud Flow Logs for VPC](/docs/vpc?topic=vpc-flow-logs).
 
 ## September 2022
 {: #vpc-september22}
