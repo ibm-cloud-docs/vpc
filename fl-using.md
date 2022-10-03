@@ -26,7 +26,6 @@ Flow logs can help with a number of tasks, including:
 * Adhering to compliance regulations
 * Assisting with root cause analysis
 
-
 ## Overview of features
 {: #fl-overview-of-features}
 
