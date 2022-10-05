@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-10-03"
+lastupdated: "2022-10-05"
 
 keywords:
 
@@ -121,7 +121,7 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | Load balancer pools and listeners | View, List  | Viewer for the load balancer |
 |————————|—————————|————————|
 | Placement group | View | Viewer for placement groups |
-| Placement group | Create, Delete | Editor for placement groups |
+| Placement group | Create, Delete, Update | Editor for placement groups |
 |————————|—————————|————————|
 | Public gateway | Create |  Editor for Public Gateway resources \n \n Operator for the VPC and Floating IP resources |
 | Public gateway | Update, Delete | Editor for the public gateway |
