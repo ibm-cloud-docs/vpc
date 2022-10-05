@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-06-28"
+lastupdated: "2022-10-05"
 
 keywords:
 
@@ -419,7 +419,7 @@ This example request creates a new 100 GB volume based on a 5 IOPS/GB profile. I
 
 ```curl
 curl -X POST \
-"$vpc_api_endpoint/v1/volumes/?version=2022-06-14&generation=2" \
+"$vpc_api_endpoint/v1/volumes?version=2022-06-14&generation=2" \
 -H "Authorization: $iam_token" \
 -H "Content-Type: application/json" \
 -d '{
