@@ -32,6 +32,7 @@ The following list highlights how network interfaces work with your instance.
 * You can attach each network interface to a different subnet in the same zone.
 * Each network is assigned a unique and immutable Media Access Control (MAC) address and receives a private IP address from the subnet range.
 * You can attach one floating IP address to the virtual server instance. The floating IP address must be attached to the primary network interface to establish the data path. By default the primary interface is `eth0` in {{site.data.keyword.cloud_notm}} console.
+* If you want to assign a floating IP address to a secondary NIC (`eth1`), you can use the [CLI](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#floating-ips-cli-ref).
 * You can associate and unassociate a single floating IP address for the instance.
 * You can assign security groups to each network interface.
 * You can change the name of any existing network interface.
@@ -40,7 +41,6 @@ Bandwidth is distributed across the network interfaces that are attached to the 
 
 If you assign a new network interface to a virtual server instance while it is running, you must configure the network interface for the instance to use. You can either stop and then restart the instance, or you can manually configure the interface in the guest operating system. For example, on a Linux-based operating system, you can use the `ip link set dev <interface> up` to retrieve the IP address configuration for the interface.
 {: note}
-
 
 ## Adding or editing network interfaces
 {: #editing-network-interfaces}
@@ -56,7 +56,7 @@ To add or edit the network interfaces associated with your virtual server instan
 
 If you want to add a floating IP address to a primary network interface to allow traffic from the internet to access your virtual server instance, complete the following steps.
 
-1. If you are adding a floating IP address to the virtual server instance for the first time, identify the primary network interface in the **Network interfaces** section of the Instance details page. By default, the first interface is named `eth0`. Initially associating the floating IP address with the primary network interface helps establish the data path. Later, you can associate the floating IP to a different primary network interface.
+1. If you are adding a floating IP address to the virtual server instance for the first time, identify the primary network interface in the **Network interfaces** section of the **Instance details** page. By default, the first interface is named `eth0`. Initially associating the floating IP address with the primary network interface helps establish the data path. Later, you can associate the floating IP to a different primary network interface.
 2. Click the pencil icon to edit the primary network interface.
 3. On the **Edit network interface** page, locate the **Floating IP address** field. You can select **Reserve a new floating IP** or you can select an existing
 floating IP address.
@@ -72,7 +72,7 @@ the same zone.
 
 To add a network interface to your virtual server instance, complete the following steps.
 
-1. In the **Network interfaces** section of the Instance details page, click **New interface**.
+1. In the **Network interfaces** section of the **Instance details** page, click **New interface**.
 2. On the **New network interface** page, the interface name defaults to an incremented number. If this instance is the first new interface after your primary interface, the default name is `eth1`. You can change the name if you want.
 3. Select a unique subnet from the subnets that are assigned to your existing network interfaces.
 4. Select the security group that you want to associate with the network interface.
@@ -98,8 +98,8 @@ Example virtual server setup:
 
 * Two virtual servers (`Virtual-server-1` and `Virtual-server-2`) where both virtual servers belong to the same VPC.
 * Each virtual server has two interfaces from two subnets:
-    * _Virtual-server-1_ has interface `eth0` from `net_1_0`, and interface `eth1` from `net_1_1`.
-    * _Virtual-server-2_ has interface `eth0` from `net_2_0`, and interface `eth1` from `net_2_1`.
+   * _Virtual-server-1_ has interface `eth0` from `net_1_0`, and interface `eth1` from `net_1_1`.
+   * _Virtual-server-2_ has interface `eth0` from `net_2_0`, and interface `eth1` from `net_2_1`.
 * Each virtual server's `net_*_0` is set up with a default route.
 * Each subnet's gateway IP and CIDR are known.
 
