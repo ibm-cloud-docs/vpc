@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-08-18"
+lastupdated: "2022-10-03"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -10,15 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:table: .aria-labeledby="caption"}
+{{site.data.keyword.attribute-definition-list}}
 
 # About the contract
 {: #about-contract_se}
@@ -30,7 +22,7 @@ When you create a virtual server instance by using the IBM Hyper Protect Contain
 ## What is a contract?
 {: #hpcr_contract}
 
-The contract is a definition file in the YAML format that is specific to the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instance. This file must be created by the cloud user as a prerequisite for creating an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance. After this file is created, it must be passed as an input as part of the **User Data** field when an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance is created. You cannot create an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance without a valid contract. If you create an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance without a contract, the deployment starts and then fails, and the instance goes into a shutdown state. The contract is specific to creating an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance and is an extension of the IBM Secure Execution technology by Hyper Protect.
+The contract is a definition file in the YAML format that is specific to the {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} (VPC) instance. This file must be created by the cloud user as a prerequisite for creating an instance. After this file is created, it must be passed as an input as part of the **User Data** field when an instance is created. You cannot create an instance without a valid contract. If you create an instance without a contract, the deployment starts and then fails, and the instance goes into a shutdown state. The contract is specific to creating an {{site.data.keyword.hpvs}} for VPC instance and is an extension of the IBM Secure Execution technology by Hyper Protect.
 
 If the workload discloses the decrypted tokens (either through SSH or REST APIs), then the decrypted data contains both the workload and the environment secrets (however it does not contain the seeds that were used for volume encryption).
 {: note}
@@ -46,7 +38,7 @@ A contract file can have the following four valid high-level sections, of which 
 
 The two primary sections in a contract are the `workload` and `env` sections. These two sections are needed because the information that is added into the contract comes from two different personas, namely the "workload" and the "deployer" persona.
 
-The workload persona provides information about the containers (or workload) that needs to be brought up on the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance. It includes information about the name of the container, the container registry where it resides, credentials of the container registry, the image digest, the notary server information (required for image validation), the environment variables that need to be passed to the container, and the docker compose file with the container information.
+The workload persona provides information about the containers (or workload) that needs to be brought up on the {{site.data.keyword.hpvs}} for VPC instance. It includes information about the name of the container, the container registry where it resides, credentials of the container registry, the image digest, the notary server information (required for image validation), the environment variables that need to be passed to the container, and the docker compose file with the container information.
 
 The deployer persona works closely with IBM Cloud. This persona receives the workload information (preferably an encrypted workload section) from the workload persona. The deployer then creates the `env` section of the contract. The `env` section has information that is specific to the IBM Cloud environment. Usually, it is information that the workload persona does not have and does not need to know. An example is information about the IBM Cloud Logging instance, which the deployer persona creates, before adding information to the `env` section of the contract.
 
@@ -95,7 +87,7 @@ volumes:
 {: #hpcr_contract_auths}
 
 The `auths` section consists of information about the container's registry. Currently, only one container is supported, so there is only one registry and credentials to this registry, that must be populated here. If a public image is used in the contract, then you do not need the `auths` section because no credentials are required. The `auths` subsection is required only if the container images are private. This subsection does not have any image information, as shown in the following sample. This subsection needs to contain the name of the image registry and the credentials such as username-password for the same. The key must be the hostname of the container registry or the string 'https://index.docker.io/v1/' for the default docker registry.
-The following snippet shows an example for IBM Cloud Registry:
+The following snippet shows an example for IBM Cloud Registry. For more information about using the API key, see [Using client software to authenticate in automation](/docs/Registry?topic=Registry-registry_access#registry_access_apikey_auth).
 
 ```yaml
 auths:
@@ -133,14 +125,6 @@ compose:
   archive: H4sIAKOFmGIAA+2RTW6DMBBGs84pRuyB8Q8k+DIRwZOGtmBkkyrcvhgnLVVV1EWkqhJv4ZHt8ednWZvqhWxcmaYzjpKhed08HETMpQRfd3k2VeRhPpEJCUxymTPkIuOALBOIG8DHq3zn4vrSjiqdLY/nsv+xb2w7nRZywlPgo/4THNm3uiKntgCWdO1aowmZnwLUTflECpwo8Jpu9NyZ2zvQgdADFEudoXyQzSu+fPPzseSvedo6qjV7mDa2anZbdH8totL6somtUlvX8K4SJshDsFKU2NmFvAZuMc9U37wceeys+Y6BI8Fi6+6vxK5RS+YFDh6RNu//tuVlZWVJd4BcjKckQAIAAA=
 ```
 {: screen}
-
-If the workload provider expects `env` variables from the deployer, use the following snippet as an example:
-```
-environment:
-  KEY1: "${Value1}"
-  KEY2: "${Value2}"
-```
-{: codeblock}
 
 ### The `images` subsection
 {: #hpcr_contract_images}
@@ -191,7 +175,7 @@ services:
 ### The `workload` - `volumes` subsection
 {: #hpcr_contract_volumes}
 
-The `volumes` subsection has support for auto encryption of the data volume that uses user-provided keys (seeds). If a data volume has been attached to the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance, it is encrypted automatically, if the customer keys are provided as part of the user-data contract. These keys can be provided in the contract through the "seed" field in the "volumes" subsections of the contract. If a data volume is attached to the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance, it is automatically encrypted, if the user keys are provided as part of the contract. These keys can be provided in the contract through the "seed" field in the `volumes` subsections of the contract. The keys (or seeds) are captured in the contract from both the workload and the deployer persona. Thus two seeds must be provided, one through the `workload` section and the other through the `env` section. These two seeds provided as input are internally converted to UTF8 sequences and then concatenated. Later, the hash (SHA256) of the concatenated sequence is computed as a hexdigest, which is used as the LUKS passphrase to encrypt the data volume. You can use the following command to validate the hexdigest:
+The `volumes` subsection has support for auto encryption of the data volume that uses user-provided keys (seeds). If a data volume has been attached to the {{site.data.keyword.hpvs}} for VPC instance, it is encrypted automatically, if the customer keys are provided as part of the user-data contract. These keys can be provided in the contract through the "seed" field in the "volumes" subsections of the contract. If a data volume is attached to the {{site.data.keyword.hpvs}} for VPC instance, it is automatically encrypted, if the user keys are provided as part of the contract. These keys can be provided in the contract through the "seed" field in the `volumes` subsections of the contract. The keys (or seeds) are captured in the contract from both the workload and the deployer persona. Thus two seeds must be provided, one through the `workload` section and the other through the `env` section. These two seeds provided as input are internally converted to UTF8 sequences and then concatenated. Later, the hash (SHA256) of the concatenated sequence is computed as a hexdigest, which is used as the LUKS passphrase to encrypt the data volume. You can use the following command to validate the hexdigest:
 ```buildoutcfg
 echo -n "seed1seed2" | sha256sum
 ```
@@ -225,7 +209,7 @@ The subsections for the `env` section are:
 ### The `logging` subsection
 {: #hpcr_contract_env_log}
 
-The minimum subsection that is required for this section is the logging subsection. For more information, see [Setting up logging for IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} provisioning](/docs/vpc?topic=vpc-about-se&interface=ui#hpcr_setup_logging).
+The minimum subsection that is required for this section is the logging subsection. For more information, see [Setting up logging for {{site.data.keyword.hpvs}} for VPC provisioning](/docs/vpc?topic=vpc-about-se&interface=ui#hpcr_setup_logging).
 
 The following snippet is an example of the `logging` subsection:
 ```yaml
@@ -259,7 +243,15 @@ For information about how to use the `signingKey`, see [Contract signature](#hpc
 ### `env` subsection
 {: #hpcr_contract_env_env}
 
-If the `docker-compose.yaml`file has an `env` section, use the following as an example to specify the values for the `env` variables:
+If the docker compose file has an environment section, you can use the following snippet as an example:
+```
+environment:
+  KEY1: "${Value1}"
+  KEY2: "${Value2}"
+```
+{: codeblock}
+
+When the docker compose file has an environment section, as shown in the example above, then you can pass the values in the  `env` section of the deployer. The following shows an example on how to specify the values for the `env` variables:
 ```buildoutcfg
 env:
  value1:"abc"
@@ -275,7 +267,7 @@ You can encrypt the contents of a contract. Although you can also pass in the co
 
 You can decide which sections of the contract need encryption. For example, you can choose to [encrypt only the `workload` section](#hpcr_contract_encrypt_workload), or [encrypt only the `env` section](#hpcr_contract_encrypt_env).
 
-When the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance boots, the bootloader decrypts the contract. It takes the value of each of the sections in the contract and decrypts it if it is encrypted. If it finds that a section is not encrypted, it considers it as it is without any decryption. You must use the public key to encrypt the contract before you pass it as an input through the **User Data** section.
+When the {{site.data.keyword.hpvs}} for VPC instance boots, the bootloader decrypts the contract. It takes the value of each of the sections in the contract and decrypts it if it is encrypted. If it finds that a section is not encrypted, it considers it as it is without any decryption. You must use the public key to encrypt the contract before you pass it as an input through the **User Data** section.
 
 The encryption and attestation certificates are signed by the IBM intermediate certificate and this is signed by the IBM Digicert intermediate cert (which in turn is signed by DigiCert Trusted Root G4). For more information about the certificates, see [DigiCert Trusted Root Authority Certificates](https://www.digicert.com/kb/digicert-root-certificates.htm).
 
@@ -283,7 +275,10 @@ The encryption and attestation certificates are signed by the IBM intermediate c
 ### Downloading the encryption certificate and extracting the public key
 {: #encrypt_downloadcert}
 
-1. Download the certificate that is used to encrypt the contract [here](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-4-encrypt.crt).
+1. Download the certificate (for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-5`) that is used to encrypt the contract [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-5-encrypt.crt){: external}.
+   You can download the certificate for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-4` [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-4-encrypt.crt){: external}
+   {: note}
+
 2. Validate the encryption certificate by following the instructions [here](/docs/vpc?topic=vpc-cert_validate#validate_encrypt_cert).
 
 
@@ -291,7 +286,7 @@ The encryption and attestation certificates are signed by the IBM intermediate c
 {: #hpcr_contract_encrypt_workload}
 
 The value of any section in a contract can be plain text or encrypted.
-Complete the following steps to encrypt the workload section used in a contract:
+Complete the following steps on an Ubuntu system, to encrypt the workload section used in a contract:
 
 1. Create the `docker-compose.yaml` file based on your workload requirements. For example,
    ```yaml
@@ -307,20 +302,20 @@ Complete the following steps to encrypt the workload section used in a contract:
 
 2. Create the [workload section](#hpcr_contract_workload) of the contract and add the contents in the `workload.yaml` file.
 
-3. Export the complete path of the `workload.yaml` file and the `ibm-hyper-protect-container-runtime-1-0-s390x-4-encrypt.crt`:
+3. Export the complete path of the `workload.yaml` file and the `ibm-hyper-protect-container-runtime-1-0-s390x-5-encrypt.crt`:
    ```
    WORKLOAD="<PATH to workload.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-4-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-5-encrypt.crt>"
    ```
    {: pre}
 
-4. Use the following command to create a random password:
+4. Use the following command to create a random password (the contract is encrypted via symmetric AES  with a random PASSWORD):
    ```
    PASSWORD="$(openssl rand 32 | base64 -w0)"
    ```
    {: pre}
 
-5. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-4-encrypt.crt`:
+5. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-5-encrypt.crt`:
    ```
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY -certin | base64 -w0 )"
    ```
@@ -350,14 +345,14 @@ Complete the following steps to encrypt the workload section used in a contract:
 ### Creating encrypted `env` section of a contract
 {: #hpcr_contract_encrypt_env}
 
-Complete the following steps to encrypt the `env` section used in a contract:
+Complete the following steps on an Ubuntu system, to encrypt the `env` section used in a contract:
 
 1. Create the [env section](#hpcr_contract_env) of the contract and add the contents in the `env.yaml` file.
 
-2. Export the complete path of the `env.yaml` file and the `ibm-hyper-protect-container-runtime-1-0-s390x-4-encrypt.crt`:
+2. Export the complete path of the `env.yaml` file and the `ibm-hyper-protect-container-runtime-1-0-s390x-5-encrypt.crt`:
    ```
    ENV="<PATH to env.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-4-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-5-encrypt.crt>"
    ```
    {: pre}
 
@@ -367,7 +362,7 @@ Complete the following steps to encrypt the `env` section used in a contract:
    ```
    {: pre}
 
-4. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-4-encrypt.crt`:
+4. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-5-encrypt.crt`:
    ```
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY  -certin | base64 -w0)"
    ```
@@ -397,13 +392,13 @@ Complete the following steps to encrypt the `env` section used in a contract:
 ## Contract signature
 {: #hpcr_contract_sign}
 
-Contract signature is an optional feature that can be used with the contract. You can choose to sign a contract before it is passed as input. Contracts that are in plain text or encrypted can be signed. Validation of the contract signature is done by the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} image.
+Contract signature is an optional feature that can be used with the contract. You can choose to sign a contract before it is passed as input. Contracts that are in plain text or encrypted can be signed. Validation of the contract signature is done by the {{site.data.keyword.hpvs}} for VPC image.
 The purpose of this signature feature is to ensure that the `workload` and `env` sections are always used together and are not tampered with by a third party. The signature of the `workload` and the `env` sections are added as the value to the `envWorkloadSignature` section.
 The following are two sections in a contract that are relevant while creating and adding a contract signature:
 * `envWorkloadSignature`: This is section where the signature of the other sections of the contract is added. This section is not required for a contract that is not signed.
 * `signingKey`: This is a subsection that must be added to the `env` section of the contract. This holds the value to the user-generated public key, whose corresponding private key was used to create the contract signature.
 
-Complete the following steps to create the contract signature:
+Complete the following steps on an Ubuntu system, to create the contract signature:
 1. Use the following command to generate key pair to sign the contract (note that "test1234" is the passphrase to generate keys, you can use your own):
    ```
    openssl genrsa -aes128 -passout pass:test1234 -out private.pem 4096
@@ -433,10 +428,10 @@ Complete the following steps to create the contract signature:
    ```
    {: codeblock}
 
-4. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-4-encrypt.crt`:
+4. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-5-encrypt.crt`:
    ```
    ENV="<PATH to env.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-4-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-5-encrypt.crt>"
    ```
    {: pre}
 
@@ -446,7 +441,7 @@ Complete the following steps to create the contract signature:
    ```
    {: pre}
 
-6. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-4-encrypt.crt.`:
+6. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-5-encrypt.crt.`:
    ```
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY  -certin | base64 -w0)"
    ```
@@ -470,7 +465,7 @@ Steps 4 - 8 are used to encrypt the `env` section. If you choose to not encrypt 
 ## Preparing the signature
 {: #hpcr_signature_prepare}
 
-Complete the following steps to prepare the signature:
+Complete the following steps on an Ubuntu system, to prepare the signature:
 
 If you have got the encrypted `user-data.yaml` from the [Creating the encrypted `workload` section of a contract](#hpcr_contract_encrypt_workload), and [Creating encrypted `env` section of a contract](#hpcr_contract_encrypt_env) sections, then skip to step 3.
 
@@ -504,15 +499,17 @@ If you have got the encrypted `user-data.yaml` from the [Creating the encrypted 
    {: codeblock}
 
 
-## Getting started with a simple IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} contract   
+## Getting started with a simple {{site.data.keyword.hpvs}} for VPC contract   
 {: #getting_started_simplehpcr_contract}
+
+The following command examples are run on an Ubuntu system.
 
 ### 1. Get the details of your IBM Logging instance
 {: #step1}
 
-The minimum that you need to get started with just any contract is an instance of IBM Logging from [cloud.ibm.com](https://cloud.ibm.com/login). There are different plans that you can choose from. To understand how you get the required details, that is the hostname and the ingestion key, see [Setting up logging for IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} provisioning](/docs/vpc?topic=vpc-about-se#hpcr_setup_logging).
+The minimum that you need to get started with just any contract is an instance of IBM Logging from [cloud.ibm.com](/login){: external}. There are different plans that you can choose from. To understand how you get the required details, that is the hostname and the ingestion key, see [Setting up logging for {{site.data.keyword.hpvs}} for VPC provisioning](/docs/vpc?topic=vpc-about-se#hpcr_setup_logging).
 
-### 2. Create the end section
+### 2. Create the `env` section
 {: #step2}
 
 Ensure that you do not miss the pipe symbol '|' if you are using a plain text contract. It is not required if you are planning to encrypt the section.

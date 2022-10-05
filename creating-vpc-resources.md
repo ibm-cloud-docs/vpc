@@ -2,8 +2,8 @@
 
 copyright:
   years: 2018, 2022
-  
-lastupdated: "2022-09-22"
+
+lastupdated: "2022-10-03"
 
 keywords:
 
@@ -432,7 +432,7 @@ To connect to a Windows image, log in using its decrypted password. For instruct
 
 You can monitor the CPU, volume, memory, and network usage of your instance over time in the {{site.data.keyword.cloud_notm}} console. Because the monitoring data is stored in {{site.data.keyword.monitoringlong_notm}}, you must be authenticated to an instance of the Monitoring service in your account. For more information, see [Getting started with monitoring](/docs/monitoring?topic=monitoring-getting-started).
 
-For IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances, the memory metrics cannot be collected because IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances are created using Secure Execution images and the memory of a secure execution instance is not accessible.
+For {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instances, the memory metrics cannot be collected because {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instances are created using Secure Execution images and the memory of a secure execution instance is not accessible.
 {: note}
 
 ### Create a VPN gateway
