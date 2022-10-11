@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-10-03"
+lastupdated: "2022-10-11"
 
 keywords:
 
@@ -1337,9 +1337,8 @@ Updated styling
 {: release-note}
 
 IBM virtual servers for VPC on POWER
-:   POWER-based instances are now generally available. For more information, see the following resources:
+:   POWER-based instances are now generally available. For more information, see the following resource:
 
-   - [IBM Cloud Virtual Private Cloud on POWER](https://developer.ibm.com/linuxonpower/power-virtual-private-cloud/){: external}  
    - [Profiles](/docs/vpc?topic=vpc-profiles)
 
 ### 02 March 2020
