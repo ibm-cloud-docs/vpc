@@ -2,8 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-10-04"
-
+lastupdated: "2022-10-11"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -51,6 +50,14 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 11 October 2022
+{: #11-october-2022}
+
+### For all version dates
+{: #11-october-2022-all-version-dates}
+
+**Public internet ingress routing.** You can now route public internet ingress traffic destined to a floating IP to a next-hop IP. When you [create a new VPC routing table](/apidocs/vpc/latest#create-vpc-routing-table) or [update an existing VPC routing table](/apidocs/vpc/latest#update-vpc-routing-table), the new `route_internet_ingress` property lets you route traffic that originates from the public internet. For more information, see [Creating a routing table by using the API](/docs/vpc?topic=vpc-create-vpc-routing-table&interface=api) and limitations and guidelines for [Ingress routes](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#routes-ingress).
 
 ## 4 October 2022
 {: #4-october-2022}
@@ -228,9 +235,9 @@ The `2022-03-29` release includes incompatible changes. To avoid regressions in 
 ### For version `2022-03-29` or later
 {: #version-2022-03-29}
 
-**Reserved IPs for compute.** You can now fully control the IP addresses assigned to your network interfaces by specifying a new or existing reserved IP when you [create an instance](/apidocs/vpc#create-instance) or [create a bare metal server](/apidocs/vpc#create-bare-metal-server).
+**Reserved IPs for compute.** Using a `version` query parameter of `2022-03-29` or later, you can now fully control the IP addresses assigned to your network interfaces by specifying a new or existing reserved IP when you [create an instance](/apidocs/vpc#create-instance) or [create a bare metal server](/apidocs/vpc#create-bare-metal-server).
 
-**Migration of network interface IP addresses.** In support of reserved IPs, as of version `2022-03-29`, the network interface `primary_ipv4_address` string property has been migrated to the `primary_ip` object property. See [Migrating use of IP addresses](/docs/vpc?topic=vpc-2022-03-29-migration#migrate-ip-addresses) for guidance on how to migrate to `primary_ip`.
+**Migration of network interface IP addresses.** In support of reserved IPs, for requests using a `version` query parameter of `2022-03-29` or later, the network interface `primary_ipv4_address` string property has been migrated to the `primary_ip` object property. See [Migrating use of IP addresses](/docs/vpc?topic=vpc-2022-03-29-migration#migrate-ip-addresses) for guidance on how to migrate to `primary_ip`.
 
 **Removal of security group network interfaces.** The methods for associating security groups with network interfaces that were deprecated in [API version `2021-02-23`](/docs/vpc?topic=vpc-api-change-log#23-february-2021) have been removed as of version `2022-03-29`. See [Migrating use of security group associations](/docs/vpc?topic=vpc-2022-03-29-migration#migrate-security-group-assoc) for guidance on how to migrate to use security group targets, which allow security groups to be associated with VPC resources beyond network interfaces, such as endpoint gateways and load balancers.
 
@@ -448,7 +455,7 @@ Additional API restrictions are enforced after an HTTPS redirect is configured:
 ### For version `2021-07-27` or later
 {: #version-2021-07-27}
 
-**Instances.** When you [create an instance](/docs/vpc?topic=vpc-creating-virtual-servers), the value for the boot volume's `capacity` is now based on the image's `minimum_provisioned_size`. If you use API version `2021-07-26` or earlier, the value for the boot volume's `capacity` will continue to be 100 GB.
+**Instances.** When you [create an instance](/docs/vpc?topic=vpc-creating-virtual-servers) using a `version` query parameter of `2021-07-27` or later, the value for the boot volume's `capacity` is now based on the image's `minimum_provisioned_size`. If you use a `version` query parameter of `2021-07-26` or earlier, the value for the boot volume's `capacity` will continue to be 100 GB.
 
 ## 29 June 2021
 {: #29-june-2021}
@@ -472,7 +479,8 @@ Additional API restrictions are enforced after an HTTPS redirect is configured:
 ### For version `2021-06-08` or later
 {: #version-2021-06-08}
 
-**Load balancers.** Pagination has been added to the [List all load balancers](/apidocs/vpc#list-load-balancers) (`GET /load_balancers`) method. Requests using earlier version dates remain unpaginated, but may time out if you have many load balancers.
+**Load balancers.** For requests using a `version` query parameter of `2021-06-08` or later, you can now use pagination when [listing all load balancers](/apidocs/vpc#list-load-balancers) in the region. Requests using a `version` query parameter of `2021-06-07` or earlier remain unpaginated, but may time out if you have many load balancers.
+
 If you expect to use many load balancers at once, migrate your applications to the paginated API to improve responsiveness and reliability. Contact [IBM support](/docs/get-support?topic=get-support-using-avatar) if you need help migrating your existing client applications.
 
 ## 25 May 2021
@@ -636,7 +644,7 @@ The quantity of memory for virtual server instance profiles is now provisioned i
 ### For version `2021-01-19` or later
 {: #version-2021-01-19}
 
-Memory for virtual server instances is now expressed in gibibytes (GiB), instead of gigabytes (GB). For example, the `memory` property returned from `GET /instances/{id}` now reports in GiB (truncated to a whole number).
+For requests using a `version` query parameter of `2021-01-19` or later, memory for virtual server instances is now expressed in gibibytes (GiB), instead of gigabytes (GB). For example, the `memory` property returned from `GET /instances/{id}` now reports in GiB (truncated to a whole number).
 
 ## 16 December 2020
 {: #16-december-2020}
@@ -694,7 +702,7 @@ For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-
 ### For version `2020-11-13` or later
 {: #version-2020-11-13}
 
-**Static-route-based VPN gateways** are now available. For a [static-route-based VPN gateway](/apidocs/vpc#create-vpn-gateway), virtual tunnel interfaces are created. Any traffic that is routed to these interfaces with [user-defined routes](/docs/vpc?topic=vpc-create-vpc-route) is encrypted. For more information, see [About VPN gateways](/docs/vpc?topic=vpc-using-vpn).
+**Static-route-based VPN gateways** are now available for requests using a `version` query parameter of `2020-11-13` or later. For a [static-route-based VPN gateway](/apidocs/vpc#create-vpn-gateway), virtual tunnel interfaces are created. Any traffic that is routed to these interfaces with [user-defined routes](/docs/vpc?topic=vpc-create-vpc-route) is encrypted. For more information, see [About VPN gateways](/docs/vpc?topic=vpc-using-vpn).
 
 ## 30 October 2020
 {: #30-october-2020}
