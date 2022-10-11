@@ -41,16 +41,6 @@ SDK changes are based on API changes. For information about the latest changes t
 
 **VPC route naming restriction.** In an upcoming release, you will no longer be able to create VPC routes that begin with the name `ibm-`. Existing routes that begin with the name `ibm-` will not be affected. To prepare for this change, review the names used by any automation that creates routes, and update the names used as necessary.
 
-**References to inaccessible images** In an upcoming release, image references may refer to custom images in other accounts. Such references are used in the `image` properties of the `Instance` and `BareMetalServerInitialization` response schemas and in the `source_image` properties of the `Volume` and `Snapshot` response schemas. Such an image cannot be accessed by its `id`, `crn`, or `href`, regardless of the caller's authorizations, and attempts will fail as if the image does not exist.
-
-Additionally, if your account has an image with the same name as the referenced image, attempting to access the referenced image by its `name` will access your account's image, rather than the image in the other account. This may result in the retrieval or use of the wrong image.
-
-To prepare for this change, verify that your clients handle image reference lookup failures gracefully and do not assume inaccessible images have been deleted, even when running with full access to your images.  To avoid possible retrieval or use of the wrong image by `name`, consider specifying the image `id`, `crn`, or `href` instead.
-
-**Load balancer provisiong status enumeration expansion.** In an upcoming release, a new value will be added to the load balancer `provisioning_status` property. 
-
-To prepare for this change, verify that any clients retrieving the `provisioning_status` property will gracefully handle unknown values. For example, a client might bypass the load balancer, log a message, or halt processing and surface an error.
-
 **`Instance` response schema change.** In an upcoming release, volume attachments returned in the `boot_volume_attachment` and `volume_attachments[]` properties of an instance will not include the `volume` sub-property if the volume has not yet been provisioned. Such volumes are currently represented with empty `crn`, `id`, and `href` properties along with an undocumented sentinel value for `name`.
 
 To prepare for this change, verify that your client checks that the `volume` property exists for a volume attachment before attempting to access its `crn`, `id`, `href`, or `name` sub-properties.
@@ -131,6 +121,8 @@ Specifying IKE and IPsec policies when configuring a VPN connection is optional.
 {: #13-september-2022-all-version-dates}
 
 **Updating subnets for application load balancers.** You can now update the subnets attached to an application load balancer by specifying `subnets` when [updating a load balancer](/apidocs/vpc/latest#update-load-balancer). The specified subnets must be in the same VPC as the load balancer's current subnets. If the update requires moving your load balancer to a different zone, its `provisioning_status` will change to `migrate_pending` until the move is complete. For more information, see [Updating subnets for Application Load Balancers for VPC](/docs/vpc?topic=vpc-alb-updating-subnets&interface=api).
+
+Verify that any clients retrieving the `provisioning_status` property will gracefully handle unknown values. For example, a client might bypass the load balancer, log a message, or halt processing and surface an error.
 
 Because the `subnets` property is an array, the specified value will replace the load balancer's existing array of subnets. To guard against concurrent updates, you must provide the resource's current ETag using the `If-Match` header. For guidance on the use of ETags, see [Concurrent update protection](/apidocs/vpc/latest#concurrent-update-protection).
 {: important}
