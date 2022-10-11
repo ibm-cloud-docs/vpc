@@ -2,8 +2,7 @@
 
 copyright:
   years: 2018, 2022
-
-lastupdated: "2022-09-22"
+lastupdated: "2022-10-11"
 
 
 keywords: known issues, bugs, defects
@@ -19,6 +18,11 @@ subcollection: vpc
 
 Known issues might change over time, so check back occasionally.
 {: shortdesc}
+
+## Network load balancer known issues
+{: #network-load-balancer-known-issues}
+
+**Issue:** When you create a listener for a network load balancer, you can specify a `protocol` of `tcp` or `udp`. However, each listener in the network load balancer must have a unique `port`. For network load balancer limitations, see [IBM Cloud Network Load Balancer for VPC limitations](/docs/vpc?topic=vpc-nlb-limitations).
 
 ## `resource_type` known issues
 {: resource-type-known-issues}
