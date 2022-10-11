@@ -2,8 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-10-04"
-
+lastupdated: "2022-10-11"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -51,6 +50,14 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 11 October 2022
+{: #11-october-2022}
+
+### For all version dates
+{: #11-october-2022-all-version-dates}
+
+**Public internet ingress routing.** You can now route public internet ingress traffic destined to a floating IP to a next-hop IP. When you [create a new VPC routing table](/apidocs/vpc/latest#create-vpc-routing-table) or [update an existing VPC routing table](/apidocs/vpc/latest#update-vpc-routing-table), the new `route_internet_ingress` property lets you route traffic that originates from the public internet. For more information, see [Creating a routing table by using the API](/docs/vpc?topic=vpc-create-vpc-routing-table&interface=api) and limitations and guidelines for [Ingress routes](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#routes-ingress).
 
 ## 4 October 2022
 {: #4-october-2022}
