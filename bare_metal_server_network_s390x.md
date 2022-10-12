@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-27"
+lastupdated: "2022-10-11"
 
 keywords:  network overview of s390x bare metal servers
 
@@ -15,13 +15,13 @@ subcollection: vpc
 # Networking overview for s390x bare metal servers
 {: #s390x-bare-metal-servers-network}
 
-s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the São Paulo (br-sao) region. 
+s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east) and São Paulo (br-sao) regions. 
 {: preview}
 
 The following information is an overview of the networking features of s390x bare metal servers and how it supports VPC networking. It is recommended that you go through this information before you build an s390x bare metal server. s390x bare metal servers on VPC provide full support for VPC networking features. The network is fully software-defined, so you can configure it through the API.
 {: shortdesc}
 
-The following information is for users that have basic network knowledge of {{site.data.keyword.cloud}} VPC and LinuxONE. If you aren't familiar with VPC networking, see [About networking](/docs/vpc?topic=vpc-about-networking-for-vpc). If you are not familiar with HiperSockets, see [IBM HiperSockets Implementation Guide ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.redbooks.ibm.com/redbooks/pdfs/sg246816.pdf).
+The following information is for users that have basic network knowledge of {{site.data.keyword.cloud}} VPC and LinuxONE. If you aren't familiar with VPC networking, see [About networking](/docs/vpc?topic=vpc-about-networking-for-vpc). If you are not familiar with HiperSockets, see [IBM HiperSockets Implementation Guide](https://www.redbooks.ibm.com/redbooks/pdfs/sg246816.pdf){: external}.
 
 s390x bare metal servers provide full support for VPC networking features. The network is fully software-defined, so you can configure it through the API.
 

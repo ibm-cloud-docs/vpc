@@ -29,6 +29,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## October 2022
 {: #vpc-october22}
 
+### 12 October 2022
+{: #vpc-oct1222}
+{: release-note}
+
+**New region (Washington DC) for LinuxONE Bare Metal Servers**
+:   LinuxONE Bare Metal Servers are now available in the Washington DC (us-east) and São Paulo (br-sao) regions. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
+
 ### 03 October 2022
 {: #vpc-oct0322}
 

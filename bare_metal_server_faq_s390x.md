@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-27"
+lastupdated: "2022-10-11"
 
 keywords: s390x bare metal faq, linuxone bare metal server faq
 
@@ -12,11 +12,11 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the São Paulo (br-sao) region. 
-{: preview}
-
 # FAQ for s390x bare metal servers
 {: #s390x-bare-metal-server-faq}
+ 
+s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east) and São Paulo (br-sao) regions.
+{: preview} 
 
 You might encounter the following frequently asked questions when you use an s390x bare metal server.
 
@@ -38,11 +38,11 @@ Storage is provided by Fibre Channel Protocol (FCP) that is connected to IBM Fla
 
 When you are planning to create an s390x bare metal server, you can go through the configuration checklist on [Planning for s390x bare metal servers](/docs/vpc?topic=vpc-planning-for-bare-metal-servers). 
 
-## What regions are s390x bare metal servers available?
+## What regions are s390x bare metal servers available in?
 {: #faq-s390x-bare-metal-4}
 {: faq}
 
-The s390x bare metal servers are available in the Brazil (São Paulo) region with plans to expand to other regions. 
+The s390x bare metal servers are available in the Washington DC (us-east) and São Paulo (br-sao) regions with plans to expand to other regions. 
 
 ## Do I need to configure multiple network interfaces on an s390x bare metal server to support the full 10 Gbps bandwidth?
 {: #faq-s390x-bare-metal-5}
@@ -83,7 +83,7 @@ s390x bare metal servers support only FCP images.
 
 You are billed for s390x bare metal servers based on the server profile that you selected. Billing stops only when you delete the bare metal server. Powering off the server doesn't change billing. For more information about billing and pricing, contact your IBM Sales representative.
 
-You are also billed for other VPC services and resources that are attached to any bare metal servers. For more information about pricing for Bare Metal Servers on VPC, see [Pricing](https://www.ibm.com/cloud/vpc/pricing).
+You are also billed for other VPC services and resources that are attached to any bare metal servers. For more information about pricing for Bare Metal Servers on VPC, see [Pricing](https://www.ibm.com/cloud/vpc/pricing){: external}.
 
 ## How is billing for s390x bare metal severs different from s390x virtual server instances?
 {: #faq-s390x-bare-metal-11}
@@ -97,9 +97,9 @@ The main difference between s390x virtual server instances and the s390x bare me
 
 To view your account invoices, follow these steps.
 
-1. Go to the [{{site.data.keyword.cloud_notm}} console ![External link icon](images/launch-glyph.svg "External link icon")](https://{DomainName}).
-2. Then, click **Manage > Billing and Usage**.
+1. Go to the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
+2. Click **Manage > Billing and usage**.
 
-Each account receives a single bill. If you need separate billing for different sets of resources, then you need to create multiple accounts.
+Each account receives a single bill. If you need separate billing for different sets of resources, you need to create multiple accounts.
 
 For more information about invoices, see [Viewing your invoices](/docs/billing-usage?topic=billing-usage-managing-invoices).

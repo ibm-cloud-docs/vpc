@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-27"
+lastupdated: "2022-10-11"
 
 keywords: connecting to s390x bare metal server, floating IP, serial console, vnc console
 
@@ -15,8 +15,8 @@ subcollection: vpc
 # Connecting to s390x bare metal servers 
 {: #connect-to-s390x-bare-metal-servers}
 
-s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the São Paulo (br-sao) region. 
-{: preview} 
+s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east) and São Paulo (br-sao) regions. 
+{: preview}
 
 After your s390x bare metal server is running, you can connect to the server by using your private SSH key through a floating IP.
 {: shortdesc}
@@ -37,15 +37,13 @@ Before you can access the bare metal server through the public internet, you nee
 ### Attaching a floating IP by using the UI
 {: #attaching-fip-to-nic-ui}
 
-1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**
+1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**.
 
 2. Click the name of the server that you want to attach a floating IP.
 
 3. On the **Bare metal server details** page, scroll to the **Network interfaces** section and click **Edit**.
 
-4. On **Edit network interface**, select a reserved floating IP or **Reserve a new floating IP**.
-
-5. Click **Save**
+4. On **Edit network interface**, select a reserved floating IP or **Reserve a new floating IP** and click **Save**.
 
 ### Attaching a floating IP by using the CLI
 {: #attaching-fip-to-nic-cli}
@@ -112,3 +110,25 @@ curl -X PUT "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/netwo
    ```
    {: pre}
 
+
+<!-- DO NOT MERGE TO PUBLISH
+## Accessing the s390x bare metal server by using a serial console
+{: #access-s390x-bm-using-console}
+
+You can access the s390x bare metal server by connecting to the serial console.
+
+To connect to a console, you need to be assigned **Operator** (or greater) and **Bare Metal Console Administrator** roles for the bare metal server in IBM Cloud Identity and Access Management (IAM). If you are an administrator of your account, you also need to self-assign the **Bare Metal Console Administrator** role.
+
+### Connecting to a serial console
+{: #connect-to-serial-console}
+
+You can use a serial console to access the s390x bare metal server. You must first manually switch to the serial console mode by using the following steps:
+
+1. Restart your server.
+
+2. Click **Open serial console** from the IBM Cloud UI. A new tab opens in your terminal.
+
+If the login window doesn’t show up in the terminal, press **ESC**.
+{: tip}
+
+--->
