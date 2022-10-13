@@ -3,7 +3,7 @@
 copyright:
   years: 2022
 
-lastupdated: "2022-09-23"
+lastupdated: "2022-10-13"
 
 keywords: connecting, zos, s390x, zosmf, virtual server instance
 
@@ -73,9 +73,10 @@ If you are using your z/OS Wazi aaS custom images, you do not need to configure 
 2. Use the `tsocmd` shell command to configure your own password for the z/OS instance. For example, the new password is `system12`.
 
    ```
+   bash
    tsocmd 'ALTUSER IBMUSER PASSWORD(system12) NOEXPIRE RESUME'
    ```
-   {: pre}
+   {: codeblock}
 
    You must follow the password policies to enforce more secure connection:
     * Must be 8 characters.
@@ -90,48 +91,85 @@ If you are using your z/OS Wazi aaS custom images, you do not need to configure 
 ## Step 2. Getting connected
 {: #getting-connected}
 
-You can interact with your z/OS virtual server instance with the following approaches:
+You can interact with your z/OS virtual server instance with the following approaches.
 
-* Use the TN3270 terminal emulator to log on to the Time Sharing Option/Extensions (TSO/E). The default port for the secured TN3270 is `992` and you need to provide a self-signed certificate-authority(CA) certificate as a parameter to have a secured connection to the 3270 emulation program. You can find your self-signed CA certificate in a file that is called `common_cacert` in the home directory of the `IBMUSER` user ID in UNIX System Services (USS).
+### Using TN3270 terminal emulator
+{: #using-terminal-emulator}
 
-  * For macOS, you need to transfer the `common_cacert` file before you connect to the secured telnet port and run the following commands:
+You can use the TN3270 terminal emulator to log on to the Time Sharing Option/Extensions (TSO/E). The default port for the secured TN3270 is `992` and you need to provide a self-signed certificate-authority (CA) certificate as a parameter to have a secured connection to the 3270 emulation program. You can find your self-signed CA certificate in a file that is called `common_cacert` in the home directory of the `IBMUSER` user ID in UNIX System Services (USS).
 
-    ```
-    scp ibmuser@<vsi ip address>:/u/ibmuser/common_cacert <my local dir>/common_cacert
-    c3270 -cafile <my local dir>/common_cacert -port 992 <vsi ip address>
-    ```
-    {: codeblock}
+* For macOS, Linux, and Windows system where the Secure Copy Protocol (SCP) client is installed, you need to transfer the `common_cacert` file before you connect to the secured telnet port and run the following commands:
 
-  * For Windows, you need to import the self-signed CA cert into Windows first and then create the IBM Personal Communications (PCOMM) to read the CA cert from the truststore in Windows. Complete the following steps:
+   ```
+   scp ibmuser@<vsi ip address>:/u/ibmuser/common_cacert <my local dir>/common_cacert
+   c3270 -cafile <my local dir>/common_cacert -port 992 <vsi ip address>
+   ```
+   {: codeblock}
 
-    1. Transfer the `common_cacert` file from the z/OS system to your workstation.
-    2. Open **Internet Options** in your workstation.
-    3. Under **Content**, select **Certificates**.
-    4. Select **Import** to open the Certificate Import Wizard page and click **Next**.
-    5. Click **Browse** to select the `common_cacert` file and click **Next**.
-    6. Under the Certificate Store page, select **Place all certificates in the following store** and click **browse** to select the **Trusted Root Certificate Authorities**, and then click **Next**.
-    7. On the Completing the Certificate Import Wizard page, click **Finish**.
-    8. After you transfer the CA cert to the truststore successfully, you need to create a secure session in PCOMM. Under the **Host Definition** tab of the **Link Parameters** configuration, enter the IP address or the hostname of your z/OS virtual server instance with port `992`.
-    9. Under the **Security Setup** tab of the **Link Parameters** configuration, check the **Enable Security** box. 
+   If the file is not in the correct format, you need to convert it to ASCII format.
+   {: note}
 
-    The default user ID is `IBMUSER` and the password is the one you configured in the previous step. Then, you can interact with the z/OS in the TSO native mode, by using the Interactive System Productivity Facility (ISPF), or by using z/OS UNIX shell and utilities. For more information, see [Interacting with z/OS: TSO, ISPF, and z/OS UNIX interfaces](https://www.ibm.com/docs/en/zos-basic-skills?topic=concepts-interacting-zos-tso-ispf-zos-unix-interfaces){: external}.
+* For Windows, you can import the self-signed CA cert into Windows first and then create the IBM Personal Communications (PCOMM) to read the CA cert from the truststore in Windows. Complete the following steps:
 
-    The unsecured port `23` for 3270 connection is closed. You must use the secured port `992`. The VSI server certificate only contains the private IP address information of the z/OS virtual server instance. Accessing the instance by using its floating IP together with this VSI server certificate will fail.
+   1. Transfer the `common_cacert` file from the z/OS system to your workstation.
+   
+   2. Open **Internet Options** in your workstation.
+   
+   3. Under **Content**, select **Certificates**.
+  
+   4. Select **Import** to open the Certificate Import Wizard page and click **Next**.
+  
+   5. Click **Browse** to select the `common_cacert` file and click **Next**.
+  
+   6. Under the Certificate Store page, select **Place all certificates in the following store** and click **browse** to select the **Trusted Root Certificate Authorities**, and then click **Next**.
+  
+   7. On the Completing the Certificate Import Wizard page, click **Finish**.
+  
+   8. After you transfer the CA cert to the truststore successfully, you need to create a secure session in PCOMM. Under the **Host Definition** tab of the **Link Parameters** configuration, enter the IP address or the hostname of your z/OS virtual server instance with port `992`.
+  
+   9. Under the **Security Setup** tab of the **Link Parameters** configuration, check the **Enable Security** box. 
+
+   The default user ID is `IBMUSER` and the password is the one you configured in the previous step. Then, you can interact with the z/OS in the TSO native mode, by using the Interactive System Productivity Facility (ISPF), or by using z/OS UNIX shell and utilities. For more information, see [Interacting with z/OS: TSO, ISPF, and z/OS UNIX interfaces](https://www.ibm.com/docs/en/zos-basic-skills?topic=concepts-interacting-zos-tso-ispf-zos-unix-interfaces){: external}.
+
+   The unsecured port `23` for 3270 connection is closed. You must use the secured port `992`. The VSI server certificate only contains the private IP address information of the z/OS virtual server instance. Accessing the instance by using its floating IP together with this VSI server certificate will fail.
     {: important}
 
-* Use the web browser to access the IBM z/OS Management Facility (z/OSMF). For example, access the url `https://<vsi ip address>:10443/zosmf/LogOnPanel.jsp`. For more information about the z/OSMF, see [IBM z/OS Management Facility](https://www.ibm.com/products/zos-management-facility){: external}.
 
-* Use the serial console from the {{site.data.keyword.cloud_notm}} UI or CLI. The following instructions show how you can connect the serial console to the z/OS virtual server instance from the {{site.data.keyword.cloud_notm}} UI.
+### Using the web browser
+{: #using-web-browser}
+
+You can use the web browser to access the IBM z/OS Management Facility (z/OSMF). For example, access the url `https://<vsi ip address>:10443/zosmf/LogOnPanel.jsp`. For more information about the z/OSMF, see [IBM z/OS Management Facility](https://www.ibm.com/products/zos-management-facility){: external}.
+
+### Using serial console from IBM Cloud UI or CLI
+{: #using-serial-console}
+
+You can use the IBM Cloud UI to connect to a serial console and monitor the progress of the IPL within the console. 
+
+To connect to the serial console, you need to be assigned `Operator` (or greater) and `Console Administrator` roles for the virtual server instance in IBM Cloud Identity and Access Management (IAM). Otherwise, the serial console is disabled.
+{: note}
+
+Follow these steps to connect to a console by using IBM Cloud UI.
 
    1. In the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instance**.
+   
    2. In the **Virtual server instances for VPC** list, click the overflow button of the instance that you need to access, then click **Open serial Console**. Alternatively, on the instance details page, click **Action** on the upper right then click **Open Serial Console**.
-   3. (For serial console only) If the serial console is being used, you will be prompted to confirm whether to force open a session. This will disconnect the other user's session.
+   
+   3. If the serial console is being used, you will be prompted to confirm whether to force open a session. This will disconnect the other user's session.
+   
    4. Enter the credentials following the prompts to log in to your instances.
-   5. (For z/OS Master Console only) Use the **Ctrl + L** key combination to open a new z/OS Master Console, where you can issue four commands `start`, `stop`, `ipl`, and `oprmsg` for z/OS virtual server instance operations.
+   
+   5. Use the **Ctrl + L** key combination to open a new z/OS Master Console, where you can issue four commands `start`, `stop`, `ipl`, and `oprmsg` for z/OS virtual server instance operations.
 
-  For more information about the serial console and how you can use the serial console with {{site.data.keyword.cloud_notm}} CLI, see [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console). Note that the VNC console is not supported on z/OS virtual server instances.
+  For more information, see [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console). Note that the VNC console is not supported on z/OS virtual server instances.
 
-* Use the SSH private key through a floating IP address to connect the z/OS UNIX shell environment. However, you might want to unbind your floating IP from your z/OS virtual server instance for security considerations and use a [bastion host](/docs/vpc?topic=solution-tutorials-vpc-secure-management-bastion-server) or [client-to-site VPN server](/docs/vpc?topic=vpc-vpn-client-to-site-overview) for all connections. The default secured port is 22. For more information about the floating IP address, see [Reserving a floating IP address](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#reserving-a-floating-ip-address)
+### Using SSH private key through a floating IP address
+{: #using-ssh-key}
+
+You can use the SSH private key through a floating IP address to connect the z/OS UNIX shell environment. 
+
+However, you might want to unbind your floating IP from your z/OS virtual server instance for security considerations and use a [bastion host](/docs/vpc?topic=solution-tutorials-vpc-secure-management-bastion-server) or [client-to-site VPN server](/docs/vpc?topic=vpc-vpn-client-to-site-overview) for all connections. The default secured port is 22. 
+
+For more information about the floating IP address, see [Reserving a floating IP address](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#reserving-a-floating-ip-address)
 
 If you want to access another z/OS virtual server instance that is created by using a different SSH key, you must ask the instance owner to add your SSH public key into the `authorized_keys` file on that z/OS virtual server instance. For more information about the authorized_key file, see [Format of the authorized_keys file](https://www.ibm.com/docs/en/zos/2.4.0?topic=daemon-format-authorized-keys-file){: external} and [Configuring new users to access your z/OS virtual server instance](#new_sshkey_zos).
 
