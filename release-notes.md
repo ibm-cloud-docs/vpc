@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-10-13"
+lastupdated: "2022-10-14"
 
 keywords:
 
@@ -33,7 +33,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-oct1222}
 {: release-note}
 
-**New region (Washington DC) for LinuxONE Bare Metal Servers**
+New region (Washington DC) for LinuxONE Bare Metal Servers (LA)
 :   LinuxONE Bare Metal Servers are now available in the Washington DC (us-east) region. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
 
 ## 03 October 2022
@@ -52,7 +52,7 @@ VPC Public Ingress Routing
 {: #vpc-september2722}
 {: release-note}
 
-IBM&reg; LinuxONE Bare Metal Servers (s390x processor architecture) (select availability)
+IBM&reg; LinuxONE Bare Metal Servers (s390x processor architecture) (LA)
 :   Accounts with access to the profiles for s390x bare metal servers can now create LinuxONE Bare Metal Server instances. These profiles have a `cpu_architecture` of `s390x` and must be used with Red Hat Enterprise Linux for s390x and SUSE Linux Enterprise Server (SLES) for s390x. Each LinuxONE Bare Metal Server is equivalent to a logical partition (LPAR) on the IBM LinuxONE or IBM Z with dedicated s390x CPU cores, memory, and I/O devices for your Linux workloads. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
 
 ## September 2022
@@ -431,7 +431,7 @@ LinuxONE (s390x processor architecture)
 Resizable boot volumes
 :    You can now increase the capacity of a boot volume, up to 250 gigabytes (GB), when you create an instance from an image or instance template. You can also directly update an existing boot volume to increase its capacity. For more information, see [Increasing boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes).
 
-Backup for VPC (closed beta)**
+Backup for VPC (closed beta)
 :    For accounts authorized to preview this service, you can create backup policies that automatically backup your block storage volumes. Backups are triggered when a user tag is applied to a volume matches a backup policy tag. Each backup policy has a backup plan, which defines how often backups are taken and how long they're retained. For more information, see [About Backup for VPC (Beta)](/docs/vpc?topic=vpc-backup-service-about).
 
 File Storage for VPC
@@ -612,7 +612,7 @@ New GPU Instance Profile family
 {: #vpc-oct0521}
 {: release-note}
 
-**New regions for Very High Memory instance profile family (LA)**
+New regions for Very High Memory instance profile family (LA)
 :   Very High Memory profiles now are available in the United Kingdom (London), Japan (Osaka), and Australia (Sydney) regions. For more information, see [Very High Memory profiles](/docs/vpc?topic=vpc-profiles&interface=ui#vhmemory).
 
 ### 01 October 2021
@@ -686,7 +686,7 @@ Virtual server instances for VPC
 {: #vpc-aug1921}
 {: release-note}
 
-**Larger size boot volumes for custom images**
+Larger size boot volumes for custom images
 :   You can import custom images with a boot disk size from 10 - 250 GB, which becomes the image's minimum provisioned size after you import. When you specify the image as part of [creating an instance](/docs/vpc?topic=vpc-creating-block-storage), the boot volume capacity is set to this size. For more information, see [Planning custom images](/docs/vpc?topic=vpc-planning-custom-images).
 
 ### 18 August 2021
@@ -784,7 +784,7 @@ Placement groups (Beta)
 UI enhancement
 :   When you provision a VPC, you can now create multiple subnets from the default address prefix. When you create a VPC, one subnet is created in each zone of the VPC region. You can add up to a maximum of nine subnets.”
 
-**Application Load Balancer (ALB) support for cookie-based session persistence**
+Application Load Balancer (ALB) support for cookie-based session persistence
 :   ALBs now supports HTTP-cookie persistence and application-cookie persistence. For more information, see [Advanced traffic management](/docs/vpc?topic=vpc-advanced-traffic-management#session-persistence).
 
 ### 03 June 2021
@@ -851,7 +851,7 @@ File Storage for VPC
 File Storage for VPC (beta)
 :   NFS-based file shares for a zone within a region are available in a limited, allow-listed beta. You can share file storage over multiple virtual service instances within the same zone across multiple VPCs. For more information about this service, see [About File Storage for VPC (beta)](/docs/vpc?topic=vpc-file-storage-vpc-about).
 
-**UI enhancement**
+UI enhancement
 :   When provisioning a new VPN gateway in a default VPC, the UI now populates the subnet table with the default subnet information.
 
 ### 06 April 2021
@@ -1016,7 +1016,7 @@ Customer-managed encryption (GA)
 {: #vpc-dec1820}
 {: release-note}
 
-**Bring you own license (Beta)**
+Bring you own license (Beta)
 :   You can now bring your own license (BYOL) when you import a custom image to {{site.data.keyword.vpc_short}}. This is a Beta feature that is available for evaluation and testing purposes. Contact your IBM Sales representative if you are interested in getting access. For more information, see [Bring your own license (Beta)](/docs/vpc?topic=vpc-byol-vpc-about).
 
 ### 17 December 2020
