@@ -33,7 +33,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-oct1222}
 {: release-note}
 
-New region (Washington DC) for LinuxONE Bare Metal Servers (LA)
+New region (Washington DC) for LinuxONE Bare Metal Servers (s390x processor architecture) (LA)
 :   LinuxONE Bare Metal Servers are now available in the Washington DC (us-east) region. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
 
 ## 03 October 2022
