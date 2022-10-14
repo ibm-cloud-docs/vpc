@@ -31,6 +31,11 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "12 October 2022",
+          "title": "New region (Washington DC) for LinuxONE Bare Metal Servers (s390x processor architecture) (select availability)",
+          "description": "LinuxONE Bare Metal Servers are now available in the Washington DC (us-east) region."
+        },
+        {
           "date": "03 October 2022",
           "title": "VPC Public Ingress Routing",
           "description": "You can now route public internet ingress traffic (destined to a floating IP) to a VPN next-hop IP, such as a managed firewall. Currently, public ingress routing (public internet traffic choice) is available in the UI only. CLI and API are forthcoming."
@@ -39,11 +44,6 @@
           "date": "27 September 2022",
           "title": "IBM LinuxONE Bare Metal Servers (s390x processor architecture) (select availability)",
           "description": "Accounts with access to the profiles for s390x bare metal servers can now create LinuxONE Bare Metal Server instances. These profiles have a cpu_architecture of s390x and must be used with Red Hat Enterprise Linux for s390x and SUSE Linux Enterprise Server (SLES) for s390x. Each LinuxONE Bare Metal Server is equivalent to a logical partition (LPAR) on the IBM LinuxONE or IBM Z with dedicated s390x CPU cores, memory, and I/O devices for your Linux workloads."
-        },
-        {
-          "date": "26 September 2022",
-          "title": "Network interfaces for virtual servers",
-          "description": "You can now add up to 15 network interfaces to virtual server instances. The number of interfaces that a virtual server supports depends on the vCPU count that is in the instance profile. Profiles that include 17 - 48 vCPUs now support up to 10 network interfaces. Profiles that include 49 or more vCPUs now support up to 15 network interfaces. For existing virtual servers with 17 or more vCPUs to take advantage of the new network interface limits, a running virtual server instance must be stopped and restarted."
         }
       ]
     }
