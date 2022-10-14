@@ -26,18 +26,21 @@ You can create an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NL
 
 To create and configure {{site.data.keyword.nlb_full}} by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
-1. Click **New load balancer +** in the upper right of the page.
-1. In the order form, complete the following information:
-   * Type a unique name for your load balancer and select a VPC.
-   * Select a resource group. Use the default group, or select from the list (if defined for your account). You cannot change the resource group after the load balancer is created.   
-   * Optionally, add tags.
+1. Click **Create ++** in the upper right of the page.
+1. In the Location section, edit the following fields, if necessary.
+   * **Geography**: Indicates the geography where you want the load balancer created.
+   * **Region**: Indicates the region where you want the load balancer created.
+1. In the Details section, complete the following information:
+   * **Name**: Enter a name for the load balancer, such as `my-load-balancer`.    
+   * **Resource group**: Select a resource group for the load balancer.
+   * **Tags**: (Optional) Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags]
    * Select the **Network Load Balancer (NLB)** tile and the subnet where you want to deploy the load balancer.
    * Select type: **Public** or **Private**.
-1. **For Private type only**, you have the option to enable routing mode, which is used to deploy highly available virtual network functions (VNFs). For use cases and end-to-end instructions, see [About HA virtual network function deployments](/docs/vpc?topic=vpc-about-vnf-ha).
-1. Select a subnet from the list.
-1. Click **New Pool** and specify the following information to create a back-end pool. You can create one or more pools.
+4. **For Private type only**, you have the option to enable routing mode, which is used to deploy highly available virtual network functions (VNFs). For use cases and end-to-end instructions, see [About HA virtual network function deployments](/docs/vpc?topic=vpc-about-vnf-ha).
+5. Select a subnet from the list.
+6. Click **New Pool** and specify the following information to create a back-end pool. You can create one or more pools.
    * Type a name for the pool, such as `my-pool`.
    * Select a protocol for your instances in this pool. The protocol of the pool must match the protocol of its associated listener. For example, if the listener is TCP, the protocol of the pool must be TCP. Or, if the listener is UDP, the protocol of the pool must also be UDP.
    * Select the method, which is the load-balancing algorithm. The follow options are shown.
