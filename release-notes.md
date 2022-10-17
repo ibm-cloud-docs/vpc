@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-10-11"
+lastupdated: "2022-10-13"
 
 keywords:
 
@@ -34,15 +34,15 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: release-note}
 
 **New region (Washington DC) for LinuxONE Bare Metal Servers**
-:   LinuxONE Bare Metal Servers are now available in the Washington DC (us-east) and São Paulo (br-sao) regions. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
+:   LinuxONE Bare Metal Servers are now available in the Washington DC (us-east) region. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
 
-### 03 October 2022
+## 03 October 2022
 {: #vpc-oct0322}
 
 VPC Public Ingress Routing
 :   You can now route public internet ingress traffic (destined to a floating IP) to a VPC next-hop IP, such as a managed firewall. For more information, see [Creating a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table) and limitations and guidelines for [Ingress routes](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#routes-ingress).
 
-   Currently, public ingress routing (`public internet` traffic choice) is available in the UI only. CLI and API are forthcoming. 
+   Currently, public ingress routing (`public internet` traffic choice) is available in the UI and API only. CLI is forthcoming. 
    {: note}
 
 ## September 2022
