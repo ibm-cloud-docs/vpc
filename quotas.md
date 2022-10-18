@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2022
 
-lastupdated: "2022-09-28"
+lastupdated: "2022-10-18"
 
 keywords:
 
@@ -40,7 +40,8 @@ To increase a quota for a particular resource, [contact support](/unifiedsupport
 | Floating IP addresses | 40 per zone |
 | SSH keys | 200 per account |
 | GPU | 16 per account |
-| Dedicated host groups | 100 per region | 
+| Dedicated host groups | 100 per region |
+| Storage optimized (ox2) instance storage | 96 TB per region |
 {: caption="Table 1. Quotas for virtual server instances" caption-side="bottom"}
 
 When you provision virtual server instances and dedicated hosts, the vCPU associated with these resources counts toward the vCPU quotas per region. Instances that are provisioned on dedicated hosts do not count against the vCPU quota.
