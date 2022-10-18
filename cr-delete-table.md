@@ -24,7 +24,7 @@ You can delete a routing table for an IBM Cloud service by using the UI, CLI, or
 
 To delete a routing table by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The routing tables for VPC page appear.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The routing tables for VPC page appear.
 2. Click the overflow menu ![overflow menu](images/overflow.png) next to the routing table that you want to delete, then click **Delete**. Click **Delete** again to confirm the deletion. Alternatively, you can click **Actions > Delete** from the routing table details page.
 
    ![Deleting routing tables for VPC](./images/cr-routing-table-delete.png){: caption="Figure 1. Deleting routing tables for VPC" caption-side="bottom}

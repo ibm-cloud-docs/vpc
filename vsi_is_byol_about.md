@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-08-26"
+lastupdated: "2022-09-12"
 
 keywords: license, virtual private cloud, BYOL, virtual server instance, instance, custom image, encryption
 subcollection: vpc
@@ -20,7 +20,7 @@ subcollection: vpc
 # Bring your own license
 {: #byol-vpc-about}
 
-For Red Hat Enterprise Linux&reg; (RHEL) and Windows&reg; operating systems, you can bring your own license (BYOL) to the {{site.data.keyword.cloud}} VPC when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. Acquisition and activation of the license is between you and the OS vendor.
+For Red Hat Enterprise Linux&reg; and Windows&reg; operating systems, you can bring your own license (BYOL) to the {{site.data.keyword.cloud}} VPC when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. Acquisition and activation of the license is between you and the OS vendor.
 {: shortdesc}
 
 ## BYOL concepts
@@ -33,12 +33,12 @@ Images with a Red Hat Enterprise Linux BYOL operating system can be used to prov
 
 You don't have extra licensing charges for any virtual server instances that you create by using your BYOL custom image. For auditing and reporting purposes, {{site.data.keyword.cloud}} retains information for virtual server instances that you create from BYOL custom images.
 
-## BYOL for Red Hat Linux operating systems
+## BYOL for Red Hat Enterprise Linux operating systems
 {: #byol-vpc-linux}
 
 You can use your own license for a [custom RHEL image](/docs/vpc?topic=vpc-create-linux-custom-image) that you create on premises. This BYOL custom image is a single qcow2 or vhd file that you upload to Cloud Object Storage and then import to the VPC. When you import your BYOL custom image, you must select a _BYOL_ operating system from the list of OS versions. Supported Linux versions are 64-bit RHEL 7 and RHEL 8.
 
-To see all of the operating system versions from the API, make a`GET /operating_systems` call. In the response, you see Red Hat Enterprise Linux BYOL OS versions among the list of operating systems. This example response shows information that is returned for RHEL 7:
+To see all of the operating system versions from the API, make a `GET /operating_systems` call. In the response, you see Red Hat Enterprise Linux BYOL OS versions among the list of operating systems. This example response shows information that is returned for RHEL 7:
 
 ```
 {

@@ -78,7 +78,7 @@ To receive monitoring metrics, you must set up your {{site.data.keyword.mon_full
 
 To receive monitoring metrics, use the following steps:
 
-1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring) and click **Create a monitoring instance**.
+1. Navigate to the [metrics monitoring portal](/observe/monitoring){: external} and click **Create a monitoring instance**.
 
 2. Select a region for your monitoring instance.
 

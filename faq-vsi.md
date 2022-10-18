@@ -3,22 +3,14 @@
 copyright:
   years: 2018, 2021
 
-lastupdated: "2021-08-17"
+lastupdated: "2021-09-22"
 
 subcollection: vpc
 
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:download: .download}
-{:faq: data-hd-content-type='faq'}
-{:support: data-reuse='support'}
+{{site.data.keyword.attribute-definition-list}}
 
 # FAQs for virtual server instances
 {: #faqs-for-vsis}
@@ -153,7 +145,18 @@ The virtual server instance is automatically assigned an instance identifier (ID
 For more information, including how to retrieve this information from within your virtual server, see [Retrieving the virtual server instance identifier](/docs/vpc?topic=vpc-managing-virtual-server-instances#retrieve-VSI-instance-identifer) section in Managing virtual server instances.
 
 ## Can I access metadata about my virtual server instances?
-{: #faq-vsi-20}
+{: #faq-vsi-21}
 
 Yes, if your account has been granted special approval, you can access the instance metadata service to get information about your VPC compute resources. The metadata service is a REST API that you invoke using a well-known URI to retrieve instance-specific information from the metadata server. For more information, see For more information, see [About Instance Metadata for VPC (Beta)](/docs/vpc?topic=vpc-imd-about).
 
+## Can I use the same operating system image for more than one account?
+{: #faq-vsi-22}
+{: faq}
+
+Yes, when you create a custom image for {{site.data.keyword.vpc_short}}, you can import those images into a private catalog for use among multiple accounts. A private catalog provides a way for you to manage access to products for multiple accounts, as long as those accounts are within the same enterprise. You must first complete all the steps to import the custom image into {{site.data.keyword.vpc_short}} before importing the image into a private catalog. For more information about private catalog considerations and limitations, see [Getting started with custom images](/docs/vpc?topic=vpc-about-custom-images).
+
+## Can I use a custom image in a private catalog with an instance group?
+{: #faq-vsi-23}
+{: faq}
+
+Yes, you can use a custom image in a private catalog with an instance group. However, you must first create a service-to-service policy to `globalcatalog-collection.instance.retrieve` before you can create the instance group. See [Using a custom image in a private catalog with an instance group](/docs/vpc?topic=vpc-private-catalog-image-instance-group&interface=ui) for more information.

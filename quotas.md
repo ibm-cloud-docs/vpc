@@ -25,7 +25,7 @@ The following information shows quotas and limits for {{site.data.keyword.vpc_fu
 
 The following tables show the quotas for various VPC resources.
 
-To increase a quota for a particular resource, [contact support](https://{DomainName}/unifiedsupport/cases/form){: external}.
+To increase a quota for a particular resource, [contact support](/unifiedsupport/cases/form){: external}.
 {: note}
 
 ### Compute resources
@@ -143,8 +143,8 @@ Bare metal servers use physical cores and don't count toward your vCPU quota.
 
 |Resource|Quota|
 |--------|-----|
-| Routing tables per VPC | Default limit: 50  \n Maximum limit: 200 |
-| Routes per routing table | Default limit: 200  \n Maximum limit: 400 |
+| Routing tables per VPC | 50 |
+| Routes per routing table | 200 |
 {: caption="Table 9. Quotas for routing tables and routes" caption-side="bottom"}
 
 Each route has a destination property, which includes a prefix length (`/24` in `10.2.0.0/24`). The number of unique prefix lengths that are supported per custom routing table is 14. Multiple routes with the same prefix count as only one unique prefix.

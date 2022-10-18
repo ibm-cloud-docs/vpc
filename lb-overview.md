@@ -223,7 +223,7 @@ WebSocket provides full-duplex communication channels over a single TCP connecti
 {: #permissions-related-links-alb}
 
 * [Load balancer CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#alb-anchor)
-* [Load balancer API reference](https://{DomainName}/apidocs/vpc#list-load-balancer-profiles)
+* [Load balancer API reference](/apidocs/vpc#list-load-balancer-profiles)
 * [ALB for VPC infrastructure resources for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_lb){: external} (VPC infrastructure > Resources)
 * [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
 * [{{site.data.keyword.cloudaccesstraillong_notm}} events](/docs/vpc?topic=vpc-at-events#events-load-balancers)

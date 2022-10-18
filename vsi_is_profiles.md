@@ -1,6 +1,7 @@
 ---
 copyright:
   years: 2019, 2022
+
 lastupdated: "2022-10-18"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
@@ -257,9 +258,11 @@ The following Storage Optimized profiles are available for x86-64 processors:
 {: class="simple-tab-table"}
 {: summary="Storage Optimized profiles options for Intel x86-64 virtual server instances."}
 
-## How the bandwidth is allocated using the UI
-{: #bandwidth-allocation-ui}
-{: ui}
+## Bandwidth allocation
+{: #bandwidth-allocation}
+
+### Bandwidth allocation between storage and networking
+{: #bandwidth-storage-network}
 
 Instance bandwidth is allocated between volume bandwidth and networking bandwidth. The bandwidth capacity (Bandwidth Cap) is determined by the virtual server profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a bandwidth cap of 4 Gbps. The initial volume and network bandwidth allocation depends on the bandwidth set by the instance profile you selected. You can also see the bandwidth allocations in the profile information during instance creation in the UI. The bandwidth allocation can be changed on the instance details page after provisioning an instance.
 
@@ -276,27 +279,26 @@ For a cx2-8x16 profile:
 The amount of overall bandwidth provided to volume bandwidth can be adjusted within the overall instance limits. A default amount of volume bandwidth is set on each instance profile.
 
 For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles) and [Adjusting bandwidth allocation using the UI](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#adjusting-bandwidth-allocation-ui).
+{: ui}
 
-## How the bandwidth is allocated using the API
-{: #bandwidth-allocation-api}
+For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles) and [Adjusting bandwidth allocation using the CLI](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=cli#adjusting-bandwidth-allocation-cli).
+{: cli}
+
+For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles) and [Adjusting total storage bandwidth allocation from the API](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=api#adjusting-bandwidth-allocation-api).
 {: api}
 
-Instance bandwidth is allocated between volume bandwidth and networking bandwidth. The bandwidth capacity (Bandwidth Cap) is determined by the virtual server profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a bandwidth cap of 4 Gbps. The initial volume and network bandwidth allocation depends on the bandwidth you set by using the API or by the instance profile you selected. You can see bandwidth allocations with the `/instance/profiles` endpoint in the API. The bandwidth can be changed during or after provisioning an instance.
 
-For example, for the bx2-2x8 profile you might have:
+### Bandwidth allocation with multiple network interfaces
+{: #bandwidth-multi-vnic}
 
-* Storage: 1 Gbps
-* Network: 3 Gbps
+You can add up to 15 network interfaces for your virtual server instance, depending on the vCPU count that is included in the instance profile. 
+* 2-16 vCPUs: Up to 5 network interfaces
+* 17-48 vCPUs: Up to 10 network interfaces
+* 49 or more vCPUs: Up to 15 network interfaces
 
-For a cx2-8x16 profile:
+With multiple network interfaces, bandwidth is distributed evenly across the network interfaces that are attached to the virtual server instance. 
 
-* Storage: 4 Gbps
-* Network: 12 Gbps
-
-The amount of overall bandwidth provided to volume bandwidth can be adjusted within the overall instance limits. A default amount of volume bandwidth is set on each instance profile.
-
-For more information, see [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources&interface=api) and [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
-
+For more information, see [Managing network interfaces](/docs/vpc?topic=vpc-using-instance-vnics).
 
 ## Viewing profile configurations
 {: #popular-profiles}

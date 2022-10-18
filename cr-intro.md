@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-06-21"
+lastupdated: "2022-10-03"
 
 keywords: custom routes
 
@@ -32,7 +32,7 @@ When you create a routing table, you can select one of the following traffic typ
 
 * **Egress routes** control traffic, which originates within a subnet and travels towards the public internet, or to another VM in same or different zone.
 
-* **Ingress routes** enable you to customize routes on incoming traffic to a VPC from traffic sources external to the VPC's availability zone (IBM Cloud Direct Link 2.0, IBM Cloud Transit Gateway, or another availability zone in the same VPC). You must choose at least one traffic source to enable ingress routing.
+* **Ingress routes** enable you to customize routes on incoming traffic to a VPC from traffic sources external to the VPC's availability zone (IBM Cloud Direct Link 2.0, IBM Cloud Transit Gateway, another availability zone in the same VPC, or the public internet). You must choose at least one traffic source to enable ingress routing.
 
    Only one custom routing table can be associated with a particular ingress traffic source. However, you can use different routing tables for different traffic sources. For example, routing table A might use Transit Gateway and VPC Zone, while routing table B uses Direct Link 2.0.
    {: note}
@@ -172,18 +172,6 @@ The following limitations and guidelines apply to {{site.data.keyword.cloud_notm
 * The ability to reach a next hop IP address in a custom route is not a determining factor in whether the route is used for forward traffic. This can cause issues when multiple routes with the same prefix (but different next hop IP addresses) are used, as traffic to unreachable next hop IP addresses might not be delivered.
 * {{site.data.keyword.cloud_notm}} VPC permits the use of RFC-1918 and IANA-registered IPv4 address spaces privately within your VPC, with some exceptions in the IANA special-purpose ranges, and select ranges assigned to {{site.data.keyword.cloud_notm}} services. When using IANA-registered ranges within your enterprise, and within VPCs in conjunction with {{site.data.keyword.cloud_notm}} Transit Gateway or {{site.data.keyword.cloud_notm}} Direct Link, you must install custom routes in each zone. For more information, see [Routing considerations for IANA-registered IP assignments](/docs/vpc?topic=vpc-interconnectivity#routing-considerations-iana).
 
-### Unique prefix lengths
-{: #routes-unique-prefix-lengths}
-
-You can use a maximum of 14 unique prefix lengths per custom routing table. You can have multiple routes with the same prefix that count as only one unique prefix. For example, you might have multiple routes with a `/28` prefix. This counts as one unique prefix.
-
-### VPN 
-{: #routes-vpn}
-
-* When creating a route for a static, route-based VPN connection, you must enter the VPN connection ID for the next hop. The VPN gateway must be in the same zone as the subnet to which the routing table is associated. It is not recommended that you define a VPN gateway as the next hop in a zone that is different than the subnet that is associated with the routing table.
-* A route with a VPN connection as the next-hop takes effect only when the VPN connection is active. This route is skipped during the routing lookup if the VPN connection is down.
-* A custom routing table that contains custom routes with a next hop that is associated with a VPN connection cannot be associated with an ingress traffic source.
-
 ### Egress routes
 {: #routes-egress-routes}
 
@@ -201,9 +189,27 @@ The implicit router performs ECMP routing (multiple routes with the same destina
 ### Ingress routes
 {: #routes-ingress}
 
+
+* Currently, public ingress routing (`public internet` traffic choice) is available in the UI only. CLI and API are forthcoming. 
+* Each ingress source type can be associated with up to one ingress route table per VPC, however, a VPC can have multiple ingress route tables and each ingress route table can have one or more ingress types associated.
 * Ingress traffic from a particular traffic source is routed using the routes in the custom routing table that is associated with that traffic source.
 * Custom routes in a custom routing table associated with an ingress traffic source, and with an action of `deliver`, must have a next hop IP contained by one of the address prefixes of the VPC in the availability zone where the route is added. In addition, the next hop IP must be configured on a virtual server interface in the VPC and availability zone where the route is targeted.  
-* Ingress traffic from a particular traffic source is routed using the routes in the custom routing table that is associated with that traffic source. 
+* Ingress traffic from a particular traffic source is routed using the routes in the custom routing table that is associated with that traffic source. If no matching route is found in a custom routing table, routing continues by using the VPC system routing table. You can avoid this behavior with a custom routing table's default route with an action of **drop**.
+* An ingress custom routing table containing any custom routes with destination IP (FIP) should be defined in the same zone as the virtual server instance that a FIP is associated with.
+* Floating IPs that are bound to an IBM Cloud VPN Gateway may not be used as a Destination for a Custom Route in an Ingress Route Table when the Public Internet (`route_internet_ingress`) source type is enabled.
+
+### Unique prefix lengths
+{: #routes-unique-prefix-lengths}
+
+You can use a maximum of 14 unique prefix lengths per custom routing table. You can have multiple routes with the same prefix that count as only one unique prefix. For example, you might have multiple routes with a `/28` prefix. This counts as one unique prefix.
+
+### VPN 
+{: #routes-vpn}
+
+* When creating a route for a static, route-based VPN connection, you must enter the VPN connection ID for the next hop. The VPN gateway must be in the same zone as the subnet to which the routing table is associated. It is not recommended that you define a VPN gateway as the next hop in a zone that is different than the subnet that is associated with the routing table.
+* A route with a VPN connection as the next-hop takes effect only when the VPN connection is active. This route is skipped during the routing lookup if the VPN connection is down.
+* A custom routing table that contains custom routes with a next hop that is associated with a VPN connection cannot be associated with an ingress traffic source.
+* Custom routes are only supported on route-based VPNs. If you are using policy-based VPNs, the routes are created automatically by the VPN service in the default routing table.
 
 ## Related links
 {: #related-links-custom-routes}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-08-25"
+lastupdated: "2022-09-19"
 
 keywords: image, stock image, linuxone image, hpcr, container runtime, virtual private cloud, virtual server, generation 2, gen 2, wazi aas
 
@@ -16,7 +16,7 @@ subcollection: vpc
 # s390x virtual server images
 {: #vsabout-images}
 
-When you provision {{site.data.keyword.vsi_is_full}} on IBM Z (s390x processor architecture) in IBM Cloud, you can select from the supported stock images. Now, *IBM Hyper Protect* is also supported as an operating system and the associated *IBM Hyper Protect Container Runtime* image can be provisioned for your IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instance.
+When you provision {{site.data.keyword.vsi_is_full}} on IBM Z (s390x processor architecture) in IBM Cloud, you can select from the supported stock images. Now, *IBM Hyper Protect* is also supported as an operating system and the associated *IBM Hyper Protect Container Runtime* image can be provisioned for your {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance.
 {: shortdesc}
 
 The IBM Hyper Protect Container Runtime image has container runtime support and the image is not SSH enabled (is a locked down image). Even if you select and pass in an SSH key, it will not be used and the key cannot be used to connect to the instance. Currently only one container is supported. Container details are provided at instance creation through the contract, specified in the **User Data** field on the order form. Once the containers start, you can interact with the workload that is brought up on the containers. For more information, see [Contract](/docs/vpc?topic=vpc-about-contract_se).
@@ -30,22 +30,22 @@ The following operating systems are available as stock images when you create a 
 ### IBM Hyper Protect Container Runtime image
 {: #hyper-protect-runtime}
 
-You can now choose IBM Hyper Protect as the operating system for the virtual server instance. On the create virtual server page, under **Confidential computing**, click the **Run your workload with an OS and a profile protected by Secure Execution** toggle, to activate support for secure execution images. Then, in the Operating system field, "IBM Hyper Protect" operating system and the "hyper-protect-container-runtime" image must be selected to create an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance. For more information, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se).
+You can now choose IBM Hyper Protect as the operating system for the virtual server instance. On the create virtual server page, under **Confidential computing**, click the **Run your workload with an OS and a profile protected by Secure Execution** toggle, to activate support for secure execution images. Then, in the Operating system field, "IBM Hyper Protect" operating system and the "hyper-protect-container-runtime" image must be selected to create a {{site.data.keyword.hpvs}} for VPC instance. For more information, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se).
 
 You can choose a profile based on your requirements. You can choose from balanced, compute, and memory secure execution enabled profiles. For more information, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). Ensure that you select a secure execution enabled profile (for example, bz2e-1x4) when you enable the **Run your workload with an OS and a profile protected by Secure Execution** toggle. Selecting any profile that is not secure execution enabled will cause the provisioning of the virtual instance to fail.
 
 
-### Supported s390x stock image operating systems
+### Supported IBM Z or LinuxONE stock image operating systems
 {: #vs-s390x-supported-os}
 
 | Image | Architectures |
 |---------|---------|
 |  Ubuntu 18.04.x | s390x |
 |  SUSE Linux Enterprise server (SLES) 15 SP2 | s390x |
-|  IBM z/OS (IBM Wazi as a Service) | s390x |
+|  IBM z/OS ({{site.data.keyword.waziaas_full_notm}}) | s390x |
 {: caption="Table 1. Supported s390x stock image operating systems" caption-side="bottom"}
 
-The option to select the Wazi aaS z/OS dev and test image is offered as an IBM Cloud allow-listed service and the image is available in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), and US East (Washington DC) regions. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service){: external}.
+The {{site.data.keyword.waziaas_short}} z/OS dev and test stock image is available in all regions supported for the s390x architecture, including Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), and US East (Washington DC). For more information, see [{{site.data.keyword.waziaas_full_notm}} documentation](https://www.ibm.com/docs/en/wazi-aas/1.0.0){: external}.
 {: note}
 
 For information about images for x86 processor architecture, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images).
@@ -73,7 +73,7 @@ The following example shows the image naming convention.
 
 
 ```
-ibm-hyper-protect-container-runtime-1-0-s390x-4
+ibm-hyper-protect-container-runtime-1-0-s390x-5
 ```
 
 The following list explains the variables that make up the components of the image name:
@@ -96,7 +96,13 @@ You can import an image from {{site.data.keyword.cos_full_notm}} to use for crea
 
 To create secure execution based custom images by using the Cloud Object Storage option, see [Preparing the workload](https://www.ibm.com/docs/en/linux-on-systems?topic=tasks-prepare-workload). For information about creating secure execution based images, see [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=overview-introducing-secure-execution-linux).
 
-The IBM Wazi as a Service (Wazi aaS) custom image can be created by using IBM Wazi Image Builder, which is a separately orderable product from IBM’s Passport Advantage. There are additional requirements to order and use Wazi Image Builder. The image cost is the premium applied to cover the cost of technologies that allows for z/OS dev and test images to run on IBM Z hardware in IBM’s cloud infrastructure as a service layer. For more information, see [Bringing your own image with Wazi Image Builder](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=bringing-your-own-image-wazi-image-builder){: external}.
+The {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) custom image can be created only by using IBM Wazi Image Builder, which is a separately orderable product from [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/){: external}. There are additional requirements to order and use Wazi Image Builder. The image cost is the premium applied to cover the cost of technologies that allows for z/OS dev and test images to run on IBM Z hardware in IBM’s cloud infrastructure as a service layer. The z/OS Wazi aaS custom image must meet the following requirements:
+
+* Is in qcow2 format
+* The operating system is z/OS 2.4 or z/OS 2.5
+* The zHYPaaS host control program creates a virtual machine (VM) runtime environment for each guest operating system (OS) and can host many guests at the same time. For required program temporary fixes (PTFs) on z/OS and other IBM software products, see [Hardware and software requirements](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=builder-hardware-software-requirements){: external}.
+
+For more information, see [Bringing your own image with Wazi Image Builder](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=bringing-your-own-image-wazi-image-builder){: external}.
 
 ### Requirements
 {: #vs_custom-image-reqs}

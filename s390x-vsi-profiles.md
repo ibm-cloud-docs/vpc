@@ -16,7 +16,7 @@ subcollection: vpc
 # s390x instance profiles
 {: #vs-profiles}
 
-You can use s390x instance profiles to provision virtual server instances and you can select from three families of profiles: Balanced, Compute, and Memory. LinuxONE (s390x processor architecture) is a uniquely secure and scalable architecture that provides dedicated CPU core, memory, and I/O channel to better manage your high-performance workloads.
+You can use s390x instance profiles to provision virtual server instances and you can select from three families of profiles: Balanced, Compute, and Memory. IBM Z or LinuxONE (s390x processor architecture) is a uniquely secure and scalable architecture that provides dedicated CPU core, memory, and I/O channel to better manage your high-performance workloads.
 {: shortdesc}
 
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, network bandwidth, and default bandwidth allocation. The attributes define the size and capabilities of the virtual server instance that is provisioned. In the {{site.data.keyword.Bluemix_notm}} console, you can select the most recently used profile or click **View All Profiles** to choose the profile that best fits your needs.
@@ -35,14 +35,14 @@ The following profile families are available:
 | [Memory](#vs-memory) | Memory profiles offer a core to RAM ratio 1 vCPU to 8 GiB of RAM ratio and are best for memory caching and real-time analytics workloads. Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. |
 {: caption="Table 1. Virtual server family selections" caption-side="bottom"}
 
-s390x processor architecture profiles can be used to provision IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}}, LinuxONE virtual server instances, and IBM Wazi as a Service (Wazi aaS) virtual server instances. These profiles are available in Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), and US East (Washington DC) regions. The option to select the Wazi aaS z/OS dev and test image is offered as an IBM Cloud allow-listed service. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service).
+s390x processor architecture profiles can be used to provision {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}}, LinuxONE virtual server instances, and z/OS virtual server instances. These profiles are available in Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), and US East (Washington DC) regions.
 {: preview}
 
 
 ## Balanced
 {: #vs-balanced}
 
-Balanced profiles provide a mix of performance and scalability for more common workloads with a ratio of 4 GiB of memory for every 1 vCPU of compute. The following table shows all Balanced profiles available for the s390x architecture processors.
+Balanced profiles provide a mix of performance and scalability for more common workloads with a ratio of 4 GiB of memory for every 1 vCPU of compute. The following table shows all Balanced profiles available for the IBM Z or LinuxONE (s390x architecture) processors.
 
 Ensure that you select a secure execution enabled profile (for example, cz2e-2x4) when you enable the **Run your workload with an OS and a profile protected by Secure Execution** toggle (to activate support for secure execution images). Selecting any profile that is not secure execution enabled will cause the deployment of the virtual instance to fail.
 
@@ -59,7 +59,7 @@ Ensure that you select a secure execution enabled profile (for example, cz2e-2x4
 {: tab-title="s390x"}
 {: tab-group="Balanced"}
 {: class="simple-tab-table"}
-{: summary="Balanced profiles options for LinuxONE s390x virtual server instances."}
+{: summary="Balanced profiles options for IBM Z or LinuxONE s390x virtual server instances."}
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) |
 |---------|---------|---------|---------|---------|
@@ -73,12 +73,12 @@ Ensure that you select a secure execution enabled profile (for example, cz2e-2x4
 {: tab-title="s390x with secure execution "}
 {: tab-group="Balanced"}
 {: class="simple-tab-table"}
-{: summary="Balanced secure execution profiles options for LinuxONE s390x virtual server instances."}
+{: summary="Balanced secure execution profiles options for IBM Z or LinuxONE s390x virtual server instances."}
 
 ## Compute
 {: #vs-compute}
 
-Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers that can benefit from 2 GiB of memory for every 1 vCPU of compute. The following table shows all Compute profiles available for the s390x architecture processors.
+Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers that can benefit from 2 GiB of memory for every 1 vCPU of compute. The following table shows all Compute profiles available for the IBM Z or LinuxONE (s390x architecture) processors.
 
 Ensure that you select a secure execution enabled profile (for example, cz2e-2x4) when you enable the **Run your workload with an OS and a profile protected by Secure Execution** toggle (to activate support for secure execution images). Selecting any profile that is not secure execution enabled will cause the deployment of the virtual instance to fail.
 
@@ -93,7 +93,7 @@ Ensure that you select a secure execution enabled profile (for example, cz2e-2x4
 {: tab-title="s390x"}
 {: tab-group="Compute"}
 {: class="simple-tab-table"}
-{: summary="Compute profiles options for LinuxONE s390x virtual server instances."}
+{: summary="Compute profiles options for IBM Z or LinuxONE s390x virtual server instances."}
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) |
 |---------|---------|---------|---------|---------|
@@ -106,13 +106,13 @@ Ensure that you select a secure execution enabled profile (for example, cz2e-2x4
 {: tab-title="s390x with secure execution"}
 {: tab-group="Compute"}
 {: class="simple-tab-table"}
-{: summary="Compute secure execution profiles options for LinuxONE s390x virtual server instances."}
+{: summary="Compute secure execution profiles options for IBM Z or LinuxONE s390x virtual server instances."}
 
 
 ## Memory
 {: #vs-memory}
 
-Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads with 8 GiB of memory for every 1 vCPU of compute. The following table shows all Memory profiles available for the s390x architecture processors.
+Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads with 8 GiB of memory for every 1 vCPU of compute. The following table shows all Memory profiles available for the IBM Z or LinuxONE (s390x architecture) processors.
 
 Ensure that you select a secure execution enabled profile (for example, mz2e-2x16) when you enable the **Run your workload with an OS and a profile protected by Secure Execution** toggle (to activate support for secure execution image). Selecting any profile that is not secure execution enabled will cause the deployment of the virtual instance to fail.
 
@@ -128,7 +128,7 @@ Ensure that you select a secure execution enabled profile (for example, mz2e-2x1
 {: tab-title="s390x"}
 {: tab-group="Memory"}
 {: class="simple-tab-table"}
-{: summary="Memory profiles options for LinuxONE s390x virtual server instances."}
+{: summary="Memory profiles options for IBM Z or LinuxONE s390x virtual server instances."}
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | I
 |---------|---------|---------|---------|---------|---------|
@@ -141,7 +141,7 @@ Ensure that you select a secure execution enabled profile (for example, mz2e-2x1
 {: tab-title="s390x with secure execution"}
 {: tab-group="Memory"}
 {: class="simple-tab-table"}
-{: summary="Memory secure execution profiles options for LinuxONE s390x virtual server instances."}
+{: summary="Memory secure execution profiles options for IBM Z or LinuxONE s390x virtual server instances."}
 
 ## How the bandwidth is allocated using the UI
 {: #vs-bandwidth-allocation-ui}

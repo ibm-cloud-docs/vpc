@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-03-09"
+lastupdated: "2022-10-05"
 
-keywords: resource, resource authorizations, policies, authorization, resource type, resource groups, roles, API, CLI, editor, viewer, administrator, operator
+keywords:
 
 subcollection: vpc
 
@@ -41,6 +41,11 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | ACL| View, List | Viewer for the ACL |
 | ACL rule | Create, Update, Delete | Editor for the ACL |
 | ACL rule | View, List | Viewer for the ACL |
+|————————|—————————|————————|
+| Backup | Create, Update, Delete | Editor to create, update, or delete backup policy |
+| Backup | View, List | Viewer to view policy details, list policies |
+| Backup | View, List | Viewer to view backup plan details, list plans |
+| Backup | Create, Update, Delete  | Editor to create, update, or delete backup plan |
 |————————|—————————|————————|
 | Floating IP (unassociated) | Create| Editor for Floating IP for VPC resources |
 | Floating IP (unassociated) | Update, Delete | Editor for the floating IP |
@@ -116,7 +121,7 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | Load balancer pools and listeners | View, List  | Viewer for the load balancer |
 |————————|—————————|————————|
 | Placement group | View | Viewer for placement groups |
-| Placement group | Create, Delete | Editor for placement groups |
+| Placement group | Create, Delete, Update | Editor for placement groups |
 |————————|—————————|————————|
 | Public gateway | Create |  Editor for Public Gateway resources \n \n Operator for the VPC and Floating IP resources |
 | Public gateway | Update, Delete | Editor for the public gateway |

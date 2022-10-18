@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-09-13"
+lastupdated: "2022-10-11"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -38,20 +38,7 @@ SDK changes are based on API changes. For information about the latest changes t
 ## Upcoming changes
 {: #upcoming-changes}
 
-### For all version dates
-{: #upcoming-changes-all-version-dates}
-
 **VPC route naming restriction.** In an upcoming release, you will no longer be able to create VPC routes that begin with the name `ibm-`. Existing routes that begin with the name `ibm-` will not be affected. To prepare for this change, review the names used by any automation that creates routes, and update the names used as necessary.
-
-**References to inaccessible images** In an upcoming release, image references may refer to custom images in other accounts. Such references are used in the `image` properties of the `Instance` and `BareMetalServerInitialization` response schemas and in the `source_image` properties of the `Volume` and `Snapshot` response schemas. Such an image cannot be accessed by its `id`, `crn`, or `href`, regardless of the caller's authorizations, and attempts will fail as if the image does not exist.
-
-Additionally, if your account has an image with the same name as the referenced image, attempting to access the referenced image by its `name` will access your account's image, rather than the image in the other account. This may result in the retrieval or use of the wrong image.
-
-To prepare for this change, verify that your clients handle image reference lookup failures gracefully and do not assume inaccessible images have been deleted, even when running with full access to your images.  To avoid possible retrieval or use of the wrong image by `name`, consider specifying the image `id`, `crn`, or `href` instead.
-
-**Load balancer provisiong status enumeration expansion.** In an upcoming release, a new value will be added to the load balancer `provisioning_status` property. 
-
-To prepare for this change, verify that any clients retrieving the `provisioning_status` property will gracefully handle unknown values. For example, a client might bypass the load balancer, log a message, or halt processing and surface an error.
 
 **`Instance` response schema change.** In an upcoming release, volume attachments returned in the `boot_volume_attachment` and `volume_attachments[]` properties of an instance will not include the `volume` sub-property if the volume has not yet been provisioned. Such volumes are currently represented with empty `crn`, `id`, and `href` properties along with an undocumented sentinel value for `name`.
 
@@ -64,15 +51,87 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
+## 11 October 2022
+{: #11-october-2022}
+
+### For all version dates
+{: #11-october-2022-all-version-dates}
+
+**Public internet ingress routing.** You can now route public internet ingress traffic destined to a floating IP to a next-hop IP. When you [create a new VPC routing table](/apidocs/vpc/latest#create-vpc-routing-table) or [update an existing VPC routing table](/apidocs/vpc/latest#update-vpc-routing-table), the new `route_internet_ingress` property lets you route traffic that originates from the public internet. For more information, see [Creating a routing table by using the API](/docs/vpc?topic=vpc-create-vpc-routing-table&interface=api) and limitations and guidelines for [Ingress routes](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#routes-ingress).
+
+## 4 October 2022
+{: #4-october-2022}
+
+### For all version dates
+{: #4-october-2022-all-version-dates}
+
+**Enhanced network interface support for flow logs.** Flow logs are now collected for all network interfaces attached to a subnet, even if those network interfaces are in another account. As a result, flow logs for network interfaces associated with IBM Cloud Kubernetes Service (IKS)/Red Hat OpenShift Kubernetes Service (ROKS) worker nodes, load balancers, and VPN gateways are now collected. For example, if you have an existing [flow log collector](/apidocs/vpc/latest#get-flow-log-collector) that targets a VPC or subnet that also has attached IKS worker nodes, it will now collect flow logs for traffic flowing through those IKS worker nodes in those VPCs and subnets. For more information, see [Flow log limitations](/docs/vpc?topic=vpc-limitations-flow-logs).
+
+## 27 September 2022
+{: #27-september-2022}
+
+### For all version dates
+{: #27-september-2022-all-version-dates}
+
+**Sharing images across accounts within an enterprise.** You can now use a [catalog to share custom images](/docs/vpc?topic=vpc-planning-custom-images#custom-image-cloud-private-catalog) with users in other accounts within the same enterprise. When you [create an image](/apidocs/vpc/latest#create-image), a new `catalog_offering` property includes a `managed` sub-property that is set to `false` by default.  When the custom image is imported to a catalog the 
+`managed` sub-property is set to `true`, indicating that the image is added to a catalog offering `version` and is managed from a catalog. Any user who has been authorized to the catalog offering version can [provision a virtual server instance](/apidocs/vpc/latest#create-instance) with that image by specifying the offering version's CRN as `catalog_offering.version.crn`. Alternatively, users can specify the offering's CRN as `catalog_offering.offering.crn` to provision
+a virtual server instance with the latest image associated with the catalog offering. For more information, see [Custom images in a private
+catalog](/docs/vpc?topic=vpc-planning-custom-images&interface=api#private-catalog-image-reference-vpc-api) in Getting started with custom images, the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial), and the [Import offering](/apidocs/resource-catalog/private-catalog#import-offering){: external} method in the Catalog Management API.
+
+The image may not be deleted or used in a different catalog product offering version while it is managed from a catalog. If the catalog is deleted, a 7 day reclamation period will apply that prevents any images managed by the catalog from being deleted or re-used during the reclamation period. For more information, see [Deleting a custom image in a private catalog](/docs/vpc?topic=vpc-planning-custom-images&interface=api#deleting-private-catalog-custom-image-vpc) and [Using resource reclamations](/docs/account?topic=account-resource-reclamation&interface=api#restore-resource-cli).
+
+Image references may refer to custom images in other accounts. Before using this feature, verify that your clients handle image reference lookup failures gracefully and do not assume inaccessible images have been deleted, even when running with full access to your images.  To avoid possible retrieval or use of the wrong image by `name`, specify the image `id`, `crn`, or `href` instead. See [Using cross-account image references in a private catalog in the
+API](/docs/vpc?topic=vpc-planning-custom-images&interface=api#private-catalog-image-reference-vpc-api) for more information.
+{: important}
+
+**Increased network interface limits for virtual server instances.** You can now have up to 14 secondary network interfaces on a virtual server instance. The previous limit for secondary network interfaces was 4. The number of interfaces that a virtual server instance supports is dependent on the VCPU count that is included in the [instance profile](/docs/vpc?topic=vpc-profiles). For more information about the number of interfaces that a virtual server supports, see [Bandwidth allocation with multiple network interfaces](/docs/vpc?topic=vpc-profiles&interface=ui#bandwidth-multi-vnic). To utilize the increased limit for network interfaces, you can create secondary network interfaces by specifying `network_interfaces` when you [create an instance](/apidocs/vpc/latest#create-instance). You also can add secondary network interfaces to an existing instance by [creating a network interface on an instance](/apidocs/vpc/latest#create-instance-network-interface). 
+
+For an existing, running instance with 17 or more vCPUs to take advantage of the new network interface limits, it must be stopped and then started again. A reboot action on the running virtual server does not activate the increased network interface limit. 
+{: note}
+
+**IBM&reg; LinuxONE Bare Metal Servers.** Accounts with access to the profiles for s390x bare metal servers can now [create](/apidocs/vpc/latest#create-bare-metal-server) LinuxONE Bare Metal Servers. These profiles have a `cpu_architecture` of `s390x` and must be used with Red Hat Enterprise Linux for s390x and SUSE Linux Enterprise Server (SLES) for s390x. For more information, see [Creating bare metal servers on VPC](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=ui) and [s390x bare metal server images](/docs/vpc?topic=vpc-s390x-bare-metal-images).
+
+In support of s390x bare metal servers, the following enumerations have been expanded:
+
+ - Because s390x local disks are attached through Fiber Channel protocol, a value of `fcp` has been added to the `interface_type` enumeration that is returned when you [retrieve](/apidocs/vpc/latest#get-bare-metal-server-disk) or [list](/apidocs/vpc/latest#list-bare-metal-server-disks) the disks for a bare metal server. For more information, see [Storage overview of s390x bare metal servers](/docs/vpc?topic=vpc-s390x-bare-metal-servers-storage).
+
+ - Because s390x provides TCP/IP connectivity by using HiperSockets, a value of `hipersocket` has been added to the `interface_type` enumeration returned when you [retrieve](/apidocs/vpc/latest#get-bare-metal-server-network-interface) or [list](/apidocs/vpc/latest#list-bare-metal-server-network-interfaces) the network interfaces on an s390x bare metal server. Similarly, when you [create](/apidocs/vpc/latest#create-bare-metal-server) an s390x bare metal server, or [add](/apidocs/vpc/latest#create-bare-metal-server-network-interface) a network interface to an existing s390x bare metal server, you must specify an `interface_type` of `hipersocket`. For more information, see the [_IBM HiperSockets Implementation Guide_](https://www.redbooks.ibm.com/abstracts/sg246816.html){: external} and [Network overview of s390x bare metal servers](/docs/vpc?topic=vpc-s390x-bare-metal-servers-network).
+
+s390x bare metal servers have different network bandwidth and maximum network interface limits from x86 bare metal servers. For more information, see [s390x bare metal server profiles](/docs/vpc?topic=vpc-s390x-bare-metal-servers-profile).
+
+## 20 September 2022
+{: #20-september-2022}
+
+### For all version dates
+{: #20-september-2022-all-version-dates}
+
+**Deprecated VPN for VPC ciphers.** The following VPN IKE and IPsec ciphers are now deprecated:
+- Authentication algorithms `md5` and `sha1`
+- Encryption algorithm `triple_des`
+- Diffie–Hellman groups `2` and `5`
+
+You have until 13 December 2022 to upgrade to more secure ciphers. After this date, VPN connections using deprecated ciphers will have a `status` of `down` (and no longer transfer data) until you upgrade from the weak cipher. For more information, see [Upgrading weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers).
+
+**Additional VPN for VPC ciphers.** VPN gateways now provide new algorithms to help meet your security and compliance requirements.
+
+[IKE policy](/apidocs/vpc/latest#list-ike-policies) methods now support the `sha384` value for the `authentication_algorithm` property, `aes192` value for the `encryption_algorithm` property, and groups 15-18, 20-24, and 31 for the `dh_group` property.
+
+[IPsec policy](/apidocs/vpc/latest#list-ipsec-policies) methods now support `sha384` and `disabled` values for the `authentication_algorithm` property, `aes192`, `aes128gcm16`, `aes192gcm16`, and `aes256gcm16` values for the `encryption_algorithm` property, and groups 15-18, 20-24, and 31 for the `dh_group` property.
+
+Specifying IKE and IPsec policies when configuring a VPN connection is optional. If a policy is not specified, one is chosen through _auto-negotiation_. For more information, see [About policy negotiation](/docs/vpc?topic=vpc-using-vpn#policy-negotiation).
+{: note}
+
 ## 13 September 2022
 {: #13-september-2022}
 
 ### For all version dates
 {: #13-september-2022-all-version-dates}
 
-**Updating subnets for application load balancers.** You can now update the subnets attached to an application load balancer by specifying `subnets` when [updating a load balancer](/apidocs/vpc/latest#update-load-balancer). The specified subnets must be in the same VPC as the load balancer's current subnets. If the update requires moving your load balancer to a different zone, its `provisioning_status` will change to `migrate_pending` until the move is complete. For more information, see [Updating subnets for Application Load Balancers for VPC](/docs/vpc?topic=alb-updating-subnets).
+**Updating subnets for application load balancers.** You can now update the subnets attached to an application load balancer by specifying `subnets` when [updating a load balancer](/apidocs/vpc/latest#update-load-balancer). The specified subnets must be in the same VPC as the load balancer's current subnets. If the update requires moving your load balancer to a different zone, its `provisioning_status` will change to `migrate_pending` until the move is complete. For more information, see [Updating subnets for Application Load Balancers for VPC](/docs/vpc?topic=vpc-alb-updating-subnets&interface=api).
 
-Because the `subnets` property is an array, the specified value will replace the load balancer's existing array of subnets. To guard against concurrent updates, you must provide the resource's current ETag using the `If-Match` header. For guidance on the use of ETags, see [Concurrent update protection](apidocs/vpc/vpc/latest#concurrent-update-protection).
+Verify that any clients retrieving the `provisioning_status` property will gracefully handle unknown values. For example, a client might bypass the load balancer, log a message, or halt processing and surface an error.
+
+Because the `subnets` property is an array, the specified value will replace the load balancer's existing array of subnets. To guard against concurrent updates, you must provide the resource's current ETag using the `If-Match` header. For guidance on the use of ETags, see [Concurrent update protection](/apidocs/vpc/latest#concurrent-update-protection).
 {: important}
 
 ### For version `2022-09-13` or later
@@ -101,8 +160,8 @@ A response code of `204` will continue to be returned for API requests using a `
 {: #6-september-2022-all-version-dates}
 
 **Improved reserved IP support for bare metal servers**. The following methods have been added for convenience and parity with the virtual server instance reserved IP methods:
-- [List all reserved IPs bound to a network interface](/apidocs/vpc/latest#list_bare_metal_server_network_interface_ips) for a bare metal server
-- [Retrieve bound reserved IP](/apidocs/vpc/latest#get_bare_metal_server_network_interface_ip) for a bare metal server
+- [List all reserved IPs bound to a network interface](/apidocs/vpc/latest#list-instance-network-interface-ips) for a bare metal server
+- [Retrieve bound reserved IP](/apidocs/vpc/latest#get-instance-network-interface-ip) for a bare metal server
 
 ## 23 August 2022
 {: #23-august-2022}
@@ -176,9 +235,9 @@ The `2022-03-29` release includes incompatible changes. To avoid regressions in 
 ### For version `2022-03-29` or later
 {: #version-2022-03-29}
 
-**Reserved IPs for compute.** You can now fully control the IP addresses assigned to your network interfaces by specifying a new or existing reserved IP when you [create an instance](/apidocs/vpc#create-instance) or [create a bare metal server](/apidocs/vpc#create-bare-metal-server).
+**Reserved IPs for compute.** Using a `version` query parameter of `2022-03-29` or later, you can now fully control the IP addresses assigned to your network interfaces by specifying a new or existing reserved IP when you [create an instance](/apidocs/vpc#create-instance) or [create a bare metal server](/apidocs/vpc#create-bare-metal-server).
 
-**Migration of network interface IP addresses.** In support of reserved IPs, as of version `2022-03-29`, the network interface `primary_ipv4_address` string property has been migrated to the `primary_ip` object property. See [Migrating use of IP addresses](/docs/vpc?topic=vpc-2022-03-29-migration#migrate-ip-addresses) for guidance on how to migrate to `primary_ip`.
+**Migration of network interface IP addresses.** In support of reserved IPs, for requests using a `version` query parameter of `2022-03-29` or later, the network interface `primary_ipv4_address` string property has been migrated to the `primary_ip` object property. See [Migrating use of IP addresses](/docs/vpc?topic=vpc-2022-03-29-migration#migrate-ip-addresses) for guidance on how to migrate to `primary_ip`.
 
 **Removal of security group network interfaces.** The methods for associating security groups with network interfaces that were deprecated in [API version `2021-02-23`](/docs/vpc?topic=vpc-api-change-log#23-february-2021) have been removed as of version `2022-03-29`. See [Migrating use of security group associations](/docs/vpc?topic=vpc-2022-03-29-migration#migrate-security-group-assoc) for guidance on how to migrate to use security group targets, which allow security groups to be associated with VPC resources beyond network interfaces, such as endpoint gateways and load balancers.
 
@@ -396,7 +455,7 @@ Additional API restrictions are enforced after an HTTPS redirect is configured:
 ### For version `2021-07-27` or later
 {: #version-2021-07-27}
 
-**Instances.** When you [create an instance](/docs/vpc?topic=vpc-creating-virtual-servers), the value for the boot volume's `capacity` is now based on the image's `minimum_provisioned_size`. If you use API version `2021-07-26` or earlier, the value for the boot volume's `capacity` will continue to be 100 GB.
+**Instances.** When you [create an instance](/docs/vpc?topic=vpc-creating-virtual-servers) using a `version` query parameter of `2021-07-27` or later, the value for the boot volume's `capacity` is now based on the image's `minimum_provisioned_size`. If you use a `version` query parameter of `2021-07-26` or earlier, the value for the boot volume's `capacity` will continue to be 100 GB.
 
 ## 29 June 2021
 {: #29-june-2021}
@@ -420,7 +479,8 @@ Additional API restrictions are enforced after an HTTPS redirect is configured:
 ### For version `2021-06-08` or later
 {: #version-2021-06-08}
 
-**Load balancers.** Pagination has been added to the [List all load balancers](/apidocs/vpc#list-load-balancers) (`GET /load_balancers`) method. Requests using earlier version dates remain unpaginated, but may time out if you have many load balancers.
+**Load balancers.** For requests using a `version` query parameter of `2021-06-08` or later, you can now use pagination when [listing all load balancers](/apidocs/vpc#list-load-balancers) in the region. Requests using a `version` query parameter of `2021-06-07` or earlier remain unpaginated, but may time out if you have many load balancers.
+
 If you expect to use many load balancers at once, migrate your applications to the paginated API to improve responsiveness and reliability. Contact [IBM support](/docs/get-support?topic=get-support-using-avatar) if you need help migrating your existing client applications.
 
 ## 25 May 2021
@@ -584,7 +644,7 @@ The quantity of memory for virtual server instance profiles is now provisioned i
 ### For version `2021-01-19` or later
 {: #version-2021-01-19}
 
-Memory for virtual server instances is now expressed in gibibytes (GiB), instead of gigabytes (GB). For example, the `memory` property returned from `GET /instances/{id}` now reports in GiB (truncated to a whole number).
+For requests using a `version` query parameter of `2021-01-19` or later, memory for virtual server instances is now expressed in gibibytes (GiB), instead of gigabytes (GB). For example, the `memory` property returned from `GET /instances/{id}` now reports in GiB (truncated to a whole number).
 
 ## 16 December 2020
 {: #16-december-2020}
@@ -642,7 +702,7 @@ For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-
 ### For version `2020-11-13` or later
 {: #version-2020-11-13}
 
-**Static-route-based VPN gateways** are now available. For a [static-route-based VPN gateway](/apidocs/vpc#create-vpn-gateway), virtual tunnel interfaces are created. Any traffic that is routed to these interfaces with [user-defined routes](/docs/vpc?topic=vpc-create-vpc-route) is encrypted. For more information, see [About VPN gateways](/docs/vpc?topic=vpc-using-vpn).
+**Static-route-based VPN gateways** are now available for requests using a `version` query parameter of `2020-11-13` or later. For a [static-route-based VPN gateway](/apidocs/vpc#create-vpn-gateway), virtual tunnel interfaces are created. Any traffic that is routed to these interfaces with [user-defined routes](/docs/vpc?topic=vpc-create-vpc-route) is encrypted. For more information, see [About VPN gateways](/docs/vpc?topic=vpc-using-vpn).
 
 ## 30 October 2020
 {: #30-october-2020}

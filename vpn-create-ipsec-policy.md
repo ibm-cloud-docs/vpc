@@ -56,24 +56,27 @@ ibmcloud is ipsec-policy-create IPSEC_POLICY_NAME AUTHENTICATION_ALGORITHM ENCRY
 Where:
 
 - **IPSEC_POLICY_NAME** - Name of the IPsec policy.
-- **AUTHENTICATION_ALGORITHM** - The authentication algorithm. One of: `md5`, `sha1`, `sha256`.
-- **ENCRYPTION_ALGORITHM** - The encryption algorithm. One of: `triple_des`, `aes128`, `aes256`.
-- **PFS** - The Diffie-Hellman group. One of: `disabled`, `group_2`, `group_5`, `group_14`.
+- **AUTHENTICATION_ALGORITHM** - The authentication algorithm. One of: `md5`, `sha1`, `sha256`, `sha384`, `sha512`, `disabled`.
+- **ENCRYPTION_ALGORITHM** - The encryption algorithm. One of: `triple_des`, `aes128`, `aes192`, `aes256`, `aes128gcm16`, `aes192gcm16`, `aes256gcm16`.
+- **PFS** - The Diffie-Hellman group. One of: `disabled`, `group_2`, `group_5`, `group_14`, `group_15`, `group_16`, `group_17`, `group_18`, `group_19`, `group_20`, `group_21`, `group_22`, `group_23`, `group_24`, `group_31`.
 - **--key-lifetime value** - The key lifetime in seconds. Maximum: `86400`, Minimum: `1800`. The default value is `3600`.
 - **--resource-group-id value** - ID of the resource group. This option is mutually exclusive with **--resource-group-name**.
 - **--resource-group-name value** - Name of the resource group. This option is mutually exclusive with **--resource-group-id**.
 - **--output value** - Specify output in JSON format.
 - **-q, --quiet** - Suppress verbose output.
 
+The `AUTHENTICATION_ALGORITHM` must be `disabled` if and only if `ENCRYPTION_ALGORITHM` is `aes128gcm16`, `aes192gcm16`, or `aes256gcm16`.
+{: note}
+
 ### Command examples
 {: #command-examples-vpn-create-ipsec-policy}
 
-- Create an IPsec policy using MD5 authentication, AES 128 encryption, and PFS with DH Group 2:
-   `ibmcloud is ike-policy-create my-ike-policy md5 2 aes128 group_2`
+- Create an IPsec policy using SHA 256 authentication, AES 128 encryption, and PFS with DH Group 14:
+   `ibmcloud is ipsec-policy-create my-ipsec-policy sha256 aes128 group_14`
 - Create an IPsec policy with the same parameters and a 3600-seconds lifetime:
-   `ibmcloud is ike-policy-create my-ike-policy md5 2 aes128 group_2 --key-lifetime 3600`
+   `ibmcloud is ipsec-policy-create my-ipsec-policy sha256 aes128 group_14 --key-lifetime 3600`
 - Create an IPsec policy with the same parameters and a resource group ID:
-   `ibmcloud is ike-policy-create my-ike-policy md5 2 aes128 group_2 --resource-group-id fee82deba12e4c0fb69c3b09d1f12345 --output JSON`
+   `ibmcloud is ipsec-policy-create my-ipsec-policy sha256 aes128 group_14 --resource-group-id fee82deba12e4c0fb69c3b09d1f12345 --output JSON`
 
 ## Creating an IPsec policy by using the API
 {: #vpn-using-api-create-ipsec-policy}
@@ -99,9 +102,9 @@ To create an IPsec policy by using the API, follow these steps:
         -H "Authorization: $iam_token" \
         -d '{
            "name": "my-new-ipsec-policy",
-           "authentication_algorithm": "sha1",
+           "authentication_algorithm": "sha256",
            "encryption_algorithm": "aes128",
-           "pfs": "group_2",
+           "pfs": "group_14",
            "resource_group": {
              "id": "'$ResourceGroupId'"
            }
@@ -119,9 +122,9 @@ In the following example, you can create a IPsec policy using Terraform:
 ```terraform
    resource "ibm_is_ipsec_policy" "is_ipsec_policy" {
      name                     = "my-ipsec-policy"
-     authentication_algorithm = "sha1"
+     authentication_algorithm = "sha256"
      encryption_algorithm     = "aes128"
-     pfs                      = "group_2"
+     pfs                      = "group_14"
    }
 ```
 {: codeblock}
@@ -131,6 +134,6 @@ See the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/i
 ## Next steps
 {: #vpn-create-ipsec-next-steps}
 
-* [Create an IKE policy](/docs/vpc?topic=vpc-creating-ipsec-policy) if you decide to use custom IKE policy instead of auto-negotiation.
+* [Create an IKE policy](/docs/vpc?topic=vpc-creating-ike-policy) if you decide to use custom IKE policy instead of auto-negotiation.
 * Create a VPN connection if you have not already done so when creating your VPN gateway. If you did not create the VPN connection, you can do so after the VPN gateway is provisioned. For more information, see [Adding connections to a VPN gateway](/docs/vpc?topic=vpc-vpn-adding-connections).  
 * For a route-based VPN, select or [create a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table). Then, [create a route using the VPN connection type](/docs/vpc?topic=vpc-create-vpc-route).

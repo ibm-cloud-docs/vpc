@@ -33,13 +33,13 @@ You can create instances with up to 80 Gbps network bandwidth per instance. Each
 ##  Multi-architecture images
 {: #about-vpc-multi-architecture-images}
 
-You can choose to create *virtual server instances* with different operating systems on x86_64 or LinuxONE (s390x processor architecture). For more information, see [Images](/docs/vpc?topic=vpc-about-images).
+You can choose to create *virtual server instances* with different operating systems on x86_64 or s390x processor architecture. For more information, see [Images](/docs/vpc?topic=vpc-about-images).
 
 
 ## Storage capabilities
 {: #about-vpc-storage-capabilities}
 
-When you create an instance, a 100 GB block storage volume is automatically attached as a primary boot volume. To add secondary data volumes to your instance, create *block storage* volumes.
+When you create an instance, at least 100 GB block storage volume is automatically attached as a primary boot volume. To add secondary data volumes to your instance, create *block storage* volumes.
 
 ## External connectivity
 {: #about-vpc-external-connectivity}

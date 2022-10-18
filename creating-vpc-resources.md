@@ -2,7 +2,8 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-08-19"
+
+lastupdated: "2022-10-03"
 
 keywords:
 
@@ -30,7 +31,7 @@ To create and configure your virtual private cloud (VPC) and other attached reso
 
 1. Create a VPC and subnet to define the network.
 1. If you want to allow all resources in the subnet to communicate with the public internet, attach a public gateway.
-1. Create a virtual server instance. By default, a 100 GB boot volume is attached to the instance.
+1. Create a virtual server instance. By default, a boot volume is attached to the instance. For most virtual server instances the default boot volume size is 100 GB. The default boot volume size for a z/OS virtual server instance is 250 GB.
 1. If you want more storage, create a block storage volume and attach it to your instance.
 1. To define the inbound and outbound traffic that's allowed for the instance, configure its security group.
 1. If you want your instance to be reachable from the internet, reserve and associate a floating IP address.
@@ -87,10 +88,7 @@ The previous example does not create a VPC with classic access. If you require t
 ### Create a private catalog
 {: #cli-create-private-catalog}
 
-This is a Beta feature that is available for evaluation and testing purposes for customers with special approval to preview this feature.
-{: beta}
-
-This step is optional. If you plan to use images that are shared from a private catalog, the private catalog must be created first. See [Onboarding software to your catalog by using the CLI](/docs/account?topic=account-create-private-catalog&interface=cli#create-cicd-product).
+This step is optional. If you plan share images from a private catalog, the private catalog must be created first. If you select a catalog image that belongs to a different account, there are additional considerations and limitations to review. See [Using cross-account image references in a private catalog in the UI](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-ui). To create a private catalog, see the tutorial [Onboarding software to your catalog by using the CLI](/docs/account?topic=account-create-private-catalog&interface=cli#create-cicd-product).
 
 ### Create a subnet
 {: #create-a-subnet-cli}
@@ -222,6 +220,10 @@ You can create an instance using a stock image, a custom image from your account
 
 * Select an image shared from a private catalog for the instance
 
+
+     If you select a catalog image that belongs to a different account, there are additional considerations and limitations to review. See [Using cross-account image references in a private catalog in the CLI](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-cli)
+     {: note}
+
     - To list all available private catalog image offerings, run the following command.
 
        ```sh
@@ -244,7 +246,8 @@ You can create an instance using a stock image, a custom image from your account
        ```
        {: pre}
 
-       When you provision an instance, you can either provision the instance from the custom image in private catalog image using latest version in a catalog product offering using the `offering_crn` value or from the specific version in the catalog product offering using the `offering_version_crn` value.
+
+       When you provision an instance, you can either provision the instance from the private catalog managed image in the latest version in a catalog product offering using the `offering_crn` value or from the specific version in the catalog product offering using the `offering_version_crn` value.
 
        Save the `offering_crn` and `offering_version_crn`in variables, which will be used later to provision an instance.
 
@@ -259,7 +262,9 @@ You can create an instance using a stock image, a custom image from your account
 
 Create an instance in the newly created subnet. Pass in your public SSH key so that you can log in after the instance is provisioned.
 
-You can create an instance using a stock image, a custom image from your account, or an image that was shared with your account from a private catalog. Run one of the following CLI commands based on the image you plan to use.
+
+Run one of the following CLI commands based on the image you plan to use.
+
 
 * Create an instance using a stock image or custom image from your account for your instance.
 
@@ -281,6 +286,7 @@ You can create an instance using a stock image, a custom image from your account
     ibmcloud is instance-create my-instance $vpc us-south-3 bx2-2x8 $subnet --catalog-offering-version $offering_version_crn --keys $key
     ```
     {: pre}
+
 
 Information about the network interface that is created for the new instance is not returned after the instance is created.
 {: note}
@@ -426,7 +432,7 @@ To connect to a Windows image, log in using its decrypted password. For instruct
 
 You can monitor the CPU, volume, memory, and network usage of your instance over time in the {{site.data.keyword.cloud_notm}} console. Because the monitoring data is stored in {{site.data.keyword.monitoringlong_notm}}, you must be authenticated to an instance of the Monitoring service in your account. For more information, see [Getting started with monitoring](/docs/monitoring?topic=monitoring-getting-started).
 
-For IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances, the memory metrics cannot be collected because IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances are created using Secure Execution images and the memory of a secure execution instance is not accessible.
+For {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instances, the memory metrics cannot be collected because {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instances are created using Secure Execution images and the memory of a secure execution instance is not accessible.
 {: note}
 
 ### Create a VPN gateway
@@ -531,10 +537,7 @@ The previous example does not create a VPC with classic access. If you require t
 ### Create a private catalog
 {: #api-create-private-catalog}
 
-This is a Beta feature that is available for evaluation and testing purposes for customers with special approval to preview this feature.
-{: beta}
-
-This step is optional. If you plan to use images that are shared from a private catalog, the private catalog must be created first. See [Onboarding software to your catalog by using the API](/docs/account?topic=account-create-private-catalog&interface=api#create-cicd-product).
+This step is optional. If you plan share images from a private catalog, the private catalog must be created first. If you select a catalog image that belongs to a different account, there are additional considerations and limitations to review. See [Using cross-account image references in a private catalog in the UI](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-ui). To create a private catalog, see the tutorial [Onboarding software to your catalog by using the CLI](/docs/account?topic=account-create-private-catalog&interface=cli#create-cicd-product).
 
 ### Create a subnet
 {: #create-subnet-api-tutorial}
@@ -690,6 +693,9 @@ profile_name="b2-2x8"
 
 * Select an image shared from a private catalog for your instance.
 
+    If you select a catalog image that belongs to a different account, there are additional considerations and limitations to review. See [Using cross-account image references in a private catalog in the API](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-api)
+     {: note}
+
     You can either provision an instance from the private catalog image at the latest version in a catalog product offering or from a specific version in the catalog product offering.
 
     To select the private catalog image from the latest version of a catalog product offering, see [Catalog Management API - Get offering](https://cloud.ibm.com/apidocs/resource-catalog/private-catalog?code=java#get-offering), find the offering CRN, and save it into a variable for later use:
@@ -709,7 +715,7 @@ profile_name="b2-2x8"
 ### Create an instance
 {: #create-instance-api-tutorial}
 
-Create an instance in the newly created subnet. Pass in your public SSH key so that you can log in after the instance is provisioned. You can create an instance using a stock image, a custom image from your account, or an image that was shared with your account from a private catalog. Run one of the following API calls based on the image you plan to use.
+Create an instance in the newly created subnet. Pass in your public SSH key so that you can log in after the instance is provisioned. Run one of the following API calls based on the image you plan to use.
 
 * Select a stock image or a custom image from your account for your instance.
 
@@ -799,6 +805,7 @@ Create an instance in the newly created subnet. Pass in your public SSH key so t
             }'
     ```
     {: pre}
+
 
 Save the ID of the instance in a variable, for example:
 

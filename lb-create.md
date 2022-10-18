@@ -24,8 +24,9 @@ You can create an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (AL
 
 To create an ALB:
 
-1. In the navigation pane, click **Network > Load balancers**.
-1. On the Load balancers page, click **Create**. The Load balancer for VPC provisioning page is shown.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
+1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
+1. On the Load balancers page, click **Create +**. The Load balancer for VPC provisioning page is shown.
 1. In the Location section, edit the following fields, if necessary.
    * **Geography**: Indicates the geography where you want the load balancer created.
    * **Region**: Indicates the region where you want the load balancer created.
