@@ -93,6 +93,6 @@ For more information about creating a Windows custom image, see [Creating a Wind
 
 For more information about creating dedicated hosts and groups, see [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances).
 
-For more information about importing yoåur BYOL custom image to the VPC, see [Importing a custom image](/docs/vpc?topic=vpc-managing-images#import-custom-image).
+For more information about importing your BYOL custom image to the VPC, see [Importing a custom image](/docs/vpc?topic=vpc-managing-images#import-custom-image).
 
 For the UI procedure for creating a new instance and specifying a BYOL custom image, see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
