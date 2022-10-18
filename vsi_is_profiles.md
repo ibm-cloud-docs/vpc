@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2022
-lastupdated: "2022-07-20"
+lastupdated: "2022-10-18"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
