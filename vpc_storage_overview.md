@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2022-01-05"
+lastupdated: "2022-10-18"
 
 keywords: block storage, boot volume, data volume, volume, data storage, file storage, snapshots
 
