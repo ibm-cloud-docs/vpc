@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-10-14"
+lastupdated: "2022-10-19"
 
 keywords:
 
@@ -28,6 +28,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## October 2022
 {: #vpc-october22}
+
+### 19 October 2022
+{: #vpc-oct1922}
+{: release-note}
+
+Windows BYOL for multi-tenant hosts
+:   You can now bring your own license for Windows operating systems with a custom image to provision virtual server instances on multi-tenant hosts. Previously Windows BYOL was limited to dedicated hosts. For more information, see [Bring your Own License](/docs/vpc?topic=vpc-byol-vpc-about) and [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images).  
 
 ### 12 October 2022
 {: #vpc-oct1222}
