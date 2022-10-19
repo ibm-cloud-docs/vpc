@@ -57,7 +57,7 @@ Support for custom images is planned.
 ### Special considerations for Red Hat Enterprise Linux 8.4
 {: #bare-metal-images-rhel-considerations}
 
-* By default, the release lock feature for Red Hat Enterprise Linux 8.4 is disabled. To prevent the Red Hat Enterprise Linux from going beyond version 8.4 when you run an update, run the following commands from the command line:
+By default, the release lock feature for Red Hat Enterprise Linux 8.4 is disabled. To prevent the Red Hat Enterprise Linux from going beyond version 8.4 when you run an update, run the following commands from the command line:
 
    ```text
    # subscription-manager release --set=8.4
@@ -81,7 +81,6 @@ You can specify how a bare metal server is licensed with VMware&reg; ESXi by eit
 * The _ESXi 7.x_ option provides ESXi in licensed mode and is activated during the provisioning process. Billing applies for {{site.data.keyword.cloud}} rented licenses.
 
 ESXi on Bare Metal Servers for VPC is charged monthly and is calculated per CPU based on the selected profile. If you choose to rent VMware ESXi with your server, you are subject to a prorated monthly cost for the license instead of an hourly rate. Proration amount is variable based on your billing anniversary date.
-{: note}
 
 For more information about how to license ESXi, see [Licensing ESXi hosts](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-28D25806-748B-49C0-97A1-E7DE5CB335A9.html){: external}.
 
@@ -92,13 +91,13 @@ You can view and manage your VMWare licenses [here](https://cloud.ibm.com/classi
 
 Ubuntu images don't include the VMD device driver in the standard kernel package that is needed to view attached NVMe drives on the system. To obtain this driver, install the `linux-modules-extra-ibm` package and then run `modprobe vmd`.
 
-```java
-# export DEBIAN_FRONTEND=noninteractive
-# apt update
-# apt install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" linux-modules-extra-ibm linux-modules-extra-$(uname -r)
-# modprobe vmd 
-```
-{: codeblock}
+   ```java
+   # export DEBIAN_FRONTEND=noninteractive
+   # apt update
+   # apt install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" linux-modules-extra-ibm linux-modules-extra-$(uname -r)
+   # modprobe vmd 
+   ```
+   {: codeblock}
 
 ## Next steps
 {: #bare-metal-images-next-steps}
