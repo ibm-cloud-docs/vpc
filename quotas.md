@@ -2,7 +2,6 @@
 
 copyright:
   years: 2018, 2022
-
 lastupdated: "2022-10-18"
 
 keywords: VPC, virtual private cloud
