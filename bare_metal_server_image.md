@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-09-23"
+lastupdated: "2022-10-19"
 
 subcollection: vpc
 
@@ -72,7 +72,9 @@ Support for custom images is planned.
 ### Special considerations for VMware ESXi images 
 {: #bare-metal-images-vmware-esxi-considerations}
 
-You can specify how a bare metal server is licensed with VMware&reg; ESXi by either bringing your own license (_ESXi 7.x BYOL_), or you can rent a license through {{site.data.keyword.cloud}} (_ESXi 7.x_)
+You can specify how a bare metal server is licensed with VMware&reg; ESXi by either bringing your own license (_ESXi 7.x BYOL_), or you can rent a license through {{site.data.keyword.cloud}} (_ESXi 7.x_).
+
+* If you want to use TPM with a ESXi image, make sure that secure boot mode is enabled.
 
 * The _ESXi 7.x BYOL_ option provides ESXi in an evaluation mode. The evaluation period is 60 days and begins at the time of provisioning. Anytime during the 60-day evaluation period, you can convert from evaluation mode to licensed mode with your appropriate license that you provide.
 
