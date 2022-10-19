@@ -5,7 +5,7 @@ copyright:
 
 lastupdated: "2022-10-18"
 
-keywords:
+keywords: VPC, virtual private cloud
 
 subcollection: vpc
 
@@ -157,7 +157,6 @@ Each route has a destination property, which includes a prefix length (`/24` in 
 |--------|-----|
 | Boot and secondary volumes | 300 total VPC volumes per account in a region |
 | Snapshots and backup snapshots | Up to 750 per volume in a region |
-
 {: caption="Table 10. Quotas for block storage volumes and snapshots" caption-side="bottom"}
 
 ### File shares

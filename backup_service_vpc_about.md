@@ -1,13 +1,12 @@
 ---
 
 copyright:
-  years: 2022
+  years: 2022, 2022
 lastupdated: "2022-10-19"
 
-keywords:
+keywords: Storage for VPC, backup for VPC, backup snapshot, restore VPC volume
 
 subcollection: vpc
-
 
 ---
 
@@ -24,7 +23,8 @@ Use {{site.data.keyword.cloud}} Backup for VPC to automatically back up, manage,
 
 The {{site.data.keyword.cloud_notm}} Backup for VPC service lets you create backup policies for your block storage volumes. A backup policy contains a backup plan, which defines a schedule for automated backups. You can create up to four plans per policy, and edit and delete them as needed. You can view and manage backup jobs to see these actions. If you're undecided on how often to schedule backups or you don't know all the tags yet for your target resources, you can optionally create a backup policy without a plan and add one later.
 
-When the backup is triggered at the scheduled interval, a backup is created of your volume contents. A backup is actually a snapshot. Behind the scenes, the [Snapshots for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about) service is used to create a point-in-time copy of your data. The entire contents of the volume are copied (snapshotted) and retained. Subsequent backups of the same volume capture the changes since the previous backup. You can take up to [750 backups of a volume](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#snapshots_vpc_considerations). 
+When the backup is triggered at the scheduled interval, a backup is created of your volume contents. A backup is actually a snapshot. Behind the scenes, the [Snapshots for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about) service is used to create a point-in-time copy of your data. The entire contents of the volume are copied and retained in a snapshot. Subsequent backups of the same volume capture the changes since the previous backup. You can take up to [750 backups of a volume](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#snapshots_vpc_considerations). 
+
 
 Backups appear in the list of block storage snapshots. They are identified by how they were created, in this case, by backup policy. Backups are in effect, backup snapshots. These terms are used interchangeably in the documentation, depending on the context.
 {: note}
