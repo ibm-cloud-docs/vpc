@@ -1,0 +1,466 @@
+---
+
+copyright:
+  years: 2022
+lastupdated: "2022-10-19"
+
+keywords: context-based restrictions for VPC Infrastructure Services
+
+subcollection: vpc
+
+---
+
+{{site.data.keyword.attribute-definition-list}}
+
+# Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions (limited availability)
+{: #cbr}
+
+Context-based restrictions give account owners and administrators the ability to define and enforce
+access restrictions for {{site.data.keyword.cloud}} resources based on the context of access
+requests. Access to VPC Infrastructure Services can be controlled with context-based restrictions
+and identity and access management (IAM) policies. 
+{: shortdesc}
+
+The preview of the context-based restrictions functionality for VPC Infrastructure Services is available only to authorized accounts. 
+{: preview}
+
+These restrictions work with traditional IAM policies, which are based on identity, to provide an
+extra layer of protection. Unlike IAM policies, context-based restrictions don't assign access.
+Context-based restrictions check that an access request comes from an allowed context that you
+configure. Since both IAM access and context-based restrictions enforce access, context-based
+restrictions offer protection even in the face of compromised or mismanaged credentials. For more
+information, see
+[What are context-based restrictions](/docs/account?topic=account-context-restrictions-whatis).
+
+A user must have the Administrator role on the VPC Infrastructure Services to create, update, or
+delete rules that target VPC Infrastructure Services. A user must have either the Editor or
+Administrator role on the context-based restrictions service to create, update, or delete network
+zones. A user with the Viewer role on the context-based restrictions service can add network
+zones to a rule only. 
+{: note}
+
+The context-based restriction service generates audit logs every time a context-based policy is
+enforced. For more information, see [Monitoring context-based restrictions](/docs/account?topic=account-cbr-monitor).
+
+To get started protecting your VPC Infrastructure Services with context-based restrictions, see the
+tutorial for
+[Leveraging context-based restrictions to secure your resources](/docs/account?topic=account-context-restrictions-tutorial).
+
+## How VPC Infrastructure Services integrates with context-based restrictions
+{: #cbr-overview}
+
+VPC Infrastructure Services is a composite service made up of a number of child services.
+Context-based restrictions can be created for the following child services:
+
+- [Auto scale](/docs/vpc?topic=vpc-creating-auto-scale-instance-group&interface=cli)
+- [Backup service](/docs/vpc?topic=vpc-backups-vpc-best-practices&interface=cli)
+- [Block Storage volumes](/docs/vpc?topic=vpc-creating-block-storage&interface=cli)
+- [Dedicated hosts](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances&interface=cli)
+- [File storage](/docs/vpc?topic=vpc-file-storage-planning&interface=cli)
+- [Image service](/docs/vpc?topic=vpc-planning-custom-images)
+- [Snapshots](/docs/vpc?topic=vpc-snapshots-vpc-planning&interface=cli)
+- [Virtual server instances](/docs/vpc?topic=vpc-vsi_best_practice)
+
+The following VPC Infrastructure Services do not support context-based restrictions at this time:
+
+- [Access control lists](/docs/vpc?topic=vpc-using-acls&interface=cli)
+- [Bare metal server](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=ui)
+- [Flow logs](/docs/vpc?topic=vpc-flow-logs&interface=cli)
+- [Load balancer](/docs/vpc?topic=vpc-nlb-vs-elb&interface=cli)
+- [Placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc&interface=cli)
+- [Public gateways](/docs/vpc?topic=vpc-public-gateways&interface=cli)
+- [Security groups](/docs/vpc?topic=vpc-using-security-groups&interface=cli)
+- [Virtual private endpoint gateways](/docs/vpc?topic=vpc-about-vpe&interface=cli)
+- [VPCs](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli)
+- [VPN](/docs/vpc?topic=vpc-vpn-overview&interface=cli)
+
+
+See the [rule creation section](#creating-rules) for details on how you can create rules with the
+required attributes for each service.
+
+## Creating network zones
+{: #network-zone}
+
+A network zone represents an allowlist of IP addresses where an access request is created. It
+defines a set of one or more network locations that are specified by the following attributes:
+
+- IP addresses, which include individual addresses, ranges, or subnets
+- VPCs
+- Service references, which allow access from other IBM Cloud® services
+
+### Service references
+{: #service-references}
+
+A *service reference*, defined as part of a network zone, allows the given service to talk to the
+restricted resources or APIs that are targeted by a particular context-based restriction policy.
+The following table includes service references that might need to be included when using context-based
+restrictions in the context of VPC Infrastructure Services. You can also look at the [service-to-service IAM
+authorizations](/docs/account?topic=account-serviceauth&interface=ui) in your account when
+deciding which service references to add in your network zone. You can find
+service-to-service authorization in your account by navigating to **Manage -> Access (IAM)** and selecting
+the **Authorizations** tab.
+
+| Service with context-based restrictions | Impacted service       | Service reference that might be required in network zone |
+|------------------------------------|--------------------------------------------|-----------------------------------------|
+| Cloud Object storage                    | * [Image service](/docs/vpc?topic=vpc-planning-custom-images) \n * [Flow logs](/docs/vpc?topic=vpc-flow-logs)                                                                                                                                                  | VPC Infrastructure Services (`is`) |
+| Key Protect                             | * [Snapshot](/docs/vpc?topic=vpc-snapshots-vpc-planning) \n * [Block storage volume](/docs/vpc?topic=vpc-creating-block-storage&interface=ui) \n * [File Storage](/docs/vpc?topic=vpc-file-storage-planning) \n * [Image service](/docs/vpc?topic=vpc-planning-custom-images)  | Cloud Block Storage (`server-protect`)|
+| Hyper Protect Crypto service            | * [Snapshot](/docs/vpc?topic=vpc-snapshots-vpc-planning) \n * [Block storage volume](/docs/vpc?topic=vpc-creating-block-storage&interface=ui) \n * [File Storage](/docs/vpc?topic=vpc-file-storage-planning) \n * [Image service](/docs/vpc?topic=vpc-planning-custom-images) | Cloud Block Storage (`server-protect`)|
+| Virtual Server Instances                | * [Auto scale](/docs/vpc?topic=vpc-creating-auto-scale-instance-group)                                                                                                                                                                                                 | VPC Infrastructure Services (`is`) |
+| Various VPC Infrastructure Services - Block Storage Volume, Security Groups, Subnets | * [IBM Kubernetes Service](/docs/containers) | IBM Kubernetes Service (`containers-kubernetes`) |
+{: caption="Table 1. Service references needed for context-based restrictions" caption-side="bottom"}
+
+### Creating network zones by using the API
+{: #network-zone-api} 
+{: api}
+
+You can create network zones by using the `create-zone` command. For more information, see the
+[API docs](/apidocs/context-based-restrictions#create-zone).
+
+The `serviceRef` attribute for VPC Infrastructure Services is `is` and Cloud Block Storage is
+`server-protect`. 
+{: tip}
+
+```json
+{
+  "name": "Example zone 1",
+  "description": "",
+  "addresses": [
+    {
+      "type": "serviceRef",
+      "ref": {
+        "service_name": "is"
+      }
+    }
+  ]
+}
+```
+{: codeblock}
+
+```json
+{
+  "name": "Example zone 1",
+  "description": "",
+  "addresses": [
+    {
+      "type": "serviceRef",
+      "ref": {
+        "service_name": "server-protect"
+      }
+    }
+  ]
+}
+```
+{: codeblock}
+
+### Creating network zones by using the CLI
+{: #network-zone-cli} 
+{: cli}
+
+1. To create network zones from the CLI,
+   [install the CBR CLI plug-in](/docs/account?topic=cli-cbr-plugin#install-cbr-plugin).
+1. Use the `cbr-zone-create` command to add network locations, VPCs, and service references to
+   network zones. For more information, see the CBR
+   [CLI reference](/docs/account?topic=cli-cbr-plugin#cbr-zones-cli).
+
+   To find a list of available service reference targets, run the `ibmcloud cbr service-ref-targets`
+   [command](/docs/account?topic=cli-cbr-plugin#cbr-cli-service-ref-targets-command). The
+   `service_name` for VPC Infrastructure Services is `is` and Cloud Block Storage is `server-protect`. 
+   {: tip}
+
+   The following example command adds the `is` service, referred to as "VPC Infrastructure Services" in
+   {{site.data.keyword.cloud}} console, to a network zone.
+
+   ```sh
+   ibmcloud cbr zone-create --name example-zone-1 --description "Example zone 1" --service-ref service_name=is
+   ```
+   {: pre}
+
+   The following example command adds the `server-protect` service, referred to as "Cloud Block Storage"
+   in {{site.data.keyword.cloud}} console, to a network zone.
+
+   ```sh
+   ibmcloud cbr zone-create --name example-zone-1 --description "Example zone 1" --service-ref service_name=server-protect
+   ```
+   {: pre}
+
+## Creating rules
+{: #cbr-rules}
+
+Within VPC Infrastructure Services each child service needs certain attributes in a context-based rule.
+
+When you use the API, Terraform or the {{site.data.keyword.cloud_notm}} Command Line Interface (CLI)
+to create, update, or delete {{site.data.keyword.cloud_notm}} context-based restrictions, you can
+specify the target VPC Infrastructure resource by using resource attributes.
+
+See [VPC resource attributes](/docs/vpc?topic=vpc-resource-attributes) for the resource attributes that correspond with individual VPC resources. 
+{: tip}
+
+You can select a resource by entering the ID of the object. Alternatively, you can use the `*` wildcard
+to select all applicable resources. For example, the attribute `vpcId:*` sets the
+context-based restrictions to apply to all VPCs in the account. You can also specify which resource
+group the policy is applied to in the command.
+
+### Creating rules by using the API
+{: #rules-api} 
+{: api}
+
+Review the following example requests to create rules. For more information about the `v1/rules`
+API, see the [API docs](/apidocs/context-based-restrictions#create-rule).
+
+After you create a rule, it might take up to 10 minutes before you can update that rule. 
+{: note}
+
+The following example payload creates a rule that protects the Virtual Server Instances and allows
+access only from the specified network zone via a private endpoint.
+
+```json
+{
+  "contexts": [
+    {
+      "attributes": [
+        {
+          "name": "endpointType",
+          "value": "private"
+        },
+        {
+          "name": "networkZoneId",
+          "value": "45ec64065b7c2bf84b3edec803335111"
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "attributes": [
+        {
+          "name": "resourceGroupId",
+          "value": "1171749e3a8545069d04e6fca1ded18f"
+        },
+        {
+          "name": "serviceName",
+          "value": "is"
+        },
+        {
+          "name": "instanceId",
+          "value": "*"
+        }
+      ]
+    }
+  ]
+}
+```
+{: codeblock}
+
+### Creating rules by using the CLI
+{: #rules-cli} 
+{: cli}
+
+1. To create rules from the CLI, [install the CBR CLI plug-in](/docs/account?topic=cli-cbr-plugin#install-cbr-plugin).
+1. Use the `ibmcloud cbr rule-create` [command](/docs/account?topic=cli-cbr-plugin#cbr-cli-rule-create-command) to create CBR rules. For more information, see the CBR [CLI reference](/docs/account?topic=cli-cbr-plugin#cbr-zones-cli).
+
+The examples in this section are enforcement rules. You can make them report-only by adding `--enforcement-mode report`.
+
+The following example CLI command creates a context-based restriction rule for all of the virtual server instances in the current account:
+
+```sh
+ibmcloud cbr rule-create  --zone-id a7eeb5dd8e6bdce670eba1afce18e37f --description "Test CBR for VSIs" --service-name is --resource-attributes "instanceId=*"
+```
+{: pre} 
+
+The following example CLI command creates a context-based restriction rule for a specific block
+storage volume in the current account:
+
+```sh
+ibmcloud cbr rule-create --zone-id a7eeb5dd8e6bdce670eba1afce18e37f --description "Test CBR for volume" --service-name is --resource-attributes "volumeId=UUID_OF_THE_VOLUME"
+```
+{: pre} 
+
+The following example CLI command creates a context-based restriction rule for all of the virtual
+server instances in the current account and restricts access to private endpoints:
+
+```sh
+ibmcloud cbr rule-create --context-attributes 'endpointType=private' --zone-id a7eeb5dd8e6bdce670eba1afce18e37f --description "Test CBR for VSIs" --service-name is --resource-attributes "instanceId=*"
+```
+{: pre} 
+
+The following example CLI command creates a context-based restriction rule for all the virtual
+server instances in the resource group and restricts access to private endpoints:
+
+```sh
+ibmcloud cbr rule-create --context-attributes 'endpointType=private' --zone-id a7eeb5dd8e6bdce670eba1afce18e37f --description "Test CBR for VSIs" --service-name is --resource-attributes "instanceId=*" --resource-group-id 1171749e3a8545069d04e6fca1ded18f
+```
+{: pre} 
+
+
+## Monitoring context-based restrictions in VPC Infrastructure Services
+{: #cbr-vpc-monitoring}
+
+The context-based restriction service generates audit logs every time a context-based policy is
+enforced. For more information, see [Monitoring context-based restrictions](/docs/account?topic=account-cbr-monitor).
+
+## Troubleshooting failures due to context-based restrictions
+{: #cbr-vpc-troubleshooting}
+
+### User getting 403 Unauthorized
+{: #cbr-vpc-tbs-403-unauth}
+
+When a request is denied because of improper access permissions or the request
+originates outside of the network zone that is defined in context-based restrictions rule,
+the error response has a format that is similar to the following examples.
+
+#### 403 unauthorized error when using the CLI
+{: #cbr-vpc-tbs-403-unauth-cli}
+{: cli}
+
+```text
+Error code: not_authorized and 
+Error message: the provided token is not authorized
+Trace ID: b266a31c-b359-4ecb-8b81-a27c1b2cdb7b
+```
+{: screen}
+
+#### 403 unauthorized error when using IBM Cloud console
+{: #cbr-vpc-tbs-403-unauth-ui}
+
+```text
+reference_id b266a31c-b359-4ecb-8b81-a27c1b2cdb7b
+code not_authorized
+message the provided token is not authorized
+```
+{: screen}
+
+#### 403 unauthorized error when using the API
+{: #cbr-vpc-tbs-403-unauth-api}
+{: api}
+
+```text
+"code":"not_authorized",
+"message":"the provided token is not authorized to list floating-ips in this account"
+"trace":"b266a31c-b359-4ecb-8b81-a27c1b2cdb7b"
+```
+{: screen}
+
+### Locating context-based restriction events in Activity Tracker
+{: #cbr-vpc-locate-events-AT}
+
+You can use the value of of `Trace ID` or `Reference ID` to search in your Activity Tracker instance
+for the events that are generated by the context-based restrictions service. The `requestData.environment` section shows the source IP address
+of the call and other information that you can use to verify why the authorization was denied. The `requestData.action` and `requestData.resource` fields can be used determine which underlying resource was denied access.
+
+The following is an example context-based restriction event. Some fields have been removed to improve readability.
+
+```json
+{
+  "level": "critical",
+  "action": "context-based-restrictions.policy.eval",
+  "message": "Context based restriction rendered a deny",
+  "severity": "critical",
+  "correlationId": "TXID-b266a31c-b359-4ecb-8b81-a27c1b2cdb7b-df2f912c-80a1-422c-8b17-6092651fea00",
+  "requestData": {
+    "action": "is.vpc.vpc.create",
+    "reqOrder": 0,
+    "environment": {
+      "attributes": {
+        "ipAddress": "192.168.0.1",
+        "networkType": "public"
+      }
+    },
+    "resource": {
+      "attributes": {
+        "accountId": "67db3d7ff3f34220b40e2d81480754c9",
+        "resource": "NEWRESOURCE",
+        "vpcId": "NEWRESOURCE",
+        "resourceGroupId": "d272ce832535498e9142b557ff8638ed",
+        "region": "au-syd",
+        "serviceName": "is",
+        "resourceType": "vpc"
+      }
+    },
+    "subject": {
+      "attributes": {
+        "scope": "ibm openid",
+        "token.account.bss": "67db3d7ff3f34220b40e2d81480754c9",
+        "id": "IBMid-550009FB7N"
+      }
+    }
+  },
+  "responseData": {
+    "decision": "Deny",
+    "isEnforced": true
+  }
+}
+```
+{: codeblock}
+
+You can then use the same Trace ID or Reference ID to look at the specific VPC Infrastructure service event in your Activity Tracker instance. 
+
+```json
+{
+  "action": "is.vpc.vpc.create",
+  "outcome": "failure",
+  "message": "Virtual Private Cloud: create vpc -failure",
+  "severity": "critical",
+  "dataEvent": false,
+  "logSourceCRN": "crn:v1:bluemix:public:is:au-syd:a/67db3d7ff3f34220b40e2d81480754c9::vpc:",
+  "saveServiceCopy": true,
+  "initiator": {
+    "id": "IBMid-ABCDEFGH",
+    "typeURI": "service/security/account/user",
+    "name": "test@ibm.com",
+    "authnName": "test",
+    "authnId": "IBMid-ABCDEFGH",
+    "host": {
+      "address": "192.168.0.1",
+      "addressType": "IPv4"
+    },
+    "credential": {
+      "type": "token"
+    }
+  },
+  "target": {
+    "id": "crn:v1:bluemix:public:is:au-syd:a/67db3d7ff3f34220b40e2d81480754c9::vpc:",
+    "typeURI": "is.vpc/vpc",
+    "name": "",
+    "resourceGroupId": "crn:v1:bluemix:public:resource-controller::a/67db3d7ff3f34220b40e2d81480754c9::resource-group:d272ce832535498e9142b557ff8638ed"
+  },
+  "reason": {
+    "reasonCode": 403,
+    "reasonType": "Forbidden",
+    "reasonForFailure": "Your access token is invalid or does not have the necessary permissions to perform this task"
+  },
+  "requestData": {
+    "generation": "2",
+    "requestId": "b266a31c-b359-4ecb-8b81-a27c1b2cdb7b"
+  },
+  "responseData": {
+    "responseURI": "/v1/vpcs/"
+  }
+}
+
+```
+{: codeblock}
+
+You can also search events by using a resource identifier.
+A resource ID is a UUID and is the last identifier in a CRN. For example: 
+
+```text
+crn:v1:bluemix:public:is:au-syd:a/67db3d7ff3f34220b40e2d81480754c9::vpc:<resourceID>
+```
+{: screen}
+
+Requests for provisioning resources do not contain a resource ID.
+
+If you do not find a context-based restriction event in Activity Tracker, it's possible access was denied due to IAM access policies. For more information, see
+[VPC IAM getting started guide](docs/vpc?topic=vpc-iam-getting-started).
+
+## Limitations
+{: #cbr-vpc-limitations}
+
+- When you create a rule, it might take up to 10 minutes to become enforced.
+- At this time {{site.data.keyword.cloud_notm}} console cannot be used to create context-based restriction rules for VPC Infrastructure Services.
+- Currently, rules on the parent VPC Infrastructure service cannot be created because some child services do not yet support context-based restrictions. If you attempt to create a rule on the parent service you see the following error:
+
+```text
+An error occurred while trying to create the rule. The service 'is' is not supported for context-based-restrictions control.
+```
+{: screen}
