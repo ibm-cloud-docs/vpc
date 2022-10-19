@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-07-12"
+lastupdated: "2022-09-27"
 
 keywords:
 
@@ -35,9 +35,9 @@ Want to automatically create snapshots of your block storage volumes? With Backu
 
 The first time that you take a snapshot of a volume, all the volume's contents are copied. The snapshot has the same encryption as the volume (customer-managed or provider-managed). Snapshots are stored and retrieved from IBM Cloud Object Storage. Data is encrypted while in transit and stored in the same region as the original volume.
 
-When you take a second snapshot, only the change to the volume since the last snapshot is captured. As such, the size of snapshots that you take can grow or shrink, depending on what is being uploaded to Cloud Object Storage. The number of snapshots increases with each successive snapshot you take. You can take up to 750 snapshots per volume in your region. Deleting snapshots from this quota frees up space for additional snapshots. The cumulative size of all snapshots for a volume can't exceed 10 TB. For more information, see [these considerations](#snapshots_vpc_considerations) when creating snapshots.
+When you take a second snapshot, only the change to the volume since the last snapshot is captured. As such, the size of snapshots that you take can grow or shrink, depending on what is being uploaded to Cloud Object Storage. The number of snapshots increases with each successive snapshot you take. You can take up to [750 snapshots](#snapshots_vpc_considerations) per volume in your region. Deleting snapshots from this quota frees up space for additional snapshots. A snapshot of a volume cannot be greater than 10 TB.
 
-You can create a new virtual server instance with a boot volume that was initialized from a snapshot. The instance profile of the new instance is not required to match the instance that was used to create the snapshot.
+You can create a new virtual server instance with a boot volume that was initialized from a snapshot. The instance profile of the new instance is not required to match the instance that was used to create the snapshot. You can also import a snaphot of a data volume when creating and attaching a new data volume to the instance. You can also specify user tags for these snapshots.
 
 You can create a new volume from a snapshot at any time. This process, called restoring a volume, can be performed when creating a new instance, modifying an instance, or for an unattached volume (no instance provisioning is required). For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
 
@@ -68,8 +68,8 @@ You can also restore an [unattached data volume from a snapshot](/docs/vpc?topic
 The following restrictions apply to this release:
 
 * You can take up to [750 snapshots](#snapshots_vpc_considerations) per volume in a region.
-* Snapshots of a detached volume are not supported.
-* Snapshots of volumes greater than 10 TB are not supported.
+* You cannot take a snapshot of a detached volume.
+* Taking a snapshot of a volume greater than 10 TB is not supported.
 * You can delete any snapshot you take. Snapshots must be in a `stable` or `pending` state and not actively restoring a volume.
 * You can delete a block storage volume and all its snapshots. All snapshots must be in a `stable` or `pending` state. No snapshot can be actively restoring a volume.
 
@@ -84,7 +84,7 @@ This general procedure shows how to create a snapshot, view a list of snapshots,
    * To use the [CLI](/docs/vpc?topic=vpc-snapshots-vpc-create#snapshots-vpc-create-cli), download and install the following CLI plug-ins. For more information, see the [CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
       - {{site.data.keyword.cloud_notm}} CLI
       - The infrastructure-service plug-in
-   * To use the [API](/docs/vpc?topic=vpc-snapshots-vpc-create#snapshots-vpc-create-api), set up the [VPC API](https://{DomainName}/apidocs/vpc).
+   * To use the [API](/docs/vpc?topic=vpc-snapshots-vpc-create#snapshots-vpc-create-api), set up the [VPC API](/apidocs/vpc).
 3. [Create](/docs/vpc?topic=vpc-snapshots-vpc-create#snapshots-vpc-create) your snapshots.
 4. [View](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view) and [manage](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-manage) your snapshots.
 5. [Restore](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-vpc-restore) a volume from a snapshot.
@@ -99,14 +99,23 @@ Because a full backup is created every 200 snapshots, the maximum number of snap
 | Snapshot number (Volume type) | Snapshot | How you're billed |
 |-------------------------------|----------|-------------------|
 | 1 (data and boot) | full | Billed for full copy |
-| 2-200 (data) /n 2-199 (boot) | incremental | Billed for incremental updates |
-| 201 (data) /n 200 (boot) | full | Billed for full copy |
-| 202-399 (data) /n 201-397 (boot) | incremental | Billed for incremental updates |
-| 400 (data) /n 398 (boot) | full | Billed for full copy |
-| 401-598 (data) /n 399-595 (boot)| incremental | | Billed for incremental updates |
-| 599 (data) /n 596 (boot) | full | Billed for full copy |
-| 600-750 (data) /n 597-750 (boot) |  incremental | | Billed for incremental updates |
+| 2-200 (data) \n 2-199 (boot) | incremental | Billed for incremental updates |
+| 201 (data) \n 200 (boot) | full | Billed for full copy |
+| 202-399 (data) \n 201-397 (boot) | incremental | Billed for incremental updates |
+| 400 (data) \n 398 (boot) | full | Billed for full copy |
+| 401-598 (data) \n 399-595 (boot)| incremental | | Billed for incremental updates |
+| 599 (data) \n 596 (boot) | full | Billed for full copy |
+| 600-750 (data) \n 597-750 (boot) |  incremental | | Billed for incremental updates |
 {: caption="Table 1. Snapshot count and billing considerations" caption-side="bottom"}
+
+## User tags for snapshots
+{: #snapshots-about-user-tags}
+
+You can create new user tags or add existing tags to snapshots of your block storage volumes. You can also add tags when using a snapshot of a volume during [instance creation](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-instancevol-tags-ui). You can create, view, and manage user tags from the [UI](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-add-tags-ui), [CLI](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=cli#snapshots-vpc-add-tags-cli), or [API](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=cli#snapshots-vpc-add-tags-cli), and remove then at any time. 
+
+User tags are uniquely identified by a Cloud Resource Name (CRN) identifier. When you create a user tag, you provide a unique name within your billing account. You can define user tags in label or key-value format.
+
+For more information about managing tags for your account, see [Working with tags](/docs/account?topic=account-tag&interface=ui).
 
 ## Next steps
 {: #snapshots-vpc-about-next-steps}

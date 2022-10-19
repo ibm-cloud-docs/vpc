@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2018, 2021
+  years: 2018, 2022
 
-lastupdated: "2021-12-13"
+lastupdated: "2022-09-15"
 
 keywords:  
 
@@ -14,7 +14,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Updating the default security group
+# Updating a VPC's default security group rules
 {: #updating-the-default-security-group}
 
 The default security group is similar to any other security group, with the exception that it cannot be deleted.
@@ -26,12 +26,37 @@ Each VPC has a default security group, with rules to allow:
 * All outbound traffic
 
 If you edit the rules of the default security group, those edited rules then apply to all current and future servers in the group.
+{: imporant}
 
 Inbound rules to allow pinging and SSH are not automatically added to the default security group. You can modify the rules of the default security group by using the UI, CLI, or API.
+
+## Updating the default security group by using the UI
+{: #example-modifying-the-default-sg-rules-using-ui}
+{: ui}
+
+1. From the [IBM Cloud console](https://cloud.ibm.com/){: external}, click the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > **Classic Infrastructure** to get to the Classic Infrastructure landing page.
+1. From the Classic Infrastructure menu, select **Security** >  **Network Security** > **Security Groups** to get to the Security Groups page.
+1. On the Security Group page, select the default security group object.
+1. Click the ![More icon](./images/more_icon.jpg) icon to edit the existing rules.
+1. Modify the rule as necessary.
+1. Click **OK** to apply the changes.
+For each rule, specify the following information:  
+   * Select the protocols and ports to which the rule applies.    
+   * Specify a CIDR block or IP address for the permitted traffic. Alternatively, you can specify a security group in the same VPC to allow traffic to or from all instances that are attached to the selected security group. 
+
+   **Tips:**  
+   * All rules are evaluated, regardless of the order in which they're added.
+   * Rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, you created a rule that allows inbound TCP traffic on port 80. That rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
+   * For Windows images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
+1. _Optional:_ To view interfaces that are attached to the security group, click **Attached resources** tab and review the Attached interfaces section.
+1. When you finish creating rules, click the **Security groups** breadcrumb at the beginning of the page to return to your list of Security groups.
+
 
 ## Updating the default security group by using the CLI
 {: #example-modifying-the-default-security-group-rules-using-the-cli}
 {: cli}
+
+Complete the following steps to update the default security group by using the CLI: 
 
 1. Log in to {{site.data.keyword.vpc_full}}.
 
@@ -49,7 +74,7 @@ Inbound rules to allow pinging and SSH are not automatically added to the defaul
    ```
    {: pre}
 
-2. Get the default security group ID and details for the VPC
+2. Get the default security group ID and details for the VPC.
 
    Run the following command to list all VPCs:
 
@@ -60,7 +85,7 @@ Inbound rules to allow pinging and SSH are not automatically added to the defaul
 
    The default security group name is shown under the column `Default Security Group`. Note the name of it so that you can find the `ID` when you list the security groups (next).
 
-   Now list all the security groups in the VPC:
+   Now list all the security groups:
 
    ```sh
    ibmcloud is security-groups
@@ -77,6 +102,13 @@ Inbound rules to allow pinging and SSH are not automatically added to the defaul
    To get details about the security group, run the following command:
 
    ```sh
+   ibmcloud is security-group GROUP
+   ```
+   {: pre}
+
+   For example, run the following command to get details about the security group with the security group ID you saved as a variable:
+
+    ```sh
    ibmcloud is security-group $sg
    ```
    {: pre}
@@ -88,11 +120,65 @@ Inbound rules to allow pinging and SSH are not automatically added to the defaul
    Disabling SSH connections prohibits the license registration for RedHat Enterprise Linux. This can result in provisioning failures.
    {: important}
 
+   To add rules in your default security group, run the follwoing command:
+
+   ```sh
+   ibmcloud is security-group-rule-add GROUP DIRECTION PROTOCOL [--port-min PORT_MIN] [--port-max PORT_MAX]
+   ibmcloud is security-group-rule-add GROUP DIRECTION PROTOCOL [--icmp-type ICMP_TYPE [--icmp-code ICMP_CODE]]
+   ```
+   {: codeblock}
+
+   For example, run the following command to add rules that allow SSH and PING rules to the security group with the ID you set as your variable: 
+
    ```sh
    ibmcloud is security-group-rule-add $sg inbound tcp --port-min 22 --port-max 22
    ibmcloud is security-group-rule-add $sg inbound icmp --icmp-type 8 --icmp-code 0
    ```
    {: codeblock}
+
+Adding and removing security group rules is an asynchronous operation. It usually takes 1 - 30 seconds for the change to go into effect.
+{: note} 
+
+## Updating the default security group by using the API
+{: #example-modifying-the-default-security-group-rules-using-the-api}
+{: api}
+
+Complete the following steps to update the default security group by using the API: 
+
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
+
+1. Get the default security group ID and details for the VPC.
+
+   Run the following command to list all VPCs:
+
+   ```sh
+   curl -sX GET -H "Authorization:$iam_token" "$vpc_api_endpoint/v1/vpcs?generation=2&version=2022-09-13"
+   ```
+   {: pre}
+
+   The default security group details are shown in the output following `default_security_group`. Note the name of the default security group so that you can find the `id` when you list the security groups (next). Note the default security group `id`, and save it in a variable so that you can use it later. For example, use the variable name `id`:
+
+   ```sh
+   "sg" = "r134-a937009e-5da5-4e7b-9072-d44e1095327b"
+   ```
+   {: pre}
+
+1. Update the default security group to add rules that allow SSH and PING.
+
+Disabling SSH connections prohibits the license registration for RedHat Enterprise Linux. This can result in provisioning failures.
+{: important}
+
+Run the following two commands to add default security group rules that allow SSH and PING for the security group with the security group`id` you set as the variable `sg`: 
+
+   ```sh
+   curl -sX POST  -H "Authorization:$iam_token" "$vpc_api_endpoint/v1/security_groups/$sg/rules?generation=2&version=$api_version"  -d '{"direction":"inbound","protocol":"tcp","port_min":22, "port_max":22}'
+   ```
+   {: pre}
+
+   ```sh
+   curl -sX POST  -H "Authorization:$iam_token" "$vpc_api_endpoint/v1/security_groups/$sg/rules?generation=2&version=$api_version"  -d '{"direction":"inbound","protocol":"icmp","code":0, "type":9}'
+   ```
+   {: pre}
 
 Adding and removing security group rules is an asynchronous operation. It usually takes 1 - 30 seconds for the change to go into effect.
 {: note} 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-07-11"
+lastupdated: "2022-10-03"
 
 keywords: vpc, troubleshoot, tips, error, hpcr, API, CLI, problem, debug,  
 
@@ -28,7 +28,7 @@ subcollection: vpc
 {:tsResolve: .tsResolve}
 {:troubleshoot: data-hd-content-type='troubleshoot'}
 
-# Troubleshooting your IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instance
+# Troubleshooting your {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance
 {: #troubleshooting-hpcr}
 
 This document covers common difficulties that you might encounter, and offers some helpful tips.
@@ -42,17 +42,17 @@ Here are a few difficulties that you might encounter.
 ### Image or Profile mismatch
 {: #hpcr_troubleshoot_imagemismatch}
 
-IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances can be created from the UI, CLI, and any other interface that {{site.data.keyword.vpc_full}} (VPC) supports, and you must select the right image and profile combination. Without the combination of the image and profile, the instance fails to start.  
+{{site.data.keyword.hpvs}} for VPC instances can be created from the UI, CLI, and any other interface that {{site.data.keyword.vpc_full}} (VPC) supports, and you must select the right image and profile combination. Without the combination of the image and profile, the instance fails to start.  
 
 ### Only single data volume
 {: #hpcr_troubleshoot_datavol}
 
-Currently, only a single data volume is supported. You might not get any explicit errors from VPC if you try to attach more data volumes, but it might disrupt the functionality. When the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance boots, it automatically detects the attached data volume and encrypts it. If it finds more than one data volume, it randomly selects one of them and encrypts it. The container workload stores data into this data volume, but when the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance reboots, it follows the same process of randomly picking up one of the attached data volumes and it is possible that it does not pick up the one that has workload data. This leads to a situation where the workload no longer has access to its data.
+Currently, only a single data volume is supported. You might not get any explicit errors from VPC if you try to attach more data volumes, but it might disrupt the functionality. When the {{site.data.keyword.hpvs}} for VPC instance boots, it automatically detects the attached data volume and encrypts it. If it finds more than one data volume, it randomly selects one of them and encrypts it. The container workload stores data into this data volume, but when the {{site.data.keyword.hpvs}} for VPC instance reboots, it follows the same process of randomly picking up one of the attached data volumes and it is possible that it does not pick up the one that has workload data. This leads to a situation where the workload no longer has access to its data.
 
-### Attach data volume within 15 min
+### Attach data volume within 5 min
 {: #hpcr_troubleshoot_volattach}
 
-If you have a volumes section in the contract, the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance assumes that a data volume will be attached. The cloud user must either attach the volume during the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance creation, or within 15 minutes after instance creation has been started. After this 15-minute wait period, the instance shuts down.
+If you have a volumes section in the contract, the {{site.data.keyword.hpvs}} for VPC instance assumes that a data volume will be attached. The cloud user must either attach the volume during the {{site.data.keyword.hpvs}} for VPC instance creation, or within 5 minutes after instance creation has been started. After this 15-minute wait period, the instance shuts down.
 
 #### Single workload
 {: #hpcr_troubleshoot_workload}
@@ -62,7 +62,7 @@ Currently, only a single workload is supported. Therefore, only a single workloa
 #### The contract is mandatory
 {: #hpcr_troubleshoot_contract}
 
-If you create an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance without any contract that is passed in through the "**User Data**" section, the instance starts running, and then shuts down eventually.
+If you create a {{site.data.keyword.hpvs}} for VPC instance without any contract that is passed in through the "**User Data**" section, the instance starts running, and then shuts down eventually.
 
 ### Contract format is yaml
 {: #hpcr_troubleshoot_contractformat}

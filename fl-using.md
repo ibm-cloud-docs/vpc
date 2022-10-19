@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-01-24"
+  years: 2020, 2021
+lastupdated: "2021-08-06"
 
 keywords: flow logs, getting started
 
@@ -25,7 +25,6 @@ Flow logs can help with a number of tasks, including:
 * Determining source and destination traffic from the network interfaces
 * Adhering to compliance regulations
 * Assisting with root cause analysis
-
 
 ## Overview of features
 {: #fl-overview-of-features}
@@ -132,7 +131,7 @@ Consider a scenario where an attacker initiates connections to different TCP por
 These links provide additional information about {{site.data.keyword.cloud_notm}} Flow Logs for VPC.
 
 * [Flow logs CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#flow-logs-cli-ref)
-* [Flow logs API reference](https://{DomainName}/apidocs/vpc#list-flow-log-collectors)
+* [Flow logs API reference](/apidocs/vpc#list-flow-log-collectors)
 * [FAQs for flow log collectors](/docs/vpc?topic=vpc-fl-faq)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-flow-logs) 
 * [Blog: Time Series Analytics for IBM Virtual Private Cloud (VPC) Flows Using Grafana](https://www.ibm.com/cloud/blog/time-series-analytics-for-ibm-virtual-private-cloud-flows-using-grafana){: external}

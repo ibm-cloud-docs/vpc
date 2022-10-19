@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-06-09"
+lastupdated: "2022-09-27"
 
 keywords:
 
@@ -234,24 +234,24 @@ The following table lists the actions that are related to site-to-site VPN gatew
 The following table lists the actions that are related to client-to-site VPN servers and the generation of events.
 
 | Resource  | Action  | Description  |
-|:----------------|:-----------------------|:-----------------------| 
-| vpn-server  | is.vpn-server.vpn-server.create   | VPN server was created |
-| vpn-server  | is.vpn-server.vpn-server.delete   | VPN server was deleted |
-| vpn-server  | is.vpn-server.vpn-server.update   | VPN server was updated |
-| vpn-server  | is.vpn-server.vpn-server.read   | VPN server was retrieved |
-| vpn-server  | is.vpn-server.vpn-server.list   | VPN servers were listed |
-| vpn-server  | is.vpn-server.vpn-server.configuration.read | VPN server configuration was downloaded |
-| vpn-server  | is.vpn-server.vpn-server-client.create | A VPN client connected to a VPN server |
-| vpn-server  | is.vpn-server.vpn-server-client.delete | VPN client was disconnected and deleted from a VPN server |
-| vpn-server  | is.vpn-server.vpn-server-client.read   | VPN client was retrieved from a VPN server |
-| vpn-server  | is.vpn-server.vpn-server-client.list   | VPN server clients were listed |
-| vpn-server  | is.vpn-server.vpn-server-client.disconnect | VPN client was disconnected from a VPN server, and deleted according to the VPN server's auto-deletion policy |
-| vpn-server  | is.vpn-server.vpn-server-route.create  | VPN server route was created |
-| vpn-server  | is.vpn-server.vpn-server-route.delete   | VPN server route was deleted |
-| vpn-server  | is.vpn-server.vpn-server-route.update  | VPN server route was updated |
-| vpn-server  | is.vpn-server.vpn-server-route.read  | VPN server route was retrieved |
-| vpn-server  | is.vpn-server.vpn-server-route.list  | VPN server routes were listed |
+|:----------------|:-----------------------|:-----------------------|
+| vpn  | is.vpn-server.vpn-server.create   | VPN server was created |
+| vpn  | is.vpn-server.vpn-server.delete   | VPN server was deleted |
+| vpn  | is.vpn-server.vpn-server.update   | VPN server was updated |
+| vpn  | is.vpn-server.vpn-server.read   | VPN server was retrieved |
+| vpn  | is.vpn-server.vpn-server.list   | VPN servers were listed |
+| vpn  | is.vpn-server.vpn-server-configuration.read | VPN server configuration was downloaded |
+| vpn  | is.vpn-server.vpn-server-client.delete | VPN client was disconnected and deleted from a VPN server |
+| vpn  | is.vpn-server.vpn-server-client.read   | VPN client was retrieved from a VPN server |
+| vpn  | is.vpn-server.vpn-server-client.list   | VPN server clients were listed |
+| vpn  | is.vpn-server.vpn-server-client.disconnect | VPN client was disconnected from a VPN server, and deleted according to the VPN server's auto-deletion policy |
+| vpn  | is.vpn-server.vpn-server-route.create  | VPN server route was created |
+| vpn  | is.vpn-server.vpn-server-route.delete   | VPN server route was deleted |
+| vpn  | is.vpn-server.vpn-server-route.update  | VPN server route was updated |
+| vpn  | is.vpn-server.vpn-server-route.read  | VPN server route was retrieved |
+| vpn  | is.vpn-server.vpn-server-route.list  | VPN server routes were listed |
 {: caption="Table 12. Actions that generate events for client-to-site VPN servers" caption-side="bottom"}
+
 
 ## Compute resources
 {: #events-compute}
@@ -544,16 +544,18 @@ Refer to the following information when you are analyzing events:
 
     For update actions, the original value is not included. You can do a read action to get the value before you run an update on the resource.
 
-- The following fields for Bare Metal Servers for VPC AT events will be changing between the Beta and LA releases:
+- The following fields for Bare Metal Servers for VPC AT events are changing between the Beta and LA releases:
 
-   1) The `severity` field in Beta events is not consistent with general practice within VPC and will be corrected in the LA release.
+   1) The `severity` field in Beta events is not consistent with general practice within VPC and is corrected in the LA release.
   
-   2) The `target resourceGroupID` field in Beta events does not include the CRN prefix. This will be corrected in the LA release.
+   2) The `target resourceGroupID` field in Beta events does not include the CRN prefix. This is corrected in the LA release.
   
-   3) Some Beta events include array data. If the array is too large, the event will not be recorded. For LA, these events will display an array element count rather than the actual data.
+   3) Some Beta events include array data. If the array is too large, the event isn't be recorded. For LA, these events display an array element count rather than the actual data.
   
 - Each time you open a console for a virtual server instance or bare metal server, two API calls are issued: the first one generates a console access token, the second one uses the generated token to open the console websocket.
 
-   This will generate two Activity Tracker events: `is.instance.console-access-token.create` and `is.instance.console.read`, or `is.bare-metal-server.console-access-token.create` and `is.bare-metal-server.console.read`.
+   This API call generates two Activity Tracker events: `is.instance.console-access-token.create` and `is.instance.console.read`, or `is.bare-metal-server.console-access-token.create` and `is.bare-metal-server.console.read`.
 
-   You cannot use `request id` to correlate console Activity Tracker events as each call will generate a unique `request id`. Instead, you can use `initiator id` to correlate console events that are generated from API calls issued by the same user.
+   You cannot use `request id` to correlate console Activity Tracker events as each call generates a unique `request id`. Instead, you can use `initiator id` to correlate console events that are generated from API calls that are issued by the same user.
+
+- You can find the detailed information and fields that are included in the `requestData` and `responseData` for Bare Metal Servers for VPC AT events in the [API documentation](/apidocs/vpc/latest).

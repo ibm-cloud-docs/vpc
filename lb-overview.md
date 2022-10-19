@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-12-01"
+  years: 2018, 2022
+lastupdated: "2022-06-15"
 
-keywords: listener, pool, round-robin, weighted, layer 7, datapath logging
+keywords: listener, pool, round-robin, weighted, layer 7, datapath logging, http2, websocket
 
 subcollection: vpc
 
@@ -148,7 +148,7 @@ Application load balancer will continue to support [{{site.data.keyword.cloudcer
 To prevent errors, you must establish the required authorization between your load balancer and {{site.data.keyword.secrets-manager_full_notm}}.
 {: important}
 
-Transport Layer Security (TLS) 1.2 and 1.3 are supported. However, TLS 1.3 is used by default unless you specifically configure the client side to utilize 1.2.
+Transport Layer Security (TLS) 1.2 and 1.3 are supported. However, TLS 1.3 is used by default unless you specifically configure the client side to utilize 1.2. Application load balancers honor all supported TLS 1.3 ciphers sent by the client-side request.
 {: note}
 
 The following lists the supported ciphers (in order of precedence):
@@ -159,6 +159,22 @@ The following lists the supported ciphers (in order of precedence):
 * `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
 * `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
 * `TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256`
+
+### Locating the certificate CRN 
+{: #locating-alb-crn}
+
+When configuring authentication for an application load balancer during provisioning using the UI, you can choose to specify the certificate manager and SSL certificate, or the certificate's CRN. You might want to do this if you cannot view the certificate manager in the drop-down menu, which means you don't have access to the certificate manager instance. Keep in mind that you must enter the CRN if using the API to create an ALB.
+
+To obtain the CRN, you must have permission to access the certificate manager instance.
+{: note}
+
+To find a certificate's CRN, follow these steps:
+
+1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > Resource list**. 
+1. Click to expand **Services and software**, then select the certificate manager that you want to find the CRN for.
+1. Select anywhere in the table row of the certificate to open the Certificate details side panel. The certificate CRN is listed. 
+
+   ![Service instance CRN](images/vpn-crn.png "Service instance CRN"){: caption="Service instance CRN" caption-side="bottom"}
 
 ## End-to-end SSL encryption
 {: #end-to-end-ssl-encryption}
@@ -195,11 +211,19 @@ An application load balancer adjusts its capacity automatically according to the
 
 With datapath logging enabled, load balancer logs are forwarded to the [{{site.data.keyword.la_full_notm}}](https://cloud.ibm.com/catalog/services/ibm-log-analysis){: external} service, where you can view your datapath logs.
 
+## HTTP2 support
+{: #http2-support}
+Application load balancers support end-to-end HTTP2 traffic, and works with listener protocols set as either HTTPS or TCP.
+
+## WebSocket support
+{: #websocket-support}
+WebSocket provides full-duplex communication channels over a single TCP connection. Application load balancers support WebSocket with every type of listener protocol (HTTP/HTTPS/TCP). 
+
 ## Related links
 {: #permissions-related-links-alb}
 
 * [Load balancer CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#alb-anchor)
-* [Load balancer API reference](https://{DomainName}/apidocs/vpc#list-load-balancer-profiles)
+* [Load balancer API reference](/apidocs/vpc#list-load-balancer-profiles)
 * [ALB for VPC infrastructure resources for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_lb){: external} (VPC infrastructure > Resources)
 * [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
 * [{{site.data.keyword.cloudaccesstraillong_notm}} events](/docs/vpc?topic=vpc-at-events#events-load-balancers)

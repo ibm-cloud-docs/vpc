@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-01-10"
+lastupdated: "2022-09-09"
 
 keywords: flow logs, viewing objects, SQL, analyze
 
@@ -23,7 +23,11 @@ Currently, flow logs collect Transmission Control Protocol (TCP) and User Datagr
 
 Each flow log object contains individual flow logs. To view or analyze the flow logs, follow these steps.
 
-1. Ensure that you created an instance of {{site.data.keyword.sqlquery_full}}.
+1. Ensure that you created an instance of {{site.data.keyword.sqlquery_full}}. To create a service instance, see [Getting started with IBM Cloud Data Engine](/docs/sql-query).
+   
+   Cloud Object Storage offers Lite (free) and Standard pricing plans. If you are using the Lite plan, you will not be able to perform tasks that are available with the Standard plan, such as creating tables or using SQL queries. Instead, see [Viewing generated flow log object files from the COS bucket](/docs/vpc?topic=vpc-fl-analyze&interface=ui#viewing-generated-flow-log-object-files-from-the-cos-bucket) and alternative methods documented in the following procedures.
+   {: note}
+   
 1. Launch {{site.data.keyword.sqlquery_full}}.
 1. Start querying flow logs from the bucket that you specified when [Creating a flow log collector](/docs/vpc?topic=vpc-ordering-flow-log-collector).
 
@@ -95,7 +99,7 @@ Flows are tagged as rejected if their packets were blocked by security group or 
 Flow logs are written to the user-specified COS bucket in the following naming convention:
 
 ```sh
-ibm_vpc_flowlogs_v1/account={account}/region={region}/vpc-id={vpc-id}/subnet-id={subnet-id}/endpoint-type=vnics/instance-id={vsi-id}/vnic-id={vnic-id}/record-type={all|ingress|egress|internal}/year={xxxx}/month={yy}/day={zz}/hour={hh}/stream-id={stream-id}/{sequence-number}.gz
+ibm_vpc_flowlogs_v1/account={account}/region={region}/vpc-id={vpc-id}/subnet-id={subnet-id}/endpoint-type=vnics/instance-id={vsi-id}/vnic-id={vnic-id}/record-type={all|ingress|egress}/year={xxxx}/month={yy}/day={zz}/hour={hh}/stream-id={stream-id}/{sequence-number}.gz
 ```
 {: screen}
 
@@ -103,7 +107,7 @@ Where:
 
 * `{stream-id}` is a date and time string in ISO 8601 format `yyyymmddThhmmssZ` (Coordinated Universal Time), defined as the time the first object in the `directory` was created.
 * `{sequence-number}` is a running counter of objects within the stream, represented as an eight-character, zero-filled field (`%08d`).
-* `{all|ingress|egress|internal}` shows the type of traffic the flow includes.
+* `{all|ingress|egress}` shows the type of traffic the flow includes.
 * `{xxxx}` is the year in four-digit format.
 * `{yy}` is the month in two-digit, zero-leading format.
 * `{zz}` is the day of the month in two-digit, zero-leading format.
@@ -212,11 +216,11 @@ In most cases, you can find the direction field by comparing the vNIC’s privat
 ### Analyzing flow logs by using IBM Cloud SQL Query
 {: #analyzing-flow-logs-for-vpc-using-sql}
 
-You can analyze flow logs with SQL that uses {{site.data.keyword.sqlquery_full}} by using the path to the objects on COS in the FROM clause of your SQL query. (For an example, see Step 3 in [Viewing flow log objects](/docs/vpc?topic=vpc-fl-analyze). However, for a more convenient way of querying, it is recommended that you create table and view definitions that give you a flattened view on your flows. For more information about table catalog functions and benefits, see [Catalog management](/docs/sql-query?topic=sql-query-hivemetastore).
+You can analyze flow logs with SQL that uses {{site.data.keyword.sqlquery_full}} by using the path to the objects on COS in the FROM clause of your SQL query. (For an example, see Step 3 in [Viewing flow log objects](/docs/vpc?topic=vpc-fl-analyze). However, for a more convenient way of querying, it is recommended that you create table and view definitions that give you a flattened view on your flows. For more information about table catalog functions and benefits, see [Getting started with the catalog](/docs/sql-query?topic=sql-query-getting_started_catalog).
 
 The view flattens the flow log data structure; thus, making it easier to analyze your flows.
 
-For more elaborate and repeatable analysis, such as when you want to collaborate and share your log analysis, it is recommended that you use {{site.data.keyword.sqlquery_full}} through Jupyter Notebooks (for example, through IBM Watson Studio). For a generic starter and demo notebook for {{site.data.keyword.sqlquery_full}} that you can use as basis for your work, see [Using IBM Cloud SQL Query](https://dataplatform.cloud.ibm.com/exchange/public/entry/view/4a9bb1c816fb1e0f31fec5d580e4e14d).
+For more elaborate and repeatable analysis, such as when you want to collaborate and share your log analysis, it is recommended that you use {{site.data.keyword.sqlquery_full}} through Jupyter Notebooks (for example, through IBM Watson Studio). For a generic starter and demo notebook for {{site.data.keyword.sqlquery_full}} that you can use as basis for your work, see [Using IBM Cloud SQL Query](https://dataplatform.cloud.ibm.com/analytics/notebooks/v2/656c7d43-7ccd-4e50-a3c0-bbc37c001132/view?access_token=baaa77ad715e17a8f823615d45431329fde0fe92fecb85abb9fc55a877939fe8){: external}.
 {: note}
 
 **Important**: Replace these variables in the following steps:
@@ -239,7 +243,7 @@ To analyze flow logs, follow these steps:
     capture_start_time timestamp,
     capture_end_time timestamp,
     number_of_flow_logs int,
-    flow_logs array<struct<
+    flow_logs array<struct>
          start_time: string,
          end_time: string,
          connection_start_time: string,
@@ -290,11 +294,14 @@ To analyze flow logs, follow these steps:
    FROM EXPLODED_FLOW
    ```
    {: codeblock}
+     
+You can verify that flow log data is being collected by using IBM Cloud Monitoring. For more information, see [Monitoring flow logs for VPC metrics](/docs/vpc?topic=vpc-fl-monitoring-metrics).
+{: tip} 
 
 #### Optimizing flow logs layout with {{site.data.keyword.sqlquery_full}}
 {: #optimizing-flow-logs-layout}
 
-When large amounts of flow logs are analyzed, it is recommended to convert flow logs to a layout optimal for queries. This conversion improves query execution time by at least one order of magnitude. For more information about data optimization on COS, see [How to Layout Big Data in IBM Cloud Object Storage for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout).
+When large amounts of flow logs are analyzed, it is recommended to convert flow logs to a layout optimal for queries. This conversion improves query execution time by at least one order of magnitude. For more information about data optimization on COS, see [How to Layout Big Data in IBM Cloud Object Storage for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout){: external}.
 
 The following SQL statement is an ETL job addresses two aspects that contribute significantly to query execution time:
 
@@ -338,7 +345,7 @@ To optimize flow logs layout with {{site.data.keyword.sqlquery_full}}, follow th
 
 1. Use the table `FLOW_PARQUET` instead of `FLOW_FLAT`.  
 
-   For more information about how data layout influences query execution times, see [How to Layout Big Data in IBM Cloud Object Storage for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout "data layout").
+   For more information about how data layout influences query execution times, see [How to Layout Big Data in IBM Cloud Object Storage for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout "data layout"){: external}.
 
 #### Example queries for flow logs with {{site.data.keyword.sqlquery_full}}
 {: #example-queries-for-flow-logs-with-sql}
@@ -409,7 +416,29 @@ ORDER BY `bytes` DESC LIMIT 5
 ```
 {: codeblock}
 
-### Example solution: Analyzing flow Logs for VPC
+### Example solution: Analyzing flow logs
 {: #example-analyzing-flow-logs}
 
-You can download an example solution of how to use IBM Log Analysis to analyze flow logs from [https://github.com/IBM-Cloud/vpc-flowlogs-logdna](https://github.com/IBM-Cloud/vpc-flowlogs-logdna). This project ([Readme file](https://github.ibm.com/portfolio-solutions/vpc-flowlogs-logdna/blob/master/README.md)) shows how to use a trigger function to read a flow log COS object and write it to IBM Log Analysis.
+You can download an example solution of how to use IBM Log Analysis to analyze flow logs from [https://github.com/IBM-Cloud/vpc-flowlogs-logdna](https://github.com/IBM-Cloud/vpc-flowlogs-logdna){: external}. This project ([Readme file](https://github.ibm.com/portfolio-solutions/vpc-flowlogs-logdna/blob/master/README.md){: external}) shows how to use a trigger function to read a flow log COS object and write it to IBM Log Analysis.
+
+### Viewing generated flow log files from the COS bucket
+{: alternative-method}
+
+If you use the Lite (free) pricing plan for Cloud Object Storage, you cannot use an SQL query to confirm the creation of flow log objects in the COS bucket without purchasing the Standard pricing plan. As an alternative, you can access generated flow log object files directly from the COS bucket to verify that the files were created successfully and that the objects are being generated.
+
+To view generated flow log files from the COS bucket, follow these steps:
+
+1. To ensure that the flow logs are being captured, check the COS bucket. For example, check the `ibm_vpc_flowlogs_v1` entry as shown:
+ 
+   ![Viewing flow log files in a COS bucket](images/fl-objects.png){: caption="Viewing flow log files in a COS bucket" caption-side="bottom"}
+
+1. Navigate in the folder to find your VPC or the resource where you configured monitoring.
+
+   ![Viewing flow log files in a COS bucket](images/flow-logs-cos1.png){: caption="Viewing flow log files in a COS bucket" caption-side="bottom"}
+   
+1. Drill-down into the resource to find the network resource that you are monitoring. 
+
+   If configured correctly, you should see several gzip files for each log entry.
+
+Using SQL queries, you can flatten and view these objects or any other type of view of all these files. In our case, we want to ensure that data is being captured. Download one of the files to view its contents to ensure that traffic is being captured.
+{: note}

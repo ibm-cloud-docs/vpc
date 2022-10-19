@@ -92,4 +92,4 @@ To see `curl` commands to invoke the metadata service API and retrieve data, see
 ## Next steps
 {: #imd-next-steps-windows}
 
-[Use the instance metadata service (Beta)](https://test.cloud.ibm.com/docs/vpc?topic=vpc-imd-get-metadata).
+[Use the instance metadata service (Beta)](/docs/vpc?topic=vpc-imd-get-metadata).

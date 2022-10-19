@@ -11,15 +11,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # Understanding Internet Communication Protocols
 {: #understanding-icp}
@@ -42,15 +34,10 @@ What developers need to know is that ICMP packets have no TCP or UDP port number
 ## TCP and UDP
 {: #network-infrastructure-tcp-udp}
 
-Both Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) are OSI layer 4 _transport protocols_; they are used to pass the actual data. The main difference between TCP and UDP, from a developer's perspective, is how they handle **packet order**.
+Both Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) are OSI layer 4 transport protocols. These protocols are used to pass the actual data. The main difference between TCP and UDP, from a developer's perspective, is how they handle packet order.
 
-TCP is a connection-oriented protocol, it guarantees that all sent packets will reach the destination in the correct order.
+TCP is a connection-oriented protocol, it guarantees that all sent packets reach the destination in the correct order.
 
-UDP, on the other hand, is a connection-less protocol. Communication is datagram-oriented, so the integrity is guaranteed only on the single datagram. Datagrams reach a destination and can arrive out of order, or possibly they don't arrive at all.
+Alternatively, UDP is a connection-less protocol. Communication is datagram-oriented, so the integrity is guaranteed only on the single datagram. Datagrams reach a destination and can arrive out of order, or possibly they don't arrive at all.
 
-UDP  generally is used for real-time communication, where a little percentage of the packet loss rate is preferable to the overhead of a TCP connection.
-
-## Additional information
-{: #network-infrastructure-additional-information}
-
-An overview of the OSI 7-layer model with examples of internet protocols at each layer is available [here](https://www.webopedia.com/quick_ref/OSI_Layers.asp).
+Typically, UDP is used for real-time communication, where a little percentage of the packet loss rate is preferable to the overhead of a TCP connection.

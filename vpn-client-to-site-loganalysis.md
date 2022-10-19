@@ -12,11 +12,8 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Using IBM Log Analysis to view VPN server logs (Beta)
+# Using IBM Log Analysis to view VPN server logs
 {: #client-vpn-log-analysis-c2s}
-
-Client VPN for VPC is available to all IBM Cloud users. After the Beta period ends, you will be given a time period to migrate your VPN servers to the standard pricing plan to avoid disruption of service.
-{: beta}
 
 You can use {{site.data.keyword.la_full}} to view application and client logs from your {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_short}} server.
 {: shortdesc}

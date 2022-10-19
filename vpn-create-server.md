@@ -12,13 +12,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Creating a VPN server (Beta)
+# Creating a VPN server
 {: #vpn-create-server}
 {: help}
 {: support}
-
-Client VPN for VPC is available to all IBM Cloud users. After the Beta period ends, you will be given a time period to migrate your VPN servers to the standard pricing plan to avoid disruption of service.
-{: beta}
 
 Create a VPN server to allow clients from the internet to connect to the VPC network while maintaining secure connectivity.
 {: shortdesc}
@@ -89,7 +86,7 @@ To create a client-to-site VPN server by using the UI:
 
 1. In the Authentication section, specify the following information:
 
-   * **VPN server authentication** - Select the server SSL certificate from Secrets Manager or Certificate Manager. Complete all required fields.
+   * **VPN server authentication** - Select the server SSL certificate from Secrets Manager. Complete all required fields.
 
       ![VPN server authentication section](images/vpn-server-authentication.png){: caption="VPN server authentication section" caption-side="bottom"}
 
@@ -196,7 +193,7 @@ To create a client-to-site VPN server by using the API, follow these steps:
 1. When all variables are initiated, create the VPN server:
 
    ```sh
-      curl -X POST "$vpc_api_endpoint/v1/vpn_servers?version=$api_version&maturity=beta&generation=2" \
+      curl -X POST "$vpc_api_endpoint/v1/vpn_servers?version=$api_version&generation=2" \
         -H "Authorization: $iam_token" \
         -d '{
            "certificate": {

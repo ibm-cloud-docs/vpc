@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-07-11"
+lastupdated: "2022-07-24"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -10,15 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:table: .aria-labeledby="caption"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Attestation
 {: #about-attestation}
@@ -30,34 +22,37 @@ When you create a virtual server instance by using the IBM Hyper Protect Contain
 
 The boot process creates a unique root disk encryption key to ensure protection of the root disk. To perform attestation, the virtual server instance image contains an attestation-signing key and the hash of the root partition at build time. The boot process validates the root partition. If the hash of the root partition does not match, the boot process does not continue because it assumes that the image was modified before boot. The attestation signing key is a random RSA 4 K key that is signed by an IBM root key that is maintained in Hyper Protect Crypto Services. The IBM root key is signed by Digicert.
 
-During deployment of the virtual server instance in the cloud, an attestation record is created. It contains hashes of the following items  
+During deployment of the virtual server instance in the cloud, an attestation record is created. It contains hashes of the following items:
 
 * The original base image
 * The root partition at the moment of the first boot
 * The root partition at build time
-* The cloud initialization options  
+* The cloud initialization options
 
 The attestation record is signed by the attestation key. As an extra protection layer, you can provide a public key during deployment, against which the attestation record is encrypted. The hash of this public key is added to the attestation record to ensure that the record can be viewed only by the compliance authority, and the expected authority can be easily identified through that hash.
 
 Before you upload any workload to your instance, you need to validate the attestation record. After an instance is created, you can validate the attestation record within the created instance. Your instance must have access to the `/var/hyperprotect` directory. If so, follow these procedures:
 
 * The attestation record is signed by the attestation signing key.
-* The attestation signing key can be confirmed by the IBM intermediate certificate. The IBM intermediate certificate is signed by DigiCert, which is proven by the root certificate of DigiCert, thus completing the chain of trust. 
+* The attestation signing key can be confirmed by the IBM intermediate certificate. The IBM intermediate certificate is signed by DigiCert, which is proven by the root certificate of DigiCert, thus completing the chain of trust.
 
 The encryption and attestation certificates are signed by the IBM intermediate certificate and this has been signed by the IBM Digicert intermediate cert (which in turn is signed by DigiCert Trusted Root G4). For more information about the certificates, see [DigiCert Trusted Root Authority Certificates](https://www.digicert.com/kb/digicert-root-certificates.htm).
 
 Use the following procedure to validate the attestation record and hashes:
 
 * Get the attestation record `se-checksums.txt` and the signature file `se-signature.bin` from your instance.
-* Get the DigiCert certificates. The DigiCert Trusted Root G4 certificate can be downloaded [here](https://cacerts.digicert.com/DigiCertTrustedRootG4.crt.pem), and the Digicert G4 intermediate certificate can be downloaded [here](https://cacerts.digicert.com/DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt.pem).
-* Get the [IBM intermediate certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-1-intermediate.crt)
-* Get the [IBM attestation certificate](https://cloud.ibm.com/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-1-attestation.crt)
-* Verify the IBM attestation key:  
-  - extract the attestation public key from the IBM attestation certificate  
-  - `openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-1-attestation.crt -pubkey -noout > pubkey.pem`.
-* Verify the attestation record, containing the hashes:  
-  - `openssl dgst -sha256 -verify pubkey.pem -signature se-signature.bin se-checksums.txt`.  
-* You can now use the hashes from the attestation record for validation
+* Get the IBM attestation certificate [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-5-attestation.crt){: external}, for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-5`.
+  For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-4`, you can download the IBM attestation certificate [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-4-attestation.crt){: external}
+  {: note}
+
+* Validate the attestation certificate by following the instructions [here](/docs/vpc?topic=vpc-cert_validate#validate_attest_cert).
+* Extract the encryption public key from the encryption certificate by using the following command:
+  ```sh
+  openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-5-attestation.crt > contract-public-key.pub
+  ```
+  {: pre}
+
+* You can now use the hashes from the attestation record for validation.
 
 In case you provided a public key for encrypting the attestation record, the following script might help in decrypting the record.
 
@@ -108,7 +103,7 @@ The `decrypt-attestation.sh` file can be accessed by mounting the `/var/hyperpro
 ## The attestation document
 {: #attestation_doc}
 
-The attestation document is available at `/var/hyperprotect/se-checksums.txt`, within the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instance. The other related files are also located in the same directory.
+The attestation document is available at `/var/hyperprotect/se-checksums.txt`, within the {{site.data.keyword.hpvs}} for VPC instance. The other related files are also located in the same directory.
 
 The following information is available at the `/var/hyperprotect/` directory:
 ```sh
@@ -208,9 +203,9 @@ The encrypted attestation document is then named `se-checksums.txt.enc`. The `de
 
 The following diagram shows two scenarios for attestation from the point of view of the auditor to validate that the deployment is the expected one. The left side of the diagram shows the establishment of trust by the auditor who is rooted on a third-party certificate authority. Any key used is kept in a Hyper Protect Crypto Service and signed in a certificate chain based on the third-party authority. The Build environment that is used by Hyper Protect is running in a trusted execution environment by using IBM Secure Execution Technology.
 
-The result is a secure execution image that is seen at the end of the diagram, which is an encrypted secure execution image. To the right of the diagram, the validation of the deployment is outlined. For this, the auditor includes into the encrypted workload contract of the IBM Hyper Protect instance, the public key of a secret, which only the auditor has control over. Such secrets might be protected by appropriate means, like a Hyper Protect Crypto Service, HSM or just a random key. Only the Hyper Protect bootloader that is executed in the trusted execution environment provided through IBM Secure Execution for Linux on IBM LinuxONE, can run the secure execution image of IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}}. The bootloader contains the secret to decrypt the contract.
+The result is a secure execution image that is seen at the end of the diagram, which is an encrypted secure execution image. To the right of the diagram, the validation of the deployment is outlined. For this, the auditor includes into the encrypted workload contract of the IBM Hyper Protect instance, the public key of a secret, which only the auditor has control over. Such secrets might be protected by appropriate means, like a Hyper Protect Crypto Service, HSM or just a random key. Only the Hyper Protect bootloader that is executed in the trusted execution environment provided through IBM Secure Execution for Linux on IBM LinuxONE, can run the secure execution image of {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}}. The bootloader contains the secret to decrypt the contract.
 
-During boot several hashes of components and measures of code are taken and added to the attestation record. To further protect this attestation record, the record is encrypted with the public key that the auditor provided. By doing so, only the auditor is in the position to decrypt the attestation record and can validate that the workload that is deployed in the enclave is the expected and untampered version of the workload that is expected to be deployed into the IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instance.
+During boot several hashes of components and measures of code are taken and added to the attestation record. To further protect this attestation record, the record is encrypted with the public key that the auditor provided. By doing so, only the auditor is in the position to decrypt the attestation record and can validate that the workload that is deployed in the enclave is the expected and untampered version of the workload that is expected to be deployed into the {{site.data.keyword.hpvs}} for VPC instance.
 
 ![Figure showing the attestation process](images/vsi_se_attestationrecord.png "Figure showing the attestation process"){: caption="Figure 1. Attestation process" caption-side="bottom"}
 

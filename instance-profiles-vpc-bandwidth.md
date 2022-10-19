@@ -86,7 +86,7 @@ The network bandwidth cap applies separately to egress (transmitted) and ingress
 <!--Customers will have the ability to modify the amount provided to volume bandwidth within the overall instance limits. A default amount of volume bandwidth will be set on each instance profile.
 1Gbps-2Gbps per-vCPU with a limit of 80Gbps-->
 
-For more information on instance profiles, including network performance information, see [Instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
+For more information on instance profiles, including network performance information, see [x86 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui).
 
 
 <!-- Do we want to communicate this?-->
@@ -96,5 +96,5 @@ For more information on instance profiles, including network performance informa
 {: bandwidth-next-steps}
 
 For more information, see:
-* [Instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui)
+* [x86 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui)
 * [Adjusting bandwidth allocation using the UI](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#adjusting-bandwidth-allocation-ui)

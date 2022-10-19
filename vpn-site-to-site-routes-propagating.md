@@ -25,7 +25,7 @@ Select `VPN gateway` in the following cases:
 
 When you create a routing table, make sure to select `VPN gateway` if you want VPN gateway routes propagated to it. For the default routing table, `VPN gateway` is selected by default.
 
-Currently, `Accepts routes from` can't be patched to an empty list. The VPN gateway propagates routes to only the default routing table. Make sure to select `VPN gateway` for the default routing table's `Accepts routes from` attribute.
+Currently, the VPN gateway propagates routes to only the default routing table. Make sure to select `VPN gateway` for the default routing table's `Accepts routes from` attribute.
 {: note}
 
 ![Policy-based VPN gateway accepts routes from](images/vpn-gateway-routes-propagating.png){: caption="Policy-based VPN gateway accepts routes from" caption-side="bottom"}

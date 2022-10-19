@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-20"
+lastupdated: "2022-08-25"
 
 keywords: juniper, juniper peer, vSRX peer
 
@@ -18,7 +18,7 @@ subcollection: vpc
 You can use IBM Cloud VPN for VPC to securely connect your VPC to an on-prem network through a VPN tunnel. This topic provides guidance on how to configure your Juniper VPN gateway to connect to VPN for VPC.
 {: shortdesc}
 
-Because Juniper vSRX requires Perfect Forward Secrecy (PFS) to be enabled in Phase 2, you must create a custom IPsec policy to replace the default policy for the VPN in your VPC. For more information, see [Creating a custom IPsec policy for Juniper vSRX](#custom-ipsec-policy-with-vsrx).
+If Juniper vSRX requires Perfect Forward Secrecy (PFS) to be enabled in Phase 2, you need to create a custom IPsec policy to replace the default policy for the VPN in your VPC. For more information, see [Creating a custom IPsec policy for Juniper vSRX](#custom-ipsec-policy-with-vsrx).
 {: important}
 
 These instructions are based on Juniper vSRX, JUNOS Software Release [15.1X49-D123.3].
@@ -36,17 +36,14 @@ To support these functions, you must do the following on the Juniper vSRX unit:
 
 General configuration steps are as follows.
 
-1. Choose `IKEv1` in Phase 1.
+1. Choose `IKEv2` in Phase 1.
 1. Set up policy-based mode.
-1. Enable `DH-group 2` in the Phase 1 proposal.
+1. Enable `DH-group 19` in the Phase 1 proposal.
 1. Set `lifetime = 36000` in the Phase 1 proposal.
 1. Enable PFS in the Phase 2 proposal.
 1. Set `lifetime = 10800` in the Phase 2 proposal.
 1. Input your peer and subnet information in the Phase 2 proposal.
 1. Allow UDP 500 traffic on the external interface.
-
-Make sure that you specify `IKEv1` in Phase 1. Juniper vSRX supports IKEv2 in route-based mode only. If you set up IKEv2 in policy-based mode, you'll see the error `IKEv2 requires bind-interface configuration as only route-based is supported`. For a route-based setup, see [route-based setup](#route-based-setup-vsrx) instructions.
-{: important}
 
 ## Policy-based configuration for Juniper vSRX
 {: #policy-based-setup-vsrx}
@@ -76,7 +73,7 @@ Here's an example of how to set up security.
    set security ike gateway ibm-vpc-policy-vpn-gateway dead-peer-detection threshold 3
    set security ike gateway ibm-vpc-policy-vpn-gateway local-identity inet <vSRX Public IP>
    set security ike gateway ibm-vpc-policy-vpn-gateway external-interface ge-0/0/1.0
-   set security ike gateway ibm-vpc-policy-vpn-gateway version v1-only
+   set security ike gateway ibm-vpc-policy-vpn-gateway version v2-only
    ```
    {: codeblock}
 
@@ -156,7 +153,7 @@ Here's an example of how to set up security.
 ## Creating a custom IPsec policy for Juniper vSRX
 {: #custom-ipsec-policy-with-vsrx}
 
-By default, {{site.data.keyword.vpn_vpc_short}} disables PFS in Phase 2, and Juniper vSRX requires PFS to be enabled in Phase 2. Therefore, you must create a custom IPsec policy to replace the default policy for the VPN in your VPC.
+By default, {{site.data.keyword.vpn_vpc_short}} disables PFS in Phase 2. If Juniper vSRX requires PFS to be enabled in Phase 2, you need to create a custom IPsec policy to replace the default policy for the VPN in your VPC.
 
 To use a custom IPsec policy in {{site.data.keyword.vpn_vpc_short}}, follow these steps:
 

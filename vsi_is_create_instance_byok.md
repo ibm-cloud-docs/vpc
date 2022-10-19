@@ -327,7 +327,7 @@ A successful response will look like this. Note that the boot volume appears und
     "bandwidth": 4000,
     "resource_group": {
         "id": "08b7af6d-41d9-435a-8b22-fd8f640863a5",
-        "href": "https://resource-controller.test.cloud.ibm.com/v2/resource_groups/
+        "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/
          08b7af6d-41d9-435a-8b22-fd8f640863a5",
         "name": "Default"
     },

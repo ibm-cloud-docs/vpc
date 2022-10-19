@@ -1,32 +1,21 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-07-12"
+  years: 2022, 2022
+lastupdated: "2022-10-19"
 
-keywords:
+keywords: Storage for VPC, backup for VPC, backup snapshot, restore VPC volume
 
 subcollection: vpc
 
-
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:beta: .beta}
-{:table: .aria-labeledby="caption"}
-{:DomainName: data-hd-keyref="APPDomain"}
-{:DomainName: data-hd-keyref="DomainName"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Backup for VPC
 {: #backup-service-about}
 
-Use {{site.data.keyword.cloud}} Backup for VPC to automatically back up, manage, and restore block storage volumes from backups. By using this service, you prevent data loss, manage risk, and improve data compliance. The backup service let's you create and manage backup policies for your block storage volumes. Apply these policies to your volumes to assure your data is backed up regularly. Retain the backups as long as you need.
+Use {{site.data.keyword.cloud}} Backup for VPC to automatically back up, manage, and restore block storage volumes from backup snapshots. By using this service, you prevent data loss, manage risk, and improve data compliance. The backup service let's you create and manage backup policies for your block storage volumes. Apply these policies to your volumes to assure your data is backed up regularly. Retain the backups as long as you need.
 {: shortdesc}
 
 ## Backup service concepts
@@ -34,7 +23,8 @@ Use {{site.data.keyword.cloud}} Backup for VPC to automatically back up, manage,
 
 The {{site.data.keyword.cloud_notm}} Backup for VPC service lets you create backup policies for your block storage volumes. A backup policy contains a backup plan, which defines a schedule for automated backups. You can create up to four plans per policy, and edit and delete them as needed. You can view and manage backup jobs to see these actions. If you're undecided on how often to schedule backups or you don't know all the tags yet for your target resources, you can optionally create a backup policy without a plan and add one later.
 
-When the backup is triggered at the scheduled interval, a backup is created of your volume contents. A backup is actually a snapshot. Behind the scenes, the [Snapshots for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about) service is used to create a point-in-time copy of your data. The entire contents of the volume are copied (snapshotted) and retained. Subsequent backups of the same volume capture the changes since the previous backup. You can take up to 100 backups of a volume. 
+When the backup is triggered at the scheduled interval, a backup is created of your volume contents. A backup is actually a snapshot. Behind the scenes, the [Snapshots for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about) service is used to create a point-in-time copy of your data. The entire contents of the volume are copied and retained in a snapshot. Subsequent backups of the same volume capture the changes since the previous backup. You can take up to [750 backups of a volume](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#snapshots_vpc_considerations). 
+
 
 Backups appear in the list of block storage snapshots. They are identified by how they were created, in this case, by backup policy. Backups are in effect, backup snapshots. These terms are used interchangeably in the documentation, depending on the context.
 {: note}
@@ -43,16 +33,16 @@ In a backup plan, you schedule the [frequency](/docs/vpc?topic=vpc-backup-policy
 
 You also set a [retention period](/docs/vpc?topic=vpc-backup-policy-create&interface=ui#backup-automated-plan-ui) for your backups. This can be based on the number of days you want to keep the backups or the total number of backups to retain before they are deleted. Planning for your retention and deletion of backups will keep your costs down.
 
-Backup's require that the volume you're backing up is attached to a running virtual server instance. Put another way, you can't backup an unattached volume.
+Backups require that the volume you're backing up is attached to a running virtual server instance. Put another way, you can't back up an unattached volume.
 
-A volume is backed up when [user-provided tags](#backup-service-about-tags) associated with a block storage volume match tags for target resources in a backup policy. The volume must have at least one of the backup policy’s tags for the target resources. When the scheduled backup is triggered by a backup plan, all volumes with matching tags in the policy are backed up. If a volume has multiple tags, only one tag has to match for a backup to trigger. 
+A volume is backed up when [user-provided tags](#backup-service-about-tags) associated with a block storage volume match tags for target resources in a backup policy. The volume must have at least one of the backup policy’s tags for the target resources. When the scheduled backup is triggered by a backup plan, all volumes with matching tags in the policy are backed up. If a volume has multiple tags, only one tag has to match for a backup to trigger. You can add user tags to boot and data volumes at any time and when [creating a virtual server instance](/docs/vpc?topic=vpc-creating-block-storage&interface=ui#create-from-vsi) or in an instance template. Any instance volumes with tags matching the backup policy will be backed up.
 
 Use the UI, CLI, or API to create backup policies and plans for your block storage volumes. Before creating backups, see this information on [planning your backups](/docs/vpc?topic=vpc-backups-vpc-planning). For best practices and other considerations when creating backups, see [Best practices for creating backups](/docs/vpc?topic=vpc-backups-vpc-best-practices).
 
 The backup API is now generally available, with the exception of the backup jobs API, which remains in beta. See the [Change log](/docs/vpc?topic=vpc-api-change-log#21-june-2022) in VPC Getting Started.
 {: note}
 
-You can [restore](backup-service-restore-concepts) a new, fully provisioned volume from a backup snapshot. If the backup is of a boot volume, you can use it to provision a new instance. Note that there are performance considerations when using a restoring a boot volume from "bootable" backup snapshot when provisioning a new instance. For more information, see [Performance considerations when using a bootable backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore&interface=ui#baas-boot-perf). 
+You can [restore](#backup-service-restore-concepts) a new, fully provisioned volume from a backup snapshot. If the backup is of a boot volume, you can use it to provision a new instance. Note that there are performance considerations when using a restoring a boot volume from "bootable" backup snapshot when provisioning a new instance. For more information, see [Performance considerations when using a bootable backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore&interface=ui#baas-boot-perf). 
 
 ### Comparison of backups and snapshots
 {: #baas-comparison}
@@ -69,7 +59,7 @@ Backups and snapshots services are different than a disaster recovery (DR) solut
 | Backup data by a schedule | ![Checkmark icon](../icons/checkmark-icon.svg) | |
 | Backup data immediately | | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Data copied is at a specific point in time | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
-| Set retention period for automatic deletion | | ![Checkmark icon](../icons/checkmark-icon.svg) |
+| Set retention period for automatic deletion | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Take up to 750 snapshots/volume | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 | Costs are based on GBs per month | ![Checkmark icon](../icons/checkmark-icon.svg) | ![Checkmark icon](../icons/checkmark-icon.svg) |
 {: caption="Table 1. Comparison of backups and snapshots" caption-side="bottom"}
@@ -94,7 +84,7 @@ The {{site.data.keyword.cloud_notm}} Backup for VPC offers you the following ben
 
 Backup policies consist of plans that define schedules for automatic backup creation and data retention. You can schedule backups on a daily, weekly, or monthly basis.
 
-You specify the retention period or total number of backups before the oldest are deleted. The default retention period is 30 days. Alternatively, you can set the total number of backups to retain up to 100 per volume backed up, after which the oldest backups are deleted.
+You specify the retention period or total number of backups before the oldest are deleted. The default retention period is 30 days. Alternatively, you can set the total number of backups to retain up to 750 per volume backed up, after which the oldest backups are deleted.
 
 The interval for creating a backup and its retention period can be the same or different. 
 
@@ -121,10 +111,9 @@ There is no limit to the number of tags you can specify for your resources. Howe
 ### Restoring a volume from a backup
 {: #backup-service-restore-concepts}
 
-You can create a new volume from a backup snapshot created by a backup policy. This process is called restoring a volume. It works the same way as manually created snapshots. Restoring a volume from a backup snapshot creates a fully provisioned block storage boot or data volume. 
+You can create a new volume from a backup snapshot that was created by a backup policy. This process is called restoring a volume. It works the same way as manually created snapshots. Restoring a volume from a backup snapshot creates a fully provisioned block storage boot or data volume.
 
-Restoring is as easy as going to the list of block storage snapshots, picking a snapshot, and clicking **Create volume** from the overflow menu. This process lets you create a new volume and attach it to an existing instance or new instance.
-You can also select a backup snapshot of a boot volume when provisioning a new instance. Because the bootable backup snapshot is not fully hydrated, performance will be slower than using a regular boot volume. For more information, see [Performance considerations when using a bootable backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore&interface=ui#baas-boot-perf). For more information about restoring a volume, see [Restoring a volume from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore). The restored volume has the same capacity and IOPS tier profile as the original volume. Restoring a boot volume creates a volume you can use to start up an instance. Restoring a data volume provides a secondary volume attached to the instance.
+Volume restoration can be performed when creating a new instance, modifying an instance, or when creating a stand-alone volume (no instance provisioning is required). Volume data restoration begins immediately as the volume is hydrated, but [performance is degraded](/docs/vpc?topic=vpc-baas-vpc-restore&interface=ui#baas-performance-considerations) until the volume is fully restored. Restoring from a bootable snapshot will be slower than using a regular boot volume. You can also restore a data volume from a snapshot of an unattached volume. The restored volume has the same capacity and IOPS tier profile as the original volume. For more information, see [Restoring a volume from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).
 
 ## User roles for backup policies
 {: #backup-service-user-roles}
@@ -169,7 +158,7 @@ Limitations for this release include the following:
 
 * Backups are restricted to a single region. You cannot share backups or create backup policies across regions.
 * You can create up to 10 backup polices per account.
-* You can take a total of 100 backups per volume based on your backup policy, in your account and region. Backups will fail if you exceed this limit.
+* You can take a total of 750 backups per volume based on your backup policy, in your account and region. Backups will fail if you exceed this limit.
 * The first backup and/or the entire volume backup cannot exceed 10 TB.
 * You can't take a backups of a detached volume.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2022-01-05"
+lastupdated: "2022-10-18"
 
 keywords: block storage, boot volume, data volume, volume, data storage, file storage, snapshots
 
@@ -83,9 +83,9 @@ For more information, see [About Snapshots for VPC](/docs/vpc?topic=vpc-snapshot
 ## Instance storage
 {: #vpc-instance-storage-overview}
 
-Instance storage is a set of one or more solid state drives, directly attached to your virtual server instance when the instance is provisioned. An instance storage disk provides fast, affordable, temporary storage to improve the performance of cloud native workloads with scratch space, caching buffers, or a place for replicated data.
+Instance storage is allocated from one or more local SSDs on the server hosting the instance. An instance storage disk provides fast, affordable, temporary storage to improve the performance of cloud native workloads with scratch space, caching buffers, or a place for replicated data.
 
-Data stored on instance storage is ephemeral, meaning that it is tied directly to the instance lifecycle. The instance storage disk is automatically created and destroyed with the instance. Instance storage data is not lost, however, when an instance is rebooted. For more information, see [About instance storage](/docs/vpc?topic=vpc-instance-storage).
+Data stored on instance storage is tied directly to the instance lifecycle and is only held temporarily. The instance storage disk is automatically created and destroyed with the instance. Instance storage data is not lost, however, when an instance is rebooted. For more information, see [About instance storage](/docs/vpc?topic=vpc-instance-storage).
 
 ## Next steps
 {: #vpc-storage-next-steps}

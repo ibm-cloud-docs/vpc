@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-09-22"
 
 keywords: auto scale, autoscale, virtual server instance, creating, UI, console, instance group
 
@@ -11,24 +11,16 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:preview: .preview}
-{:table: .aria-labeledby="caption"}
-{:ui: .ph data-hd-interface='ui'} 
-{:cli: .ph data-hd-interface='cli'} 
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating an instance group for auto scaling 
 {: #creating-auto-scale-instance-group}
 
 With Auto Scale for VPC, you can create an instance group to scale according to your requirements. Based on the target utilization metrics that you define, the instance group can dynamically add or remove instances to achieve your specified instance availability. 
 {: shortdesc}
+
+If you are going to use a custom image in a private catalog, you must first create a service-to-service policy to `globalcatalog-collection.instance.retrieve` before you can create the instance group. See [Using a custom image in a private catalog with an instance group](/docs/vpc?topic=vpc-private-catalog-image-instance-group&interface=ui) for more information.
+{: important}
 
 ## Auto scale for VPC
 {: #auto-scale-vpc}
@@ -87,29 +79,12 @@ To create an instance template, complete the following steps.
 2. Click **New instance template** and enter the information in Table 1.
 3. Click **Create instance template** when the information is complete.
 
-| Field | Value |
-|-------|-------|
-| Name  | A name is required for your virtual server instance. |
-| Virtual private cloud | Specify the IBM Cloud VPC where you want to create your instance. |
-| Resource group | Select a resource group for the instance. | 
-| Tags |  You can assign a label to this resource so that you can easily filter resources in your resource list. | 
-| Location | Locations are composed of regions (specific geographic areas) and zones (fault tolerant data centers within a region). Select the location where you want your virtual server instance to be created. |
-| Processor architecture |  Select the processor architecture that your instance is created with. *x86* means x86_64 bit processor, and *s390x* is LinuxONE (s390x processor architecture). |
-| Operating system | Select a stock image or a custom image to use for the operating system image. |
-| Profile |  Select from popular profiles or all available vCPU and RAM combinations. The profile families are Balanced, Compute, Memory, and GPU. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles). |
-| SSH Key | You must select an existing SSH key or upload a new SSH key to use before you can create the instance. SSH keys are used to securely connect to the instance after it's running.<br />**Note:** Alpha-numeric combinations are limited to 100 characters.<br />For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
-| Metadata | Disabled by default, lets instances created from this template gather metadata about itself. Click the toggle to turn the metadata service on. For more information, see [About Instance Metadata for VPC](/docs/vpc?topic=vpc-imd-about). |
-| User data | You can add user data that automatically performs common configuration tasks or runs scripts. For more information, see [User data](/docs/vpc?topic=vpc-user-data). |
-| Placement group | Select a placement group for the instance. If you add a placement group, the instance is placed according to the placement group strategy. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc). |
-| Boot volume | The default boot volume size for all profiles is 100 GB. You can specify a larger boot volume capacity, up to 250 GB, depending on what the image allows. |
-| Data volumes | You can add one or more secondary data volumes to be included when you provision the instance. To add volumes, click **New volume**. |
-| Virtual private cloud | Specify the IBM Cloud VPC where you want to create your instance. You can use an existing VPC or you can create a new VPC. To create a new VPC, click **New VPC**. |
-| Network interfaces | Defines the networking connection into the IBM Cloud VPC.  |
-{: caption="Table 1. Instance template selections" caption-side="bottom"}
+{{site.data.content.create-instance-template-table}}
 
 **Important:** Instance groups do not support instance templates that have the following configurations:
 - Secondary network interfaces are not supported. Only one, primary network interface for an instance template is supported in an instance group.
 - A primary IP address or floating IP addresses assigned to the primary interface is not supported.
+- - An instance template that uses a custom image that is managed by a private catalog isn't supported.
 
 When you create an instance template, validation steps are performed to ensure that you can use this template to provision a virtual server instance. 
 {: tip}
@@ -289,30 +264,61 @@ Use the following commands to determine the required information for creating a 
    If you don't have one available, you can create a subnet by using the `ibmcloud is subnet-create` command. For more information about creating a subnet, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#subnets).
 
 6. List the available images for creating your instance template.
-   ```
-   ibmcloud is images   
-   ```
-   {: pre}
+   You can create an instance using a stock image, a custom image from your account, or an image that was shared with your account from a private catalog. Run one of the following commands based on the image you plan to use.
 
-   For this example, you see a response similar to the following output:
-   ```
-   ID                                          Name                                               Status       Arch
-   r007-60d279a0-b328-40eb-a379-595ca53bff89   ibm-redhat-7-6-amd64-sap-hana-1                    available    amd64
-   r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1   ibm-windows-server-2016-full-standard-amd64-3      available    amd64
+   * Select a stock image or image from your account for your instance.
+
+    To list all available images, run the following command:
+
+    ```sh
+    ibmcloud is images
     ```
-   {: screen}
+    {: pre}
+
+    Deprecated images do not include the most current support.
+    {: tip}
+
+    Let's pick image `ibm-debian-11-3-minimal-amd64-1`. To get the image ID, run the following command:
+
+    ```sh
+    image=$(ibmcloud is images | grep -i "debian.*available.*amd64.*public" | cut -d" " -f1)
+    ```
+    {: pre}
+
+    Save the image ID as a variable, which will be used later to provision an instance.
+
+* Select an image shared from a private catalog for the instance
+
+    To list all available images, run the following command.
+
+    ```sh
+    ibmcloud is catalog-image-offerings
+    ```
+    {: pre}
+
+    This command returns both the `offering_crn` and the `offering_version_crn` for the available images. When you create an instance, you can either provision an instance from the private catalog image at the latest version in a catalog product offering using the `offering_crn` or from a specific version in the catalog product offering using the `offering_version_crn`.
+
+    Save the `offering_crn` and `offering_version_crn`in variables, which will be used later to provision an instance.
+
+    ```sh
+    offering_crn="crn:v1:staging:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:offering:136559f6-4588-4af2-8585-f3c625eee09d"
+    offering_version_crn="crn:v1:staging:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:version:136559f6-4588-4af2-8585-f3c625eee09d/8ae92879-e253-4a7c-b09f-8d30af12e518"
+    ```
+    {: pre}
 
 
-After you know these values, use them to run the `instance-template-create` command. In addition to the information that you gathered, you must specify a name for the instance. 
+After you know these values, use them to run the `instance-template-create` command. In addition to the information that you gathered, you must specify a name for the instance.
 
-```
+The following example creates an instance template using a stock image or a custom image from your account.
+
+```sh
 ibmcloud is instance-template-create INSTANCE_TEMPLATE_NAME VPC ZONE_NAME PROFILE_NAME SUBNET --image-id IMAGE_ID
 ```
 {: pre}
 
-For example, if you create an instance template that is called _my-instance-template_ in _us-south-1_ and use the _bx2-2x8_ profile, your `instance-template-create` command would look similar to the following sample.
+For example, if you create an instance template that is called _my-instance-template_ in _us-south-1_, use the _bx2-2x8_ profile, with a custom image `_r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1_` your `instance-template-create` command would look similar to the following sample.
 
-```
+```sh
 ibmcloud is instance-template-create my-instance-template r134-680c56cb-7fbb-41e6-833b-029beb7b6ba3 us-south-3 bx2-2x8 0076-2249dabc-8c71-4a54-bxy7-953701ca3999 --image-id r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1
 ```
 {: pre}
@@ -324,22 +330,25 @@ Where:
    - `PROFILE_NAME` is _bx2-2x8_
    - `SUBNET_ID` is _0076-2249dabc-8c71-4a54-bxy7-953701ca3999_
    - `--image_ID` is _r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1_
-   
+
 
 For this example, you see a response similar to the following output **Note:** The following response varies depending on what values you use.
 
-```
-ID                             0738-c3809e5b-8d48-4629-b258-33d5b14fa84f   
-Name                           my-instance-template   
+```text
+ID                             0738-c3809e5b-8d48-4629-b258-33d5b14fa84f
+Name                           my-instance-template
 CRN                            crn:v1:staging:public:is:us-south-3:a/2d1bace7b46e4815a81e52c6ffeba5cf::instance-template:0738-c3809e5b-8d48-4629-b258-33d5b14fa84f   
-Resource group                 Default   
-VPC ID                         r134-680c56cb-7fbb-41e6-833b-029beb7b6ba3   
-Image ID                       r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1   
-Profile                        bx2-2x8   
-Primary Network Interface ID   Name      Subnet ID                                   Security Groups      
+Resource group                 Default
+VPC ID                         r134-680c56cb-7fbb-41e6-833b-029beb7b6ba3
+Image ID                       r008-54e9238a-feaa-4f90-9742-7424cb2b9ff1
+Profile                        bx2-2x8 
+Primary Network Interface ID   Name      Subnet ID                                   Security Groups
                                primary   0076-2249dabc-8c71-4a54-bxy7-953701ca3999   r134-9fd0b586-6876-4e8a-a0a1-586aeff5167c
 ```
 {: screen}
+
+If you want to create an instance template from an image shared from a private catalog, replace `--image_ID` with either `--catalog-offering` or `catalog-offering_version`.
+{: note}
 
 For more examples of the `ibmcloud is instance-template-create` command, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-template-create).
 

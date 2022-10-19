@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-07-08"
+lastupdated: "2022-09-12"
 
 subcollection: vpc
 
@@ -23,7 +23,7 @@ subcollection: vpc
 # x86 virtual server images
 {: #about-images}
 
-When you provision {{site.data.keyword.vsi_is_full}}, you can select from the supported stock images or a custom image that you import from {{site.data.keyword.cos_full_notm}}. The image that you select determines the operating system that is provisioned for your instance.
+When you provision {{site.data.keyword.vsi_is_full}} on x86 architecture, you can select from the supported virtual server operating system stock images, the virtual server operating system bundle stock image, or a custom image that you import from {{site.data.keyword.cos_full_notm}}. The image that you select determines the operating system that is provisioned for your instance. If the image you select is a virtual server operating system bundle stock image, the software that is part of that bundle is also included in your instance.
 {: shortdesc}
 
 ## Stock images
@@ -40,13 +40,22 @@ The following operating systems are available as stock images when you create a 
 | Debian 9.x, 10.x, 11.x | x86-64 |
 | Red Hat Enterprise Linux 7.x, 8.x | x86-64 |
 | Rocky Linux 8.5 | x86-64 |
-| Ubuntu 18.04.x, 20.04.x | x86-64 |
+| SUSE Linux Enterprise Server 12.x, 15.x | x86-64 |
+| Ubuntu 18.04.x, 20.04.x, 22.04.x | x86-64 |
 | Windows 2012, 2012 R2, 2016, 2019, 2022 | x86-64 |
 | Fedora Core OS | x86-64 |
 {: caption="Table 1. Supported x86_64 stock image operating systems" caption-side="top"}
 
 CentOS 8 is scheduled for End of Life (EOL) on 31 December 2021. On 01 January 2022, CentOS 8 stock images are deprecated and can no longer be selected to provision in {{site.data.keyword.cloud_notm}} console. Existing CentOS instances are not affected.
 {: note}
+
+### Supported x86_64 virtual server operating system bundle stock image
+{: #x86-supported-os-bundle-image}
+
+| Image | Architectures |
+|---------|---------|
+| Windows Server 2019 Standard Edition with SQL Server 2019 Web Edition | x86-64
+{: caption="Table 2. Supported x86_64 virtual server operating system bundle stock image" caption-side="bottom"}
 
 For information about images for IBM Z (s390x processor architecture), see [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images).
 

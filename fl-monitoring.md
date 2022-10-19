@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-05-25"
+  years: 2020, 2022
+lastupdated: "2022-08-04"
 
 keywords:
 
@@ -71,14 +71,14 @@ The following attributes are available for segmenting one or more attributes as 
 | `Flow log collector VPS attachment` | `ibm_flow_log_collector_instance` | The virtual server instance ID where the flow log collector is attached. |
 {: caption="Table 3: Additional attributes" caption-side="bottom"}
 
-## Enabling metrics monitoring - PLACEHOLDER
+## Enabling metrics monitoring
 {: #enable-metrics-monitoring}
 
 To receive monitoring metrics, you must set up your {{site.data.keyword.mon_full_notm}} instance.
 
 To receive monitoring metrics, use the following steps:
 
-1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring) and click **Create a monitoring instance**.
+1. Navigate to the [metrics monitoring portal](/observe/monitoring){: external} and click **Create a monitoring instance**.
 
 2. Select a region for your monitoring instance.
 
@@ -111,3 +111,17 @@ To receive monitoring metrics, use the following steps:
 7. Click **Create**. You are taken back to the monitoring metrics home page.
 
 Within a few minutes, your new monitoring instance is displayed with several configurations. You might have to refresh your browser to see it.  
+
+## Accessing and viewing metrics
+{: viewing-metrics-fl}
+
+To view metrics for a specific flow log, follow these steps:
+
+1. From the Flow logs for VPC page, click the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg) associated with the flow log. Then, select **Monitoring** from the menu.
+
+   ![Viewing metrics](images/fl-monitoring.png "Viewing metrics"){: caption="Figure 3. Viewing metrics" caption-side="bottom}
+   
+1. Launch the Monitoring dashboard. Here is an example of flow log metrics.
+   
+   ![IBM Cloud Monitoring dashboard](images/fl-monitoring-dashboard.png "IBM Cloud Monitoring dashboard"){: caption="Figure 4. IBM Cloud Monitoring dashboard" caption-side="bottom}
+

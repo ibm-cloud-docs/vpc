@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-07-08"
+lastupdated: "2022-10-03"
 
 keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -59,7 +59,7 @@ Volumes that are created from a [Custom profile](/docs/vpc?topic=vpc-block-stora
 
 You can monitor the progress of your volume expansion from the UI or CLI. You can also use the [Activity Tracker](/docs/vpc?topic=vpc-at-events) to verify that the volume was expanded. After a volume is expanded, you can't reduce capacity.
 
-You can resize a data volume that is attached to an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instance, however you must restart the instance to use the resized volume.
+You can resize a data volume that is attached to an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance, however you must restart the instance to use the resized volume.
 {: note}
 
 *z/OS - Experimental* When you expand block storage volume capacity on an existing z/OS virtual server instance, a new device address is broadcasted to the users with the additional storage size.

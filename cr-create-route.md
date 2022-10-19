@@ -18,13 +18,14 @@ subcollection: vpc
 You can control the flow of network traffic in your VPC by configuring routes. Use VPC routes to specify the next hop for packets, based on their destination addresses.
 {: shortdesc}
 
-Multiple routing tables can exist for each zone in your VPC. When a packet leaves a subnet, the system evaluates it against the routing table in the subnet's zone to determine where to send the packet next. Each routing table has a default route, but you can add custom routes to your routing tables.
+Multiple routing tables can exist for each zone in your VPC. For egress traffic, when a packet leaves a subnet, the system evaluates its destination against the routing table in the subnet's zone to determine where to send the packet next. Each VPC has a default routing table that will be attached to every subnet (unless it was explicitly attached to a different one by the user).
 
-A VPC route has three main components:
+A VPC custom route has four main components:
 
 * The destination CIDR
-* The next hop where the packet will route
+* The next hop where the packet will route (when the action is `Deliver`)
 * The zone
+* Action
 
 Any traffic that originates in the specified zone of the VPC and has a destination address within the specified destination CIDR routes to the next hop. If the destination address is within the destination CIDR for multiple VPC routes, the most specific route is used. If the VPC has two or more equally specific routes, the traffic is round-robin that is distributed between each route.
 
@@ -49,7 +50,7 @@ You can create a route for an IBM Cloud service by using the UI, CLI, or API.
 
 To create a route by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appear.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appear.
 1. Select the VPC associated with the routing table you want to view. Then, click the name of the routing table to show its details.
 1. Scroll to the Routes section and click **Create**.
 

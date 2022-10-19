@@ -143,7 +143,7 @@ curl -X POST "$vpc_api_endpoint/v1/placement_groups?version=2021-04-20&generatio
 ```
 {: codeblock} 
 
-For more information on the `host_spread` and `power_spread` strategy variables, see [Create a placement group](https://test.cloud.ibm.com/apidocs/vpc-scoped#create-placement-group) in the Virtual Private Cloud API documentation.
+For more information on the `host_spread` and `power_spread` strategy variables, see [Create a placement group](/apidocs/vpc/latest#create-placement-group) in the Virtual Private Cloud API documentation.
 
 ## Creating the placement group with Terraform
 {: #creating-placement-group-terraform}
@@ -170,7 +170,7 @@ resource "ibm_is_placement_group" "is_placement_group" {
 ```
 {: codeblock} 
 
-For more information on the `host_spread` and `power_spread` strategy variables, see [Create a placement group](https://test.cloud.ibm.com/apidocs/vpc-scoped#create-placement-group) in the Virtual Private Cloud API documentation.
+For more information on the `host_spread` and `power_spread` strategy variables, see [Create a placement group](/apidocs/vpc/latest#create-placement-group) in the Virtual Private Cloud API documentation.
 
 
 ## Changing the placement group name with the UI

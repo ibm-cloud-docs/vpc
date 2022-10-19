@@ -12,16 +12,15 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Setting up a client VPN environment and connecting to a VPN server (Beta)
+# Setting up a client VPN environment and connecting to a VPN server
 {: #vpn-client-environment-setup}
-
-Client VPN for VPC is available to all IBM Cloud users. After the Beta period ends, you will be given a time period to migrate your VPN servers to the standard pricing plan to avoid disruption of service.
-{: beta}
 
 After you create the VPN server using the newly created certificate, you can set up and configure your clients' VPN environment to connect to the VPN server. Depending on the client authentication you selected during VPN server provisioning, users can connect to the VPN server using a client certificate, a user ID with passcode, or both.
 {: shortdesc}
 
 1. Open the details page of the VPN server and click the **Clients** tab. Then, click **Download client profile** to download the client configuration file (`<vpn_server>.ovpn`).
+
+   ![Download client profile](images/vpn-download-client-profile.png){: caption="Download client profile" caption-side="bottom"}
 
 1. Distribute the client profile file to the VPN client users and instruct users to do the following: 
 
@@ -61,6 +60,8 @@ After you create the VPN server using the newly created certificate, you can set
 
 1. Connect to the VPN server using the OpenVPN client and configuration file.
 1. To verify that a client connected successfully, open the details page of the VPN server. Then, click the Clients tab to view all connected VPN clients in the last 5 minutes. 
+
+   ![VPN clients](images/vpn-clients.png){: caption="VPN clients" caption-side="bottom"}
 
    You can click the Actions menu ![Actions menu](images/overflow.png) to disconnect or delete clients.
    {: tip}

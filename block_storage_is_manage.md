@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-07-08"
+lastupdated: "2022-10-03"
 
 keywords:
 
@@ -61,7 +61,7 @@ To detach a volume:
 
 Alternatively, you can click an individual volume in the list of all block storage volumes and go to the **Volume Details** page for that volume. Under **Attached instances**, click the minus sign next to the virtual server instance to detach the volume from that instance.
 
-When you create an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instance, detaching the data volume attached to a running instance causes the workload running on the instance to fail, therefore it is recommended that you do not detach the data volume.
+When you create an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance, detaching the data volume attached to a running instance causes the workload running on the instance to fail, therefore it is recommended that you do not detach the data volume.
 {: note}
 
 ### Transfer a block storage volume from one virtual server instance to another
@@ -138,11 +138,33 @@ Alternatively, select a data volume from the list of block storage volumes (**St
 
 You can also enable Auto Delete on a new data volume when you create an instance. For information, see [Create and attach a block storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi).
 
-### Apply tags associated with a backup policy to a volume using the UI
+### Add user tags to a block storage volume
+{: #add-user-tags-volumes-ui}
+
+Add user tags to block storage volumes from the list of volumes or the volumes details page.
+
+1. Navigate to the list of block storage volumes. In [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
+
+2. Locate the volume from the list that you want to add user tags.
+
+3. In the **tags** column, click **Add tags**.  
+
+4. In the Add tags menu, enter the user tags you want to apply to this volume. Tags display as you type.
+
+5. When you're done adding tags, click **Save**. The list of block storage volumes will show the number of tags added in the **Tags** column when you refresh the screen.
+
+You can also add tags from the volume details page:
+
+1. Navigate to the list of block storage volumes.
+
+2. On the volume details, click **Add tags** next to the volume name.
+
+3. In the Add tags menu, enter the user tags you want to apply to this volume. When finished, click **Save**.
+
+### Add tags associated with a backup policy to a volume using the UI
 {: #apply-tags-volumes-ui}
 
-You can apply user tags associated with a backup policy to a block storage volume. Backup policies schedule automatic creation of backup snapshots. When one volume tag matches a backup policy tag for target resources, it triggers a backup of the volume contents. A backup policy defines a backup plan that schedules when backup snapshots are taken.
-
+You can add user tags that are associated with a backup policy to a block storage volume. Backup policies schedule automatic creation of backup snapshots. When one volume tag matches a backup policy tag for target resources, it triggers a backup of the volume contents. A backup policy defines a backup plan that schedules when backup snapshots are taken.
 
 From the [volume details](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-vol-details-ui) page, you can view backup policies applied to the volume and add user tags associated with a backup policy.
 
@@ -157,12 +179,6 @@ From the [volume details](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui
 5. In the side panel, select a backup policy from the drop down menu, and then select the policy tags to apply to the volume. You can also view the plan details that will help you decide whether to use that policy.
 
 6. Click **Apply policy and tags**. The backup policy shows in the list of backup policies associated with the volume.
-
-You can also add tags to a volume in the following ways:
-
-* From the [volume details](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-vol-details-ui) page, click the pencil icon.
-
-* From the list of all [Block storage for VPC volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui), select a volume and click **Add tags**. In the Add tags dialog box, enter a new tag and click **Save**.
 
 When you go to the [backup policy page](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-vol-backup-policies), the volume for which you added tags shows up in the list of volumes.
 

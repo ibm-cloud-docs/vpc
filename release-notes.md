@@ -2,8 +2,7 @@
 
 copyright:
   years: 2019, 2022
-
-lastupdated: "2022-07-11"
+lastupdated: "2022-10-19"
 
 keywords:
 
@@ -14,6 +13,7 @@ content-type: release-note
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+{:external: target="_blank" .external}
 {:release-note: data-hd-content-type='release-note'}
 
 # Release notes for {{site.data.keyword.vpc_short}}
@@ -22,32 +22,222 @@ content-type: release-note
 Use the release notes to learn the latest updates to {{site.data.keyword.vpc_full}} that are grouped by date.
 {: shortdesc}
 
-For information about changes to the {{site.data.keyword.vpc_short}} API , see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
+For more information about changes to the {{site.data.keyword.vpc_short}} API , see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
-For information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI) , see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
+For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI) , see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
+
+## October 2022
+{: #vpc-october22}
+
+### 19 October 2022
+{: #vpc-oct1922}
+{: release-note}
+
+Windows BYOL for multi-tenant hosts
+:   You can now bring your own license for Windows operating systems with a custom image to provision virtual server instances on multi-tenant hosts. Previously Windows BYOL was limited to dedicated hosts. For more information, see [Bring your Own License](/docs/vpc?topic=vpc-byol-vpc-about) and [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images).  
+
+### 12 October 2022
+{: #vpc-oct1222}
+{: release-note}
+
+New region (Washington DC) for LinuxONE Bare Metal Servers (s390x processor architecture) (LA)
+:   LinuxONE Bare Metal Servers are now available in the Washington DC (us-east) region. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
+
+## 03 October 2022
+{: #vpc-oct0322}
+
+VPC Public Ingress Routing
+:   You can now route public internet ingress traffic (destined to a floating IP) to a VPC next-hop IP, such as a managed firewall. For more information, see [Creating a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table) and limitations and guidelines for [Ingress routes](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#routes-ingress).
+
+   Currently, public ingress routing (`public internet` traffic choice) is available in the UI and API only. CLI is forthcoming. 
+   {: note}
+
+## September 2022
+{: #vpc-september22}
+
+### 27 September 2022
+{: #vpc-september2722}
+{: release-note}
+
+IBM&reg; LinuxONE Bare Metal Servers (s390x processor architecture) (LA)
+:   Accounts with access to the profiles for s390x bare metal servers can now create LinuxONE Bare Metal Server instances. These profiles have a `cpu_architecture` of `s390x` and must be used with Red Hat Enterprise Linux for s390x and SUSE Linux Enterprise Server (SLES) for s390x. Each LinuxONE Bare Metal Server is equivalent to a logical partition (LPAR) on the IBM LinuxONE or IBM Z with dedicated s390x CPU cores, memory, and I/O devices for your Linux workloads. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
+
+## September 2022
+{: #vpc-september22}
+
+### 26 September 2022
+{: #vpc-september2622}
+{: release-note}
+
+Network interfaces for virtual servers
+:   You can now add up to 15 network interfaces to virtual server instances. The number of interfaces that a virtual server supports depends on the vCPU count that is in the [instance profile](/docs/vpc?topic=vpc-profiles). Profiles that include 17 - 48 vCPUs now support up to 10 network interfaces. Profiles that include 49 or more vCPUs now support up to 15 network interfaces. For existing virtual servers with 17 or more vCPUs to take advantage of the new network interface limits, a running virtual server instance must be stopped and restarted. For more information about multiple network interfaces, see [Managing network interfaces](/docs/vpc?topic=vpc-using-instance-vnics).
+
+### 23 September 2022
+{: #vpc-september2322}
+{: release-note}
+
+IBM Wazi as a Service
+:   {{site.data.keyword.waziaas_full_notm}} (Wazi aaS) is now generally available in IBM Cloud in Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), United Kingdom (London), and US East (Washington DC) regions. For more information, see [{{site.data.keyword.waziaas_full_notm}} product page](https://www.ibm.com/cloud/wazi-as-a-service){: external}.
+    - For the latest updates of z/OS dev and test stock images, see [Change log for z/OS stock images](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=vpc-change-log-zos-stock-images){: external}.
+    - For instructions on creating custom images by using IBM Wazi Image Builder, see [Creating a z/OS Wazi aaS custom image](/docs/vpc?topic=vpc-create-zos-custom-image).
+    - For instructions on creating z/OS virtual server instances, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
+
+### 22 September 2022
+{: #vpc-september2222}
+{: release-note}
+
+Sharing images across an enterprise account
+:    You can now share or publish custom images to other accounts within your enterprise by using a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts. You can use any existing x86 virtual server custom image with a private catalog, with the exception of an encrypted image. For more information, see [Custom images in a private catalog](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#custom-image-cloud-private-catalog) and the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial). Custom images can't be deleted while being managed from a catalog and can only be managed from one catalog product offering version at a time. Deleting the catalog does not free its managed resources for a 7-day reclamation period. For more information, see [Deleting a custom image in a private catalog](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#deleting-private-catalog-custom-image-vpc) and [Using resource reclamations](/docs/account?topic=account-resource-reclamation). If you plan to share images with other accounts, users in those accounts should be aware of considerations related to cross-account references to those images. For more information, see [Using cross-account image references in a private catalog](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-ui). Custom images can also be published to the IBM Cloud catalog and to other (non-enterprise) accounts. This process requires onboarding to the [IBM Cloud Partner Center](https://cloud.ibm.com/partner-center/sell).
+
+Deprecated VPN for VPC ciphers
+:    The following VPN for VPC IKE and IPsec ciphers are now deprecated:
+   - Authentication algorithms `md5` and `sha1`
+   - Encryption algorithm `triple_des`
+   - Diffie–Hellman groups `2` and `5`
+
+   You have until 13 December 2022 to upgrade to more secure ciphers. After this date, VPN connections using deprecated ciphers show a `status` of `down` (and no longer transfer data) until you upgrade from the weak cipher. For more information, see [Upgrading weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers).
+
+Additional VPN for VPC ciphers
+:    VPN gateways now provide new algorithms to help meet your security and compliance requirements.
+
+   * IKE policy now supports the `sha384` value for authentication, `aes192` for encryption, and `15`, `16`, `17`, `18`, `20`, `21`, `22`, `23`, `24`, and `31` values for Diffie–Hellman groups.
+
+   * IPsec policy now supports `sha384` and `disabled` values for authentication, `aes192`, `aes128gcm16`, `aes192gcm16`, and `aes256gcm16` values for encryption, and `group_15`, `group_16`, `group_17`, `group_18`, `group_20`, `group_21`, `group_22`, `group_23` , `group_24`, and `group_31` Diffie–Hellman groups.
+
+   Specifying IKE and IPsec policies when configuring a VPN connection is optional. If a policy is not selected, one is chosen through _auto-negotiation_. For more information, see [About policy negotiation](/docs/vpc?topic=vpc-using-vpn#policy-negotiation).
+   {: note}
+
+### 20 September 2022
+{: #vpc-september2022}
+{: release-note}
+
+Updating subnets for existing application load balancers
+:   You can now add or remove subnets for existing ALBs by using the UI, API, or CLI. ETag support was added for load balancer resources, as it is required for any resource that allows arrays to be updated. For more information, see to [Updating subnets for existing application load balancers](/docs/vpc?topic=vpc-alb-updating-subnets&interface=ui).
+
+:   For more information about using ETags, see [Concurrent update protection](/apidocs/vpc/latest#concurrent-update-protection).
+
+### 12 September 2022
+{: #vpc-september1222}
+{: release-note}
+
+New stock images for VPC
+:   The following stock images are now available for x86-64 virtual server instances:
+    - The Windows Server 2019 Standard Edition with SQL Server 2019 Web Edition bundle is now supported as an image when you provision a   {{site.data.keyword.vpc_short}} server. If you select this stock image when you provision a virtual server instance, the software that is part of that bundle is also included in your instance.
+    - SUSE Linux Enterprise Server is now supported as an operating system stock image when you provision an x86-64 virtual server. For more information, see [x86-64 virtual server images](/docs/vpc?topic=vpc-about-images).
+
+## August 2022
+{: #vpc-august22}
+
+### 31 August 2022
+{: #vpc-august3122}
+{: release-note}
+
+Configuration governance
+:   New VPC config rules for the Image service and Virtual Servers are now available with the Security and Compliance Center. For more information, see [Governing VPC Resource configuration](/docs/vpc?topic=vpc-manage-security-compliance#govern-vpc) in [Managing security and compliance with VPC Infrastructure Services](/docs/vpc?topic=vpc-manage-security-compliance).
+
+### 30 August 2022
+{: #vpc-august3022}
+{: release-note}
+
+{{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}}
+:   You can now create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture) in United Kingdom (London) region, in additional to Brazil (São Paulo), Canada (Toronto), Japan (Tokyo), and US East (Washington DC) regions. To create {{site.data.keyword.hpvs}} for VPC instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers), and [IBM Hyper Protect Container Runtime image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime). A valid contract is required for creating an instance. For more information, see [About the contract](/docs/vpc?topic=vpc-about-contract_se&interface=ui).
+
+### 23 August 2022
+{: #vpc-august2322}
+{: release-note}
+
+Additional user tag support for boot and data volumes
+:  You can now add user tags to boot and data volumes when provisioning a virtual server instance or creating an instance template. You can add tags to the boot volume by editing it during instance provisioning. You can also add user tags for any data volumes you create and attach. If you import from a snapshot, any tags defined for the snapshot will be applied to the new volume. For more information, see [Create and attach a block storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage&interface=api). For more information about user tags, see [Working with tags](/docs/account?topic=account-tag&interface=api).
+
+### 17 August 2022
+{: #vpc-august1722}
+{: release-note}
+
+New stock image for bare metal servers
+:   Debian 11 is now supported as an image when you provision a bare metal server.
+
+### 15 August 2022
+{: #vpc-august1522}
+{: release-note}
+
+Health check metrics for application load balancer pools
+:    Two new health check metrics have now been added to IBM Cloud Monitoring for application load balancers, specifically for pools:
+
+   * A metric for reporting the total number of members in a pool.
+   * A second metric for reporting the total number of healthy (or active) members in a pool.
+
+:    For more information on these new metrics or the IBM Cloud Monitoring service, refer to [Monitoring Application Load Balancer for VPC metrics](/docs/vpc?topic=vpc-monitoring-metrics-alb).
+
+### 09 August 2022
+{: #vpc-august0922}
+{: release-note}
+
+VPC Instance Metadata service
+:   A restriction was removed from the [instance metadata service](/docs/vpc?topic=vpc-imd-about&interface=ui) in which you had to stop and restart the virtual server instance to fully enable the metadata service. You can now create instances with the metadata service disabled and then enable the service for the instance to start using it immediately.
+
+### 08 August 2022
+{: #vpc-august0822}
+{: release-note}
+
+Snapshot and Backup for VPC
+
+: The [quota of snapshots and backup snapshots](/docs/vpc?topic=vpc-quotas#block-storage-quotas) you can create per volume has been increased to 750. For more information about how these quotas are applied, see [Considerations when creating snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_considerations).
+
+### 01 August 2022
+{: #vpc-august0122}
+{: release-note}
+
+Enterprise account sharing images (beta)
+:    You can now share or publish custom images to other accounts within your enterprise by using a private catalog. A private catalog provides a way for you to manage access to products for multiple accounts. You can use any existing x86 virtual server custom image with a private catalog, with the exception of an encrypted image. For more information, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#custom-image-cloud-private-catalog).
 
 ## July 2022
 {: #vpc-july22}
+
+### 26 July 2022
+{: #vpc-july2622}
+{: release-note}
+
+{{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}}
+:   You can now create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture) in Japan (Tokyo), and US East (Washington DC) regions, in addition to Brazil (São Paulo), and Canada (Toronto). Confidential computing is enabled on LinuxONE (s390x processor architecture) by using the IBM Secure Execution for Linux technology. For more information, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se). A new set of secure execution enabled profiles are available, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). To create {{site.data.keyword.hpvs}} for VPC instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers), and [IBM Hyper Protect Container Runtime image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime). A valid contract is required for creating an instance. For more information, see [About the contract](/docs/vpc?topic=vpc-about-contract_se&interface=ui).
+
+### 19 July 2022
+{: #vpc-july1922}
+{: release-note}
+
+IBM Wazi as a Service (s390x processor architecture)
+:   You can now create virtual server instances of IBM z/OS with IBM Wazi as a Service (Wazi aaS) image on IBM Z (s390x processor architecture) in IBM Cloud in the US East (Washington DC) region in addition to the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. The option to select the Wazi aaS z/OS dev and test image is offered as an IBM Cloud allow-listed service. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service){: external}.
+
+LinuxONE (s390x processor architecture)
+:   You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud in the US East (Washington DC) region, in addition to the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London)  regions. For more information about available  LinuxONE (s390x processor architecture) profiles, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
+
+### 14 July 2022
+{: #vpc-july1422}
+{: release-note}
+
+Client VPN for VPC
+:   Client-to-site connectivity is now available. This feature allows remote devices to securely connect to a VPC by using an OpenVPN (or other compatible) software client. For more information about VPN client-to-site connectivity and how it complements the existing VPN site-to-site connectivity, see [About client-to-site VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-overview).
+:   You can change VPN server types after you create a VPN server. For example, you can upgrade a stand-alone VPN server to a High Availability (HA) VPN server. You can also detach a subnet to downgrade an HA VPN server to a stand-alone deployment, or change a VPN subnet after your VPN server is provisioned.
+:   VPN server is a new resource type that is permitted as a security group target.
+
+Configuring route propagation for VPN gateways and servers
+:   You can now control whether a routing table accepts routes that were added by a VPN gateway or server and controlled through the accept_routes_from routing table property. A new origin routes property is also introduced, which indicates who created the route (either user or service). For more information, see [Configuring route propagation for VPN gateways](/docs/vpc?topic=vpc-vpn-site-to-site-routes-propagating) and [Configuring route propagation for VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-route-propagation).
 
 ### 12 July 2022
 {: #vpc-july1222}
 {: release-note}
 
-IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}}
-:   You can now create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture) in Brazil (São Paulo), and Canada (Toronto) regions. Confidential computing is enabled on LinuxONE (s390x processor architecture) by using the IBM Secure Execution for Linux technology. For more information, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se). A new set of secure execution enabled profiles are available, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). To create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers), and [IBM Hyper Protect Container Runtime image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime). A valid contract is required for creating an instance. For more information, see [About the contract](/docs/vpc?topic=vpc-about-contract_se&interface=ui).  
+{{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}}
+:   You can now create IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_short}} instances on LinuxONE (s390x processor architecture) in the Brazil (São Paulo), and Canada (Toronto) regions. Confidential computing is enabled on LinuxONE (s390x processor architecture) by using the IBM Secure Execution for Linux technology. For more information, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se). A new set of secure execution enabled profiles are available, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). To create {{site.data.keyword.hpvs}} for VPC instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers), and [IBM Hyper Protect Container Runtime image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime). A valid contract is required for creating an instance. For more information, see [About the contract](/docs/vpc?topic=vpc-about-contract_se&interface=ui).
 
 ### 07 July 2022
 {: #vpc-july072022}
 {: release-note}
 
 Client VPN for VPC (Beta)
-:    Client VPN for VPC now supports Secrets Manager certificate authentication in addition to Certificate Manager.
 :    Client VPN for VPC now supports Secrets Manager certificate authentication in addition to Certificate Manager. For more information, see [Creating a VPN server](/docs/vpc?topic=vpc-vpn-create-server).
-
-:    As of 10 February 2022, IBM Cloud Certificate Manager is deprecated. The strategic alternative for managing certificates in IBM Cloud is Secrets Manager. To maintain current functionality, be sure to migrate to Secrets Manager prior to 30 September 2022. Secrets Manager is a separate product that incurs added costs separate from Client VPN for VPC billing. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager).
-
 :    VPN server is a new resource type that is permitted as a security group target.
-:    As of 10 February 2022, IBM Cloud Certificate Manager is deprecated. The strategic alternative for managing certificates in IBM Cloud is Secrets Manager. To maintain current functionality, be sure to migrate to Secrets Manager prior to 30 September 2022. Secrets Manager is a separate product that incurs added costs separate from Client VPN for VPC billing. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager).
+
+:    As of 10 February 2022, IBM Cloud Certificate Manager is deprecated. The strategic alternative for managing certificates in IBM Cloud is Secrets Manager. To maintain current functionality, be sure to migrate to Secrets Manager before 30 September 2022. Secrets Manager is a separate product that incurs added costs separate from Client VPN for VPC billing. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager).
 
 ### 01 July 2022
 {: #vpc-july0122}
@@ -67,24 +257,41 @@ Cross-zone member support for network load balancers
 {: release-note}
 
 IBM Wazi as a Service (s390x processor architecture)
-:   You can now create virtual server instances of IBM z/OS with IBM Wazi as a Service (Wazi aaS) image on IBM Z (s390x processor architecture) in IBM Cloud in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. The option to select the Wazi aaS z/OS dev and test image is offered as an IBM Cloud allow-listed service. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service).
+:   You can now create virtual server instances of IBM z/OS with IBM Wazi as a Service (Wazi aaS) image on IBM Z (s390x processor architecture) in IBM Cloud in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. The option to select the Wazi aaS z/OS dev and test image is offered as an IBM Cloud allow-listed service. For more information, see [IBM Wazi as a Service product page](https://www.ibm.com/cloud/wazi-as-a-service){: external}.
+
+Data encryption
+:   You can now access a customer root key (CRK) from one account and use the key to encrypt storage resources created in another account with the VPC API. When you create a block storage volume, a file share, or instance in a secondary account, you can specify the CRN of a root key from a primary account. For more information, see [Cross-account encryption for multitenant storage resources](/docs/vpc?topic=vpc-vpc-byok-cross-acct-key).
+
+### 24 June 2022
+{: #vpc-june2422}
+{: release-note}
+
+New stock image for bare metal servers
+:   Ubuntu (20.04 and 18.04) is now supported as an image when you provision a bare metal server.
 
 ### 21 June 2022
 {: #vpc-june2122}
 {: release-note}
 
 Backup for VPC (GA)
-:    You can now create automated backup snapshots of your block storage volumes. Should your original volume be compromised, you can restore it from a backup snapshot. You create a backup policy to control which source volumes are selected for backup by matching user tags in the volume with tags defined in the policy. Each policy contains up to four backup plans, which define how often backup snapshots are taken (daily, weekly, monthy, or more frequently using a cron-spec) and retained (by date or by count). You can also view backup jobs, which shows status of backup snapshots being created or deleted. For information about this service, see [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
+:    You can now create automated backup snapshots of your block storage volumes. If your original volume is compromised, you can restore it from a backup snapshot. You create a backup policy to control which source volumes are selected for backup by matching user tags in the volume with tags that are defined in the policy. Each policy contains up to four backup plans, which define how often backup snapshots are taken (daily, weekly, monthly, or more frequently by using a cron-spec) and retained (by date or by count). You can also view backup jobs, which show status of backup snapshots that are being created or deleted. For more information about this service, see [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 
 The backup policy jobs API remains in [beta](/apidocs/vpc-beta#24-may-2022).
 {: note}
+
+### 10 June 2022
+{: #vpc-june0610}
+{: release-note}
+
+Block Storage for VPC
+:    You can use the `volumes` API to restore an unattached data volume from a snapshot. Restoring from a snapshot creates a new, fully provisioned volume. The data volume that was created from the snapshot is fully hydrated (data is restored) when you later attach it to an instance. For more information, see [Restoring an unattached data volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-restore-unattached-vol).
 
 ### 01 June 2022
 {: #vpc-june0122}
 {: release-note}
 
 File Storage for VPC
-:    For accounts authorized to preview this service, you can increase or decrease file share IOPS to meet your performance needs. Adjust IOPS for an IOPS tier profile or a custom profile. Adjusting IOPS is dependent on the file share size. For more information, see [Adjusting file share IOPS](/docs/vpc?topic=vpc-adjusting-share-iops).
+:    For accounts authorized to preview this service, you can increase or decrease file share IOPS to meet your performance needs. Adjust IOPS within an IOPS tier profile or a custom profile. Or, adjust IOPS between profiles, for example, from a 3 IOPS/GB tiered profile to a custom profile. Adjusting IOPS within a profile or between profiles depends on the file share size. For more information, see [Adjusting file share IOPS](/docs/vpc?topic=vpc-adjusting-share-iops).
 
 ## May 2022
 {: #vpc-may22}
@@ -96,7 +303,7 @@ File Storage for VPC
 Secrets Manager for application load balancers
 :    Application load balancers now support [IBM Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started). With Secrets Manager, you can create, lease, and centrally manage secrets that are used in {{site.data.keyword.cloud}} services or your custom-built applications.
 
-:    Secrets Manager will replace the use of [IBM Certificate Manager](/docs/certificate-manager?topic=certificate-manager-getting-started). IBM will continue to support Certificate Manager until September 30 2022. To migrate your existing certificates to Secrets Manager, refer to the information in [this topic](https://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager). After your certificates are migrated, you must then update the existing listener configuration with the new certificate CRN.
+:    Secrets Manager replaces the use of [IBM Certificate Manager](/docs/certificate-manager?topic=certificate-manager-getting-started). IBM will continue to support Certificate Manager until September 30 2022. To migrate your existing certificates to Secrets Manager, refer to the information [here](https://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager). After your certificates are migrated, you must then update the existing listener configuration with the new certificate CRN.
 {: important}
 
 ### 17 May 2022
@@ -108,6 +315,7 @@ File storage for VPC
 
 :    You can now add user tags from the UI, CLI, or API when you create a new file share or update file shares. For more information, see [Adding user tags](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-tags-shares-ui).
 
+
 ## April 2022
 {: #vpc-apr22}
 
@@ -116,7 +324,7 @@ File storage for VPC
 {: release-note}
 
 Backup for VPC (LA)
-:    Accounts authorized to preview this service can create backup policies and plans to automatically back up block storage volumes. Backup policies control which source volumes are selected for backup by matching user tags in the volume with tags defined in the backup policy. Policies can contain up to four backup plans, which specify how often backup snapshots are taken (daily, weekly, monthly, or using a `cron-spec`) and retained (by date or by count). You can also view backup jobs, which shows status of backup snapshots being created or deleted. This release also provides new functionality for restoring volumes from backup snapshots. For information about this service, see [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about) concepts.
+:    Accounts authorized to preview this service can create backup policies and plans to automatically back up block storage volumes. Backup policies control which source volumes are selected for backup by matching user tags in the volume with tags that are defined in the backup policy. Policies can contain up to four backup plans, which specify how often backup snapshots are taken (daily, weekly, monthly, or by using a `cron-spec`) and retained (by date or by count). You can also view backup jobs, which show status of backup snapshots that are being created or deleted. This release also provides new functionality for restoring volumes from backup snapshots. For more information about this service, see [Backup for VPC](/docs/vpc?topic=vpc-backup-service-about) concepts.
 
 ### 28 April 2022
 {: #vpc-april2822}
@@ -127,7 +335,7 @@ UI Updates
     - The custom image details information was moved from the side panel to a separate custom image details page.
     - Previously, when you changed the region or zone while you provision a virtual server instance, you had to click either Save or Cancel to continue. This behavior was changed and you don't need to make that selection when you change the region or zone.
     - You can now delete the virtual server instance without manually unbinding the floating IP address. When you delete the virtual server instance, the floating IP address is now automatically unbound before the virtual server instance is deleted. This UI change now matches how the virtual server instance is deleted when you use the CLI or API.
-    -
+
 ### 11 April 2022
 {: #vpc-april1122}
 {: release-note}
@@ -137,7 +345,14 @@ UI Updates
      - IP addresses are now modeled as objects (resources), rather than strings.
      - Security groups must now be associated with targets rather than network interfaces.
 
-:    Even if you are not planning to make use of reserved IPs, to avoid regressions in client functionality, be sure to reference [2022-03-29 API migration](/docs/vpc?topic=vpc-2022-03-29-migration) and follow the Action needed recommendations before specifying version `2022-03-29` or later. For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-log#version-2022-03-29) and [Reserved IP known issues](/docs/vpc?topic=vpc-known-issues#ip-known-issues).
+:    Even if you are not planning to use reserved IPs, to avoid regressions in client functionality, be sure to reference [2022-03-29 API migration](/docs/vpc?topic=vpc-2022-03-29-migration) and follow the Action needed recommendations before you specify version `2022-03-29` or later. For more information, see the [API change log](/docs/vpc?topic=vpc-api-change-log#version-2022-03-29) and [Reserved IP known issues](/docs/vpc?topic=vpc-known-issues#ip-known-issues).
+
+### 7 April 2022
+{: #vpc-april0722}
+{: release-note}
+
+Backup for VPC (limited availability)
+:    For accounts authorized to preview this service, you can create backup policies that automatically back up your block storage volumes. Backups are triggered when a user tag is applied to a volume matches a backup policy tag. Each backup policy has a backup plan, which defines how often backups are taken and how long they're retained. With this release, you can create and update up to four backup plans per policy. You can also track backup job status when a backup is created. For more information, see [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 
 ## March 2022
 {: #vpc-mar22}
@@ -147,7 +362,7 @@ UI Updates
 {: release-note}
 
 Add "Other" device types as Application Load Balancer (ALB) pool members
-:   You can now add "Other" device types as ALB back-end pool members, such as servers contained within a Power Systems Virtual Server instance connected over IBM Cloud Direct Link (2.0). In the past, you were only able to select virtual server instances or Bare Metal servers within a VPC. When creating a new member, select the **Other** tab from the Attach server screen and enter the device IP address. For more information, see [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancer&interface=ui).
+:   You can now add "Other" device types as ALB back-end pool members, such as servers contained within a Power Systems Virtual Server instance connected over IBM Cloud Direct Link (2.0). In the past, you were only able to select virtual server instances or Bare Metal servers within a VPC. When you create a new member, select the **Other** tab from the Attach server screen and enter the device IP address. For more information, see [Creating an IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-load-balancer&interface=ui).
 
 ### 30 March 2022
 {: #vpc-march3022}
@@ -163,20 +378,18 @@ New stock image for bare metal servers
 UDP support for Network Load Balancers (NLB)
 :   You can now set User Datagram Protocol (UDP) as the communication protocol for the {{site.data.keyword.nlb_full}} (NLB) listener and pool. UDP is a communications protocol for establishing low-latency and loss-tolerating connections between applications on the internet. It speeds up transmissions by enabling the transfer of data before an agreement is provided by the receiving party. For more information, see [Configuring the UDP protocol for network load balancers](/docs/vpc?topic=vpc-nlb-udp&interface=ui).
 
-:   When configuring UDP and attaching a pool to your listener, you must configure the pool with the same protocol as the listener.
+:   When you configure UDP and attaching a pool to your listener, you must configure the pool with the same protocol as the listener.
 {: important}
 
 Reserved IPs
 :   You can now assign an IP address to your virtual server instance by specifying an already reserved IP for private IPs and bind them to network interfaces. For more information, see [Managing IP addresses](/docs/vpc?topic=vpc-managing-ip-addresses).
 
-
-## March 25 2022
+## 25 March 2022
 {: #vpc-march2522}
 {: release-note}
 
 LinuxONE (s390x processor architecture)
-:   You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. For more information about available LinuxONE (s390x processor architecture) profiles, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
-
+:   You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud in the Japan (Tokyo), Brazil (São Paulo), Canada (Toronto), and United Kingdom (London) regions. For more information about available LinuxONE (s390x processor architecture) profiles, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
 
 ## 24 March 2022
 {: #vpc-march2422}
@@ -200,46 +413,49 @@ New stock image for virtual servers
 {: release-note}
 
 VPC Instance Metadata Service (GA)
-:   The VPC Instance Metadata service is now generally available in all regions. This free service provides a REST API you invoke within an instance to get information about that instance. Access to the API is unavailable from outside the instance. The service is disabled by default. Before you can access the metadata, the service lets you generate an instance identity access token for accessing the metadata service. You can optionally get an IAM token from this token to access all IAM-enabled services. For more information, see [About VPC Instance Metadata](/docs/vpc?topic=vpc-imd-about).
+:   The VPC Instance Metadata service is now generally available in all regions. This free service provides a REST API that you invoke within an instance to get information about that instance. Access to the API is unavailable from outside the instance. The service is disabled by default. Before you can access the metadata, you need to use the service to generate an instance identity access token for accessing the metadata service. You can optionally get an IAM token from this token to access all IAM-enabled services. For more information, see [About VPC Instance Metadata](/docs/vpc?topic=vpc-imd-about).
 
-:   Virtual server instances created on LinuxONE (s390x processor architecture) are not enabled for the VPC Instance Metadata service. The metadata service is currently supported only on x86 systems.
+:   Virtual server instances created on LinuxONE (s390x processor architecture) are not enabled for the VPC Instance Metadata service. The metadata service is supported only on x86 systems.
 {: note}
 
 UI Update
-:   There is a new Location cascading selector. For example, when you provision a virtual server, the Location section now has 3 new cascading selector boxes. You can now choose the geographic location, the metro (region) location, and the zone. The options available in these boxes are updated based on your selections. If you select “Americas” for the Geography, then the Metro box displays only the Metros available for the Americas.
+:   A new Location cascading selector is available. For example, when you provision a virtual server, the Location section now has three new cascading selector boxes. You can now choose the geographic location, the metro (region) location, and the zone. The options available in these boxes are updated that are based on your selections. If you select “Americas” for the Geography, then the Metro box displays only the Metros available for the Americas.
 
 ### 22 February 2022
 {: #vpc-feb2222}
 {: release-note}
 
 Host failure recovery policies
-:    Host failure recovery policies for VPC is generally available (GA). For more information about host failure recovery policies, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui).
+:    Host failure recovery policies for VPC are generally available (GA). For more information about host failure recovery policies, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=ui).
 
 ### 15 February 2022
 {: #vpc-feb1522}
 {: release-note}
 
 LinuxONE (s390x processor architecture)
-:   You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud in the Japan (Tokyo), United Kingdom (London), and São Paulo regions. For more information about available LinuxONE (s390x processor architecture) profiles, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
+:   You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud in the Japan (Tokyo), United Kingdom (London), and São Paulo regions. For more information about available LinuxONE (s390x processor architecture) profiles, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
 
 Resizable boot volumes
-:    You can now increase the capacity of a boot volume, up to 250 gigabytes (GB), when creating an instance from an image or instance template. You can also directly update an existing boot volume to increase its capacity. For more information, see [Increasing boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes).
+:    You can now increase the capacity of a boot volume, up to 250 gigabytes (GB), when you create an instance from an image or instance template. You can also directly update an existing boot volume to increase its capacity. For more information, see [Increasing boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes).
+
+Backup for VPC (closed beta)
+:    For accounts authorized to preview this service, you can create backup policies that automatically backup your block storage volumes. Backups are triggered when a user tag is applied to a volume matches a backup policy tag. Each backup policy has a backup plan, which defines how often backups are taken and how long they're retained. For more information, see [About Backup for VPC (Beta)](/docs/vpc?topic=vpc-backup-service-about).
 
 File Storage for VPC
-:    The file service is now integrated with the Security and Compliance Center to help you manage security and compliance for your organization. For information about this feature, see [Managing security and compliance](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-vpc-manage-security).
+:    The file service is now integrated with the Security and Compliance Center to help you manage security and compliance for your organization. For more information about this feature, see [Managing security and compliance](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-vpc-manage-security).
 
 ### 14 February 2022
 {: #vpc-feb1422}
 {: release-note}
 
 Snapshots for VPC
-:    The snapshots service is now integrated with the Security and Compliance Center to help you manage security and compliance for your organization. For information about this feature, see [Managing security and compliance](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-manage-security).
+:    The snapshots service is now integrated with the Security and Compliance Center to help you manage security and compliance for your organization. For more information about this feature, see [Managing security and compliance](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-manage-security).
 
 ### 11 February 2022
 {: #vpc-feb1122}
 {: release-note}
 
-**Maximum bandwidth for each vNIC is increased**
+Maximum bandwidth for each vNIC is increased
 :   The maximum bandwidth for a vNIC is now 25 Gbps instead of the previous 16 Gbps to 25 Gbps. For more information, see [Optimizing network bandwidth allocation for profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles#network-perf-notes-for-profiles).   
 
 ### 10 February 2022
@@ -247,7 +463,7 @@ Snapshots for VPC
 {: release-note}
 
 Block storage attachments
-:    Limits on the number of block storage data volumes you can attach to an instance were amended. Previously, instances created from smaller vCPU profiles could only attach up to four data volumes. These limits are removed. For all instances, you can attach up to 12 block storage data volumes.
+:    Limits on the number of block storage data volumes you can attach to an instance are amended. Previously, instances that were created from smaller vCPU profiles attached only up to four data volumes. These limits are removed. For all instances, you can attach up to 12 block storage data volumes.
 
 ### 08 February 2022
 {: #vpc-feb0822}
@@ -257,7 +473,7 @@ Port ranges for public network load balancers
 :    When [creating a public network load balancer](/docs/vpc?topic=vpc-nlb-ui-creating-network-load-balancer&interface=api), you can now specify a range of listener ports.
 
 Bare Metal server support for application load balancers
-:    Bare Metal server members are now supported on application load balancers. See [Load balancers for VPC overview](/docs/vpc?topic=vpc-nlb-vs-elb&interface=ui) for more information.
+:    Bare Metal server members are now supported on application load balancers. For more information, see [Load balancers for VPC overview](/docs/vpc?topic=vpc-nlb-vs-elb&interface=ui).
 
 ## January 2022
 {: #vpc-jan22}
@@ -274,7 +490,7 @@ Bare Metal Servers for VPC
 {: release-note}
 
 Security group support for Virtual Private Endpoint (VPE) gateways
-:   You can now attach security groups to your endpoint gateways and manage them for your application needs. Attach security groups when creating an endpoint gateway, or modify security groups bound to an endpoint gateway after provisioning. For more information, see [Configuring ACLs and security groups for use with endpoint gateways](/docs/vpc?topic=vpc-configure-acls-sgs-endpoint-gateways).
+:   You can now attach security groups to your endpoint gateways and manage them for your application needs. Attach security groups when you create an endpoint gateway, or modify security groups that are bound to an endpoint gateway after provisioning. For more information, see [Configuring ACLs and security groups for use with endpoint gateways](/docs/vpc?topic=vpc-configure-acls-sgs-endpoint-gateways).
 
 Update to Snapshots for VPC
 :   When you view details of a snapshot from the [UI](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-snapshot-ui), [CLI](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=cli#snapshots-vpc-view-details-cli), or [API](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=api#snapshots-vpc-view-api), a new field shows when the snapshot was captured from the volume. This feature applies to snapshots created after January 2022.
@@ -283,9 +499,9 @@ Update to Snapshots for VPC
 {: #vpc-jan2122}
 {: release-note}
 
-**New stock images for virtual servers**
+New stock images for virtual servers
 :   The following stock images are now available for virtual servers:
-    - Redhat 8.4 for SAP
+    - Red Hat 8.4 for SAP
     - SLES 12 SP5 for SAP
     - SLES 15 SP3 for SAP
 
@@ -294,10 +510,10 @@ Update to Snapshots for VPC
 {: release-note}
 
 Application Load Balancer (ALB) for VPC
-:   Application load balancers now support HTTP/HTTPS compression, which allows you to compress data being transmitted to your users. For more information, see [Compression (HTTP/HTTPS only)](/docs/vpc?topic=vpc-advanced-traffic-management#compression).
+:   Application load balancers now support HTTP/HTTPS compression, which you use to compress data that is transmitted to your users. For more information, see [Compression (HTTP/HTTPS only)](/docs/vpc?topic=vpc-advanced-traffic-management#compression).
 
 High Availability (HA) Virtual Network Function (VNF) support
-:   Support for a highly available, highly resilient virtual network functions can be achieved through the use of the "routing mode" feature of the IBM Cloud Network Load Balancer (NLB) for VPC. For more information, see [About virtual network functions over VPC](/docs/vpc?topic=vpc-about-vnf) and [About HA VNF deployments](/docs/vpc?topic=vpc-about-vnf-ha).
+:   Support for a highly available, highly resilient virtual network functions can be achieved by using the "routing mode" feature of the IBM Cloud Network Load Balancer (NLB) for VPC. For more information, see [About virtual network functions over VPC](/docs/vpc?topic=vpc-about-vnf) and [About HA VNF deployments](/docs/vpc?topic=vpc-about-vnf-ha).
 
 Updates to Getting started with IBM Cloud VPC button
 :   The "Getting started with IBM Cloud VPC" button now includes access to tours that are specific to what you are doing on the IBM console. If a tour is not available, the button takes you to the VPC List view.
@@ -306,8 +522,8 @@ Updates to Getting started with IBM Cloud VPC button
 {: #vpc-jan0622}
 {: release-note}
 
-UI update when creating a virtual server
-:   When you create a virtual server, the UI is updated to include a link in the Operating system section that opens a panel containing information about the image lifecycle.
+UI update when you create a virtual server
+:   When you create a virtual server, the UI is updated to include a link in the Operating system section that opens a panel that contains information about the image lifecycle.
 
 ## December 2021
 {: #vpc-dec21}
@@ -333,7 +549,7 @@ Security updates
     - Ubuntu version 20.04
 
 Windows stock image updates
-:   For all Windows stock images, TLS 1.2 was enabled and all earlier versions were disabled.
+:   For all Windows&reg; stock images, TLS 1.2 was enabled and all earlier versions were disabled.
 
 :   The following cloudbase-init configuration files were updated to add the value "ntp_use_dhcp_config=true":
     - C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\cloudbase-init.conf
@@ -349,7 +565,7 @@ New stock image for virtual servers
 {: #vpc-nov3021}
 {: release-note}
 
-VPN client-to-site servers update (open Beta)
+VPN client-to-site servers update (open beta)
 :   You can now update a VPN server after the VPN is provisioned. For example, you can upgrade a stand-alone VPN server (one subnet) to a High Availability (HA) VPN server (two subnets in different zones). You can also detach a subnet to downgrade an HA VPN server to a stand-alone deployment, or change an attached subnet after your VPN server is provisioned. For more information, see [Upgrading to an HA VPN server](/docs/vpc?topic=vpc-vpn-client-to-site-change-server-types).
 
 ### 16 November 2021
@@ -361,7 +577,7 @@ New Very High Memory and Ultra High Memory instance profile family for dedicated
 
 :   Very High Memory profiles offer a core to RAM ratio of 1 vCPU to 14 GiB of RAM. This family is hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts and is best for OLAP workloads and SAP-related services, such as SAP NetWeaver. Very High Memory profiles are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions. For more information, see [Very High Memory with instance storage profiles](/docs/vpc?topic=vpc-dh-profiles#vhm-is-dh-pr).
 
-:   Ultra High Memory profiles offer a core to RAM ratio of 1 vCPU to 28 GiB of RAM. This family is hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts and are optimized for running memory intensive applications and in-memory database such as SAP HANA, Memcached, or Redis. Ultra High Memory profiles are available in the US South (Dallas) and EU Germany (Frankfurt) regions. For more information, see [Ultra HIgh Memory with instance storage profiles](/docs/vpc?topic=vpc-dh-profiles#uhm-is-dh-pr).
+:   Ultra High Memory profiles offer a core to RAM ratio of 1 vCPU to 28 GiB of RAM. This family is hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts and is optimized for running memory intensive applications and in-memory database such as SAP HANA, Memcached, or Redis. Ultra High Memory profiles are available in the US South (Dallas) and EU Germany (Frankfurt) regions. For more information, see [Ultra HIgh Memory with instance storage profiles](/docs/vpc?topic=vpc-dh-profiles#uhm-is-dh-pr).
 
 ### 12 November 2021
 {: #vpc-nov1221}
@@ -375,9 +591,12 @@ Fedora Core OS
 {: release-note}
 
 Instance Metadata Service for VPC (LA)
-:   The metadata service is now available in all regions to customer accounts authorized to access this service. This service is enabled by default when you create new instances using the UI, CLI, or API. You can also disable the service from these interfaces. For more information, see [Enable or disable the metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-metadata-service-enable).
+:   The metadata service is now available in all regions to customer accounts authorized to access this service. This service is enabled by default when you create new instances by using the UI, CLI, or API. You can also disable the service from these interfaces. For more information, see [Enable or disable the metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-metadata-service-enable).
 
-:   The metadata service also provides a new API call to generate an IAM token from the instance identity access token using trusted profile information. For more information, see [Generate an IAM token from an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-token-exchange).
+:   The metadata service also provides a new API call to generate an IAM token from the instance identity access token by using trusted profile information. For more information, see [Generate an IAM token from an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=api#imd-token-exchange).
+
+Snapshots for VPC (GA)
+:   You can now delete any or all snapshots not actively restoring a volume. Snapshots can be anywhere in the snapshot chain and must be in a `stable` state. For more information, see [Deleting snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-delete).
 
 ## October 2021
 {: #vpc-oct21}
@@ -386,8 +605,8 @@ Instance Metadata Service for VPC (LA)
 {: #vpc-oct2121}
 {: release-note}
 
-**UI Updates**
-:    When you create a virtual server instance by using the UI, the image selection on the UI was updated. The image selection is changed from a tile selection to a drop-down menu. For both custom and catalog images, there is now a side panel that enables you to filter, sort, and search for images.
+UI Updates
+:    When you create a virtual server instance by using the UI, the image selection on the UI was updated. The image selection is changed from a tile selection to a drop-down menu. For both custom and catalog images, a new side panel is available that you can use to filter, sort, and search for images.
 
 ### 15 October 2021
 {: #vpc-oct1521}
@@ -418,7 +637,7 @@ File Storage for VPC (LA)
 {: release-note}
 
 VNF routing mode for network load balancers
-:   With {{site.data.keyword.vpc_short}}, you can provision Virtual Network Function (VNF) devices to gain better and more affordable scalability than you would by purchasing physical network devices. {{site.data.keyword.vpc_short}} network load balancers with routing mode allow you to send traffic only to VNF devices as back-end targets. In addition, their health checks ensure that workloads only travel through healthy VNF devices. For more information about this service, see [Creating a network load balancer with routing mode for VPC](/docs/vpc?topic=vpc-nlb-vnf).
+:   With {{site.data.keyword.vpc_short}}, you can provision Virtual Network Function (VNF) devices to gain better and more affordable scalability than you would by purchasing physical network devices. {{site.data.keyword.vpc_short}} network load balancers with routing mode that you use to send traffic to only VNF devices as back-end targets. In addition, their health checks ensure that workloads only travel through healthy VNF devices. For more information about this service, see [Creating a network load balancer with routing mode for VPC](/docs/vpc?topic=vpc-nlb-vnf).
 
 ### 14 September 2021
 {: #vpc-sep1421}
@@ -435,7 +654,7 @@ New Very High Memory instance profile family (LA)
 :   Very High Memory profiles are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), EU Germany (Frankfurt), and Japan (Tokyo) regions. Very High Memory profiles offer a core to RAM ratio of 1 vCPU to 14 GiB of RAM. This family is optimized for running high-compute-intensity in-memory workloads like SAP BW/4 HANA. For more information, see [Very High Memory profiles](/docs/vpc?topic=vpc-profiles&interface=ui#vhmemory).  
 
 Instance Bandwidth (LA)
-:   Instance bandwidth is now available in the US South (Dallas), US East (Washington DC), Canada (Toronto), EU Germany (Frankfurt),  Japan (Osaka), Brazil (Sao Paulo) regions. When you provision a virtual server instance, you can now allocate bandwidth between attached volumes and networking by using the API and CLI. You can adjust bandwidth after provisioning a virtual server instance by using the UI, API, and CLI. The maximum bandwidth capacity is determined by the instance profile that you select during instance provisioning. For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
+:   Instance bandwidth is now available in the US South (Dallas), US East (Washington DC), Canada (Toronto), EU Germany (Frankfurt), Japan (Osaka), Brazil (Sao Paulo) regions. When you provision a virtual server instance, you can now allocate bandwidth between attached volumes and networking by using the API and CLI. You can adjust bandwidth after you provision a virtual server instance by using the UI, API, and CLI. The maximum bandwidth capacity is determined by the instance profile that you select during instance provisioning. For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
 
 ### 01 September 2021
 {: #vpc-sep0121}
@@ -452,13 +671,13 @@ New GPU Instance Profile family (Beta)
 {: release-note}
 
 RHEL on SAP image support update
-:   When you provision a virtual server instance and select {{site.data.keyword.redhat_full}} Enterprise Linux, be aware that version locking must be done manually. When you log into your operating system, a message is displayed with the command needed to manually lock the operating system version. Performing a “yum update” without the version being locked will result in the operating system being upgraded to the latest RHEL release, which is currently 8.4.
+:   When you provision a virtual server instance and select {{site.data.keyword.redhat_full}} Enterprise Linux, be aware that locking a version must be done manually. When you log in to your operating system, a message is displayed with the command that you need to manually lock the operating system version. Performing a “yum update” without the version locking results in the operating system that is upgrading to the latest RHEL release, which is 8.4.
 
 Block storage for VPC
 :   For Block Storage for VPC volumes attached to a virtual server instance, you can increase or decrease IOPS for a volume by specifying a different IOPS tier profile or different IOPS value withing a custom IOPS band. For more information, see [Adjusting IOPS for block storage volumes](/docs/vpc?topic=vpc-adjusting-volume-iops).
 
 Client-to-site VPN servers (Beta)
-:   Until now, the {{site.data.keyword.cloud_notm}} VPN for VPC service supported only site-to-site connectivity, which connects your on-premises network to the {{site.data.keyword.cloud_notm}} VPC network. This Beta adds client-to-site connectivity, which allows users to connect to their {{site.data.keyword.cloud_notm}} VPC infrastructure through a secure/encrypted connection over the internet. This service is especially useful for individuals working at home, traveling, or at locations where site-to-site VPN might not be available. For more information, see [About client-to-site VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-overview).
+:   Until now, the {{site.data.keyword.cloud_notm}} VPN for VPC service that is supported only site-to-site connectivity, which connects your on-premises network to the {{site.data.keyword.cloud_notm}} VPC network. This Beta adds client-to-site connectivity, which allows users to connect to their {{site.data.keyword.cloud_notm}} VPC infrastructure through a secure or encrypted connection over the internet. This service is especially useful for individuals that are working at home, traveling, or at locations where site-to-site VPN might not be available. For more information, see [About client-to-site VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-overview).
 
 ### 24 August 2021
 {: #vpc-aug2421}
@@ -467,19 +686,22 @@ Client-to-site VPN servers (Beta)
 HTTPS redirect listeners
 :   The [HTTPS redirect feature](/docs/vpc?topic=vpc-load-balancers#https-redirect-listener) is now available on Application Load Balancer for VPC to redirect traffic from an HTTP load balancer listener to an HTTPS listener. You can configure an HTTPS redirect on either [load balancer listeners](/docs/vpc?topic=vpc-load-balancers), [load balancer policies](/docs/vpc?topic=vpc-layer-7-load-balancing), or both.
 
+Virtual server instances for VPC
+:   When you provision an instance, you can now allocate I/O bandwidth between storage and network bandwidth from the total instance bandwidth. The maximum bandwidth capacity is determined by the instance profile that you selected during instance provisioning. For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
+
 ### 19 August 2021
 {: #vpc-aug1921}
 {: release-note}
 
 Larger size boot volumes for custom images
-:   You can import custom images with a boot disk size from 10 GB to 250 GB, which will become the image's minimum provisioned size after importing. When you specify the image as part of [creating an instance](/docs/vpc?topic=vpc-creating-block-storage), the boot volume capacity is set to this size. For more information, see [Planning custom images](/docs/vpc?topic=vpc-planning-custom-images).
+:   You can import custom images with a boot disk size from 10 - 250 GB, which becomes the image's minimum provisioned size after you import. When you specify the image as part of [creating an instance](/docs/vpc?topic=vpc-creating-block-storage), the boot volume capacity is set to this size. For more information, see [Planning custom images](/docs/vpc?topic=vpc-planning-custom-images).
 
 ### 18 August 2021
 {: #vpc-aug1821}
 {: release-note}
 
 File Storage for VPC
-:   Custom IOPS profiles are available with capacity up to 16,000 GB. For information, see [File storage profiles](/docs/vpc?topic=vpc-file-storage-profiles).
+:   Custom IOPS profiles are available with capacity up to 16,000 GB. For more information, see [File storage profiles](/docs/vpc?topic=vpc-file-storage-profiles).
 
 :   You can also increase the file share size from its original capacity in GB increments up to 32,000 GB capacity, depending on your share profile. For more information, see [Expanding file share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity).
 
@@ -500,25 +722,18 @@ Placement groups (GA)
 {: release-note}
 
 Auto scale supports data volumes and private catalog
-:   Instance groups now support using an instance template that includes one ore more data volumes. In addition, instance groups are now supported in private catalog. For more information about instance groups, see [Creating an instance group for auto scaling](/docs/vpc?topic=vpc-creating-auto-scale-instance-group).
+:   Instance groups now support by using an instance template that includes one or more data volumes. In addition, instance groups are now supported in private catalog. For more information about instance groups, see [Creating an instance group for auto scaling](/docs/vpc?topic=vpc-creating-auto-scale-instance-group).
 
 ### 9 August 2021
 {: #vpc-aug0921}
 {: release-note}
 
 LinuxONE (s390x processor architecture)
-:   You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud™ in the Tokyo region. For more information about available LinuxONE (s390x processor architecture) profiles, see [Instance Profiles](/docs/vpc?topic=vpc-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
+:   You can now create virtual server instances on LinuxONE (s390x processor architecture) in IBM Cloud in the Tokyo region. For more information about available LinuxONE (s390x processor architecture) profiles, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). To create instances on LinuxONE (s390x processor architecture), see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers).
 For more information about some of the limitations of LinuxONE (s390x processor architecture), see [Service limitations](/docs/vpc?topic=vpc-limitations).
 
 ## July 2021
 {: #vpc-jul21}
-
-### 30 July 2021
-{: #vpc-jul3021}
-{: release-note}
-
-Instance Metadata for VPC (closed Beta)
-:   If your account is granted special approval to preview this feature, you can access metadata about your VPC compute resources. The metadata service is a REST API that you invoke using a well-known URI to retrieve instance-specific information from the metadata server. For more information, see [About Instance Metadata for VPC (Beta)](/docs/vpc?topic=vpc-imd-about).
 
 ### 26 July 2021
 {: #vpc-jul2621}
@@ -532,7 +747,7 @@ New São Paulo region
 {: release-note}
 
 Block Storage for VPC
-:   IOPS tier and custom profiles are available with volume capacity up to 16,000 GB. For information, see [Block storage profiles](/docs/vpc?topic=vpc-block-storage-profiles).
+:   IOPS tier and custom profiles are available with volume capacity up to 16,000 GB. For more information, see [Block storage profiles](/docs/vpc?topic=vpc-block-storage-profiles).
 
 :   For secondary volumes attached to a virtual server instance, you can increase capacity in GB increments up to 16,000 GB, depending on the volume's profile. The volume capacity is immediately increased. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 
@@ -540,10 +755,10 @@ Block Storage for VPC
 {: #vpc-jul2121}
 {: release-note}
 
-Bare Metal Servers for VPC (closed Beta)
-:   If your account has been granted special approval to preview this feature, you can now create bare metal servers to host VMware clusters in VPC. You can set up VMware management applications and create VMware virtual machines (VM) on the bare metal servers. As bare metal servers are integrated with the VPC platform, you can take advantage of the network, storage, and security capabilities provided by the VPC. For more information, see [About Bare Metal Servers for VPC (beta)](/docs/vpc?topic=vpc-about-bare-metal-servers).
+Bare Metal Servers for VPC (closed beta)
+:   If your account is granted special approval to preview this feature, you can now create bare metal servers to host VMware clusters in VPC. You can set up VMware management applications and create VMware virtual machines (VM) on the bare metal servers. As bare metal servers are integrated with the VPC platform, you can take advantage of the network, storage, and security capabilities provided by the VPC. For more information, see [About Bare Metal Servers for VPC (beta)](/docs/vpc?topic=vpc-about-bare-metal-servers).
 
-:   The bare metal console feature is temporarily unavailable. An "unauthorized" error will be returned if you try to connect to the console.
+:   The bare metal console feature is temporarily unavailable. An "unauthorized" error is returned if you try to connect to the console.
 
 ### 13 July 2021
 {: #vpc-jul1321}
@@ -557,7 +772,7 @@ Instance Identifier Update
 {: release-note}
 
 File storage for VPC
-:   The file storage general purpose 3 IOPS/GB profile is expanded to allow you to create file shares up to 32 TB with potential max IOPS performance of 96,000 IOPS. For more information, see [File storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions.
+:   The file storage general purpose 3 IOPS/GB profile is expanded so you can create file shares up to 32 TB with potential max IOPS performance of 96,000 IOPS. For more information, see [File storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions.
 
 ## June 2021
 {: #vpc-jun21}
@@ -566,7 +781,7 @@ File storage for VPC
 {: #vpc-jun3021}
 {: release-note}
 
-Placement groups
+Placement groups (Beta)
 :   Placement groups for {{site.data.keyword.vpc_full}} are used to create placement group strategies for managing high availability workloads. A placement group contains virtual server instances that share a common placement strategy. Placement strategies influence the physical placement of select VPC resources to meet certain workload demands. For more information about placement groups, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups).
 
 ### 17 June 2021
@@ -574,7 +789,7 @@ Placement groups
 {: release-note}
 
 UI enhancement
-:   When provisioning a VPC, you can now create multiple subnets from the default address prefix. When you create a VPC, one subnet is created in each zone of the VPC region. You can add up to a maximum of 9 subnets.”
+:   When you provision a VPC, you can now create multiple subnets from the default address prefix. When you create a VPC, one subnet is created in each zone of the VPC region. You can add up to a maximum of nine subnets.”
 
 Application Load Balancer (ALB) support for cookie-based session persistence
 :   ALBs now supports HTTP-cookie persistence and application-cookie persistence. For more information, see [Advanced traffic management](/docs/vpc?topic=vpc-advanced-traffic-management#session-persistence).
@@ -584,7 +799,7 @@ Application Load Balancer (ALB) support for cookie-based session persistence
 {: release-note}
 
 UI enhancement
-:   When deleting a virtual server, you must now confirm that you want to delete an instance by typing *delete*.
+:   When you delete a virtual server, you must now confirm that you want to delete an instance by typing *delete*.
 
 ## May 2021
 {: #vpc-may21}
@@ -610,12 +825,19 @@ Image from volume
 Scheduled Scaling for VPC (GA)
 :   Scheduled Scaling for VPC lets you set scheduled actions to automatically scale instance group capacity up or down based on daily, intermittent, or seasonal demand. You can set multiple, recurring scheduled action frequencies that can scale monthly, weekly, daily, hourly, or even every set number of minutes. For more information, see [Scheduled scaling](/docs/vpc?topic=vpc-scheduled-scaling-vpc).
 
+### 15 May 2021
+{: #vpc-may1521}
+{: release-note}
+
+Virtual Private Cloud (VPC) Gen 1 end of service
+:   Virtual Private Cloud (VPC) Gen 1 reached end of service on 26 February 2021. The VPC on Classic API reference has been removed from the library page on 15 May, 2021. VPC on Classic users are being redirected to the [Virtual Private Cloud API](https://cloud.ibm.com/apidocs/vpc).
+
 ### 06 May 2021
 {: #vpc-may0621}
 {: release-note}
 
 New Ultra High Memory instance profile family (LA)
-:   Ultra High Memory profiles are hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts and are optimized for running memory intensive applications and in-memory database such as SAP HANA, Memcached, or Redis. This profile family offers our highest vCPU to memory ratio with 28 GiB of memory for every 1 vCPU of compute and up to 5.7 TiB of available RAM. For more information, see [Instance Profiles](/docs/vpc?topic=vpc-profiles).
+:   Ultra High Memory profiles are hosted exclusively on the latest generation Intel® Xeon® Platinum Cascade Lake server hosts and are optimized for running memory intensive applications and in-memory database such as SAP HANA, Memcached, or Redis. This profile family offers our highest vCPU to memory ratio with 28 GiB of memory for every 1 vCPU of compute and up to 5.7 TiB of available RAM. For more information, see [x86 instance profiles](/docs/vpc?topic=vpc-profiles).
 
 :   The Ultra High Memory family of profiles is currently available in the Dallas and Frankfurt multizone regions(MZRs). For more information, see the Multizone regions section in [Locations for resource deployment](/docs/overview?topic=overview-locations#mzr-table). Contact your IBM Sales representative if you need Ultra High Memory profiles in a MZR other than Dallas or Frankfurt.
 
@@ -630,10 +852,10 @@ File Storage for VPC
 :   File Storage for VPC is available to customers with special approval to preview this service in the Washington, Dallas, and Frankfurt regions. With this feature, you can create NFS-based file shares in a single zone in a region. You can share file storage over multiple virtual service instances within the same zone across multiple VPCs. For more information about this service, see [About File Storage for VPC](/docs/vpc?topic=vpc-file-storage-vpc-about). Contact your IBM Sales representative if you are interested in getting access.
 
 ### 07 April 2021
-{: #vpc-apr0721}
+{: #vpc-april2521}
 {: release-note}
 
-File Storage for VPC (Beta)
+File Storage for VPC (beta)
 :   NFS-based file shares for a zone within a region are available in a limited, allow-listed beta. You can share file storage over multiple virtual service instances within the same zone across multiple VPCs. For more information about this service, see [About File Storage for VPC (beta)](/docs/vpc?topic=vpc-file-storage-vpc-about).
 
 UI enhancement
@@ -704,7 +926,7 @@ Virtual server instance console
 :   The virtual server instance console feature is now generally available in the following regions: Dallas, Frankfurt, London, Osaka, and Washington DC. For more information, see [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console).
 
 Bring you own license (GA)
-:   You can bring your own license (BYOL) when you import a RedHat Enterprise Linux (RHEL) or Windows custom image to IBM Cloud VPC. Because these images are registered and licensed by you, you maintain control over your licenses and with no additional cost. Acquisition and activation of the license is between you and and the OS vendor. For more information, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about).
+:   You can bring your own license (BYOL) when you import a RedHat Enterprise Linux (RHEL) or Windows&reg; custom image to IBM Cloud VPC. Because these images are registered and licensed by you, you maintain control over your licenses and with no additional cost. Acquisition and activation of the license is between you and and the OS vendor. For more information, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about).
 
 Dedicated hosts (GA)
 :   Dedicated hosts are available in all regions. Use a dedicated host to carve out a single-tenant compute node for {{site.data.keyword.vpc_short}}. For more information, see [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances)
@@ -742,7 +964,7 @@ UI enhancement
 {: release-note}
 
 Dedicated hosts
-:   You can now use dedicated hosts to carve out a single-tenant compute node for {{site.data.keyword.vpc_short}} in the following regions: Dallas, London, Tokyo, and Osaka. For more information, see [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances).
+:   You can now use dedicated hosts to carve out a single-tenant compute node for {{site.data.keyword.vpc_short}} in the following regions: Dallas, Washington DC, London, Tokyo, and Osaka. For more information, see [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances).
 
 Application load balancer security group integration
 :   For enhanced security, application load balancers can now be associated with security groups. You can specify one or more security groups when you create the application load balancer, and associate security groups with your existing application load balancers. For more information, see [Integrating an IBM Cloud Application Load Balancer for VPC with security groups](/docs/vpc?topic=vpc-alb-integration-with-security-groups).
@@ -781,7 +1003,7 @@ New region
 {: #vpc-jan1121}
 {: release-note}
 
-**Customer-managed encryption (GA)**
+Customer-managed encryption (GA)
 :   Customer-managed encryption, which supports deleting or disabling customer root keys and provides new statuses, is now available in the Washington DC (WDC) region. All VPC service regions now support this feature.
 
 ## December 2020
@@ -810,14 +1032,16 @@ Bring you own license (Beta)
 
 Checksum (SHA256) for imported images (Beta)
 :   Now when you import a custom image, you can view the checksum that's generated for the image when it is imported to {{site.data.keyword.vpc_short}}. If you generate a checksum locally for your image before importing it, you can compare the two checksums to ensure that they are identical. For more information, see [Validating a custom image after importing (Beta)](/docs/vpc?topic=vpc-managing-images#validate-custom).
-- **UI enhancement** Default boot volume names are now appended with a millisecond timestamp.
+
+UI enhancements
+:   Default boot volume names are now appended with a millisecond timestamp.
 
 ### 11 December 2020
 {: #vpc-dec1120}
 {: release-note}
 
 VPN logging and auditing
-:   The ability to monitor and audit your VPNs has been added to  {{site.data.keyword.vpn_vpc_short}}. For more information, see [Using IBM Log Analysis to view VPN logs](/docs/vpc?topic=vpc-using-log-analysis-to-view-vpn-logs).
+:   The ability to monitor and audit your VPNs has been added to VPN for VPC. For more information, see [Using IBM Log Analysis to view VPN logs](/docs/vpc?topic=vpc-using-log-analysis-to-view-vpn-logs).
 
 ### 01 December 2020
 {: #vpc-dec0120}
@@ -839,7 +1063,7 @@ Support for ingress routing
 Support for datapath log forwarding with Log Analysis
 :   Datapath log forwarding with {{site.data.keyword.la_full_notm}} is now available for IBM Cloud Application Load Balancer for VPC. Data and health check logs are valuable for debugging, analysis, and maintenance purposes. With the datapath logging feature enabled, your load balancer forwards these logs to your account's {{site.data.keyword.la_full_notm}} dashboard. For more information, see [Datapath log forwarding with Log Analysis](/docs/vpc?topic=vpc-datapath-logging#datapath-logging).
 
-UI enhancement
+UI enhancements
 :   You can now provision a VPC from the within the New virtual server for VPC page.
 
 ### 12 November 2020
@@ -847,9 +1071,9 @@ UI enhancement
 {: release-note}
 
 Route-based virtual private network (VPN) gateways for VPC
-:   Use route-based {{site.data.keyword.vpn_vpc_short}} gateways to manage large, on-premises or cloud-based networks that require the ability to statically route network and connectivity over a secure, encrypted connection. VPN for VPC provides UI, CLI, and API support in all MZRs. For more information, see [About VPN gateways](/docs/vpc?topic=vpc-using-vpn).
+:   Use route-based VPN for VPC gateways to manage large, on-premises or cloud-based networks that require the ability to statically route network and connectivity over a secure, encrypted connection. VPN for VPC provides UI, CLI, and API support in all MZRs. For more information, see [About VPN gateways](/docs/vpc?topic=vpc-using-vpn).
 
-UI enhancement
+UI enhancements:
 :   You can now provision virtual server instances without first creating a VPC. Your virtual server instance is created in a default VPC.
 :   The refresh data option is removed from all details pages. Instead, users can refresh by using the browser refresh.
 
@@ -925,7 +1149,7 @@ New region
 {: #vpc-aug2720}
 {: release-note}
 
-Large profiles (GA)
+Large profiles (GA):
 :   The following two 48-core profiles are now generally available:
 
     * cx2-48x96
@@ -1009,8 +1233,8 @@ New region
 Network load balancer (Beta)
 :   Network load balancers are available in a limited beta. Use network load balancers to distribute traffic among multiple server instances within the same region of your VPC. For more information, see [Load balancers overview](/docs/vpc?topic=vpc-nlb-vs-elb) and [About network load balancers](/docs/vpc?topic=vpc-network-load-balancers).
 
-** {{site.data.keyword.vpn_vpc_short}} update**
-:   Access VPN monitoring metrics by using [Monitoring VPN for VPC metrics](/docs/vpc?topic=vpc-vpn-monitoring-metrics).
+VPN for VPC update
+:   Access VPN monitoring metrics by using [Monitoring VPN for VPC metrics](/docs/vpc?topic=vpc-sysdig-monitoring-metrics).
 
 ## June 2020
 {: #vpc-jun20}
@@ -1029,7 +1253,7 @@ Dedicated hosts (Beta)
 Updated custom images information
 :   A new [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images) checklist is available. The procedure for migrating a virtual server instance from classic infrastructure to {{site.data.keyword.cloud_notm}} VPC is enhanced. For more information, see [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc).
 
-UI enhancements
+UI Enhancements
 :   Added pagination for the security groups list table
 
 :   On the VPN Provision page, select a subnet from a table or create subnets
@@ -1060,7 +1284,7 @@ Auto scale for VPC (Beta)
 {: #vpc-may1520}
 {: release-note}
 
-**Load balancer for VPC update**
+Load balancer for VPC update
 :   Back-end encryption (HTTPS for back-end pool) is now supported. See [Using load balancers for VPC](/docs/vpc?topic=vpc-load-balancers) for details.
 
 ### 1 May 2020
@@ -1098,7 +1322,7 @@ Documentation correction
 {: release-note}
 
 Load balancer for VPC update
-:   Access load balancer monitoring metrics (throughput, active connections, connection rate) using [{{site.data.keyword.mon_full_notm}}](/docs/vpc?topic=vpc-monitoring-metrics).
+:   Access load balancer monitoring metrics (throughput, active connections, connection rate) using [IBM Cloud Monitoring](/docs/vpc?topic=vpc-monitoring-metrics).
 
    The following cipher suites are supported for load balancer HTTPS listeners:
 
@@ -1127,16 +1351,15 @@ Updated styling
 {: release-note}
 
 IBM virtual servers for VPC on POWER
-:   POWER-based instances are now generally available. For more information, see the following resources:
+:   POWER-based instances are now generally available. For more information, see the following resource:
 
-   - [IBM Cloud Virtual Private Cloud on POWER](https://developer.ibm.com/linuxonpower/power-virtual-private-cloud/){: external}  
    - [Profiles](/docs/vpc?topic=vpc-profiles)
 
 ### 02 March 2020
 {: #vpc-mar0220}
 {: release-note}
 
-New region
+New London region
 :   The London region endpoint (eu-gb) is now in service at `http://eu-gb.iaas.cloud.ibm.com`. For more information, see [Endpoint URLs](https://{DomainName}/apidocs/vpc#endpoint-url) in the {{site.data.keyword.vpc_short}} API. See also [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region).
 
 UI enhancement
@@ -1160,7 +1383,7 @@ New VPC network services (GA)
 {: release-note}
 
 Red Hat Enterprise Linux (RHEL) and Windows stock images are now available
-:   Provision an instance that uses an RHEL image or a Windows image in the Dallas region. For more information, see [Images](/docs/vpc?topic=vpc-about-images).
+:   Provision an instance that uses an RHEL image or a Windows&reg; image in the Dallas region. For more information, see [Images](/docs/vpc?topic=vpc-about-images).
 
 ### 10 February 2020
 {: #vpc-feb1020}
@@ -1180,9 +1403,9 @@ IBM virtual servers for VPC on POWER (Beta)
    * [Profiles](/docs/vpc?topic=vpc-profiles)
 
 Red Hat Enterprise Linux (RHEL) and Windows stock images are now available
-:   Provision an instance that uses an RHEL image or a Windows image in the Washington DC region. For more information, see [Images](/docs/vpc?topic=vpc-about-images).
+:   Provision an instance that uses an RHEL image or a Windows&reg; image in the Washington DC region. For more information, see [Images](/docs/vpc?topic=vpc-about-images).
 
-**UI enhancement**
+UI enhancements
 :   The modals for provisioning and attaching a public gateway and for creating an SSH key are now replaced with a redesigned side pane.
 
 ## January 2020
@@ -1192,7 +1415,7 @@ Red Hat Enterprise Linux (RHEL) and Windows stock images are now available
 {: #vpc-jan1020}
 {: release-note}
 
-New region
+New Washington DC region
 :   The Washington DC region endpoint (us-east) is now in service at `http://us-east.iaas.cloud.ibm.com`. For more information, see [Endpoint URLs](https://{DomainName}/apidocs/vpc#endpoint-url) in the {{site.data.keyword.vpc_short}} API. See also [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region).
 
 CLI plug-in release 0.5.10
@@ -1232,7 +1455,7 @@ Access control lists
 {: #vpc-nov1419}
 {: release-note}
 
-**VPC layout**
+VPC layout
 :   View resources that are associated with a VPC in the {{site.data.keyword.cloud_notm}} console. For more information, see [Viewing resources associated with a VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#vpc-layout).
 
 ### 07 November 2019
@@ -1243,7 +1466,7 @@ Load balancer (Beta)
 :   Use the {{site.data.keyword.cloud}} Load balancer for VPC service to distribute traffic among multiple server instances within the same region of your VPC. For more information, see [Using load balancers (Beta)](/docs/vpc?topic=vpc-load-balancers).
 
 VPN (Beta)
-:   Use the {{site.data.keyword.cloud}} {{site.data.keyword.vpn_vpc_short}} service to securely connect your VPC to another private network. For more information, see [Using VPN (Beta)](/docs/vpc?topic=vpc-using-vpn).
+:   Use the {{site.data.keyword.cloud}} VPN for VPC service to securely connect your VPC to another private network. For more information, see [Using VPN (Beta)](/docs/vpc?topic=vpc-using-vpn).
 
 ## October 2019
 {: #vpc-oct19}
@@ -1253,13 +1476,13 @@ VPN (Beta)
 {: release-note}
 
 Classic access
-:   Set up access from a VPC to your {{site.data.keyword.cloud}} classic infrastructure, including Direct Link connectivity. For more information, see [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure).
+:   Set up access from a VPC to your {{site.data.keyword.cloud}} Classic infrastructure, including Direct Link connectivity. For more information, see [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure).
 
 Advanced routing
 :   Control the flow of network traffic in your VPC by configuring VPC routes. For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes).
 
 ## June 2019
-{: #vpc-oct19}
+{: #vpc-june19}
 
 ### 04 June 2019
 {: #vpc-jun-0419}

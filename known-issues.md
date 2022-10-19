@@ -2,7 +2,8 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-07-12"
+lastupdated: "2022-10-11"
+
 
 keywords: known issues, bugs, defects
 
@@ -17,6 +18,11 @@ subcollection: vpc
 
 Known issues might change over time, so check back occasionally.
 {: shortdesc}
+
+## Network load balancer known issues
+{: #network-load-balancer-known-issues}
+
+**Issue:** When you create a listener for a network load balancer, you can specify a `protocol` of `tcp` or `udp`. However, each listener in the network load balancer must have a unique `port`. For network load balancer limitations, see [IBM Cloud Network Load Balancer for VPC limitations](/docs/vpc?topic=vpc-nlb-limitations).
 
 ## `resource_type` known issues
 {: resource-type-known-issues}
@@ -48,15 +54,6 @@ The floating IP associated with a bare metal network interface is not available 
 - Wait for the bare metal server network interfaces to be `available` before listing the floating IPs on the interfaces.
 - [List all floating IPs](/apidocs/vpc#list-floating-ips) to view those associated with bare metal server interfaces that are not yet `available`.
 
-## Instance metadata service known issues
-{: #instance-metadata-known-issues}
-
-The following issues apply to the VPC API or Instance Metadata API. These issues will be resolved in a future release.
-
-**Issue:** When you use the [VPC API](/apidocs/vpc) to manage instances, if the metadata service is disabled when an instance is created, and is subsequently enabled while the instance is running, the metadata service appear enabled but isn't fully functional for the running instance.
-
-**Workaround:** Do not use instance templates to create instances with a default trusted profile.
-
 ## Instance metadata service Activity Tracker events issues
 {: #instance-metadata-activity-tracker-event-known-issues}
 
@@ -68,13 +65,6 @@ The following issues apply to the VPC API or Instance Metadata API. These issues
 **Issue**: Cannot create network load balancers with specific port ranges
 
 Currently, the `port_min` and `port_max` properties are supported only when routing mode is enabled, and only when the entire port range is specified (`port_min` of `1` and `port_max` of `65535`). Support for allowing an arbitrary port range to be specified is planned for a future release.
-
-## Virtual server instances must be stopped before they can be deleted
-{: #API-1144}
-
-**Issue:** The virtual server instances cannot be deleted.
-
-**Workaround:** Stop the instance before you attempt to delete it.
 
 ## Checksum not available for some public images
 {: #RIOS-1410}
@@ -107,8 +97,22 @@ The following issues are currently present in the Cloud Console with no known wo
 
 **Issue:** The block storage details page might not show all the matched backup policies if the volume has more than one user tag.
 
-
 ## VSI monitoring known issues
 {: #vsi-monitoring-known-issues}
 
 **Issue:** Volumes that are created from snapshots and volumes that are resized do not display metrics on the VSI monitoring console page or in the IBM Cloud Monitoring dashboard for "VPC VSI Gen 2 Overview". No known workaround.
+
+## Virtual server instance Activity Tracker events known issues
+{: #at-virtual-server-instances-known-issues}
+
+**Issue:** AT event log entries are missing `target.resourceGroupId` for some actions related to virtual server instances, such as updating or creating a virtual server instance. Instead, the resource group ID might appear in either the `requestData` or `responseData` sections of the event.
+
+## Custom images in a private catalog known issue
+{: #custom-images-private-catalog-known-issues}
+
+**Issue:** If you have imported one or more images into a virtual server image for VPC catalog product offering version and you edit that version, an additional version ending in "draft" is created. You can't provision an instance from this draft version. Draft versions might appear on the Virtual server instance creation page in the UI or in the output of the CLI command `ibmcloud is catalog-image-offering`.
+
+## VPC property issue for Security and Compliance Center
+{: #RCS-4957}
+
+**Issue:** If you set a [config rule](/docs/vpc?topic=vpc-manage-security-compliance&interface=ui#govern-vpc) for a virtual server instance with the `metadata_service_enabled` property set to *is_false*, the compliance policy currently has no effect.

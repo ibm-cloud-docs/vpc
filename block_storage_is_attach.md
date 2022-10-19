@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-07-08"
+lastupdated: "2022-10-03"
 
 keywords:
 subcollection: vpc
@@ -37,7 +37,7 @@ When you create a {{site.data.keyword.block_storage_is_short}} volume for a virt
 
 You can attach only one block storage volume to a virtual server instance at a time, but you can attach up to 12 block storage data volumes to a single instance.
 
-When you create an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instance, only one data volume can be added currently. If you attach more volumes, they will not be used by the instance.
+When you create an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance, only one data volume can be added currently. If you attach more volumes, they will not be used by the instance.
 {: note}
 
 You can't use the UI to attach block storage volumes to IKS Cluster worker nodes. For information about using the CLI to attach volumes to cluster nodes, see [Storing data on Block Storage for VPC](/docs/containers?topic=containers-vpc-block).
@@ -57,7 +57,7 @@ From the list of all block storage volumes, follow these steps.
 1. Select a compute resource (virtual server instance) from the list of available resources, and then click **Attach**.
 1. Messages display on the volume details page to indicate that the volume is being attached to the image. When it completes, the image name appears under **Attached instances**.
 
-When you create an IBM Cloud Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instance and the contract mentions volumes, you can attach a data volume during the creation of the instance, or within 15 minutes after the creation of the instance. Failure to do so causes the instance to go into a shut down state after the 15 minute window.   
+When you create a {{site.data.keyword.hpvs}} for VPC instance and the contract mentions volumes, you can attach a data volume during the creation of the instance, or within 5 minutes after the creation of the instance. Failure to do so causes the instance to go into a shut down state after the 5 minute window.   
 {: note}
 
 You can also attach a block storage volume from the virtual server instance details page.
@@ -144,7 +144,7 @@ Do you prefer to use the {{site.data.keyword.cloud}} console? For more informati
 
 When you provision a virtual server instance from the CLI and create a block storage volume as part of the process, you must specify a volume attachment JSON. The volume attachment JSON, specified in the command or as a file, defines the volume parameters. When you [create an instance](/docs/vpc?topic=vpc-creating-virtual-servers-cli) and specify the `--volume-attach` parameter, you specify the volume JSON. For example, `--volume-attach @/Users/myname/myvolume-attachment_create.json`.
 
-Here is an example volume attachment JSON file that defines a custom volume:
+Here is an example volume attachment JSON file that defines a custom volume and specifies user tags:
 
 ```text
 [
@@ -157,6 +157,9 @@ Here is an example volume attachment JSON file that defines a custom volume:
             "iops": 1000,
             "profile": {
                 "name": "custom"
+            },
+            "user_tags": {
+                "env:test"
             }
         }
     }
