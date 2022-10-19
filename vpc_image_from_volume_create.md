@@ -1,8 +1,8 @@
 ---
 
 Copyright:
-  years: 2021
-lastupdated: "2021-06-17"
+  years: 2021, 2022
+lastupdated: "2022-10-19"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
 
@@ -10,41 +10,30 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:important: .important}
-{:note: .note}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:tip: .tip}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating an image from a volume
 {: #create-ifv}
 
-Use the UI, CLI, or API to create an image from a volume that's attached to an available virtual server instance as the primary boot volume or as a secondary boot volume. 
+Use the UI, CLI, or API to create an image from a volume that's attached to an available virtual server instance as the primary boot volume or as a secondary boot volume.
 {: shortdesc}
 
 ## Scenarios for creating an image from a volume
 {: #ifv-scenarios}
 
-There are several ways you can create an image from volume.
+You can create an image from a volume in several ways.
 
-* Select an instance and create an image from that instance's boot volume. The new image inherits the boot volume enryption (customer-managed or IBM-managed). 
+* Select an instance and create an image from that instance's boot volume. The new image inherits the boot volume encryption (customer-managed or IBM-managed).
 
-* Select an instance and create an image from that instance's boot volume and specify different encryption. For example, if the instance's boot volume was encrypted with IBM-managed encryption, you can select customer-managed encryption for the new image.
+* Select an instance, create an image from that instance's boot volume, and specify different encryption. For example, if the instance's boot volume was encrypted with IBM-managed encryption, you can select customer-managed encryption for the new image.
 
-* Create an image from a boot volume in the list of block storage volumes. The volume must be a boot volume attached to a virtual server instance.
+* Create an image from a boot volume in the list of block storage volumes. The volume must be a boot volume that is attached to a virtual server instance.
 
-Depending on the size of the image you're creating, the job might take from 5 minutes to 1.5 hours for the image to be created. You can cancel a job that's taking too long to queue. For more information, see [Performance considerations](/docs/vpc?topic=vpc-image-from-volume-vpc-manage#ifv-performance).
+Depending on the size of the image that you're creating, the job might take from 5 minutes to 1.5 hours. You can cancel a job that's taking too long to queue. For more information, see [Performance considerations](/docs/vpc?topic=vpc-image-from-volume-vpc-manage#ifv-performance).
 {: note}
 
 
-## Create an image from a volume by using the UI
+## Create an image from a volume in the UI
 {: #image-from-volume-vpc-api}
 {: ui}
 
@@ -55,12 +44,11 @@ Use the UI to create an image from a volume that's attached to an available virt
 
 Use the UI to import your custom image by choosing to create and import an image from a volume.
 
-1. In [{{site.data.keyword.cloud_notm}} console](https://console.cloud.ibm.com/vpc-ext){: external}, 
-navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Custom Images**.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, navigate to **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Custom Images**.
 
-3. Click **Create**. The Import custom image page displays.
+2. Click **Create**. The Import custom image page displays.
 
-4. Complete the required fields on the Import custom images page (see Table 1), and then continue using one of the **Source** options.
+3. Complete the required fields on the Import custom images page (see Table 1), and then continue using one of the **Source** options.
 
 | Field | Value |
 |-------|-------|
@@ -68,13 +56,13 @@ navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastr
 | Resource group | Select a resource group for the instance. |
 | Tags |  You can assign a label to this resource so that you can easily filter resources in your resource list. |
 | Region | Select the location, or specific geographic area, where you want your custom image to be available for provisioning.|
-| Source | Select the source for the custom image by choosing either [Virtual server instance boot volume](#import-custom-image-vsi) (default) or [Block storage boot volume](#import-custom-image-vol) |
-{: caption="Table 1. Import custom image user interface fields" caption-side="top"}
+| Source | Select the source for the custom image by choosing either [Virtual server instance boot volume](#import-custom-image-vsi) (default) or [Block storage boot volume](#import-custom-image-vol). |
+{: caption="Table 1. Import custom image user interface fields" caption-side="bottom"}
 
 ### Create an image from a virtual server instance boot volume
 {: #import-custom-image-vsi}
 
-When you select **Virtual server instance boot volume** as the source of your custom image, a list of instances displays. To create an image from the instance's boot volume: 
+When you select **Virtual server instance boot volume** as the source of your custom image, a list of instances displays. To create an image from the instance's boot volume:
 
 1. On the **Import custom image** page, select **Virtual server instance boot volume** (default).
 
@@ -94,7 +82,7 @@ When you select **Virtual server instance boot volume** as the source of your cu
 
 When you select **Block storage boot volume** as the source of your custom image, a list of block storage volumes displays.
 
-To create an image from the volume: 
+To create an image from the volume:
 
 1. On the **Import custom image** page, select **Block storage boot volume**.
 
@@ -121,31 +109,31 @@ To complete your image from volume, select either IBM-managed encryption or cust
 
 | Field | Value |
 |-------|-------|
-| Encryption | The default selection is **No encryption**. If you have not encrypted your image by using QEMU, use the default value, No encryption. If you are importing an image that you have encrypted by using QEMU and your own passphrase, select the key management service where your customer root key (CRK) that protects your passphrase is stored. Select either **Key Protect** or **Hyper Protect Crypto Services** |
+| Encryption | The default selection is **No encryption**. If you have not encrypted your image by using QEMU, use the default value, No encryption. If you are importing an image that you encrypted by using QEMU and your own passphrase, select the key management service where your customer root key (CRK) that protects your passphrase is stored. Select either **Key Protect** or **Hyper Protect Crypto Services**. |
 | Encryption service instance | For an encrypted image, select the specific instance of the key management service where your CRK that wraps your encryption passphrase is stored. |
 | Key name | Select the customer root key (CRK) that you used to wrap your encryption passphrase. |
 | Key ID | Shows the key ID that is associated with the data encryption key that you selected. |
-{: caption="Table 2. Encryption types" caption-side="top"}
+{: caption="Table 2. Encryption types" caption-side="bottom"}
 
-For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs)
+For more information, see [Setting up your key management service and keys](/docs/vpc?topic=vpc-create-encrypted-custom-image#kms-prereqs).
 
 ### View and use your image from volume
 {: #ifv-image-creation-completed}
 
-When the image from a volume is created, it appears in the list of custom images. 
+When the image from a volume is created, it appears in the list of custom images.
 
-1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Custom Images**.
+1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](/login){: external}, go to the **menu ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Custom Images**.
 
-2. To see the volume from which it was created, click on the image name. The image details panel links to the source volume.
+2. To see the volume from which it was created, click the image name. The image details panel links to the source volume.
 
 To use this image when you create a new instance, select it as operating system type when you create an instanceL
 
-1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
 
-2. Click **Create**. See [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers) for information on how to provision a new virtual server instance. For the **Operating system**, select the **Custom image** tile.
+2. Click **Create**. For more information on how to provision a new virtual server instance, see [Creating virtual server instances in the UI](/docs/vpc?topic=vpc-creating-virtual-servers). For the **Operating system**, select the **Custom image** tile.
 
 3. Click **Select custom image** and select the image from volume that you created.
- 
+
 
 ## Create an image from a volume with the CLI
 {: #image-from-volume-vpc-cli}
@@ -157,11 +145,11 @@ Use the CLI to create an image from a volume that's attached to an available vir
 {: #before-creating-ifv-cli}
 
 1. Make sure that you downloaded, installed, and initialized the following CLI plug-ins:
-    * {{site.data.keyword.cloud_notm}} CLI
-    * The infrastructure-service plug-in
+   * {{site.data.keyword.cloud_notm}} CLI
+   * The infrastructure-service plug-in
 
    For more information, see the [CLI Reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference).
-   
+
    After you install the vpc-infrastructure plug-in, set the target to generation 2 by running the command `ibmcloud is target --gen 2`.
    {: important}
 
@@ -174,73 +162,71 @@ Use the CLI to create an image from a volume that's attached to an available vir
 
 1. [Stop the running instance](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-stop) before creating the image from volume.
 
-```
-ibmcloud is instance-stop INSTANCE_ID
-```
-{: pre}
-
+   ```sh
+   ibmcloud is instance-stop INSTANCE_ID
+   ```
+   {: pre}
 
 2. Run the [`image-create` command](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#image-create) to create an image of a boot volume. Specify the ID of the source volume.
 
-```
-$ ibmcloud is image-create IMAGE_NAME [--source-volume VOLUME_ID]
-```
-{: pre}
+   ```sh
+   ibmcloud is image-create IMAGE_NAME [--source-volume VOLUME_ID]
+   ```
+   {: pre}
 
+   Example:
 
-Example:
+   ```sh
+   $ ibmcloud is image-create test-ifv-vol1 --source-volume ecc68c2f-96a1-4862-bc86-14f47e5d9ed8
 
-```
-$ ibmcloud is image-create test-ifv-vol1 --source-volume ecc68c2f-96a1-4862-bc86-14f47e5d9ed8
-
-Creating image test-ifv-vol1 in resource group  under account DEMO as user user1-mycompany.com...
-ID                 5b2fd4ee-c636-44c4-9673-453fca36832e   
-Name               test-ifv-vol1   
-CRN                crn:v1:staging:public:is:us-south:a/2d1bace7b46e4815a81e52c6ffeba5cf::image:5b2fd4ee-c636-44c4-9673-453fca36832e   
-Status             pending   
-Status reason      Code                   Message                                                More info
-                   image_request_queued   The image request is accepted and waiting for system   -
-                                          resources to become available.
-Operating system   Name             Architecture   Vendor   Version                 Dedicated host only
-                   centos-8-amd64   amd64          CentOS   8.x - Minimal Install   false
-Source volume      ID                                     Name
-                   ecc68c2f-96a1-4862-bc86-14f47e5d9ed8   aa-1-bx-boot-1617035447000
-Created            2021-05-20T09:43:16+08:00   
-Visibility         private   
-File size(GB)      -   
-Encryption         none
-Resource group     f22cf48f-8836-4527-9131-1d7c73ba85e9
-```
-{: screen}
+   Creating image test-ifv-vol1 in resource group  under account DEMO as user user1-mycompany.com...
+   ID                 5b2fd4ee-c636-44c4-9673-453fca36832e
+   Name               test-ifv-vol1
+   CRN                crn:v1:staging:public:is:us-south:a/2d1bace7b46e4815a81e52c6ffeba5cf::image:5b2fd4ee-c636-44c4-9673-453fca36832e
+   Status             pending
+   Status reason      Code                   Message                                                More info
+                      image_request_queued   The image request is accepted and waiting for system   -
+                                             resources to become available.
+   Operating system   Name             Architecture   Vendor   Version                 Dedicated host only
+                      centos-8-amd64   amd64          CentOS   8.x - Minimal Install   false
+   Source volume      ID                                     Name
+                      ecc68c2f-96a1-4862-bc86-14f47e5d9ed8   aa-1-bx-boot-1617035447000
+   Created            2021-05-20T09:43:16+08:00
+   Visibility         private
+   File size(GB)      -
+   Encryption         none
+   Resource group     f22cf48f-8836-4527-9131-1d7c73ba85e9
+   ```
+   {: screen}
 
 ## Create an image from a volume with the API
 {: #image-from-volume-vpc-api}
 {: api}
 
-Use the regional API to create an image from volume when creating a new instance or from an existing instance.
+Use the regional API to create an image from volume when creating an instance or from an existing instance.
 
 ### Before you begin
 {: #ifv-prereqs-api}
 
-Before you can use the API, there are some preliminary steps you must take. See [API prerequisites](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) for more information.
+Before you can use the API, you must take some preliminary steps. For more information, see [API prerequisites](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 
-### Create an image from volume when you create a new instance (API)
+### Create an image from volume when you create an instance (API)
 {: #ifv-vpc-api-create-instance}
 
-Follow these steps to create an image from volume when you create a new instance. The new instance's boot volume is used for the image, which inherits the encryption from the boot volume. In this scenario, the boot volume uses the default IBM-managed encryption, which is inherited by the new image. You can also specify your own root encryption key in the `POST/images` call. For information, see [Create an image from volume and use your root encryption key](#ifv-use-crk). 
+Follow these steps to create an image from volume when you create a new instance. The new instance's boot volume is used for the image, which inherits the encryption from the boot volume. In this scenario, the boot volume uses the default IBM-managed encryption, which is inherited by the new image. You can also specify your own root encryption key in the `POST/images` call. For more information, see [Create an image from volume and use your root encryption key](#ifv-use-crk).
 
 This procedure:
 
-1. Creates a new instance and uses it's boot volume ID as the source volume.
+1. Creates an instance and uses its boot volume ID as the source volume.
 2. Stops the running instance.
-3. Creates a new image using the ID of the boot volume. In this scenario, the boot volume is encrypted with the default IBM-managed encryption. If the boot volume was encrypted with a [customer root key](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption), that root key would be used to encrypt the new image. The API response would display the [CRN of the root key](#ifv-use-crk).
+3. Creates a new image using the ID of the boot volume. In this scenario, the boot volume is encrypted with the default IBM-managed encryption. If the boot volume was encrypted with a [customer root key](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption), that root key is used to encrypt the new image. The API response displays the [CRN of the root key](#ifv-use-crk).
 
 #### Step 1 - Create an instance
 {: #ifv-create-instance}
 
 Specify a `POST/instances` request to create an instance and pass the required parameters. For example:
 
-```cURL
+```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/instances?version=2021-05-20 \
 $iam_token" -d
@@ -273,7 +259,7 @@ $iam_token" -d
 
 Stop the running instance by specifying the `stop` action in a `POST /instances` call:
 
-```cURL
+```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/instances/{instance-id}/gen/actions?version=2021-05-20"
 $iam_token" -d
@@ -286,9 +272,9 @@ $iam_token" -d
 #### Step 3 - Create a new image and provide the ID of the boot volume image
 {: #ifv-create-image}
 
-The source boot volume originates from an image. This boot volume is then used to populate the new  image's operating system information. 
+The source boot volume originates from an image. This boot volume is used to populate the new image's operating system information.
 
-Create an image with a POST /images request and pass the boot volume ID of the instance you created in [Step 1](#ifv-create-instance) as source volume. For example: 
+Create an image with a POST /images request and pass the boot volume ID of the instance that you created in [Step 1](#ifv-create-instance) as source volume. For example:
 
 ```cURL
 curl -X POST \
@@ -303,9 +289,9 @@ $iam_token" -d
 ```
 {: codeblock}
 
-In the example response, `source_volume` indicates the boot volume used to create the image. Also notice that the image encryption appears as `none`, because the source volume used the default IBM-managed encryption. If you [used you own root key](#ifv-use-crk), the response would show `user-managed` instead.
+In the example response, `source_volume` indicates the boot volume that is used to create the image. Also notice that the image encryption appears as `none`, because the source volume used the default IBM-managed encryption. If you [used you own root key](#ifv-use-crk), the response would show `user-managed` instead.
 
-```
+```sh
 {
   "created_at": "2021-05-20T00:05:13.873893Z",
   "crn": "crn:[...]",
@@ -331,14 +317,13 @@ In the example response, `source_volume` indicates the boot volume used to creat
   "status": "pending",
   "status_reasons": [],
   "visibility": "private"
-  "source_volume":  { 
+  "source_volume":  {
     "id": "4fec84ef-baf9-405d-bf3b-9d5a60e068f7",
     "crn": "crn:[...]",
-    "href": "", 
+    "href": "",
     "name": "ifv-boot-vol"
   }
 }
-
 ```
 {: codeblock}
 
@@ -347,7 +332,7 @@ In the example response, `source_volume` indicates the boot volume used to creat
 
 In this scenario, you're creating an image from a volume and specifying your root key in the `POST/images` call.
 
-An example request would specify the CRN of the root key in the `encryption_key` parameter:
+The example request specifies the CRN of the root key in the `encryption_key` parameter:
 
 ```cURL
 curl -X POST \
@@ -358,16 +343,16 @@ $iam_token" -d
     "source_volume": {
         "id": "4fec84ef-baf9-405d-bf3b-9d5a60e068f7"
     },
-    "encryption_key":{  
+    "encryption_key":{
       "crn":"crn:[...key:...]"
     },
 }
 ```
 {: codeblock}
 
-The response would include information about the root key:
+The response includes information about the root key:
 
-```
+```sh
 {
   "created_at": "2021-05-20T00:05:13.873893Z",
   "crn": "crn:[...]",
@@ -396,10 +381,10 @@ The response would include information about the root key:
   "status": "pending",
   "status_reasons": [],
   "visibility": "private"
-  "source_volume":  { 
+  "source_volume":  {
     "id": "4fec84ef-baf9-405d-bf3b-9d5a60e068f7",
     "crn": "crn:[...]",
-    "href": "", 
+    "href": "",
     "name": "ifv-boot-vol"
   }
 }
@@ -410,16 +395,16 @@ The response would include information about the root key:
 ### Create an image from a volume of an existing instance
 {: #ifv-vpc-api-list-instance}
 
-You can also create an image from a boot volume attached to an existing instance. This procedure:
+You can also create an image from a boot volume that is attached to an existing instance. This procedure:
 
-1. Lists all instances and then gets the ID of a boot volume attached to an available, running instance.
-3. Stops the running instance.
-4. Creates a new image using the ID of the boot volume image.
+1. Lists all instances and then, gets the ID of a boot volume that is attached to an available, running instance.
+2. Stops the running instance.
+3. Creates a new image by using the ID of the boot volume image.
 
-#### Step 1 - Locate the instance and boot volume ID
+#### Step 1 - Locate the instance and the boot volume ID
 {: #ifv-locate-instance}
 
-Make a `GET /instances` call to list all instances and locate the available, running instance you need. For example:
+Make a `GET /instances` call to list all instances and locate the available, running instance that you need. For example:
 
 ```cURL
 curl -X GET \
@@ -428,11 +413,11 @@ curl -X GET \
 ```
 {: codeblock}
 
-Make a `GET /instances/{id}` to view details of a single instance and locate it's boot volume ID.
+Make a `GET /instances/{id}` to view details of a single instance and locate its boot volume ID.
 
 The response shows the ID of the boot volume under `volume_attachments`:
 
-```
+```sh
   "volume_attachments": [
     {
       "device": {
@@ -451,8 +436,7 @@ The response shows the ID of the boot volume under `volume_attachments`:
 ```
 {: codeblock}
 
-You can also tell whether the instance is running by making a 
-`GET /volumes/{id}` call and specify the boot volume ID. If `active = true` in the response, the instance is running.
+You can also tell whether the instance is running by making a `GET /volumes/{id}` call and specify the boot volume ID. If you see `active = true` in the response, the instance is running.
 {: tip}
 
 #### Step 2 - Stop the running instance
@@ -492,5 +476,5 @@ $iam_token" -d
 ## Next steps
 {: ifv-next-steps-api}
 
-[Use your image from a volume](#ifv-image-creation-completed) when creating a new instance.
+[Use your image from a volume](#ifv-image-creation-completed) when you create an instance.
 [Manage your image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc-manage).
