@@ -12,11 +12,8 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Configuring security groups and ACLs for use with a VPN server (Beta)
-{: #vpn-client-to-site-security-groups} 
-
-Client VPN for VPC is available to all IBM Cloud users. After the Beta period ends, you will be given a time period to migrate your VPN servers to the standard pricing plan to avoid disruption of service.
-{: beta}
+# Configuring security groups and ACLs for use with a VPN server
+{: #vpn-client-to-site-security-groups}  
 
 Security groups and access control lists (ACLs) can be configured on the VPN server's subnet where the VPN server is deployed, as well as on other VPC subnets that communicate over the VPN tunnel.
 {: shortdesc}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-03-21"
+lastupdated: "2022-09-22"
 
 keywords: virtual private endpoints, endpoint gateway, VPE
 subcollection: vpc
@@ -17,6 +17,7 @@ subcollection: vpc
 {{site.data.keyword.cloud}} Virtual Private Endpoints (VPE) for VPC supports the following {{site.data.keyword.cloud_notm}} services.
 {: shortdesc}
 
+* {{site.data.keyword.appconfig_short}} ([Endpoint URLs](/apidocs/app-configuration#endpoints-list-all))
 * Catalog Management ([Endpoint URLs](/apidocs/resource-catalog/private-catalog#endpoint-url))
 * Cloud Object Storage
 * Code Engine  ([Instructions](/docs/codeengine?topic=codeengine-vpe))
@@ -27,6 +28,7 @@ subcollection: vpc
 * Enterprise Billing Units ([Endpoint URLs](/apidocs/enterprise-apis/billing-unit#endpoint-urls))
 * Enterprise Management ([Endpoint URLs](/apidocs/enterprise-apis/enterprise#endpoint-urls))
 * Enterprise Usage Reports ([Endpoint URLs](/apidocs/enterprise-apis/resource-usage-reports#endpoint-urls))
+* {{site.data.keyword.en_short}} ([Endpoint URLs](/apidocs/event-notifications#event-notifications-endpoint-url))
 * Event Streams for IBM Cloud ([Endpoint URLs](/apidocs/event-streams/adminrest))
 * Global Catalog ([Endpoint URLs](/apidocs/resource-catalog/global-catalog#endpoint-url))
 * Global Search ([Endpoint URLs](/apidocs/search#endpoint-url))

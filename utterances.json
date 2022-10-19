@@ -458,16 +458,14 @@
     ],
     "troubleshoot-cannot-create": [
         "cannot create a VPC resource",
+	"Not able to create VPC instance",
         "unable to create virtual private cloud resource",
         "need permissions to create a VPC",
         "access to create VPC",
         "access for creating virtual private cloud",
         "lack permissions to add a VPC resource",
-        "get permission to create VPC",
-        "how to access VPC",
+	"get permission to create VPC",
         "How can I get access to create a virtual private cloud",
-        "I do not have permission for creating VPC resource",
-        "accessing my virtual private cloud",
-        "permissions to create vpc"
+        "I do not have permission for creating VPC resource"
     ]
 }

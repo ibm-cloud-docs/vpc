@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-20"
+lastupdated: "2022-08-17"
 
 keywords:
 
@@ -35,7 +35,7 @@ Create backup policies for your block storage volumes by using the UI, CLI, or A
 ## Before you begin
 {: #backup-prereqs}
 
-1. Establish IAM user roles to grant [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth) so that the backup service to detect volume tags to create a backup.
+1. Establish IAM user roles to grant [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth) so that the backup service can detect volume tags and create backups.
 
 2. Create user tags for new or existing data volumes that you associate with a backup policy. For information about adding tags, see [Apply tags to resources for backup policies](/docs/vpc?topic=vpc-backup-use-policies). For information about creating tags, see [Working with tags](/docs/account?topic=account-tag). 
 

@@ -203,7 +203,7 @@ Approved Scanning Vendor (ASV) quarterly scanning is a requirement of the Paymen
 {: #migrate-to-secrets-manager}
 {: faq}
 
-Application load balancer will continue to support [IBM Certificate Manager](/docs/certificate-manager?topic=certificate-manager-getting-started) until September 30 2022. To migrate your existing certificates to Secrets Manager, refer to the information in [this topic](https://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager). After your certificates are migrated, you must then update the existing listener configuration with the new certificate CRN.
+Application load balancer will continue to support [IBM Certificate Manager](/docs/certificate-manager?topic=certificate-manager-getting-started) until September 30 2022. To migrate your existing certificates to Secrets Manager, refer to the information in [this topic](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager). After your certificates are migrated, you must then update the existing listener configuration with the new certificate CRN.
 
 ## How are active connections handled when a load balancer is scaled down?
 {: #faqs-active-connections}

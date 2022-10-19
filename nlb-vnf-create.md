@@ -19,6 +19,9 @@ Virtual Network Function (VNF) devices are virtualized network services (such as
 
 Traffic destined for servers in {{site.data.keyword.vpc_short}} must be delivered to healthy VNF devices; otherwise, traffic disruption occurs. You can use network load balancers with routing mode to perform health checks and to ensure that workloads only travel through healthy VNF devices. Because of this, network load balancers with routing mode support only VNF devices as back-end targets.
 
+For detailed examples of various ways you can deploy your NLB with routing mode, refer to [HA VNF deployments](/docs/vpc?topic=vpc-about-vnf-ha&interface=ui).
+{: tip}
+
 ## Prerequisites for NLB with routing mode
 {: #nlb-vnf-prereqs}
 

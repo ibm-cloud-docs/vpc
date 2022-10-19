@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-24"
+lastupdated: "2022-09-15"
 
 subcollection: vpc
 
@@ -65,7 +65,7 @@ The metadata service provides information about your running virtual server inst
 
 The instance identity token service lets you generate an instance identity access token that provides a security credential for accessing the metadata. To interact with the instance identity token service, you make a REST API call to the service using a well-known, non-routable IP address. You access the token from within the instance. For more information, see [Instance identity token service](/docs/vpc?topic=vpc-imd-about#imd-vpc-access-token). 
 
-You can also generate an IAM token from the instance identity access token, and then use the IAM token to access all IAM-enabled services. For more information, see [Generate an IAM token from an instance identity access token](https://test.cloud.ibm.com)/docs/vpc?topic=vpc-imd-configure-service&interface=cli#imd-token-exchange).
+You can also generate an IAM token from the instance identity access token, and then use the IAM token to access all IAM-enabled services. For more information, see [Generate an IAM token from an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service&interface=cli#imd-token-exchange).
 
 ## How do I get metadata for booting up a new instance?
 {: #faq-rdms-5}

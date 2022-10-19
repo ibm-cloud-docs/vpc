@@ -12,11 +12,8 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Creating an IAM access group and granting the role to connect to the VPN server (Beta)
+# Creating an IAM access group and granting the role to connect to the VPN server
 {: #create-iam-access-group}
-
-Client VPN for VPC is available to all IBM Cloud users. After the Beta period ends, you will be given a time period to migrate your VPN servers to the standard pricing plan to avoid disruption of service.
-{: beta}
 
 FOR USER ID AND PASSCODE AUTHENTICATION ONLY
 

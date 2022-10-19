@@ -81,7 +81,7 @@ From the policy details page, click the pencil icon next to the policy name.
 
 From the Backup policy details page, you can edit the tags for your block storage volumes target resources.
 
-1. Go to the [details page for a backup policy](https://test.cloud.ibm.com/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-policy).
+1. Go to the [details page for a backup policy](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-policy).
 
 2. For **Tags for target resources**, click the pencil icon.
 

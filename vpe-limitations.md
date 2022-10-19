@@ -20,7 +20,7 @@ keywords: VPE, virtual private endpoints, limitations, endpoint gateway
       As a workaround, you can use a private application load balancer to access VPE from Direct Link, or other environments connected via Transit Gateway. For more information, see [Accessing private API endpoints from an on-premises network using IBM Cloud Direct Link](/docs/vpc?topic=vpc-end-to-end-private-connectivity).
       {: note}
       
-   * {{site.data.keyword.cloud_notm}} Security Groups and Flow Logs for VPC
+   * {{site.data.keyword.cloud_notm}} Flow Logs for VPC
    * Services that are in zones and regions other than [IBM Cloud Multi-Zone Regions (MZRs)](/docs/overview?topic=overview-locations#mzr-table)
 
 * The following items are architectural restrictions:

@@ -38,7 +38,7 @@ To support these functions, the following general configuration steps must be pe
 Use the following configuration:
 
 1. Choose `IKEv2` in authentication.
-1. Enable `DH-group 2` in the Phase 1 proposal.
+1. Enable `DH-group 19` in the Phase 1 proposal.
 1. Set `lifetime = 36000` in the Phase 1 proposal.
 1. Disable PFS in the Phase 2 proposal.
 1. Set `lifetime = 10800` in the Phase 2 proposal.
@@ -77,7 +77,7 @@ There are two ways that you can run the configuration on your Vyatta:
 Remember to:
 
 * Choose `IKEv2` in authentication.
-* Enable `DH-group 2`.
+* Enable `DH-group 19`.
 * Set `lifetime = 36000`.
 * Disable PFS.
 * Set `lifetime = 10800`.
@@ -142,7 +142,7 @@ set security vpn ipsec ike-group 169.61.247.167_test_ike lifetime 36000
 set security vpn ipsec ike-group 169.61.247.167_test_ike ike-version 2
 
 set security vpn ipsec ike-group 169.61.247.167_test_ike proposal 1
-set security vpn ipsec ike-group 169.61.247.167_test_ike proposal 1 dh-group 2
+set security vpn ipsec ike-group 169.61.247.167_test_ike proposal 1 dh-group 19
 set security vpn ipsec ike-group 169.61.247.167_test_ike proposal 1 encryption aes256
 set security vpn ipsec ike-group 169.61.247.167_test_ike proposal 1 hash sha2_256
 set security vpn ipsec esp-group 169.61.247.167_test_ipsec compression disable

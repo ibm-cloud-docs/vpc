@@ -12,19 +12,16 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Planning considerations for VPN servers (Beta)
+# Planning considerations for VPN servers
 {: #client-to-site-vpn-planning}
-
-Client VPN for VPC is available to all IBM Cloud users. After the Beta period ends, you will be given a time period to migrate your VPN servers to the standard pricing plan to avoid disruption of service.
-{: beta}
 
 Review the following considerations before creating a client-to-site VPN server.
 {: shortdesc}
 
-## Scaling considerations for Beta
+## Scaling considerations
 {: #scaling-considerations}
-
-The aggregation bandwidth of each VPN server is 200 Mbps, and the maximum number of active clients is 500. If you require more bandwidth, or have more clients that need to connect with the VPN server, you can create multiple VPN servers in the same VPC, or in different VPCs in different regions.
+ 
+The aggregation bandwidth is 600 Mbps for a stand-alone VPN and 1200 Mbps for a high availability VPN server. The maximum number of active clients is 2000. If you require more bandwidth, or have more clients that need to connect with the VPN server, you can create multiple VPN servers in the same VPC, or in different VPCs in different regions.
 
 ## Existing VPC configuration considerations
 {: #existing-vpc-configuration-considerations}
@@ -63,7 +60,10 @@ When you create a VPN server, you can specify either high-availability or stand-
 ### VPN server authentication
 {: #server-authentication}
 
-You must specify a VPN server certificate during provisioning. You can create a certificate using the {{site.data.keyword.cloud_notm}} Secrets Manager or Certificate Manager, or use one of your own.
+As of February 2022, IBM Cloud Certificate Manager is deprecated. The strategic alternative for managing certificates in IBM Cloud is Secrets Manager. Secrets Manager is a separate product that incurs added costs separate from Client VPN for VPC billing. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager).
+{: important}
+
+You must specify a VPN server certificate during provisioning. You can create a certificate using the {{site.data.keyword.cloud_notm}} Secrets Manager, or use one of your own.
 
    If using the CLI or API, you must specify the certificate's CRN. To obtain the certificate CRN, see [Locating the certificate CRN](/docs/vpc?topic=vpc-client-to-site-authentication#locating-cert-crn).
    {: note}

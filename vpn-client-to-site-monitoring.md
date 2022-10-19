@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-08-26"
+  years: 2021, 2022
+lastupdated: "2022-07-14"
 
 keywords:
 
@@ -12,11 +12,8 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Monitoring VPN servers (Beta)
+# Monitoring VPN servers
 {: #vpn-client-to-site-monitoring}
-
-Client VPN for VPC is available to all IBM Cloud users. After the Beta period ends, you will be given a time period to migrate your VPN servers to the standard pricing plan to avoid disruption of service.
-{: beta}
 
 {{site.data.keyword.mon_full}} collects basic VPN server metrics on {{site.data.keyword.cloud_notm}} for VPC, such as VPN server health status, VPN server active client count, VPN server authentication failure count, VPN server CRL days until expiration, and VPN server bytes input/output. These metrics are stored in {{site.data.keyword.mon_full_notm}}. You can access metrics through the prebuilt dashboard.
 {: shortdesc}
@@ -139,7 +136,7 @@ Health status for a VPN server (for example, `2`=ok, `1`=degraded, `0`=faulted/i
 ## Metric segmentation
 {: #vpn-client-to-site-metric-segmentation}
 
-You can split the metrics that {{site.data.keyword.mon_full_notm}} presents into various visualizations in the {{site.data.keyword.mon_full_notm}} dashboard, allowing views of different metrics based on your preference. For example, if you have multiple VPN servers or accounts with different VPN servers in each account, you might want to focus on a particular vpn server by name.
+You can split the metrics that {{site.data.keyword.mon_full_notm}} presents into various visualizations in the {{site.data.keyword.mon_full_notm}} dashboard, allowing views of different metrics based on your preference. For example, if you have multiple VPN servers or accounts with different VPN servers in each account, you might want to focus on a particular VPN server by name.
 
 As an example, you can segment the `VPN Server Bytes Input` by `IBM {{site.data.keyword.vpn_vpc_short}} server name` to show how many bytes per minute are received for a VPN server. The dashboard shows different lines in different colors where each line represents received bytes per minute for a VPN server.
 
@@ -173,7 +170,7 @@ The following attributes are available for segmenting one or more attributes as 
 
 The displayed metrics contain a timestamp in UNIX epoch time and the metric value for the time intervals that end at that timestamp. You can specify different scopes, and the time interval over which to report the metrics.
 
-You can also specify the time interval over which to report your metrics. The following time intervals are supported in the {{site.data.keyword.mon_full_notm}} dashboard:
+The following time intervals are supported in the {{site.data.keyword.mon_full_notm}} dashboard:
 
 * 10 seconds
 * 1 minute
@@ -185,12 +182,13 @@ You can also specify the time interval over which to report your metrics. The fo
 
 ## Enabling metrics monitoring
 {: #vpn-client-to-site-enable-metrics-monitoring}
+{: ui}
 
 To receive monitoring metrics, you must set up your {{site.data.keyword.mon_full_notm}} instance.
 
 To receive monitoring metrics, use the following steps:
 
-1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring) and click **Create a monitoring instance**.
+1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring){: external} and click **Create a monitoring instance**.
 
 2. Select a region for your {{site.data.keyword.mon_full_notm}} instance.
 
@@ -227,13 +225,12 @@ To receive monitoring metrics, use the following steps:
 
 Within a few minutes, your new {{site.data.keyword.mon_full_notm}} instance displays with several configurations. You might have to refresh your browser to see it.
 
-## Working with the {{site.data.keyword.mon_full_notm}} dashboard
+### Working with the {{site.data.keyword.mon_full_notm}} dashboard
 {: #vpn-client-to-site-working-with-monitoring-dashboard}
-{: ui}
 
 To view and work with your {{site.data.keyword.mon_full_notm}} metrics, follow these steps:
 
-1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring).
+1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring){: external}.
 
 2. Click **Open Dashboard** next to the service name of the {{site.data.keyword.mon_full_notm}} instance that you want to work with.
 
@@ -244,21 +241,21 @@ To view and work with your {{site.data.keyword.mon_full_notm}} metrics, follow t
 
 4. Click **DASHBOARD TEMPLATES > IBM > VPC VPN Server**. The default dashboard is not editable.
 
-5. Six main metrics in the dashboard are shown. These metrics include VPN server health status, VPN server active client count, VPN server authentication failure count, VPN server CRL days until expiration, and VPN server bytes input/output. If you want to modify the parameters and segment your metrics by VPN server name, you must create a custom dashboard.
+5. The dashboard shows six main metrics. These metrics include VPN server health status, VPN server active client count, VPN server authentication failure count, VPN server CRL days until expiration, and VPN server bytes input/output. If you want to modify the parameters and segment your metrics by VPN server name, you must create a custom dashboard.
 
    ![VPN server {{site.data.keyword.mon_full_notm}} dashboard](images/dashboard_c2s_vpn.png){: caption="VPN server {{site.data.keyword.mon_full_notm}} dashboard" caption-side="bottom"}
 
    You can choose what time window that you'd like to see your metrics by using the time selection bar.
    {: tip}
 
-## Creating a custom metrics dashboard
+### Creating a custom metrics dashboard
 {: #creating-custom-metrics-dashboard-vpn-client-to-site}
 
 You can create your own dashboard to customize your monitoring metrics, such as viewing information and traffic about particular VPN servers.
 
 To customize your dashboard, use the following steps:
 
-1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring).
+1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring){: external}.
 
 2. Click **Open Dashboard** next to the service name of the {{site.data.keyword.mon_full_notm}} instance you want to work with. You now see the dashboard.
 
@@ -275,7 +272,7 @@ To customize your dashboard, use the following steps:
 
 5. Configure your custom dashboard.
 
-   * In the **Metrics** field, enter `ibm_is_vpn_server` to display the ten IBM {{site.data.keyword.mon_full_notm}} {{site.data.keyword.vpn_vpc_short}} server metrics: `ibm_is_vpn_server_health_status`, `ibm_is_vpn_server_active_client_count`, `ibm_is_vpn_server_authentication_failure_count`, `ibm_is_vpn_server_crl_days_expiry`, `ibm_is_vpn_server_data_received_bytes`, and `ibm_is_vpn_server_data_sent_bytes`.
+   * In the **Metrics** field, enter `ibm_is_vpn_server` to display the {{site.data.keyword.mon_full_notm}} {{site.data.keyword.vpn_vpc_short}} server metrics: `ibm_is_vpn_server_health_status`, `ibm_is_vpn_server_active_client_count`, `ibm_is_vpn_server_authentication_failure_count`, `ibm_is_vpn_server_crl_days_expiry`, `ibm_is_vpn_server_data_received_bytes`, and `ibm_is_vpn_server_data_sent_bytes`.
 
    * You can choose a scope to display in your dashboard by clicking **Edit dashboard scope**. For example, you can display the metrics for a particular VPN server.
 
@@ -283,7 +280,7 @@ To customize your dashboard, use the following steps:
 
 6. Click **Save**.
 
-   By default, the dashboard is named "blank dashboard". You can change the name by selecting **Dashboards** from the sidebar and clicking the Pencil icon next to the name.
+   By default, the dashboard is named "blank dashboard". You can change the name by selecting **Dashboards** from the sidebar and clicking the pencil icon next to the name.
    {: tip}
 
 To return to the default {{site.data.keyword.mon_full_notm}} dashboard at any time, select **Dashboards > Default Dashboards > IBM > VPC VPN SERVER**.
@@ -381,3 +378,20 @@ If the time range that is specified by `from` and `to` is large (for example, 4 
  }'
 ```
 {: codeblock}
+
+## Accessing and viewing metrics
+{: vpn-access-view-metrics}
+
+To access metrics for a specific VPN server, follow these steps:
+
+1. Navigate to the [VPNs for VPC](https://cloud.ibm.com/vpc-ext/network/vpngateways){: external} page and click the **Client-to-site servers** tab. 
+1. Click the name of the VPN server to display its details.
+1. Click the **Monitoring** tab to view the VPN server metrics. 
+
+   ![VPN server metrics](images/vpn-monitoring.png){: caption="VPN monitoring" caption-side="bottom"}
+   
+1. Configure the history, dates, and time zone to generate the output you are looking for. 
+
+You can download the metrics or launch monitoring from your VPN dashboard by selecting **Launch monitoring.**
+
+   

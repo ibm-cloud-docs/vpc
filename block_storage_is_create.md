@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-06-28"
+lastupdated: "2022-08-23"
 
 keywords:
 
@@ -48,41 +48,29 @@ Use the {{site.data.keyword.cloud_notm}} console to create a block storage volum
 
 1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
 
-Be sure to select VPC infrastructure from the menu icon.  
-{: tip}
+2. From the list of virtual server instances, click **Create**. For information on provisioning the instance, see [Creating a virtual server instance with the UI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#creating-virtual-servers-ui). 
 
-1. Click **New instance** and enter the information in Table 1.
+   A boot volume is created and appears under **Boot volume** on the provision page. You can edit the boot volume by clicking the pencil icon to change the size, encryption, and add any user tags to identify this resource.
 
-1. Click **Create virtual server instance** when you are ready to provision.
+3. To create a new data volume and attach it to the instance, in the Data volumes section of the instance provisioning page, click **Create**. Specify the volume details in the side panel. Enter the information in Table 1.
 
-| Field | Value |
-|-------|-------|
-| Name  | Required; provide a name for your virtual server instance. |
-| Virtual private cloud | Specify the IBM Cloud VPC where you want to create your instance. |
-| Resource group | Select a [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups) for the instance. Resource groups help organize your account resources for access control and billing purposes. |
-| Location | Locations are specific geographic areas where the data center is located (for example, Dallas) and zone (for example, Dallas 01). Select the location where you want your virtual server instance to be created. |
-| Image | All images use cloud-init, which allows you to enter user metadata associated with the instance for post provisioning scripts. |
-| Profile |  Select from popular profiles or all available vCPU and RAM combinations. For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles). |
-| SSH Key | Required; select an existing SSH key or upload a new SSH key. SSH keys are used to securely connect to the instance after it's running. |
-| | **Note:** Alpha-numeric combinations are limited to 100 characters. |
-| | For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys). |
-| User data | You can add user data that automatically performs common configuration tasks or runs scripts. For more information, see [User data](/docs/vpc?topic=vpc-user-data). |
-| Boot volume | The default boot volume size for all profiles is 100 GB. If you are importing a custom image, the boot volume capacity can be 10 GB to 250 GB, depending on what the image requires. (Images smaller than 10 GB are rounded up to 10 GB.) Boot volumes are encrypted by default by using an IBM-managed encryption. You can change the encryption method to customer-managed encryption and use your own root keys. For information, see [Provisioning virtual server instances customer-managed encryption volumes in the UI](/docs/vpc?topic=vpc-creating-instances-byok#provision-byok-ui). |
-| Attached block storage volume | You can add one or more secondary data volumes to be included when you provision the instance. To add a volume, click **New block storage volume** and specify the information in Table 2. When finished, click **Create volume**. |
-| Network interfaces | Assign networking options to connect into the IBM Cloud VPC. You can create and assign up to five network interfaces to each instance. |
-{: caption="Table 1. Virtual Server Instance provisioning selections" caption-side="bottom"}
+4. Optionally, if you created volume snapshots, you can import the snapshot and use it to create the volume. Click the **Snapshots** toggle on, select a snapshot, and then provision as for a regular volume.
+
+5. Click **Create virtual server** when finished.
 
 | Field | Value |
 |-------|-------|
 | Name  | Specify a unique, meaningful name for your volume, for example, a name that describes your compute or workload function. The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want. Volume names must be unique the entire VPC infrastructure. |
-| Profile | Select [Tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) and select the performance level that you require from the IOPS list. If your performance requirements don't fall within a predefined IOPS tier, select [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) and select an IOPS value within the range for that volume size. Click the **storage size** link to see a table of size and IOPS ranges. |
+| Resource group | The resource group is inherited from the instance. |
+| Location | Location inherited from the instance (for example, Dallas 2) |.
 | Auto Delete | Enable this feature to automatically delete this volume when the attached virtual server instance is deleted. You can change this setting later on the virtual server details page. |
-| IOPS | Select 3, 5, or 10 IOPS/GB for a Tiered profile. |
+| Tags | Specify user tags to associate with this volume. For more information about organizing resources with user tags, see [Working with tags](/docs/account?topic=account-tag&interface=ui). |
 | Size | Enter a volume size in GBs. Volume sizes can be 10 - 16,000 GB. |
-| Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also choose **Customer Managed** and use your own encryption key. For a one-time set-up procedure, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs). |
-{: caption="Table 2. Block storage volume values specified when provisioning an instance." caption-side="bottom"}
+| Profile | Select [Tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) and select the IOPS tier dropdown list. If your performance requirements don't fall within a predefined IOPS tier, select [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) and select an IOPS value within the range for that volume size. |
+| Encryption | Provider-managed encryption with IBM-managed keys is enabled by default on all volumes. You can also choose a Key Management Service by selecting either Key Protect or Hyper Protect Crypto Service, and then specify your own encryption key. For a one-time set-up procedure, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs). |
+{: caption="Table 1. Block storage volume values specified when provisioning an instance." caption-side="bottom"}
 
-A block storage volume is created and attached to the virtual server instance. On the instance details page, the **Attached block storage volumes** list is updated to show the new volume.
+When you're finished defining the volume, click **Create**. A block storage volume is created and attached to the virtual server instance. On the instance details page, the Data volumes list is updated to show the new volume.
 
 A block storage volume can be attached to only one virtual server at a time. On the block storage volume summary page, you can view details about the virtual server instance by selecting the instance name under **Attached instances**.
 
@@ -177,6 +165,107 @@ Note the volume ID. You need to specify the ID when you attach block storage to 
 
 User tags are added to identify the volume resource. When these tags are matched with the tags in a backup policy, the volume is backed up according to the schedule in the backup plan. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-policy-create).
 
+### Create an instance and add user tags to volumes with the CLI
+{: #create-instance-vol-cli}
+{: cli}
+
+You can specify user tags for boot and data volumes when you create a virtual server instance. Run the `instance-create` command and specify user tags in the `user_tags` parameter. Note that you can later edit the tags or add more to the specified volume. For more information, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference&interface=ui).
+
+In the example command, 
+
+* The boot volume is defined by the `boot_volume` parameter that specifies the user tags `env:test4` and `env:dev4`.
+* The data volume attachment is defined by the `volume-attach` parameter and specifies the same user tags.
+
+You can see the user tags when you look at the details of the boot or data volume after the instance is created.
+
+```
+ibmcloud is instance-create my-vsi-4 my-vpc-2 us-south-1 bx2-2x8 cli-subnet-1 --image ibm-centos-7-9-minimal-amd64-6 --keys my-keys4 --boot-volume '{"name": "boot-vol-4", "volume": {"name": "my-boot-vol-4", "profile": {"name": "general-purpose"},"user_tags": ["env:test4", "env:dev4"]}}' --volume-attach  '[{"name": "my-vol-att1", "volume": {"name":"my-vol-4", "profile": {"name": "general-purpose"}, "capacity": 10 ,"user_tags": ["env:test4", "env:dev4"]}}]'
+
+Creating instance my-vsi-4 under account vpcdemo1 as user myuser@mycompany.com...
+                                         
+ID                                    efd06503-f514-4ea2-ba6c-2b9c715e6269   
+Name                                  my-vsi-4   
+CRN                                   crn:v1:bluemix:public:is:us-south-1:a/7f75c7b025e54bc5635f754b2f888665::instance:efd06503-f514-4ea2-ba6c-2b9c715e6269   
+Status                                pending   
+Availability policy on host failure   restart   
+Startable                             true   
+Profile                               bx2-2x8   
+Architecture                          amd64   
+vCPUs                                 2   
+Memory(GiB)                           8   
+Bandwidth(Mbps)                       4000   
+Volume bandwidth(Mbps)                1000   
+Network bandwidth(Mbps)               3000   
+Metadata service                      Enabled      
+                                      false      
+                                         
+Image                                 ID                                          Name      
+                                      r006-c5471ef3-15f5-4468-964b-f9b4d3ca8120   ibm-centos-7-9-minimal-amd64-6      
+                                         
+VPC                                   ID                                          Name      
+                                      r006-dd1c6831-cc4d-4c40-aab2-6b0c17f41424   my-vpc-2      
+                                         
+Zone                                  us-south-1   
+Resource group                        ID                                 Name      
+                                      bdd96715c2a44f2bb60df4ff14a543f5   Default      
+                                         
+Created                               2022-08-09T09:25:06+05:30   
+Boot volume                           ID   Name   Attachment ID                               Attachment name      
+                                      -    -      0717-1bcf5342-c12f-4908-ad0f-99218cd603b9   boot-vol-4
+                                         
+Data volumes                          ID   Name   Attachment ID                               Attachment name      
+                                      -    -      0717-c034f0f9-2269-44e4-a76a-4f4ad8c47b65   my-vol-att1 
+```
+{: screen}
+
+### Create an instance template and add user tags to volumes with the CLI
+{: #create-instance-template-vol-cli}
+{: cli}
+
+You can specify user tags for boot and data volumes when you create an instance template. Run the `instance-template-create` command and specify user tags in the `user_tags` parameter.
+
+This example command adds two user tags to the instance template that will be applied to the volumes.
+
+```
+ibmcloud is instance-template-create my-tpl-1 my-vpc-2 us-south-1 bx2-2x8 cli-subnet-1 --image ibm-centos-7-9-minimal-amd64-6 --keys my-keys4 --boot-volume '{"name": "boot-vol-1", "volume": {"name": "my-boot-vol-1", "profile": {"name": "general-purpose"},"user_tags": ["env:test1", "env:dev1"]}}' --volume-attach  '[{"name": "my-vol-att", "volume": {"name":"my-vol-1", "profile": {"name": "general-purpose"}, "capacity": 10 ,"user_tags": ["env:test1", "env:dev1"] }}]' 
+
+Creating instance template my-tpl-1 under account vpcdemo as user myuser@mycompany.com...
+                               
+ID                          38ef87e9-3a4d-4d72-8450-86c16b76ae0d   
+Name                        my-tpl-1   
+CRN                         crn:v1:bluemix:public:is:us-south-1:a/7f75c7b025e54bc5635f754b2f888665::instance-template:38ef87e9-3a4d-4d72-8450-86c16b76ae0d   
+Resource group              Default   
+Image                       c5471ef3-15f5-4468-964b-f9b4d3ca8120   
+VPC                         dd1c6831-cc4d-4c40-aab2-6b0c17f41424   
+Zone                        us-south-1   
+Profile                     bx2-2x8   
+Metadata service            Enabled      
+                            false      
+                               
+Keys                        Key IDs      
+                            e7d18039-0e0e-4207-8598-de7cca949030      
+                               
+Boot volume                 Name            Capacity   Profile           IOPS   Attachment name   Auto delete   Tags      
+                            my-boot-vol-1   100        general-purpose   0      boot-vol-1     true          env:test1,env:dev1      
+                               
+Data volumes                ID   Name       Capacity   Profile           IOPS   Attachment name   Auto delete   Tags      
+                            -    my-vol-1   10         general-purpose   0      my-vol-att        false         env:test1,env:dev1      
+                               
+Primary Network Interface   Name      Subnet ID                                   Security Groups                             Allow source IP spoofing   Reserved IP Address   Reserved IP ID   Reserved IP Name   Reserved IP Auto Delete      
+                            primary   0617-c1f1e468-3283-4f44-9d08-3d57b77817f1   7c2db5ac-19e0-4d83-8226-e6178fedfe56   false                      -                     -                -                  -      
+                               
+Created                     2022-08-22T09:10:34+05:30 
+
+```
+{: screen}
+
+Use the instance template to create an instance and volumes with user tags. For example:
+
+```
+ibmcloud is instance-template-create --template my-tpl-1 --name my-vsi-3 --boot-volume '{"name": "boot-vol-3", "volume": {"name": "my-boot-vol-3", "profile": {"name": "general-purpose"},"user_tags": ["env:test3", "env:dev3"]}}' --volume-attach  '[{"name": "my-vol-att1", "volume": {"name":"my-vol-3", "profile": {"name": "general-purpose"}, "capacity": 10 ,"user_tags": ["env:test3", "env:dev3"] }}]'
+```
+{: screen}
+
 ## Create block storage volumes with the API
 {: #creating-block-storage-api}
 {: api}
@@ -196,7 +285,7 @@ A good way to learn more about the API is to click **Get sample API call** on th
 
 Make a `POST /instances` request to create an instance, and define the volume by using the `volume_attachments` parameter. Specify a volume name, capacity, and profile. Also, specify `generation=2` in the request.
 
-This example also specifies customer-managed encryption.
+This example specifies customer-managed encryption and user tags for the boot and data volumes.
 
 ```curl
 curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-06-14&generation=2" -H "Authorization: $iam_token" -d '{
@@ -208,6 +297,10 @@ curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-06-14&generation=2" -H
       "name": "my-boot-volume",
       "profile": {
         "name": "general-purpose"
+      },
+      "user_tags": {
+        "env:test",
+        "env:prod"
       }
     }
   },
@@ -242,6 +335,10 @@ curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-06-14&generation=2" -H
         "name": "my-data-volume",
         "profile": {
           "name": "5iops-tier"
+        },
+        "user_tags": {
+          "env:test",
+          "env:prod"
         }
       }
     }

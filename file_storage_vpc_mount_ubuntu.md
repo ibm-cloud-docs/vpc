@@ -2,54 +2,37 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-05-16"
+lastupdated: "2022-10-18"
 
-keywords:
+keywords: File Storage for VPC, NFS for VPC, mounting VPC file share, attach file share for VPC
 
 subcollection: FileStorage
 
 ---
 
-{:term: .term}
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:important: .important}
-{:screen: .screen}
-{:pre: .pre}
-{:tip: .tip}
-{:preview: .preview}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:external: target="_blank" .external}
-{:DomainName: data-hd-keyref="APPDomain"}
-{:DomainName: data-hd-keyref="DomainName"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Mounting file shares on Ubuntu
 {: #file-storage-vpc-mount-ubuntu}
 
-Use these instructions to connect an Ubuntu Linux&reg;-based {{site.data.keyword.cloud}} Compute instance to a Network file system (NFS) file share.
+Use these instructions to connect a Network file system (NFS) file share to an Ubuntu Linux&reg;-based {{site.data.keyword.cloud}} Compute instance.
 {: shortdesc}
 
-File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, Sao Paulo, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, Sao Paulo, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Before you begin - Create a VSI
 {: #fs-ubuntu-create-vsi}
 
-Before you begin to mount File Storage for VPC file shares, you must create a [virtual server instance](/docs/vpc?topic=vpc-about-advanced-virtual-servers) in the same zone as the file share. After creating an instance, get the mount path of the file share from the mount target created. You need a mount path for mounting file shares. 
+Before you begin to mount {{site.data.keyword.filestorage_vpc_short}} file shares, you must create a [virtual server instance](/docs/vpc?topic=vpc-about-advanced-virtual-servers) in the same zone as the file share. After you created the instance, get the mount path of the file share from the mount target that was created.
 
-Mount path information can be obtained from the File share details page in the UI, or through an API or CLI call to get the mount target information.
+Mount path information can be obtained from the File share details page in the UI, or through an API or CLI call.
 {: tip}
 
 ## Mount the file share
 {: #fs-Ubuntu-mount}
 
-SSH into the virtual server instance where you want to mount the file share, then continue with these steps to mount a file share. This example procedure is based on Ubuntu 20.04. 
+SSH into the virtual server instance where you want to mount the file share, then continue with the following steps to mount a file share. This example procedure is based on Ubuntu 20.04. 
 
 VPC File Storage service requires NFS versions v4.1 or higher.
 {: note}
@@ -96,7 +79,7 @@ VPC File Storage service requires NFS versions v4.1 or higher.
    ```
    {: pre}
 
-6. Verify that the mount was successful by using the disk file system command:
+6. Verify that the mount was successful by using the disk file system command `df -h`:
 
     ```zsh
     $ df -h
@@ -114,9 +97,18 @@ VPC File Storage service requires NFS versions v4.1 or higher.
     tmpfs                                                                                         798M     0  798M   0% /run/user/0
     fsf-dal1099a-fz.adn.networklayer.com:/voll_58fd55a_685c_4ccd_b42e_25d5b61129e2   95G  256K   95G   1% /mnt/nfs
     ```
-    {: codeblock}
 
-7. Go to the mount point and read/write files.
+7. Go to the mount point to create a test file and list all files to verify that the share is mounted as read/write.
+
+   ```zsh
+   touch /mnt/nfs/test.txt
+   ```
+   {: pre}
+   
+   ```zsh
+   ls -al /mnt/nfs
+   ```
+   {: pre}
 
    ```zsh
    touch /mnt/nfs/test.txt
@@ -126,7 +118,6 @@ VPC File Storage service requires NFS versions v4.1 or higher.
    dr-xr-xr-x. 22 root   root   4096 Apr 28 14:30 ..
    -rw-r--r--   1 nobody nobody    0 Apr 28 15:52 test.txt
    ```
-   {: pre}
   
 8. Verify that the configuration file has no errors.
 

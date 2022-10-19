@@ -12,11 +12,8 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# About client-to-site VPN servers (Beta)
+# About client-to-site VPN servers
 {: #vpn-client-to-site-overview}
-
-Client VPN for VPC is available to all IBM Cloud users. After the Beta period ends, you will be given a time period to migrate your VPN servers to the standard pricing plan to avoid disruption of service.
-{: beta}
 
 Client VPN for VPC provides client-to-site connectivity, which allows remote devices to securely connect to the VPC network using an OpenVPN software client. This solution is useful for telecommuters who want to connect to the IBM Cloud from a remote location, such as a home office, while still maintaining secure connectivity.  
 
@@ -93,6 +90,6 @@ Integrate with a site-to-site VPN gateway if you want to access your on-premises
 * [Required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls#vpn-server-authorizations-required-for-api-and-cli-calls)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-vpn-server)
 * [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpn-server-clis)
-* [VPC API reference (Beta version)](/apidocs/vpc-beta)
+* [VPC API reference](/apidocs/vpc)
 * [FAQs for client-to-site VPN servers](/docs/vpc?topic=vpc-faqs-vpn-server)
 * [Troubleshooting client-to-site VPN servers](/docs/vpc?topic=vpc-why-do-i-get-an-authentication-error-user-authentication-failed-when-connecting-to-vpn-server)

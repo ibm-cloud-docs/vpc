@@ -147,7 +147,7 @@ You can choose the frequency of replication by creating a schedule by using a `c
 {: faq}
 {: #faq-fs-mgt-12}
 
-No, choosing to failover to the relica site is a manual operation, so you'll have to reconcile your data after failing over the the replica share. To see how failover works for disaster recovery, see [Failover for disaster recovery](https://test.cloud.ibm.com/docs/vpc?topic=vpc-file-storage-failover&interface=ui#fs-failover-dr).
+No, choosing to failover to the relica site is a manual operation, so you'll have to reconcile your data after failing over the the replica share. To see how failover works for disaster recovery, see [Failover for disaster recovery](/docs/vpc?topic=vpc-file-storage-failover&interface=ui#fs-failover-dr).
 
 ### Can I add user tags to my file shares?
 {: faq}

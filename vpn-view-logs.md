@@ -16,7 +16,7 @@ subcollection: vpc
 {: #using-log-analysis-to-view-vpn-logs}
 {: ui}
 
-You can use {{site.data.keyword.la_full}} to view application and connection logs from your IBM Cloud VPN Gateway for VPC.
+You can use {{site.data.keyword.la_full}} to view application and connection logs from your IBM Cloud VPN for VPC.
 {: shortdesc}
 
 ## Before you begin
@@ -34,7 +34,7 @@ To initiate sending VPN logs to {{site.data.keyword.la_full_notm}}, you need the
 {: #sending-vpn-logs}
 {: ui}
 
-To send IBM Cloud VPN Gateway for VPC logs in to an instance of {{site.data.keyword.la_full_notm}}, follow these steps:
+To send IBM Cloud VPN for VPC logs in to an instance of {{site.data.keyword.la_full_notm}}, follow these steps:
 
 1. From the {{site.data.keyword.cloud_notm}} console, click the **Menu** icon ![Menu icon](../../icons/icon_hamburger.svg) &gt; **Observability** to access the Observability dashboard.
 1. Select **Logging**. The list of logging instances appears.

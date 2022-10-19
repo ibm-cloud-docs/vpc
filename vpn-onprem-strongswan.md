@@ -52,11 +52,11 @@ Use the following configuration:
     vim /etc/ipsec.abc.conf
     conn all
            type=tunnel
-           auto=route
+           auto=start
            #aggressive=no
            esp=aes256-sha256!
-           ike=aes128-sha1-modp1024!
-           left=169.45.74.119
+           ike=aes256-sha256-modp2048!
+           left=%any
            leftsubnet=10.160.26.64/26
            rightsubnet=192.168.17.0/28
            right=169.61.181.116

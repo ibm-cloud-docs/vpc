@@ -24,7 +24,7 @@ You can list routing tables for a VPC by using the UI, CLI, or API.
 
 To list the routing tables for a VPC by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the Menu icon ![Menu icon](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
 
    ![Routing tables for VPC page](./images/cr-routing-tables-page.png){: caption="Figure 1. Routing tables for VPC page" caption-side="bottom}
 

@@ -247,7 +247,7 @@ To receive monitoring metrics, you must set up your {{site.data.keyword.mon_full
 
 To receive monitoring metrics, use the following steps:
 
-1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring) and click **Options** &gt; **Create**.
+1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring){: external} and click **Options** &gt; **Create**.
 
 2. Select a region for your {{site.data.keyword.mon_full_notm}} instance.
 
@@ -291,7 +291,7 @@ Within a few minutes, your new {{site.data.keyword.mon_full_notm}} instance disp
 
 To view and work with your {{site.data.keyword.mon_full_notm}} metrics, follow these steps:
 
-1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring).
+1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring){: external}.
 
 2. Click **Open dashboard** next to the service name of the {{site.data.keyword.mon_full_notm}} instance that you want to work with.
 
@@ -317,7 +317,7 @@ You can create your own dashboard to customize your monitoring metrics, such as 
 
 To customize your dashboard, use the following steps:
 
-1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring).
+1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring){: external}.
 
 1. Click **Open dashboard** next to the service name of the {{site.data.keyword.mon_full_notm}} instance you want to work with. You now see the dashboard.
 
@@ -334,7 +334,7 @@ To customize your dashboard, use the following steps:
 
 1. Configure your custom dashboard.
 
-   * In the **Metrics** field, enter `ibm_is` to display the ten IBM Cloud VPN Gateway for VPC metrics: `ibm_is_vpn_gateway_status`, `ibm_is_vpn_connection_status`, `ibm_is_vpn_gateway_bytes_in`, `ibm_is_vpn_gateway_bytes_out`, `ibm_is_vpn_gateway_packets_in`, `ibm_is_vpn_gateway_packets_out`, `ibm_is_vpn_connection_bytes_in`, `ibm_is_vpn_connection_bytes_out`, `ibm_is_vpn_connection_packets_in`, and `ibm_is_vpn_connection_packets_out`.
+   * In the **Metrics** field, enter `ibm_is` to display the ten IBM Cloud VPN for VPC metrics: `ibm_is_vpn_gateway_status`, `ibm_is_vpn_connection_status`, `ibm_is_vpn_gateway_bytes_in`, `ibm_is_vpn_gateway_bytes_out`, `ibm_is_vpn_gateway_packets_in`, `ibm_is_vpn_gateway_packets_out`, `ibm_is_vpn_connection_bytes_in`, `ibm_is_vpn_connection_bytes_out`, `ibm_is_vpn_connection_packets_in`, and `ibm_is_vpn_connection_packets_out`.
 
    * You can choose a scope to display in your dashboard by clicking **Override Dashboard Scope**. For example, you can display the metrics for a particular VPN gateway.
 
@@ -360,7 +360,7 @@ After you create your {{site.data.keyword.mon_full_notm}} instance, you must col
 
 To collect this information and work with your {{site.data.keyword.mon_full_notm}} instance by using metric query API, follow these steps:
 
-1. Access the [Monitoring home page](https://cloud.ibm.com/observe/monitoring).
+1. Access the [Monitoring home page](https://cloud.ibm.com/observe/monitoring){: external}.
 1. Click **Open Dashboard** next to the instance that you want to work with.
 1. After the {{site.data.keyword.mon_full_notm}} dashboard is displayed, select your Account Profile icon on the sidebar and select **Settings**. You now see your account settings.
 
@@ -445,7 +445,7 @@ To collect this information and work with your {{site.data.keyword.mon_full_notm
 
 You can view individual VPN gateway metrics and launch the {{site.data.keyword.mon_full_notm}} dashboard from the VPN UI.
 
-1. Navigate to the [VPN UI](https://cloud.ibm.com/vpc-ext/network/vpngateways).
+1. Navigate to the [VPN UI](https://cloud.ibm.com/vpc-ext/network/vpngateways){: external}.
 
 1. Click a VPN gateway name whose {{site.data.keyword.mon_full_notm}} metrics that you want to view and go to its **Overview** page.
 

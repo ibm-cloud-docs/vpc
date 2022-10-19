@@ -82,7 +82,7 @@ After you create the endpoint gateway, virtual server instances in the VPC can a
 These links provide additional information about {{site.data.keyword.cloud}} VPE for VPC:
 
 * [VPE CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpe-clis)
-* [VPE API reference](https://{DomainName}/apidocs/vpc?list-endpoint-gateways=#list-endpoint-gateways)
+* [VPE API reference](/apidocs/vpc?list-endpoint-gateways=#list-endpoint-gateways)
 * [FAQs for virtual private endpoints](/docs/vpc?topic=vpc-faqs-vpe)
 * [VPE for VPC infrastructure resources for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_virtual_endpoint_gateway){: external} (VPC infrastructure > Resources)
 * [Troubleshooting VPE gateways](/docs/vpc?topic=vpc-troubleshoot-create-reserved-ip)

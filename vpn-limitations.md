@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-04-12"
+lastupdated: "2022-08-10"
 
 keywords:
 
@@ -18,7 +18,7 @@ subcollection: vpc
 Lists known limitations for IBM Cloud VPN for VPC.
 {: shortdesc}
 
-* A VPN gateway for VPC accepts VPN packets with [NAT-Traversal Encapsulation (NAT-T)](https://tools.ietf.org/html/rfc3947){: external} only. The [IP Encapsulating Security Payload (ESP)](https://tools.ietf.org/html/rfc4303){: external} is not accepted. Make sure that the NAT-T feature is enabled on your on-premises VPN device. Also, make sure that UDP ports 500 and 4500 are allowed for both IBM VPC NACL and peer networks.
+* A VPN gateway for VPC accepts VPN packets with [UDP Encapsulation of IPsec ESP Packets](https://tools.ietf.org/html/rfc3948){: external} only. The [Encapsulating Security Payload (ESP)](https://tools.ietf.org/html/rfc4303){: external} is not accepted. Make sure that the NAT-T feature is enabled on your on-premises VPN device. Also, make sure that UDP ports 500 and 4500 are allowed for both IBM VPC NACL and peer networks.
 
 * When multiple networks, subnets, or both are associated with either an {{site.data.keyword.cloud_notm}} VPN gateway or an on-premises device, avoid mixing policy-based and route-based VPNs. Policy-based VPNs create a tunnel for each target network range. However, route-based VPNs route everything to a peer device through a single tunnel. Therefore, when multiple network ranges are configured, only a single tunnel that is associated with a single-network range can be established. Combining contiguous subnets into a single superset CIDR is a valid workaround to this limitation.
 
@@ -40,3 +40,5 @@ Lists known limitations for IBM Cloud VPN for VPC.
 * An {{site.data.keyword.cloud_notm}} policy-based VPN gateway resides in the zone that is associated with the subnet that you select during provisioning. The VPN gateway serves only the virtual server instances in the same zone of the VPC. Therefore, instances in other zones can't use the VPN gateway to communicate with an on-premises private network. For zone fault tolerance, you must deploy one VPN gateway per zone.
 
 * An {{site.data.keyword.cloud_notm}} route-based VPN gateway resides in the zone that is associated with the subnet that you select during provisioning. It is recommended that a VPN gateway serves only virtual server instances in the same zone of the VPC. Instances in other zones can use the route-based VPN gateway to communicate with an on-premises private network, but this is not recommended. For zone fault tolerance, you must deploy one VPN gateway per zone.
+
+* Currently, an {{site.data.keyword.cloud_notm}} policy-based VPN gateway propagates routes only to the default routing table. 

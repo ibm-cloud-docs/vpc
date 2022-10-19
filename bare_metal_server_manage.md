@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-04-01"
+lastupdated: "2022-09-27"
 
 keywords: bare metal servers, managing, operation, manage bare metal server, manage bare metal, manage server, restart bare metal, stop bare metal, delete bare metal, reboot bare metal, restart server, stop server, delete server
 
@@ -189,7 +189,7 @@ Use the following API request to retrieve a bare metal server:
    ```
    {: pre}
 
-For more information of the API requests, see [List all bare metal servers](/apidocs/vpc-beta#list-bare-metal-servers) and [Retrieve a bare metal server](/apidocs/vpc-beta#get-bare-metal-server).
+For more information of the API requests, see [List all bare metal servers](/apidocs/vpc/latest#list-bare-metal-servers) and [Retrieve a bare metal server](/apidocs/vpc/latest#get-bare-metal-server).
 
 ### Rebooting the bare metal server
 {: #reboot-bare-metal-servers-api}
@@ -202,7 +202,7 @@ curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/rest
 ```
 {: pre}
 
-For more information of the API request, see [Restart a bare metal server](/apidocs/vpc-beta#create-bare-metal-server-restart).
+For more information of the API request, see [Restart a bare metal server](/apidocs/vpc/latest#create-bare-metal-server-restart).
 
 ### Stopping and starting a bare metal server 
 {: #stop-start-bare-metal-servers-api}
@@ -229,7 +229,7 @@ curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/stop
 Billing continues after the bare metal server is stopped.
 {: note}
 
-For more information about the API request, see [Stop a bare metal server](/apidocs/vpc-beta#create-bare-metal-server-stop).
+For more information about the API request, see [Stop a bare metal server](/apidocs/vpc/latest#create-bare-metal-server-stop).
 
 #### Starting the bare metal server
 {: #start-bm-api}
@@ -242,7 +242,7 @@ curl -X POST "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/star
 ```
 {: pre}
 
-For more information about the API request, see [Start a bare metal server](/apidocs/vpc-beta#create-bare-metal-server-start).
+For more information about the API request, see [Start a bare metal server](/apidocs/vpc/latest#create-bare-metal-server-start).
 
 ### Deleting a bare metal server by using the API
 {: #delete-bare-metal-servers-api}
@@ -257,4 +257,4 @@ curl -X DELETE "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id?ve
 The delete action permanently removes a server and its connected vNIC, boot volume, and data from your account.
 {: important}
 
-For more information about the API request, see [Delete a bare metal server](/apidocs/vpc-beta#delete-bare-metal-server).
+For more information about the API request, see [Delete a bare metal server](/apidocs/vpc/latest#delete-bare-metal-server).

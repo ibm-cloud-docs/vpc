@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-05-27"
+lastupdated: "2022-08-30"
 
 keywords: api, errors, error codes, status codes, metadata, http status codes
 
@@ -140,11 +140,11 @@ Used for headers, parameters, paths, or properties (identified by the `target`) 
 
 Example message: The metadata service is not enabled on the provided instance.
 
-## `unexpected_value`
-{: unexpected-value-error-code}
+## `unknown_field`
+{: unknown_field-error-code}
 
-Used when the request cannot be parsed, such as when the JSON request is malformed or the request body is too large.
+Used when an unknown query parameter or property is provided.
 
-`unexpected_value` error code can accompany a `400` HTTP status code.
+`unknown_field` error code can accompany a `400` HTTP status code.
 
-Example message: The unexpected field `example` was provided in the request body.
+Example message: Unknown property `xyzzy` was specified in the request body.

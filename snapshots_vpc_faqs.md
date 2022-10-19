@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-28"
+lastupdated: "2022-09-27"
 
 keywords:
 
@@ -47,13 +47,13 @@ A bootable snapshot is a copy of a boot volume. You can use this new boot volume
 {: faq}
 {: #faq-snapshot-3}
 
-You can take up to 100 snapshots per volume in a region. Deleting snapshots from this quota frees up space for additional snapshots. The cumulative size of all snapshots for a volume is 10 TB.
+You can take up to 750 snapshots per volume in a region. Deleting snapshots from this quota frees up space for additional snapshots.  A snapshot of a volume cannot be greater than 10 TB. Also, consider how your [billing changes](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=api#snapshots_vpc_considerations) when you increase the number of snapshots that you take and retain.
 
 ## Is there a limit on the size of a volume that I can snapshot?
 {: faq}
 {: #faq-snapshot-4}
 
-The maximum size of a single snapshot is 10 TB, and the cumulative size of all snapshots for a given volume cannot exceed 10 TB. When the number of changed blocks in the volume exceeds the 10 TB snapshot limit, snapshot creation fails.
+The maximum size of a volume is 10 TB. Snapshot creation fails if the volume is over that limit.
 
 ## How secure are snapshots?
 {: faq}
@@ -67,7 +67,7 @@ Snapshots retain the encryption from the original volume, IBM-managed or custome
 {: faq}
 {: #faq-snapshot-6}
 
-Restoring a volume from a snapshot creates an entirely new boot or data volume. The new volume has the same properties of the original volume, including encryption. If you restore from a bootable snapshot, you create a boot volume. Similarly, you can create a new data volume from a snapshot of a data volume. The volume you create from the snapshot uses the same volume profile and contains the same data and meta-data as the original volume. You restore a volume when you provision a new instance or update an existing instance using the UI, CLI, or API.  You can also use the `volumes` API to restore a data volume from a snapshot of an unattached volume, therefore creating a stand-alone volume. For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
+Restoring a volume from a snapshot creates an entirely new boot or data volume. The new volume has the same properties of the original volume, including encryption. If you restore from a bootable snapshot, you create a boot volume. Similarly, you can create a new data volume from a snapshot of a data volume. The volume you create from the snapshot uses the same volume profile and contains the same data and meta-data as the original volume. You restore a volume when you provision a new instance or update an existing instance using the UI, CLI, or API. You can also use the `volumes` API to restore a data volume from a snapshot of an unattached volume, therefore creating a stand-alone volume. For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
 
 ## What happens to snapshots when I delete my volume?
 {: faq}

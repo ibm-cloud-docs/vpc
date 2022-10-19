@@ -117,10 +117,11 @@ Since layer 4 load balancing requires fewer computations compared to more sophis
 {: #nlb-permissions-related-links}
 
 * [Network load balancer CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#nlb-anchor)
-* [Load balancer API reference](https://{DomainName}/apidocs/vpc#list-load-balancer-profiles)
+* [Load balancer API reference](/apidocs/vpc#list-load-balancer-profiles)
 * [NLB for VPC infrastructure resources for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_lb){: external} (VPC infrastructure > Resources)
 * [Network load balancer in {{site.data.keyword.cloud}} Kubernetes Service](/docs/containers?topic=containers-vpc-lbaas#nlb_vpc)
 * [Required permissions for VPC resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-load-balancers)
 * [FAQs for network load balancers](/docs/vpc?topic=vpc-nlb-faqs)
 * [Quotas](/docs/vpc?topic=vpc-quotas#load-balancer-quotas)
+* [On-Premises Private Access to Workloads Across Zones Using a DNS GLB and VPC NLB](https://www.ibm.com/cloud/blog/on-premises-private-access-to-workloads-across-zones-using-a-dns-glb-and-vpc-nlb){: external}

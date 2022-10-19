@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-04-12"
+lastupdated: "2022-09-20"
 
 keywords: VPN, VPN gateways, encryption, IKE, IPsec, gateway, auto-negotiation, Diffie-Hellman, dead peer detection, PFS
 
@@ -26,17 +26,18 @@ Route-based VPN is now available in addition to policy-based VPN. To get started
 
 The IBM Cloud VPN for VPC service includes the following features:
 
-* **Authentication** - IBM Cloud VPN for VPC supports a pre-shared key for Phase 1 peer authentication. Supported authentication algorithms for both phases include MD-5, SHA-1, SHA-256, and SHA-512.
+* **Authentication** - IBM Cloud VPN for VPC supports a pre-shared key for Phase 1 peer authentication. Supported authentication algorithms for both phases include MD-5, SHA-1, SHA-256, SHA-384, and SHA-512.
 * **Dead peer detection** - Configurable mechanism to detect availability of an IPsec peer.
-* **Diffie-Hellman (DH)** - Key exchange protocol used in Phase 1 to generate a shared secret key between VPN peers. Optionally, users can enable Perfect Forward Secrecy (PFS) and a DH Group for Phase 2 IPsec negotiation. IBM Cloud VPN for VPC supports DH Groups 2, 5, 14, and 19.
-* **Encryption** - IBM Cloud VPN for VPC supports 3-DES, AES-128, and AES-256 for data encryption during both IKE Phase 1 and Phase 2.
+* **Diffie-Hellman (DH)** - Key exchange protocol used in Phase 1 to generate a shared secret key between VPN peers. Optionally, users can enable Perfect Forward Secrecy (PFS) and a DH Group for Phase 2 IPsec negotiation. IBM Cloud VPN for VPC supports DH Groups 2, 5, 14-24 and 31.
+* **Encryption** - IBM Cloud VPN for VPC supports 3-DES, AES-128, AES-192, and AES-256 for data encryption during both IKE Phase 1 and Phase 2.
 * **High availability** - IBM Cloud VPN for VPC is built on two VPN devices to provide appliance-level redundancy. A policy-based VPN operates in Active-Standby mode with a single VPN gateway IP shared between the members, while a route-based VPN offers Active-Active redundancy with two VPN gateway IPs.
 
    A static, route-based VPN deploys in Active-Active redundancy mode. Two VPN tunnels are connected with the peer VPN gateway; however, the IBM gateway always uses the tunnel with the small public IP as the primary egress path. The tunnel with the large public IP is the secondary egress path. Traffic from the IBM VPC to the on-prem network goes through the primary egress path if both tunnels are active. Traffic goes through the secondary egress path if the primary egress path is disabled. The on-prem VPN gateway must use route priority to choose the same preferred path. {: #important-notice}
    {: important}
 
 * **Internet Key Exchange (IKE)** - IKE is a part of the IPsec protocol that is used to establish VPN connections. In IKE Phase 1, VPN peers use Diffie-Hellman (DH) key exchange to create a secure, authenticated communication channel. In IKE Phase 2, the peers use the secure channel from Phase 1 to negotiate parameters for IPsec tunnels. IBM Cloud VPN for VPC supports both IKEv1 (main mode) and IKEv2. See [About policy negotiation](#policy-negotiation) for the supported combinations.
-* **IPsec** - Protocol suite that provides secure communication between devices. IBM Cloud VPN for VPC uses Encapsulating Security Protocol (ESP) in tunnel mode, which offers authentication and entire packet encryption.
+* **IPsec** - Protocol suite that provides secure communication between devices. IBM Cloud VPN for VPC uses UDP Encapsulation of IPsec Encapsulating Security Protocol (ESP) Packets in tunnel mode, which offers authentication and entire packet encryption.
+
 * **Modes** - IBM Cloud VPN for VPC offers static-route-based, and policy-based VPN modes. With a policy-based VPN, traffic that matches negotiated CIDR ranges passes through the VPN. For a static-route-based VPN, virtual tunnel interfaces are created and any traffic that is routed toward these logical interfaces with custom routes passes through the VPN. Both VPN options provide the same features.
 * **Perfect Forward Secrecy (PFS)** - PFS makes sure that DH-generated keys aren't used again during IPsec renegotiation. If a key is compromised, only data in transit during the protected security association's lifetime is accessible.
 
@@ -113,25 +114,32 @@ You can use the following encryption, authentication, and Diffie-Hellman Group o
 
 |    | Encryption | Authentication | DH group |
 |----|------------|----------------|----------|
-| 1  | aes128 | sha1   | 2  |
-| 2  | aes256 | sha256 | 5  |
-| 3  | 3des   | md5    | 14 |
+| 1   | aes128 | sha256 | 14-24, 31 |
+| 2   | aes192 | sha384 | 14-24, 31 |
+| 3   | aes256 | sha512 | 14-24, 31 |
 {: caption="Table 1. Encryption, authentication, and DH group options for IPsec auto-negotiation Phase 1" caption-side="bottom"}
 
 ### IPsec auto-negotiation (Phase 2)
 {: #ipsec-auto-negotiation-phase-2}
 
-You can use the following encryption and authentication options in any combination.
+You can use the following encryption and authentication options in any combination, or use the following combined-mode encryption options that require authentication to be disabled.
 
 By default, PFS is disabled for IBM Cloud VPN for VPC. Some vendors require PFS enablement for Phase 2. Check your vendor instructions and use custom policies if PFS is required.
 {: important}
 
 |    | Encryption | Authentication | DH group |
 |----|------------|----------------|----------|
-| 1  | aes128 | sha1   | Disabled  |
-| 2  | aes256 | sha256 | Disabled  |
-| 3  | 3des   | md5    | Disabled  |
+| 1  | aes128      | sha256   | Disabled  |
+| 2  | aes192      | sha384   | Disabled  |
+| 3  | aes256      | sha512   | Disabled  |
 {: caption="Table 2. Encryption and authentication options for IPsec auto-negotiation Phase 2" caption-side="bottom"}
+
+|    | Encryption | Authentication | DH group |
+|----|------------|----------------|----------|
+| 1  | aes128gcm16 | Disabled | Disabled  |
+| 2  | aes192gcm16 | Disabled | Disabled  |
+| 3  | aes256gcm16 | Disabled | Disabled  |
+{: caption="Table 3. Combined-mode encryption options for IPsec auto-negotiation Phase 2" caption-side="bottom"}
 
 ## Related links
 {: #vpn-related-links}

@@ -1,7 +1,8 @@
 ---
 copyright:
   years: 2019, 2022
-lastupdated: "2022-07-08"
+
+lastupdated: "2022-10-18"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -12,10 +13,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Instance profiles
+# x86 instance profiles
 {: #profiles}
 
-When you provision {{site.data.keyword.vsi_is_full}}, you can select from six families of profiles: Balanced, Compute, Memory, Very High Memory, Ultra High Memory, and GPU.
+When you provision {{site.data.keyword.vsi_is_full}}, you can select from six families of profiles: Balanced, Compute, Memory, Very High Memory, Ultra High Memory, Storage Optimized, and GPU.
 
 A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, network bandwidth, and default bandwidth allocation. The attributes define the size and capabilities of the virtual server instance that is provisioned. In the {{site.data.keyword.Bluemix_notm}} console, you can select the most recently used profile or click **View All Profiles** to choose the profile that best fits your needs.
 {: shortdesc}
@@ -32,6 +33,7 @@ The following profile families are available:
 | [Very High Memory](#vhmemory) | Very High Memory profiles offer a core to RAM ratio of 1 vCPU to 14 GiB of RAM. This family is optimized for running small to medium in-memory databases and OLAP workloads, such as SAP BW/4 HANA. |
 | [Ultra High Memory](#uhmemory) | Ultra High Memory profiles offer the most memory per core with 1 vCPU to 28 GiB of RAM. These profiles are optimized to run large in-memory databases and OLTP workloads, such as SAP S/4 HANA.|
 | [GPU](#gpu) | GPU enabled profiles provide on-demand access to NVIDIA V100 GPUs to accelerate AI, high-performance computing, data science, and graphics workloads. |
+| [Storage Optimized](#storageopt) | Storage Optimized profiles offer temporary SSD instance storagedisks at a ratio of 1 vCPU to 300 GB instance storage with a lower price point per GB. These profiles are designed for storage-dense workloads and offer `virtio` interface type for attached disks. |
 {: caption="Table 2. Virtual server family selections" caption-side="bottom"}
 
 Profiles with instance storage and profiles with 64 or more vCPUs are deployed exclusively on the Intel&reg;'s second-generation quad processor Xeon&reg; Platinum 8260 Cascade Lake with 96 cores that are running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz or Intel&reg;'s quad processor Xeon&reg; Gold 6248 Cascade Lake with 80 cores that are running at a base speed of 2.5 GHz and an all-core turbo frequency of 3.1 GHz.
@@ -41,6 +43,9 @@ Profiles with instance storage and profiles with 64 or more vCPUs are deployed e
 {: #balanced}
 
 Balanced profiles provide a mix of performance and scalability for more common workloads with a ratio of 4 GiB of memory for every 1 vCPU of compute. The Balanced profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Balanced profiles available for Intel&reg; x86-64  processors.
+
+Balanced profiles with the bx2d prefix are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
+{: preview}
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|---------|
@@ -74,6 +79,9 @@ Balanced profiles provide a mix of performance and scalability for more common w
 
 Compute profiles are best for workloads with intensive CPU demands, such as high web traffic workloads, production batch processing, and front-end web servers that can benefit from 2 GiB of memory for every 1 vCPU of compute. The Compute profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Compute profiles available for &reg; x86-64 processors.
 
+Compute profiles with the cx2d prefix are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
+{: preview}
+
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|---------|
 | cx2-2x4 | 2 | 1 | 4 | 4 | - |
@@ -105,6 +113,9 @@ Compute profiles are best for workloads with intensive CPU demands, such as high
 {: #memory}
 
 Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads with 8 GiB of memory for every 1 vCPU of compute. The Memory profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Memory profiles available for Intel&reg; x86-64 processors.
+
+Memory profiles with the mx2d prefix are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
+{: preview}
 
 | Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
 |---------|---------|---------|---------|---------|---------|
@@ -220,9 +231,38 @@ When you create a GPU profile, keep the following recommendations in mind.
 - If you are using GPU profiles, you might need to install the CUDA toolkit onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
 - For more information about persistent storage options, see [Storage notes for profiles](#storage-notes-for-profiles).
 
-## How the bandwidth is allocated using the UI
-{: #bandwidth-allocation-ui}
-{: ui}
+## Storage Optimized
+{: #storageopt}
+
+Storage Optimized profiles are hosted exclusively on Intel® Xeon® Platinum Cascade Lake servers. This profile family offers our highest vCPU to [instance storage](/docs/vpc?topic=vpc-instance-storage) ratio with 300 GB of storage for every 1 vCPU and is optimized for running data lake and other workloads requiring more intensive data capabilities. All storage optimized profiles are provisioned with temporary SSD-backed instance storage at no additional charge. For more information, see [Lifecycle of instance storage](/docs/vpc?topic=vpc-instance-storage#instance-storage-lifecycle).
+
+Storage Optimized profiles are available in the US East (Washington) and Japan (Osaka) regions.
+{: preview}
+
+The following Storage Optimized profiles are available for x86-64 processors:
+
+| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) | Interface Type |
+|---------|---------|---------|---------|---------|---------|--------|
+| ox2-2x16     | 2    | 1  | 16    | 4     | 1x600   | virtio_blk   |
+| ox2-4x32     | 4    | 2  | 32    | 8     | 1x1200  | virtio_blk   |
+| ox2-8x64     | 8    | 4  | 64    | 16    | 2x1200  | virtio_blk   |
+| ox2-16x128   | 16   | 8  | 128   | 32    | 2x2400  | virtio_blk   |
+| ox2-32x256   | 32   | 16 | 256   | 64    | 3x3200  | virtio_blk   |
+| ox2-64x512   | 64   | 32 | 512   | 80    | 6x3200  | virtio_blk   |
+| ox2-96x768   | 96   | 48 | 768   | 80    | 9x3200  | virtio_blk   |
+| ox2-128x1024 | 128  | 64 | 1024  | 80    | 12x3200 | virtio_blk   |
+{: caption="Table 8. Storage Optimized profiles options for x86-64 instances" caption-side="bottom"}
+{: #storageopt-intel-x86-64}
+{: tab-title="Intel x86-64"}
+{: tab-group="Storage Optimized"}
+{: class="simple-tab-table"}
+{: summary="Storage Optimized profiles options for Intel x86-64 virtual server instances."}
+
+## Bandwidth allocation
+{: #bandwidth-allocation}
+
+### Bandwidth allocation between storage and networking
+{: #bandwidth-storage-network}
 
 Instance bandwidth is allocated between volume bandwidth and networking bandwidth. The bandwidth capacity (Bandwidth Cap) is determined by the virtual server profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a bandwidth cap of 4 Gbps. The initial volume and network bandwidth allocation depends on the bandwidth set by the instance profile you selected. You can also see the bandwidth allocations in the profile information during instance creation in the UI. The bandwidth allocation can be changed on the instance details page after provisioning an instance.
 
@@ -239,27 +279,26 @@ For a cx2-8x16 profile:
 The amount of overall bandwidth provided to volume bandwidth can be adjusted within the overall instance limits. A default amount of volume bandwidth is set on each instance profile.
 
 For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles) and [Adjusting bandwidth allocation using the UI](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#adjusting-bandwidth-allocation-ui).
+{: ui}
 
-## How the bandwidth is allocated using the API
-{: #bandwidth-allocation-api}
+For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles) and [Adjusting bandwidth allocation using the CLI](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=cli#adjusting-bandwidth-allocation-cli).
+{: cli}
+
+For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles) and [Adjusting total storage bandwidth allocation from the API](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=api#adjusting-bandwidth-allocation-api).
 {: api}
 
-Instance bandwidth is allocated between volume bandwidth and networking bandwidth. The bandwidth capacity (Bandwidth Cap) is determined by the virtual server profile that you select during instance provisioning. For example, a bx2-2x8 balanced server profile allows a bandwidth cap of 4 Gbps. The initial volume and network bandwidth allocation depends on the bandwidth you set by using the API or by the instance profile you selected. You can see bandwidth allocations with the `/instance/profiles` endpoint in the API. The bandwidth can be changed during or after provisioning an instance.
 
-For example, for the bx2-2x8 profile you might have:
+### Bandwidth allocation with multiple network interfaces
+{: #bandwidth-multi-vnic}
 
-* Storage: 1 Gbps
-* Network: 3 Gbps
+You can add up to 15 network interfaces for your virtual server instance, depending on the vCPU count that is included in the instance profile. 
+* 2-16 vCPUs: Up to 5 network interfaces
+* 17-48 vCPUs: Up to 10 network interfaces
+* 49 or more vCPUs: Up to 15 network interfaces
 
-For a cx2-8x16 profile:
+With multiple network interfaces, bandwidth is distributed evenly across the network interfaces that are attached to the virtual server instance. 
 
-* Storage: 4 Gbps
-* Network: 12 Gbps
-
-The amount of overall bandwidth provided to volume bandwidth can be adjusted within the overall instance limits. A default amount of volume bandwidth is set on each instance profile.
-
-For more information, see [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources&interface=api) and [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
-
+For more information, see [Managing network interfaces](/docs/vpc?topic=vpc-using-instance-vnics).
 
 ## Viewing profile configurations
 {: #popular-profiles}
@@ -272,12 +311,13 @@ You can view available profile configurations by using the {{site.data.keyword.c
 The following information describes the naming rule of the profiles.
 
 The first character represents the profile families. Different profile families have different ratios of vCPU to memory and other characteristics that are designed for different workloads.
--	"b": balanced family of profiles, 1 vCPU to 4 GiB of memory ratio
--	"c": compute family of profiles (higher on the CPUs), 1 vCPU to 2 GiB of memory ratio
--	"m": memory family of profiles (higher on the memory), 1 vCPU to 8 GiB of memory ratio
+- "b": balanced family of profiles, 1 vCPU to 4 GiB of memory ratio
+- "c": compute family of profiles (higher on the CPUs), 1 vCPU to 2 GiB of memory ratio
+- "m": memory family of profiles (higher on the memory), 1 vCPU to 8 GiB of memory ratio
 - "u": ultra high memory family of profiles, 1 vCPU to 28 GiB of memory ratio
 - "v": very high memory family of profiles, 1 vCPU to 14 GiB of memory ratio
--  "g" is GPU, which is a 1:8 or 1:16 ratio
+- "g": GPU profiles, which is a 1:8 or 1:16 ratio
+- "o": storage optimized family of profiles, 1 vCPU to 8 GiB memory ratio and 1 vCPU to 300 GB instance storage ratio
 
 The second character represents the CPU architecture.
 - "x": x86_64

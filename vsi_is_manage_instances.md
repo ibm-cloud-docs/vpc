@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-02-22"
+lastupdated: "2022-07-26"
 
 keywords: view instance details, restart, stop, instance details, delete
 
@@ -98,6 +98,9 @@ A Force stop action triggers a power cycle reset of the virtual server instance.
 The start action starts a virtual server instance that is in a stopped state.
 
 From the *Virtual server instances* page in {{site.data.keyword.cloud_notm}} console, click **Stop** or **Start**.
+
+_For z/OS virtual server instances only_: You must shut down all the subsystems in the z/OS system to halt the virtual server instance. For more information, see [Shutting down z/OS virtual server instances](https://www.ibm.com/docs/en/wazi-aas/1.0.0?topic=vpc-shutting-down-zos-virtual-server-instances){: external}.
+{: note}
 
 ## Stop a virtual server instance using the CLI
 {: #stop-virtual-server-instances-cli}
@@ -427,6 +430,15 @@ Windows
  Get-WmiObject Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID
  ```
 {: pre}
+
+## Viewing instance status and lifecycle_state in the API
+{: #instance-status-api}
+{: api}
+
+- `status`
+   - This property provides the current status of the virtual server instance through the [Retrieve an instance](/apidocs/vpc/latest#get-instance) request. The values that `status` returns are specialized for virtual server instances and indicate if it is running, stopped, or transitioning. For more information, see the [Virtual Private Cloud API](/apidocs/vpc/latest) content.
+- `lifecycle_state`
+   - This property provides the current state of a resource through the [Retrieve an instance](/apidocs/vpc/latest#get-instance) request. The values that `lifecycle_state` provides are generic and are meant to apply to a variety resources, such as [Placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc). `lifecycle_state` can return values that overlap with `status`. `lifecycle_state` also includes values that detail if a resource is suspended.
 
 ## Setting the host failure auto restart using the UI
 {: #set-recovery-policy-ui}
