@@ -70,7 +70,7 @@ When you import your BYOL custom image, you must select a _BYOL_ operating syste
 * Windows 2019 and Windows 2019 64-bit
 * Windows 2022 64-bit
 
-To see all of the operating system versions from the API, make a`GET /operating_systems` call. In the response, you see Windows BYOL OS versions among the list of operating systems. This example response shows information that is returned for Windows 2012:
+To see all of the operating system versions from the API, make a `GET /operating_systems` call. In the response, you see Windows BYOL OS versions among the list of operating systems. This example response shows information that is returned for Windows 2012:
 
 ```
 {
