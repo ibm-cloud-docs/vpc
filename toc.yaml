@@ -521,6 +521,7 @@ toc:
             - architecture-workload-isolation.md
             - data-security.md
             - manage-scc.md
+            - cbr.md
             - storagedurability.md
         - topicgroup:
             label: Logging and monitoring
