@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-10-18"
+lastupdated: "2022-10-20"
 
-keywords: File Storage for VPC, NFS for VPC, mounting VPC file share, attach file share for VPC
+keywords: File Storage for VPC, NFS for VPC, mounting VPC file share, attach file share for VPC, mount file share for VPC
 
 subcollection: FileStorage
 
@@ -15,7 +15,7 @@ subcollection: FileStorage
 # Mounting file shares on Ubuntu
 {: #file-storage-vpc-mount-ubuntu}
 
-Use these instructions to connect a Network file system (NFS) file share to an Ubuntu Linux&reg;-based {{site.data.keyword.cloud}} Compute instance.
+Use these instructions to connect a Network File System (NFS) file share to an Ubuntu Linux&reg;-based {{site.data.keyword.cloud}} Compute instance.
 {: shortdesc}
 
 {{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, Sao Paulo, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
@@ -24,7 +24,7 @@ Use these instructions to connect a Network file system (NFS) file share to an U
 ## Before you begin - Create a VSI
 {: #fs-ubuntu-create-vsi}
 
-Before you begin to mount {{site.data.keyword.filestorage_vpc_short}} file shares, you must create a [virtual server instance](/docs/vpc?topic=vpc-about-advanced-virtual-servers) in the same zone as the file share. After you created the instance, get the mount path of the file share from the mount target that was created.
+Before you mount {{site.data.keyword.filestorage_vpc_short}} file shares, you must create a [virtual server instance](/docs/vpc?topic=vpc-about-advanced-virtual-servers) in the same zone as the file share. After you created the instance, get the mount path of the file share from the mount target that was created.
 
 Mount path information can be obtained from the File share details page in the UI, or through an API or CLI call.
 {: tip}
@@ -32,7 +32,7 @@ Mount path information can be obtained from the File share details page in the U
 ## Mount the file share
 {: #fs-Ubuntu-mount}
 
-SSH into the virtual server instance where you want to mount the file share, then continue with the following steps to mount a file share. This example procedure is based on Ubuntu 20.04. 
+SSH into the virtual server instance where you want to mount the file share, then continue with the following steps to mount a file share. This example procedure is based on Ubuntu 20.04.
 
 VPC File Storage service requires NFS versions v4.1 or higher.
 {: note}
@@ -51,7 +51,7 @@ VPC File Storage service requires NFS versions v4.1 or higher.
     ```
     {: pre}
 
-3. Install `nfs-common`: 
+3. Install `nfs-common`:
 
     ```zsh
     apt install nfs-common
@@ -104,7 +104,7 @@ VPC File Storage service requires NFS versions v4.1 or higher.
    touch /mnt/nfs/test.txt
    ```
    {: pre}
-   
+
    ```zsh
    ls -al /mnt/nfs
    ```
@@ -118,8 +118,27 @@ VPC File Storage service requires NFS versions v4.1 or higher.
    dr-xr-xr-x. 22 root   root   4096 Apr 28 14:30 ..
    -rw-r--r--   1 nobody nobody    0 Apr 28 15:52 test.txt
    ```
-  
-8. Verify that the configuration file has no errors.
+
+8. Make the configuration persistent by editing the file systems table (/etc/fstab). Add the remote share to the list of entries that are automatically mounted on startup:
+
+   ```zsh
+   sudo nano /etc/fstab
+   ```
+   {: pre}
+
+   Add a line with the following syntax to the end of file.
+
+   ```zsh
+   (hostname):/(mount_point) /mnt nfs_version defaults 0 0
+   ```
+
+   Example
+
+   ```zsh
+   fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_mz0726_c391f0ba-50ed-4460-8704-a36032c96a4c /mnt nfsvers=4.1 defaults 0 0
+   ```
+
+9. Verify that the configuration file has no errors.
 
    ```zsh
    mount -fav
