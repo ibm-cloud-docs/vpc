@@ -88,8 +88,9 @@ To see all of the operating system versions from the API, make a`GET /operating_
 ```
 {: codeblock}
 
-For more information about creating a Windows custom image, see [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image).
+For more information from Microsoft about licensing, see the [Microsoft Licensing FAQ](https://www.microsoft.com/en-us/licensing/news/new-software-assurance-benefit-to-support-hosting-from-third-party-providers){: external}; the blog post, [New licensing benefits make bringing workloads and licenses to partners’ clouds easier](https://blogs.partner.microsoft.com/mpn/new-licensing-benefits-make-bringing-workloads-and-licenses-to-partners-clouds-easier/){: external}; and a training video, [Outsourcing software licensing changes](https://licensingschool.eventbuilder.com/hostingcustomer){: external}.
 
+For more information about creating a Windows custom image, see [Creating a Windows custom image](/docs/vpc?topic=vpc-create-windows-custom-image).
 
 For more information about creating dedicated hosts and groups, see [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances).
 
