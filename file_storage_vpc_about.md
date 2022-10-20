@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-10-17"
+lastupdated: "2022-10-20"
 
 
 keywords: vpc file storage, File Storage for VPC, zonal storage
@@ -108,7 +108,7 @@ with the API, you can set these attributes for controlling access to your file s
 ## Tags for file shares
 {: #fs-about-fs-tags}
 
-File storage for VPC is enabled for Global Searching and Tagging (GhoST). You can create and apply [user tags](#fs-about-mgt-tags) and [access management tags](#fs-about-user-tags) to file shares to better control and organize your file storage resources across the VPC. User tags can be added from the file service UI, CLI, or API. To apply access management tags to file shares, you must use the GhoST API.
+File storage for VPC is enabled for Global Searching and Tagging (GhoST). You can create and apply [user tags](#fs-about-user-tags) and [access management tags](#fs-about-mgt-tags) to file shares to better control and organize your file storage resources across the VPC. User tags can be added from the file service UI, CLI, or API. To apply access management tags to file shares, you must use the GhoST API.
 
 ### User tags for file shares
 {: #fs-about-user-tags}
