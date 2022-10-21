@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-09-09"
+lastupdated: "2022-10-20"
 
 keywords:  
 
@@ -19,7 +19,7 @@ subcollection: vpc
 {{site.data.keyword.cloud}} Security Groups for VPC give you a convenient way to apply rules that establish filtering to a target of a virtual server instance, based on its IP address. Security group targets include virtual server instance network interfaces, endpoint gateways, and load balancers. When you create a security group, you configure it to create the network traffic patterns you want.
 {: shortdesc}
 
-By default, a security group is set up with rules that deny all inbound traffic and permits all outbound traffic. As new rules are added to a security group, the new rules redefine the scope of permitted inbound or outbound traffic. 
+By default, a security group is set up with rules that deny all inbound traffic and permit all outbound traffic. As new rules are added to a security group, the new rules redefine the scope of permitted inbound or outbound traffic. 
 
 Rules are _stateful_. To have _stateful_ rules means when you create a rule that allows traffic one way, the rule automatically permits reverse traffic. For example, if you create a rule to allow inbound TCP traffic on port 80, the rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
 
@@ -30,14 +30,14 @@ When you create a new security group, it is assigned a default security group po
 When you create a resource that uses a security group and don't specify a security group, the resource's primary network interface is attached to the _default_ security group of that resource's VPC. 
 {: note}
  
-Updating the rules fo the _default_ security group is a separate process from updating the default security group policy. If you edit the rules of the default security group, those edited rules then apply to all current and future servers in the group.For more information, see [Updating default security group rules](/docs/vpc?topic=vpc-updating-the-default-security-group#updating-the-default-security-group).
+Updating the rules fo the _default_ security group is a separate process from updating the default security group policy. If you edit the rules of the default security group, those edited rules then apply to all current and future servers in the group. For more information, see [Updating default security group rules](/docs/vpc?topic=vpc-updating-the-default-security-group#updating-the-default-security-group).
 
 ## Security group targets
 {: #security-group-targets}
 
 A target is any resource you attach or detach a security group to or from. Security group targets include virtual server instance network interfaces, endpoint gateways, and load balancers.
 
-Each resource that can send and receive traffic can have a security group policy configured for it. This can include virtual server interfaces, Bare metal servers, load balancers, any end point gateways along your data path, and more. 
+Each resource that can send and receive traffic can have a security group policy configured for it. This can include virtual server interfaces, bare metal servers, load balancers, any end point gateways along your data path, and more. 
 
 You can associate a security group policy with any resource along your data path. 
 {: important}
@@ -49,12 +49,12 @@ Security groups are tied to a resource, whereas Network Access Control Lists (NA
 
 NACLs are applicable at the subnet level, so any resource in the subnet with an associated NACL will follow rules of the NACL. However, that’s not the case with security groups. Security groups must be assigned explicitly to the resource. Also, unlike NACLs, a security group can be applied to multiple resources across subnets and even across zones.
 
-NACLs are not _stateful_. To have _stateful_ rules means when you create a rule that allows traffic one way, the rule automatically permits reverse traffic. 
+NACLs are _stateless_. 
 
-Because NACLs are not _stateful_, you would need to set up two rules if you want to permit traffic both ways on a target.
+Because NACLs are not _stateful_, if you want to permit traffic both ways on a target you must set up two rules.
 {: important}
 
-![Security groups across instances and zones](/images/security-groups-across-zones.svg){: caption="Security groups across instances and zones" caption-side="bottom"}
+![Security groups across instances and zones](/images/security-groups-across-zones.svg){: caption="Figure 1: Security groups across instances and zones" caption-side="bottom"}
 
 ## Defining security group rules
 {: #security-group-rules}
@@ -63,7 +63,7 @@ Every security group consists of a set of rules. The security group examines all
 
 When you create a new security group, initially all inbound traffic is restricted and outbound traffic is allowed. Therefore, you must add rules to the group to permit incoming traffic and to apply restrictions on the outbound traffic. 
 
-Because a resource can have multiple security groups associated with it, all the rules from each security group associated with the resource are combined together to form a single set of rules. This set of rules is used to determine whether the traffic should be denied or allowed into and out from the resource. For every security rule that you add to the security group, you must specify the values for the following fields: 
+Because a resource can have multiple security groups associated with it, all the rules from each security group associated with the resource are combined to form a single set of rules. This set of rules is used to determine whether the traffic should be denied or allowed into and out from the resource. For every security rule that you add to the security group, you must specify the values for the following fields: 
 
 * Direction - The direction of traffic to enforce, either inbound or outbound.
 * Protocol - Indicates the prototype that this rule applies for. Values are `tcp`, `udp`, `icmp`, or `all`. 
@@ -73,12 +73,11 @@ Because a resource can have multiple security groups associated with it, all the
    * When protocol is `icmp`, you can optionally specify the `type` property. If specified, then ICMP traffic is allowed for only the specified ICMP type. Further, if you specify `type`, you can optionally specify the code property to allow traffic for only the specified ICMP code. 
 
 *	Remote - Describes the set of network interfaces to which this rule allows traffic (or from which, for outbound rules). 
-
-You can specify this value as either an IP address, a CIDR block, or all the identifiers of a single security group (ID, CRN, and name). If this value is omitted, a CIDR block of `0.0.0.0/0` is used to allow traffic from any source (or to any source, for outbound rules).
+    You can specify this value as either an IP address, a CIDR block, or all the identifiers of a single security group (ID, CRN, and name). If this value is omitted, a CIDR block of `0.0.0.0/0` is used to allow traffic from any source (or to any source, for outbound rules).
 
 For more information on setting up security group rules using the CLI, see the [Command list cheat sheet](/docs/vpc?topic=vpc-configuring-the-security-group&interface=cli#command-list-cheat-sheet). For more information on setting up security group rules using the API, see [Setting up the security group for your virtual server instance by using the API](/docs/vpc?topic=vpc-configuring-the-security-group&interface=api#sg-using-api).
 
-## Getting Started 
+## Getting started 
 {: #sg-getting-started}
 
 To get started using security groups, follow these steps:
@@ -89,7 +88,7 @@ To get started using security groups, follow these steps:
 ## Security group use cases 
 {: #sg-use-cases}
 
-Creating a security group is a standard way for a user to apply rules that filter network traffic patterns to and from their resources. Your ability to perform the following actions depend on your level of authorization in your account. Contact your administrator if you have questions about your account authorizations. 
+Creating a security group is a standard way for a user to apply rules that filter network traffic patterns to and from their resources. Your ability to perform the following actions depends on your level of authorization in your account. Contact your administrator if you have questions about your account authorizations. 
 
 ### Use Case 1: Changing a resource's default security group 
 {: #sg-use-case-1}
@@ -103,9 +102,9 @@ For example, let's say you are part of an organization and someone with access t
 
 In this example, if you create a new resource, it will initially be assigned to your VPC's default security group. This default security group's policy denies all inbound and outbound network traffic because of the deny rules your security-conscious team member set up. As a result, traffic to and from your new resource will have this deny behavior applied. 
 
-Continuing with this example, if you are discontent with the default security group policy your team member set up, one solution is to create a new security group with customized settings and apply it to your resource. Another solution is to alter the policy on the default security group. Creating a new security group with customized settings is the easiest solution, because you can create rules that apply to the single resource you want to impact. If you alter the policy of the default security group, these changes will apply not only to the resource you want to impact, but to all other resources that have been assigned to the default security group. 
+Continuing with this example, if you are discontented with the default security group policy your team member set up, one solution is to create a new security group with customized settings and apply it to your resource. Another solution is to alter the policy on the default security group. Creating a new security group with customized settings is the easiest solution, because you can create rules that apply to the single resource you want to impact. If you alter the policy of the default security group, these changes will apply not only to the resource you want to impact, but to all other resources that have been assigned to the default security group. 
 
-Any new rules you create on the default security group policy will be applied to all current and future resources that have been assigned to the default security group. 
+Any new rules you create on the default security group policy will be applied to all current and future resources that are assigned to the default security group. 
 {: important}
 
 For more information on updating the default security group, see [Updating default security group rules](/docs/vpc?topic=vpc-updating-the-default-security-group#updating-the-default-security-group).
@@ -128,18 +127,19 @@ A more dynamic way you can set up your security group policy is to allow all inb
 
 For example, say you have host A and host B in a security group, and you add a new host C. Normally, you would have to perform maintainance to allow host A and host B to send traffic to and from host C after you add host C to the security group. 
 
-To make this process easier, you can define a policy in which you allow all traffic as long as it's from another member of my group. Then as you add or remove members from a group, the policy automatically changes to allow members of the group to send traffic between each other.
+To make this process easier, you can define a policy in which you allow all traffic as long as it's from another member of your group. Then as you add or remove members from a group, the policy automatically changes to allow members of the group to send traffic between each other.
 
 The following are UI instructions for defining rules in a security group to allow all traffic between members of that security group: 
 
-1. From the [IBM Cloud console](https://cloud.ibm.com/){: external}, click the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > **Classic Infrastructure** to get to the Classic Infrastructure landing page.
-2. From the Classic Infrastructure menu, select **Security** >  **Network Security** > **Security Groups** to get to the Security Groups page.
-3. On the Security Group page, select the security group object you want to modify.
-4. Click the **Create** button in the **Inbound rules** table. A **Create inbound rule** window will appear.   
-5. Under **Protocol**, select **ALL**.
-6. Under **Source type***, select **Security group**. 
-7. Click **Create** to apply these changes. 
-8. Repeat steps 4 through 7 in the **Outbound rules** table.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}}](/login){: external}.
+1. Select the Menu icon ![Menu icon](../icons/icon_hamburger.svg), then click **VPC Infrastructure**. 
+1. Click **Security groups**.
+1. In the Security groups, select the security group object that you want to modify.
+1. Click the **Create +** button in the upper right of the **Inbound rules** table. A **Create inbound rule** window appears.   
+1. In the **Protocol** section, select **ALL**.
+1. In the **Source type** section, select **Security group**. 
+1. Click **Create** to apply these changes. 
+1. 
 
 For more information on setting up security group rules using the CLI, see the VPC CLI reference to [Add a rule to a security group](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#security-group-rule-add). For more information on setting up security group rules using the API, see [Create a rule for a security group](https://cloud.ibm.com/apidocs/vpc/latest#create-security-group-rule){: external}.
 

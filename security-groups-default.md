@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2022
 
-lastupdated: "2022-09-15"
+lastupdated: "2022-10-20"
 
 keywords:  
 
@@ -34,12 +34,16 @@ Inbound rules to allow pinging and SSH are not automatically added to the defaul
 {: #example-modifying-the-default-sg-rules-using-ui}
 {: ui}
 
-1. From the [IBM Cloud console](https://cloud.ibm.com/){: external}, click the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > **Classic Infrastructure** to get to the Classic Infrastructure landing page.
-1. From the Classic Infrastructure menu, select **Security** >  **Network Security** > **Security Groups** to get to the Security Groups page.
-1. On the Security Group page, select the default security group object.
-1. Click the ![More icon](./images/more_icon.jpg) icon to edit the existing rules.
-1. Modify the rule as necessary.
-1. Click **OK** to apply the changes.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}}](/login){: external}.
+1. Select the Menu icon ![Menu icon](../icons/icon_hamburger.svg), then click **VPC Infrastructure**. 
+1. Click **Security groups**.
+1. On the Security groups list page, click the name of the default security group that you want to update. 
+1. On the default security group's details page,click the **Rules** tab. 
+1. Modify the rules as necessary:
+      - To edit a rule, click the Actions menu ![Actions menu](images/overflow.png), click **Edit**, then click **Save**.
+      - To delete a rule, click the Actions menu ![Actions menu](images/overflow.png), click **Delete**, then click **Delete** again. 
+      - To create a rule, click the **Create** button. 
+
 For each rule, specify the following information:  
    * Select the protocols and ports to which the rule applies.    
    * Specify a CIDR block or IP address for the permitted traffic. Alternatively, you can specify a security group in the same VPC to allow traffic to or from all instances that are attached to the selected security group. 
@@ -48,8 +52,9 @@ For each rule, specify the following information:
    * All rules are evaluated, regardless of the order in which they're added.
    * Rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, you created a rule that allows inbound TCP traffic on port 80. That rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
    * For Windows images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
+
 1. _Optional:_ To view interfaces that are attached to the security group, click **Attached resources** tab and review the Attached interfaces section.
-1. When you finish creating rules, click the **Security groups** breadcrumb at the beginning of the page to return to your list of Security groups.
+1. When you finish creating rules, click the **Security groups** breadcrumb at the top of the page to return to your list of Security groups for VPC.
 
 
 ## Updating the default security group by using the CLI
