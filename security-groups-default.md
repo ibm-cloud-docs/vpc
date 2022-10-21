@@ -42,7 +42,7 @@ Inbound rules to allow pinging and SSH are not automatically added to the defaul
 1. In the Security groups list, click the name of the default security group that you want to update. 
 1. On the default security group's details page, click the **Rules** tab. 
 1. Modify the rules as necessary:
-      - To edit a rule, click the Actions menu ![Actions menu](images/overflow.png), click **Edit**, then click **Save**.
+      - To edit a rule, click the Actions menu ![Actions menu](images/overflow.png), click **Edit**, make your changes, then click **Save**.
       - To delete a rule, click the Actions menu ![Actions menu](images/overflow.png), click **Delete**, then click **Delete** again. 
       - To create a rule, click the **Create** button. 
 
@@ -56,7 +56,7 @@ Inbound rules to allow pinging and SSH are not automatically added to the defaul
       * Rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, you created a rule that allows inbound TCP traffic on port 80. That rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
       * For Windows images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
 
-1. _Optional:_ To view interfaces that are attached to the security group, click **Attached resources** tab and review the Attached interfaces section.
+1. _Optional:_ To view interfaces that are attached to the security group, click the **Attached resources** tab and review the Attached interfaces section.
 1. When you finish creating rules, click the **Security groups** breadcrumb at the top of the page to return to your list of Security groups for VPC.
 
 
@@ -128,7 +128,7 @@ Complete the following steps to update the default security group by using the C
    Disabling SSH connections prohibits the license registration for RedHat Enterprise Linux. This can result in provisioning failures.
    {: important}
 
-   To add rules in your default security group, run the follwoing command:
+   To add rules in your default security group, run the following command:
 
    ```sh
    ibmcloud is security-group-rule-add GROUP DIRECTION PROTOCOL [--port-min PORT_MIN] [--port-max PORT_MAX]
@@ -153,7 +153,7 @@ Adding and removing security group rules is an asynchronous operation. It usuall
 
 Complete the following steps to update the default security group by using the API: 
 
-1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
+1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the correct variables.
 
 1. Get the default security group ID and details for the VPC.
 
@@ -176,7 +176,7 @@ Complete the following steps to update the default security group by using the A
 Disabling SSH connections prohibits the license registration for RedHat Enterprise Linux. This can result in provisioning failures.
 {: important}
 
-Run the following two commands to add default security group rules that allow SSH and PING for the security group with the security group`id` you set as the variable `sg`: 
+Run the following two commands to add default security group rules that allow SSH and PING for the security group with the security group `id` you set as the variable `sg`: 
 
    ```sh
    curl -sX POST  -H "Authorization:$iam_token" "$vpc_api_endpoint/v1/security_groups/$sg/rules?generation=2&version=$api_version"  -d '{"direction":"inbound","protocol":"tcp","port_min":22, "port_max":22}'

@@ -16,14 +16,14 @@ subcollection: vpc
 # Set up a security group for your resource
 {: #configuring-the-security-group} 
 
-You can configure security groups to define the inbound and outbound traffic that they allow for your resource. For example, after you configure ACL rules for the subnet based on your company's security policies, you can further restrict traffic for specific instances depending on their workloads.
+You can configure security groups to define the inbound and outbound traffic that is allowed for your resource. For example, after you configure ACL rules for the subnet based on your company's security policies, you can further restrict traffic for specific instances depending on their workloads.
 {: shortdesc}
 
 ## Setting up the security groups for your resource using the UI
 {: #sgg-using-ui}
 {: ui}
 
-To configure your security group, follow these steps by using the UI: 
+To configure your security group by using the UI, follow these steps: 
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
 1. Select the Menu icon ![Menu icon](../icons/icon_hamburger.svg), then click **VPC Infrastructure**. 
@@ -36,7 +36,7 @@ To configure your security group, follow these steps by using the UI:
    * **Name**: Enter a unique identifier for the security group, such as `my-security-group`.    
    * **Resource group**: Select a resource group for the security group.
 
-   Once provisioning is complete, you cannot change the resoure group.
+   After provisioning is complete, you cannot change the resoure group.
    {: important}
 
    * **Tags**: (Optional) Enter tags to help you organize and find your security groups. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).    
