@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2022-10-14S",
+    "lastupdated": "2022-10-21",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,6 +31,11 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "19 October 2022",
+          "title": "Windows BYOL for multi-tenant hosts",
+          "description": "You can now bring your own license for Windows operating systems with a custom image to provision virtual server instances on multi-tenant hosts. Previously Windows BYOL was limited to dedicated hosts."
+        },
+        {
           "date": "12 October 2022",
           "title": "New region (Washington DC) for LinuxONE Bare Metal Servers (s390x processor architecture) (LA)",
           "description": "LinuxONE Bare Metal Servers are now available in the Washington DC (us-east) region."
@@ -39,11 +44,6 @@
           "date": "03 October 2022",
           "title": "VPC Public Ingress Routing",
           "description": "You can now route public internet ingress traffic (destined to a floating IP) to a VPN next-hop IP, such as a managed firewall. Currently, public ingress routing (public internet traffic choice) is available in the UI only. CLI and API are forthcoming."
-        },
-        {
-          "date": "27 September 2022",
-          "title": "IBM LinuxONE Bare Metal Servers (s390x processor architecture) (LA)",
-          "description": "Accounts with access to the profiles for s390x bare metal servers can now create LinuxONE Bare Metal Server instances. These profiles have a cpu_architecture of s390x and must be used with Red Hat Enterprise Linux for s390x and SUSE Linux Enterprise Server (SLES) for s390x. Each LinuxONE Bare Metal Server is equivalent to a logical partition (LPAR) on the IBM LinuxONE or IBM Z with dedicated s390x CPU cores, memory, and I/O devices for your Linux workloads."
         }
       ]
     }
