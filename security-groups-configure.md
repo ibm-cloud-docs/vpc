@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2022
 
-lastupdated: "2022-10-20"
+lastupdated: "2022-10-21"
 
 keywords:  
 
@@ -19,16 +19,16 @@ subcollection: vpc
 You can configure security groups to define the inbound and outbound traffic that they allow for your resource. For example, after you configure ACL rules for the subnet based on your company's security policies, you can further restrict traffic for specific instances depending on their workloads.
 {: shortdesc}
 
-## Setting up the security groups for your resource by using the UI
+## Setting up the security groups for your resource using the UI
 {: #sgg-using-ui}
 {: ui}
 
 To configure your security group, follow these steps by using the UI: 
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}}](/login){: external}.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
 1. Select the Menu icon ![Menu icon](../icons/icon_hamburger.svg), then click **VPC Infrastructure**. 
 1. Click **Security groups**.
-1. In the upper right of the security groups list table, click **Create +**. 
+1. Click **Create +** on the security groups list table. 
 1. In the Location section, provide the following information:
    * **Geography**: Indicate the general area where you want the security group created.
    * **Region**: Indicate the region where you want the security group created. 
@@ -49,11 +49,12 @@ To configure your security group, follow these steps by using the UI:
 1. Under Rules, click **Create** to configure inbound and outbound rules that define what type of traffic is allowed to and from the instance. For each rule, specify the following information:  
    * Select the protocols and ports to which the rule applies.    
    * Specify a CIDR block or IP address for the permitted traffic. Alternatively, you can specify a security group in the same VPC to allow traffic to or from all instances that are attached to the selected security group. 
+
    **Tips:**  
    * All rules are evaluated, regardless of the order in which they're added.
    * Rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, you created a rule that allows inbound TCP traffic on port 80. That rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
    * For Windows images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
-1. _Optional:_ Attach interfaces, bare metal interfaces, load balancers, virtual private endpoint gateways, and VPN servers in the remaining sections if targets are available to attach. 
+1. _Optional:_ Attach interfaces, bare metal interfaces, load balancers, virtual private endpoint gateways, and VPN servers in the remaining sections if these targets are available to attach. 
 
 ## Setting up the security groups for your resource by using the CLI
 {: #sg-using-cli}

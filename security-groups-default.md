@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2022
 
-lastupdated: "2022-10-20"
+lastupdated: "2022-10-21"
 
 keywords:  
 
@@ -22,36 +22,39 @@ The default security group is similar to any other security group, with the exce
 
 Each VPC has a default security group, with rules to allow:
 
-* Inbound traffic from all members of the group (that is, all other virtual server instances that are attached to this security group)
+* Inbound traffic from all members of the group (that is, all other resources that are attached to this security group)
 * All outbound traffic
 
+You can modify the rules of the default security group by using the UI, CLI, or API.
+
 If you edit the rules of the default security group, those edited rules then apply to all current and future servers in the group.
-{: imporant}
+{: important}
 
-Inbound rules to allow pinging and SSH are not automatically added to the default security group. You can modify the rules of the default security group by using the UI, CLI, or API.
+Inbound rules to allow pinging and SSH are not automatically added to the default security group. 
 
-## Updating the default security group by using the UI
+## Updating the default security group using the UI
 {: #example-modifying-the-default-sg-rules-using-ui}
 {: ui}
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}}](/login){: external}.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
 1. Select the Menu icon ![Menu icon](../icons/icon_hamburger.svg), then click **VPC Infrastructure**. 
 1. Click **Security groups**.
-1. On the Security groups list page, click the name of the default security group that you want to update. 
-1. On the default security group's details page,click the **Rules** tab. 
+1. In the Security groups list, click the name of the default security group that you want to update. 
+1. On the default security group's details page, click the **Rules** tab. 
 1. Modify the rules as necessary:
       - To edit a rule, click the Actions menu ![Actions menu](images/overflow.png), click **Edit**, then click **Save**.
       - To delete a rule, click the Actions menu ![Actions menu](images/overflow.png), click **Delete**, then click **Delete** again. 
       - To create a rule, click the **Create** button. 
 
-For each rule, specify the following information:  
-   * Select the protocols and ports to which the rule applies.    
-   * Specify a CIDR block or IP address for the permitted traffic. Alternatively, you can specify a security group in the same VPC to allow traffic to or from all instances that are attached to the selected security group. 
+      For each rule, specify the following information:  
 
-   **Tips:**  
-   * All rules are evaluated, regardless of the order in which they're added.
-   * Rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, you created a rule that allows inbound TCP traffic on port 80. That rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
-   * For Windows images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
+      * Select the protocols and ports to which the rule applies.    
+      * Specify a CIDR block or IP address for the permitted traffic. Alternatively, you can specify a security group in the same VPC to allow traffic to or from all instances that are attached to the selected security group. 
+
+      **Tips:**  
+      * All rules are evaluated, regardless of the order in which they're added.
+      * Rules are stateful, which means that return traffic in response to allowed traffic is automatically permitted. For example, you created a rule that allows inbound TCP traffic on port 80. That rule also allows replying outbound TCP traffic on port 80 back to the originating host, without the need for another rule.
+      * For Windows images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
 
 1. _Optional:_ To view interfaces that are attached to the security group, click **Attached resources** tab and review the Attached interfaces section.
 1. When you finish creating rules, click the **Security groups** breadcrumb at the top of the page to return to your list of Security groups for VPC.

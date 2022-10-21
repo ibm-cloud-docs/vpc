@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-10-20"
+lastupdated: "2022-10-21"
 
 keywords:  
 
@@ -131,7 +131,7 @@ To make this process easier, you can define a policy in which you allow all traf
 
 The following are UI instructions for defining rules in a security group to allow all traffic between members of that security group: 
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}}](/login){: external}.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
 1. Select the Menu icon ![Menu icon](../icons/icon_hamburger.svg), then click **VPC Infrastructure**. 
 1. Click **Security groups**.
 1. In the Security groups, select the security group object that you want to modify.
@@ -139,9 +139,6 @@ The following are UI instructions for defining rules in a security group to allo
 1. In the **Protocol** section, select **ALL**.
 1. In the **Source type** section, select **Security group**. 
 1. Click **Create** to apply these changes. 
-1. 
-
-For more information on setting up security group rules using the CLI, see the VPC CLI reference to [Add a rule to a security group](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#security-group-rule-add). For more information on setting up security group rules using the API, see [Create a rule for a security group](https://cloud.ibm.com/apidocs/vpc/latest#create-security-group-rule){: external}.
 
 ## Related links
 {: #sg-related-links}
