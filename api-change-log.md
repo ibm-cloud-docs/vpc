@@ -73,29 +73,25 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 ### For all version dates
 {: #27-september-2022-all-version-dates}
 
-**Sharing images across accounts within an enterprise.** You can now use a [catalog to share custom images](/docs/vpc?topic=vpc-planning-custom-images#custom-image-cloud-private-catalog) with users in other accounts within the same enterprise. When you [create an image](/apidocs/vpc/latest#create-image), a new `catalog_offering` property includes a `managed` sub-property that is set to `false` by default.  When the custom image is imported to a catalog the 
-`managed` sub-property is set to `true`, indicating that the image is added to a catalog offering `version` and is managed from a catalog. Any user who has been authorized to the catalog offering version can [provision a virtual server instance](/apidocs/vpc/latest#create-instance) with that image by specifying the offering version's CRN as `catalog_offering.version.crn`. Alternatively, users can specify the offering's CRN as `catalog_offering.offering.crn` to provision
-a virtual server instance with the latest image associated with the catalog offering. For more information, see [Custom images in a private
-catalog](/docs/vpc?topic=vpc-planning-custom-images&interface=api#private-catalog-image-reference-vpc-api) in Getting started with custom images, the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial), and the [Import offering](/apidocs/resource-catalog/private-catalog#import-offering){: external} method in the Catalog Management API.
+**Sharing images across accounts within an enterprise.** You can now use a [catalog to share custom images](/docs/vpc?topic=vpc-planning-custom-images#custom-image-cloud-private-catalog) with users in other accounts within the same enterprise. When you [create an image](/apidocs/vpc/latest#create-image), a new `catalog_offering` property includes a `managed` sub-property that is set to `false` by default.  When the custom image is imported to a catalog the `managed` sub-property is set to `true`, indicating that the image is added to a catalog offering `version` and is managed from a catalog. Any user who has been authorized to the catalog offering version can [provision a virtual server instance](/apidocs/vpc/latest#create-instance) with that image by specifying the offering version's CRN as `catalog_offering.version.crn`. Alternatively, users can specify the offering's CRN as `catalog_offering.offering.crn` to provision a virtual server instance with the latest image associated with the catalog offering. For more information, see [Custom images in a private catalog](/docs/vpc?topic=vpc-planning-custom-images&interface=api#private-catalog-image-reference-vpc-api) in Getting started with custom images, the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial), and the [Import offering](/apidocs/resource-catalog/private-catalog#import-offering){: external} method in the Catalog Management API.
 
 The image may not be deleted or used in a different catalog product offering version while it is managed from a catalog. If the catalog is deleted, a 7 day reclamation period will apply that prevents any images managed by the catalog from being deleted or re-used during the reclamation period. For more information, see [Deleting a custom image in a private catalog](/docs/vpc?topic=vpc-planning-custom-images&interface=api#deleting-private-catalog-custom-image-vpc) and [Using resource reclamations](/docs/account?topic=account-resource-reclamation&interface=api#restore-resource-cli).
 
-Image references may refer to custom images in other accounts. Before using this feature, verify that your clients handle image reference lookup failures gracefully and do not assume inaccessible images have been deleted, even when running with full access to your images.  To avoid possible retrieval or use of the wrong image by `name`, specify the image `id`, `crn`, or `href` instead. See [Using cross-account image references in a private catalog in the
-API](/docs/vpc?topic=vpc-planning-custom-images&interface=api#private-catalog-image-reference-vpc-api) for more information.
+Image references may refer to custom images in other accounts. Before using this feature, verify that your clients handle image reference lookup failures gracefully and do not assume inaccessible images have been deleted, even when running with full access to your images.  To avoid possible retrieval or use of the wrong image by `name`, specify the image `id`, `crn`, or `href` instead. See [Using cross-account image references in a private catalog in the API](/docs/vpc?topic=vpc-planning-custom-images&interface=api#private-catalog-image-reference-vpc-api) for more information.
 {: important}
 
-**Increased network interface limits for virtual server instances.** You can now have up to 14 secondary network interfaces on a virtual server instance. The previous limit for secondary network interfaces was 4. The number of interfaces that a virtual server instance supports is dependent on the VCPU count that is included in the [instance profile](/docs/vpc?topic=vpc-profiles). For more information about the number of interfaces that a virtual server supports, see [Bandwidth allocation with multiple network interfaces](/docs/vpc?topic=vpc-profiles&interface=ui#bandwidth-multi-vnic). To utilize the increased limit for network interfaces, you can create secondary network interfaces by specifying `network_interfaces` when you [create an instance](/apidocs/vpc/latest#create-instance). You also can add secondary network interfaces to an existing instance by [creating a network interface on an instance](/apidocs/vpc/latest#create-instance-network-interface). 
+**Increased network interface limits for virtual server instances.** You can now have up to 14 secondary network interfaces on a virtual server instance. The previous limit for secondary network interfaces was 4. The number of interfaces that a virtual server instance supports is dependent on the VCPU count that is included in the [instance profile](/docs/vpc?topic=vpc-profiles). For more information about the number of interfaces that a virtual server supports, see [Bandwidth allocation with multiple network interfaces](/docs/vpc?topic=vpc-profiles&interface=ui#bandwidth-multi-vnic). To utilize the increased limit for network interfaces, you can create secondary network interfaces by specifying `network_interfaces` when you [create an instance](/apidocs/vpc/latest#create-instance). You also can add secondary network interfaces to an existing instance by [creating a network interface on an instance](/apidocs/vpc/latest#create-instance-network-interface).
 
-For an existing, running instance with 17 or more vCPUs to take advantage of the new network interface limits, it must be stopped and then started again. A reboot action on the running virtual server does not activate the increased network interface limit. 
+For an existing, running instance with 17 or more vCPUs to take advantage of the new network interface limits, it must be stopped and then started again. A reboot action on the running virtual server does not activate the increased network interface limit.
 {: note}
 
 **IBM&reg; LinuxONE Bare Metal Servers.** Accounts with access to the profiles for s390x bare metal servers can now [create](/apidocs/vpc/latest#create-bare-metal-server) LinuxONE Bare Metal Servers. These profiles have a `cpu_architecture` of `s390x` and must be used with Red Hat Enterprise Linux for s390x and SUSE Linux Enterprise Server (SLES) for s390x. For more information, see [Creating bare metal servers on VPC](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=ui) and [s390x bare metal server images](/docs/vpc?topic=vpc-s390x-bare-metal-images).
 
 In support of s390x bare metal servers, the following enumerations have been expanded:
 
- - Because s390x local disks are attached through Fiber Channel protocol, a value of `fcp` has been added to the `interface_type` enumeration that is returned when you [retrieve](/apidocs/vpc/latest#get-bare-metal-server-disk) or [list](/apidocs/vpc/latest#list-bare-metal-server-disks) the disks for a bare metal server. For more information, see [Storage overview of s390x bare metal servers](/docs/vpc?topic=vpc-s390x-bare-metal-servers-storage).
+- Because s390x local disks are attached through Fiber Channel protocol, a value of `fcp` has been added to the `interface_type` enumeration that is returned when you [retrieve](/apidocs/vpc/latest#get-bare-metal-server-disk) or [list](/apidocs/vpc/latest#list-bare-metal-server-disks) the disks for a bare metal server. For more information, see [Storage overview of s390x bare metal servers](/docs/vpc?topic=vpc-s390x-bare-metal-servers-storage).
 
- - Because s390x provides TCP/IP connectivity by using HiperSockets, a value of `hipersocket` has been added to the `interface_type` enumeration returned when you [retrieve](/apidocs/vpc/latest#get-bare-metal-server-network-interface) or [list](/apidocs/vpc/latest#list-bare-metal-server-network-interfaces) the network interfaces on an s390x bare metal server. Similarly, when you [create](/apidocs/vpc/latest#create-bare-metal-server) an s390x bare metal server, or [add](/apidocs/vpc/latest#create-bare-metal-server-network-interface) a network interface to an existing s390x bare metal server, you must specify an `interface_type` of `hipersocket`. For more information, see the [_IBM HiperSockets Implementation Guide_](https://www.redbooks.ibm.com/abstracts/sg246816.html){: external} and [Network overview of s390x bare metal servers](/docs/vpc?topic=vpc-s390x-bare-metal-servers-network).
+- Because s390x provides TCP/IP connectivity by using HiperSockets, a value of `hipersocket` has been added to the `interface_type` enumeration returned when you [retrieve](/apidocs/vpc/latest#get-bare-metal-server-network-interface) or [list](/apidocs/vpc/latest#list-bare-metal-server-network-interfaces) the network interfaces on an s390x bare metal server. Similarly, when you [create](/apidocs/vpc/latest#create-bare-metal-server) an s390x bare metal server, or [add](/apidocs/vpc/latest#create-bare-metal-server-network-interface) a network interface to an existing s390x bare metal server, you must specify an `interface_type` of `hipersocket`. For more information, see the [_IBM HiperSockets Implementation Guide_](https://www.redbooks.ibm.com/abstracts/sg246816.html){: external} and [Network overview of s390x bare metal servers](/docs/vpc?topic=vpc-s390x-bare-metal-servers-network).
 
 s390x bare metal servers have different network bandwidth and maximum network interface limits from x86 bare metal servers. For more information, see [s390x bare metal server profiles](/docs/vpc?topic=vpc-s390x-bare-metal-servers-profile).
 
@@ -106,6 +102,7 @@ s390x bare metal servers have different network bandwidth and maximum network in
 {: #20-september-2022-all-version-dates}
 
 **Deprecated VPN for VPC ciphers.** The following VPN IKE and IPsec ciphers are now deprecated:
+
 - Authentication algorithms `md5` and `sha1`
 - Encryption algorithm `triple_des`
 - Diffie–Hellman groups `2` and `5`
@@ -160,6 +157,7 @@ A response code of `204` will continue to be returned for API requests using a `
 {: #6-september-2022-all-version-dates}
 
 **Improved reserved IP support for bare metal servers**. The following methods have been added for convenience and parity with the virtual server instance reserved IP methods:
+
 - [List all reserved IPs bound to a network interface](/apidocs/vpc/latest#list-instance-network-interface-ips) for a bare metal server
 - [Retrieve bound reserved IP](/apidocs/vpc/latest#get-instance-network-interface-ip) for a bare metal server
 
@@ -195,13 +193,13 @@ A response code of `204` will continue to be returned for API requests using a `
 
 **Client VPN for VPC.** Client-to-site connectivity is now available. This feature allows remote devices to securely connect to a VPC using an OpenVPN (or other compatible) software client. For more information about VPN client-to-site connectivity and how it complements the existing VPN site-to-site connectivity, see [About client-to-site VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-overview).
 
-* A **VPN server** allows VPN clients from the internet to connect to a VPC. When [creating a VPN server](/apidocs/vpc/latest#create-vpn-server), you can specify a security group to protect the VPN server, and subnets in your VPC in which the VPN server will allocate its [reserved IP addresses](/apidocs/vpc/latest#list-subnet-reserved-ips). For more information, see [Creating a VPN server](/docs/vpc?topic=vpc-vpn-create-server) and the new [VPN server methods](/apidocs/vpc/latest#list-vpn-servers).
-* A **VPN client** represents a client connecting from the internet. You can [retrieve the OpenVPN client configuration](/apidocs/vpc/latest#get-vpn-server-client-configuration) to use to configure a VPN client for a VPN server. For more information, see [Setting up a client VPN environment and connecting to a VPN server](/docs/vpc?topic=vpc-vpn-client-environment-setup) and the new [VPN client methods](/apidocs/vpc/latest#list-vpn-server-clients).
-* A **VPN route** controls which subnets the VPN client can access and how the traffic from the VPN client reaches these subnets. For more information, see [Managing VPN routes](/docs/vpc?topic=vpc-vpn-client-to-site-routes) and the new [VPN server route methods](/apidocs/vpc/latest#list-vpn-server-routes).
+- A **VPN server** allows VPN clients from the internet to connect to a VPC. When [creating a VPN server](/apidocs/vpc/latest#create-vpn-server), you can specify a security group to protect the VPN server, and subnets in your VPC in which the VPN server will allocate its [reserved IP addresses](/apidocs/vpc/latest#list-subnet-reserved-ips). For more information, see [Creating a VPN server](/docs/vpc?topic=vpc-vpn-create-server) and the new [VPN server methods](/apidocs/vpc/latest#list-vpn-servers).
+- A **VPN client** represents a client connecting from the internet. You can [retrieve the OpenVPN client configuration](/apidocs/vpc/latest#get-vpn-server-client-configuration) to use to configure a VPN client for a VPN server. For more information, see [Setting up a client VPN environment and connecting to a VPN server](/docs/vpc?topic=vpc-vpn-client-environment-setup) and the new [VPN client methods](/apidocs/vpc/latest#list-vpn-server-clients).
+- A **VPN route** controls which subnets the VPN client can access and how the traffic from the VPN client reaches these subnets. For more information, see [Managing VPN routes](/docs/vpc?topic=vpc-vpn-client-to-site-routes) and the new [VPN server route methods](/apidocs/vpc/latest#list-vpn-server-routes).
 
 **Configuring route propagation for VPN gateways and VPN servers.** When you [create a VPC routing table](/apidocs/vpc/latest#create-vpc-routing-table), you can now control if the routing table accepts routes from a VPN gateway or server by specifying the `accept_routes_from` property. When you [view a route in a VPC routing table](/apidocs/vpc/latest#get-vpc-routing-table-route), the new `origin` property shows who created the route (either `user` or `service`), and the `service` routes include a new `creator` property that references the resource that created the route. Routes with the `creator` property present cannot be deleted directly. For more information, see [Configuring route propagation for VPN gateways](/docs/vpc?topic=vpc-vpn-site-to-site-routes-propagating) and [VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-route-propagation).
 
-**Concurrent update protection.** ETags returned on `GET`, `POST`, and `PATCH` requests represent the modifiable state of the resource. When updating the `accept_routes_from` property on a [routing table](/apidocs/vpc/latest#update-vpc-routing-table), or updating the `client_authentication`, `client_dns_servers`, or `subnets` properties on a [VPN server](/apidocs/vpc/latest#update-vpn-server), you must provide the resource's ETag using the `If-Match` header. For general guidance on the use of ETags, see [Concurrent update protection](/apidocs/vpc/latest#concurrent-update-protection). 
+**Concurrent update protection.** ETags returned on `GET`, `POST`, and `PATCH` requests represent the modifiable state of the resource. When updating the `accept_routes_from` property on a [routing table](/apidocs/vpc/latest#update-vpc-routing-table), or updating the `client_authentication`, `client_dns_servers`, or `subnets` properties on a [VPN server](/apidocs/vpc/latest#update-vpn-server), you must provide the resource's ETag using the `If-Match` header. For general guidance on the use of ETags, see [Concurrent update protection](/apidocs/vpc/latest#concurrent-update-protection).
 
 ## 28 June 2022
 {: #28-june-2022}
@@ -296,20 +294,9 @@ Before using this feature on a load balancer, update client applications that in
 ### For all version dates
 {: #1-february-2022-all-version-dates}
 
-**Bare metal servers for VPC.** You can now create bare metal servers to host VMware&reg; clusters
-in {{site.data.keyword.vpc_short}}. You can set up VMware management applications and create VMware
-virtual machines on the bare metal servers. The new [bare metal
-server](/vpc#list-bare-metal-servers) APIs use a similar structure and employ the same concepts as
-the existing [instance](/apidocs/vpc?code=go#list-instances) APIs. There is also a parallel but
-separate set of [bare metal server profile](/apidocs/vpc#list-bare-metal-server-profiles) APIs with
-similar conventions to the existing [instance profile](/apidocs/vpc-scoped#list-instance-profiles)
-APIs. After you've learned one concept, it will apply to the other. However, be aware that there are
-some [limitations](/docs/vpc?topic=vpc-known-issues#bare-metal-servers-limitations).
+**Bare metal servers for VPC.** You can now create bare metal servers to host VMware&reg; clusters in {{site.data.keyword.vpc_short}}. You can set up VMware management applications and create VMware virtual machines on the bare metal servers. The new [bare metal server](/vpc#list-bare-metal-servers) APIs use a similar structure and employ the same concepts as the existing [instance](/apidocs/vpc?code=go#list-instances) APIs. There is also a parallel but separate set of [bare metal server profile](/apidocs/vpc#list-bare-metal-server-profiles) APIs with similar conventions to the existing [instance profile](/apidocs/vpc-scoped#list-instance-profiles) APIs. After you've learned one concept, it will apply to the other. However, be aware that there are some [limitations](/docs/vpc?topic=vpc-known-issues#bare-metal-servers-limitations).
 
-For more information, see [About Bare Metal Servers for
-VPC](/docs/vpc?topic=vpc-about-bare-metal-servers) and [Bare metal server
-profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=api), or dive into the new [API
-methods](/apidocs/vpc#list-bare-metal-server-profiles).
+For more information, see [About Bare Metal Servers for VPC](/docs/vpc?topic=vpc-about-bare-metal-servers) and [Bare metal server profiles](/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=api), or dive into the new [API methods](/apidocs/vpc#list-bare-metal-server-profiles).
 
 ## 25 January 2022
 {: #25-january-2022}
@@ -317,39 +304,19 @@ methods](/apidocs/vpc#list-bare-metal-server-profiles).
 ### For all version dates
 {: #25-january-2022-all-version-dates}
 
-**Security groups for endpoint gateways.** For enhanced security, you can now associate security
-groups with [endpoint gateways](/docs/vpc?topic=vpc-about-vpe). When you [create an endpoint
-gateway](/apidocs/vpc#create-endpoint-gateway), you can now specify the `security_groups`
-property, which associates those security groups with the endpoint gateway. If you do not specify
-`security_groups`, the endpoint gateway will be associated with the VPC's default security group.
-Before using the default security group, review your default security group rules and, if necessary,
-edit the rules to accommodate your endpoint gateway traffic.
+**Security groups for endpoint gateways.** For enhanced security, you can now associate security groups with [endpoint gateways](/docs/vpc?topic=vpc-about-vpe). When you [create an endpoint gateway](/apidocs/vpc#create-endpoint-gateway), you can now specify the `security_groups` property, which associates those security groups with the endpoint gateway. If you do not specify `security_groups`, the endpoint gateway will be associated with the VPC's default security group. Before using the default security group, review your default security group rules and, if necessary, edit the rules to accommodate your endpoint gateway traffic.
 
-Responses that return an endpoint gateway now include the `security_groups` property. On endpoint
-gateways created before 25 January 2022, the `security_groups` property in the response is an empty
-array (`[]`), and no security groups are set.
+Responses that return an endpoint gateway now include the `security_groups` property. On endpoint gateways created before 25 January 2022, the `security_groups` property in the response is an empty array (`[]`), and no security groups are set.
 
-You can update security groups for an endpoint gateway by [adding an endpoint
-gateway](/apidocs/vpc#create-security-group-target-binding) to or [removing an endpoint
-gateway](/apidocs/vpc#delete-security-group-target-binding) from a security group's targets.
+You can update security groups for an endpoint gateway by [adding an endpoint gateway](/apidocs/vpc#create-security-group-target-binding) to or [removing an endpoint gateway](/apidocs/vpc#delete-security-group-target-binding) from a security group's targets.
 
-You will not be able to remove the only remaining security group from an endpoint gateway. As a
-result, if you add a security group to an endpoint gateway which had no security groups, you will
-not be able to revert the endpoint gateway to have no security groups.
+You will not be able to remove the only remaining security group from an endpoint gateway. As a result, if you add a security group to an endpoint gateway which had no security groups, you will not be able to revert the endpoint gateway to have no security groups.
 
-Finally, the security group `targets` property can now refer to an endpoint gateway, as can the
-responses for the [get security group target](/apidocs/vpc#get-security-group-target) and
-[list security group target](/apidocs/vpc#list-security-group-targets) methods.
+Finally, the security group `targets` property can now refer to an endpoint gateway, as can the responses for the [get security group target](/apidocs/vpc#get-security-group-target) and [list security group target](/apidocs/vpc#list-security-group-targets) methods.
 
-**Snapshots for VPC.** A `captured_at` property has been added to each
-[snapshot](/apidocs/vpc#list-snapshots), indicating the date and time when the snapshot was captured
-from the volume. The `captured_at` timestamp value is a close approximation to the actual snapshot
-time, typically within a few seconds. The actual snapshot capture is between the `created_at` and
-`captured_at` timestamps. (The `created_at` property indicates when the [snapshot
-creation](/apidocs/vpc#create-snapshot) process was initiated.)
+**Snapshots for VPC.** A `captured_at` property has been added to each [snapshot](/apidocs/vpc#list-snapshots), indicating the date and time when the snapshot was captured from the volume. The `captured_at` timestamp value is a close approximation to the actual snapshot time, typically within a few seconds. The actual snapshot capture is between the `created_at` and `captured_at` timestamps. (The `created_at` property indicates when the [snapshot creation](/apidocs/vpc#create-snapshot) process was initiated.)
 
-If `captured_at` is absent from the response, the snapshot's data has not yet been captured.
-Additionally, the property may be absent for snapshots created before 1 January 2022.
+If `captured_at` is absent from the response, the snapshot's data has not yet been captured. Additionally, the property may be absent for snapshots created before 1 January 2022.
 
 ## 23 November 2021
 {: #23-november-2021}
@@ -393,6 +360,7 @@ For more information, see [Creating a route mode Network Load Balancer for VPC](
 **Instance bandwidth.** New properties have been added to the [create](/apidocs/vpc#create-instance) and [update](/apidocs/vpc#update-instance) instance methods to allow adjustment to the amount of total bandwidth (in megabits per second) allocated exclusively to attached volumes. The range of acceptable volume bandwidth values depends on the selected instance profile. A new `total_volume_bandwidth` property, added to each [instance profile](/apidocs/vpc#list-instance-profiles), provides the range of possible values, and the default value used when creating an instance. An increase in `total_volume_bandwidth` will result in a corresponding decrease to `total_network_bandwidth`.
 
 The volume bandwidth allocated to your existing instances will be unaffected unless:
+
 - The instance's `total_volume_bandwidth` is lowered
 - The total bandwidth requested by the instance's attached volumes exceeds the amount already requested by its attached volumes
 
