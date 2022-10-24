@@ -2,10 +2,9 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-10-20"
+lastupdated: "2022-10-19"
 
-
-keywords: vpc file storage, File Storage for VPC, zonal storage
+keywords:
 
 subcollection: vpc
 
@@ -25,13 +24,13 @@ File Storage for VPC is available for customers with special approval to preview
 ## Overview
 {: #file-storage-overview}
 
-File Storage for VPC provides file shares within the bounds of a VPC. You create a file share in a single availability zone. Then, you can create mount target to mount the file share. You can also set up replication between the source file share and a replica file share, and failover to the replica file share in case of an outage at the primary site. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
+File Storage for VPC provides file shares within the bounds of a VPC. You create a file share in a single availability zone. You then a create mount target to mount the file share. You can also set up replication between the source file share and a replica file share, and failover to the replica file share in case of outage at the primary site. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
 
-You pay for only the capacity that you need. File share capacity ranges from 10 GB up to 32,000 GB for all available profiles. You can [increase capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity) of an existing file share and [adjust IOPS](/docs/vpc?topic=vpc-adjusting-share-iops) up or down to meet your performance needs. Billing is adjusted accordingly.
+You pay for only the capacity you need. File share capacity ranges from 10 GB up to 32,000 GB for all available profiles. You can [increase capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity) of an existing file share and [adjust IOPS](/docs/vpc?topic=vpc-adjusting-share-iops) up or down to meet your performance needs. Billing is adjusted accordingly.
 
-File share data is encrypted by default with IBM-managed encryption for data-at-rest. For added security, you can also use your own root keys to protect your file shares. For more information, see [File share encryption](#FS-encryption).
+File share data is encrypted by default with IBM-managed encryption for data-at-rest. For added security, you can also use your own root keys to protect your file shares. For more information, see [File share encryption](#FS-encryption). 
 
-You can also apply user tags and access management tags to your file shares. Add user tags when you create a share or when you update an existing share in the UI, from the CLI, or with the API. Create access management tags with the Global Search and Tagging API. For more information, see [Tags for file shares](#fs-about-fs-tags).
+You can apply user tags and access management tags to your file shares. Add user tags when creating a new share or updating an existing share with the UI, CLI, or API. Create access management tags with the Global Search and Tagging API. For more information, see [Tags for file shares](#fs-about-fs-tags).
 
 You can enable context-based restrictions (CBR) for all file share operations. These restrictions work with traditional IAM policies, which are based on identity, to provide an extra layer of protection. Unlike IAM policies, context-based restrictions don't assign access. Context-based restrictions check that an access request comes from an allowed context that you configure, such as creating a file share. For more information, see [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions (limited availability)](/docs/vpc?topic=vpc-cbr).
 
@@ -55,11 +54,11 @@ For more information about these options, see [File Storage for VPC profiles](/d
 ### Zonal file shares
 {: #fs-zonal-file-shares}
 
-With the File Storage for VPC service, you can create a file share at the zonal level. This means that file shares are accessible only within the zone in which you created it, for example, `us-south-1`. File shares are identified by name and associated with a resource group in your {{site.data.keyword.cloud_notm}} customer account.
+File Storage for VPC lets you create a file share at the zonal level. This means that file shares are accessible only within the zone in which you created it, for example, `us-south-1`. File shares are identified by name and associated with a resource group in your {{site.data.keyword.cloud_notm}} customer account.
 
-You can create a file share in the UI, from the CLI, or with the API. You can access the file shares from virtual server instances or Kubernetes clusters by way of an NFS mount. To create an NFS mount path, you need to create mount targets.
+You create a file share using the UI, CLI, or API. You access file shares from virtual server instances or Kubernetes clusters by way of an NFS mount. To create an NFS mount path, you need to create mount targets.
 
-You can [increase the file share size](/docs/vpc?topic=vpc-file-storage-expand-capacity) from its original capacity in GB increments up to 32,000 GB capacity, depending on your file share profile. You can also [increase or decrease file share IOPS](/docs/vpc?topic=vpc-adjusting-share-iops) to meet your performance needs. Adjust IOPs by specifying a different IOPS tier profile or different IOPS value withing a custom IOPS band. There's no outage or lack of access to the storage while you increase the capacity or adjust the IOPS.
+You can [increase the file share size](/docs/vpc?topic=vpc-file-storage-expand-capacity) from its original capacity in GB increments up to 32,000 GB capacity, depending on your file share profile. You can also [increase or decrease file share IOPS](/docs/vpc?topic=vpc-adjusting-share-iops) to meet your performance needs. Adjust IOPs by specifying a different IOPS tier profile or different IOPS value withing a custom IOPS band. There's no outage or lack of access to the storage while increasing capacity or adjusting IOPS.
 
 ### Mount targets for file shares
 {: #fs-share-mount-targets}
@@ -76,7 +75,10 @@ File Storage for VPC requires NFS versions v4.1 or higher.
 ## Limitations in this release
 {: #fs-limitations}
 
-The following limitations apply to File Storage for VPC:
+The following limitations apply to this release of File Storage for VPC:
+
+* File share size cannot be increased after it is created.
+* File share profile cannot be changed after the file share is created.
 * Granular Host Authorization for VSI level access control in not supported.
 * Minimum capacity is 10 GB per file share.
 * Maximum capacity is 32,000 GB per file share.
@@ -85,18 +87,18 @@ The following limitations apply to File Storage for VPC:
 ## File share encryption
 {: #FS-encryption}
 
-By default, file share data is encrypted at rest with IBM-managed encryption.
+By default, file share data are encrypted at rest with IBM-managed encryption.
 
 You can bring your own customer root key (CRK) to the cloud for customer-managed encryption or you can have a key management service (KMS) generate a key for you. You can [manage your root keys](/docs/vpc?topic=vpc-vpc-encryption-managing) by rotating, disabling, or deleting the keys.
 
-You can select the root key when you [create an encrypted file share](/docs/vpc?topic=vpc-file-storage-vpc-encryption). For more information, see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption).
+You can select the root key when you [create a new encrypted file share](/docs/vpc?topic=vpc-file-storage-vpc-encryption). For more information, see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption).
 
 After you specified an encryption type for a file share, you can't change it.
 
 ## File share replication and failover
 {: #fs-repl-failover-overview}
 
-You can create replicas of your file shares by setting up a replication relationship between primary file shares in one zone to replica file shares in another zone. Having replicas is a good way to recover from incidents at the primary site, when data becomes inaccessible or applications fail. [Failover](/docs/vpc?topic=vpc-file-storage-failover) to the replica share makes it the new, writeable primary share. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
+You can create replicas of your file shares by setting up a replication relationship between primary file shares in one zone to replica file shares in another zone. Using replication is a good way to recover from incidents at the primary site when data becomes inaccessible or applications fail. [Failover](/docs/vpc?topic=vpc-file-storage-failover) to the replica share makes it the new, writeable primary share. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
 
 ## Supplemental IDs and Groups for file shares
 {: #FS-supplemental-ids}
@@ -113,18 +115,18 @@ File storage for VPC is enabled for Global Searching and Tagging (GhoST). You ca
 ### User tags for file shares
 {: #fs-about-user-tags}
 
-You can create user tags or add existing tags when you provision a file share or update an existing file share. You can create, view, and manage tags in the UI, from the CLI, or with the API, and remove them at any time.
+You can create new user tags or add existing tags when provisioning a new file share or updating an existing file share. You can create, view, and manage tags from the UI, CLI, or API, and remove then at any time.
 
-User tags are uniquely identified by a Cloud Resource Name (CRN) identifier. When you create a user tag, you provide a unique name within your billing account. You can define user tags in label or key-value format. Behind the scenes, the file service sends and receives tags directly to the GhoST service. GhoST stores its key attributes and the array of tags. GhoST also stores user resource information, which allows for viewing, tagging, and searching for resources that you own.
+User tags are uniquely identified by a Cloud Resource Name (CRN) identifier. When you create a user tag, you provide a unique name within your billing account. You can define user tags in label or key-value format. Behind the scenes, the file service sends and receives tags directly to the GhoST service. GhoST stores its key attributes and the array of tags. GhoST also stores user resource information, which let's you view, tag, and search for resources you own.
 
-For more information about adding user tags to file shares, see [Add user tags to file shares](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-user-tags). For more information about managing tags for your account, see [Working with tags](/docs/account?topic=account-tag&interface=ui).
+For information about adding user tags to file shares, see [Add user tags to file shares](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-user-tags). For more information about managing tags for your account, see [Working with tags](/docs/account?topic=account-tag&interface=ui).
 
 ### Access management tags for file shares
 {: #fs-about-mgt-tags}
 
 Access management tags help organize access control by creating flexible resource groupings, enabling your file storage resources to grow without requiring updates to IAM policies.
 
-You can create access management tags, and then, apply them to new or existing file shares and replica file shares. Use the IAM UI or the Global Search and Tagging API to create the access management tag. Then, by using the VPC UI or API, add the tags to a file share. After the tags are added, you can manage access to them by using the IAM policies. For more information, see [Add access management tags to a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-access-mgt-tags).
+You can create access management tags and then apply them to new or existing file shares and replica file shares. Use the IAM UI or the Global Search and Tagging API to create the access management tag. Then, from the VPC UI or API, add the tags to a file share. After adding the tags, you can manage access to them using the IAM policies. For more information, see [Add access management tags to a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-access-mgt-tags).
 
 ## Related information
 {: #related-info-file-storage-vpc}
