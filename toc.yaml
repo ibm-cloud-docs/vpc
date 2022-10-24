@@ -633,6 +633,7 @@ toc:
                 - bare_metal_server_troubleshoot_s390x.md
             - troubleshooting_hpcr.md
             - block_storage_is_troubleshoot.md
+            - file_storage_vpc_troubleshoot.md
             - backup_service_vpc_troubleshoot.md
             - topicgroup:
                 label: Troubleshooting custom images
