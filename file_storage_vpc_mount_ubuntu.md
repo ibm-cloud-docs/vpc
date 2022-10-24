@@ -2,11 +2,11 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-10-20"
+lastupdated: "2022-10-24"
 
-keywords: File Storage for VPC, NFS for VPC, mounting VPC file share, attach file share for VPC, mount file share for VPC
+keywords:
 
-subcollection: FileStorage
+subcollection: vpc
 
 ---
 
@@ -18,7 +18,7 @@ subcollection: FileStorage
 Use these instructions to connect a Network File System (NFS) file share to an Ubuntu Linux&reg;-based {{site.data.keyword.cloud}} Compute instance.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, Sao Paulo, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, Sao Paulo, Tokyo, and Toronto regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Before you begin - Create a VSI

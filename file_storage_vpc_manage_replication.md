@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-10-20"
+lastupdated: "2022-10-24"
 
-keywords: VPC File Storage, file for VPC, NSF, replica,
+keywords:
 
 subcollection: vpc
 
@@ -18,7 +18,7 @@ subcollection: vpc
 Manage replica file shares by removing the replication relationship to create two independent file shares. The replica file share becomes read/write, and you can update and delete the share.
 {: shortdesc}
 
-File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, Sao Paulo, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, Sao Paulo, Tokyo, and Toronto regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Remove the replication relationship

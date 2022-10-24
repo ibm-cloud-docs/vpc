@@ -2,32 +2,24 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-23"
+lastupdated: "2022-10-24"
 
-keywords: zos, file share
+keywords:
 
 subcollection: vpc
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:important: .important}
-{:screen: .screen}
-{:pre: .pre}
-{:tip: .tip}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:preview: .preview}
-{:external: target="_blank" .external}
-
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Mounting file shares on z/OS
 {: #file-storage-vpc-mount-zos}
 
 Use these instructions to connect a z/OS-based {{site.data.keyword.cloud}} Compute Instance to a Network File System (NFS) file share. 
+{: shortdesc}
+
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, Sao Paulo, Tokyo, and Toronto regions. Contact your IBM Sales representative if you are interested in getting access.
+{: preview}
 
 ## Before you begin
 {: #fs-zos-prereq}

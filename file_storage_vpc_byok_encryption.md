@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2022
-lastupdated: "2022-05-17"
+lastupdated: "2022-10-24"
 
 keywords:
 
@@ -31,7 +31,7 @@ subcollection: vpc
 By default, File Storage for VPC file shares are encrypted with IBM-managed encryption. You can also create customer-managed encrypted file shares by using a supported key management service to create or import and use your own root keys. After you specify the encryption type for a file share, you can't change it.
 {: shortdesc}
 
-File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, Sao Paulo, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, Sao Paulo, Tokyo, and Toronto regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Before you begin
