@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-10-11"
+lastupdated: "2022-10-25"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -38,8 +38,6 @@ SDK changes are based on API changes. For information about the latest changes t
 ## Upcoming changes
 {: #upcoming-changes}
 
-**VPC route naming restriction.** In an upcoming release, you will no longer be able to create VPC routes that begin with the name `ibm-`. Existing routes that begin with the name `ibm-` will not be affected. To prepare for this change, review the names used by any automation that creates routes, and update the names used as necessary.
-
 **`Instance` response schema change.** In an upcoming release, volume attachments returned in the `boot_volume_attachment` and `volume_attachments[]` properties of an instance will not include the `volume` sub-property if the volume has not yet been provisioned. Such volumes are currently represented with empty `crn`, `id`, and `href` properties along with an undocumented sentinel value for `name`.
 
 To prepare for this change, verify that your client checks that the `volume` property exists for a volume attachment before attempting to access its `crn`, `id`, `href`, or `name` sub-properties.
@@ -50,6 +48,14 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 25 October 2022
+{: #25-october-2022}
+
+### For all version dates
+{: #25-october-2022-all-version-dates}
+
+**VPC route naming restriction.** You can no longer create VPC routes that begin with the prefix `ibm-` or rename an existing route to have the prefix `ibm-`. Existing routes that begin with `ibm-` will not be affected. If you have automation that creates routes using the prefix `ibm-`, you will need to remove or change the prefix used by your automation for it to succeed.
 
 ## 11 October 2022
 {: #11-october-2022}
