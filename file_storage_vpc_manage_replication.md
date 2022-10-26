@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-10-24"
+lastupdated: "2022-10-25"
 
-keywords:
+keywords: VPC File Storage, file for VPC, NSF, replica,
 
 subcollection: vpc
 
@@ -18,7 +18,7 @@ subcollection: vpc
 Manage replica file shares by removing the replication relationship to create two independent file shares. The replica file share becomes read/write, and you can update and delete the share.
 {: shortdesc}
 
-File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, Sao Paulo, Tokyo, and Toronto regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Remove the replication relationship
@@ -28,9 +28,9 @@ You can remove replication by removing the replication relationship between the 
 
 Use the [UI](#fs-remove-replication-ui), [CLI](#fs-remove-replication-cli), or [API](#fs-remove-replication-api) to remove the replication relationship. You can also specify that the source and replica file shares are split if a [failover](/docs/vpc?topic=vpc-file-storage-failover) operation does not succeed.
 
-Removing the replication relationship can not occur when another operation is being performed on the source or replica file share (for example, the file share size is being expanded). The split operations remains pending until the other operation completes.
+Removing the replication relationship cannot occur when another operation is being performed on the source or replica file share (for example, the file share size is being expanded). The split operation remains pending until the other operation completes.
 
-When you remove the replication relationship, you can't undo the action. Also, the data on the replica is not synced with the source file before removal of the replication relationship.
+When you remove the replication relationship, you can't undo the action. Also, the data on the replica is not synced automatically with the source file before removal of the replication relationship.
 {: note}
 
 ### Remove the replication relationship in the UI
@@ -47,7 +47,7 @@ To remove the replication relationship in the UI:
 
 4. In the new window, click **Unlink**. The data on the replica is not synced with the source file share automatically before the replication relationship is removed.
 
-The file share details page indicates that there is no replication relationship.
+The file share details page indicates no replication relationship.
 
 ### Remove the replication relationship in the CLI
 {: #fs-remove-replication-cli}
@@ -92,9 +92,9 @@ The process for deleting a replica file share is similar to deleting a source fi
 
 * Perform a manual split, which [removes the replication relationship](#fs-remove-replication-ui) and creates two independent, read/write file shares. You can then delete the mount target and the replica file share as a normal file share.
 
-* Directly delete the replica file share after deleting the mount targets. A `split` process is automatically executed and run in the background. After the split operation is finished, the replica file share is deleted.
+* Delete the replica file share directly after you deleted the mount targets. A `split` process is automatically executed and run in the background. After the split operation is finished, the replica file share is deleted.
 
-Use the [UI](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#delete-file-share-ui), [CLI](/docs/vpc?topic=vpc-file-storage-managing&interface=cli#delete-file-share-cli), or [API](/docs/vpc?topic=vpc-file-storage-managing&interface=api#delete-file-share-api) to delete a file share.
+You can use the [UI](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#delete-file-share-ui), [CLI](/docs/vpc?topic=vpc-file-storage-managing&interface=cli#delete-file-share-cli), or [API](/docs/vpc?topic=vpc-file-storage-managing&interface=api#delete-file-share-api) to delete a file share.
 
 ## Activity tracker events for replication
 {: #fs-at-replication}
@@ -123,7 +123,7 @@ Replication status shows when a replica file share is being created, when failov
 {: #fs-verify-replica-api}
 {: api}
 
-You can use the API to verify that replication succeeded, is pending, or failed. Make either a `GET /shares/{share_id}` request or a `GET /shares/{replica_id)` request to see the status. The following example request specifies the replica ID:
+You can use the API to verify that the replication succeeded, is pending, or failed. Make either a `GET /shares/{share_id}` request or a `GET /shares/{replica_id)` request to see the status. The following example request specifies the replica ID:
 
 ```curl
 curl -X GET \
@@ -159,7 +159,9 @@ In the response, look at the `latest_job` property. The example shows the replic
 ```
 {: codeblock}
 
-For a replication split, when the replica share is being split from the source share, you can see a `running` status for `latest_job` in the response. For example:
+For a replication split, when the replica share is being split from the source share, you can see a `running` status for `latest_job` in the response.
+
+Example:
 
 ```json
 "latest_job": {
@@ -174,7 +176,9 @@ For a replication split, when the replica share is being split from the source s
 ```
 {: codeblock}
 
-A replication `failover` or `split` operation can not happen if any other operation is being performed on the file share, such as expanding size. You can see a 409 error in the response that indicates the issue. For example:
+A replication `failover` or `split` operation cannot happen if any other operation is being performed on the file share, such as expanding size. You can see a 409 error in the response that indicates the issue.
+
+Example:
 
 ```json
 "errors": [

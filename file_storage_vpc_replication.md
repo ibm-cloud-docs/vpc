@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2022
-lastupdated: "2022-10-24"
+  years: 2022
+lastupdated: "2022-10-25"
 
 keywords:
 
@@ -18,7 +18,7 @@ subcollection: vpc
 You can create replicas of your file shares by setting up a replication relationship between primary file shares in one zone to replica file shares in another zone. Using replication is a good way to recover from incidents at the primary site, when data becomes inaccessible or applications fail.
 {: shortdesc}
 
-File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, Sao Paulo, Tokyo, and Toronto regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Replication overview
@@ -26,9 +26,9 @@ File Storage for VPC is available for customers with special approval to preview
 
 With this feature, when you create a new file share you can set up a replication relationship between a primary source file share to a replica file share. You specify a different zone for the replica file share. When the file share is created, so is the replica share in the other zone. When the replication relationship is established, the replica file share begins pulling data from the source file share.
 
-If a source file share is compromised, replica shares are a good way to recover. [Failover](/docs/vpc?topic=vpc-file-storage-failover) to a replica share assures no disruption to your services.
+If a source file share is compromised, replica shares are a good way to recover. A [failover](/docs/vpc?topic=vpc-file-storage-failover) to a replica share assures no disruption to your services.
 
-You can choose how often you want to sync changes from the source share to the replica. You can specify daily, weekly, or monthly replication conveniently from the UI. Or, specify replication by using a `cronspec` expression. Replications must be scheduled at least one hour apart. When a replica share is created, the first replica contains the date of the entire share. Thereafter, only the changes that occurred after the previous replication are added.
+You can choose how often you want to sync changes from the source share to the replica. You can specify daily, weekly, or monthly replication conveniently from the UI. Or, specify replication by using a `cronspec` expression. Replications must be scheduled at least 1 hour apart. When a replica share is created, the first replica contains the date of the entire share. Thereafter, only the changes that occurred after the previous replication are added.
 
 Data on the replica share is read-only. You can obtain read/write access to the data in two ways:
 
@@ -36,19 +36,19 @@ Data on the replica share is read-only. You can obtain read/write access to the 
 
 * [Fail over to the replication site](/docs/vpc?topic=vpc-file-storage-failover&interface=ui) - The read/writes from the source file share are paused and a final copy of the file share data is pulled into the replica share. The replica share becomes read/write accessible, and a reverse replication relationship is established. The original source file share now becomes the replica share and set to read-only. It then begins pulling data from the new source file share.
 
-   If the original site is unavailable, the replica share site pauses reads and writes, and pulls the final copy of the source file share's data. The service assumes that it's a disaster recovery situation and breaks the replication process, to bring the replica share online as soon as possible. In this case, you most likely need to manually reconcile the state in your application, then set up new replication.
+   If the original site is unavailable, the replica share site pauses reads and writes, and pulls the final copy of the source file share's data. The service assumes that it's a disaster recovery situation and breaks the replication process to bring the replica share online as soon as possible. In this case, you most likely need to manually reconcile the state in your application, then set up new replication.
 
-Removing the replication relationship or failing over to the replica does not occur when another operation is being performed on the source or replica file share (for example, the file share size is being expanded). The split or failover operations remains pending until the other operation completes.
+Removing the replication relationship or failing over to the replica does not occur when another operation is being performed on the source or replica file share. (An example of such an operation is expanding the file share size.) The split or failover operations remains pending until the other operation completes.
 {: note}
 
 ## Scenarios for using replication
 {: #fs-replication-scenarios}
 
-Replication allows you to provide a way to address disaster recovery concerns of your file shares. Replication addresses these scenarios:
+You can use replication to address disaster recovery concerns. Replication addresses these scenarios:
 
 * Disaster Recovery from an application failure.
 
-   In this scenario, an application that you're running has failed. The data is unaffected, but the application is not operational. You can perform a failover, where the data is quiesced and sent to another zone. The virtual server instances in that zone can be configured to take over the operation of the application while the primary servers are repaired.
+   In this scenario, the application that you are running fails. The data is unaffected, but the application is not operational. You can perform a failover, where the data is quiesced and sent to another zone. The virtual server instances in that zone can be configured to take over the operation of the application while the primary servers are repaired.
 
 * Disaster Recovery due to Cloud infrastructure failure.
 
@@ -63,10 +63,10 @@ Replication allows you to provide a way to address disaster recovery concerns of
 
 The general procedure for establishing replication is:
 
-1. [Create a file share](/docs/vpc?topic=vpc-file-storage-create-replication&interface=ui) and specify a replica file share in the UI, from the CLI, or with the API - For example, with the API, you can make a `POST /shares` call and specify the `replica_share` parameter and define the replica and zone in which it is to be created. In the same call, you can specify the `replication_cron_spec`parameter to define the replication schedule. You can also specify the target zone in which to create the replica file share.
+1. [Create a file share](/docs/vpc?topic=vpc-file-storage-create-replication&interface=ui) and specify a replica file share in the UI, from the CLI, or with the API - For example, with the API, you can make a `POST /shares` call and specify the `replica_share` parameter and define the replica and zone in which it is to be created. In the same call, you can specify the `replication_cron_spec` parameter to define the replication schedule. You can also specify the target zone in which to create the replica file share.
 2. Verify that replication is working by checking the replication status - After the primary and replica file shares are created, you can check to see whether the replication is working. For example, from the API, you can make a `GET /shares/{id}` call. When the replication status is operational, the `replication_status` parameter in the API response indicates `active`.
-3. Use the replica file share - In the case of site failure for the primary file share, you can fail over to the replica file share, which becomes the new primary file share, with read and write capability.
-4. Reestablish a replica relationship with the original file share when it's back online - In this case, you can continue to use the replica site as primary, or fail back to the original site.
+3. Use the replica file share - If the primary file share fails or becomes unavailable for any reason, you can fail over to the replica file share. When you perform the failover, the replica share becomes the new primary file share, with read and write capability.
+4. Restart the replication with the original file share as scheduled when it's back online - In this case, you can continue to use the replica site as primary, or fail back to the original site.
 
 ## Next steps
 {: #fs-replication-next-steps}
