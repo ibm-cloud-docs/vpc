@@ -11,20 +11,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:beta: .beta}
-{:table: .aria-labeledby="caption"}
-{:DomainName: data-hd-keyref="APPDomain"}
-{:DomainName: data-hd-keyref="DomainName"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Increasing block storage volume capacity
 {: #expanding-block-storage-volumes}
@@ -38,7 +25,7 @@ For {{site.data.keyword.block_storage_is_short}} data volumes, when you create a
 
 Follow these steps to expand volume capacity:
 
-1. Navigate to the list of block storage volumes. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**. By default, block storage volumes display for all resource groups in your region.
+1. Navigate to the list of block storage volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**. By default, block storage volumes display for all resource groups in your region.
 
 2. In the list of all **Block storage for VPC volumes**, click the name of the volume you want to expand to see the volume details.
 
@@ -92,10 +79,10 @@ Created                                 2022-02-25 10:09:28
 Resource Group                          Default(c16d1edde3fd4a71a0130aed371405a0)
 Zone                                    us-south-2
 Resource Group                          Default(c16d1edde3fd4a71a0130aed371405a0)
-Volume Attachment Instance Reference    Vdisk Name    	Vdisk ID                                    
+Volume Attachment Instance Reference    Vdisk Name    	Vdisk ID
 					Vdisk Type   	Auto Delete
-                                        Vdisk-data1  	0738-fd146b1f-e1bb-4eab-ba78-3109e6bc3a2d   
-					data         	true   
+                                        Vdisk-data1  	0738-fd146b1f-e1bb-4eab-ba78-3109e6bc3a2d
+					data         	true
     					Instance Name   Instance ID
        					vsi-test1       0738-8b56da93-7990-4ccf-9dc5-5aee6a5f08f9
 ```

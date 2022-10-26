@@ -11,20 +11,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:preview: .preview}
-{:table: .aria-labeledby="caption"}
-{:DomainName: data-hd-keyref="APPDomain"}
-{:DomainName: data-hd-keyref="DomainName"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Expanding file share capacity
 {: #file-storage-expand-capacity}
@@ -34,7 +21,7 @@ For {{site.data.keyword.filestorage_vpc_short}} file shares, you can increase th
 
 Billing for the file share is automatically updated to add the pro-rated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
-File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, Sao Paulo, Tokyo, and Toronto regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Expandable file share concepts
@@ -44,7 +31,7 @@ You can increase the capacity of the file share. The file share size cannot be l
 
 Capacity can be increased for file shares that are in a `stable` state. Your user authorization is verified before the file share is expanded. You can use the [UI](#expand-vpc-share-ui), [CLI](#expand-vpc-share-cli), or [API](#expand-vpc-share-api) to increase file share capacity. You can expand a file share  multiple times up to its [maximum capacity limit](#exp-share-capacity-IOPS-limitations). After you expanded the file share, you can't reduce the capacity.
 
-Expanded capacity is determined by the maximum that is allowed by the file share profile. File shares that are created from a [Custom profile](/docs/vpc?topic=vpc-file-storage-profiles#custom) can be expanded within their custom IOPS range. 
+Expanded capacity is determined by the maximum that is allowed by the file share profile. File shares that are created from a [Custom profile](/docs/vpc?topic=vpc-file-storage-profiles#custom) can be expanded within their custom IOPS range.
 
 File shares that are created from an [IOPS tier profile](/docs/vpc?topic=vpc-file-storage-profiles#fs-tiers) can be expanded to the maximum size for its IOPS tier:
 
@@ -52,9 +39,9 @@ File shares that are created from an [IOPS tier profile](/docs/vpc?topic=vpc-fil
 * A 5 IOPS/GB profile can be expanded up to 9,600 GB.
 * A 10 IOPS/GB profile can be expanded up to 4,800 GB.
 
-IOPS are automatically adjusted for tiered file share profiles, based on the size of the file share. For example, if you expand a file share created by using a 5 IOPS/GB profile from the original size of 250 GB to an expanded size of 1,000 GB, it has a max IOPS of 5,000 IOPS (1,000 GB capacity _x_ 5 IOPS). Because a 5 IOPS/GB file share can potentially expand to 9,600 GB, the max IOPS would adjust to 48,000 IOPS. The capacity and IOPS are immediately changed and there is no need to restart the instance.
+IOPS are automatically adjusted for tiered file share profiles, based on the size of the file share. For example, if you expand a file share that was created with a 5 IOPS/GB profile from the original size of 250 GB to an expanded size of 1,000 GB, it has a maximum IOPS of 5,000 IOPS (1,000 GB capacity _x_ 5 IOPS). Because a 5 IOPS/GB file share can potentially expand to 9,600 GB, the max IOPS would adjust to 48,000 IOPS. The capacity and IOPS are immediately changed and there is no need to restart the instance.
 
-You can monitor the progress of your file share expansion from the UI or CLI. You can also use the [Activity Tracker](/docs/vpc?topic=vpc-at-events) to verify that the file share was expanded. After a file share is expanded, you can't reduce capacity. 
+You can monitor the progress of your file share expansion from the UI or CLI. You can also use the [Activity Tracker](/docs/vpc?topic=vpc-at-events) to verify that the file share was expanded. After a file share is expanded, you can't reduce capacity.
 
 ## Requirements
 {: #expandable-share-prereqs}
@@ -75,8 +62,8 @@ After you create a file share, you cannot change its IOPS profile.
 {: #exp-share-capacity-IOPs-limitations}
 
 * File shares can expand, with the following restrictions:
-    * If the file share was created by using a [Tiered IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles#fs-tiers) that limits capacity to less than 32,000 GB, it can only expand to the allowed capacity for that tier.
-    * If the file share was created by using a [Custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles#custom) and created in a lower range that doesn't allow expanding to 16,000 GB (custom IOPS max), it can only expand to its maximum capacity for that custom IOPS range.
+    * If the file share was created with a [Tiered IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles#fs-tiers) that limits capacity to less than 32,000 GB, it can only expand to the allowed capacity for that tier.
+    * If the file share was created with a [Custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles#custom) and created in a lower range that doesn't allow expanding to 16,000 GB (custom IOPS max), it can only expand to its maximum capacity for that custom IOPS range.
     * File shares can expand multiple times until maximum capacity is reached.
 * IOPS increase to the maximum allowed by the IOPS tier profile.
 * After you create a file share, you can't change its IOPS profile.
@@ -91,7 +78,7 @@ After you create a file share, you cannot change its IOPS profile.
 
 Follow these steps for expanding file share capacity in the UI:
 
-1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**.
 
 2. The File Shares for VPC list page shows all file shares that were created in that zone. Click the name of the file share to get to the details page.
 
@@ -107,9 +94,9 @@ Follow these steps for expanding file share capacity in the UI:
 
 Your new file storage allocation is available in a few minutes. If your requirements change, you can increase capacity again after the file share size is increased and when it's in `stable` state.
 
-**Note**: You can't change the file share to a smaller size after you expand its capacity. 
+**Note**: You can't change the file share to a smaller size after you expand its capacity.
 
-## Expand file shares in the CLI
+## Expand file shares from the CLI
 {: #expand-vpc-shares-cli}
 {: cli}
 
@@ -135,14 +122,14 @@ Profile           tier-5iops
 Size              9600
 IOPS              48000
 Encryption        provider_managed
-Targets           ID                                          Name                 VPC ID                                      VPC Name
+Mount targets     ID                                          Name                 VPC ID                                      VPC Name
                   04165941-44c5-4e20-acde-a11c922e3415   demo-share-target    13b34e2f-5038-4a95-8fe0-966910b41b4d   -
                   fea02493-5536-40b8-8597-e0c14e1daf4f   demo-share-target2   2a5e858a-3549-4bf2-bd2a-c302bc768759   -
 
 Resource Group    ID                                 Name
                   875623bcde2b4ebda924d32640908845   Default
 
-Created           2021-10-07T02:15:52-06:00
+Created           2022-09-07T02:15:52-06:00
 ```
 {: screen}
 
@@ -153,14 +140,13 @@ Created           2021-10-07T02:15:52-06:00
 You can expand existing file shares by calling the VPC API.
 
 Make a `PATCH /shares/{id}` request and specify the ID of the file share for which you want to increase the size.
-
 {: note}
 
 This request example expands a file share with a capacity of 50 GB to 2500 GB for a 5 IOPS/GB profile.
 
 ```curl
 curl -X PATCH \
- "$vpc_api_endpoint/v1/shares/$share_id?version=2021-10-04&generation=2" \
+ "$vpc_api_endpoint/v1/shares/$share_id?version=2022-09-06&generation=2" \
  -H "Authorization: $iam_token" \
  -d '{
       "size": 2500
@@ -172,7 +158,7 @@ The file share status shows `updating` while the capacity is increased. The curr
 
 ```json
 {
-  "created_at": "2021-10-07T23:31:59Z",
+  "created_at": "2022-09-07T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",
@@ -183,7 +169,7 @@ The file share status shows `updating` while the capacity is increased. The curr
     .
     .
 	"size": 2500,
-    . 
+    .
     .
     .
 }
@@ -194,7 +180,7 @@ When the file share expansion completes, the new value displays, and the status 
 
 ```json
 {
-  "created_at": "2021-10-07T23:31:59Z",
+  "created_at": "2022-09-07T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",
