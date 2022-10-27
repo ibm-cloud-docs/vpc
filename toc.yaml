@@ -104,7 +104,6 @@ toc:
                topics:
                - block_storage_vpc_about.md
                - snapshots_vpc_about.md
-               - block_storage_vpc_capacity_performance.md
                - block_storage_is_profiles.md
                - block_storage_vpc_bandwidth.md
            - vsi_instance_storage.md
