@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2021, 2022
-lastupdated: "2022-10-24"
+  years: 2021, 2022
+lastupdated: "2022-10-26"
 
 keywords:
 
@@ -11,28 +11,21 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:important: .important}
-{:screen: .screen}
-{:pre: .pre}
-{:preview: .preview}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
+{{site.data.keyword.attribute-definition-list}}
 
 # File Storage for VPC profiles
 {: #file-storage-profiles}
 
-When you provision File Storage for VPC file shares by using the {{site.data.keyword.cloud_notm}} console, CLI, or API, you specify a profile that best meets your file storage requirements. Profiles are available as three predefined IOPS tiers or a custom IOPS you can tailor to your needs.
+When you provision {{site.data.keyword.filestorage_vpc_short}} file shares in the {{site.data.keyword.cloud_notm}} console, from the CLI, or with the API, you specify a profile that best meets your storage requirements. Profiles are available as three predefined IOPS tiers or a custom IOPS that you can tailor to your needs.
 {: shortdesc}
 
-File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, Sao Paulo, Tokyo, and Toronto regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## IOPS tiers
 {: #fs-tiers}
 
-File file shares are based on IOPS tiers you can select when creating a file share. Choose the profile that provides optimal performance for your compute workloads. Table 1 describes the IOPS performance you can expect for file shares you create in your zone.
+File share performance level is based on IOPS tiers that you can select when you create a file share. Choose the profile that provides optimal performance for your compute workloads. Table 1 describes the IOPS performance that you can expect from each tier.
 
 | IOPS Tier | Workload | Share size | Max IOPS |
 |-----------|----------|-------------|--------------|
@@ -77,7 +70,7 @@ IOPS are based on a 16 KB block size for all profiles, with a 50-50 read/write r
 
 Baseline throughput is determined by the amount of IOPS multiplied by the 16 KB block size. The higher the IOPS you specify, the higher the throughput. Maximum throughput is 1536 MBps.
 
-The block size that you choose for I/O from your application directly impacts storage performance. If the block size is smaller than the block size used by the profile to calculate the share’s bandwidth limit, the IOPS limit is reached before the throughput limit. Conversely, if the block size is larger, the throughput limit is reached before the IOPS limit. 
+The block size that you choose for I/O from your application directly impacts storage performance. If the block size is smaller than the block size used by the profile to calculate the share’s bandwidth limit, the IOPS limit is reached before the throughput limit. Conversely, if the block size is larger, the throughput limit is reached before the IOPS limit.
 
 Table 1 provides some examples of how block size and IOPS affect the throughput, calculated average I/O block size x IOPS = Throughput in MBps.
 
@@ -93,7 +86,7 @@ Table 1 provides some examples of how block size and IOPS affect the throughput,
 | 1024 | 16 | 16 |
 {: caption="Table 1. How block size and IOPS affect throughput." caption-side="bottom"}
 
-&sup1;If you cap is 1000 IOPS or 16K block size, throughput will cap at whatever limit is reached first.
+&sup1;If you cap at 1000 IOPS or 16 Kb block size, throughput caps at whatever limit is reached first.
 
 Maximum IOPS can still be obtained when you use smaller block sizes, but throughput is less. The following example shows how throughput decreases for smaller block sizes, when max IOPS is maintained.
 
@@ -104,14 +97,14 @@ Maximum IOPS can still be obtained when you use smaller block sizes, but through
 ## View IOPS profiles
 {: #fs-view-iops-profiles}
 
-You can view available IOPS profiles the {{site.data.keyword.cloud_notm}} console, CLI, or API.
+You can view available IOPS profiles in the {{site.data.keyword.cloud_notm}} console, from the CLI, or with the API.
 
-### Using the UI
+### In the UI
 {: #fs-using-ui-iops-profile}
 
-When you create a file share in the UI, under **Profiles**, select an **IOPS Tiers**.
+When you create a file share in the UI, under **Profiles**, select from **IOPS Tiers**.
 
-### Using the CLI
+### From the CLI
 {: #fs-using-cli-iops-profiles}
 
 To view the list of available profiles from the CLI, run the following command:
@@ -121,7 +114,7 @@ ibmcloud is share-profiles
 ```
 {: pre}
 
-### Using the API
+### With the API
 {: #fs-using-api-iops-profiles}
 
 Use the `GET /share/profiles` request to retrieve information for all share profiles.
@@ -136,4 +129,4 @@ $vpc_api_endpoint/v1/share/profiles?$api_version&generation=2 \
 ## Next steps
 {: #fs-next-steps}
 
-[Start creating file shares](/docs/vpc?topic=vpc-file-storage-create).
+[Create file shares](/docs/vpc?topic=vpc-file-storage-create).
