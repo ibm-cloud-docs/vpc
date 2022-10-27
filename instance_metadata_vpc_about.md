@@ -71,7 +71,7 @@ The metadata service intercepts all requests to the service's IP, and then route
 
 Through IAM, you can also assign access rights to instances by creating a [compute resource identity](/docs/vpc?topic=vpc-imd-trusted-profile-metadata), and then configure access rights to IBM-enabled services that are using that identity.
 
-The compute resource identity service creates a trusted profile, against which you can assign access rights to enable the instance to call IAM-enabled services, such as {{site.data.keyword.cos_full_notm}} and {{site.data.keyword.keymanagementservicelong_notm:}}. You create a trusted profile within the virtual server instance. Trusted profiles define authorization for all applications that are running on the instance.
+The compute resource identity service creates a trusted profile, against which you can assign access rights to enable the instance to call IAM-enabled services, such as {{site.data.keyword.cos_full_notm}} and {{site.data.keyword.keymanagementservicefull_notm}}. You create a trusted profile within the virtual server instance. Trusted profiles define authorization for all applications that are running on the instance.
 
 #### User data
 {: #imd-user-data}
@@ -117,4 +117,4 @@ For more information about extra security measures that you can take, see [Secur
 
 * [Create an instance identity access token for accessing the metadata service](/docs/vpc?topic=vpc-imd-configure-service#imd-get-token).
 
-* [Retrieve data using the metadata service](/docs/vpc?topic=vpc-imd-get-metadata).
+* [Retrieve data by using the metadata service](/docs/vpc?topic=vpc-imd-get-metadata).
