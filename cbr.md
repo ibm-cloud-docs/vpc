@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-10-19"
+lastupdated: "2022-10-27"
 
 keywords: context-based restrictions for VPC Infrastructure Services
 
@@ -452,6 +452,13 @@ Requests for provisioning resources do not contain a resource ID.
 
 If you do not find a context-based restriction event in Activity Tracker, it's possible access was denied due to IAM access policies. For more information, see
 [VPC IAM getting started guide](docs/vpc?topic=vpc-iam-getting-started).
+
+### Client-to-site VPN data plane impact with context-based restrictions
+{: cbr-c2s-vpn-data-plane}
+
+If a user enables a **User ID and passcode** when configuring [client authentication](/docs/vpc?topic=vpc-client-to-site-vpn-planning#client-authentication) for a client-to-site VPN, and creates context-based rules on VPC resources, the client connection to the VPN is impacted by context-based restrictions. If the VPN client remote IP is not in the __Network Zone__, the connection to the VPN server returns an `Auth Failed` error.
+
+After the VPN client connects to the VPN server, the requests to the VPE endpoint or Cloud Service Endpoint (CSE) are controlled with context-based restrictions. Also, the requests' source IP is the VPC [Cloud service endpoint source addresses](/docs/vpc?topic=vpc-vpc-behind-the-curtain#cse-source-addresses). Make sure that the VPC CSE source addresses are in the CBR Network Zone; otherwise, the request is denied.
 
 ## Limitations
 {: #cbr-vpc-limitations}
