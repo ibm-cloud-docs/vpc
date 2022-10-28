@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-10-24"
+lastupdated: "2022-10-27"
 
 keywords:
 
@@ -110,7 +110,7 @@ with the API, you can set these attributes for controlling access to your file s
 ## Tags for file shares
 {: #fs-about-fs-tags}
 
-File storage for VPC is enabled for Global Searching and Tagging (GhoST). You can create and apply [user tags](#fs-about-user-tags) and [access management tags](#fs-about-mgt-tags) to file shares to better control and organize your file storage resources across the VPC. User tags can be added from the file service UI, CLI, or API. To apply access management tags to file shares, you must use the GhoST API.
+File storage for VPC is enabled for Global Searching and Tagging (GhoST). You can create and apply [user tags](#fs-about-user-tags) and [access management tags](#fs-about-mgt-tags) to file shares to better control and organize your file storage resources across the VPC.
 
 ### User tags for file shares
 {: #fs-about-user-tags}
@@ -124,7 +124,7 @@ For information about adding user tags to file shares, see [Add user tags to fil
 ### Access management tags for file shares
 {: #fs-about-mgt-tags}
 
-Access management tags help organize access control by creating flexible resource groupings, enabling your file storage resources to grow without requiring updates to IAM policies.
+[Access management tags](/docs/account?topic=account-tag) help organize access control by creating flexible resource groupings, enabling your file storage resources to grow without requiring updates to IAM policies.
 
 You can create access management tags and then apply them to new or existing file shares and replica file shares. Use the IAM UI or the Global Search and Tagging API to create the access management tag. Then, from the VPC UI or API, add the tags to a file share. After adding the tags, you can manage access to them using the IAM policies. For more information, see [Add access management tags to a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-access-mgt-tags).
 
