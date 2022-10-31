@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-10-19"
+lastupdated: "2022-10-31"
 
 keywords:
 
@@ -28,6 +28,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## October 2022
 {: #vpc-october22}
+
+### 31 October 2022
+{: #vpc-oct3122}
+{: release-note}
+
+Terraform is now available for sharing images across an enterprise account
+:    You can now share or publish custom images by using Terraform to other accounts within your enterprise by using a private catalog. If you select a catalog image that belongs to a different account, review [Using cross-account image references in a private catalog in Terraform](/docs/vpc?topic=vpc-planning-custom-images&interface=terraform#private-catalog-image-reference-vpc-terraform) for additional considerations and limitations. To create a private catalog, see the tutorial [Onboarding a virtual server image with Terraform](/docs/account?topic=account-catalog-vsi-tutorial&interface=ui). To create an instance from a catalog image using Terraform, see [Creating virtual server instances by using Terraform](/docs/vpc?topic=vpc-creating-virtual-servers&interface=terraform#create-instance-terraform).
 
 ### 21 October 2022
 {: #vpc-oct2122}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-23"
+lastupdated: "2022-10-31"
 
 keywords:
 
@@ -165,6 +165,39 @@ Additionally, it is possible that the referenced image might have the same name 
 
 Verify that your clients handle image reference lookup failures gracefully and do not assume that inaccessible images were deleted, even when running with full access to your images. To avoid possible retrieval or use of the wrong image by `name`, specify the image `id`, `crn`, or `href` instead.
 
+### Using cross-account image references in a private catalog in Terraform
+{: #private-catalog-image-reference-vpc-terraform}
+{: terraform}
+
+Instances you provision belong to your account. Images shared to your account through a private catalog might belong to other accounts. When you provision an instance from an image that belongs to another account or from an instance template specifying such an image, the image still belongs to the other account even though the instance belongs to your account. A reference to such an image might exist in details of the instance and related resources. For example, details about its boot volume and any snapshot created from that boot volume might reference that image. Regardless of your authorizations, you can't access this type of custom image by its ID and attempts fail as if the image does not exist.
+
+Image references are used in a few different places in the terraform. For example, if you use the [instance datasource](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_instance) to retrieve instance data, you see the following within the datasource response.
+
+```text
+"image": "r006-e0d3b6fb-5421-4421-9061-0ca9f79a4990"
+```
+{: screen}
+
+If you try to retrieve information about this image using its [datasource](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_image),
+
+```sh
+data "ibm_is_image" "example" {
+  identifier = "r006-e0d3b6fb-5421-4421-9061-0ca9f79a4990"
+}
+```
+{: pre}
+
+then this attempt will fail with an error such as:
+
+```text
+Error: [ERROR] No image found with id  r006-e0d3b6fb-5421-4421-9061-0ca9f79a4990
+```
+{: screen}
+
+This error means that the image doesn't exist in your account. If the instance was provisioned by using a shared catalog image in another account, this output is the output that you will always see even if the image still exists in the owning account.
+
+Additionally, it is possible that the referenced image might have the same name as a custom image in your account. But these image names are for two different images in two different accounts. While the terraform uses both ID or Name to identify an image, only the ID uniquely identifies an image across IBM Cloud. To avoid possible retrieval or use of the wrong image by name, specify the image ID instead. Refer to [image datasource](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_image)
+
 ### Deleting a custom image in a private catalog
 {: #deleting-private-catalog-custom-image-vpc}
 
@@ -182,7 +215,6 @@ To delete a published or shared custom image from the private catalog, see the t
 You can use a custom image in a private catalog to create an instance group. However, you must first create a service-to-service policy to `globalcatalog-collection.instance.retrieve` before you can create the instance group. See [Using a custom image in a private catalog with an instance group](/docs/vpc?topic=vpc-private-catalog-image-instance-group&interface=ui) for more information.
 
 The information about which custom image that is in a private catalog that was used for provisioning an instance doesn't persist across all {{site.data.keyword.vpc_short}} resources. Information about the custom image in a private catalog isn't available on Snapshot for VPC or Image from Volume. The operating system information, which is required when you provision a virtual server, is available.
-
 
 ## Create a custom image
 {: #custom-image-creation}

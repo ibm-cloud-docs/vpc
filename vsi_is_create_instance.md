@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2022
 
-lastupdated: "2022-09-23"
+lastupdated: "2022-10-31"
 
 
 keywords:
@@ -455,3 +455,181 @@ After the instance is created, associate a floating IP address to the instance. 
 After the instance is created, you need to [associate a floating IP address to the instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#reserving-a-floating-ip-address). Then, you can connect to your instance. For more information, see [Connecting to your Linux instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux)， [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows), or [Connecting to your z/OS instance](/docs/vpc?topic=vpc-vsi_is_connecting_zos).
 
 If you have an existing instance with a floating IP address, it isn't necessary to assign a second floating IP to another instance. You can connect to the first instance with a floating IP, then SSH to the second instance by using the private subnet IP address that is automatically assigned to it.
+
+## Creating virtual server instances by using Terraform
+{: #create-instance-terraform}
+{: terraform}
+
+You can create instances by using Terraform. If you would like to use user tags or access management tags to manage your resources, see [Working with tags](/docs/account?topic=account-tag&interface=terraform).
+
+
+### Before you begin
+{: #before-you-begin-create-instance-terraform}
+{: terraform}
+
+Make sure that you set up [Terraform for VPC](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest).
+
+### Create a private catalog
+{: #cli-create-private-catalog}
+
+This step is optional. If you plan to share images from a private catalog, the private catalog must be created first. If you select a catalog image that belongs to a different account, review [Using cross-account image references in a private catalog in Terraform](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-terraform) for additional considerations and limitations. To create a private catalog, see the tutorial [Onboarding a virtual server image with Terraform](/docs/account?topic=account-catalog-vsi-tutorial&interface=ui).
+
+### Gathering information to create an instance by using Terraform
+{: #gather-info-to-create-virtual-servers-terraform}
+{: terraform}
+
+Ready to create an instance? Before you can run the `ibm_is_instance` command, you need to know the details about the instance, such as what profile or image that you want to use.
+
+Gather the following information by using `DataSource` command.
+
+1. Gather instance profile details. Run the following command for the profile you select. See [x86 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#profiles) for a list of available profiles. For more information, see the Terraform documentation on [ibm_is_instance_profiles](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_instance_profiles). Use an instance profile by referring to the instance profile data source. For more information, see the Terraform documentation on [ibm_is_instance_profile](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_instance_profile).
+
+   ```terraform
+   data "ibm_is_instance_profile" "example_profile" {
+      name = "bx2-2x8"
+   }
+   ```
+   {: codeblock}
+
+1. List the available images for creating your instance. The command depends on what image you want to use. You can use a stock image, a custom image from your account, or an image that was shared with your account from a private catalog. For more information, see the Terraform documentation on [ibm_is_image](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_image). If you plan to use an image that was shared from a private catalog, see the Terraform documentation on [ibm_cm_version](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/cm_version) or [ibm_cm_offering_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/cm_offering_instance).
+
+   * Select a stock image or custom image from your account for your instance.
+
+   ```terraform
+   data "ibm_is_image" "example_image" {
+      name = "ibm-centos-7-6-minimal-amd64-2"
+   } 
+   ```
+   {: codeblock}
+
+   * Select an image shared from a private catalog for the instance. For more information, see the Terraform documentation on [ibm_is_images](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_images). You can select an image from the list to create the instance as shown in the section [Go to Creating an instance by using Terraform section](#create-instance-terraform)
+
+   If you select a catalog image that belongs to a different account, there are additional considerations and limitations to review. See [Using cross-account image references in a private catalog in Terraform](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-terraform).
+     {: note}
+
+      * To list all available private catalog image offerings, run the following command.
+
+         ```terraform
+         data "ibm_is_images" "example_images" {
+            catalog_managed = true
+          }
+         ```
+         {: codeblock}
+
+
+1. Create a VPC resource or use an existing VPC by referring to the VPC data source. For more information, see the Terraform documentation on [ibm_is_vpc](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_vpc).
+
+   ```terraform
+   resource "ibm_is_vpc" "example_vpc" {
+      name = "example-vpc"
+   }
+   ```
+   {: codeblock}
+
+1. Create a subnet resource or use an existing subnet by referring to the subnet data source. For more information, see the Terraform documentation on [ibm_is_subnet](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_subnet).
+
+   ```terraform
+   resource "ibm_is_subnet" "example_subnet" {
+      name            = "example-subnet"
+      vpc             = ibm_is_vpc.example_vpc.id
+      zone            = "us-south-1"
+      ipv4_cidr_block = "10.240.0.0/24"
+   }
+   ```
+   {: codeblock}
+
+1. Create a new ssh-key resource or use an existing ssh-key by referring to the ssh-key data source. For more information, see the Terraform documentation on [ibm_is_ssh_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_ssh_key).
+
+   ```terraform
+   resource "ibm_is_ssh_key" "example_sshkey" {
+      name       = "example-sshkey"
+      public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCKVmnMOlHKcZK8tpt3MP1lqOLAcqcJzhsvJcjscgVERRN7/9484SOBJ3HSKxxNG5JN8owAjy5f9yYwcUg+JaUVuytn5Pv3aeYROHGGg+5G346xaq3DAwX6Y5ykr2fvjObgncQBnuU5KHWCECO/4h8uWuwh/kfniXPVjFToc+gnkqA+3RKpAecZhFXwfalQ9mMuYGFxn+fwn8cYEApsJbsEmb0iJwPiZ5hjFC8wREuiTlhPHDgkBLOiycd20op2nXzDbHfCHInquEe/gYxEitALONxm0swBOwJZwlTDOB7C6y2dzlrtxr1L59m7pCkWI4EtTRLvleehBoj3u7jB4usR"
+   }
+   ```
+   {: codeblock}
+
+1. Create a new subnet_reserved_ip resource or use a existing subnet_reserved_ip by referring to the subnet_reserved_ip data source. For more information, see the Terraform documentation on [ibm_is_subnet_reserved_ip](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_subnet_reserved_ip)
+
+   ```terraform
+   resource "ibm_is_subnet_reserved_ip" "example_reserved_ip" {
+      subnet    = ibm_is_subnet.example_subnet.id
+      name      = "example-reserved-ip1"
+      address   = "${replace(ibm_is_subnet.example_subnet.ipv4_cidr_block, "0/24", "13")}"
+   }
+   ```
+   {: codeblock}
+
+### Creating an instance by using Terraform
+{: #create-instance-terraform}
+{: terraform}
+
+Create the instance by using one of the following examples. For more information and additional examples, see the Terraform documentation on [ibm_is_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance).
+
+Run one of the following Terraform commands based on the image you plan to use.
+
+* Create an instance using a stock image or custom image from your account for your instance.
+
+```terraform
+resource "ibm_is_instance" "example_instance" {
+  name    = "example-instance-reserved-ip"
+  image   = data.ibm_is_image.example_image.id
+  profile = data.ibm_is_instance_profile.example_profile.name
+
+  primary_network_interface {
+    name   = "eth0"
+    subnet = ibm_is_subnet.example_subnet.id
+    primary_ip {
+      reserved_ip = ibm_is_subnet_reserved_ip.example_reserved_ip.reserved_ip
+    }
+  }
+  network_interfaces {
+    name   = "eth1"
+    subnet = ibm_is_subnet.example_subnet.id
+    primary_ip {
+      name = "example-reserved-ip1"
+      auto_delete = true
+      address = "${replace(ibm_is_subnet.example_subnet.ipv4_cidr_block, "0/24", "14")}"
+    }
+  }
+
+  vpc  = ibm_is_vpc.example_vpc.id
+  zone = "us-south-1"
+  keys = [ibm_is_ssh_key.example_sshkey.id]
+}
+```
+{: codeblock}
+
+* Create an instance that uses a private catalog-managed image.
+
+```terraform
+resource "ibm_is_instance" "example_instance" {
+  name    = "example-instance-reserved-ip"
+  catalog_offering {
+    version_crn = data.ibm_is_images.example_images.images.0.catalog_offering.0.version.0.crn
+  }
+  profile = data.ibm_is_instance_profile.example_profile.name
+
+  primary_network_interface {
+    name   = "eth0"
+    subnet = ibm_is_subnet.example_subnet.id
+    primary_ip {
+      reserved_ip = ibm_is_subnet_reserved_ip.example_reserved_ip.reserved_ip
+    }
+  }
+  network_interfaces {
+    name   = "eth1"
+    subnet = ibm_is_subnet.example_subnet.id
+    primary_ip {
+      name = "example-reserved-ip1"
+      auto_delete = true
+      address = "${replace(ibm_is_subnet.example_subnet.ipv4_cidr_block, "0/24", "14")}"
+    }
+  }
+
+  vpc  = ibm_is_vpc.example_vpc.id
+  zone = "us-south-1"
+  keys = [ibm_is_ssh_key.example_sshkey.id]
+}
+```
+{: codeblock}
+
