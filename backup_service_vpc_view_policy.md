@@ -74,7 +74,7 @@ Table 1 describes the information on the Backup policy list page. The default re
 | Created | Date the policy was created. |
 | CRN | Cloud resource name of the policy. |
 | ID | Backup policy ID. |
-| Tags for target resources | User tags that when applied to any block storage volumes will create a backup.  Click the pencil icon to add more tags. For more information, see  [Edit tags for target resources](docs/vpc?topic=vpc-backup-service-manage&interface=ui#backup-edit-tags).  See also [Applying backup policies to resources using tags](/docs/vpc?topic=vpc-backup-use-policies). |
+| Tags for target resources | User tags that when applied to any block storage volumes will create a backup.  Click the pencil icon to add more tags. For more information, see  [Edit tags for target resources](/docs/vpc?topic=vpc-backup-service-manage&interface=ui#backup-edit-tags).  See also [Applying backup policies to resources using tags](/docs/vpc?topic=vpc-backup-use-policies). |
 | **Plan** | Show the plan name, retention policy, and plan status. Optionally, click **Create** to add additional plans for an existing policy. |
 | Plan name | Unique name for the plan. Expand to see plan details, status, and tags associated with this plan. |
 | Retention | Period you set for the plan to be in effect, for example, 30 days. |

@@ -451,7 +451,7 @@ crn:v1:bluemix:public:is:au-syd:a/67db3d7ff3f34220b40e2d81480754c9::vpc:<resourc
 Requests for provisioning resources do not contain a resource ID.
 
 If you do not find a context-based restriction event in Activity Tracker, it's possible access was denied due to IAM access policies. For more information, see
-[VPC IAM getting started guide](docs/vpc?topic=vpc-iam-getting-started).
+[VPC IAM getting started guide](/docs/vpc?topic=vpc-iam-getting-started).
 
 ### Client-to-site VPN data plane impact with context-based restrictions
 {: cbr-c2s-vpn-data-plane}
