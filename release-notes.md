@@ -1413,7 +1413,6 @@ API change notification
 IBM virtual servers for VPC on POWER (Beta)
 :   The beta is now open to anyone interested, no signup necessary. For more information, see the following resources:
 
-   * [IBM Cloud Virtual Private Cloud on POWER](https://developer.ibm.com/linuxonpower/power-virtual-private-cloud/){: external}  
    * [Profiles](/docs/vpc?topic=vpc-profiles)
 
 Red Hat Enterprise Linux (RHEL) and Windows stock images are now available
