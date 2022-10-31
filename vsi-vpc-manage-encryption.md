@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2022
-lastupdated: "2022-07-18"
+lastupdated: "2022-10-31"
 
 keywords:
 
@@ -75,7 +75,7 @@ Root keys move to various states depending on the action you take and impacts re
 
 | Resource type | Resource status | Result |
 |---------------|-----------------| -------|
-|<td colspan=4>Root key state = _suspended_<sup>1</sup></td> | | |
+| | Root key state = _suspended_ [^tabletext1] | | |
 | All | -- | The key can't be used to encrypt new resources or unwrap (decrypt) passphrases protecting existing resources, until you enable the key. For more information, see [Disabling root keys](#byok-disable-root-keys). |
 | Custom image | _unusable_ | Images cannot be used for creating boot volumes during instance provisioning. |
 | Boot volume | _available_ | Boot volumes remain encrypted with the suspended key. If you stop the instance using that boot volume, it won't restart. |
@@ -91,7 +91,7 @@ Root keys move to various states depending on the action you take and impacts re
 
 | Resource type | Resource status | Result |
 |---------------|-----------------| -------|
-|<td colspan=4>Root key state = _active_</td> | | |
+| | Root key state = _active_ | | |
 | All | -- | The root key is available to unwrap passphrases protecting existing resources and for encrypting new resources. |
 | Custom image | _active_ | Images can be used for creating virtual server instances. |
 | Boot volume | _available_ | Boot volumes are available for startng instances. |
@@ -107,7 +107,7 @@ Root keys move to various states depending on the action you take and impacts re
 
 | Resource type | Resource status | Result |
 |---------------|-----------------| -------|
-|<td colspan=4>Root key state = _destroyed_<sup>2</sup></td> | | |
+| | Root key state = _destroyed_ [^tabletext2] | | |
 | All | _unusable_ | The key can't be used for any encryption actions. You have 30 days to restore a deleted root key that you imported, afterwhich the status changes to _failed_ and the resources are no longer recoverable. (KMS-generated root keys can't be restored.) Review the Activity Tracker events to see when you deleted the key. For more information, see [Deleting root keys](#byok-delete-root-keys) |
 | Custom image | _unusable_ | Images can't be used for creating boot volumes to provision a new virtual server instance. |
 | Boot volume | _unusable_ | The associated virtual server instance is stopped. A stopped instance cannot be started while the instance boot volume is in an _unusable_ state. |
@@ -123,7 +123,7 @@ Root keys move to various states depending on the action you take and impacts re
 
 | Resource type | Resource status | Result |
 |---------------|-----------------| -------|
-|<td colspan=4>Root key state = _active_</td> | | |
+| | Root key state = _active_ | | |
 | All | -- | The previously-deleted key is moved from the _destroyed_ state back to the _active_ state where it can be used for all encryption actions. For more information, see [Restoring root keys](#byok-restore-root-key). |
 | Custom image | _active_ | Images can be used for creating virtual server instances. |
 | Boot volume | _available_ | Boot volumes are available for starting instances. |
@@ -137,9 +137,9 @@ Root keys move to various states depending on the action you take and impacts re
 {: tab-group="IAM-simple"}
 {: class="simple-tab-table"}
 
-<sup>1</sup> Volume and image status of _suspended_ is used for the fraud and abuse cases, where IBM has taken action to make the account resource inaccessible.
+[^tabletext1]: Volume and image status of _suspended_ is used for the fraud and abuse cases, where IBM has taken action to make the account resource inaccessible.
 
-<sup>2</sup> A root key can be deleted from three states, _active_, _suspended_, or _deactivated_. (The _deactivated_ state occurs automatically when a key's expiration date is reached.) Regardless of the state prior to deletion, keys can be restored.
+[^tabletext2]: A root key can be deleted from three states, _active_, _suspended_, or _deactivated_. (The _deactivated_ state occurs automatically when a key's expiration date is reached.) Regardless of the state prior to deletion, keys can be restored.
 
 For more information about root key states from a KMS perspective see:
 
