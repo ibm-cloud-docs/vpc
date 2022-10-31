@@ -229,4 +229,3 @@ WebSocket provides full-duplex communication channels over a single TCP connecti
 * [{{site.data.keyword.cloudaccesstraillong_notm}} events](/docs/vpc?topic=vpc-at-events#events-load-balancers)
 * [FAQs for application load balancers](/docs/vpc?topic=vpc-load-balancer-faqs)
 * [Quotas](/docs/vpc?topic=vpc-quotas#load-balancer-quotas)
-* [VPC SOC 3 report on security and availability](https://www.ibm.com/downloads/cas/ZVYQK9N5){: external}
