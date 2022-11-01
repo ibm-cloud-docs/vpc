@@ -31,6 +31,9 @@ Profiles are grouped by the _vCPUs:Memory_ ratio across all the VPC compute offe
 | Very High Memory | 1:16 | Best for running small to medium in-memory databases and OLAP workloads, such as SAP BW/4 HANA. |
 {: caption="Table 1. Profile families" caption-side="bottom"}
 
+Very High Memory profiles are available for customers with special approval. Contact your IBM Sales representative if you are interested in getting access.
+{: preview}
+
 ## Profile configurations
 {: #bare-metal-servers-profile-list}
 
@@ -86,7 +89,7 @@ See the following table to see the available profile configurations.
 
 The following information describes the naming rule of the profiles.
 
-* *b* represents *Balanced* family profile - *c* represents the *Compute* family profile - *m* represents the "Memory family profile
+* *b* represents *Balanced* family profile - *c* represents the *Compute* family profile - *m* represents the *Memory* family profile - *v* represents the *Very High Memory* family profile.
 * *x* represents the *x86_64* CPU architecture.
 * *2* represents the current generation of processors (Cascade Lake).
 * *d* represents support for *NVMe U.2* SSDs.
