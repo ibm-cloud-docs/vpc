@@ -60,6 +60,7 @@ When you create a customer-managed encryption volume, snapshot, file share, or c
    * Key Name
    * Key ID
    * Cloud Resource Name (CRN) of the associated resource (i.e., volume, snapshot, or custom image). If you have more than one resource using this root key, they appear in the list.
+
 1. In the Details column, click the arrow to expand the information. You'll see:
    * Description of the resource, if you provided one.
    * Key version ID
