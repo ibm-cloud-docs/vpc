@@ -96,7 +96,7 @@ The following information describes the naming rule of the profiles.
 * "metal" denotes that the profile is a bare metal server.
 * The last position that contains numbers shows amount of vCPUs and the amount of memory (GB). For example, *192x768* means that this profile has 192 vCPUs and 768 GiB of memory.
 
-Using “bx2d-metal-192x768” as an example, it's a *Balanced* bare metal profile with *192 vCPUs and 768 GiB memory*, has the Cascade Lake processors, and NVMe U.2 SSDs.
+Using “bx2d-metal-192x768” as an example, it's a *Balanced* bare metal profile with *192 vCPUs and 768 GiB memory*, has Cascade Lake processors, and NVMe U.2 SSDs.
 
 Bare metal profiles are dedicated servers that provide physical cores. vCPU measurements are used in profile naming only. vCPU to physical cores are a 2:1 ratio (e.g 192 vCPU = 96 physical cores).
 
