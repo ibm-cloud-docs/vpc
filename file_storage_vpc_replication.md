@@ -35,7 +35,10 @@ Data on the replica share is read-only. You can obtain read/write access to the 
    If a source file share is compromised, replica shares are a good way to recover operations. A [failover](/docs/vpc?topic=vpc-file-storage-failover) to a replica share assures no disruption to your services.
    {: tip}
 
-   When you initiate the failover, you have the option to specify what happens to the replication relationship if the failover process times out or fails. This is commonly used when you have a time requirement for how long your file share can be offline. You also have to specify what you want to happen if the operation times out or if the replication fails due to the original site being degraded or unavailable. If the source site is not available due to a planned maintenance, you can choose to keep the replication relationship and replication resumes as scheduled when the original source site is operational again. In a disaster recovery situation, you can choose to split the volumes to bring the replica share online as soon as possible. However, in this case, you might not have the latest data set available and you might need to manually reconcile the state in your application. Because the replication relationship is severed, you need to set up replication anew when the original site becomes operational again.
+   When you initiate the failover, you have the option to specify what happens to the replication relationship if the failover process times out or fails. This is commonly used when you have a time requirement for how long your file share can be offline. You also have to specify what you want to happen if the operation times out or if the replication fails due to the original site being degraded or unavailable.
+
+   - If the source site is not available due to a planned maintenance, you can choose to keep the replication relationship and replication resumes as scheduled when the original source site is operational again.
+   - In a disaster recovery situation, you can choose to split the volumes to bring the replica share online as soon as possible. However, in this case, you might not have the latest data set available and you might need to manually reconcile the state in your application. Because the replication relationship is severed, you need to set up replication anew when the original site becomes operational again.
 
 * [Remove the replication relationship](/docs/vpc?topic=vpc-file-storage-manage-replication) - In this case, you split the two shares apart and create two independent file shares. Both shares are read/write accessible and data is no longer synchronized between the two. In the [API](/docs/vpc?topic=vpc-file-storage-failover&interface=ui#fs-failover-concepts), this operation is called a replica `split` operation. Removing the replica relationship is permanent, you cannot re-establish it between the two shares. However, you can create new replicas in the same zone or other zones of the same region.
 
@@ -52,9 +55,9 @@ You can use replication to address disaster recovery concerns. Replication addre
 
    In this scenario, the application that you are running fails. The data is unaffected, but the application is not operational. You can perform a failover, where the data is quiesced and sent to another zone. The virtual server instances in that zone can be configured to take over the operation of the application while the primary servers are repaired.
 
-* Disaster Recovery due to Cloud infrastructure failure.
+* Disaster Recovery due to {{site.data.keyword.cloud_notm}} infrastructure failure.
 
-   In this scenario, the {{site.data.keyword.cloud_notm}} availability zone in which your application is running becomes unusable. You need to start up your application in the replica location as quickly as possible and use the replicated data from the last replication event. Because the service can't tell the state of the application, the replication is stopped to protect data in the replication relationship. If the source file share zone becomes available again, data is available from the replica share to reconcile from the time of the incident to the recovery point.
+   In this scenario, the {{site.data.keyword.cloud_notm}} availability zone in which your application is running becomes unusable. You need to start up your application in the replica location as quickly as possible and use the replicated data from the last replication event. You can initiate the Failover with the `split` option to make the replica volume independent. Replication is stopped.
 
 * Facilitate regular maintenance of your applications.
 
