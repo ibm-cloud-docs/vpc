@@ -117,7 +117,7 @@ The following issues are currently present in the Cloud Console with no known wo
 
 **Issue:** If you set a [config rule](/docs/vpc?topic=vpc-manage-security-compliance&interface=ui#govern-vpc) for a virtual server instance with the `metadata_service_enabled` property set to *is_false*, the compliance policy currently has no effect.
 
-## Authorization deviations from the API specification
+## Additional authorizations beyond those defined in the API specification
 {: #api-spec-auth-known-issue}
 
 **Issue:** Some API implementations have required authorizations that are different from the authorizations requirements that are defined in the [API specification](/apidocs/vpc/latest). The following table lists such APIs and the extra permissions that are required in addition to what is already defined in the specification. This table will be continually updated as these issues are resolved.
