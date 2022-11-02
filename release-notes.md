@@ -61,7 +61,7 @@ New region (Washington DC) for LinuxONE Bare Metal Servers (s390x processor arch
 {: #vpc-oct0322}
 
 VPC Public Ingress Routing
-:   You can now route public internet ingress traffic (destined to a floating IP) to a VPC next-hop IP, such as a managed firewall. For more information, see [Creating a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table) and limitations and guidelines for [Ingress routes](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#routes-ingress).
+:   You can now route public internet ingress traffic (destined to a floating IP) to a VPC next-hop IP. For more information, see [Creating a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table) and limitations and guidelines for [Ingress routes](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#routes-ingress).
 
    Currently, public ingress routing (`public internet` traffic choice) is available in the UI and API only. CLI is forthcoming. 
    {: note}

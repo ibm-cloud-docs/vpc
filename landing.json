@@ -43,7 +43,7 @@
         {
           "date": "03 October 2022",
           "title": "VPC Public Ingress Routing",
-          "description": "You can now route public internet ingress traffic (destined to a floating IP) to a VPN next-hop IP, such as a managed firewall. Currently, public ingress routing (public internet traffic choice) is available in the UI only. CLI and API are forthcoming."
+          "description": "You can now route public internet ingress traffic (destined to a floating IP) to a VPN next-hop IP."
         }
       ]
     }
