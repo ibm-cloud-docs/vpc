@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-12"
+lastupdated: "2022-11-03"
 
 keywords: operating system end of support (eos)
 
@@ -58,6 +58,7 @@ The following table describes the end of support date and license model for Red 
 
 | Operating sytem | End of support | License Model |
 |-----------------|----------------|---------------|
+| RHEL 8.6 minimal | 30 May 2024 | Pay-as-you-Go / BYOL |
 | RHEL 8.4 minimal | 30 May 2023 | Pay-as-you-Go / BYOL |
 | RHEL 8.4 (SAP HANA & SAP applications) | 30 May 2025 | Pay-as-you-Go |
 | RHEL 8.3 minimal | 30 April 2021 | Pay-as-you-Go / BYOL |
@@ -106,6 +107,7 @@ The following table describes the end of support date and license model for Ubun
 
 | Operating sytem | End of support | License Model | 
 |-----------------|----------------|---------------|
+| Ubuntu 22.04 minimal | 30 April 2027 | Free |
 | Ubuntu 20.04 minimal | 30 April 2025 | Free |
 | Ubuntu 18.04 minimal | 30 April 2023  | Free |
 | Ubuntu 16.04 minimal | 01 April 2021  | Free |

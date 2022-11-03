@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2022-10-21",
+    "lastupdated": "2022-11-03",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "31 October 2022",
+          "title": "Terraform is now available for sharing images across an enterprise account",
+          "description": "You can now share or publish custom images by using Terraform to other accounts within your enterprise by using a private catalog. If you select a catalog image that belongs to a different account, review Using cross-account image references in a private catalog in Terraform for additional considerations and limitations."
+        },
+        {
+          "date": "21 October 2022",
+          "title": "Context-based restrictions (LA)",
+          "description": "For accounts authorized to preview this functionality, account owners and administrators are now able to define and enforce network access policies for IBM Cloud VPC resources."
+        },
+        {
           "date": "19 October 2022",
           "title": "Windows BYOL for multi-tenant hosts",
           "description": "You can now bring your own license for Windows operating systems with a custom image to provision virtual server instances on multi-tenant hosts. Previously Windows BYOL was limited to dedicated hosts."
-        },
-        {
-          "date": "12 October 2022",
-          "title": "New region (Washington DC) for LinuxONE Bare Metal Servers (s390x processor architecture) (LA)",
-          "description": "LinuxONE Bare Metal Servers are now available in the Washington DC (us-east) region."
-        },
-        {
-          "date": "03 October 2022",
-          "title": "VPC Public Ingress Routing",
-          "description": "You can now route public internet ingress traffic (destined to a floating IP) to a VPN next-hop IP."
         }
       ]
     }
