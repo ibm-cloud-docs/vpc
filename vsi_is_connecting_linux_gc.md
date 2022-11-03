@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-08-24"
+lastupdated: "2022-11-03"
 
 keywords: connecting, linux
 
@@ -30,7 +30,7 @@ After you created your Linux instance, you can connect to it by completing these
 {: #locating-floating-ip-address}
 
 If you haven’t associated a floating IP to your instance, follow Step 3 and Step 4 
-in [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli#create-instance-cli) to request a floating IP address to associate to your instance.
+in [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#create-instance-cli) to request a floating IP address to associate to your instance.
 {: note}
 
 If you need to locate your floating IP address for the instance to which you want to connect, complete the following steps. If you already know your floating IP address, skip to [Getting connected](#getting-connected).
