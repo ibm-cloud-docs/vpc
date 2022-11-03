@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2022
 
-lastupdated: "2022-10-31"
+lastupdated: "2022-11-03"
 
 
 keywords:
@@ -269,7 +269,7 @@ Use the following commands to determine the required information for creating a 
     ```
     {: screen}
 
-## Creating an instance by using the CLI
+### Creating an instance by using the CLI
 {: #create-instance-cli}
 {: cli}
 
@@ -560,7 +560,7 @@ Gather the following information by using `DataSource` command.
    {: codeblock}
 
 ### Creating an instance by using Terraform
-{: #create-instance-terraform}
+{: #create-instance-using-terraform}
 {: terraform}
 
 Create the instance by using one of the following examples. For more information and additional examples, see the Terraform documentation on [ibm_is_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance).
