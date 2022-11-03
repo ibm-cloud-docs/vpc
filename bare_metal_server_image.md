@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-10-19"
+lastupdated: "2022-11-03"
 
 subcollection: vpc
 
@@ -24,7 +24,7 @@ The following operating systems are available as images when you create a bare m
 | Image | Architecture |
 |---|---|
 | Debian 11 | x86-64 |
-| Microsoft Windows 2016 Core, 2016 Full standard, 2019 Core, 2019 Full standard, 2022 Full standard | x86-64 |
+| Microsoft Windows 2016 Full standard, 2019 Full standard, 2022 Full standard | x86-64 |
 | [Red Hat Enterprise Linux](#bare-metal-images-rhel-considerations) 8.4 | x86-64 |
 | Red Hat Enterprise Linux for SAP | x86-64 |
 | SUSE Red Hat Enterprise Linux for SAP  \n  \n For more information about SAP and bare metal servers, see [SAP fast path for IBM Cloud Intel bare metal servers](/docs/sap?topic=sap-fast-path-site-map-intel-bm). | x86-64 |
