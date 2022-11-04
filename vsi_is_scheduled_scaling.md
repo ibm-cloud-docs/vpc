@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-05-13"
+  years: 2021, 2022
+lastupdated: "2022-11-04"
 
 keywords: scheduled scaling, instance scaling, virtual server instance scaling, scheduled actions, scaling actions
 
@@ -10,19 +10,7 @@ subcollection: vpc
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:codeblock: .codeblock}
-{:tip: .tip}
-{:download: .download}
-{:important: .important}
-{:note: .note}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Scheduled scaling 
 {: #scheduled-scaling-vpc}
@@ -52,6 +40,7 @@ A scheduled action that targets `membership_count` is incompatible with an insta
 For more information about auto scale, see [Auto scale for VPC](/docs/vpc?topic=vpc-creating-auto-scale-instance-group#auto-scale-vpc)
 
 ### Creating a one-time scheduled action
+{: #set-up-one-time-scheduled-scaling}
 
 To create a one-time scheduled action, use the following steps.
 
@@ -65,6 +54,7 @@ To create a one-time scheduled action, use the following steps.
 8. Click **Create**.
 
 ### Creating a recurring scheduled action
+{: #set-up-recurring-scheduled-scaling}
 
 To create a recurring scheduled action, use the following steps.
 
@@ -104,7 +94,7 @@ To create a scheduled action by using the CLI, you must complete the following s
 
 Use the following command to create a scheduled action.
 
-```
+```sh
 ibmcloud is instance-group-manager-action-create INSTANCE_GROUP MANAGER [--run-at RUN_AT | --cron CRON] [--membership-count MEMBERSHIP_COUNT | (--max-members MAX_MEMBERS --min-members MIN_MEMBERS)] [--name NAME] [--output JSON] [-q, --quiet]
 ```
 {: pre}
@@ -123,7 +113,7 @@ Where:
 
 <!--For this example, output similar to the following displays:-->
 
-<!--```
+<!--```text
 expected output
 ```
 {:screen}-->
@@ -133,10 +123,10 @@ expected output
 
 Use the following command to update a scheduled action.
 
-```
+```sh
 ibmcloud is instance-group-manager-action-update INSTANCE_GROUP MANAGER ACTION (--run-at RUN_AT | --cron CRON) [--membership-count MEMBERSHIP_COUNT | (--min-members MIN_MEMBERS --max-members MAX_MEMBERS)] [--name NEW_NAME] [--output JSON] [-q, --quiet]
 ```
-{:pre}
+{: pre}
 
 Where:
 
@@ -154,7 +144,7 @@ Where:
 
 <!--For this example, output similar to the following displays:-->
 
-<!--```
+<!--```text
 expected output
 ```
 {: screen}-->
@@ -164,7 +154,7 @@ expected output
 
 Use the following command to delete a scheduled action.
 
-```
+```sh
 ibmcloud is instance-group-manager-action-delete INSTANCE_GROUP MANAGER ACTION [--output JSON] [-f, --force] [-q, --quiet]
 ```
 {: pre}
@@ -180,7 +170,7 @@ Where:
 
 <!--For this example, output similar to the following displays:-->
 
-<!--```
+<!--```text
 expected output
 ```
 {:screen}-->
@@ -206,6 +196,7 @@ curl -X POST "$vpc_api_endpoint/v1/instance_groups/$instance_group_id/managers?v
 {:codeblock}
 
 A successful response looks like the following example:
+
    ```bash
    
    {
