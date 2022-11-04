@@ -76,7 +76,7 @@ Obtain the ID of the key management service instance and the CRN of the root key
 
    For example:
 
-   ```
+   ```text
    Retrieving all instances of all services in resource group Default and all locations
    under account MyCompany as myuserid@mycompany.com...
    OK
@@ -85,26 +85,26 @@ Obtain the ID of the key management service instance and the CRN of the root key
    Key Protect-60   us-south   active   service_instance
    ```
    {: screen}
-    
+
 3. Retrieve the instance ID for the {{site.data.keyword.keymanagementserviceshort}} service instance where your customer root keys are stored. `Key Protect-17` is the name of the {{site.data.keyword.keymanagementserviceshort}} service instance.
 
    ```sh
    ibmcloud resource service-instance "Key Protect-17" --id
    ```
    {: pre}
-    
+
    For this example, you'll see the following output:
 
-   ```
+   ```text
    Retrieving service instance Key Protect-17 in resource group Default under account 
    MyCompany as myuserid@mycompany.com...
    crn:v1:bluemix:public:kms:us-south:a/abxx1c2xxxx34x567xxdex891xxx23fx:xxx4g5xx-6789-x1h2-
    ixxx-3jkl4xxxx567::7mnxxxo8-91xx-23px-q4rs-xxtuv5w6xxx7
    ```
    {: screen}
-       
+
    The instance ID is the string that follows the final `::` in the CRN. In this example, it's `7mnxxxo8-91xx-23px-q4rs-xxtuv5w6xxx7`.
-    
+
 4. List the available keys and their associated CRNs for the {{site.data.keyword.keymanagementserviceshort}} service instance by specifying the instance ID:
 
    ```sh
@@ -113,11 +113,12 @@ Obtain the ID of the key management service instance and the CRN of the root key
    {: pre}
 
    For this example, you'd see the following output:
-   ```
+
+   ```text
    Retrieving keys...
-              
+
    SUCCESS
-               
+
    Key ID                                 Key Name               CRN
    ef1gxxxh-ijxx-234x-56k7-xxxxlmnoxxp8   test-key               crn:v1:bluemix:public:
    kms:us-south:a/abxx1c2xxxx34x567xxdex891xxx23fx:xxx4g5xx-6789-x1h2-ixxx-3jkl4xxxx567:
@@ -144,15 +145,15 @@ See the following JSON examples for boot or data volumes. Copy the example and r
 This example defines the data in a boot volume JSON file. The `encryption key` parameter defines the root key CRN for customer-managed encryption.
 
 ```json
-{  
+{
    "name":"volume-attachment-1",
-   "volume":{  
+   "volume":{
       "name":"boot-volume-1",
       "capacity":100,
-      "profile":{  
+      "profile":{
          "name":"general-purpose"
       },
-      "encryption_key":{  
+      "encryption_key":{
          "crn":"crn:[...key:...]"
       }
    },
@@ -167,15 +168,15 @@ This example defines the data in a boot volume JSON file. The `encryption key` p
 This example defines two general-purpose secondary (data) volumes with customer-managed encryption.
 
 ```json
-   {  
+   {
       "name":"volume-attachment-2",
-      "volume":{  
+      "volume":{
          "name":"data-volume-2",
          "capacity":200,
-         "profile":{  
+         "profile":{
             "name":"general-purpose"
          },
-         "encryption_key":{  
+         "encryption_key":{
             "crn":"crn:[...key:...]"
          }
       },
@@ -276,7 +277,7 @@ curl -X POST \
 
 A successful response looks like this. Note that the boot volume appears under both `boot_volume_attachment` and `volume_attachment`.
 
-```
+```text
 {
     "id": "eb1b7391-2ca2-4ab5-84a8-b92157a633b0",
     "crn": "crn:[...]",
