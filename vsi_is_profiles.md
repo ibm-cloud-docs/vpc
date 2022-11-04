@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-10-18"
+lastupdated: "2022-11-04"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -348,9 +348,9 @@ Using “bx2-4x16” as an example, you can know from the name that it is a bala
 To view the list of available instance profiles by using the CLI, run the following command:
 
 ```sh
-$ ibmcloud is instance-profiles
+ibmcloud is instance-profiles
 ```
-{: codeblock}
+{: pre}
 
 ### Viewing instance profiles with the API
 {: #profiles-using-api}
@@ -384,11 +384,12 @@ All Intel&reg; x86-64 servers have Hyper-Threading enabled by default. Intel&reg
 If you want to disable Intel&reg; Hyper-Threading, see [Disabling Intel Hyper-Threading Technology](/docs/vpc?topic=vpc-disabling-hyper-threading).
 
 ## Next steps
-{: nextsteps-profiles}
+{: #nextsteps-profiles}
 
 After you choose a profile, it's time to create an instance.
 
-* [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers)
-* [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli)
+* [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#creating-virtual-servers-ui)
+* [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#creating-virtual-servers-cli)
 * [Creating an instance by using the API](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis#select-profile-and-image)
+* [Creating an instance by using Terraform](/docs/vpc?topic=vpc-creating-virtual-servers&interface=terraform#create-instance-terraform)
 * [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus)
