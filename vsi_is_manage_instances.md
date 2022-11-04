@@ -2,26 +2,14 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-07-26"
+lastupdated: "2022-11-04"
 
 keywords: view instance details, restart, stop, instance details, delete
 
 subcollection: vpc
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:tip: .tip}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:note: .note}
-{:preview: .preview} 
-{:table: .aria-labeledby="caption"}
-{:external: target="_blank" .external}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Managing virtual server instances
 {: #managing-virtual-server-instances}
@@ -66,7 +54,7 @@ To rename the virtual server instance by using the CLI, use the **ibmcloud is in
 
 The following example renames an instance with a current ID of `72251a2e-d6c5-42b4-97b0-b5f8e8d1f479` to a new name of `my-instance`.
 
-```
+```sh
 ibmcloud is instance-update 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --name my-instance
 ```
 {: pre}
@@ -112,7 +100,7 @@ To stop the virtual server instance by using the CLI, use the **ibmcloud is inst
 
 The following example stops an instance with an ID of `INSTANCE`.
 
-```
+```sh
 ibmcloud is instance-stop INSTANCE [--no-wait] [-f, --force] [--output JSON] [-q, --quiet]
 ```
 {: pre}
@@ -121,7 +109,7 @@ The stop action shuts down the guest operating system and then the virtual serve
 
 The following example stops an instance without requesting confirmation. The instance has an ID of `0777_e7af506a-35d4-451d-aa9e-59330e62b77e`. The `--force` option indicates that the request for confirmation is skipped. 
 
-```
+```sh
 ibmcloud is instance-stop 0777_e7af506a-35d4-451d-aa9e-59330e62b77e --force
 ```
 {: pre}
@@ -131,7 +119,7 @@ A Force stop action triggers a power cycle reset of the virtual server instance.
 
 If you have an instance that gets stuck in a *stopping* state, you can use the following example command with the `--force` and `--no-wait` options specified to stop the instance immediately without confirmation. The instance has an ID of `0757_5446c277-3190-48dd-ac67-5f02fab39ed5`. The `--force` option indicates that the request for confirmation is skipped. The `--no-wait` option runs the command immediately, dropping any queued actions. 
 
-```
+```sh
 ibmcloud is instance-stop 0757_5446c277-3190-48dd-ac67-5f02fab39ed5 --force --no-wait
 ```
 {: pre}
@@ -148,7 +136,7 @@ To start the virtual server instance by using the CLI, use the **ibmcloud is ins
 
 The following example starts an instance with an ID of `INSTANCE`.
 
-```
+```sh
 ibmcloud is instance-start INSTANCE [--output JSON] [-q, --quiet]
 ```
 {: pre}
@@ -287,7 +275,7 @@ To delete the virtual server instance by using the CLI, use the **ibmcloud is in
 
 The following example deletes 2 instances with an IDs of `INSTANCE1` and `INSTANCE2`.
 
-```
+```sh
 ibmcloud is instance-delete (INSTANCE1 INSTANCE2 ...) [--output JSON] [-f, --force] [-q, --quiet]
 ```
 {: pre}
@@ -327,7 +315,7 @@ To view the virtual server instance details by using the CLI, use the **ibmcloud
 
 The following example views the details of the virtual server instance with the ID `INSTANCE`.
 
-```
+```sh
 ibmcloud is instance INSTANCE [--output JSON] [-q, --quiet]
 ```
 {: pre}
@@ -370,7 +358,8 @@ To view the new bandwidth allocation, you must either stop and start the instanc
 You can adjust the allocation of your instance's total bandwidth between network bandwidth and storage bandwidth using the CLI.
 
 To reallocate instance bandwidth by using the CLI, run the `instance-update {id}` command and specify the total storage bandwidth in megabits per second (Mbps) for the `total-volume-bandwidth` parameter. Use this syntax:
-```
+
+```sh
 ibmcloud is instance-update {id} --total-volume-bandwidth VALUE
 ```
 {: pre}
@@ -403,14 +392,14 @@ From within your virtual server, you can retrieve the instance identifier in one
 
 Linux
 
-```
+```sh
 dmidecode -s system-family
 ```
 {: pre}
 
 Windows
 
-```
+```sh
 Get-WmiObject Win32_ComputerSystem | Select-Object -ExpandProperty SystemFamily
 ```
 {: pre}
@@ -419,16 +408,16 @@ From within your virtual server, you can retrieve the SMBIOS system-uuid in one 
 
 Linux
 
-```
+```sh
 dmidecode -s system-uuid
 ```
 {: pre}
 
 Windows
 
+```sh
+Get-WmiObject Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID
 ```
- Get-WmiObject Win32_ComputerSystemProduct | Select-Object -ExpandProperty UUID
- ```
 {: pre}
 
 ## Viewing instance status and lifecycle_state in the API
@@ -457,7 +446,7 @@ For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-h
 
 You can update an instance in your IBM Cloud VPC with and change the availability policy on host failure by using the command-line interface (CLI). Run the ibmcloud `instance-update` command and set the `--host-failure-policy` property to `start` or `stop`. The host failure policy service is set to `restart` by default.
 
-```
+```sh
 ibmcloud is instance-update {id} --total-volume-bandwidth VALUE --host-failure-policy stop
 ```
 {: pre}
