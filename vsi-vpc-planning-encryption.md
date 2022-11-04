@@ -1,8 +1,8 @@
 ---
 
-Copyright:
+copyright:
   years: 2019, 2022
-lastupdated: "2022-10-31"
+lastupdated: "2022-11-04"
 
 keywords:
 
@@ -53,16 +53,16 @@ The following steps are specific to {{site.data.keyword.keymanagementserviceshor
 {: note}
 
 1. Provision the [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-provision) service.
-   
+
    Provisioning a new {{site.data.keyword.keymanagementserviceshort}} service instance ensures that it includes the most recent updates that are required for customer managed encryption of your resources.
    {: tip}
-   
+
 1. [Create](/docs/key-protect?topic=key-protect-create-root-keys) or [import](/docs/key-protect?topic=key-protect-import-root-keys) a customer root key (CRK) in
 {{site.data.keyword.keymanagementservicelong_notm}}.
 
    Plan ahead for importing keys by [reviewing your options for creating and encrypting key material](/docs/key-protect?topic=key-protect-importing-keys#plan-ahead). For added security, you can enable the secure import of the key material by using an [import token](/docs/key-protect?topic=key-protect-importing-keys#using-import-tokens) to encrypt your key material before you bring it to the cloud.
    {: tip}
-   
+
 1. From IBM {{site.data.keyword.iamshort}} (IAM), [authorize access](/docs/account?topic=account-serviceauth#serviceauth) between Cloud Block Storage or Cloud File Storage (source service) and {{site.data.keyword.keymanagementserviceshort}}(target service) for volumes. For custom images, authorize between Image Service for VPC (source service) and IBM Cloud Object Storage (target service). Specify _reader_ access for the role.
 
     You might need to upgrade your account to a Pay-as-you-go account to complete this set. For more information, see[Upgrading to a Pay-As-You-Go account](/docs/account?topic=account-upgrading-account#upgrade-paygo).
