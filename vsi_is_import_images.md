@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-09-14"
+lastupdated: "2022-11-04"
 
 keywords: 
 
@@ -76,9 +76,11 @@ go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure
 2. From your list of custom images, click the name of the custom image that you want to validate. 
 3. In the image details side panel, locate the **Checksum (SHA256)** field. You see content similar to, *6809606da67eb83670e6249e54e94043eb43c0471669fb96ea4050c4c07e2df7*. 
 4. Compare the Checksum (SHA256) value to the output that is generated when you calculate a checksum for the image locally. 
+
    * Example Linux command: `sha256sum ubuntu_image.qcow2`
    * Example Mac command: `shasum -a 256 ubuntu_image.qcow2`
    * You receive output similar to: `6809606da67eb83670e6249e54e94043eb43c0471669fb96ea4050c4c07e2df7`
+
 5. [Create a virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui) using this image.
 
 ## Next steps
