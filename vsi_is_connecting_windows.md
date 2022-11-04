@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2022
 
-lastupdated: "2022-05-03"
+lastupdated: "2022-11-04"
 
 keywords: connecting, windows
 
@@ -61,16 +61,16 @@ After you create your Windows instance and complete the prerequisites, complete 
 
 1. Query the status of your instance by running the following command. `INSTANCE_ID` is the ID for the instance that you want to connect:
 
+    ```sh
+    ibmcloud is instance INSTANCE_ID
     ```
-    $ ibmcloud is instance INSTANCE_ID
-    ```
-    {: codeblock}
+    {: pre}
 
     When the instance shows that it's `running`, you are ready to retrieve the initialization values to get your password.
 
 2. Run the following command to initialize your instance and obtain your instance password. Specify your instance ID for the `INSTANCE_ID` variable and your private key for the `KEY` or `KEY_FILE` variable:
 
-    ```
+    ```sh
     ibmcloud is instance-initialization-values INSTANCE_ID [--private-key (KEY | @KEY_FILE)]
     ```
     {: pre}
@@ -79,7 +79,7 @@ After you create your Windows instance and complete the prerequisites, complete 
 
     The following command shows example usage for the `instance-initialization-values` command where `0xx4e27x-33xx-4e7x-a08b-bexx2ac3xx0c` is the instance ID and `~/.ssh/id_rsa` is the location of the user's private key file:
 
-    ```
+    ```sh
     ibmcloud is instance-initialization-values 0xx4e27x-33xx-4e7x-a08b-bexx2ac3xx0c --private-key @~/.ssh/id_rsa
     ```
     {: pre}
@@ -87,9 +87,9 @@ After you create your Windows instance and complete the prerequisites, complete 
     You can also use the API to get the encrypted password, which returns the decoded and decrypted password. For more information, see [Retrieve configuration used to initialize the instance API](https://{DomainName}/apidocs/vpc#retrieve-configuration-used-to-initialize-the-inst).
     {: tip}
 
-3. After you obtain your instance password, you can optionally associate a floating IP address to your Windows instance so you can connect to it from an internet location. Run the following command to associate a floating IP address to your instance, where `NIC_ID` is the ID of the target network interface (for example, `eth0`).   
+3. After you obtain your instance password, you can optionally associate a floating IP address to your Windows instance so you can connect to it from an internet location. Run the following command to associate a floating IP address to your instance, where `NIC_ID` is the ID of the target network interface (for example, `eth0`).
 
-   ```
+   ```sh
    ibmcloud is floating-ip-reserve <FLOATING_IP_NAME> --nic-id <NIC_ID>
    ```
    {: pre}
