@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-08-16"
+  years: 2021, 2022
+lastupdated: "2022-11-04"
 
 keywords: disable hyper-threading, vsi, virtual server
 
@@ -10,16 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:note: .note}
-{:important: .important}
-{:tip: .tip}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 
 # Disabling Intel Hyper-Threading Technology
@@ -48,7 +39,8 @@ If you determine that disabling Hyper-Threading Technology is right for your con
 {: #checking-ht-status-guest-vm}
 
 When a virtual machine is up and running, you can check the Hyper-Threading Technology status by using the `lscpu` command on Linux operating systems. You see output similar to the following:
-```
+
+```text
 Architecture:        x86_64
 CPU op-mode(s):      32-bit, 64-bit
 Byte Order:          Little Endian
@@ -61,7 +53,8 @@ Core(s) per socket:  4
 {: screen}
 
 In this example, notice that the Thread(s) per core displays *2*, indicating that Hyper-Threading Technology is enabled. The VM has 4 physical cores and 8 virtual CPUs. Modern versions of the Linux kernel allow users to disable Hyper-Threading Technology on a per core basis. You can run some cores with Hyper-Threading Technology enabled and other cores with Hyper-Threading Technology disabled. To see this on a per core basis, you can use the command `lscpu --extended`. You see output similar to the following: 
-```
+
+```text
 CPU     NODE          SOCKET      CORE             L1d:L1i:L2:L3 ONLINE
 0       0             0           0                0:0:0:0       yes
 1       0             0           0                1:1:0:0       yes
@@ -75,12 +68,13 @@ CPU     NODE          SOCKET      CORE             L1d:L1i:L2:L3 ONLINE
 {: screen}
 
 The preceding example output shows that each core has 2 CPUs and both CPUs are online. Core 0 has siblings: *CPU 0* and *CPU 1*.  To get the sibling list, you can find the data in `thread_sibling_list` in the devices file system as shown in the following example:
-```
+
+```sh
 cat /sys/devices/system/cpu/cpu*/topology/thread_siblings_list
 ```
 {: pre}
 
-```
+```text
 0-1
 0-1
 2-3
@@ -96,13 +90,15 @@ Some kernels and CPU architectures use a comma ( *,* ) instead of a hyphen (*-*)
 {: note}
 
 You can disable Hyper-Threading Technology for a single core by writing a zero ( *0* )into the online field in the device file system for the corresponding CPU. For example, to disable Hyper-Threading Technology on core 2 (CPU 5 in the previous example), run the following command:
-```
+
+```sh
 echo 0 > /sys/devices/system/cpu/cpu5/online
 ```
 {: pre}
 
 This command flips CPU 5 off-line, disabling Hyper-Threading Technology on core 2 but keeps the other cores in Hyper-Threading Technology mode as shown in the following example when you run the `lscpu --extended` command:
-```
+
+```text
 CPU     NODE          SOCKET      CORE             L1d:L1i:L2:L3 ONLINE
 0       0             0           0                0:0:0:0       yes
 1       0             0           0                1:1:0:0       yes
@@ -116,7 +112,8 @@ CPU     NODE          SOCKET      CORE             L1d:L1i:L2:L3 ONLINE
 {: screen}
 
 You can repeat the previous process for each core to disable Hyper-Threading Technology for the VM. When the VM has a lot of CPUs, this can be difficult. The following script is a very simple bash script to disable Hyper-Threading Technology on each core:
-```
+
+```sh
 #!/bin/bash
      for vcpu in `cat /sys/devices/system/cpu/cpu*/topology/thread_siblings_list | cut -s -d- -f2 | cut -d- -f2 | uniq`; do
           echo 0 > /sys/devices/system/cpu/cpu$vcpu/online
@@ -131,7 +128,7 @@ You can repeat the previous process for each core to disable Hyper-Threading Tec
 
 If you want to enable Hyper-Threading Technology again, you can do so by writing a 1 into the online field for each of the CPUs. 
 
-```
+```sh
 echo 1 > /sys/devices/system/cpu/cpu5/online
 ```
 {: pre}
@@ -141,7 +138,7 @@ echo 1 > /sys/devices/system/cpu/cpu5/online
 
 Alternatively, you can use the following simple bash script to enable Hyper-Threading Technology for the VM.
 
-```
+```sh
 #!/bin/bash
      for vcpu in `lscpu --extended | grep "no" | awk '{print $1}'`; do
           echo 1 > /sys/devices/system/cpu/cpu$vcpu/online
@@ -155,7 +152,7 @@ Alternatively, you can use the following simple bash script to enable Hyper-Thre
 
 You can also try this [script](https://github.com/seelam/Manage_Hyperthreading.sh){: external}, created by Wyatt Gorman, for enabling and disabling Hyper-Threading Technology. When you download and run the script, you get these options:
 
-```
+```text
 OPTIONS
 -d | --disable             Disable Hyper-Threaded vCPUs
 -e | --enable              Enable Hyper-Threaded vCPUs
@@ -173,7 +170,7 @@ You can get the Hyper-Threading Technology status, disable Hyper-Threading Techn
 
 During the virtual server instance creation process, you can specify the following sample code in the User Data section of the {{site.data.keyword.cloud_notm}} console:
 
-```
+```sh
 #cloud-config
 bootcmd:
  - for cpunum in $(cat /sys/devices/system/cpu/cpu*/topology/thread_siblings_list | cut -s -d- -f2- | tr ',' '\n' | sort -un); do echo 0 > /sys/devices/system/cpu/cpu$cpunum/online; done
@@ -181,7 +178,8 @@ bootcmd:
 {: codeblock}
 
 The script that you provide in the User Data field disables Hyper-Threading Technology during the instance boot process. You see messages indicating that the CPUs are disabled:
-```
+
+```text
 dmesg |grep offline
 [    9.488364] smpboot: CPU 1 is now offline
 [    9.544370] smpboot: CPU 3 is now offline
@@ -191,4 +189,3 @@ dmesg |grep offline
 {: screen}
 
 You can use a similar approach to inject this process into Terraform. For more information, see [IaC Configuration Management with User-Data](https://ibm.github.io/cloud-enterprise-examples/iac-conf-mgmt/user-data/){: external}
-
