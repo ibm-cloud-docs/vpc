@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-10-28"
+lastupdated: "2022-11-04"
 
 keywords:
 
@@ -28,7 +28,7 @@ Want to automatically create snapshots of your block storage volumes? With Backu
 
 The first time that you take a snapshot of a volume, all the volume's contents are copied. The snapshot has the same encryption as the volume (customer-managed or provider-managed). Snapshots are stored and retrieved from IBM Cloud Object Storage. Data is encrypted while in transit and stored in the same region as the original volume.
 
-When you take a second snapshot, only the change to the volume since the last snapshot is captured. As such, the size of snapshots that you take can grow or shrink, depending on what is being uploaded to Cloud Object Storage. The number of snapshots increases with each successive snapshot you take. You can take up to [750 snapshots](#snapshots_vpc_considerations) per volume in your region. Deleting snapshots from this quota frees up space for additional snapshots. A snapshot of a volume cannot be greater than 10 TB.
+When you take a second snapshot, only the change to the volume since the last snapshot is captured. As such, the size of snapshots that you take can grow or shrink, depending on what is being uploaded to Cloud Object Storage. The number of snapshots increases with each successive snapshot you take. You can take up to 750 snapshots per volume in your region. This limit allows you to take and keep an hourly snapshot for 30 days, plus some extra snapshots. Deleting snapshots from this quota frees up space for additional snapshots. A snapshot of a volume cannot be greater than 10 TB.
 
 You can create a new virtual server instance with a boot volume that was initialized from a snapshot. The instance profile of the new instance is not required to match the instance that was used to create the snapshot. You can also import a snaphot of a data volume when creating and attaching a new data volume to the instance. You can also specify user tags for these snapshots.
 
@@ -80,27 +80,6 @@ This general procedure shows how to create a snapshot, view a list of snapshots,
 3. [Create](/docs/vpc?topic=vpc-snapshots-vpc-create#snapshots-vpc-create) your snapshots.
 4. [View](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view) and [manage](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-manage) your snapshots.
 5. [Restore](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-vpc-restore) a volume from a snapshot.
-
-## Considerations when creating snapshots
-{: #snapshots_vpc_considerations}
-
-You can take up to 750 snapshots of a block storage volume in a region. This limit allows you to take and keep an hourly snapshot for 30 days, plus some extra snapshots. To produce 750 snapshots, snapshot service generates a full backup every 153 snapshots and offloads the full backup to COS. You are billed for the full backups. Table 1 shows the interval in which full or incremental snapshots are created, the type of volume snapshotted, and how you're billed.
-
-Because a full backup is created every 153 snapshots, the maximum number of snapshots you can take for restoring a volume is capped at 153.
-
-| Snapshot number (Volume type) | Snapshot | How you're billed |
-|-------------------------------|----------|-------------------|
-| 1 (data and boot) | full | Billed for full copy |
-| 2-153 (data) \n 2-152 (boot) | incremental | Billed for incremental updates |
-| 154 (data) \n 153 (boot) | full | Billed for full copy |
-| 155-305 (data) \n 154-303 (boot) | incremental | Billed for incremental updates |
-| 306 (data) \n 304 (boot) | full | Billed for full copy |
-| 307-457 (data) \n 305-454 (boot)| incremental | | Billed for incremental updates |
-| 458 (data) \n 455 (boot) | full | Billed for full copy |
-| 459-609 (data) \n 456-605 (boot) |  incremental | | Billed for incremental updates |
-| 610 (data) \n 606 (boot) | full | Billed for full copy |
-| 611-750 (data) \n 607-750 (boot) |  incremental | | Billed for incremental updates |
-{: caption="Table 1. Snapshot count and billing considerations" caption-side="bottom"}
 
 ## Restoring a volume from a snapshot
 {: #snapshots_vpc_restore_overview}

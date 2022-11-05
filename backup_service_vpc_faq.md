@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-15"
+lastupdated: "2022-11-04"
 
 keywords:
 
@@ -57,7 +57,7 @@ Enabling your backups is two-part process. First, you [specify user tags](/docs/
 {: faq}
 {: #faq-baas-total}
 
-You can create up to 750 backups per volume per account. Consider how your [billing changes](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=api#snapshots_vpc_considerations) when you increase the number of snapshots that you take and retain.
+You can create up to 750 backups per volume per account. This limit allows you to take and keep an hourly backup for 30 days, plus some extras. Deleting backups from this quota frees up space for additional backups. A backup of a volume cannot be greater than 10 TB. Note that billing changes when you increase the number of backups that you take and retain, so it's good to plan backup retention and deletion.
 
 ## Can I backup my volume snapshots?
 {: faq}

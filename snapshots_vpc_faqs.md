@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-27"
+lastupdated: "2022-11-04"
 
 keywords:
 
@@ -47,7 +47,7 @@ A bootable snapshot is a copy of a boot volume. You can use this new boot volume
 {: faq}
 {: #faq-snapshot-3}
 
-You can take up to 750 snapshots per volume in a region. Deleting snapshots from this quota frees up space for additional snapshots.  A snapshot of a volume cannot be greater than 10 TB. Also, consider how your [billing changes](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=api#snapshots_vpc_considerations) when you increase the number of snapshots that you take and retain.
+You can take up to 750 snapshots per volume in a region. This limit allows you to take and keep an hourly snapshot for 30 days, plus some extra snapshots. Deleting snapshots from this quota frees up space for additional snapshots.  A snapshot of a volume cannot be greater than 10 TB. Note that billing changes when you increase the number of snapshots that you take and retain, so it's good to plan snapshot retention and deletion.
 
 ## Is there a limit on the size of a volume that I can snapshot?
 {: faq}
