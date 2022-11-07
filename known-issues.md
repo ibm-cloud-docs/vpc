@@ -129,7 +129,7 @@ The following issues are currently present in the Cloud Console with no known wo
 | POST /instances/{instance-id}/actions | Instance Editor | is.instance.instance.update |
 | POST /instances/{instance-id}/volume\_attachments | Instance Editor | is.instance.instance.update |
 | DELETE /instances/{instance-id}/volume\_attachments/{vol-attach-id} | Instance Editor | is.instance.instance.update |
-| DELETE /network\_acls/{nacl-id} | VPC Viewer | is.vpc.vpc.read |
+| GET /network\_acls/{nacl-id} | VPC Viewer | is.vpc.vpc.read |
 | POST /network\_acls/{nacl-id}/rules | VPC Viewer | is.vpc.vpc.read |
 | GET /subnets/{subnet-id}/network\_acl | VPC Viewer | is.vpc.vpc.read |
 | PUT /subnets/{subnet-id}/network\_acl | VPC Viewer | is.vpc.vpc.read |
