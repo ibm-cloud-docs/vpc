@@ -30,23 +30,22 @@ To configure your security group by using the UI, follow these steps:
 1. Click **Security groups**.
 1. Click **Create +** on the security groups list table. 
 1. In the Location section, provide the following information:
-   * **Geography**: Indicate the general area where you want the security group created.
-   * **Region**: Indicate the region where you want the security group created. 
+   * **Geography** - Indicate the general area where you want the security group created.
+   * **Region** - Indicate the region where you want the security group created. 
 1. In the Details section, provide the following information: 
-   * **Name**: Enter a unique identifier for the security group, such as `my-security-group`.    
+   * **Name** - Enter a unique identifier for the security group, such as `my-security-group`.    
    * **Resource group**: Select a resource group for the security group.
 
    After provisioning is complete, you cannot change the resoure group.
    {: important}
 
-   * **Tags**: (Optional) Enter tags to help you organize and find your security groups. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).    
+   * **Tags** - Add user tags. User tags are visible account-wide. For more information, see [Working with tags](/docs/account?topic=account-tag).    
 
    User tags are visible account-wide. Avoid including sensitive data in the tag name.
    {: note}
 
-   * **Access management tags**: (Optional) Add access management tags to help organize access control relationships. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
-
-   * **Virtual private cloud**: Select your VPC.
+   * **Access management tags** - Add access management tags to help organize access control relationships. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
+   * **Virtual private cloud** - Select your VPC.
 1. Under Rules, click **Create** to configure inbound and outbound rules that define what type of traffic is allowed to and from the instance. For each rule, specify the following information:  
    * Select the protocols and ports to which the rule applies.    
    * Specify a CIDR block or IP address for the permitted traffic. Alternatively, you can specify a security group in the same VPC to allow traffic to or from all instances that are attached to the selected security group. 

@@ -54,12 +54,12 @@ To create a public gateway using the {{site.data.keyword.cloud_notm}} console, f
 1. Enter values for the following fields under details: 
 
    * **Public gateway name** - Type a unique name for your public gateway.
-   * **Resource group** -  Select a resource group for your public gateway collector. You can use the default group for this public gateway, or select from the list (if defined). For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup). 
+   * **Resource group** - Select a resource group for your public gateway collector. You can use the default group for this public gateway, or select from the list (if defined). For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup). 
    After provisioning is complete, you cannot change the resource group. 
    {: important}
    * **VPC** - Select a VPC. You can use the default VPC for this public gateway, or select from the list (if defined). For more information, see [Getting started with Virtual Private Cloud](/docs/vpc?topic=vpc-getting-started&interface=ui).
-   * **Tags** - Add user tags (optional). User tags are visible account-wide. 
-   * **Access management tags**: (Optional) Add access management tags to help organize access control relationships. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
+   * **Tags** - Add user tags. User tags are visible account-wide. For more information, see [Working with tags](/docs/account?topic=account-tag).    
+   * **Access management tags** - Add access management tags to help organize access control relationships. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
    
 
 1. Copy a **sample API call** (optional).
