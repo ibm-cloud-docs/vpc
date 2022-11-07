@@ -10,18 +10,11 @@ subcollection: vpc
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:important: .important}
-{:screen: .screen}
-{:pre: .pre}
-{:tip: .tip}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
+{{site.data.keyword.attribute-definition-list}}
 
 # About {{site.data.keyword.block_storage_is_short}}
 {: #block-storage-about}
+
 [comment]: # (linked help topic)
 
 {{site.data.keyword.block_storage_is_short}} provides hypervisor-mounted, high-performance data storage for your virtual server instances that you can provision within an {{site.data.keyword.vpc_full}} (VPC). The [VPC](/docs/vpc?topic=vpc-about-vpc) infrastructure provides rapid scaling across zones and extra performance and security.

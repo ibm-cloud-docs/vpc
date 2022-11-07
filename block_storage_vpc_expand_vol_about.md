@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-10-03"
+lastupdated: "2022-11-07"
 
 keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -11,22 +11,10 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:beta: .beta}
-{:table: .aria-labeledby="caption"}
-{:DomainName: data-hd-keyref="APPDomain"}
-{:DomainName: data-hd-keyref="DomainName"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # About increasing volume capacity
+{: #about-increasing-volume-capacity}
 
 For {{site.data.keyword.block_storage_is_short}} boot and data volumes, you can increase volume capacity from its initial setting, within limits.
 {: shortdesc}
@@ -108,6 +96,7 @@ You must meet these requirements to resize a boot volume:
 Limitations for resizing boot and data volumes apply in this release.
 
 ### Data volume limitations
+{: #expand-vol-limitations}
 
 * You cannot expand a volume that is at its maximum capacity for its [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta) or [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) volume range.
 

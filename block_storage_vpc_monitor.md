@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-29"
+  years: 2019, 2022
+lastupdated: "2022-11-07"
 
 keywords:
 
@@ -11,16 +11,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .Shortdesc}
-{: codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:tip: .tip}
-{:important: .important}
-{:table: .Aria-labeledby="caption"}
-{:DomainName: data-hd-keyref="APPDomain"}
-{:DomainName: data-hd-keyref="DomainName"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Monitoring block storage volumes
 {: #monitor-block-storage-vpc}
@@ -29,7 +20,7 @@ To make sure you're always aware of any issues with your block storage volumes, 
 {: shortdesc}
 
 ## Procedure
-{: monitor-volume-procedure}
+{: #monitor-volume-procedure}
 
 To monitor your block storage volume in the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
@@ -49,7 +40,7 @@ The monitoring page for the volume is displayed, where you specify the type of m
 {: caption="Table 1. Block storage volume monitoring settings" caption-side="top"}
 
 ## IOPS, Latency, and Throughput Graphs
-{: monitor-volume-metrics}
+{: #monitor-volume-metrics}
 
 By default, all **reads** from the volume are shown in the resulting graphs. Under **Available metrics**, you can change the view by selecting the type of metric per graph (read, write, or total):
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-05-28"
+  years: 2019, 2022
+lastupdated: "2022-11-07"
 
 keywords: block storage, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, customer-managed encryption
 
@@ -11,15 +11,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:important: .important}
-{:preview: .preview}
-{:screen: .screen}
-{:pre: .pre}
-{:note: .note}
-{:beta: .beta}
-{:table: .aria-labeledby="caption"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating block storage volumes with customer-managed encryption (Beta)
 {: #block-storage-vpc-encryption}
@@ -112,7 +104,7 @@ Make a `POST/volumes` request to create a new volume encrypted using your own en
 
 The following example creates a general-purpose data volume with customer-managed encryption.
 
-```
+```curl
 curl -X POST \
 "$vpc_api_endpoint/v1/volumes?version=2020-03-10&generation=2" \
 -H "Authorization: $iam_token" \
@@ -138,7 +130,7 @@ curl -X POST \
 
 A successful response will look like this:
 
-```
+```curl
 {
     "id": "8948ad59-bc0f-7510-812f-5dc64f59fab8",
     "crn": "crn:[...]",
@@ -174,6 +166,7 @@ A successful response will look like this:
 {: codeblock}
 
 ## Editing boot volumes to use customer-managed encryption by using the UI
+{: #data-vol-encrypt-edit-ui}
 
 When you create an instance from the UI, you can specify customer-managed encryption by editing the boot volume properties. For more information, see [Provisioning virtual server instances with volumes that use customer-managed encryption](/docs/vpc?topic=vpc-creating-instances-byok#provision-byok-ui).
 

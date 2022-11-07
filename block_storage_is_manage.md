@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-10-03"
+lastupdated: "2022-11-07"
 
 keywords:
 
@@ -11,21 +11,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:tip: .tip}
-{:table: .aria-labeledby="caption"}
-{:external: target="_blank" .external}
-{:DomainName: data-hd-keyref="APPDomain"}
-{:DomainName: data-hd-keyref="DomainName"}
-{:help: data-hd-content-type='help'}
-{:support: data-reuse='support'}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Managing block storage volumes
 {: #managing-block-storage}
@@ -401,7 +387,7 @@ Verify that the volume is detached from the instance by making a `GET /instances
 call.
 
 ### Delete a block storage volume from the API
-{: #delete-vol-api
+{: #delete-vol-api}
 
 Make a `DELETE /volumes/{id}` call.
 
@@ -412,7 +398,6 @@ curl -X DELETE "$vpc_api_endpoint/v1/volumes/$volume_id?version=2022-04-22&gener
 {: pre}
 
 To verify that the volume is deleted, list the volumes by making a `GET /volumes` call.
-
 
 ### Apply tags associated with a backup policy to a volume from the API
 {: #block-storage-add-tags-api}

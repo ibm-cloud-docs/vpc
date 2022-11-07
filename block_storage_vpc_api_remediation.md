@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019 - 2021
-lastupdated: "2021-01-26"
+  years: 2019, 2022
+lastupdated: "2022-11-07"
 
 keywords: block storage, virtual private cloud, block storage volume, instances, virtual server instance, customer-managed encryption
 
@@ -10,15 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:important: .important}
-{:screen: .screen}
-{:pre: .pre}
-{:tip: .tip}
-{:table: .aria-labeledby="caption"}
-{:help: data-hd-content-type='help'}
-{:support: data-reuse='support'}
+{{site.data.keyword.attribute-definition-list}}
 
 # API changes for VPC resources using block storage volumes
 {: #byok-block-storage-remediation}

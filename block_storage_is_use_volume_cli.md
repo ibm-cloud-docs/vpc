@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-04-12"
+lastupdated: "2022-11-07"
 
 keywords:
 subcollection: vpc
@@ -10,15 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:note: .note}
-{:tip: .tip}
-{:table: .aria-labeledby="caption"}
-{:download: .download}
+{{site.data.keyword.attribute-definition-list}}
 
 # Using your block storage data volume (CLI)
 {: #start-using-your-block-storage-data-volume}
@@ -101,7 +93,7 @@ fstab /dev/vdb1
 ```
 {: pre}
 
-```
+```bash
 disk_partition=/dev/vdb1
  uuid=$(blkid -sUUID -ovalue $disk_partition)
  mount_point=$mount_parent/$uuid

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-02-10"
+lastupdated: "2022-11-07"
 
 keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -11,20 +11,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:beta: .beta}
-{:table: .aria-labeledby="caption"}
-{:DomainName: data-hd-keyref="APPDomain"}
-{:DomainName: data-hd-keyref="DomainName"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{{site.data.keyword.attribute-definition-list}}
 
 # Increasing boot volume capacity
 {: #resize-boot-volumes}
@@ -136,7 +123,7 @@ After you located the volume, use the `volume-update` command and provide the ID
 
 For example, this example increases the capacity of my-boot-vol1 to 200 GB. The existing capacity displays as the boot volume capacity is being expanded. Run an `ibmcloud is volume` command and specify the volume name to see the new capacity.
 
-```zsh
+```text
 ibmcloud is volume update my-boot-vol-1 --capacity 200
 Updating volume my-boot-vol1 under account VPC1 as user myuser@mycompany.com...
                                           

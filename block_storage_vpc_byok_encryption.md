@@ -1,28 +1,17 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-07-15"
+  years: 2019, 2022
+lastupdated: "2022-11-07"
 
 keywords: block storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
 
 subcollection: vpc
 
-
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:important: .important}
-{:preview: .preview}
-{:screen: .screen}
-{:pre: .pre}
-{:note: .note}
-{:important: .important}
-{:table: .aria-labeledby="caption"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
+
 
 # Creating block storage volumes with customer-managed encryption
 {: #block-storage-vpc-encryption}
@@ -101,7 +90,7 @@ ibmcloud is volume-create VOLUME_NAME PROFILE_NAME ZONE_NAME [--encryption-key E
 
 The following example shows a new volume that is created with customer-managed encryption.
 
-```bash
+```text
 $ ibmcloud is volume-create demo_volume custom us-south-1 --iops 1000 --encryption-key abccorp-kp-vpc-2 5437644a-c4b1-447f-9646-b1a2a4df61382
 Creating volume demovolume in resource group Default under account VPC 01 as user rtuser1@mycompany.com...
 ID                                      933c8781-f7f5-4a8f-8a2d-3bfc711788ee
@@ -131,7 +120,7 @@ Make a `POST/volumes` request to create a new volume encrypted using your own en
 
 The following example creates a general-purpose data volume with customer-managed encryption.
 
-```
+```curl
 curl -X POST \
 "$vpc_api_endpoint/v1/volumes?version=2020-03-10&generation=2" \
 -H "Authorization: $iam_token" \
@@ -157,7 +146,7 @@ curl -X POST \
 
 A successful response will look like this:
 
-```
+```curl
 {
     "id": "8948ad59-bc0f-7510-812f-5dc64f59fab8",
     "crn": "crn:[...]",

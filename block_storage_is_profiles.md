@@ -11,17 +11,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:important: .important}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:beta: .beta}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Block storage profiles
 {: #block-storage-profiles}
@@ -102,13 +92,14 @@ You can view available IOPS profiles the {{site.data.keyword.cloud_notm}} consol
 
  Alternately, select **Custom** and then select an IOPS value within the range for that volume size. Click the storage size link to see a table of size and IOPS ranges.
 
- ### Using the CLI
- {: #using-cli-iops-profiles}
- {: cli}
+### Using the CLI
+{: #using-cli-iops-profiles}
+{: cli}
 
  To view the list of available profiles by using the CLI, run the following command:
-```
-$ ibmcloud is volume-profiles
+
+```sh
+ibmcloud is volume-profiles
 ```
 {: codeblock}
 
@@ -118,7 +109,7 @@ $ ibmcloud is volume-profiles
 
 The following cURL API request retrieves all volume profiles.
 
-```
+```curl
 curl -X GET \
 $vpc_api_endpoint/v1/volume/profiles?$api_version&generation=2 \
 -H "Authorization: $iam_token"

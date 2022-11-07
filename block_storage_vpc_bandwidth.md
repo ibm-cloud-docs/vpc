@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-09-23"
+  years: 2021, 2022
+lastupdated: "2022-11-07"
 
 keywords: block storage, virtual private cloud, boot volume, data volume, volume, data storage, virtual server instance, instance, bandwidth
 
@@ -11,21 +11,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:tip: .tip}
-{:table: .aria-labeledby="caption"}
-{:external: target="_blank" .external}
-{:DomainName: data-hd-keyref="APPDomain"}
-{:DomainName: data-hd-keyref="DomainName"}
-{:help: data-hd-content-type='help'}
-{:support: data-reuse='support'}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Bandwidth allocation for block storage volumes
 {: #block-storage-bandwidth}
@@ -74,7 +60,7 @@ The volume bandwidth available to the instance is apportioned on a per-volume ba
 
 When you create a standalone (unattached) block storage data volume, the volume bandwidth assigned is based on volume capacity, IOPS, and volume profile. For example, the API response for a `GET /volume/{id}` call shows the bandwidth for an unattached volume:
 
-```
+```curl
 {
   "active": true,
   "bandwidth": 640,
