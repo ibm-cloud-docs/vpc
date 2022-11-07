@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-10-03"
+lastupdated: "2022-11-07"
 
 keywords:
 
@@ -112,6 +112,7 @@ Example virtual server setup:
 | `net_1_1` | `gw_ip_1_1` | `cidr_1_1` | `ip_1_1` |
 | `net_2_0` | `gw_ip_2_0` | `cidr_2_0` | `ip_2_0` |
 | `net_2_1` | `gw_ip_2_1` | `cidr_2_1` | `ip_2_1` |
+{: caption="Table 1. Example of a virtual server instance with multiple interfaces" caption-side="bottom"}
 
 ### Adding a static route for the second interface
 {: #adding-static-route-second-interface}
