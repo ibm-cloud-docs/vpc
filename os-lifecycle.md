@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-03"
+lastupdated: "2022-11-07"
 
 keywords: operating system end of support (eos)
 
@@ -90,7 +90,7 @@ The following table describes the end of support date and license model for SUSE
 | Operating sytem | End of support | License Model |
 |-----------------|----------------|---------------|
 | SLES 15 SP4 | Release SP5 +6 Months | Pay-as-you-Go |
-| SLES 15 SP3 | 31 December 2025 | Pay-as-you-Go |
+| SLES 15 SP3 | 31 December 2022 | Pay-as-you-Go |
 | SLES 15 SP3 (SAP HANA and SAP applications) | 31 December 2025 | Pay-as-you-Go |
 | SLES 15 SP2 (SAP HANA and SAP applications) | 31 December 2024 | Pay-as-you-Go  |
 | SLES 15 SP1 (SAP HANA and SAP applications) | 31 January 2024 | Pay-as-you-Go  |
