@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022
-lastupdated: "2022-08-19"
+lastupdated: "2022-11-07"
 
 keywords: 
 
@@ -36,7 +36,7 @@ Only one public gateway per zone is allowed in a VPC, but a public gateway can b
 {: #pg-creating-ui}
 {: ui}
 
-To create a public gateway by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
+To create a public gateway using the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. Go to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
 
@@ -51,7 +51,7 @@ To create a public gateway by using the {{site.data.keyword.cloud_notm}} console
    * **Region** - Select a region for your public gateway. 
    * **Zone** - Select a zone for your public gateway.
 
-1. From the **Create public gateway** page, enter values for the following fields under details: 
+1. Enter values for the following fields under details: 
 
    * **Public gateway name** - Type a unique name for your public gateway.
    * **Resource group** -  Select a resource group for your public gateway collector. You can use the default group for this public gateway, or select from the list (if defined). For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup). 
@@ -59,6 +59,8 @@ To create a public gateway by using the {{site.data.keyword.cloud_notm}} console
    {: important}
    * **VPC** - Select a VPC. You can use the default VPC for this public gateway, or select from the list (if defined). For more information, see [Getting started with Virtual Private Cloud](/docs/vpc?topic=vpc-getting-started&interface=ui).
    * **Tags** - Add user tags (optional). User tags are visible account-wide. 
+   * **Access management tags**: (Optional) Enter Access management tags to apply flexible access policies on specific resources. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
+   
 
 1. Copy a **sample API call** (optional).
 1. Click **Create**. 
