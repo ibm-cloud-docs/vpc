@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-15"
+lastupdated: "2022-11-07"
 
 keywords:
 
@@ -11,19 +11,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:DomainName: data-hd-keyref="APPDomain"}
-{:DomainName: data-hd-keyref="DomainName"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Managing backup policies
 {: #backup-service-manage}
@@ -363,14 +351,15 @@ Backups require IAM permissions for role-based access control. Table 1 describes
 | Backup action | IAM role |
 |-----------------|----------|
 | Create backup policies | Administrator, editor |
-| Add tags to a volume resource<sup>1</sup> | Adminstrator, editor |
+| Add tags to a volume resource [^tabletext1] | Adminstrator, editor |
 | Delete backup policies | Administrator, editor |
-| Restore a volume from a backup<sup>2</sup> | Administrator, editor, operator |
+| Restore a volume from a backup [^tabletext2] | Administrator, editor, operator |
 | List backups | Administrator, editor, operator, viewer |
 | View backup policy details | Administrator, editor, operator, viewer |
 {: caption="Table 1. IAM roles for snapshots" caption-side="top"}
-<sup>1</sup>An administrator on the account must assign the right permissions for tagging resources. For more information, see [Granting users access to tag resources](/docs/account?topic=account-access).
-<sup>2</sup>You must have administrator and editor privileges on the volume to perform this action.
+
+[^tabletext1]: An administrator on the account must assign the right permissions for tagging resources. For more information, see [Granting users access to tag resources](/docs/account?topic=account-access).
+[^tabletext2]: You must have administrator and editor privileges on the volume to perform this action.
 
 ## Activity Tracker events
 {: #backup-activity-tracker}

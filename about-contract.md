@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-10-03"
+lastupdated: "2022-11-07"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -108,7 +108,7 @@ This is an example of a docker-compose file.
 ![Sample docker compose file](images/docker_compose_sample.png "Figure showing docker_compose_sample"){: caption="Figure 1. Sample of a docker-compose file" caption-side="bottom"}
 
 Use the following command to get the base64 encoded archive file. The base64 output is available in the compose.b64 file.
-```
+```sh
 tar czvf - -C <COMPOSE_FOLDER> . | base64 -w0
 ```
 {: pre}
@@ -143,7 +143,7 @@ notary: "https://notary.us.icr.io"
 ```
 
 The `publicKey` is the corresponding public key by which the image is signed by using DCT. Use the following command to get the public key:
-```
+```json
 cat ~/.docker/trust/tuf/us.icr.io/<username>/<imagename>/metadata/root.json
 ```
 {: pre}
@@ -244,7 +244,7 @@ For information about how to use the `signingKey`, see [Contract signature](#hpc
 {: #hpcr_contract_env_env}
 
 If the docker compose file has an environment section, you can use the following snippet as an example:
-```
+```sh
 environment:
   KEY1: "${Value1}"
   KEY2: "${Value2}"
@@ -303,38 +303,38 @@ Complete the following steps on an Ubuntu system, to encrypt the workload sectio
 2. Create the [workload section](#hpcr_contract_workload) of the contract and add the contents in the `workload.yaml` file.
 
 3. Export the complete path of the `workload.yaml` file and the `ibm-hyper-protect-container-runtime-1-0-s390x-5-encrypt.crt`:
-   ```
+   ```yaml
    WORKLOAD="<PATH to workload.yaml>"
    CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-5-encrypt.crt>"
    ```
    {: pre}
 
 4. Use the following command to create a random password (the contract is encrypted via symmetric AES  with a random PASSWORD):
-   ```
+   ```yaml
    PASSWORD="$(openssl rand 32 | base64 -w0)"
    ```
    {: pre}
 
 5. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-5-encrypt.crt`:
-   ```
+   ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY -certin | base64 -w0 )"
    ```
    {: pre}
 
 6. Use the following command to encrypt the `workload.yaml` file with a random password:
-   ```
+   ```yaml
    ENCRYPTED_WORKLOAD="$(echo -n "$PASSWORD" | base64 -d | openssl enc -aes-256-cbc -pbkdf2 -pass stdin -in "$WORKLOAD" | base64 -w0)"
    ```
    {: pre}
 
 7. Use the following command to get the encrypted section of the contract:
-   ```
+   ```yaml
    echo "hyper-protect-basic.${ENCRYPTED_PASSWORD}.${ENCRYPTED_WORKLOAD}"
    ```
    {: pre}
 
 8. Get the output from step 7 and add it to the `user-data.yaml` file.
-   ```
+   ```yaml
    workload: hyper-protect-basic.js7TGt77EQ5bgTIKk5C0pViFTRHqWtn..............
    ```
    {: pre}   
@@ -350,32 +350,32 @@ Complete the following steps on an Ubuntu system, to encrypt the `env` section u
 1. Create the [env section](#hpcr_contract_env) of the contract and add the contents in the `env.yaml` file.
 
 2. Export the complete path of the `env.yaml` file and the `ibm-hyper-protect-container-runtime-1-0-s390x-5-encrypt.crt`:
-   ```
+   ```yaml
    ENV="<PATH to env.yaml>"
    CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-5-encrypt.crt>"
    ```
    {: pre}
 
 3. Use the following command to create a random password:
-   ```
+   ```yaml
    PASSWORD="$(openssl rand 32 | base64 -w0)"
    ```
    {: pre}
 
 4. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-5-encrypt.crt`:
-   ```
+   ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY  -certin | base64 -w0)"
    ```
    {: pre}
 
 5. Use the following command to encrypt `env.yaml` with a random password:
-   ```
+   ```yaml
    ENCRYPTED_ENV="$(echo -n "$PASSWORD" | base64 -d | openssl enc -aes-256-cbc -pbkdf2 -pass stdin -in "$ENV" | base64 -w0)"
    ```
    {: pre}
 
 6. Use the following command to get the encrypted section of the contract:
-   ```
+   ```yaml
    echo "hyper-protect-basic.${ENCRYPTED_PASSWORD}.${ENCRYPTED_ENV}"
    ```
    {: pre}
@@ -383,7 +383,7 @@ Complete the following steps on an Ubuntu system, to encrypt the `env` section u
 7. To encrypt the workload section, see [Creating the encrypted `workload` section of a contract](#hpcr_contract_encrypt_workload).
 
 8. Get the output from step 6 and add it to the `user-data.yaml` file.
-   ```
+   ```yaml
    env: hyper-protect-basic.VWg/5/SWE+9jLfhr8q4i.........
    ```
    {: pre}
@@ -400,14 +400,14 @@ The following are two sections in a contract that are relevant while creating an
 
 Complete the following steps on an Ubuntu system, to create the contract signature:
 1. Use the following command to generate key pair to sign the contract (note that "test1234" is the passphrase to generate keys, you can use your own):
-   ```
+   ```sh
    openssl genrsa -aes128 -passout pass:test1234 -out private.pem 4096
    openssl rsa -in private.pem -passin pass:test1234 -pubout -out public.pem
    ```
    {: pre}
 
 2. The following command is an example of how you can get the signing key:
-   ```
+   ```sh
    key=$(awk -vRS="\n" -vORS="\\\n" '1' public.pem)
    echo ${key%\\n}
    ```
@@ -429,32 +429,32 @@ Complete the following steps on an Ubuntu system, to create the contract signatu
    {: codeblock}
 
 4. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-5-encrypt.crt`:
-   ```
+   ```yaml
    ENV="<PATH to env.yaml>"
    CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-5-encrypt.crt>"
    ```
    {: pre}
 
 5. Use the following command to create a random password:
-   ```
+   ```yaml
    PASSWORD="$(openssl rand 32 | base64 -w0)"
    ```
    {: pre}
 
 6. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-5-encrypt.crt.`:
-   ```
+   ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY  -certin | base64 -w0)"
    ```
    {: pre}
 
 7. Use the following command to encrypt `env.yaml` with a random password:
-   ```
+   ```yaml
    ENCRYPTED_ENV="$(echo -n "$PASSWORD" | base64 -d | openssl enc -aes-256-cbc -pbkdf2 -pass stdin -in "$ENV" | base64 -w0)"
    ```
    {: pre}
 
 8. Use the following command to extract the encrypted `env` section:
-   ```
+   ```yaml
    echo "hyper-protect-basic.${ENCRYPTED_PASSWORD}.${ENCRYPTED_ENV}"
    ```
    {: pre}
@@ -472,20 +472,20 @@ If you have got the encrypted `user-data.yaml` from the [Creating the encrypted 
 1. Get the encrypted `workload.yaml` and encrypted `env.yaml` files.
 
 2. Add them into the `user-data.yaml` file.
-   ```
+   ```yaml
    workload: hyper-protect-basic.js7TGt77EQ5bgTIKk5C0pViFTRHqWtn..............
    env: hyper-protect-basic.VWg/5/SWE+9jLfhr8q4i.........
    ```
    {: pre}
 
 3. Create the `contract.txt` file. Add the value of `workload` first then add the value of `env` from the `user-data.yaml` file. Ensure that there is no space or new line after `workload` and before `env`. Also, ensure that there is no new line or space at the end of the file.
-   ```
+   ```yaml
    hyper-protect-basic.js7TGt77EQ5bgTIKk5C0pViFTRHqWtn..............hyper-protect-basic.VWg/5/SWE+9jLfhr8q4i.........
    ```
    {: pre}
 
 4. Use the following command to generate the signature:
-   ```
+   ```yaml
    echo $( cat contract.txt | openssl dgst -sha256 -sign private.pem | openssl enc -base64) | tr -d ' '
    ```
    {: pre}
@@ -543,12 +543,12 @@ services:
 ### 4. Get the base64 encoded version of the docker-compose file
 {: #step4}
 
-```
+```sh
 tar -czvf compose.tgz docker-compose.yaml
 ```
 {: pre}
 
-```
+```sh
 base64 -i compose.tgz -o compose.b64
 ```
 {: pre}

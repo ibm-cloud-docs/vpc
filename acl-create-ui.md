@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2019, 2020
+  years: 2019, 2022
 
-lastupdated: "2020-04-04"
+lastupdated: "2022-11-07"
 
 keywords:  
 
@@ -11,15 +11,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating network ACLs 
 {: #acl-create-ui}
@@ -44,6 +36,7 @@ To configure the ACL:
 1. When you finish creating rules, click the **All access control lists** breadcrumb at the beginning of the page.
 
 ### Example ACL
+{: #ACL-example}
 
 For example, you can configure the following inbound rules:
 
@@ -70,8 +63,3 @@ Then, configure the following outbound rules:
 | 2 | Allow | ALL | Any IP, any port | 10.10.20.0/24, any port |
 | 3 | Deny| ALL | Any IP, any port |Any IP, any port|
 {: caption="Table 2. Information for configuring outbound rules" caption-side="top"}
-
-## Using the CLI
-
-## Using the API
-
