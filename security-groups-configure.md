@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2022
 
-lastupdated: "2022-11-07"
+lastupdated: "2022-11-11"
 
 keywords:  
 
@@ -44,7 +44,7 @@ To configure your security group by using the UI, follow these steps:
    User tags are visible account-wide. Avoid including sensitive data in the tag name.
    {: note}
 
-   * **Access management tags**: (Optional) Enter Access management tags to apply flexible access policies on specific resources. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
+   * **Access management tags**: (Optional) Add access management tags to help organize access control relationships. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
 
    * **Virtual private cloud**: Select your VPC.
 1. Under Rules, click **Create** to configure inbound and outbound rules that define what type of traffic is allowed to and from the instance. For each rule, specify the following information:  
