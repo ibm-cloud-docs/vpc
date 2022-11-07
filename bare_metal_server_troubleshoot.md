@@ -3,7 +3,7 @@
 copyright:
   years: 2020, 2022
 
-lastupdated: "2022-01-21"
+lastupdated: "2022-11-07"
 
 keywords: troubleshooting bare metal servers, hardware issues, firmware
 
@@ -12,25 +12,7 @@ subcollection: vpc
 
 ---
 
-{:codeblock: .codeblock}
-{:important: .important}
-{:note: .note}
-{:pre: .pre}
-{:preview: .preview}
-{:screen: .screen}
-{:shortdesc: .shortdesc}
-{:tip: .tip}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
-{:external: target="_blank" .external}
-{:support: data-reuse='support'}
-{:table: .aria-labeledby="caption"}
-{:important: .important}
-{:tsSymptoms: .tsSymptoms}
-{:tsCauses: .tsCauses}
-{:tsResolve: .tsResolve}
-{:troubleshoot: data-hd-content-type='troubleshoot'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Troubleshooting Bare Metal Servers for VPC
 {: #troubleshoot_bare_metal}

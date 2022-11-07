@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-10-03"
+lastupdated: "2022-11-07"
 
 keywords:
 subcollection: vpc
@@ -10,21 +10,8 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:DomainName: data-hd-keyref="APPDomain"}
-{:DomainName: data-hd-keyref="DomainName"}
-{:help: data-hd-content-type='help'}
-{:support: data-reuse='support'}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
+
 
 # Attaching a block storage volume
 {: #attaching-block-storage}
@@ -128,10 +115,11 @@ ibmcloud is instance-volume-attachment INSTANCE_ID VOLUME_ATTACHMENT_ID [--json]
 {: pre}
 
 ### List all volume attachments of a server instance
+{: #list-all-attached-vol}
 
 Use the `instance-volume-attachments` command and specify the instance ID to see all volume attachments for an instance.
 
-```text
+```sh
 ibmcloud is instance-volume-attachments INSTANCE_ID [--json]
 ```
 {: pre}
@@ -146,7 +134,7 @@ When you provision a virtual server instance from the CLI and create a block sto
 
 Here is an example volume attachment JSON file that defines a custom volume and specifies user tags:
 
-```text
+```json
 [
     {
         "name": "myvolume-attachment",

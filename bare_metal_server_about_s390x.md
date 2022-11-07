@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-10-11"
+lastupdated: "2022-11-07"
 
 keywords: linuxone bare metal servers, s390x bare metal servers
 
@@ -36,10 +36,12 @@ You can choose different profiles to meet your individual workload needs and hel
 For more information, see [s390x bare metal server profiles](/docs/vpc?topic=vpc-s390x-bare-metal-servers-profile).
 
 ### Latest semiconductor technology
+{: #latest-semiconductor-technology}
 
 s390x bare metal servers use IBM® Integrated Facility for Linux (IFL) that are dedicated to Linux workloads and offer on-chip acceleration for compression and encryption.
 
 ### EAL5+ isolation
+{: #eal5-isolation}
 
 s390x bare metal servers are equivalent to LPARs under the control of a PR/SM Hypervisor, which is designed for Common Criteria Evaluation Assurance Level 5+ (EAL5+) security certification.
 

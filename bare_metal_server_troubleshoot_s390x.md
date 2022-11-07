@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2021,2022
+  years: 2021, 2022
 
-lastupdated: "2022-10-11"
+lastupdated: "2022-11-07"
 
 keywords: troubleshooting LinuxONE bare metal servers, hardware issues, troubleshoot s390x bare metal server
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-15"
+lastupdated: "2022-11-07"
 
 keywords:
 
@@ -11,19 +11,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:DomainName: data-hd-keyref="APPDomain"}
-{:DomainName: data-hd-keyref="DomainName"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Viewing backup policies
 {: #backup-view-policies}
@@ -118,7 +106,7 @@ When you click on a volume name to see the details, you need administrator privi
 {: cli}
 
 ### List all backup policies from the CLI
-{: @backup-view-all-cli}
+{: #backup-view-all-cli}
 
 Run the `backup-policies` command to list all backup policies you created in your account and region. 
 
@@ -208,7 +196,7 @@ ID                                          Name               Active   Lifecycl
 {: screen}
 
 ### View backup plan details from the CLI
-{: backup-view-plan-details-cli}
+{: #backup-view-plan-details-cli}
 
 Run the `ibmcloud is backup-policy-plan` command and specify the policy ID or policy name, and plan ID or plan name. This example specifies the policy ID and plan ID.
 

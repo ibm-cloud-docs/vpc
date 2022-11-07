@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-10-11"
+lastupdated: "2022-11-07"
 
 keywords: s390x bare metal faq, linuxone bare metal server faq
 
@@ -57,19 +57,19 @@ Yes. The bandwidth that you get depends on by the profile that you select.
 Yes. RAID is supported and configured on IBM FlashSystem 9200 systems.
 
 ## Can I enable dual uplinks (uplink redundancy)?
-{: faq-s390x-bare-metal-7}
+{: #faq-s390x-bare-metal-7}
 {: faq}
 
 No.
 
 ## What storage replication is supported for s390x bare metal servers?
-{: faq-s390x-bare-metal-8}
+{: #faq-s390x-bare-metal-8}
 {: faq}
 
 Replication isn't supported.
 
 ## What is the size of the boot drive for an s390x bare metal server?
-{: faq-s390x-bare-metal-9}
+{: #faq-s390x-bare-metal-9}
 {: faq}
 
 The boot disk is 100 GB. You can configure each image differently for its partition sizes.  

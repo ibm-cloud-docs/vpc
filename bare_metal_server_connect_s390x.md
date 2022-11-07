@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-10-11"
+lastupdated: "2022-11-07"
 
 keywords: connecting to s390x bare metal server, floating IP, serial console, vnc console
 
@@ -95,7 +95,7 @@ curl -X PUT "$vpc_api_endpoint/v1/bare_metal_servers/$bare_metal_server_id/netwo
 
    You receive a response similar to the following example. When prompted to continue, type `yes`.
 
-   ```
+   ```text
    The authenticity of host 'xxx.xxx.xxx.xxx (xxx.xxx.xxx.xxx)' can't be established.
    ECDSA key fingerprint is SHA256:abcdef1Gh/aBCd1EFG1H8iJkLMnOP21qr1s/8a3a8aa.
    Are you sure you want to continue connecting (yes/no)? yes

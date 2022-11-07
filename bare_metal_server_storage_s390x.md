@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2021,2022
+  years: 2021, 2022
 lastupdated: "2022-10-11"
 
 keywords: s390x bare metal server storage, s390x bare metal storage, linuxone bare metal storage
@@ -27,5 +27,6 @@ s390x bare metal servers don't encrypt the data at rest and data in transit for 
 {: important}
 
 The following network-attached storages aren't supported:
+
 * Block Storage for VPC
 * File Storage for VPC

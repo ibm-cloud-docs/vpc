@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-08-23"
+lastupdated: "2022-11-07"
 
 keywords:
 
@@ -10,21 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .Shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:tip: .tip}
-{:important: .important}
-{:table: .Aria-labeledby="caption"}
-{:DomainName: data-hd-keyref="APPDomain"}
-{:DomainName: data-hd-keyref="DomainName"}
-{:help: data-hd-content-type='help'}
-{:support: data-reuse='support'}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Creating block storage volumes 
 {: #creating-block-storage}
@@ -178,7 +164,7 @@ In the example command,
 
 You can see the user tags when you look at the details of the boot or data volume after the instance is created.
 
-```
+```text
 ibmcloud is instance-create my-vsi-4 my-vpc-2 us-south-1 bx2-2x8 cli-subnet-1 --image ibm-centos-7-9-minimal-amd64-6 --keys my-keys4 --boot-volume '{"name": "boot-vol-4", "volume": {"name": "my-boot-vol-4", "profile": {"name": "general-purpose"},"user_tags": ["env:test4", "env:dev4"]}}' --volume-attach  '[{"name": "my-vol-att1", "volume": {"name":"my-vol-4", "profile": {"name": "general-purpose"}, "capacity": 10 ,"user_tags": ["env:test4", "env:dev4"]}}]'
 
 Creating instance my-vsi-4 under account vpcdemo1 as user myuser@mycompany.com...
@@ -226,7 +212,7 @@ You can specify user tags for boot and data volumes when you create an instance 
 
 This example command adds two user tags to the instance template that will be applied to the volumes.
 
-```
+```text
 ibmcloud is instance-template-create my-tpl-1 my-vpc-2 us-south-1 bx2-2x8 cli-subnet-1 --image ibm-centos-7-9-minimal-amd64-6 --keys my-keys4 --boot-volume '{"name": "boot-vol-1", "volume": {"name": "my-boot-vol-1", "profile": {"name": "general-purpose"},"user_tags": ["env:test1", "env:dev1"]}}' --volume-attach  '[{"name": "my-vol-att", "volume": {"name":"my-vol-1", "profile": {"name": "general-purpose"}, "capacity": 10 ,"user_tags": ["env:test1", "env:dev1"] }}]' 
 
 Creating instance template my-tpl-1 under account vpcdemo as user myuser@mycompany.com...
@@ -261,7 +247,7 @@ Created                     2022-08-22T09:10:34+05:30
 
 Use the instance template to create an instance and volumes with user tags. For example:
 
-```
+```text
 ibmcloud is instance-template-create --template my-tpl-1 --name my-vsi-3 --boot-volume '{"name": "boot-vol-3", "volume": {"name": "my-boot-vol-3", "profile": {"name": "general-purpose"},"user_tags": ["env:test3", "env:dev3"]}}' --volume-attach  '[{"name": "my-vol-att1", "volume": {"name":"my-vol-3", "profile": {"name": "general-purpose"}, "capacity": 10 ,"user_tags": ["env:test3", "env:dev3"] }}]'
 ```
 {: screen}
@@ -566,4 +552,3 @@ You can continue creating more block storage volumes or manage existing volumes.
 * [View details about a block storage volume.](/docs/vpc?topic=vpc-viewing-block-storage)
 * [Detach a volume from a virtual server instance.](/docs/vpc?topic=vpc-managing-block-storage#detach)
 * [Delete a block storage volume.](/docs/vpc?topic=vpc-managing-block-storage#delete)
-
