@@ -51,7 +51,7 @@ Use failover for routine maintenance on the primary site or when the site is hav
 Failover is also an option for disaster recovery. If the original site is confirmed to be unavailable and you need your application started as soon as possible on the replica location, choose the remove replication relationship option as the fallback policy when you initiate the failover. Failover for disaster recovery works like this:
 
 * The file share at the source site quiesces all read and write operations and the system attempts to pull a final copy of the share's data to the replica file share.
-* When the last data pull times out and fails, the file service determines that it is a disaster recovery situation. Then, the service breaks the replication relationship. The replica file share becomes read/write and operates as an independent file sharee.
+* When the last data pull times out and fails, the file service determines that it is a disaster recovery situation. Then, the service breaks the replication relationship. The replica file share becomes read/write and operates as an independent file share.
 *  Replication relationship cannot be reestablished. However, you can set up a new replica on the original site if and when the site becomes operational again.
 
 Due to the nature of the disaster recovery failover, you might find that the latest data set did not get copied over. In that case, you probably need to reconcile the state of your application manually when the source file share is available again. If the source file share zone becomes available again, data is available from the replica share to reconcile from the time of the incident to the recovery point.
