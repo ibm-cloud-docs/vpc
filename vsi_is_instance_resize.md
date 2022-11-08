@@ -2,26 +2,13 @@
 
 copyright:
   years: 2021
-lastupdated: "2022-07-08"
+lastupdated: "2022-11-08"
 
 subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:note: .note}
-{:important: .important}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:beta: .beta}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
-{:terraform: .ph data-hd-interface='terraform'}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Resizing a virtual server instance
 {: #resizing-an-instance}
@@ -95,7 +82,7 @@ Complete the following steps to resize an existing virtual server instance.
 
 Use the `instance-update` command to resize a virtual server.
 
-```
+```sh
 ibmcloud is instance-update instance-id --profile profile-id  
 ```
 {: pre}
@@ -106,7 +93,7 @@ Where:
 
 As an example, if you want to resize an instance to the _bx2-16x64_ profile, the command would look similar to the following command.
 
-```
+```sh
 ibmcloud is instance-update 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --profile bx2-16x64
 ```
 {: pre}
@@ -118,6 +105,7 @@ ibmcloud is instance-update 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --profile bx2-1
 Use the `instance-update` command to resize a virtual server.
 
 1. Run the following command to find the name of the profile you want to use:
+
    ```sh
    curl  -s -X GET "<api_endpoint>/v1/instance/profiles?generation=2&version=2021-02-01" -H "Authorization: Bearer <IAM token>"
    ```
@@ -128,6 +116,7 @@ Use the `instance-update` command to resize a virtual server.
     * If you use instance storage, choose a profile that has instance storage.
     * For data volumes, choose a profile that has data volumes.
 3. Run the following command:
+
    ```sh
    curl -k -sS -X PATCH "<api_endpoint>/v1/instances/<instance id>?generation=2&version=2021-02-01" \
        -H "Authorization: Bearer <IAM token>" \

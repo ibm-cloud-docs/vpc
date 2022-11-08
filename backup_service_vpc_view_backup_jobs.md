@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-11-08"
 
 keywords:
 
@@ -11,20 +11,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:screen: .screen}
-{:table: .aria-labeledby="caption"}
-{:DomainName: data-hd-keyref="APPDomain"}
-{:DomainName: data-hd-keyref="DomainName"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Viewing backup jobs
 {: #backup-view-policy-jobs}
@@ -171,7 +158,7 @@ curl -X GET\
 
 A successful response will look like this:
 
-```
+```curl
 {
   "first": {
     "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/7241e2a8-601f-11ea-8503-000c29475bed/jobs?limit=20"
@@ -246,7 +233,7 @@ curl -X GET\
 
 A successful response will look like this:
 
-```
+```curl
 {
   "auto_delete": true,
   "auto_delete_after": 90,

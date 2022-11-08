@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2022
 
-lastupdated: "2022-10-03"
+lastupdated: "2022-11-08"
 
 keywords:
 
@@ -14,6 +14,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Creating VPC resources with CLI and API
+{: #creating-vpc-resources-with-cli-and-api}
 
 In addition to creating a VPC, you can also create VPC resources such as an instance, a subnet, and a block storage volume.
 
@@ -38,6 +39,7 @@ To create and configure your virtual private cloud (VPC) and other attached reso
 
 ### Before you begin
 {: #before-cli-tutorial}
+
 Make sure that you set up your CLI [environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 <!--Good place to mention the IBM Cloud SHell? -->
 
@@ -112,7 +114,7 @@ ibmcloud is subnet-create my-subnet $vpc us-south-3 --ipv4-cidr-block "10.0.1.0/
 
 From the output that's returned, save the ID in a variable so you can use it later, for example:
 
-```
+```sh
 subnet="0738-658756a4-1106-4914-969a-3b43b338524a"
 ```
 {: pre}
@@ -914,7 +916,7 @@ curl -X GET "$vpc_api_endpoint/v1/vpcs/$vpc/default_security_group?version=$api_
 
 Save the ID of the security group in a variable, for example:
 
-```
+```sh
 sg=0738-2d364f0a-a870-42c3-a554-000000981149
 ```
 {: pre}

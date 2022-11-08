@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-11-07"
+lastupdated: "2022-11-08"
 
 keywords:
 
@@ -121,14 +121,14 @@ This solution makes one subnet the default gateway (automatically by virtual ser
 
 * On `Virtual-server-1`:
 
-   ```
+   ```sh
    ip route add cidr_2_1 via gw_ip_1_1 dev eth1
    ```
    {: pre}
 
 * On `Virtual-server-2`:
 
-   ```
+   ```sh
    ip route add cidr_1_1 via gw_ip_2_1 dev eth1
    ```
    {: pre}
@@ -138,7 +138,7 @@ This solution makes one subnet the default gateway (automatically by virtual ser
 
 * On `Virtual-server-1`:
 
-```
+```sh
    echo 201 eth1tab >> /etc/iproute2/rt_tables
    ip route add cidr_1_1 dev eth1 proto kernel scope link src ip_1_1 table eth1tab
    ip route add default via gw_1_1 dev eth1 table eth1tab
@@ -147,7 +147,7 @@ This solution makes one subnet the default gateway (automatically by virtual ser
 
 * On `Virtual-server-2`:
 
-```
+```sh
 echo 201 eth1tab >> /etc/iproute2/rt_tables
 ip route add cidr_2_1 dev eth1 proto kernel scope link src ip_2_1 table eth1tab
 ip route add default via gw_2_1 dev eth1 table eth1tab

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-10-03"
+lastupdated: "2022-11-08"
 
 keywords: confidential computing, secure execution, hpcr, contract, customization, env, workload, encryption, attestation, validating
 
@@ -25,8 +25,8 @@ You can validate the certificates that you download for contract encryption and 
 Download the following certificates:
 * Get the DigiCert certificates. The DigiCert Trusted Root G4 certificate can be downloaded [here](https://cacerts.digicert.com/DigiCertTrustedRootG4.crt.pem), and the Digicert G4 intermediate certificate can be downloaded [here](https://cacerts.digicert.com/DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt.pem){: external}.
 * Get the IBM intermediate certificate [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-5-intermediate.crt){: external}, for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-5`.
-  For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-4`, you can download the IBM intermediate certificate [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-4-intermediate.crt){: external}.
-  {: note}
+   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-4`, you can download the IBM intermediate certificate [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-4-intermediate.crt){: external}.
+   {: note}
 
 ## Validating the contract encryption certificate
 {: #validate_encrypt_cert}
@@ -53,7 +53,7 @@ Complete the following steps on an Ubuntu system, to validate the encryption cer
 
    2. Extract the encrypt key signature from the encrypt certificate document.
       The following command returns the offset value of the signature:
-      ```
+      ```sh
       openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-5-encrypt.crt | tail -1 | cut -d : -f 1
       ```
       Consider that the output of the command is <offset_value>. Use this <offset_value> to extract the encrypt key signature into a file called signature:
@@ -112,7 +112,7 @@ Complete the following steps on an Ubuntu system, to validate the encryption cer
 
    2. Extract the encrypt key signature from the encrypt certificate document.
       The following command returns the offset value of the signature:
-      ```
+      ```sh
       openssl asn1parse -in ibm-hyper-protect-container-runtime-1-0-s390x-5-attestation.crt | tail -1 | cut -d : -f 1
       ```
       Consider that the output of the command is <offset_value>. Use this <offset_value> to extract the encrypt key signature into a file called signature:

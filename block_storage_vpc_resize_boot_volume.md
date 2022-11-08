@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-07"
+lastupdated: "2022-11-08"
 
 keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -107,7 +107,7 @@ Boot volume                           ID   Name           Attachment ID         
 
 You can also specify a larger boot volume capacity when creating an instance template from an image or snapshot. For example, 
 
-```
+```sh
 ibmcloud is instance template create tpl-1 vpc-1 us-south-1 bx2-2x8  cli-subnet-1 --image ubuntu-20-04-3-minimal-amd64-1 --boot-volume '{"name": "my-boot-vol1", "volume": {"capacity": 190, "profile": {"name": "general-purpose"}}}'
 ```
 {: screen}
