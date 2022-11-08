@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-19"
+lastupdated: "2022-11-08"
 
 keywords:
 
@@ -11,20 +11,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
-{:DomainName: data-hd-keyref="APPDomain"}
-{:DomainName: data-hd-keyref="DomainName"}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Configure the instance metadata service
 {: #imd-configure-service}
@@ -63,7 +50,7 @@ In the example, the return value of the cURL command is the instance identity ac
 The example uses `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` might not come preinstalled on all VPC images available when you create an instance. You might need to install `jq` before use or use any parser of your choice.
 {: note}
 
-```
+```sh
 instance_identity_token=`curl -X PUT "http://169.254.169.254/instance_identity/v1/token?version=2022-08-08"\
   -H "Metadata-Flavor: ibm"\
   -d '{
@@ -74,7 +61,7 @@ instance_identity_token=`curl -X PUT "http://169.254.169.254/instance_identity/v
 
 The following JSON response shows the instance identity access token character string, date, and time that it was created, date, and time that it expires, and expiration time you set. Keep in mind that the token expires in 5 minutes.
 
-```
+```sh
 {
   "access_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IlZTSS1DUl91cy1lYXN0X2I5...",
   "created_at": "2022-08-08T11:08:39.363Z",
@@ -98,7 +85,7 @@ The IAM API used to pass the instance identity access token and generate an IAM 
 
 Example request:
 
-```
+```sh
 iam_token=`curl -X POST "http://169.254.169.254/instance_identity/v1/iam_token?version=2022-08-08"\
    -H "Authorization: Bearer $instance_identity_token"\
    -d '{
@@ -111,7 +98,7 @@ iam_token=`curl -X POST "http://169.254.169.254/instance_identity/v1/iam_token?v
 
 The JSON response shows the IAM token. 
 
-```
+```sh
 {
   "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aGVfYmVzdCI6I8...",
   "created_at": "2022-08-08T14:10:15Z",
@@ -204,7 +191,7 @@ Before you begin:
 
 Run the `ibmcloud is instance-create` command and set the `metadata-service` property to `true`. The metadata service is disabled by default. In the response, you see `Metadata service enabled` set to `true`.
 
-```
+```sh
 ibmcloud is instance-create test-instance-1 7002c1cd-9b0b-43ee-8112-5124dedbe84b us-south-1  bx2-2x8  0711-08206578-d749-49ea-86c9-1014622d1c6f --image-id 9f0050d0-636b-4fe6-82ea-931664fd9d91 --metadata-service true
 
 Creating instance test under account VPC1 as user myuser@mycompany.com...
@@ -242,7 +229,7 @@ Boot volume                ID   Name           Attachment ID                    
 
 Run the `ibmcloud is instance-update` command and specify the instance ID. To enable the metadata service, set the `metadata-service` parameter to `true`; to disable, set it to `false`. An example command for enabling the service looks like this:
 
-```
+```sh
 ibmcloud is instance-update e219a883-41f2-4680-810e-ee63ade35f98 --metadata-service true
 ```
 {: codeblock}
@@ -256,14 +243,14 @@ Use the `ibmcloud is instance-create-from-template` command and specify `metadat
 
 For example, to create an instance template with the metadata service enabled, run this command:
 
-```
+```sh
 ibmcloud is instance-template-create my-template-name {template_id} us-south-1 mx2-2x16 {subnet_id} --image-id {image_id} --metadata-service true
 ```
 {: pre}
 
 When you create an instance from this template, specify `metadata-service true` again to enable the service on the new instance:
 
-```
+```sh
 ibmcloud is instance-create-from-template --template-id {template_id} --name my-instance --metadata-service true
 ```
 {: pre}
@@ -285,7 +272,7 @@ You can enable the service by specifying the `metadata_service` parameter and se
 
 This example shows enabling the metadata service at instance creation:
 
-```
+```sh
 curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-08-08&generation=2"\
 -H "Authorization: Bearer $iam_token"\
 -d '{
@@ -317,7 +304,7 @@ To enable or disable the service from an existing instance, make a `PATCH /insta
 
 This example call shows enabling the metadata service for an instance:
 
-```
+```sh
 curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id?version=2022-08-08&generation=2"\
     -H "Authorization: Bearer $iam_token"\ 
     -d '{
@@ -337,7 +324,7 @@ When you create an instance template, you can set this value by making a `POST /
 
 For example,
 
-```
+```sh
 curl -X POST "$vpc_api_endpoint/v1/instance/templates?version=2022-08-08&generation=2"\
     -H "Authorization: Bearer $iam_token"\ 
     -d '{
@@ -374,7 +361,7 @@ curl -X POST "$vpc_api_endpoint/v1/instance/templates?version=2022-08-08&generat
 You can't use the API to change the `metadata-service` setting after the instance template is created. If you disabled it for a template, create a new instance template with the `metadata-service` enabled set to `true`.
 
 ## Activity Tracker events for instance metadata
-{: imd-at-events}
+{: #imd-at-events}
 
 Activity Tracker events are triggered when you get an [instance access identity token](#imd-json-token) and then [use the service](/docs/vpc?topic=vpc-imd-get-metadata). For more information about these events, see [Instance Metadata service events](/docs/vpc?topic=vpc-at-events#events-metadata).
 

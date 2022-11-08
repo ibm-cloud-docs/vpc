@@ -2,22 +2,14 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-15"
+lastupdated: "2022-11-08"
 
 subcollection: vpc
 
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:download: .download}
-{:faq: data-hd-content-type='faq'}
-{:support: data-reuse='support'}
+{{site.data.keyword.attribute-definition-list}}
 
 # FAQs for the instance metadata service
 {: #faqs-for-rmds}
@@ -83,7 +75,6 @@ Metadata is retrieved only from the instance to which you have access. Data comm
 Compute resource identities assign an IBM Cloud IAM identity to an individual compute resource. Instead of having to create a service ID, generate an API key, get the application to store and validate that key, you can assign IAM identity directly to the instance and acquire access tokens. 
 
 ## What is a trusted profile?
-{: faq-rdms-trusted-profile}
+{: #faq-rdms-trusted-profile}
 
 A trusted profile is an IAM object created by the compute resource identity service, against which you assign access rights to enable the instance to call IAM-enabled service. You can use a trusted profile when accessing the instance metadata service. For more information, see [Using a trusted profile to call IAM-enabled services](/docs/vpc?topic=vpc-imd-trusted-profile-metadata).
-

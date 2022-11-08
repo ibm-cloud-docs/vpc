@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-15"
+lastupdated: "2022-11-08"
 
 keywords: 
 
@@ -11,17 +11,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:DomainName: data-hd-keyref="APPDomain"}
-{:DomainName: data-hd-keyref="DomainName"}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Use the instance metadata service
 {: #imd-get-metadata}
@@ -64,7 +54,7 @@ You're making an unsecured request that is then secured by a proxy. The proxy in
 
 In the example, the return value of the cURL command is the user data, which is extracted by `jq` and placed in the `user_data` evironment variable.
 
-```
+```sh
 curl -X GET "http://169.254.169.254/metadata/v1/instance/initialization?version=2021-10-12"\
   -H "Accept: application/json"\
   -H "Authorization: Bearer $access_token" | jq -r
@@ -73,7 +63,7 @@ curl -X GET "http://169.254.169.254/metadata/v1/instance/initialization?version=
 
 The response lists public SSH keys used at instance initialization and extracts any other user data made available when provisioning the instance. The response includes the SHA256 value which identifies the SSH key.
 
-```
+```sh
 {
   "keys": [
     {
@@ -95,7 +85,7 @@ The response lists public SSH keys used at instance initialization and extracts 
 Make a `GET "http://169.254.169.254/metadata/v1/instance"` call to retrieve detailed information about the instance. To tailor information for specific instance details, such as network interfaces, see [Additional instance metadata](#imd-additional-inst-metadata).
 
 
-```
+```sh
 curl -X GET "http://169.254.169.254/metadata/v1/instance?version=2021-10-12"\
   -H "Accept:application/json"\
   -H "Authorization: Bearer $access_token"
@@ -104,7 +94,7 @@ curl -X GET "http://169.254.169.254/metadata/v1/instance?version=2021-10-12"\
 
 The response lists all details for an instance, including network interfaces, compute profile, and volume attachments.
 
-```
+```sh
 {
   "boot_volume_attachment": {
     "id": "a8a15363-a6f7-4f01-af60-715e85b28141",
@@ -214,7 +204,7 @@ For more information about these APIs, including required parameters and example
 Make a `GET "http://169.254.169.254/metadata/v1/keys"` call to retrieve information about all SSH keys configured for the instance.
 The output is parsed by `jq`.
 
-```
+```sh
 curl -X GET "http://169.254.169.254/metadata/v1/keys?version=2021-10-12"\
   -H "Accept:application/json"\
   -H "Authorization: Bearer $access_token" | jq -r
@@ -223,7 +213,7 @@ curl -X GET "http://169.254.169.254/metadata/v1/keys?version=2021-10-12"\
 
 Example output, showing one SSH key:
 
-```
+```sh
 {
   "keys": [
     {
@@ -249,7 +239,7 @@ If you have more than one SSH key, you can make a `GET "http://169.254.169.254/m
 
 Make a `GET "http://169.254.169.254/metadata/v1/placement_groups"` call to retrieve information about placement groups configured for the instance. In the example, the return value of the cURL command is a list of placement groups, beginning with the first and up to 50. The output is parsed by `jq`. 
 
-```
+```sh
 curl -X GET "http://169.254.169.254/metadata/v1/placement_groups?version=2021-10-12"\
   -H "Accept:application/json"\
   -H "Authorization: Bearer $access_token"\
@@ -263,7 +253,7 @@ curl -X GET "http://169.254.169.254/metadata/v1/placement_groups?version=2021-10
 
 Example return:
 
-```
+```sh
 {
   "first": {
     "href": "http://169.254.169.254/v1/placement_groups?limit=50"
