@@ -114,7 +114,7 @@ To connect to a Cisco Firepower Thread Defense peer, follow these steps:
 
 1. Configure TCP MSS clamping to avoid unnecessary fragmentation. Go to **Device** > **Advanced Configuration** > **FlexConfig** > **FlexConfig Objects** >**+ button** and create a FlexConfig object with the `sysopt connection tcpmss 1360` command.
 
-   !(FlexConfig Policy](/images/vpn-flexconfig-policy.png)
+   ![FlexConfig Policy](/images/vpn-flexconfig-policy.png)
 
 1. Go to **Device** > **Advanced Configuration** > **FlexConfig** > **FlexConfig Policy** and add the FlexConfig object that you created. Click **SAVE**.
 
