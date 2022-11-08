@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-11-11"
+lastupdated: "2022-11-08"
 
 keywords:  
 
@@ -48,7 +48,6 @@ To configure an ACL using the IBM Cloud console, follow these steps:
    {: important}
 
    * **Tags** - Add user tags. User tags are visible account-wide. For more information, see [Working with tags](/docs/account?topic=account-tag).    
-   * **Access management tags** - Add access management tags to help organize access control relationships. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
    * **VPC** - Select a VPC. You can use the default VPC for this public gateway, or select from the list (if defined). For more information, see [Getting started with Virtual Private Cloud](/docs/vpc?topic=vpc-getting-started&interface=ui).
 
 1. Under Rules, click the **Create +** button to configure inbound and outbound rules that define what traffic is allowed in or out of the subnet. For each rule, specify the following information:
