@@ -28,7 +28,7 @@ These instructions are based on Cisco FTDv, Cisco Firepower Thread Defender, Ver
 The first step in configuring your Cisco FTDv for use with VPN for VPC is to ensure that the following prerequisite conditions are met:
 
 - Cisco FTDv is online and functional with a proper license.
-- You have a credential for accessing Firepower Device Manager Web UI.
+- You have a credential for accessing the Firepower Device Manager Web UI.
 - You have at least one configured and verified functional internal interface.
 - You have at least one configured and verified functional external interface.
 
