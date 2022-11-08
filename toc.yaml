@@ -316,6 +316,7 @@ toc:
                 - vpn-onprem-check-point.md
                 - vpn-onprem-cisco.md
                 - vpn-onprem-firepower-route-based.md
+                - vpn-onprem-firepower-policy-based.md
                 - vpn-onprem-fortigate.md
                 - vpn-onprem-juniper.md
                 - vpn-onprem-strongswan.md
