@@ -32,7 +32,7 @@ The first step in configuring your Cisco FTDv for use with VPN for VPC is to ens
 - You have at least one configured and verified functional internal interface.
 - You have at least one configured and verified functional external interface.
 
-## Procedure
+## Connecting an IBM route-based VPN to a Cisco Firepower Thread Defense peer
 {: #cisco-ftd-procedure}
 
 To connect to a Cisco Firepower Thread Defense peer, follow these steps:
