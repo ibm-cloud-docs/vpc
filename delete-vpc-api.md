@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-08-25"
+  years: 2019, 2022
+lastupdated: "2022-11-08"
 
 
 keywords: delete, resources, api, 
@@ -11,17 +11,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:important: .important}
-{:note: .note}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Deleting a VPC by using the REST APIs
 {: #deleting-using-api}
@@ -58,7 +48,7 @@ curl -X GET "$vpc_api_endpoint/v1/vpcs?version=$version&generation=2" \
 
 Save the ID of the VPC in a variable so you can use it later, for example:
 
-```
+```sh
 vpc="0738-3524fef5-da35-4622-bf9a-31614964649d"
 ```
 {: pre}
@@ -73,7 +63,7 @@ curl -X GET "$vpc_api_endpoint/v1/subnets?version=$version&generation=2" \
 
 Look at the `vpc` value to determine the subnets that need to be deleted. Save the ID of the subnet in a variable for later use, for example:
 
-```
+```sh
 subnet="0738-d31ce469-9b0f-44e1-87ce-0fc77d8b0e53"
 ```
 {: pre}

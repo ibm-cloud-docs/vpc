@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-03"
+lastupdated: "2022-11-08"
 
 keywords:
 
@@ -141,7 +141,7 @@ For example:
 
 In the response, the CRN of the encryption key is from the account that owns the root key, while the file share is created in a second account.
 
-```json
+```text
 {
   "created_at": "2022-08-09T23:28:45Z",
   "crn": "crn:v1:staging:public:is:us-south-1:a/b5c782a8f47a2d1527257e3465f21568::share:r134-fe7219eb-c9a9-4aab-8636-9a57141f0cee",

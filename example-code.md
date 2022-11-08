@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-09-14"
+  years: 2018, 2022
+lastupdated: "2022-11-08"
 
 keywords: create, API, IAM, token, permissions, endpoint, region, zone, profile, status, subnet, gateway, floating IP, delete, resource, provision
 
@@ -10,15 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:note: .note}
-{:screen: .screen}
-{:tip: .tip}
-{:important: .important}
-{:download: .download}
+{{site.data.keyword.attribute-definition-list}}
 
 # Using the REST APIs to create VPC resources
 {: #creating-a-vpc-using-the-rest-apis}
@@ -62,7 +54,7 @@ You must send the `generation` parameter with every API request to specify which
 
 For the rest of the calls, you'll need to know the ID of the newly created VPC. Save the ID in a variable, for example:
 
-```
+```bash
 vpc="0738-59de4046-3434-4d87-bb29-0c99c428c96e"
 ```
 {: pre}
@@ -189,7 +181,7 @@ key="0738-35fb0489-7105-41b9-8764-033fae723006"
 
 Call the APIs to list all profiles and images available for your instance, and choose a combination. The following command lists the profiles available.
 
-```
+```bash
 curl -X GET "$vpc_api_endpoint/v1/instance/profiles?version=$api_version&generation=2" \
   -H "Authorization:$iam_token"
 ```
@@ -197,7 +189,7 @@ curl -X GET "$vpc_api_endpoint/v1/instance/profiles?version=$api_version&generat
 
 The following command lists the images available.
 
-```
+```bash
 curl -X GET "$vpc_api_endpoint/v1/images?version=$api_version&generation=2" \
   -H "Authorization:$iam_token"
 ```
@@ -246,7 +238,7 @@ curl -X POST "$vpc_api_endpoint/v1/instances?version=$api_version&generation=2" 
 
 Save the ID of the instance in a variable, for example:
 
-```
+```bash
 instance="0738-35fb0489-7105-41b9-99de-033fae723006"
 ```
 {: pre}
@@ -284,7 +276,7 @@ curl -X GET "$vpc_api_endpoint/v1/volumes/profiles?version=$api_version&generati
 
 Profiles can be general-purpose (3 IOPS/GB), 5iops-tier, 10-iops-tier, and custom. See [Profiles](/docs/vpc?topic=vpc-block-storage-profiles#block-storage-profiles) for information about volume capacity and IOPS ranges based on the volume profile you select.
 
-```
+```curl
 curl -X POST "$vpc_api_endpoint/v1/volumes?version=$api_version&generation=2" \
   -H "Authorization: $iam_token" \
   -d '{
@@ -303,7 +295,7 @@ curl -X POST "$vpc_api_endpoint/v1/volumes?version=$api_version&generation=2" \
 
 Save the ID of the volume in a variable, for example:
 
-```
+```bash
 volume_id="0738-640774d7-2adc-4609-add9-6dfd96167a8f"
 ```
 {: pre}
@@ -337,7 +329,7 @@ You can configure the security group to define the inbound and outbound traffic 
 
 Find the security group for the VPC:
 
-```
+```bash
 curl -X GET "$vpc_api_endpoint/v1/vpcs/$vpc/default_security_group?version=$api_version&generation=2" \
   -H "Authorization:$iam_token"
 ```
@@ -345,14 +337,14 @@ curl -X GET "$vpc_api_endpoint/v1/vpcs/$vpc/default_security_group?version=$api_
 
 Save the ID of the security group in a variable, for example:
 
-```
+```bash
 sg=0738-2d364f0a-a870-42c3-a554-000000981149
 ```
 {: pre}
 
 Now create a rule to allow inbound SSH traffic so that you'll be able to connect to the instance:
 
-```
+```bash
 curl -X POST "$vpc_api_endpoint/v1/security_groups/$sg/rules?version=$api_version&generation=2" \
   -H "Authorization: $iam_token" \
   -d '{
@@ -399,7 +391,7 @@ floating_ip="0738-35fb0489-7105-41b9-99de-033fae723006"
 
 To connect to the instance, use the floating IP address you created. To get the floating IP address, run the following command:
 
-```
+```bash
 curl -X GET "$vpc_api_endpoint/v1/floating_ips/$floating_ip?version=$api_version&generation=2" \
   -H "Authorization:$iam_token"
 ```
@@ -407,7 +399,7 @@ curl -X GET "$vpc_api_endpoint/v1/floating_ips/$floating_ip?version=$api_version
 
 On Linux, use the `address` of the floating IP to connect to the instance with SSH:
 
-```
+```bash
 ssh -i <private_key_file> root@<floating ip address>
 ```
 {: pre}

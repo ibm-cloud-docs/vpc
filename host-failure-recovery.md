@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-03-14"
+lastupdated: "2022-11-08"
 
 keywords: host failure recovery, recovery
 
@@ -10,21 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:shortdesc: .shortdesc} 
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:table: .aria-labeledby="caption"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Host failure recovery policies
 {: #host-failure-recovery-policies}
@@ -90,7 +76,7 @@ For more information, see [Creating virtual server instances by using the CLI](/
 You can create an instance in your IBM Cloud VPC and change the availability policy on host failure by using the command-line interface (CLI). Run the ibmcloud is instance-create command and set the `--host-failure-policy` property to `restart` or `stop`. The host failure policy service is set to `restart` by default.
 
 
-```
+```bash
 ibmcloud is inc test r134-a0162c41-6a75-4a04-aabb-da1c78539531 us-south-2  bx2-2x8  7284-47efd8c6-0efc-462e-89c0-e0457119f90b --image r134-63363662-a4ee-4ba4-a6c4-92e6c78c6b58 --host-failure-policy stop
 Creating instance test under account VPC1 as user myuser@mycompany.com...
                                          
@@ -120,6 +106,7 @@ Created                               2021-10-25T16:39:30+05:30
 Boot volume                           ID   Name           Attachment ID                               Attachment name      
                                       -    PROVISIONING   7284-69923add-65e2-4b93-bee4-a4bca3836696   collector-reverb-exiting-swinging
 ```
+{: codeblock}
 
 
 ### Update an instance with host failure policy
@@ -127,7 +114,7 @@ Boot volume                           ID   Name           Attachment ID         
 
 You can update an instance in your IBM Cloud VPC with and change the availability policy on host failure by using the command-line interface (CLI). Run the ibmcloud is instance-update command and set the `--host-failure-policy` property to `start` or `stop`. The host failure policy service is set to `restart` by default.
 
-```
+```bash
 ibmcloud is inu 7284_683902df-85ce-4546-808c-3675247074d8 --host-failure-policy restart
 Updating instance 7284_683902df-85ce-4546-808c-3675247074d8 under account VPC1 as user myuser@mycompany.com...
                                          
@@ -157,6 +144,7 @@ Created                               2021-10-25T16:39:30+05:30
 Boot volume                           ID                                          Name                            Attachment ID                               Attachment name      
                                       r134-780e6d41-b8c0-4023-b81f-2dcabf0b834f   aardvark-matrix-tidy-fragment   7284-69923add-65e2-4b93-bee4-a4bca3836696   collector-reverb-exiting-swinging
 ```
+{: codeblock}
 
 ## Setting the recovery policy by using the API
 {: #set-policy-api}

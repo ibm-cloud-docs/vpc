@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-10-24"
+lastupdated: "2022-11-08"
 
 keywords:
 
@@ -421,7 +421,7 @@ A successful response looks like the following example:
 
 Make a `GET /shares/{replica_id}/source` request and specify the replica share ID to retrieve the source file share details.
 
-```curl
+```bash
 curl -X GET \ 
 "$vpc_api_endpoint/v1/shares/$replica_id/source?version=2022-05-17&generation=2"\
 -H "Authorization: $iam_token"\
@@ -430,7 +430,7 @@ curl -X GET \
 
 A successful response provides details of the source file share. Notice that the replication role is `source`.
 
-```
+```bash
 {
   "created_at": "2022-05-17T22:58:49.000Z",
   "crn": "crn:[...]",

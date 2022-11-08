@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-06-02"
+  years: 2020, 2022
+lastupdated: "2022-11-08"
 
 keywords: image, stock image, custom image, power, GPU, profiles
 
@@ -10,19 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:download: .download}
-{:deprecated: .deprecated}
-{:DomainName: data-hd-keyref="DomainName"}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # Setting up the GPU driver for a POWER-based instance
 {: #setup-gpus}
@@ -43,7 +31,8 @@ The NVIDIA CUDA Toolkit provides sample utilities and other developer tools that
 {: #install-gpu-driver}
 
 1. Check whether the driver is already installed.
-   ```
+
+   ```sh
    sudo cat /proc/driver/nvidia/version
    ```
    {: pre}
@@ -52,14 +41,15 @@ The NVIDIA CUDA Toolkit provides sample utilities and other developer tools that
 
 2. Make sure that the prerequisites are met.
    Generally, the prerequisites are gcc and related make utilities. The following command example installs a set of utilities together:
-   ```
+
+   ```sh
    sudo apt update; sudo apt install build-essential
    ```
    {: pre}
    
    If you update a driver to a new level in the same major release stream, then you must ensure that no processes are using the GPU. To remove any processes on a kernel module, you can use the following command to stop the persistence daemon:
 
-   ```
+   ```sh
    sudo systemctl stop nvidia-persistenced
    ```
    {: pre}
@@ -78,14 +68,15 @@ The NVIDIA CUDA Toolkit provides sample utilities and other developer tools that
    Click the download link and review the license terms for the driver. Agree to the terms and download the Debian file.
    Alternatively, after you review the NVIDIA provided information, you can implicitly agree to the terms and conditions. Then, download the Debian file from the console session of your virtual server instance if it has public gateway that is configured for internet access:
    
-   ```
+   ```sh
    sudo wget http://us.download.nvidia.com/tesla/418.116.00/nvidia-driver-local-repo-ubuntu1804-418.116.00_1.0-1_ppc64el.deb
    ```
    {: pre}
 
 4. On your virtual server instance, update package management with the Debian information.
    The following commands assume Ubuntu 18.04 and driver release 418.116.
-   ```
+
+   ```sh
    sudo dpkg -i nvidia-driver-local-repo-ubuntu1804-418.116.00_1.0-1_ppc64el.deb
    sudo apt-key add /var/nvidia-driver-local-repo-418.116.00/7fa2af80.pub
    sudo apt-get update -y
@@ -93,7 +84,8 @@ The NVIDIA CUDA Toolkit provides sample utilities and other developer tools that
    {: pre}
 
 5. Install the GPU driver.
-   ```
+
+   ```sh
    sudo apt-get install nvidia-driver-418
    ```
    {: pre}
@@ -101,14 +93,15 @@ The NVIDIA CUDA Toolkit provides sample utilities and other developer tools that
    The preceding command assumes that the nvidia-driver-local-repo updated with the most recent driver package files for the 418 major release.
 
 6. Restart your instance for the new driver settings to take effect.
-   ```
+
+   ```sh
    sudo reboot
    ```
    {: pre}
    
 After you restart your instance, run the `nvidia-smi` command to load the kernel modules and report status. The following console output is an example:
 
-```
+```text
 $ nvidia-smi
 Thu Jan 23 14:39:27 2020
 +-----------------------------------------------------------------------------+
@@ -160,7 +153,7 @@ To install the CUDA Toolkit, follow these steps.
 
 5. Confirm the installation by running the following to output the CUDA compilation tools release information:
 
-   ```
+   ```sh
    export PATH=$PATH:/usr/local/cuda/bin
    $ nvcc -V
    ```
@@ -176,7 +169,7 @@ To try the sample utilities, follow [NVIDIA's instructions](https://docs.nvidia.
 
 The following console output shows an example of navigating to the location of one of the toolkit samples, building it, and running it:
 
-```
+```text
 $ find / -name bandwidthTest 2> /dev/null
 /usr/local/cuda-10.1/samples/1_Utilities/bandwidthTest
 $ cd /usr/local/cuda-10.1/samples/1_Utilities/bandwidthTest
@@ -191,4 +184,3 @@ Running on...
  Result = PASS
 ```
 {: screen}
-
