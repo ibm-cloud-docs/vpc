@@ -85,7 +85,7 @@ To connect to a Cisco Firepower Thread Defense peer, follow these steps:
       1. Click the **+** button to add an access rule. Select your local network object for **Source**, and your remote network object as **Destination**. You can create network objects for the Source and the Destination.
       1. Specify the rule **Title**. Select **Allow** for Action, and then click **OK**.
       
-         ![Add Access Rule](/images/ vpn-add-access-rule.png)
+         ![Add Access Rule](/images/vpn-add-access-rule.png)
 
 1. Repeat step 7 to create another access control policy for the returning traffic. This time, the remote network object is the **Source**, and the local network object is the **Destination**. 
 1. Add a static route to allow your local networks to pass through the primary IPsec VPN tunnel. To do so, go to **Device** > **Routing** > **+ button** and complete the following information:
