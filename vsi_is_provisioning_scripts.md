@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-10-18"
+lastupdated: "2022-11-08"
 
 keywords: user data, virtual server username
 
@@ -32,6 +32,8 @@ The size limit of the **User Data** field (or file) is 64 K bytes.
 {: #user-data-examples-for-linux}
 
 ### Adding a user and SSH key
+{: #add-user-ssh-key}
+
 The following cloud-init example shows how a Linux user can add a user and provide the user with an authorized SSH key. The **Name** field has the public key that is added to `~/.ssh/authorized_keys`.
 
 ```yaml
@@ -61,7 +63,7 @@ You can paste one of these examples directly into the **User Data** field. The u
 If you specify to include a file and have spaces preceding the file name, the data isn't interpreted correctly. Verify that `#!/bin/sh` or `#!/bin/bash` are the first characters on the line immediately following the end of file designation (`<<EOF`). The characters can't be indented.
 {: tip}
 
-For more Linux user data examples and information, see [Cloud config examples ![External link icon](../icons/launch-glyph.svg "External link icon")](https://cloudinit.readthedocs.io/en/latest/topics/examples.html){: new_window}.
+For more Linux user data examples and information, see [Cloud config examples ![External link icon](../icons/launch-glyph.svg "External link icon")](https://cloudinit.readthedocs.io/en/latest/topics/examples.html){: external}.
 
 ### Configuring a single disk instance storage by using cloud-config script
 {: #configure-instance-storage-cloud-config}
@@ -229,12 +231,12 @@ To run the cloud-config script on each successive boot, follow this procedure:
 
 The following example shows user data that can be passed to a Windows instance. This sample user data sets the time zone.
 
-```
+```yaml
 "user_data": "Content-Type: multipart/mixed; boundary=MIMEBOUNDARY\nMIME-Version: 1.0\n\n--MIMEBOUNDARY\nContent-Type: text/cloud-config; charset=\"us-ascii\"\nMIME-Version: 1.0\nContent-Transfer-Encoding: 7bit\nContent-Disposition: attachment; filename=\"cloud-config\"\n#cloud-config\n\nset_timezone: America/Detroit\n\n--MIMEBOUNDARY--\n"
 ```
 {: codeblock}
 
-For more Windows user data examples and information, see [Cloudbase-init 1.0 documentation ![External link icon](../icons/launch-glyph.svg "External link icon")](https://cloudbase-init.readthedocs.io/en/latest/userdata.html){: new_window}.
+For more Windows user data examples and information, see [Cloudbase-init 1.0 documentation ![External link icon](../icons/launch-glyph.svg "External link icon")](https://cloudbase-init.readthedocs.io/en/latest/userdata.html){: external}.
 
 ## User data examples for Fedora Core OS
 {: #user-data-examples-for-fed-core}

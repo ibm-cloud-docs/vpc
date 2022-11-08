@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-11-04"
+lastupdated: "2022-11-08"
 
 keywords: scheduled scaling, instance scaling, virtual server instance scaling, scheduled actions, scaling actions
 
@@ -64,8 +64,7 @@ To create a recurring scheduled action, use the following steps.
 4. In the new screen, click **Create**
 5. Enter an appropriate name for the scheduled action.
 6. Click **Recurring**.
-7. Select a date and time to run the scheduled action by using the predefined dropdown options for each pattern section (Monthly, Days, Hours, Minutes). Or choose a custom schedule by clicking what months, days, hours, and minutes that you want the schedule to run.
-<br>Alternatively, you can select a date and time schedule by entering a cron expression. Click **Cron** and enter an appropriate cron expression.
+7. Select a date and time to run the scheduled action by using the predefined dropdown options for each pattern section (Monthly, Days, Hours, Minutes). Or choose a custom schedule by clicking what months, days, hours, and minutes that you want the schedule to run.  \n Alternatively, you can select a date and time schedule by entering a cron expression. Click **Cron** and enter an appropriate cron expression.
 8. If your instance group is _dynamic_, enter a minimum and or maximum instance group size to apply when this action runs. If your instance group is _static_, enter the instance group size to apply when this action runs.
 9. Click **Create**.
 
@@ -193,7 +192,7 @@ curl -X POST "$vpc_api_endpoint/v1/instance_groups/$instance_group_id/managers?v
       "max_membership_count": 50
     }'
 ```
-{:codeblock}
+{: codeblock}
 
 A successful response looks like the following example:
 
@@ -212,7 +211,7 @@ A successful response looks like the following example:
      "policies": []
    } created a scheduled action
    ```
-   {:codeblock}
+   {: codeblock}
 
 ### Update a scheduled action
 {: #update-scheduled-action-api}
@@ -226,7 +225,7 @@ The following example updates a scheduled action.
          "metric_value": 50
        }'
    ```
-   {:codeblock}
+   {: codeblock}
 
 A successful response looks like the following example:
 
@@ -240,7 +239,7 @@ A successful response looks like the following example:
      "name": "my-policy",
      "policy_type": "target"
    ```
-   {:codeblock}
+   {: codeblock}
 
 ### Delete a scheduled action
 {: #delete-scheduled-action-api}
@@ -251,6 +250,6 @@ The following example deletes a scheduled action.
    
    curl -X DELETE "$vpc_api_endpoint/v1/instance_groups/$instance_group_id/   memberships?version=2021-04-20&generation=2" -H "Authorization: $iam_token"
    ```
-   {:codeblock}
+   {: codeblock}
 
 No sample response available.
