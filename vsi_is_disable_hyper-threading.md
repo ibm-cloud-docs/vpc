@@ -16,6 +16,8 @@ subcollection: vpc
 # Disabling Intel Hyper-Threading Technology
 {: #disabling-hyper-threading}
 
+By default, Intel Hyper-Threading Technology (Intel HT Technology) is turned on within IBM Cloud VPC. Each vCPU maps to a thread. Two vCPUs land on the two threads on a single physical core. IBM Cloud does not share a physical core between two customer's virtual machines. Customers get a full core, which is why the smallest unit is 2 vCPUs.
+
 If your infrastructure configuration and application setup requires it, you can disable Intel Hyper-Threading Technology (Intel HT Technology) on your guest virtual machine. 
 {: shortdesc}
 
