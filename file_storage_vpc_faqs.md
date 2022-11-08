@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-10-24"
+lastupdated: "2022-11-08"
 
 keywords:
 
@@ -10,20 +10,7 @@ subcollection: vpc
 
 ---
 
-{:faq: data-hd-content-type='faq'}
-{:new_window: target="_blank"}
-{:shortdesc: .Shortdesc}
-{:external: target="_blank" .external}
-{:codeblock: .codeblock}
-{:table: .aria-labeledby="caption"}
-{:pre: .pre}
-{:tip: .tip}
-{:preview: .preview}
-{:important: .important}
-{:screen: .screen}
-{:note: .note}
-{:support: data-reuse='support'}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # FAQs for file storage
 {: #file-storage-vpc-faqs}
@@ -31,7 +18,7 @@ subcollection: vpc
 The following questions often arise about File Storage for VPC. If you have other questions you'd like to see addressed here, provide feedback by using the **Open Issue** or **Edit Topic** links.
 {: shortdesc}
 
-File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, Sao Paulo, Tokyo, and Toronto regions. Contact your IBM Sales representative if you are interested in getting access.
+File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, Toronto, Sao Paulo, Tokyo, and Osaka regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Offering questions

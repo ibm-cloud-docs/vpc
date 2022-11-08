@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-10-26"
+lastupdated: "2022-11-08"
 
 keywords:
 
@@ -18,7 +18,7 @@ subcollection: vpc
 Create replica file share in a different zone in your region in the UI, from the CLI, or with the API.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Tokyo, and Osaka regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Add replication to a file share in the UI
@@ -83,7 +83,7 @@ ibmcloud is share-create \
   --profile PROFILE \
   [--name NAME] \
   [--iops IOPS] \
-  [--mount_targets TARGETS_JSON | @TARGETS_JSON_FILE] \
+  [--targets TARGETS_JSON | @TARGETS_JSON_FILE] \
   [--replica-share-profile REPLICA_SHARE_PROFILE \
   --replica-cron-spec REPLICA_CRON_SPEC \
   --replica-zone ZONE_NAME \

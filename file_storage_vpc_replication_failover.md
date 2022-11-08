@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-02"
+lastupdated: "2022-11-08"
 
 keywords:
 
@@ -18,7 +18,7 @@ subcollection: vpc
 Failover to the replica file share keeps your file share available if your source file share becomes unavailable. Failover switches the replication relationship, so that the replica file share becomes the source file share and the source share becomes the read-only replica file share.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Tokyo, and Osaka regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Replication failover concepts

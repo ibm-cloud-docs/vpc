@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-10-28"
+lastupdated: "2022-11-08"
 
 keywords:
 
@@ -18,7 +18,7 @@ subcollection: vpc
 Manage file shares you've created. For this release, you can rename a file share, delete a file share, add mount targets to a file share, mount and unmount a file share from virtual server instances, rename a mount target and, delete a mount target.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Tokyo, and Osaka regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Manage file shares and mount points in the UI
@@ -259,7 +259,7 @@ Response:
     },
     "resource_type": "share",
     "size": 100,
-    "mount_targets": [],
+    "targets": [],
     "user_tags": [
       "ut8",
       "ut9"
@@ -494,7 +494,7 @@ A successful response will look like this:
   },
   "resource_type": "share",
   "size": 100,
-  "mount_targets": [],
+  "targets": [],
   "zone": {
     "href": "$vpc_api_endpoint/v1/regions/us-south/zones/us-south-1",
     "name": "us-south-1"
@@ -510,7 +510,7 @@ Make a `POST /shares/{share_ID}/targets` call to create a mount target for an ex
 
 ```curl
 curl -X POST \
-"$rias_endpoint/v1/shares/$share_id/mount_targets?version=2022-09-06&generation=2\
+"$rias_endpoint/v1/shares/$share_id/targets?version=2022-09-06&generation=2\
 -H "Authorization: $iam_token" \
 -H 'Content-Type: application/json' \
 -d '{
@@ -527,7 +527,7 @@ A successful response will look like this:
 ```json
 {
   "created_at": "2022-09-15T23:31:59Z",
-  "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/mount_targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
+  "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "lifecycle_state": "pending",
   "mount_path": "domain.com:/vol_xyz_2891fd0a_64ea_4deb_9ed5_1159e37cb5aa",
@@ -547,11 +547,11 @@ A successful response will look like this:
 ### Rename a mount target of a file share in the API
 {: #rename-mount-target-api}
 
-Make a `PATCH /shares/$share_id/mount_targets/$target_id` call to rename a mount target of a file share. For example:
+Make a `PATCH /shares/$share_id/targets/$target_id` call to rename a mount target of a file share. For example:
 
 ```curl
 curl -X PATCH \
-"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$target_id?version=2022-09-06&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id/targets/$target_id?version=2022-09-06&generation=2" \
   -H "Authorization: Bearer ${API_TOKEN}" \
   -d '{
     "name": "target-renamed1"
@@ -564,7 +564,7 @@ A successful response will look like this:
 ```json
 {
   "created_at": "2022-09-15T23:31:59Z",
-  "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/mount_targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
+  "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "lifecycle_state": "stable",
   "mount_path": "domain.com:/vol_xyz_2891fd0a_64ea_4deb_9ed5_1159e37cb5aa",
@@ -592,13 +592,13 @@ If the file share is configured for replication, there are additional steps. For
 #### Delete mount target of a file share in the API
 {: #delete-mount-target-api}
 
-Make a `DELETE /shares/{share_ID}/mount_targets/{target_id}` call to delete a mount target of a file share. The file share must be in a `stable` state.
+Make a `DELETE /shares/{share_ID}/targets/{target_id}` call to delete a mount target of a file share. The file share must be in a `stable` state.
 
 For example:
 
 ```curl
 curl -X DELETE \
-"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$target_id?version=2022-09-06&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id/targets/$target_id?version=2022-09-06&generation=2" \
   -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: pre}
@@ -610,7 +610,7 @@ For example:
 ```json
 {
   "created_at": "2022-09-15T23:31:59Z",
-  "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/mount_targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
+  "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "lifecycle_state": "pending_deletion",
   "mount_path": "domain.com:/vol_xyz_2891fd0a_63aa_4deb_9ed5_1159e37cb5aa",
@@ -672,7 +672,7 @@ For example:
   },
   "resource_type": "share",
   "size": 100,
-  "mount_targets": [],
+  "targets": [],
   "zone": {
     "href": "$vpc_api_endpoint/v1/regions/us-south/zones/us-south-1",
     "name": "us-south-1"

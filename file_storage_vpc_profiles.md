@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-10-26"
+lastupdated: "2022-11-08"
 
 keywords:
 
@@ -19,7 +19,7 @@ subcollection: vpc
 When you provision {{site.data.keyword.filestorage_vpc_short}} file shares in the {{site.data.keyword.cloud_notm}} console, from the CLI, or with the API, you specify a profile that best meets your storage requirements. Profiles are available as three predefined IOPS tiers or a custom IOPS that you can tailor to your needs.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Tokyo, and Osaka regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## IOPS tiers
