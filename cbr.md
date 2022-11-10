@@ -58,7 +58,6 @@ Context-based restrictions can be created for the following child services:
 - [Dedicated hosts](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances&interface=cli)
 - [File storage](/docs/vpc?topic=vpc-file-storage-planning&interface=cli)
 - [Image service](/docs/vpc?topic=vpc-planning-custom-images)
-- [Load balancer](/docs/vpc?topic=vpc-nlb-vs-elb&interface=cli)
 - [Snapshots](/docs/vpc?topic=vpc-snapshots-vpc-planning&interface=cli)
 - [Virtual server instances](/docs/vpc?topic=vpc-vsi_best_practice)
 
@@ -67,6 +66,7 @@ The following VPC Infrastructure Services do not support context-based restricti
 - [Access control lists](/docs/vpc?topic=vpc-using-acls&interface=cli)
 - [Bare metal server](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=ui)
 - [Flow logs](/docs/vpc?topic=vpc-flow-logs&interface=cli)
+- [Load balancer](/docs/vpc?topic=vpc-nlb-vs-elb&interface=cli)
 - [Placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc&interface=cli)
 - [Public gateways](/docs/vpc?topic=vpc-public-gateways&interface=cli)
 - [Security groups](/docs/vpc?topic=vpc-using-security-groups&interface=cli)
