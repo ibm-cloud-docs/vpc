@@ -135,4 +135,3 @@ The following issues are currently present in the Cloud Console with no known wo
 | PUT /subnets/{subnet-id}/network\_acl | VPC Viewer | is.vpc.vpc.read |
 | PATCH /floating\_ips/{fip-id} | Subnet Operator | is.subnet.subnet.operate |
 {: caption="Table 1. API additional authorization requirements" caption-side="bottom"}
-
