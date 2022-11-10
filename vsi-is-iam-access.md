@@ -2,7 +2,7 @@
 
 copyright:
   years:  2017, 2022
-lastupdated: "2022-11-11"
+lastupdated: "2022-11-02"
 
 keywords: IAM access for vpc infrastructure services, permissions for vpc infrastructure services, identity and access management for vpc infrastructure services, roles for vpc infrastructure services, actions for vpc infrastructure services, assigning access for vpc infrastructure services
 
@@ -103,6 +103,9 @@ The following links take you directly to the specific infrastructure service on 
 - [Block Storage Snapshots for VPC](/docs/account?topic=account-iam-service-roles-actions#block-storage-snapshots-for-vpc)
 - [File Storage for VPC](/docs/account?topic=account-iam-service-roles-actions#file-storage-for-vpc)
 - [Regional Backup as a Service for VPC](/docs/account?topic=account-iam-service-roles-actions#regional-backup-as-a-service-for-vpc)
+
+Some VPC tasks require authorizations for multiple IAM actions. For example, create virtual server instance not only requires `is.instance.instance.create`, it also requires `is.vpc.vpc.operate`, `is.subnet.subnet.operate`, `is.security-group.security-group.operate`, and `is.volume.volume.create`. Additional conditional actions might be required. For example, if you provision an instance on a dedicated host, you need `is.dedicated-host.dedicated-host-group.operate` and `is.dedicated-host.dedicated-host.operate`. The Virtual Private Cloud API reference includes an Authorization section for each API call, for example, [Create an instance](/apidocs/vpc/latest#create-instance).
+{: note}
 
 ## Assigning access to VPC Infrastructure Services in the console
 {: #vpc-infrastructure-services-assign-access-console}
