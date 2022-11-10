@@ -210,3 +210,9 @@ Application load balancer will continue to support [IBM Certificate Manager](/do
 {: faq}
 
 When a load balancer appliance undergoes a scale down due to horizontal scaling or maintenance, the service waits for the active connections to close to allow for traffic to move to other appliances. After 24 hours, the service will complete its scale down event, which may terminate any active connections on those scaled down appliances.
+
+## How does the load balancer account disablement policy work?
+{: #account-disablement-policy}
+{: faq}
+
+If you receive a notification that your load balancer service has been suspended, then any load balancers on your account will be deleted. If the suspension on your account is removed, your previous load balancers will be restored only if their pre-requisite resources are still active, such as VPCs, subnets, and security groups. If these resources are no longer available, then you will need to provision a new load balancer.
