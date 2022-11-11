@@ -102,7 +102,7 @@ Only PSK authentication is supported.
 {: #faq-vpn-12}
 {: faq}
 
-No. To set up a VPN gateway in your classic environment, you must use an [IPsec VPN](https://{DomainName}/catalog/infrastructure/ipsec-vpn){: external}.
+No. To set up a VPN gateway in your classic environment, you must use an [IPsec VPN](/catalog/infrastructure/ipsec-vpn){: external}.
 
 ## What does rekey collision cause?
 {: #faq-vpn-14}

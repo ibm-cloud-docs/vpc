@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-12-16"
+  years: 2019, 2022
+lastupdated: "2022-11-11"
 
 keywords:
 subcollection: vpc
@@ -34,7 +34,7 @@ Review the following considerations before creating a VPN gateway:
 
 To create a VPN gateway using the UI:
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) on the upper left of the page, then click **VPC Infrastructure > VPNs** in the Network section.
 
     If starting from the VPC Infrastructure menu, click **VPNs** in the Network section to open the {{site.data.keyword.vpn_vpc_short}} page.
@@ -46,6 +46,7 @@ To create a VPN gateway using the UI:
    * **VPN gateway name** - Enter a name for the VPN gateway, such as `my-vpn-gateway`.
    * **Resource group** - Select a resource group for the VPN gateway.   
    * **Tags** - Optionally, add tags to identify this VPN gateway.   
+   * **Access management tags** - Optionally, add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
    * **Region** - Shows the region where the VPC is located and where the VPN gateway will be provisioned.
    * **Virtual Private Cloud** - Select the VPC for the VPN gateway.
    * **Subnet** - Select the subnet in which to create the VPN gateway. See [Planning considerations](/docs/vpc?topic=vpc-vpn-create-gateway#planning-considerations-vpn) for important subnet information.

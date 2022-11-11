@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-07-07"
+lastupdated: "2022-11-11"
 
 keywords:  
 
@@ -52,7 +52,7 @@ Before you provision a VPN server, complete the following prerequisites in the f
 To create a client-to-site VPN server by using the UI:
 
 1. Complete all prerequisites in the "Before you begin" section.
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) on the upper left of the page, then click **VPC Infrastructure > VPNs** in the Network section.
 1. Click **Create** in the upper right of the page.
 1. In the VPN type section, click **Client-to-site servers**.
@@ -67,7 +67,8 @@ To create a client-to-site VPN server by using the UI:
 
    * **VPN server name** - Enter a name for the VPN server, such as `my-vpn-server`.
    * **Resource group** - Select a resource group for the VPN server.
-   * **Tags** - Add tags to organize, track usage costs, or manage access to your resources. 
+   * **Tags** - Optionally, add tags to organize, track usage costs, or manage access to your resources. 
+   * **Access management tags** - Optionally, add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
    * **Virtual private cloud** - Select the VPC for the VPN server.
    * **Client IPv4 address pool** - Enter a CIDR range. The client is assigned an IP address for its session from this address pool.
 
