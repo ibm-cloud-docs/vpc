@@ -41,12 +41,12 @@ If you use a [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#cu
 
 To adjust a volume's IOPS, the volume must be in an _available_ state and the instance must be running. Your user authorization is verified before adjusting IOPS.
 
-You can use the [UI](#adjust-vpc-iops-ui), [CLI](#adjust-vpc-iops-cli), or [API](#adjust-vpc-iops-api) to adjust IOPS. You can adjust the volume's IOPS multiple times up to its maximum limit or reduce IOPS to its lower limit.
+You can use the [UI](#adjust-vpc-iops-ui-block), [CLI](#adjust-vpc-iops-cli-block), or [API](#adjust-vpc-iops-api-block) to adjust IOPS. You can adjust the volume's IOPS multiple times up to its maximum limit or reduce IOPS to its lower limit.
 
 You can monitor the progress of your volume's IOPS change from the UI or CLI. You can also use the [Activity Tracker](/docs/vpc?topic=vpc-at-events) to verify that the IOPS were adjusted.
 
 ## Limitations
-{: #adjustable-iops-limitations}
+{: #adjustable-iops-limitations-block}
 
 The following limitations apply to this release.
 
@@ -72,7 +72,7 @@ The following limitations apply to this release.
 * When you delete an instance, volumes that are marked for auto-deletion are not deleted when IOPS adjustment is underway.
 
 ## Adjust IOPS in the UI
-{: #adjust-vpc-iops-ui}
+{: #adjust-vpc-iops-ui-block}
 {: ui}
 
 Follow these steps to adjust IOPS by selecting a new IOPS tier or custom IOPS band:
@@ -94,11 +94,11 @@ Your new IOPS allocation is realized when you restart the instance.
 
 
 ## Adjust IOPS from the CLI
-{: #adjust-vpc-iops-cli}
+{: #adjust-vpc-iops-cli-block}
 {: cli}
 
 ### Adjust IOPS for a Custom profile
-{: #adjust-iops-cli}
+{: #adjust-iops-cli-block}
 
 From the CLI, use the `volume-update` command with the `--iops` parameter to indicate the new IOPS size for a custom profile. The IOPS you indicate must be within the range for the size of the volume (see [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#custom)).
 
@@ -145,13 +145,13 @@ ibmcloud is volume-update {volume-id} --profile 5iops-tier
 
 
 ## Adjust IOPS with the API
-{: #adjust-vpc-iops-api}
+{: #adjust-vpc-iops-api-block}
 {: api}
 
 You can adjust IOPS for existing data volumes by calling the Virtual Private Cloud (VPC) API.
 
 ### Adjust IOPS for a Custom profile
-{: #adjust-iops-api}
+{: #adjust-iops-api-block}
 
 Make a `PATCH /volumes` request and specify the `iops` parameter to adjust the IOPS within a custom IOPS profile band.
 
@@ -235,7 +235,7 @@ When the IOPS expansion completes, restart the instance. The new value displays,
 {: codeblock}
 
 ### Adjust IOPS by specifying a higher or lower IOPS tier profile
-{: #adjust-profile-api}
+{: #adjust-profile-api-block}
 
 Make a `PATCH /volumes` request and specify the `profile` parameter and indicate the name or href of the IOPS tier profile.
 
@@ -252,7 +252,7 @@ curl -X PATCH \
 {: codeblock}
 
 ## Next steps
-{: #next-step-adjustable-iops}
+{: #next-step-adjustable-iops-block}
 
 Create more volumes or manage your existing block storage volumes:
 
