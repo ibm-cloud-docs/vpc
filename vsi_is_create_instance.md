@@ -3,8 +3,7 @@
 copyright:
   years: 2018, 2022
 
-lastupdated: "2022-11-03"
-
+lastupdated: "2022-11-11"
 
 keywords:
 
@@ -36,6 +35,7 @@ Use the following steps to create a virtual server instance.
 | Name  | A name is required for your virtual server instance. |
 | Resource group | Select a resource group for the instance. |
 | Tags | You can assign a user tag to the instance so that you can easily filter instance resources in your resource list. For more information, see [Working with tags](/docs/account?topic=account-tag&interface=ui).|
+| Access management tags | Access management tags help you apply flexible access policies on specific resources. For more information, see the [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial) UI tutorial. |
 | Location | Locations are composed of regions (specific geographic areas) and zones (fault-tolerant data centers within a region). Select the location where you want to create your virtual server instance. |
 | Placement group | Select a placement group for the instance. If you add a placement group, the instance is placed according to the placement group policy. For more information, see [About placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc). |
 | | **Note:** This field is available only if `Add instance to placement group` is selected during provisioning. |

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-10-11"
+lastupdated: "2022-11-11"
 
 
 keywords: known issues, bugs, defects
@@ -116,3 +116,22 @@ The following issues are currently present in the Cloud Console with no known wo
 {: #RCS-4957}
 
 **Issue:** If you set a [config rule](/docs/vpc?topic=vpc-manage-security-compliance&interface=ui#govern-vpc) for a virtual server instance with the `metadata_service_enabled` property set to *is_false*, the compliance policy currently has no effect.
+
+## Additional authorizations beyond those defined in the API specification
+{: #api-spec-auth-known-issue}
+
+**Issue:** Some API implementations have required authorizations that are different from the authorizations requirements that are defined in the [API specification](/apidocs/vpc/latest). The following table lists such APIs and the extra permissions that are required in addition to what is already defined in the specification. This table will be continually updated as these issues are resolved.
+
+| API | Additional access requirements | Action name|
+| ----------- | ---------------------------------- | -----------------------------------------|
+| PATCH /instances/{instance-id}  | Dedicated Host Operator, Dedicated Host Group Operator | is.dedicated-host.dedicated-host-group.operate (conditional)  \n is.dedicated-host.dedicated-host.operate (conditional) |
+| POST /instances | Subnet Editor| is.subnet.subnet.update (conditional) |
+| POST /instances/{instance-id}/actions | Instance Editor | is.instance.instance.update |
+| POST /instances/{instance-id}/volume\_attachments | Instance Editor | is.instance.instance.update |
+| DELETE /instances/{instance-id}/volume\_attachments/{vol-attach-id} | Instance Editor | is.instance.instance.update |
+| GET /network\_acls/{nacl-id} | VPC Viewer | is.vpc.vpc.read |
+| POST /network\_acls/{nacl-id}/rules | VPC Viewer | is.vpc.vpc.read |
+| GET /subnets/{subnet-id}/network\_acl | VPC Viewer | is.vpc.vpc.read |
+| PUT /subnets/{subnet-id}/network\_acl | VPC Viewer | is.vpc.vpc.read |
+| PATCH /floating\_ips/{fip-id} | Subnet Operator | is.subnet.subnet.operate |
+{: caption="Table 1. API additional authorization requirements" caption-side="bottom"}

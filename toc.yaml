@@ -138,7 +138,7 @@ toc:
         - topicgroup:
             label: Managing access
             topics:
-            - iam.md
+            - vsi-is-iam-access.md
             - vpc-user-permissions.md
             - api-auth-correlation.md
             - resource-attributes.md
