@@ -2,7 +2,7 @@
 
 copyright:
   years:  2017, 2022
-lastupdated: "2022-11-02"
+lastupdated: "2022-11-11"
 
 keywords: IAM access for vpc infrastructure services, permissions for vpc infrastructure services, identity and access management for vpc infrastructure services, roles for vpc infrastructure services, actions for vpc infrastructure services, assigning access for vpc infrastructure services
 
@@ -13,7 +13,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Managing IAM access for VPC Infrastructure Services - DRAFT
+# Managing IAM access for VPC Infrastructure Services
 {: #iam-getting-started}
 
 Access to {{site.data.keyword.vpc_full}} service instances for users in your account is controlled by {{site.data.keyword.cloud}} Identity and Access Management (IAM). Every user that accesses the `VPC Infrastructure Services` service in your account must be assigned an access policy with an IAM role. Review the following roles, actions, and more to help determine the best way to assign access to `VPC Infrastructure Services`.
