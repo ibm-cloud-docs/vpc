@@ -24,7 +24,7 @@ Each subnet can be attached to only one ACL. However, each ACL can be attached t
 
 Before you begin, ensure that you have created a VPC and subnet.
 
-## Creating a network ACL by using the UI
+## Creating a network ACL in the UI
 {: #configuring-the-acl}
 {: ui}
 
@@ -64,7 +64,7 @@ To configure an ACL in the {{site.data.keyword.cloud_notm}} console, follow thes
 
 1. View your Total estimated cost in the Summary menu in the lower right of the page.
 
-## Creating a network ACL by using the CLI
+## Creating a network ACL from the CLI
 {: #cr-using-the-cli-acl}
 {: cli}
 
@@ -97,7 +97,7 @@ For example:
 - `ibmcloud is network-acl-create my-acl 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479`
 - `ibmcloud is network-acl-create my-acl 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --source-acl-id 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3`
 
-## Creating a network ACL by using the API
+## Creating a network ACL with the API
 {: #cr-using-the-api-acl}
 {: api}
 

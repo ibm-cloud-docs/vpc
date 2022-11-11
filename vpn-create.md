@@ -28,7 +28,7 @@ Review the following considerations before creating a VPN gateway:
 * By default, PFS (Perfect Forward Secrecy) is disabled for IBM Cloud VPN for VPC. Some vendors require PFS enablement for Phase 2. Check your vendor instruction and use custom policies if PFS is required.
 * IBM Cloud VPN for VPC supports only one route-based VPN per zone per VPC.
 
-## Creating a VPN gateway by using the UI
+## Creating a VPN gateway in the UI
 {: #vpn-create-ui}
 {: ui}
 
@@ -78,7 +78,7 @@ To create a VPN gateway using the UI:
    The IKE and IPsec security options that you specify for the connection must be the same options that are set on the peer gateway for the network outside your VPC.
    {: important}
 
-## Creating a VPN gateway by using the CLI
+## Creating a VPN gateway from the CLI
 {: #vpn-create-cli}
 {: cli}
 
@@ -114,7 +114,7 @@ Where:
 - Create a route-based VPN gateway, using a specific resource group ID with output in JSON format:
    `ibmcloud is vpn-gateway-create my-vpc-gateway fee82deba12e4c0fb69c3b09d1f12345 --mode route --resource-group-id fee82deba12e4c0fb69c3b09d1f12345 --output JSON`
 
-## Creating a VPN gateway by using the API
+## Creating a VPN gateway with the API
 {: #vpn-create-api}
 {: api}
 
@@ -155,7 +155,7 @@ To create a policy-based IBM Cloud VPN for VPC by using the API, follow these st
    ```
    {: codeblock}
 
-## Creating a VPN gateway by using Terraform
+## Creating a VPN gateway with Terraform
 {: #vpn-create-terraform}
 {: terraform} 
 

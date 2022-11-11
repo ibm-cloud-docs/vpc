@@ -126,7 +126,7 @@ Before you create a flow log collector, make sure that you meet the following pr
    For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth#create-auth).
    {: note}
 
-## Creating a flow log collector by using the UI
+## Creating a flow log collector in the UI
 {: #fl-ordering-ui}
 {: ui}
 
@@ -159,7 +159,7 @@ To create a flow log collector by using the IBM Cloud console, follow these step
    * **Location** - This input is unavailable because it is directly tied to the region the target resource resides in.
    * **Bucket** - The wanted Cloud Object Storage (COS) bucket that the flow log collector service writes to.
 
-## Creating a flow log collector by using the CLI
+## Creating a flow log collector from the CLI
 {: #fl-ordering-cli}
 {: cli}
 
@@ -187,7 +187,7 @@ Where:
 * **--resource-group-name** is the name of the resource group. This option is mutually exclusive with **--resource-group-id**.
 * **--json** formats the output in JSON.
 
-## Creating a flow log collector by using the API
+## Creating a flow log collector with the API
 {: #fl-ordering-api}
 {: api}
 

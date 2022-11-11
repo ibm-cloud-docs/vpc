@@ -45,11 +45,11 @@ Before you provision a VPN server, complete the following prerequisites in the f
    To configure security groups for use with a VPN, you must do so during VPN server provisioning. At least one security group is required.
    {: note}   
 
-## Creating a VPN server by using the UI
+## Creating a VPN server in the UI
 {: #creating-vpn-server-ui}
 {: ui}
 
-To create a client-to-site VPN server by using the UI:
+To create a client-to-site VPN server in the UI:
 
 1. Complete all prerequisites in the "Before you begin" section.
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
@@ -124,7 +124,7 @@ To create a client-to-site VPN server by using the UI:
 
          ![VPN additional configuration section](images/vpn-additional-configuration.png){: caption="VPN additional configuration section" caption-side="bottom"}
 
-## Creating a VPN server using the CLI
+## Creating a VPN server from the CLI
 {: #vpn-create-server-cli}
 {: cli}
 
@@ -167,7 +167,7 @@ ibmcloud is vpn-server-create --subnets SUBNETS --client-ip-pool CLIENT_IP_POOL 
 - `ibmcloud is vpn-server-create --name myvpnserver3 --subnets 0726-a7191f77-7c87-4ad4-bb11-a37f9e9fc0f0 --cert crn:v1:bluemix:public:cloudcerts:us-south:a/aa5a471f75bc456fac416bf02c4ba6de:1862b0b4-c1f8-4eef-a6b5-e9c00c9f593d:certificate:6c801ef768c139d986b4c6f91175e8cc --client-ip-pool 190.168.7.0/20 --client-auth-methods username --security-group r134-e32f671c-463d-4f93-88e3-2dd0413476b4 --security-group r134-3af7a9db-d9bc-43d4-bced-93e0a33fee25`
 - `ibmcloud is vpn-server-create  --subnets 0736-4b871e22-e819-4f87-bb17-e457a88246a2 --client-ip-pool 192.170.0.0/22 --client-dns 172.34.1.100 --cert crn:v1:bluemix:public:cloudcerts:us-south:a/0046b57b897f419080c4ed3e011b86d4:5f1a72bc-b4c2-413f-bd22-011cfa4be5db:certificate:c81627a1bf6f766379cc4b98fd21ccd6 --client-auth-methods certificate,username --client-ca crn:v1:bluemix:public:cloudcerts:us-south:a/0046b57b897f419080c4ed3e011b86d4:5f1a72bc-b4c2-413f-bd22-011cfa4be5db:certificate:c81627a1bf6f766379cc4b98fd21ccd6 --client-crl @./openvpn/crl.pem --name vpnswithcrl --security-group r134-5744b689-e5c4-461d-9f9b-ce5e7e8dbed6`
 
-## Creating a VPN server using the API
+## Creating a VPN server with the API
 {: #vpn-create-server-api}
 {: api}
 
