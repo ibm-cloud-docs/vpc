@@ -2,12 +2,11 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-08"
+lastupdated: "2022-11-11"
 
 keywords:
 
 subcollection: vpc
-
 
 ---
 
@@ -16,77 +15,77 @@ subcollection: vpc
 # Viewing backup jobs
 {: #backup-view-policy-jobs}
 
-When a backup policy is being created or deleted, you can view the backup job status. Use the UI, CLI, or API to a list all backup jobs for a policy and view job details.
+When a backup policy is being created or deleted, you can view the backup job status. Use the UI, CLI, or API to list all backup jobs for a policy and view job details.
 {: shortdesc}
 
 A job creates a snapshot from a volume, on behalf of a backup policy and plan.
 
-## View backup jobs using the UI
+## View backup jobs in the UI
 {: #backup-view-jobs-ui}
 {: ui}
 
 List all backup jobs. Select a backup job and review its details.
 
-### View a list of backup jobs using the UI
+### View a list of backup jobs in the UI
 {: #backup-view-jobs-list-ui}
 
-From the backup policy details page, you can list all backup jobs for that policy. The jobs are listed with the newest ones first. Backup jobs show all backups created in the account for the selected region.
+From the backup policy details page, you can list all backup jobs for that policy. The jobs are listed with the newest one first. Backup jobs show all backups that were created in the account for the selected region.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Backup policies**. 
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Backup policies**.
 
-2. Click the **Backup jobs** tab. Table 4 describes the information on the Backup jobs page.
+2. Click the **Backup jobs** tab. Table 1 describes the information on the Backup jobs page.
 
 | Field | Description |
 |-------|-------------|
-| Job ID | Auto-generated ID of the backup job. |
-| Job status | Status of the backup job, either `running`, `completed`, or `failed`. |
-| Plan | Backup plan that triggered the backup. Hover over the plan name for a summary of the plan. |
+| Job ID | It's the auto-generated ID of the backup job. |
+| Job status | It's the status of the backup job, either `running`, `completed`, or `failed`. |
+| Plan | The backup plan that triggered the backup. Hover over the plan name for a summary of the plan. |
 | Job type | When a backup is being created, it shows `creation`. When a backup is being deleted, it shows `retention`.|
-| Job started | Date and time the job began. |
-| Job completed | Date and time the job finished. |
-| Snapshot | The snapshot (backup) created when the backup job finishes. Click the name to [see the details](#backup-view-snap-backup-ui) in the side panel. |
+| Job started | Date and time of when the job began. |
+| Job completed | Date and time of when the job finished. |
+| Snapshot | The snapshot (backup) that was created when the backup job finishes. Click the name to see the details in the side panel. |
 | Source | Source volume from which the backup was created. Click the volume name to see its details. |
 {: caption="Table 1. List of backup jobs for the backup policy" caption-side="bottom"}
 
-### View snapshots created by a backup job using the UI
+### View snapshots that were created by a backup job in the UI
 {: #backup-view-snap-backup-ui}
 
-From the [list of backup jobs](#backup-view-jobs-list-ui), click on the name of a snapshot. A side panel provides snapshot details (Table 2).
+From the list of backup jobs, click the name of a snapshot. A side panel provides snapshot details (Table 2).
 
 | Field | Description |
 |-------|-------------|
 | Status | Current status of the snapshot, such as _Stable_. For a list of snapshot statuses, see [Snapshot statuses](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status). |
-| Name | The name of the backup policy that created the snapshot. You can change the backup policy settings by clicking the pencil icon. For more information, see [Managing backup policies](/docs/vpc?topic=vpc-backup-service-manage).  |
+| Name | The name of the backup policy that created the snapshot. You can change the backup policy settings by clicking the pencil icon. For more information, see [Managing backup policies](/docs/vpc?topic=vpc-backup-service-manage). |
 | ID | GUID of the snapshot. |
-| Bootable | Whether the snapshot was created from a boot volume. |
+| Bootable | It indicates whether the snapshot was created from a boot volume. |
 | CRN | Cloud resource name of the snapshot. |
-| Created | Date and time that the snapshot resource creation process started. |
-| Captured | The date and time that this snapshot was captured, that is, the volume data was snapshotted. If absent, the snapshot has not yet been captured or the snapshot was created before this feature was introduced (January 2022). |
-| Size | Size in GBs of the snapshot, inherited from the source volume. |
+| Created | Date and time of when that the snapshot resource creation process started. |
+| Captured | The date and time of when this snapshot was taken. If the fieldd is empty, then the snapshot is not yet captured or the snapshot was created before this feature was introduced (January 2022). |
+| Size | Size in GBs of the snapshot, it's inherited from the source volume. |
 | Source Volume | Source volume from which the first snapshot was taken. Click the link for volume details. If the volume was deleted, the name appears without a link. |
 | Encryption | Either provider-managed or customer-managed. |
-| Tags |  User tags inherited from the source volume when the snapshot was created. Click the pencil icon to add additional user tags.|
+| Tags |  User tags inherited from the source volume when the snapshot was created. Click the pencil icon to more user tags.|
 {: caption="Table 2. Snapshot details side panel" caption-side="bottom"}
 
-## View backup jobs using the CLI
+## View backup jobs from the CLI
 {: #backup-view-jobs-cli}
 {: cli}
 
 You can view a list of backup jobs by specifying the ID or name of the backup policy. You can also see details of a backup job with the ID of the backup job.
 
-### View a list of backup jobs with the CLI
+### View a list of backup jobs from the CLI
 {: #backup-view-jobs-list-cli}
 
 Run the `backup-policy-jobs` command to view the backup jobs for your backup snapshots. Status indicates when backup snapshots are being created, failed completion, or succeeded completion. In this example, the ID of the backup policy lists jobs for that backup policy. You can also specify the backup policy name.
 
 ```text
-ibmcloud is backup-policy-jobs POLICY [--volume VOLUME] [--snapshot SNAPSHOT] [--snapshot-crn SNAPSHOT_CRN] [--status failed | running | succeeded] [--plan PLAN] [--output JSON] [-q, --quiet] 
+ibmcloud is backup-policy-jobs POLICY [--volume VOLUME] [--snapshot SNAPSHOT] [--snapshot-crn SNAPSHOT_CRN] [--status failed | running | succeeded] [--plan PLAN] [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
 For example:
 
-```text
+```json
 ibmcloud is backup-policy-jobs bd8e95e1-e63a-468e-9df8-6a8747f03ffc
 Listing jobs of backup policy bd8e95e1-e63a-468e-9df8-6a8747f03ffc under account VPC as user muuser@mycompany.com...
 ID                                          Auto delete   Auto delete after   Completed at                Created                     Job type   Status
@@ -96,58 +95,57 @@ d3b0d928-1a3a-4302-9b12-cc0a17bdd1d5   true          15                  2022-06
 ```
 {: screen}
 
-### View details of a backup job with the CLI
+### View details of a backup job from the CLI
 {: #backup-view-jobs-details-cli}
 
-Run the `backup-policy-jobs` command and specify the ID of the backup policy and backup job to see the job details. Alterntively, you can specify the backup policy name.
+Run the `backup-policy-jobs` command and specify the ID of the backup policy and backup job to see the job details. Alternatively, you can specify the backup policy name.
 
 ```text
-ibmcloud is backup-policy-job POLICY JOB_ID [--output JSON] [-q, --quiet] 
+ibmcloud is backup-policy-job POLICY JOB_ID [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
 For example:
 
-```text
-ibmcloud is backup-policy-job 7003cdf1-48bb-4af2-9ceb-1edbe8fcb818 a0d4eac1-6473-4c3b-a123-5543cdecaf45 
+```json
+ibmcloud is backup-policy-job 7003cdf1-48bb-4af2-9ceb-1edbe8fcb818 a0d4eac1-6473-4c3b-a123-5543cdecaf45
 Getting job a0d4eac1-6473-4c3b-a123-5543cdecaf45 under account VPC as user myuser@mycompanu.com...
-                           
-ID                      a0d4eac1-6473-4c3b-a123-5543cdecaf45   
-Auto delete             true   
-Auto delete after       15   
+
+ID                      a0d4eac1-6473-4c3b-a123-5543cdecaf45
+Auto delete             true
+Auto delete after       15
 Plans                   ID                                          Name                         Resource type
                         392d5e3a-4596-407f-9ca6-2c78afce8d6e        test-p1-plan-2               backup_policy_plan
-Completed at            2022-06-21T16:59:52+05:30   
-Created                 2022-06-21T16:59:30+05:30   
-Source volume           CRN                                                                                                                        ID                                          Name                          Resource type      
-                        crn:v1:staging:public:is:us-south-3:a/fee5afc483594adaa8325e2b4d1290df::volume:a11e25f2-3fc3-4507-8725-e5f1d07256ea   a11e25f2-3fc3-4507-8725-e5f1d07256ea   volume-2      
-                           
-Status                  succeeded   
-Completed at            2022-06-21T16:59:52+05:30   
-Current status reason   Code   Message      
-                           
-Target snapshot         CRN                                                                                                                        ID                                          Name                                                 Resource type      
-                        crn:v1:staging:public:is:us-south:a/fee5afc483594adaa8325e2b4d1290df::snapshot:cd900168-918e-4386-9527-f1ba13157bba   cd900168-918e-4386-9527-f1ba13157bba   test-p1-plan-2-e49bef87507f-400d   snapshot      
-                           
-Job type                creation   
-Resource type           backup_policy_job     
+Completed at            2022-06-21T16:59:52+05:30
+Created                 2022-06-21T16:59:30+05:30
+Source volume           CRN                                                                                                                        ID                                          Name                          Resource type
+                        crn:v1:staging:public:is:us-south-3:a/fee5afc483594adaa8325e2b4d1290df::volume:a11e25f2-3fc3-4507-8725-e5f1d07256ea   a11e25f2-3fc3-4507-8725-e5f1d07256ea   volume-2
+
+Status                  succeeded
+Completed at            2022-06-21T16:59:52+05:30
+Current status reason   Code   Message
+
+Target snapshot         CRN                                                                                                                        ID                                          Name                                                 Resource type
+                        crn:v1:staging:public:is:us-south:a/fee5afc483594adaa8325e2b4d1290df::snapshot:cd900168-918e-4386-9527-f1ba13157bba   cd900168-918e-4386-9527-f1ba13157bba   test-p1-plan-2-e49bef87507f-400d   snapshot
+
+Job type                creation
+Resource type           backup_policy_job
 ```
 {: screen}
 
-
-## View backup jobs using the API
+## View backup jobs with the API
 {: #backup-view-jobs-api}
 {: api}
 
-View a list of backup jobs or details of a single backup job using the API.
+View a list of backup jobs or details of a single backup job with the API.
 
-The backup API is now generally available, with the exception of the backup jobs API, which remains in beta. See the [Change log](/docs/vpc?topic=vpc-api-change-log#21-june-2022) in VPC Getting Started.
+The backup API is now generally available, with the exception of the backup jobs API, which remains in beta. For more information, see the [Change log](/docs/vpc?topic=vpc-api-change-log#21-june-2022).
 {: note}
 
 ### View a list of backup jobs with the API
 {: #backup-view-jobs-list-api}
 
-Make a `GET /backup_policies/{backup_policy_id}/jobs` request to list all backup jobs a backup policy. You can further filter the results by specifying 
+Make a `GET /backup_policies/{backup_policy_id}/jobs` request to list all backup jobs a backup policy.
 
 ```curl
 curl -X GET\
@@ -156,9 +154,9 @@ curl -X GET\
 ```
 {: codeblock}
 
-A successful response will look like this:
+A successful response looks like the following example.
 
-```curl
+```json
 {
   "first": {
     "href": "https://us-south.iaas.cloud.ibm.com/v1/backup_policies/7241e2a8-601f-11ea-8503-000c29475bed/jobs?limit=20"
@@ -218,12 +216,12 @@ A successful response will look like this:
   "total_count": 132
 }
 ```
-{: codeblock}
+{: screen}
 
 ### View details of a backup job with the API
 {: #backup-view-jobs-details-api}
 
-Make a `GET /backup_policies/{backup_policy_id}/jobs/{backup_job_id}` request to view details of a backup job, specified by ID.
+Make a `GET /backup_policies/{backup_policy_id}/jobs/{backup_job_id}` request to view details of a backup job, which is specified by ID.
 
 ```curl
 curl -X GET\
@@ -233,7 +231,7 @@ curl -X GET\
 
 A successful response will look like this:
 
-```curl
+```json
 {
   "auto_delete": true,
   "auto_delete_after": 90,
@@ -281,16 +279,16 @@ A successful response will look like this:
   }
 }
 ```
-{: codeblock}
+{: screen}
 
 ### Backup job statuses and reason codes
 {: #backup-jobs-status}
 
-When you view details of a backup job by making a `GET/backup_policies/{backup_policy_id}/jobs/{backup_job_id}` request, the `status` property indicates whether the job has `failed`, is `running`, or has `succeeded`. The API also provides status reasons, with the following codes:
+When you view details of a backup job by making a `GET/backup_policies/{backup_policy_id}/jobs/{backup_job_id}` request, the `status` property indicates whether the job `failed`, is `running`, or `succeeded`. The API also provides status reasons, with the following codes:
 
 * `internal_error`: Indicates an internal error. Contact IBM support if your see this code.
 * `snapshot_pending`: Indicates that backup snapshot in the `pending` [snapshot lifecycle state](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status) cannot be deleted.
-* `snapshot_volume_limit`: Indicates that the [snapshot limit](/docs/vpc?topic=vpc-snapshots-vpc-faqs&interface=ui#faq-snapshot-3) for the source volume has been reached.
+* `snapshot_volume_limit`: Indicates that the [snapshot limit](/docs/vpc?topic=vpc-snapshots-vpc-faqs&interface=ui#faq-snapshot-3) for the source volume is reached.
 * `source_volume_busy`: Indicates that the source volume is busy after multiple retries.
 
 ## Next steps
