@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-10-31"
+lastupdated: "2022-11-01"
 
 keywords:
 
@@ -25,6 +25,19 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API , see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI) , see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
+
+## November 2022
+{: #vpc-november22}
+
+### 11 November 2022
+{: #vpc-nov1122}
+{: release-note}
+
+Access managment tags to manage VPC resources
+:   You can now use access management tags to control access to VPC resources, such as virtual server instances and block storage volumes. See the [Access management tags](/docs/vpc?topic=vpc-iam-getting-started&interface=ui#iam-access-management-tags) section in [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started). For information on using access management tags, see the following IAM resources:
+    * [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial) UI tutorial
+    * [Working with tags](/docs/account?topic=account-tag&interface=ui)
+    * [Granting users access to tag resources and service IDs](/docs/account?topic=account-access&interface=ui)
 
 ## October 2022
 {: #vpc-october22}
