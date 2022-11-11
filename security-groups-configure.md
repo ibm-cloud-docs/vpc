@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2022
 
-lastupdated: "2022-11-08"
+lastupdated: "2022-11-11"
 
 keywords:  
 
@@ -44,7 +44,8 @@ To configure your security group by using the UI, follow these steps:
    User tags are visible account-wide. Avoid including sensitive data in the tag name.
    {: note}
 
-   * **Virtual private cloud** - Select your VPC.
+   *  _Optional:_ **Access management tags** - Add access management tags to help organize access control relationships. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
+   * _Optional:_ **Virtual private cloud** - Select your VPC.
 1. Under Rules, click **Create** to configure inbound and outbound rules that define what type of traffic is allowed to and from the instance. For each rule, specify the following information:  
    * Select the protocols and ports to which the rule applies.    
    * Specify a CIDR block or IP address for the permitted traffic. Alternatively, you can specify a security group in the same VPC to allow traffic to or from all instances that are attached to the selected security group. 

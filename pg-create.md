@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2022
-lastupdated: "2022-11-08"
+lastupdated: "2022-11-11"
 
 keywords: 
 
@@ -58,7 +58,9 @@ To create a public gateway using the {{site.data.keyword.cloud_notm}} console, f
    After provisioning is complete, you cannot change the resource group. 
    {: important}
    * **VPC** - Select a VPC. You can use the default VPC for this public gateway, or select from the list (if defined). For more information, see [Getting started with Virtual Private Cloud](/docs/vpc?topic=vpc-getting-started&interface=ui).
-   * **Tags** - Add user tags. User tags are visible account-wide. For more information, see [Working with tags](/docs/account?topic=account-tag).    
+   * **Tags** - Optionally, add user tags. User tags are visible account-wide. For more information, see [Working with tags](/docs/account?topic=account-tag).    
+   * **Access management tags** - Optionally, add access management tags to help organize access control relationships. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
+   
 
 1. Copy a **sample API call** (optional).
 1. Click **Create**. 
