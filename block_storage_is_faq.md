@@ -2,19 +2,14 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-06-28"
+lastupdated: "2022-11-11"
 
 keywords:
 
 subcollection: vpc
 
 ---
-{:faq: data-hd-content-type='faq'}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:support: data-reuse='support'}
-{:external: target="_blank" .external}
-{:note: .note}
+{{site.data.keyword.attribute-definition-list}}
 
 # FAQs for block storage
 {: #block-storage-vpc-faq}
@@ -25,7 +20,7 @@ The following questions often arise about the {{site.data.keyword.block_storage_
 ## Offering questions
 {: #block-storage-vpc-offering-questions}
 
-### How does Block Storage for VPC prevent a single point of failure? What mechanism assures data durability?
+### How does {{site.data.keyword.block_storage_is_short}} prevent a single point of failure? What mechanism assures data durability?
 {: faq}
 {: #faq-block-storage-durability}
 
@@ -55,7 +50,7 @@ You can create 12 block storage secondary volumes per instance, plus the boot vo
 {: #faq-block-storage-6}
 {: support}
 
-Cost for block storage is calculated based on GB capacity stored per month, unless the duration is less than one month. The volume exists on the account until you delete the volume or you reach the end of a billing cycle, whichever comes first. 
+Cost for block storage is calculated based on GB capacity stored per month, unless the duration is less than one month. The volume exists on the account until you delete the volume or you reach the end of a billing cycle, whichever comes first.
 
 Pricing is also affected when you [expand volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes) or [adjust IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) by specifying a different IOPS profile. For example, expanding volume capacity increases costs while changing an IOPS profile from a 5 IOPS/GB tier to a 3 IOPS/GB tier decreases the monthly and hourly rate.  Billing for an updated volume is automatically updated to add the prorated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
@@ -91,7 +86,7 @@ Yes, boot volume capacity can be increased for an existing instance. However, yo
 {: faq}
 {: #faq-block-storage-12}
 
-You can provision up to 300 block storage volumes per account in a region. You can request your quota to be increased by opening a [support case](https://cloud.ibm.com/unifiedsupport/cases/form){: external} and specifying in which region you need more volumes. For more information about preparing a support ticket when you're ordering block storage volumes or requesting an increase to your volume or capacity limits, see [Managing volume count and capacity limits](/docs/vpc?topic=vpc-manage-storage-limit).
+You can provision up to 300 block storage volumes per account in a region. You can request your quota to be increased by opening a [support case](/unifiedsupport/cases/form){: external} and specifying in which region you need more volumes. For more information about preparing a support ticket when you're ordering block storage volumes or requesting an increase to your volume or capacity limits, see [Managing volume count and capacity limits](/docs/vpc?topic=vpc-manage-storage-limit).
 
 ### Can I set up shared storage in a multizone cluster?
 {: faq}
@@ -100,7 +95,7 @@ You can provision up to 300 block storage volumes per account in a region. You c
 
 In the IBM Cloud, storage options are limited to an availability zone. Do not manage shared storage across multiple zones.
 
-Instead, use an IBM Cloud data classic service options outside a VPC such as {{site.data.keyword.cos_full}} or {{site.data.keyword.cloudantfull}} if you must share your data across multiple zones and regions. 
+Instead, use an IBM Cloud data classic service options outside a VPC such as {{site.data.keyword.cos_full}} or {{site.data.keyword.cloudantfull}} if you must share your data across multiple zones and regions.
 
 ### I have volumes on the Classic infrastructure. Can I port them to the VPC?
 {: faq}
@@ -173,7 +168,13 @@ Backup snapshots, simply called "backups", are automatically-created snapshots u
 {: faq}
 {: #faq-block-storage-restore-vol}
 
-Restoring from a snapshot creates a new, fully-provisioned boot or data volume. You can restore boot and data volumes during instance creation or by modifying an existing instance. For data volumes, you can also use the `volumes` API to restore a data volume from a snapshot of an unattached volume, therefore creating a stand-alone volume. For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
+Restoring from a snapshot creates a new, fully-provisioned boot or data volume. You can restore boot and data volumes during instance creation, when modifying an existing instance, or when provisioning a new stand-alone volume. For data volumes, you can also use the `volumes` API to create a data volume from a snapshot. For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
+
+### Can I add tags to a volume?
+{: faq}
+{: #faq-tags}
+
+Yes, you can add user tags and access management tags to your volumes. User tags are used by the backup service to automatically create backup snapshots of the volume. Access management tags help organize access to your block storage volumes. For more information, see [Tags for block storage volumes](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-tags).
 
 ## Performance questions
 {: #block-storage-vpc-performance-questions}
@@ -199,20 +200,26 @@ IOPS profiles define IOPS/GB performance for volumes of various capacities. Ther
 
 Maximum IOPS for data volumes varies based on volume size and the type of profile you select.
 
-IOPS is measured based on a load profile of 16 KB blocks with random 50% read and 50% writes. Workloads that differ from this profile might experience reduced performance. If you use a smaller block size, maximum IOPS can be obtained but throughput is less. For information, see 
+IOPS is measured based on a load profile of 16 KB blocks with random 50% read and 50% writes. Workloads that differ from this profile might experience reduced performance. If you use a smaller block size, maximum IOPS can be obtained but throughput is less. For information, see
 [How block size affects performance](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
 
 ### What typical network performance might I expect between my compute instances and the block storage service?
 {: faq}
 {: #faq-block-storage-17}
 
-Block storage is connected to compute instances on a shared network, so the exact performance latency depends on the network traffic within a specific timeframe. Target latency for a 16KB block size volume is under 1 millisecond for random reads and under 2 milliseconds for writes. For more performance metrics you can expect for your storage volumes and compute instances, see [Storage-compute performance metrics](/docs/vpc?topic=vpc-capacity-performance#storage-performance-metrics). 
+Block storage is connected to compute instances on a shared network, so the exact performance latency depends on the network traffic within a specific timeframe. Target latency for a 16KB block size volume is under 1 millisecond for random reads and under 2 milliseconds for writes. For more performance metrics you can expect for your storage volumes and compute instances, see [Storage-compute performance metrics](/docs/vpc?topic=vpc-capacity-performance#storage-performance-metrics).
 
 ### What mechanisms are used to avoid data storage contention?
 {: faq}
 {: #faq-block-storage-17a}
 
 Data storage contention is a common issue when multiple instances compete for access to the same block storage volume. {{site.data.keyword.block_storage_is_short}} uses rate limiting at the hypervisor for optimal bandwidth between the hypervisor and block storage service. As a result, latency is guaranteed to be less than 1 millisecond for random reads and under 2 milliseconds for writes for a typical 16K block size. Latency outside these metrics might indicate a problem on the client side. For additional typical performance benchmarks, see [Storage-compute performance metrics](/docs/vpc?topic=vpc-capacity-performance#storage-performance-metrics).
+
+### What happens when a volume is in a degraded health state?
+{: faq}
+{: #faq-block-storage-18}
+
+Volume health state defines whether a volume is performing as expected, given it's status. Volume health can be OK, degraded, inapplicable, or faulted, depending on what is happening. For example, a degraded status is displayed when a volume is being restored from a snapshot and the volume is not yet fully restored. For more information on volume health states and reasons for each, see [Block storage volume health states](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#block-storage-vpc-health-states).
 
 
 ## Data security and encryption questions
@@ -223,14 +230,16 @@ Data storage contention is a common issue when multiple instances compete for ac
 {: #faq-block-storage-20}
 {: support}
 
-All block storage volumes are encrypted at rest with IBM-managed encryption. IBM-managed keys are generated and securely stored in a block storage vault that is backed by Consul and maintained by IBM Cloud operations. 
+All block storage volumes are encrypted at rest with IBM-managed encryption. IBM-managed keys are generated and securely stored in a block storage vault that is backed by Consul and maintained by IBM Cloud operations.
 
-For more security, you can protect your data by using your own customer root keys (CRKs). You import your root keys to, or create them in, a supported key management service (KMS). Your root keys are safely managed by the supported KMS, either {{site.data.keyword.keymanagementserviceshort}} (FIPS 140-2 Level 3 compliance) or {{site.data.keyword.hscrypto}}, which offer the highest level of security (FIPS 140-2 Level 4 compliance). Your key material is protected in transit and at rest. 
+For more security, you can protect your data by using your own customer root keys (CRKs). You import your root keys to, or create them in, a supported key management service (KMS). Your root keys are safely managed by the supported KMS, either {{site.data.keyword.keymanagementserviceshort}} (FIPS 140-2 Level 3 compliance) or {{site.data.keyword.hscrypto}}, which offer the highest level of security (FIPS 140-2 Level 4 compliance). Your key material is protected in transit and at rest.
 
-For more information, see [Supported key management services for customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok). To learn how to set up customer-managed encryption, see 
+For more information, see [Supported key management services for customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok). To learn how to set up customer-managed encryption, see
 [Creating block storage volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
 
-You control access to your root keys stored in KMS instances within IBM Cloud by using IBM Access Management (IAM). You grant access to the IBM Block Storage Service to use your keys. You can also revoke access at any time, for example, if you suspect your keys might are compromised. You can also disable or delete a root key, or temporarily revoke access to the key's associated data on the cloud. For more information, see [Managing root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-manage-root-keys).
+You control access to your root keys stored in KMS instances within IBM Cloud by using IBM Access Management (IAM). You grant access to the IBM Block Storage Service to use your keys. Using the API, you can link a primary account containing a root key to a secondary account, then use that key to encrypt new volumes in the secondary account. For more information, see [Cross-account encryption for multitenant storage resources](/docs/vpc?topic=vpc-getting-started).
+
+You can also revoke access at any time, for example, if you suspect your keys might are compromised. You can also disable or delete a root key, or temporarily revoke access to the key's associated data on the cloud. For more information, see [Managing root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-manage-root-keys).
 
 ### What are the advantages of using customer-managed encryption over provider-managed encryption?
 {: faq}
@@ -244,7 +253,7 @@ Customer-managed encryption encrypts your block storage volumes by using your ow
 
 Virtual disk images for VPC use QEMU Copy On Write Version 2 (QCOW2) file format. LUKS encryption format secures the QCOW2 format files. IBM currently uses the AES-256 cipher suite and XTS cipher mode options with LUKS. This combination provides you a much greater level of security than AES-CBC, along with better management of passphrases for key rotation, and provides key replacement options in case your keys are compromised.
 
-### What are master encryption keys and how are they assigned to my block storage volumes?  
+### What are master encryption keys and how are they assigned to my block storage volumes?
 {: faq}
 {: #faq-block-storage-23}
 
@@ -268,7 +277,7 @@ If you remove IAM authorization before deleting your BYOK volume (or image), the
 {: faq}
 {: #faq-block-storage-25}
 
-Independently back up your data. Then, delete the compromised root key and power down the instance with volumes encrypted with that key. 
+Independently back up your data. Then, delete the compromised root key and power down the instance with volumes encrypted with that key.
 
 Also, consider setting up a key rotation policy that automatically rotates your keys based on a schedule. For more information, see [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).
 
@@ -298,10 +307,8 @@ You are not charged extra for creating volumes with customer-managed encryption.
 
 Both key management systems provide you complete control over your data, managed by your root keys. {{site.data.keyword.keymanagementserviceshort}} is a multi-tenant KMS that where you can import or create your root keys and securely manage them. {{site.data.keyword.hscrypto}} is a single-tenant KMS and hardware security module (HSM) that is controlled by you, which offers the highest level of security. For more information and links to documentation about these key management services, see [Supported key management services for customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok).
 
-### Can I convert my volume from provider-managed encryption to customer-managed encryption? 
+### Can I convert my volume from provider-managed encryption to customer-managed encryption?
 {: faq}
 {: #faq-block-storage-29}
 
 No, after you provision a volume and specify the encryption type, you can't change it.
-
-

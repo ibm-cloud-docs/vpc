@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-09-19"
+lastupdated: "2022-11-11"
 
 keywords:
 
@@ -10,18 +10,7 @@ subcollection: vpc
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:important: .important}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:tip: .tip}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 
 # Viewing snapshots
@@ -39,7 +28,7 @@ You can view a list of all snapshots and drill down to see information about a p
 
 View a list of all snapshots that you created, with the most recent one at the beginning of the list. You can filter the list to view specific snapshots. Follow these steps:
 
-1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage snapshots**. By default, the newest snapshots display at the beginning of the list.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage snapshots**. By default, the newest snapshots display at the beginning of the list.
 
 You can also view a list of snapshots for a volume. For more information, see [View all snapshots that were created from the block storage volume](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-snapshots-for-volume).
 {: tip}
@@ -55,14 +44,11 @@ Table 1 describes the information for all snapshots in the list of snapshots.
 | Name  | The name you provided when you created the snapshot. Click the name of the snapshot to see its [details](#snapshots-vpc-view-snapshot-ui). |
 | Status | Status of the snapshot, depending on whether it's usable (_active_ status), unusable, being created, and so on. For more information, see [Snapshot statuses](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-status). |
 | Size | Size of the snapshot in GBs, inherited from the source volume. |
-| Encryption | Encryption with [IBM-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-provider-managed-encryption) or [provider-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-customer-managed-encryption), inherited from the source volume. |
 | Source volume | The boot or data volume from which the snapshot was created. Click the name of the volume to see its [details](/docs/vpc?topic=vpc-viewing-block-storage). |
-| Bootable | Whether the snapshot is of a boot volume. |
-| Created | The date and time the snapshot was created. |
-| Tags | Number of tags that are applied to this snapshot from the source volume. If no tags were applied to the snapshot that were inherited from the source volume, you use **Add tags** to apply tags to the snapshot. Tags that are inherited from the source volume might be associated with a backup policy. When you restore a volume from this snapshot, and the tags match a backup policy, then the newly restored volume is backed up. For more information about creating backups, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-about). | 
-| Created By | Indicates whether the snapshot was created by a [backup policy](/docs/vpc?topic=vpc-backup-policy-create) or manually by the user. |
+| Fast restore status | Enabled, pending, or disabled. |
+| Requested | |
+| Created by | Whether the snapshot was created by the user or a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-concepts). |
 | Overflow menu | Click the overflow menu icon to display a menu of context-specific actions that you can take: | 
-| | Rename |
 | | Copy the snapshot ID |
 | | Copy the Cloud Resource Name (CRN) |
 | | [Create volume](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-vpc-restore-ui) |
@@ -77,26 +63,27 @@ You can also list all snapshots that were created from a block storage volume fr
 
 To see details about a snapshot:
 
-1. Go to the list of all snapshots. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage snapshots**.
+1. Go to the list of all snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage snapshots**.
 
 2. Click the name of a snapshot. The snapshot details side panel shows the information that is described in Table 2.
 
 | Field | Description |
 |-------|-------------|
 | Status | Current status of the snapshot, such as _Stable_. For a list of snapshot statuses, see [Snapshot statuses](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status). |
-| Tags | User tags are inherited from the source volume when the snapshot is created appear near the snapshot name. Click the pencil icon to add tags. When you restore a volume from this snapshot, and the new volume's tags match tags for target resources in a backup policy, the new volume is automatically backed up based on a backup plan schedule. For more information about creating backups, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-about). For more information about working with tags, see [Working with tags](/docs/account?topic=account-tag). |
+| Tags | User tags are inherited from the source volume when the snapshot is created appear near the snapshot name. Click the link to add user or access management tags. When you restore a volume from this snapshot, and the new volume's user tags match tags for target resources in a backup policy, the new volume is automatically backed up based on a backup plan schedule. For more information about creating backups, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-about). For more information about working with tags, see [Working with tags](/docs/account?topic=account-tag). |
 | Name  | The name of the snapshot, which you can change by clicking the pencil icon. For more information, see [Change the snapshot name](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-rename). |
+| Resource group | Resource group defined when you set up your VPC. |
 | Snapshot ID | Copiable GUID of the snapshot. |
-| Bootable | Shows yes if a boot volume snapshot or no if a data volume snapshot. |
 | CRN | Copiable CRN of the snapshot. |
-| Created date | Date and time that the snapshot resource creation process started. |
-| Captured date | The date and time that this snapshot was captured, that is, the volume data was snapshotted. If absent, the snapshot wasn't captured or the snapshot was created before this feature was introduced (January 2022). |
+| Created | Date and time that the snapshot resource creation process started. |
+| Created by | By the user, a manually-created snapshot, or automatically by a [backup policy](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-concepts). |
+| Captured | The date and time that this snapshot was captured, that is, the volume data was snapshotted. If absent, the snapshot wasn't captured or the snapshot was created before this feature was introduced (January 2022). |
+| Region | Region of the source volume and snapshot. |
 | Size| Size in GBs of the snapshot, inherited from the source volume. |
 | Source volume | Source volume from which the first snapshot was taken. Click the link for volume details. If the volume was deleted, the name appears without a link. |
-| Encryption | Provider-managed or customer-managed encryption. |
+| Encryption | Provider-managed or customer-managed encryption. For customer-managed encryption, the KMS instance, root key name, and root key ID are shown. |
+| Actions menu | [create a volume from the snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-restore-create-vol-ui), delete a snapshot. |
 {: caption="Table 2. Snapshot details" caption-side="bottom"}
-
-You can use the Actions menu to [create a volume from the snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-restore-create-vol-ui) or delete the snapshot. 
 
 ## View snapshots from the CLI
 {: #snapshots-vpc-view-cli}

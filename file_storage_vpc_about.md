@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-11-08"
+lastupdated: "2022-11-11"
 
 keywords:
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# About File Storage for VPC
+# About {{site.data.keyword.filestorage_vpc_short}}
 {: #file-storage-vpc-about}
 
 {{site.data.keyword.cloud}} File Storage for {{site.data.keyword.vpc_full}} (VPC) is a zonal file storage offering that provides NFS-based file storage services. You create file shares in an availability zone within a region. You can share them with multiple virtual server instances within the same zone across multiple VPCs.
@@ -24,7 +24,7 @@ subcollection: vpc
 ## Overview
 {: #file-storage-overview}
 
-File Storage for VPC provides file shares within the bounds of a VPC. You create a file share in a single availability zone. You then a create mount target to mount the file share. You can also set up replication between the source file share and a replica file share, and failover to the replica file share in case of outage at the primary site. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
+{{site.data.keyword.filestorage_vpc_short}} provides file shares within the bounds of a VPC. You create a file share in a single availability zone. You then a create mount target to mount the file share. You can also set up replication between the source file share and a replica file share, and failover to the replica file share in case of outage at the primary site. For more information, see [About file share replication](/docs/vpc?topic=vpc-file-storage-replication).
 
 You pay for only the capacity you need. File share capacity ranges from 10 GB up to 32,000 GB for all available profiles. You can [increase capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity) of an existing file share and [adjust IOPS](/docs/vpc?topic=vpc-adjusting-share-iops) up or down to meet your performance needs. Billing is adjusted accordingly.
 
@@ -34,7 +34,7 @@ You can apply user tags and access management tags to your file shares. Add user
 
 You can enable context-based restrictions (CBR) for all file share operations. These restrictions work with traditional IAM policies, which are based on identity, to provide an extra layer of protection. Unlike IAM policies, context-based restrictions don't assign access. Context-based restrictions check that an access request comes from an allowed context that you configure, such as creating a file share. For more information, see [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions (limited availability)](/docs/vpc?topic=vpc-cbr).
 
-File Storage for VPC is integrated with the Security and Compliance Center to help you manage security and compliance for your organization. For more information, see [Managing security and compliance](/docs/vpc?topic=vpc-file-storage-managing#fs-vpc-manage-security).
+{{site.data.keyword.filestorage_vpc_short}} is integrated with the Security and Compliance Center to help you manage security and compliance for your organization. For more information, see [Managing security and compliance](/docs/vpc?topic=vpc-file-storage-managing#fs-vpc-manage-security).
 
 ### File storage IOPS profiles
 {: #fs-profiles-intro}
@@ -49,12 +49,12 @@ IOPS tiers provide a guaranteed level of performance for your workloads. You can
 
 With a Custom IOPS profile you can select the performance you want, by selecting custom allocated I/O operations per second (IOPS).
 
-For more information about these options, see [File Storage for VPC profiles](/docs/vpc?topic=vpc-file-storage-profiles#fs-tiers).
+For more information about these options, see [{{site.data.keyword.filestorage_vpc_short}} profiles](/docs/vpc?topic=vpc-file-storage-profiles#fs-tiers).
 
 ### Zonal file shares
 {: #fs-zonal-file-shares}
 
-File Storage for VPC lets you create a file share at the zonal level. This means that file shares are accessible only within the zone in which you created it, for example, `us-south-1`. File shares are identified by name and associated with a resource group in your {{site.data.keyword.cloud_notm}} customer account.
+{{site.data.keyword.filestorage_vpc_short}} lets you create a file share at the zonal level. This means that file shares are accessible only within the zone in which you created it, for example, `us-south-1`. File shares are identified by name and associated with a resource group in your {{site.data.keyword.cloud_notm}} customer account.
 
 You create a file share using the UI, CLI, or API. You access file shares from virtual server instances or Kubernetes clusters by way of an NFS mount. To create an NFS mount path, you need to create mount targets.
 
@@ -70,12 +70,12 @@ To mount a file share to an instance with the API, you create a mount target by 
 ### NFS version
 {: #fs-nfs-version}
 
-File Storage for VPC requires NFS versions v4.1 or higher.
+{{site.data.keyword.filestorage_vpc_short}} requires NFS versions v4.1 or higher.
 
 ## Limitations in this release
 {: #fs-limitations}
 
-The following limitations apply to this release of File Storage for VPC:
+The following limitations apply to this release of {{site.data.keyword.filestorage_vpc_short}}.
 
 * File share size cannot be increased after it is created.
 * File share profile cannot be changed after the file share is created.
@@ -83,6 +83,7 @@ The following limitations apply to this release of File Storage for VPC:
 * Minimum capacity is 10 GB per file share.
 * Maximum capacity is 32,000 GB per file share.
 * There is no data retention policy for deleted file shares. You cannot undelete a file share after you delete it.
+* File Storage for VPC is not supported on Windows operating systems.
 
 ## File share encryption
 {: #FS-encryption}
@@ -110,7 +111,7 @@ with the API, you can set these attributes for controlling access to your file s
 ## Tags for file shares
 {: #fs-about-fs-tags}
 
-File storage for VPC is enabled for Global Searching and Tagging (GhoST). You can create and apply [user tags](#fs-about-user-tags) and [access management tags](#fs-about-mgt-tags) to file shares to better control and organize your file storage resources across the VPC.
+{{site.data.keyword.filestorage_vpc_short}} is enabled for Global Searching and Tagging (GhoST). You can create and apply [user tags](#fs-about-user-tags) and [access management tags](#fs-about-mgt-tags) to file shares to better control and organize your file storage resources across the VPC.
 
 ### User tags for file shares
 {: #fs-about-user-tags}
@@ -124,7 +125,7 @@ For information about adding user tags to file shares, see [Add user tags to fil
 ### Access management tags for file shares
 {: #fs-about-mgt-tags}
 
-[Access management tags](/docs/account?topic=account-tag) help organize access control by creating flexible resource groupings, enabling your file storage resources to grow without requiring updates to IAM policies.
+Access management tags help organize access control by creating flexible resource groupings, enabling your file storage resources to grow without requiring updates to IAM policies.
 
 You can create access management tags and then apply them to new or existing file shares and replica file shares. Use the IAM UI or the Global Search and Tagging API to create the access management tag. Then, from the VPC UI or API, add the tags to a file share. After adding the tags, you can manage access to them using the IAM policies. For more information, see [Add access management tags to a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-access-mgt-tags).
 

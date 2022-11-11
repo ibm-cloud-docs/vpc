@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-08"
+lastupdated: "2022-11-11"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Viewing file shares and mount targets
 {: #file-storage-view}
 
-View all file shares and mount targets in the UI, CLI, or API. View details of a single file share or mount target. View 
+View all file shares and mount targets in the UI, CLI, or API. View details of a single file share or mount target. View
 {: shortdesc}
 
 {{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Tokyo, and Osaka regions. Contact your IBM Sales representative if you are interested in getting access.
@@ -28,7 +28,7 @@ View all file shares and mount targets in the UI, CLI, or API. View details of a
 ### View all file shares in the UI
 {: #fs-view-all-shares-ui}
 
-1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**.
 
 2. The File Shares for VPC list page shows all file shares that are created in that zone. Overflow menu options are used to manage the file shares. The following table describes the information and actions on the list page.
 
@@ -47,11 +47,11 @@ View all file shares and mount targets in the UI, CLI, or API. View details of a
 ### View details of a file share in the UI
 {: #fs-view-single-share-ui}
 
-1. Go to the list of all file shares. From the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**.
+1. Go to the list of all file shares. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > File Shares**.
 
-2. Click the name of a file share to see the details page. 
+2. Click the name of a file share to see the details page.
 
-The editable name and [status](/docs/vpc?topic=vpc-file-storage-managing#file-storage-vpc-status) of the file share is shown. If you applied user tags to the file share, they are listed. Click **Add tags** to apply new [user tags](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-user-tags) to the share.
+The editable name and [status](/docs/vpc?topic=vpc-file-storage-managing#file-storage-vpc-status) of the file share is shown. If you applied user or access management tags to the file share, they are listed. Click **Add tags** to apply new [tags](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-about-fs-tags) to the share.
 
 The following table describes the information on files shares details page.
 
@@ -125,7 +125,7 @@ For example,
 ```text
 ibmcloud is shares
 Listing shares in all resource groups and region us-south under account VPC as user myuser@mycompany.com...
-ID                                          Name                Lifecycle State   Zone         Profile      Size(GB)   Resource Group   
+ID                                          Name                Lifecycle State   Zone         Profile      Size(GB)   Resource Group
 866da826-6f30-444f-b55e-0d697cf8b4bb        new-share           stable            us-south-1   tier-3iops   40         Default
 81222eee-b3e0-4dc3-b429-aee9e5c0abf2        new-share-1         stable            us-south-1   tier-3iops   40         Default
 ```
@@ -139,31 +139,31 @@ Run the `ibmcloud is share` command and specify the file share by ID or name. Th
 ```text
 ibmcloud is share 72332eee-b3e0-4dc3-b429-aee9e5c0abf2
 Getting file share 72332eee-b3e0-4dc3-b429-aee9e5c0abf2 under account VPC as user myuser@mycompany.com...
-                     
-ID                72332eee-b3e0-4dc3-b429-aee9e5c0abf2   
-Name              new-share-1   
-CRN               crn:v1:bluemix:public:is:us-south-1:a/7f75c7b025e54bc5635f754b2f888665::share:r006-72332eee-b3e0-4dc3-b429-aee9e5c0abf2   
-Lifecycle State   stable   
-Zone              us-south-1   
-Profile           tier-3iops   
-Size(GB)          40   
-IOPS              3000   
-Encryption        provider_managed   
-Targets           ID                                          Name           VPC ID                                      VPC Name      
+
+ID                72332eee-b3e0-4dc3-b429-aee9e5c0abf2
+Name              new-share-1
+CRN               crn:v1:bluemix:public:is:us-south-1:a/7f75c7b025e54bc5635f754b2f888665::share:r006-72332eee-b3e0-4dc3-b429-aee9e5c0abf2
+Lifecycle State   stable
+Zone              us-south-1
+Profile           tier-3iops
+Size(GB)          40
+IOPS              3000
+Encryption        provider_managed
+Mount Targets     ID                                          Name           VPC ID                                      VPC Name
                   3c413e2f-2e7e-47e9-a9ad-12d23068d2c4        my-target121   0d37163a-701d-4ad6-9ece-a3e34cf28935        cdl
                   585075b5-b466-4b98-b733-2c5c2d906823        my-target122   dd1c6831-cc4d-4c40-aab2-6b0c17f41424        cli-vpc-1
-                     
+
 Resource Group    ID                                 Name
                   bdd96715c2a44f2bb60df4ff14a543f5   Default
- 
-Created           2022-05-17T15:21:35+05:30
+
+Created           2022-09-07T15:21:35+05:30
 ```
 {: screen}
 
 ### View a source file share for a replica file share from the CLI
 {: #fs-view-source-share}
 
-Run the `ibmcloud is share-replica-source` command and specify the replica share by ID or name. 
+Run the `ibmcloud is share-replica-source` command and specify the replica share by ID or name.
 
 ```zsh
 ibmcloud is share-replica-source REPLICA-SHARE [--output JSON] [-q, --quiet]
@@ -175,28 +175,28 @@ For example:
 ```text
 ibmcloud is share-replica-source replica-share-4
 Getting source file share for replica file share replica-share-4 under account VPC as user myuser@mycompany.com...
-                        
-ID                   0e8ee997-bf1d-4165-9573-726c3a4d3b36   
+
+ID                   0e8ee997-bf1d-4165-9573-726c3a4d3b36
 Name                 share-4
-CRN                  crn:v1:staging:public:is:us-south-1:a/efe5afc483594adaa8325e2b4d1290df::share:0e8ee997-bf1d-4165-9573-726c3a4d3b36   
-Lifecycle state      stable   
-Zone                 us-south-1   
-Profile              tier-5iops   
-Size(GB)             40   
-IOPS                 3000   
-Encryption           provider_managed   
-Targets              ID                          Name   VPC ID   VPC Name
+CRN                  crn:v1:staging:public:is:us-south-1:a/efe5afc483594adaa8325e2b4d1290df::share:0e8ee997-bf1d-4165-9573-726c3a4d3b36
+Lifecycle state      stable
+Zone                 us-south-1
+Profile              tier-5iops
+Size(GB)             40
+IOPS                 3000
+Encryption           provider_managed
+Mount targets        ID                          Name   VPC ID   VPC Name
                      No mounted targets found.
-                        
+
 Resource group       ID                                 Name
                      11caaa983d9c4beb82690daab08717e9   Default
-                        
-Created              2022-05-17T18:13:04+05:30   
-Last sync at         2022-05-16T05:53:28+05:53   
-Latest job           succeeded   
+
+Created              2022-09-07T18:13:04+05:30
+Last sync at         2022-09-06T05:53:28+05:53
+Latest job           succeeded
 Replication share    ID                                          Name                Resource type
                      0bb9c083-2ac5-43d5-962a-757f69d5e6c8        replica-p-share-4   share
-                        
+
 Replication role     source
 Replication status   active
 Source share         ID   Name   Resource type
@@ -210,11 +210,11 @@ Source share         ID   Name   Resource type
 ### View all file shares with the API
 {: #fs-view-all-shares-api}
 
-Make a `GET /shares` request to list all file shares for a region. 
+Make a `GET /shares` request to list all file shares for a region.
 
 ```curl
-curl -X GET \ 
-"$vpc_api_endpoint/v1/shares?version=2022-05-17&generation=2"\
+curl -X GET \
+"$vpc_api_endpoint/v1/shares?version=2022-09-06&generation=2"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -229,7 +229,7 @@ A successful response looks like the following example:
   "limit": 50,
   "shares": [
     {
-      "created_at": "2022-05-17T13:02:17Z",
+      "created_at": "2022-09-07T13:02:17Z",
       "crn": "crn:[...]",
       "encryption": "provider_managed",
       "href": "$vpc_api_endpoint/v1/shares/51bba578-0dce-4f8a-aa6e-f06c899e2c8e",
@@ -254,7 +254,7 @@ A successful response looks like the following example:
         {
           "href": "$vpc_api_endpoint/v1/shares/51bba578-0dce-4f8a-aa6e-f06c899e2c8e/targets/d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
           "id": "d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
-          "name": "target-name1",
+          "name": "mount-target-name1",
           "resource_type": "share_target",
           "vpc": {
             "crn": "crn:[...]",
@@ -281,7 +281,7 @@ A successful response looks like the following example:
 Make a `GET /shares/{share_id}` request to get details about a single file share.
 
 ```curl
-curl -X GET \ 
+curl -X GET \
 "$vpc_api_endpoint/v1/shares/$share_id?version=2021-10-04&generation=2"\
 -H "Authorization: $iam_token"
 ```
@@ -291,7 +291,7 @@ A successful response looks like the following example:
 
 ```json
 {
-  "created_at": "2022-05-17T23:31:59Z",
+  "created_at": "2022-09-07T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",
@@ -312,11 +312,11 @@ A successful response looks like the following example:
   },
   "resource_type": "share",
   "size": 100,
-  "targets": [
+  "mount-targets": [
     {
       "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63/targets/d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
       "id": "d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
-      "name": "target-name1",
+      "name": "mount-target-name1",
       "resource_type": "share_target",
       "vpc": {
         "crn": "crn:[...]",
@@ -343,8 +343,8 @@ Make a `GET /shares/{share_id}/targets` request to list all mount targets of a f
 Example:
 
 ```curl
-curl -X GET \ 
-"$vpc_api_endpoint/v1/shares/$share_id/targets?version=2022-05-17&generation=2"\
+curl -X GET \
+"$vpc_api_endpoint/v1/shares/$share_id/targets?version=2022-09-06&generation=2"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -359,12 +359,12 @@ A successful response looks like the following example:
   "limit": 50,
   "targets": [
     {
-      "created_at": "2022-05-17T23:31:59Z",
+      "created_at": "2022-09-07T23:31:59Z",
       "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63/targets/d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
       "id": "d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
       "lifecycle_state": "stable",
       "mount_path": "domain.com:/abc_2891fd0a_63aa_4deb_9ed5_1159e37cb5aa",
-      "name": "target-name1",
+      "name": "mount-target-name1",
       "resource_type": "share_target",
       "vpc": {
         "crn": "crn:[...]",
@@ -383,13 +383,13 @@ A successful response looks like the following example:
 ### View a single mount target with the API
 {: #fs-get-target-api}
 
-Make a `GET /shares/{share_id}/targets/{target_id}` request to information of a single mount target of a file share. This call includes mount path information. Use the mount path to attach a file share to an instance.
+Make a `GET /shares/{share_id}/targets/{mount_target_id}` request to information of a single mount target of a file share. This call includes mount path information. Use the mount path to attach a file share to an instance.
 
 Example:
 
 ```curl
-curl -X GET \ 
-"$vpc_api_endpoint/v1/shares/$share_id/targets/$target_id?version=2022-05-17&generation=2"\
+curl -X GET \
+"$vpc_api_endpoint/v1/shares/$share_id/targets/$mount_target_id?version=2022-09-06&generation=2"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -398,12 +398,12 @@ A successful response looks like the following example:
 
 ```json
 {
-  "created_at": "2022-05-17T23:31:59Z",
+  "created_at": "2022-09-07T23:31:59Z",
   "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63/targets/d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
   "id": "d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
   "lifecycle_state": "stable",
   "mount_path": "domain.com:/vol_xyz_2891fd0a_64ea_4deb_9ed5_1159e37cb5aa",
-  "name": "target-name1",
+  "name": "mount-target-name1",
   "resource_type": "share_target",
   "vpc": {
     "crn": "crn:[...]",
@@ -421,18 +421,18 @@ A successful response looks like the following example:
 
 Make a `GET /shares/{replica_id}/source` request and specify the replica share ID to retrieve the source file share details.
 
-```bash
-curl -X GET \ 
-"$vpc_api_endpoint/v1/shares/$replica_id/source?version=2022-05-17&generation=2"\
+```curl
+curl -X GET \
+"$vpc_api_endpoint/v1/shares/$replica_id/source?version=2022-09-06&generation=2"\
 -H "Authorization: $iam_token"\
 ```
 {: pre}
 
 A successful response provides details of the source file share. Notice that the replication role is `source`.
 
-```bash
+```json
 {
-  "created_at": "2022-05-17T22:58:49.000Z",
+  "created_at": "2022-09-07T22:58:49.000Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/a1b07083-f411-446d-9116-8c08d6448c86",
@@ -460,7 +460,7 @@ A successful response provides details of the source file share. Notice that the
     {
       "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/a1b07083-f411-446d-9116-8c08d6448c86/targets/r134-1b5571cb-536d-48d0-8452-81c05c6f7b80",
       "id": "r134-1b5571cb-536d-48d0-8452-81c05c6f7b80",
-      "name": "my-target",
+      "name": "my-mount-target",
       "resource_type": "share_target",
       "vpc": {
         "crn": "crn:[...]",

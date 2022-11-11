@@ -2,22 +2,15 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-04"
+lastupdated: "2022-11-11"
 
 keywords:
 
 subcollection: vpc
 
 ---
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:important: .important}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:faq: data-hd-content-type='faq'}
+
+{{site.data.keyword.attribute-definition-list}}
 
 # FAQs for snapshots
 {: #snapshots-vpc-faqs}
@@ -47,7 +40,7 @@ A bootable snapshot is a copy of a boot volume. You can use this new boot volume
 {: faq}
 {: #faq-snapshot-3}
 
-You can take up to 750 snapshots per volume in a region. This limit allows you to take and keep an hourly snapshot for 30 days, plus some extra snapshots. Deleting snapshots from this quota frees up space for additional snapshots.  A snapshot of a volume cannot be greater than 10 TB. Note that billing changes when you increase the number of snapshots that you take and retain, so it's good to plan snapshot retention and deletion.
+You can take up to 750 snapshots per volume in a region. This limit allows you to take and keep an hourly snapshot for 30 days, plus some extra snapshots. Deleting snapshots from this quota frees up space for additional snapshots.  A snapshot of a volume cannot be greater than 10 TB. Billing changes when you increase the number of snapshots that you take and retain, so it's good to plan snapshot retention and deletion.
 
 ## Is there a limit on the size of a volume that I can snapshot?
 {: faq}
@@ -94,3 +87,9 @@ Snapshots have their own lifecycle, independent of the block storage volume. You
 Cost for snapshots is calculated based on GB capacity stored per month, unless the duration is less than one month. Because the snapshot is based on the capacity that was provisioned for the original volume, the snapshot capacity does not vary. Deleting snapshots reduces cost, so the fewer snapshots you retain the lower the cost.
 
 Pricing for snapshots is also set by region. For more information, see [Pricing](https://www.ibm.com/cloud/vpc/pricing).
+
+### Can I add tags to a block storage snapshot?
+{: faq}
+{: #faq-snapshot-tags}
+
+Depending on the action you're performing, you can add user tags and access management tags to your snapshots. User tags are used by the backup service to automatically create backup snapshots of the volume. Access management tags help organize access to your block storage snapshots. For more information, see [Tags for block storage snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#snapshots-about-tags.)

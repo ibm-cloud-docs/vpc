@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-10-03"
+lastupdated: "2022-11-11"
 
 keywords:
 
@@ -11,13 +11,12 @@ subcollection: vpc
 ---
 
 {{site.data.keyword.attribute-definition-list}}
+<!--- comment: linked help topic -->
 
 # About {{site.data.keyword.block_storage_is_short}}
 {: #block-storage-about}
 
-[comment]: # (linked help topic)
-
-{{site.data.keyword.block_storage_is_short}} provides hypervisor-mounted, high-performance data storage for your virtual server instances that you can provision within an {{site.data.keyword.vpc_full}} (VPC). The [VPC](/docs/vpc?topic=vpc-about-vpc) infrastructure provides rapid scaling across zones and extra performance and security.
+{{site.data.keyword.block_storage_is_full}} provides hypervisor-mounted, high-performance data storage for your virtual server instances that you can provision within an {{site.data.keyword.vpc_full}} (VPC). The [VPC](/docs/vpc?topic=vpc-about-vpc) infrastructure provides rapid scaling across zones and extra performance and security.
 {: shortdesc}
 
 ## Overview
@@ -33,7 +32,9 @@ You can choose an [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles
 
 For data volumes attached to a virtual server instance, you can [increase volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes) in GB increments up to 16,000 GB capacity, depending on your volume profile. You can also [increase or decrease IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) for a volume attached to an instance by specifying a different IOPS tier or custom IOPS band.
 
-You can also apply user tags and access management tags to your boot and data volumes. Add user tags when creating a new volume or updating an existing volume with the UI, CLI, or API. Create access management tags with the Global Search and Tagging API. For more information, see [Tags for block storage volumes](#vpc-storage-about-tags).
+You can also apply user tags and access management tags to your boot and data volumes. Add user tags when creating a new volume or updating an existing volume with the UI, CLI, or API. Create access management tags with the IAM UI or Global Search and Tagging API, then add them to your volumes. For more information, see [Tags for block storage volumes](#vpc-storage-about-tags).
+
+When you create, view, or update a block storage volume, or [restore a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore), the volume health state is reported in the UI, CLI, or API. For more information, see [Block storage volume health states](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#block-storage-vpc-health-states).
 
 ## Block storage for VPC volumes
 {: #block-storage-vpc-volumes}
@@ -52,7 +53,7 @@ You cannot create an image from an encrypted boot volume (Image from a volume fe
 
 By default, boot volumes are encrypted by IBM-managed encryption. Optionally, you can use your own root keys (CRKs) by choosing customer-managed encryption during instance creation (see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption)).
 
-You can't detach and delete the boot volume. Boot volumes are always deleted when you delete the instance.
+Boot volumes are always deleted when you delete the instance.
 
 ### Data volumes
 {: #secondary-data-volumes}
@@ -62,7 +63,7 @@ Block storage data volumes are secondary volumes with total capacity range of 10
 
 You can create data volumes as stand-alone volumes or when you provision an instance. Stand-alone volumes exist in an unattached state until you attach the volume to an instance. When you create a data volume as part of instance provisioning, the volume is automatically attached to the instance.
 
-When you create an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance, the data volume attached to the instance during instance creation is automatically encrypted with the seed or passphrase that you provide.  
+When you create an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance, the data volume attached to the instance during instance creation is automatically encrypted with the seed or passphrase that you provide.
 {: note}
 
 Block storage data volumes can be attached to any available instance in your region, based on your customer account and permissions, and within [certain limits](/docs/vpc?topic=vpc-attaching-block-storage#vol-attach-limits). These volumes are detached by default when the instance is deleted. Detaching by default allows your data to persist beyond the virtual server instance lifecycle. It only removes the volume's association with the instance. You can delete data volumes manually after they are detached. Also, when you create data volumes, you can specify that they be [automatically deleted](/docs/vpc?topic=vpc-managing-block-storage#auto-delete) when the instance is deleted.
@@ -80,12 +81,24 @@ Data volumes are encrypted by default with IBM-managed encryption. You can also 
 
 For more information about data encryption, see [About data encryption for VPC](/docs/vpc?topic=vpc-vpc-encryption-about).
 
-## User tags for block storage volumes
+## Tags for block storage volumes
+{: #storage-about-tags}
+
+{{site.data.keyword.block_storage_is_short}} is enabled for Global Searching and Tagging (GhoST). You can create and apply [user tags](#storage-about-user-tags) and [access management tags](#storage-about-mgt-tags) to volumes to better control and organize your block storage resources across the VPC.
+
+### User tags for block storage volumes
 {: #storage-about-user-tags}
 
-You can [add user tags](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#add-user-tags-volumes-ui) when creating a new block storage volume or when updating an existing volume. You can also add tags to a boot or data volume during [instance creation](/docs/vpc?topic=vpc-creating-block-storage&interface=ui#create-from-vsi). For boot volumes, you edit the boot volume to add tags. For data volumes, you can add tags when you create and attach them to the instance, or add them to existing data volumes. Create, view, and manage user tags from the UI, CLI, or API, and remove then at any time.
-
 User tags are uniquely identified by a Cloud Resource Name (CRN) identifier. When you create a user tag, you provide a unique name within your billing account. You can define user tags in label or key-value format.
+
+You can [add user tags](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#add-user-tags-volumes-ui) when creating a new block storage volume or when updating an existing volume. You can also add tags to a boot or data volume during [instance creation](/docs/vpc?topic=vpc-creating-block-storage&interface=ui#create-from-vsi). For boot volumes, you edit the boot volume to add tags. For data volumes, you can add tags when you create and attach them to the instance, or add them to existing data volumes. Volume user tags are also used by [backup policies](/docs/vpc?topic=vpc-backup-service-about) to create automatic backup snapshots of the volume. Create, view, and manage user tags from the UI, CLI, or API, and remove then at any time.
+
+### Access management tags for block storage volumes
+{: #storage-about-mgt-tags}
+
+[Access management tags](/docs/vpc?topic=vpc-iam-getting-started&interface=ui) help organize access control by creating flexible resource groupings, enabling your block storage resources to grow without requiring updates to IAM policies.
+
+You can create access management tags and then apply them to new or existing volumes. Use the IAM UI or the Global Search and Tagging API to create the access management tag. Then, from the VPC UI or API, add access management when you create a new volume or modify an exisitng volume. You can't add these tags to volumes that are created during instance provisioning. After adding access management tags, you can manage access to them using the IAM policies. For more information, see [Apply access management tags to a block storage volume](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#storage-add-access-mgt-tags).
 
 For more information about managing tags for your account, see [Working with tags](/docs/account?topic=account-tag&interface=ui).
 
