@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-04-18"
+lastupdated: "2022-11-11"
 
 keywords:  
 
@@ -33,7 +33,8 @@ To create an ALB:
 1. In the Details section, complete the following information:
    * **Name**: Enter a name for the load balancer, such as `my-load-balancer`.    
    * **Resource group**: Select a resource group for the load balancer.
-   * **Tags**: (Optional) Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).    
+   * **Tags**: (Optional) Add tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).   
+   * **Access management tags**: (Optional) Add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
    * Select the **Application Load Balancer (ALB)** tile. 
    * **Virtual private cloud**: Select your VPC.
    * **Type**: Select the load balancer type.

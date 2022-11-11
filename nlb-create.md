@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2022-01-11"
+  years: 2020, 2022
+lastupdated: "2022-11-11"
 
 keywords: network load balancer, public, listener, pool, round-robin
 
@@ -35,7 +35,8 @@ To create and configure {{site.data.keyword.nlb_full}} by using the {{site.data.
 1. In the Details section, complete the following information:
    * **Name**: Enter a name for the load balancer, such as `my-load-balancer`.    
    * **Resource group**: Select a resource group for the load balancer.
-   * **Tags**: (Optional) Enter tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags]
+   * **Tags**: (Optional) Add tags to help you organize and find your resources. You can add more tags later. For more information, see [Working with tags](/docs/account?topic=account-tag).
+   * **Access management tags**: (Optional) Add access management tags to resources to help organize access control relationships. The only supported format for access management tags is `key:value`. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
    * Select the **Network Load Balancer (NLB)** tile and the subnet where you want to deploy the load balancer.
    * Select type: **Public** or **Private**.
 4. **For Private type only**, you have the option to enable routing mode, which is used to deploy highly available virtual network functions (VNFs). For use cases and end-to-end instructions, see [About HA virtual network function deployments](/docs/vpc?topic=vpc-about-vnf-ha).
