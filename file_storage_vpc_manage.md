@@ -259,7 +259,7 @@ Response:
     },
     "resource_type": "share",
     "size": 100,
-    "mount_targets": [],
+    "targets": [],
     "user_tags": [
       "ut8",
       "ut9"
@@ -492,7 +492,7 @@ A successful response looks like the following example.
   },
   "resource_type": "share",
   "size": 100,
-  "mount_targets": [],
+  "targets": [],
   "zone": {
     "href": "$vpc_api_endpoint/v1/regions/us-south/zones/us-south-1",
     "name": "us-south-1"
@@ -508,7 +508,7 @@ Make a `POST /shares/{share_ID}/targets` call to create a mount target for an ex
 
 ```curl
 curl -X POST \
-"$rias_endpoint/v1/shares/$share_id/mount_targets?version=2022-09-06&generation=2\
+"$rias_endpoint/v1/shares/$share_id/targets?version=2022-09-06&generation=2\
 -H "Authorization: $iam_token" \
 -H 'Content-Type: application/json' \
 -d '{
@@ -525,7 +525,7 @@ A successful response looks like the following example.
 ```json
 {
   "created_at": "2022-09-15T23:31:59Z",
-  "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/mount_targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
+  "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "lifecycle_state": "pending",
   "mount_path": "domain.com:/vol_xyz_2891fd0a_64ea_4deb_9ed5_1159e37cb5aa",
@@ -545,11 +545,11 @@ A successful response looks like the following example.
 ### Rename a mount target of a file share with the API
 {: #rename-mount-target-api}
 
-Make a `PATCH /shares/$share_id/mount_targets/$target_id` call to rename a mount target of a file share. For example:
+Make a `PATCH /shares/$share_id/targets/$target_id` call to rename a mount target of a file share. For example:
 
 ```curl
 curl -X PATCH \
-"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$target_id?version=2022-09-06&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id/targets/$target_id?version=2022-11-06&generation=2" \
   -H "Authorization: Bearer ${API_TOKEN}" \
   -d '{
     "name": "target-renamed1"
@@ -557,27 +557,6 @@ curl -X PATCH \
 ```
 {: pre}
 
-A successful response looks like the following example.
-
-```json
-{
-  "created_at": "2022-09-15T23:31:59Z",
-  "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/mount_targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
-  "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
-  "lifecycle_state": "stable",
-  "mount_path": "domain.com:/vol_xyz_2891fd0a_64ea_4deb_9ed5_1159e37cb5aa",
-  "name": "target-renamed1",
-  "resource_type": "share_target",
-  "vpc": {
-    "crn": "crn:[...]",
-    "href": "$vpc_api_endpoint/v1/vpcs8c95b3c1-fe3c-45c-97a6-e43d14088287",
-    "id": "82a7b841-9586-43b4-85dc-c0ab5e8b1c7a",
-    "name": "vpc-name1",
-    "resource_type": "vpc"
-  }
-}
-```
-{: pre}
 
 ### Delete file shares and mount targets with the API
 {: #delete-share-targets-api}
@@ -590,13 +569,13 @@ If the file share is configured for replication, there are additional steps. For
 #### Delete mount target of a file share with the API
 {: #delete-mount-target-api}
 
-Make a `DELETE /shares/{share_ID}/mount_targets/{target_id}` call to delete a mount target of a file share. The file share must be in a `stable` state.
+Make a `DELETE /shares/{share_ID}/targets/{target_id}` call to delete a mount target of a file share. The file share must be in a `stable` state.
 
 For example:
 
 ```curl
 curl -X DELETE \
-"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$target_id?version=2022-09-06&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id/targets/$target_id?version=2022-11-06&generation=2" \
   -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: pre}
@@ -607,19 +586,35 @@ Example:
 
 ```json
 {
-  "created_at": "2022-09-15T23:31:59Z",
-  "href": "$vpc_api_endpoint/v1/shares/0995b8c6-c323-4e59-9ea9-fa14dd66bba8/mount_targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
-  "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
-  "lifecycle_state": "pending_deletion",
-  "mount_path": "domain.com:/vol_xyz_2891fd0a_63aa_4deb_9ed5_1159e37cb5aa",
-  "name": "target-name1",
-  "resource_type": "share_target",
-  "vpc": {
+  "created_at": "2022-11-06T22:58:49.000Z",
+  "crn": "crn:[...]",
+  "encryption": "provider_managed",
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/r134-a0c07083-f411-446c-9316-7b08d6448c86",
+  "id": "r134-a0c07083-f411-446c-9316-7b08d6448c86",
+  "iops": 14400,
+  "lifecycle_state": "deleting",
+  "name": "my-share",
+  "profile": {
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/share/profiles/tier-3iops",
+    "name": "tier-3iops",
+    "resource_type": "share_profile"
+  },
+  "replication_role": "none",
+  "replication_status": "none",
+  "replication_status_reasons": [],
+  "resource_group": {
     "crn": "crn:[...]",
-    "href": "$vpc_api_endpoint/v1/vpcs8c95b3c1-fe3c-45c-97a6-e43d14088287",
-    "id": "82a7b841-9586-43b4-85dc-c0ab5e8b1c7a",
-    "name": "vpc-name1",
-    "resource_type": "vpc"
+    "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/678523bcbe2b4eada913d32640909956",
+    "id": "678523bcbe2b4eada913d32640909956",
+    "name": "Default"
+  },
+  "resource_type": "share",
+  "size": 4800,
+  "targets": [],
+  "user_tags": [],
+  "zone": {
+    "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
+    "name": "us-south-1"
   }
 }
 ```

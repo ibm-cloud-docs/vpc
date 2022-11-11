@@ -250,9 +250,9 @@ A successful response looks like the following example:
       },
       "resource_type": "share",
       "size": 40,
-      "mount_targets": [
+      "targets": [
         {
-          "href": "$vpc_api_endpoint/v1/shares/51bba578-0dce-4f8a-aa6e-f06c899e2c8e/mount_targets/d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
+          "href": "$vpc_api_endpoint/v1/shares/51bba578-0dce-4f8a-aa6e-f06c899e2c8e/targets/d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
           "id": "d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
           "name": "mount-target-name1",
           "resource_type": "share_target",
@@ -314,7 +314,7 @@ A successful response looks like the following example:
   "size": 100,
   "mount-targets": [
     {
-      "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63/mount_targets/d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
+      "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63/targets/d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
       "id": "d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
       "name": "mount-target-name1",
       "resource_type": "share_target",
@@ -338,13 +338,13 @@ A successful response looks like the following example:
 ### List all mount targets of a file share with the API
 {: #fs-list-targets-api}
 
-Make a `GET /shares/{share_id}/mount_targets` request to list all mount targets of a file share.
+Make a `GET /shares/{share_id}/targets` request to list all mount targets of a file share.
 
 Example:
 
 ```curl
 curl -X GET \
-"$vpc_api_endpoint/v1/shares/$share_id/mount_targets?version=2022-09-06&generation=2"\
+"$vpc_api_endpoint/v1/shares/$share_id/targets?version=2022-09-06&generation=2"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -354,13 +354,13 @@ A successful response looks like the following example:
 ```json
 {
   "first": {
-    "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63/mount_targets?limit=50"
+    "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63/targets?limit=50"
   },
   "limit": 50,
-  "mount_targets": [
+  "targets": [
     {
       "created_at": "2022-09-07T23:31:59Z",
-      "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63/mount_targets/d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
+      "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63/targets/d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
       "id": "d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
       "lifecycle_state": "stable",
       "mount_path": "domain.com:/abc_2891fd0a_63aa_4deb_9ed5_1159e37cb5aa",
@@ -383,13 +383,13 @@ A successful response looks like the following example:
 ### View a single mount target with the API
 {: #fs-get-target-api}
 
-Make a `GET /shares/{share_id}/mount_targets/{mount_target_id}` request to information of a single mount target of a file share. This call includes mount path information. Use the mount path to attach a file share to an instance.
+Make a `GET /shares/{share_id}/targets/{mount_target_id}` request to information of a single mount target of a file share. This call includes mount path information. Use the mount path to attach a file share to an instance.
 
 Example:
 
 ```curl
 curl -X GET \
-"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$mount_target_id?version=2022-09-06&generation=2"\
+"$vpc_api_endpoint/v1/shares/$share_id/targets/$mount_target_id?version=2022-09-06&generation=2"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -399,7 +399,7 @@ A successful response looks like the following example:
 ```json
 {
   "created_at": "2022-09-07T23:31:59Z",
-  "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63/mount_targets/d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
+  "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63/targets/d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
   "id": "d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
   "lifecycle_state": "stable",
   "mount_path": "domain.com:/vol_xyz_2891fd0a_64ea_4deb_9ed5_1159e37cb5aa",
@@ -456,9 +456,9 @@ A successful response provides details of the source file share. Notice that the
   },
   "resource_type": "share",
   "size": 4800,
-  "mount_targets": [
+  "targets": [
     {
-      "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/a1b07083-f411-446d-9116-8c08d6448c86/mount_targets/r134-1b5571cb-536d-48d0-8452-81c05c6f7b80",
+      "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/a1b07083-f411-446d-9116-8c08d6448c86/targets/r134-1b5571cb-536d-48d0-8452-81c05c6f7b80",
       "id": "r134-1b5571cb-536d-48d0-8452-81c05c6f7b80",
       "name": "my-mount-target",
       "resource_type": "share_target",
