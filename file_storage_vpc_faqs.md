@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-11-08"
+lastupdated: "2022-11-11"
 
 keywords:
 
@@ -18,7 +18,7 @@ subcollection: vpc
 The following questions often arise about File Storage for VPC. If you have other questions you'd like to see addressed here, provide feedback by using the **Open Issue** or **Edit Topic** links.
 {: shortdesc}
 
-File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, Toronto, Sao Paulo, Tokyo, and Osaka regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Tokyo, and Osaka regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Offering questions
@@ -57,7 +57,7 @@ In this release, you can:
 *	Update file share and mount target name.
 * Create replication between the source file share and a replica file share.
 * Fail over to a replica file share when the source share is compromised. Fall back to the original share when the issue is resolved.
-* Add, manage, and delete file share user tags.
+* Add, manage, and delete file share user tags. Create and manage access management tags.
 
 ### Who do I contact to help with any issues? What information do I need to provide?
 {: faq}
@@ -74,7 +74,7 @@ For information about who to contact, see [Getting help and support](/docs/vpc?t
 {: #faq-fs-mgt-1}
 {: support}
 
-No. As a zonal service, file shares that are created for a zone are accessible to instances only within that zone. For this release, File Storage for VPC is available in single zones in the Dallas (us-south), Washington DC (us-east), Frankfurt (eu-de), and London (eu-gb) regions for allow-listed IBM Cloud customer accounts. 
+No. As a zonal service, file shares that are created for a zone are accessible to instances only within that zone. For this release, File Storage for VPC is available in single zones in the Dallas (us-south), Washington DC (us-east), Frankfurt (eu-de), and London (eu-gb) regions for allow-listed IBM Cloud customer accounts.
 
 ### Can I mount file shares for my Kube containers?
 {: faq}
@@ -136,12 +136,11 @@ You can choose the frequency of replication by creating a schedule by using a `c
 
 No, choosing to failover to the relica site is a manual operation, so you'll have to reconcile your data after failing over the the replica share. To see how failover works for disaster recovery, see [Failover for disaster recovery](/docs/vpc?topic=vpc-file-storage-failover&interface=ui#fs-failover-dr).
 
-### Can I add user tags to my file shares?
+### Can I add tags to my file shares?
 {: faq}
 {: #faq-fs-mgt-13}
 
-Yes. You can specify user tags when creating a new file share or updating an existing file share. Adding user tags to a file share or replica share can make organizing your resources easier. For details, see [Add user tags to a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=api#fs-add-user-tags).
-
+Yes. You can specify user aand access management tags when creating a new file share or updating an existing file share. Adding user tags to a file share or replica share can make organizing your resources easier. For details, see [Add user tags to a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=api#fs-add-user-tags). File Storage for VPC also supports access management tags. For more information, see [Access management tags for file shares](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-about-mgt-tags).
 
 ## Performance questions
 {: #file-storage-vpc-performance-questions}
@@ -181,5 +180,4 @@ No.
 {: faq}
 {: #faq-fs-sec-3}
 
-By default, your file share data is protected at rest with IBM-managed encryption. You can also bring your own keys to the IBM Cloud and use them to encrypt your file shares. For more information, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption).
-
+By default, your file share data is protected at rest with IBM-managed encryption. You can also bring your own keys to the IBM Cloud and use them to encrypt your file shares. For more information, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption) .Using the API, you can link a primary account containing a root key to a secondary account, then use that key to encrypt new file shares in the secondary account. For more information, see [Cross-account encryption for multitenant storage resources](/docs/vpc?topic=vpc-getting-started).

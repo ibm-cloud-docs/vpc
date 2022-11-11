@@ -2,29 +2,20 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-08-22"
+lastupdated: "2022-11-11"
 
 keywords:
 
 subcollection: vpc
 
 ---
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:important: .important}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+
+{{site.data.keyword.attribute-definition-list}}
 
 # Managing Snapshots
 {: #snapshots-vpc-manage}
 
-You can delete snapshots that you no longer need and free space for new snapshots. Rename existing snapshots to make them easier to identify. Add user tags to snapshots for use by the VPC backup service. Verify IAM access. Verify snapshot statuses.
+You can delete snapshots that you no longer need and free space for new snapshots. Rename existing snapshots to make them easier to identify. Add user tags to snapshots for use by the VPC backup service. Verify {{site.data.keyword.iamshort}} access. Verify snapshot statuses.
 {: shortdesc}
 
 ## Deleting snapshots
@@ -48,86 +39,80 @@ You can delete all snapshots for a volume. Deleting all snapshots requires furth
 
 You can delete a snapshot from the list of all snapshots.
 
-1. Go to the list of all snapshots. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Snapshots**.
+1. Go to the list of all snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Snapshots**.
 2. Click the overflow menu (ellipsis) in the row of the snapshot you want to delete.
 3. From the overflow menu, select **Delete**.
 4. Confirm the deletion and click **Delete**.
 
-You can also delete a snapshot from the details page for a block storage volume.
+You can also delete a snapshot from the details page of a {{site.data.keyword.block_storage_is_short}} volume.
 
-1. Go to the list of all block storage volumes. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
-2. Select a volume from the list and click the volume name to go to the volume details page.
-3. Click **Snapshots**. A list of snapshots that are taken of this volume are displayed, and you can do the following actions:
+1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
+2. Select a volume from the list, and click the volume name to go to the volume details page.
+3. Click **Snapshots**. A list of snapshots that are taken of this volume are displayed, and you can take the following actions:
     * Click **Delete all** to delete all snapshots for this volume.
-    * For an individual, click the overflow menu (ellipsis).
-4. Select **Delete** from the overflow menu. If the snapshot is actively restoring a volume, the delete operation will fail.
+    * Click the overflow menu (ellipsis) to delete a specific snapshot.
+4. Select **Delete** from the overflow menu. If the snapshot is actively restoring a volume, the delete operation does not work.
 5. Confirm the deletion.
 
 ### Delete all snapshots for a volume in the UI
 {: #snapshots-vpc-delete-all-ui}
 
-To delete all snapshots for a volume in the UI, follow these steps. 
+To delete all snapshots for a volume in the UI, follow these steps.
 
-1. Go to the list of all snapshots. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Snapshots**.
-2. Click the row to select the snapshot you want to delete.
+1. Go to the list of all snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to  the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Snapshots**.
+2. Click the row to select the snapshot that you want to delete.
 3. From the overflow menu (ellipsis), select **Delete all for volume**.
 4. Confirm the deletion by typing _delete_ and then click **Delete**.
 
-### Delete snapshots from the block storage details page in the UI
+### Delete snapshots from the {{site.data.keyword.block_storage_is_short}} details page in the UI
 {: #snapshots-vpc-delete-from-volume}
 
-You can delete the most recently created snapshot from the list of snapshots from the block storage volume details page. Optionally, you can delete all snapshots from this view.
+You can delete the most recently created snapshot from the list of snapshots from the {{site.data.keyword.block_storage_is_short}} volume details page. Optionally, you can delete all snapshots from this view.
 
-1. Go to the list of all block storage volumes. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
+1. Go to the list of all {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
 2. Select a volume from the list and click the volume name to go to the volume details page.
 3. Click **Snapshots** to see a list of snapshots taken of this volume.
-4. Click **Delete all** to delete all snapshots for this volume. 
+4. Click **Delete all** to delete all snapshots for this volume.
 5. Alternatively, select a single snapshot in the list for deletion and then:
    1. Click the overflow menu (ellipsis).
-   2. Select **Delete** from the overflow menu. 
+   2. Select **Delete** from the overflow menu.
    3. Confirm the deletion.
 
-## Add user tags to a snapshot in the UI
+## Add tags to a snapshot in the UI
 {: #snapshots-vpc-add-tags-ui}
 {: ui}
 
-### Add user tags from the list of snapshots using the UI
+You can add [user tags](/docs/vpc?topic=vpc-block-storage-about#storage-about-user-tags) and [access management tags](/docs/vpc?topic=vpc-block-storage-about#storage-about-user-tags) to your {{site.data.keyword.block_storage_is_short}} snapshots.
+
+### Add user tags from the list of snapshots in the UI
 {: #snapshots-vpc-add-tags-list-ui}
 
-You can add user tags to an existing snapshot or when creating a new snapshot. The tags can then be used by a backup policy to create backups of the snapshot.
+You can add user tags to an existing snapshot or when you create a snapshot. The tags can be used by a backup policy to create backups of the snapshot.
 
-Backup for VPC is only available to accounts authorized to preview the feature.
-{: note}
+1. Navigate to the [list of snapshots](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-list-ui).
 
-1. Navigate to the [list of snapshots](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-list-ui). 
+2. Locate an _available_ snapshot created by _user_. (Snapshots that were created by a backup policy are identified as created by _Backup policy_.)
 
-2. Locate an _available_ snapshot created by _user_. (Snapshots that were created by a backup policy are identified as created by _Backup policy_.) 
+3. In the **Tags** column, snapshots with tags show a number indicating tags that are already applied. Snapshots without tags have an **Add tags** link. Click **Add tags**.
 
-3. In the **Tags** column, snapshots with tags show a number indicating tags already applied. Snapshots without tags have an **Add tags** link. Click **Add tags**.
-
-4. In the popup, type a tag in the User tags text box.
+4. In the new window, type a tag in the User tags text box.
 
 5. Click **Save**.
 
-### Add user tags from the snapshot details page using the UI
+### Add tags from the snapshot details page using the UI
 {: #snapshots-vpc-add-tags-details-ui}
 
-1. Navigate to the [list of snapshots](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-list-ui). 
+Add user tags and access management tags to a {{site.data.keyword.block_storage_is_short}} snapshot.
 
-2. Click on the name of a snapshot in the list.
+1. Navigate to the [list of snapshots](/docs/vpc?topic=vpc-snapshots-vpc-view&interface=ui#snapshots-vpc-view-list-ui).
 
-3. On the snapshot details page, click the pencil icon next to the snapshot name.
+2. Click the name of a snapshot in the list.
 
-4. In the popup, type a tag in the User tags text box.
+3. On the snapshot details page, click the **Add tags** link.
+
+4. In the new window, enter a user tag or access management tag in the respective fields.
 
 5. Click **Save**.
-
-### Add user tags to volumes created from a snapshot when provisioning an instance
-{: #snapshots-vpc-instancevol-tags-ui}
-
-You can add tags to block storage volumes created during instance provisioning, when you specify a snapshot for the volume. 
-
-When you [create a block storage volume during instance provisioning](/docs/vpc?topic=vpc-creating-block-storage&interface=ui#create-from-vsi), you can choose to **Import from snapshot** when provisioning the volume. The volume details are populated from the source snapshot you select, including any user tags. You can edit these tags and also add additional user tags.
 
 ## Delete snapshots from the CLI
 {: #snapshots-vpc-delete-snapshot-cli}
@@ -146,38 +131,38 @@ Before you begin, make sure that you:
 
 1. Navigate to the list of snapshots for a volume:
 
-    ```
+    ```sh
     ibmcloud is snapshots --volume VOLUME [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME]
     ```
     {: pre}
 
 2. Run the `snapshot-delete` command and specify the ID of the snapshot.
 
-    ```
+    ```sh
     ibmcloud is snapshot-delete SNAPSHOT_ID
     ```
     {: pre}
 
-3. Confirm deleting the snapshot. The response message indicates that the snapshot is deleted.
+3. Confirm the deletion of the snapshot. The response message indicates that the snapshot is deleted.
 
 ### Delete all snapshots from the CLI
 {: #snapshots-vpc-delete-all-snapshot-cli}}
 
 1. Navigate to the list of snapshots for a volume:
 
-    ```
+    ```sh
     ibmcloud is snapshots --volume VOLUME [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME | --all-resource-groups]
     ```
     {: pre}
 
 2. Enter the `snapshot-delete` command.
 
-    ```
+    ```sh
     ibmcloud is snapshot-delete
     ```
     {: pre}
 
-3. Confirm deleting the snapshots. The response message indicates when the snapshots are deleted.
+3. Confirm the deletion of the snapshots. The response message indicates when the snapshots are deleted.
 
 ## Delete snapshots with the API
 {: #snapshots-vpc-delete-snapshot-api}
@@ -188,7 +173,7 @@ Before you begin, make sure that you:
 
 Make a `DELETE/snapshots/{snapshot_ID}` call to delete a specific snapshot by ID.
 
-```
+```curl
 curl -X DELETE \
 "$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2022-02-22&generation=2" \
      -H "Authorization: Bearer ${API_TOKEN}"
@@ -200,7 +185,7 @@ curl -X DELETE \
 
 Make a `DELETE/snapshots` call and specify the source volume ID for the `source_volume.id` parameter in the request.
 
-```
+```curl
 curl -X DELETE \
 "$vpc_api_endpoint/v1/snapshots?source_volume.id=_volume-id_&version=2022-02-22&generation=2" \
      -H "Authorization: Bearer ${API_TOKEN}"
@@ -218,9 +203,9 @@ Snapshot names adhere to the same requirements as volume names. Valid names can 
 {: #snapshots-vpc-rename-ui}
 {: ui}
 
-1. Go to the list of snapshots. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Snapshots**. 
+1. Go to the list of snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Snapshots**.
 2. Click the name of a snapshot from the list.
-3. Click the pencil icon. 
+3. Click the pencil icon.
 4. Provide a [new name](#snapshots-vpc-naming) for the snapshot, save, and confirm your changes.
 
 ## Rename a snapshot from the CLI:
@@ -229,14 +214,14 @@ Snapshot names adhere to the same requirements as volume names. Valid names can 
 
 Specify a `snapshot-update` command and provide the snapshot ID and new name.
 
-```
+```sh
 ibmcloud is snapshot-update SNAPSHOT_ID --name SNAPSHOT_NAME [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
 Example:
 
-```
+```sh
 $ ibmcloud is snapshot-update b40ecbfa-296b-4592-b959-59459868d683 --name my-snapshot1-renamed
 Updating snapshot b40ecbfa-296b-4592-b959-59459868d683 in resource group under account VPC 01 as user rtuser1@mycompany.com...
 
@@ -248,16 +233,16 @@ Status             stable
 Source Volume      ID                                          Name
                    c3f9ffa4-6609-4750-ad09-e8caea5d9e5c        demo-volume1
 
-Progress           -  
-Bootable           false   
-Deletable          false   
-Encryption         provider_managed   
-Encryption key     -   
+Progress           -
+Bootable           false
+Deletable          false
+Encryption         provider_managed
+Encryption key     -
 Minimum Capacity   100
-Size               1 
+Size               1
 Source Image       ID                                          Name
                    c348a188-bc70-4c08-afb7-cbcbde831be3        ibm-centos-7-6-minimal-amd64-2
-                      
+
 Resource group     ID                                          Name
                    64e81667-75d8-4803-9935-fb0ee5895c04        Default
 Created            2022-01-12T14:11:56+08:00
@@ -271,35 +256,35 @@ Captured           2022-01-12T14:31:11+08:00
 
 Specify a `snapshot-update` command with the `--tags` parameter to add user tags to a volume.
 
-Use the same parameter to add tags to a volume when creating a new snapshot using `ibmcloud is snapshot-create`.
+Use the same parameter to add tags to a volume when you create a snapshot by using `ibmcloud is snapshot-create`.
 {: tip}
 
 The following example adds user tags `env:test` and `env:prod` to a volume identified by ID.
 
-```
+```sh
 ibmcloud is snapshot-update52129844-d84d-45aa-a811-7bcc941f2172 --name mysnapshot60 --tags env:test,env:prod
 Updating snapshot52129844-d84d-45aa-a811-7bcc941f2172 under account VPC1 as user user@mycompany.com...
-                     
-ID                    52129844-d84d-45aa-a811-7bcc941f2172   
-Name                   mysnapshot60   
-CRN                    crn:v1:staging:public:is:us-east:a/80a55b0b-1dc6-4c9d-a08b-d6b8cb4cf905:51204475-7330-40bc-94f6-e288bbe58e9a::   
-Status                 stable   
-Source volume          ID   Name      
-                       -    -      
-                          
-Progress               -   
-Bootable               false   
-Deletable              true   
-Encryption             provider_managed   
-Encryption key         -   
-Minimum capacity(GB)   103   
-Size(GB)               57   
-Resource group         ID                                 Name      
-                       5018a8564e8120570150b0764d39ebcc   Default      
-                          
-Created                2022-01-27T11:47:46.365+05:30   
+
+ID                    52129844-d84d-45aa-a811-7bcc941f2172
+Name                   mysnapshot60
+CRN                    crn:v1:staging:public:is:us-east:a/80a55b0b-1dc6-4c9d-a08b-d6b8cb4cf905:51204475-7330-40bc-94f6-e288bbe58e9a::
+Status                 stable
+Source volume          ID   Name
+                       -    -
+
+Progress               -
+Bootable               false
+Deletable              true
+Encryption             provider_managed
+Encryption key         -
+Minimum capacity(GB)   103
+Size(GB)               57
+Resource group         ID                                 Name
+                       5018a8564e8120570150b0764d39ebcc   Default
+
+Created                2022-01-27T11:47:46.365+05:30
 Captured               2022-01-27T11:58:16.265+05:30
-Tags                   env:test,env:prod   
+Tags                   env:test,env:prod
 ```
 {: codeblock}
 
@@ -308,9 +293,9 @@ Tags                   env:test,env:prod
 {: #snapshots-vpc-rename-api}
 {: api}
 
-Make a `PATCH/snapshots` call and specify the snapshot ID and new name of the snapshot. 
+Make a `PATCH/snapshots` call and specify the snapshot ID and new name of the snapshot.
 
-```
+```curl
 curl -X PATCH \
 "$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2022-01-12&generation=2" \
    -H "Authorization: Bearer ${API_TOKEN}" \
@@ -324,9 +309,9 @@ curl -X PATCH \
 {: #snapshots-vpc-add-tags-api}
 {: api}
 
-Make a `PATCH/snapshots` call and specify the snapshot ID and user tags. This example adds user tags `env:test` and `env:prod` to the snapshot. When these tags are matched in a backup policy, a backup will be triggered based on the backup plan schedule. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-policy-create).
+Make a `PATCH/snapshots` call and specify the snapshot ID and user tags. The following example adds user tags `env:test` and `env:prod` to the snapshot. When these tags are matched in a backup policy, a backup is triggered based on the backup plan schedule. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-policy-create).
 
-```
+```curl
 curl -X PATCH \
 "$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2022-01-12&generation=2" \
     -H "Authorization: Bearer ${API_TOKEN}" \
@@ -339,26 +324,26 @@ curl -X PATCH \
 ```
 {: codeblock}
 
-
 ## IAM roles for creating and managing snapshots
 {: #snapshots-vpc-iam}
 
-Snapshots require IAM permissions for role-based access control. Table 1 describes these roles as they pertain to snapshots actions.
+Snapshots require {{site.data.keyword.iamlong}} (IAM) permissions for role-based access control. Table 1 describes these roles as they pertain to snapshots actions.
 
 | Snapshot action | IAM role |
 |-----------------|----------|
 | Create snapshots | Administrator, editor |
 | Delete snapshots | Administrator, editor |
-| Create volume from a snapshot<sup>1</sup> | Administrator, editor, operator |
+| Create volume from a snapshot[^createvol] | Administrator, editor, operator |
 | List snapshots | Administrator, editor, operator, viewer |
 | View snapshot details | Administrator, editor, operator, viewer |
-{: caption="Table 1. IAM roles for snapshots" caption-side="bottom"}
-<sup>1</sup>Need to have administrator and editor privileges on the volume.
+{: caption="Table 1. {{site.data.keyword.iamlong}} roles for snapshots." caption-side="bottom"}
+
+[^createvol]: Need to have administrator and editor privileges on the volume.
 
 ## Snapshot lifecycle states
 {: #snapshots-vpc-status}
 
-Table 1 describes the snapshot states in the snapshot lifecycle.
+Table 2 describes the snapshot states in the snapshot lifecycle.
 
 | Snapshot Status | Explanation |
 |-----------------|-------------|
@@ -375,14 +360,14 @@ Table 1 describes the snapshot states in the snapshot lifecycle.
 ## Activity Tracker events for snapshots
 {: #snapshots-vpc-at-events}
 
-When you initiate activity on a snapshot, specific Activity Tracker events are generated. These activities include creating, listing, modifying, and deleting snapshots. For a list of these Activity Tracker events, see [Snapshots events](/docs/vpc?topic=vpc-at-events#events-snapshots).
+When you initiate activity on a snapshot, specific Activity Tracker events are generated. These activities include creating, listing, modifying, and deleting snapshots. For more information about the Activity Tracker events, see [Snapshots events](/docs/vpc?topic=vpc-at-events#events-snapshots).
 
 ## Activity Tracker JSON examples for snapshot events
 {: #snapshots-vpc-at-event-examples}
 
 The following example shows JSON output of an Activity Tracker event that was generated after you successfully created a snapshot. The name that you gave the snapshot appears in the response message and reason code `Created`.
 
-```
+```json
 {
     "eventTime": "2022-02-22T17:59:07.57+0000",
     "action": "is.snapshot.create",
@@ -423,11 +408,11 @@ The following example shows JSON output of an Activity Tracker event that was ge
     "saveServiceCopy": true
 }
 ```
-{: screen}
+{: codeblock}
 
 The following example shows an event that was generated when you list snapshot details by ID:
 
-```
+```json
 {
     "eventTime": "2022-01-16T17:55:25.60+0000",
     "action": "is.snapshot.read",
@@ -468,19 +453,19 @@ The following example shows an event that was generated when you list snapshot d
     "saveServiceCopy": true
 }
 ```
-{: screen}
+{: codeblock}
 
 ## Performance considerations when restoring a volume from a snapshot
 {: #snapshots-perf}
 
-Boot and data volume performance is initially degraded when restoring from a snapshot. During the restoration, your data is copied from IBM COS to VPC Block Storage. After the restoration process has completed, you should realize full IOPS on your new volume.
+Boot and data volume performance is initially degraded when restoring from a snapshot. During the restoration, your data is copied from {{site.data.keyword.cos_full}} to VPC {{site.data.keyword.block_storage_is_short}}. After the restoration process has completed, you caan realize full IOPS on your new volume.
 
 ## Managing security and compliance
 {: #snapshots-vpc-manage-security}
 
-Snapshots for VPC is integrated with the Security and Compliance Center to help you manage security and compliance for your organization. For snapshots, you can set up a goal that checks whether snapshots are encrypted using customer-managed keys. By using the Security and Compliance Center to validate the snapshot resource configurations in your account against a profile, you can identify potential issues as they arise.
+Snapshots for VPC is integrated with the {{site.data.keyword.compliance_full}} to help you manage security and compliance for your organization. For snapshots, you can set up a goal that checks whether snapshots are encrypted by using customer-managed keys. By using the {{site.data.keyword.compliance_short}} to validate the snapshot resource configurations in your account against a profile, you can identify potential issues as they arise.
 
-Since snapshots are created from block storage volumes, Block Storage for VPC goals provide an additional level of security. For information about monitoring security and compliance for VPC, including snapshots and block storage volumes, see [Monitoring security and compliance posture with VPC](/docs/vpc?topic=vpc-manage-security-compliance#monitor-vpc). For information about creating security and compliance goals, see [Defining rules](/docs/security-compliance?topic=security-compliance-rules-define&interface=ui) in the Security and Compliance documentation.
+Since snapshots are created from {{site.data.keyword.block_storage_is_short}} volumes, {{site.data.keyword.block_storage_is_short}} goals provide an additional level of security. For information about monitoring security and compliance for VPC, including snapshots and {{site.data.keyword.block_storage_is_short}} volumes, see [Monitoring security and compliance posture with VPC](/docs/vpc?topic=vpc-manage-security-compliance#monitor-vpc). For information about creating security and compliance goals, see [Defining rules](/docs/security-compliance?topic=security-compliance-rules-define&interface=ui) in the Security and Compliance documentation.
 
 ## Next Steps
 {: #snapshots-vpc-manage-next-steps}
