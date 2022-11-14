@@ -84,7 +84,7 @@ Snapshots have their own lifecycle, independent of the {{site.data.keyword.block
 {: faq}
 {: #faq-snapshot-pricing}
 
-Cost for snapshots is calculated based on GB capacity stored per month, unless the duration is less than one month. Because the snapshot is based on the capacity that was provisioned for the original volume, the snapshot capacity does not vary. Deleting snapshots reduces cost, so the fewer snapshots you retain the lower the cost.
+Cost for snapshots is calculated based on GB capacity that is stored per month, unless the duration is less than one month. Because the snapshot is based on the capacity that was provisioned for the original volume, the snapshot capacity does not vary. Deleting snapshots reduces cost, so the fewer snapshots you retain the lower the cost.
 
 Pricing for snapshots is also set by region. For more information, see [Pricing](https://www.ibm.com/cloud/vpc/pricing).
 
@@ -92,4 +92,4 @@ Pricing for snapshots is also set by region. For more information, see [Pricing]
 {: faq}
 {: #faq-snapshot-tags}
 
-Depending on the action that you're performing, you can add user tags and access management tags to your snapshots. User tags are used by the backup service to periodically create backup snapshots of the volume. Access management tags help organize access to your {{site.data.keyword.block_storage_is_short}} snapshots. For more information, see [Tags for {{site.data.keyword.block_storage_is_short}} snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#snapshots-about-tags.)
+Depending on the action that you're performing, you can add user tags and access management tags to your snapshots. User tags are used by the backup service to periodically create backup snapshots of the volume. Access management tags help organize access to your {{site.data.keyword.block_storage_is_short}} snapshots. For more information, see [Tags for {{site.data.keyword.block_storage_is_short}} snapshots](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#snapshots-about-tags).
