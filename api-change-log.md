@@ -49,6 +49,17 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
+## 15 November 2022
+{: #15-november-2022}
+
+### For all version dates
+{: #15-november-2022-all-version-dates}
+
+**Access management tag support.** As described in [Authorization](/apidocs/vpc/latest#api-authorization) in the VPC API reference, you can now use [IBM Cloud Identity and Access Management](/docs/account?topic=account-iamoverview) to control access to VPC resources by using access management tags. For details, see [Managing IAM access for VPC Infrastructure Services](/docs/vpc?topic=vpc-iam-getting-started&interface=api#iam-access-management-tags).
+
+Some VPC APIs currently require additional authorizations beyond those defined in the API specification. For more information, see [Known issues](/docs/vpc?topic=vpc-known-issues#api-spec-auth-known-issue).
+{: important}
+
 ## 25 October 2022
 {: #25-october-2022}
 
