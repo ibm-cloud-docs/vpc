@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-07"
+lastupdated: "2022-11-14"
 
 keywords: operating system end of support (eos)
 
@@ -63,9 +63,9 @@ The following table describes the end of support date and license model for Red 
 | RHEL 8.4 (SAP HANA & SAP applications) | 30 May 2025 | Pay-as-you-Go |
 | RHEL 8.3 minimal | 30 April 2021 | Pay-as-you-Go / BYOL |
 | RHEL 8.2 minimal | 30 April 2022 |  Pay-as-you-Go / BYOL |
-| RHEL 8.2 (SAP HANA & SAP applications) | 30 April 2024 | Pay-as-you-Go |
+| RHEL 8.2 (SAP HANA & SAP applications) | 28 February 2023 | Pay-as-you-Go |
 | RHEL 8.1 minimal | 30 November 2021 | Pay-as-you-Go / BYOL |
-| RHEL 8.1 (SAP HANA & SAP applications) | 30 November 2023 | Pay-as-you-Go |
+| RHEL 8.1 (SAP HANA & SAP applications) | 28 February 2023 | Pay-as-you-Go |
 | RHEL 7.9 minimal | 30 June 2024 | Pay-as-you-Go / BYOL |
 | RHEL 7.6 (SAP HANA & SAP applications) | 31 October 2022 | Pay-as-you-Go |
 {: caption="Table 4. Lifecycle for Red Hat Enterprise Linux (RHEL) operating systems" caption-side="bottom"}
