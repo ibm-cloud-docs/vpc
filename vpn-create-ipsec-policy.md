@@ -18,7 +18,7 @@ subcollection: vpc
 You can use custom IPsec policies to define security parameters to use during Phase 2 of IKE negotiation. In this phase, the VPN and peer device use the security association that is established during Phase 1 to negotiate what traffic to send and how to authenticate and encrypt that traffic.
 {: shortdesc}
 
-## Creating an IPsec policy by using the UI
+## Creating an IPsec policy in the UI
 {: #vpn-using-ui-create-ipsec-policy}
 {: ui}
 
@@ -37,7 +37,7 @@ To create an IPsec policy by using the UI, follow these steps:
 1. Click **Create IPsec policy**.
 1. From the **VPN connection details** page, set the **IPsec policies** field to use the wanted IPsec policy.
 
-## Creating an IPsec policy by using the CLI
+## Creating an IPsec policy from the CLI
 {: #vpn-using-cli-create-ipsec-policy}
 {: cli}
 
@@ -78,7 +78,7 @@ The `AUTHENTICATION_ALGORITHM` must be `disabled` if and only if `ENCRYPTION_ALG
 - Create an IPsec policy with the same parameters and a resource group ID:
    `ibmcloud is ipsec-policy-create my-ipsec-policy sha256 aes128 group_14 --resource-group-id fee82deba12e4c0fb69c3b09d1f12345 --output JSON`
 
-## Creating an IPsec policy by using the API
+## Creating an IPsec policy with the API
 {: #vpn-using-api-create-ipsec-policy}
 {: api}
 

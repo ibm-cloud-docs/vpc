@@ -19,7 +19,7 @@ You can suspend and resume a flow log collector by using the UI, the CLI, or the
 After you create a flow log collector, its default state is `Active`.
 {: note}
 
-## Suspending and resuming a flow log collector by using the UI
+## Suspending and resuming a flow log collector in the UI
 {: #fl-managing-ui}
 {: ui}
 
@@ -31,7 +31,7 @@ To resume a suspended flow log, select **Resume** from the overflow menu ![overf
 
 ![Resume](/images/flow-log-resume.png){: caption="Figure 2. Resume flow log" caption-side="bottom}
 
-## Suspending and resuming a flow log collector by using the CLI
+## Suspending and resuming a flow log collector from the CLI
 {: #fl-managing-cli}
 {: cli}
 
@@ -50,7 +50,7 @@ Where:
 * **--active** is the intended `active` status after the update. Set to **true** to resume or **false** to suspend.
 * **--json** formats the output in JSON.
 
-## Suspending and resuming a flow log collector by using the API
+## Suspending and resuming a flow log collector with the API
 {: #fl-managing-api}
 {: api}
 

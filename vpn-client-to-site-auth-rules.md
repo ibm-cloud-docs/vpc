@@ -18,12 +18,12 @@ subcollection: vpc
 Each network must have an authorization rule that grants access to the network.
 {: shortdesc}
 
-## Adding authorization rules by using the UI
+## Adding authorization rules in the UI
 {: #ui-add-auth-rule}
 {: ui}
 
 To add authorization rules and grant access to a network to a Client VPN endpoint, take the following steps:
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/) and log in to your account
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account
 2. From the dashboard, click the Menu icon ![Menu icon](../icons/icon_hamburger.svg) and select **Client VPN**
 3. Select the Client VPN endpoint where you want to add the authorization rule (DEPENDS ON UI—steps might be more complex)
 4. Select Authorize ingress (may be different name)
@@ -34,20 +34,20 @@ To add authorization rules and grant access to a network to a Client VPN endpoin
 7. Enter a brief description of the authorization rule
 8. Click **Add authorization rule**
 
-## Adding authorization rules by using the CLI
+## Adding authorization rules fronm the CLI
 {: #cli-add-auth-rule}
 {: cli}
 
 Add an authorization rule using the `authorize-client-vpn-ingress` command.
 
-## Removing authorization rules using the UI
+## Removing authorization rules in the UI
 {: #ui-remove-auth-rule}
 {: ui}
 
 When you remove authorization rules, you remove access to the network.
 
 To remove authorization rules and grant access to a network to a Client VPN endpoint, take the following steps:
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/) and log in to your account
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account
 2. From the dashboard, click the Menu icon ![Menu icon](../icons/icon_hamburger.svg) and select **Client VPN**
 3. Select the Client VPN endpoint where the authorization rule is applied (DEPENDS ON UI—steps might be more complex)
 4. Select Revoke ingress (may be different name)
@@ -58,17 +58,17 @@ To remove authorization rules and grant access to a network to a Client VPN endp
 
 Remove an authorization rule using the `revoke-client-vpn-ingress` command.
 
-## Viewing authorization rules by using the UI
+## Viewing authorization rules in the UI
 {: #ui-view-auth-rule}
 {: ui}
 
 To view authorization rules and grant access to a network to a Client VPN endpoint, take the following steps:
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/) and log in to your account
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login) and log in to your account
 2. From the dashboard, click the Menu icon ![Menu icon](../icons/icon_hamburger.svg) and select **Client VPN**
 3. Select the Client VPN endpoint where the authorization rule is applied (DEPENDS ON UI—steps might be more complex)
 4. Select Authorization (may be different name)to see a list of authorization rules for the Client VPN
 
-## Viewing authorization rules by using the CLI
+## Viewing authorization rules from the CLI
 {: #ui-view-auth-rule}
 {: cli}
 

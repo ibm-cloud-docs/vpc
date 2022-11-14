@@ -18,13 +18,13 @@ subcollection: vpc
 You can change VPN server types after you create a VPN server. For example, you can upgrade a stand-alone VPN server (pilot deployment) to a High Availability (HA) VPN server (production deployment). You can also detach a subnet to downgrade an HA VPN server to a stand-alone deployment, or change a VPN subnet after your VPN server is provisioned.
 {: shortdesc}
 
-## Upgrading to an HA VPN server by using the UI
+## Upgrading to an HA VPN server in the UI
 {: #vpn-client-to-site-upgrade-ui}
 {: ui}
 
 To change the VPN server type, follow these steps:
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) on the upper left of the page, then click **VPC Infrastructure > VPNs** in the Network section.
 
     If starting from the VPC Infrastructure menu, click **VPNs** in the Network section to open the VPNs for VPC page.
@@ -43,7 +43,7 @@ To change the VPN server type, follow these steps:
 
 1. Review the cost summary, then click **Save** to save your changes.
 
-## Upgrading to an HA VPN server by using the CLI
+## Upgrading to an HA VPN server from the CLI
 {: #vpn-upgrade-ha-cli}
 {: cli}
 
@@ -98,7 +98,7 @@ Where:
 
    `ibmcloud is vpn-server-update r134-aa88726e-8b34-4f97-992d-027df9c4bb36 --subnet 0716-6ec3e875-abfa-40f4-a7c5-7473f4b2a2e1`
 
-## Upgrading to an HA VPN server by using the API
+## Upgrading to an HA VPN server with the API
 {: #vpn-upgrade-ha-api}
 {: api}
 

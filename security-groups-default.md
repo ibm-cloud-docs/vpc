@@ -32,7 +32,7 @@ If you edit the rules of the default security group, those edited rules then app
 
 Inbound rules to allow pinging and SSH are not automatically added to the default security group. 
 
-## Updating the default security group using the UI
+## Updating the default security group in the UI
 {: #example-modifying-the-default-sg-rules-using-ui}
 {: ui}
 
@@ -60,7 +60,7 @@ Inbound rules to allow pinging and SSH are not automatically added to the defaul
 1. When you finish creating rules, click the **Security groups** breadcrumb at the top of the page to return to your list of Security groups for VPC.
 
 
-## Updating the default security group by using the CLI
+## Updating the default security group from the CLI
 {: #example-modifying-the-default-security-group-rules-using-the-cli}
 {: cli}
 
@@ -147,7 +147,7 @@ Complete the following steps to update the default security group by using the C
 Adding and removing security group rules is an asynchronous operation. It usually takes 1 - 30 seconds for the change to go into effect.
 {: note} 
 
-## Updating the default security group by using the API
+## Updating the default security group with the API
 {: #example-modifying-the-default-security-group-rules-using-the-api}
 {: api}
 

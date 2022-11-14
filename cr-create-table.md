@@ -25,7 +25,7 @@ Before creating a routing table, ensure that you have at least one VPC and revie
 
 You can create a routing table for an {{site.data.keyword.cloud_notm}} service by using the UI, CLI, or API.
 
-## Creating a routing table by using the UI
+## Creating a routing table in the UI
 {: #cr-using-the-ui}
 {: ui}
 
@@ -61,7 +61,7 @@ To create a routing table by using the {{site.data.keyword.cloud_notm}} console,
 
 1. Read and agree to the **Terms and Conditions**, then click **Create routing table**.
 
-## Creating a routing table by using the CLI
+## Creating a routing table from the CLI
 {: #cr-using-the-cli-ct}
 {: cli}
 
@@ -92,7 +92,7 @@ Where:
 You can set an ingress option to **true** on only one routing table per VPC, and then only if that routing table is not attached to any subnets.
 {: note}
 
-## Creating a routing table by using the API
+## Creating a routing table with the API
 {: #cr-using-the-api-ct}
 {: api}
 

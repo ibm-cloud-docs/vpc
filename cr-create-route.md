@@ -44,7 +44,7 @@ The `Delegate-VPC` action is NOT required if:
 
 You can create a route for an IBM Cloud service by using the UI, CLI, or API.
 
-## Creating a route by using the UI
+## Creating a route in the UI
 {: #cr-route-using-the-ui}
 {: ui}
 
@@ -72,7 +72,7 @@ To create a route by using the {{site.data.keyword.cloud_notm}} console, follow 
 
 1. Click **Save** to save the new route. The route appears on the Routing table details page.
 
-## Creating a route by using the CLI
+## Creating a route from the CLI
 {: #cr-route-using-the-cli}
 {: cli}
 
@@ -96,7 +96,7 @@ Where:
 * **--name** is the name of the VPC routing table.
 * **--json** formats the output in JSON.
 
-## Creating a route by using the API
+## Creating a route with the API
 {: #cr-route-using-the-api}
 {: api}
 

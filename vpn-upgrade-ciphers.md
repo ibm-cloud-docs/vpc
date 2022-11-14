@@ -52,7 +52,7 @@ Before you upgrade, review the following information:
 
 For an existing VPN connection that uses the old auto-negotiation policy (created before 20 September 2022), complete the following steps to upgrade to the new auto-negotiation policy.
 
-### Upgrading the auto-negotiation policy by using the UI
+### Upgrading the auto-negotiation policy in the UI
 {: #upgrade-vpn-old-auto-procedure-ui}
 {: ui}
 
@@ -64,7 +64,7 @@ To upgrade the auto-negotiation policy by using the UI, follow these steps:
 1. Toggle the **State** switch to disable the connection. If your **State** switch is already disabled, skip this step.
 1. Toggle the **State** switch to re-enable the connection.
 
-### Upgrading the auto-negotiation policy by using the CLI
+### Upgrading the auto-negotiation policy from the CLI
 {: #upgrade-vpn-old-auto-procedure-ui-cli}
 {: cli}
 
@@ -106,7 +106,7 @@ To upgrade the auto-negotiation policy by using the CLI, follow these steps:
     ```
     {: codeblock}
 
-### Upgrading the auto-negotiation policy by using the API
+### Upgrading the auto-negotiation policy with the API
 {: #upgrade-vpn-old-auto-procedure-ui-api}
 {: api}
 
@@ -158,7 +158,7 @@ To upgrade the auto-negotiation policy by using the API, follow these steps:
    ```
    {: codeblock}
 
-### Upgrading the auto-negotiation policy by using the SDK
+### Upgrading the auto-negotiation policy with the SDK
 {: #upgrade-vpn-old-auto-procedure-ui-sdk}
 {: api}
 
@@ -210,7 +210,7 @@ To upgrade the auto-negotiation policy by using the SDK, follow these Go languag
 
 For more information about SDK Go or other languages, see the [VPC SDK reference](/apidocs/vpc/latest?code=go#update-vpn-gateway-connection).
 
-### Upgrading the auto-negotiation policy by using Terraform
+### Upgrading the auto-negotiation policy with Terraform
 {: #upgrade-vpn-old-auto-procedure-ui-terraform}
 {: terraform}
 
@@ -290,7 +290,7 @@ You will experience a network outage during the upgrade. The duration of the out
 
 Before you begin, it is a good idea to first configure your on-prem VPN gateway peer to contain both the weak and secure ciphers for Phase 1 and Phase 2 negotiation. Then, change the IBM VPN gateway to remove the use of the weak ciphers by following these steps. Afterward, remove the weak ciphers from the on-prem VPN gateway. This step might also reduce the outage time.
 
-### Upgrading a VPN from a custom IKE policy by using the UI
+### Upgrading a VPN from a custom IKE policy in the UI
 {: #upgrade-vpn-custom-ike-policy-procedure-ui}
 {: ui}
 
@@ -306,7 +306,7 @@ To upgrade the IKE policy by using the UI, follow these steps:
    * **Diffie-Hellman group** - DH group to use for IKE Phase 1. One of: `14`, `15`, `16`, `17`, `18`, `19`, `20`, `21`, `22`, `23`, `24`, `31`.
 1. Click **Save**.
 
-### Upgrading a VPN from a custom IPsec policy by using the UI
+### Upgrading a VPN from a custom IPsec policy in the UI
 {: #upgrade-vpn-custom-ipsec-policy-procedure-ui}
 {: ui}
 
@@ -330,7 +330,7 @@ To upgrade a custom IPsec policy by using the UI, follow these steps:
       
 1. Click **Save**.
 
-### Upgrading a VPN from a custom IKE policy by using the CLI
+### Upgrading a VPN from a custom IKE policy from the CLI
 {: #upgrade-vpn-custom-ike-policy-procedure-cli}
 {: cli}
 
@@ -388,7 +388,7 @@ To upgrade a custom IKE policy by using the CLI, following these steps:
    - Update an IKE policy by using SHA 256 authentication, DH Group 14, AES 128 encryption:
       - `ibmcloud is ike-policy-update $ike_policy --authentication-algorithm $authentication_algorithm --dh-group $dh_group --encryption-algorithm $encryption_algorithm`
 
-### Upgrading a VPN from a custom IPsec policy by using the CLI
+### Upgrading a VPN from a custom IPsec policy from the CLI
 {: #upgrade-vpn-custom-ipsec-policy-procedure-cli}
 {: cli}
 
@@ -449,7 +449,7 @@ To upgrade a custom IPsec policy by using the CLI, follow these steps:
    - Update an IPsec policy by using SHA 256 authentication, AES 128 encryption, and PFS with DH Group 14:
       `ibmcloud is ipsec-policy-update $ipesc_policy --authentication-algorithm $authentication_algorithm --pfs $pfs --encryption-algorithm $encryption_algorithm`
 
-### Upgrading a VPN from a custom IKE policy by using the API
+### Upgrading a VPN from a custom IKE policy with the API
 {: #upgrade-vpn-custom-ike-policy-procedure-api}
 {: api}
 
@@ -497,7 +497,7 @@ To upgrade a custom IKE policy by using the API, follow these steps:
    ```
    {: codeblock}
 
-### Upgrading a VPN from a custom IPsec policy by using the API
+### Upgrading a VPN from a custom IPsec policy with the API
 {: #upgrade-vpn-custom-ipsec-policy-procedure-api}
 {: api}
 
@@ -545,7 +545,7 @@ To upgrade the IPsec policy by using the API, follow these steps:
    ```
    {: codeblock}
 
-### Upgrading a VPN from a custom IKE policy by using the SDK
+### Upgrading a VPN from a custom IKE policy with the SDK
 {: #upgrade-vpn-custom-ike-policy-procedure-sdk}
 {: api}
 
@@ -590,7 +590,7 @@ To upgrade the IKE policy by using the SDK, follow these Go language example ste
 
 For more information about SDK Go or other languages, see the [VPC SDK reference](/apidocs/vpc/latest?code=go#update-ike-policy).
 
-### Upgrading a VPN from a custom IPsec policy by using the SDK
+### Upgrading a VPN from a custom IPsec policy with the SDK
 {: #upgrade-vpn-custom-ipsec-policy-procedure-sdk}
 {: api}
 
@@ -638,7 +638,7 @@ To upgrade the IPsec policy by using the SDK, follow these Go language example s
 
 For more information on SDK Go or other languages, see the [VPC SDK reference](/apidocs/vpc/latest?code=go#update-ipsec-policy).
 
-### Upgrading a VPN from a custom IKE policy by using Terraform
+### Upgrading a VPN from a custom IKE policy with Terraform
 {: #upgrade-vpn-custom-ike-policy-procedure-terraform}
 {: terraform}
 
@@ -680,7 +680,7 @@ To upgrade the IKE policy by using Terraform, following these steps:
 
 For more information, see the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_ike_policy){: external}.
 
-### Upgrading a VPN from a custom IPsec policy by using Terraform
+### Upgrading a VPN from a custom IPsec policy with Terraform
 {: #upgrade-vpn-custom-ipsec-policy-procedure-terraform}
 {: terraform}
 

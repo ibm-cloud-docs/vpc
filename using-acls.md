@@ -21,7 +21,7 @@ You can use an access control list (ACL) to control all incoming and outgoing tr
 For a comparison of the characteristics of security groups and ACLs, see the [comparison table](/docs/vpc?topic=vpc-security-in-your-vpc#compare-security-groups-and-access-control-lists).
 {: tip}
 
-The example that is presented in this document shows how to create network ACLs in your VPC by using the CLI. For more information about how to set up ACLs in the {{site.data.keyword.cloud_notm}} console, see [Configuring ACLs by using the UI](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#configuring-the-acl).
+The example that is presented in this document shows how to create network ACLs in your VPC by using the CLI. For more information about how to set up ACLs in the {{site.data.keyword.cloud_notm}} console, see [Configuring ACLs in the UI](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#configuring-the-acl).
 
 ## Working with ACLs and ACL rules
 {: #working-with-acls-and-acl-rules}
@@ -275,7 +275,7 @@ ibmcloud is network-acl-rule-add 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 allow inbo
 These links provide additional information about {{site.data.keyword.cloud_notm}} ACLs for VPC.
 
 * [Network ACL CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#network-acls)
-* [Network ACL API reference](https://{DomainName}/apidocs/vpc#list-network-acls)
+* [Network ACL API reference](/apidocs/vpc#list-network-acls)
 * [Network ACL required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls#network-acl-authorizations-required-for-api-and-cli-calls)
 * [Network ACL Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-network-acl)
 * [Network ACL quotas](/docs/vpc?topic=vpc-quotas#acl-quotas)

@@ -32,7 +32,7 @@ Before you create a public gateway, you must satisfy the following prerequisites
 Only one public gateway per zone is allowed in a VPC, but a public gateway can be attached to multiple subnets in a zone.
 {: important}
 
-## Creating a public gateway by using the UI
+## Creating a public gateway in the UI
 {: #pg-creating-ui}
 {: ui}
 
@@ -70,7 +70,7 @@ To create a public gateway using the {{site.data.keyword.cloud_notm}} console, f
 
    ![Example Public gateways page](./images/pg-2.png "Public gateways menu"){: caption="Figure 2. Example public gateways page" caption-side="bottom}
 
-## Creating a public gateway by using the CLI
+## Creating a public gateway from the CLI
 {: #pg-creating-cli}
 {: cli}
 
@@ -100,7 +100,7 @@ ibmcloud is subnet-update $subnet --public-gateway-id $gateway
 Only one public gateway per zone is allowed in a VPC, but that public gateway can be attached to multiple subnets in the zone. To find the public gateway for a zone, run the `ibmcloud is public-gateways` command and look for the particular VPC and zone values.
 {: tip}
 
-## Creating a public gateway by using the API
+## Creating a public gateway with the API
 {: #pg-creating-api}
 {: api}
 

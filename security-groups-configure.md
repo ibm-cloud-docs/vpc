@@ -13,13 +13,13 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Set up a security group for your resource
+# Setting up a security group for your resource
 {: #configuring-the-security-group} 
 
 You can configure security groups to define the inbound and outbound traffic that is allowed for your resource. For example, after you configure ACL rules for the subnet based on your company's security policies, you can further restrict traffic for specific instances depending on their workloads.
 {: shortdesc}
 
-## Setting up the security groups for your resource using the UI
+## Setting up the security groups for your resource in the UI
 {: #sgg-using-ui}
 {: ui}
 
@@ -56,7 +56,7 @@ To configure your security group by using the UI, follow these steps:
    * For Windows images, make sure that the security group that is associated with the instance allows inbound and outbound Remote Desktop Protocol traffic (TCP port 3389).
 1. _Optional:_ Attach interfaces, bare metal interfaces, load balancers, virtual private endpoint gateways, and VPN servers in the remaining sections if these targets are available to attach. 
 
-## Setting up the security groups for your resource by using the CLI
+## Setting up the security groups for your resource from the CLI
 {: #sg-using-cli}
 {: cli}
 
@@ -138,7 +138,7 @@ ibmcloud is security-group-rule-add $sg inbound icmp --icmp-type 8 --icmp-code 0
 
 For more information on setting up security groups by using the CLI, see [Security groups](https://cloud.ibm.com/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#security-groups-cli-ref){: external}.
 
-## Setting up the security groups for your resource by using the API
+## Setting up the security groups for your resource with the API
 {: #sg-using-api}
 {: api}
 

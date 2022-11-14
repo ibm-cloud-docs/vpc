@@ -17,13 +17,13 @@ subcollection: vpc
 
 You can update an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NLB) by using the UI, CLI, or API.
 
-## Updating a network load balancer by using the UI
+## Updating a network load balancer in the UI
 {: #nlb-updating-ui}
 {: ui}
 
 To update an NLB by using the {{site.data.keyword.cloud_notm}} console, perform the following procedure:
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
 1. Select the region of your load balancer.
 1. Select the load balancer that you want to update.
@@ -33,7 +33,7 @@ To update an NLB by using the {{site.data.keyword.cloud_notm}} console, perform 
 
 The **Active** button on the upper left of your screen now shows as **Updating**. When **Updating** changes back to **Active**, the update is done and the new changes are applied.
 
-## Updating a network load balancer by using the CLI
+## Updating a network load balancer from the CLI
 {: #nlb-updating-cli}
 {: cli}
 
@@ -86,7 +86,7 @@ Sample output:
 ```
 {: screen}
 
-## Updating a network load balancer by using the API
+## Updating a network load balancer with the API
 {: #nlb-updating-frontend-listener-port-api}
 {: api}
 

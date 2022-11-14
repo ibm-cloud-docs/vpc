@@ -18,7 +18,7 @@ subcollection: vpc
 You can use custom Internet Key Exchange (IKE) policies to define security parameters to use during Phase 1 of IKE negotiation. In this phase, the VPN and peer device exchange credentials and security policies to authenticate each other and establish a secure communication channel to be used for Phase 2 negotiation.
 {: shortdesc}
 
-## Creating an IKE policy by using the UI
+## Creating an IKE policy in the UI
 {: #vpn-using-ui-create-ike-policy}
 {: ui}
 
@@ -37,7 +37,7 @@ To create an IKE policy using the UI, follow these steps:
 1. Click **Create IKE policy**.
 1. From the **VPN connection details** page, set the **IKE policies** field to use the wanted IKE policy.
 
-## Creating an IKE policy by using the CLI
+## Creating an IKE policy from the CLI
 {: #vpn-using-cli-create-ike-policy}
 {: cli}
 
@@ -76,7 +76,7 @@ Where:
 - CCreate an IKE policy with the same parameters and a resource group ID:
    - `ibmcloud is ipsec-policy-create my-ipsec-policy sha256 14 aes128 2 --resource-group-id fee82deba12e4c0fb69c3b09d1f12345 --output JSON`
 
-## Creating an IKE policy by using the API
+## Creating an IKE policy with the API
 {: #vpn-using-api-create-ike-policy}
 {: api}
 

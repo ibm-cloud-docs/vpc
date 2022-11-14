@@ -29,7 +29,7 @@ To initiate sending VPN logs to {{site.data.keyword.la_full_notm}}, you need the
    After the VPN server gets provisioned, note the ID and region.
    {: tip}
 
-## Sending VPN logs to {{site.data.keyword.la_full_notm}} by using the UI
+## Sending VPN logs to {{site.data.keyword.la_full_notm}} in the UI
 {: #sending-vpn-logs-c2s}
 {: ui}
 

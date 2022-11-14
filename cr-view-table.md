@@ -18,7 +18,7 @@ subcollection: vpc
 You can view details of a routing table by using the UI, CLI, or API. From the Routing table details page, you can also view details of attached routes and subnets, as well as navigate to other pages to view VPC details, manage address prefixes, and more.
 {: shortdesc}
 
-## Viewing details of a routing table by using the UI
+## Viewing details of a routing table in the UI
 {: #cr-routing-table-using-the-ui}
 {: ui}
 
@@ -45,7 +45,7 @@ Field descriptions are as follows.
 For descriptions of the routing table columns, see [Listing routes of a routing table](/docs/vpc?topic=vpc-list-routes-routing-table).
 {: note}
 
-## Viewing details of a routing table by using the CLI
+## Viewing details of a routing table from the CLI
 {: #cr-routing-table-using-the-cli}
 {: cli}
 
@@ -77,7 +77,7 @@ Where:
 * **SUBNET** is the ID of the subnet.
 * **--json** formats output in JSON.
 
-## Viewing details of a routing table by using the API
+## Viewing details of a routing table with the API
 {: #cr-routing-table-using-the-api}
 {: api}
 

@@ -17,7 +17,7 @@ subcollection: vpc
 
 Connections are VPN sessions that are established by VPN clients. After a VPN client connects to the VPN server, you can view all VPN clients that connected to the server in the last hour. VPN client information includes the client IP, user ID, status, remote IP, remote port, and session start/end time (if applicable). 
 
-## Disconnecting VPN clients by using the UI
+## Disconnecting VPN clients in the UI
 {: #vpn-client-to-site-ending-connections}
 {: ui}
 
@@ -33,7 +33,7 @@ To disconnect a VPN client from the VPN server, follow these steps:
    You can also specify to **Delete** the VPN client, which deletes the client session immediately.
    {: note}
 
-## Disconnecting VPN clients by using the CLI
+## Disconnecting VPN clients from the CLI
 {: #vpn-client-to-site-ending-connections-cli}
 {: cli}
 
@@ -68,7 +68,7 @@ Disconnection request for VPN client 86b1f0cc-6e83-45e5-bd78-1bef291be6e7 has be
 ```
 {: screen}
 
-## Disconnecting VPN clients by using the API
+## Disconnecting VPN clients with the API
 {: #vpn-client-to-site-ending-connections-api}
 {: api}
 

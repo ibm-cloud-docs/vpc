@@ -28,7 +28,7 @@ When the VPN is established in split-tunnel configuration, all routes in the cli
 To avoid running out of routes, make note of the client device's route capacity before modifying the client-to-site VPN server routing table.
 {: tip}
 
-## Creating a route by using the UI
+## Creating a route in the UI
 {: #create-route-ui-c2s}
 {: ui}
 
@@ -56,7 +56,7 @@ Add `0.0.0.0/0` as a route to enable clients access to the internet.
 You can select **Edit** from the Actions menu of the VPN server route to change the name of your route.
 {: note}
 
-## Deleting a route by using the UI
+## Deleting a route in the UI
 {: #delete-route-ui-c2s}
 {: ui}
 
@@ -68,7 +68,7 @@ To delete a route using the UI, follow these steps:
 1. Select the VPN server where you want to delete a route. Then, from the Actions menu, select **Delete**.
 1. Select **Delete** again to confirm deletion.
 
-## Creating a route by using the CLI
+## Creating a route from the CLI
 {: #create-route-cli-c2s}
 {: cli}
 
@@ -98,7 +98,7 @@ For example:
 - `ibmcloud is vpn-server-route-create r134-77e21079-7291-44c2-866a-8f1848bc10f0 --name myroute --action drop --destination 10.0.0.0/24`
 {: screen}
 
-## Updating a route by using the CLI
+## Updating a route from the CLI
 {: #update-route-cli-c2s}
 {: cli}
 
@@ -122,7 +122,7 @@ For example:
 `ibmcloud is vpn-server-route-update r134-77e21079-7291-44c2-866a-8f1848bc10f0 1233a60b-fc95-4dbc-96ab-a976b723bfb0 --name myroute`
 {: screen}
 
-## Viewing VPN route details by using the CLI
+## Viewing VPN route details from the CLI
 {: #vpn-server-route}
 {: cli}
 
