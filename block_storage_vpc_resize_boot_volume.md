@@ -8,10 +8,9 @@ keywords: block storage, boot volume, data volume, volume, data storage, virtual
 
 subcollection: vpc
 
-
 ---
 
-{{{site.data.keyword.attribute-definition-list}}
+{{site.data.keyword.attribute-definition-list}}
 
 # Increasing boot volume capacity
 {: #resize-boot-volumes}
@@ -56,7 +55,7 @@ For an existing instance, you can increase its boot volume capacity by selecting
 
 4. In the side panel, increase the boot volume size in the **Create size** field. The size must be more than the current size up to 250 GB.
 
-5. Click **Expand boot volume size**. 
+5. Click **Expand boot volume size**.
 
 ## Increase boot volume capacity with the CLI
 {: #expand-boot-vols-cli}
@@ -65,7 +64,7 @@ For an existing instance, you can increase its boot volume capacity by selecting
 ### Increase boot volume capacity when creating a new instance in the CLI
 {: #expand-new-boot-vols-cli}
 
-Run the `ibmcloud is instance-create` command and specify a boot volume capacity in GBs. 
+Run the `ibmcloud is instance-create` command and specify a boot volume capacity in GBs.
 
 This example creates an instance with a boot volume of 190 GB.
 
@@ -73,10 +72,10 @@ This example creates an instance with a boot volume of 190 GB.
 ibmcloud is instance create vsi-1 vpc-1 us-south-1 bx2-2x8  subnet-1 --image ibm-ubuntu-20-04-3-minimal-amd64-1 --boot-volume '{"name": "my-boot-vol-1", "volume": {"capacity": 190, "profile": {"name": "general-purpose"}}}'
 
 Creating instance cli-vsi-1 under account VPC1 as user myuser@mycompany.com...
-                                         
-ID                                    0716_84f99419-554d-4c05-bea0-7034d1c40ed3   
-Name                                  vsi-1   
-CRN                                   crn:v1:staging:public:is:us-south-1:a/efe5afc483594adaa8325e2b4d1290df::instance:0716_84f99419-554d-4c05-bea0-7034d1c40ed3   
+
+ID                                    0716_84f99419-554d-4c05-bea0-7034d1c40ed3
+Name                                  vsi-1
+CRN                                   crn:v1:staging:public:is:us-south-1:a/efe5afc483594adaa8325e2b4d1290df::instance:0716_84f99419-554d-4c05-bea0-7034d1c40ed3
 Status                                pending
 Availability policy on host failure   restart
 Startable                             true
@@ -91,21 +90,21 @@ Network bandwidth(Mbps)               3000
 Metadata service enabled              false
 Image                                 ID                                          Name
                                       9f6b534b-6061-40f4-ac42-5aba4dd0da7f         ubuntu-20-04-3-minimal-amd64-1
-                                         
-VPC                                   ID                                          Name 
+
+VPC                                   ID                                          Name
                                       r134-42ebadb6-65f8-4b2f-923b-50b0e44670df   vpc-1
-                                         
+
 Zone                                  us-south-1
 Resource group                        ID                                 Name
                                       11caaa983d9c4beb82690daab08717e9   Default
-                                         
+
 Created                               2022-02-24T16:43:47+05:30
 Boot volume                           ID   Name           Attachment ID                               Attachment name
                                       -    PROVISIONING   0716-ee0ca315-7a21-42e2-99f7-b68377bbffe0   my-boot-vol1
 ```
 {: screen}
 
-You can also specify a larger boot volume capacity when creating an instance template from an image or snapshot. For example, 
+You can also specify a larger boot volume capacity when creating an instance template from an image or snapshot. For example,
 
 ```sh
 ibmcloud is instance template create tpl-1 vpc-1 us-south-1 bx2-2x8  cli-subnet-1 --image ubuntu-20-04-3-minimal-amd64-1 --boot-volume '{"name": "my-boot-vol1", "volume": {"capacity": 190, "profile": {"name": "general-purpose"}}}'
@@ -119,18 +118,18 @@ For information about creating virtual server instances using the CLI, see [Crea
 
 From the CLI, locate the boot volume you want to expand. You can use the `ibmcloud is volumes` command filter the results by specifying the resource group. Also, if you know the name or ID of the instance, you can view instance details and get information about the boot volume.
 
-After you located the volume, use the `volume-update` command and provide the ID or name of the boot volume. Use the `--capacity` parameter to indicate the new size of the boot volume in GBs. 
+After you located the volume, use the `volume-update` command and provide the ID or name of the boot volume. Use the `--capacity` parameter to indicate the new size of the boot volume in GBs.
 
 For example, this example increases the capacity of my-boot-vol1 to 200 GB. The existing capacity displays as the boot volume capacity is being expanded. Run an `ibmcloud is volume` command and specify the volume name to see the new capacity.
 
 ```text
 ibmcloud is volume update my-boot-vol-1 --capacity 200
 Updating volume my-boot-vol1 under account VPC1 as user myuser@mycompany.com...
-                                          
-ID                                     9d60ba27-170c-4e2a-9bf6-6dbb11f95c38   
-Name                                   my-boot-vol1   
-CRN                                    crn:v1:staging:public:is:us-south-1:a/efe5afc483594adaa8325e2b4d1290df::volume:9d60ba27-170c-4e2a-9bf6-6dbb11f95c38   
-Status                                 updating   
+
+ID                                     9d60ba27-170c-4e2a-9bf6-6dbb11f95c38
+Name                                   my-boot-vol1
+CRN                                    crn:v1:staging:public:is:us-south-1:a/efe5afc483594adaa8325e2b4d1290df::volume:9d60ba27-170c-4e2a-9bf6-6dbb11f95c38
+Status                                 updating
 Capacity                               190
 IOPS                                   3000
 Bandwidth(Mbps)                        393
@@ -139,17 +138,17 @@ Encryption key                         -
 Encryption                             provider_managed
 Resource group                         Default
 Created                                2022-02-24T16:43:47+05:30
-Zone                                   us-south-1   
-Volume Attachment Instance Reference   Attachment type   Instance ID                                 Instance name   Auto delete   Attachment ID                               Attachment name      
-                                       boot              0716_84f99419-554d-4c05-bea0-7034d1c40ed3   vsi-1           true          0716-ee0ca315-7a21-42e2-99f7-b68377bbffe0   boot-vol-name      
-                                          
-Operating system                       ubuntu-20-04-amd64   
-Source image                           ID                                          Name      
-                                       9f6b534b-6061-40f4-ac42-5aba4dd0da7f        ubuntu-20-04-3-minimal-amd64-1      
-                                          
-Active                                 true   
-Busy                                   false   
-Tags                                   -   
+Zone                                   us-south-1
+Volume Attachment Instance Reference   Attachment type   Instance ID                                 Instance name   Auto delete   Attachment ID                               Attachment name
+                                       boot              0716_84f99419-554d-4c05-bea0-7034d1c40ed3   vsi-1           true          0716-ee0ca315-7a21-42e2-99f7-b68377bbffe0   boot-vol-name
+
+Operating system                       ubuntu-20-04-amd64
+Source image                           ID                                          Name
+                                       9f6b534b-6061-40f4-ac42-5aba4dd0da7f        ubuntu-20-04-3-minimal-amd64-1
+
+Active                                 true
+Busy                                   false
+Tags                                   -
 ```
 {: screen}
 
@@ -165,7 +164,7 @@ When you create a new instance by making a `POST \instances` request, you can sp
 For example, when creating an instance from an image, you'd make a call like this to specify a boot volume with a capacity of 250 GB:
 
 ```curl
-curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-02-01&generation=2"\ 
+curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-02-01&generation=2"\
 -H "Authorization: $iam_token"\
 -d '{
       "boot_volume_attachment": {
@@ -186,7 +185,7 @@ curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-02-01&generation=2"\
        .
        .
        .
-   }'  
+   }'
 ```
 {: codeblock}
 
