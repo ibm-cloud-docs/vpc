@@ -23,7 +23,7 @@ With virtual server instances for VPC, you can quickly provision instances with 
 ## How are virtual server instances for VPC different from other IBM virtual server offerings?
 {: #how-are-vsis-different}
 
-In the IBM Cloud Virtual Server for Classic infrastructure offering, instances use native subnet and VLAN networking to communicate to each other within a data center (and single pod). Using subnet and VLAN networking in one pod works well until you must scale up or have large virtual resource demands that require resources to be created between pods. (Adding appliances for VLAN spanning can get expensive and complicated!)
+In the IBM Cloud Virtual Servers for Classic infrastructure offering, instances use native subnet and VLAN networking to communicate to each other within a data center (and single pod). Using subnet and VLAN networking in one pod works well until you must scale up or have large virtual resource demands that require resources to be created between pods. (Adding appliances for VLAN spanning can get expensive and complicated!)
 
 {{site.data.keyword.vpc_short}} adds a network orchestration layer that eliminates the pod boundary, creating increased capacity for scaling instances. The network orchestration layer handles all of the networking for all virtual server instances that are within a VPC across regions and zones. With the software-defined networking capabilities that VPC provides, you have more options for multi-vNIC instances and larger subnet sizes.
 
