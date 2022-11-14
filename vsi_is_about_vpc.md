@@ -47,6 +47,6 @@ To continue by creating virtual servers for VPC, see the following topics:
 | [Planning for instances](/docs/vpc?topic=vpc-vsi_best_practices) | This configuration checklist is helpful to get the most out of your {{site.data.keyword.vpc_short}} deployment. |
 |[Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers) | Provision public instances with various options by using the user interface.|
 |[Creating virtual server instances by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli)| Provision public instances with various options by using the command line interface. |
-| [Creating an instance by using the API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api#create-instance-api-tutorial| Provision public instances with various options by using the API. |
+| [Creating an instance by using the API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api#create-instance-api-tutorial) | Provision public instances with various options by using the API. |
 |[Creating instances on dedicated hosts](/docs/vpc?topic=vpc-creating-instance-on-dh)| Provision instances on a dedicated host or group. |
 {: caption="Table 2. Links to provisioning instructions" caption-side="bottom"}
