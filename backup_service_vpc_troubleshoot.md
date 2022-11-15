@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-11"
+lastupdated: "2022-11-15"
 
 keywords:
 
@@ -32,6 +32,7 @@ Some causes might be:
 * Your volume might be deattached after the successful backups were made.
 * The volume tag that matched the tag for target resources might be deleted.
 * The instance might not be running.
+* Correct service-to-service authorizations might not be in place.
 
 Verify that the volume wasn't detached from a virtual server instance. Search for the instance to which you last attached the volume from the list of all virtual server instances. Verify that the instance is running. Also, look at the backup policy and verify that the tags are present in the volume, in case the tag was inadvertently deleted. Scheduled backups do not occur instantly, so you might need to look again in an hour or so to verify that the backup was made.
 {: tsResolve}
