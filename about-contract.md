@@ -322,7 +322,7 @@ Complete the following steps on an Ubuntu system, to encrypt the workload sectio
    {: pre}
 
 5. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-6-encrypt.crt`:
-   ```sh
+   ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY -certin | base64 -w0 )"
    ```
    {: pre}
