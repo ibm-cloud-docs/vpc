@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-10-27"
+lastupdated: "2022-11-18" 
 
 keywords: context-based restrictions for VPC Infrastructure Services
 
@@ -18,10 +18,10 @@ subcollection: vpc
 Context-based restrictions give account owners and administrators the ability to define and enforce
 access restrictions for {{site.data.keyword.cloud}} resources based on the context of access
 requests. Access to VPC Infrastructure Services can be controlled with context-based restrictions
-and identity and access management (IAM) policies. 
+and identity and access management (IAM) policies.
 {: shortdesc}
 
-The preview of the context-based restrictions functionality for VPC Infrastructure Services is available only to authorized accounts. 
+The preview of the context-based restrictions functionality for VPC Infrastructure Services is available only to authorized accounts.
 {: preview}
 
 These restrictions work with traditional IAM policies, which are based on identity, to provide an
@@ -29,22 +29,20 @@ extra layer of protection. Unlike IAM policies, context-based restrictions don't
 Context-based restrictions check that an access request comes from an allowed context that you
 configure. Since both IAM access and context-based restrictions enforce access, context-based
 restrictions offer protection even in the face of compromised or mismanaged credentials. For more
-information, see
-[What are context-based restrictions](/docs/account?topic=account-context-restrictions-whatis).
+information, see [What are context-based restrictions](/docs/account?topic=account-context-restrictions-whatis).
 
 A user must have the Administrator role on the VPC Infrastructure Services to create, update, or
 delete rules that target VPC Infrastructure Services. A user must have either the Editor or
 Administrator role on the context-based restrictions service to create, update, or delete network
 zones. A user with the Viewer role on the context-based restrictions service can add network
-zones to a rule only. 
+zones to a rule only.
 {: note}
 
 The context-based restriction service generates audit logs every time a context-based policy is
 enforced. For more information, see [Monitoring context-based restrictions](/docs/account?topic=account-cbr-monitor).
 
 To get started protecting your VPC Infrastructure Services with context-based restrictions, see the
-tutorial for
-[Leveraging context-based restrictions to secure your resources](/docs/account?topic=account-context-restrictions-tutorial).
+tutorial for [Leveraging context-based restrictions to secure your resources](/docs/account?topic=account-context-restrictions-tutorial).
 
 ## How VPC Infrastructure Services integrates with context-based restrictions
 {: #cbr-overview}
@@ -52,28 +50,29 @@ tutorial for
 VPC Infrastructure Services is a composite service made up of a number of child services.
 Context-based restrictions can be created for the following child services:
 
+- [Access control lists](/docs/vpc?topic=vpc-using-acls)
 - [Auto scale](/docs/vpc?topic=vpc-creating-auto-scale-instance-group&interface=cli)
 - [Backup service](/docs/vpc?topic=vpc-backups-vpc-best-practices&interface=cli)
 - [Block Storage volumes](/docs/vpc?topic=vpc-creating-block-storage&interface=cli)
-- [Dedicated hosts](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances&interface=cli)
+- [Dedicated hosts](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances&interface=cli) 
 - [File storage](/docs/vpc?topic=vpc-file-storage-planning&interface=cli)
-- [Image service](/docs/vpc?topic=vpc-planning-custom-images)
+- [Floating IPs](/docs/vpc?topic=vpc-fip-about)
+- [Flow logs](/docs/vpc?topic=vpc-flow-logs)
+- [Image service](/docs/vpc?topic=vpc-planning-custom-images) 
+- [Load balancers](/docs/vpc?topic=vpc-nlb-vs-elb)
+- [Public gateways](/docs/vpc?topic=vpc-public-gateways)
+- [Security groups](/docs/vpc?topic=vpc-using-security-groups)
 - [Snapshots](/docs/vpc?topic=vpc-snapshots-vpc-planning&interface=cli)
+- [Subnets](/docs/vpc?topic=vpc-about-subnets-vpc)
 - [Virtual server instances](/docs/vpc?topic=vpc-vsi_best_practice)
+- [Virtual private endpoint gateways](/docs/vpc?topic=vpc-about-vpe)- 
+- [VPCs](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli)
+- [VPNs](/docs/vpc?topic=vpc-vpn-overview)
 
 The following VPC Infrastructure Services do not support context-based restrictions at this time:
 
-- [Access control lists](/docs/vpc?topic=vpc-using-acls&interface=cli)
-- [Bare metal server](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=ui)
-- [Flow logs](/docs/vpc?topic=vpc-flow-logs&interface=cli)
-- [Load balancer](/docs/vpc?topic=vpc-nlb-vs-elb&interface=cli)
+- [Bare metal server](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=ui) 
 - [Placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc&interface=cli)
-- [Public gateways](/docs/vpc?topic=vpc-public-gateways&interface=cli)
-- [Security groups](/docs/vpc?topic=vpc-using-security-groups&interface=cli)
-- [Virtual private endpoint gateways](/docs/vpc?topic=vpc-about-vpe&interface=cli)
-- [VPCs](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli)
-- [VPN](/docs/vpc?topic=vpc-vpn-overview&interface=cli)
-
 
 See the [rule creation section](#creating-rules) for details on how you can create rules with the
 required attributes for each service.
@@ -110,14 +109,14 @@ the **Authorizations** tab.
 {: caption="Table 1. Service references needed for context-based restrictions" caption-side="bottom"}
 
 ### Creating network zones by using the API
-{: #network-zone-api} 
+{: #network-zone-api}
 {: api}
 
 You can create network zones by using the `create-zone` command. For more information, see the
 [API docs](/apidocs/context-based-restrictions#create-zone).
 
 The `serviceRef` attribute for VPC Infrastructure Services is `is` and Cloud Block Storage is
-`server-protect`. 
+`server-protect`.
 {: tip}
 
 ```json
@@ -153,7 +152,7 @@ The `serviceRef` attribute for VPC Infrastructure Services is `is` and Cloud Blo
 {: codeblock}
 
 ### Creating network zones by using the CLI
-{: #network-zone-cli} 
+{: #network-zone-cli}
 {: cli}
 
 1. To create network zones from the CLI,
@@ -164,7 +163,7 @@ The `serviceRef` attribute for VPC Infrastructure Services is `is` and Cloud Blo
 
    To find a list of available service reference targets, run the `ibmcloud cbr service-ref-targets`
    [command](/docs/account?topic=cli-cbr-plugin#cbr-cli-service-ref-targets-command). The
-   `service_name` for VPC Infrastructure Services is `is` and Cloud Block Storage is `server-protect`. 
+   `service_name` for VPC Infrastructure Services is `is` and Cloud Block Storage is `server-protect`.
    {: tip}
 
    The following example command adds the `is` service, referred to as "VPC Infrastructure Services" in
@@ -192,7 +191,7 @@ When you use the API, Terraform or the {{site.data.keyword.cloud_notm}} Command 
 to create, update, or delete {{site.data.keyword.cloud_notm}} context-based restrictions, you can
 specify the target VPC Infrastructure resource by using resource attributes.
 
-See [VPC resource attributes](/docs/vpc?topic=vpc-resource-attributes) for the resource attributes that correspond with individual VPC resources. 
+See [VPC resource attributes](/docs/vpc?topic=vpc-resource-attributes) for the resource attributes that correspond with individual VPC resources.
 {: tip}
 
 You can select a resource by entering the ID of the object. Alternatively, you can use the `*` wildcard
@@ -201,13 +200,13 @@ context-based restrictions to apply to all VPCs in the account. You can also spe
 group the policy is applied to in the command.
 
 ### Creating rules by using the API
-{: #rules-api} 
+{: #rules-api}
 {: api}
 
 Review the following example requests to create rules. For more information about the `v1/rules`
 API, see the [API docs](/apidocs/context-based-restrictions#create-rule).
 
-After you create a rule, it might take up to 10 minutes before you can update that rule. 
+After you create a rule, it might take up to 10 minutes before you can update that rule.
 {: note}
 
 The following example payload creates a rule that protects the Virtual Server Instances and allows
@@ -252,7 +251,7 @@ access only from the specified network zone via a private endpoint.
 {: codeblock}
 
 ### Creating rules by using the CLI
-{: #rules-cli} 
+{: #rules-cli}
 {: cli}
 
 1. To create rules from the CLI, [install the CBR CLI plug-in](/docs/account?topic=cli-cbr-plugin#install-cbr-plugin).
@@ -265,7 +264,7 @@ The following example CLI command creates a context-based restriction rule for a
 ```sh
 ibmcloud cbr rule-create  --zone-id a7eeb5dd8e6bdce670eba1afce18e37f --description "Test CBR for VSIs" --service-name is --resource-attributes "instanceId=*"
 ```
-{: pre} 
+{: pre}
 
 The following example CLI command creates a context-based restriction rule for a specific block
 storage volume in the current account:
@@ -273,7 +272,7 @@ storage volume in the current account:
 ```sh
 ibmcloud cbr rule-create --zone-id a7eeb5dd8e6bdce670eba1afce18e37f --description "Test CBR for volume" --service-name is --resource-attributes "volumeId=UUID_OF_THE_VOLUME"
 ```
-{: pre} 
+{: pre}
 
 The following example CLI command creates a context-based restriction rule for all of the virtual
 server instances in the current account and restricts access to private endpoints:
@@ -281,7 +280,7 @@ server instances in the current account and restricts access to private endpoint
 ```sh
 ibmcloud cbr rule-create --context-attributes 'endpointType=private' --zone-id a7eeb5dd8e6bdce670eba1afce18e37f --description "Test CBR for VSIs" --service-name is --resource-attributes "instanceId=*"
 ```
-{: pre} 
+{: pre}
 
 The following example CLI command creates a context-based restriction rule for all the virtual
 server instances in the resource group and restricts access to private endpoints:
@@ -289,14 +288,14 @@ server instances in the resource group and restricts access to private endpoints
 ```sh
 ibmcloud cbr rule-create --context-attributes 'endpointType=private' --zone-id a7eeb5dd8e6bdce670eba1afce18e37f --description "Test CBR for VSIs" --service-name is --resource-attributes "instanceId=*" --resource-group-id 1171749e3a8545069d04e6fca1ded18f
 ```
-{: pre} 
-
+{: pre}
 
 ## Monitoring context-based restrictions in VPC Infrastructure Services
 {: #cbr-vpc-monitoring}
 
 The context-based restriction service generates audit logs every time a context-based policy is
-enforced. For more information, see [Monitoring context-based restrictions](/docs/account?topic=account-cbr-monitor).
+enforced. For more information, see
+[Monitoring context-based restrictions](/docs/account?topic=account-cbr-monitor).
 
 ## Troubleshooting failures due to context-based restrictions
 {: #cbr-vpc-troubleshooting}
@@ -313,7 +312,7 @@ the error response has a format that is similar to the following examples.
 {: cli}
 
 ```text
-Error code: not_authorized and 
+Error code: not_authorized and
 Error message: the provided token is not authorized
 Trace ID: b266a31c-b359-4ecb-8b81-a27c1b2cdb7b
 ```
@@ -392,7 +391,7 @@ The following is an example context-based restriction event. Some fields have be
 ```
 {: codeblock}
 
-You can then use the same Trace ID or Reference ID to look at the specific VPC Infrastructure service event in your Activity Tracker instance. 
+You can then use the same Trace ID or Reference ID to look at the specific VPC Infrastructure service event in your Activity Tracker instance.
 
 ```json
 {
@@ -441,7 +440,7 @@ You can then use the same Trace ID or Reference ID to look at the specific VPC I
 {: codeblock}
 
 You can also search events by using a resource identifier.
-A resource ID is a UUID and is the last identifier in a CRN. For example: 
+A resource ID is a UUID and is the last identifier in a CRN. For example:
 
 ```text
 crn:v1:bluemix:public:is:au-syd:a/67db3d7ff3f34220b40e2d81480754c9::vpc:<resourceID>
@@ -454,9 +453,9 @@ If you do not find a context-based restriction event in Activity Tracker, it's p
 [VPC IAM getting started guide](/docs/vpc?topic=vpc-iam-getting-started).
 
 ### Client-to-site VPN data plane impact with context-based restrictions
-{: cbr-c2s-vpn-data-plane}
+{: #cbr-c2s-vpn-data-plane}
 
-If a user enables a **User ID and passcode** when configuring [client authentication](/docs/vpc?topic=vpc-client-to-site-vpn-planning#client-authentication) for a client-to-site VPN, and creates context-based rules on VPC resources, the client connection to the VPN is impacted by context-based restrictions. If the VPN client remote IP is not in the __Network Zone__, the connection to the VPN server returns an `Auth Failed` error.
+If a user enables a **User ID and passcode** when configuring [client authentication](/docs/vpc?topic=vpc-client-to-site-vpn-planning#client-authentication) for a client-to-site VPN, and creates context-based rules on VPC resources, the client connection to the VPN is impacted by context-based restrictions. If the VPN client remote IP is not in the **Network Zone**, the connection to the VPN server returns an `Auth Failed` error.
 
 After the VPN client connects to the VPN server, the requests to the VPE endpoint or Cloud Service Endpoint (CSE) are controlled with context-based restrictions. Also, the requests' source IP is the VPC [Cloud service endpoint source addresses](/docs/vpc?topic=vpc-vpc-behind-the-curtain#cse-source-addresses). Make sure that the VPC CSE source addresses are in the CBR Network Zone; otherwise, the request is denied.
 
