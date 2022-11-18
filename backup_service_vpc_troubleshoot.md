@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-15"
+lastupdated: "2022-11-17"
 
 keywords:
 
@@ -62,3 +62,45 @@ When you attempt to create a backup policy, an `s2s service not completed` error
 
 Establish correct service-to-service authorizations and try creating a backup policy again. For more information about setting up authorizations for the backup service, see [Establishing service to service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth).
 {: tsResolve}
+
+## Backup policies are not found
+{: #baas-backup_policies_not_found}
+
+You receive the following error message "Backup policy with ID is not found".
+{: tsSymptoms}
+
+The backup policy that you are trying to find is either deleted or never existed.
+{: tsCauses}
+
+To address this error, list the policies and see if the backup policy ID that you're looking for is in the list. If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help).
+{: tsResolve}
+
+For more information about viewing your backup policies, see [Viewing backup policies](/docs/vpc?topic=vpc-backup-view-policies).
+
+## Backup policy plan is not found
+{: #aas-backup_policy_plan_not_found}
+
+You receive the following error message "Backup policy plan with ID <policy_plan_uuid> is not found".
+{: tsSymptoms}
+
+The backup policy plan that you are trying to find is either deleted or never existed.
+{: tsCauses}
+
+To address this error, list the backup policy plans and see if the plan ID that you're looking for is in the list. If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help).
+{: tsResolve}
+
+For more information about viewing your backup policies and plans, see [Viewing backup policies](/docs/vpc?topic=vpc-backup-view-policies).
+
+## Backup job is not found
+{: #baas-backup_jobs_not_found}
+
+You receive the following error message "Job with ID <backup_job_uuid> is not found".
+{: tsSymptoms}
+
+The job that you are trying to find is either deleted or never existed.
+{: tsCauses}
+
+To address this error, list the jobs and see if the job ID that you're looking for is in the list.  If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help).
+{: tsResolve}
+
+For more information about viewing your backup jobs list, see [Viewing backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs).
