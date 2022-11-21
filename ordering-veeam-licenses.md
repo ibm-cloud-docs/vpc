@@ -1,31 +1,30 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-09-01"
+  years: 2020, 2022
+lastupdated: "2022-11-21"
 
-keywords:
+keywords: Veeam license, order license, virtual private cloud, instance backup
 
 subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:table: .aria-labeledby="caption"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Ordering Veeam licenses
 {: #ordering-veeam-licenses}
 
-You can order a Veeam license for the use of Veeam Agent and Veeam Backup and Replication software through the Veeam website or through email. Complete the following steps to order your Veeam license through email:
+You can order a Veeam license for the use of Veeam Agent and Veeam Backup and Replication software through the Veeam website or through the following process.
+{: shortdesc}
 
-1. Email [veeamvpc@us.ibm.com](mailto:veeamvpc@us.ibm.com) with the number of Veeam Agents that are needed for the environment and the wanted product version (for example, Veeam Backup and Replication Version 10).
-2. Once the email is received, the veeamvpc@us.ibm.com responds with a license for the number requested.
-3. If you want to add, remove, or cancel the license, email [veeamvpc@us.ibm.com](mailto:veeamvpc@us.ibm.com).
-4. To view the bill for this license, log in to the {{site.data.keyword.cloud}} console, and navigate to **Manage > Billing and usage > Invoices**.
+## Ordering Veeam standalone licenses from the IBM Cloud console
+{: #ordering-veeam-license-procedure}
+
+1. In the [{{site.data.keyword.cloud}} console](https://console.cloud.ibm.com){: external}, navigate to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VMware > Licenses**.
+2. On the **Licenses** page, scroll to the **Veeam licenses** section, and click **Create new**.
+3. Enter the required information for the fields.
+4. Click the link or links of the terms that apply to your order. Ensure that you agree with the terms before you order the license.
+5. Click **Add to estimate** or **Create**.
+
+After you create the license, the ordering process automatically starts. An email is sent confirming the order, and a license key is generated and emailed to whomever placed the order. Should the order be incorrect, it can be deleted. For more information, see [Managing Veeam licenses](/docs/vmwaresolutions?topic=vmwaresolutions-veeam_managing_licenses).
