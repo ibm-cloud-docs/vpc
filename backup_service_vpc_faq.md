@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-11"
+lastupdated: "2022-11-22"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # FAQs for Backup for VPC
 {: #backup-service-vpc-faq}
 
-The following questions pertain to the VPC Backup service. If you have other questions you'd like to see answered here, provide feedback by using the **Open Issue** or **Edit Topic** links after the FAQs.
+The following questions pertain to the VPC Backup service. If you have other questions you'd like to see answered here, provide feedback by using the **Open doc issue** or **Edit topic** links after the FAQs.
 {: shortdesc}
 
 ## What is the VPC backup service?
@@ -28,7 +28,7 @@ With the VPC backup service, you can create backup policies for your {{site.data
 {: faq}
 {: #faq-baas-setup}
 
-Before you can create backup policies, you need to grant [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth&interface=api) and specify user roles to enable the backup service. Then, you add user tags for new or existing data volumes that you associate with a backup policy. Finally, you create backup policies and plans to schedule automatic backups. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-policy-create&interface=ui).
+Before you can create backup policies, you need to grant [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth&interface=api), and specify user roles to enable the backup service. Then, you add user tags for new or existing data volumes that you associate with a backup policy. Finally, you create backup policies and plans to schedule automatic backups. For more information, see [Creating a backup policy](/docs/vpc?topic=vpc-backup-policy-create&interface=ui).
 
 ## How does the backup service work?
 {: faq}
@@ -58,13 +58,13 @@ You can create up to 750 backups per volume per account. Consider how your [bill
 {: faq}
 {: #faq-baas-snapshots}
 
-Tags for snapshots are inherited from the source volume. When you restore a volume from a snapshot, and the tags that are applied to the new volume match the tags in a backup policy, the new volume is backed up. But you can't directly backup a snapshot that has tags in a backup policy.
+Tags for snapshots are inherited from the source volume. When you restore a volume from a snapshot, and the tags that are applied to the new volume match the tags in a backup policy, the new volume is backed up. But you can't directly back up a snapshot that has tags in a backup policy.
 
 ## How long are backups retained?
 {: faq}
 {: #faq-baas-retention}
 
-You can specify that backups be kept 1-30 days (default). The retention period can't be shorter than the backup frequency or it returns an error.
+You can specify that backups be kept 1 - 30 days (default). The retention period can't be shorter than the backup frequency or it returns an error.
 
 You can also specify the number of backups to retain, up to 750 per volume, after which the oldest backups are deleted.
 
@@ -78,7 +78,7 @@ Yes. You can create 10 backup policies per account and up to 750 backups of a vo
 {: faq}
 {: #faq-baas-restore}
 
-Restoring from a backup snapshot creates a fully-provisioned boot or data volume. You can restore boot and data volumes during instance creation, when you modify an existing instance, or when you provision a stand-alone volume. For more information, see [Restoring a volume from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).
+Restoring from a backup snapshot creates a fully provisioned boot or data volume. You can restore boot and data volumes during instance creation, when you modify an existing instance, or when you provision a stand-alone volume. For more information, see [Restoring a volume from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).
 
 ## Am I charged for usage?
 {: faq}
