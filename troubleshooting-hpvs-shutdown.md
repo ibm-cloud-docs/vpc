@@ -4,7 +4,7 @@ copyright:
   years: 2022
 lastupdated: "2022-11-22"
 
-keywords: troubleshoot, troubleshoot hyper protect virtual servers for vpc, debug hyper protect virtual servers for vpc, questions about hyper protect virtual servers for vpc
+keywords: troubleshoot, troubleshoot hyper protect virtual servers for vpc, debug hyper protect virtual servers for vpc, questions about hyper protect virtual servers for vpc, hyper protect virtual server shut down
 
 subcollection: vpc
 
