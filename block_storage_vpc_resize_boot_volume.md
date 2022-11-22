@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-08"
+lastupdated: "2022-11-22"
 
 keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -16,7 +16,7 @@ subcollection: vpc
 # Increasing boot volume capacity
 {: #resize-boot-volumes}
 
-For boot volumes attached to an instance, you can increase the size of the boot volume during or after instance provisioning by using the UI, CLI, or API.
+For boot volumes that are attached to an instance, you can increase the size of the boot volume during or after instance provisioning by using the UI, CLI, or API.
 {: shortdesc}
 
 ## Increasing boot volume capacity concepts
@@ -112,7 +112,7 @@ ibmcloud is instance template create tpl-1 vpc-1 us-south-1 bx2-2x8  cli-subnet-
 ```
 {: screen}
 
-For more information about creating virtual server instances from the CLI, see [Creating virtual server instances from the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli). See the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-referenc) for more information about the commands mentioned in this section for increasing boot volume size.
+For more information about creating virtual server instances from the CLI, see [Creating virtual server instances from the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli). For more information about the commands that are used for increasing boot volume size, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-referenc) 
 
 ### Increase capacity of an existing boot volume from the CLI
 {: #expand-existing-boot-vol-cli}
@@ -157,12 +157,12 @@ Tags                                   -
 {: #increase-vpc-volumes-api}
 {: api}
 
-### Increase boot volume capacity when creating an instance with the API
+### Increase boot volume capacity when you create an instance with the API
 {: #expand-new-boot-vol-api}
 
 When you create an instance by making a `POST \instances` request, you can specify larger boot volume capacity for any of these contexts: when you create the instance from an image, a source boot volume, or an instance template. Specify a boot volume name and capacity in the `boot-volume-attachment` property. The capacity for the boot volume must be at least the image's minimum provisioned size, which is the default if you don't specify capacity.
 
-For example, when you create an instance from an image, you'd make a call like this to specify a boot volume with a capacity of 250 GB:
+For example, when you create an instance from an image, you can make a call like this example to specify a boot volume with a capacity of 250 GB.
 
 ```curl
 curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-02-01&generation=2"\
@@ -216,4 +216,4 @@ Create more volumes or manage your existing block storage volumes.
 * [Creating block storage volumes](/docs/vpc?topic=vpc-creating-block-storage).
 * [Managing block storage volumes](/docs/vpc?topic=vpc-managing-block-storage).
 
-Optionally, [increase the capacity of your data volumes](/docs/vpc?topic=vpc-expanding-block-storage-volumes) attached to a virtual server instance.
+Optionally, [increase the capacity of your data volumes](/docs/vpc?topic=vpc-expanding-block-storage-volumes) that are attached to a virtual server instance.
