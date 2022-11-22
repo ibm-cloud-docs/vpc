@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-16"
+lastupdated: "2022-11-22"
 
 keywords: operating system end of support (eos)
 
