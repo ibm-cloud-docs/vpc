@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-11-11"
+lastupdated: "2022-11-22"
 
 keywords:
 
@@ -30,9 +30,9 @@ subcollection: vpc
 
 You can choose an [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers) to specify a pre-defined level of performance for your volumes. Or, you can choose a [custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom) and define your own volume capacity and IOPS level. All profiles are backed by solid-state drives (SSDs).
 
-For data volumes attached to a virtual server instance, you can [increase volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes) in GB increments up to 16,000 GB capacity, depending on your volume profile. You can also [increase or decrease IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) for a volume attached to an instance by specifying a different IOPS tier or custom IOPS band.
+For data volumes attached to a virtual server instance, you can [increase volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes) in GB increments up to 16,000 GB capacity, depending on your volume profile. You can also [increase or decrease IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) for a volume that is attached to an instance by specifying a different IOPS tier or custom IOPS band.
 
-You can also apply user tags and access management tags to your boot and data volumes. Add user tags when creating a new volume or updating an existing volume with the UI, CLI, or API. Create access management tags with the IAM UI or Global Search and Tagging API, then add them to your volumes. For more information, see [Tags for block storage volumes](#vpc-storage-about-tags).
+You can also apply user tags and access management tags to your boot and data volumes. Add user tags when you create a volume or update an existing volume with the UI, CLI, or API. Create access management tags with the IAM UI or Global Search and Tagging API, then add them to your volumes. For more information, see [Tags for block storage volumes](#vpc-storage-about-tags).
 
 When you create, view, or update a block storage volume, or [restore a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore), the volume health state is reported in the UI, CLI, or API. For more information, see [Block storage volume health states](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#block-storage-vpc-health-states).
 
@@ -46,14 +46,14 @@ You can attach only one block storage volume to a virtual server instance at a t
 ### Boot volumes
 {: #block-storage-vpc-boot-volumes}
 
-When you create an instance from a stock image, a 100 GB, 3,000 IOPS general purpose boot volume is created and attached to the instance by default. When you create an instance from a custom image, you can specify a boot volume capacity 10 GB to 250 GB, depending what the image requires. This capacity can be any size between the minimum size supported for the selected image and the maximum supported image size. If the custom image is smaller than 10 GB, the boot volume capacity is rounded up to 10 GB. After the boot volume is created, you can expand the boot volume size to the maximum supported size, which is 250 GB.
+When you create an instance from a stock image, a 100 GB, 3,000 IOPS general-purpose boot volume is created and attached to the instance by default. When you create an instance from a custom image, you can specify a boot volume capacity 10 GB to 250 GB, depending what the image requires. This capacity can be any size between the minimum size supported for the selected image and the maximum supported image size. If the custom image is smaller than 10 GB, the boot volume capacity is rounded up to 10 GB. After the boot volume is created, you can expand the boot volume size to the maximum supported size, which is 250 GB.
 
 You cannot create an image from an encrypted boot volume (Image from a volume feature) that is not 100GB. The operation will be blocked.
 {: note}
 
 By default, boot volumes are encrypted by IBM-managed encryption. Optionally, you can use your own root keys (CRKs) by choosing customer-managed encryption during instance creation (see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption)).
 
-Boot volumes are always deleted when you delete the instance.
+By default, boot volumes are always deleted when you delete the instance. 
 
 ### Data volumes
 {: #secondary-data-volumes}
@@ -63,7 +63,7 @@ Block storage data volumes are secondary volumes with total capacity range of 10
 
 You can create data volumes as stand-alone volumes or when you provision an instance. Stand-alone volumes exist in an unattached state until you attach the volume to an instance. When you create a data volume as part of instance provisioning, the volume is automatically attached to the instance.
 
-When you create an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance, the data volume attached to the instance during instance creation is automatically encrypted with the seed or passphrase that you provide.
+When you create an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance, the data volume that is attached to the instance during instance creation is automatically encrypted with the seed or passphrase that you provide.
 {: note}
 
 Block storage data volumes can be attached to any available instance in your region, based on your customer account and permissions, and within [certain limits](/docs/vpc?topic=vpc-attaching-block-storage#vol-attach-limits). These volumes are detached by default when the instance is deleted. Detaching by default allows your data to persist beyond the virtual server instance lifecycle. It only removes the volume's association with the instance. You can delete data volumes manually after they are detached. Also, when you create data volumes, you can specify that they be [automatically deleted](/docs/vpc?topic=vpc-managing-block-storage#auto-delete) when the instance is deleted.
@@ -72,7 +72,7 @@ Detached volumes can be attached to an available, running instance without repro
 
 When you create and attach a data volume to a virtual server instance, you can later increase the size of that volume. You indicate capacity in GB increments up to 16,000 GB capacity, depending on your volume profile. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 
-Data volumes are encrypted by default with IBM-managed encryption. You can also encrypt data volumes using your own root keys.
+Data volumes are encrypted by default with IBM-managed encryption. You can also encrypt data volumes by using your own root keys.
 
 ## Block Storage encryption
 {: #vpc-storage-encryption}
@@ -91,29 +91,30 @@ For more information about data encryption, see [About data encryption for VPC](
 
 User tags are uniquely identified by a Cloud Resource Name (CRN) identifier. When you create a user tag, you provide a unique name within your billing account. You can define user tags in label or key-value format.
 
-You can [add user tags](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#add-user-tags-volumes-ui) when creating a new block storage volume or when updating an existing volume. You can also add tags to a boot or data volume during [instance creation](/docs/vpc?topic=vpc-creating-block-storage&interface=ui#create-from-vsi). For boot volumes, you edit the boot volume to add tags. For data volumes, you can add tags when you create and attach them to the instance, or add them to existing data volumes. Volume user tags are also used by [backup policies](/docs/vpc?topic=vpc-backup-service-about) to create automatic backup snapshots of the volume. Create, view, and manage user tags from the UI, CLI, or API, and remove then at any time.
+You can [add user tags](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#add-user-tags-volumes-ui) when you create a block storage volume or when you update an existing volume. You can also add tags to a boot or data volume during [instance creation](/docs/vpc?topic=vpc-creating-block-storage&interface=ui#create-from-vsi). For boot volumes, you edit the boot volume to add tags. For data volumes, you can add tags when you create and attach them to the instance, or add them to existing data volumes. Volume user tags are also used by [backup policies](/docs/vpc?topic=vpc-backup-service-about) to create automatic backup snapshots of the volume. Create, view, and manage user tags from the UI, CLI, or API, and remove then at any time.
+
 
 ### Access management tags for block storage volumes
 {: #storage-about-mgt-tags}
 
 [Access management tags](/docs/vpc?topic=vpc-iam-getting-started&interface=ui) help organize access control by creating flexible resource groupings, enabling your block storage resources to grow without requiring updates to IAM policies.
 
-You can create access management tags and then apply them to new or existing volumes. Use the IAM UI or the Global Search and Tagging API to create the access management tag. Then, from the VPC UI or API, add access management when you create a new volume or modify an exisitng volume. You can't add these tags to volumes that are created during instance provisioning. After adding access management tags, you can manage access to them using the IAM policies. For more information, see [Apply access management tags to a block storage volume](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#storage-add-access-mgt-tags).
+You can create access management tags and then apply them to new or existing volumes. Use the IAM UI or the Global Search and Tagging API to create the access management tag. Then, from the VPC UI or API, add access management when you create a new volume or modify an existing volume. You can't add these tags to volumes that are created during instance provisioning. After you add the access management tags, you can manage access to them by using the IAM policies. For more information, see [Apply access management tags to a block storage volume](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#storage-add-access-mgt-tags).
 
 For more information about managing tags for your account, see [Working with tags](/docs/account?topic=account-tag&interface=ui).
 
 ## Cancelling your block storage
 {: #vpc-cancel-storage}
 
-If you no longer need a volume, you can cancel it at any time. IBM [wipes all data](/docs/vpc?topic=vpc-managing-block-storage#block-storage-data-eradication) before the storage is reused. If you have additional compliance requirements such as NIST 800-88 Guidelines for Media Sanitization, you must perform data sanitation procedures before you delete your volumes. For more information, see [Sanitizing your data before deleting a volume](/docs/vpc?topic=vpc-managing-block-storage#block-storage-sanitization).
+If you no longer need a volume, you can cancel it at any time. IBM [wipes all data](/docs/vpc?topic=vpc-managing-block-storage#block-storage-data-eradication) before the storage is reused. If you have extra compliance requirements such as NIST 800-88 Guidelines for Media Sanitization, you must perform data sanitation procedures before you delete your volumes. For more information, see [Sanitizing your data before deleting a volume](/docs/vpc?topic=vpc-managing-block-storage#block-storage-sanitization).
 
 ## Next Steps
 {: #block-storage-about-next-steps}
 
 Start creating {{site.data.keyword.block_storage_is_short}} volumes.
 
-* For information about creating a new volume during instance provisioning, see [Create and attach a block storage volume when you create a new instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi).
-* For information about creating a block storage encrypted by your own encryption keys, see [Creating block storage volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
+* For more information about creating a volume during instance provisioning, see [Create and attach a block storage volume when you create an instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi).
+* For more information about creating a block storage encrypted by your own encryption keys, see [Creating block storage volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
 
 ## Related information
 {: #related-info-storage}
