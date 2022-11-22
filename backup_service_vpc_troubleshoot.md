@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-17"
+lastupdated: "2022-11-21"
 
 keywords:
 
@@ -66,7 +66,7 @@ Establish correct service-to-service authorizations and try creating a backup po
 ## Backup policies are not found
 {: #baas-backup_policies_not_found}
 
-You receive the following error message "Backup policy with ID is not found".
+You receive a `backup_policies_not_found` error with the following message: _Backup policy with ID is not found_.
 {: tsSymptoms}
 
 The backup policy that you are trying to find is either deleted or never existed.
@@ -78,9 +78,9 @@ To address this error, list the policies and see if the backup policy ID that yo
 For more information about viewing your backup policies, see [Viewing backup policies](/docs/vpc?topic=vpc-backup-view-policies).
 
 ## Backup policy plan is not found
-{: #aas-backup_policy_plan_not_found}
+{: #baas-backup_policy_plan_not_found}
 
-You receive the following error message "Backup policy plan with ID <policy_plan_uuid> is not found".
+You receive a `backup_policy_plan_not_found` error with the following message: _Backup policy plan with ID <policy_plan_uuid> is not found_.
 {: tsSymptoms}
 
 The backup policy plan that you are trying to find is either deleted or never existed.
@@ -94,7 +94,7 @@ For more information about viewing your backup policies and plans, see [Viewing 
 ## Backup job is not found
 {: #baas-backup_jobs_not_found}
 
-You receive the following error message "Job with ID <backup_job_uuid> is not found".
+You receive a `backup_jobs_not_found` error with the following message: _Job with ID <backup_job_uuid> is not found_.
 {: tsSymptoms}
 
 The job that you are trying to find is either deleted or never existed.
