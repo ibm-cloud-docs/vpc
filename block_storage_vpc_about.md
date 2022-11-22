@@ -53,7 +53,7 @@ You cannot create an image from an encrypted boot volume (Image from a volume fe
 
 By default, boot volumes are encrypted by IBM-managed encryption. Optionally, you can use your own root keys (CRKs) by choosing customer-managed encryption during instance creation (see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption)).
 
-By default, boot volumes are always deleted when you delete the instance. 
+By default, boot volumes are always deleted when you delete the instance.
 
 ### Data volumes
 {: #secondary-data-volumes}

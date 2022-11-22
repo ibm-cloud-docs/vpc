@@ -418,7 +418,7 @@ curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-06-14&generation=2" -H
   }
 }'
 ```
-{: pre}
+{: codeblock}
 
 A successful response looks like this:
 
@@ -551,7 +551,7 @@ A successful response looks like this:
   }
 }
 ```
-{: codeblockn}
+{: codeblock}
 
 ### Create a stand-alone {{site.data.keyword.block_storage_is_short}} volume with the API
 {: #block-storage-create-vol-api}
@@ -581,7 +581,7 @@ curl -X POST "$vpc_api_endpoint/v1/volumes?version=2022-06-14&generation=2" \
       }
     }'
 ```
-{: pre}
+{: codeblock}
 
 A successful response looks like this:
 
@@ -618,7 +618,7 @@ A successful response looks like this:
   }
 }
 ```
-{: codeblockn}
+{: codeblock}
 
 ### Create a data volume from a snapshot of an unattached volume with the API
 {: #block-storage-create-vol-snapshot-api}

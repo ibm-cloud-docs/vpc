@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-11-11"
+lastupdated: "2022-11-07"
 
 keywords:
 
@@ -11,7 +11,7 @@ subcollection: vpc
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# FAQs for block storage
+# FAQs for {{site.data.keyword.block_storage_is_short}}
 {: #block-storage-vpc-faq}
 
 The following questions often arise about the {{site.data.keyword.block_storage_is_short}} service offering including performance and security. If you have other questions you'd like to see answered here, provide feedback by using the **Open Issue** or **Edit Topic** links.
@@ -217,7 +217,7 @@ Data storage contention is a common issue when multiple instances compete for ac
 
 ### What happens when a volume is in a degraded health state?
 {: faq}
-{: #faq-block-storage-18}
+{: #faq-block-storage-healthstate}
 
 Volume health state defines whether a volume is performing as expected, given it's status. Volume health can be OK, degraded, inapplicable, or faulted, depending on what is happening. For example, a degraded status is displayed when a volume is being restored from a snapshot and the volume is not yet fully restored. For more information on volume health states and reasons for each, see [Block storage volume health states](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#block-storage-vpc-health-states).
 

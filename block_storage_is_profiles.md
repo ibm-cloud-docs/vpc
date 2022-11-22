@@ -8,7 +8,6 @@ keywords:
 
 subcollection: vpc
 
-
 ---
 
 {{site.data.keyword.attribute-definition-list}}
@@ -19,14 +18,14 @@ subcollection: vpc
 When you provision {{site.data.keyword.block_storage_is_short}} data volumes by using the {{site.data.keyword.cloud_notm}} console, CLI, or API, you specify an IOPS profile that best meets your storage requirements. Profiles are available as three predefined IOPS tiers or as custom IOPS. IOPS tiers provide reliable IOPS/GB performance for volumes up to 16,000 GB capacity. You can also specify a custom IOPS profile and define volume capacity and IOPS within a range.
 {: shortdesc}
 
-IOPS is are based on either a 16 KB (for the 3 GB/ IOPS and 5 GB/IOPS tiers) or 256 KB block size (for the 10 GB/IOPS tier) with a 50-50 read/write random workload. Each 16/256 KB of data read/written counts as one read/write operation; a single write of less than 16/256 KB counts as a single write operation. Baseline throughput is determined by the amount of IOPS multiplied by the 16 KB block size. Maximum throughput is 1024 MBps.
+IOPS is are based on either a 16 KB (for the 3 GB/ IOPS and 5 GB/IOPS tiers) or 256 KB block size (for the 10 GB/IOPS tier) with a 50-50 read/write random workload. Each 16/256 KB of data read/written counts as one read/write operation; a single write of less than 16/256 KB counts as a single write operation. Baseline throughput is determined by the amount of IOPS multiplied by the 16 KB block size. Maximum throughput is 1024 MBps. For more information, see [How block size affects performance](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
 
 ## IOPS tiers
 {: #tiers}
 
-Block storage data volumes have three predefined IOPS tiers you can select when creating a volume. These profiles are backed by solid-state drives (SSDs). 
+Block storage data volumes have three predefined IOPS tiers you can select when creating a volume. These profiles are backed by solid-state drives (SSDs).
 
-Choose the profile that provides optimal performance for your compute workloads. Table 1 describes the IOPS performance you can expect when create volumes in your availability zone. 
+Choose the profile that provides optimal performance for your compute workloads. Table 1 describes the IOPS performance you can expect when create volumes in your availability zone.
 
 Max IOPS for all tiers starts at 3,000 IOPS. Max IOPS then increases, based on the storage tier and volume size, up to the Max IOPS in Table 1.
 {: note}
@@ -68,7 +67,7 @@ Boot volumes are created based on a general-purpose IOPS profile with 100 GB cap
 {: #vsi-profiles-relate-to-storage}
 
 Virtual server profiles are a combination of vCPU and RAM that can be instantiated quickly to start a virtual server instance. You select from [three families of profiles](/docs/vpc?topic=vpc-profiles#profiles)
-based on your workload requirements. These requirements can range from common workloads to CPU-intensive or memory-intensive workloads.  
+based on your workload requirements. These requirements can range from common workloads to CPU-intensive or memory-intensive workloads.
 
 Similarly, storage profiles (IOPS tiers or custom) provide a range of capacity and performance for secondary volumes. By default, a 100 GB primary boot volume is created when you create a virtual server instance. You can also create and attach secondary volumes. When you create a secondary data volume as part of instance creation, you select a storage profile that best meets your storage requirements for your compute workloads. In general, as your compute requirements increase, you need higher IOPS performance. Table 3 shows this relationship.
 
@@ -88,16 +87,15 @@ You can view available IOPS profiles the {{site.data.keyword.cloud_notm}} consol
 {: #using-console-iops-profile}
 {: ui}
 
- When you [create a block storage volume from the {{site.data.keyword.cloud_notm}} console](/docs/vpc?topic=vpc-creating-block-storage), select **Tiers**.
+When you [create a block storage volume from the {{site.data.keyword.cloud_notm}} console](/docs/vpc?topic=vpc-creating-block-storage), select **Tiers**.
 
- Alternately, select **Custom** and then select an IOPS value within the range for that volume size. Click the storage size link to see a table of size and IOPS ranges.
+Alternately, select **Custom** and then select an IOPS value within the range for that volume size. Click the storage size link to see a table of size and IOPS ranges.
 
 ### Using the CLI
 {: #using-cli-iops-profiles}
 {: cli}
 
- To view the list of available profiles by using the CLI, run the following command:
-
+To view the list of available profiles by using the CLI, run the following command:
 ```sh
 ibmcloud is volume-profiles
 ```

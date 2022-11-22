@@ -4,9 +4,9 @@ copyright:
   years: 2019, 2022
 lastupdated: "2022-11-07"
 
-keywords:
-subcollection: vpc
+keywords: Block storage for VPC, iscsi for VPC, SAN for VPC
 
+subcollection: vpc
 
 ---
 
@@ -26,7 +26,7 @@ Depending on your Linux&reg; distribution, devices show up with different paths.
 ## Step 1 - List all block storage volumes
 {: #linux-procedure-list-volumes}
 
-Run the following command to list all block storage volumes from your instance.
+Run the following command to list all {{site.data.keyword.block_storage_is_short}} volumes from your instance.
 
 ```bash
 lsblk
@@ -66,7 +66,7 @@ Select (default p): p
 ```
 {: pre}
 
-Complete the prompts to define the partition's first cylinder number and last cylinder number. After creating a new partition, run the `w` command to save changes to the partition table. Reboot your system to verify the newly created partition.
+Complete the prompts to define the partition's first cylinder number and last cylinder number. After creating the partition, run the `w` command to save changes to the partition table. Reboot your system to verify the newly created partition.
 
 ## Step 3 - Format the volume partition
 {: #linux-procedure-format-volume}
@@ -93,7 +93,7 @@ fstab /dev/vdb1
 ```
 {: pre}
 
-```bash
+```sh
 disk_partition=/dev/vdb1
  uuid=$(blkid -sUUID -ovalue $disk_partition)
  mount_point=$mount_parent/$uuid
@@ -128,7 +128,7 @@ df -k
 ```
 {: pre}
 
-You will see output like this:
+The command produces an output like the following example.
 
 ```bash
 file system     1K-blocks    Used Available Use% Mounted on

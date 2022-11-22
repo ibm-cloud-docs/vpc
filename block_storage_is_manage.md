@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-11-11"
+lastupdated: "2022-11-01"
 
 keywords:
 
@@ -508,7 +508,7 @@ To see these metrics in the UI:
 ## Volume performance when restoring from a snapshot
 {: #block-vol-restore-snap}
 
-Boot and data volume performance is initially degraded when restoring from a snapshot. During the restoration, your data is copied from IBM Cloud Object Storage to Block Storage for VPC. After the restoration process has completed, you should realize full IOPS on your new volume.
+Boot and data volume performance is initially degraded when restoring from a snapshot. During the restoration, your data is copied from {{site.data.keyword.cos_full}} to {{site.data.keyword.block_storage_is_short}}.  After the restoration process has completed, you should realize full IOPS on your new volume.
 
 Restoring a boot volume from a "bootable" snapshot and then using it to provision a new instance results in slower performance because restored boot volume is not yet fully hydrated (that is, fully provisioned). Performance is slower than creating an instance from a regular boot volume.
 

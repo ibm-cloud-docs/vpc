@@ -15,7 +15,7 @@ subcollection: vpc
 # Attaching a {{site.data.keyword.block_storage_is_short}} volume
 {: #attaching-block-storage}
 
-When you create a {{site.data.keyword.block_storage_is_short}} volume for a virtual server instance, the volume is attached to the instance by default. When you detach a volume, it exists as an unattached volume that you can later reattach. These available volumes are displayed in the list of [all {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage#viewvols). You can attach the volume to another instance from the list of all {{site.data.keyword.block_storage_is_short}} volumes, or when you view details about an instance.
+When you create a {{site.data.keyword.block_storage_is_full}} volume for a virtual server instance, the volume is attached to the instance by default. When you detach a volume, it exists as an unattached volume that you can later reattach. These available volumes are displayed in the list of [all {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage#viewvols). You can attach the volume to another instance from the list of all {{site.data.keyword.block_storage_is_short}} volumes, or when you view details about an instance.
 {: shortdesc}
 
 ## Volume attachment limits

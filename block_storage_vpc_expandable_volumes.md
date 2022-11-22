@@ -8,7 +8,6 @@ keywords: block storage, boot volume, data volume, volume, data storage, virtual
 
 subcollection: vpc
 
-
 ---
 
 {{site.data.keyword.attribute-definition-list}}
