@@ -40,7 +40,7 @@ toc:
            - vpc-networking-concepts.md
            - interconnectivity.md
            - private-wan.md
-           - private-connectivity.md
+           - private-connectivity-vpe.md
            - topicgroup:
                label: Networking overview for bare metal servers
                topics:
