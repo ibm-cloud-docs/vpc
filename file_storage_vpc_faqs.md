@@ -145,8 +145,7 @@ Yes. You can specify user and access management tags when you create a file shar
 ## Performance questions
 {: #file-storage-vpc-performance-questions}
 
-### What read/
-write latency can I expect?
+### What read/write latency can I expect?
 {: faq}
 {: #faq-fs-perf-1}
 {: support}

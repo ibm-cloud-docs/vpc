@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-11-11"
+lastupdated: "2022-11-08"
 
 keywords:
 
@@ -18,7 +18,7 @@ subcollection: vpc
 {{site.data.keyword.cloud}} File Storage for {{site.data.keyword.vpc_full}} (VPC) is a zonal file storage offering that provides NFS-based file storage services. You create file shares in an availability zone within a region. You can share them with multiple virtual server instances within the same zone across multiple VPCs.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Tokyo, and Osaka regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Overview
@@ -83,7 +83,6 @@ The following limitations apply to this release of {{site.data.keyword.filestora
 * Minimum capacity is 10 GB per file share.
 * Maximum capacity is 32,000 GB per file share.
 * There is no data retention policy for deleted file shares. You cannot undelete a file share after you delete it.
-* File Storage for VPC is not supported on Windows operating systems.
 
 ## File share encryption
 {: #FS-encryption}
@@ -111,7 +110,7 @@ with the API, you can set these attributes for controlling access to your file s
 ## Tags for file shares
 {: #fs-about-fs-tags}
 
-{{site.data.keyword.filestorage_vpc_short}} is enabled for Global Searching and Tagging (GhoST). You can create and apply [user tags](#fs-about-user-tags) and [access management tags](#fs-about-mgt-tags) to file shares to better control and organize your file storage resources across the VPC.
+{{site.data.keyword.filestorage_vpc_short}} is enabled for Global Searching and Tagging (GhoST). You can create and apply [user tags](#fs-about-user-tags) and [access management tags](#fs-about-mgt-tags) to file shares to better control and organize your file storage resources across the VPC. User tags can be added from the file service UI, CLI, or API. To apply access management tags to file shares, you must use the GhoST API.
 
 ### User tags for file shares
 {: #fs-about-user-tags}

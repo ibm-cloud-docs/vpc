@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-08"
+lastupdated: "2022-11-22"
 
 keywords:
 
@@ -18,7 +18,7 @@ subcollection: vpc
 Failover to the replica file share keeps your file share available if your source file share becomes unavailable. Failover switches the replication relationship, so that the replica file share becomes the source file share and the source share becomes the read-only replica file share.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Tokyo, and Osaka regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Replication failover concepts
@@ -27,8 +27,12 @@ Failover to the replica file share keeps your file share available if your sourc
 When you create a replica file share, the replica pulls data from the source file share based on a replication schedule. The data on the replica file share is set to read-only. Failover switches the replication relationship. The read-only replica file share becomes the read/write source file share and the original share becomes read-only. You can now manage the share as a regular file share (for example, you can [adjust IOPS tiers](/docs/vpc?topic=vpc-adjusting-share-iops)).
 
 When you initiate a failover, you have the option to choose what happens if the failover operation fails or times out.
-- If you decide to keep the replication relationship, the system "falls back" to the source share and the replication is in a `failed` status. The system attempts to replicate again at the next scheduled time. This option can be used for routine maintenance on the primary site or when the site is having problems. You can fall back to the original share when the maintenance is complete and the site is stable again.
-- If you decide to remove the replication relationship, the system splits the two file shares apart and they become independent file shares. This option can be used for failover in a disaster recovery situation when it's more important to start your application up as quickly as possible on the replica site and the future of the original site is uncertain.
+
+* If you decide to keep the replication relationship, the system "falls back" to the source share and the replication is in a `failed` status. The system attempts to replicate again at the next scheduled time. This option can be used for [routine maintenance](#fs-failover-maintenance) on the primary site or when the site is having problems. You can fall back to the original share when the maintenance is complete and the site is stable again.
+
+* If you decide to remove the replication relationship, the system splits the two file shares apart and they become independent read-write file shares. This option can be used for failover in a [disaster recovery](#fs-failover-dr) situation when it's more important to start your application up as quickly as possible on the replica site and the future of the original site is uncertain. 
+
+The default timeout is 5 minutes. If the failover does not complete in 5 minutes, the destination site becomes the primary site and the file share is made read-write. You must [remount the file share](/docs/vpc?topic=vpc-file-storage-vpc-remount) after failover. 
 
 A failover operation or a replica split cannot occur when another operation is being performed on the source or replica file share (for example, the file share size is being expanded). The split or failover operations remains pending until the other operation completes.
 {: important}
@@ -40,17 +44,17 @@ The [failover status](/docs/vpc?topic=vpc-file-storage-managing#file-storage-vpc
 
 Use failover for routine maintenance on the primary site or when the site is having problems. The process works as follows.
 
-* The file share at the source site quiesces all read and write operations and the system attempts to pull a final copy of the share's data to the replica file share.
+* The file share at the source site begins refusing all read and write operations and the system attempts to pull a final copy of the share's data to the replica file share.
 * The data is copied to the replica file share, which becomes read/write and is considered the new source site. (The replication relationship is reversed.)
 * The service attempts to replicate data to the original site as scheduled. If the data transfer fails, the system attempts again at the next scheduled replication time.
-* You can fall back to the original share when the maintenance is done and the site is stable again. Or you can keep using the replica share as your source share.
+* You can fall back to the original share when the maintenance is done and the site is stable again. Or, you can keep using the replica share as your source share.
 
-### Failover for disaster recovery
+### Failover in event of a disaster recovery situation
 {: #fs-failover-dr}
 
 Failover is also an option for disaster recovery. If the original site is confirmed to be unavailable and you need your application started as soon as possible on the replica location, choose the remove replication relationship option as the fallback policy when you initiate the failover. Failover for disaster recovery works like this:
 
-* The file share at the source site quiesces all read and write operations and the system attempts to pull a final copy of the share's data to the replica file share.
+* The file share at the source site begins refusing all all read and write operations and the system attempts to pull a final copy of the share's data to the replica file share.
 * When the last data pull times out and fails, the file service determines that it is a disaster recovery situation. Then, the service breaks the replication relationship. The replica file share becomes read/write and operates as an independent file share.
 *  Replication relationship cannot be reestablished. However, you can set up a new replica on the original site if and when the site becomes operational again.
 

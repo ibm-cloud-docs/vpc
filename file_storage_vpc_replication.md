@@ -18,13 +18,13 @@ subcollection: vpc
 You can create replicas of your file shares by setting up a replication relationship between primary file shares in one zone to replica file shares in another zone. Using replication is a good way to recover from incidents at the primary site, when data becomes inaccessible or applications fail.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Tokyo, and Osaka regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Replication overview
 {: #fs-replication-overview}
 
-When you create a new file share you can set up replication. You create your file share in one zone of the region and a replica share in another zone in the same region. Based on the replication schedule, the service begins to pull data from the source file share to the replica file share.
+When you create a file share you can set up replication. You create your file share in one zone of the region and a replica share in another zone in the same region. Based on the replication schedule, the service begins to pull data from the source file share to the replica file share.
 
 You can choose how often you want to sync changes from the source share to the replica. You can specify daily, weekly, or monthly replication schedule conveniently in the UI. Or, you can specify replication by using a `cronspec` expression. Replications must be scheduled at least 1 hour apart. When a replica share is created, the first replica contains the data of the entire share. Thereafter, only the changes that occurred after the previous replication are added.
 
