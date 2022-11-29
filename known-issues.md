@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-11-11"
+lastupdated: "2022-11-29"
 
 
 keywords: known issues, bugs, defects
@@ -87,15 +87,6 @@ Currently, the `port_min` and `port_max` properties are supported only when rout
 
 Because all bare metal profiles are VMware&reg; certified, the `supported_image_flags` image property and `required_image_flags` profile property that expressed this ability during the beta period are discontinued. These properties might still be visible to API and CLI consumers, but they aren't supported and must not be used. These properties will be removed entirely in a future release.
 {: note}
-
-## Backup for VPC (beta) known issues
-{: #backup-as-a-service-known-issues}
-
-The following issues are currently present in the Cloud Console with no known workaround.
-
-**Issue:** Backup policy details show zero (0) as the number of applied resources, even though the backup is still applied to the list of volumes.
-
-**Issue:** The block storage details page might not show all the matched backup policies if the volume has more than one user tag.
 
 ## VSI monitoring known issues
 {: #vsi-monitoring-known-issues}
