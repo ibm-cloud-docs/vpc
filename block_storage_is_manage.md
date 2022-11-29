@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-11-01"
+lastupdated: "2022-11-28"
 
 keywords:
 
@@ -47,7 +47,7 @@ To detach a volume:
 
 Alternatively, you can click an individual volume in the list of all block storage volumes and go to the **Volume Details** page for that volume. Under **Attached instances**, click the minus sign next to the virtual server instance to detach the volume from that instance.
 
-When you create an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance, detaching the data volume attached to a running instance causes the workload running on the instance to fail, therefore it is recommended that you do not detach the data volume.
+When you create an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance, detaching the data volume that is attached to a running instance causes the workload that's running on the instance to fail, therefore it is recommended that you do not detach the data volume.
 {: note}
 
 ### Transfer a block storage volume from one virtual server instance to another
@@ -137,7 +137,7 @@ Add user tags to block storage volumes from the list of volumes or the volumes d
    You can also add **access management tags** to a volume from the Add tags menu. For more information about creating and adding access management tags, see [Apply access management tags to a volume](#storage-add-access-mgt-tags).
    {: note}
 
-5. When you're done adding tags, click **Save**. When you refresh the screen, the list of block storage volumes shows the number of tags added in the **Tags** column.
+5. When you're done adding tags, click **Save**. When you refresh the screen, the list of block storage volumes shows the number of tags that are added in the **Tags** column.
 
 You can also add tags from the volume details page:
 
@@ -145,19 +145,19 @@ You can also add tags from the volume details page:
 2. On the volume details, click **Add tags** next to the volume name.
 3. In the Add tags menu, enter the user tags that you want to apply to this volume. When finished, click **Save**.
 
-### Add user tags associated with a backup policy to a volume in the UI
+### Add user tags that are associated with a backup policy to a volume in the UI
 {: #apply-tags-volumes-ui}
 
 You can add user tags that are associated with a backup policy to a block storage volume. Backup policies schedule automatic creation of backup snapshots. When one volume tag matches a backup policy tag for target resources, it triggers a backup of the volume contents. A backup policy defines a backup plan that schedules when backup snapshots are taken.
 
-From the [volume details](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-vol-details-ui) page, you can view backup policies applied to the volume and add user tags associated with a backup policy.
+From the [volume details](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-vol-details-ui) page, you can view the backup policies that are applied to the volume and add user tags that are associated with a backup policy.
 
-1. Navigate to the list of block storage volumes. In {{site.data.keyword.cloud_notm}} console)](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
+1. Navigate to the list of block storage volumes. In [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
 2. Locate the volume that you want and click the name link.
 3. From the block storage volumes details page, click the **Backup policies** tab.
 4. Click **Attach**.
-5. In the side panel, select a backup policy from the drop down menu, and then select the policy tags to apply to the volume. You can also view the plan details that will help you decide whether to use that policy.
-6. Click **Apply policy and tags**. The backup policy shows in the list of backup policies associated with the volume.
+5. In the side panel, select a backup policy from the list of available policies, and then select the policy tags to apply to the volume. You can also view the plan details that can help you decide whether to use that policy.
+6. Click **Apply policy and tags**. The backup policy shows in the list of backup policies that are associated with the volume.
 
 When you go to the [backup policy page](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-vol-backup-policies), the volume for which you added tags shows up in the list of volumes.
 
@@ -267,7 +267,7 @@ Volume ID 0738-64d85f0f-6c08-4188-9e9a-0057b3aa1b69 is deleted.
 {: #managing-block-storage-api}
 {: api}
 
-Manage your block storage volumes programically by making calls to the [VPC REST APIs](/apidocs/vpc). You can update a volume name, update a volume attachment, detach a volume, and delete a volume.
+Manage your block storage volumes programmatically by making calls to the [VPC REST APIs](/apidocs/vpc). You can update a volume name, update a volume attachment, detach a volume, and delete a volume.
 
 ### Update the name of a volume with the API
 {: #update-vol-name-api}
@@ -285,7 +285,7 @@ curl -X PATCH "$vpc_api_endpoint/v1/volumes?version=2022-04-22&generation=2" \
 
 A successful response looks like the following example:
 
-```text
+```json
 {
   "capacity": 50,
   "created_at": "2022-04-22T23:16:53.000Z",
@@ -340,7 +340,7 @@ curl -X PATCH "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments/$v
 
 A successful response looks like the following example:
 
-```text
+```json
 {
   "created_at": "2022-04-22T16:35:47.000Z",
   "delete_volume_on_instance_delete": false,
@@ -393,7 +393,7 @@ curl -X DELETE "$vpc_api_endpoint/v1/volumes/$volume_id?version=2022-04-22&gener
 
 To verify that the volume is deleted, list the volumes by making a `GET /volumes` call.
 
-### Apply user tags associated with a backup policy to a volume with the API
+### Apply user tags that are associated with a backup policy to a volume with the API
 {: #block-storage-add-tags-api}
 
 To add user tags to a volume, you first make a `GET /volumes/{volume_id}` call and copy the hash string from `Etag` property in the response header. You then use the hash string when you specify `If-Match` in a `PATCH /volumes/{volume_id}` request to create new user tags.
@@ -403,7 +403,7 @@ For more information and examples, see [Apply tags to block storage volumes](/do
 ## Apply access management tags to a block storage volume
 {: #storage-add-access-mgt-tags}
 
-Access management tags are metadata you can add to your block storage volumes to help organize access control resource relationships. You first create the tag and then apply it to a new volume or to an existing volume. You can apply the same access management tag to multiple block storage volumes. You then assign access to the tag in IAM. Optionally, you can create an IAM access group and manage users.
+Access management tags are metadata that you can add to your block storage volumes to help organize access control resource relationships. You first create the tag and then apply it to a new volume or to an existing volume. You can apply the same access management tag to multiple block storage volumes. You then assign access to the tag in IAM. Optionally, you can create an IAM access group and manage users.
 
 Access management tags are not used by [backup policies](/docs/vpc?topic=vpc-backup-use-policies) to create backup snapshots. Backup snapshots are created when user tags match backup policy tags for target resources to volume user tags.
 {: note}
@@ -411,20 +411,20 @@ Access management tags are not used by [backup policies](/docs/vpc?topic=vpc-bac
 ### Step 1 - Create an access management tag in IAM
 {: #storage-create-access-mgt-tag}
 
-From the IBM Cloud console:
+In the UI:
 
 1. Go to **Manage > Account**, and then select **Tags**.
-2. Click the **Access management tags** tab. Add a tag name in the field. Access management tags require a key:value format.
+2. Click the **Access management tags** tab. Add a tag name in the field. Access management tags require a `key:value` format.
 3. Click **Create Tags**.
 
-From the [Global Search and Tagging API](/docs/account?topic=account-tag&interface=api#create-access-api):
+With the [Global Search and Tagging API](/docs/account?topic=account-tag&interface=api#create-access-api):
 
 Make a `POST/ tags` call to [create an access management tag](/apidocs/tagging#create-tag) and specify the tag in the `tag_names` property. For an example, see [Creating access management tags by using the API](/docs/account?topic=account-tag&interface=api#create-access-api).
 
 ### Step 2 - Add an access management tag to a volume
 {: #storage-add-access-mgt-tag}
 
-Add an access managment tag to an existing volume or when you [create a new volume](/docs/vpc?topic=vpc-creating-block-storage). To add access management tags to an existing volume:
+Add an access management tag to an existing volume or when you [create a volume](/docs/vpc?topic=vpc-creating-block-storage). To add access management tags to an existing volume:
 
 1. Navigate to the list of block storage volumes. In [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
 2. Locate the volume from the list.
@@ -441,14 +441,14 @@ After you create an access management tag and apply it to a volume, complete the
 
 2. [Assign an access policy to a group](/docs/account?topic=account-access-tags-tutorial#tagging-assign-policy).
 
-3. [Add users to the access group](/docs/account?topic=account-access-tags-tutorial#tagging-add-users-access-group)
+3. [Add users to the access group](/docs/account?topic=account-access-tags-tutorial#tagging-add-users-access-group).
 
 When you look at the specific resources for the VPC infrastructure and specify {{site.data.keyword.block_storage_is_short}} as the resource type, you can see the access management tags for the block storage service.
 
 ## Access volume read/write metrics
 {: #block-storage-metrics}
 
-You can view read/write metrics for your block storage volumes attached to a virtual server instance:
+You can view read/write metrics for your block storage volumes that are attached to a virtual server instance:
 
 * [Cumulative number of bytes read for a volume](/docs/vpc?topic=vpc-vpc-monitoring-metrics#bytes-read-for-volume-gen2) since the virtual server instance started.
 * [Cumulative number of bytes written for a volume](/vpc?topic=vpc-vpc-monitoring-metrics#bytes-written-for-volume-gen2) since virtual server instance started.
@@ -487,15 +487,15 @@ For more information, see the [best practices for assigning access](/docs/accoun
 ## Monitor block storage performance
 {: #block-storage-monitor}
 
-You can monitor certain block storage volume performance from the VPC virtual server instance metrics. These include:
+You can monitor certain block storage volume performance from the VPC virtual server instance metrics. These metrics include:
 
-* Cumulative number of [bytes read for a volume](/docs/vpc?topic=vpc-vpc-monitoring-metrics#bytes-read-for-volume-gen2) since virtual server instance was started.
+* Cumulative number of [bytes read for a volume](/docs/vpc?topic=vpc-vpc-monitoring-metrics#bytes-read-for-volume-gen2) since the virtual server instance was started.
 
-* Cumulative number of [bytes written for a volume](/docs/vpc?topic=vpc-vpc-monitoring-metrics#bytes-written-for-volume-gen2) since virtual server instance was started.
+* Cumulative number of [bytes written for a volume](/docs/vpc?topic=vpc-vpc-monitoring-metrics#bytes-written-for-volume-gen2) since the virtual server instance was started.
 
 To see these metrics in the UI:
 
-1. From the [{{site.data.keyword.cloud_notm}} console)](/login){: external} > **VPC Infrastructure > Compute > Virtual server instances**.
+1. In the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to **VPC Infrastructure > Compute > Virtual server instances**.
 
 2. Click the instance name to go to the instance details.
 
@@ -505,12 +505,12 @@ To see these metrics in the UI:
 
 ![Figure showing volume metrics.](/images/volume-read-write-metrics.png "Figure showing volume read/write metrics."){: caption="Figure 1. Read/write metrics for block storage volumes." caption-side="bottom"}
 
-## Volume performance when restoring from a snapshot
+## Volume performance when you restore from a snapshot
 {: #block-vol-restore-snap}
 
-Boot and data volume performance is initially degraded when restoring from a snapshot. During the restoration, your data is copied from {{site.data.keyword.cos_full}} to {{site.data.keyword.block_storage_is_short}}.  After the restoration process has completed, you should realize full IOPS on your new volume.
+Boot and data volume performance is initially degraded when you restore them from a snapshot. During the restoration, your data is copied from {{site.data.keyword.cos_full}} to {{site.data.keyword.block_storage_is_short}}. After the restoration process is complete, full IOPS can be realized on the new volume.
 
-Restoring a boot volume from a "bootable" snapshot and then using it to provision a new instance results in slower performance because restored boot volume is not yet fully hydrated (that is, fully provisioned). Performance is slower than creating an instance from a regular boot volume.
+Restoring a boot volume from a "bootable" snapshot and then using it to provision an instance results in slower performance because restored boot volume is not yet fully hydrated (that is, fully provisioned). Performance is slower than creating an instance from a regular boot volume.
 
 ## Block storage volume status
 {: #block-storage-vpc-status}
@@ -519,11 +519,9 @@ The following table shows statuses that you might see when you create, view, or 
 
 | Status | Meaning | Health state |
 |--------|---------|--------------|
-| Available | A volume is available and can be attached to an instance. | OK |
-| | An attached data volume is available. | OK |
-| | A boot volume is available. | OK |
+| Available | A volume is available and can be attached to an instance. \n An attached data volume is available. \n A boot volume is available. | OK |
 | Failed  | A volume creation failed. | Inapplicable |
-| Pending | A volume is being created.   | Inapplicable |
+| Pending | A volume is being created. | Inapplicable |
 | Pending deletion | A volume is being deleted. If you're unsure the volume is deleted, verify this state. Attempting to delete a volume again while in this state results in a conflict error. | Inapplicable |
 | Updating | A volume's capacity is [expanding](/docs/vpc?topic=vpc-expanding-block-storage-volumes) or volume IOPS being [adjusted](/docs/vpc?topic=vpc-adjusting-volume-iop). | OK |
 | Unusable | A volume is unusable because the customer root key (CRK) was [deleted](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys) or [disabled](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-disable-root-keys). | Inapplicable |
@@ -537,13 +535,8 @@ Volume health states correspond with [volume statuses](#block-storage-vpc-status
 | Health State | Reason |
 |--------|-------------|
 | OK | A volume is performing at the expected I/O performance and capacity is sufficient, there are no network connection issues, or a volume was restored from a snapshot (hydration is completed). |
-| Degraded | A volume is experiencing degraded performance for any of the following reasons:
-| | Volume data is being restored (hydrated) and shows degraded until hydration is completed. |
-| | Initialiation from a snapshot failed and the volume hydration failed. |
-| | Volume hydration has not started. |
-| | Volume hydration has paused. |
-| | Snapshot is in an unusable state. |
-| Inapplicable | The volume is being created, volume creation failed, volume is pending, oending deletion, or unusable. No healh reason is reported. |
+| Degraded | A volume is experiencing degraded performance for any of the following reasons: \n  - Volume data is being restored (hydrated) and shows degraded until hydration is completed. \n - Initialization from a snapshot failed and the volume hydration failed. \n - Volume hydration is not started. \n - Volume hydration is paused. \n - Snapshot is in an unusable state. |
+| Inapplicable | The volume is being created, volume creation failed, volume is pending, pending deletion, or unusable. No health reason is reported. |
 | Faulted | The volume is unreachable, inoperative, or entirely incapacitated. |
 {: caption="Table 3. Block storage health states and reasons" caption-side="bottom"}
 
