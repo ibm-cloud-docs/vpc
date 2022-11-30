@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-22"
+lastupdated: "2022-11-30"
 
 keywords: operating system end of support (eos)
 
@@ -56,18 +56,20 @@ The version of Fedora&reg; CoreOS is updated on a regular basis, with the previo
 
 The following table describes the end of support date and license model for Red Hat&reg; Enterprise Linux&reg; operating systems. This guest OS is a paid operating system. For more information, see [Red Hat Enterprise Linux](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux){: external}. 
 
-| Operating sytem | End of support | License Model |
+| Operating sytem | End of support | License model |
 |-----------------|----------------|---------------|
 | RHEL 8.6 minimal | 30 May 2024 | Pay-as-you-Go / BYOL |
+| RHEL 8.6 (SAP HANA and SAP applications) | 31 May 2026 | Pay-as-you-Go |
 | RHEL 8.4 minimal | 30 May 2023 | Pay-as-you-Go / BYOL |
-| RHEL 8.4 (SAP HANA & SAP applications) | 30 May 2025 | Pay-as-you-Go |
+| RHEL 8.4 (SAP HANA and SAP applications) | 30 May 2025 | Pay-as-you-Go |
 | RHEL 8.3 minimal | 30 April 2021 | Pay-as-you-Go / BYOL |
 | RHEL 8.2 minimal | 30 April 2022 |  Pay-as-you-Go / BYOL |
-| RHEL 8.2 (SAP HANA & SAP applications) | 28 February 2023 | Pay-as-you-Go |
+| RHEL 8.2 (SAP HANA and SAP applications) | 28 February 2023 | Pay-as-you-Go |
 | RHEL 8.1 minimal | 30 November 2021 | Pay-as-you-Go / BYOL |
-| RHEL 8.1 (SAP HANA & SAP applications) | 28 February 2023 | Pay-as-you-Go |
+| RHEL 8.1 (SAP HANA and SAP applications) | 28 February 2023 | Pay-as-you-Go |
 | RHEL 7.9 minimal | 30 June 2024 | Pay-as-you-Go / BYOL |
-| RHEL 7.6 (SAP HANA & SAP applications) | 28 February 2023  | Pay-as-you-Go |
+| RHEL 7.9 (SAP HANA and SAP applications) | 30 June 2024 | Pay-as-you-Go |
+| RHEL 7.6 (SAP HANA and SAP applications) | 28 February 2023  | Pay-as-you-Go |
 {: caption="Table 4. Lifecycle for Red Hat Enterprise Linux (RHEL) operating systems" caption-side="bottom"}
 
 **BYOL**: For Red Hat Enterprise Linux® (RHEL) operating systems, you can bring your own license (BYOL) to {{site.data.keyword.vpc_short}} when you import a custom image. These images are registered and licensed by you. You maintain control over your license and incur no additional costs by using your license. Acquisition and activation of the license is between you and the OS vendor. BYOL is not supported on Red Hat Enterprise Linux for SAP.
