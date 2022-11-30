@@ -23,7 +23,7 @@ In the lifecycle of an operating system, end of support (EOS) is the last date t
 
 The following table describes the end of support date and license model for CentOS operating systems. This guest OS is a free operating system. For more information, see [CentOS Linux](https://www.centos.org/about/){: external}. 
 
-| Operating sytem | End of support | License Model | 
+| Operating sytem | End of support | License model | 
 |-----------------|----------------|---------------|
 | CentOS 8 minimal | 31 December 2021 | Free |
 | CentOS 7.9 minimal | 30 June 2024  | Free |
@@ -34,7 +34,7 @@ The following table describes the end of support date and license model for Cent
 
 The following table describes the end of support date and license model for Debian operating systems. This guest OS is a free operating system. For more information, see [Debian community](https://www.debian.org/){: external}. 
 
-| Operating sytem | End of support | License Model | 
+| Operating sytem | End of support | License model | 
 |-----------------|----------------|---------------|
 | Debian 11 minimal | 01 June 2026 | Free |
 | Debian 10 minimal | 01 June 2024 | Free |
@@ -46,7 +46,7 @@ The following table describes the end of support date and license model for Debi
 
 The version of Fedora&reg; CoreOS is updated on a regular basis, with the previous release being deprecated when a new version is released. This guest OS is a free operating system. For more information, see [Fedora](https://getfedora.org/){: external}. 
 
-| Operating sytem | End of support | License Model | 
+| Operating sytem | End of support | License model | 
 |-----------------|----------------|---------------|
 | Fedora CoreOS latest | N/A | Free |
 {: caption="Table 3. Lifecycle for Fedora CoreOS operating systems" caption-side="bottom"}
@@ -79,7 +79,7 @@ The following table describes the end of support date and license model for Red 
 
 The version of Rocky Linux is updated on a regular basis, with the previous release being deprecated when a new version is released. This guest OS is a free operating system. For more information, see [Rocky Linux](https://rockylinux.org/){: external}. 
 
-| Operating sytem | End of support | License Model | 
+| Operating sytem | End of support | License model | 
 |-----------------|----------------|---------------|
 | Rocky Linux 8.latest | N/A | Free |
 {: caption="Table 5. Lifecycle for Rocky Linux operating systems" caption-side="bottom"}
@@ -89,7 +89,7 @@ The version of Rocky Linux is updated on a regular basis, with the previous rele
 
 The following table describes the end of support date and license model for SUSE Linux Enterprise Server (SLES) operating systems. This guest OS is a paid operating system. For more information, see [SUSE Linux Enterprise Server](https://www.suse.com/products/server/){: external}. 
 
-| Operating sytem | End of support | License Model |
+| Operating sytem | End of support | License model |
 |-----------------|----------------|---------------|
 | SLES 15 SP4 | Release SP5 +6 Months | Pay-as-you-Go |
 | SLES 15 SP3 | 31 December 2022 | Pay-as-you-Go |
@@ -107,7 +107,7 @@ The following table describes the end of support date and license model for SUSE
 
 The following table describes the end of support date and license model for Ubuntu operating systems. This guest OS is a free operating system. For more information, see [Ubuntu](https://ubuntu.com/){: external}. 
 
-| Operating sytem | End of support | License Model | 
+| Operating sytem | End of support | License model | 
 |-----------------|----------------|---------------|
 | Ubuntu 22.04 minimal | 30 April 2027 | Free |
 | Ubuntu 20.04 minimal | 30 April 2025 | Free |
@@ -120,7 +120,7 @@ The following table describes the end of support date and license model for Ubun
 
 The following table describes the end of support date and license model for Windows Server operating systems. This guest OS is a paid operating system. For more information, see [Microsoft Windows Server](https://www.microsoft.com/en-us/windows-server){: external}. 
 
-| Operating sytem | End of support | License Model |
+| Operating sytem | End of support | License model |
 |-----------------|----------------|---------------|
 | Windows Server 2022 full standard | 14 October 2031 | Pay-as-you-Go / BYOL|
 | Windows Server 2019 core | 09 January 2029 | Pay-as-you-Go / BYOL|
