@@ -29,6 +29,16 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## November 2022
 {: #vpc-november22}
 
+### 14 November 2022
+{: #vpc-nov1422}
+{: release-note}
+
+Attestation certificate for IBM Hyper Protect Container Runtime image
+:   You can get the [IBM attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-6-attestation.crt){: external} for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-6`.
+
+Logging for {{site.data.keyword.hpvs}} for VPC
+:   Apart from IBM Log Analysis, you can now configure logging with a generic syslog backend. For more information, see [Logging for {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc#syslog).
+
 ### 11 November 2022
 {: #vpc-nov1122}
 {: release-note}

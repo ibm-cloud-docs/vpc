@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-15"
+lastupdated: "2022-11-28"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -15,14 +15,13 @@ subcollection: vpc
 # About the contract
 {: #about-contract_se}
 
-When you create a virtual server instance by using the IBM Hyper Protect Container Runtime image, and proceed to create a virtual server instance, you must specify a contract as part of the **User Data** field.
+When you create an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC instance, you must specify a contract as part of the **User Data** field.
 {: shortdesc}
-
 
 ## What is a contract?
 {: #hpcr_contract}
 
-The contract is a definition file in the YAML format that is specific to the {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} (VPC) instance. This file must be created by the cloud user as a prerequisite for creating an instance. After this file is created, it must be passed as an input as part of the **User Data** field when an instance is created. You cannot create an instance without a valid contract. If you create an instance without a contract, the deployment starts and then fails, and the instance goes into a shutdown state. The contract is specific to creating an {{site.data.keyword.hpvs}} for VPC instance and is an extension of the IBM Secure Execution technology by Hyper Protect.
+The contract is a definition file in the YAML format that is specific to the {{site.data.keyword.hpvs}} for VPC instance. This file must be created by the cloud user as a prerequisite for creating an instance. After this file is created, it must be passed as an input as part of the **User Data** field when an instance is created. You cannot create an instance without a valid contract. If you create an instance without a contract, the deployment starts and then fails, and the instance goes into a shutdown state. The contract is specific to creating a {{site.data.keyword.hpvs}} for VPC instance and is an extension of the IBM Secure Execution technology by Hyper Protect.
 
 If the workload discloses the decrypted tokens (either through SSH or REST APIs), then the decrypted data contains both the workload and the environment secrets (however it does not contain the seeds that were used for volume encryption).
 {: note}
@@ -106,16 +105,27 @@ auths:
 ### The `compose` subsection
 {: #hpcr_contract_compose}
 
-It consists of an archive subsection. The archive subsection contains the Base64 encoded TGZ file archive of the `docker-compose.yaml` file. As the Hyper Protect Container Runtime image uses Docker Engine and Docker Compose to start containers, the information about containers must first be created by using a standard docker-compose file. This file is then archived and base64 encoded and the output of this is provided as the value to the archive subsection, within the compose section. For more information, see [Overview of Docker Compose](https://docs.docker.com/compose/).  
+It consists of an archive subsection. The archive subsection contains the Base64 encoded TGZ file archive of the `docker-compose.yaml` file. As the Hyper Protect Container Runtime image uses Docker Engine and Docker Compose to start containers, the information about containers must first be created by using a standard docker-compose file. This file is then archived and base64 encoded and the output of this is provided as the value to the archive subsection, within the compose section. For more information, see [Overview of Docker Compose](https://docs.docker.com/compose/).
 
 The mount points specified under the volumes information of the docker-compose file might be aligned with the volume mount point that is specified in the workload section of the contract. Both "yaml" and "yml" formats are supported for docker-compose file.
 This is an example of a docker-compose file.
 
-![Sample docker compose file](images/docker_compose_sample.png "Figure showing docker_compose_sample"){: caption="Figure 1. Sample of a docker-compose file" caption-side="bottom"}
+```yaml
+version: '3'
+services:
+  nginx:
+    image: nginx@sha256:e73ba8654ba7fd1834e78a3d4e9d72ffaaa3372d42996af5c34ba3e1abc293e8
+    privileged: true
+    user: 0:0
+    restart: always
+    ports:
+    - 80:80
+```
+{: codeblock}
 
 Use the following command to get the base64 encoded archive file. The base64 output is available in the compose.b64 file.
 ```sh
-tar czvf - -C <COMPOSE_FOLDER> . | base64 -w0
+tar czvf - -C <COMPOSE_FOLDER> . | base64 -w0 > compose.b64
 ```
 {: pre}
 
@@ -149,7 +159,7 @@ notary: "https://notary.us.icr.io"
 ```
 
 The `publicKey` is the corresponding public key by which the image is signed by using DCT. Use the following command to get the public key:
-```json
+```sh
 cat ~/.docker/trust/tuf/us.icr.io/<username>/<imagename>/metadata/root.json
 ```
 {: pre}
@@ -164,7 +174,7 @@ images:
 ```
 {: codeblock}
 
-For an image that is not signed, no entry is required in the images subsection. However, for unsigned images a digest is required. Complete the following steps to get the digest:
+For an image that is not signed, no entry is required in the images subsection. However, for unsigned images, a digest is required. Complete the following steps to get the digest:
 1. Log in to the container registry dashboard.
 2. Open the image.
 3. Click **Tag**, and then click **Digest**.
@@ -181,13 +191,15 @@ services:
 ### The `workload` - `volumes` subsection
 {: #hpcr_contract_volumes}
 
-The `volumes` subsection has support for auto encryption of the data volume that uses user-provided keys (seeds). If a data volume has been attached to the {{site.data.keyword.hpvs}} for VPC instance, it is encrypted automatically, if the customer keys are provided as part of the user-data contract. These keys can be provided in the contract through the "seed" field in the "volumes" subsections of the contract. If a data volume is attached to the {{site.data.keyword.hpvs}} for VPC instance, it is automatically encrypted, if the user keys are provided as part of the contract. These keys can be provided in the contract through the "seed" field in the `volumes` subsections of the contract. The keys (or seeds) are captured in the contract from both the workload and the deployer persona. Thus two seeds must be provided, one through the `workload` section and the other through the `env` section. These two seeds provided as input are internally converted to UTF8 sequences and then concatenated. Later, the hash (SHA256) of the concatenated sequence is computed as a hexdigest, which is used as the LUKS passphrase to encrypt the data volume. You can use the following command to validate the hexdigest:
+The `volumes` section needs to be provided in the contract only if a data volume is attached to the instance at the time of creation. The information provided in this section is used to mount the attached data volume (provided by the user) and is later encrypted using the "seed" provided in the `workload` and `env` sections. You can provide any path of your choice for the "mount" field. The path provided by the user is used internally to mount the data volume. The mount path provided in the contract must match the path provided under the volumes section of the `docker-compose.yaml` file, so that all the data associated with the container workload is stored in this data volume.   
+
+The `volumes` subsection has support for auto encryption of the data volume that uses user-provided keys (seeds). If a data volume has been attached to the instance, it is encrypted automatically, if the customer keys are provided as part of the contract. These keys can be provided in the contract through the "seed" field in the `volumes` subsections of the contract. The keys (or seeds) are captured in the contract from both the workload and the deployer persona. Thus two seeds must be provided, one through the `workload` section and the other through the `env` section. These two seeds provided as input are internally converted to UTF8 sequences and then concatenated. Later, the hash (SHA256) of the concatenated sequence is computed as a hexdigest, which is used as the LUKS passphrase to encrypt the data volume. You can use the following command to validate the hexdigest:
 ```buildoutcfg
 echo -n "seed1seed2" | sha256sum
 ```
 {: pre}
 
-Here you can learn how the 'seed' can be provided in the workload section of the contract. For more information about how the "seed" input can be provided through the `env` section, see [The `env` section](#hpcr_contract_env). It is mandatory to provide both the seeds for encryption. Encryption fails if only one of the seeds is provided instance shuts down.
+Here you can learn how the "seed" can be provided in the workload section of the contract. For more information about how the "seed" input can be provided through the `env` section, see [The `env` section](#hpcr_contract_env). It is mandatory to provide both the seeds for encryption. Encryption fails if only one of the seeds is provided instance shuts down.
 
 The following snippet is an example for the volumes section:
 ```yaml
@@ -215,14 +227,14 @@ The subsections for the `env` section are:
 ### The `logging` subsection
 {: #hpcr_contract_env_log}
 
-The minimum subsection that is required for this section is the logging subsection. For more information, see [Setting up logging for {{site.data.keyword.hpvs}} for VPC provisioning](/docs/vpc?topic=vpc-about-se&interface=ui#hpcr_setup_logging).
+The minimum subsection that is required for this section is the logging subsection. For more information, see [Logging for {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc).
 
 The following snippet is an example of the `logging` subsection:
 ```yaml
 logging:
   logDNA:
-    hostname: <host name of the logdna instance>
-    ingestionKey: <ingestion Key of the logdna instance>
+    hostname: <host name of the Log Analysis instance>
+    ingestionKey: <ingestion Key of the Log Analysis instance>
     port: <port default-6514>
 ```
 {: codeblock}
@@ -328,7 +340,7 @@ Complete the following steps on an Ubuntu system, to encrypt the workload sectio
    {: pre}
 
 6. Use the following command to encrypt the `workload.yaml` file with a random password:
-   ```yaml
+   ```sh
    ENCRYPTED_WORKLOAD="$(echo -n "$PASSWORD" | base64 -d | openssl enc -aes-256-cbc -pbkdf2 -pass stdin -in "$WORKLOAD" | base64 -w0)"
    ```
    {: pre}
@@ -435,14 +447,14 @@ Complete the following steps on an Ubuntu system, to create the contract signatu
    {: codeblock}
 
 4. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-6-encrypt.crt`:
-   ```yaml
+   ```sh
    ENV="<PATH to env.yaml>"
    CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-6-encrypt.crt>"
    ```
    {: pre}
 
 5. Use the following command to create a random password:
-   ```yaml
+   ```sh
    PASSWORD="$(openssl rand 32 | base64 -w0)"
    ```
    {: pre}
@@ -454,13 +466,13 @@ Complete the following steps on an Ubuntu system, to create the contract signatu
    {: pre}
 
 7. Use the following command to encrypt `env.yaml` with a random password:
-   ```yaml
+   ```sh
    ENCRYPTED_ENV="$(echo -n "$PASSWORD" | base64 -d | openssl enc -aes-256-cbc -pbkdf2 -pass stdin -in "$ENV" | base64 -w0)"
    ```
    {: pre}
 
 8. Use the following command to extract the encrypted `env` section:
-   ```yaml
+   ```sh
    echo "hyper-protect-basic.${ENCRYPTED_PASSWORD}.${ENCRYPTED_ENV}"
    ```
    {: pre}
@@ -484,14 +496,14 @@ If you have got the encrypted `user-data.yaml` from the [Creating the encrypted 
    ```
    {: pre}
 
-3. Create the `contract.txt` file. Add the value of `workload` first then add the value of `env` from the `user-data.yaml` file. Ensure that there is no space or new line after `workload` and before `env`. Also, ensure that there is no new line or space at the end of the file.
+3. Create the `contract.txt` file. Add the value of `workload` first then add the value of `env` from the `user-data.yaml` file. Ensure that there is no space or new line after `workload` and before `env`. Also, ensure that there is no new line or space at the end of the file. It is recommended to cross check the binary content of the `contract.txt` file with tools such as `hexdump`. In the binary file dump, make sure that you do not see the `0a` ASCII value as the last entry.
    ```yaml
    hyper-protect-basic.js7TGt77EQ5bgTIKk5C0pViFTRHqWtn..............hyper-protect-basic.VWg/5/SWE+9jLfhr8q4i.........
    ```
    {: pre}
 
 4. Use the following command to generate the signature:
-   ```yaml
+   ```sh
    echo $( cat contract.txt | openssl dgst -sha256 -sign private.pem | openssl enc -base64) | tr -d ' '
    ```
    {: pre}
@@ -510,10 +522,10 @@ If you have got the encrypted `user-data.yaml` from the [Creating the encrypted 
 
 The following command examples are run on an Ubuntu system.
 
-### 1. Get the details of your IBM Logging instance
+### 1. Get the details of your logging instance
 {: #step1}
 
-The minimum that you need to get started with just any contract is an instance of IBM Logging from [cloud.ibm.com](/login){: external}. There are different plans that you can choose from. To understand how you get the required details, that is the hostname and the ingestion key, see [Setting up logging for {{site.data.keyword.hpvs}} for VPC provisioning](/docs/vpc?topic=vpc-about-se#hpcr_setup_logging).
+You can configure logging with IBM Log Analysis or a generic syslog backend. This example uses IBM Log Analysis. There are different plans that you can choose from. To understand how you get the required details including the hostname and the ingestion key, see [Logging for {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc).
 
 ### 2. Create the `env` section
 {: #step2}
