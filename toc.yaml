@@ -84,6 +84,7 @@ toc:
                - about-attestation.md
                - about-contract.md
                - certificate_validate.md
+               - hpvs-logging.md
            - host-failure-recovery.md
        - topicgroup:
            label: Storage

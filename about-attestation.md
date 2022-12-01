@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-15"
+lastupdated: "2022-11-28"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -40,7 +40,7 @@ The encryption and attestation certificates are signed by the IBM intermediate c
 
 Use the following procedure to validate the attestation record and hashes:
 
-* Get the attestation record `se-checksums.txt` and the signature file `se-signature.bin` from your instance.
+* Check the attestation record `se-checksums.txt` and the signature file `se-signature.bin` under the `/var/hyperprotect` directory after logging in to your {{site.data.keyword.hpvs}} for VPC instance.
 * Get the IBM attestation certificate [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-6-attestation.crt){: external}, for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-6`.
    For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-5`, you can download the IBM attestation certificate [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-5-attestation.crt){: external}
    {: note}
