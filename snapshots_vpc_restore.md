@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-10-05"
+lastupdated: "2022-12-02"
 
 keywords:
 
@@ -435,7 +435,7 @@ curl -X POST \
        "crn":"crn:[...]"
      },
      "source_snapshot:" {
-        id": "bdcdc984-ba4e-4aef-84fb-e8448c3116b1"
+       "id": "bdcdc984-ba4e-4aef-84fb-e8448c3116b1"
      }
    }`
 ```
