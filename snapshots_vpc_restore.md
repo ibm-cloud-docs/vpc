@@ -330,18 +330,18 @@ curl -X POST \
 -d '{
       "name": "my-server-name",
       "zone": {
-        "name": "us-south-1"
+         "name": "us-south-1"
       },
       "vpc": {
-        "id": "4d27c489-8ad7-3c18-cbf4-2103d9f8da93"
+         "id": "4d27c489-8ad7-3c18-cbf4-2103d9f8da93"
       },
-          "profile": {
-        "name": "cx2-2x4"
+      "profile": {
+         "name": "cx2-2x4"
       },
       "primary_network_interface": {
         "name": "region1example-net1",
         "subnet": {
-          "id": ""
+           "id": ""
         }
       },
       "boot_volume_attachment": {
@@ -376,19 +376,19 @@ curl -X POST \
 -d '{
       "name": "my-server-name",
       "zone": {
-        "name": "us-south-1"
+         "name": "us-south-1"
       },
       "vpc": {
-        "id": "4d27c489-8ad7-3c18-cbf4-2103d9f8da93"
+         "id": "4d27c489-8ad7-3c18-cbf4-2103d9f8da93"
       },
-          "profile": {
-        "name": "cx2-2x4"
+      "profile": {
+         "name": "cx2-2x4"
       },
       "primary_network_interface": {
-        "name": "region1example-net1",
-        "subnet": {
-          "id": ""
-        }
+         "name": "region1example-net1",
+         "subnet": {
+            "id": ""
+         }
       },
      "volume_attachments": [
         {
@@ -432,10 +432,10 @@ curl -X POST \
         "name": "us-south-1"
      },
      "encryption_key":{
-       "crn":"crn:[...]"
+        "crn":"crn:[...]"
      },
      "source_snapshot:" {
-       "id": "bdcdc984-ba4e-4aef-84fb-e8448c3116b1"
+        "id": "bdcdc984-ba4e-4aef-84fb-e8448c3116b1"
      }
    }`
 ```
