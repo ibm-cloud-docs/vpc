@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-08"
+lastupdated: "2022-12-03"
 
 keywords:
 
@@ -15,18 +15,18 @@ subcollection: vpc
 # Cross-account encryption for file storage resources
 {: #vpc-byok-cross-acct-key-file}
 
-{{site.data.keyword.filestorage_vpc_short}} now supports cross-account customer-managed encryption. With this feature, users can access a customer root key (CRK) from another user account and then use that CRK to encrypt a new file share.
+{{site.data.keyword.filestorage_vpc_short}} supports cross-account customer-managed encryption. With this feature, users can access a customer root key (CRK) from another account and then use that CRK to encrypt a new file share.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## About cross account key access and use
 {: #byok-cross-acct-about}
 
-Customer root keys in one account are now available to users in another account to use them to create an encrypted file share. The user in the account that's creating the file share can be the same user as the owner of the root key in the other account. The privileged user from the account that owns the root key [invites the user](/docs/account?topic=account-iamuserinv) of the second account where the file share is to be created and sets the IAM delegated policy to the root keys.
+Customer root keys in one account can be made available to users in another account to use when they create an encrypted file share. The user in the account that's creating the file share can be the same user as the owner of the root key in the other account. The privileged user from the account that owns the root key [invites the user](/docs/account?topic=account-iamuserinv) of the second account where the file share is to be created and sets the IAM delegated policy to the root keys.
 
-The user who creates the encrypted file share then specifies the CRN of the CRK from the account that owns the key. In the [API request](#byok-cross-key-acct-create-API) to create the file share, the user specifies the CRN of the root key in the `encryption_key` property. The user who creates the file share with cross-account encryption also uses the IAM token from their own account.
+The user who creates the encrypted file share then specifies the CRN of the root key from the account in the [API request](#byok-cross-key-acct-create-API). The user specifies the CRN of the root key in the `encryption_key` property. The user who creates the file share with cross-account encryption also uses the IAM token from their own account.
 
 ## Restrictions
 {: #byok-cross-key-acct-restrictions}
@@ -38,7 +38,7 @@ Creating an encrypted file share in the account that owns the root key and using
 
 From {{site.data.keyword.iamshort}} (IAM), authorize access between Cloud File Storage (source service) and {{site.data.keyword.keymanagementserviceshort}} (target service). Specify reader access for the role. For more information, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning&interface=api#byok-encryption-prereqs).
 
-To see the encryption keys that are used between accounts and to set up the IAM policy, you must use the API. You can use the UI to access your accounts and see the [IAM authorization](/docs/account?topic=account-serviceauth#serviceauth). However, the UI does not show the encryption keys that are used across accounts. As account user where the root keys are, you can use the [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-provision) UI to verify the resources that are associated with the encryption keys.
+You must use the API to see the encryption keys that are used between accounts, and to set up the IAM policy. You can use the UI to access your accounts and see the [IAM authorization](/docs/account?topic=account-serviceauth#serviceauth). However, the UI does not show the encryption keys that are used across accounts. As account user where the root keys are, you can use the [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-provision) UI to verify the resources that are associated with the encryption keys.
 
 ## Create an IAM policy to establish authorization between accounts
 {: #byok-cross-acct-iam}
@@ -141,7 +141,7 @@ For example:
 
 In the response, the CRN of the encryption key is from the account that owns the root key, while the file share is created in a second account.
 
-```text
+```json
 {
   "created_at": "2022-08-09T23:28:45Z",
   "crn": "crn:v1:staging:public:is:us-south-1:a/b5c782a8f47a2d1527257e3465f21568::share:r134-fe7219eb-c9a9-4aab-8636-9a57141f0cee",
