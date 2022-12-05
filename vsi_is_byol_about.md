@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-10-19"
+lastupdated: "2022-12-05"
 
 keywords: license, virtual private cloud, BYOL, virtual server instance, instance, custom image, encryption
 subcollection: vpc
