@@ -39,6 +39,9 @@ Attestation certificate for IBM Hyper Protect Container Runtime image
 Logging for {{site.data.keyword.hpvs}} for VPC
 :   Apart from IBM Log Analysis, you can now configure logging with a generic syslog backend. For more information, see [Logging for {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc#syslog).
 
+Security claims on disks encryption
+:   Both the root disk and data disks in the {{site.data.keyword.hpvs}} for VPC instance are configured with Linux Unified Key Setup (LUKS) Encryption. You can verify the encryption status by checking related messages in the log. For more information, see [Verifying disk encryption status](/docs/vpc?hpvs-disks-encryption-validate).
+
 ### 11 November 2022
 {: #vpc-nov1122}
 {: release-note}
