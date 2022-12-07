@@ -243,7 +243,7 @@ To analyze flow logs, follow these steps:
     capture_start_time timestamp,
     capture_end_time timestamp,
     number_of_flow_logs int,
-    flow_logs array<struct>
+    flow_logs array<struct<
          start_time: string,
          end_time: string,
          connection_start_time: string,
