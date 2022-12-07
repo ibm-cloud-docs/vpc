@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2022
 
-lastupdated: "2022-11-04"
+lastupdated: "2022-12-07"
 
 keywords: connecting, windows
 
@@ -17,7 +17,7 @@ subcollection: vpc
 # Connecting to Windows instances
 {: #vsi_is_connecting_windows}
 
-After you created your Windows instance, you can connect to it by completing these steps.
+After you created your Windows virtual server instance, you can connect to it by completing these steps.
 {: shortdesc}
 
 Windows instances are not supported for LinuxONE (s390x processor architecture).
@@ -28,7 +28,7 @@ Windows instances are not supported for LinuxONE (s390x processor architecture).
 
 Complete the following prerequisites:
 
-1. Make sure that you have the private key that is associated with the public SSH key that was used to create the Windows instance. This private key must be stored locally, for example, in `~/.ssh/id_rsa`. The private key might also be named your `username`. For more information, see [Locating or generating your SSH key](/docs/vpc?topic=vpc-ssh-keys#locating-ssh-keys).
+1. Make sure that you have the private key that is associated with the public SSH key that was used to create the Windows instance. If multiple SSH keys were added when the instance was created, you must use the first SSH key that was added. This private key must be stored locally, for example, in `~/.ssh/id_rsa`. The private key might also be named your `username`. For more information, see [Locating or generating your SSH key](/docs/vpc?topic=vpc-ssh-keys#locating-ssh-keys).
 1. Ensure that you downloaded, installed, and initialized the following CLI plug-ins:
     * {{site.data.keyword.cloud_notm}} CLI
     * The infrastructure-service plug-in
