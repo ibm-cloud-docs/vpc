@@ -31,8 +31,8 @@ Nov 29 10:24:07 hpvs211vsi verify-disk-encryption info HPL13000I: Verify LUKS En
 Nov 29 10:24:07 hpvs211vsi systemd info verify-disk-encryption-invoker.service: Succeeded.
 ...
 Nov 29 10:24:08 hpvs211vsi verify-disk-encryption info Checked for mount point /mnt/data, LUKS encryption with 1 key slot found
-Nov 29 10:24:08 hpvs211vsi verify-disk-encryption info HPL13001I: Boot volume and all the data volumes are encrypted
+Nov 29 10:24:08 hpvs211vsi verify-disk-encryption info HPL13001I: Root disk and all the data disks are encrypted
 ...
 ```
 
-*Note:* You can’t configure the interval of the disks encryption status checks.
+*Note:* You can't configure the interval of the disk encryption status checks.
