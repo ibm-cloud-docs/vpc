@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-10-11"
+lastupdated: "2022-12-09"
 
 keywords: linuxone bare metal license, linux license, byol, bring your own license, s390x bare metal byol, s390x license
 
