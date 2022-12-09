@@ -649,6 +649,7 @@ toc:
                 - troubleshooting-hpvs-single-volume-workload.md
             - block_storage_is_troubleshoot.md
             - file_storage_vpc_troubleshoot.md
+            - snapshots_vpc_troubleshooting.md
             - backup_service_vpc_troubleshoot.md
             - topicgroup:
                 label: Troubleshooting custom images
