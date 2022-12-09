@@ -1,8 +1,8 @@
 ---
-
+09
 copyright:
   years: 2019, 2022
-lastupdated: "2022-11-11"
+lastupdated: "2022-12-09"
 
 keywords:
 
@@ -192,7 +192,7 @@ Profile                                general-purpose
 Encryption key                         -
 Encryption                             provider_managed
 Resource group                         Default
-Created                                2022-10-12T10:10:57+05:30
+Created                                2022-12-12T10:10:57+05:30
 Zone                                   us-south-1
 Attachment State                       unattached
 Health State                           OK
@@ -314,7 +314,7 @@ Before you begin, make sure that you [set up your API environment](/docs/vpc?top
 Make a `GET /volumes` call to list summary information about all volumes. For example:
 
 ```curl
-curl -X GET "$vpc_api_endpoint/v1/volumes?version=2021-04-20&generation=2" \
+curl -X GET "$vpc_api_endpoint/v1/volumes?version=2022-12-09&generation=2" \
 -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -333,7 +333,7 @@ A successful response looks like this. This example shows three data volumes. Th
       "bandwidth": 128,
       "busy": false,
       "capacity": 100,
-      "created_at": "2019-01-29T06:26:17Z",
+      "created_at": "2022-12-09T06:26:17Z",
       "crn": "crn:[...]",
       "encryption": "provider_managed",
       "health_reasons": [],
@@ -380,7 +380,7 @@ A successful response looks like this. This example shows three data volumes. Th
       "bandwidth": 128,
       "busy": false,
       "capacity": 100,
-      "created_at": "2019-03-23T16:46:54Z",
+      "created_at": "2022-12-08T16:46:54Z",
       "crn": "crn:[...]",
       "encryption": "provider_managed",
       "health_reasons": [],
@@ -412,7 +412,7 @@ A successful response looks like this. This example shows three data volumes. Th
       "bandwidth": 128,
       "busy": false,
       "capacity": 100,
-      "created_at": "2019-07-13T02:22:43Z",
+      "created_at": "2022-12-08T02:22:43Z",
       "crn": "crn:[...]",
       "encryption": "provider_managed",
       "health_reasons": [],
@@ -452,7 +452,7 @@ A successful response looks like this. This example shows three data volumes. Th
 Make a `GET /volumes/{id}` call to see details of a volume. For example:
 
 ```curl
-curl -X GET "$vpc_api_endpoint/v1/volumes/$volume_id?version=2021-04-20&generation=2" \
+curl -X GET "$vpc_api_endpoint/v1/volumes/$volume_id?version=2022-12-09&generation=2" \
 -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -465,7 +465,7 @@ A successful response provides details of the volume, including capacity and IOP
   "bandwidth": 128,
   "busy": false,
   "capacity": 100,
-  "created_at": "2021-06-29T06:26:17Z",
+  "created_at": "2022-12-09T06:26:17Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "health_reasons": [],
@@ -525,7 +525,7 @@ Example response:
   "active": "true",
   "busy": "false",
   "capacity": 100,
-  "created_at": "2021-06-08T06:26:17Z",
+  "created_at": "2022-12-08T06:26:17Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "https://us-south.iaas.cloud.ibm.com/v1/volumes/ccbe6fe1-5680-4865-94d3-687076a38293",
@@ -544,7 +544,7 @@ Example response:
 To list all volume profiles available in your region, make a `GET /volume/profiles` call. For example:
 
 ```curl
-curl -X GET "$vpc_api_endpoint/v1/volume/profiles?version=2021-04-20&generation=2"
+curl -X GET "$vpc_api_endpoint/v1/volume/profiles?version=2022-12-09&generation=2"
 -H "Authorization: $iam_token"
 ```
 {: pre}

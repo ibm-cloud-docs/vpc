@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-11-11"
+lastupdated: "2022-12-09"
 
 keywords:
 subcollection: vpc
@@ -151,7 +151,7 @@ Source Image       ID                                          Name
 Resource group     ID                                          Name
                    64e81667-75d8-4803-9935-fb0ee5895c04        Default
 
-Created            2022-01-16T16:18:56+08:00
+Created            2022-12-09T16:18:56+08:00
 Tags               env:test,env:prod
 ```
 {: screen}
@@ -166,7 +166,7 @@ Make a `POST/snapshots` request to create a snapshot of a boot or data volume. T
 
 ```curl
 curl -X POST \
-"$vpc_api_endpoint/v1/snapshots?version=2022-01-12&generation=2" \
+"$vpc_api_endpoint/v1/snapshots?version=2022-12-09&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
       "name": "boot-snapshot-1",
@@ -189,7 +189,7 @@ A successful response looks like the following example. The snapshot lifecycle s
 ```json
 {
   "bootable": true,
-  "created_at": "2022-01-12T20:18:18Z",
+  "created_at": "2022-12-09T20:18:18Z",
   "crn": "crn:[...]",
   "deletable": false,
   "encryption": "user_managed",

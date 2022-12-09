@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-11-11"
+lastupdated: "2022-12-09"
 
 keywords:
 
@@ -108,8 +108,6 @@ You can create a {{site.data.keyword.block_storage_is_short}} volume independent
 
 5. To see details of the new volume, select the **View resource** link in the second message to go to the Volume details page.
 
-
-
 ### Create a stand-alone {{site.data.keyword.block_storage_is_short}} volume from a snapshot in the UI
 {: #create-vol-from-snapshot-ui}
 
@@ -175,7 +173,7 @@ Profile                                general-purpose
 Encryption key                         -
 Encryption                             provider_managed
 Resource group                         Default
-Created                                2022-04-07T11:42:22.287+05:30
+Created                                2022-12-09T11:42:22.287+05:30
 Zone                                   us-south-1
 Health State                           inapplicable
 Health Reason                          -
@@ -220,7 +218,7 @@ Profile                                general-purpose
 Encryption key                         -
 Encryption                             provider_managed
 Resource group                         Default
-Created                                2022-10-02T10:13:00+05:30
+Created                                2022-12-12T10:13:00+05:30
 Zone                                   us-south-1
 Attachment State                       unattached
 Health State                           inapplicable
@@ -321,7 +319,7 @@ Data volumes                ID   Name       Capacity   Profile           IOPS   
 Primary Network Interface   Name      Subnet ID                                   Security Groups                             Allow source IP spoofing   Reserved IP Address   Reserved IP ID   Reserved IP Name   Reserved IP Auto Delete
                             primary   0617-c1f1e468-3283-4f44-9d08-3d57b77817f1   7c2db5ac-19e0-4d83-8226-e6178fedfe56   false                      -                     -                -                  -
 
-Created                     2022-08-22T09:10:34+05:30
+Created                     2022-12-09T09:10:34+05:30
 
 ```
 {: screen}
@@ -355,7 +353,8 @@ Make a `POST /instances` request to create an instance, and define the volume by
 This example specifies customer-managed encryption and user tags for the boot and data volumes.
 
 ```curl
-curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-06-14&generation=2" -H "Authorization: $iam_token" -d '{
+curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-12-09&generation=2" -H "Authorization: $iam_token"
+-d '{
   "boot_volume_attachment": {
     "volume": {
       "encryption_key": {
@@ -439,7 +438,7 @@ A successful response looks like this:
       "name": "my-boot-volume"
     }
   },
-  "created_at": "2022-06-15T16:11:57Z",
+  "created_at": "2022-12-09T16:11:57Z",
   "crn": "crn:[...]",
   "dedicated_host": {
     "crn": "crn:[...]",
@@ -561,7 +560,7 @@ Make a `POST /volumes` request to create a volume. Specify a name, IOPS, capacit
 This example also specifies customer-managed encryption and a resource group.
 
 ```curl
-curl -X POST "$vpc_api_endpoint/v1/volumes?version=2022-06-14&generation=2" \
+curl -X POST "$vpc_api_endpoint/v1/volumes?version=2022-12-14&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
       "name": "my-volume-4",
@@ -588,7 +587,7 @@ A successful response looks like this:
 ```json
 {
   "capacity": 50,
-  "created_at": "2022-06-14T23:16:53.000Z",
+  "created_at": "2022-12-14T23:16:53.000Z",
   "crn": "crn:[...]",
   "encryption": "user_managed",
   "encryption_key": {

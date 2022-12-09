@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-11-11"
+lastupdated: "2022-12-09"
 
 keywords:
 
@@ -175,7 +175,7 @@ Make a `DELETE/snapshots/{snapshot_ID}` call to delete a specific snapshot by ID
 
 ```curl
 curl -X DELETE \
-"$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2022-02-22&generation=2" \
+"$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2022-12-09&generation=2" \
      -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: codeblock}
@@ -187,7 +187,7 @@ Make a `DELETE/snapshots` call and specify the source volume ID for the `source_
 
 ```curl
 curl -X DELETE \
-"$vpc_api_endpoint/v1/snapshots?source_volume.id=_volume-id_&version=2022-02-22&generation=2" \
+"$vpc_api_endpoint/v1/snapshots?source_volume.id=_volume-id_&version=2022-12-09&generation=2" \
      -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: codeblock}
@@ -245,8 +245,8 @@ Source Image       ID                                          Name
 
 Resource group     ID                                          Name
                    64e81667-75d8-4803-9935-fb0ee5895c04        Default
-Created            2022-01-12T14:11:56+08:00
-Captured           2022-01-12T14:31:11+08:00
+Created            2022-12-09T14:11:56+08:00
+Captured           2022-12-09T14:31:11+08:00
 ```
 {: screen}
 
@@ -282,8 +282,8 @@ Size(GB)               57
 Resource group         ID                                 Name
                        5018a8564e8120570150b0764d39ebcc   Default
 
-Created                2022-01-27T11:47:46.365+05:30
-Captured               2022-01-27T11:58:16.265+05:30
+Created                2022-12-09T11:47:46.365+05:30
+Captured               2022-12-09T11:58:16.265+05:30
 Tags                   env:test,env:prod
 ```
 {: codeblock}
@@ -297,7 +297,7 @@ Make a `PATCH/snapshots` call and specify the snapshot ID and new name of the sn
 
 ```curl
 curl -X PATCH \
-"$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2022-01-12&generation=2" \
+"$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2022-12-09&generation=2" \
    -H "Authorization: Bearer ${API_TOKEN}" \
    -d '{
      "name": "my-snapshop1-renamed"
@@ -313,7 +313,7 @@ Make a `PATCH/snapshots` call and specify the snapshot ID and user tags. The fol
 
 ```curl
 curl -X PATCH \
-"$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2022-01-12&generation=2" \
+"$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2022-12-09&generation=2" \
     -H "Authorization: Bearer ${API_TOKEN}" \
     -d `{
        "user_tags": [
@@ -369,7 +369,7 @@ The following example shows JSON output of an Activity Tracker event that was ge
 
 ```json
 {
-    "eventTime": "2022-02-22T17:59:07.57+0000",
+    "eventTime": "2022-12-09T17:59:07.57+0000",
     "action": "is.snapshot.create",
     "outcome": "success",
     "message": "Block Storage Snapshots for VPC: create my-snapshot-1",
@@ -414,7 +414,7 @@ The following example shows an event that was generated when you list snapshot d
 
 ```json
 {
-    "eventTime": "2022-01-16T17:55:25.60+0000",
+    "eventTime": "2022-12-09T17:55:25.60+0000",
     "action": "is.snapshot.read",
     "outcome": "success",
     "message": "Block Storage Snapshots for VPC: read my-snapshot-2",
