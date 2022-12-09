@@ -20,7 +20,7 @@ subcollection: vpc
 
 {{site.data.keyword.cloud_notm}} provides public- and private-facing application load balancers. An application load balancer provides layer 7 and layer 4 load balancing on {{site.data.keyword.cloud_notm}} and supports SSL offloading. All incoming and outgoing packets flow through the load balancer. 
 
-Application load balancers are primarily intended for layer 7, web-based workloads and support virtual server instances, bare metal server instances, and Power Systems™ Virtual Server instances connected over IBM Cloud Direct Link (2.0) as back-end pool members. In contrast, a network load balancer provides only layer 4 load balancing on {{site.data.keyword.cloud_notm}}, and does not support SSL offloading. The client sends public network traffic to the network load balancer, which forwards it to target virtual servers. Then, the target virtual servers respond directly to the client by using Direct Server Return (DSR). Network load balancers are primarily intended for workloads that require low latency and high data throughput.
+Application load balancers are primarily intended for layer 7, web-based workloads and support virtual server instances, bare metal server instances, and Power Systems™ Virtual Server instances connected over IBM Cloud Direct Link as back-end pool members. In contrast, a network load balancer provides only layer 4 load balancing on {{site.data.keyword.cloud_notm}}, and does not support SSL offloading. The client sends public network traffic to the network load balancer, which forwards it to target virtual servers. Then, the target virtual servers respond directly to the client by using Direct Server Return (DSR). Network load balancers are primarily intended for workloads that require low latency and high data throughput.
 
 This gives network load balancers an advantage over application load balancers by enhancing performance in the following ways:
 
@@ -46,7 +46,7 @@ The following table provides a comparison of the types of load balancers.
 | Route mode for VNFs   | Yes (see [Setting up high availability for Virtual Network Functions (VNF)](/docs/vpc?topic=vpc-about-vnf)) | No |
 | Virtual Servers on VPC   |  Yes    | Yes |
 | Member type  |  Virtual server instances | Virtual server instances, Bare Metal, Power Systems Virtual Server |
-| Power Systems Virtual Server instances connected over Direct Link (2.0)  |  No | Yes (No support for instance groups) |
+| Power Systems Virtual Server instances connected over Direct Link |  No | Yes (No support for instance groups) |
 {: caption="Table 1. Comparison of network and application load balancers" caption-side="bottom"}
 
 [^footnote1]: Network load balancers can accept members across all three availability zones, but the NLB itself resides in one specific zone.

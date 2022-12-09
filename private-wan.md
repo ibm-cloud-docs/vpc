@@ -48,7 +48,7 @@ Example use cases of private connectivity include:
 
 * A private backbone for all connectivity between resources deployed in your VPC virtual networks with an AZ and between AZs (this backbone is separate from the public backbone for connectivity using public addressing). IP addresses on the private backbone are non-internet routable, or not announced toward the public backbone or the internet. The private backbone is owned, managed, and operated exclusively by {{site.data.keyword.cloud_notm}}.
 * {{site.data.keyword.tg_full_notm}}, which meets use cases 1 through 3 by using this private backbone exclusively for connectivity between your virtual networks within a single region, across multiple regions, and to your {{site.data.keyword.cloud_notm}} classic workloads.
-* {{site.data.keyword.dl_full_notm}} (2.0), which meets use case 4 by providing the ability to attach your remote networks (on-premises) to your virtual networks within {{site.data.keyword.cloud_notm}} VPC or {{site.data.keyword.cloud_notm}} classic via this same private backbone.
+* {{site.data.keyword.dl_full_notm}}, which meets use case 4 by providing the ability to attach your remote networks (on-premises) to your virtual networks within {{site.data.keyword.cloud_notm}} VPC or {{site.data.keyword.cloud_notm}} classic via this same private backbone.
 
 By default, a VPC is private, and remains private until it is configured to enable public connectivity. For instance, a VPC might be connected to a public gateway or associated with floating IPs.
 {: note}
@@ -71,7 +71,7 @@ By default, a VPC is private, and remains private until it is configured to enab
 
 ![Direct Link on-premises interconnect use case](images/direct-link-dedicated.png "Direct Link on-premises interconnect use case")
 
-See [{{site.data.keyword.tg_full_notm}}](/docs/transit-gateway?topic=transit-gateway-about) and [{{site.data.keyword.dl_full_notm}} (2.0)](/docs/dl?topic=dl-get-started-with-ibm-cloud-dl) use case documentation for detailed private connectivity use cases and topologies. For information about native, private connectivity to {{site.data.keyword.cloud_notm}} services, see [Endpoints available](/docs/vpc?topic=vpc-service-endpoints-for-vpc).
+See [{{site.data.keyword.tg_full_notm}}](/docs/transit-gateway?topic=transit-gateway-about) and [{{site.data.keyword.dl_full_notm}}](/docs/dl?topic=dl-get-started-with-ibm-cloud-dl) use case documentation for detailed private connectivity use cases and topologies. For information about native, private connectivity to {{site.data.keyword.cloud_notm}} services, see [Endpoints available](/docs/vpc?topic=vpc-service-endpoints-for-vpc).
 
 ### Connecting to Hyper Protect Crypto Services (HPCS) from VPC by using a Private Network
 {: #vpc_privatenetwork_hpcs}

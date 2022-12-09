@@ -238,5 +238,5 @@ To access the VPC API private endpoint using Terraform, do one of the following:
 For more information, see the following topics:
 
 * [About virtual private endpoint gateways](/docs/vpc?topic=vpc-about-vpe)
-* [Getting started with IBM Cloud Direct Link (2.0)](/docs/dl)
+* [Getting started with IBM Cloud Direct Link](/docs/dl)
 * [Getting started with IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started)

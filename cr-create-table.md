@@ -49,7 +49,7 @@ To create a routing table by using the {{site.data.keyword.cloud_notm}} console,
 
       * **Ingress** - Ingress options are available for use on one routing table per VPC. You must choose at least one of the following traffic sources to enable ingress routing.
 
-         * **Direct link** - Allows ingress traffic from an [IBM Cloud Direct Link (2.0)](/docs/dl?topic=dl-get-started-with-ibm-cloud-dl) Dedicated or Connect connection to an on-prem location.
+         * **Direct link** - Allows ingress traffic from an [IBM Cloud Direct Link](/docs/dl?topic=dl-get-started-with-ibm-cloud-dl) Dedicated or Connect connection to an on-prem location.
          * **Transit gateway** - Allows ingress traffic from an [IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started) to another VPC or classic infrastructure.
          * **VPC zone** - Allows ingress traffic to another availability zone of the same VPC.
          * **Public internet** - Allows public internet ingress traffic destined to a floating IP to be routed to a VPC next-hop IP.
@@ -78,7 +78,7 @@ Where:
 
 - `VPC` is the ID of the VPC.
 - `--name` is the name of the VPC routing table.
-- `--direct-link-ingress` - If set to **true**, this routing table is used to route traffic that originates from {{site.data.keyword.cloud_notm}} Direct Link 2.0 to this VPC. One of: **false**, **true**.
+- `--direct-link-ingress` - If set to **true**, this routing table is used to route traffic that originates from {{site.data.keyword.cloud_notm}} Direct Link to this VPC. One of: **false**, **true**.
 - `--transit-gateway-ingress` - If set to **true**, this routing table is used to route traffic that originates from {{site.data.keyword.cloud_notm}} Transit Gateway to this VPC. One of: **false**, **true**.
 - `--vpc-zone-ingress` - If set to **true**, this routing table is used to route traffic that originates from the public internet. For this to succeed, the VPC must not have an existing routing table with this property set to **true**. One of: **false**, **true**.
 - `--route-internet-ingress` - If set to **true**, this routing table allows public internet ingress traffic destined to a floating IP to be routed to a VPC next-hop IP. One of: **false**, **true**.

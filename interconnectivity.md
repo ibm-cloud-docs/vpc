@@ -24,7 +24,7 @@ Given that VPCs are regional constructs, the following questions quickly arise:
 
 IBM has the following offerings that can help you interconnect a VPC with an on-premises network.
 
-* IBM Cloud Direct Link (2.0)
+* IBM Cloud Direct Link
 
    You can interconnect a VPC with an on-prem network through both Direct Link Dedicated and Connect offerings. Keep in mind that you can connect direct links to either a local or remote IBM Cloud Transit Gateway, which allows the on-prem network to access all networks connected to the transit gateway.
 
@@ -123,9 +123,9 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 | `13.100.0.0/24` | from VPC A subnet |
 | `10.101.0.0/24` | from VPC B through Transit Gateway (local) |
 | `13.101.0.0/24` | from VPC B through Transit Gateway (local) |
-| `10.0.0.0/8` | from an Enterprise through Direct Link 2.0 |
-| `172.16.0.0/12` | from an Enterprise through Direct Link 2.0 |
-| `13.0.0.0/8` | from an Enterprise through Direct Link 2.0 |
+| `10.0.0.0/8` | from an Enterprise through Direct Link |
+| `172.16.0.0/12` | from an Enterprise through Direct Link |
+| `13.0.0.0/8` | from an Enterprise through Direct Link |
 {: class="simple-tab-table"}
 {: caption="Table 4. VPC A Networks" caption-side="bottom"}
 {: #simpletabtable4}
@@ -138,9 +138,9 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 | `13.101.0.0/24` | from VPC B subnet |
 | `10.100.0.0/24` | from VPC A through Transit Gateway (local) |
 | `13.100.0.0/24` | from VPC A through Transit Gateway (local) |
-| `10.0.0.0/8` | from an Enterprise through Direct Link 2.0 |
-| `172.16.0.0/12` | from an Enterprise through Direct Link 2.0 |
-| `13.0.0.0/8` | from an Enterprise through Direct Link 2.0 |
+| `10.0.0.0/8` | from an Enterprise through Direct Link |
+| `172.16.0.0/12` | from an Enterprise through Direct Link |
+| `13.0.0.0/8` | from an Enterprise through Direct Link |
 {: caption="Table 5. VPC B Networks" caption-side="bottom"}
 {: #simpletabtable5}
 {: tab-title="VPC B Networks"}
@@ -277,6 +277,6 @@ Using IANA ranges works only with custom routes having the `Delegate-VPC` action
 
 To learn about these offerings:
 
-* [Get started with {{site.data.keyword.dl_full_notm}} 2.0](/docs/dl?topic=dl-get-started-with-ibm-cloud-dl)
+* [Get started with {{site.data.keyword.dl_full_notm}}](/docs/dl?topic=dl-get-started-with-ibm-cloud-dl)
 * [Get started with {{site.data.keyword.tg_full_notm}}](/docs/transit-gateway)
 * [Get started with {{site.data.keyword.vpn_vpc_short}}](/docs/vpc?topic=vpc-using-vpn)

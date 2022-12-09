@@ -39,4 +39,4 @@ The following table provides information on VPC network flows and connections fo
 | Local networks | Virtual Server (VPC)<br /><br />**Location:** VPC 1, Zone 1, Subnet 1 | Bare Metal<br /><br />**Location:** Classic Infrastructure data center 1 | Private backbone | VRF-enabled account |
 | Multi-region networks | Virtual Server (VPC)<br /><br />**Location:** Region A, VPC 1, Zone 1, Subnet 1 | Bare Metal<br /><br />**Locations:** Region B, Classic Infrastructure data center 1<br /><br />Region C, Classic Infrastructure data center 1 | Private backbone | Transit gateway |
 | Cloud-to-intranet (Dev/Test) | Virtual Server (VPC)<br /><br />**Location:** VPC 1, Zone 1, Subnet 1 | On-Premise network | Public internet | VPN gateway with VPN Connection |
-| Cloud-to-intranet (Production) | Virtual Server (VPC)<br /><br />**Location:** VPC 1, Zone 1, Subnet 1 | On-Premise network | Private backbone | Direct Link 2.0 |
+| Cloud-to-intranet (Production) | Virtual Server (VPC)<br /><br />**Location:** VPC 1, Zone 1, Subnet 1 | On-Premise network | Private backbone | Direct Link|
