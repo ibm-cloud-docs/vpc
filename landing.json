@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2022-11-11",
+    "lastupdated": "2022-12-09",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
-          "date": "11 November 2022",
-          "title": "Access managment tags to manage VPC resources",
-          "description": "You can now use access management tags to control access to VPC resources, such as virtual server instances and block storage volumes."
+          "date": "09 December 2022",
+          "title": "Volume creation from a block storage snapshot",
+          "description": "You can now use the UI and CLI, in addition to the VPC API, to create a stand-alone block storage volume from a snapshot. Stand-alone data volumes can be attached to a virtual server instance at any time. You can select a snapshot of a boot volume and use it to boot a new virtual server instance."
         },
         {
-          "date": "31 October 2022",
-          "title": "Terraform is now available for sharing images across an enterprise account",
-          "description": "You can now share or publish custom images by using Terraform to other accounts within your enterprise by using a private catalog. If you select a catalog image that belongs to a different account, review Using cross-account image references in a private catalog in Terraform for additional considerations and limitations."
+          "date": "09 December 2022",
+          "title": "Block storage volume health states",
+          "description": "You can now view the health state of a block storage volume from the UI, CLI, and API. Health indicated whether a volume is performing as expected or degraded. You can view health status and reasons from the list of volumes and volume details, and when creating and updating volumes."
         },
         {
-          "date": "21 October 2022",
-          "title": "Context-based restrictions (LA)",
-          "description": "For accounts authorized to preview this functionality, account owners and administrators are now able to define and enforce network access policies for IBM Cloud VPC resources."
+          "date": "14 November 2022",
+          "title": "Attestation certificate for IBM Hyper Protect Container Runtime image",
+          "description": "You can get the IBM attestation certificate for the IBM Hyper Protect Container Runtime image version ibm-hyper-protect-container-runtime-1-0-s390x-6."
         }
       ]
     }

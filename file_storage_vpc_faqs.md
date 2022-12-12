@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-11-08"
+lastupdated: "2022-12-08"
 
 keywords:
 
@@ -41,6 +41,18 @@ Yes.
 {: #faq-fs-4}
 
 You can use the UI, CLI, or API to create and manage your file shares.
+
+### Can I mount file shares on a Windows operating system?
+{: faq}
+{: #faq-fs-os}
+
+No, file shares can only be mounted on supported on Linux operating systems or a z/OS-based {{site.data.keyword.cloud}} Compute Instance that support NFS file shares. For more information, see the mounting information for [Red Hat](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHE), [CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos), and [Ubuntu](/docs/vpc?topic=vpc-file-storage-vpc-mount-ubuntu) Linux distributions, or [z/OS](/docs/vpc?topic=vpc-file-storage-vpc-mount-zos) systems.
+
+### What is the minimum NFS version supported?
+{: faq}
+{: #faq-nfs-version}
+
+{{site.data.keyword.filestorage_vpc_short}} requires NFS versions v4.1 or higher.
 
 ### What functionality is supported in this release?
 {: faq}

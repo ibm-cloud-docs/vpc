@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-11-08"
+lastupdated: "2022-12-08"
 
 keywords:
 
@@ -80,6 +80,7 @@ The following limitations apply to this release of {{site.data.keyword.filestora
 * File share size cannot be increased after it is created.
 * File share profile cannot be changed after the file share is created.
 * Granular Host Authorization for VSI level access control in not supported.
+* Windows operating systems are not supported.
 * Minimum capacity is 10 GB per file share.
 * Maximum capacity is 32,000 GB per file share.
 * There is no data retention policy for deleted file shares. You cannot undelete a file share after you delete it.
