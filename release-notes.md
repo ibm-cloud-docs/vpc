@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-12-09"
+lastupdated: "2022-12-12"
 
 keywords:
 
@@ -31,8 +31,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## December 2022
 {: #vpc-dec22}
 
-### 12 December 2022
-{: #vpc-dec1222}
+### 13 December 2022
+{: #vpc-dec1322}
 {: release-note}
 
 New region (Toronto) for LinuxONE Bare Metal Servers (s390x processor architecture) (LA)
@@ -112,7 +112,7 @@ New region (Washington DC) for LinuxONE Bare Metal Servers (s390x processor arch
 VPC Public Ingress Routing
 :   You can now route public internet ingress traffic (destined to a floating IP) to a VPC next-hop IP. For more information, see [Creating a routing table](/docs/vpc?topic=vpc-create-vpc-routing-table) and limitations and guidelines for [Ingress routes](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#routes-ingress).
 
-   Currently, public ingress routing (`public internet` traffic choice) is available in the UI and API only. CLI is forthcoming. 
+   Currently, public ingress routing (`public internet` traffic choice) is available in the UI and API only. CLI is forthcoming.
    {: note}
 
 ## September 2022
