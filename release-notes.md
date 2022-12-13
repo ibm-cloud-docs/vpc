@@ -26,8 +26,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API , 
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI) , see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
 
-### 09 December 2022
-{: #vpc-dec0922}
+### 13 December 2022
+{: #vpc-dec1322}
 {: release-note}
 
 Volume creation from a block storage snapshot
