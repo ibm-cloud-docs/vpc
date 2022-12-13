@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-12-12"
+lastupdated: "2022-12-13"
 
 keywords:
 
@@ -31,8 +31,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## December 2022
 {: #vpc-dec22}
 
-### 13 December 2022
-{: #vpc-dec1322}
+### 14 December 2022
+{: #vpc-dec1422}
 {: release-note}
 
 New region (Toronto) for LinuxONE Bare Metal Servers (s390x processor architecture) (LA)
