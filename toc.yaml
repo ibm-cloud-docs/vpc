@@ -598,6 +598,7 @@ toc:
             - link:
                label: Tabular Terraform for VPC
                href: https://github.com/ibm-cloud-architecture/tabular-terraform
+            - hpvs-terraform.md
         - link:
             label: Exporter tool
             href: https://github.com/l2fprod/vpc-diagram-exporter
