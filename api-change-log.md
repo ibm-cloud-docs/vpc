@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-11-15"
+lastupdated: "2022-12-13"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -48,6 +48,14 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 13 December 2022
+{: #13-december-2022}
+
+### For all version dates
+{: #13-december-2022-all-version-dates}
+
+**Health states for block storage volumes.** When you [list all volumes](/apidocs/vpc/latest#list-volumes) or [retrieve volume details](/apidocs/vpc/latest#get-volume), the responses now include `health_state` and  `health_reasons` properties. For more information, see [Block storage volume health states](/docs/vpc?topic=vpc-managing-block-storage&interface=api#block-storage-vpc-health-states).
 
 ## 15 November 2022
 {: #15-november-2022}
