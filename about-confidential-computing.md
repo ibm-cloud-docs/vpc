@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-16"
+lastupdated: "2022-12-08"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -47,8 +47,10 @@ The {{site.data.keyword.hpvs}} for VPC takes advantage of the IBM Secure Executi
 
 
 - Built on the Virtual Private Cloud (VPC) infrastructure for extra network security
-      Choose from a variety of profile sizes and grow as needed to protect containerized applications and pay-as-you-go on an hourly basis.
-      Leverage your existing or common [network security groups](/docs/vpc?topic=vpc-security-in-your-vpc)  and [logging infrastructure](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc)
+
+   Choose from a variety of profile sizes and grow as needed to protect containerized applications and pay-as-you-go on an hourly basis.
+   
+   Leverage your existing or common [network security groups](/docs/vpc?topic=vpc-security-in-your-vpc)  and [logging infrastructure](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc).
 
 Complete the following steps to get started with {{site.data.keyword.hpvs}} for VPC. Most importantly, a valid [contract](/docs/vpc?topic=vpc-about-contract_se) is required for creating an instance.
 
@@ -108,6 +110,8 @@ After you finish planning and have the contract ready, you can create a {{site.d
 - [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli)
 
 See the [troubleshooting documentation](/docs/vpc?topic=vpc-hyper-protect-virtual-server-shutdown) or [get supoprt](/docs/vpc?topic=vpc-getting-help&interface=cli) if you have any problems with the instance.
+
+You can use [Terraform](/docs/vpc?topic=vpc-terraform-for-hyper-protect-virtual-servers-for-vpc) to automate operations with {{site.data.keyword.hpvs}} for VPC. 
 
 ## Recovering or upgrading a {{site.data.keyword.hpvs}} for VPC instance by using {{site.data.keyword.vpc_short}} Snapshots.
 {: #recover-upgrade-hyper-protect-virtual-servers-for-vpc-using-snapshots}
