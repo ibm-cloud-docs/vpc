@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-12-13"
+lastupdated: "2022-12-15"
 
 keywords:
 
@@ -31,8 +31,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## December 2022
 {: #vpc-dec22}
 
-### 14 December 2022
-{: #vpc-dec1422}
+### 15 December 2022
+{: #vpc-dec1522}
 {: release-note}
 
 New region (Toronto) for LinuxONE Bare Metal Servers (s390x processor architecture) (LA)
@@ -97,7 +97,7 @@ Context-based restrictions (LA)
 {: release-note}
 
 Windows BYOL for multi-tenant hosts
-:   You can now bring your own license for Windows operating systems with a custom image to provision virtual server instances on multi-tenant hosts. Previously Windows BYOL was limited to dedicated hosts. For more information, see [Bring your Own License](/docs/vpc?topic=vpc-byol-vpc-about) and [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images).  
+:   You can now bring your own license for Windows operating systems with a custom image to provision virtual server instances on multi-tenant hosts. Previously Windows BYOL was limited to dedicated hosts. For more information, see [Bring your Own License](/docs/vpc?topic=vpc-byol-vpc-about) and [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images).
 
 ### 12 October 2022
 {: #vpc-oct1222}
@@ -519,7 +519,7 @@ Snapshots for VPC
 {: release-note}
 
 Maximum bandwidth for each vNIC is increased
-:   The maximum bandwidth for a vNIC is now 25 Gbps instead of the previous 16 Gbps to 25 Gbps. For more information, see [Optimizing network bandwidth allocation for profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles#network-perf-notes-for-profiles).   
+:   The maximum bandwidth for a vNIC is now 25 Gbps instead of the previous 16 Gbps to 25 Gbps. For more information, see [Optimizing network bandwidth allocation for profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles#network-perf-notes-for-profiles).
 
 ### 10 February 2022
 {: #vpc-feb1022}
@@ -707,14 +707,14 @@ VNF routing mode for network load balancers
 {: release-note}
 
 Terraform available for Placement Groups
-:   You can now create and manage placement groups in your {{site.data.keyword.vpc_short}} by using Terraform. See [Managing placement groups](/docs/vpc?topic=vpc-managing-placement-group&interface=terraform).  
+:   You can now create and manage placement groups in your {{site.data.keyword.vpc_short}} by using Terraform. See [Managing placement groups](/docs/vpc?topic=vpc-managing-placement-group&interface=terraform).
 
 ### 07 September 2021
 {: #vpc-sep0721}
 {: release-note}
 
 New Very High Memory instance profile family (LA)
-:   Very High Memory profiles are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), EU Germany (Frankfurt), and Japan (Tokyo) regions. Very High Memory profiles offer a core to RAM ratio of 1 vCPU to 14 GiB of RAM. This family is optimized for running high-compute-intensity in-memory workloads like SAP BW/4 HANA. For more information, see [Very High Memory profiles](/docs/vpc?topic=vpc-profiles&interface=ui#vhmemory).  
+:   Very High Memory profiles are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), EU Germany (Frankfurt), and Japan (Tokyo) regions. Very High Memory profiles offer a core to RAM ratio of 1 vCPU to 14 GiB of RAM. This family is optimized for running high-compute-intensity in-memory workloads like SAP BW/4 HANA. For more information, see [Very High Memory profiles](/docs/vpc?topic=vpc-profiles&interface=ui#vhmemory).
 
 Instance Bandwidth (LA)
 :   Instance bandwidth is now available in the US South (Dallas), US East (Washington DC), Canada (Toronto), EU Germany (Frankfurt), Japan (Osaka), Brazil (Sao Paulo) regions. When you provision a virtual server instance, you can now allocate bandwidth between attached volumes and networking by using the API and CLI. You can adjust bandwidth after you provision a virtual server instance by using the UI, API, and CLI. The maximum bandwidth capacity is determined by the instance profile that you select during instance provisioning. For more information, see [Bandwidth allocation for instance profiles](/docs/vpc?topic=vpc-bandwidth-allocation-profiles).
@@ -1287,7 +1287,7 @@ New region
 :   The Tokyo region endpoint is now in service at `https://jp-tok.iaas.cloud.ibm.com`. For more information, see [Creating a VPC in a different region](/docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region).
 
 "Add to estimate" capability updates
-:   Added support for itemized virtual server pricing in the Add to estimate capability.   
+:   Added support for itemized virtual server pricing in the Add to estimate capability.
 
 ### 03 July 2020
 {: #vpc-jul0320}
