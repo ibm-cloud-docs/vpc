@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2022-12-09",
+    "lastupdated": "2022-12-15",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "15 December 2022",
+          "title": "Bare metal servers now supports custom images",
+          "description": "You can now create custom images to use on your bare metal servers."
+        },
+        {
+          "date": "15 December 2022",
+          "title": "New region (Toronto) for LinuxONE Bare Metal Servers (s390x processor architecture) (LA)",
+          "description": "LinuxONE Bare Metal Servers are now available in the Toronto (ca-tor) region."
+        },
+        {
           "date": "09 December 2022",
           "title": "Volume creation from a block storage snapshot",
           "description": "You can now use the UI and CLI, in addition to the VPC API, to create a stand-alone block storage volume from a snapshot. Stand-alone data volumes can be attached to a virtual server instance at any time. You can select a snapshot of a boot volume and use it to boot a new virtual server instance."
-        },
-        {
-          "date": "09 December 2022",
-          "title": "Block storage volume health states",
-          "description": "You can now view the health state of a block storage volume from the UI, CLI, and API. Health indicated whether a volume is performing as expected or degraded. You can view health status and reasons from the list of volumes and volume details, and when creating and updating volumes."
-        },
-        {
-          "date": "14 November 2022",
-          "title": "Attestation certificate for IBM Hyper Protect Container Runtime image",
-          "description": "You can get the IBM attestation certificate for the IBM Hyper Protect Container Runtime image version ibm-hyper-protect-container-runtime-1-0-s390x-6."
         }
       ]
     }
