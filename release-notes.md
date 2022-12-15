@@ -26,6 +26,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API , 
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI) , see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
 
+### 15 December 2022
+{: #vpc-dec1522}
+{: release-note}
+
+Bare metal servers now supports custom images
+:   You can now create custom images to use on your bare metal servers. See [Custom image considerations](/docs/vpc?topic=vpc-bare-metal-image&interface=ui#bare-metal-custom-images-requirements) and [Bare metal server considerations](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#bare-metal-server-custom-images-considerations) for more information.
+
 ### 13 December 2022
 {: #vpc-dec1322}
 {: release-note}
