@@ -122,7 +122,12 @@ The following kernel options are required for LinuxONE (s390x processor architec
 ## Custom Linux kernel build options for bare metal servers
 {: #custom-linux-kernel-bare-metal-servers}
 
-To create a custom image for bare metal servers, you must have a dedicated EFI partition and that partition must be formatted with a FAT32 file system that contains the EFI firmware. Bare Metal servers require the Pensando ionic device driver for networking. This is typical an in-box driver for 5.x linux kernels. If the ionic driver is not part of your kernel, you can include it as a kernel module and use DKMS to manage kernel upgrades.
+The custom image you create for bare metal servers must support the following:
+* UEFI boot
+   *  Legacy BIOS boot is not supported. As such you need a dedicated EFI partition that contains the EFI firmware.
+* Intel chipset device drivers. 
+* Bare Metal servers require the pensando ionic device driver for networking. This is normally an in-box driver for 5.x linux kernels. If the ionic driver is not part of your kernel, you can include it as a kernel module and use DKMS to manage kernel upgrades.
+
 
 To create secure execution based custom images by using the Cloud Object Storage option, see [Preparing the workload](https://www.ibm.com/docs/en/linux-on-systems?topic=tasks-prepare-workload). For information about creating secure execution based images, [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=overview-introducing-secure-execution-linux).
 {: note}
