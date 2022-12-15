@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-10-11"
+lastupdated: "2022-12-09"
 
 keywords:  network overview of s390x bare metal servers
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Networking overview for s390x bare metal servers
 {: #s390x-bare-metal-servers-network}
 
-s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east) and São Paulo (br-sao) regions. 
+s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east), Toronto (ca-tor), and São Paulo (br-sao) regions. 
 {: preview}
 
 The following information is an overview of the networking features of s390x bare metal servers and how it supports VPC networking. It is recommended that you go through this information before you build an s390x bare metal server. s390x bare metal servers on VPC provide full support for VPC networking features. The network is fully software-defined, so you can configure it through the API.
@@ -57,8 +57,8 @@ The following information highlights characteristics of the HiperSocket interfac
 ### Limitations of network interfaces on s390x bare metal servers
 {: #nic-limits}
 
-Keep the following limitation in mind when you create a network interface.  
+Keep the following limitation in mind when you create a network interface.
 
 * You can attach maximum two network interfaces to each s390x bare metal server based on the profile you choose.
 * PCI and VLAN aren't supported.
-* To add or remove HiperSockets interfaces, the server must be **STOPPED**. 
+* To add or remove HiperSockets interfaces, the server must be **STOPPED**.

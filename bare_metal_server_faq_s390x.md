@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-07"
+lastupdated: "2022-12-09"
 
 keywords: s390x bare metal faq, linuxone bare metal server faq
 
@@ -14,9 +14,9 @@ subcollection: vpc
 
 # FAQ for s390x bare metal servers
 {: #s390x-bare-metal-server-faq}
- 
-s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east) and São Paulo (br-sao) regions.
-{: preview} 
+
+s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east), Toronto (ca-tor), and São Paulo (br-sao) regions.
+{: preview}
 
 You might encounter the following frequently asked questions when you use an s390x bare metal server.
 
@@ -32,17 +32,17 @@ Currently, only SUSE Linux Enterprise Server 15 SP3 and Red Hat Enterprise Linux
 
 Storage is provided by Fibre Channel Protocol (FCP) that is connected to IBM FlashSystems 9200.
 
-## What is required to set up an s390x bare metal server? 
+## What is required to set up an s390x bare metal server?
 {: #faq-s390x-bare-metal-3}
 {: faq}
 
-When you are planning to create an s390x bare metal server, you can go through the configuration checklist on [Planning for s390x bare metal servers](/docs/vpc?topic=vpc-planning-for-bare-metal-servers). 
+When you are planning to create an s390x bare metal server, you can go through the configuration checklist on [Planning for s390x bare metal servers](/docs/vpc?topic=vpc-planning-for-bare-metal-servers).
 
 ## What regions are s390x bare metal servers available in?
 {: #faq-s390x-bare-metal-4}
 {: faq}
 
-The s390x bare metal servers are available in the Washington DC (us-east) and São Paulo (br-sao) regions with plans to expand to other regions. 
+The s390x bare metal servers are available in the Washington DC (us-east), Toronto (ca-tor), and São Paulo (br-sao) regions with plans to expand to other regions.
 
 ## Do I need to configure multiple network interfaces on an s390x bare metal server to support the full 10 Gbps bandwidth?
 {: #faq-s390x-bare-metal-5}
