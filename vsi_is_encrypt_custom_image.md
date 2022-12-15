@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-11-4"
+lastupdated: "2022-12-15"
 
 keywords: creating an encrypted custom image, qcow2
 
@@ -18,7 +18,7 @@ subcollection: vpc
 When you have a qcow2 custom image that meets the requirements for {{site.data.keyword.vpc_full}} infrastructure, you can choose to encrypt it. This procedure describes how to encrypt your custom image with LUKS encryption by using QEMU and your own unique passphrase. After your image is encrypted, you wrap the passphrase with your customer root key (CRK) to create a wrapped (or encrypted) data encryption key that is stored with your image metadata when you import it to {{site.data.keyword.vpc_short}}.   
 {: shortdesc}
 
-You can't use an encrypted custom image in a private catalog. 
+You can't use an encrypted custom image in a private catalog or on a bare metal server. 
 {: note}
 
 ## How encrypted custom images work
