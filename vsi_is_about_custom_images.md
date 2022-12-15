@@ -47,14 +47,13 @@ Bare metal servers have some limitations that you need to be aware of.
 
 * Encrypted images aren't supported
 
-To create a custom image for bare metal servers, the custom image must support the following:
-* UEFI boot
-   * UEFI boot requires a dedicated EFI partition that contains EFI firstware. Legacy BIOS boot is not supported.
-* Pensando iconic network device drivers
-* Intel chip set device drivers
-   * These device drivers are usually part of the default kernel build options. Windows requires addition device drivers,but those can be installed after boot.
+Custom images for a bare metal server must meet the following requirements:
 
- See [Custom Linux kernel build options for bare metal servers](/docs/vpc?topic=vpc-configuration-requirements-for-custom-linux-kernels#custom-linux-kernel-linuxone-options) for more information.
+* Support UEFI boot mode
+* A Pensando driver for networking
+* Support x86 architecture
+
+See [Custom Linux kernel build options for bare metal servers](/docs/vpc?topic=vpc-configuration-requirements-for-custom-linux-kernels#custom-linux-kernel-linuxone-options) for more information.
 
 For more information about bare metal server images, see [Bare metal server images](/docs/vpc?topic=vpc-bare-metal-image).
 
