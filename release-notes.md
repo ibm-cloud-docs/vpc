@@ -27,7 +27,6 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API , 
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI) , see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
 
-
 ## December 2022
 {: #vpc-dec22}
 
@@ -35,9 +34,11 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-dec1522}
 {: release-note}
 
+Bare metal servers now supports custom images
+:   You can now create custom images to use on your bare metal servers. See [Custom image considerations](/docs/vpc?topic=vpc-bare-metal-image&interface=ui#bare-metal-custom-images-requirements) and [Bare metal server considerations](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#bare-metal-server-custom-images-considerations) for more information.
+
 New region (Toronto) for LinuxONE Bare Metal Servers (s390x processor architecture) (LA)
 :   LinuxONE Bare Metal Servers are now available in the Toronto (ca-tor) region. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
-
 
 ### 13 December 2022
 {: #vpc-dec1322}

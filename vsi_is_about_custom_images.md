@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-10-31"
+lastupdated: "2022-12-15"
 
 keywords:
 
@@ -39,6 +39,23 @@ Before you create a custom image, you must verify that your custom image meets t
 {: #custom-image-cloud-object-storage}
 
 If you plan to import an image from a file, you must provision an instance of {{site.data.keyword.cos_full_notm}} if you don't already have one. You can then upload the file to a bucket there. You must also create an IAM authorization between the Image Service for VPC and {{site.data.keyword.cos_full_notm}}. For more information, see [Granting access to {{site.data.keyword.cos_full_notm}} to import images](/docs/vpc?topic=vpc-object-storage-prereq&interface=cli).
+
+### Bare metal server considerations
+{: #bare-metal-server-custom-images-considerations}
+
+Bare metal servers have some limitations that you need to be aware of.
+
+* Encrypted images aren't supported
+
+Custom images for a bare metal server must meet the following requirements:
+
+* Support UEFI boot mode
+* A Pensando driver for networking
+* Support x86 architecture
+
+See [Custom Linux kernel build options for bare metal servers](/docs/vpc?topic=vpc-configuration-requirements-for-custom-linux-kernels#custom-linux-kernel-linuxone-options) for more information.
+
+For more information about bare metal server images, see [Bare metal server images](/docs/vpc?topic=vpc-bare-metal-image).
 
 ## z/OS Wazi aaS custom images
 {: #custom-image-zos}

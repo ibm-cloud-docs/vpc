@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2021-07-08"
+lastupdated: "2022-12-15"
 
 keywords: custom os, creating a custom os, custom operating system, creating a custom operating system, kernel, custom kernel
 
@@ -11,16 +11,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:external: target="_blank" .external}
-{:download: .download}
+{{site.data.keyword.attribute-definition-list}}
 
 # Configuration requirements for custom Linux kernels
 {: #configuration-requirements-for-custom-linux-kernels}
@@ -112,7 +103,7 @@ The following hardware is provided for LinuxONE (s390x processor architecture).
 - Virtual ASCII console
 - Virtual channel subsystem
 
-## Custom Linux kernel build options
+## Custom Linux kernel build options (s390x processor architecture)   
 {: #custom-linux-kernel-linuxone-options}
 
 The following kernel options are required for LinuxONE (s390x processor architecture).
@@ -127,6 +118,16 @@ The following kernel options are required for LinuxONE (s390x processor architec
    - tty on virtual ascii console
 - CONFIG_SCLP_VT220_CONSOLE=Y
    - Boot console on virtual ascii console
+
+## Custom Linux kernel build options for bare metal servers
+{: #custom-linux-kernel-bare-metal-servers}
+
+The custom image you create for bare metal servers must support the following:
+* UEFI boot
+   *  Legacy BIOS boot is not supported. As such you need a dedicated EFI partition that contains the EFI firmware.
+* Intel chipset device drivers. 
+* Bare Metal servers require the pensando ionic device driver for networking. This is normally an in-box driver for 5.x linux kernels. If the ionic driver is not part of your kernel, you can include it as a kernel module and use DKMS to manage kernel upgrades.
+
 
 To create secure execution based custom images by using the Cloud Object Storage option, see [Preparing the workload](https://www.ibm.com/docs/en/linux-on-systems?topic=tasks-prepare-workload). For information about creating secure execution based images, [IBM Secure Execution for Linux](https://www.ibm.com/docs/en/linux-on-systems?topic=overview-introducing-secure-execution-linux).
 {: note}

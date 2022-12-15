@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2022
 
-lastupdated: "2022-09-16"
+lastupdated: "2022-12-15"
 
 
 keywords: creating a Windows custom image, cloudbase-init, qcow2
@@ -17,7 +17,7 @@ subcollection: vpc
 # Creating a Windows custom image
 {: #create-windows-custom-image}
 
-You can create your own custom Windows-based image to import the custom image into {{site.data.keyword.vpc_full}}. You can then use the custom image to deploy a virtual server in the {{site.data.keyword.vpc_full}} infrastructure. 
+You can create your own custom Windows-based image to import the custom image into {{site.data.keyword.vpc_full}}. You can then use the custom image to deploy a virtual server or bare metal server in the {{site.data.keyword.vpc_full}} infrastructure.
 {: shortdesc}
 
 You can begin with an image template from the {{site.data.keyword.cloud_notm}} classic infrastructure. For more information, see [Migrating a virtual server from the classic infrastructure](/docs/vpc?topic=vpc-migrate-vsi-to-vpc). Did you know that your can also create a custom image of a boot volume that is attached to a server at import time? For more information, see [About creating an image from volume](/docs/vpc?topic=vpc-image-from-volume-vpc). Keep in mind that Windows custom images aren't supported for LinuxONE (s390x processor architecture).  

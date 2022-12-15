@@ -3,7 +3,7 @@
 copyright:
   years: 2020, 2022
 
-lastupdated: "2022-11-07"
+lastupdated: "2022-12-15"
 
 keywords: troubleshooting bare metal servers, hardware issues, firmware
 
@@ -46,3 +46,12 @@ When the issues are fixed, the server is handed back to you and the state return
 {: support} 
 
 Firmware for bare metal servers is managed by IBM. Manual firmware changes aren’t supported on the disk controller or disk drives without direction from IBM.
+
+## Why did my custom image fail to boot?
+{: #bare-metal-troubleshoot-custom-image-fail-boot}
+{: troubleshoot}
+{: support}
+
+If your custom image fails to boot, open the console and debug the operating system boot sequence. The following are common issues that can cause a custom image boot failure.
+* An unsigned operating system. Disable secure boot and try starting the system again.
+* UEFI boot not support. Verify that the image has an EFI disk partition with an EFI boot loader.
