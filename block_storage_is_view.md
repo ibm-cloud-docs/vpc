@@ -1,8 +1,8 @@
 ---
-09
+
 copyright:
   years: 2019, 2022
-lastupdated: "2022-12-09"
+lastupdated: "2022-12-12"
 
 keywords:
 
@@ -446,7 +446,7 @@ A successful response looks like this. This example shows three data volumes. Th
 {: codeblock}
 
 
-### View a specific volume profile with the API
+### View volume details with the API
 {: #viewvol-details-api}
 
 Make a `GET /volumes/{id}` call to see details of a volume. For example:

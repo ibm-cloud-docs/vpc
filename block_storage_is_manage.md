@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-12-09"
+lastupdated: "2022-12-12"
 
 keywords:
 
@@ -540,7 +540,7 @@ Volume health states correspond with [volume statuses](#block-storage-vpc-status
 | Faulted | The volume is unreachable, inoperative, or entirely incapacitated. |
 {: caption="Table 3. Block storage health states and reasons" caption-side="bottom"}
 
-For more information about the health states and reason codes in the API, see the [API reference](/apidocs/vpc/latest#create-volume) for create, list, and updating volumes.
+For more information about the health states and reason codes in the API, see the [API reference](/apidocs/vpc/latest#create-volume) for creating, listing, and updating volumes.
 
 ## Managing security and compliance
 {: #block-storage-vpc-manage-security}

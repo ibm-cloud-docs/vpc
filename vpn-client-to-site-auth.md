@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-09"
+lastupdated: "2022-12-14"
 
 keywords:
 
@@ -18,8 +18,8 @@ subcollection: vpc
 Configure your authentication settings for the VPN server and VPN clients. Certificates are managed through IBM Cloud Secrets Manager. 
 {: shortdesc}
 
-   IBM Cloud Certificate Manager is now deprecated. On 31 December 2022, support for Certificate Manager will be removed and any existing instances will be deleted.  For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager).
-   {: important}
+As a reminder, the end of support for IBM Cloud Certificate Manager is 31 December 2022. After this date, any remaining instances of Certificate Manager will be deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they will no longer be valid. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager). 
+{: important}
 
 ## Creating an IAM service-to-service authorization
 {: #creating-iam-service-to-service}
@@ -29,23 +29,20 @@ To create an IAM service-to-service authorization for your VPN server and IBM Cl
    You can also set up IAM service-to-service authorization on the VPN server provisioning page, or use the **Edit** authorization side panel.
    {: note}
 
-1. From the IBM Cloud console, go to the [Manage authorizations](https://cloud.ibm.com/iam/authorizations){: external} page and click **Create**.
-1. Select **VPC Infrastructure Services** from the drop-down menu. Then, select **Resource based on selected attributes**.
+1. From the IBM Cloud console, go to the [Manage authorizations](/iam/authorizations){: external} page and click **Create**.
+1. Select **VPC Infrastructure Services** from the menu. Then, select **Resource based on selected attributes**.
 1. Select **Resource type** > **Client VPN for VPC**.
-1. For Target service, select **Certificate Manager**.
-1. Keep **All resources** selected. Select the **SecretsReader** checkbox.
+1. For Target service, select **Secrets Manager**.
+1. Keep **All resources** selected. Then, select the **SecretsReader** checkbox.
 1. Click **Authorize**.
 
 ## Managing VPN server and client certificates
 {: #creating-cert-manager-instance-import}
 
-For now, only the imported certificate and public certificate in Secrets Manager are supported by the VPN server. The private certificate is not supported by the VPN server.
-   {: note}
-
 ### Importing a certificate into Secrets Manager
 {: #import-certificate}
 
-The following procedure uses [OpenVPN easy-rsa](https://github.com/OpenVPN/easy-rsa){: external} to generate the VPN server and client certificates, and then imports these certificates to the certificate manager. For detailed steps, see the [Easy-RSA 3 Quickstart README](https://github.com/OpenVPN/easy-rsa/blob/master/README.quickstart.md){: external}.
+The following procedure uses [OpenVPN easy-rsa](https://github.com/OpenVPN/easy-rsa){: external} to generate the VPN server and client certificates, and then imports these certificates to Secrets Manager. For more information, see the [Easy-RSA 3 Quickstart README](https://github.com/OpenVPN/easy-rsa/blob/master/README.quickstart.md){: external}.
 
 1. Clone the Easy-RSA 3 repository into your local folder:
 
@@ -55,7 +52,7 @@ The following procedure uses [OpenVPN easy-rsa](https://github.com/OpenVPN/easy-
    ```
    {: pre}
 
-1. Create a new PKI and CA:
+1. Create a Public Key Infrastructure (PKI) and Certificate Authority (CA):
 
    ```sh
    ./easyrsa init-pki
@@ -83,23 +80,20 @@ The following procedure uses [OpenVPN easy-rsa](https://github.com/OpenVPN/easy-
 
    Check that the VPN client public key is generated at path `./pki/issued/client1.vpn.ibm.com.crt`, and that the private key is at path `./pki/private/client1.vpn.ibm.com.key`.
    
-If you need to create more VPN client certificates, repeat step 4.
+1. If you need to create more VPN client certificates, repeat step 4.
 
 **Important considerations:**
 
 * In the preceding example, the VPN server and client certificates are signed by the same CA. To use different CAs to sign the client certificate, copy the `easyrsa3` folder into a new path and follow steps 2 and 4.
-* If you already have the VPN server certificate from other CAs, make sure that the certificate has the Extended key usage: `TLS Web Client Authentication`. You can use the following command to check the certificate information:  `openssl x509 -noout -text -in certificate_file_name` 
-* If the certificate is used as the VPN client certificate to authenticate the client, you must upload the `Certificate file` and the `Intermediate certificate file`. For example, if you use different client certificates to authenticate different users, make sure that these certificates are signed by the same CA and that you have uploaded one of the client certificates (`Certificate file` and `Intermediate certificate file` only) to Secrets Manager or Certificate Manager.
+* If you already have the VPN server certificate from other CAs, make sure that the certificate has the Extended key usage: `TLS Web Client Authentication`. You can use the following command to check the certificate information based on content of the encoded certificate file:  `cat YOUR-CERTIFICATE-FILE | openssl x509 -noout -text`.
+* If the certificate is used as the VPN client certificate to authenticate the client, you must upload the **Certificate file** and the **Intermediate certificate file**. For example, if you use different client certificates to authenticate different users, make sure that these certificates are signed by the same CA and that you uploaded one of the client certificates (**Certificate file** and **Intermediate certificate file** only) to Secrets Manager.
    
-   You can use a CA chain to bundle the certificates (Intermediate CA 1, Intermediate CA 2, and root CA) into a single file and upload to the Intermediate certificate file. Also, keep in mind that you can create multiple client certificates offline using the same CA without having to upload the certificates to Secrets Manager.
+   You can use a CA chain to bundle the certificates (Intermediate CA 1, Intermediate CA 2, and root CA) into a single file and upload to the intermediate certificate file. Also, keep in mind that you can create multiple client certificates offline using the same CA without having to upload the certificates to Secrets Manager.
    {: note}
 
-To import VPN server certificates into a Secrets Manager, follow these steps:
+To import VPN server certificates into Secrets Manager, follow these steps:
 
-   Use the Chrome web browser to import the certificates. Only Chrome can support CRT file extensions; Safari and Firefox can only support PEM.
-   {: tip}
-
-1. If you do not have a certificate manager instance already, navigate to the [Secrets Manager](/catalog/services/secrets-manager){: external} page. Then, complete the information and click **Create** to create a new certificate manager instance.
+1. If you do not have a Secrets Manager instance already, navigate to the [Secrets Manager](/catalog/services/secrets-manager){: external} page. Then, complete the information and click **Create** to create a Secrets Manager instance.
 
    For more information, see ordering certificates for [Secrets Manager](/docs/secrets-manager?topic=secrets-manager-certificates&interface=ui#order-certificates).
    {: note}
@@ -116,18 +110,18 @@ To import VPN server certificates into a Secrets Manager, follow these steps:
 **Important considerations:**
 
 * In this example, the VPN server and client certificates are signed by the same CA, so you need to only upload the VPN server certificate. You must also use the certificate as a VPN server certificate and authenticate the VPN client. If your VPN server and client certificate are signed by different CAs, you must upload them respectively.
-* If you updated the certificate in the certificate manager, the VPN server is not aware of the certificate update. You must re-import the certificate with a different CRN, then update the VPN server with the new certificate CRN.
-* If the certificate is used as VPN server certificate, you must upload the `Certificate file`, `Private key file` and `Intermediate certificate file`. If the certificate is used as the VPN client certificate to authenticate the client, you must upload the `Certificate file` and `Intermediate certificate file`.
+* If you updated the certificate in Secrets Manager, the VPN server is not aware of the certificate update. You must reimport the certificate with a different CRN, then update the VPN server with the new certificate CRN.
+* If the certificate is used as the VPN server certificate, you must upload the **Certificate file**, **Private key file** and **Intermediate certificate file**. If the certificate is used as the VPN client certificate to authenticate the client, you must upload the **Certificate file** and **Intermediate certificate file**.
 
-   You can use a CA chain to bundle the certificates (Intermediate CA 1, Intermediate CA 2, and root CA) into a single file and upload to the Intermediate certificate file.
+   You can use a CA chain to bundle the certificates (Intermediate CA 1, Intermediate CA 2, and root CA) into a single file and upload to the intermediate certificate file.
    {: note}
 
-### Ordering a certificate using the certificate manager
+### Ordering a public certificate using Secrets Manager
 {: #order-certificate}
 
-You can use {{site.data.keyword.cloudcerts_long}} to order a public SSL/TLS certificate as VPN server certificate. Because the public CA root certificate is not stored in {{site.data.keyword.cloudcerts_long}}, {{site.data.keyword.cloudcerts_long}} only stores the intermediate certificates. You need the root certificates from Let's Encrypt, saved as a `.pem` file. The two files that you require are located in [https://letsencrypt.org/certs/lets-encrypt-r3.pem](https://letsencrypt.org/certs/lets-encrypt-r3.pem) and [https://letsencrypt.org/certs/isrgrootx1.pem](https://letsencrypt.org/certs/isrgrootx1.pem). These files have been concatenated here for your convenience; however, for security reasons, it is recommended that you download and concatenate your own root certificate into a file. Also, when you download and update the VPN client profile, use this root certificate to replace the `<ca>` section in the client profile. 
+You can use {{site.data.keyword.secrets-manager_full}} to order a public SSL/TLS certificate as the VPN server certificate. Because the public CA root certificate is not stored in {{site.data.keyword.secrets-manager_full}}, {{site.data.keyword.secrets-manager_full}} stores only the intermediate certificates. You need the root certificates from Let's Encrypt, saved as a `.pem` file. The two files that you require are located in [https://letsencrypt.org/certs/lets-encrypt-r3.pem](https://letsencrypt.org/certs/lets-encrypt-r3.pem) and [https://letsencrypt.org/certs/isrgrootx1.pem](https://letsencrypt.org/certs/isrgrootx1.pem). These files were concatenated for your convenience; however, for security reasons, it is recommended that you download and concatenate your own root certificate into a file. Also, when you download and update the VPN client profile, use this root certificate to replace the `<ca>` section in the client profile. 
 
-For more information about the Let's Encrypt certificate chain, see [https://letsencrypt.org/certificates/](https://letsencrypt.org/certificates/).
+For more information about the Let's Encrypt certificate chain, see [https://letsencrypt.org/certificates/](https://letsencrypt.org/certificates/){: external}.
 {: note}
    
 ```text
@@ -197,33 +191,83 @@ emyPxgcYxn/eR44/KJ4EBs+lVDR3veyJm+kXQ99b21/+jh5Xos1AnX5iItreGCc=
 
 The ordered certificates are public SSL/TLS certificates and must be used as a VPN server certificate only. You cannot use the ordered certificates to authenticate the VPN clients because of the following reasons:
 
-* Anybody can order a new certificate from a public CA. Then, they can pass the authentication if you use public SSL/TLS certificates to authenticate your VPN client.
+* Anyone can order a new certificate from a public CA. Then, they can pass the authentication if you use public SSL/TLS certificates to authenticate your VPN client.
+* You cannot create a certificate revocation list (CRL) to revoke a VPN client certificate with a public CA.
 
-* You cannot create a CRL to revoke a VPN client certificate with a public CA.  
-
-You have to create your own CA and import the CA certificate into the certificate manager to authenticate your VPN client.
+You must create your own CA and import the CA certificate into Secrets Manager to authenticate your VPN client.
 {: important}
+
+### Using a private certificate
+{: #using-private-certificate}
+
+Review the following important considerations when using a private certificate in your VPN server:
+
+* All certificate authorities (CAs) in a CA chain must be contained in a Secrets Manager instance. Also, the root CA must be created inside the Secrets Manager. When you select an intermediate CA, the following options are required to make sure that every CA can be found while verifying the CA chain of a private certificate in your VPN server:
+
+  * You must select **Internal signing**.
+  
+   ![Create intermediate CA](images/vpn_server_intermediate_ca_create.png){: caption="Create intermediate CA" caption-side="bottom"}
+
+  * You must encode the issuing certificate URL in end-entity certificates by enabling **Encode URL** when you create a CA.
+   ![CA CRN](images/vpn_server_intermediate_ca_crn.png){: caption="CA CRN" caption-side="bottom"}
+
+* The maximum number of CAs in a private certificate CA chain is 11 (a root CA and 10 intermediate CAs at most).
+* You must enable both **CRL building** and **CRL distribution points** if you want to use the CA CRL of a private certificate. A revoked certificate is no longer trusted by the applications after one hour.
+
+   ![CA CRL](images/vpn_server_intermediate_ca_crl.png){: caption="CA CRL" caption-side="bottom"}
+
+  The CA CRL works only if you don't upload a certificate revocation list when you create a VPN server. You don't need to enable a CA CRL if the VPN server's CRL is already uploaded.
+  {: note}
+
+   ![VPN server CRL](images/vpn_server_crl.png){: caption="VPN server CRL" caption-side="bottom"}
+
+* While creating a template for an intermediate CA, you must click **Use certificates for server** if that created CA will sign the server certificate for the VPN server. You must click **Use certificates for client** if that created CA will sign the client certificate for the VPN server. You must click both **Use certificates for server** and **Use certificates for client** if that created CA will sign both server and client certificates for VPN server.
+
+   ![VPN server certificate role](images/vpn_server_certificate_role.png){: caption="VPN server certificate role" caption-side="bottom"}
+
+For more information, see creating private certificates for [Secrets Manager](/docs/secrets-manager?topic=secrets-manager-certificates&interface=ui#create-certificates).
+{: note}
 
 ### Locating the certificate CRN 
 {: #locating-cert-crn}
 
-When configuring authentication for a client-to-site VPN server during provisioning using the UI, you can choose to specify the certificate manager and SSL certificate, or the certificate's CRN. You might want to do this if you cannot view the certificate manager in the drop-down menu, which means you don't have access to the certificate manager instance. Keep in mind that you must enter the CRN if using the API to create a client-to-site VPN server.
+When you configure authentication for a client-to-site VPN server during provisioning using the UI, you can choose to specify the Secrets manager and SSL certificate, or the certificate's CRN. You might want to do this if you cannot view the Secrets manager in the menu, which means you don't have access to the Secrets manager instance. Keep in mind that you must enter the CRN if using the API to create a client-to-site VPN server.
 
-To obtain the CRN, you must have permission to access the certificate manager instance.
+To obtain the CRN, you must have permission to access the Secrets manager instance.
 {: note}
 
 To find a certificate's CRN, follow these steps:
 
-1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > Resource list**. 
-1. Click to expand **Services and software**, then select the certificate manager that you want to find the CRN for.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > Resource list**. 
+1. Click to expand **Security**, then select the Secrets manager that you want to find the CRN for.
 1. Select anywhere in the table row of the certificate to open the Certificate details side panel. The certificate CRN is listed. 
 
-   ![Service instance CRN](images/vpn-crn.png "Service instance CRN"){: caption="Service instance CRN" caption-side="bottom"}
+   ![Service instance CRN](images/vpn_server_cert_crn.png "Service instance CRN"){: caption="Service instance CRN" caption-side="bottom"}
+
+### Migrating a certificate from Certificate Manager to Secrets Manager
+{: #migrate-certificate}
+
+End of support for IBM Cloud Certificate Manager is 31 December 2022. If your VPN server still uses a certificate from Certificate Manager, you must migrate the certificate to Secrets Manager. This is a requirement for both server and client certificates if they both are used in Certificate Manager.
+{: important}
+
+To migrate a certificate, follow these steps:
+
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > VPNs**.
+1. Go to **Client-to-site servers** page and select the VPN server that uses a certificate from Certificate Manager.
+1. Click **Edit** in Authentication panel.
+
+   ![Authentication with certificate manager](images/vpn_server_authentication_certificate_manager.png "Authentication with certificate manager"){: caption="Authentication with certificate manager" caption-side="bottom"}
+
+1. Select **Secrets Manager** in **Certificate source** list, then choose a Secrets Manager instance and a certificate.
+
+   ![Authentication with Secrets manager](images/vpn_server_authentication_secrets_manager.png "Authentication with Secrets manager"){: caption="Authentication with Secrets manager" caption-side="bottom"}
+
+1. Click **Save**. The VPN server migrates the certificate to Secrets Manager.
 
 ## Configuring user IDs and passcodes
 {: #client-to-site-configuration-passcode}
 
-To configure authentication for VPN client users, follow this process:
+To configure authentication for VPN client users, follow these steps:
 
 1. The VPN administrator invites the user of the VPN client to the account that the VPN server resides in.
 1. The VPN administrator assigns the VPN client user an IAM permission. This permission allows this user to connect with the VPN server. For more information, see [Creating an IAM access group and granting the role to connect to the VPN server](/docs/vpc?topic=vpc-create-iam-access-group).

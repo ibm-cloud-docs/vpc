@@ -38,8 +38,9 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 New region (Toronto) for LinuxONE Bare Metal Servers (s390x processor architecture) (LA)
 :   LinuxONE Bare Metal Servers are now available in the Toronto (ca-tor) region. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
 
-### 09 December 2022
-{: #vpc-dec0922}
+
+### 13 December 2022
+{: #vpc-dec1322}
 {: release-note}
 
 Volume creation from a block storage snapshot
@@ -56,8 +57,11 @@ Block storage volume health states
 {: #vpc-nov1422}
 {: release-note}
 
-Attestation certificate for IBM Hyper Protect Container Runtime image
-:   You can get the [IBM attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-6-attestation.crt){: external} for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-6`.
+Updated certificates for IBM Hyper Protect Container Runtime image
+:   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-6`, new certificates are available.
+   - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-6-attestation.crt){: external}
+   - [Encryption certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-6-encrypt.crt){: external}
+   - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-6-intermediate.crt){: external} 
 
 Logging for {{site.data.keyword.hpvs}} for VPC
 :   Apart from IBM Log Analysis, you can now configure logging with a generic syslog backend. For more information, see [Logging for {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc#syslog).
