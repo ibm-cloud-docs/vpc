@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-12-13"
+lastupdated: "2022-12-20"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -48,6 +48,14 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 20 December 2022
+{: #20-december-2022}
+
+### For all version dates
+{: #20-december-2022-all-version-dates}
+
+**Backup policy jobs.** You can now [list all jobs for a backup policy](/apidocs/vpc/latest#list-backup-policy-jobs) or [retrieve a backup policy job](/apidocs/vpc/latest#get-backup-policy-job). A backup policy job is triggered when a scheduled backup snapshot is being created or deleted. If the create or delete action is successful, the job contains information about the backup snapshot that was created or deleted. If the job ran unsuccessfully, the job contains the reason for the failure. For more information, see [Viewing backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs).
 
 ## 13 December 2022
 {: #13-december-2022}
