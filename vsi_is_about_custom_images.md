@@ -263,13 +263,16 @@ After your custom image is imported into {{site.data.keyword.vpc_short}}, you ca
 
 * [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui)
 
-## Using a custom image to create a virtual server instance
+## Using a custom image to create a server
 {: #custom-image-create-vsi}
 
-When you [create a virtual server instance](/docs/vpc?topic=vpc-creating-virtual-servers) using the UI, you select the custom image in the `Image` tab of the `Operating system` section of the Create virtual server for VPC page. To select from the list of {{site.data.keyword.vpc_short}} custom images, select `Custom image`. To select from the list of private catalog images, select `Catalog image` instead.
+You have different options to create a server with a custom image.
 
-To use a private catalog custom image to create an instance using the API or CLI, see [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api) for examples.
+* When you [create a server](/docs/vpc?topic=vpc-creating-virtual-servers) by using the UI, you select the custom image in the `Image` tab of the `Operating system`. 
+* If you want to select from the list of {{site.data.keyword.vpc_short}} custom images, select `Custom image`. 
+* You can also select from the list of private catalog images by selecting `Catalog image`.
 
+To use a private catalog custom image to create a server by using the API or CLI, see [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api) for examples.
 
 ## Additional information about custom images
 {: #custom-image-additional-information}
