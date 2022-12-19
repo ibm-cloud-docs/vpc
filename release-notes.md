@@ -30,8 +30,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## December 2022
 {: #vpc-dec22}
 
-### 19 December 2022
-{: #vpc-dec1922}
+### 17 December 2022
+{: #vpc-dec1722}
 {: release-note}
 
 Updated certificates for IBM Hyper Protect Container Runtime image
