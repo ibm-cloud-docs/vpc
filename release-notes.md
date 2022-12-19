@@ -30,6 +30,21 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## December 2022
 {: #vpc-dec22}
 
+### 16 December 2022
+{: #vpc-dec1622}
+{: release-note}
+
+Updated certificates for IBM Hyper Protect Container Runtime image
+:   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-7`, new certificates are available.
+   - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-7-attestation.crt){: external}
+   - [Encryption certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt){: external}
+   - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-7-intermediate.crt){: external} 
+
+Certificate revocation list
+:   Starting from `ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt` and
+`ibm-hyper-protect-container-runtime-1-0-s390x-7-attestation.crt`, the
+certificates will contain **Certificate Revocation List (CRL) Distribution Points**. You can use the CRL to verify that your certificates are valid (not revoked). For more information, see [Certificate revocation list](/docs/vpc?topic=vpc-cert_validate#certificate-revocation-list).
+
 ### 15 December 2022
 {: #vpc-dec1522}
 {: release-note}
