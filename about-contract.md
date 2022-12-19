@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-28"
+lastupdated: "2022-12-19"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -293,8 +293,8 @@ The encryption and attestation certificates are signed by the IBM intermediate c
 ### Downloading the encryption certificate and extracting the public key
 {: #encrypt_downloadcert}
 
-1. Download the certificate (for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-6`) that is used to encrypt the contract [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-6-encrypt.crt){: external}.
-   You can download the certificate for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-5` [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-5-encrypt.crt){: external}
+1. Download the certificate (for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-7`) that is used to encrypt the contract [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt){: external}.
+   You can download the certificate for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-6` [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-6-encrypt.crt){: external}
    {: note}
 
 2. Validate the encryption certificate by following the instructions [here](/docs/vpc?topic=vpc-cert_validate#validate_encrypt_cert).
@@ -320,10 +320,10 @@ Complete the following steps on an Ubuntu system, to encrypt the workload sectio
 
 2. Create the [workload section](#hpcr_contract_workload) of the contract and add the contents in the `workload.yaml` file.
 
-3. Export the complete path of the `workload.yaml` file and the `ibm-hyper-protect-container-runtime-1-0-s390x-6-encrypt.crt`:
+3. Export the complete path of the `workload.yaml` file and the `ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt`:
    ```yaml
    WORKLOAD="<PATH to workload.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-6-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt>"
    ```
    {: pre}
 
@@ -333,7 +333,7 @@ Complete the following steps on an Ubuntu system, to encrypt the workload sectio
    ```
    {: pre}
 
-5. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-6-encrypt.crt`:
+5. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt`:
    ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY -certin | base64 -w0 )"
    ```
@@ -367,10 +367,10 @@ Complete the following steps on an Ubuntu system, to encrypt the `env` section u
 
 1. Create the [env section](#hpcr_contract_env) of the contract and add the contents in the `env.yaml` file.
 
-2. Export the complete path of the `env.yaml` file and the `ibm-hyper-protect-container-runtime-1-0-s390x-6-encrypt.crt`:
+2. Export the complete path of the `env.yaml` file and the `ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt`:
    ```yaml
    ENV="<PATH to env.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-6-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt>"
    ```
    {: pre}
 
@@ -380,7 +380,7 @@ Complete the following steps on an Ubuntu system, to encrypt the `env` section u
    ```
    {: pre}
 
-4. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-6-encrypt.crt`:
+4. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt`:
    ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY  -certin | base64 -w0)"
    ```
@@ -446,10 +446,10 @@ Complete the following steps on an Ubuntu system, to create the contract signatu
    ```
    {: codeblock}
 
-4. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-6-encrypt.crt`:
+4. Use the following command to export complete path of `env.yaml` and `ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt`:
    ```sh
    ENV="<PATH to env.yaml>"
-   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-6-encrypt.crt>"
+   CONTRACT_KEY="<PATH to ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt>"
    ```
    {: pre}
 
@@ -459,7 +459,7 @@ Complete the following steps on an Ubuntu system, to create the contract signatu
    ```
    {: pre}
 
-6. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-6-encrypt.crt.`:
+6. Use the following command to encrypt password with `ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt.`:
    ```yaml
    ENCRYPTED_PASSWORD="$(echo -n "$PASSWORD" | base64 -d | openssl rsautl -encrypt -inkey $CONTRACT_KEY  -certin | base64 -w0)"
    ```
