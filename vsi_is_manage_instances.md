@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-11-04"
+lastupdated: "2022-12-20"
 
 keywords: view instance details, restart, stop, instance details, delete
 
@@ -303,7 +303,7 @@ For more information, see the [Delete an instance](/apidocs/vpc#delete-instance)
 {: #viewing-virtual-server-instances-ui}
 {: ui}
 
-You can interact with instances by viewing the summary of all instances on the *Virtual server instances* page, or by clicking an individual instance name to view details and make changes. From the instance details page, you can also view the associated network interface, access its subnet, and reserve or delete a floating IP address.
+You can view a summary of all instances on the *Virtual server instances* page. You can access the details page for an instance clicking an individual instance name to view details and make changes. From the instance details page, you can also view the associated network interface, access its subnet, toggle the auto-delete setting, and reserve or delete a floating IP address.
 
 ## Viewing instance details using the CLI
 {: #viewing-virtual-server-instances-cli}
