@@ -22,7 +22,7 @@ subcollection: cloud-infrastructure
 {:note: .note}
 
 # Troubleshooting for quota dashboard
-{: quota-troubleshooting}
+{: #quota-troubleshooting}
 
 If the quota dashboard does not display metrics as expected, the following methods are used for troubleshooting. 
 
@@ -39,11 +39,11 @@ To adjust the time interval for the dashboard
 4. Save the values. The dashboard refreshes.
 
 ## Generating a metric
-{: generate-metric}
+{: #generate-metric}
 
 
 ### Create or delete a resource
-{: create-delete-instance}
+{: #create-delete-instance}
 
 Creating or deleting one of the following resources sends metric events for the associated quota resource name.
 
@@ -67,7 +67,7 @@ Creating or deleting one of the following resources sends metric events for the 
    - For more information, see [Creating block storage volumes](/docs/vpc?topic=vpc-creating-block-storage) and [Delete a block storage data volume](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#delete).
 
 ### Add or remove a rule
-{: change-rule}
+{: #change-rule}
 
 Adding or removing a rule for one of the following resources sends metric events for the associated quota resource name.
 
@@ -77,7 +77,7 @@ Adding or removing a rule for one of the following resources sends metric events
    - [About security groups](/docs/vpc?topic=vpc-using-security-groups&interface=ui).
 
 ### Create, delete, or resize an instance
-{: update-instance}
+{: #update-instance}
 
 Creating, deleting, or resizing a virtual server instance sends metric events for the following quota resource names.
 
@@ -90,7 +90,7 @@ For more information, see:
    - [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance&interface=ui).
 
 ### Create or delete a dedicated host
-{: create-delete-dedicated-host}
+{: #create-delete-dedicated-host}
 
 Creating or deleting a dedicated host generates a metric for the 'instance-vcpu' resource.
 
@@ -99,7 +99,7 @@ Creating or deleting a dedicated host generates a metric for the 'instance-vcpu'
    - [Creating dedicated hosts and groups](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances&interface=ui) and [Managing dedicated hosts and groups](/docs/vpc?topic=vpc-manage-dedicated-hosts-groups&interface=ui).
    
 ### Create or delete a file share
-{: create-delete-file-shares}
+{: #create-delete-file-shares}
 
 Creating or deleting a file share generates a metric for the 'share' resource.
 
