@@ -121,9 +121,9 @@ URI | The relative URI to which a request redirects. This is an optional propert
 * HTTP and HTTPS listeners and pools are interchangeable. 
 * You can only configure a TCP front-end listener with a TCP back-end pool.
 * You can attach up to 50 virtual server instances to a back-end pool. Traffic is sent to each instance on its specified data port. This data port does not need to be the same one as the front-end listener port.
-* "Private only" endpoints for Certificate Manager are not supported with HTTPS listeners. To configure an HTTPS listener in an ALB, you must upload your TLS certificates to a "Public and private" endpoint.
+* "Private only" endpoints for Secrets Manager are not supported with HTTPS listeners. To configure an HTTPS listener in an ALB, you must upload your TLS certificates to a "Public and private" endpoint.
 
-Effective 31st July 2021, application load balancers will convert all HTTP request and response headers to lower case. This applies to all traffic handled by HTTP and HTTPS listeners. This is being done to provide support for HTTP2, but will be applied to older HTTP 1.x versions as well for uniformity. For most applications this will not require changes, but any application that depends on the case sensitivity of headers needs to be updated to handle them irrespective of capitalization. This is in accordance to networking standards (RFC 2616 Sec 4.2 and RFC 7230 Sec 3.2) which state that HTTP headers are case insensitive.
+As a reminder, the end of support for IBM Cloud Certificate Manager is 31 December 2022. After this date, any remaining instances of Certificate Manager will be deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they will no longer be valid. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager).
 {: important}
 
 ## Elasticity
@@ -140,8 +140,8 @@ When an HTTPS listener is configured with an HTTP pool, the HTTPS request is ter
 
 SSL offloading requires you to provide an SSL certificate for the application load balancer to perform SSL offloading tasks. You can manage the SSL certificates through the [{{site.data.keyword.secrets-manager_full_notm}}](/docs/secrets-manager?topic=secrets-manager-getting-started). 
 
-Application load balancer will continue to support [{{site.data.keyword.cloudcerts_full_notm}}](/docs/certificate-manager?topic=certificate-manager-getting-started) until September 30 2022. Please see the [deprecation announcement](/docs/certificate-manager?topic=certificate-manager-getting-started) for more information. In order to update the certificates hosted in {{site.data.keyword.cloudcerts_full_notm}} with ones hosted in Secrets Manager, the listener configuration must be updated with the new certificate CRN.
-{: deprecated}
+As a reminder, the end of support for IBM Cloud Certificate Manager is 31 December 2022. After this date, any remaining instances of Certificate Manager will be deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they will no longer be valid. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager).
+{: important}
 
 {{site.data.content.load-balancer-grant-service-auth}} 
 
@@ -170,7 +170,7 @@ To obtain the CRN, you must have permission to access the certificate manager in
 
 To find a certificate's CRN, follow these steps:
 
-1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > Resource list**. 
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > Resource list**. 
 1. Click to expand **Services and software**, then select the certificate manager that you want to find the CRN for.
 1. Select anywhere in the table row of the certificate to open the Certificate details side panel. The certificate CRN is listed. 
 
@@ -213,10 +213,12 @@ With datapath logging enabled, load balancer logs are forwarded to the [{{site.d
 
 ## HTTP2 support
 {: #http2-support}
+
 Application load balancers support end-to-end HTTP2 traffic, and works with listener protocols set as either HTTPS or TCP.
 
 ## WebSocket support
 {: #websocket-support}
+
 WebSocket provides full-duplex communication channels over a single TCP connection. Application load balancers support WebSocket with every type of listener protocol (HTTP/HTTPS/TCP). 
 
 ## Related links
