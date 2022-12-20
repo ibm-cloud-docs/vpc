@@ -54,13 +54,13 @@ From the list of backup jobs, click the name of a snapshot. A side panel provide
 
 | Field | Description |
 |-------|-------------|
-| Status | Current status of the snapshot, such as _Stable_. For a list of snapshot statuses, see [Snapshot statuses](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status). |
+| Status | The status of the snapshot, such as _Stable_. For a list of snapshot statuses, see [Snapshot statuses](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status). |
 | Name | The name of the backup policy that created the snapshot. You can change the backup policy settings by clicking the pencil icon. For more information, see [Managing backup policies](/docs/vpc?topic=vpc-backup-service-manage). |
 | ID | GUID of the snapshot. |
 | Bootable | It indicates whether the snapshot was created from a boot volume. |
 | CRN | Cloud resource name of the snapshot. |
 | Created | Date and time of when that the snapshot resource creation process started. |
-| Captured | The date and time of when this snapshot was taken. If the fieldd is empty, then the snapshot is not yet captured or the snapshot was created before this feature was introduced (January 2022). |
+| Captured | The date and time of when this snapshot was taken. If the field is empty, then the snapshot is not yet captured or the snapshot was created before this feature was introduced (January 2022). |
 | Size | Size in GBs of the snapshot, it's inherited from the source volume. |
 | Source Volume | Source volume from which the first snapshot was taken. Click the link for volume details. If the volume was deleted, the name appears without a link. |
 | Encryption | Either provider-managed or customer-managed. |
@@ -87,7 +87,7 @@ For example:
 
 ```json
 ibmcloud is backup-policy-jobs bd8e95e1-e63a-468e-9df8-6a8747f03ffc
-Listing jobs of backup policy bd8e95e1-e63a-468e-9df8-6a8747f03ffc under account VPC as user muuser@mycompany.com...
+Listing jobs of backup policy bd8e95e1-e63a-468e-9df8-6a8747f03ffc under account VPC as user myuser@mycompany.com...
 ID                                          Auto delete   Auto delete after   Completed at                Created                     Job type   Status
 934c7e39-f1ba-4e62-b9ae-d5d3773874c0   true          15                  2022-06-24T17:02:14+05:30   2022-06-24T17:01:16+05:30   creation   succeeded
 d3b0d928-1a3a-4302-9b12-cc0a17bdd1d5   true          15                  2022-06-25T17:00:35+05:30
@@ -105,7 +105,7 @@ ibmcloud is backup-policy-job POLICY JOB_ID [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
-For example:
+The following example shows the output when you run the command by using the policy ID and the job ID as parameters.
 
 ```json
 ibmcloud is backup-policy-job 7003cdf1-48bb-4af2-9ceb-1edbe8fcb818 a0d4eac1-6473-4c3b-a123-5543cdecaf45
@@ -225,8 +225,9 @@ curl -X GET\
 "$vpc_api_endpoint/v1/backup_policies/{backup_policy_id}/jobs{backup_job_id}?version=2022-06-22&generation=2"\
    -H "Authorization: $iam_token"
 ```
+{: codeblock}
 
-A successful response will look like this:
+A successful response looks like the following example.
 
 ```json
 {
@@ -276,7 +277,7 @@ A successful response will look like this:
   }
 }
 ```
-{: screen}
+{: codeblock}
 
 ### Backup job statuses and reason codes
 {: #backup-jobs-status}
