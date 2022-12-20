@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-12-09"
+lastupdated: "2022-12-20"
 
 keywords:
 
@@ -34,7 +34,7 @@ Before you can create backup policies, you need to grant [service-to-service aut
 {: faq}
 {: #faq-baas-function}
 
-You add [user tags](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-about-tags) to your volumes and specify the same tags in a backup policy. When the tags match, a backup is triggered based on the backup plan schedule. The Snapshot for VPC service is used to create the backup. The entire contents of the volume are copied and retained for the number of days or total number of backups that are specified in the backup plan. When the retention period is reached, the older backups are deleted.
+You add [user tags](/docs/vpc?topic=vpc-backup-service-about&interface=ui#backup-service-about-tags) to your volumes and specify the same tags in a backup policy. When the tags match, a backup is triggered based on the backup plan schedule. You can [view backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs) to see the progress of the operation. The Snapshot for VPC service is used to create the backup. The entire contents of the volume are copied and retained for the number of days or total number of backups that are specified in the backup plan. When the retention period is reached, the older backups are deleted. 
 
 ## What resources are backed up?
 {: faq}
@@ -53,6 +53,12 @@ Enabling your backups is two-part process. First, you [specify user tags](/docs/
 {: #faq-baas-total}
 
 You can create up to 750 backups per volume per account. Consider how your [billing changes](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=api#snapshots_vpc_considerations) when you increase the number of snapshots that you take and retain.
+
+## What are backup policy jobs?
+{: faq}
+{: #faq-backup-jobs}
+
+Backup policy jobs, or backup jobs for short, are triggered when a scheduled backup snapshot is being created or deleted. If the create or delete action is successful, the backup job contains information about the backup snapshot that was created or deleted. If the job ran unsuccessfully, the job contains the reason for the failure. For more information, see [Viewing backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs).
 
 ## Can I back up my volume snapshots?
 {: faq}

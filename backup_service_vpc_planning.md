@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-11"
+lastupdated: "2022-12-20"
 
 keywords:
 
@@ -30,6 +30,7 @@ Consider the following prerequisites before you set up the VPC Backup Service.
 | Backup schedule | Determine a backup schedule based on the type of volumes that you're backing up. For example, you might want to back up critical data that changes frequently more often than static data. |
 | Retention | Determine a retention policy for backups in the backup plan. As subsequent backups are created, keep in mind that you incur costs for each backup that you retain. Deleting older backups keeps costs down. |
 | Backup plans | Decide on the number of backup plans that you need for a policy. For example, you can have separate plans for daily backups, weekly, and monthly. |
+| Backup jobs | When a backup snapshot is created or deleted, use the [backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs) feature to view the progress of the operation and whether it was successful or not. |
 | Interface | Choose the UI, CLI, or API for creating and managing your backups. |
 | Billing | Think about the number of backup snapshots that you want to take and other [billing considerations](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=api#snapshots_vpc_considerations) as the number of backup snapshots grows. |
 | Volume restore | Evaluate when you might want to restore a volume from a backup. Keep in mind that restoring from a backup is a manual operation and not immediate such as a disaster recovery solution. |

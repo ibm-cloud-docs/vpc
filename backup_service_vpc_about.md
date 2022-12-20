@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-12-09"
+lastupdated: "2022-12-20"
 
 keywords:
 
@@ -37,9 +37,6 @@ Backups require that the volume you're backing up is attached to a running virtu
 A volume is backed up when [user-provided tags](#backup-service-about-tags) that are associated with a {{site.data.keyword.block_storage_is_short}} volume match the tags for target resources in a backup policy. The volume must have at least one of the backup policy’s tags for the target resources. When the scheduled backup is triggered by a backup plan, all volumes with matching tags in the policy are backed up. If a volume has multiple tags, only one tag has to match for a backup to trigger. You can add user tags to boot and data volumes at any time and when you [create a virtual server instance](/docs/vpc?topic=vpc-creating-block-storage&interface=ui#create-from-vsi) or in an instance template. Any instance volumes with tags that match the backup policy are backed up.
 
 Use the UI, CLI, or API to create backup policies and plans for your {{site.data.keyword.block_storage_is_short}} volumes. Before you create backups, review the [planning your backups](/docs/vpc?topic=vpc-backups-vpc-planning) topic. For more information about best practices and other considerations, see [Best practices for creating backups](/docs/vpc?topic=vpc-backups-vpc-best-practices).
-
-The backup API is now generally available, with the exception of the backup jobs API, which remains in beta. See the [Change log](/docs/vpc?topic=vpc-api-change-log#21-june-2022).
-{: note}
 
 You can [restore](#backup-service-restore-concepts) data to a new, fully provisioned volume from a backup snapshot. If the backup is of a boot volume, you can use it to provision a new instance. However, there are performance considerations when you provision an instance by restoring a boot volume from "bootable" backup snapshot. For more information, see [Performance considerations when using a bootable backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore&interface=ui#baas-boot-perf).
 

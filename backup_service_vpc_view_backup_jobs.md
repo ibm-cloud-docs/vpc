@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-11"
+lastupdated: "2022-12-20"
 
 keywords:
 
@@ -138,9 +138,6 @@ Resource type           backup_policy_job
 {: api}
 
 View a list of backup jobs or details of a single backup job with the API.
-
-The backup API is now generally available, with the exception of the backup jobs API, which remains in beta. For more information, see the [Change log](/docs/vpc?topic=vpc-api-change-log#21-june-2022).
-{: note}
 
 ### View a list of backup jobs with the API
 {: #backup-view-jobs-list-api}
