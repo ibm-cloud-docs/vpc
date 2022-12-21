@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2022
 
-lastupdated: "2022-12-07"
+lastupdated: "2022-12-21"
 
 keywords:
 
@@ -30,6 +30,9 @@ Use the following steps to create a virtual server instance.
 2. Click **Create** and enter the information that is in Table 1.
 3. Click **Create virtual server instance** when you are ready to provision.
 
+Using an existing volume to create a virtual server instance is a beta feature that is available for evaluation and testing purposes.
+{: beta}
+
 | Field | Value |
 |-------|-------|
 | Name  | A name is required for your virtual server instance. |
@@ -43,6 +46,7 @@ Use the following steps to create a virtual server instance.
 | Processor architecture | Select the processor architecture that your instance is created with. *x86* means x86_64 bit processor, and *s390x* is IBM Z or LinuxONE (s390x processor architecture). |
 | Operating system | Image \n \n Select a stock image, `Custom image`, or `Catalog image` for the operating system. \n \n   \n \n * For more information about available stock images, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images) and [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images). All operating system images use cloud-init that you can use to enter user metadata that is associated with the instance for post provisioning scripts. Metadata isn't supported for {{site.data.keyword.cloud}} Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances and z/OS virtual server instances. If you plan to use Windows operating systems with SQL Server, see the [About Microsoft SQL on VPC](/docs/microsoft?topic=microsoft-mssql-about). \n * A `custom image` is an image that you create externally and import to {{site.data.keyword.cloud}}, which you can then import into {{site.data.keyword.vpc_short}}. For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images). \n * You can also use a custom image that was created from a boot volume and was attached to an instance. For more information about creating an image from a volume, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc). \n * A `Catalog image` is a custom image that is imported into a private catalog. You can either import a custom image that was already imported into {{site.data.keyword.vpc_short}} or an image from a volume. For more information about catalog images, see [Custom images in a private catalog](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#custom-image-cloud-private-catalog) **Note** If you select a catalog image that belongs to a different account, there are additional considerations and limitations to review. See [Using cross-account image references in a private catalog in the UI](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-ui). To create a private catalog, see the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui). \n * You can also select either a RHEL or Windows custom image and bring your own license (BYOL). For more information about creating BYOL custom images, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about).|
 | | Snapshot \n \n Select a snapshot of a boot volume that includes an operating system. \n * If you created a boot volume from a bootable snapshot, it appears under Boot Volume. \n * If you want to use another bootable snapshot and create a new boot volume, click **Change** to select a different snapshot from the list of snapshots. \n For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore). |
+| | Existing volume \n \n Select an existing volume that is not attached to a volume or an instance. \n * Select **Change volume** from the **Existing volumes** tab to view a list of pre-existing available boot volumes. Choose an available volume and then select **Save volume** to continue. |
 | Profile |  Select from popular profiles or all available vCPU and RAM combinations. The profile families are Balanced, Compute, Memory, Ultra High Memory, Very High Memory, and GPU. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles). When you create an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance, make sure that you select secure execution-enabled profiles, otherwise provisioning fails. For more information, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles).  \n  \n Some profiles might not be available because the amount network interfaces in the virtual server exceed profile limits. You can remove network interfaces to select from more profiles. For more information, see [Resizing a virtual server](/docs/vpc?topic=vpc-resizing-an-instance). |
 | SSH Key | You must select an existing SSH key or upload a new SSH key to use before you create the instance. SSH keys are used to securely connect to the instance after it's running. |
 | | **Note:** Alpha-numeric combinations are limited to 100 characters. |
