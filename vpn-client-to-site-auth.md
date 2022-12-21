@@ -197,37 +197,6 @@ The ordered certificates are public SSL/TLS certificates and must be used as a V
 You must create your own CA and import the CA certificate into Secrets Manager to authenticate your VPN client.
 {: important}
 
-### Using a private certificate
-{: #using-private-certificate}
-
-Review the following important considerations when using a private certificate in your VPN server:
-
-* All certificate authorities (CAs) in a CA chain must be contained in a Secrets Manager instance. Also, the root CA must be created inside the Secrets Manager. When you select an intermediate CA, the following options are required to make sure that every CA can be found while verifying the CA chain of a private certificate in your VPN server:
-
-  * You must select **Internal signing**.
-  
-   ![Create intermediate CA](images/vpn_server_intermediate_ca_create.png){: caption="Create intermediate CA" caption-side="bottom"}
-
-  * You must encode the issuing certificate URL in end-entity certificates by enabling **Encode URL** when you create a CA.
-   ![CA CRN](images/vpn_server_intermediate_ca_crn.png){: caption="CA CRN" caption-side="bottom"}
-
-* The maximum number of CAs in a private certificate CA chain is 11 (a root CA and 10 intermediate CAs at most).
-* You must enable both **CRL building** and **CRL distribution points** if you want to use the CA CRL of a private certificate. A revoked certificate is no longer trusted by the applications after one hour.
-
-   ![CA CRL](images/vpn_server_intermediate_ca_crl.png){: caption="CA CRL" caption-side="bottom"}
-
-  The CA CRL works only if you don't upload a certificate revocation list when you create a VPN server. You don't need to enable a CA CRL if the VPN server's CRL is already uploaded.
-  {: note}
-
-   ![VPN server CRL](images/vpn_server_crl.png){: caption="VPN server CRL" caption-side="bottom"}
-
-* While creating a template for an intermediate CA, you must click **Use certificates for server** if that created CA will sign the server certificate for the VPN server. You must click **Use certificates for client** if that created CA will sign the client certificate for the VPN server. You must click both **Use certificates for server** and **Use certificates for client** if that created CA will sign both server and client certificates for VPN server.
-
-   ![VPN server certificate role](images/vpn_server_certificate_role.png){: caption="VPN server certificate role" caption-side="bottom"}
-
-For more information, see creating private certificates for [Secrets Manager](/docs/secrets-manager?topic=secrets-manager-certificates&interface=ui#create-certificates).
-{: note}
-
 ### Locating the certificate CRN 
 {: #locating-cert-crn}
 
