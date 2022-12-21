@@ -31,7 +31,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-dec22}
 
 ### 20 December 2022
-{: #vpc-dec1322}
+{: #vpc-dec2022}
 {: release-note}
 
 Instance provision by volume (Beta)
