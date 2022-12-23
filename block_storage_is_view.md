@@ -1,8 +1,8 @@
 ---
-
+09
 copyright:
   years: 2019, 2022
-lastupdated: "2022-12-12"
+lastupdated: "2022-12-23"
 
 keywords:
 
@@ -79,12 +79,12 @@ The {{site.data.keyword.block_storage_is_short}} volumes details page shows volu
 |-------|-------------|
 | **Volume details** | |
 | Name  | Name of the volume you specified when you created the volume. Click the pencil icon to edit the volume name. The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. Volume names must be unique across the entire VPC infrastructure. |
+| Volume ID | System-generated volume ID. |
+| Health |  Health monitors the overall health of the volume, such as I/O performance and data consistency. Volume health statuses are `OK` or `degraded`. Volumes in a degraded state have less than OK performance, capacity, or experience connection problems. Volumes that are being restored from a snapshot also show a degraded state. The service displays a possible reason for the degraded state so you can take action. For more information, see [{{site.data.keyword.block_storage_is_short}} volume health states](/docs/vpc?topic=vpc-managing-block-storage#block-storage-vpc-health-states). |
 | Resource group | Resource group defined when you set up your VPC. Resource groups manage access to resources but do not affect billing or monitoring.|
 | Attachment type | Data, for a secondary volume attached to an instance, boot when attached as a boot volume, or blank for an unattached volume.|
-| ID | System-generated volume ID. |
-| Created | System-generated date when the volume was created.|
+| Created Date | System-generated date when the volume was created.|
 | Location | Availability zone in your region.|
-| Health |  Health monitors the overall health of the volume, such as I/O performance and data consistency. Volume health statuses are `OK` or `degraded`. Volumes in a degraded state have less than OK performance, capacity, or experience connection problems. Volumes that are being restored from a snapshot also show a degraded state. The service displays a possible reason for the degraded state so you can take action. For more information, see [{{site.data.keyword.block_storage_is_short}} volume health states](/docs/vpc?topic=vpc-managing-block-storage#block-storage-vpc-health-states). |
 | Size | Size of the volume you specified. When the volume is attached to a virtual server instance and the volume is not at maximum capacity for its range, you can click the icon to expand the volume. For more information, see [Expanding {{site.data.keyword.block_storage_is_short}} volume capacity (Beta)](/docs/vpc?topic=vpc-expanding-block-storage-volumes). |
 | Profile | [IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles#tiers) or [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles#custom) profile. Click the icon to [adjust IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) by selecting a different profile. |
 | Max IOPS | Maximum IOPS value for a predefined IOPS tier or the value you specified for custom IOPS. |
@@ -94,11 +94,11 @@ The {{site.data.keyword.block_storage_is_short}} volumes details page shows volu
 | Key | _Optional._ The name and copiable ID of the root key that is used to encrypt the passphrase securing a customer-managed encryption volume. |
 | Backup policies | Number of backup policies associated with the volume. Click the number link to go to the backup policies tab. |
 | Snapshots | Number of snapshots that were created of the volume. Click the number link to go to the Snapshots and Backups tab. |
-| **Attached instances** | Volumes attached to a virtual server instance are listed here. Click **Attach instance** to select an instance to attach this volume. For more information, see [Attaching a volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage). |
+| **Attached virtual server** | Volumes attached to a virtual server instance are listed here. Click **Attach** to select an instance to attach this volume. For more information, see [Attaching a volume to an instance](/docs/vpc?topic=vpc-attaching-block-storage). |
 | Status | Tracks the overall lifecycle state of the volume, which ranges from volume creation to volume deletion. Attachment status, for example, _attached_ when the volume is attached to an instance and _attaching_ when in progress. |
 | Name | Click the name of the virtual server instance to see instance details. |
 | Auto delete | When _enabled_, the volume is automatically deleted when you delete the instance. Click the toggle to enable automatic deletion. |
-| Health status |  Health monitors the overall health of the volume, such as I/O performance and data consistency. Volume health statuses are **OK** or **degraded**. Degraded volumes have less than OK performance, capacity, or experience connection problems. The service displays a possible reason for the degraded state so you can take action. |
+| **Backup policies** | Shows backup policies associated with this volume. To associate backup policies, you can add a backup policy's tags for target resources to this volume. Click **Apply** to select a backup policy, then apply its tags for the target resource to the volume. |
 {: caption="Table 3. Volume details" caption-side="bottom"}
 
 Table 4 shows Actions menu options from the volume details page.
@@ -446,7 +446,7 @@ A successful response looks like this. This example shows three data volumes. Th
 {: codeblock}
 
 
-### View volume details with the API
+### View a specific volume profile with the API
 {: #viewvol-details-api}
 
 Make a `GET /volumes/{id}` call to see details of a volume. For example:
