@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-12-08"
+lastupdated: "2022-12-28"
 
 keywords:
 
@@ -30,7 +30,7 @@ You pay for only the capacity you need. File share capacity ranges from 10 GB up
 
 File share data is encrypted by default with IBM-managed encryption for data-at-rest. For added security, you can also use your own root keys to protect your file shares. For more information, see [File share encryption](#FS-encryption).
 
-You can apply user tags and access management tags to your file shares. Add user tags when creating a new share or updating an existing share with the UI, CLI, or API. Create access management tags with the Global Search and Tagging API. For more information, see [Tags for file shares](#fs-about-fs-tags).
+You can apply user tags and access management tags to your file shares. Add tags when creating a new share or updating an existing share with the UI, CLI, or API. For more information, see [Tags for file shares](#fs-about-fs-tags).
 
 You can enable context-based restrictions (CBR) for all file share operations. These restrictions work with traditional IAM policies, which are based on identity, to provide an extra layer of protection. Unlike IAM policies, context-based restrictions don't assign access. Context-based restrictions check that an access request comes from an allowed context that you configure, such as creating a file share. For more information, see [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions (limited availability)](/docs/vpc?topic=vpc-cbr).
 
