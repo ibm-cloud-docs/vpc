@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-12-21"
+lastupdated: "2022-12-28"
 
 keywords:
 
@@ -32,7 +32,7 @@ You can choose an [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles
 
 For data volumes attached to a virtual server instance, you can [increase volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes) in GB increments up to 16,000 GB capacity, depending on your volume profile. You can also [increase or decrease IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) for a volume that is attached to an instance by specifying a different IOPS tier or custom IOPS band.
 
-You can also apply user tags and access management tags to your boot and data volumes. Add user tags when you create a volume or update an existing volume with the UI, CLI, or API. Create access management tags with the IAM UI or Global Search and Tagging API, then add them to your volumes. For more information, see [Tags for block storage volumes](#vpc-storage-about-tags).
+You can also apply user tags and access management tags to your boot and data volumes. Add tags when you create a volume or update an existing volume with the UI, CLI, or API. For more information, see [Tags for block storage volumes](#vpc-storage-about-tags).
 
 When you create, view, or update a block storage volume, or [restore a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore), the volume health state is reported in the UI, CLI, or API. For more information, see [Block storage volume health states](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#block-storage-vpc-health-states).
 
