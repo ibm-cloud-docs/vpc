@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-11-07"
+lastupdated: "2022-12-30"
 
 keywords:
 
@@ -61,7 +61,7 @@ Table 2 shows the available IOPS ranges based on volume size.
 ## Profiles and boot volumes
 {: #vsi-profiles-boot}
 
-Boot volumes are created based on a general-purpose IOPS profile with 100 GB capacity.
+Boot volumes are created based on a general-purpose IOPS profile with 100 GB capacity. [Boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes) can be increased during instance provisioning or later, by directly modifying the boot volume, up to 250 GB.
 
 ## How virtual server profiles relate to storage profiles
 {: #vsi-profiles-relate-to-storage}
