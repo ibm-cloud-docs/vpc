@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-18" 
+lastupdated: "2022-11-18"
 
 keywords: context-based restrictions for VPC Infrastructure Services
 
@@ -106,6 +106,7 @@ the **Authorizations** tab.
 | Hyper Protect Crypto service            | * [Snapshot](/docs/vpc?topic=vpc-snapshots-vpc-planning) \n * [Block storage volume](/docs/vpc?topic=vpc-creating-block-storage&interface=ui) \n * [File Storage](/docs/vpc?topic=vpc-file-storage-planning) \n * [Image service](/docs/vpc?topic=vpc-planning-custom-images) | Cloud Block Storage (`server-protect`)|
 | Virtual Server Instances                | * [Auto scale](/docs/vpc?topic=vpc-creating-auto-scale-instance-group)                                                                                                                                                                                                 | VPC Infrastructure Services (`is`) |
 | Various VPC Infrastructure Services - Block Storage Volume, Security Groups, Subnets | * [IBM Kubernetes Service](/docs/containers) | IBM Kubernetes Service (`containers-kubernetes`) |
+| Secrets Manager                         | * [Client-to-site VPN](/docs/vpc?topic=vpc-vpn-client-to-site-overview) \n * [Load balancers](/docs/vpc?topic=vpc-nlb-vs-elb)  | VPC Infrastructure Services (`is`) |
 {: caption="Table 1. Service references needed for context-based restrictions" caption-side="bottom"}
 
 ### Creating network zones by using the API
@@ -435,7 +436,6 @@ You can then use the same Trace ID or Reference ID to look at the specific VPC I
     "responseURI": "/v1/vpcs/"
   }
 }
-
 ```
 {: codeblock}
 
