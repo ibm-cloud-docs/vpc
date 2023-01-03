@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-11-18"
+  years: 2022, 2023
+lastupdated: "2023-01-03"
 
 keywords: context-based restrictions for VPC Infrastructure Services
 
@@ -460,7 +460,20 @@ If a user enables a **User ID and passcode** when configuring [client authentica
 After the VPN client connects to the VPN server, the requests to the VPE endpoint or Cloud Service Endpoint (CSE) are controlled with context-based restrictions. Also, the requests' source IP is the VPC [Cloud service endpoint source addresses](/docs/vpc?topic=vpc-vpc-behind-the-curtain#cse-source-addresses). Make sure that the VPC CSE source addresses are in the CBR Network Zone; otherwise, the request is denied.
 
 ## Limitations
-{: #cbr-vpc-limitations}
+{: #cbr-limitations)
+
+Context-based restrictions protect only the actions associated with the [VPC Infrastructure Services](/apidocs/vpc). Actions associated with the following platform APIs are not protected by context-based restrictions. Reference the API docs for the specific action IDs.
+
+- [Resource Instance APIs](/apidocs/resource-controller/resource-controller#list-resource-instances)
+- [Resource Keys APIs](/apidocs/resource-controller/resource-controller#list-resource-keys)
+- [Resource Bindings APIs](/apidocs/resource-controller/resource-controller#list-resource-bindings)
+- [Resource Aliases APIs](/apidocs/resource-controller/resource-controller#list-resource-aliases)
+- [IAM Policy APIs](/apidocs/iam-policy-management#list-policies)
+- [Global Search APIs](/apidocs/search)
+- Global Tagging [Attach](/apidocs/tagging#attach-tag) and [Detach](/apidocs/tagging#detach-tag) APIs
+- [Context-based Restriction Rule APIs](/apidocs/context-based-restrictions#create-rule)
+
+VPC Infrastructure Services specific limitations are as follows:
 
 - When you create a rule, it might take up to 10 minutes to become enforced.
 - At this time {{site.data.keyword.cloud_notm}} console cannot be used to create context-based restriction rules for VPC Infrastructure Services.
