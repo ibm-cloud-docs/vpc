@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2021, 2022
+  years: 2021, 2023
 
-lastupdated: "2022-12-09"
+lastupdated: "2023-01-04"
 
 keywords: troubleshooting LinuxONE bare metal servers, hardware issues, troubleshoot s390x bare metal server
 
@@ -17,7 +17,7 @@ subcollection: vpc
 # Troubleshooting s390x bare metal servers
 {: #troubleshoot_s390x_bare_metal}
 
-s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east), Toronto (ca-tor), and São Paulo (br-sao) regions.
+s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east), London (eu-gb), Toronto (ca-tor), and São Paulo (br-sao) regions.
 {: preview}
 
 The following sections cover common difficulties that you might encounter, and offers some helpful tips.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-12-09"
+  years: 2022, 2023
+lastupdated: "2023-01-04"
 
 keywords: LinuxONE bare metal profiles, s390x bare metal profiles
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # s390x bare metal server profiles
 {: #s390x-bare-metal-servers-profile}
 
-s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east), Toronto (ca-tor), and São Paulo (br-sao) regions. 
+s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east), London (eu-gb), Toronto (ca-tor), and São Paulo (br-sao) regions.
 {: preview}
 
 When you create an s390x bare metal server, you can select an s390x bare metal server profile that best fits your needs. A profile provides a different combination of hardware configurations that include number of CPU cores, amount of RAM, and size of local storage. The attributes define the size and capabilities of the bare metal server that is provisioned.

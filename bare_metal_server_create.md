@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-12-09"
+  years: 2021, 2023
+lastupdated: "2023-01-04"
 
 keywords: creating bare metal servers
 subcollection: vpc
@@ -44,7 +44,7 @@ Use the following steps to create a bare metal server by using the {{site.data.k
 | Network interfaces | By default the bare metal server is created with a single primary network interface. You can click the pencil icon to edit the details of the network interface. For example, the subnet or security group that's associated with the interface. To include extra secondary network interfaces, click **New interface**.  \n - For x86 architecture, you can create and assign up to eight PCI network interfaces and up to 20 PCI + VLAN network interfaces for each server. For more information about advanced networking configurations, see [Managing network interfaces for a bare metal server](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers).  \n - For s390x architecture, you can attach up to two network interfaces based on the profile that you choose. For more information, see [Managing network interfaces for a bare metal server](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers). |
 {: caption="Table 1. Bare metal server provisioning selections" caption-side="bottom"}
 
-   s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east), Toronto (ca-tor), and São Paulo (br-sao) regions.
+   s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east), London (eu-gb), Toronto (ca-tor), and São Paulo (br-sao) regions.
    {: preview}
 
 For x86 architecture-based bare metal servers, the DHCP response for all interfaces (PCI or VLAN) includes a gateway. So, if you create multiple interfaces on different subnets, consider a static IP configuration or use separate network namespaces to handle the different gateways.
@@ -331,11 +331,11 @@ After you have all the information, use the [Create bare metal server](/apidocs/
     The example request uses the JSON processing utility _jq_ to format the response. You can modify the command to use another parsing tool or remove `" | jq"` to receive an unformatted response.
     {: note}
 
-    To attach a second network interface to your s390x bare metal server, you can use the following example API request. 
+    To attach a second network interface to your s390x bare metal server, you can use the following example API request.
 
     ```sh
-    curl -X POST "$URL/v1/bare_metal_servers/220e-ef3a9818-ea70-4e22-be91-ac2dd5bd5c6a/network_interfaces?generation=2&version=2019-10-01" -H "Authorization: $ACCESS_TOKEN" -d '{ 
-	     "interface_type": "hipersocket", 
+    curl -X POST "$URL/v1/bare_metal_servers/220e-ef3a9818-ea70-4e22-be91-ac2dd5bd5c6a/network_interfaces?generation=2&version=2019-10-01" -H "Authorization: $ACCESS_TOKEN" -d '{
+	     "interface_type": "hipersocket",
 	     "name": "secondary-network-interface",
 	     "enable_infrastructure_nat": true,
 	     "subnet": { "id": "220e-1be7f42a-f2f3-4177-9610-7368389ab971" }
@@ -444,6 +444,6 @@ ibmcloud is bare-metal-server $bare_metal_server_id --output JSON
 ## Next steps
 {: #next-steps-after-creating-bare-metal-server}
 
-When the bare metal server status changes to **Running**, you can connect to it. 
+When the bare metal server status changes to **Running**, you can connect to it.
 * For x86 architecture, you can connect to VMware ESXi Direct Console User Interface (DCUI) and ESXi's web client. For more information, see [Connecting to ESXi bare metal servers](/docs/vpc?topic=vpc-connect-to-ESXi-bare-metal-servers).
 * For s390x architecture, you can connect to the s390x bare metal server by using the SSH key and its floating IP. For more information, see [Connecting to s390x bare metal servers](/docs/vpc?topic=vpc-connect-to-s390x-bare-metal-servers).
