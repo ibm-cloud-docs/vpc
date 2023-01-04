@@ -30,8 +30,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## January 2023
 {: #vpc-jan23}
 
-### 04 January 2023
-{: #vpc-jan0423}
+### 05 January 2023
+{: #vpc-jan0523}
 {: release-note}
 
 New region (London) for LinuxONE Bare Metal Servers (s390x processor architecture) (LA)
