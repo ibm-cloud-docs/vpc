@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2019, 2022
+  years: 2019, 2023
 
-lastupdated: "2022-09-16"
+lastupdated: "2023-01-04"
 
 keywords: creating a linux custom image, cloud-init, qcow2, vhd
 
@@ -107,8 +107,8 @@ Make sure that your image is cloud-init enabled. Cloud-init version 0.7.9 or gre
     * To find the path for cloud-init on ExecStart, run the following command:`systemctl cat cloud-init`
 
 2. To install cloud-init, use one of the following commands.
-    * For Ubuntu 16, 18 & Debian 9, run the following command: `apt-get install cloud-init`
-    * For CentOS 7 & RedHat 7, run the following command: `yum install cloud-init`
+    * For Ubuntu or Debian, run the following command: `apt-get install cloud-init`
+    * For CentOS or Red Hat, run the following command: `yum install cloud-init`
 
 3. If the `datasources_list` property exists in */etc/cloud/cloud.cfg*, verify that it contains `ConfigDrive` and `NoCloud` or remove the `datasources_list` property entirely. For more information about data sources, see [Data sources](http://cloudinit.readthedocs.io/en/latest/topics/datasources.html){: external}. {{site.data.keyword.cloud_notm}} cloud-init images are created for the environment by using the [NoCloud](https://cloudinit.readthedocs.io/en/latest/topics/datasources/nocloud.html){: external} data source to supply the metadata.
 
