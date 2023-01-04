@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2018, 2022
+  years: 2018, 2023
 
-lastupdated: "2022-11-08"
+lastupdated: "2023-01-04"
 
 
 keywords: vpc, virtual private cloud, vpc ui, console, access control list, virtual server instance, subnet, block storage volume, security group, images, monitoring, ssh key, ip range
@@ -148,7 +148,7 @@ To create a virtual server instance in the newly created subnet:
 1. In the **Location** field, select the zone in which to create the instance.
 1. Select the type of virtual server that you want to create. By default, Public is selected. 
 1. Select the processor architecture for the virtual server that you want to create. By default, x86 is selected. 
-1. Select an image (that is, operating system and version), such as *Debian GNU/Linux* and *ibm-debian-9-13-minimal-amd64-4*. Alternatively, you can select a snapshot. 
+1. Select an image (that is, operating system and version), such as Debian GNU/Linux, *ibm-debian-11-3-minimal-amd64-1*. Alternatively, you can select a snapshot.
 
     _For z/OS Wazi aaS custom image only:_ If you use the custom image that is created by using Wazi Image Builder and [Terraform automation](https://github.com/ibm-hyper-protect/zos-vpc-custom-image-builder){: external}, select **Custom image** for the operating system and the image is called `wazi-custom-image` by default.
     {: note}
