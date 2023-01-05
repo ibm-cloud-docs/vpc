@@ -1,0 +1,6 @@
+translation:
+  exclude:
+    byFilePath:
+      - api-change-log-beta.md
+      - api-change-log.md
+      - api-metadata-change-log.md
