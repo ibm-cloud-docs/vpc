@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2019, 2022
+  years: 2019, 2023
 
-lastupdated: "2022-12-21"
+lastupdated: "2023-01-04"
 
 keywords:
 
@@ -25,7 +25,17 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 
 For more information about changes to the {{site.data.keyword.vpc_short}} API , see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
-For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI) , see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
+For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
+
+## January 2023
+{: #vpc-jan23}
+
+### 05 January 2023
+{: #vpc-jan0523}
+{: release-note}
+
+New region (London) for LinuxONE Bare Metal Servers (s390x processor architecture) (LA)
+:   LinuxONE Bare Metal Servers are now available in the London (eu-gb) region. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
 
 ## December 2022
 {: #vpc-dec22}
@@ -50,7 +60,7 @@ Updated certificates for IBM Hyper Protect Container Runtime image
 :   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-7`, new certificates are available.
    - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-7-attestation.crt){: external}
    - [Encryption certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt){: external}
-   - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-7-intermediate.crt){: external} 
+   - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-7-intermediate.crt){: external}
 
 Certificate revocation list
 :   Starting from `ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt` and
@@ -89,7 +99,7 @@ Updated certificates for IBM Hyper Protect Container Runtime image
 :   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-6`, new certificates are available.
    - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-6-attestation.crt){: external}
    - [Encryption certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-6-encrypt.crt){: external}
-   - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-6-intermediate.crt){: external} 
+   - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-6-intermediate.crt){: external}
 
 Logging for {{site.data.keyword.hpvs}} for VPC
 :   Apart from IBM Log Analysis, you can now configure logging with a generic syslog backend. For more information, see [Logging for {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc#syslog).

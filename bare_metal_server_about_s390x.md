@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-12-09"
+  years: 2022, 2023
+lastupdated: "2023-01-04"
 
 keywords: linuxone bare metal servers, s390x bare metal servers
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # About LinuxONE Bare Metal Servers
 {: #about-linuxone-bare-metal-servers}
 
-s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east), Toronto (ca-tor), and São Paulo (br-sao) regions.
+s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east), London (eu-gb), Toronto (ca-tor), and São Paulo (br-sao) regions.
 {: preview}
 
 

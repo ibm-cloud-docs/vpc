@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-12-09"
+  years: 2022, 2023
+lastupdated: "2023-01-04"
 
 keywords: connecting to s390x bare metal server, floating IP, serial console, vnc console
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Connecting to s390x bare metal servers
 {: #connect-to-s390x-bare-metal-servers}
 
-s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east), Toronto (ca-tor), and São Paulo (br-sao) regions.
+s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east), London (eu-gb), Toronto (ca-tor), and São Paulo (br-sao) regions.
 {: preview}
 
 
@@ -25,7 +25,7 @@ After your s390x bare metal server is running, you can connect to the server by 
 You can't use a VNC console or a serial console to connect to s390x bare metal servers.
 {: note}
 
-## Accessing the s390x bare metal server by using a floating IP 
+## Accessing the s390x bare metal server by using a floating IP
 {: #access-s390x-bm-using-fip}
 
 You can access the s390x bare metal server through a floating IP.
@@ -52,9 +52,9 @@ Before you can access the bare metal server through the public internet, you nee
 You need the following information to attach a floating IP to a bare metal server:
 
 * Server ID
-* Network interface ID 
+* Network interface ID
    - You can use the [List the network interfaces](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#bare-metal-server-network-interfaces) command to find the ID of the network interface.
-* Floating IP ID 
+* Floating IP ID
    - You can use the [ibmcloud is floating-ips](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#floating-ips) command to find the reserved floating IP IDs. Or, use the [ibmcloud is floating-ip-reserve](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#floating-ip-reserve) command to reserve a new one.
 
 After you collect all the necessary information, use the following command to attach the floating IP to the s390x bare metal server:
