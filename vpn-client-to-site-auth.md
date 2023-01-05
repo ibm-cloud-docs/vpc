@@ -119,7 +119,7 @@ To import VPN server certificates into Secrets Manager, follow these steps:
 ### Ordering a public certificate using Secrets Manager
 {: #order-certificate}
 
-You can use {{site.data.keyword.secrets-manager_full}} to order a public SSL/TLS certificate as the VPN server certificate. Because the public CA root certificate is not stored in {{site.data.keyword.secrets-manager_full}}, {{site.data.keyword.secrets-manager_full}} stores only the intermediate certificates. You need the root certificates from Let's Encrypt, saved as a `.pem` file. The two files that you require are located in [https://letsencrypt.org/certs/lets-encrypt-r3.pem](https://letsencrypt.org/certs/lets-encrypt-r3.pem) and [https://letsencrypt.org/certs/isrgrootx1.pem](https://letsencrypt.org/certs/isrgrootx1.pem). These files were concatenated for your convenience; however, for security reasons, it is recommended that you download and concatenate your own root certificate into a file. Also, when you download and update the VPN client profile, use this root certificate to replace the `<ca>` section in the client profile. 
+You can use {{site.data.keyword.secrets-manager_full}} to order a public SSL/TLS certificate as the VPN server certificate. Because the public CA root certificate is not stored in {{site.data.keyword.secrets-manager_full}}, {{site.data.keyword.secrets-manager_full}} stores only the intermediate certificates. You need the root certificates from Let's Encrypt, saved as a `.pem` file. The two files that you require are located in [https://letsencrypt.org/certs/lets-encrypt-r3.pem](https://letsencrypt.org/certs/lets-encrypt-r3.pem){: external} and [https://letsencrypt.org/certs/isrgrootx1.pem](https://letsencrypt.org/certs/isrgrootx1.pem){: external}. These files were concatenated for your convenience; however, for security reasons, it is recommended that you download and concatenate your own root certificate into a file. Also, when you download and update the VPN client profile, use this root certificate to replace the `<ca>` section in the client profile. 
 
 For more information about the Let's Encrypt certificate chain, see [https://letsencrypt.org/certificates/](https://letsencrypt.org/certificates/){: external}.
 {: note}
@@ -200,9 +200,9 @@ You must create your own CA and import the CA certificate into Secrets Manager t
 ### Locating the certificate CRN 
 {: #locating-cert-crn}
 
-When you configure authentication for a client-to-site VPN server during provisioning using the UI, you can choose to specify the Secrets manager and SSL certificate, or the certificate's CRN. You might want to do this if you cannot view the Secrets manager in the menu, which means you don't have access to the Secrets manager instance. Keep in mind that you must enter the CRN if using the API to create a client-to-site VPN server.
+When you configure authentication for a client-to-site VPN server during provisioning using the UI, you can choose to specify the Secrets Manager and SSL certificate, or the certificate's CRN. You might want to do this if you cannot view the Secrets Manager in the menu, which means you don't have access to the Secrets manager instance. Keep in mind that you must enter the CRN if using the API to create a client-to-site VPN server.
 
-To obtain the CRN, you must have permission to access the Secrets manager instance.
+To obtain the CRN, you must have permission to access the Secrets Manager instance.
 {: note}
 
 To find a certificate's CRN, follow these steps:
@@ -229,7 +229,7 @@ To migrate a certificate, follow these steps:
 
 1. Select **Secrets Manager** in **Certificate source** list, then choose a Secrets Manager instance and a certificate.
 
-   ![Authentication with Secrets manager](images/vpn_server_authentication_secrets_manager.png "Authentication with Secrets manager"){: caption="Authentication with Secrets manager" caption-side="bottom"}
+   ![Authentication with Secrets Manager](images/vpn_server_authentication_secrets_manager.png "Authentication with Secrets Manager"){: caption="Authentication with Secrets Manager" caption-side="bottom"}
 
 1. Click **Save**. The VPN server migrates the certificate to Secrets Manager.
 
