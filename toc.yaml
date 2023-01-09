@@ -338,6 +338,7 @@ toc:
                 - vpn-monitoring-metrics.md
                 - vpn-limitations.md
                 - vpn-api-example.md
+                - vpn-policy-based-ingress-routing-integration-example.md
             - topicgroup:
                 label: Client-to-site-servers
                 topics:
@@ -691,6 +692,7 @@ toc:
                 - vpn-ts-traffic-not-getting-through.md
                 - vpn-ts-unstable-connection.md
                 - vpn-ts-routing-issues.md
+                - vpn-ts-vpn-gateway-fix-bad-service-routes.md
             - topicgroup:
                 label: Troubleshooting client-to-site VPN servers
                 topics:
@@ -702,6 +704,7 @@ toc:
                 - vpn-ts-connection-failure.md
                 - vpn-ts-dns-configuration-not-working.md
                 - vpn-ts-vpn-client-hangs.md
+                - vpn-ts-vpn-server-fix-bad-service-routes.md
             - resource-suspension.md
             - instance-status-messages.md
             - quota-dashboard-troubleshooting.md
