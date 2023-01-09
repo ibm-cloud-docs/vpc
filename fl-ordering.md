@@ -28,12 +28,12 @@ When you are provisioning a flow log collector, keep in mind that [the finest gr
 Before you create a flow log collector, make sure that you meet the following prerequisites:
 
 1. Make sure that at least one VPC, a subnet, and a virtual server instance exist. For instructions, see [Creating a VPC and subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vpc-and-subnet) and [Creating a virtual server instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vsi).
-1. Make sure that a Cloud Object Storage (COS) instance with a bucket exists for your flow logs. To create a COS bucket, see the [Cloud Object Storage](/catalog/services/cloud-object-storage){: external} ordering page.
+1. Make sure that an {{site.data.keyword.cos_full}} instance with a bucket exists for your flow logs. To create an {{site.data.keyword.cos_short}} bucket, see the [{{site.data.keyword.cos_full_notm}}](/catalog/services/cloud-object-storage){: external} ordering page.
 
-   The COS bucket must be a single-region bucket in the same region as the target resource. Additionally, it is recommended that you secure the bucket through IAM access groups and audit logging.
+   The {{site.data.keyword.cos_short}} bucket must be a single-region bucket in the same region as the target resource. Additionally, it is recommended that you secure the bucket through IAM access groups and audit logging.
    {: important}
 
-1. Authorize resources of type **Flow Logs for VPC** to use the COS instance created in Step 2.
+1. Authorize resources of type **Flow Logs for VPC** to use the {{site.data.keyword.cos_short}} instance created in Step 2.
 
    To do so, use the following steps:
 
@@ -65,12 +65,12 @@ Before you create a flow log collector, make sure that you meet the following pr
 Before you create a flow log collector, make sure that you meet the following prerequisites:
 
 1. Make sure that at least one VPC, a subnet, and a virtual server instance exist. For instructions, see [Creating a VPC and subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vpc-and-subnet) and [Creating a virtual server instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vsi).
-1. Make sure that a Cloud Object Storage (COS) instance with a bucket exists for your flow logs. To create a COS bucket, see the [Cloud Object Storage](/catalog/services/cloud-object-storage) ordering page.
+1. Make sure that an {{site.data.keyword.cos_full}} instance with a bucket exists for your flow logs. To create an {{site.data.keyword.cos_short}} bucket, see the [{{site.data.keyword.cos_full_notm}}](/catalog/services/cloud-object-storage) ordering page.
 
-   The COS bucket must be a single-region bucket in the same region as the target resource. Additionally, it is recommended that you secure the bucket through IAM access groups and audit logging.
+   The {{site.data.keyword.cos_short}} bucket must be a single-region bucket in the same region as the target resource. Additionally, it is recommended that you secure the bucket through IAM access groups and audit logging.
    {: important}
 
-1. Authorize resources of type **Flow Logs for VPC** to use the COS instance created in Step 2.
+1. Authorize resources of type **Flow Logs for VPC** to use the {{site.data.keyword.cos_short}} instance created in Step 2.
 
    To do so, enter the following command:
 
@@ -81,9 +81,9 @@ Before you create a flow log collector, make sure that you meet the following pr
    ```
    {: codeblock}
 
-   You can obtain the `COS_INSTANCE_GUID` from the Service credentials section for the COS instance as shown.
+   You can obtain the `COS_INSTANCE_GUID` from the Service credentials section for the {{site.data.keyword.cos_short}} instance as shown.
 
-   ![COS Service credentials](images/flow-logs-service-credentials.png){: caption="COS Service credentials" caption-side="bottom"}
+   ![{{site.data.keyword.cos_short}} Service credentials](images/flow-logs-service-credentials.png){: caption="{{site.data.keyword.cos_short}} Service credentials" caption-side="bottom"}
 
    For more information, see [Using authorizations to grant access between services](/docs/account?topic=account-serviceauth#create-auth).
    {: note}
@@ -95,12 +95,12 @@ Before you create a flow log collector, make sure that you meet the following pr
 Before you create a flow log collector, make sure that you meet the following prerequisites:
 
 1. Make sure that at least one VPC, a subnet, and a virtual server instance exist. For instructions, see [Creating a VPC and subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vpc-and-subnet) and [Creating a virtual server instance](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vsi).
-1. Make sure that a Cloud Object Storage (COS) instance with a bucket exists for your flow logs. To create a COS bucket, see the [Cloud Object Storage](/catalog/services/cloud-object-storage){: external} ordering page.
+1. Make sure that an {{site.data.keyword.cos_full}} instance with a bucket exists for your flow logs. To create an {{site.data.keyword.cos_short}} bucket, see the [{{site.data.keyword.cos_full_notm}}](/catalog/services/cloud-object-storage){: external} ordering page.
 
-   The COS bucket must be a single-region bucket in the same region as the target resource. Additionally, it is recommended that you secure the bucket through IAM access groups and audit logging.
+   The {{site.data.keyword.cos_short}} bucket must be a single-region bucket in the same region as the target resource. Additionally, it is recommended that you secure the bucket through IAM access groups and audit logging.
    {: important}
 
-1. Authorize resources of type **Flow Logs for VPC** to use the COS instance created in Step 2.
+1. Authorize resources of type **Flow Logs for VPC** to use the {{site.data.keyword.cos_short}} instance created in Step 2.
 
    To do so, use the following steps:
 
@@ -153,11 +153,11 @@ To create a flow log collector by using the IBM Cloud console, follow these step
    * **Instance** - Select a VPC and a virtual server instance that exists within the selected VPC. All traffic for the virtual server instance is logged.
    * **Interface** - Select a VPC, a virtual server instance within the selected VPC, and a specific network interface for the selected virtual server instance. All traffic for the selected network interface is logged.
 
-1. Specify where the logs are written. Flow logs are written to a COS bucket, which must be created as a single-region bucket in the same region as the target resource.
+1. Specify where the logs are written. Flow logs are written to an {{site.data.keyword.cos_short}} bucket, which must be created as a single-region bucket in the same region as the target resource.
 
-   * **Cloud Object Storage instances** - The COS instance that the wanted bucket resides in.
+   * **Cloud Object Storage instances** - The {{site.data.keyword.cos_short}} instance that the wanted bucket resides in.
    * **Location** - This input is unavailable because it is directly tied to the region the target resource resides in.
-   * **Bucket** - The wanted Cloud Object Storage (COS) bucket that the flow log collector service writes to.
+   * **Bucket** - The wanted {{site.data.keyword.cos_full}} bucket that the flow log collector service writes to.
 
 ## Creating a flow log collector from the CLI
 {: #fl-ordering-cli}
@@ -179,7 +179,7 @@ To create a flow log collector by using the CLI, run the following command:
 
 Where:
 
-* **--bucket** is the name of the COS bucket.
+* **--bucket** is the name of the {{site.data.keyword.cos_short}} bucket.
 * **--target** is the target for the flow log.
 * **--name** is the new name for the flow log.
 * **--active** indicates whether this collector is active.
@@ -210,7 +210,7 @@ To create a flow log collector by using the API, follow these steps:
     ```
     {: pre}
 
-   * `COSbucket` - The name of the COS bucket.
+   * `COSbucket` - The name of the {{site.data.keyword.cos_short}} bucket.
 
     ```sh
     export COSbucket=<your_COS_bucket_name>

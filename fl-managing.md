@@ -34,7 +34,7 @@ Flow log collector attributes shown in the table are as follows:
 * **Name** - The flow log name.
 * **Target** - The specified resource the collector logs traffic for.
 * **Date Created** - The date the flow log collector was provisioned.
-* **Object Storage Bucket** - The selected Cloud Object Storage bucket where the system saves flow log files.
+* **Object Storage Bucket** - The selected {{site.data.keyword.cos_full_notm}} bucket where the system saves flow log files.
 
 Notice that the page includes tabbed views, which show flow log collectors that were created with that target type.  
 

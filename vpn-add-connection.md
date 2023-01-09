@@ -245,14 +245,14 @@ This API is supported only by policy mode VPN gateway.
       ```
       {: pre}
     
-    * `cidr_prefix` - The prefix address part of the CIDR
+   * `cidr_prefix` - The prefix address part of the CIDR
    
       ```sh
       export cidr_prefix=<your_cidr_prefix>
       ```
       {: pre}
     
-    * `prefix_length` - The prefix length part of the CIDR.
+   * `prefix_length` - The prefix length part of the CIDR.
    
       ```sh
       export prefix_length=<your_prefix_length>
@@ -295,14 +295,14 @@ This API is supported only by policy mode VPN gateway.
       ```
       {: pre}
     
-    * `cidr_prefix` - The prefix address part of the CIDR
+   * `cidr_prefix` - The prefix address part of the CIDR
    
       ```sh
       export cidr_prefix=<your_cidr_prefix>
       ```
       {: pre}
     
-    * `prefix_length` - The prefix length part of the CIDR.
+   * `prefix_length` - The prefix length part of the CIDR.
    
       ```sh
       export prefix_length=<your_prefix_length>

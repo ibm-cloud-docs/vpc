@@ -16,16 +16,16 @@ subcollection: vpc
 
 You might encounter the following questions when you use {{site.data.keyword.cloud_notm}} Flow Logs for VPC.
 
-## Why don't I see any Cloud Object Storage (COS) buckets as options when I create a flow log collector?
+## Why don't I see any {{site.data.keyword.cos_full_notm}} buckets as options when I create a flow log collector?
 {: #faq-cos-buckets-as-options}
 {: faq}
 {: support}
 
-The most likely reasons why you might not see your COS buckets when you order a flow log collector:
+The most likely reasons why you might not see your {{site.data.keyword.cos_short}} buckets when you order a flow log collector:
 
-* A Cloud Object Storage (COS) service instance isn't provisioned or a destination bucket to collect flow logs.
+* an {{site.data.keyword.cos_full}} service instance isn't provisioned or a destination bucket to collect flow logs.
 * An IAM authorization that grants the flow logs service permission to write flow logs to their bucket isn't configured.
-   In this case, you receive prompts to create a COS service instance and bucket, and add the required Identity and Access Management (IAM) authorization when you are creating a flow log collector.
+   In this case, you receive prompts to create an {{site.data.keyword.cos_short}} service instance and bucket, and add the required Identity and Access Management (IAM) authorization when you are creating a flow log collector.
    See [Creating flow log collectors](/docs/vpc?topic=vpc-ordering-flow-log-collector) for information on how to remedy this issue.
 
 ## Why am I getting a 403 error when I provision a flow log collector?
@@ -36,7 +36,7 @@ The most likely reasons why you might not see your COS buckets when you order a 
 Likely causes of this error include:
 
 * Your user is not authorized to access the specified target of the flow log collector.
-* Your Cloud Object Storage (COS) bucket is missing the Identity Authorization Management (IAM) authorization to allow the flow logs service to write flow logs to your bucket.
+* Your {{site.data.keyword.cos_full}} bucket is missing the Identity Authorization Management (IAM) authorization to allow the flow logs service to write flow logs to your bucket.
 
 ## Can I create multiple flow log collectors?
 {: #faq-multiple-flow-log-collectors}
@@ -45,12 +45,12 @@ Likely causes of this error include:
 
 You can create multiple flow log collectors on the condition that they are on different targets. Keep in mind that flow log collectors with different target scopes might overlap. You cannot create multiple flow log collectors on one single target.
 
-## Can I modify the Cloud Object Storage location for a flow log collector?
+## Can I modify the {{site.data.keyword.cos_full_notm}} location for a flow log collector?
 {: #faq-modify-cos-location}
 {: faq}
 {: support}
 
-You cannot change the COS bucket location for an existing flow log collector. You can delete the existing collector and create a new one with the COS bucket location that you want to use.
+You cannot change the {{site.data.keyword.cos_short}} bucket location for an existing flow log collector. You can delete the existing collector and create a new one with the {{site.data.keyword.cos_short}} bucket location that you want to use.
 
 ## Are virtual appliances (IKS workers, ROKS, LBaaS, VPN gateway) included in the flow log collector data output?
 {: #virtual-appliances-in-collector-output}

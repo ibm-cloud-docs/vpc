@@ -12,17 +12,17 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Migrating from the Beta release 
+# Migrating from the Beta release
 {: #vpn-client-to-site-migration}
 
-The Client VPN for VPC service is now Generally Available (GA). Beta participants must migrate from Beta to the GA version before 30 September 2022. 
+The Client VPN for VPC service is now Generally Available (GA). Beta participants must migrate from Beta to the GA version before 30 September 2022.
 {: shortdesc}
 
 After 30 September 2022, any remaining VPN server instances in the Beta plan will be removed.
 {: important}
 
-* For information about Client VPN for VPC GA pricing, see [IBM Cloud VPC Pricing](https://www.ibm.com/cloud/vpc/pricing). 
-* For instructions about using the command line interface, see [Getting started with the IBM Cloud CLI](/docs?tab=develop). 
+* For information about Client VPN for VPC GA pricing, see [IBM Cloud VPC Pricing](https://www.ibm.com/cloud/vpc/pricing).
+* For instructions about using the command line interface, see [Getting started with the IBM Cloud CLI](/docs?tab=develop).
 
 To migrate existing VPN servers, follow these steps:
 
@@ -32,13 +32,13 @@ To migrate existing VPN servers, follow these steps:
    ibmcloud resource service-instance <your-vpnserver-name>
    ```
 
-   Where `your-vpnserver-name` is the name of your VPN server. 
+   Where `your-vpnserver-name` is the name of your VPN server.
 
-1. Migrate to the official pricing plan: 
+1. Migrate to the official pricing plan:
 
    ```sh
    ibmcloud resource service-instance-update <your-vpnserver-name> --service-plan-id  2e806cd9-533f-4713-9d32-7ecd97d9274d
-   ``` 
+   ```
 
    Where `your-vpnserver-name`  is the name of your VPN server and  `2e806cd9-533f-4713-9d32-7ecd97d9274d` is the plan ID.
 
@@ -52,7 +52,7 @@ To migrate existing VPN servers, follow these steps:
 ## Example output
 {: #vpn-example-output}
 
-```
+```json
 test@abc:/root$  ibmcloud resource service-instance demo-plan-migration
 Retrieving service instance demo-plan-migration in all resource groups under account CNS Development Account - netsvs as abc@ibm.com...
 OK

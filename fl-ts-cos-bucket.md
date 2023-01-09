@@ -12,18 +12,18 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Why can't the Cloud Object Storage bucket be found?
+# Why can't the {{site.data.keyword.cos_full_notm}} bucket be found?
 {: #fl-ts-error-cos-bucket}
 {: troubleshoot}
 {: support}
 
-A flow log collector requires a {{site.data.keyword.cos_full_notm}} bucket to be created and accessible. If you see the error log with message ID `is.flow-log-collector.00003E`, the bucket does not exist, or is no longer accessible. The flow log collector cannot publish data to the Cloud Object Storage bucket.
+A flow log collector requires a {{site.data.keyword.cos_full_notm}} bucket to be created and accessible. If you see the error log with message ID `is.flow-log-collector.00003E`, the bucket does not exist, or is no longer accessible. The flow log collector cannot publish data to the {{site.data.keyword.cos_full_notm}} bucket.
 {: shortdesc}
 
-To avoid lost data, create a Cloud Object Storage bucket within the next 24 hours to correct this problem.
+To avoid lost data, create an {{site.data.keyword.cos_full_notm}} bucket within the next 24 hours to correct this problem.
 {: important}
 
-The flow log collector lost connection to a Cloud Object Storage bucket:
+The flow log collector lost connection to an {{site.data.keyword.cos_full_notm}} bucket:
    `is.flow-log-collector.00003E: Cloud Object Storage bucket <BucketName> was not found`
 {: tsSymptoms}
 
@@ -33,12 +33,12 @@ A bucket that is associated with a flow log collector was deleted, or is not acc
 Follow these steps to resolve this issue:
 {: tsResolve}
 
-1. Create a Cloud Object Storage bucket with the same `<BucketName>` specified in the error message. To create a Cloud Object Storage bucket, see the [Cloud Object Storage](/catalog/services/cloud-object-storage){: external} ordering page.
+1. Create an {{site.data.keyword.cos_full_notm}} bucket with the same `<BucketName>` specified in the error message. To create a {{site.data.keyword.cos_full_notm}} bucket, see the [{{site.data.keyword.cos_full_notm}}](/catalog/services/cloud-object-storage){: external} ordering page.
 
-   The Cloud Object Storage bucket must be a single-region bucket in the same region as the target resource. Additionally, it is recommended that you secure the bucket through IAM access groups and audit logging.
+   The {{site.data.keyword.cos_full_notm}} bucket must be a single-region bucket in the same region as the target resource. Additionally, it is recommended that you secure the bucket through IAM access groups and audit logging.
    {: note}
 
-1. Check to make sure that you defined an authorization between the flow log collector and the Cloud Object Storage bucket so that the flow log collector can publish data. To define an authorization, use the following steps:
+1. Check to make sure that you defined an authorization between the flow log collector and the {{site.data.keyword.cos_full_notm}} bucket so that the flow log collector can publish data. To define an authorization, use the following steps:
 
    * In the {{site.data.keyword.cloud_notm}} console, click **Manage** &gt; **Access (IAM)**.
    * Select **Authorizations** from the navigation pane.

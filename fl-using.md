@@ -32,7 +32,7 @@ Flow logs can help with a number of tasks, including:
 * Availability in all {{site.data.keyword.cloud_notm}} Multi-Zone Regions (MZRs) worldwide, providing global solutions
 * Network-centric lifecycle and operations management
 * Suspend (stop) and resume (start) collector activity
-* Conveniently stores collector output in IBM Cloud Object Storage (COS)
+* Conveniently stores collector output in {{site.data.keyword.cos_full}}
 * No impact to network performance
 * Built-in fault tolerance
 * Pricing is metered per GB of metadata that is collected per flow log target
@@ -43,7 +43,7 @@ Flow logs can help with a number of tasks, including:
 ## Configuring flow log collectors
 {: #configuring-fl-collectors}
 
-You can configure flow log collectors with different collection scopes. For example, a collector that targets a VPC and aggregates in-transit data from _all_ network interfaces within that VPC. Or, a collector that targets a virtual server instance and aggregates in-transit data from _only_ that virtual server instance's network interfaces. After data is collected, flow logs are stored in a Cloud Object Storage (COS) bucket, which you configure when you create the flow log collector.
+You can configure flow log collectors with different collection scopes. For example, a collector that targets a VPC and aggregates in-transit data from _all_ network interfaces within that VPC. Or, a collector that targets a virtual server instance and aggregates in-transit data from _only_ that virtual server instance's network interfaces. After data is collected, flow logs are stored in an {{site.data.keyword.cos_full}} bucket, which you configure when you create the flow log collector.
 
 You can set the granularity of a flow log collector for the following target scopes. Keep in mind that if you create a flow log for a subnet or VPC, each network interface in that subnet or VPC is monitored.
 
@@ -55,7 +55,7 @@ You can set the granularity of a flow log collector for the following target sco
 | Interface | Collects data for a specific network interface on a specific virtual server. |
 {: caption="Table 1. Flow log target scopes" caption-side="bottom}
 
-During each collector upload interval, there are two flow logs (ingress and egress) per network interface that are written to the designated COS bucket.
+During each collector upload interval, there are two flow logs (ingress and egress) per network interface that are written to the designated {{site.data.keyword.cos_short}} bucket.
 {: note}
 
 ### Finest granularity wins
@@ -68,7 +68,7 @@ Each flow log target can have a single flow log collector, which can lead to ove
 * The subnet that the virtual server instance is attached to might have its own flow log collector.
 * The VPC that the subnet is part of might have its own flow log collector.
 
-If an overlap exists, the most targeted flow log collector takes precedence. This precedence is important because each flow log collector might log to a different COS bucket, and where flow log data is stored, can change over the lifetime of a virtual server instance.
+If an overlap exists, the most targeted flow log collector takes precedence. This precedence is important because each flow log collector might log to a different {{site.data.keyword.cos_short}} bucket, and where flow log data is stored, can change over the lifetime of a virtual server instance.
 
 ## Getting started
 {: #fl-getting-started}  
@@ -90,7 +90,7 @@ With IBM Cloud Flow Logs for VPC, you can validate that network connections and 
 ### Use case 1: Analyzing flow logs
 {: #analyzing-flow-logs-using-example}
 
-You can review and download a [flow log example solution](https://github.com/IBM-Cloud/vpc-flowlogs-logdna){: external} of how to use a trigger function to read a flow log COS object and write it to IBM Log Analysis.
+You can review and download a [flow log example solution](https://github.com/IBM-Cloud/vpc-flowlogs-logdna){: external} of how to use a trigger function to read a flow log {{site.data.keyword.cos_short}} object and write it to IBM Log Analysis.
 
 ### Use case 2: Setting up finest granularity wins
 {: #finest-granularity-wins-example}
@@ -121,7 +121,7 @@ Scenario:
 ### Use case 4: Detecting port vulnerabilities
 {: #detect-port-vulnerabilities-example}
 
-Consider a scenario where an attacker initiates connections to different TCP ports. In turn, these connections are blocked by the security group filter. Flow logs collect all the flows that were rejected by the security group and reports them to Cloud Object Storage (COS).
+Consider a scenario where an attacker initiates connections to different TCP ports. In turn, these connections are blocked by the security group filter. Flow logs collect all the flows that were rejected by the security group and reports them to {{site.data.keyword.cos_full}}.
 
 ![Example of detecting port vulnerabilities](/images/fl-attack.png "Example of detecting port vulnerabilities"){: caption="Figure 3. Example of detecting port vulnerabilities" caption-side="bottom}
 

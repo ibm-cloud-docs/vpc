@@ -188,7 +188,7 @@ To receive monitoring metrics, you must set up your {{site.data.keyword.mon_full
 
 To receive monitoring metrics, use the following steps:
 
-1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring){: external} and click **Create a monitoring instance**.
+1. Navigate to the [metrics monitoring portal](/observe/monitoring){: external} and click **Create a monitoring instance**.
 
 2. Select a region for your {{site.data.keyword.mon_full_notm}} instance.
 
@@ -230,7 +230,7 @@ Within a few minutes, your new {{site.data.keyword.mon_full_notm}} instance disp
 
 To view and work with your {{site.data.keyword.mon_full_notm}} metrics, follow these steps:
 
-1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring){: external}.
+1. Navigate to the [metrics monitoring portal](/observe/monitoring){: external}.
 
 2. Click **Open Dashboard** next to the service name of the {{site.data.keyword.mon_full_notm}} instance that you want to work with.
 
@@ -255,7 +255,7 @@ You can create your own dashboard to customize your monitoring metrics, such as 
 
 To customize your dashboard, use the following steps:
 
-1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring){: external}.
+1. Navigate to the [metrics monitoring portal](/observe/monitoring){: external}.
 
 2. Click **Open Dashboard** next to the service name of the {{site.data.keyword.mon_full_notm}} instance you want to work with. You now see the dashboard.
 
@@ -298,7 +298,7 @@ After you create your {{site.data.keyword.mon_full_notm}} instance, you must col
 
 To collect this information and work with your {{site.data.keyword.mon_full_notm}} instance by using metric query API, follow these steps:
 
-1. Access the [Monitoring home page](https://cloud.ibm.com/observe/monitoring){: external}.
+1. Access the [Monitoring home page](/observe/monitoring){: external}.
 
 2. Click **Open Dashboard** next to the instance that you want to work with.
 
@@ -317,7 +317,7 @@ To collect this information and work with your {{site.data.keyword.mon_full_notm
    https://us-south.monitoring.cloud.ibm.com/#/default-dashboard/ibm_vpc_vpn_gen2?last=1209600
    ```
    {: pre}
-      
+
    The first part of the URL (in this example, `us-south.monitoring.cloud.ibm.com`) is your endpoint. Make note of this URL.
 
 6. After you have both the API token and the endpoint, you can format your POST request. The following POST request is an example, with all the parameters that you can modify. The following are parameters:
@@ -338,7 +338,7 @@ Because a large volume of data is stored in {{site.data.keyword.mon_full_notm}},
 If the time range that is specified by `from` and `to` is large (for example, 4 days), but you define a `sampling` and `value` of 10 seconds, it means that you receive 4 days worth of data that is split into 10-second chunks. This sample is not useful because of the large amount of data that is returned. Specifying a larger chunk is recommended (for example, 1 hour instead of 10 seconds).
 {: tip}
 
-```sh
+```json
    curl \
    -H 'Authorization: Bearer <API_TOKEN>’ \
    -H 'Content-Type: application/json' \
@@ -380,18 +380,16 @@ If the time range that is specified by `from` and `to` is large (for example, 4 
 {: codeblock}
 
 ## Accessing and viewing metrics
-{: vpn-access-view-metrics}
+{: #vpn-access-view-metrics}
 
 To access metrics for a specific VPN server, follow these steps:
 
-1. Navigate to the [VPNs for VPC](https://cloud.ibm.com/vpc-ext/network/vpngateways){: external} page and click the **Client-to-site servers** tab. 
+1. Navigate to the [VPNs for VPC](https://cloud.ibm.com/vpc-ext/network/vpngateways){: external} page and click the **Client-to-site servers** tab.
 1. Click the name of the VPN server to display its details.
-1. Click the **Monitoring** tab to view the VPN server metrics. 
+1. Click the **Monitoring** tab to view the VPN server metrics.
 
    ![VPN server metrics](images/vpn-monitoring.png){: caption="VPN monitoring" caption-side="bottom"}
-   
-1. Configure the history, dates, and time zone to generate the output you are looking for. 
+
+1. Configure the history, dates, and time zone to generate the output you are looking for.
 
 You can download the metrics or launch monitoring from your VPN dashboard by selecting **Launch monitoring.**
-
-   

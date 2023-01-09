@@ -157,7 +157,7 @@ By default, {{site.data.keyword.vpn_vpc_short}} disables PFS in Phase 2. If Juni
 
 To use a custom IPsec policy in {{site.data.keyword.vpn_vpc_short}}, follow these steps:
 
-1. On the {{site.data.keyword.vpn_vpc_short}} page in the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, select the **IPsec policies** tab.
+1. On the {{site.data.keyword.vpn_vpc_short}} page in the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the **IPsec policies** tab.
 
 1. Click **New IPsec policy** and specify the following values:
 

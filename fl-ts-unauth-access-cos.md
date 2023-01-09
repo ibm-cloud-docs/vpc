@@ -12,25 +12,25 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Why isn't the flow log collector authorized to publish data to the Cloud Object Storage bucket?
+# Why isn't the flow log collector authorized to publish data to the {{site.data.keyword.cos_full_notm}} bucket?
 {: #fl-ts-error-unauth-access-cos}
 {: troubleshoot}
 {: support}
 
-A flow log collector requires a {{site.data.keyword.cos_full_notm}} bucket to be defined and accessible. If you see the error log with message ID `is.flow-log-collector.00002E`, the Cloud Object Storage bucket is not accessible. The flow log collector cannot publish data to the bucket. 
+A flow log collector requires a {{site.data.keyword.cos_full_notm}} bucket to be defined and accessible. If you see the error log with message ID `is.flow-log-collector.00002E`, the {{site.data.keyword.cos_full_notm}} bucket is not accessible. The flow log collector cannot publish data to the bucket. 
 {: shortdesc}
 
-To avoid lost data, create a Cloud Object Storage bucket within the next 24 hours to correct this problem.
+To avoid lost data, create a {{site.data.keyword.cos_full_notm}} bucket within the next 24 hours to correct this problem.
 {: important}
 
-The flow log collector is not authorized to publish data to the Cloud Object Storage bucket: 
+The flow log collector is not authorized to publish data to the {{site.data.keyword.cos_full_notm}} bucket: 
    `is.flow-log-collector.00002E: Unauthorized access to Cloud Object Storage bucket <BucketName>`
 {: tsSymptoms}
 
-The Cloud Object Storage bucket does not have the correct access to allow the flow log collector to publish data.
+The {{site.data.keyword.cos_full_notm}} bucket does not have the correct access to allow the flow log collector to publish data.
 {: tsCauses}
 
-Check for a defined authorization between the flow log collector and the Cloud Object Storage bucket. If not, add one so that the flow log collector can access the bucket.
+Check for a defined authorization between the flow log collector and the {{site.data.keyword.cos_full_notm}} bucket. If not, add one so that the flow log collector can access the bucket.
 {: tsResolve}
 
 To define an authorization, follow these steps:
