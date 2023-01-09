@@ -53,4 +53,4 @@ ip address add 99.74.80.2/32 dev test4
 ```
 {: pre}
 
-Add address `99.74.80.2` with netmask `32 ` to device `test4`. To get the needed parameters, use the **ip -a** command.
+Add address `99.74.80.2` with netmask `32` to device `test4`. To get the needed parameters, use the **ip -a** command.

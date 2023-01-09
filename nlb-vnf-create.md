@@ -41,7 +41,7 @@ To support routing mode, you must first create a service-to-service authenticati
 
 To create and configure {{site.data.keyword.nlb_full}} with routing mode using the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
 1. Click **New load balancer +** in the upper right of the page.
 1. In the order form, complete the following information:

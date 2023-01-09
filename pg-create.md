@@ -3,10 +3,10 @@ copyright:
   years: 2022
 lastupdated: "2022-11-11"
 
-keywords: 
+keywords:
 
 subcollection: vpc
- 
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}
@@ -17,7 +17,7 @@ subcollection: vpc
 {: support}
 
 You can create and attach a public gateway to specific Virtual Private Cloud (VPC) subnets and virtual server instances. Before you begin, make sure to review the use cases that are listed in [About public gateways](/docs/vpc?topic=vpc-public-gateways).
-{:shortdesc}
+{: shortdesc}
 
 ## Before you begin
 {: #pg-before-you-begin}
@@ -25,9 +25,10 @@ You can create and attach a public gateway to specific Virtual Private Cloud (VP
 Before you create a public gateway, you must satisfy the following prerequisites:
 
 1. Make sure that at least one VPC and subnet exist. For more information, see [Creating a VPC and subnet](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#creating-a-vpc-and-subnet).
-1. Attach any floating IP addresses to your virtual server instances (optional). For more information, see [Reserving a floating IP address](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console&interface=ui#reserving-a-floating-ip-address). 
- Attaching floating IP addresses to virtual server instances enables communication to and from that particular instance, independent of whether the subnet is attached to a public gateway.
- {: note}
+1. Attach any floating IP addresses to your virtual server instances (optional). For more information, see [Reserving a floating IP address](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console&interface=ui#reserving-a-floating-ip-address).
+
+Attaching floating IP addresses to virtual server instances enables communication to and from that particular instance, independent of whether the subnet is attached to a public gateway.
+{: note}
 
 Only one public gateway per zone is allowed in a VPC, but a public gateway can be attached to multiple subnets in a zone.
 {: important}
@@ -48,25 +49,25 @@ To create a public gateway using the {{site.data.keyword.cloud_notm}} console, f
 1. Select the **Edit location** icon ![Edit location icon](../icons/edit-tagging.svg "Edit location") and enter values for the following fields:
 
    * **Geography** - Select a continent for your public gateway.
-   * **Region** - Select a region for your public gateway. 
+   * **Region** - Select a region for your public gateway.
    * **Zone** - Select a zone for your public gateway.
 
-1. Enter values for the following fields under details: 
+1. Enter values for the following fields under details:
 
    * **Public gateway name** - Type a unique name for your public gateway.
    * **Resource group** - Select a resource group for your public gateway collector. You can use the default group for this public gateway, or select from the list (if defined). For more information, see [Best practices for organizing resources in a resource group](/docs/account?topic=account-account_setup). 
-   After provisioning is complete, you cannot change the resource group. 
-   {: important}
+      After provisioning is complete, you cannot change the resource group.
+      {: important}
+
    * **VPC** - Select a VPC. You can use the default VPC for this public gateway, or select from the list (if defined). For more information, see [Getting started with Virtual Private Cloud](/docs/vpc?topic=vpc-getting-started&interface=ui).
-   * **Tags** - Optionally, add user tags. User tags are visible account-wide. For more information, see [Working with tags](/docs/account?topic=account-tag).    
+   * **Tags** - Optionally, add user tags. User tags are visible account-wide. For more information, see [Working with tags](/docs/account?topic=account-tag).
    * **Access management tags** - Optionally, add access management tags to help organize access control relationships. For more information, see [Controlling access to resources by using tags](/docs/account?topic=account-access-tags-tutorial).
-   
 
 1. Copy a **sample API call** (optional).
-1. Click **Create**. 
+1. Click **Create**.
 1. If you don't have a paid account, **Upgrade your account** might appear instead of **Create**. If this option is shown, click to update your account to a paid account before creating your public gateway. For more information, see [Upgrading your account](/docs/account?topic=account-upgrading-account).
 
-  For example:
+   For example:
 
    ![Example Public gateways page](./images/pg-2.png "Public gateways menu"){: caption="Figure 2. Example public gateways page" caption-side="bottom}
 

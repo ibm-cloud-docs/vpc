@@ -23,7 +23,7 @@ You can update subnets for an {{site.data.keyword.cloud}} {{site.data.keyword.al
 
 To update subnets for an ALB by using the {{site.data.keyword.cloud_notm}} console, perform the following procedure:
 
-1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
+1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
 1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
 1. Select the load balancer whose subnets you want to update.
 1. Select **Overview**, click the **Edit subnets** button, then select the subnets you want to attach or detach.
