@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-12-14"
+  years: 2022, 2023
+lastupdated: "2023-01-13"
 
 keywords:
 
@@ -18,7 +18,7 @@ subcollection: vpc
 Configure your authentication settings for the VPN server and VPN clients. Certificates are managed through IBM Cloud Secrets Manager. 
 {: shortdesc}
 
-As a reminder, the end of support for IBM Cloud Certificate Manager is 31 December 2022. After this date, any remaining instances of Certificate Manager will be deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they will no longer be valid. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager). 
+As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. Any user-provided Ingress secrets stored in Certificate Manager are no longer valid. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager).
 {: important}
 
 ## Creating an IAM service-to-service authorization
@@ -200,7 +200,7 @@ You must create your own CA and import the CA certificate into Secrets Manager t
 ### Locating the certificate CRN 
 {: #locating-cert-crn}
 
-When you configure authentication for a client-to-site VPN server during provisioning using the UI, you can choose to specify the Secrets Manager and SSL certificate, or the certificate's CRN. You might want to do this if you cannot view the Secrets Manager in the menu, which means you don't have access to the Secrets manager instance. Keep in mind that you must enter the CRN if using the API to create a client-to-site VPN server.
+When you configure authentication for a client-to-site VPN server during provisioning using the UI, you can choose to specify the Secrets Manager and SSL certificate, or the certificate's CRN. You might want to do this if you cannot view the Secrets Manager in the menu, which means you don't have access to the Secrets Manager instance. Keep in mind that you must enter the CRN if using the API to create a client-to-site VPN server.
 
 To obtain the CRN, you must have permission to access the Secrets Manager instance.
 {: note}
@@ -208,7 +208,7 @@ To obtain the CRN, you must have permission to access the Secrets Manager instan
 To find a certificate's CRN, follow these steps:
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > Resource list**. 
-1. Click to expand **Security**, then select the Secrets manager that you want to find the CRN for.
+1. Click to expand **Security**, then select the Secrets Manager that you want to find the CRN for.
 1. Select anywhere in the table row of the certificate to open the Certificate details side panel. The certificate CRN is listed. 
 
    ![Service instance CRN](images/vpn_server_cert_crn.png "Service instance CRN"){: caption="Service instance CRN" caption-side="bottom"}
@@ -222,12 +222,9 @@ End of support for IBM Cloud Certificate Manager is 31 December 2022. If your VP
 To migrate a certificate, follow these steps:
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > VPNs**.
-1. Go to **Client-to-site servers** page and select the VPN server that uses a certificate from Certificate Manager.
-1. Click **Edit** in Authentication panel.
-
-   ![Authentication with certificate manager](images/vpn_server_authentication_certificate_manager.png "Authentication with certificate manager"){: caption="Authentication with certificate manager" caption-side="bottom"}
-
-1. Select **Secrets Manager** in **Certificate source** list, then choose a Secrets Manager instance and a certificate.
+1. Go to the **Client-to-site servers** page and select the VPN server that uses a certificate from Certificate Manager.
+1. Click **Edit** in the Authentication panel.The Edit Authentication window is shown. 
+1. Select **Secrets Manager** in the **Certificate source** list, then choose a Secrets Manager instance and a certificate.
 
    ![Authentication with Secrets Manager](images/vpn_server_authentication_secrets_manager.png "Authentication with Secrets Manager"){: caption="Authentication with Secrets Manager" caption-side="bottom"}
 
