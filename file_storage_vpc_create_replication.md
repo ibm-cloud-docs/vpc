@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-11-08"
+  years: 2022, 2023
+lastupdated: "2023-01-13"
 
 keywords:
 
@@ -18,14 +18,14 @@ subcollection: vpc
 Create replica file share in a different zone in your region in the UI, from the CLI, or with the API.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Tokyo, and Osaka regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Add replication to a file share in the UI
 {: #fs-create-replica-ui}
 {: ui}
 
-You can create a replica of your file share from the File shares for VPC screen or from the File share details page. Replica file shares are created in the same region, but in a different zone than the primary share's zone.
+You can create a replica of your file share from the list of all file shares or file share details page. Replica file shares are created in the same region, but in a different zone than the primary share's zone.
 
 Provision a file share as described in [Create a file share and mount target in the UI](/docs/vpc?topic=vpc-file-storage-create&interface=ui#fs-create-share-target-ui). When the file share appears as "stable" on the File shares for VPC page, click the ellipsis ![Actions icon](../icons/action-menu-icon.svg "Actions"). Then, click **Create replica**.
 
@@ -111,7 +111,7 @@ Profile              tier-5iops
 Size(GB)             40
 IOPS                 3000
 Encryption           provider_managed
-Mount targets        ID                          Name   VPC ID   VPC Name
+Targets              ID                          Name   VPC ID   VPC Name
                      No mounted targets found.
 
 Resource group       ID                                 Name
@@ -141,7 +141,7 @@ ibmcloud is share-replica-create \
    -profile PROFILE \
    [--name NAME] \
    [--iops IOPS] \
-   [--mount-targets TARGETS_JSON | @TARGETS_JSON_FILE] \
+   [--targets TARGETS_JSON | @TARGETS_JSON_FILE] \
    [--replication-cron-spec REPLICATION_CRON_SPEC \
    --source-share SOURCE_SHARE] \
    [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] \
@@ -165,7 +165,7 @@ Profile                 tier-5iops
 Size(GB)                40
 IOPS                    3000
 Encryption              provider_managed
-Mount targets           ID                          Name   VPC ID   VPC Name
+Targets                 ID                          Name   VPC ID   VPC Name
                         No mounted targets found.
 
 Resource group          ID                                 Name
@@ -207,7 +207,7 @@ curl -X POST\
        "name":"tier-3iops"
     },
     "size":10,
-    "mount-targets":[
+    "targets":[
        {
           "vpc":{
               "id":"08669c86-4c8a-4bfa-8ddc-37071f955c52"
@@ -226,7 +226,7 @@ curl -X POST\
         "zone":{
             "name":"us-south-3"
         },
-        "mount-targets":[
+        "targets":[
            {
               "vpc":{
                 "id":"9380990e-4b3b-4d79-80fe-ee052fb9772a"
