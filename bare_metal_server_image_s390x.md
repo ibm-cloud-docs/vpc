@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-04"
+lastupdated: "2023-01-16"
 
 keywords: linuxone bare metal license, linux license, byol, bring your own license, s390x bare metal byol, s390x license
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # s390x bare metal server images
 {: #s390x-bare-metal-images}
 
-s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east), London (eu-gb), Toronto (ca-tor), and São Paulo (br-sao) regions.
+s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), Toronto (ca-tor), and São Paulo (br-sao) regions.
 {: preview}
 
 When you provision an s390x bare metal server on your VPC, you need to select an image to determine the operating system for the server.
