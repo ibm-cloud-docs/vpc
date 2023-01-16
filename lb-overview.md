@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# About {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}}
+# About application load balancers
 {: #load-balancers}
 
 Use {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) to distribute traffic among multiple server instances within the same region of your VPC.
@@ -123,7 +123,7 @@ URI | The relative URI to which a request redirects. This is an optional propert
 * You can attach up to 50 virtual server instances to a back-end pool. Traffic is sent to each instance on its specified data port. This data port does not need to be the same one as the front-end listener port.
 * "Private only" endpoints for Secrets Manager are not supported with HTTPS listeners. To configure an HTTPS listener in an ALB, you must upload your TLS certificates to a "Public and private" endpoint.
 
-As a reminder, the end of support for IBM Cloud Certificate Manager is 31 December 2022. After this date, any remaining instances of Certificate Manager will be deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they will no longer be valid. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager).
+As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they are no longer valid. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager).
 {: important}
 
 ## Elasticity
@@ -140,7 +140,7 @@ When an HTTPS listener is configured with an HTTP pool, the HTTPS request is ter
 
 SSL offloading requires you to provide an SSL certificate for the application load balancer to perform SSL offloading tasks. You can manage the SSL certificates through the [{{site.data.keyword.secrets-manager_full_notm}}](/docs/secrets-manager?topic=secrets-manager-getting-started). 
 
-As a reminder, the end of support for IBM Cloud Certificate Manager is 31 December 2022. After this date, any remaining instances of Certificate Manager will be deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they will no longer be valid. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager).
+As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they are no longer valid. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager).
 {: important}
 
 {{site.data.content.load-balancer-grant-service-auth}} 

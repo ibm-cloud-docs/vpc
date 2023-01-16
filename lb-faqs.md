@@ -13,7 +13,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# FAQs for {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}}
+# FAQs for application load balancers
 {: #load-balancer-faqs}
 
 The following sections contain answers to some frequently asked questions about the {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB).
@@ -203,7 +203,7 @@ Approved Scanning Vendor (ASV) quarterly scanning is a requirement of the Paymen
 {: #migrate-to-secrets-manager}
 {: faq}
 
-As a reminder, the end of support for IBM Cloud Certificate Manager is 31 December 2022. After this date, any remaining instances of Certificate Manager will be deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they will no longer be valid. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager).
+As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they are no longer valid. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager).
 
 ## How are active connections handled when a load balancer is scaled down?
 {: #faqs-active-connections}
