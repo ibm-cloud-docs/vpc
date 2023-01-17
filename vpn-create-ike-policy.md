@@ -55,7 +55,7 @@ ibmcloud is ike-policy-create IKE_POLICY_NAME AUTHENTICATION_ALGORITHM DH_GROUP 
 
 Where:
 
-`md-5` and `sha-1` authentication algorithms, `2` and `5` DH groups, and the `triple_des` encryption algorithm are deprecated and no longer supported in the UI. For more information, see [Upgrading weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=ui).
+`md-5` and `sha-1` authentication algorithms, `2` and `5` DH groups, and the `triple_des` encryption algorithm were deprecated on 20 September 2022 and are no longer supported in the UI. If you currently use these ciphers, you must [upgrade weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=ui) before end of support is announced for use with the CLI and API.
 {: deprecated}
 
 - **IKE_POLICY_NAME** - Name of the IKE policy.

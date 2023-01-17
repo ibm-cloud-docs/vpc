@@ -24,9 +24,9 @@ Route-based VPN is now available in addition to policy-based VPN. To get started
 ## VPN for VPC features
 {: #vpn-features}
 
-The IBM Cloud VPN for VPC service includes the following features:
+The IBM Cloud VPN for VPC service includes the following features: 
 
-MD-5 and SHA-1 authentication algorithms, 2 and 5 DH groups, and the 3-DES encryption algorithm are deprecated and no longer supported in the UI. For more information, see [Upgrading weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=ui).
+MD-5 and SHA-1 authentication algorithms, 2 and 5 DH groups, and the 3-DES encryption algorithm were deprecated on 20 September 2022 and are no longer supported in the UI. If you currently use these ciphers, you must [upgrade weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=ui) before end of support is announced for use with the CLI and API.
 {: deprecated}
 
 * **Authentication** - IBM Cloud VPN for VPC supports a pre-shared key for Phase 1 peer authentication. Supported authentication algorithms for both phases include SHA-256, SHA-384, and SHA-512.  
