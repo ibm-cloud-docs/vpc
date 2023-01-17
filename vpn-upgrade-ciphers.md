@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-10-24"
+  years: 2022, 2023
+lastupdated: "2023-01-17"
 
 keywords: auto-negotiation, ciphers, upgrading ciphers, migrating ciphers
 
@@ -18,13 +18,13 @@ subcollection: vpc
 To maintain security best practices and minimize security vulnerabilities, VPN for VPC now supports an enhanced cipher suite, providing new algorithms and removing weak algorithms to meet customer compliance requirements. VPN gateways that use weak ciphers put networks and data at risk and compromise compliance, requiring an upgrade to the secure cipher suite.
 {: shortdesc}
 
-As of 20 September 2022, the following VPN IKE and IPsec ciphers are now deprecated:
+As of 20 September 2022, the following VPN IKE and IPsec ciphers are deprecated:
 
 - Authentication algorithms `md5` and `sha1`
 - Encryption algorithm `triple_des`
 - Diffie-Hellman groups `2` and `5`
 
-You have until 13 December 2022 to transition to more secure ciphers. After this date:
+Effective 17 January 2023, these ciphers are no longer supported in the UI. You must transition to more secure ciphers as soon as possible; otherwise:
 
 * VPN connections that use deprecated ciphers stop working. 
 * VPN connections that use an auto-negotiation policy are forced to upgrade to the [enhanced auto-negotiation policy](/docs/vpc?topic=vpc-using-vpn#policy-negotiation). 
