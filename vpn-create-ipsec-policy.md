@@ -132,7 +132,7 @@ In the following example, you can create a IPsec policy using Terraform:
 ```
 {: codeblock}
 
-See the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_ipsec_policy)for more information.
+See the [Terraform registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_ipsec_policy) for more information.
 
 ## Next steps
 {: #vpn-create-ipsec-next-steps}

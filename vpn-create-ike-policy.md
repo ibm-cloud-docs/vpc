@@ -59,12 +59,9 @@ Where:
 {: deprecated}
 
 - **IKE_POLICY_NAME** - Name of the IKE policy.
-- **AUTHENTICATION_ALGORITHM** - The authentication algorithm. One of: `sha256`, `sha384`, `sha512`. 
-
-- **DH_GROUP** - The Diffie-Hellman group. One of: `14`, `15`, `16`, `17`, `18`, `19`, `20`, `21`, `22`, `23`, `24`, `31`. 
-
-- **ENCRYPTION_ALGORITHM** - The encryption algorithm. One of: `aes128`, `aes192`, `aes256`. 
-
+- **AUTHENTICATION_ALGORITHM** - The authentication algorithm. One of: `sha256`, `sha384`, `sha512`.
+- **DH_GROUP** - The Diffie-Hellman group. One of: `14`, `15`, `16`, `17`, `18`, `19`, `20`, `21`, `22`, `23`, `24`, `31`.
+- **ENCRYPTION_ALGORITHM** - The encryption algorithm. One of: `aes128`, `aes192`, `aes256`.
 - **IKE_VERSION** - The IKE protocol version. One of: `1`, `2`.
 - **--key-lifetime value** - The key lifetime in seconds. Maximum: `86400`, Minimum: `1800`. The default value is `28800`.
 - **--resource-group-id value** - ID of the resource group. This option is mutually exclusive with **--resource-group-name**.
@@ -79,7 +76,7 @@ Where:
    - `ibmcloud is ike-policy-create my-ike-policy sha256 14 aes128 2`
 - Create an IKE policy with the same parameters and a 3600-seconds lifetime:
    - `ibmcloud is ipsec-policy-create my-ipsec-policy sha256 14 aes128 2 --key-lifetime 3600`
-- CCreate an IKE policy with the same parameters and a resource group ID:
+- Create an IKE policy with the same parameters and a resource group ID:
    - `ibmcloud is ipsec-policy-create my-ipsec-policy sha256 14 aes128 2 --resource-group-id fee82deba12e4c0fb69c3b09d1f12345 --output JSON`
 
 ## Creating an IKE policy with the API
