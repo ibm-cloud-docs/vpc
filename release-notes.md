@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-01-16"
+lastupdated: "2023-01-17"
 
 keywords:
 
@@ -30,8 +30,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## January 2023
 {: #vpc-jan23}
 
-### 17 January 2023
-{: #vpc-jan1723}
+### 18 January 2023
+{: #vpc-jan1823}
 {: release-note}
 
 New region (Tokyo) for LinuxONE Bare Metal Servers (s390x processor architecture) (LA)
