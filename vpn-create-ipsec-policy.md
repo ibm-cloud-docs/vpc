@@ -55,7 +55,7 @@ ibmcloud is ipsec-policy-create IPSEC_POLICY_NAME AUTHENTICATION_ALGORITHM ENCRY
 
 Where:
 
-  `md-5` and `sha-1` authentication algorithms, `group_2` and `group_5` DH groups, and the `triple_des` encryption algorithm are deprecated and no longer supported in the UI. For more information, see [Upgrading weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=ui).
+`md-5` and `sha-1` authentication algorithms, `group_2` and `group_5` DH groups, and the `triple_des` encryption algorithm are deprecated and no longer supported in the UI. For more information, see [Upgrading weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers&interface=ui).
 {: deprecated}
 
 - **IPSEC_POLICY_NAME** - Name of the IPsec policy.
