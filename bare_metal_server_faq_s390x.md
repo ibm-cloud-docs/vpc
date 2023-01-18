@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-04"
+lastupdated: "2023-01-16"
 
 keywords: s390x bare metal faq, linuxone bare metal server faq
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # FAQ for s390x bare metal servers
 {: #s390x-bare-metal-server-faq}
 
-s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east), London (eu-gb), Toronto (ca-tor), and São Paulo (br-sao) regions.
+s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), Toronto (ca-tor), and São Paulo (br-sao) regions.
 {: preview}
 
 You might encounter the following frequently asked questions when you use an s390x bare metal server.
@@ -42,7 +42,7 @@ When you are planning to create an s390x bare metal server, you can go through t
 {: #faq-s390x-bare-metal-4}
 {: faq}
 
-The s390x bare metal servers are available in the Washington DC (us-east), London (eu-gb), Toronto (ca-tor), and São Paulo (br-sao) regions with plans to expand to other regions.
+The s390x bare metal servers are available in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), Toronto (ca-tor), and São Paulo (br-sao) regions with plans to expand to other regions.
 
 ## Do I need to configure multiple network interfaces on an s390x bare metal server to support the full 10 Gbps bandwidth?
 {: #faq-s390x-bare-metal-5}
