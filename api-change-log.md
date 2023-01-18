@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-12-20"
+  years: 2019, 2023
+lastupdated: "2023-01-17"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -48,6 +48,21 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 17 January 2023
+{: #17-january-2023}
+
+### For all version dates
+{: #17-january-2023-all-version-dates}
+
+**Bare metal server DELETE response code change.** Bare metal `DELETE` methods now return an HTTP response code of `202` upon success:
+
+- [Delete a network interface](/apidocs/vpc/latest#delete-bare-metal-server-network-interface)
+- [Disassociate a floating IP from a network interface](/apidocs/vpc/latest#remove-bare-metal-server-network-interface-floatin)
+- [Delete a bare metal server](/apidocs/vpc/latest#delete-bare-metal-server)
+
+Unlike previous response code changes, the transition from `204` to `202` applies to all API versions.  Therefore, a response code of `204` will not be returned for any API requests for these methods, regardless of the `version` query parameter value. Future transitions from `204` to `202` will be tied to a dated API version, as described in [Upcoming changes](#upcoming-changes).
+{: note}
 
 ## 20 December 2022
 {: #20-december-2022}
