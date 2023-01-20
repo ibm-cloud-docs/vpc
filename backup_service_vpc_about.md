@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-12-20"
+  years: 2022, 2023
+lastupdated: "2023-01-20"
 
 keywords:
 
@@ -80,7 +80,7 @@ The {{site.data.keyword.cloud_notm}} Backup for VPC offers you the following ben
 
 Backup policies consist of plans that define schedules for automatic backup creation and data retention. You can schedule backups on a daily, weekly, or monthly basis.
 
-You specify the retention period or total number of backups before the oldest are deleted. The default retention period is 30 days. Alternatively, you can set the total number of backups to retain up to 750 per volume. When that number is exceeded, the the oldest backups are deleted.
+You specify the retention period or total number of backups before the oldest are deleted. The default retention period is 30 days. Alternatively, you can set the total number of backups to retain up to 750 per volume. If delete over count is greater than 750 backups, the backup policy will no longer take a backup snapshot when the limit per volume is reached.
 
 The interval for creating a backup and its retention period can be the same or different.
 

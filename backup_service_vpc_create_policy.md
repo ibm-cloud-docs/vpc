@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-11-11"
+  years: 2022. 2023
+lastupdated: "2023-01-20"
 
 keywords:
 
@@ -68,16 +68,23 @@ You can schedule backups in your plan on a daily, weekly, or monthly basis by us
 1. From the Plan side panel, enter a name for the plan (for example, _daily-dallas-vol1_). The plan name must be unique within the policy.
 
 2. Under **Frequency**, select Daily, Weekly, or Monthly.
+
    * For a Daily plan, enter the **starting time (UTC)** in hours and minutes, UTC. For example, 12 noon would be 12:00. Local time conversion is automatically provided, for example, 12 PM Central Daylight Time.
+
    * For a Weekly plan, select the days of the week you want backups to execute. For example, you could select Monday, Wednesday, and Friday. Specify the starting time in the same manner as a Daily plan.
+
    * For a Monthly plan, select the day of the month you want backups to execute. For example, 1 would schedule a backup every first of the month. Specify the starting time in the same manner as a Daily plan.
 
    The **Backup destination** shows the {{site.data.keyword.block_storage_is_short}} volume's region. The **Backup resource group** is the resource group that is associated with the volume.
    {: note}
 
 3. Specify a **Retention type** for the backups. You can specify either how long to keep them by number of days or the total number to retain.
+
    * For **Age**, specify the number of days that you want to retain the backups. There is no default for the maximum number of days to keep a backup.
-   * For **Count**, provide the number of backups that you want to keep. You can retain up to 100 snapshots for a volume. To keep costs down, set a retention period adequate to your needs. For example, setting 7 for **Age** retains a week's worth of backups.
+
+   * For **Count**, provide the number of backups that you want to keep. You can retain up to 750 snapshots for a volume. 
+   
+   To keep costs down, set a retention period or backup snapshot count adequate to your needs. For example, setting 7 for **Age** retains a week's worth of backups.
 
 4. Under **Optional configurations**, **Tagging**, specify more tags that apply to the backup when the plan executes.
    * Select the box to copy all tags from the source volume to all backups.
@@ -97,11 +104,14 @@ You can specify a backup plan to indicate frequency by way of a `cron-spec` expr
 2. Under **Frequency**, select **Specify by using cron expression** from the drop down menu.
    * Under **Cron expression {UTC)**, enter the backup creation frequency in `cron-spec` format: minute, hour, day, month, and weekday. For example, to create a backup every day at 5:30 PM, you need to enter `30 17 * * *`.
 
-   The **Backup destination** shows the {{site.data.keyword.block_storage_is_short}} volume's region. The **Backup resource group** is the resource group that is associated with the volume.
+   * The **Backup destination** shows the {{site.data.keyword.block_storage_is_short}} volume's region. The **Backup resource group** is the resource group that is associated with the volume.
 
 3. Specify a **Retention type** for the backups. You can specify either how long to keep them by number of days or the total number to retain.
-   - For **Age**, specify the number of days that you want to retain the backups. There is no default for the maximum number of days to keep a backup.
-   - For **Count**, provide the number of backups that you want to keep. You can retain up to 100 snapshots for a volume. To keep costs down, set a retention period adequate to your needs. For example, setting 7 for **Age** retains a week's worth of backups.
+
+   * For **Age**, specify the number of days that you want to retain the backups. There is no default for the maximum number of days to keep a backup.
+   * For **Count**, provide the number of backups that you want to keep. You can retain up to 750 snapshots for a volume. 
+   
+   To keep costs down, set a retention period or backup snapshot count adequate to your needs. For example, setting 7 for **Age** retains a week's worth of backups.
 
 4. Under **Optional configurations**, **Tagging**, specify more tags that apply to the backup when the plan executes.
    * Select the box to copy all tags from the source volume to all backups.
@@ -124,7 +134,7 @@ Use the cost estimator to see what your backups could cost based on the rate of 
 
    * Average amount of data per volume (in GBs). For example, you might associate two volumes with a policy. The first volume has 4 GB of data and the second 20 GB. An average of the two would be 12 GB.
 
-   * Number of backups per volume per month. Consider the backup frequency that you set in your backup plan. You can take a maximum of 100 backups per volume.
+   * Number of backups per volume per month. Consider the backup frequency that you set in your backup plan. You can take a maximum of 750 backups per volume.
 
    * Percent of incremental change after the initial backup. For example, 15 percent increase in size for each subsequent backup.
 
