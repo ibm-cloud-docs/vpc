@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2023-01-06",
+    "lastupdated": "2023-01-20",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
-          "date": "05 January 2023",
-          "title": "New region (London) for LinuxONE Bare Metal Servers (s390x processor architecture) (LA)",
-          "description": "LinuxONE Bare Metal Servers are now available in the London (eu-gb) region. "
+          "date": "18 January 2023",
+          "title": "New region (Tokyo) for LinuxONE Bare Metal Servers (s390x processor architecture) (LA)",
+          "description": "LinuxONE Bare Metal Servers are now available in the Tokyo region."
         },
         {
-          "date": "20 December 2022",
-          "title": "Instance provision by volume (Beta)",
-          "description": "By default, when a virtual server instance is deleted attached boot volumes are deleted. You can disable this behavior, causing the boot volume to instead be detached when the virtual server instance is deleted. You can then attach the boot volume to a new virtual server instance"
+          "date": "17 January 2023",
+          "title": "Application Load Balancer and VPN for VPC",
+          "description": "As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they are no longer valid."
         },
         {
-          "date": "20 December 2022",
-          "title": "Backup for VPC",
-          "description": "The backup policy jobs feature, previously released as a Beta, is now generally available. You can now view all backup policy jobs or details of a single job from the UI, CLI, or API. A backup policy job is triggered when a scheduled backup snapshot is being created or deleted. If the create or delete action is successful, the job contains information about the backup snapshot that was created or deleted. If the job ran unsuccessfully, the job contains the reason for the failure."
+          "date": "17 January 2023",
+          "title": "End of support (EOS) for deprecated VPN for VPC IKE and IPsec ciphers",
+          "description": "On 20 September 2022, the Authentication algorithms md5 and sha1, Encryption algorithm triple_des, and Diffie–Hellman groups 2 and 5 VPN IKE and IPsec ciphers were deprecated. Effective today, these ciphers are no longer supported in the UI and EOS for use with the CLI and API is forthcoming. If you haven't upgraded to more secure ciphers, do so now."
         }
       ]
     }
