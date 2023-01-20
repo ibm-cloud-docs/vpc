@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-01-17"
+lastupdated: "2023-01-20"
 
 keywords:
 
@@ -36,6 +36,21 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 New region (Tokyo) for LinuxONE Bare Metal Servers (s390x processor architecture) (LA)
 :   LinuxONE Bare Metal Servers are now available in the Tokyo region. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
+
+### 17 January 2023
+{: #vpc-jan1723}
+{: release-note}
+
+Application Load Balancer and VPN for VPC 
+:    As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they are no longer valid. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager).
+
+End of support (EOS) for deprecated VPN for VPC IKE and IPsec ciphers
+:    On 20 September 2022, the following VPN IKE and IPsec ciphers were deprecated:
+   - Authentication algorithms `md5` and `sha1`
+   - Encryption algorithm `triple_des`
+   - Diffie–Hellman groups `2` and `5`
+
+   Effective today, these ciphers are no longer supported in the UI and EOS for use with the CLI and API is forthcoming. If you haven't upgraded to more secure ciphers, do so now. For more information, see [Upgrading weak cipher suites on a VPN gateway](/docs/vpc?topic=vpc-upgrading-weak-ciphers).
 
 ### 05 January 2023
 {: #vpc-jan0523}
