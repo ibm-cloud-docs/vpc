@@ -137,7 +137,7 @@ After the secondary volume is attached to the new CentOS instance, you need to v
 Use the following example:
 
 ```sh
-# lsblk
+$ lsblk
 NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 vda    253:0    0  100G  0 disk
 ├─vda1 253:1    0    1G  0 part /boot
@@ -146,7 +146,7 @@ vdb    253:16   0  368K  0 disk
 vdc    253:32   0   44K  0 disk [SWAP]
 vdd    253:48   0  300G  0 disk
 ```
-{:screen}
+{: screen}
 
 In this example, the secondary volume is the `vdd` device.
 
