@@ -241,17 +241,18 @@ For the “bx2d-host-152x608” profile, you can know from the name that it is a
 {: cli}
 
 To view the list of available profiles by using the CLI, run the following command:
-```
-$ ibmcloud is dedicated-host-profiles
+```sh
+ibmcloud is dedicated-host-profiles
 ```
 {: codeblock}
 
 ## Intel Hyper-Threading Technology
+{: #intel-hyper-threading}
 
 All Intel&reg;-based servers operate with the Intel&reg; Hyper-Threading Technology enabled. Hyper-Threading Technology provies 2 vCPUs for every physical core in the box. Hyper-Threading Technology can also be disabled if needed. For more information, see [Disabling Intel Hyper-Threading Technology](/docs/vpc?topic=vpc-disabling-hyper-threading).
 
 ## Next steps
-{: nextsteps-profiles}
+{: #nextsteps-profiles}
 
 After you choose a profile, it's time to create a dedicated host.
 
