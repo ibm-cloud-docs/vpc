@@ -1,46 +1,37 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-03-21"
+  years: 2022, 2023
+lastupdated: "2023-01-23"
 
-keywords: 
+keywords:
 
 subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:table: .aria-labeledby="caption"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Modifying a Linux OS for expanding boot volumes
 {: #modifying-the-linux-os-expanded-boot-volume}
 
-You can increase the disk capacity on linux systems after the boot volume has been expanded. This can be done with existing virtual server instances or while creating a new virtual server instance.
+You can increase the disk capacity on linux systems after the boot volume was expanded. The capacity can be increased in existing virtual server instances or while creating a virtual server instance.
 
 ## Modifying an existing virtual server instance and increasing its boot volume
 {: #modify-existing-vsi}
 
-An Ubuntu system is used in this example to display increasing the disk capacity of an existing virtual server instance. The procedure and commands for other Linux distributions may vary.
+An Ubuntu system is used in this example to display increasing the disk capacity of an existing virtual server instance. The procedure and commands for other Linux distributions can vary.
 
-**Ubuntu example**
+### Ubuntu example
+{: #ubuntu-modify-os-after-expansion}
 
-1. Create an Ubuntu virtual server instance instance from the stock image with a capacity of 100 G (default value).
+1. Create an Ubuntu virtual server instance from the stock image with a capacity of 100 GB (default value).
 
-2. Assign FIP to the virtual server instance and SSH into the instance using FIP.
+2. Assign FIP to the virtual server instance and SSH into the instance by using FIP.
 
 3. Validate the os-release.
-   
-   ```
+
+   ```sh
    root@ubuntu-18:~# cat /etc/os-release
    NAME="Ubuntu"
    VERSION="18.04.5 LTS (Bionic Beaver)"
@@ -55,9 +46,9 @@ An Ubuntu system is used in this example to display increasing the disk capacity
    VERSION_CODENAME=bionic
    UBUNTU_CODENAME=bionic
    ```
-   
+
 4. Patch the larger volume to the existing boot volume.
-   ```
+   ```curl
    curl -k -sS -X PATCH "$api_endpoint/v1/volumes/$1?generation=$generation&version=$api_version" \
        -H "Authorization: Bearer $iam_token" \
        -d '
@@ -65,10 +56,11 @@ An Ubuntu system is used in this example to display increasing the disk capacity
        "capacity": 200
    } ' | jq .
    ```
-   
+   {: codeblock}
+
 5. Validate if the latest capacity is 250 G.
-   
-   ```
+
+   ```sh
    root@ubuntu-18-04:~# lsblk
    NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
    vda     252:0    0  250G  0 disk
@@ -79,10 +71,10 @@ An Ubuntu system is used in this example to display increasing the disk capacity
    vdc     252:32   0   44K  0 disk
    root@ubuntu-18-04:~# growpart /dev/vda 1
    ```
-   
-   If the capacity is not 250 G, execute commands to grow the partition size to cover maximum free space. <!--Growpart for Extended partition-->
-   
-   ```
+   {: screen}
+
+   If the capacity is not 250 G, issue the following command to grow the partition size to cover maximum available space.
+   ```sh
    root@ubuntu-18-04:~# growpart /dev/vda 1
    CHANGED: partition=1 start=227328 old: size=209487839 end=209715167 new: size=524060639,end=524287967
    root@ubuntu-18-04:~# lsblk
@@ -94,20 +86,20 @@ An Ubuntu system is used in this example to display increasing the disk capacity
    vdb     252:16   0   370K  0 disk
    vdc     252:32   0    44K  0 disk
    ```
-   
-6. Test if the file system got resized (execute the command - "df -kh" ).  <!-- Test and validate the expansion of root partition. -->
-   
-   If it shows no changes, execute commands to resize the filesystem (xfs or ext4) along with modifications for physical volume, volume group, and logical volume.
-   ```
+   {: screen}
+
+6. Issue the command `df -kh` to test if the file system got resized. If it shows no changes, issue the following command to resize the file system (xfs or ext4) along with modifications for physical volume, volume group, and logical volume.
+   ```sh
    root@ubuntu-18-04:~# resize2fs /dev/vda1
    resize2fs 1.44.1 (24-Mar-2018)
    Filesystem at /dev/vda1 is mounted on /; on-line resizing required
    old_desc_blocks = 13, new_desc_blocks = 32
    The filesystem on /dev/vda1 is now 65507579 (4k) blocks long.
    ```
-   
-7. Test if the file system got resized. Now, the filesystem should have been resized to 250G as expected.
-   ```
+   {: screen}
+
+7. Test if the file system got resized. The output now shows 250G as expected.
+   ```sh
    root@ubuntu-18-04:~# df -kh
    Filesystem      Size  Used Avail Use% Mounted on
    udev            3.9G     0  3.9G   0% /dev
@@ -119,24 +111,24 @@ An Ubuntu system is used in this example to display increasing the disk capacity
    /dev/vda15      105M  6.6M   98M   7% /boot/efi
    tmpfs           798M     0  798M   0% /run/user/0
    ```
+   {: screen}
 
 
-<!-- ubutnu -->
-
-## Creating a new virtual server instance from a custom image or stock image and increasing the boot volume
+## Creating a virtual server instance from a custom image or stock image and increasing the boot volume
 {: #modify-new-vsi}
 
-A CentOS system is used in this example to display increasing the disk capacity of a virtual server instance being created. The procedure and commands for other Linux distributions may vary.
+A CentOS system is used in this example to display increasing the disk capacity of a virtual server instance when it is created. The procedure and commands for other Linux distributions can vary.
 
-**Centos example**
+### CentOS example
+{: #centos-modify-os-after-expansion}
 
-1. Create a Centos virtual server instance and assign FIP to it. 
+1. Create a CentOS virtual server instance and assign FIP to it.
 
-2. SSH into the virtual server instance using FIP.
+2. SSH into the virtual server instance by using FIP.
 
 3. Validate the os-release.
 
-   ```
+   ```sh
    [root@centos-8 ~]# cat /etc/os-release
    NAME="CentOS Linux"
    VERSION="8"
@@ -153,27 +145,27 @@ A CentOS system is used in this example to display increasing the disk capacity 
    CENTOS_MANTISBT_PROJECT_VERSION="8"
    ```
 4. Validate if the latest capacity is 150 G.
-   
-   ```
+
+   ```sh
    [root@centos-8 ~]# lsblk
    NAME                MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
    vda                 252:0    0  150G  0 disk
    |-vda1              252:1    0    1G  0 part /boot
    `-vda2              252:2    0   99G  0 part
      |-vg_virt-lv_root 253:0    0   98G  0 lvm  /
-     `-vg_virt-lv_swap 253:1    0    1G  0 lvm 
+     `-vg_virt-lv_swap 253:1    0    1G  0 lvm
    vdb                 252:16   0  366K  0 disk
    vdc                 252:32   0   44K  0 disk
    ```
-   
+
 5. Install Cloud Utils.
-   ```
+   ```sh
    [root@centos-8 ~]# yum install cloud-utils-growpart -y
    ```
-   
-6. Growpart for Extended partition.
-   
-   ```
+
+6. Use `growpart` for extending the partition.
+
+   ```sh
    [root@centos-8 ~]# growpart /dev/vda 2
    CHANGED: partition=2 start=2099200 old: size=207616000 end=209715200 new: size=312473567 end=314572767
    [root@centos-8 ~]# lsblk
@@ -182,14 +174,14 @@ A CentOS system is used in this example to display increasing the disk capacity 
    |-vda1              252:1    0    1G  0 part /boot
    `-vda2              252:2    0  149G  0 part
      |-vg_virt-lv_root 253:0    0   98G  0 lvm  /
-     `-vg_virt-lv_swap 253:1    0    1G  0 lvm 
+     `-vg_virt-lv_swap 253:1    0    1G  0 lvm
    vdb                 252:16   0  366K  0 disk
    vdc                 252:32   0   44K  0 disk
    ```
-   
+
 7. Test if the file system got resized. It shows no changes.
 
-   ```
+   ```sh
    [root@centos-8 ~]# df -kh
    Filesystem                   Size  Used Avail Use% Mounted on
    devtmpfs                     3.8G     0  3.8G   0% /dev
@@ -200,20 +192,17 @@ A CentOS system is used in this example to display increasing the disk capacity 
    /dev/vda1                   1014M  195M  820M  20% /boot
    tmpfs                        777M     0  777M   0% /run/user/0
    ```
-8. Execute commands to resize the filesystem - ext4.
+8. Issue the following commands to resize the file system - ext4.
 
-   Ubuntu automatically resizes at reboot.
-   {: note}
-   
-   ```
+   ```sh
    [root@centos-8 ~]# pvresize /dev/vda2
    Physical volume "/dev/vda2" changed
    1 physical volume(s) resized or updated / 0 physical volume(s) not resized
- 
+
    [root@centos-8 ~]# vgs
    VG      #PV #LV #SN Attr   VSize    VFree
    vg_virt   1   2   0 wz--n- <149.00g 50.00g
-    
+
    [root@centos-8 ~]# lvextend -r -l +100%FREE /dev/mapper/vg_virt-lv_root
    Size of logical volume vg_virt/lv_root changed from <98.00 GiB (25087 extents) to <148.00 GiB (37887 extents).
    Logical volume vg_virt/lv_root successfully resized.
@@ -229,10 +218,11 @@ A CentOS system is used in this example to display increasing the disk capacity 
    realtime =none                   extsz=4096   blocks=0, rtextents=0
    data blocks changed from 25689088 to 38796288
    ```
-   
-9. Test if the file system got resized. Now, the filesystem (ext4) should have been resized to 150G as expected.
-   
-   ```
+   {: screen}
+
+9. Test if the file system got resized. Now, the file system (ext4) appears resized to 150G as expected.
+
+   ```sh
    [root@centos-8 ~]# df -kh
    Filesystem                   Size  Used Avail Use% Mounted on
    devtmpfs                     3.8G     0  3.8G   0% /dev
@@ -243,12 +233,14 @@ A CentOS system is used in this example to display increasing the disk capacity 
    /dev/vda1                   1014M  195M  820M  20% /boot
    tmpfs                        777M     0  777M   0% /run/user/0
    ```
-   
 
-1. Create a Debian/Redhat/Centos virtual server instance Instance from the stock image with a capacity of 150 G (Sample value considered for this set up is 150G. Ideally any value greater than the default value of 100 G would work and lesser than the cut-off)
+<!-- Centos and RHEL; if time, add Debian
 
-2. Execute commands to grow the partition size to cover maximum free space. 
+1. Create a Debian/Redhat/Centos virtual server instance Instance from the stock image with a capacity of 150 G. (Sample value considered for this set up is 150 G. Ideally, any value greater than the default value of 100 G would work and lesser than the cut-off.)
 
-3. Execute commands to resize the filesystem (xfs or ext4) along with modifications for physical volume, volume group, and logical volume. 
+2. Execute commands to grow the partition size to cover maximum free space.
+
+3. Execute commands to resize the file system (xfs or ext4) along with modifications for physical volume, volume group, and logical volume.
 
 4. Test and validate the expansion of root partition.
+**REHL example** -->
