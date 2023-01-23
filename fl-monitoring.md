@@ -113,7 +113,7 @@ To receive monitoring metrics, use the following steps:
 Within a few minutes, your new monitoring instance is displayed with several configurations. You might have to refresh your browser to see it.  
 
 ## Accessing and viewing metrics
-{: viewing-metrics-fl}
+{: #viewing-metrics-fl}
 
 To view metrics for a specific flow log, follow these steps:
 
