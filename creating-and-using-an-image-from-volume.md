@@ -119,5 +119,5 @@ You can create virtual server instances in your {{site.data.keyword.vpc_short}} 
 * [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc)
 * [Creating an image from a volume](/docs/vpc?topic=vpc-create-ifv)
 * [View and use your image from a volume](/docs/vpc?topic=vpc-create-ifv#ifv-image-creation-completed)
-* [resource group](/docs/account?topic=account-account_setup)
+* [Resource group](/docs/account?topic=account-account_setup)
 * [Best practices for organizing resources and assigning access](/docs/account?topic=account-account_setup)
