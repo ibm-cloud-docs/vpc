@@ -58,8 +58,7 @@ If you want to add a floating IP address to a primary network interface to allow
 
 1. If you are adding a floating IP address to the virtual server instance for the first time, identify the primary network interface in the **Network interfaces** section of the **Instance details** page. By default, the first interface is named `eth0`. Initially associating the floating IP address with the primary network interface helps establish the data path. Later, you can associate the floating IP to a different primary network interface.
 2. Click the pencil icon to edit the primary network interface.
-3. On the **Edit network interface** page, locate the **Floating IP address** field. You can select **Reserve a new floating IP** or you can select an existing
-floating IP address.
+3. On the **Edit network interface** page, locate the **Floating IP address** field. You can select **Reserve a new floating IP** or you can select an existing floating IP address.
 4. After you make your selection, click **Save**.
 
 ### Adding a network interface
