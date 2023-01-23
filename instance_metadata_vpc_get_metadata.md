@@ -1,13 +1,12 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-11-08"
+  years: 2022, 2023
+lastupdated: "2023-01-23"
 
-keywords: 
+keywords:
 
 subcollection: vpc
-
 
 ---
 
@@ -16,7 +15,7 @@ subcollection: vpc
 # Use the instance metadata service
 {: #imd-get-metadata}
 
-After obtaining an instance identity access token, you can access the metadata service and retrieve metadata about a virtual server instance. This topic describes how to make calls to the API to access instance metadata such as initialization data, network interfaces, volume attachments, public SSH keys, and placement groups.
+After you obtained an instance identity access token, you can access the metadata service and retrieve metadata about a virtual server instance. This topic describes how to make calls to the API to access instance metadata such as initialization data, network interfaces, volume attachments, public SSH keys, and placement groups.
 {: shortdesc}
 
 When you make API calls to the instance metadata service, events are triggered in the Activity Tracker. For more information, see [Instance Metadata service events](/docs/vpc?topic=vpc-at-events#events-metadata).
@@ -24,13 +23,13 @@ When you make API calls to the instance metadata service, events are triggered i
 ## Before you begin
 {: #imd-md-prereqs}
 
-To access metadata service, you must have an instance identity access token. If you haven't already obtained one, see [Aquire an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service#imd-json-token).
+To access metadata service, you must have an instance identity access token. If you don't have one, see [Acquire an instance identity access token](/docs/vpc?topic=vpc-imd-configure-service#imd-json-token).
 
 The metadata service is disabled by default. To enable it, see [Enable or disable the metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-metadata-service-enable).
 
-For detailed information and examples of the API calls described in this topic, see the [Metadata service API reference](/apidocs/vpc-metadata).
+For more information about these API calls and examples, see the [Metadata service API reference](/apidocs/vpc-metadata).
 
-Windows users have additional requirements to access and use the metadata service. For information, see [Setting up windows servers for using the metadata service](/docs/vpc?topic=vpc-imd-windows-configuration).
+Windows users have extra requirements to access and use the metadata service. For more information, see [Setting up windows servers for using the metadata service](/docs/vpc?topic=vpc-imd-windows-configuration).
 {: note}
 
 ## Retrieve instance metadata from your running virtual server instance
@@ -45,25 +44,25 @@ Make a `GET "http://169.254.169.254/metadata/v1/instance/initialization"` call t
 
 This request:
 
-* Invokes the API to retrieve the instance identity access token
-* Uses the token to access the metadata service 
-* Extracts the user data from the JSON payload using `jq`
+* Calls the API to retrieve the instance identity access token.
+* Uses the token to access the metadata service.
+* Extracts the user data from the JSON payload by using `jq`.
 
 You're making an unsecured request that is then secured by a proxy. The proxy intercepts the request by watching for the instance IP.
 {: note}
 
-In the example, the return value of the cURL command is the user data, which is extracted by `jq` and placed in the `user_data` evironment variable.
+In the example, the return value of the cURL command is the user data, which is extracted by `jq` and placed in the `user_data` environment variable.
 
-```sh
+```curl
 curl -X GET "http://169.254.169.254/metadata/v1/instance/initialization?version=2021-10-12"\
   -H "Accept: application/json"\
   -H "Authorization: Bearer $access_token" | jq -r
 ```
-{: pre}
+{: codeblock}
 
-The response lists public SSH keys used at instance initialization and extracts any other user data made available when provisioning the instance. The response includes the SHA256 value which identifies the SSH key.
+The response lists public SSH keys that were used at instance initialization and extracts any other user data made available when the instance was provisioned. The response includes the SHA256 value that identifies the SSH key.
 
-```sh
+```json
 {
   "keys": [
     {
@@ -77,24 +76,24 @@ The response lists public SSH keys used at instance initialization and extracts 
   "user_data": "Content-Type: multipart/form-data; boundary=3efa30189c9e0e8ebc24a4decbbf4c2be7b26120c1cdd7cb7bc2ecb0c07c\nMIME-Version: 1.0\n\n--3efa30189c9e0e8ebc24a4decbbf4c2be7b26120c1cdd7cb7bc2ecb0c07c\nContent-Type: text/cloud-config\n\n#cloud-config\ndisable_root: false\nchpasswd:\n  list: |\n    root:genes1s\n  expire: false\nusers:\n- default\n- name: root\n  lock-passwd: false\n  ssh_pwauth: true\n\n--3efa30189c9e0e8ebc24a4decbbf4c2be7b26120c1cdd7cb7bc2ecb0c07c--"
 }
 ```
-{: code_block}
+{: codeblock}
 
 ### Retrieve instance information
-{: imd-retrieve-instance}
+{: #imd-retrieve-instance}
 
-Make a `GET "http://169.254.169.254/metadata/v1/instance"` call to retrieve detailed information about the instance. To tailor information for specific instance details, such as network interfaces, see [Additional instance metadata](#imd-additional-inst-metadata).
+Make a `GET "http://169.254.169.254/metadata/v1/instance"` call to retrieve detailed information about the instance. To tailor information for specific instance details, such as network interfaces, see [Extra instance metadata endpoints](#imd-additional-inst-metadata).
 
 
-```sh
+```curl
 curl -X GET "http://169.254.169.254/metadata/v1/instance?version=2021-10-12"\
   -H "Accept:application/json"\
   -H "Authorization: Bearer $access_token"
 ```
-{: pre}
+{: codeblock}
 
 The response lists all details for an instance, including network interfaces, compute profile, and volume attachments.
 
-```sh
+```json
 {
   "boot_volume_attachment": {
     "id": "a8a15363-a6f7-4f01-af60-715e85b28141",
@@ -183,17 +182,17 @@ The response lists all details for an instance, including network interfaces, co
 ```
 {: codeblock}
 
-### Additional instance metadata endpoints
+### Extra instance metadata endpoints
 {: #imd-additional-inst-metadata}
 
-Table 1 shows additional endpoints for API GET calls that you can make to get specific metadata for an instance. (The well-known URL is omitted in the list.)
+Table 1 shows more endpoints for API GET calls that you can make to get specific metadata for an instance. (The well-known URL is omitted in the list.)
 
 | API endpoint | Description |
 |--------------|-------------|
-| /metadata/v1/instance/network_interfaces | List metadata for all network interfaces for an instance. |
-| /metadata/v1/instance/network_interfaces/{id} | Retrieve metadata for a network interface by ID. |
-| /metadata/v1/instance/volume_attachments | List metadata for all volume attachments for an instance. |
-| /metadata/v1/instance/volume_attachment/{id} | Retrieve metadata for a volume attachment by ID. |
+| `/metadata/v1/instance/network_interfaces` | List metadata for all network interfaces for an instance. |
+| `/metadata/v1/instance/network_interfaces/{id}` | Retrieve metadata for a network interface by ID. |
+| `/metadata/v1/instance/volume_attachments` | List metadata for all volume attachments for an instance. |
+| `/metadata/v1/instance/volume_attachment/{id}` | Retrieve metadata for a volume attachment by ID. |
 {: caption="Table 1. Instance metadata endpoints" caption-side="bottom"}
 
 For more information about these APIs, including required parameters and examples, see the [Metadata service API reference guide](/apidocs/vpc-metadata).
@@ -204,16 +203,16 @@ For more information about these APIs, including required parameters and example
 Make a `GET "http://169.254.169.254/metadata/v1/keys"` call to retrieve information about all SSH keys configured for the instance.
 The output is parsed by `jq`.
 
-```sh
+```curl
 curl -X GET "http://169.254.169.254/metadata/v1/keys?version=2021-10-12"\
   -H "Accept:application/json"\
   -H "Authorization: Bearer $access_token" | jq -r
 ```
-{: pre}
+{: codeblock}
 
-Example output, showing one SSH key:
+Example output shows one SSH key.
 
-```sh
+```json
 {
   "keys": [
     {
@@ -230,30 +229,30 @@ Example output, showing one SSH key:
   ]
 }
 ```
-{: code_block}
+{: codeblock}
 
 If you have more than one SSH key, you can make a `GET "http://169.254.169.254/metadata/v1/keys/{id}"` call and provide the SSH key ID.
 
 ## Retrieve metadata about placement groups
 {: #imd-retrieve-pg-data}
 
-Make a `GET "http://169.254.169.254/metadata/v1/placement_groups"` call to retrieve information about placement groups configured for the instance. In the example, the return value of the cURL command is a list of placement groups, beginning with the first and up to 50. The output is parsed by `jq`. 
+Make a `GET "http://169.254.169.254/metadata/v1/placement_groups"` call to retrieve information about placement groups configured for the instance. In the example, the return value of the cURL command is a list of placement groups, beginning with the first and up to 50. The output is parsed by `jq`.
 
-```sh
+```curl
 curl -X GET "http://169.254.169.254/metadata/v1/placement_groups?version=2021-10-12"\
   -H "Accept:application/json"\
   -H "Authorization: Bearer $access_token"\
   --data-urlencode "version=2021-10-12"\
-  -d '{ 
+  -d '{
         "start": "first",
-        "limit": 50 
+        "limit": 50
      }' | jq -r
 ```
-{: code_block}
+{: codeblock}
 
 Example return:
 
-```sh
+```json
 {
   "first": {
     "href": "http://169.254.169.254/v1/placement_groups?limit=50"
@@ -275,7 +274,7 @@ Example return:
 ```
 {: codeblock}
 
-You can also specify details for a single placement group used by the instance by making a `GET "http://169.254.169.254/metadata/v1/placement_groups/{id}"` call and providing the placement group ID.
+You can also specify details for a single placement group that is used by the instance by making a `GET "http://169.254.169.254/metadata/v1/placement_groups/{id}"` call and providing the placement group ID.
 
 ## Next steps
 {: #imd-next-steps-md}
