@@ -20,6 +20,7 @@ All profiles of Bare Metal Servers for VPC provide one 0.96 TB SATA M.2 mirrored
 
 Storage for Bare Metal Servers for VPC is unmanaged. You are responsible for encryption and backing up your data.
 {: important}
+
 <!--The total size of the NVMe SSD set varies depending on the profile you select. The NVMe drives are empty by default.-->
 
 The following network-attached storages are not supported:
