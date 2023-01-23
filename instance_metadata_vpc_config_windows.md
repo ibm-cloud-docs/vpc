@@ -2,32 +2,20 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-03-03"
+lastupdated: "2022-12-05"
 
-keywords: metadata, virtual private cloud, instance, virtual server
+keywords:
 
 subcollection: vpc
 
-
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:preview: .preview}
-{:table: .aria-labeledby="caption"}
-{:DomainName: data-hd-keyref="APPDomain"}
-{:DomainName: data-hd-keyref="DomainName"}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Setting up windows servers for using the instance metadata service
 {: #imd-windows-configuration}
 
-To access instance metadata from Windows servers, there are additional requirements to locate a default gateway and add a route.
+To access instance metadata from Windows servers, there are extra requirements to locate a default gateway and add a route.
 {: shortdesc}
 
 ## Overview
@@ -42,16 +30,16 @@ The information in this topic is presented as separate steps. More likely, you w
 
 Running as administrator, locate the IP of the default gateway. A convenient way is to use Powershell `Get-NetRoute` command.
 
-Locate the IP of the default gateway using the PowerShell Get-NetRoute cmdlet. This command gets the next hop for the default route, also known as the default gateway. For more information, see the Windows Powershell documentation for [Get-NetRoute](https://docs.microsoft.com/en-us/powershell/module/nettcpip/get-netroute?view=windowsserver2019-ps).
+Locate the IP of the default gateway by using the PowerShell Get-NetRoute cmdlet. This command gets the next hop for the default route, also known as the default gateway. For more information, see the Windows Powershell documentation for [Get-NetRoute](https://docs.microsoft.com/en-us/powershell/module/nettcpip/get-netroute?view=windowsserver2019-ps).
 
-Using the Windows terminal, this example invokes the Powershell `Get-NetRoute` command to get the default IP routes and pass the routes to the SelectObject cmdlet, which then displays the NextHop property for each default route.
+From the Windows terminal, the following example invokes the Powershell `Get-NetRoute` command to get the default IP routes and pass the routes to the SelectObject cmdlet, which then displays the NextHop property for each default route.
 
-```
+```powershell
 C:\> powershell "Get-NetRoute -DestinationPrefix "0.0.0.0/0" | Select-Object -ExpandProperty "NextHop""
 ```
 {: codeblock}
 
-The first IP address retrieved is the default route. Place the output into a variable.
+The first IP address that is retrieved is the default route. Place the output into a variable.
 
 ## Step 2: Add a route to the default gateway
 {: #imd-windows-add-route}
@@ -60,21 +48,21 @@ The metadata service uses a link local address (169.254.169.254) to [set up acce
 
 Set up the default route so that the link local address can get to the default gateway. From the windows or Powershell terminal, you would specify:
 
-```
+```powershell
 C:> route -p add 169.254.169.254 MASK 255.255.255.255 $DEFAULT_GATEWAY
 ```
 {: codeblock}
 
 A Python automation script might contain code like this:
 
-```
+```python
 command = 'route -p add 169.254.169.254 MASK 255.255.255.255 ()'.format(default_gateway)
 ```
 {: codeblock}
 
 These examples use the `route` command, but can also use the Powershell `New-NetRoute` command and pipe the route in a single command. For example, to combine steps 1 and 2 in a single command, you could specify:
 
-```
+```powershell
 C:\> powershell "Get-NetRoute -DestinationPrefix "0.0.0.0/0" | Select-Object -ExpandProperty "NextHop" | New-NetRoute"
 ```
 {: codeblock}
@@ -82,14 +70,14 @@ C:\> powershell "Get-NetRoute -DestinationPrefix "0.0.0.0/0" | Select-Object -Ex
 To add routes, you must run as an administrator on the Windows server.
 {: note}
 
-## Step 3: Programatically retrieve instance metadata
+## Step 3: Programmatically retrieve instance metadata
 {: #imd-windows-get-metadata}
 
-After you add a route to the default gateway, you can access instance metadata using the link local address. Construct your automation script using the tool of your choice to transfer data over the network, such as `curl`. 
+After you add a route to the default gateway, you can access instance metadata by using the link local address. Construct your automation script by using the tool of your choice to transfer data over the network, such as `curl`.
 
 To see `curl` commands to invoke the metadata service API and retrieve data, see [Retrieve instance metadata from your running virtual server instance](/docs/vpc?topic=vpc-imd-get-metadata#imd-retrieve-instance-data).
 
 ## Next steps
 {: #imd-next-steps-windows}
 
-[Use the instance metadata service (Beta)](/docs/vpc?topic=vpc-imd-get-metadata).
+[Use the instance metadata service](/docs/vpc?topic=vpc-imd-get-metadata).
