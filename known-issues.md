@@ -25,7 +25,7 @@ Known issues might change over time, so check back occasionally.
 **Issue:** When you create a listener for a network load balancer, you can specify a `protocol` of `tcp` or `udp`. However, each listener in the network load balancer must have a unique `port`. For network load balancer limitations, see [IBM Cloud Network Load Balancer for VPC limitations](/docs/vpc?topic=vpc-nlb-limitations).
 
 ## `resource_type` known issues
-{: resource-type-known-issues}
+{: #resource-type-known-issues}
 
 **Issue**: Currently, not all operations that return responses with embedded `VPCReference` and `SubnetReference` schemas include the documented `resource_type` sub-property.
 
