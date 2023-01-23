@@ -57,7 +57,7 @@ If you plan to use default security groups for new endpoint gateways, review you
 {: tip}   
 
 ### Security group example 
-{: #security-group-example}
+{: #vpe-security-group-example}
 
 For example, configure the following inbound rule, which allows all traffic on port 80 for an HTTP listener (TCP port 80).
 

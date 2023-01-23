@@ -21,7 +21,7 @@ You can use an access control list (ACL) to control all incoming and outgoing tr
 For a comparison of the characteristics of security groups and ACLs, see the [comparison table](/docs/vpc?topic=vpc-security-in-your-vpc#compare-security-groups-and-access-control-lists).
 {: tip}
 
-The example that is presented in this document shows how to create network ACLs in your VPC by using the CLI. For more information about how to set up ACLs in the {{site.data.keyword.cloud_notm}} console, see [Configuring ACLs in the UI](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#configuring-the-acl).
+The example that is presented in this document shows how to create network ACLs in your VPC by using the CLI. For more information about how to set up ACLs in the {{site.data.keyword.cloud_notm}} console, see [Configuring ACLs in the UI](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#configuring-the-acl-ct).
 
 ## Working with ACLs and ACL rules
 {: #working-with-acls-and-acl-rules}

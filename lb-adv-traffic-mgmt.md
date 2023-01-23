@@ -107,7 +107,7 @@ Private load balancer enforcement applies for all regions when enabled.
 {: note}
 
 ## HTTP/2 support for clients connecting to HTTPS listeners
-{: #http2-support}
+{: #atm-http2-support}
 
 {{site.data.keyword.alb_full}} uses Application-Layer Protocol Negotiation (ALPN) to negotiate with clients connecting to HTTPS listeners, and supports both HTTP/1.1 and HTTP/2. If the client connecting to the ALB is using HTTP/2, then the ALB also uses HTTP/2 as its preferred protocol, and processes the request to the back-end pool. Otherwise, HTTP/1.1 is chosen by default.
 

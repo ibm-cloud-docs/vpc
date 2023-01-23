@@ -19,7 +19,7 @@ subcollection: vpc
 {: shortdesc}
 
 ## Platform metrics overview
-{: #platform-metrics-overview}
+{: #c2s-platform-metrics-overview}
 
 You can view platform metrics when you enable {{site.data.keyword.mon_full_notm}} on your {{site.data.keyword.cloud_notm}} platform. An {{site.data.keyword.mon_full_notm}} instance must be configured in a region to monitor these metrics. For more information, see [Enabling platform metrics](/docs/monitoring?topic=monitoring-platform_metrics_enabling).
 
@@ -51,7 +51,7 @@ Each metric is composed of the following metadata types:
 * **Segment** - How you want {{site.data.keyword.mon_full_notm}} to divide and display the monitoring metrics.
 
 ## VPN server metric definitions
-{: #metric-definitions}
+{: #c2s-metric-definitions}
 
 The following tables define the basic VPN server metrics on {{site.data.keyword.cloud_notm}} for VPC.
 
@@ -141,7 +141,7 @@ You can split the metrics that {{site.data.keyword.mon_full_notm}} presents into
 As an example, you can segment the `VPN Server Bytes Input` by `IBM {{site.data.keyword.vpn_vpc_short}} server name` to show how many bytes per minute are received for a VPN server. The dashboard shows different lines in different colors where each line represents received bytes per minute for a VPN server.
 
 ### Global attributes
-{: #global-attributes-vpn}
+{: #global-attributes-vpn-cts}
 
 The following attributes are available for segmenting all of the VPN server metrics:
 
@@ -157,7 +157,7 @@ The following attributes are available for segmenting all of the VPN server metr
 {: caption="Table 7: VPN server metric attributes" caption-side="bottom"}
 
 ### Additional attributes
-{: #additional-attributes-vpn}
+{: #s2s-additional-attributes-vpn}
 
 The following attributes are available for segmenting one or more attributes as described in the previous reference. See the individual metrics for segmentation options.
 

@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Monitoring Application Load Balancer for VPC metrics
+# Monitoring application load balancer metrics
 {: #monitoring-metrics-alb}
 
 {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) monitoring metrics are provided with {{site.data.keyword.mon_full}}, a service that specializes in data aggregation, usage alerts, and in-depth visualizations. For more information, see [IBM Cloud Monitoring](/docs/monitoring?topic=monitoring-getting-started).
@@ -202,7 +202,7 @@ The active members count is the number of healthy members in a pool. This metric
 {: caption="Table 11: Application load balancer active members count metric metadata" caption-side="bottom"}
 
 ## Metric segmentation
-{: #attributes}
+{: #attributes-lb}
 
 You can split the data into various visualizations in the {{site.data.keyword.mon_full_notm}} dashboard, allowing views of different metrics based on your preferences. For example, if you have multiple load balancers or accounts with different load balancers in each account, you might want to focus on a particular listener port.
 

@@ -23,7 +23,7 @@ The following example describes a customer that has multiple VPCs in {{site.data
 ![Policy-based VPN gateway ingress routing table integration](images/policy-based-vpn-gateway-ingress-routing-integration.png){: caption="Policy-based VPN gateway ingress routing table integration" caption-side="bottom"}
 
 ## Prerequisites
-{: #prereq}
+{: #policy-based-routing-prereq}
 
 Make sure to satisfy the following prerequisites:
 

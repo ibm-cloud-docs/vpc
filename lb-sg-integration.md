@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Integrating an IBM Cloud Application Load Balancer for VPC with security groups
+# Integrating an application load balancer with security groups
 {: #alb-integration-with-security-groups}
 
 The {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) allows you to attach [security groups](/docs/vpc?topic=vpc-using-security-groups) to enhance your application's security.
@@ -122,7 +122,7 @@ To create a security group using the UI:
 1. Click **Create security group** after you finish creating rules.
 
 #### Security group example
-{: #security-group-example}
+{: #lb-security-group-example}
 
 For example, configure the following inbound rules, which allow all traffic on port 80 for an HTTP listener (TCP port 80).
 

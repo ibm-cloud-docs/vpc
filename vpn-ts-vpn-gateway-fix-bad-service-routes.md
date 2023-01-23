@@ -13,7 +13,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Why isn't the service route for my VPN gateway correct?
-{: #troubleshoot-unable-to-establish-vpn-connection}
+{: #troubleshoot-gateway-unable-to-establish-vpn-connection}
 {: troubleshoot}
 {: support}
 

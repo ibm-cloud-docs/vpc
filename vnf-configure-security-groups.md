@@ -19,6 +19,6 @@ The Virtual Network Function (VNF) data network interface is attached to a VPC s
 {: shortdesc}
  
 ## Next step
-{: #deploy-vnf}
+{: #next-step-deploy-vnf}
 
 [Deploying a supported VNF](/docs/vpc?topic=vpc-deploy-vnf)

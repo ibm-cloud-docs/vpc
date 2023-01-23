@@ -154,5 +154,5 @@ These links provide additional information about IBM Cloud VPN for VPC:
 * [Required permissions for VPN resources](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls)
 * [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-vpns)
 * [FAQs for VPN gateways](/docs/vpc?topic=vpc-faqs-vpn)
-* [Troubleshooting VPN gateways](/docs/vpc?topic=vpc-troubleshoot-unable-to-establish-vpn-connection)
+* [Troubleshooting VPN gateways](/docs/vpc?topic=vpc-troubleshoot-gateway-unable-to-establish-vpn-connection)
 * [VPN gateway quotas](/docs/vpc?topic=vpc-quotas#vpn-quotas)
