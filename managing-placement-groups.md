@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2021
-lastupdated: "2021-09-14"
+  years: 2021, 2023
+lastupdated: "2023-01-23"
 
 keywords: virtual private cloud, private cloud network, placement group, placement group strategy, host spread, power spread, generation 2, gen 2
 
@@ -21,7 +21,7 @@ After the placement group is created, you can assign a selected virtual server i
 
 Placement groups can be managed with the UI, CLI, API, or Terraform. You can create extra placement groups, delete resources, and display the details of the placement groups, which are helpful when you assign placement groups to instances. Additionally, all existing placement groups can be listed and renamed if needed.
 
-## Managing the placement group with the UI
+## Managing the placement group in the UI
 {: #managing-placement-groups-UI}
 {: ui}
 
@@ -33,7 +33,7 @@ To complete management tasks on your placement groups, complete the following st
 
 | Action | Description |
 |--------|-------------|
-| Create | Create a new placement group |
+| Create | Create a placement group |
 | Delete | If you no longer need the placement group, you can delete it to permanently remove it from your account. Before you can delete the placement group, you must first delete any virtual server instances that are assigned to the placement group.|
 | Rename | Update the placement group name with a new name. |
 {: caption="Table 1. Actions available for placement groups" caption-side="bottom"}
@@ -41,7 +41,7 @@ To complete management tasks on your placement groups, complete the following st
 The VPC must exist before you create a placement group. If the VPC is not created first, you receive an error when you create the placement group and the placement group is not created.
 {: important}
 
-## Creating the placement group with the UI
+## Creating the placement group in the UI
 {: #creating-placement-group-UI}
 {: ui}
 
@@ -57,10 +57,10 @@ Use the following steps to create a placement group:
 | Resource group | Select the resource group that contains the account resources and users that you want to be able to access the placement group. For more information about resource groups, see [Managing resource groups](/docs/account?topic=account-rgs). |
 | Region | The region of the placement group. |
 | User tags | Keywords that are used for profile management. |
-| Placement strategy | Host spread - All provisioned instances are placed on separate hosts that might be in the same rack.  \n   \n Power spread - All provisioned instances are placed on different racks with separate power and network supplies. Each rack also contains dual power supplies from different sources.|
+| Placement strategy | Host spread - All provisioned instances are placed on separate hosts that might be in the same rack.  \n \n Power spread - All provisioned instances are placed on different racks with separate power and network supplies. Each rack also contains dual power supplies from different sources.|
 {: caption="Table 2. Fields required to create a placement group" caption-side="bottom"}
 
-## Creating a placement group with the CLI
+## Creating a placement group from the CLI
 {: #creating-placement-group-CLI}
 {: cli}
 
@@ -75,7 +75,7 @@ A placement group must be created first before an instance can use it. After a p
     * The vpc-infrastructure plug-in
 2. Have an [{{site.data.keyword.vpc_short}} created](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
 
-### Gathering information to create a placement group with the CLI
+### Gathering information to create a placement group in the CLI
 {: #gather-info-placement-group-cli}
 {: cli}
 
@@ -92,7 +92,7 @@ Gather the following required information:
 | **Resource group name** | The name of the resource group |
 {: caption="Table 3. Information required to create a placement group using the CLI" caption-side="bottom"}
 
-## Creating the placement group with the CLI
+## Creating the placement group from the CLI
 {: #creating-placement-group-cli-a}
 {: cli}
 
@@ -125,7 +125,7 @@ curl -X POST "$vpc_api_endpoint/v1/placement_groups?version=2021-04-20&generatio
 ```
 {: codeblock}
 
-For more information on the `host_spread` and `power_spread` strategy variables, see [Create a placement group](/apidocs/vpc/latest#create-placement-group) in the Virtual Private Cloud API documentation.
+For more information about the `host_spread` and `power_spread` strategy variables, see [Create a placement group](/apidocs/vpc/latest#create-placement-group) in the Virtual Private Cloud API documentation.
 
 ## Creating the placement group with Terraform
 {: #creating-placement-group-terraform}
@@ -152,10 +152,10 @@ resource "ibm_is_placement_group" "is_placement_group" {
 ```
 {: codeblock}
 
-For more information on the `host_spread` and `power_spread` strategy variables, see [Create a placement group](/apidocs/vpc/latest#create-placement-group) in the Virtual Private Cloud API documentation.
+For more information about the `host_spread` and `power_spread` strategy variables, see [Create a placement group](/apidocs/vpc/latest#create-placement-group) in the Virtual Private Cloud API documentation.
 
 
-## Changing the placement group name with the UI
+## Changing the placement group name in the UI
 {: #changing-placement-group-name-ui}
 {: ui}
 
@@ -166,7 +166,7 @@ To rename a placement group:
 2. Select the placement group and click **Rename**.
 3. Change the placement group name.
 
-## Changing the placement group name with the CLI
+## Changing the placement group name from the CLI
 {: #changing-placement-group-name-cli}
 {: cli}
 
