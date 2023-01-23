@@ -10,19 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:important: .important}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:external: target="_blank" .external}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Granting access to {{site.data.keyword.cos_full_notm}} to import images
 {: #object-storage-prereq}
@@ -52,7 +40,7 @@ Before you run the command you need to know the GUID for the {{site.data.keyword
 1. From the right panel, copy the GUID. For example, `f7d4676f-f298-4cb3-8390-2fe258a5d6df`.
 1. Run the following command and replace $COS_INSTANCE_GUID with the GUID. 
 
-```
+```sh
 ibmcloud iam authorization-policy-create is cloud-object-storage Reader --source-resource-type image --target-service-instance-id $COS_INSTANCE_GUID
 ```
 {: pre}
@@ -70,7 +58,7 @@ The supported attributes for creating an authorization policy depend on what eac
 
 The example shows an authorization policy for the image service to access IBM Cloud Object Storage.
 
-```sh
+```curl
 curl --location --request POST 'https://iam.cloud.ibm.com/v1/policies' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer <iam token>' \
