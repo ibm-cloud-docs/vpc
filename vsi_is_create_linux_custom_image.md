@@ -67,7 +67,7 @@ Follow the instructions for your Linux distribution to update the kernel command
 
 1. Ensure that your operating system image has virtio drivers installed, along with any code that is needed by virtio. Virtio network drivers are required to enable networking. Check if virtio drivers are installed in the kernel, by running the following command:
 
-    ```
+    ```sh
     grep -i virtio /boot/config-$(uname -r)
     ```
     {: pre}
@@ -76,14 +76,14 @@ Follow the instructions for your Linux distribution to update the kernel command
 
 2. If the `VIRTIO_BLK` and `VIRTIO_NET` lines are present, verify that the drivers are present in the temporary root filesystem by running the following command:
 
-    ```
+    ```sh
     lsinitrd /boot/initramfs-$(uname -r).img | grep virtio
     ```
     {: pre}
 
     If you are using a Debian operating system, use the following command:
 
-    ```
+    ```sh
     lsinitramfs /boot/initrd.img-$(uname -r) | grep virtio
     ```
     {: pre}
