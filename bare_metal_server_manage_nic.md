@@ -162,17 +162,17 @@ Custom routes communication without NAT rules between VMWare VMS within an NSX-T
 
 1. Use the following command to create the custom route.
 
-  ```sh
-  ibmcloud is vpc-route-create my-custom-route <VPC_ID> --zone us-south-3 --destination <DEST_CIDR> --next-hop-ip <NH_IP>
-  ```
-  {: pre}
+   ```sh
+   ibmcloud is vpc-route-create my-custom-route <VPC_ID> --zone us-south-3 --destination <DEST_CIDR> --next-hop-ip <NH_IP>
+   ```
+   {: pre}
 
-2. Set ` allow-ip-spoofing` to _true_ for the VNIC of HN_IP by using this command. Typically, a VIP is used as HN_IP for high availability.
+2. Set `allow-ip-spoofing` to _true_ for the VNIC of HN_IP by using this command. Typically, a VIP is used as HN_IP for high availability.
 
-  ```sh
-  ibmcloud is bm-nicu <BM_ID> <VNIC_ID> --allow-ip-spoofing true
-  ```
-  {: pre}
+   ```sh
+   ibmcloud is bm-nicu <BM_ID> <VNIC_ID> --allow-ip-spoofing true
+   ```
+   {: pre}
 
 3. Associate the custom route with specific subnets.
 
