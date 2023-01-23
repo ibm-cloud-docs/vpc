@@ -144,11 +144,6 @@ Memory profiles with the mx2d prefix are available in the US South (Dallas), US 
 {: class="simple-tab-table"}
 {: summary="Memory profiles options for Intel x86-64 virtual server instances."}
 
-
-{: #callout-note}
-
-{: #callout-beta}
-
 ## Very High Memory
 {: #vhmemory}
 
@@ -321,6 +316,7 @@ The first character represents the profile families. Different profile families 
 
 The second character represents the CPU architecture.
 - "x": x86_64
+
 <!-- * POWER deprecates on Aug. 22 -->
 
 The third character represents the generation of the IBM Cloud infrastructure where the profile is provisioned.
