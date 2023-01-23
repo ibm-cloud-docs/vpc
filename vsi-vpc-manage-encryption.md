@@ -53,8 +53,8 @@ When you create a customer-managed encryption volume, snapshot, file share, or c
 1. For Encryption, you'll see the name of the KMS and **customer-managed**, for example _Key Protect - Customer-managed_.
 1. In the Encryption Instance field, click the link of the KMS instance you provisioned for the root key protecting this volume. Information about that KMS instance shows, which includes the name and ID of the root key.
 
-  If you created your KMS instance using a private endpoint, these instances and associated root keys do not appear in the UI. Use the Key Protect or HPCS CLI or API to verify key rotation instead.
-  {: note}
+   If you created your KMS instance using a private endpoint, these instances and associated root keys do not appear in the UI. Use the Key Protect or HPCS CLI or API to verify key rotation instead.
+   {: note}
 
 1. Click  **Associated Resources**. You'll see the following information for the root key in the KMS instance:
    * Key Name
@@ -181,7 +181,7 @@ When you force delete a root key, the following actions happen automatically:
    * Deleting a root key purges usage of the key for all resources in the VPC.
    * Events are logged in the Activity Tracker.
 
-Block storage volumes,snapshots, and custom images with a deleted root key appear in the list of resources with an _unusable_ status. File shares show a _suspended_ status. The API reason code is *encryption_key_deleted*.
+Block storage volumes,snapshots, and custom images with a deleted root key appear in the list of resources with an _unusable_ status. File shares show a _suspended_ status. The API reason code is _encryption_key_deleted_.
 
 The following conditions result:
 
@@ -305,7 +305,7 @@ When you initiate activity in the KMS to rotate and manage your root keys, Activ
 * The `responseData.keyState` field includes the integer that correlates to the state of the key, which include these key state values: Pre-activation = 0, Active = 1, Suspended = 2, Deactivated = 3, and Destroyed = 5. For more information on key states, see [Key states and transitions](/docs/key-protect?topic=key-protect-key-states#key-transitions).
 * When you authorize that a key be deleted, a `kms.secrets.setkeyfordeletion` event is generated. The `responseData.keyState` field includes the integer that correlates to deleted state (5).
 * The `responseData.totalResources` field includes the total amount of key versions associated with the key.
-* The `responseData.eventAckData.newKeyVersionId ` field includes the unique identifier of the latest key version.
+* The `responseData.eventAckData.newKeyVersionId` field includes the unique identifier of the latest key version.
 
 For additional key rotation events that indicate a successful rotation, see these [key rotation events](/docs/key-protect?topic=key-protect-at-events#rotate-key-registrations-success). For information about all Activity Tracker events in {{site.data.keyword.keymanagementserviceshort}}, see [{{site.data.keyword.at_full_notm}} events](/docs/vpc?topic=vpc-at-events).
 
