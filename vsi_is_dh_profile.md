@@ -168,7 +168,6 @@ The Ultra High Memory with instance storage profile is best for in-memory OLTP d
 The Ultra High Memory profile is hosted exclusively on the latest generation Intel® Xeon® Platinum 8280L Cascade Lake server with 112 cores that are running a base speed of 2.7 GHz and an all-core turbo frequency of 4.0 GHz. The Ultra High Memory profile is provisioned with temporary SSD-backed [Instance Storage](/docs/vpc?topic=vpc-instance-storage) at no additional charge.
 
 If you provision a dedicated host with an Ultra High Memory profile, any virtual server instances that are provisioned on the dedicated host must also be provisioned with an Ultra High Memory profile. All Ultra High Memory profiles include instance storage that is designated by the *d* in the profile name, for example *ux2d*.
-
 {: #callout-note}
 
 The following Ultra High Memory profile is available for dedicated hosts.
