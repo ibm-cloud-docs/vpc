@@ -155,19 +155,19 @@ Starting from `ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt` and
 certificates will contain **Certificate Revocation List (CRL) Distribution Points**. You can use the CRL to verify that your certificates are valid (not revoked).
 
 1. Extract and download the CRL URL from the attestation or encryption certificate:
-   ```
+   ```sh
    openssl x509 -in "ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt" -noout -ext crlDistributionPoints
    crl_url=https://ibm.biz/hyper-protect-container-runtime-023BC9-crl-1  # (example)
    curl --location --silent "$crl_url" --output "ibm-hyper-protect-container-runtime.crl"
    ```
 
 2. Verify the CRL is valid (check valid dates and issuer):
-   ```
+   ```sh
    openssl crl -text -noout -in "ibm-hyper-protect-container-runtime.crl"
    ```
 
 3. Verify the CRL signature:
-   ```
+   ```sh
    openssl x509 -in "ibm-hyper-protect-container-runtime-1-0-s390x-7-intermediate.crt" -pubkey -noout -out pubkey
    bbegin="$(openssl asn1parse -in "ibm-hyper-protect-container-runtime.crl" | head -2 | tail -1 | cut -d : -f 1)"
    bend="$(openssl asn1parse -in "ibm-hyper-protect-container-runtime.crl" | tail -1 | cut -d : -f 1)"
@@ -177,24 +177,24 @@ certificates will contain **Certificate Revocation List (CRL) Distribution Point
    ```
 4. Verify that the encryption certificate document is valid: 
    1. Extract the serial from the encryption certificate:
-      ```
+      ```sh
       openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt -noout -serial
       serial=16B7C7F9B61548506F4E63BA6FD40045  # (example)
       ```
    2. Verify that the certificate is not listed within the CRL:
-      ```
+      ```sh
       openssl crl -text -noout -in "ibm-hyper-protect-container-runtime.crl" | grep -q "$serial" && echo REVOKED || echo OK
       ```
    A revoked encryption certificate document must not be used for further encryptions.
    
 5. Verify that the attestation certificate document is valid: 
    1. Extract the serial from the attestation certificate:
-      ```
+      ```sh
       openssl x509 -in ibm-hyper-protect-container-runtime-1-0-s390x-7-attestation.crt -noout -serial
       serial=65BFC9AD7C3C269E41517E7FC26B0E3C  # (example)
       ```
    2. Verify that the certificate is not listed within the CRL:
-      ```
+      ```sh
       openssl crl -text -noout -in "ibm-hyper-protect-container-runtime.crl" | grep -q "$serial" && echo REVOKED || echo OK
       ```
    An image with a revoked attestation certificate document must not be started.
