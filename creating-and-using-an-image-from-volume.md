@@ -57,14 +57,14 @@ You can use [resource groups](/docs/vpc?topic=vpc-iam-getting-started#resources-
 {: #image-from-volume-vpc-ui}
 {: step}
 
-You can use the UI to create an image from a volume that's attached to an available virtual server instance as the primary boot volume.
+You can use the UI to create an image from a volume that is attached to an available virtual server instance as the primary boot volume.
 
 ### Choose the source for your custom image
 {: #import-custom-image-source-UI}
 
 Complete the following actions to import your custom image in the UI.
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, navigate to **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Custom Images**.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Custom Images**.
 2. Click **Create**. The Import custom image page is displayed.
 3. Complete the following required fields on the Import custom images page.
 
@@ -119,5 +119,5 @@ You can create virtual server instances in your {{site.data.keyword.vpc_short}} 
 * [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc)
 * [Creating an image from a volume](/docs/vpc?topic=vpc-create-ifv)
 * [View and use your image from a volume](/docs/vpc?topic=vpc-create-ifv#ifv-image-creation-completed)
-* [Resource group](/docs/account?topic=account-account_setup)
+* [resource group](/docs/account?topic=account-account_setup)
 * [Best practices for organizing resources and assigning access](/docs/account?topic=account-account_setup)
