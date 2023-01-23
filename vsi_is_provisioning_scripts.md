@@ -14,9 +14,10 @@ subcollection: vpc
 
 # User data
 {: #user-data}
+
 [comment]: # (linked help topic)
 
-When you create an {{site.data.keyword.vsi_is_full}} instance, you can specify optional user data that automatically performs common configuration tasks or runs scripts. For more information about user data and usernames, see [IAM access](/docs/account?topic=account-userroles)
+When you create an {{site.data.keyword.vsi_is_full}} instance, you can specify optional user data that automatically performs common configuration tasks or runs scripts. For more information about user data and usernames, see [IAM access](/docs/account?topic=account-userroles).
 {: shortdesc}
 
 VPC uses Cloud-init technology to configure virtual server instances. The **User Data** field on the *New virtual server for VPC* page allows users to put in custom configuration options by using cloud-init. Cloud-init supports several formats for configuration data, including yaml in a cloud-config file.
@@ -63,7 +64,7 @@ You can paste one of these examples directly into the **User Data** field. The u
 If you specify to include a file and have spaces preceding the file name, the data isn't interpreted correctly. Verify that `#!/bin/sh` or `#!/bin/bash` are the first characters on the line immediately following the end of file designation (`<<EOF`). The characters can't be indented.
 {: tip}
 
-For more Linux user data examples and information, see [Cloud config examples ![External link icon](../icons/launch-glyph.svg "External link icon")](https://cloudinit.readthedocs.io/en/latest/topics/examples.html){: external}.
+For more Linux user data examples and information, see [Cloud config examples)](https://cloudinit.readthedocs.io/en/latest/topics/examples.html){: external}.
 
 ### Configuring a single disk instance storage by using cloud-config script
 {: #configure-instance-storage-cloud-config}
@@ -236,7 +237,7 @@ The following example shows user data that can be passed to a Windows instance. 
 ```
 {: codeblock}
 
-For more Windows user data examples and information, see [Cloudbase-init 1.0 documentation ![External link icon](../icons/launch-glyph.svg "External link icon")](https://cloudbase-init.readthedocs.io/en/latest/userdata.html){: external}.
+For more Windows user data examples and information, see [Cloudbase-init 1.0 documentation](https://cloudbase-init.readthedocs.io/en/latest/userdata.html){: external}.
 
 ## User data examples for Fedora Core OS
 {: #user-data-examples-for-fed-core}
