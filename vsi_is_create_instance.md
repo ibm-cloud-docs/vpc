@@ -108,39 +108,39 @@ Gather the following information by using the associated commands.
 Use the following commands to determine the required information for creating a new instance.
 
 1. List the regions that are associated with your account.
-   ```
+   ```sh
    ibmcloud is regions
    ```
    {: pre}
 
    For this example, you see a response that is similar to the following output:
-   ```
+   ```sh
    Name       Endpoint               Status   
    us-south   /v1/regions/us-south   available
    ```
    {: screen}
 
 2. List the zones that are associated with the region.
-   ```
+   ```sh
    ibmcloud is zones us-south
    ```
    {: pre}
 
    For this example, you see a response that is similar to the following output:
-   ```
+   ```sh
    Name         Region     Status   
    us-south-1   us-south   available
    ```
    {: screen}
 
 3. List the VPCs that are associated with your account.
-   ```
+   ```sh
    ibmcloud is vpcs
    ```
    {: pre}
 
    For this example, you see a response that is similar to the following output:
-   ```
+   ```sh
    ID                                          Name                                  Default   Created       Status      Tags   
    0738-xxx1xx23-4xx5-6789-12x3-456xx7xx123x   my-vpc                                yes       1 month ago   available   -   
    0738-xxxx1234-5678-9x12-x34x-567x8912x3xx   my-other-vpc                          no        4 days ago    available   -   
@@ -150,13 +150,13 @@ Use the following commands to determine the required information for creating a 
    If you do not have an available VPC, you can create one by using the `ibmcloud is vpc-create` command. For more information about creating a VPC, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpcs).
 
 4. List the subnets that are associated with the {{site.data.keyword.vpc_short}}.
-   ```
+   ```sh
    ibmcloud is subnets
    ```
    {: pre}
 
    For this example, you see a response that is similar to the following output:
-   ```
+   ```sh
    ID                                          Name                                     IPv*   Subnet CIDR         Addresses   Gen   Gateway   Created   Status      VPC                    Zone         Resource Group   Tags   
    0738-1234x12x-345x-1x23-45x6-x7x891011x1x   my-subnet                                ipv4   172.16.1.0/24       0/0         -     -         1 week ago    available   my-vpc(xxx1xx23-.)     us-south-1   -                -   
    0738-12xx345x-6789-1xxx-x2x3-x4x56xx78x9x   my-subnet-2                              ipv4   172.20.28.0/24      0/0         -     -         1 day ago     available   my-vpc(xxx1xx23-.)     us-south-1   -                -   
@@ -167,14 +167,14 @@ Use the following commands to determine the required information for creating a 
    If you do not have a subnet available, you can create one by using the `ibmcloud is subnet-create` command. For more information about creating a subnet, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#subnets).
 
 5. List the available profiles for creating your instance.
-   ```
+   ```sh
    ibmcloud is instance-profiles
    ```
    {: pre}
 
 
    For this example, you see a response that is similar to the following output:
-   ```
+   ```sh
    Name            vCPU Manufacturer   Architecture   Family        vCPUs   Memory(GiB)   Bandwidth(Mbps)   Volume bandwidth(Mbps)   GPUs   Storage(GB)   
    bz2-1x4         IBM                 s390x          balanced           1       4             2000              500                      -     -
    bz2e-1x4        IBM                 s390x          balanced           1       4             2000              500                      -      
@@ -209,14 +209,13 @@ Use the following commands to determine the required information for creating a 
    ma2-32x256      Intel               amd64          memory            32      256           64000             16000                    -      -   
    mz2-16x128      IBM                 s390x          memory            16      128           32000             8000                     -      -
    mz2e-16x128     IBM                 s390x          memory            16      128           32000             8000                     -      -
-
    ```
    {: screen}
 
    Secure execution-enabled profiles are now available and are identified by the fourth character of the profile name that is an "e", such as _bz2e_. For more information, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se).
 
    The secure execution-enabled profiles are available for Balanced, Compute, and Memory families. Make sure that you use secure-enabled profiles when you use the IBM Hyper Protect Container Runtime image. Profile validation for the IBM-provided stock images and the IBM Hyper Protect Container Runtime occurs in the RIAS layer and any profile mismatch results in an error message similar to the following example.
-   ```
+   ```sh
    FAILED
    Response HTTP Status Code: 400
    Error code: bad_field
@@ -226,13 +225,13 @@ Use the following commands to determine the required information for creating a 
    {: screen}
 
 6. List the available images for creating your instance.
-   ```
+   ```sh
    ibmcloud is images   
    ```
    {: pre}
 
    For this example, you see a response that is similar to the following output.
-   ```
+   ```sh
    ID                                          Name                 OS                                                       Arch    Created         Status   Visibility   Tags   
    0738-cc8debe0-1b30-6e37-2e13-744bfb2a0c11   centos-7.x-amd64     CentOS (7.x - Minimal Install)                           amd64      9 hours ago     READY    public       -   
    0738-7eb4e35b-4257-56f8-d7da-326d85452591   ubuntu-16.04-amd64   Ubuntu Linux (16.04 LTS Xenial Xerus Minimal Install)    amd64      9 hours ago     READY    public       -   
@@ -240,13 +239,13 @@ Use the following commands to determine the required information for creating a 
    {: screen}
 
 7. List the available SSH keys that you can associate with your instance.
-   ```
+   ```sh
    ibmcloud is keys
    ```
    {: pre}
 
    For this example, you see a response that is similar to the following output.
-   ```
+   ```sh
    ID                                          Name           Type   Length   FingerPrint          Created        Resource Group   Tags
    0738-1234xxxx-x12x-xxxx-34xx-xx1234xxxxxx   my-key         RSA    2048     PHcP/zyw/PNGIe/u..   5 days ago     -                -   
    0738-12xx3456-x78x-9123-4x56-78xx9xxx1x2x   my-other-key   RSA    2048     +rvkRMBhdFmz1dlT..   2 days ago     -                -    
@@ -256,14 +255,14 @@ Use the following commands to determine the required information for creating a 
    If you do not have an SSH key available, you can create an SSH key by using the `ibmcloud is key-create` command. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
 
 8. List all the available placement groups that you can associate with your instance.
-    ```
+    ```sh
     ibmcloud is placement-groups
     ```
     {: pre}
 
     For this example, you see a response that is similar to the following output.
 
-    ```
+    ```sh
     Listing placement groups for generation 2 compute in all resource groups and region us-east under account vpcdemo as user    yaohaif@cn.ibm.com...
     ID                                            Name                             State    Strategy       Resource Group   
     c5f1f366-b92a-4080-991a-aa5c2e33d96b          placement-group-region-us-east   stable   power_spread       5018a8564e8120570150b0764d39ebcc   
@@ -283,7 +282,7 @@ Use the following steps to create a virtual server instance by using the CLI.
 
 1. Create an instance by using the following command.
 
-   ```
+   ```sh
    ibmcloud is instance-create \
        <INSTANCE_NAME> \
        <VPC_ID> \
@@ -300,7 +299,7 @@ Use the following steps to create a virtual server instance by using the CLI.
 
    For example, if you create an instance that is called _my-instance_ in _us-south-1_ and use the _b-2x4_ profile, your `instance-create` command looks similar to the following example.
 
-   ```
+   ```sh
    ibmcloud is instance-create\
        my-instance\
        0738-xxx1xx23-4xx5-6789-12x3-456xx7xx123x\
@@ -334,7 +333,7 @@ Use the following steps to create a virtual server instance by using the CLI.
    The following response varies depending on what optional values that you use.
    {: note}
 
-   ```
+   ```sh
    ibmcloud is instance create test a0162c41-6a75-4a04-aabb-da1c78539531 us-south-2  bx2-2x8  7284-47efd8c6-0efc-462e-89c0-e0457119f90b --image r134-63363662-a4ee-4ba4-a6c4-92e6c78c6b58 --host-failure-policy stop
    Creating instance test under account VPC1 as user myuser@mycompany.com...
 
@@ -373,14 +372,14 @@ Use the following steps to create a virtual server instance by using the CLI.
 
 2. When the status changes to *running*, verify that you can see your new instance and view the network interfaces that were created for your new instance.
 
-   ```
+   ```sh
    ibmcloud is instance 2x12xxx5-xx11-1234-x4x5-1xxx12345678
    ```
    {: pre}
 
    For this example, you see the following response.
 
-   ```
+   ```sh
    ID                           0738-2x12xxx5-xx11-1234-x4x5-1xxx12345678
    Name                         my-instance
    Status                       running
@@ -412,7 +411,7 @@ Use the following steps to create a virtual server instance by using the CLI.
 
 3. Request a floating IP address to associate to your instance by using the following command.
 
-   ```
+   ```sh
    ibmcloud is floating-ip-reserve \
        my-floatingip \
        --nic-id xx12x345-6xxx-7x89-123x-4x5xxx678x9x
@@ -421,7 +420,7 @@ Use the following steps to create a virtual server instance by using the CLI.
 
    For this example, you see a response that is similar to the following output.
 
-   ```
+   ```sh
      Address          xxx.xxx.xxx.xxx   
      Name             my-floatingip   
      Target           great-scott-stride-lilac-captivate-filtrate(xx12x345-.)   
@@ -440,7 +439,7 @@ Use the following steps to create a virtual server instance by using the CLI.
 Need more help? You can always run `ibmcloud is instance-create --help` to display help for creating an instance.
 {: tip}
 
-## Next steps
+## Next steps after using the CLI
 {: #next-step-after-creating-virtual-servers-cli}
 {: cli}
 
@@ -450,7 +449,7 @@ If you choose a GPU profile, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gp
 
 After the instance is created, associate a floating IP address to the instance. Then, you can connect to your instance. For more information, see [Connecting to your Linux instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux), [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows), or [Connecting to your z/OS instance](/docs/vpc?topic=vpc-vsi_is_connecting_zos).
 
-## Next steps
+## Next steps after using the UI
 {: #next-steps-creating-virtual-servers-ui}
 {: ui}
 
