@@ -213,6 +213,7 @@ The first character represents the profile family. Different profile families ha
 
 The second character represents the CPU architecture.
 - "x": x86_64
+
 <!-- * "z": System Z -->
 
 The third character represents the generation of VPC the profile is for.
