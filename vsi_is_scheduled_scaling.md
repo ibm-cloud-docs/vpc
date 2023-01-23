@@ -185,8 +185,7 @@ You can create a scheduled scaling action for your auto scaled instances by call
 
 The following example creates a scheduled action 
 
-```bash
-
+```curl
 curl -X POST "$vpc_api_endpoint/v1/instance_groups/$instance_group_id/managers?version=2021-04-20&generation=2" -H "Authorization: $iam_token" -d '{
       "manager_type": "autoscale",
       "max_membership_count": 50
@@ -196,8 +195,7 @@ curl -X POST "$vpc_api_endpoint/v1/instance_groups/$instance_group_id/managers?v
 
 A successful response looks like the following example:
 
-   ```bash
-   
+   ```json
    {
      "aggregation_window": 90,
      "cooldown": 300,
@@ -218,8 +216,7 @@ A successful response looks like the following example:
 
 The following example updates a scheduled action.
 
-   ```bash
-   
+   ```curl
    curl -X PATCH "$vpc_api_endpoint/v1/instance_groups/$instance_group_id/   managers/$instance_group_manager_id/policies?version=2021-04-20&   generation=2" -H "Authorization: $iam_token" -d '{
          "metric_type": "cpu",
          "metric_value": 50
@@ -229,8 +226,7 @@ The following example updates a scheduled action.
 
 A successful response looks like the following example:
 
-   ```bash
-   
+   ```json
    {
      "href": "https://eu-gb.iaas.cloud.ibm.com/v1/instance_groups/   r018-7b3ac170-01f3-43d6-87ec-f0ed11ed3f60/managers/   r018-4f2f7036-86b0-4d1b-a729-12357d45b00f/policies/   r018-02d7b6c3-e3c8-4569-ba6a-caa5d4d6146c",
      "id": "r018-02d7b6c3-e3c8-4569-ba6a-caa5d4d6146c",
@@ -246,8 +242,7 @@ A successful response looks like the following example:
 
 The following example deletes a scheduled action.
 
-   ```bash
-   
+   ```curl
    curl -X DELETE "$vpc_api_endpoint/v1/instance_groups/$instance_group_id/   memberships?version=2021-04-20&generation=2" -H "Authorization: $iam_token"
    ```
    {: codeblock}
