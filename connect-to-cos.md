@@ -54,7 +54,7 @@ You don't incur charges for traffic from your VPCs to all Cloud Object Storage e
 
 Buckets that are created at a regional endpoint distribute data across three data centers, which are spread across a metropolitan area. Any one of these data centers can suffer an outage, or even destruction, without affecting availability.
 
-|   Location     | Region | Endpoint |
+| Location| Region | Endpoint |
 | ------- | ------ | ------ | 
 | US South (Dallas) | us-south | `s3.direct.us-south.cloud-object-storage.appdomain.cloud`| 
 | US East (Washington DC) | us-east | `s3.direct.us-east.cloud-object-storage.appdomain.cloud`|
@@ -67,7 +67,7 @@ Buckets that are created at a regional endpoint distribute data across three dat
 {: tab-group="vpc-reg-endpoints"}
 {: #vpc-americas-reg-endpoints}
 
-|   Location     | Region | Endpoint |
+| Location| Region | Endpoint |
 | ------- | ------ | ------ | 
 | United Kingdom (London) | eu-gb | `s3.direct.eu-gb.cloud-object-storage.appdomain.cloud`|
 | EU Germany (Frankfurt) | eu-de | `s3.direct.eu-de.cloud-object-storage.appdomain.cloud`|
@@ -120,8 +120,8 @@ If an outage occurs, requests are automatically rerouted to an active region. Ad
 | Hong Kong S.A.R. of the PRC | `s3.direct.hkg.ap.cloud-object-storage.appdomain.cloud` |
 {: caption="Table 4. Cross-region endpoints for Asia Pacific" caption-side="bottom"}
 
- ### Single data center endpoints
- {: #single-datacenter-endpoints}
+### Single data center endpoints
+{: #single-datacenter-endpoints}
 
 Single data centers aren't colocated with {{site.data.keyword.cloud}} services, such as IAM or Key Protect, and they offer no resiliency if a site has an outage or is destroyed.
 
