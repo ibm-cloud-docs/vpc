@@ -69,13 +69,13 @@ You can access details about each operating system, such as the url for the oper
 
 All IBM-provided stock, public images are named by using the following convention:
 
-```
+```sh
 ibm-<family>-<version>-<type>-<architecture>-<build>
 ```
 
 For example,
 
-```
+```sh
 ibm-centos-7-6-minimal-amd64-2
 ```
 
@@ -115,7 +115,7 @@ For more information about custom images, see [Planning for custom images](/docs
 
 Storage costs are incurred for storing custom images. This charge is separate from charges for storing images in {{site.data.keyword.cos_full_notm}}.-->
 
- ## Next steps
+## Next steps
 {: #next-steps-images}
 
 After you choose a profile, it's time to plan for and create an instance.
