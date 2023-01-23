@@ -107,7 +107,7 @@ If you don't have a dedicated group, or if you want to create a new dedicated gr
 You can create one or more dedicated groups and hosts in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
 
 ### Before you begin
-{: before-you-create-group-cli}
+{: #before-you-create-group-cli}
 
 1. Make sure that you downloaded, installed, and intialized the following CLI plug-ins. For more information, see [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
     * IBM Cloud CLI
@@ -134,14 +134,14 @@ Use the following commands to determine the required information for creating a 
 
 1. List the regions that are associated with your account.
 
-   ```
+   ```sh
    ibmcloud is regions
    ```
    {: pre}
 
    For this example, you'd see a response similar to the following output:
    
-   ```
+   ```sh
     Name       Endpoint               Status   
     us-south   /v1/regions/us-south   available
     ```
@@ -149,14 +149,14 @@ Use the following commands to determine the required information for creating a 
 
 2. List the zones that are associated with the region.
 
-   ```
+   ```sh
    ibmcloud is zones us-south
    ```
    {: pre}
 
    For this example, you'd see a response similar to the following output:
    
-   ```
+   ```sh
    Name         Region     Status   
    us-south-1   us-south   available
    ```
@@ -164,14 +164,14 @@ Use the following commands to determine the required information for creating a 
 
 3. List the profiles that are available for creating a dedicated host to determine what profile family and class you want to assign to the dedicated host group. The family and class that you assign to the group when it is created determines the profiles that can be used to provision dedicated hosts and instances in the group. All dedicated hosts and virtual server instances that are provisioned to the dedicated host group must be from the same family and class of profiles. For more information, see [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles).
 
-   ```
+   ```sh
    ibmcloud is dedicated-host-profiles
    ```
    {: pre}
 
    For this example, you'd see a response similar to the following output. Check the Family and Class columns that are associated with the dedicated host profile that you want to provision in the dedicated host group. If you want to provision a memory profile for your host, note the associated family, `memory`, and associated class, `mx2`.
 
-   ```
+   ```sh
    Name                 Architecture   CPU Socket Count   vCPUs   Memory   Family          Class   
    cx2-host-152x304     amd64          4                  152     304      compute         cx2   
    bx2-host-152x608     amd64          4                  152     608      balanced        bx2     
@@ -188,7 +188,7 @@ To create a dedicated host group by using the CLI, use the **ibmcloud is dedicat
 
 The following example creates a dedicated host group named `myDedicatedHostGroup` in the `us-south-1` zone and assigns the `memory` profile family and `mx2` class.
 
-```
+```sh
 ibmcloud is dedicated-host-group-create --zone us-south-1 --family memory --class mx2 --name myDedicatedHostGroup
 ```
 {: pre}
@@ -204,14 +204,14 @@ Ready to create a dedicated host within the dedicated host group? Before you can
 
 List the profiles that are available for creating a dedicated host.
 
-```
+```sh
 ibmcloud is dedicated-host-profiles
 ```
 {: pre}
 
 For this example, you'd see a response similar to the following output. The profile that you select must be from the same family and class as your dedicated host group where you plan to provision the host.
 
-```
+```sh
 Name                 Architecture   CPU Socket Count   vCPUs   Memory   Family          Class   
 cx2-host-152x304     amd64          4                  152     304      compute         cx2   
 bx2-host-152x608     amd64          4                  152     608      balanced        bx2     
@@ -220,7 +220,7 @@ mx2-host-152x1216    amd64          4                  152     1216     memory  
 {: screen}
 
 ### Creating a dedicated host by using the CLI
-{: creating-dedicated-host-cli}
+{: #creating-dedicated-host-cli}
 
 You can create one or more dedicated hosts in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
 
@@ -228,7 +228,7 @@ To create a dedicated host by using the CLI, use the **ibmcloud is dedicated-hos
 
 The following example creates a dedicated host named `myDedicatedHost` with the memory profile `mx2-host-152x1216` in the dedicated host group `0076-edf611ff-0fd6-44bf-b5f3-102eeb3cf928`.
 
-```
+```sh
 ibmcloud is dedicated-host-create --profile mx2-host-152x1216 --host-group 0076-edf611ff-0fd6-44bf-b5f3-102eeb3cf928 --name myDedicatedHost
 ```
 {: pre}
