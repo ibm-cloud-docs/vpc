@@ -331,7 +331,7 @@ There are many ways to set up a compatible server endpoint. The following exampl
    
 4. Restart the syslog service.
    
-   ````
+   ```sh
    service syslog restart
    ```
    {: codeblock}
