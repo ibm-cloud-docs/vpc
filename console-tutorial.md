@@ -112,7 +112,7 @@ To create a VPC and subnet:
 1. Click **Create virtual private cloud**.
 
 ## Configuring the ACL
-{: #configuring-the-acl}
+{: #configuring-the-acl-ct}
 {: step}
 
 You can configure the ACL to limit inbound and outbound traffic to the subnet. By default, all traffic is allowed.
@@ -158,6 +158,7 @@ To create a virtual server instance in the newly created subnet:
     <!--DO NOT MOVE WAZI AAS TO PUBLISH-->
     _For z/OS Wazi aaS custom image only:_ If you use the custom image that is created by using Wazi Image Builder and [Terraform automation](https://github.com/ibm-hyper-protect/zos-vpc-custom-image-builder){: external}, select **Custom image** for the operating system and the image is called `wazi-custom-image` by default.
     {: note}
+
     <!--DO NOT MOVE WAZI AAS TO PUBLISH-->
 
 2. To set the instance size, select one of the popular profiles or click **View all profiles** to choose a different core, RAM, and network performance combination that's most appropriate for your workload. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles).
@@ -172,6 +173,7 @@ To create a virtual server instance in the newly created subnet:
     <!--DO NOT MOVE WAZI AAS TO PUBLISH-->
     _For z/OS Wazi aaS custom image only:_ When you create a z/OS virtual server instance with the z/OS Wazi aaS custom image, you need to add a data volume by selecting `Import from Snapshot`. The snapshot is called `wazi-custom-image-data` by default.
     {: note}
+    
     <!--DO NOT MOVE WAZI AAS TO PUBLISH-->
 7. In the **Network interfaces** area, you can edit the network interface and change its name. If you have more than one subnet in the selected zone and VPC, you can attach a different subnet to the interface. If you want the instance to exist in multiple subnets, you can create more interfaces.
 
@@ -203,12 +205,12 @@ To create and attach a block storage volume:
 1. Click **Create volume**.
 1. In the list of block storage volumes, find the volume that you created. When the status is Available, click "..." and select **Attach to instance**.
 1. Select the instance to which you want to attach the volume and click **Attach**.
-<!--DO NOT MOVE WAZI AAS TO PUBLISH-->
+   <!--DO NOT MOVE WAZI AAS TO PUBLISH-->
 1. _For z/OS virtual server instances only:_ To verify the newly attached block storage volume with its address assigned, you can find the information on your z/OS virtual server instance console via a broadcast message sent to you with the affected device address.
-<!--DO NOT MOVE WAZI AAS TO PUBLISH-->
+   <!--DO NOT MOVE WAZI AAS TO PUBLISH-->
 
 ## Configuring the security group for the instance
-{: #configuring-the-security-group}
+{: #configuring-the-security-group-step}
 {: step}
 
 You can configure the security group to define the inbound and outbound traffic that is allowed for the instance. For example, after you configure ACL rules for the subnet based on your company's security policies, you can further restrict traffic for specific instances depending on their workloads.
@@ -293,6 +295,7 @@ To connect to a Windows image, log in using its decrypted password. For instruct
 
 <!-- DO NOT MOVE WAZI AAS TO PUBLISH-->
 To connect to your z/OS virtual server instance, see [Connecting to z/OS virtual server instances](/docs/vpc?topic=vpc-vsi_is_connecting_zos).
+
 <!-- DO NOT MOVE WAZI AAS TO PUBLISH-->
 
 You can now access your IBM Cloud virtual server instance by connecting to a VNC or serial console. This is a quick-and-easy way for you to interact with the instance without using a Secure Shell. <!-- DO NOT MOVE WAZI AAS TO PUBLISH-->However, accessing your z/OS virtual server instance by using a VNC console on the IBM Cloud UI is not supported. <!-- DO NOT MOVE WAZI AAS TO PUBLISH-->For more information about this feature, see [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console).
@@ -314,7 +317,7 @@ Because the monitoring data is stored in {{site.data.keyword.mon_full_notm}}, yo
 {: important}
 
 ## Creating a load balancer (optional)
-{: #load-balancer}
+{: #create-load-balancer}
 {: step}
 
 You can create two different types of {{site.data.keyword.cloud_notm}} load balancers: an application load balancer and a network load balancer. For comparison information and instructions on how to create an {{site.data.keyword.cloud_notm}} load balancer, see [Load balancers overview](/docs/vpc?topic=vpc-nlb-vs-elb).
