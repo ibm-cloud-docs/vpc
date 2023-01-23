@@ -10,14 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:tip: .tip}
-{:important: .important}
-{:new_window: target="_blank"}
-{:DomainName: data-hd-keyref="DomainName"}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # Virtual server instance deployment error messages
 {: #instance-status-messages}
@@ -30,7 +23,7 @@ If you receive an error message, you can use the following information to help r
 
 **Error message**: _Can't start instance because provisioning failed_
 
-Your virtual server instance didn't start because of an unexpected error. To address this error, try the follow possible resolutions: 
+Your virtual server instance didn't start because of an unexpected error. To address this error, try the follow possible resolutions:
 
 * Stop and restart the instance.
 * Delete the instance and try again.
@@ -44,7 +37,7 @@ For more information about managing your instance, see [Managing virtual server 
 
 **Error message**: _Can't start instance because resource capacity is unavailable._
 
-Your virtual server instance didn't start because the instance doesn't have enough available resource capacity to start. To address this error, try the follow possible resolutions: 
+Your virtual server instance didn't start because the instance doesn't have enough available resource capacity to start. To address this error, try the follow possible resolutions:
 
 * Stop and restart the instance.
 * Select a different availability zone.
@@ -60,7 +53,7 @@ For more information about managing your instance, see [Managing virtual server 
 
 **Error message**: _Can't start instance in the placement group_
 
-Your virtual server instance didn't start because the instance doesn't have enough available resource capacity in the instance group to start. To address this error, try the follow possible resolutions: 
+Your virtual server instance didn't start because the instance doesn't have enough available resource capacity in the instance group to start. To address this error, try the follow possible resolutions:
 
 * Stop and restart the instance.
 * Resize to a smaller instance profile.
@@ -78,7 +71,7 @@ For more information about managing your virtual server instance and placement g
 
 **Error message**: _Can't start instance because provisioning failed_
 
-Your virtual server instance did not start because of an unexpected failure. To address this error, try the follow possible resolutions: 
+Your virtual server instance did not start because of an unexpected failure. To address this error, try the follow possible resolutions:
 
 * Stop and restart the instance.
 * Delete the instance and try again.
@@ -92,7 +85,7 @@ For more information, see [Managing virtual server instances](/docs/vpc?topic=vp
 
 **Error message**: _Can't start instance because network resources can't be provisioned_
 
-Your virtual server instance did not start because of a network resource failure. To address this error, try the follow possible resolutions: 
+Your virtual server instance did not start because of a network resource failure. To address this error, try the follow possible resolutions:
 
 * Stop and restart the instance.
 * Delete the instance and try again.
@@ -106,7 +99,7 @@ For more information about managing network interfaces, see [Managing network in
 
 **Error message**: _Can't start instance because the network interface IP address isn't available_
 
-Your virtual server instance did not start because of an unexpected network interface IP address failure. To address this error, try the follow possible resolutions: 
+Your virtual server instance did not start because of an unexpected network interface IP address failure. To address this error, try the follow possible resolutions:
 
 * Stop and restart the instance.
 * Delete the instance and try again.
@@ -122,7 +115,7 @@ For more information about managing your instance and IP addresses, see the foll
 
 **Error message**: _Can't start instance because storage wasn't provisioned_
 
-Your virtual server instance did not start because of a storage volume or storage disk provisioning error. To address this error, try the follow possible resolutions: 
+Your virtual server instance did not start because of a storage volume or storage disk provisioning error. To address this error, try the follow possible resolutions:
 
 * Stop and restart the instance.
 * Delete the instance and try again.
@@ -150,7 +143,7 @@ If you still need help with the error, contact [support](/docs/vpc?topic=vpc-get
 
 **Error message**: _Instance was stopped because a new image was created_
 
-The virtual server instance can't start instance because the image is being created from boot volume. 
+The virtual server instance can't start instance because the image is being created from boot volume.
 
 To resolve this error, try to start the instance again after the image creation process is complete.
 
@@ -159,7 +152,7 @@ If you still need help with the error, contact [support](/docs/vpc?topic=vpc-get
 For more information about creating images, see [Creating virtual server instances by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers) or [Creating virtual server instances by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli).
 
 ## Error: `stopped_by_host_failure`
-{: stopped-by-host-failure}
+{: #stopped-by-host-failure}
 
 **Error message**: _Host not responding: instance stopped_
 
