@@ -26,9 +26,9 @@ Use the following information to learn how to connect to {{site.data.keyword.clo
 Information that is stored with {{site.data.keyword.cloud_notm}} Object Storage is encrypted and dispersed across multiple geographic locations. It is accessible through an implementation of the S3 API. This service uses the distributed storage technologies that are provided by the {{site.data.keyword.cloud}} Object Storage System.
 
 Cloud Object Storage is available with three types of configurations for resiliency: **Cross Region**, **Regional**, and **Single data center**.
-* **Cross Region** service provides higher durability and availability than using a single region, at the cost of slightly higher latency. This service is available today in the US, E.U., and A.P. areas.
-* **Regional** service reverses the tradeoffs. It distributes objects across multiple availability zones within a single region. It is available in the US, E.U., and A.P. regions. If a region or zone is unavailable, the object store continues to function without impediment.
-**Single data center** service distributes objects across multiple machines within the same physical location. Check this document regularly for available regions.
+- **Cross Region** service provides higher durability and availability than using a single region, at the cost of slightly higher latency. This service is available today in the US, E.U., and A.P. areas.
+- **Regional** service reverses the tradeoffs. It distributes objects across multiple availability zones within a single region. It is available in the US, E.U., and A.P. regions. If a region or zone is unavailable, the object store continues to function without impediment.
+- **Single data center** service distributes objects across multiple machines within the same physical location. Check this document regularly for available regions.
 
 ### Cloud Object Storage direct endpoints for use with VPC
 {: #cos-direct-endpoints-for-use-with-vpc}
