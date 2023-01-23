@@ -460,7 +460,7 @@ If a user enables a **User ID and passcode** when configuring [client authentica
 After the VPN client connects to the VPN server, the requests to the VPE endpoint or Cloud Service Endpoint (CSE) are controlled with context-based restrictions. Also, the requests' source IP is the VPC [Cloud service endpoint source addresses](/docs/vpc?topic=vpc-vpc-behind-the-curtain#cse-source-addresses). Make sure that the VPC CSE source addresses are in the CBR Network Zone; otherwise, the request is denied.
 
 ## Limitations
-{: #cbr-limitations)
+{: #cbr-limitations}
 
 Context-based restrictions protect only the actions associated with the [VPC Infrastructure Services](/apidocs/vpc). Actions associated with the following platform APIs are not protected by context-based restrictions. Reference the API docs for the specific action IDs.
 
