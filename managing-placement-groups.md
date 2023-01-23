@@ -9,29 +9,12 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
-{:beta: .beta}
-{:important: .important}
-{:download: .download}
-{:table: .aria-labeledby="caption"}
-{:DomainName: data-hd-keyref="DomainName"}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
-{:terraform: .ph data-hd-interface='terraform'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Managing placement groups
 {: #managing-placement-group}
 
-With placement groups for {{site.data.keyword.vpc_full}}, you can create policies for managing high availability workloads. You can specify a choice of placement policies for a group of provisioned instances. You can use these policies to influence the physical placement of select VPC virtual servers to meet certain workload demands. 
+With placement groups for {{site.data.keyword.vpc_full}}, you can create policies for managing high availability workloads. You can specify a choice of placement policies for a group of provisioned instances. You can use these policies to influence the physical placement of select VPC virtual servers to meet certain workload demands.
 {: shortdesc}
 
 After the placement group is created, you can assign a selected virtual server instance or a group of virtual server instances to the placement group. When you provision these instances, the instance is then placed on a computer host in the designated zone for the instance based on the placement group strategy. You can use the same placement group for instances across multiple VPCs.
@@ -42,19 +25,18 @@ Placement groups can be managed with the UI, CLI, API, or Terraform. You can cre
 {: #managing-placement-groups-UI}
 {: ui}
 
-You can manage a placement group in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console. 
+You can manage a placement group in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console.
 
 To complete management tasks on your placement groups, complete the following steps.
-1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Placement Groups**. 
-2. On the Placement groups for VPC page, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the placement that you want to manage. You can select 
-from the following actions:
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Placement Groups**.
+2. On the Placement groups for VPC page, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) for the placement that you want to manage. You can select from the following actions:
 
 | Action | Description |
 |--------|-------------|
 | Create | Create a new placement group |
 | Delete | If you no longer need the placement group, you can delete it to permanently remove it from your account. Before you can delete the placement group, you must first delete any virtual server instances that are assigned to the placement group.|
 | Rename | Update the placement group name with a new name. |
-{: caption="Table 1. Actions available for placement groups" caption-side="top"}
+{: caption="Table 1. Actions available for placement groups" caption-side="bottom"}
 
 The VPC must exist before you create a placement group. If the VPC is not created first, you receive an error when you create the placement group and the placement group is not created.
 {: important}
@@ -66,7 +48,7 @@ The VPC must exist before you create a placement group. If the VPC is not create
 You can create a placement group in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console. A placement group must be created first before an instance can use it. After a placement group is created, an instance can be attached to it during provisioning.
 
 Use the following steps to create a placement group:
-1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Placement Groups**. 
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Placement Groups**.
 2. Click **Create** and enter the information in Table 1 on the New placement for VPC page.
 
 | Field | Value |
@@ -75,8 +57,8 @@ Use the following steps to create a placement group:
 | Resource group | Select the resource group that contains the account resources and users that you want to be able to access the placement group. For more information about resource groups, see [Managing resource groups](/docs/account?topic=account-rgs). |
 | Region | The region of the placement group. |
 | User tags | Keywords that are used for profile management. |
-| Placement strategy | Host spread - All provisioned instances are placed on separate hosts that might be in the same rack.<br><br>Power spread - All provisioned instances are placed on different racks with separate power and network supplies. Each rack also contains dual power supplies from different sources.|
-{: caption="Table 2. Fields required to create a placement group" caption-side="top"}
+| Placement strategy | Host spread - All provisioned instances are placed on separate hosts that might be in the same rack.  \n   \n Power spread - All provisioned instances are placed on different racks with separate power and network supplies. Each rack also contains dual power supplies from different sources.|
+{: caption="Table 2. Fields required to create a placement group" caption-side="bottom"}
 
 ## Creating a placement group with the CLI
 {: #creating-placement-group-CLI}
@@ -85,10 +67,10 @@ Use the following steps to create a placement group:
 A placement group must be created first before an instance can use it. After a placement group is created, an instance can be attached to it during provisioning.
 
 ### Before you begin
-{: before-you-create-placement-group-cli}
+{: #before-you-create-placement-group-cli}
 {: cli}
 
-1. Make sure that you download, install, and initialize the following CLI plug-ins. For more information, see [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup). 
+1. Make sure that you download, install, and initialize the following CLI plug-ins. For more information, see [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
     * IBM Cloud CLI
     * The vpc-infrastructure plug-in
 2. Have an [{{site.data.keyword.vpc_short}} created](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
@@ -97,7 +79,7 @@ A placement group must be created first before an instance can use it. After a p
 {: #gather-info-placement-group-cli}
 {: cli}
 
-Ready to create a placement group? Before you can run the `ibmcloud is placement-group-create` command, you need to know the following information. 
+Ready to create a placement group? Before you can run the `ibmcloud is placement-group-create` command, you need to know the following information.
 
 Gather the following required information:
 
@@ -108,7 +90,7 @@ Gather the following required information:
 | **Name** | The placement group name |
 | **Resource group ID** | The ID of the resource group |
 | **Resource group name** | The name of the resource group |
-{: caption="Table 3. Information required to create a placement group using the CLI" caption-side="top"}
+{: caption="Table 3. Information required to create a placement group using the CLI" caption-side="bottom"}
 
 ## Creating the placement group with the CLI
 {: #creating-placement-group-cli-a}
@@ -120,7 +102,7 @@ To create a placement group by using the CLI, use the **ibmcloud is placement-gr
 
 The following example creates a placement group with a host spread strategy, named `MyPlacementGroup`, with resource group ID `RESOURCE_GROUP_ID`, and a resource group name of `RESOURCE_GROUP_NAME`.
 
-```
+```sh
 ibmcloud is placement-group-create --strategy host_spread --name MyPlacementGroup --resource-group-id RESOURCE_GROUP_ID --resource-group-name RESOURCE_GROUP_NAME
 ```
 {: codeblock}
@@ -141,7 +123,7 @@ curl -X POST "$vpc_api_endpoint/v1/placement_groups?version=2021-04-20&generatio
       "strategy": "host_spread"
     }'
 ```
-{: codeblock} 
+{: codeblock}
 
 For more information on the `host_spread` and `power_spread` strategy variables, see [Create a placement group](/apidocs/vpc/latest#create-placement-group) in the Virtual Private Cloud API documentation.
 
@@ -154,21 +136,21 @@ You can create a placement group in your {{site.data.keyword.vpc_short}} by usin
 A placement group must be created first before an instance can use it. After a placement group is created, an instance can be attached to it during provisioning.
 
 ### Before you begin
-{: before-you-create-placement-group-terraform}
+{: #before-you-create-placement-group-terraform}
 {: terraform}
 
-Make sure that you set up [Terraform for VPC](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest). 
+Make sure that you set up [Terraform for VPC](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest).
 
-The following example creates a placement group with a host spread strategy, named `my-placement-group`, and a resource group name of `data.ibm_resource_group.default.id`. 
+The following example creates a placement group with a host spread strategy, named `my-placement-group`, and a resource group name of `data.ibm_resource_group.default.id`.
 
-```
+```json
 resource "ibm_is_placement_group" "is_placement_group" {
   strategy = "host_spread"
   name = "my-placement-group"
-  resource_group = data.ibm_resource_group.default.id 
+  resource_group = data.ibm_resource_group.default.id
 }
 ```
-{: codeblock} 
+{: codeblock}
 
 For more information on the `host_spread` and `power_spread` strategy variables, see [Create a placement group](/apidocs/vpc/latest#create-placement-group) in the Virtual Private Cloud API documentation.
 
@@ -177,10 +159,10 @@ For more information on the `host_spread` and `power_spread` strategy variables,
 {: #changing-placement-group-name-ui}
 {: ui}
 
-You can update the name of a placement group in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console. 
+You can update the name of a placement group in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console.
 
 To rename a placement group:
-1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Placement Groups**. 
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Placement Groups**.
 2. Select the placement group and click **Rename**.
 3. Change the placement group name.
 
@@ -194,7 +176,7 @@ To update the placement group name by using the CLI, use the **ibmcloud is place
 
 The following example updates the placement group with the ID `72251a2e-d6c5-42b4-97b0-b5f8e8d1f479` to the name of `NEW_NAME`.
 
-```
+```sh
 ibmcloud is placement-group-update 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --name NEW_NAME
 ```
 {: pre}
@@ -210,7 +192,7 @@ curl -X PATCH "$vpc_api_endpoint/v1/placement_groups/$id?version=2021-05-04&gene
       "name": "my-updated-placement-group",
     }'
 ```
-{: pre}  
+{: pre}
 
 ## Changing the placement group name with Terraform
 {: #changing-placement-group-name-terraform}
@@ -220,7 +202,7 @@ You can update the name of a placement group in your {{site.data.keyword.vpc_sho
 
 The following example updates the placement group with the ID `is_placement_group` to the name of `my-placement-group-modified`.
 
-```
+```json
 resource "ibm_is_placement_group" "is_placement_group" {
   strategy = "host_spread"
   name = "my-placement-group-modified"
@@ -233,10 +215,10 @@ resource "ibm_is_placement_group" "is_placement_group" {
 {: #deleting-placement-group-UI}
 {: ui}
 
-You can delete a placement group in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console. A placement group can't be deleted if instances are attached to it. All instances must be removed first. For more information about deleting a virtual private cloud instance and its associated resources, see [Deleting a VPC](/docs/vpc?topic=vpc-deleting). 
+You can delete a placement group in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console. A placement group can't be deleted if instances are attached to it. All instances must be removed first. For more information about deleting a virtual private cloud instance and its associated resources, see [Deleting a VPC](/docs/vpc?topic=vpc-deleting).
 
 Use the following steps to delete a placement group:
-1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Placement Groups**. 
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Placement Groups**.
 2. Select the placement group and click **Delete**.
 3. A confirmation message is displayed. Click **Delete**.
 
@@ -244,13 +226,13 @@ Use the following steps to delete a placement group:
 {: #deleting-placement-group-cli}
 {: cli}
 
-You can delete a placement group in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI). A placement group can't be deleted if instances are attached to it. All instances must be removed first. For more information about deleting a virtual private cloud instance and its associated resources, see [Deleting a VPC](/docs/vpc?topic=vpc-deleting). 
+You can delete a placement group in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI). A placement group can't be deleted if instances are attached to it. All instances must be removed first. For more information about deleting a virtual private cloud instance and its associated resources, see [Deleting a VPC](/docs/vpc?topic=vpc-deleting).
 
 To delete placement group by using the CLI, use the **ibmcloud is placement-group-delete** command. Specify the placement group ID.
 
 The following example deletes a placement group named `PLACEMENT_GROUP`.
 
-```
+```sh
 ibmcloud is placement-group-delete PLACEMENT_GROUP --output JSON
 ```
 {: pre}
@@ -259,24 +241,24 @@ ibmcloud is placement-group-delete PLACEMENT_GROUP --output JSON
 {: #deleting-placement-group-API}
 {: api}
 
-A placement group can't be deleted if instances are attached to it. All instances must be removed first. For more information about deleting a virtual private cloud instance and its associated resources, see [Deleting a VPC](/docs/vpc?topic=vpc-deleting). 
+A placement group can't be deleted if instances are attached to it. All instances must be removed first. For more information about deleting a virtual private cloud instance and its associated resources, see [Deleting a VPC](/docs/vpc?topic=vpc-deleting).
 
 The following example deletes the placement group.
 
 ```sh
 curl -X DELETE "$vpc_api_endpoint/v1/placement_groups/$id?version=2021-04-20&generation=2" -H "Authorization: $iam_token"
 ```
-{: pre} 
+{: pre}
 
 ## Deleting a placement group with Terraform
 {: #deleting-placement-group-terraform}
 {: terraform}
 
-You can delete a placement group in your {{site.data.keyword.vpc_short}} by using Terraform. A placement group can't be deleted if instances are attached to it. All instances must be removed first. For more information about deleting a virtual private cloud instance and its associated resources, see [Deleting a VPC](/docs/vpc?topic=vpc-deleting). 
+You can delete a placement group in your {{site.data.keyword.vpc_short}} by using Terraform. A placement group can't be deleted if instances are attached to it. All instances must be removed first. For more information about deleting a virtual private cloud instance and its associated resources, see [Deleting a VPC](/docs/vpc?topic=vpc-deleting).
 
 The following example deletes a placement group named `PLACEMENT_GROUP`.
 
-```
+```sh
 terraform destroy -target=ibm_is_placement_group.is_placement_group
 ```
 {: pre}
@@ -285,10 +267,10 @@ terraform destroy -target=ibm_is_placement_group.is_placement_group
 {: #listing-placement-group-UI}
 {: ui}
 
-You can generate a list of placement groups for a region. 
+You can generate a list of placement groups for a region.
 
 To display a list of all existing placement groups:
-1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Placement Groups**. 
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Placement Groups**.
 1. All existing placement groups are displayed.
 
 ## Listing all placement groups with the CLI
@@ -301,7 +283,7 @@ To list all the existing placement groups by using the CLI, use the **ibmcloud i
 
 The following example lists all the existing placement groups for the resource group ID `RESOURCE_GROUP_ID` and name `RESOURCE_GROUP`.
 
-```
+```sh
 ibmcloud is placement-groups --resource-group-id RESOURCE_GROUP_ID --resource-group-name RESOURCE_GROUP_NAME --all-resource-groups --output JSON
 ```
 {: pre}
@@ -315,7 +297,7 @@ You can generate a list of placement groups for a region. The following example 
  ```sh
  curl -X GET "$vpc_api_endpoint/v1/placement_groups?version=2021-04-20&generation=2" -H "Authorization: $iam_token"
  ```
-{: pre} 
+{: pre}
 
 ## Listing all placement groups with Terraform
 {: #listing-placement-group-terraform}
@@ -325,7 +307,7 @@ You can generate a list of placement groups for a region. You can list all the e
 
 The following example lists all the existing placement groups.
 
-```
+```json
 data "ibm_is_placement_groups" "is_placement_groups" {
 }
 ```
@@ -339,7 +321,7 @@ You can view details about a placement group, such as the placement group name, 
 
 To view details about a placement group, complete the following steps.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/vpc-ext){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Placement Groups**. 
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Placement Groups**.
 1. Click the name of the placement group about which you want to view details.
 
 ## Viewing placement group details with the CLI
@@ -354,7 +336,7 @@ To retrieve the details of a placement group by using the CLI, use the **ibmclou
 
 The following example retrieves the details for a placement group named `PLACEMENT_GROUP`.
 
-```
+```sh
 ibmcloud is placement-group PLACEMENT_GROUP --output JSON
 ```
 {: pre}
@@ -371,7 +353,7 @@ The following example retrieves a single placement group that is specified by th
 ```sh
 curl -X GET "$vpc_api_endpoint/v1/placement_groups/$id?version=2021-04-20&generation=2" -H "Authorization: $iam_token"
 ```
-{: pre} 
+{: pre}
 
 ## Viewing placement group details with Terraform
 {: #view-placement-group-details-terraform}
@@ -383,12 +365,9 @@ You can retrieve the details a placement group in your {{site.data.keyword.vpc_s
 
 The following example retrieves details for a single placement group with an ID of `ibm_is_placement_group.is_placement_group.name`.
 
-```
+```json
 data "ibm_is_placement_group" "d_is_placement_group" {
   name = ibm_is_placement_group.is_placement_group.name
 }
 ```
 {: pre}
-
-
-    
