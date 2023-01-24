@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-01-16"
+lastupdated: "2023-01-04"
 
 keywords: creating bare metal servers
 subcollection: vpc
@@ -23,7 +23,7 @@ Use the following information to create a bare metal server on your {{site.data.
 
 Use the following steps to create a bare metal server by using the {{site.data.keyword.cloud}} console. You can also check out the following [video](https://mediacenter.ibm.com/media/t/1_j2pdfua6){: external} to learn more about creating a bare metal server.
 
-1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**
 
 1. Click **Create** and enter the information that is in Table 1.
 
@@ -286,7 +286,7 @@ After you have all the information, use the [Create bare metal server](/apidocs/
     ```
     {: pre}
 
-* For s390x architecture, you can create a bare metal server with the following example configuration:
+* For s390x architecture, you create a bare metal server with the following example configuration:
 
    * s390x image ID: "r134-8c5b280e-5310-4117-90e3-46ebe360e70f"
    * SSH Key ID: "a6b1a881-2ce8-41a3-80fc-36316a73f803"
@@ -348,7 +348,7 @@ The status displays "Pending" until the server is created.
 For more information about the API request, see [Create a bare metal server](/apidocs/vpc#create-bare-metal-server).
 
 ### Viewing your server
-{: #viewing-bare-metal-servers-api}
+{: #viewing-bms-api}
 
 When the server status changes to "Running", use the following request to view it.
 
@@ -432,7 +432,7 @@ For example, you can create a bare metal server with the following configuration
     {: pre}
 
 ### Viewing your server
-{: #viewing-bare-metal-servers-cli}
+{: #viewing-bms-cli}
 
 When the server status changes to **Running**, use the following command to view it.
 

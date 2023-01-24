@@ -31,12 +31,12 @@ You can't use a VNC console or a serial console to connect to s390x bare metal s
 You can access the s390x bare metal server through a floating IP.
 
 ### Attaching a floating IP to an s390x bare metal server network interface
-{: #attaching-fip-to-nic}
+{: #attaching-fip-to-nic-s390x}
 
-Before you can access the bare metal server through the public internet, you need to attach a floating IP to its primary HiperSocket network interface. You can attach a floating IP by using the UI, [CLI](#attaching-fip-to-nic-cli), or [API](#attaching-fip-to-nic-api).
+Before you can access the bare metal server through the public internet, you need to attach a floating IP to its primary HiperSocket network interface. You can attach a floating IP by using the UI, [CLI](#attaching-fip-to-nic-s390x-cli), or [API](#attaching-fip-to-nic-s390x-api).
 
 ### Attaching a floating IP by using the UI
-{: #attaching-fip-to-nic-ui}
+{: #attaching-fip-to-nic-s390x-ui}
 
 1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Bare metal servers**.
 
@@ -47,7 +47,7 @@ Before you can access the bare metal server through the public internet, you nee
 4. On **Edit network interface**, select a reserved floating IP or **Reserve a new floating IP** and click **Save**.
 
 ### Attaching a floating IP by using the CLI
-{: #attaching-fip-to-nic-cli}
+{: #attaching-fip-to-nic-s390x-cli}
 
 You need the following information to attach a floating IP to a bare metal server:
 
@@ -65,7 +65,7 @@ ibmcloud is bare-metal-server-network-interface-floating-ip-add $bare_metal_serv
 {: pre}
 
 ### Attaching a floating IP by using the API
-{: #attaching-fip-to-nic-api}
+{: #attaching-fip-to-nic-s390x-api}
 
 You need the following information when you attach a floating IP to a bare metal server network interface:
 

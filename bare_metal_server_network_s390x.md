@@ -30,7 +30,7 @@ Based on the profile that you select, the supported bandwidth can be 2 or 10 Gbp
 For more information about managing network interfaces, see [Managing network interfaces for a bare metal server](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers).
 
 ## s390x bare metal server network interfaces
-{: #bare-metal-servers-nics-intro}
+{: #bare-metal-servers-nics-intro-s390x}
 
 You can create only one type of network interface on an s390x bare metal server:
 
@@ -40,7 +40,7 @@ You can create only one type of network interface on an s390x bare metal server:
 {: caption="Table 1. Types of network interfaces for s390x bare metal servers" caption-side="bottom"}
 
 ### Characteristics of the HiperSocket interface
-{: #bare-metal-servers-interface-characteristics}
+{: #bare-metal-servers-interface-characteristics-s390x}
 
 The following information highlights characteristics of the HiperSocket interface.
 

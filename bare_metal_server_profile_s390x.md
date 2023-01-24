@@ -24,7 +24,7 @@ When you create an s390x bare metal server, you can select an s390x bare metal s
 The s390x bare metal server profiles are in the "Memory" profile family because their "vCPU : Memory" ratio is larger than "1:16". For more information about profile families, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles).
 
 ## Profile configurations
-{: #bare-metal-servers-profile-list}
+{: #bare-metal-servers-profile-list-s390x}
 
 See table 1 for the configurations of each profile. Each CPU core of the s390x bare metal server has two Simultaneous Multithreading (SMT) threads for increased CPU efficiency to deliver more throughput per processor core.
 
@@ -49,22 +49,22 @@ The following information describes the naming rule of the profiles.
 Use `mz2d-metal-8x256` as an example. You can know that it's a *Memory* bare metal profile with *four CPU cores (two SMT threads in each CPU core) and 256 GiB memory*. This profile has the s390x architecture processors and FCP storage based on SAN.
 
 ## Viewing profile configurations
-{: #view-bare-metal-servers-profile}
+{: #view-bare-metal-servers-profile-s390x}
 
-You can view available profile configurations by using the UI, [CLI](#view-bare-metal-servers-profile-cli), or the [API](#view-bare-metal-servers-profile-api).
+You can view available profile configurations by using the UI, [CLI](#view-bare-metal-servers-profile-cli-s390x), or the [API](#view-bare-metal-servers-profile-api-s390x).
 
 ## Using the UI to view profiles
-{: #view-bare-metal-servers-profile-ui}
+{: #view-bare-metal-servers-profile-ui-s390x}
 {: ui}
 
 Use the following steps to view available bare metal profiles by using the UI.
 
-1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC infrastructure > Compute > Bare metal servers**.
+1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](/login), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC infrastructure > Compute > Bare metal servers**.
 2. From the **Bare metal servers for VPC** page, click **Create**.
 3. On the **New bare metal server for VPC** page, you can view and select profiles under **Profile**.
 
 ## Using the CLI to view profiles
-{: #view-bare-metal-servers-profile-cli}
+{: #view-bare-metal-servers-profile-cli-s390x}
 {: cli}
 
 Use the following command to list all the bare metal server profiles that are available in a region:
@@ -75,7 +75,7 @@ ibmcloud is bare-metal-server-profiles [--output JSON] [-q, --quiet]
 {: pre}
 
 ## Using the API to view profiles
-{: #view-bare-metal-servers-profile-api}
+{: #view-bare-metal-servers-profile-api-s390x}
 {: api}
 
 List all bare metal server profiles available in a region by running the following API request:
@@ -88,6 +88,6 @@ curl -X GET \
 {: pre}
 
 ## Next steps
-{: #bare-metal-servers-profile-next-step}
+{: #bare-metal-servers-profile-next-step-s390x}
 
 After you choose a profile, you can [create a bare metal server for VPC](/docs/vpc?topic=vpc-creating-bare-metal-servers).
