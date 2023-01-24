@@ -19,22 +19,23 @@ For Red Hat Enterprise Linux&reg; and Windows operating systems, you can bring y
 
 ## BYOL concepts
 {: #byol-vpc-concepts}
+
 With the BYOL feature, you can use your own license for a custom image that you create at your site and then upload to {{site.data.keyword.cos_full_notm}}. When you import your custom image from {{site.data.keyword.cos_full_notm}} to the VPC, {{site.data.keyword.cloud_notm}} provides Red Hat Enterprise Linux and Windows *BYOL* operating system options that you must select to indicate that you are using a BYOL operating system. You use your BYOL custom images to create virtual server instances, just as you would from a stock image.
 
 The BYOL feature on LinuxONE (s390x processor architecture) supports Red Hat Enterprise Linux (RHEL), and SUSE Linux Enterprise Server (SLES) operating systems.
 
-Images with a Red Hat Enterprise Linux BYOL or a Windows BYOL operating system can be used to provision an instance on a public or dedicated host. 
+Images with a Red Hat Enterprise Linux BYOL or a Windows BYOL operating system can be used to provision an instance on a public or dedicated host.
 
 You don't have extra licensing charges for any virtual server instances that you create by using your BYOL custom image. For auditing and reporting purposes, {{site.data.keyword.cloud_notm}} retains information for virtual server instances that you create from BYOL custom images.
 
 ## BYOL for Red Hat Enterprise Linux operating systems
 {: #byol-vpc-linux}
 
-You can use your own license for a [custom RHEL image](/docs/vpc?topic=vpc-create-linux-custom-image) that you create on premises. This BYOL custom image is a single qcow2 or vhd file that you upload to Cloud Object Storage and then import to the VPC. When you import your BYOL custom image, you must select a _BYOL_ operating system from the list of OS versions. Supported Linux versions are 64-bit RHEL 7 and RHEL 8.
+You can use your own license for a [custom RHEL image](/docs/vpc?topic=vpc-create-linux-custom-image) that you create on premises. This BYOL custom image is a single qcow2 or vhd file that you upload to {{site.data.keyword.cos_full_notm}} and then import to the VPC. When you import your BYOL custom image, you must select a _BYOL_ operating system from the list of OS versions. Supported Linux versions are 64-bit RHEL 7 and RHEL 8.
 
 To see all of the operating system versions from the API, make a `GET /operating_systems` call. In the response, you see Red Hat Enterprise Linux BYOL OS versions among the list of operating systems. This example response shows information that is returned for RHEL 7:
 
-```
+```json
 {
       "href": "https://cloud.ibm.com/v1/operating_systems/red-7-amd64-byol",
       "name": "red-7-amd64-byol",
@@ -70,9 +71,9 @@ When you import your BYOL custom image, you must select a _BYOL_ operating syste
 * Windows 2019 and Windows 2019 64-bit
 * Windows 2022 64-bit
 
-To see all of the operating system versions from the API, make a `GET /operating_systems` call. In the response, you see Windows BYOL OS versions among the list of operating systems. This example response shows information that is returned for Windows 2012:
+To see all of the operating system versions from the API, make a`GET /operating_systems` call. In the response, you see Windows BYOL OS versions among the list of operating systems. This example response shows information that is returned for Windows 2012:
 
-```
+```json
 {
       "href": "https://cloud.ibm.com/v1/operating_systems/windows-2012-amd64-byol",
       "name": "windows-2012-amd64-byol",
@@ -97,4 +98,3 @@ For more information about creating dedicated hosts and groups, see [Creating de
 For more information about importing your BYOL custom image to the VPC, see [Importing and validating custom images into VPC](/docs/vpc?topic=vpc-importing-custom-images-vpc&interface=ui).
 
 For the UI procedure for creating a new instance and specifying a BYOL custom image, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers).
-
