@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-11-29"
+  years: 2018, 2023
+lastupdated: "2023-01-24"
 
 
 keywords: known issues, bugs, defects
