@@ -8,7 +8,6 @@ keywords: vsi, virtual server instances, profile, profiles, balanced, compute, m
 
 subcollection: vpc
 
-
 ---
 
 {{site.data.keyword.attribute-definition-list}}
@@ -226,8 +225,8 @@ Using “bz2-4x16” as an example, you can know from the name that it is a bala
 {: cli}
 
 To view the list of available instance profiles by using the CLI, run the following command:
-```
-$ ibmcloud is instance-profiles
+```sh
+ibmcloud is instance-profiles
 ```
 {: codeblock}
 
