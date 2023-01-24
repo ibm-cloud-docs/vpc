@@ -66,6 +66,13 @@ The floating IP associated with a bare metal network interface is not available 
 
 Currently, the `port_min` and `port_max` properties are supported only when routing mode is enabled, and only when the entire port range is specified (`port_min` of `1` and `port_max` of `65535`). Support for allowing an arbitrary port range to be specified is planned for a future release.
 
+## AMD on VPC known issues
+{: #amd-on-vpc-known-issues}
+
+**Issue:** The `vcpu_manufacturer` property included in the `InstanceProfile` and `DedicatedHostProfile` schemas may contain values that include uppercase characters.
+
+**Workaround:** To avoid future compatibility issues, when developing clients that use the `vcpu_manufacturer` property of the `InstanceProfile` or `DedicatedHostProfile` schemas, explicitly convert the values to lowercase before using them.
+
 ## Checksum not available for some public images
 {: #RIOS-1410}
 
