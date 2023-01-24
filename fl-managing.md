@@ -49,7 +49,7 @@ Notice that the page includes tabbed views, which show flow log collectors that 
 
 To list all your flow logs, run the following command:
 
-```json
+```sh
 ibmcloud is flow-logs \
   [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME]
   [--json]
