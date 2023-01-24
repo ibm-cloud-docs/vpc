@@ -65,14 +65,13 @@ You can access details about each operating system, such as the url for the oper
 
 All IBM-provided stock, public images are named by using the following convention:
 
-```
+```sh
 ibm-<family>-<version>-<type>-<architecture>-<build>
 ```
 
 The following example shows the image naming convention.
 
-
-```
+```sh
 ibm-hyper-protect-container-runtime-1-0-s390x-7
 ```
 
