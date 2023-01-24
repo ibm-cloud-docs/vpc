@@ -2,31 +2,15 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-10-29"
+lastupdated: "2021-11-01"
 
-keywords:  
+keywords:
 
 subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:beta: .beta}
-{:screen: .screen}
-{:term: .term}
-{:tip: .tip}
-{:note: .note}
-{:preview: .preview}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank_" .external}
-{:generic: data-hd-programlang="generic"}
-{:download: .download}
-{:DomainName: data-hd-keyref="DomainName"}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Private network connectivity within {{site.data.keyword.cloud_notm}}
 {: #private-network-connectivity}
@@ -59,17 +43,17 @@ By default, a VPC is private, and remains private until it is configured to enab
 ### Single-region, multi-zone VPC virtual network
 {: #single-region-multi-zone}
 
-![Architecture of a single-region, multi-zone VPC virtual network](images/private-network-connectivity.png "Architecture of a single region, multi-zone VPC virtual network")
+![Architecture of a single-region, multi-zone VPC virtual network](images/private-network-connectivity.png "Architecture of a single region, multi-zone VPC virtual network"){: caption="Figure 1. Architecture of a single region, multi-zone VPC virtual network" caption-side="bottom"}
 
 ### Multi-region, multi-zone VPC virtual networks
 {: #multi-region-multi-zone}
 
-![Architecture of multi-region, multi-zone VPC virtual networks](images/private-network-connectivity2.png "Architecture of multi-region, multi-zone VPC virtual networks")
+![Architecture of multi-region, multi-zone VPC virtual networks](images/private-network-connectivity2.png "Architecture of multi-region, multi-zone VPC virtual networks"){: caption="Figure 2. Architecture of multi-region, multi-zone VPC virtual networks" caption-side="bottom"}
 
 ### Connection from a remote network (on-premises) to {{site.data.keyword.cloud_notm}}
 {: #direct-link-use-case}
 
-![Direct Link on-premises interconnect use case](images/direct-link-dedicated.png "Direct Link on-premises interconnect use case")
+![Direct Link on-premises interconnect use case](images/direct-link-dedicated.png "Direct Link on-premises interconnect use case"){: caption="Figure 3. Direct Link on-premises interconnect use case" caption-side="bottom"}
 
 See [{{site.data.keyword.tg_full_notm}}](/docs/transit-gateway?topic=transit-gateway-about) and [{{site.data.keyword.dl_full_notm}}](/docs/dl?topic=dl-get-started-with-ibm-cloud-dl) use case documentation for detailed private connectivity use cases and topologies. For information about native, private connectivity to {{site.data.keyword.cloud_notm}} services, see [Endpoints available](/docs/vpc?topic=vpc-service-endpoints-for-vpc).
 
