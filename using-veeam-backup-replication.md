@@ -2,28 +2,23 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-12-09"
+lastupdated: "2021-12-07"
 
-keywords:
+keywords: instance backup, veeam, replication software
 
 subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:external: target="_blank" .external}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:table: .aria-labeledby="caption"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Using Veeam Backup and Replication software
 {: #using-veeam-backup-replication-software}
 
-The Veeam Backup and Replication software offers an optional way of managing backups of {{site.data.keyword.vsi_is_full}}, although [using the Veeam Agent](/docs/vpc?topic=vpc-using-veeam-agent) is the recommended method. The Veeam Backup and Replication software is supported only on the Microsoft Windows operating system. However, you can use it to manage backups for multiple virtual server instances for {{site.data.keyword.vpc_short}} that are deployed with any of the supported Linux&reg; operating systems, including CentOS, RHEL, Ubuntu, and Debian, and with any of the supported Windows operating systems.
+The Veeam Backup and Replication software offers an optional way of managing backups of {{site.data.keyword.vsi_is_full}}, although [using the Veeam Agent](/docs/vpc?topic=vpc-using-veeam-agent) is the recommended method.
+{: shortdesc}
+
+The Veeam Backup and Replication software is supported only on the Microsoft Windows operating system. However, you can use it to manage backups for multiple virtual server instances for {{site.data.keyword.vpc_short}} that are deployed with any of the supported Linux&reg; operating systems, including CentOS, RHEL, Ubuntu, and Debian, and with any of the supported Windows operating systems.
 
 The following example provides information on installing, configuring, and using the backup and replication software to perform a backup operation on a volume that is attached to a CentOS instance. It also describes how to restore the backed-up volume data using the Veeam Agent for Linux. In addition, the example provides specific instructions on how to perform a volume backup and restore, but you would use similar instructions if you prefer to do file and folder backup and restore operations.
 
@@ -78,7 +73,7 @@ Objects | Choose _Add_ and then select _Device_. Add the device path for each vo
 Storage | Choose the backup repository where you want the backup to be stored.
 Guest Processing | Select any options that you want.
 Schedule | Choose the preferred time schedule, and then select _Finish_ to complete the job creation.
-{: caption="Table 1. Creating volume backup job menu panes and values" caption-side="top"}
+{: caption="Table 1. Creating volume backup job menu panes and values" caption-side="bottom"}
 
 The backup job runs at the scheduled time.  On the initial run, the Veeam Agent for Linux is installed and configured on the CentOS instance for VPC. The selected volumes are then backed up to the Veeam backup repository.
 {: note}
@@ -91,7 +86,7 @@ To recover files from a volume backup, complete the following steps:
 1. Log in to the CentOS virtual server instance.
 2. From the command line, start the Veeam Agent configuration tool, which was automatically installed by the Veeam Backup and Replication software:
 
-   ```
+   ```sh
    veeamconfig ui
    ```
    {: pre}
