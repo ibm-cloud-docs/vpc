@@ -14,6 +14,7 @@ subcollection: vpc
 
 # SSH keys
 {: #ssh-keys}
+
 [comment]: # (linked help topic)
 
 When you create a server, you must select an existing SSH key or generate an SSH key. SSH keys are used by servers to identify a user or device through public-key cryptography. SSH keys are made up of an alpha-numeric combination and are unique to the device to which they are assigned. You can add, edit, or delete SSH keys by using the {{site.data.keyword.cloud}} console. By adding an SSH key to a server, you can access the server with the corresponding SSH key instead of a password. You can add SSH keys to a server only when you initially create the server. After a Linux&reg; server is created, you can edit keys directly in the `~/.ssh/` directory of the server.
