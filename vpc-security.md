@@ -53,6 +53,7 @@ Every VPC has a default ACL that allows all inbound and outbound traffic. You ca
 
 ### Security groups
 {: #sgs-security}
+
 A **security group** acts as a virtual firewall that controls the traffic for one or more virtual server instances. A security group is a collection of rules that specify whether to allow or deny traffic for an associated instance. You can associate an instance with one or more security groups and edit the security group rules. For more information, see [Using security groups](/docs/vpc?topic=vpc-using-security-groups).
 
 ### Comparing security groups and access control lists
