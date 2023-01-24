@@ -12,18 +12,9 @@ subcollection: vpc
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:important: .important}
-{:screen: .screen}
-{:pre: .pre}
-{:tip: .tip}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:preview: .preview}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
+<!-- DO NOT MOVE WAZI AAS TO PUBLISH-->
 
 # Connecting to z/OS virtual server instances
 {: #vsi_is_connecting_zos}
@@ -31,12 +22,12 @@ subcollection: vpc
 A z/OS virtual server instance is typically a private backend infrastructure component that must never be directly accessed from the outside world. Even environments that are used for development, testing, or demonstration must follow good practices for logical isolation.
 {: shortdesc}
 
-You can refer to the solution tutorial [Public frontend and private backend in a Virtual Private Cloud](/docs/vpc?topic=solution-tutorials-vpc-public-app-private-backend) to learn how to use subnets to isolate and control traffic to backend infrastructure such as a z/OS virtual server instance.
+You can refer to the solution tutorial [Public front end and private backend in a Virtual Private Cloud](/docs/vpc?topic=solution-tutorials-vpc-public-app-private-backend) to learn how to use subnets to isolate and control traffic to backend infrastructure such as a z/OS virtual server instance.
 
 Additionally, good practices be can be used to securely connect to a VPC subnet by containing a z/OS virtual server instance.
 
 *  [Securely access remote instances with a bastion host](/docs/vpc?topic=solution-tutorials-vpc-secure-management-bastion-server)
-*  [About client-to-site VPN servers](/docs/vpc?topic=vpc-vpn-client-to-site-overview)
+*  [Using client-to-site VPN servers (Beta)](/docs/vpc?topic=vpc-vpn-client-to-site-overview)
 
 After you connected to the VPC network by using the client-to-site VPN server, you can access the z/OS virtual server instance by using the private IP address.
 
@@ -55,14 +46,14 @@ If you are using your z/OS Wazi aaS custom images, you do not need to configure 
 
 1. Log in to the z/OS UNIX shell environment by using your SSH private key and the default user ID. Note that `vsi ip address` in the following code snippets represent the private IP address of your z/OS virtual server instance.
 
-   ```
+   ```sh
    ssh -i <path to your private key file> ibmuser@<vsi ip address>
    ```
    {: pre}
 
    You receive a response similar to the following example. When prompted to continue connecting, type `yes`.
    
-   ```
+   ```json
    The authenticity of host 'xxx.xxx.xxx.xxx (xxx.xxx.xxx.xxx)' can't be established.
    ECDSA key fingerprint is SHA256:xxxxxxxxxxxxxxxxxxxxxx.
    Are you sure you want to continue connecting (yes/no)? yes
@@ -72,7 +63,7 @@ If you are using your z/OS Wazi aaS custom images, you do not need to configure 
 
 2. Use the `tsocmd` shell command to configure your own password for the z/OS instance. For example, the new password is `system12`.
 
-   ```
+   ```sh
    tsocmd 'ALTUSER IBMUSER PASSWORD(system12) NOEXPIRE RESUME'
    ```
    {: pre}
@@ -88,21 +79,21 @@ If you are using your z/OS Wazi aaS custom images, you do not need to configure 
    For more information about the commands, see [tsocmd - Run a TSO/E command from the shell (including authorized commands)](https://www.ibm.com/docs/en/zos/2.4.0?topic=scd-tsocmd-run-tsoe-command-from-shell-including-authorized-commands){: external} and [ALTUSER (Alter user profile)](https://www.ibm.com/docs/en/zos/2.4.0?topic=syntax-altuser-alter-user-profile){: external}.
 
 ## Step 2. Getting connected
-{: #getting-connected}
+{: #getting-connected-zos}
 
 You can interact with your z/OS virtual server instance with the following approaches:
 
-* Use the TN3270 terminal emulator to log on to the Time Sharing Option/Extensions (TSO/E). The default port for the secured TN3270 is `992` and you need to provide a self-signed certificate-authority(CA) certificate as a parameter to have a secured connection to the 3270 emulation program. You can find your self-signed CA certificate in a file that is called `common_cacert` in the home directory of the `IBMUSER` user ID in UNIX System Services (USS).
+* Use the TN3270 terminal emulator to log on to the Time Sharing Option/Extensions (TSO/E). The default port for the secured TN3270 is `992` and you need to provide a self-signed certificate-authority(CA) certificate as a parameter to have a secured connection to the 3270 emulation program. You can find your self-signed CA certificate in a file that is called `common_cacert` in the home directory of the `IBMUSER` user ID in UNIX System Services.
 
-  * For macOS, you need to transfer the `common_cacert` file before you connect to the secured telnet port and run the following commands:
+   * For macOS, you need to transfer the `common_cacert` file before you connect to the secured telnet port and run the following commands:
 
-    ```
-    scp ibmuser@<vsi ip address>:/u/ibmuser/common_cacert <my local dir>/common_cacert
-    c3270 -cafile <my local dir>/common_cacert -port 992 <vsi ip address>
-    ```
-    {: codeblock}
+   ```sh
+   scp ibmuser@<vsi ip address>:/u/ibmuser/common_cacert <my local dir>/common_cacert
+   c3270 -cafile <my local dir>/common_cacert -port 992 <vsi ip address>
+   ```
+   {: codeblock}
 
-  * For Windows, you need to import the self-signed CA cert into Windows first and then create the IBM Personal Communications (PCOMM) to read the CA cert from the truststore in Windows. Complete the following steps:
+   * For Windows, you need to import the self-signed CA cert into Windows first and then create the IBM Personal Communications to read the CA cert from the truststore in Windows. Complete the following steps:
 
     1. Transfer the `common_cacert` file from the z/OS system to your workstation.
     2. Open **Internet Options** in your workstation.
@@ -116,20 +107,20 @@ You can interact with your z/OS virtual server instance with the following appro
 
     The default user ID is `IBMUSER` and the password is the one you configured in the previous step. Then, you can interact with the z/OS in the TSO native mode, by using the Interactive System Productivity Facility (ISPF), or by using z/OS UNIX shell and utilities. For more information, see [Interacting with z/OS: TSO, ISPF, and z/OS UNIX interfaces](https://www.ibm.com/docs/en/zos-basic-skills?topic=concepts-interacting-zos-tso-ispf-zos-unix-interfaces){: external}.
 
-    The unsecured port `23` for 3270 connection is closed. You must use the secured port `992`. The VSI server certificate only contains the private IP address information of the z/OS virtual server instance. Accessing the instance by using its floating IP together with this VSI server certificate will fail.
+    The unsecured port `23` for 3270 connection is closed. You must use the secured port `992`. The VSI server certificate only contains the private IP address information of the z/OS virtual server instance. Accessing the instance by using its floating IP together with this VSI server certificate fails.
     {: important}
 
 * Use the web browser to access the IBM z/OS Management Facility (z/OSMF). For example, access the url `https://<vsi ip address>:10443/zosmf/LogOnPanel.jsp`. For more information about the z/OSMF, see [IBM z/OS Management Facility](https://www.ibm.com/products/zos-management-facility){: external}.
 
 * Use the serial console from the {{site.data.keyword.cloud_notm}} UI or CLI. The following instructions show how you can connect the serial console to the z/OS virtual server instance from the {{site.data.keyword.cloud_notm}} UI.
 
-   1. In the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com/vpc-ext){: external}, go to **Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instance**.
+   1. In the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com/vpc-ext){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instance**.
    2. In the **Virtual server instances for VPC** list, click the overflow button of the instance that you need to access, then click **Open serial Console**. Alternatively, on the instance details page, click **Action** on the upper right then click **Open Serial Console**.
-   3. (For serial console only) If the serial console is being used, you will be prompted to confirm whether to force open a session. This will disconnect the other user's session.
+   3. (For serial console only) If the serial console is being used, you are prompted  to confirm whether to force open a session. This action disconnects the other user's session.
    4. Enter the credentials following the prompts to log in to your instances.
    5. (For z/OS Master Console only) Use the **Ctrl + L** key combination to open a new z/OS Master Console, where you can issue four commands `start`, `stop`, `ipl`, and `oprmsg` for z/OS virtual server instance operations.
 
-  For more information about the serial console and how you can use the serial console with {{site.data.keyword.cloud_notm}} CLI, see [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console). Note that the VNC console is not supported on z/OS virtual server instances.
+   For more information about the serial console and how you can use the serial console with {{site.data.keyword.cloud_notm}} CLI, see [Accessing virtual server instances by using VNC or serial consoles](/docs/vpc?topic=vpc-vsi_is_connecting_console). Note that the VNC console is not supported on z/OS virtual server instances.
 
 * Use the SSH private key through a floating IP address to connect the z/OS UNIX shell environment. However, you might want to unbind your floating IP from your z/OS virtual server instance for security considerations and use a [bastion host](/docs/vpc?topic=solution-tutorials-vpc-secure-management-bastion-server) or [client-to-site VPN server](/docs/vpc?topic=vpc-vpn-client-to-site-overview) for all connections. The default secured port is 22. For more information about the floating IP address, see [Reserving a floating IP address](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#reserving-a-floating-ip-address)
 
@@ -159,7 +150,7 @@ To allow others to access your z/OS virtual server instance by using their own z
 
    To create a user profile with these values, you can run the following commands:
    
-    ```
+    ```sh
     ADDUSER STEVEH DFLTGRP(DEPTA) OWNER(DEPTA) NAME('Steve H.')
         PASSWORD(R315VQX) TSO(ACCTNUM(123456) PROC(PROC01))
     ```
@@ -178,7 +169,7 @@ For more information about the authorized_key file and z/OS user profiles, see [
 
 
 ## Next steps
-{: #connect-zos-next}
+{: #next-manage-vsi}
 
 After you connected to your virtual server instance, you can [manage your instance](/docs/vpc?topic=vpc-managing-virtual-server-instances). 
 
