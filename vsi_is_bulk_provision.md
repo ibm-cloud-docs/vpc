@@ -11,16 +11,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:preview: .preview}
-{:table: .aria-labeledby="caption"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Bulk provisioning instances with instance groups
 {: #bulk-provisioning}
@@ -56,14 +47,14 @@ Gather the following information before running the `ibmcloud is instance-group-
 After you know these values, use them to run the `instance-group-create` command. In addition to the information that you 
 gathered, you must specify a name for the instance group. 
 
-```
+```sh
 ibmcloud is instance-group-create INSTANCE_GROUP_NAME --instance-template INSTANCE_TEMPLATE --subnet-ids IDS --membership-count MEMBERS
 ```
 {: pre}
 
 For example, if you create an instance group that is called _my-instance-group_ with instance template ID _0738-c3809e5b-8d48-4629-b258-33d5b14fa84f_ and _100_ members, your `instance-group-create` command would look similar to the following sample.
 
-```
+```sh
 ibmcloud is instance-group-create my-instance-group --instance-template 0738-c3809e5b-8d48-4629-b258-33d5b14fa84f --subnet-ids 0076-2249dabc-8c71-4a54-bxy7-953701ca3999,0767-173bn4aa-060b-47e7-am45-b3395a593897 --membership-count 100
 ```
 {: pre}
@@ -76,7 +67,7 @@ Where:
 
 For this example, you'd see a response similar to the following output:
 
-```
+```ssh
 ID                  r134-4f7d0010-33f5-40bf-9f21-ab5bee04fd71   
 Name                my-instance-group   
 Status              healthy   
