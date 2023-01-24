@@ -9,15 +9,21 @@ keywords: vnc console, serial console, virtual server instance
 
 subcollection: vpc
 
-
 ---
 {{site.data.keyword.attribute-definition-list}}
+
 
 # Accessing virtual server instances by using VNC or serial consoles
 {: #vsi_is_connecting_console}
 
 You can access your IBM Cloud virtual server instance by connecting to a VNC or serial console by using the IBM Cloud UI, API requests, or IBM Cloud Command Line Interface (CLI). The console service is a quick-and-easy way for you to interact with the instance without using a Secure Shell.
 {: shortdesc}
+
+<!-- DO NOT MOVE WAZI AAS TO PUBLISH -->
+_For z/OS virtual server instances only:_ Connecting a z/OS virtual server instance to a VNC console is not supported.
+{: note}
+
+<!-- DO NOT MOVE WAZI AAS TO PUBLISH -->
 
 It applies to situations where a boot failure or kernel crash occurred, especially when you use a custom image. When these situations happen, you can use the console service to examine the issue.
 
@@ -38,9 +44,9 @@ The console can be opened by using any of the [supported browsers](/docs/overvie
     If you are an administrator of your account, you also need to self-assign the `Console Administrator` role to use this feature.
     {: important}
 
-    To check whether you are assigned the required roles, go to the [IAM Users ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/iam/users){: new_window} page in the IBM Cloud console and select your account under **User**, then select **Access policies**. Make sure that you see an access policy that assigns you the `Operator` (or greater) role and the `VirtualServerConsoleAdmin` role to the **Resource Attributes** of the target virtual server instance. Otherwise, you would need to contact an administrator of your account to assign you the roles by using the following steps:
+    To check whether you are assigned the required roles, go to the [IAM Users](/iam/users){: external} page in the IBM Cloud console and select your account under **User**, then select **Access policies**. Make sure that you see an access policy that assigns you the `Operator` (or greater) role and the `VirtualServerConsoleAdmin` role to the **Resource Attributes** of the target virtual server instance. Otherwise, you would need to contact an administrator of your account to assign you the roles by using the following steps:
 
-    1. Go to the [IAM Users ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/iam/users){: new_window} page in the IBM Cloud console and select the target user.
+    1. Go to the [IAM Users](/iam/users){: external} page in the IBM Cloud console and select the target user.
 
     2. On **Access policies**, click **Assign access**.
 
@@ -60,6 +66,11 @@ The console can be opened by using any of the [supported browsers](/docs/overvie
 
     * For Windows images, obtain the password following [Connecting to Windows instances](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
 
+    <!-- DO NOT MOVE WAZI AAS TO PUBLISH -->
+    * For z/OS images, obtain the password following [Connecting to z/OS instances](/docs/vpc?topic=vpc-vsi_is_connecting_zos).
+    
+    <!-- DO NOT MOVE WAZI AAS content TO PUBLISH -->
+
 For the serial console, you can configure `getty` to log in automatically without a password by using the `-a root` flag.
 {: tip}
 
@@ -72,7 +83,7 @@ To enable the serial console service for custom Linux images, make sure that the
 
 Follow these steps to connect to a console by using IBM Cloud UI.
 
-1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instance**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instance**.
 2. In the **Virtual server instances for VPC** list, click the overflow button of the instance that you need to access, then click **Open VNC Console** or **Open serial Console**. Alternatively, on the instance details page, click **Action** on the upper right then click **Open VNC Console** or **Open Serial Console**.
 3. (For serial console only) If the serial console is being used, you are prompted to confirm whether to force open a session. This action disconnects the other user's session.
 4. Enter the credentials and follow the prompts to log in to your instances.
@@ -91,7 +102,7 @@ Before you can use the API requests to connect to a VNC or serial console, you n
 
 1. Create a console access token for the instance. Specify `"console_type"："VNC"` in the payload.
 
-    ```
+    ```curl
       curl -X POST \
       "$vpc_api_endpoint/v1/instances/$instance_id/console_access_token?version=2021-01-26&generation=2" \
       -H "Authorization: $iam_token" \
@@ -105,7 +116,7 @@ Before you can use the API requests to connect to a VNC or serial console, you n
     {: note}
 
 2. Save the value of "href" in the response.
-3. Open the [noVNC portal ![External link icon](../icons/launch-glyph.svg "External link icon")](https://novnc.com/noVNC/vnc.html) in a browser.
+3. Open the [noVNC portal](https://novnc.com/noVNC/vnc.html){: external} in a browser.
 4. Click **Setting** and expand **Advanced > WebSocket**.
 5. Check **Encrypt**, paste the URL's API endpoint portion you saved in step 2 to **Host:**, do not include "wss://", set **Port** to "443", paste the URL's path portion you saved in step 2 to **Path**.
     * Example API endpoint: `us-south.iaas.cloud.ibm.com`
@@ -114,11 +125,11 @@ Before you can use the API requests to connect to a VNC or serial console, you n
 7. Log in to the instance.
 
 ### Using API to connect to a serial console
-{: #vsi_is_connecting_console_api_vnc}
+{: #vsi_is_connecting_serial_console_api_vnc}
 
 1. Create a console access token for the instance, specify `"console_type": "serial"` and `"force": true` in the payload.
 
-    ```
+    ```curl
       curl -X POST \
       "$vpc_api_endpoint/v1/instances/$instance_id/console_access_token?version=2020-01-26&generation=2" \
       -H "Authorization: $token" \
@@ -148,7 +159,7 @@ Make sure that you set up the CLI environment by following [CLI prerequisites](/
 
 1. Run the following command to connect to a console:
 
-   ```
+   ```sh
    ibmcloud is instance-console $instance_id [-q, --quiet]
    ```
    {: pre}
