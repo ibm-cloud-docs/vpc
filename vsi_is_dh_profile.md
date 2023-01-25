@@ -10,21 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
-{:beta: .beta}
-{:important: .important}
-{:deprecated: .deprecated}
-{:external: target="_blank" .external}
-{:download: .download}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Dedicated host profiles
 {: #dh-profiles}
@@ -194,7 +180,7 @@ instances.
 You can view available profile configurations by using the {{site.data.keyword.cloud_notm}} console or the CLI. In the {{site.data.keyword.cloud_notm}} console, you can select from popular profile configurations that support most common use cases.
 
 ### Understanding profiles
-{: #profiles-naming-rule}
+{: #dh-profiles-naming-rule}
 
 The following example describes the individual parts that make up a dedicated host profile name, for this example, `bx2d-host-152x608`. The prefix, `bx2d` is composed of the family, architecture, generation, and specialty. Together this information comprises the profile *class*.   
 
@@ -229,7 +215,7 @@ The field after the second hyphen "-" represents the number of vCPU and the size
 For the “bx2d-host-152x608” profile, you can know from the name that it is a Balanced Instance Storage host profile with a 1:4 CPU to memory ratio (152 vCPU and 608 GB RAM). The CPU architecture is x86_64 and this profile is for second-generation hardware.
 
 ### Using the IBM Cloud console
-{: #profiles-using-console}
+{: #dh-profiles-using-console}
 {: ui}
 
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Dedicated hosts**.
@@ -237,7 +223,7 @@ For the “bx2d-host-152x608” profile, you can know from the name that it is a
 3. You can select from available profile configurations.
 
 ### Using the CLI
-{: #profiles-using-cli}
+{: #dh-profiles-using-cli}
 {: cli}
 
 To view the list of available profiles by using the CLI, run the following command:
