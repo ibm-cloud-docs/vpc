@@ -19,7 +19,7 @@ Use {{site.data.keyword.mon_full}} to gain operational visibility into the perfo
 {: shortdesc}
 
 ## Platform metrics overview
-{: #platform-metrics-overview}
+{: #fl-platform-metrics-overview}
 
 You can view platform metrics when you enable {{site.data.keyword.mon_full_notm}} on your {{site.data.keyword.cloud_notm}} platform. A monitoring instance must be configured in a region to monitor these metrics. For more information, see [Enabling platform metrics](/docs/monitoring?topic=monitoring-platform_metrics_enabling).
 
