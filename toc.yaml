@@ -565,9 +565,7 @@ toc:
             - link:
                label: Reference
                href: https://{DomainName}/apidocs/vpc-beta
-            - link:
-                label: Change log
-                href: https://{DomainName}/apidocs/vpc-beta#api-change-log-beta
+            - api-change-log-beta.md
         - topicgroup:
             label: VPC instance metadata API
             topics:
