@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-11-07"
+  years: 2019, 2023
+lastupdated: "2023-01-25"
 
-keywords: block storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption
+keywords: block storage, IBM Cloud, VPC, virtual private cloud, Key Protect, encryption, key management, Hyper Protect Crypto Services, HPCS, volume, data storage, virtual server instance, instance, customer-managed encryption, Block Storage for vpc, customer-managed encryption,
 
 subcollection: vpc
 
@@ -19,11 +19,11 @@ By default, {{site.data.keyword.block_storage_is_short}} boot and data volumes a
 {: shortdesc}
 
 ## Before you begin
-{: #custom-managed-vol-prereqs}
+{: #custom-managed-vol-prereqs-block}
 
 To create block storage volumes with customer-managed encryption, you must first provision a key management service and create or import your customer root key (CRK). You must also authorize access between Cloud Block Storage and the key management service. When you complete these prerequisites, you can start creating block storage volumes that use customer-managed encryption.
 
-For information and prerequisite steps, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs).
+For more information about prerequisite steps, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs).
 
 ## Creating customer-managed encryption data volumes in the UI
 {: #data-vol-encryption-ui}
@@ -44,14 +44,14 @@ Follow these steps to specify customer-managed encryption from the UI:
 | Name  | Specify a meaningful name for your volume. For example, provide a name that describes your compute or workload function. The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. Volume names must be unique across the entire VPC infrastructure. You can later edit the name. |
 | Resource Group | Specify a [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups). |
 | Tags | Specify a tag to organize your resources. A tag is a label that you assign to a resource for easy filtering of resources in your resource list. For more information about tags, see [Working with tags](/docs/account?topic=account-tag). |
-| Location | The availability zone, inherited from the VPC (for example, Dallas-1). You can select a different zone in your location from the dropdown menu. |
-| Size | Enter a volume size in GBs. Volume sizes can be between 10 GB - 2 TBs. Expanded capacity IOPS tiers increase volume size up to 16 TB and 48,000 IOPS. This is a Beta feature that is available for evaluation and testing purposes. |
+| Location | The availability zone, inherited from the VPC (for example, Dallas-1). You can select a different zone in your location from the list. |
+| Size | Enter a volume size in GBs. Volume sizes can be between 10 GB - 2 TBs. Expanded capacity IOPS tiers increase volume size up to 16 TB and 48,000 IOPS. This Beta feature is available for evaluation and testing purposes. |
 | IOPS | Select [IOPS Tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) and then select the tile with performance level you require. |
 | | Select [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) to specify a custom IOPS value based on the size of the volume you're creating. Click the **storage size** link to see a table of size and IOPS ranges. For more information, see [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom). |
 | Encryption | Choose **Customer Managed** and use your own encryption key. See Table 2 for these fields. |
 {: caption="Table 1. Block storage volume provisioning information" caption-side="bottom"}
 
-Complete provisioning customer-managed encryption using the information in Table 2.
+Complete provisioning customer-managed encryption by using the information in Table 2.
 
 | Field | Value |
 | ----- | ----- |
@@ -107,7 +107,7 @@ Volume Attachment Instance Reference    none
 ```
 {: screen}
 
-You can also create volumes with customer-managed encryption during instance provisioning. For information, see [Provisioning instances with customer-managed encrypted volumes from the CLI](/docs/vpc?topic=vpc-creating-instances-byok#provision-byok-cli).
+You can also create volumes with customer-managed encryption during instance provisioning. For more information, see [Provisioning instances with customer-managed encrypted volumes from the CLI](/docs/vpc?topic=vpc-creating-instances-byok#provision-byok-cli).
 
 ## Creating customer-managed encryption data volumes with the API
 {: #data-vol-encryption-api}
@@ -116,6 +116,9 @@ You can also create volumes with customer-managed encryption during instance pro
 You can create data volumes with customer-managed encryption by calling the [Virtual Private Cloud (VPC) API](/apidocs/vpc).
 
 Make a `POST /volumes` request to create a new volume encrypted using your own encryption keys. Use the `encryption_key` parameter to specify your customer root key (CRK), shown in the example as `crn:[...key:...]`.
+
+You can also specify the CRN of a root key from a different account in the `POST /volumes` call. For more information, see [About cross account key access and use](/docs/vpc?topic=vpc-vpc-byok-cross-acct-key&interface=ui#byok-vol-cross-acct-about).
+{: note}
 
 The following example creates a general-purpose data volume with customer-managed encryption.
 
@@ -143,7 +146,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-A successful response looks like this example.
+A successful response looks like the following example.
 
 ```json
 {
