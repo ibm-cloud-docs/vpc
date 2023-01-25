@@ -56,10 +56,11 @@ You can use resource groups to organize dedicated hosts and dedicated host group
 Complete the following steps to create a resource group for the dedicated host.
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} console](/login){: external}.
-2. Click **Manage** > **Account**. ![**Manage** list](../images/click manage.png){: caption="Figure 1. Manage menu" caption-side="bottom"}
-3. From the *Account* page, click **Resource groups** > **Create**.
-4. Give the resource group a unique name such as *Admin resources*.
-5. Click **Add**.
+2. Click **Manage** > **Account**.
+   ![Manage list](/images/click_manage.png){: caption="Figure 1. Manage menu" caption-side="bottom"}
+4. From the *Account* page, click **Resource groups** > **Create**.
+5. Give the resource group a unique name such as *Admin resources*.
+6. Click **Add**.
 
 ### Creating a dedicated host group resource group
 {: #creating-a-dedicated-host-group-resource-group}
@@ -82,7 +83,8 @@ Complete the following steps to create a dedicated host and dedicated host group
 1. From the *VPC Infrastructure* page, click **Dedicated hosts** > **Create**.
 1. Give the dedicated host a unique name such as *Example Dedicated Host*.
 1. Change the selected resource group from *Default* to *Admin resources*.
-1. Click **New dedicated group** to begin creation of a dedicated host group. ![Add a dedicated group](../images/new dedicated group.png){: caption="Figure 2. New dedicated group" caption-side="bottom"}
+1. Click **New dedicated group** to begin creation of a dedicated host group. 
+   ![Add a dedicated group](/images/new_dedicated_group.png){: caption="Figure 2. New dedicated group" caption-side="bottom"}
 1. On the new window, give the dedicated host group a unique name such as *Example Dedicated Host Group*.
 1. Change the resource group from *Default* to *Users resources*.
 1. Click **Create** > **Create dedicated host** to create the dedicated host.
@@ -157,7 +159,7 @@ Use the following steps to create an access group with an access policy that ass
 3. On the open window, enter a unique name for the access group such as *User access*.
 4. Enter *Provides access to resources on the dedicated host group.* in the description text box.
 5. On the *User access* page, click the **Access policies** tab > **Assign access**.
-6. On the *Assign access to User access*, click **IAM services**. ![Access policies](../images/user access.png){: caption="Figure 4. Access policies" caption-side="bottom"}
+6. On the *Assign access to User access*, click **IAM services**. ![Access policies](/images/user_access.png){: caption="Figure 4. Access policies" caption-side="bottom"}
 7. In *Which service do you want to assign access to?*, click **VPC Infrastructure Services**.
 8. In *How do you want to scope the access?*, select **Resources based on selected attributes**.
 9. Click the **Resource group** box.
