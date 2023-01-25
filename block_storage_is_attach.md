@@ -1,12 +1,12 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-11-07"
+  years: 2019, 2023
+lastupdated: "2023-01-25"
 
-keywords:
+keywords: vpc, block storage, block storage for vpc, mounting storing, attaching block storage, vpc instance, data volumes
+
 subcollection: vpc
-
 
 ---
 
@@ -23,10 +23,10 @@ When you create a {{site.data.keyword.block_storage_is_full}} volume for a virtu
 
 You can attach only one {{site.data.keyword.block_storage_is_short}} boot volume to a virtual server instance at a time, but you can attach up to 12 {{site.data.keyword.block_storage_is_short}} data volumes to a single instance.
 
-When you create a {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance, only one data volume can be added currently. Even if you attach more volumes, they aree not used by the instance.
+When you create a {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance, only one data volume can be added currently. Even if you attach more volumes, they are not used by the instance.
 {: note}
 
-You can't use the UI to attach {{site.data.keyword.block_storage_is_short}} volumes to {{site.data.keyword.containerfull}} (IKS) Cluster worker nodes. For more information about using the CLI to attach volumes to cluster nodes, see [Storing data on {{site.data.keyword.block_storage_is_short}}](/docs/containers?topic=containers-vpc-block).
+You can't use the UI to attach {{site.data.keyword.block_storage_is_short}} volumes to {{site.data.keyword.containerfull}} Cluster worker nodes. For more information about using the CLI to attach volumes to cluster nodes, see [Storing data on {{site.data.keyword.block_storage_is_short}}](/docs/containers?topic=containers-vpc-block).
 
 
 ## Attach a {{site.data.keyword.block_storage_is_short}} volume to a virtual server instance
@@ -43,7 +43,7 @@ From the list of all {{site.data.keyword.block_storage_is_short}} volumes, follo
 1. Select a compute resource (virtual server instance) from the list of available resources, and then click **Attach**.
 1. Messages display on the volume details page to indicate that the volume is being attached to the image. When it completes, the image name appears under **Attached instances**.
 
-When you create a {{site.data.keyword.hpvs}} for VPC instance and the contract mentions volumes, you can attach a data volume during the creation of the instance, or within 15 minutes after the creation of the instance. Failure to do so causes the instance to go into a shutdown state after the 15-minute window.
+When you create a {{site.data.keyword.hpvs}} instance and the contract mentions volumes, you can attach a data volume during the instance creation, or within 15 minutes after the instance is created. Failure to do so causes the instance to go into a shutdown state after the 15-minute window.
 {: note}
 
 You can also attach a {{site.data.keyword.block_storage_is_short}} volume from the virtual server instance details page.
@@ -131,7 +131,7 @@ Do you prefer to use the {{site.data.keyword.cloud}} console? For more informati
 
 When you provision a virtual server instance from the CLI and create a {{site.data.keyword.block_storage_is_short}} volume as part of the process, you must specify a volume attachment JSON. The volume attachment JSON, specified in the command or as a file, defines the volume parameters. When you [create an instance](/docs/vpc?topic=vpc-creating-virtual-servers-cli) and specify the `--volume-attach` parameter, you specify the volume JSON. For example, `--volume-attach @/Users/myname/myvolume-attachment_create.json`.
 
-Here is an example volume attachment JSON file that defines a custom volume and specifies user tags:
+The following example shows a volume attachment JSON file that defines a custom volume and specifies user tags.
 
 ```json
 [
