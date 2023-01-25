@@ -20,7 +20,7 @@ Most often, you want to access metadata from a running instance and use it to bo
 {: shortdesc}
 
 ## Before you begin
-{: #imd-byb-identities-procedure}
+{: #imd-prereq-byb-identities-procedure}
 
 1. Install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 
