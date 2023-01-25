@@ -431,7 +431,7 @@ For more information about using access management tags, see the following resou
 * For UI, CLI, API, and Terraform information on using tags, see [Working with tags](/docs/account?topic=account-tag).
 
 ### Limitations
-{: #limitations}
+{: #iam-limitations}
 
 1. Some gaps exist between current implementation and the API Spec, which are documented [here](/docs/vpc?topic=vpc-known-issues).
 
