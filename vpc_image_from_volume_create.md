@@ -34,7 +34,7 @@ Depending on the size of the image that you're creating, the job might take from
 
 
 ## Create an image from a volume in the UI
-{: #image-from-volume-vpc-ui}
+{: #create-image-from-volume-vpc-ui}
 {: ui}
 
 Use the UI to create an image from a volume that is attached to an available virtual server instance as the primary boot volume or as a secondary boot volume.
