@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-07-29"
+  years: 2020, 2023
+lastupdated: "2023-01-24"
 
 keywords:  
 
@@ -23,7 +23,7 @@ You can list your flow log collectors by using the UI, the CLI, or the API.
 To list your flow log collectors by using the IBM Cloud console:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) on the upper left of the page, then click **VPC Infrastructure > Flow logs** in the Network section. If available, a list of provisioned flow log collectors shows.  
+1. Select the menu icon ![Menu icon](../../icons/icon_hamburger.svg) on the upper left of the page, then click **VPC Infrastructure > Flow logs** in the Network section. If available, a list of provisioned flow log collectors shows.  
 
    ![Flow Logs for VPC](./images/flow-log-subnet-tab-items.png "Subnet List View"){: caption="Figure 1. Flow Logs for VPC" caption-side="bottom}
 
@@ -49,7 +49,7 @@ Notice that the page includes tabbed views, which show flow log collectors that 
 
 To list all your flow logs, run the following command:
 
-```json
+```sh
 ibmcloud is flow-logs \
   [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME]
   [--json]
@@ -71,7 +71,7 @@ To list flow log collectors by using the API, follow these steps:
 1. Set up your [API environment](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup) with the right variables.
 2. When all variables are initiated, list your flow log collectors:
 
-```sh
+```curl
 curl -sS -X GET \
   -H "Authorization: $iam_token" \
   "$vpc_api_endpoint/v1/flow_log_collectors?version=$api_version&generation=2" | jq
