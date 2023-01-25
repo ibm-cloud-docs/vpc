@@ -534,7 +534,7 @@ Volume health states correspond with [volume statuses](#block-storage-vpc-status
 
 | Health State | Reason |
 |--------|-------------|
-| OK | A volume is performing at the expected I/O performance and capacity is sufficient, no network connection issues are present, or a volume was restored from a snapshot (hydration is completed). |
+| OK | A volume is performing at the expected I/O performance and capacity is sufficient. No network connection issues are present. Or the volume was restored from a snapshot (hydration is completed). |
 | Degraded | A volume is experiencing degraded performance for any of the following reasons: \n  - Volume data is being restored (hydrated) and shows degraded until hydration is completed. \n - Initialization from a snapshot failed and the volume hydration failed. \n - Volume hydration is not started. \n - Volume hydration is paused. \n - Snapshot is in an unusable state. |
 | Inapplicable | The volume is being created, volume creation failed, volume is pending, pending deletion, or unusable. No health reason is reported. |
 | Faulted | The volume is unreachable, inoperative, or entirely incapacitated. |
@@ -545,7 +545,7 @@ For more information about the health states and reason codes in the API, see th
 ## Managing security and compliance
 {: #block-storage-vpc-manage-security}
 
-{{site.data.keyword.block_storage_is_short}} is integrated with the Security and Compliance Center to help you manage security and compliance for your organization. You can set up goals that check whether volumes are encrypted by using customer-managed keys. By using the Security and Compliance Center to validate the block storage configurations in your account against a profile, you can identify potential issues as they arise.
+{{site.data.keyword.block_storage_is_short}} is integrated with the {{site.data.keyword.compliance_short}} to help you manage security and compliance for your organization. You can set up goals that check whether volumes are encrypted by using customer-managed keys. By using the {{site.data.keyword.compliance_short}} to validate the block storage configurations in your account against a profile, you can identify potential issues as they arise.
 
 For more information about monitoring security and compliance for VPC, see [Monitoring security and compliance posture with VPC](/docs/vpc?topic=vpc-manage-security-compliance#monitor-vpc). For more information about creating security and compliance goals, see [Defining rules](/docs/security-compliance?topic=security-compliance-rules-define&interface=ui) in the Security and Compliance documentation.
 
