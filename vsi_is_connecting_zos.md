@@ -169,7 +169,7 @@ For more information about the authorized_key file and z/OS user profiles, see [
 
 
 ## Next steps
-{: #next-manage-vsi}
+{: #next-manage-vsi-zos}
 
 After you connected to your virtual server instance, you can [manage your instance](/docs/vpc?topic=vpc-managing-virtual-server-instances). 
 

@@ -97,7 +97,7 @@ After you create your Windows instance and complete the prerequisites, complete 
 4. You now have what you need in order to connect to your Windows instance: a decrypted password and a floating IP address. Use your preferred Remote Desktop client to connect to your instance. To connect to your instance, provide the floating IP address and the decrypted password. The username is `Administrator` by default. (If you are connecting from a client that is running the Windows Administrator account, use `.\Administrator` as the user ID to log on to RDP.)
 
 ## Next steps
-{: #next-manage-vsi}
+{: #next-manage-vsi-win}
 
 After you are connected to your instance, you can [manage your instances](/docs/vpc?topic=vpc-managing-virtual-server-instances).
 
