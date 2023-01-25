@@ -147,7 +147,7 @@ Boot volume                           ID                                        
 {: codeblock}
 
 ## Setting the recovery policy by using the API
-{: #set-policy-api}
+{: #set-recovery-policy-api}
 {: api}
 
 During instance [create](/apidocs/vpc#create-instance) or [update](/apidocs/vpc#update-instances), the `host_failure` sub-property can be used to set the host failure `availability_policy` of the virtual server instance. If the compute host experiences a failure, specify `restart` or `stop` to set the policy.
@@ -161,6 +161,6 @@ During instance [create](/apidocs/vpc#create-instance) or [update](/apidocs/vpc#
 For more information, see [Create an instance](/apidocs/vpc#create-instance) and [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=api).
 
 ## Next steps
-{: #next-steps}
+{: #host-fail-next-steps}
 
 For more information about planned and unplanned host outages, see the FAQ [In what cases is my virtual server migrated to a different host?](/docs/vpc?topic=vpc-faqs-for-vsis#faq-vsi-13).
