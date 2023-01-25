@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-12-09"
+  years: 2019, 2023
+lastupdated: "2023-01-25"
 
 keywords:
 
@@ -14,7 +14,7 @@ subcollection: vpc
 # FAQs for {{site.data.keyword.block_storage_is_short}}
 {: #block-storage-vpc-faq}
 
-The following questions often arise about the {{site.data.keyword.block_storage_is_short}} service including performance and security. If you have other questions you'd like to see answered here, provide feedback by using the **Open doc issue** or **Edit topic** links.
+The following questions often arise about the {{site.data.keyword.block_storage_is_short}} service. If you have other questions you'd like to see answered here, provide feedback by using the **Open doc issue** or **Edit topic** links.
 {: shortdesc}
 
 ## Offering questions
@@ -52,7 +52,7 @@ You can create 12 {{site.data.keyword.block_storage_is_short}} data volumes per 
 
 Cost for {{site.data.keyword.block_storage_is_short}} is calculated based on GB capacity that is stored per month, unless the duration is less than one month. The volume exists on the account until you delete the volume or you reach the end of a billing cycle, whichever comes first.
 
-Pricing is also affected when you [expand volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes) or [adjust IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) by specifying a different IOPS profile. For example, expanding volume capacity increases costs while changing an IOPS profile from a 5 IOPS/GB tier to a 3 IOPS/GB tier decreases the monthly and hourly rate.  Billing for an updated volume is automatically updated to add the prorated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
+Pricing is also affected when you [expand volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes) or [adjust IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) by specifying a different IOPS profile. For example, expanding volume capacity increases costs, and changing an IOPS profile from a 5 IOPS/GB tier to a 3 IOPS/GB tier decreases the monthly and hourly rate.  Billing for an updated volume is automatically updated to add the prorated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
 Pricing for {{site.data.keyword.block_storage_is_short}} volumes is also set by region. For more information, see [Pricing](https://www.ibm.com/cloud/vpc/pricing){: external}.
 
@@ -73,7 +73,7 @@ You can increase the capacity of data volumes that are attached to a virtual ser
 {: faq}
 {: #faq-block-storge-rbv}
 
-Boot volume capacity can be increased during instance provisioning or later, by directly modifying the boot volume. This feature applies to instances that are created from stock or custom images. You can also specify a larger boot volume capacity when you create an instance template. The boot volume can't be unattached from an instance (that is, stored as stand-alone data volume). For more information, see [Increasing boot volume volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes).
+Boot volume capacity can be increased during instance provisioning or later, by directly modifying the boot volume. This feature applies to instances that are created from stock or custom images. You can also specify a larger boot volume capacity when you create an instance template. The boot volume can't be unattached from an instance (that is, stored as stand-alone data volume). For more information, see [Increasing boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes).
 
 ### Can I change boot volume capacity for an existing instance?
 {: faq}
@@ -134,7 +134,7 @@ When you delete a {{site.data.keyword.block_storage_is_short}} volume, your data
 {: faq}
 {: #faq-block-storage-nist}
 
-IBM guarantees that your data is completely inaccessible on the physical disk and is eventually [eradicated](/docs/vpc?topic=vpc-managing-block-storage#block-storage-data-eradication). If you have extra compliance requirements such as NIST 800-88 Guidelines for Media Sanitization, you must perform data sanitation procedures before you delete your volumes. For more information, see the [NIST 800-88 Guidelines for Media Sanitation](https://csrc.nist.gov/publications/detail/sp/800-88/rev-1/final){: external}.
+IBM guarantees that your data is inaccessible on the physical disk and is eventually [eradicated](/docs/vpc?topic=vpc-managing-block-storage#block-storage-data-eradication). If you have extra compliance requirements such as NIST 800-88 Guidelines for Media Sanitization, you must perform data sanitation procedures before you delete your volumes. For more information, see the [NIST 800-88 Guidelines for Media Sanitation](https://csrc.nist.gov/publications/detail/sp/800-88/rev-1/final){: external}.
 
 ### What rules apply to volume names and can I rename a volume later on?
 {: faq}
@@ -167,7 +167,7 @@ Backup snapshots, simply called "backups", are snapshots that are automatically 
 {: faq}
 {: #faq-block-storage-restore-vol}
 
-Restoring from a snapshot creates a new, fully-provisioned boot or data volume. You can restore boot and data volumes during instance creation, when modifying an existing instance, or when provisioning a new stand-alone volume. For data volumes, you can also use the `volumes` API to create a data volume from a snapshot. For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
+Restoring from a snapshot creates a new, fully provisioned boot or data volume. You can restore boot and data volumes during instance creation, instance modification, or when you provision a new stand-alone volume. For data volumes, you can also use the `volumes` API to create a data volume from a snapshot. For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
 
 ### Can I add tags to a volume?
 {: faq}
@@ -182,7 +182,7 @@ Yes, you can add user tags and access management tags to your volumes. User tags
 {: faq}
 {: #faq-block-storage-4a}
 
-Input/output operations per second (IOPS) is used to measure the performance of your {{site.data.keyword.block_storage_is_short}} volumes. A number of variables impact IOPS values, such as the balance of read/write operations, queue depth, and data block sizes. In general, the higher the IOPS of your {{site.data.keyword.block_storage_is_short}} volumes, the better the performance. For more information on expected IOPS for {{site.data.keyword.block_storage_is_short}} profiles, see [Profiles](/docs/vpc?topic=vpc-block-storage-profiles). For more information about how block size affects performance, see [Block storage capacity and performance](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
+Input/output operations per second (IOPS) is used to measure the performance of your {{site.data.keyword.block_storage_is_short}} volumes. A number of variables impact IOPS values, such as the balance of read/write operations, queue depth, and data block sizes. In general, the higher the IOPS of your {{site.data.keyword.block_storage_is_short}} volumes, the better the performance. For more information about expected IOPS for {{site.data.keyword.block_storage_is_short}} profiles, see [Profiles](/docs/vpc?topic=vpc-block-storage-profiles). For more information about how block size affects performance, see [Block storage capacity and performance](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
 
 ### Is the allocated IOPS enforced by instance or by volume?
 {: faq}
@@ -195,11 +195,11 @@ IOPS is enforced at the volume level.
 {: #faq-block-storage-5}
 {: support}
 
-IOPS profiles define IOPS/GB performance for volumes of various capacities. There are three predefined [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) that you can select that offer reliable IOPS performance for your workload requirements. You can also define [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles#custom) and specify a range of IOPS for a volume size that you choose. Custom IOPS is a good option when you have well-defined performance requirements that do not fall within a predefined IOPS tier. If you choose a custom IOPS profile, also define a minimum and maximum range for the volume size.
+IOPS profiles define IOPS/GB performance for volumes of various capacities. You can select from three predefined [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers) that offer reliable IOPS performance for your workload requirements. You can also define [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles#custom) and specify a range of IOPS for a volume size that you choose. Custom IOPS is a good option when you have well-defined performance requirements that do not fall within a predefined IOPS tier. If you choose a custom IOPS profile, also define a minimum and maximum range for the volume size.
 
 Maximum IOPS for data volumes varies based on volume size and the type of profile you select.
 
-IOPS is measured based on a load profile of 16-KB blocks with random 50% read and 50% writes. Workloads that differ from this profile might experience reduced performance. If you use a smaller block size, maximum IOPS can be obtained but throughput is less. For more information, see
+IOPS is measured based on a load profile of 16-KB blocks with random 50% read and 50% writes. Workloads that differ from this profile might experience reduced performance. If you use a smaller block size, maximum IOPS can be obtained, but throughput is less. For more information, see
 [How block size affects performance](/docs/vpc?topic=vpc-capacity-performance#how-block-size-affects-performance).
 
 ### What typical network performance might I expect between my compute instances and the {{site.data.keyword.block_storage_is_short}} service?
@@ -230,12 +230,12 @@ Volume health state defines whether a volume is performing as expected, given it
 
 All {{site.data.keyword.block_storage_is_short}} volumes are encrypted at rest with IBM-managed encryption. IBM-managed keys are generated and securely stored in a {{site.data.keyword.block_storage_is_short}} vault that is backed by Consul and maintained by {{site.data.keyword.cloud}} operations.
 
-For more security, you can protect your data by using your own customer root keys (CRKs). You import your root keys to, or create them in, a supported key management service (KMS). Your root keys are safely managed by the supported KMS, either {{site.data.keyword.keymanagementserviceshort}} (FIPS 140-2 Level 3 compliance) or {{site.data.keyword.hscrypto}}, which offer the highest level of security (FIPS 140-2 Level 4 compliance). Your key material is protected in transit and at rest.
+For more security, you can protect your data by using your own customer root keys (CRKs). You import your root keys to, or create them in, a supported key management service (KMS). Your root keys are safely managed by the supported KMS, either {{site.data.keyword.keymanagementserviceshort}} (FIPS 140-2 Level 3 compliance) or {{site.data.keyword.hscrypto}}. Both KMS solutions offer the highest level of security (FIPS 140-2 Level 4 compliance). Your key material is protected in transit and at rest.
 
 For more information, see [Supported key management services for customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok). To learn how to set up customer-managed encryption, see
 [Creating {{site.data.keyword.block_storage_is_short}} volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
 
-You control access to your root keys stored in KMS instances within {{site.data.keyword.cloud}} by using IBM {{site.data.keyword.iamshort}} (IAM). You grant access to the IBM {{site.data.keyword.block_storage_is_short}} Service to use your keys. With the API, you can link a primary account containing a root key to a secondary account, then use that key to encrypt new volumes in the secondary account. For more information, see [Cross-account encryption for multitenant storage resources](/docs/vpc?topic=vpc-getting-started).
+You control access to your root keys stored in KMS instances within {{site.data.keyword.cloud}} by using IBM {{site.data.keyword.iamshort}} (IAM). You grant access to the IBM {{site.data.keyword.block_storage_is_short}} Service to use your keys. With the API, you can link a primary account that holds a root key to a secondary account, then use that key to encrypt new volumes in the secondary account. For more information, see [Cross-account encryption for multitenant storage resources](/docs/vpc?topic=vpc-getting-started).
 
 You can also revoke access at any time, for example, if you suspect your keys might be compromised. You can also disable or delete a root key, or temporarily revoke access to the key's associated data on the cloud. For more information, see [Managing root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-manage-root-keys).
 
@@ -255,13 +255,13 @@ Virtual disk images for VPC use QEMU Copy On Write Version 2 (QCOW2) file format
 {: faq}
 {: #faq-block-storage-23}
 
-Each volume is assigned a unique master encryption key, called a data encryption key or DEK, that is generated by the instance's host hypervisor. The master key for each {{site.data.keyword.block_storage_is_short}} volume is encrypted with a unique KMS-generated LUKS passphrase, which is then encrypted by your customer root key (CRK) and stored in the KMS. Passphrases are AES-256 cipher keys, which means that they are 32 bytes long and not limited to printable characters. You can view the cloud resource name (CRN) for the CRK that is used to encrypt a volume. However, the CRK, LUKS passphrase, and the volume's master encryption key are never exposed. For more information about all the keys IBM VPC uses to secure your data, see [IBM's encryption technology - How your data is secured](/docs/vpc?topic=vpc-vpc-encryption-about#byok-technologies).
+Each volume is assigned a unique master encryption key, called a data encryption key or DEK, which is generated by the instance's host hypervisor. The master key for each {{site.data.keyword.block_storage_is_short}} volume is encrypted with a unique KMS-generated LUKS passphrase, which is then encrypted by your customer root key (CRK) and stored in the KMS. Passphrases are AES-256 cipher keys, which means that they are 32 bytes long and not limited to printable characters. You can view the cloud resource name (CRN) for the CRK that is used to encrypt a volume. However, the CRK, LUKS passphrase, and the volume's master encryption key are never exposed. For more information about all the keys IBM VPC uses to secure your data, see [IBM's encryption technology - How your data is secured](/docs/vpc?topic=vpc-vpc-encryption-about#byok-technologies).
 
 ### I use customer-managed encryption for my volumes. What happens when I disable or delete my root key?
 {: faq}
 {: #faq-block-storage-24}
 
-These actions are two separate actions. Disabling a root key in your KMS suspends its encryption and decryption operations, placing the key in a suspended state. Workloads remain running in virtual server instances and boot volumes remain encrypted. Data volumes remain attached. However, if you power down the VM and then power it back on, any instances with encrypted boot volumes do not start. You can enable a root key in a suspended state and resume normal operations. For more information, see [Disabling root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-disable-root-keys).
+These actions are two separate actions. Disabling a root key in your KMS suspends its encryption and decryption operations, placing the key in a suspended state. Workloads continue to run in virtual server instances and boot volumes remain encrypted. Data volumes remain attached. However, if you power down the VM and then power it back on, any instances with encrypted boot volumes do not start. You can enable a root key in a suspended state and resume normal operations. For more information, see [Disabling root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-disable-root-keys).
 
 Deleting a root key has greater consequences. Deleting a root key purges usage of the key for all resources in the VPC. By default, the KMS prevents you from deleting a root key that's actively protecting a resource. However, you can still force the deletion of a root key. You have limited time to [restore a deleted root key](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-restore-root-key) that you imported to the KMS. For more information, see [Deleting root keys](/docs/vpc?topic=vpc-vpc-encryption-managing#byok-delete-root-keys).
 
@@ -269,9 +269,9 @@ Deleting a root key has greater consequences. Deleting a root key purges usage o
 {: faq}
 {: #faq_block_storage_remove_iam}
 
-If you remove IAM authorization before you delete your BYOK volume (or image), the delete operation completes but the root keys that are protecting these resources are not deregistered in the KMS instance. This means the root key remains registered for a resource that doesn't exist. Always delete a BYOK resource before you remove IAM authorization. For more information about safely removing service authorization, see [Removing service authorization to a root key](/docs/vpc?topic=vpc-vpc-encryption-managing#instance-byok-inaccessible-data).
+If you remove IAM authorization before you delete your BYOK volume (or image), the delete operation completes but the root keys that are protecting these resources are not unregistered in the KMS instance. In other words, the root key remains registered for a resource that doesn't exist. Always delete a BYOK resource before you remove IAM authorization. For more information about safely removing service authorization, see [Removing service authorization to a root key](/docs/vpc?topic=vpc-vpc-encryption-managing#instance-byok-inaccessible-data).
 
-### What should I do if my root key is compromised?
+### What can I do if my root key is compromised?
 {: faq}
 {: #faq-block-storage-25}
 
@@ -283,7 +283,7 @@ Also, consider setting up a key rotation policy that automatically rotates your 
 {: faq}
 {: #faq-block-storage-25a}
 
-For {{site.data.keyword.vpc_short}} resources such as {{site.data.keyword.block_storage_is_short}} volumes that are protected by your customer root key (CRK), you can rotate the root keys for additional security. When you rotate a root key by a schedule or on demand, the original key material is replaced. The old key remains active to decrypt existing volumes but can't be used to encrypt new volumes. For more information, see [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).
+For {{site.data.keyword.vpc_short}} resources such as {{site.data.keyword.block_storage_is_short}} volumes that are protected by your customer root key (CRK), you can rotate the root keys for extra security. When you rotate a root key by a schedule or on demand, the original key material is replaced. The old key remains active to decrypt existing volumes but can't be used to encrypt new volumes. For more information, see [Key rotation for VPC resources](/docs/vpc?topic=vpc-vpc-key-rotation).
 
 ### How does key rotation work?
 {: faq}
@@ -297,13 +297,13 @@ When you rotate a root key, a new version of the key is created by generating or
 {: faq}
 {: #faq-block-storage-27}
 
-You are not charged extra for creating volumes with customer-managed encryption. However, there is a charge for setting up a {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance to import, create, and manage your root keys. Contact your IBM customer service representative for details.
+You are not charged extra for creating volumes with customer-managed encryption. However, setting up a {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance to import, create, and manage your root keys is not without cost. Contact your IBM customer service representative for details.
 
-### What's the difference between using Key Protect as my KMS compared to HPCS?  When would I use one over the other?
+### What's the difference between using Key Protect as my KMS compared to HPCS? When would I use one over the other?
 {: faq}
 {: #faq-block-storage-28}
 
-Both key management systems provide you complete control over your data, managed by your root keys. {{site.data.keyword.keymanagementserviceshort}} is a multi-tenant KMS where you can import or create your root keys and securely manage them. {{site.data.keyword.hscrypto}} is a single-tenant KMS and hardware security module (HSM) that is controlled by you, which offers the highest level of security. For more information and links to documentation about these key management services, see [Supported key management services for customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok).
+Both key management systems provide you complete control over your data, managed by your root keys. {{site.data.keyword.keymanagementserviceshort}} is a multi-tenant KMS where you can import or create your root keys and securely manage them. {{site.data.keyword.hscrypto}} is a single-tenant KMS and hardware security module (HSM) that is controlled by you, which offers the highest level of security. For more information about these key management services, see [Supported key management services for customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok).
 
 ### Can I convert my volume from provider-managed encryption to customer-managed encryption?
 {: faq}
