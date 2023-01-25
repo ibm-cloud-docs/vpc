@@ -55,7 +55,7 @@ The following information highlights characteristics of the HiperSocket interfac
 * You can attach security groups to HiperSockets interfaces to manage incoming and outgoing traffic to the network interface.
 
 ### Limitations of network interfaces on s390x bare metal servers
-{: #nic-limits}
+{: #nic-limits-s390x}
 
 Keep the following limitation in mind when you create a network interface.
 
