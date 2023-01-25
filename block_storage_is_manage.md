@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-12-12"
+  years: 2019, 2023
+lastupdated: "2023-01-25"
 
 keywords:
 
@@ -129,7 +129,7 @@ You can also enable Auto Delete on a new data volume when you create an instance
 
 Add user tags to block storage volumes from the list of volumes or the volumes details page.
 
-1. Navigate to the list of block storage volumes. In [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
+1. Go to the list of block storage volumes. In [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
 2. Locate the volume from the list that you want to add user tags.
 3. In the **tags** column, click **Add tags**.
 4. In the Add tags menu, enter the user tags that you want to apply to this volume. Tags display as you type.
@@ -141,7 +141,7 @@ Add user tags to block storage volumes from the list of volumes or the volumes d
 
 You can also add tags from the volume details page:
 
-1. Navigate to the list of block storage volumes.
+1. Go to the list of block storage volumes.
 2. On the volume details, click **Add tags** next to the volume name.
 3. In the Add tags menu, enter the user tags that you want to apply to this volume. When finished, click **Save**.
 
@@ -152,7 +152,7 @@ You can add user tags that are associated with a backup policy to a block storag
 
 From the [volume details](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-vol-details-ui) page, you can view the backup policies that are applied to the volume and add user tags that are associated with a backup policy.
 
-1. Navigate to the list of block storage volumes. In [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
+1. Go to the list of block storage volumes. In [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
 2. Locate the volume that you want and click the name link.
 3. From the block storage volumes details page, click the **Backup policies** tab.
 4. Click **Attach**.
@@ -426,7 +426,7 @@ Make a `POST/ tags` call to [create an access management tag](/apidocs/tagging#c
 
 Add an access management tag to an existing volume or when you [create a volume](/docs/vpc?topic=vpc-creating-block-storage). To add access management tags to an existing volume:
 
-1. Navigate to the list of block storage volumes. In [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
+1. Go to the list of block storage volumes. In [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
 2. Locate the volume from the list.
 3. In the **tags** column, click **Add tags**.
 4. In the Add tags menu, enter the access management tags in the access management tag field. Tags that you created display as you type.
@@ -501,7 +501,7 @@ To see these metrics in the UI:
 
 3. Click the **Monitoring** tab and scroll to the **Volume** metrics.
 
-4. Select a volume to see its read or write metrics. Figure 1 shows this view.
+4. Select a volume. The read and write metrics are displayed. Figure 1 shows this view.
 
 ![Figure showing volume metrics.](/images/volume-read-write-metrics.png "Figure showing volume read/write metrics."){: caption="Figure 1. Read/write metrics for block storage volumes." caption-side="bottom"}
 
@@ -510,7 +510,7 @@ To see these metrics in the UI:
 
 Boot and data volume performance is initially degraded when you restore them from a snapshot. During the restoration, your data is copied from {{site.data.keyword.cos_full}} to {{site.data.keyword.block_storage_is_short}}. After the restoration process is complete, full IOPS can be realized on the new volume.
 
-Restoring a boot volume from a "bootable" snapshot and then using it to provision an instance results in slower performance because restored boot volume is not yet fully hydrated (that is, fully provisioned). Performance is slower than creating an instance from a regular boot volume.
+Restoring a boot volume from a "bootable" snapshot and then provisioning an instance with it results in slower performance because restored boot volume is not yet fully hydrated (that is, fully provisioned). Performance is slower than creating an instance from a regular boot volume.
 
 ## Block storage volume status
 {: #block-storage-vpc-status}
@@ -534,7 +534,7 @@ Volume health states correspond with [volume statuses](#block-storage-vpc-status
 
 | Health State | Reason |
 |--------|-------------|
-| OK | A volume is performing at the expected I/O performance and capacity is sufficient, there are no network connection issues, or a volume was restored from a snapshot (hydration is completed). |
+| OK | A volume is performing at the expected I/O performance and capacity is sufficient, no network connection issues are present, or a volume was restored from a snapshot (hydration is completed). |
 | Degraded | A volume is experiencing degraded performance for any of the following reasons: \n  - Volume data is being restored (hydrated) and shows degraded until hydration is completed. \n - Initialization from a snapshot failed and the volume hydration failed. \n - Volume hydration is not started. \n - Volume hydration is paused. \n - Snapshot is in an unusable state. |
 | Inapplicable | The volume is being created, volume creation failed, volume is pending, pending deletion, or unusable. No health reason is reported. |
 | Faulted | The volume is unreachable, inoperative, or entirely incapacitated. |
@@ -554,4 +554,4 @@ For more information about monitoring security and compliance for VPC, see [Moni
 
 You can [create more volumes](/docs/vpc?topic=vpc-creating-block-storage).
 
-For issues with existing block storage volumes, you might be able to troubleshoot and fix the problems yourself. For more information, see [Troubleshooting {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-troubleshooting-block-storage).
+For issues with existing block storage volumes, you might be able to troubleshoot and fix the problems yourself. For more information, see [troubleshooting {{site.data.keyword.block_storage_is_short}}](/docs/vpc?topic=vpc-troubleshooting-block-storage).
