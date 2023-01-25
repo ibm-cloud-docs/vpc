@@ -189,7 +189,7 @@ instances.
 {: note}
 
 ## Viewing profile configurations
-{: #popular-profiles}
+{: #dh-popular-profiles}
 
 You can view available profile configurations by using the {{site.data.keyword.cloud_notm}} console or the CLI. In the {{site.data.keyword.cloud_notm}} console, you can select from popular profile configurations that support most common use cases.
 
