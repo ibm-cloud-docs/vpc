@@ -252,7 +252,7 @@ ibmcloud is dedicated-host-profiles
 All Intel&reg;-based servers operate with the Intel&reg; Hyper-Threading Technology enabled. Hyper-Threading Technology provies 2 vCPUs for every physical core in the box. Hyper-Threading Technology can also be disabled if needed. For more information, see [Disabling Intel Hyper-Threading Technology](/docs/vpc?topic=vpc-disabling-hyper-threading).
 
 ## Next steps
-{: #nextsteps-profiles}
+{: #dh-nextsteps-profiles}
 
 After you choose a profile, it's time to create a dedicated host.
 
