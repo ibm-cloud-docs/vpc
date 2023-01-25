@@ -1,13 +1,12 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-11-08"
+  years: 2022, 2023
+lastupdated: "2023-01-25"
 
 keywords:
 
 subcollection: vpc
-
 
 ---
 
@@ -19,13 +18,13 @@ subcollection: vpc
 By default, {{site.data.keyword.filestorage_vpc_short}} shares are encrypted with IBM-managed encryption. However, you can also create encrypted file shares by using a supported key management service to create or import your own root keys. After you specify the encryption type for a file share, you can't change it.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Tokyo, and Osaka regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## Before you begin
-{: #custom-managed-vol-prereqs}
+{: #custom-managed-vol-prereqs-file}
 
-To create file shares with customer-managed encryption, you must first provision a key management service and create or import your customer root key (CRK). You must also [authorize access](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-volumes-prereqs) between {{site.data.keyword.filestorage_vpc_short}} and the key management service. When you complete these prerequisites, you can start creating file shares that use customer-managed encryption.
+To create file shares with customer-managed encryption, you must first provision a key management service, and create or import your customer root key (CRK). You must also [authorize access](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-volumes-prereqs) between {{site.data.keyword.filestorage_vpc_short}} and the key management service. When you complete these prerequisites, you can start creating file shares that use customer-managed encryption.
 
 For more information, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs).
 
@@ -39,7 +38,7 @@ Follow this procedure to specify customer-managed encryption when you create a f
 
 2. Click **Create**.
 
-3. Enter the information  described in the Table 1. While creating a share, specify the information for the mount target as well.
+3. Enter the information that is described in the Table 1. While you create the share, specify the information for the mount target as well.
 
    | Field | Value |
    |-------|-------|
@@ -73,7 +72,7 @@ If you created your {{site.data.keyword.keymanagementserviceshort}} or {{site.da
 
 To create a file share with customer-managed encryption from the CLI, use the `ibmcloud is share-create` command with the `--encryption-key` parameter. The `encryption_key` parameter specifies a valid CRN for the root key in the key management service.
 
-Before you begin, verify you have completed the [prerequisites](/docs/vpc?topic=vpc-file-storage-create#before-creating-file-storage-cli), then follow these steps:
+Before you begin, verify that you completed the [prerequisites](/docs/vpc?topic=vpc-file-storage-create#before-creating-file-storage-cli), then follow these steps:
 
 1. Use the procedure in [Step 1 - Obtain service instance and root key information](/docs/vpc?topic=vpc-creating-instances-byok#byok-cli-setup-prereqs) to obtain the ID of your key management service and the CRN of the root key in that service.
 
@@ -124,7 +123,7 @@ Mount targets                           none
 
 You can create file shares with customer-managed encryption by calling the [Virtual Private Cloud (VPC) API](/apidocs/vpc).
 
-Make a `POST /shares` request and specify the `encryption_key` parameter to identify your customer root key (CRK). It's shown in the example as `crn:[...key:...]`.
+Make a `POST /shares` request and specify the `encryption_key` parameter to identify your customer root key (CRK). It is shown in the example as `crn:[...key:...]`.
 
 You can also specify the CRN of a root key from a different account in the `POST /shares` call. For more information, see [About cross account key access and use](/docs/vpc?topic=vpc-vpc-byok-cross-acct-key&interface=ui#byok-cross-acct-about).
 {: note}
