@@ -78,7 +78,7 @@ Complete the following actions to import your custom image in the UI.
 {: caption="Table 1. Import custom image user interface fields" caption-side="bottom"}
 
 ### Create an image from a virtual server instance boot volume
-{: #import-custom-image-vsi}
+{: #import-custom-boot-image-vsi}
 
 When you select **Virtual server instance boot volume** as the source of your custom image, a list of instances is displayed. Complete the following actions to create an image from the instance's boot volume.
 
