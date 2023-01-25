@@ -1,3 +1,9 @@
+includes:
+  - https://github.ibm.com/cloud-docs/dns-svcs
+  - https://github.ibm.com/cloud-docs-solutions/solution-tutorials
+  - https://github.ibm.com/cloud-docs/containers
+  - https://github.ibm.com/cloud-docs/vpc-infrastructure-cli-plugin
+  - https://github.ibm.com/cloud-docs/ibm-cloud-provider-for-terraform
 translation:
   exclude:
     byFilePath:
