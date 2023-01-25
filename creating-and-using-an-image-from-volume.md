@@ -74,7 +74,7 @@ Complete the following actions to import your custom image in the UI.
 | Resource group | Image resources |
 | Tags | Custom image |
 | Region | Dallas 2 |
-| Source | [Virtual server instance boot volume](#import-custom-image-vsi) (default) |
+| Source | [Virtual server instance boot volume](#import-custom-boot-image-vsi) (default) |
 {: caption="Table 1. Import custom image user interface fields" caption-side="bottom"}
 
 ### Create an image from a virtual server instance boot volume
