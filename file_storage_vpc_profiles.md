@@ -40,7 +40,7 @@ The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS ca
 {: note}
 
 ## Custom IOPS profile
-{: #custom}
+{: #fs-custom}
 
 Custom IOPS is a good option when you have well-defined performance requirements that do not fall within a predefined IOPS tier. You can customize the IOPS by specifying the total IOPS for the file share within the range for its size. You can provision file shares with IOPS performance from 100 IOPS to 48,000 IOPS, based on the size.
 
