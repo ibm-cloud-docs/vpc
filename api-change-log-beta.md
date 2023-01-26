@@ -13,7 +13,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # Beta VPC API change log
-{: #beta-api-change-log}
+{: #api-change-log-beta}
 
 Read this change log to learn about updates and improvements to the beta {{site.data.keyword.vpc_full}} (VPC) [API](/apidocs/vpc-beta). The change log lists changes that are ordered by the date they were released.
 {: shortdesc}
