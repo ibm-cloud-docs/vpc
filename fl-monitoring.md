@@ -72,7 +72,7 @@ The following attributes are available for segmenting one or more attributes as 
 {: caption="Table 3: Additional attributes" caption-side="bottom"}
 
 ## Enabling metrics monitoring
-{: #enable-metrics-monitoring}
+{: #enable-metrics-monitoring-fl}
 
 To receive monitoring metrics, you must set up your {{site.data.keyword.mon_full_notm}} instance.
 
