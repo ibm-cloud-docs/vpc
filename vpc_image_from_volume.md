@@ -40,7 +40,7 @@ To create an image from a volume, the volume must meet the following requirement
 * The volume must be in the region where you want to create the custom image.
 * The volume must be a primary boot volume with 100 GB capacity. Data volumes are not supported.
 * The volume must be attached to an instance. Unattached boot volumes are not supported.
-* Instance must be in an available state. 
+* The instance must be in an available state. 
 * The available, running instance must be stopped before you create the custom image. Creating an image from a running instance is not allowed.
 
 ## Options for creating an image from a volume
