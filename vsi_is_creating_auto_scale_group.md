@@ -139,7 +139,7 @@ To add scaling policies, complete the following fields on the **New instance gro
 You can create an instance group in your {{site.data.keyword.vpc_short}} to auto scale according to your requirements by using the {{site.data.keyword.cloud_notm}} CLI.
 
 ### Before you begin
-{: #before-cli-tutorial}
+{: #before-cli-tutorial-autoscale}
 
 Make sure that you set up your [{{site.data.keyword.cloud}} CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup) and your [{{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
 {: important}
