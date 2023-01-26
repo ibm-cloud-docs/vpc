@@ -88,7 +88,7 @@ The previous example does not create a VPC with classic access. If you require t
 {: important}
 
 ### Create a private catalog
-{: #cli-create-private-catalog}
+{: #cli-create-private-catalog-optional}
 
 This step is optional. If you plan share images from a private catalog, the private catalog must be created first. If you select a catalog image that belongs to a different account, there are additional considerations and limitations to review. See [Using cross-account image references in a private catalog in the UI](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-ui). To create a private catalog, see the tutorial [Onboarding software to your catalog by using the CLI](/docs/account?topic=account-create-private-catalog&interface=cli#create-cicd-product).
 
