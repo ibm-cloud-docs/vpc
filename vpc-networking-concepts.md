@@ -1,29 +1,21 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-08-17"
+  years: 2017, 2023
+lastupdated: "2023-01-27"
 
 keywords: vpc network, VRF, router, hypervisor, address prefixes, classic access, implicit router, packet flows, NAT, data flows, Cloud Service Endpoint source addresses, source addresses
 
 subcollection: vpc
 
-
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
-{:download: .download}
+{{site.data.keyword.attribute-definition-list}}
 
 # VPC behind the curtain
 {: #vpc-behind-the-curtain}
 
-The following information presents a detailed conceptual picture of what's happening "behind the curtain" regarding VPC networking. Learn about network isolation, address prefixes, Cloud Service Endpoint source addresses, data packet flows, external IP address lifecycle, and Classic infrastructure access. Readers are expected to have some networking background.
+The following information presents a detailed conceptual picture of what's happening "behind the curtain" in VPC networking. Learn about network isolation, address prefixes, Cloud Service Endpoint source addresses, data packet flows, external IP address lifecycle, and Classic infrastructure access. Readers are expected to have some networking background.
 {: shortdesc}
 
 ## Network isolation
@@ -43,12 +35,16 @@ VPC network isolation takes place at three levels:
 ## Address prefixes
 {: #address-prefixes}
 
-Address prefixes are the summary information that is used by a VPC's implicit routing function to locate a _destination virtual server instance_, regardless of the availability zone in which the destination virtual server instance is located. The primary function of address prefixes is to optimize routing over the MPLS VPN, while pathological routing cases are avoided. All subnets that are created in a VPC must be contained in an address prefix so that all virtual server instances that are in a VPC are reachable from all other virtual server instances in the VPC.
+Address prefixes are the summary information that is used by a VPC's implicit routing function to locate a _destination virtual server instance_, regardless of the availability zone in which the destination virtual server instance is located. The primary function of address prefixes is to optimize routing over the MPLS VPN, while pathological routing cases are avoided. All subnets within a VPC must be contained in an address prefix so that all virtual server instances that are in the VPC are reachable from all other virtual server instances in the VPC.
 
 ## Cloud service endpoint source addresses 
 {: #cse-source-addresses}
 
-Cloud service endpoint source addresses are the IP addresses that identify a VPC and zone combination outside of the VPC. For example, a source address is used when a service outside of the VPC is called through a cloud service endpoint. The IP address of the virtual server instance is replaced with an IPv4 address, the source address, that identifies the VPC to the cloud service endpoint. 
+Cloud service endpoint source addresses are the IP addresses that identify a VPC and zone combination outside of the VPC. For example, a source address is used when a service outside of the VPC is called through a cloud service endpoint. The IP address of the virtual server instance is replaced with an IPv4 address, the source address, which identifies the VPC to the cloud service endpoint. See the following diagram for details:
+
+![Address translation example](./images/cse-addr-translation.png){: caption="Address translation example" caption-side="bottom"}
+
+The Cloud service endpoint source address in the diagram is labeled "VPC Address". This address is scoped outside of the customer VPC and so does not collide with customer VSI addresses.
 
 ## Data packet flows and the implicit router
 {: #data-packet-flows-and-the-implicit-router}
@@ -74,15 +70,15 @@ Six different types of virtual server instance data packet flows occur in a VPC.
 
 **Extra-vpc internet** data flows - Packets that are destined for the internet are the most complex. In addition to using the VPC's implicit router function, each of these flows also rely on one of the implicit router's two network address translation (NAT) functions.
 
-* an explicit one-to-many NAT through a public gateway function that serves all subnets that are connected to it.
-* one-to-one NAT assigned to individual virtual server instances.
+* An explicit one-to-many NAT through a public gateway function that serves all subnets that are connected to it.
+* One-to-one NAT assigned to individual virtual server instances.
 
 After NAT translation, the implicit router forwards these internet-destined packets to the internet, by using the cloud backbone.
 
-## Life cycle of external IPs that are associated with public gateway functions
+## Life cycle of external IP addresses that are associated with public gateway functions
 {: #pgw-external-IP-lifecycle}
 
-As both external IPs and PGWs are bound to an availability zone. A public gateway function can have only a single external IP. This external IP has the following lifecycle:
+As both external IP addresses and PGWs are bound to an availability zone. A public gateway function can have only a single external IP. This external IP has the following lifecycle:
 
 * The external IP is allocated when the public gateway is created.
 * The external IP is released when the public gateway is deleted.
