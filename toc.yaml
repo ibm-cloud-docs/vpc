@@ -247,6 +247,12 @@ toc:
                  - vsi_is_manage_images.md
                  - vpc_image_from_volume_manage.md
         - topicgroup:
+            label: DNS Services
+            topics:
+            - link:
+               label: Getting started with IBM Cloud DNS Services
+               href: /dns-svcs/dns-svcs-getting-started
+        - topicgroup:
             label: Public gateways
             topics:
             - pg-about.md
