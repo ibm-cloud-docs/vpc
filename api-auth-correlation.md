@@ -169,8 +169,6 @@ For more information about IAM roles, see [Getting Started with IAM](/docs/vpc?t
 | VPN gateway ike_policies, ipsec_policies and connections|View, List  | Viewer for the VPN gateway |
 {: caption="Table 1. Minimum IAM roles for VPC actions" caption-side="top"}
 
-{: #vpn-server-authorizations-required-for-api-and-cli-calls}
-
 ## Client-to-site VPN server tasks
 {: #client-to-site-vpn-server-tasks}
 
