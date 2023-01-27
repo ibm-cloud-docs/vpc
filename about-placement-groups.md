@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-03-10"
+  years: 2021, 2023
+lastupdated: "2023-01-27"
 
 keywords: virtual private cloud, private cloud network, cloud-native, workloads, high availability, generation 2, placement group, host spread, power spread
 
@@ -9,18 +9,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:beta: .beta}
-{:important: .important}
-{:download: .download}
-{:table: .aria-labeledby="caption"}
-{:DomainName: data-hd-keyref="DomainName"}
+{{site.data.keyword.attribute-definition-list}}
 
 # About placement groups 
 {: #about-placement-groups-for-vpc}
@@ -31,9 +20,9 @@ subcollection: vpc
 Placement groups for {{site.data.keyword.vpc_full}} are used to create placement strategies for managing high availability workloads. A placement group contains virtual server instances that share a common placement strategy. Placement strategies influence the physical placement of select VPC resources to meet certain workload demands. 
 {: shortdesc}
 
-Placement groups and their assigned resources can be managed by using the UI, CLI, API, and Terraform. A placement group can have 1 of 2 placement strategies: [host spread](#host-spread-placement-groups-for-vpc) or [power spread](#power-spread-placement-groups-for-vpc). With a VPC resource called `placement-groups`, you can create a policy for placing groups of instances together. The `placement-groups` resource is then added to the service `is.placement-groups`. For more information about actions that are related to placement group resources, see the placement group events section in [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-placement-group).
+Placement groups and their assigned resources can be managed by using the UI, CLI, API, and Terraform. A placement group can have 1 of two placement strategies: [host spread](#host-spread-placement-groups-for-vpc) or [power spread](#power-spread-placement-groups-for-vpc). With a VPC resource called `placement-groups`, you can create a policy for placing groups of instances together. The `placement-groups` resource is then added to the service `is.placement-groups`. For more information about actions that are related to placement group resources, see the placement group events section in [Activity Tracker events](/docs/vpc?topic=vpc-at-events#events-placement-group).
 
-After the placement group is created, a selected virtual server instance or a group of virtual server instances are assigned to the placement group. When you provision these virtual server instances, the virtual server instances are then placed on a compute host in the appropriate zone for the instance based on the placement group strategy. The same placement group can be used for instances provisioned on shared public servers in different VPCs.
+After the placement group is created, a selected virtual server instance or a group of virtual server instances are assigned to the placement group. When you provision these virtual server instances, the virtual server instances are then placed on a compute host in the appropriate zone for the instance based on the placement group strategy. The same placement group can be used for instances that are provisioned on shared public servers in different VPCs.
 
 ### Benefits
 {: #placement-groups-benefits}
@@ -81,10 +70,10 @@ When an instance is resized, the instance is stopped, the profile is updated, an
 ## Common use cases
 {: #placement-group-use-cases}
 
-* Workload needs highest availability for critical application instances
+* Workload needs highest availability for critical application instances.
    * Issue: Distributed application or database experiences an outage if any one of the application parts experience a failure.
    * Solution: Use power spread placement group policy for independent power and network.
-* Workload needs to optimize topology-aware applications
+* Workload needs to optimize topology-aware applications.
    * Issue: Modern database uses triple replication for redundancy therefore must make sure that performance for database components while also optimizing high availability for replicate parts of the database.
    * Solution: Use power spread placement group policy to group database components on different power supplies.
    
@@ -92,7 +81,7 @@ When an instance is resized, the instance is stopped, the profile is updated, an
 {: #limitations-placement-groups-for-vpc}
 
 * The VPC must exist before you create a placement group. If the VPC isn't created before you create a placement group, you receive an error and the placement group isn't created.
-* The quotas have a set limit and can't be adjusted. For information about placement group quotas, see the placement group quotas section in [Quotas and service limits](/docs/vpc?topic=vpc-quotas#placement-group-quotas).
+* The quotas have a set limit and can't be adjusted. For more information about placement group quotas, see the placement group quotas section in [Quotas and service limits](/docs/vpc?topic=vpc-quotas#placement-group-quotas).
 
 ## Restrictions
 {: #restrictions-placement-groups-for-vpc}
@@ -106,7 +95,7 @@ The following are the restrictions for placement groups:
 The following are the restrictions for instances that are attached to a placement group:
 
 - An instance can be in only one placement group.
-- Instances provisioned with placement group strategies do not work with dedicated hosts. 
+- Instances that are provisioned with placement group strategies do not work with dedicated hosts. 
 - After an instance is placed, the assigned placement of that instance does not change based on placement of other instances.
 - After an instance is started, the associated placement group strategy can't be changed.
 - Instances can't be removed from a placement group or assigned to a different placement group. Instances must be deleted to remove the instance from the placement group.
