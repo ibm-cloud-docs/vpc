@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-01-13"
+lastupdated: "2023-01-27"
 
 keywords:
 
@@ -55,12 +55,12 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share and
 | Name  | Specify a meaningful name for your file share. The file share name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want.
 | Resource Group | Use the default resource group or specify a [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups). Resource groups help organize your account resources for access control and billing purposes. |
 | Tags | Enter user tags to apply to this file share. As you type, existing tags appear that you can select. For more information about tags, see [Add user tags to a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-user-tags). |
-| Access Management Tags | Enter access management tags you created in IAM to apply them to this file share. For information about access management tags, see [Access management tags for file shares](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-about-mgt-tags). |
+| Access Management Tags | Enter access management tags that you created in IAM to apply them to this file share. For more information about access management tags, see [Access management tags for file shares](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-about-mgt-tags). |
 | Mount targets (Optional) | Click **Create** to create a new [mount target](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets) for the file share. You can create one mount target per VPC per file share. Provide a name for the mount target and select a VPC in that zone. You can add as many mount targets are you have VPCs. If you don't have one, first [create a VPC](/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc). (To use the API, see [Creating a VPC with the REST APIs](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis).) For more information about creating mount targets as a separate operation, see [Create a mount target](#fs-create-mount-target-ui). |
-| Profile | Select an IOPS tier or Custom IOPS for file share. The profile you select determines the input/output performance of a file share. For more information about file storage IOPS tier and Custom profiles, see [File storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). |
+| Profile | Select an IOPS tier or Custom IOPS for file share. The profile that you select determines the input/output performance of a file share. For more information about file storage IOPS tier and Custom profiles, see [File storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). |
 | Size | Specify the size for the file share. You can later [increase this size](/docs/vpc?topic=vpc-file-storage-expand-capacity), depending on the file share profile. |
-| Encryption | Encryption with IBM-managed keys is enabled by default when you create a new file share. You can also choose **Customer Managed** and use your own encryption key. For more information about creating encrypted file shares, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption). If you create a replica share while provisioning a new file share, the encryption is inherited. You can't encrypt a replica with a different key. If you change the encryption on the source share, the replica is updated. |
-| Asynchronous replica | Informational field saying that you can create a replica after the file share is created. |
+| Encryption | Encryption with IBM-managed keys is enabled by default when you create a new file share. You can also choose **Customer Managed** and use your own encryption key. For more information about creating encrypted file shares, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption). If you create a replica share when you provision a new file share, the encryption is inherited. You can't encrypt a replica with a different key. If you change the encryption on the source share, the replica is updated. |
+| Asynchronous replica | Informational field that says that you can create a replica after the file share is created. |
 {: caption="Table 1. Values for creating a file share and mount target" caption-side="top"}
 
 To see the REST API call, click the **Create with REST API </>** link. Viewing the API calls is a good way to learn about the API and understand actions and their dependencies.
@@ -216,12 +216,12 @@ A good way to learn more about the API is to click **Get sample API call** on th
 
 Make a `POST/shares` request to create a file share. Specify the size of the file share, a name, the IOPS profile, and zone.
 
-You must provide `generation` parameter with the API request and specify `generation=2`. Do not use `generation=1` for the  file storage service. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
+You must provide `generation` parameter with the API request and specify `generation=2`. Do not use `generation=1` for the file storage service. For more information, see **Generation** in the [Virtual Private Cloud API reference](/apidocs/vpc#api-generation-parameter).
 
 To create a new file share and a replica file share, see [Create a file share with replication with the API](/docs/vpc?topic=vpc-file-storage-create-replication&interface=api#fs-create-new-share-replica-api).
 {: note}
 
-This example show a request to create a 4800 GB file share with a 10 IOPS/GB profile.
+This example shows a request to create a 4800 GB file share with a 10 IOPS/GB profile.
 
 ```curl
 curl -X POST \
@@ -374,7 +374,7 @@ A successful response looks like this:
 ### Create a mount target with the API
 {: #fs-create-mount-target-api}
 
-This request creates or adds a mount target to an already existing file share.
+This request creates or adds a mount target to an existing file share.
 
 ```curl
 curl -X POST \
@@ -415,12 +415,12 @@ A successful response looks like this:
 ### Add supplemental IDs when you create a file share with the API
 {: #fs-add-supplemental-id-api}
 
-With the API, you can set `UID` and `GID` values for the  `initial_owner` property to control access to your file shares. Wherever you mount the file share, the root folder uses that user ID and group ID owner. You set the `UID` and/or `GID` when you create a share in a `POST /shares` call.
+With the API, you can set `UID` and `GID` values for the `initial_owner` property to control access to your file shares. Wherever you mount the file share, the root folder uses that user ID and group ID owner. You set the `UID` and/or `GID` when you create a share in a `POST /shares` call.
 
-If you change the supplemental IDs (UID or GID) from the virtual server instance, there is currently no way to determine that it was changed. As a result, `initial_owner` will not change in the API database but changes only in the file storage system.
+If you change the supplemental IDs (UID or GID) from the virtual server instance, there is no way to determine that it was changed. As a result, `initial_owner` does not change in the API database but changes only in the file storage system.
 {: note}
 
-Table 1 shows UID and GID values you can set and values that are reserved.
+Table 1 shows UID and GID values that you can set and values that are reserved.
 
 | ID value | Description |
 |----------|-------------|
@@ -436,7 +436,7 @@ Table 1 shows UID and GID values you can set and values that are reserved.
 | GID 100+ | Allocated for the user’s group. |
 {: caption="Table 1. Unix/Linux&reg; supplemental ID values." caption-side="top"}
 
-To set supplemental IDS when creating a new share, make a `POST /shares` call and specify the `initial_owner` property with the supplemental IDs. For example:
+To set supplemental IDs when you create a share, make a `POST /shares` call and specify the `initial_owner` property with the supplemental IDs. See the following example.
 
 ```curl
 curl -X POST \
