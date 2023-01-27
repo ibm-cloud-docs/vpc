@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-11-08"
+  years: 2021, 2023
+lastupdated: "2023-01-27"
 
 keywords:
 
@@ -24,7 +24,7 @@ Use these instructions to connect a CentOS Linux&reg;-based {{site.data.keyword.
 ## Before you begin - Create a VSI
 {: #fs-centos-create-vsi}
 
-Before you begin to mount {{site.data.keyword.filestorage_vpc_short}} file shares, you must create a [virtual server instance](/docs/vpc?topic=vpc-about-advanced-virtual-servers) in the same zone as the file share. After you created an instance, get the mount path of the file share from the mount target that was created. You need a mount path for mounting file shares.
+First, you must create a [virtual server instance](/docs/vpc?topic=vpc-about-advanced-virtual-servers) in the same zone as the file share. After you created an instance, get the mount path of the file share from the mount target that was created. You need a mount path for mounting file shares.
 
 Mount path information can be obtained from the File share details page in the UI, or through an API or CLI call.
 {: tip}
@@ -60,7 +60,7 @@ SSH into the virtual server instance where you want to mount the file share, the
    ```
    {: pre}
 
-   For example:
+   See following example.
 
    ```zsh
    mount -t nfs4 -o sec=sys,nfsvers=4.1 fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_246a9cb9-4679-4dc5-9522-4a7ed2575136 /mnt/test
@@ -105,14 +105,14 @@ SSH into the virtual server instance where you want to mount the file share, the
    The files are created by root and have an ownership of `nobody:nobody`. To display the ownership correctly, update `idmapd.conf` with the correct domain settings. For more information, see [How to implement no_root_squash for NFS](#fs-CentOS-norootsquash).
 
 6. Mount the remote file share on start. To complete the setup, you must edit the file systems table (`/etc/fstab`) and add the remote file share to the list of entries that are automatically mounted on startup. Before you create an entry in the `fstab`, perform the following steps to add the mount path hostname to `/etc/hosts`.
-    1. Get the `hostname.com` portion of mount path, `for example: fsf-dal2433a-dz.adn.networklayer.com` and get the IP address. Run the following command from the instance to get the IP address.
+    1. Get the `hostname.com` portion of mount path, for example `fsf-dal2433a-dz.adn.networklayer.com` and get the IP address. Run the following command from the instance to get the IP address.
 
         ```sh
         host hostname.com
         ```
         {: pre}
 
-        For example:
+        See following example.
         ```text
         host fsf-dal2433a-dz.adn.networklayer.com
         fsf-dal2433a-dz.adn.networklayer.com has address 203.0.113.0
@@ -129,7 +129,7 @@ SSH into the virtual server instance where you want to mount the file share, the
        ```
        {: pre}
 
-       For example:
+       See following example.
        ```text
        198.51.100.0 fsf-dal2433a-dz.adn.networklayer.com
        ```
@@ -142,7 +142,7 @@ SSH into the virtual server instance where you want to mount the file share, the
        ```
        {: pre}
 
-       For example:
+       See following example.
        ```sh
        fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_246a9cb9-4679-4dc5-9522-4a7ed2575136 /mnt/test nfs4 nfsvers=4.1,sec=sys,_netdev 0 0
        ```
@@ -157,9 +157,8 @@ SSH into the virtual server instance where you want to mount the file share, the
 
    If the command completes without errors, your setup is complete.
 
-   For NFS 4.1, add `sec=sys` to the mount command to prevent file ownership issues. Use `_netdev` to wait for the storage to get mounted until after all network components have started.
+   For NFS 4.1, add `sec=sys` to the mount command to prevent file ownership issues. Use `_netdev` to wait for the storage to get mounted until after all network components are started.
    {: tip}
-
 
 ## Implement `no_root_squash` for NFS (optional)
 {: #fs-CentOS-norootsquash}
@@ -168,9 +167,7 @@ By default, NFS downgrades any files that were created with the root permissions
 
 By configuring `no_root_squash`, root clients can retain root permissions on the remote NFS file share.
 
-For NFSv4.1, set the nfsv4 domain to: `slnfsv4.com`, and start `rpcidmapd` or a similar service that is used by your OS.
-
-For example:
+For NFSv4.1, set the nfsv4 domain to: `slnfsv4.com`, and start `rpcidmapd` or a similar service that is used by your OS. See following example.
 
 1. From the host, set domain setting in `/etc/idmapd.conf`.
 

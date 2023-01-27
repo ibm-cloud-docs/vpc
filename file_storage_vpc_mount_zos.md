@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-11-08"
+  years: 2022, 2023
+lastupdated: "2023-01-27"
 
 keywords:
 
@@ -130,4 +130,4 @@ Follow these steps to mount a file share on a z/OS host.
 
    For more information, see [Additional mount command examples](https://www.ibm.com/docs/en/zos/2.4.0?topic=examples-additional-mount-command){: external}.
 
-4. To verify that the file share is succesfully mounted to z/OS, you can run command `df` to display the directory `/u/ibmuser/test`.
+4. To verify that the file share is successfully mounted to z/OS, you can run command `df` to display the directory `/u/ibmuser/test`.

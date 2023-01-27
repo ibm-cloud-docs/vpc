@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-11-08"
+  years: 2021, 2023
+lastupdated: "2023-01-27"
 
-keywords:
+keywords: mounting VPC file storage, mount file storage,
 
 subcollection: vpc
 
@@ -58,7 +58,7 @@ VPC File Storage service requires NFS versions v4.1 or higher.
     ```
     {: pre}
 
-4. Reboot your instance:
+4. Restart your instance:
 
     ```zsh
     reboot
@@ -72,7 +72,7 @@ VPC File Storage service requires NFS versions v4.1 or higher.
    ```
    {: pre}
 
-   For example:
+   See following example.
 
    ```zsh
    mount -t nfs4 -o sec=sys,nfsvers=4.1 fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_mz0726_c391f0ba-50ed-4460-8704-a36032c96a4c /mnt/nfs
@@ -119,7 +119,7 @@ VPC File Storage service requires NFS versions v4.1 or higher.
    -rw-r--r--   1 nobody nobody    0 Apr 28 15:52 test.txt
    ```
 
-8. Make the configuration persistent by editing the file systems table (/etc/fstab). Add the remote share to the list of entries that are automatically mounted on startup:
+8. Make the configuration persistent by editing the file systems table (`/etc/fstab`). Add the remote share to the list of entries that are automatically mounted on startup:
 
    ```zsh
    sudo nano /etc/fstab
@@ -147,7 +147,7 @@ VPC File Storage service requires NFS versions v4.1 or higher.
 
    If the command completes with no errors, your setup is complete.
 
-   For NFS 4.1, add `sec=sys` to the mount command to prevent file ownership issues. Use `_netdev` to wait for the storage to be mounted until after all network components have started.
+   For NFS 4.1, add `sec=sys` to the mount command to prevent file ownership issues. Use `_netdev` to wait for the storage to be mounted until after all network components are started.
    {: tip}
 
 ## Unmounting the file system

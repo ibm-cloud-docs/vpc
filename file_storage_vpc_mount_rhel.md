@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-11-08"
+  years: 2021, 2023
+lastupdated: "2023-01-27"
 
 keywords:
 
@@ -61,7 +61,7 @@ SSH into the virtual server instance where you want to mount the file share, the
    ```
    {: pre}
 
-   Example:
+   See following example.
 
    ```zsh
    mount -t nfs4 -o sec=sys,nfsvers=4.1 fsf-dal2433a-dz.adn.networklayer.com:/nxg_s_voll_246a9cb9-4679-4dc5-9522-4a7ed2575136 /mnt/test
@@ -104,9 +104,9 @@ SSH into the virtual server instance where you want to mount the file share, the
 
    The files are created by root and have an ownership of `nobody:nobody`. To display the ownership correctly, update `idmapd.conf` with the correct domain settings. For more information, see [How to implement no_root_squash for NFS](#fs-RHEL-norootsquash).
 
-6. Mount the remote file share on start. To complete the setup, you must edit the file systems table (`/etc/fstab`) and add the remote file share to the list of entries that are automatically mounted on startup. Before creating an entry in the `fstab`, perform the following steps to add the mount path hostname to `/etc/hosts`.
+6. Mount the remote file share on start. To complete the setup, you must edit the file systems table (`/etc/fstab`) and add the remote file share to the list of entries that are automatically mounted on startup. Before you create an entry in the `fstab`, perform the following steps to add the mount path hostname to `/etc/hosts`.
 
-    1. Get the `hostname.com` portion of mount path, `for example: fsf-dal2433a-dz.adn.networklayer.com` and get the IP address. Run the following command from the instance to get the IP address.
+    1. Get the `hostname.com` portion of mount path, for example `fsf-dal2433a-dz.adn.networklayer.com` and get the IP address. Run the following command from the instance to get the IP address.
 
        ```zsh
        host hostname.com
@@ -158,7 +158,7 @@ SSH into the virtual server instance where you want to mount the file share, the
 
    If the command completes without errors, your setup is complete.
 
-   For NFS 4.1, add `sec=sys` to the mount command to prevent file ownership issues. Use `_netdev` to wait for the storage mounted until after all network components have started.
+   For NFS 4.1, add `sec=sys` to the mount command to prevent file ownership issues. Use `_netdev` to wait for the storage to be mounted after all network components are started.
    {: tip}
 
 ## Implement `no_root_squash` for NFS (optional)
