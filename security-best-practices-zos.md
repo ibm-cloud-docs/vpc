@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-09-23"
+  years: 2022, 2023
+lastupdated: "2023-01-27"
 
 keywords: zos, security, virtual server instance
 
@@ -10,17 +10,7 @@ subcollection: vpc
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:important: .important}
-{:screen: .screen}
-{:pre: .pre}
-{:tip: .tip}
-{:table: .aria-labeledby="caption"}
-{:note: .note}
-{:preview: .preview}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 # Security best practices for z/OS virtual server instances
 {: #security-best-practices-zos}
@@ -32,9 +22,9 @@ Products and services in the z/OS stock images are periodically reviewed and upd
 * Security patch management
 * Firmware currency  
 * Setup of suggested products and services
-* Configuration of hardware and software (operating systems, middleware, third-party applications, open source, network cards and so on)
+* Configuration of hardware and software (operating systems, middleware, third-party applications, open source, network cards, and so on)
 * Integration and monitoring of software, hardware, and end-points
-* Cyber security:
+* Cybersecurity:
     * Least access privilege
     * Separation of duties
     * Defense-in-depth
@@ -47,7 +37,7 @@ For this release, you need to follow the security best practices for your z/OS v
 
 * Ensure that you follow the password policy, see [Configuring the password](/docs/vpc?topic=vpc-vsi_is_connecting_zos#configure-password).
 
-* For more information on various security topics, see the following references:  
+* For more information about various security topics, see the following references:  
 
     * [What is zero trust?](https://www.ibm.com/topics/zero-trust){: external}
 
@@ -59,6 +49,6 @@ For this release, you need to follow the security best practices for your z/OS v
 
     * [PCI DSS v4.0](https://www.pcisecuritystandards.org/documents/PCI-DSS-v4_0.pdf){: external}
 
-    * [CIS Benchmarks for IBM z Systems](https://workbench.cisecurity.org/files/3877){: external}
+    * [CIS Benchmarks for IBM Z](https://workbench.cisecurity.org/files/3877){: external}
 
  
