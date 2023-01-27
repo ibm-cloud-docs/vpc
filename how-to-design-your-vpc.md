@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-10-08"
+  years: 2017, 2023
+lastupdated: "2023-01-27"
 
 keywords: subnet, address prefixes, design, addressing
 
@@ -10,15 +10,7 @@ subcollection: vpc
 
 ---
 
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:tip: .tip}
-{:note: .note}
-{:table: .aria-labeledby="caption"}
-{:download: .download}
+{{site.data.keyword.attribute-definition-list}}
 
 # Designing an addressing plan for a VPC 
 {: #vpc-addressing-plan-design}
@@ -38,19 +30,19 @@ Although each {{site.data.keyword.vpc_short}} deploys to a specific region, the 
 The same design steps are involved, no matter whether the application is contained completely on the cloud, or whether parts of the application are running in another location.
 {: tip}
 
-When creating VPC instances that you intend to interconnect using [IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started), avoid selecting **Default address prefixes** when creating multiple instances. Make sure to create your VPC instances with non-overlapping prefixes for [successful connectivity](/docs/transit-gateway?topic=transit-gateway-troubleshooting#overlapping-prefixes). 
+When you create VPC instances that you intend to interconnect by using [IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started), avoid selecting **Default address prefixes**. Create your VPC instances with nonoverlapping prefixes for [successful connectivity](/docs/transit-gateway?topic=transit-gateway-troubleshooting#overlapping-vpc-prefixes-and-classic-subnets). 
 
-When creating VPC instances that you also intend to interconnect with your IBM Cloud classic infrastructure using [IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started), do not use IP addresses in your instances in the `10.0.0.0/14`, `10.200.0.0/14`, `10.198.0.0/15`, and `10.254.0.0/16` blocks. You should also avoid using IP addresses from your classic infrastructure subnets. 
+When you create VPC instances that you also intend to interconnect with your IBM Cloud classic infrastructure by using [IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-getting-started), do not use IP addresses in your instances in the `10.0.0.0/14`, `10.200.0.0/14`, `10.198.0.0/15`, and `10.254.0.0/16` blocks. Also, avoid IP addresses from your classic infrastructure subnets. 
   
-    For further information on designing your VPC instances for use with IBM Cloud Transit Gateway, see [Planning for IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-helpful-tips).
-    {: important}
+For more information about designing your VPC instances for use with IBM Cloud Transit Gateway, see [Planning for IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-helpful-tips).
+{: important}
 
 ## Design considerations and assumptions
 {: #design-considerations-and-assumptions}
 
 When you design the addressing plan for an application, the primary consideration is to keep the CIDR blocks used for creating subnets within a single zone as contiguous as possible. By doing so, you can summarize them in a single address prefix, leaving room for future growth.
 
-Another consideration is the number of available addresses a subnet might need for horizontal scaling. Table 1 lists the number of available addresses in a subnet, based on its specified CIDR block size:
+Another consideration is the number of available addresses that a subnet might need for horizontal scaling. Table 1 lists the number of available addresses in a subnet, based on its specified CIDR block size:
 
 | CIDR block size | Available addresses |
 | --------------- | ------------------- |
@@ -61,19 +53,19 @@ Another consideration is the number of available addresses a subnet might need f
 |      /26        |          59         |
 |      /27        |          27         |
 |      /28        |          11         |
-{: caption="Table 1. Available addresses in a subnet based on CIDR block size" caption-side="top"}
+{: caption="Table 1. Available addresses in a subnet based on CIDR block size" caption-side="bottom"}
 
-Based on these two considerations, here are the assumptions that are made for this example:
+Based on these two considerations, the following assumptions are made for this example:
 
 * CIDR ranges from the `172.16.0.0/12` block of RFC 1918 addresses are used for all subnets.
-* The application's presentation layer is a thin layer above a REST API. Therefore, horizontal scaling affects the middle tier more than it affects the presentation tier.
+* The application's presentation layer is a thin layer on a REST API. Therefore, horizontal scaling affects the middle tier more than it affects the presentation tier.
 
 ## Determine each tier's subnet size
 {: #determine-each-tier-s-subnet-size}
 
 The next step is to determine each tier's subnet size (in terms of available addresses). Because each tier of the application has a presence in each zone, each zone requires three subnets.
 
-Take into account the following considerations when you plan each tier's subnet size:
+Consider the following information when you plan each tier's subnet size:
 
 * The database tier (the back end) is the least likely to need dynamic scaling, so these subnets are the smallest. That is, these subnets can contain the least number of available addresses. 
     * _This example uses a `/27` CIDR block, which allows for 27 addresses in this tier._
@@ -96,7 +88,7 @@ After you determine the correct subnet size, you can assign the actual address p
 | Zone 1 | `172.16.0.0/23` |
 | Zone 2 | `172.16.2.0/23` |
 | Zone 3 | `172.16.4.0/23` |
-{: caption="Table 2. Zones assigned address prefixes" caption-side="top"}
+{: caption="Table 2. Zones assigned address prefixes" caption-side="bottom"}
 
 And from this basis, you can also assign the three subnets within each zone:
 
@@ -111,7 +103,7 @@ And from this basis, you can also assign the three subnets within each zone:
 | Zone 3 |  Middle  |  `172.16.4.0/25`  |
 | Zone 3 |  Front   |  `172.16.5.0/26`  |
 | Zone 3 | Database | `172.16.5.128/27` |
-{: caption="Table 3. Subnets assigned within each zone" caption-side="top"}
+{: caption="Table 3. Subnets assigned within each zone" caption-side="bottom"}
 
 ## Considerations for extending an existing infrastructure
 {: #considerations-for-extending-an-existing-infrastructure}
