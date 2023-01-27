@@ -32,8 +32,8 @@ By using {{site.data.keyword.dns_short}}, you can complete the following tasks:
 Resource records and zones that are configured through {{site.data.keyword.dns_short}} are:
 
 * Separated from the wider, public DNS, and their publicly accessible records.
-* Hidden from machines outside of and not part of the {{site.data.keyword.cloud_notm}} private network.
-* Accessible only from machines that you authorize on the {{site.data.keyword.cloud_notm}} private network.
+* Hidden from machines outside of and not part of the {{site.data.keyword.cloud_notm}} Private network.
+* Accessible only from machines that you authorize on the {{site.data.keyword.cloud_notm}} Private network.
 * Resolvable only through the resolvers provided by the service.
 
 ## Before you begin
