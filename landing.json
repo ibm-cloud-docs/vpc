@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2023-01-20",
+    "lastupdated": "2023-01-27",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,6 +31,11 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "27 January 2023",
+          "title": "Context-based restrictions",
+          "description": "Context-based restrictions are now generally available for IBM Cloud VPC resources. With context-based restrictions, account owners and administrators can define and enforce network access policies."
+        },
+        {
           "date": "18 January 2023",
           "title": "New region (Tokyo) for LinuxONE Bare Metal Servers (s390x processor architecture) (LA)",
           "description": "LinuxONE Bare Metal Servers are now available in the Tokyo region."
@@ -39,11 +44,6 @@
           "date": "17 January 2023",
           "title": "Application Load Balancer and VPN for VPC",
           "description": "As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they are no longer valid."
-        },
-        {
-          "date": "17 January 2023",
-          "title": "End of support (EOS) for deprecated VPN for VPC IKE and IPsec ciphers",
-          "description": "On 20 September 2022, the Authentication algorithms md5 and sha1, Encryption algorithm triple_des, and Diffie–Hellman groups 2 and 5 VPN IKE and IPsec ciphers were deprecated. Effective today, these ciphers are no longer supported in the UI and EOS for use with the CLI and API is forthcoming. If you haven't upgraded to more secure ciphers, do so now."
         }
       ]
     }
