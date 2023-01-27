@@ -1,24 +1,14 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-09-27"
+  years: 2019, 2023
+lastupdated: "2023-01-27"
 
 subcollection: vpc
 
-
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:download: .download}
-{:faq: data-hd-content-type='faq'}
-{:support: data-reuse='support'}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # FAQs for VPC
 {: #faqs-for-VPC}
@@ -30,7 +20,7 @@ subcollection: vpc
 
 Yes, you can set up access to your {{site.data.keyword.cloud}} classic infrastructure from one VPC in each region. For more information, see [Setting up access to classic infrastructure](/docs/vpc?topic=vpc-setting-up-access-to-classic-infrastructure).
 
-## Can a subnet's size be changed after it's created?
+## Can a subnet's size be changed after it is created?
 {: #faq-vpc-1}
 {: faq}
 
@@ -48,19 +38,19 @@ Currently, the limit is 100. If this limit is exceeded, you might receive an "in
 
 No, although the name can contain numbers, it must begin with a letter.
 
-## Are there restrictions on what characters I can use in a name?
+## Are there restrictions on what characters that I can use in a name?
 {: #faq-vpc-4}
 {: faq}
 
 Yes, the UI blocks consecutive double dashes, underscores, and periods from being part of a virtual server instance name.
 
-## During the public gateway creation, do I need to reserve the floating IP, or does the system automatically reserve it? Will I see that floating IP when I query all of the floating IPs?
+## During the public gateway creation, do I need to reserve the floating IP address, or does the system automatically reserve it? Can I see that floating IP address when I query all of the floating IP addresses?
 {: #faq-vpc-6}
 {: faq}
 
 The VPC API automatically creates a floating IP along with the public gateway if an existing floating IP is not specified. And yes, that floating IP shows up in the list.
 
-## Who enforces that there must be only one public gateway per zone for a VPC?
+## Who enforces that only one public gateway can exist per zone for a VPC?
 {: #faq-vpc-7}
 {: faq}
 
@@ -70,10 +60,10 @@ The VPC API service enforces this limit.
 {: #faq-vpc-public-gateway-timeout}
 {: faq}
 
-Yes, the VPC public gateway has a fixed, four-minute timeout for TCP connections, and it is not configurable.
+Yes, the VPC public gateway has a fixed, 4-minute timeout for TCP connections, and it is not configurable.
 
 ## How do you obtain the Cloud Resource Name (CRN) of a VPC?
 {: #faq-crn}
 {: faq}
 
- To obtain the CRN of a VPC, click **Menu** ![Menu icon](images/icon_hamburger.svg) > **Resource list** from the {{site.data.keyword.cloud_notm}} console. Expand **VPC Infrastructure** to list your VPCs. Select a VPC and then click the **Status** entry to view its details. Use the icon to copy the CRN and paste it where needed.
+ To obtain the CRN of a VPC, click **menu** ![Menu icon](images/icon_hamburger.svg) > **Resource list** from the {{site.data.keyword.cloud_notm}} console. Expand **VPC Infrastructure** to list your VPCs. Select a VPC and then click the **Status** entry to view its details. Use the icon to copy the CRN and paste it where needed.
