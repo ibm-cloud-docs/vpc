@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-01-11"
+  years: 2022, 2023
+lastupdated: "2023-01-27"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # About HA VNF deployments
 {: #about-vnf-ha}
 
-Support for a highly available, highly resilient VNF can be achieved through the use of the routing mode feature of the IBM Cloud Network Load Balancer (NLB) for VPC. The following use cases illustrate the use of this feature and also include other resources, such as a transit gateway or direct link (depending on the topology of your environment). 
+Support for a highly available, highly resilient VNF can be achieved by using the routing mode feature of the IBM Cloud Network Load Balancer (NLB) for VPC. The following use cases illustrate the use of this feature and also include other resources, such as a transit gateway or direct link (depending on the topology of your environment). 
 {: shortdesc}
 
 The following use cases are not a comprehensive list of supported topologies.
@@ -36,9 +36,9 @@ The following resources are configured:
 
 A workload in **VPC-spoke#1 zone1** that needs to communicate with a workload in **VPC-spoke#2 zone1** must traverse the VNF in the **VPC-hub**. An egress route from the **VPC-spoke#1** subnet (`10.174.0.0/24`) destined for **VPC-spoke#2** (`10.174.2.0/24`) that hops through the **VPC-hub** NLB (`10.175.0.4`), allows the outbound traffic to reach its destination. A similar egress route is created on **VPC-spoke#2**, which allows the response to also traverse **VPC-hub**. For workloads in **VPC-spoke#1 zone2**, a similar egress route is also created for outbound traffic.
 
-Finally, because the NLB may fail over and require an update to the next hop, an ingress route is created with the source as the transit gateway to ensure that the NLB IP is updated on failover. The NLB can update custom routes only within its VPC (**VPC-hub**) and can't automatically update routes in the spoke VPCs.
+Finally, because the NLB might fail over and require an update to the next hop, an ingress route is created with the source as the transit gateway to ensure that the NLB IP is updated on failover. The NLB can update custom routes only within its VPC (**VPC-hub**) and can't automatically update routes in the spoke VPCs.
 
-![Private hub and spoke with transparent VNF and spoke-to-spoke traffic](/images/vnf-hub-spoke-scenario.png){: caption="Figure 1: Private hub and spoke with transparent VNF and spoke-to-spoke traffic" caption-side="bottom"}
+![Private hub and spoke with transparent VNF and spoke-to-spoke traffic.](/images/vnf-hub-spoke-scenario.png){: caption="Figure 1: Private hub and spoke with transparent VNF and spoke-to-spoke traffic." caption-side="bottom"}
 
 ## Use case 2: Active/Active HA transparent VNF (single, multi-zone region VPC)
 {: #use-case-active-active-vnf}
@@ -55,7 +55,7 @@ An egress custom route was created to ensure client (`10.241.0.6`) data packets 
 ## Before you begin
 {: #vnf-before-you-begin}
 
-Ensure that you have the required IAM permissions to configure custom routing and enable IP spoofing. For information about IAM permissions, see [Required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
+Ensure that you have the required IAM permissions to configure custom routing and enable IP spoofing. For more information about IAM permissions, see [Required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
 
 ## Getting started
 {: #getting-started-vnf-ha}
