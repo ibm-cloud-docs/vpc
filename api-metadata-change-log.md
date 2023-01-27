@@ -28,10 +28,10 @@ Some changes, such as new response properties or new optional request parameters
 - Consume only the resources and properties your application needs to function
 - Avoid depending on behavior that is not explicitly documented
 
-### 27 September 2022
+## 27 September 2022
 {: #27-september-2022}
 
-#### For all version dates
+### For all version dates
 {: #27-september-2022-all-version-dates}
 
 **Sharing images across an enterprise account.** If a virtual server instance was provisioned from a catalog offering, [retrieving the instance metadata](/apidocs/vpc-metadata#get-instance) will now include a `catalog_offering` property in the response. For more information, see the [Virtual Private Cloud Instance Metadata API](/apidocs/vpc-metadata).
