@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-01-20"
+lastupdated: "2023-01-27"
 
 keywords:
 
@@ -29,6 +29,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## January 2023
 {: #vpc-jan23}
+
+### 27 January 2023
+{: #vpc-jan2723}
+{: release-note}
+
+Context-based restrictions 
+:   Context-based restrictions are now generally available for IBM Cloud VPC resources. With context-based restrictions, account owners and administrators can define and enforce network access policies. For more information, see [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr).
 
 ### 18 January 2023
 {: #vpc-jan1823}
