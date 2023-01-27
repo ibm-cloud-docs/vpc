@@ -1,29 +1,18 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-08-17"
+  years: 2021, 2023
+lastupdated: "2023-01-27"
 
 keywords: virtual private cloud, private cloud network, placement group, placement group strategy, host spread, power spread, faq, faqs
 
 subcollection: vpc
 
-
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:beta: .beta}
-{:download: .download}
-{:faq: data-hd-content-type='faq'}
-{:support: data-reuse='support'}
+{{site.data.keyword.attribute-definition-list}}
 
-
-# FAQs: Placement groups
+# FAQs for Placement groups
 {: #faqs-for-placement-groups}
 
 ## Can I assign my instance to more than one placement group?  
@@ -70,7 +59,3 @@ No, placement groups and dedicated host are mutually exclusive. An instance can 
 {: faq}
 
 Yes, instances that are provisioned in different zones can be placed into the same placement group for both the host spread and power spread placement group strategies.
-
-
-
-
