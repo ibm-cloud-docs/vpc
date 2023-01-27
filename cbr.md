@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-23"
+lastupdated: "2023-01-27"
 
 keywords: context-based restrictions for VPC Infrastructure Services
 
@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions (limited availability)
+# Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions
 {: #cbr}
 
 Context-based restrictions give account owners and administrators the ability to define and enforce
@@ -20,9 +20,6 @@ access restrictions for {{site.data.keyword.cloud}} resources based on the conte
 requests. Access to VPC Infrastructure Services can be controlled with context-based restrictions
 and identity and access management (IAM) policies.
 {: shortdesc}
-
-The preview of the context-based restrictions functionality for VPC Infrastructure Services is available only to authorized accounts.
-{: preview}
 
 These restrictions work with traditional IAM policies, which are based on identity, to provide an
 extra layer of protection. Unlike IAM policies, context-based restrictions don't assign access.
@@ -48,33 +45,10 @@ tutorial for [Leveraging context-based restrictions to secure your resources](/d
 {: #cbr-overview}
 
 VPC Infrastructure Services is a composite service made up of a number of child services.
-Context-based restrictions can be created for the following child services:
+Context-based restrictions can be created for {{site.data.keyword.vpc_short}} or any of its child services;
+for example, [subnets](/docs/vpc?topic=vpc-about-subnets-vpc), [virtual server instances](/docs/vpc?topic=vpc-vsi_best_practice), and [block storage volumes](/docs/vpc?topic=vpc-creating-block-storage&interface=cli).
 
-- [Access control lists](/docs/vpc?topic=vpc-using-acls)
-- [Auto scale](/docs/vpc?topic=vpc-creating-auto-scale-instance-group&interface=cli)
-- [Backup service](/docs/vpc?topic=vpc-backups-vpc-best-practices&interface=cli)
-- [Block Storage volumes](/docs/vpc?topic=vpc-creating-block-storage&interface=cli)
-- [Dedicated hosts](/docs/vpc?topic=vpc-creating-dedicated-hosts-instances&interface=cli) 
-- [File storage](/docs/vpc?topic=vpc-file-storage-planning&interface=cli)
-- [Floating IPs](/docs/vpc?topic=vpc-fip-about)
-- [Flow logs](/docs/vpc?topic=vpc-flow-logs)
-- [Image service](/docs/vpc?topic=vpc-planning-custom-images) 
-- [Load balancers](/docs/vpc?topic=vpc-nlb-vs-elb)
-- [Public gateways](/docs/vpc?topic=vpc-public-gateways)
-- [Security groups](/docs/vpc?topic=vpc-using-security-groups)
-- [Snapshots](/docs/vpc?topic=vpc-snapshots-vpc-planning&interface=cli)
-- [Subnets](/docs/vpc?topic=vpc-about-subnets-vpc)
-- [Virtual server instances](/docs/vpc?topic=vpc-vsi_best_practice)
-- [Virtual private endpoint gateways](/docs/vpc?topic=vpc-about-vpe)- 
-- [VPCs](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli)
-- [VPNs](/docs/vpc?topic=vpc-vpn-overview)
-
-The following VPC Infrastructure Services do not support context-based restrictions at this time:
-
-- [Bare metal server](/docs/vpc?topic=vpc-creating-bare-metal-servers&interface=ui) 
-- [Placement groups](/docs/vpc?topic=vpc-about-placement-groups-for-vpc&interface=cli)
-
-See the [rule creation section](#creating-rules) for details on how you can create rules with the
+See the [rule creation section](#cbr-rules) for details on how you can create rules with the
 required attributes for each service.
 
 ## Creating network zones
@@ -92,14 +66,14 @@ defines a set of one or more network locations that are specified by the followi
 
 A *service reference*, defined as part of a network zone, allows the given service to talk to the
 restricted resources or APIs that are targeted by a particular context-based restriction policy.
-The following table includes service references that might need to be included when using context-based
+The following table includes service references that need to be included when using context-based
 restrictions in the context of VPC Infrastructure Services. You can also look at the [service-to-service IAM
 authorizations](/docs/account?topic=account-serviceauth&interface=ui) in your account when
 deciding which service references to add in your network zone. You can find
 service-to-service authorization in your account by navigating to **Manage -> Access (IAM)** and selecting
 the **Authorizations** tab.
 
-| Service with context-based restrictions | Impacted service       | Service reference that might be required in network zone |
+| Service with context-based restrictions | Impacted service       | Service reference(s) required in the network zone |
 |------------------------------------|--------------------------------------------|-----------------------------------------|
 | Cloud Object storage                    | * [Image service](/docs/vpc?topic=vpc-planning-custom-images) \n * [Flow logs](/docs/vpc?topic=vpc-flow-logs)                                                                                                                                                  | VPC Infrastructure Services (`is`) |
 | Key Protect                             | * [Snapshot](/docs/vpc?topic=vpc-snapshots-vpc-planning) \n * [Block storage volume](/docs/vpc?topic=vpc-creating-block-storage&interface=ui) \n * [File Storage](/docs/vpc?topic=vpc-file-storage-planning) \n * [Image service](/docs/vpc?topic=vpc-planning-custom-images)  | Cloud Block Storage (`server-protect`)|
@@ -182,6 +156,14 @@ The `serviceRef` attribute for VPC Infrastructure Services is `is` and Cloud Blo
    ibmcloud cbr zone-create --name example-zone-1 --description "Example zone 1" --service-ref service_name=server-protect
    ```
    {: pre}
+
+### Creating network zones from the console
+{: #create-network-zone-console}
+{: ui}
+
+1. Determine which resources you want to add to your allowlist.
+1. Check the [service references](#service-references) section to see if you need to add any service reference to your network zone.
+1. Follow these steps to [create context-based restrictions in the console](/docs/account?topic=account-context-restrictions-create).
 
 ## Creating rules
 {: #cbr-rules}
@@ -290,6 +272,25 @@ server instances in the resource group and restricts access to private endpoints
 ibmcloud cbr rule-create --context-attributes 'endpointType=private' --zone-id a7eeb5dd8e6bdce670eba1afce18e37f --description "Test CBR for VSIs" --service-name is --resource-attributes "instanceId=*" --resource-group-id 1171749e3a8545069d04e6fca1ded18f
 ```
 {: pre}
+
+### Creating rules in the UI
+{: #rules-ui}
+{: ui}
+
+1. Go to **Manage** > **Context-based restrictions** in the {{site.data.keyword.cloud}} console.
+1. Select **Rules** and click **Create**.
+1. Select **VPC Infrastructure Services** and click **Next**.
+1. Scope the rule to **All resources** or **Specific resources**. For more information, see [Protecting VPC Infrasturcture Services resources](/docs/vpc?topic=vpc-cbr). Click **Continue**.
+1. Define the allowed endpoint types.
+   - Keep the toggle set to **No** to allow all endpoint types.
+   - Set the toggle to **Yes** to allow only specific endpoint types, then choose from the list.
+1. Select a network zone or zones that you have already created, or create a new network zone by clicking **Create**.
+
+   Contexts define the location from which your resources can be accessed, effectively linking your network zone to your rule.
+   {: tip}
+
+1. Click **Add** to add your configuration to the summary. Click **Next**.
+1. Name your rule and select how you want to enforce it. Then click **Create**.
 
 ## Monitoring context-based restrictions in VPC Infrastructure Services
 {: #cbr-vpc-monitoring}
@@ -462,24 +463,10 @@ After the VPN client connects to the VPN server, the requests to the VPE endpoin
 ## Limitations
 {: #cbr-limitations}
 
-Context-based restrictions protect only the actions associated with the [VPC Infrastructure Services](/apidocs/vpc). Actions associated with the following platform APIs are not protected by context-based restrictions. Reference the API docs for the specific action IDs.
-
-- [Resource Instance APIs](/apidocs/resource-controller/resource-controller#list-resource-instances)
-- [Resource Keys APIs](/apidocs/resource-controller/resource-controller#list-resource-keys)
-- [Resource Bindings APIs](/apidocs/resource-controller/resource-controller#list-resource-bindings)
-- [Resource Aliases APIs](/apidocs/resource-controller/resource-controller#list-resource-aliases)
-- [IAM Policy APIs](/apidocs/iam-policy-management#list-policies)
-- [Global Search APIs](/apidocs/search)
-- Global Tagging [Attach](/apidocs/tagging#attach-tag) and [Detach](/apidocs/tagging#detach-tag) APIs
-- [Context-based Restriction Rule APIs](/apidocs/context-based-restrictions#create-rule)
-
-VPC Infrastructure Services specific limitations are as follows:
-
+- Context-based restrictions protect only the actions associated with the [VPC Infrastructure Services APIs](/apidocs/vpc) or the `is` plugin, through the IBM CLI. The SDK and Terraform options are also supported. Actions associated with the following platform APIs are _not_ protected by context-based restrictions:
+  - [Resource Instance List APIs](/apidocs/resource-controller/resource-controller#list-resource-instances)
+  - [Resource Instance Delete resource API](/apidocs/resource-controller/resource-controller#delete-resource-instance)
+  - [Global Search APIs](/apidocs/search)
+  - Global Tagging [Attach](/apidocs/tagging#attach-tag) and [Detach](/apidocs/tagging#detach-tag) APIs
 - When you create a rule, it might take up to 10 minutes to become enforced.
-- At this time {{site.data.keyword.cloud_notm}} console cannot be used to create context-based restriction rules for VPC Infrastructure Services.
-- Currently, rules on the parent VPC Infrastructure service cannot be created because some child services do not yet support context-based restrictions. If you attempt to create a rule on the parent service you see the following error:
-
-```text
-An error occurred while trying to create the rule. The service 'is' is not supported for context-based-restrictions control.
-```
-{: screen}
+- Due to a limitation that is currently being addressed, context-based restrictions must not be in place for [Secrets Manager APIs](/apidocs/secrets-manager) if you are using the [Load balancer for VPC service](/docs/vpc?topic=vpc-nlb-vs-elb), as it results in failing to attach the certificates to the listener associated with the load balancer
