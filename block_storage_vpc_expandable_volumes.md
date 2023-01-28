@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-11-22"
+  years: 2020, 2023
+lastupdated: "2023-01-27"
 
 keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Increasing block storage volume capacity
 {: #expanding-block-storage-volumes}
 
-For {{site.data.keyword.block_storage_is_short}} data volumes, when you create and attach a volume to a virtual server instance, you can later increase the size of the volume in the UI, from the CLI, or with the API.
+After you provisioned a {{site.data.keyword.block_storage_is_short}} data volume and attach it to a virtual server instance, you can increase its volume size in the UI, from the CLI, or with the API.
 {: shortdesc}
 
 ## Expand block storage volumes in the UI
@@ -24,7 +24,7 @@ For {{site.data.keyword.block_storage_is_short}} data volumes, when you create a
 
 Follow these steps to expand volume capacity:
 
-1. Navigate to the list of block storage volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**. By default, block storage volumes display for all resource groups in your region.
+1. Go to the list of block storage volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**. By default, block storage volumes display for all resource groups in your region.
 
 2. In the list of all **Block storage for VPC volumes**, click the name of the volume you want to expand to see the volume details.
 
