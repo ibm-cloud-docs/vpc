@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-11-22"
+  years: 2020, 2023
+lastupdated: "2023-01-27"
 
 keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, expandable volume
 
@@ -26,7 +26,7 @@ You can increase capacity for boot and data volumes that are attached to a virtu
 ### Data volumes
 {: #expand-data-vols}
 
-For data volumes, when you create and attach a volume to a virtual server instance, you can later increase the size of the volume in GB increments up to 16,000 GB capacity, depending on your volume profile. This process doesn't require you to perform manual steps. For example, you don't need to migrate your data to a larger volume. There's no outage or lack of access to the storage while the volume is being resized.
+After you provisioned and attached a data volume to a virtual server instance, you can increase its volume size in GB increments up to 16,000 GB capacity, depending on your volume profile. This process doesn't require you to perform manual steps. For example, you don't need to migrate your data to a larger volume. The resizing operation causes no outage or lack of access to the storage.
 
 Billing for the volume is automatically updated to add the pro-rated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
@@ -59,7 +59,7 @@ By default, when you create an instance from a stock image, a 100 GB, 3,000 IOPS
 
 For either stock or custom images, you can increase boot volume capacity from its minimum provisioned size up to 250 GB, either when you provision an instance or when you update the boot volume from the list of block storage volumes. For more information, see [Increasing boot volume capacity](/docs/vpc?topic=vpc-resize-boot-volumes).
 
-The boot volume expansion takes effect without a reboot. However, to utilize the increased boot volume space, you must expand your operating system so the increased boot volume capacity is recognized. For more information, see [Modifying a Linux OS for expanding boot volumes](/docs/vpc?topic=vpc-modifying-the-linux-os-expanded-boot-volume).
+The boot volume expansion takes effect without a reboot. However, to use the increased boot volume space, you must expand your operating system so the increased boot volume capacity is recognized. For more information, see [Modifying a Linux OS for expanding boot volumes](/docs/vpc?topic=vpc-modifying-the-linux-os-expanded-boot-volume).
 {: note}
 
 ## Requirements
@@ -68,7 +68,7 @@ The boot volume expansion takes effect without a reboot. However, to utilize the
 ### Data volume requirements
 {: #exp-data-vol-reqs}
 
-You must meet these requirements to increase a data volume's capacity.
+You must meet the following requirements to increase a data volume's capacity.
 
 * The volume is expanded based on their predefined IOPS profile or custom IOPS range.
 * The volume must be attached to a virtual server instance.
@@ -81,7 +81,7 @@ You must meet these requirements to increase a data volume's capacity.
 
 You must meet these requirements to resize a boot volume:
 
-* When provisioning an instance, the size of the boot volume can be larger than the existing image size but not smaller. The maximum boot volume size is 250 GB.
+* When an instance is provisioned, the size of the boot volume can be larger than the existing image size but not smaller. The maximum boot volume size is 250 GB.
 * For an existing instance, you can increase the size of the boot volume up to the maximum size that was allowed during instance provisioning.
 * Encrypted boot volumes have no special requirements.
 * Supported operating systems are x86 and Linux.
@@ -97,13 +97,13 @@ Limitations for resizing boot and data volumes apply in this release.
 * You cannot expand a volume that is at its maximum capacity for its [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta) or [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) volume range.
 
 * Data volumes can expand to 16,000 GB, with the following limitations:
-    * If the volume was created by using an [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta) that limits capacity to less than 16,000 GB, it can only expand to the allowed capacity for that tier.
-    * If the volume is a [custom volume](/docs/vpc?topic=vpc-block-storage-profiles#custom) created in a lower range that doesn't allow expanding to 16,000 GB, it can only expand to its maximum capacity for that custom range.
+    * If the volume was created by using an [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers-beta) that limits capacity to less than 16,000 GB, it can expand only to the allowed capacity for that tier.
+    * If the volume is a [custom volume](/docs/vpc?topic=vpc-block-storage-profiles#custom) that is created in a lower range that doesn't allow expanding to 16,000 GB, it can expand only to its maximum capacity for that custom range.
     * Volumes can expand multiple times until maximum capacity is reached.
 * IOPS can increase to the maximum that is allowed by the IOPS tier profile. While volume resizing does not incur downtime (that is, you don't need to restart the instance and reattach the volume), for the increased IOPS to take effect, you must restart the virtual server instance, or detach and reattach the volume from the instance.
 * After you create a volume, can't change a volume's IOPS tier profile.
 * You can't independently modify IOPS for a volume that is created from an IOPS tier profile. IOPS is adjusted when you expand a volume's capacity and then restart the instance, or attach and detach the volume from the instance.
-* When you expand a volume that was created from a custom profile, the capacity is increased but the IOPS remains the same. You  can't independently increase the IOPS.
+* When you expand a volume that was created from a custom profile, the capacity is increased but the IOPS remains the same. You can't independently increase the IOPS.
 * Maximum IOPS for a volume is capped at [48,000 IOPS](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#tiers).
 * After a volume is expanded, you can't reduce the size of the volume.
 * When a volume is in transition, for example, the volume is detached while the volume expansion is in progress, the volume remains in an _updating_ state until you reattach it to an instance. The volume expansion the resumes and completes.
@@ -122,4 +122,4 @@ Limitations for resizing boot and data volumes apply in this release.
 {: #exp-vols-next-steps}
 
 * [Expand block storage volumes that are attached to an instance](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
-* [Expand boot volumes attached to an instance](/docs/vpc?topic=vpc-resize-boot-volumes).
+* [Expand boot volumes that are attached to an instance](/docs/vpc?topic=vpc-resize-boot-volumes).
