@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2022-01-11"
+  years: 2021, 2023
+lastupdated: "2023-01-30"
 
 keywords:
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # VNF limitations
 {: #vnf-limitations}
 
-Known limitations for High Availability (HA) Virtual Network Function (VNF) deployments include:
+High Availability (HA) Virtual Network Function (VNF) deployments have the following known limitations.
 
 * The Virtual Network Function (VNF) must share one subnet with the Network Load Balancer (NLB).
 * Routing public internet "ingress" traffic to a VNF is not supported.
