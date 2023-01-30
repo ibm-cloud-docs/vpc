@@ -47,7 +47,7 @@ To create an instance group, complete the following steps.
 
     For an existing instance group, you can update it with the load balancer pool identity. You need to also choose a scaling method. You can choose from the following options:
 
-    * A static method that allows a fixed number of back-end members,
+    * A static method that allows a fixed number of back-end members.
     * A dynamic method for utilization-based scaling.
 
 1. Finally, [create your instance group scaling policies](/docs/vpc?topic=vpc-creating-auto-scale-instance-group#creating-scaling-policies).
