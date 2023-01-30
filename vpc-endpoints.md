@@ -50,7 +50,7 @@ Use one of the following public endpoints to connect to the VPC infrastructure A
 |   Location     | Region | Public Endpoint | Private Endpoint |
 | ------- | ------ | ------ | ------ |
 | Japan (Tokyo) | `jp-tok` | `https://jp-tok.iaas.cloud.ibm.com`   | `https://jp-tok.private.iaas.cloud.ibm.com` |
-| Japan (Osaka) | `jp-osa `| `https://jp-osa.iaas.cloud.ibm.com`   | `https://jp-osa.private.iaas.cloud.ibm.com` |
+| Japan (Osaka) | `jp-osa`| `https://jp-osa.iaas.cloud.ibm.com`   | `https://jp-osa.private.iaas.cloud.ibm.com` |
 | Australia (Sydney) | `au-syd` | `https://au-syd.iaas.cloud.ibm.com`   | `https://au-syd.private.iaas.cloud.ibm.com` |
 {: class="simple-tab-table"}
 {: tab-title="Asia Pacific"}
