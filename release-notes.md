@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-01-27"
+lastupdated: "2023-01-30"
 
 keywords:
 
@@ -29,6 +29,19 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## January 2023
 {: #vpc-jan23}
+
+### 30 January 2023
+{: #vpc-january0130}
+{: release-note}
+
+Updated certificates for IBM Hyper Protect Container Runtime image
+:   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-8`, new certificates are available.
+   - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-8-attestation.crt){: external}
+   - [Encryption certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-8-encrypt.crt){: external}
+   - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-8-intermediate.crt){: external}
+
+Using {{site.data.keyword.hpvs}} for VPC in a private network
+:   You can use your {{site.data.keyword.hpvs}} for VPC instance in **private-only** network configurations, in which the VPC doesn't have a public gateway and the virtual server instance doesn't have a floating IP. You can connect to private endpoints of other services, including container registry and [IBM Log Analysis](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc). The prerequisite is to have a DNS server attached to your virtual server instance. You don't need to do any additional configurations.
 
 ### 27 January 2023
 {: #vpc-jan2723}

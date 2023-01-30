@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-12-19"
+  years: 2022, 2023
+lastupdated: "2023-01-30"
 
 keywords: image, stock image, linuxone image, hpcr, container runtime, virtual private cloud, virtual server, generation 2, gen 2, wazi aas
 
@@ -72,7 +72,7 @@ ibm-<family>-<version>-<type>-<architecture>-<build>
 The following example shows the image naming convention.
 
 ```sh
-ibm-hyper-protect-container-runtime-1-0-s390x-7
+ibm-hyper-protect-container-runtime-1-0-s390x-8
 ```
 
 The following list explains the variables that make up the components of the image name:
