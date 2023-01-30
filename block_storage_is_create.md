@@ -156,7 +156,7 @@ ibmcloud is volume-create VOLUME_NAME PROFILE_NAME ZONE_NAME [--capacity CAPACIT
 ```
 {: pre}
 
-Example:
+See the following example.
 
 ```bash
 $ ibmcloud is volume-create demovolume1 custom us-south-1 --capacity 500 --iops 3000 --tags env:test,env:prod
