@@ -43,7 +43,7 @@ From the list of all {{site.data.keyword.block_storage_is_short}} volumes, follo
 1. Select a compute resource (virtual server instance) from the list of available resources, and then click **Attach**.
 1. Messages display on the volume details page to indicate that the volume is being attached to the image. When it completes, the image name appears under **Attached instances**.
 
-When you create a {{site.data.keyword.hpvs}} instance and the contract mentions volumes, you can attach a data volume during the instance creation, or within 15 minutes after the instance is created. Failure to do so causes the instance to go into a shutdown state after the 15-minute window.
+When you create a {{site.data.keyword.hpvs}} instance and the contract mentions volumes, you have 15 minutes after the creation of the instance to attach a data volume. Failure to do so causes the instance to go into a shutdown state after the 15-minute window.
 {: note}
 
 You can also attach a {{site.data.keyword.block_storage_is_short}} volume from the virtual server instance details page.
