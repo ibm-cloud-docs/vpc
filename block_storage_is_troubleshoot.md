@@ -1,13 +1,12 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-11-10"
+  years: 2019, 2023
+lastupdated: "2023-01-30"
 
 keywords: block storage, virtual private cloud, volume, data storage, troubleshooting, troubleshoot
 
 subcollection: vpc
-
 
 ---
 
@@ -32,7 +31,7 @@ Any of the following causes might apply:
 
 * The volume name and information is missing in either the UI or CLI.
 * You might also be attempting to access a volume in a region other than your region.
-* You might be trying to access an obsolete volume, that was created on a deprecated VPC infrastructure.
+* You might be trying to access an obsolete volume that was created on a deprecated VPC infrastructure.
 
 Verify that the volume wasn't detached from a virtual server instance and deleted. Search for the instance to which you last attached the volume from the list of all virtual server instances:
 {: tsResolve}
@@ -53,13 +52,13 @@ If you use the CLI, verify that you entered the correct command syntax for viewi
 You receive an error message when you attempt to rename an existing volume.
 {: tsSymptoms}
 
-This condition might appear in the API or CLI:
+This condition might appear in the API or CLI in the following scenarios.
 
-* In the API, when you send a PATCH request to rename the volume
-* In the CLI, when you specify the `ibmcloud is volume-update` command
+* In the API, when you send a `PATCH` request to rename the volume.
+* In the CLI, when you specify the `ibmcloud is volume-update` command.
 
 You might be renaming the volume with an invalid volume name. In this case, you see a 400 "validation_invalid_name" error.
-You might also be specifying a valid volume name, but one that exists in the VPC. For example, if you create two volumes from compute resources that are in the same account, the same region, and have the same name, you see a 400 "volume_name_duplicate" error.
+You might also be specifying a valid volume name, but one that is already in the VPC. For example, if you create two volumes from compute resources that are in the same account, the same region, and have the same name, you see a 400 "volume_name_duplicate" error.
 {: tsCauses}
 
 **Note:** The UI prevents you from entering an invalid volume name.
@@ -69,7 +68,7 @@ Follow these guidelines for valid volume names:
 
 * Volume names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters.
 * Volume names must begin with a lowercase letter.
-* Volume names must be unique across the VPC infrastructure.
+* Volume names must be unique across a VPC region.
 
 ## Cannot delete a volume by name or ID
 {: #troubleshoot-topic-3}
