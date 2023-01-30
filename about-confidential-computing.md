@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-12-08"
+  years: 2022, 2023
+lastupdated: "2023-01-30"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -82,7 +82,7 @@ It's important to read the following information and complete the required prepa
 
    - Logging service that you set up
 
-      The logging service configuration that's passed as part of the contract works only if the instance has either a public gateway or a floating IP associated with it. For more information, see [Logging for {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc).
+      See [Logging for {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc).
 
       If logging isn't configured successfully, the instance shuts down automatically.
       {: important}
@@ -112,6 +112,8 @@ After you finish planning and have the contract ready, you can create a {{site.d
 See the [troubleshooting documentation](/docs/vpc?topic=vpc-hyper-protect-virtual-server-shutdown) or [get supoprt](/docs/vpc?topic=vpc-getting-help&interface=cli) if you have any problems with the instance.
 
 You can use [Terraform](/docs/vpc?topic=vpc-terraform-for-hyper-protect-virtual-servers-for-vpc) to automate operations with {{site.data.keyword.hpvs}} for VPC. 
+
+You can use your {{site.data.keyword.hpvs}} for VPC instance in **private-only** network configurations, in which the VPC doesn't have a public gateway and the virtual server instance doesn't have a floating IP. You can connect to private endpoints of other services, including container registry and [IBM Log Analysis](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc). The prerequisite is to have a DNS server attached to your virtual server instance. You don't need to do any additional configurations.
 
 ## Recovering or upgrading a {{site.data.keyword.hpvs}} for VPC instance by using {{site.data.keyword.vpc_short}} Snapshots.
 {: #recover-upgrade-hyper-protect-virtual-servers-for-vpc-using-snapshots}

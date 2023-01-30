@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-11-22"
+  years: 2022, 2023
+lastupdated: "2023-01-30"
 
 keywords: troubleshoot, troubleshoot hyper protect virtual servers for vpc, debug hyper protect virtual servers for vpc, questions about hyper protect virtual servers for vpc, hyper protect virtual server shut down
 
@@ -48,4 +48,4 @@ Check if you have performed the following actions correctly.
 
 - Logging configuration failure
 
-   When the instance boots, monitor the serial console to identify if there are any errors that are logged by the bootloader or from the logging service. If you don't see any logs reaching your private IBM Log Analysis instance, it might be because your logging configuration failed. Failure to configure logging also leads to the instance shutting down. If your logging configuration fails, you should check whether the logging hostname, port, and ingestion key that are provided in the contract are correct. If they are, check whether you have a floating IP or a public gateway that's associated with the instance.
+  When the instance boots, monitor the serial console to identify if there are any errors that are logged by the bootloader or from the logging service. If you don't see any logs reaching your private IBM Log Analysis instance, it might be because your logging configuration failed. Failure to configure logging also leads to the instance shutting down. If your logging configuration fails, you should check whether the logging hostname, port, and ingestion key that are provided in the contract are correct.
