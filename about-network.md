@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-12-21"
+  years: 2017, 2023
+lastupdated: "2023-01-26"
 
 keywords: secure, region, zone, subnet, public gateway, floating IP, NAT
 subcollection: vpc
@@ -28,10 +28,11 @@ Subnets within the VPC offer private connectivity; they can talk to each other o
 
 ![Figure showing how a VPC can be subdivided with subnets](images/vpc-experience-simple.svg "Figure showing how a VPC can be subdivided with subnets"){: caption="Figure 1. IBM VPC connectivity and security" caption-side="bottom"}
 
+
 ## Terminology
 {: #networking-terminology}
 
-To work with your VPC, you need to be familiar with the basic concepts of _region_ and _zone_ as they apply to your deployment.
+To work with your VPC, review the basic concepts of _region_ and _zone_ as they apply to your deployment.
 
 ### Regions
 {: #networking-terms-regions}
@@ -41,18 +42,17 @@ A region is an abstraction that is related to the geographic area in which a VPC
 ### Zones
 {: #networking-terms-zones}
 
-A zone is an abstraction that refers to the physical data center that hosts the compute, network, and storage resources, as well as the related cooling and power, which provides services and applications. Zones are isolated from each other to create no shared single point of failure, improved fault tolerance, and reduced latency. Each zone is assigned a default address prefix, which specifies the address range in which subnets can be created. If the default address scheme does not suit your requirements, such as if you want to bring your own public IPv4 address range, you can customize the address prefixes.
+A zone is an abstraction that refers to the physical data center that hosts the compute, network, and storage resources, plus the related cooling and power, which provides services and applications. Zones are isolated from each other to create no shared single point of failure, improved fault tolerance, and reduced latency. Each zone is assigned a default address prefix, which specifies the address range in which subnets can be created. If the default address scheme does not suit your requirements, such as if you want to bring your own public IPv4 address range, you can customize the address prefixes.
 
 ## Characteristics of subnets in the VPC
 {: #subnets-in-the-vpc}
-
 
 Each subnet consists of a specified IP address range (CIDR block). Subnets are bound to a single zone, and they cannot span multiple zones or regions. Subnets in the same VPC are connected to each other.
 
 ### Addresses reserved by the system
 {: #addresses-reserved-by-the-system}
 
-Certain IP addresses are reserved for use by IBM when operating the VPC. Here are the reserved addresses (these IP addresses assume that the subnet's CIDR range is `10.10.10.0/24`):
+Certain IP addresses are reserved for use by IBM for operating the VPC. The following addresses are the reserved addresses (these IP addresses assume that the subnet's CIDR range is `10.10.10.0/24`):
 
 * First address in the CIDR range (`10.10.10.0`): Network address
 * Second address in the CIDR range (`10.10.10.1`): Gateway address
@@ -86,12 +86,12 @@ The following figure summarizes the current scope of gateway services.
 
 | SNAT | DNAT | ACL | VPN |
 | ---- | ---- | --- | --- |
-| Instances can have outbound-only access to the Internet | Allow inbound connectivity from the Internet to a Private IP | Provide restricted inbound access from the Internet to instances or subnets | Site-to-site VPN handles customers of any size, and single or multiple locations |
-| Entire subnets share the same outbound public endpoint | Provides limited access to a single private server | Restrict access inbound from Internet, based on service, protocol, or port | High throughput (up to 10 Gbps) provides customers the ability to transfer large data files securely and quickly |
-| Protects instances; Cannot initiate access to instances through the public endpoint | DNAT service can be scaled up or down, based on requirements | Stateless ACLs allow for granular control of traffic | Create secure connections with industry standard encryption |
+| Instances can have outbound-only access to the internet. | Allow inbound connectivity from the internet to a Private IP. | Provide restricted inbound access from the internet to instances or subnets. | Site-to-site VPN handles customers of any size, and single or multiple locations. |
+| Entire subnets share the outbound public endpoint. | Provides limited access to a single private server. | Restrict access inbound from internet, based on service, protocol, or port. | High throughput (up to 10 Gbps) provides customers the ability to transfer large data files securely and quickly. |
+| Protects instances; Cannot initiate access to instances through the public endpoint. | DNAT service can be scaled up or down, based on requirements. | Stateless ACLs allow for granular control of traffic. | Create secure connections with industry standard encryption. |
 {: caption="Table 2. Current scope of gateway services" caption-side="bottom"}
 
-You can create only one public gateway per zone, but that public gateway can be attached to multiple subnets in the zone.
+You can create only one public gateway per zone. However, that public gateway can be attached to multiple subnets in the zone.
 {: tip}
 
 ### Use a Floating IP address for external connectivity of a virtual server instance
@@ -99,7 +99,7 @@ You can create only one public gateway per zone, but that public gateway can be 
 
 Floating IP addresses are IP addresses that are provided by the system and are reachable from the public internet.
 
-You can reserve a floating IP address from the pool of available addresses that are provided by IBM, and you can associate it with a network interface of any instance in the same zone. That interface also will have a private IP address. Each floating IP address can be associated with only one interface. 
+You can reserve a floating IP address from the pool of available addresses that are provided by IBM, and you can associate it with a network interface of any instance in the same zone. That interface also has a private IP address. Each floating IP address can be associated with only one interface. 
 
 **Notes:**
 * Associating a floating IP address with an instance removes the instance from the public gateway's Many-to-1 NAT.
