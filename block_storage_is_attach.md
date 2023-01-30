@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-01-25"
+lastupdated: "2023-01-30"
 
 keywords: vpc, block storage, block storage for vpc, mounting storing, attaching block storage, vpc instance, data volumes
 
@@ -89,7 +89,7 @@ Specify `--auto-delete true` if you want the volume to automatically delete when
 
 To see a list of available virtual server instances, run the `ibmcloud is instances` command.
 
-Example:
+Check out the following example.
 
 ```text
 $ ibmcloud is instances
@@ -165,14 +165,14 @@ The following example shows a volume attachment JSON file that defines a custom 
 
 Attach {{site.data.keyword.block_storage_is_short}} volumes to an instance by directly calling the [REST APIs](/apidocs/vpc).
 
-Create a volume attachment for an instance to attach a {{site.data.keyword.block_storage_is_short}} volume. Make a `POST /instances` call and specify `volume_attachments`. This example creates a volume attachment and specifies the volume by ID.
+Create a volume attachment for an instance to attach a {{site.data.keyword.block_storage_is_short}} volume. Make a `POST /instances` call and specify `volume_attachments`. 
 
 ```text
 POST/instances/{instance_id}/volume_attachments
 ```
 {: pre}
 
-Example request:
+The following example creates a volume attachment and specifies the volume by ID.
 
 ```curl
 curl -X POST "$vpc_api_endpoint/v1/instances/$instance_id/volume_attachments?version=2021-04-20&generation=2" \
