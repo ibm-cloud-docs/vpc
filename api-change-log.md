@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-01-17"
+lastupdated: "2023-01-31"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -48,6 +48,16 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 31 January 2023
+{: #31-january-2023}
+
+### For all version dates
+{: #31-january-2023-all-version-dates}
+
+**Bare metal server secure boot.** When you [create](/apidocs/vpc/latest#create-bare-metal-server) or [update](/apidocs/vpc/latest#update-bare-metal-server) a bare metal server, you can now enable secure boot. The default is `false` (disabled). If enabled, the image must support secure boot or the server will fail to boot. To toggle secure boot, the server must be `stopped`. For more information, see [Bare metal server images](/docs/vpc?topic=vpc-bare-metal-image).
+
+**Bare metal server trusted platform module (TPM) support.** When you [create](/apidocs/vpc/latest#create-bare-metal-server) or [update](/apidocs/vpc/latest#update-bare-metal-server) a bare metal server, you can now set a TPM mode. Specify a `mode` value (`disabled` or `tpm_2`) in the `trusted_platform_module` property. The default is `disabled`. To change the TPM mode, the server must be `stopped`. To determine the supported TPM modes, use the `supported_trusted_platform_modes` property included in the [bare metal server profile](apidocs/vpc/latest#get-bare-metal-server-profile). For more information, see [Secure boot with Trusted Platform Module (TPM)](/docs/vpc?topic=vpc-secure-boot-tpm).
 
 ## 17 January 2023
 {: #17-january-2023}
