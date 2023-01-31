@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-11-11"
+  years: 2022, 2023
+lastupdated: "2023-01-31"
 
 keywords:
 
@@ -23,11 +23,11 @@ Apply backup policies by adding tags to new or existing {{site.data.keyword.bloc
 
 1. [Create a backup policy and plan](/docs/vpc?topic=vpc-backup-policy-create).
 
-2. [Apply backup policy tags](#backup-apply-tags-ui) to your target {{site.data.keyword.block_storage_is_short}} volumes by using the [UI](/docs/vpc?topic=vpc-backup-use-policies&interface=ui#backup-apply-tags-ui), [CLI](/docs/vpc?topic=vpc-backup-use-policies&interface=cli#backup-apply-tags-volumes-cli), or [API](/docs/vpc?topic=vpc-backup-use-policies&interface=api#backup-apply-tags-volumes-api). Go to your {{site.data.keyword.block_storage_is_short}} volume that you want to back up and add at least one tag to it.
+2. [Apply backup policy tags](#backup-apply-tags-ui) to your target {{site.data.keyword.block_storage_is_short}} volumes by using the [UI](/docs/vpc?topic=vpc-backup-use-policies&interface=ui#backup-apply-tags-ui), [CLI](/docs/vpc?topic=vpc-backup-use-policies&interface=cli#backup-apply-tags-volumes-cli), or [API](/docs/vpc?topic=vpc-backup-use-policies&interface=api#backup-apply-tags-volumes-api). Go to the {{site.data.keyword.block_storage_is_short}} volume that you want to back up and add at least one tag to it.
 
 3. Verify that your {{site.data.keyword.block_storage_is_short}} volume is associated with a backup policy. For more information, see [View a list of volumes that have a backup policy](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-vol-backup-policies).
 
-## Applying tags to {{site.data.keyword.block_storage_is_short}} volumes with the UI
+## Applying tags to {{site.data.keyword.block_storage_is_short}} volumes in the UI
 {: #backup-apply-tags-ui}
 {: ui}
 
@@ -35,15 +35,15 @@ Apply tags to new or existing {{site.data.keyword.block_storage_is_short}} volum
 
 * Add tags to volumes directly from the block volumes list view by using the tags column.
 * Add tags from the volume details page.
-* Click the Apply button for backup policies on the volume details page to associate backup policies with tags.
-* Add user tags to volumes when [provisioning an instance](/docs/vpc?topic=vpc-backup-use-policies&interface=api#backup-apply-tags-volumes-api).
+* Click **Apply** on the volume details page to associate backup policies with tags.
+* Add user tags to volumes during [instance provisioning](/docs/vpc?topic=vpc-backup-use-policies&interface=api#backup-apply-tags-volumes-api).
 
 ### Add tags from the {{site.data.keyword.block_storage_is_short}} volumes list view
 {: #backup-tags-volumes-list-ui}
 
-1. Navigate to the [list of {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui).
+1. Go to the [list of {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui).
 
-2. Locate an _available_ volume. In the **Tags** column, volumes with tags show a number indicating tags that are already applied. You can view the tags by clicking the number link. Volumes without tags have an **Add tags** link.
+2. Locate an _available_ volume. In the **Tags** column, volumes with tags show a number that indicates the tags that are already applied. You can view the tags by clicking the number link. Volumes without tags have an **Add tags** link.
 
 3. Click **Add tags**.
 
@@ -54,7 +54,7 @@ Apply tags to new or existing {{site.data.keyword.block_storage_is_short}} volum
 ### Add tags from the volume details page
 {: #backup-tags-vol-details}
 
-1. Navigate to the [list of {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui).
+1. Go to the [list of {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui).
 
 2. Click the name of a volume in the list.
 
@@ -68,7 +68,7 @@ Apply tags to new or existing {{site.data.keyword.block_storage_is_short}} volum
 {: #backup-apply-tags-volumes-cli}
 {: cli}
 
-Run the `ibmcloud is volume-update` command with the ``--tags` parameter to add user tags to a volume.
+Run the `ibmcloud is volume-update` command with the `--tags` parameter to add user tags to a volume.
 
 Use the same parameter to add tags to a volume when you create a new volume by using `ibmcloud is volume-create`.
 {: tip}
@@ -105,7 +105,7 @@ User Tags                              env:test,env:prod
 
 To apply tags to a {{site.data.keyword.block_storage_is_short}} volume, follow these steps:
 
-1. Make a `GET /volumes/{volume_id}` call and copy the hash string from `Etag` property in the response header. You need to use the hash string when you specify `If-Match` in the `PATCH /volumes/{volume_id}` request to create user tags for the volume in step 2. For example, to generate the response header information, make a call similar to this example:
+1. Make a `GET /volumes/{volume_id}` call and copy the hash string from the `Etag` property in the response header. You need to use the hash string when you specify `If-Match` in the `PATCH /volumes/{volume_id}` request to create user tags for the volume in step 2. To generate the response header information, make an API call similar to the following example:
 
    ```curl
    curl -sSL -D GET\
@@ -116,7 +116,7 @@ To apply tags to a {{site.data.keyword.block_storage_is_short}} volume, follow t
 
    In the response header, you see something like this:
 
-   ```text
+   ```json
    HTTP/2 200
    date: Tue, 28 Apr 2022 17:48:03 GMT
    content-type: application/json; charset=utf-8
@@ -134,7 +134,7 @@ To apply tags to a {{site.data.keyword.block_storage_is_short}} volume, follow t
    server: cloudflare
    etag: W/xxxyyyzzz123
    ```
-   {: screen}
+   {: codeblock}
 
 2. Make a `PATCH /volumes/{volume_id}` request. Specify the _Etag-hash-string_ for the `If-Match` property in the header. Specify the user tags in the `user_tags` property.
 
@@ -194,7 +194,7 @@ To apply tags to a {{site.data.keyword.block_storage_is_short}} volume, follow t
       ]
    }
    ```
-   {: screen}
+   {: codeblock}
 
 ## Next steps
 {: #backup-next-steps-use}
