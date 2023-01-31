@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-12-20"
+  years: 2022, 2023
+lastupdated: "2023-01-31"
 
 keywords:
 
@@ -84,7 +84,7 @@ Yes. You can create 10 backup policies per account and up to 750 backups of a vo
 {: faq}
 {: #faq-baas-restore}
 
-Restoring from a backup snapshot creates a fully provisioned boot or data volume. You can restore boot and data volumes during instance creation, when you modify an existing instance, or when you provision a stand-alone volume. For more information, see [Restoring a volume from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).
+Restoring from a backup snapshot creates a fully provisioned boot or data volume. You can restore boot and data volumes during instance creation, when you modify an existing instance, or when you provision a stand-alone volume. For best performance, you can enable backup snapshots for fast restore. Using the fast restore feature, you can restore a volume that is fully provisioned when the volume is created. For more information, see [About restoring from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).
 
 ## Am I charged for usage?
 {: faq}
@@ -92,6 +92,12 @@ Restoring from a backup snapshot creates a fully provisioned boot or data volume
 
 Yes. Cost for backups is calculated based on GB capacity that is stored per month, unless the duration is less than one month. The backup exists on the account until it reaches its retention period, or when you delete it manually, or when you reach the end of a billing cycle, whichever comes first.
 
-Pricing of subsequent backups can also increase or decrease when you [increase source volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes) or [adjust IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) by specifying a different IOPS profile for the source volume. For example, expanding volume capacity increases costs while changing an IOPS profile from a 5 IOPS/GB tier to a 3 IOPS/GB tier decreases the monthly and hourly rate. Billing for an updated volume is automatically updated to add the prorated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
+Pricing of subsequent backups can also increase or decrease when you [increase source volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes) or [adjust IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) by specifying a different IOPS profile for the source volume. For example, expanding volume capacity increases costs. However, changing an IOPS profile from a 5-IOPS/GB tier to a 3-IOPS/GB tier decreases the monthly and hourly rate. Billing for an updated volume is automatically updated to add the prorated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
 Pricing for backups is also set by region of the source volume. For more information, see [Pricing](https://www.ibm.com/cloud/vpc/pricing).
+
+### Can I use data backups for disaster recovery?
+{: faq}
+{: #faq-baas-dr}
+
+Using the [backup service](/docs/vpc?topic=vpc-backup-service-about), you can regularly back up your volume data based on a schedule you set up. You can create backup snapshots as frequently as 1 hour. However, the backup service does not provide continual backup with automatic failover. Restoring a volume from a backup or snapshot is a manual operation that takes time. If you require a higher level of service for automatic disaster recovery, see IBM's [Cloud disaster recovery solutions](https://www.ibm.com/cloud/disaster-recovery).
