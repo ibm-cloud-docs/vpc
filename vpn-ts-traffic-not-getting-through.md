@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-11-13"
+  years: 2018, 2023
+lastupdated: "2023-01-31"
 
 keywords: virtual private network, VPN, VPN gateway, troubleshooting
 
@@ -23,14 +23,14 @@ For application traffic to flow through a connection, the right configurations m
 Your connection is active, but traffic is not getting through.
 {: tsSymptoms}
 
-There might be an interoperability issue.
+An interoperability issue might exist.
 {: tsCauses}
 
 Follow these steps to resolve this issue:
 {: tsResolve}
 
-1. Make sure NAT-Traversal is enabled on the peer, if it is a configurable option.
-1. Make sure ACLs are configured properly on both sides to allow application traffic.
-1. If using a policy-based mode VPN with a static, route-based VPN peer and multiple CIDR/subnets on either side, make sure to create multiple connections with one CIDR/subnet pair per connection.
-1. If using a Cisco Adaptive Security Appliance (ASA) as the peer of {{site.data.keyword.vpn_vpc_short}} with multiple CIDRs/subnets configured on the Cisco side, try moving different subnets to separate connections.
-1. If using a route-based VPN on either side, make sure that routes on each side are configured properly so that traffic is routed to the VPN gateway appropriately. 
+1. Make sure that NAT-Traversal is enabled on the peer, if it's a configurable option.
+1. Make sure that ACLs are configured properly on both sides to allow application traffic.
+1. If you're using a policy-based mode VPN with a static, route-based VPN peer and multiple CIDR subnets on either side, create multiple connections with one CIDR subnet pair per connection.
+1. If you're using a Cisco Adaptive Security Appliance (ASA) as the peer of {{site.data.keyword.vpn_vpc_short}} with multiple CIDRs and subnets that are configured on the Cisco side, try moving different subnets to separate connections.
+1. If you're using a route-based VPN on either side, configure the routes on each side properly so that traffic is routed to the VPN gateway correctly. 
