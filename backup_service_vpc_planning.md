@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-12-20"
+  years: 2022, 2023
+lastupdated: "2023-01-31"
 
-keywords:
+keywords: VPC, backup planning, vpc restore volume, VPC restore data, 
 
 subcollection: vpc
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Planning backups
 {: #backups-vpc-planning}
 
-When you plan a strategy for backing up your {{site.data.keyword.block_storage_is_short}} volumes, you might find this checklist helpful to set up and use the backup service.
+When you plan a strategy for backing up your {{site.data.keyword.block_storage_is_short}} volumes, you might find this checklist helpful to configure and use the backup service.
 {: shortdesc}
 
 ## Planning backups
@@ -37,10 +37,10 @@ Consider the following prerequisites before you set up the VPC Backup Service.
 | Conventions | Make sure you have a unique name for your backup policy. For example, if you have a method for naming volumes, you might name a backup policy by using a similar convention. Naming conventions for backups that are created by the plan are the same as snapshots. For more information, see [Naming snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-naming). |
 |**Creating backups**: |
 | Prerequisites | Verify that the volume is attached to a virtual server instance and that the instance is in a running state. |
-| Backup frequency | Verify that the plan that you selected is creating backups at the interval that you want. Backups do not occur instaneously like manually-created snapshots. Backups usually occur within an hour of being triggered by a backup plan schedule. |
+| Backup frequency | Verify that the plan that you selected is creating backups at the interval that you want. Backups do not occur instaneously like manually created snapshots. Backups usually occur within an hour of being triggered by a backup plan schedule. |
 | Tags | Verify that at least one of your policy tags matches at least one tag of each volume that you want to back up. |
 |**Restoring a volume from a backup snapshot**: |
-| Volume restore performance | Take into account the [performance considerations](/docs/vpc?topic=vpc-baas-vpc-restore&interface=ui#baas-performance-considerations) when you restore a volume from a backup snapshot. You might also experience different regional performance when you restore a volume. |
+| Volume restore performance | Review these [performance considerations](/docs/vpc?topic=vpc-baas-vpc-restore&interface=ui#baas-performance-considerations) when you restore a volume from a backup snapshot. |
 | Instance provisioning performance | Review these performance considerations when you decide on [provisioning an instance from a bootable snapshot](/docs/vpc?topic=vpc-baas-vpc-restore&interface=ui#baas-boot-perf).
 {: caption="Table 1. Checklist for planning backup policies" caption-side="bottom"}
 
