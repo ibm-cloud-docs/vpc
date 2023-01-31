@@ -586,9 +586,7 @@ toc:
             - link:
                label: Reference
                href: https://{DomainName}/apidocs/vpc-metadata-beta
-            - link:
-               label: Change log
-               href: https://{DomainName}/apidocs/vpc-metadata-beta#api-instance-metadata-change-log
+            - api-metadata-beta-change-log.md
         - vpc-responsibilities.md
         - vsi-understanding-cloud-maintenance.md
         - vsi_is_disable_hyper-threading.md
