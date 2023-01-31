@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-07-07"
+  years: 2021, 2023
+lastupdated: "2023-01-31"
 
 keywords: virtual private network, VPN, VPN server, troubleshooting
 
@@ -17,7 +17,7 @@ subcollection: vpc
 {: troubleshoot}
 {: support}
 
-When the authentication mode is user ID/passcode only, a client certificate is not required. However, this approach is less secure than using both certificate and user ID/passcode authentication.  
+When the authentication mode is user ID and passcode only, a client certificate is not required. However, this approach is less secure than using both certificate and user ID and passcode authentication.  
 {: shortdesc}
 
 `OpenVPN Connect V2` displays the error `Missing External PKI alias`.
@@ -25,15 +25,14 @@ When the authentication mode is user ID/passcode only, a client certificate is n
 
 `OpenVPN Connect V3` displays the error `Miss external certificate`.
 
-
-For v2, this is a bug. For v3, this is a warning message that you can ignore.
+For v2, this message is a bug. For v3, this message is a warning that you can ignore.
 {: tsCauses}
 
 Try the following options to resolve this issue:
 {: tsResolve}
 
-1. Select one of the following:
+1. Select one of the following steps:
 
-   * For OpenVPN Connect v2, edit the VPN client profile by adding a random client private key and certificate, then re-import the client profile into the OpenVPN Connect V2 client.
+   * For OpenVPN Connect v2, edit the VPN client profile by adding a random client private key and certificate, then reimport the client profile into the OpenVPN Connect V2 client.
    * * For OpenVPN Connect v3, select to continue and skip the warning message.
 1. Use another VPN client, such as Tunnelblick. For OpenVPN Connect version 2 users, you can upgrade to version 3.
