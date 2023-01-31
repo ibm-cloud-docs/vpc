@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-11-01"
+  years: 2022, 2023
+lastupdated: "2023-01-31"
 
 keywords:
 
@@ -21,7 +21,7 @@ Before you can create backup policies, you need to establish service-to-service 
 ## Overview
 {: #backup-s2s-auth-overview}
 
-Every user that accesses VPC infrastructure services resources must be assigned one or more access policies that define their IAM roles. These policies determine what actions a user can perform within the context of the service or instance that you select. The allowable actions are customized and defined by the IBM Cloud service as operations that are allowed to be performed on the service. The actions are then mapped to IAM user roles.
+Every user that accesses VPC infrastructure services resources must be assigned one or more access policies that define their IAM roles. These policies determine the actions that a user can perform within the context of the service or instance that you select. The allowable actions are customized and defined by the IBM Cloud service as operations that are allowed to be performed on the service. The actions are then mapped to IAM user roles.
 
 To use Backup for VPC to create backups of block storage volumes, you must create service-to-service authorizations and user roles:
 
@@ -39,7 +39,7 @@ If you set up service authorizations incorrectly, the backup service is designed
 
 In the UI, follow this procedure to create three authorization policies:
 
-1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**. The **Manage access and users** page displays.
+1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**. The **Manage access and users** page is displayed.
 
 2. From the side panel, select **Authorizations**.
 
