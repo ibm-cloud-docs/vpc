@@ -31,14 +31,14 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-jan23}
 
 ### 31 January 2023
-{: #vpc-january0123}
+{: #vpc-january3123}
 {: release-note}
 
 Secure boot with Trusted Plaform Module (TPM) (LA)
 :   Secure boot makes sure that your server starts with trusted software by verifying the signatures for all code in the boot process. Trusted Platform Module (TPM) provides hardware-based security functions. With supporting software, TPM helps maintain platform integrity and generates cryptographic keys. For more information, see [Secure boot with Trusted Platform Module (TPM)](/docs/vpc?topic=vpc-secure-boot-tpm).
 
 ### 30 January 2023
-{: #vpc-january0130}
+{: #vpc-january3023}
 {: release-note}
 
 Updated certificates for IBM Hyper Protect Container Runtime image
