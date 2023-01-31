@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-11-22"
+  years: 2022, 2023
+lastupdated: "2023-01-31"
 
 keywords:
 
@@ -44,10 +44,10 @@ Verify that the volume wasn't detached from a virtual server instance. Search fo
 The backup failed, as indicated in the backup job details. When you make a `GET /backup_policies/{backup_policy_id}/jobs/{backup_job_id}` call, the `status` property shows `failed`.
 {: tsSymptoms}
 
-Look at the `reason_codes` property in the response. It could be an internal error or the [snapshot limit](/docs/vpc?topic=vpc-snapshots-vpc-faqs&interface=ui#faq-snapshot-3) is reached.
+Look at the `reason_codes` property in the response. It might be an internal error or the [snapshot limit](/docs/vpc?topic=vpc-snapshots-vpc-faqs&interface=ui#faq-snapshot-3) is reached.
 {: tsCauses}
 
-Contact IBM support if you see an internal error. If the backup snapshot limit is reached, delete the oldest snapshots so new ones can be created. You can create up to 100 backup snapshots of a volume, so delete accordingly.
+Contact IBM support if you see an internal error. If the backup snapshot limit is reached, delete the oldest snapshots so new ones can be created. You can create up to 100 backup snapshots of a volume.
 {: tsResolve}
 
 ## Backup policy not created due to incorrect authorizations
@@ -80,7 +80,7 @@ For more information about viewing your backup policies, see [Viewing backup pol
 ## Backup policy plan is not found
 {: #baas-backup_policy_plan_not_found}
 
-You receive a `backup_policy_plan_not_found` error with the following message: _Backup policy plan with ID <policy_plan_uuid> is not found_.
+You receive a `backup_policy_plan_not_found` error with the following message: _Backup policy plan with ID <policy_plan_uuid> is not found_. 
 {: tsSymptoms}
 
 The backup policy plan that you are trying to find is either deleted or never existed.
@@ -100,7 +100,7 @@ You receive a `backup_jobs_not_found` error with the following message: _Job wit
 The job that you are trying to find is either deleted or never existed.
 {: tsCauses}
 
-To address this error, list the jobs and see whether the job ID that you're looking for is in the list.  If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help).
+To address this error, list the jobs and see whether the job ID that you're looking for is in the list. If you still need help with the error, contact [support](/docs/vpc?topic=vpc-getting-help).
 {: tsResolve}
 
 For more information about viewing your backup jobs list, see [Viewing backup jobs](/docs/vpc?topic=vpc-backup-view-policy-jobs).
