@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-01-30"
+lastupdated: "2023-01-31"
 
 keywords:
 
@@ -29,6 +29,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## January 2023
 {: #vpc-jan23}
+
+### 31 January 2023
+{: #vpc-january0123}
+{: release-note}
+
+Secure boot with Trusted Plaform Module (TPM) (LA)
+:   Secure boot makes sure that your server starts with trusted software by verifying the signatures for all code in the boot process. Trusted Platform Module (TPM) provides hardware-based security functions. With supporting software, TPM helps maintain platform integrity and generates cryptographic keys. For more information, see [Secure boot with Trusted Platform Module (TPM)](/docs/vpc?topic=vpc-secure-boot-tpm).
 
 ### 30 January 2023
 {: #vpc-january0130}
