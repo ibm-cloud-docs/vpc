@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-12-20"
+  years: 2022, 2023
+lastupdated: "2023-01-31"
 
 keywords:
 
@@ -61,7 +61,7 @@ From the list of backup jobs, click the name of a snapshot. A side panel provide
 | CRN | Cloud resource name of the snapshot. |
 | Created | Date and time of when that the snapshot resource creation process started. |
 | Captured | The date and time of when this snapshot was taken. If the field is empty, then the snapshot is not yet captured or the snapshot was created before this feature was introduced (January 2022). |
-| Size | Size in GBs of the snapshot, it's inherited from the source volume. |
+| Size | Size in GBs of the snapshot, it is inherited from the source volume. |
 | Source Volume | Source volume from which the first snapshot was taken. Click the link for volume details. If the volume was deleted, the name appears without a link. |
 | Encryption | Either provider-managed or customer-managed. |
 | Tags |  User tags inherited from the source volume when the snapshot was created. Click the pencil icon to more user tags.|
@@ -76,14 +76,14 @@ You can view a list of backup jobs by specifying the ID or name of the backup po
 ### View a list of backup jobs from the CLI
 {: #backup-view-jobs-list-cli}
 
-Run the `backup-policy-jobs` command to view the backup jobs for your backup snapshots. Status indicates when backup snapshots are being created, failed completion, or succeeded completion. In this example, the ID of the backup policy lists jobs for that backup policy. You can also specify the backup policy name.
+Run the `backup-policy-jobs` command to view the backup jobs for your backup snapshots. Status indicates when backup snapshots are being created, failed completion, or succeeded completion. 
 
 ```text
 ibmcloud is backup-policy-jobs POLICY [--volume VOLUME] [--snapshot SNAPSHOT] [--snapshot-crn SNAPSHOT_CRN] [--status failed | running | succeeded] [--plan PLAN] [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
-For example:
+In this example, the ID of the backup policy lists jobs for that backup policy. You can also specify the backup policy name.
 
 ```json
 ibmcloud is backup-policy-jobs bd8e95e1-e63a-468e-9df8-6a8747f03ffc
@@ -213,7 +213,7 @@ A successful response looks like the following example.
   "total_count": 132
 }
 ```
-{: screen}
+{: codeblock}
 
 ### View details of a backup job with the API
 {: #backup-view-jobs-details-api}
