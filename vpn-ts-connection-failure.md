@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-06-28"
+  years: 2021, 2023
+lastupdated: "2023-01-31"
 
 keywords: virtual private network, VPN, VPN server, troubleshooting
 
@@ -21,7 +21,7 @@ Client VPN for VPC requires accurate configuration to complete any connection. C
 The VPN connection is failing.
 {: tsSymptoms}
 
-You made changes to your configuration, and the connection cannot complete.
+You changed your configuration, and the connection cannot complete.
 {: tsCauses}
 
 Follow these steps to resolve this issue:
