@@ -24,7 +24,7 @@ Given that VPCs are regional constructs, the following questions quickly arise:
 
 IBM has the following offerings that can help you interconnect a VPC with an on-premises network.
 
-* IBM Cloud Direct Link
+* **{{site.data.keyword.dl_full_notm}}**
 
    You can interconnect a VPC with an on-prem network through both Direct Link Dedicated and Connect offerings. Keep in mind that you can connect direct links to either a local or remote IBM Cloud Transit Gateway, which allows the on-prem network to access all networks connected to the transit gateway.
 
