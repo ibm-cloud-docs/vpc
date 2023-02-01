@@ -595,7 +595,9 @@ toc:
         - topicgroup:
             label: Terraform
             topics:
-            - /ibm-cloud-provider-for-terraform/ibm-cloud-provider-for-terraform-getting-started
+            - link:
+               label: Getting started with Terraform on IBM Cloud
+               href: /ibm-cloud-provider-for-terraform/ibm-cloud-provider-for-terraform-getting-started
             - link:
                label: Terraformer for VPC
                href: https://github.com/GoogleCloudPlatform/terraformer/blob/master/docs/ibmcloud.md
