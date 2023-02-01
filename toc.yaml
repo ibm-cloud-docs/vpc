@@ -127,13 +127,13 @@ toc:
         - topicgroup:
             label: Solution tutorials
             topics:
-            - /solution-tutorials/solution-tutorials-vpc-public-app-private-backend
-            - /solution-tutorials/solution-tutorials-vpc-multi-region
-            - /solution-tutorials/solution-tutorials-vpc-app-deploy
-            - /solution-tutorials/solution-tutorials-vpc-secure-management-bastion-server
-            - /containers/containers-vpc_ks_tutorial
-            - /solution-tutorials/solution-tutorials-vpc-tg-dns-iam
-            - /solution-tutorials/solution-tutorials-vpc-site2site-vpn
+            - include: ../solution-tutorials/vpc-public-app-private-backend.md
+            - include: ../solution-tutorials/vpc-multi-region.md
+            - include: ../solution-tutorials/vpc-app-deploy.md
+            - include: ../solution-tutorials/vpc-secure-management-bastion-server.md
+            - include: ../containers/cs_tutorial_vpc.md
+            - include: ../solution-tutorials/vpc-tg-dns-iam.md
+            - include: ../solution-tutorials/vpc-site2site-vpn.md
 
     - navgroup:
         id: howto
@@ -557,8 +557,8 @@ toc:
         - topicgroup:
             label: VPC CLI reference
             topics:
-            - /vpc-infrastructure-cli-plugin/vpc-infrastructure-cli-plugin-vpc-reference
-            - /vpc-infrastructure-cli-plugin/vpc-infrastructure-cli-plugin-vpc-cli-rn
+            - include: ../vpc-infrastructure-cli-plugin/vpc-cli-reference.md
+            - include: ../vpc-infrastructure-cli-plugin/vpc-cli-release-note.md
         - topicgroup:
             label: VPC API & SDK
             topics:
