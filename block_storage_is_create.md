@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-01-26"
+lastupdated: "2023-02-07"
 
-keywords:
+keywords: vpc block storage, provision block storage for vpc, bootable snapshots, create volume from snapshot, fast restore
 
 subcollection: vpc
 
@@ -33,12 +33,10 @@ Use the {{site.data.keyword.cloud_notm}} console to create a {{site.data.keyword
 {: support}
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
+2. From the list of virtual server instances, click **Create**. 
+3. In the Virtual server for VPC provisioning page, select Server type, Location, OS, Profile, Placement Group, and so on. For more information about provisioning the instance, see [Creating a virtual server instance with the UI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#creating-virtual-servers-ui). The details of the boot volume that is to be created are displayed on the page. You can edit the boot volume by clicking the pencil icon to change the size, encryption, and add any user tags to identify this resource. 
+4. To create a data volume and attach it to the instance, in the Data volumes section of the instance provisioning page, click **Create**. In the side panel, specify the volume details. Table 1 shows the values that need to be defined.
 
-2. From the list of virtual server instances, click **Create**. For more information about provisioning the instance, see [Creating a virtual server instance with the UI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#creating-virtual-servers-ui).
-
-   A boot volume is created and appears under **Boot volume** on the provision page. You can edit the boot volume by clicking the pencil icon to change the size, encryption, and add any user tags to identify this resource.
-
-3. To create a data volume and attach it to the instance, in the Data volumes section of the instance provisioning page, click **Create**. Specify the volume details in the side panel. Enter the information in Table 1.
    | Field | Value |
    |-------|-------|
    | Name  | Specify a unique, meaningful name for your volume. For example, it can be a name that describes your compute or workload function. The volume name can be up to 63 lowercase alpha-numeric characters and include the hyphen (-), and must begin with a lowercase letter. You can later edit the name if you want. Volume names must be unique the entire VPC infrastructure. |
@@ -51,11 +49,12 @@ Use the {{site.data.keyword.cloud_notm}} console to create a {{site.data.keyword
    | Encryption | Provider-managed encryption with IBM-managed keys is enabled by default on all volumes. You can also choose a Key Management Service by selecting either ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}), and then specify your own encryption key. For a one-time setup procedure, see [Prerequisites for setting up customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-planning#byok-encryption-prereqs). |
    {: caption="Table 1. {{site.data.keyword.block_storage_is_short}} volume values to be specified during instance provisioning." caption-side="bottom"}
 
-4. Optionally, if you created volume snapshots, you can import the snapshot and use it to create the volume. Click the **Snapshots** toggle, select a snapshot, and then provision as for a regular volume.
+   If you created volume snapshots previously, the option to import one becomes available. Click the **Snapshots** toggle, and select a snapshot from the list. You can filter this list for snapshots with fast restore. Then, complete the required fields and click **Create** to provision the volume. A {{site.data.keyword.block_storage_is_short}} volume is created and attached to the virtual server instance. On the instance details page, the Data volumes list is updated to show the new volume
+   
+   For more information, see [Restoring a volume by using fast restore](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-use-fast-restore).
+   {: tip}
 
-5. Click **Create virtual server** when finished.
-
-When you're finished defining the volume, click **Create**. A {{site.data.keyword.block_storage_is_short}} volume is created and attached to the virtual server instance. On the instance details page, the Data volumes list is updated to show the new volume.
+5. When you're finished defining the attributes of your virtual server instance, click **Create virtual server**. The virtual server instance is created with the boot volume, which appears under **Boot volume** on the provision page.
 
 A {{site.data.keyword.block_storage_is_short}} volume can be attached to only one virtual server at a time. On the {{site.data.keyword.block_storage_is_short}} volume summary page, you can view details about the virtual server instance by selecting the instance name under **Attached instances**.
 
@@ -65,16 +64,11 @@ A {{site.data.keyword.block_storage_is_short}} volume can be attached to only on
 You can create a new {{site.data.keyword.block_storage_is_short}} volume from an existing instance.
 
 1. Go to the list of virtual server instances. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
-
 2. Select an instance from the list.
-
 3. On the instance details page, scroll to **Storage volumes** and click **Attach**.
-
 4. In the side panel, click the down arrow under **Block volumes** and select **Create a data volume**. The side panel expands with fields to define the volume. For more information about these fields, see table 1.
-
-5. Optionally, import a snapshot and use its details to create the new volume. For more information, see [Create a data volume from a snapshot for an existing virtual server instance with the UI](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-create-from-vol-ui).
-
-6. When you're finished defining the volume, click **Save**. The volume is created and attached to the instance. You're returned to the instance details page. The new volume is shown in the list of storage volumes.
+   * If you created volume snapshots previously, the option to import one becomes available. Click the **Snapshots** toggle, and select a snapshot from the list. You can filter this list for snapshots with fast restore. For more information, see [Create a data volume from a snapshot for an existing virtual server instance with the UI](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-create-from-vol-ui).
+5. When you're finished defining the volume, click **Save**. The volume is created and attached to the instance. You're returned to the instance details page. The new volume is shown in the list of storage volumes.
 
 ### Create a stand-alone {{site.data.keyword.block_storage_is_short}} volume
 {: #create-standalone-vol}
@@ -83,11 +77,9 @@ You can create a new {{site.data.keyword.block_storage_is_short}} volume from an
 
 You can create a {{site.data.keyword.block_storage_is_short}} volume independent of virtual server provisioning and attach the volume to an instance later.
 
-1.  [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
-
+1. In the [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
 2. Click **Create**.
-
-3. On the {{site.data.keyword.block_storage_is_short}} provisioning page, enter the information to define the new volume (see Table 3).
+3. On the {{site.data.keyword.block_storage_is_short}} provisioning page, enter the required information to define the new volume (see Table 2).
 
    | Field | Value |
    |-------|-------|
@@ -96,16 +88,14 @@ You can create a {{site.data.keyword.block_storage_is_short}} volume independent
    | Resource Group | Specify a [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups). |
    | Tags | Specify [user tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-user-tags) to organize your resources and for use by [backup policies](/docs/vpc?topic=vpc-backup-service-about). |
    | Access management tags | Specify [access management tags](/docs/vpc?topic=vpc-block-storage-about&interface=ui#storage-about-mgt-tags) that were created in IAM to help you manage access to your volumes. |
-   | Snapshot | Optionally, click **Select snapshot** to create the volume with data from the selected snapshot. For more information, see [Create a {{site.data.keyword.block_storage_is_short}} volume from a snapshot](#create-vol-from-snapshot-ui). |
+   | Snapshot | Optionally, click **Select snapshot** to create the volume with data from the selected snapshot. You can create data volumes with Nonbootable snapshots, and boot volumes with Bootable snapshots. For more information, see [Create a stand-alone {{site.data.keyword.block_storage_is_short}} volume from a snapshot](#create-vol-from-snapshot-ui). |
    | Profile | **IOPS tiers** are shown by default. Click the tab for **Custom** IOPS. |
-   | | For [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers), select the tile with the performance level you require and specify the volume size in GBs. Volume sizes can be 10 - 16,000 GB. |
+   | | For [IOPS tiers](/docs/vpc?topic=vpc-block-storage-profiles#tiers), select the tile with the performance level that you require and specify the volume size in GBs. Volume sizes can be 10 - 16,000 GB. |
    | | For [Custom](/docs/vpc?topic=vpc-block-storage-profiles#custom) IOPS, specify the size of your volume and IOPS range based on the size of the volume. As you type the IOPS value, the UI shows the acceptable range. You can also click the **storage size** link to see a table of size and IOPS ranges. For more information, see [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom). |
-   | Size |  |
    | Encryption | Encryption with IBM-managed keys is enabled by default on all volumes. You can also choose **Customer Managed** and use [your own encryption key](/docs/vpc?topic=vpc-block-storage-vpc-encryption). |
-   {: caption="Table 3. Values for defining a {{site.data.keyword.block_storage_is_short}} volume" caption-side="bottom"}
+   {: caption="Table 2. Values for defining a {{site.data.keyword.block_storage_is_short}} volume" caption-side="bottom"}
 
 4. When you're finished, click **Create volume**. You're returned to the {{site.data.keyword.block_storage_is_short}} volumes page, where a message indicates that the volume is being created (volume status is _pending_). A second message displays when the volume is created (volume status is _available_).
-
 5. To see details of the new volume, select the **View resource** link in the second message to go to the Volume details page.
 
 ### Create a stand-alone {{site.data.keyword.block_storage_is_short}} volume from a snapshot in the UI
@@ -116,14 +106,11 @@ When you [create a {{site.data.keyword.block_storage_is_short}} volume](#create-
 You can restore a boot volume from a "bootable" snapshot. The boot volume is restored when you create a new virtual server instance.
 
 1.  [{{site.data.keyword.cloud_notm}} console)](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
-
 2. Select **Create**.
-
 3. Specify the volume name, optional resource group and tags, and specify the location. You're going to use the data from a snapshot to provision the volume.
-
 4. Under **Snapshot (optional)**, click **Select snapshot**. From the list, select a snapshot. All snapshots that are presented are in a _stable_ state.
 
-   By default, the **Non-bootable** tab is selected that lists all data volume snapshots. To restore a boot volume, click the **Bootable** tab. **Attach volume to new virtual server instance** is selected by default. The boot volume is restored when the instance is created.
+   By default, the **Nonbootable** tab is selected that lists all data volume snapshots. To restore a boot volume, click the **Bootable** tab. **Attach volume to new virtual server instance** is selected by default. The boot volume is restored when the instance is created.
 
 5. Click **Save and continue**. Information about the snapshot is shown on the volume provisioning page, including the name, its size, the date when it was created, its source volume, and whether it is a bootable snapshot. Bootable snapshot information includes the operating system and image. The encryption is inherited from the snapshot and shown in the encryption section.
 
@@ -158,7 +145,7 @@ ibmcloud is volume-create VOLUME_NAME PROFILE_NAME ZONE_NAME [--capacity CAPACIT
 
 See the following example.
 
-```bash
+```sh
 $ ibmcloud is volume-create demovolume1 custom us-south-1 --capacity 500 --iops 3000 --tags env:test,env:prod
 Creating volume demovolume1 in resource group Default under account VPC 01 as user rtuser1@mycompany.com...
 
@@ -173,7 +160,7 @@ Profile                                general-purpose
 Encryption key                         -
 Encryption                             provider_managed
 Resource group                         Default
-Created                                2022-12-09T11:42:22.287+05:30
+Created                                2022-04-07T11:42:22.287+05:30
 Zone                                   us-south-1
 Health State                           inapplicable
 Health Reason                          -
@@ -200,7 +187,7 @@ User tags are added to identify the volume resource. When these tags are matched
 
 Run the `ibmcloud is volume-create` command and specify the `source-snapshot` parameter with the name or ID of the snapshot you're using to create the new volume. The volume is unattached, as indicated by the attachment state in the response.
 
-In the following example, the command creates the volume from a snapshot that is specified by name.
+This example creates the new volume from a snapshot that is specified by name.
 
 ```sh
 ibmcloud is volume-create volume-4 general-purpose us-south-1 --snapshot snapshot-3
@@ -218,7 +205,7 @@ Profile                                general-purpose
 Encryption key                         -
 Encryption                             provider_managed
 Resource group                         Default
-Created                                2022-12-12T10:13:00+05:30
+Created                                2022-10-02T10:13:00+05:30
 Zone                                   us-south-1
 Attachment State                       unattached
 Health State                           inapplicable
@@ -319,7 +306,7 @@ Data volumes                ID   Name       Capacity   Profile           IOPS   
 Primary Network Interface   Name      Subnet ID                                   Security Groups                             Allow source IP spoofing   Reserved IP Address   Reserved IP ID   Reserved IP Name   Reserved IP Auto Delete
                             primary   0617-c1f1e468-3283-4f44-9d08-3d57b77817f1   7c2db5ac-19e0-4d83-8226-e6178fedfe56   false                      -                     -                -                  -
 
-Created                     2022-12-09T09:10:34+05:30
+Created                     2022-08-22T09:10:34+05:30
 
 ```
 {: screen}
@@ -353,8 +340,8 @@ Make a `POST /instances` request to create an instance, and define the volume by
 This example specifies customer-managed encryption and user tags for the boot and data volumes.
 
 ```curl
-curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-12-09&generation=2" -H "Authorization: $iam_token"
--d '{
+curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-06-14&generation=2" -H "Authorization: $iam_token" -d 
+'{
   "boot_volume_attachment": {
     "volume": {
       "encryption_key": {
@@ -438,7 +425,7 @@ A successful response looks like this:
       "name": "my-boot-volume"
     }
   },
-  "created_at": "2022-12-09T16:11:57Z",
+  "created_at": "2022-06-15T16:11:57Z",
   "crn": "crn:[...]",
   "dedicated_host": {
     "crn": "crn:[...]",
@@ -550,7 +537,7 @@ A successful response looks like this:
   }
 }
 ```
-{: codeblock}
+{: screen}
 
 ### Create a stand-alone {{site.data.keyword.block_storage_is_short}} volume with the API
 {: #block-storage-create-vol-api}
@@ -560,7 +547,7 @@ Make a `POST /volumes` request to create a volume. Specify a name, IOPS, capacit
 This example also specifies customer-managed encryption and a resource group.
 
 ```curl
-curl -X POST "$vpc_api_endpoint/v1/volumes?version=2022-12-14&generation=2" \
+curl -X POST "$vpc_api_endpoint/v1/volumes?version=2022-06-14&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
       "name": "my-volume-4",
@@ -587,7 +574,7 @@ A successful response looks like this:
 ```json
 {
   "capacity": 50,
-  "created_at": "2022-12-14T23:16:53.000Z",
+  "created_at": "2022-06-14T23:16:53.000Z",
   "crn": "crn:[...]",
   "encryption": "user_managed",
   "encryption_key": {
@@ -617,7 +604,7 @@ A successful response looks like this:
   }
 }
 ```
-{: codeblock}
+{: screen}
 
 ### Create a data volume from a snapshot of an unattached volume with the API
 {: #block-storage-create-vol-snapshot-api}

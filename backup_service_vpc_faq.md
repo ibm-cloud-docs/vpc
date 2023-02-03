@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-31"
+lastupdated: "2023-02-07"
 
-keywords:
+keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, faqs
 
 subcollection: vpc
 
@@ -84,7 +84,7 @@ Yes. You can create 10 backup policies per account and up to 750 backups of a vo
 {: faq}
 {: #faq-baas-restore}
 
-Restoring from a backup snapshot creates a fully provisioned boot or data volume. You can restore boot and data volumes during instance creation, when you modify an existing instance, or when you provision a stand-alone volume. For best performance, you can enable backup snapshots for fast restore. Using the fast restore feature, you can restore a volume that is fully provisioned when the volume is created. For more information, see [About restoring from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).
+Restoring from a backup snapshot creates a volume with data from the snapshot. You can restore data from a backup by using the UI, the CLI or the API. You can restore boot and data volumes during instance creation, when you modify an existing instance, or when you provision a stand-alone volume. When you restore data from a backup snapshot, the data is pulled from an {{site.data.keyword.cos_short}} bucket. For best performance, you can enable backup snapshots for fast restore. By using the fast restore feature, you can restore a volume that is fully provisioned when the volume is created. When you use fast restore, the data is pulled from a cached backup snapshot in another zone of your VPC. For more information, see [About restoring from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).
 
 ## Am I charged for usage?
 {: faq}
