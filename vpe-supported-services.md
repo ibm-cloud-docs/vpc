@@ -20,10 +20,10 @@ subcollection: vpc
 * {{site.data.keyword.appconfig_short}} ([Endpoint URLs](/apidocs/app-configuration#endpoints-list-all))
 * Catalog Management ([Endpoint URLs](/apidocs/resource-catalog/private-catalog#endpoint-url))
 * Cloud Object Storage
-* Code Engine  ([Instructions](/docs/codeengine?topic=codeengine-vpe))
+* Code Engine ([Instructions](/docs/codeengine?topic=codeengine-vpe))
 * {{site.data.keyword.registryshort_notm}} ([Instructions](/docs/Registry?topic=Registry-registry_vpe))
 * Databases ([Instructions](/docs/cloud-databases?topic=cloud-databases-vpes))
-* Direct Link ([Instructions](/docs/dl?topic=dl-vpe-for-ibm-cloud-direct-link))
+* Direct Link ([Instructions](/docs/dl?topic=dl-vpe-connection))
 * DNS Services ([Instructions](/docs/dns-svcs?topic=dns-svcs-vpe-for-dns-svcs#vpe-for-dns-svcs))
 * Enterprise Billing Units ([Endpoint URLs](/apidocs/enterprise-apis/billing-unit#endpoint-urls))
 * Enterprise Management ([Endpoint URLs](/apidocs/enterprise-apis/enterprise#endpoint-urls))
