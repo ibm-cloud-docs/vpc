@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-08-13"
+  years: 2020, 2023
+lastupdated: "2023-02-06"
 
 keywords: application load balancer, datapath logging
 
@@ -47,11 +47,11 @@ To create a {{site.data.keyword.la_short}} instance, follow these steps:
    | Region | Data center |
    | ------ | ----------- |
    | Sydney | SYD01, SYD05, SYD04 |
-   | Tokyo | CHE01, SNG01, TOK02, TOK04, TOK05, OSA02 |
+   | Tokyo | CHE01, SNG01, TOK02, TOK04, TOK05, OSA21. OSA22, OSA23 |
    | Frankfurt | AMS03, FRA02, FRA04, FRA05, MIL01, PAR01 |
-   | London | LON01, LON02, LON04, LON05, LON06 |
-   | Dallas | DAL00, DAL02, DAL05, DAL08, DAL09, DAL10, DAL12, DAL13, HOU01, SJC01, SJC03, SJC04, SAO01 |
-   | Washington DC | MON01, TOR01, WDC01, WDC04, WDC06, WDC07 |
+   | London | LON02, LON04, LON05, LON06 |
+   | Dallas | DAL05, DAL09, DAL10, DAL12, DAL13, SJC01, SJC03, SJC04, SAO01 |
+   | Washington DC | MON01, SAO04, SAO05, TOR01, TOR04, TOR05, WDC01, WDC04, WDC06, WDC07 |
    {: caption="Table 1. Mapping between region and datacenter" caption-side="bottom"}
 
 After you choose your region, click **Create** to create the logging instance, then configure it by clicking **Configure the platform service logs**.
