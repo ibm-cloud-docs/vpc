@@ -450,7 +450,8 @@ toc:
             - block_storage_is_manage.md
             - block_storage_vpc_manage_storage_limits.md
             - modifying-the-linux-os-expanded-boot-volume.md
-            - block_storage_is_use_volume_cli.md
+            - block_storage_is_use_volume_lin.md
+            - block_storage_is_use_volume_win.md
             - topicgroup:
                 label: Modifying volume capacity and IOPS
                 topics:

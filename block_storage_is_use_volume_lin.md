@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-11-07"
+  years: 2019, 2023
+lastupdated: "2023-02-06"
 
 keywords: Block storage for VPC, iscsi for VPC, SAN for VPC
 
@@ -12,30 +12,27 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Using your block storage data volume (CLI)
-{: #start-using-your-block-storage-data-volume}
+# Set up your {{site.data.keyword.block_storage_is_short}} data volume for use (Linux)
+{: #start-using-your-block-storage-data-volume-lin}
 
-If you want to use your {{site.data.keyword.block_storage_is_short}} volume as a file system, you need to partition the volume, format the volume, and then mount it as a file system. You can perform this operation after you created a block storage volume and attached it to an instance.
+If you want to use your {{site.data.keyword.block_storage_is_full}} volume as a file system, you need to partition the volume, format it, and then mount it as a file system. You can perform this operation after you created a {{site.data.keyword.block_storage_is_short}} volume and attached it to an instance.
 {: shortdesc}
 
 Follow this procedure to use your block storage volume on a Linux&reg; system.
 
-Depending on your Linux&reg; distribution, devices show up with different paths. For example, Ubuntu block devices show up as `vda`, `vdb`, and so on, as in the following examples.
-{: note}
-
-## Step 1 - List all block storage volumes
+## Step 1 - List all storage volumes
 {: #linux-procedure-list-volumes}
 
 Run the following command to list all {{site.data.keyword.block_storage_is_short}} volumes from your instance.
 
-```bash
+```sh
 lsblk
 ```
 {: pre}
 
-You will see output like this:
+The output looks similar to this example.
 
-```bash
+```sh
 NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 vda    202:0    0  100G  0 disk
 ├─vda1 202:1    0  256M  0 part /boot
@@ -51,14 +48,14 @@ Volume `vdb` is your block storage data volume.
 
 Run the following command to partition the volume.
 
-```bash
+```sh
 fdisk /dev/vdb
 ```
 {: pre}
 
 Type the `n` command for a new partition, then `p` for primary partition.
 
-```bash
+```sh
 Partition type:
    p   primary (0 primary, 0 extended, 4 free)
    e   extended
@@ -66,19 +63,19 @@ Select (default p): p
 ```
 {: pre}
 
-Complete the prompts to define the partition's first cylinder number and last cylinder number. After creating the partition, run the `w` command to save changes to the partition table. Reboot your system to verify the newly created partition.
+Complete the prompts to define the partition's first cylinder number and last cylinder number. After the partition is created, run the `w` command to save changes to the partition table. Restart your system to verify the newly created partition.
 
 ## Step 3 - Format the volume partition
 {: #linux-procedure-format-volume}
 
-```bash
+```sh
 /sbin/mkfs -t ext4 /dev/vdb1
 ```
 {: pre}
 
-To check the size of the partition, run:
+To check the size of the partition, run the following command.
 
-```bash
+```sh
 fdisk -s /dev/vdb1
 ```
 {: pre}
@@ -88,7 +85,7 @@ fdisk -s /dev/vdb1
 
 Update `/etc/fstab`.
 
-```bash
+```sh
 fstab /dev/vdb1
 ```
 {: pre}
@@ -104,7 +101,7 @@ disk_partition=/dev/vdb1
 ## Step 5 - Create a directory
 {: #linux-procedure-mkdir}
 
-```bash
+```sh
 mkdir /myvolumedir
 mount /dev/vda /myvolumedir
 ```
@@ -113,7 +110,7 @@ mount /dev/vda /myvolumedir
 ## Step 6 - Mount the volume as a file system
 {: #linux-procedure-mount-volume}
 
-```bash
+```sh
 mount /dev/vdb1 /myvolumedir
 ```
 {: pre}
@@ -121,16 +118,16 @@ mount /dev/vdb1 /myvolumedir
 ## Step 7 - Access and use the new file system
 {: #linux-procedure-use-file system}
 
-To see your new file system, run the following command:
+To see your new file system, run the following command.
 
-```bash
+```sh
 df -k
 ```
 {: pre}
 
 The command produces an output like the following example.
 
-```bash
+```sh
 file system     1K-blocks    Used Available Use% Mounted on
 udev             4075344       0   4075344   0% /dev
 tmpfs             816936    8844    808092   2% /run
@@ -144,9 +141,9 @@ tmpfs             817040       0    817040   0% /run/user/0
 ```
 {: screen}
 
-Go to the directory in your new file system and create a file:
+Go to the directory in your new file system and create a file.
 
-```bash
+```sh
 cd /myvolumedir
 touch myvolumefile1
 ```
