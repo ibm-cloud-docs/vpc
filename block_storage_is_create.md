@@ -537,7 +537,7 @@ A successful response looks like this:
   }
 }
 ```
-{: codeblock}
+{: screen}
 
 ### Create a stand-alone {{site.data.keyword.block_storage_is_short}} volume with the API
 {: #block-storage-create-vol-api}
@@ -604,7 +604,7 @@ A successful response looks like this:
   }
 }
 ```
-{: codeblock}
+{: screen}
 
 ### Create a data volume from a snapshot of an unattached volume with the API
 {: #block-storage-create-vol-snapshot-api}
