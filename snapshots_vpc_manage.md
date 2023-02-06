@@ -286,7 +286,7 @@ You can also specify the `clone` property when you create a snapshot of a volume
 
 ```curl
 curl -X POST \
-"$vpc_api_endpoint/v1/snapshots?version=2022-12-12&generation=2" \
+"$vpc_api_endpoint/v1/snapshots?version=2023-02-07&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
     "clones": [
