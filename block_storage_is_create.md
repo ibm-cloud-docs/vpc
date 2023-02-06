@@ -340,7 +340,7 @@ Make a `POST /instances` request to create an instance, and define the volume by
 This example specifies customer-managed encryption and user tags for the boot and data volumes.
 
 ```curl
-curl -X POST "$vpc_api_endpoint/v1/instances?version=2022-06-14&generation=2" -H "Authorization: $iam_token" -d 
+curl -X POST "$vpc_api_endpoint/v1/instances?version=2023-02-07&generation=2" -H "Authorization: $iam_token" -d 
 '{
   "boot_volume_attachment": {
     "volume": {
@@ -425,7 +425,7 @@ A successful response looks like this:
       "name": "my-boot-volume"
     }
   },
-  "created_at": "2022-06-15T16:11:57Z",
+  "created_at": "2023-02-07T16:11:57Z",
   "crn": "crn:[...]",
   "dedicated_host": {
     "crn": "crn:[...]",
@@ -537,7 +537,7 @@ A successful response looks like this:
   }
 }
 ```
-{: screen}
+{: codeblock}
 
 ### Create a stand-alone {{site.data.keyword.block_storage_is_short}} volume with the API
 {: #block-storage-create-vol-api}
@@ -547,7 +547,7 @@ Make a `POST /volumes` request to create a volume. Specify a name, IOPS, capacit
 This example also specifies customer-managed encryption and a resource group.
 
 ```curl
-curl -X POST "$vpc_api_endpoint/v1/volumes?version=2022-06-14&generation=2" \
+curl -X POST "$vpc_api_endpoint/v1/volumes?version=2023-02-07&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
       "name": "my-volume-4",
@@ -604,7 +604,7 @@ A successful response looks like this:
   }
 }
 ```
-{: screen}
+{: codeblock}
 
 ### Create a data volume from a snapshot of an unattached volume with the API
 {: #block-storage-create-vol-snapshot-api}
