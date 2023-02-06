@@ -222,7 +222,7 @@ Make a `DELETE/snapshots/{snapshot_ID}` call to delete a specific snapshot by ID
 
 ```curl
 curl -X DELETE \
-"$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2022-12-22&generation=2" \
+"$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2023-02-07&generation=2" \
      -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: codeblock}
@@ -234,7 +234,7 @@ Make a `DELETE/snapshots` call and specify the source volume ID for the `source_
 
 ```curl
 curl -X DELETE \
-"$vpc_api_endpoint/v1/snapshots?source_volume.id=_volume-id_&version=2022-12-22&generation=2" \
+"$vpc_api_endpoint/v1/snapshots?source_volume.id=_volume-id_&version=2023-02-07&generation=2" \
      -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: codeblock}
@@ -248,7 +248,7 @@ See the following example.
 
 ```curl
 curl -X DELETE \
-"$vpc_api_endpoint/v1/snapshots/fde0b8d5-2d75-4c28-af7d-12ffc3ae2a55/clones/us-south-1&version=2022-12-22&generation=2" \
+"$vpc_api_endpoint/v1/snapshots/fde0b8d5-2d75-4c28-af7d-12ffc3ae2a55/clones/us-south-1&version=2023-02-07&generation=2" \
      -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: codeblock}
@@ -263,7 +263,7 @@ In the API, you create a clone for an existing snapshot by making a `PUT /snapsh
 
 ```curl
 curl -X PUT \
-"$vpc_api_endpoint/v1/snapshots/5e160469-0837-48a7-8973-e44c8d5fd85a/clones/us-south-1&version=2022-12-22&generation=2" \
+"$vpc_api_endpoint/v1/snapshots/5e160469-0837-48a7-8973-e44c8d5fd85a/clones/us-south-1&version=2023-02-07&generation=2" \
      -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: codeblock}
@@ -273,7 +273,7 @@ A successful response looks like the following example.
 ```json
 {
   "available": true,
-  "created_at": "2022-12-22T20:35:38.600Z",
+  "created_at": "2023-02-07T20:35:38.600Z",
   "zone": {
     "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
     "name": "us-south-1"
@@ -318,13 +318,13 @@ A successful response looks like the following example.
   "bootable": false,
   "clones": [
       "available": true,
-      "created_at": "2022-12-12T20:18:38.600Z",
+      "created_at": "2023-02-07T20:18:38.600Z",
       "zone": {
         "href": "https://us-south.iaas.cloud.ibm.com/v1/regions/us-south/zones/us-south-1",
         "name": "us-south-1"
      }
   ],
-  "created_at": "2021-12-12T20:18:18Z",
+  "created_at": "2023-02-07T20:18:18Z",
   "crn": "crn:[...]",
   "deletable": false,
   "encryption": "user_managed",
@@ -442,7 +442,7 @@ Make a `PATCH/snapshots` call and specify the snapshot ID and new name of the sn
 
 ```curl
 curl -X PATCH \
-"$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2022-01-12&generation=2" \
+"$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2023-02-07&generation=2" \
    -H "Authorization: Bearer ${API_TOKEN}" \
    -d '{
      "name": "my-snapshop1-renamed"
@@ -458,7 +458,7 @@ Make a `PATCH/snapshots` call and specify the snapshot ID and user tags. The fol
 
 ```curl
 curl -X PATCH \
-"$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2022-01-12&generation=2" \
+"$vpc_api_endpoint/v1/snapshots/7528eb61-bc01-4763-a67a-a414a103f96d?version=2023-02-07&generation=2" \
     -H "Authorization: Bearer ${API_TOKEN}" \
     -d `{
        "user_tags": [
@@ -514,7 +514,7 @@ The following example shows JSON output of an Activity Tracker event that was ge
 
 ```json
 {
-    "eventTime": "2022-02-22T17:59:07.57+0000",
+    "eventTime": "2023-02-07T17:59:07.57+0000",
     "action": "is.snapshot.create",
     "outcome": "success",
     "message": "Block Storage Snapshots for VPC: create my-snapshot-1",
@@ -559,7 +559,7 @@ The following example shows an event that was generated when you list snapshot d
 
 ```json
 {
-    "eventTime": "2022-01-16T17:55:25.60+0000",
+    "eventTime": "2023-02-07T17:55:25.60+0000",
     "action": "is.snapshot.read",
     "outcome": "success",
     "message": "Block Storage Snapshots for VPC: read my-snapshot-2",
