@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2023-01-20"
+lastupdated: "2023-02-06"
 
 keywords: operating system end of support (eos)
 
@@ -113,7 +113,7 @@ The following table describes the end of support date and license model for Ubun
 |-----------------|----------------|---------------|
 | Ubuntu 22.04 minimal | 30 April 2027 | Free |
 | Ubuntu 20.04 minimal | 30 April 2025 | Free |
-| Ubuntu 18.04 minimal | 30 April 2023  | Free |
+| Ubuntu 18.04 minimal | 15 May 2023  | Free |
 | Ubuntu 16.04 minimal | 01 April 2021  | Free |
 {: caption="Table 7. Lifecycle for Ubuntu operating systems" caption-side="bottom"}
 
