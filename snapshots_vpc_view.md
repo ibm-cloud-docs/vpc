@@ -116,6 +116,8 @@ ID                                          Name         Status    Progress   So
 ```
 {: screen}
 
+For more information about available command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots).
+
 ### View all snapshots for a volume from the CLI
 {: #snapshots-vpc-view-cli}
 
@@ -137,6 +139,8 @@ b2168769-a4dc-4cb8-9fc6-e62d45918858   t2b1   stable   -          728b2d3c-2165-
 6e7ac183-3223-43d1-8f15-bea30c94eda0   t2b2   stable   -          728b2d3c-2165-46c7-9863-9397e0a9af42   false      Default          2022-01-12T16:29:01+08:00
 ```
 {: screen}
+
+For more information about available command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots).
 
 ### View details of a snapshot from the CLI
 {: #snapshots-vpc-view-details-cli}
@@ -180,6 +184,8 @@ Created                2022-01-14T01:53:15+05:30
 Captured               2022-01-14T01:53:34+05:30
 ```
 {: screen}
+
+For more information about available command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots).
 
 ### View all fast restore snapshot clones from the CLI
 {: #snapshots-view-zonal-clones-cli}

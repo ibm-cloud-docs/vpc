@@ -121,6 +121,8 @@ Deletion request for backup policy 7759199b-bc1f-448e-84fa-2aa42bde29af has been
 ```
 {: screen}
 
+For more information about available command options, see [`ibmcloud is backup-policy-delete`](/docs/vpc?topic=vpc-vpc-reference#backup-policy-delete).
+
 ### Rename a backup policy from the CLI
 {: #backup-rename-policy-cli}
 
@@ -171,6 +173,8 @@ Resource group         Default
 Created                2022-06-08T19:22:15+05:30
 ```
 {: screen}
+
+For more information about available command options, see [`ibmcloud is backup-policy-update`](/docs/vpc?topic=vpc-vpc-reference#backup-policy-update).
 
 ### Update a backup plan from the CLI
 {: #backup-update-plan-cli}
@@ -249,6 +253,8 @@ The following example deletes two backup plans for backup policy _backup-policy-
 ibmcloud is backup-policy-plan-delete backup-policy-1 my-plan-2 my-plan-3
 ```
 {: screen}
+
+For more information about available command options, see [`ibmcloud is backup-policy-plan-delete`](/docs/vpc?topic=vpc-vpc-reference#backup-policy-plan-delete).
 
 ## Manage backup policies and plans with the API
 {: #backup-manage-policy-api}

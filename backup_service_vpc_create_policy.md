@@ -189,6 +189,7 @@ Created                2022-05-03T01:59:37+05:30
 ```
 {: screen}
 
+For more information about available command options, see [`ibmcloud is backup-policy-create`](/docs/cli?topic=cli-vpc-reference#backup-policy-create).
 
 ### Create a backup policy and plan from the CLI
 {: #backup-create-policy-cron-cli}
@@ -331,6 +332,8 @@ Resource group         Default
 Created                2022-05-03T02:40:44+05:30
 ```
 {: screen}
+
+For more information about available command options, see [`ibmcloud is backup-policy-create`](/docs/cli?topic=cli-vpc-reference#backup-policy-create).
 
 ### Create a backup plan and fast restore option from the CLI
 {: #backup-create-plan-with-fr-cli}}

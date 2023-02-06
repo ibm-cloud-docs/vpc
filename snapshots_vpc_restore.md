@@ -254,6 +254,8 @@ Boot volume      ID                                   Name                  Atta
 ```
 {: screen}
 
+For more information about available command options, see [`ibmcloud is instance-create`](/docs/vpc?topic=vpc-vpc-reference#instance-create).
+
 ### Create a data volume from a snapshot for a new instance from the CLI
 {: #snapshots-vpc-restore-data-CLI}
 
@@ -281,6 +283,8 @@ ibmcloud is instance-create my-instance-restore1 ea002578-ff10-41fe-9652-e63f7e0
 ```
 {: codeblock}
 
+For more information about available command options, see [`ibmcloud is instance-create`](/docs/vpc?topic=vpc-vpc-reference#instance-create).
+
 ### Create a data volume from a snapshot for an existing instance from the CLI
 {: #snapshots-vpc-restore-data-inst-cli}
 
@@ -293,6 +297,9 @@ ibmcloud is instance-volume-attachment-add data-vol-1 a67f49de-fccc-4e5c-824e-dc
 ```
 {: codeblock}
 
+For more information about available command options, see [`ibmcloud is instance-volume-attachment-add`](/docs/vpc?topic=vpc-vpc-reference#instance-volume-attachment-add).
+
+
 ### Create a stand-alone volume from the snapshots details from the CLI
 {: #snapshots-restore-create-vol-cli}
 
@@ -300,6 +307,7 @@ You can create a stand-alone {{site.data.keyword.block_storage_is_short}} data v
 
 Run the `ibmcloud is volume-create` command and specify the `snapshot` parameter and name or ID of the snapshot. For more information, see [Create a stand-alone {{site.data.keyword.block_storage_is_short}} volume from a snapshot](/docs/vpc?topic=vpc-creating-block-storage&interface=cli#create-vol-from-snapshot-cli).
 
+For more information about available command options, see [`ibmcloud is volume-create`](/docs/vpc?topic=vpc-vpc-reference#volume-create).
 
 ## Restore a volume from a snapshot with the API
 {: #snapshots-vpc-restore-API}

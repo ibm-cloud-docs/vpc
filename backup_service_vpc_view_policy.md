@@ -125,6 +125,8 @@ d8a0e8d9-c592-4175-80bc-3056f6fd1da5   demopolicy20                  pending   D
 ```
 {: screen}
 
+For more information about available command options, see [`ibmcloud is backup-policies`](/docs/vpc?topic=vpc-vpc-reference#backup-policies).
+
 ### List all backup policies filter by user tags from the CLI
 {: #backup-view-all-filter-by-tags-cli}
 
@@ -145,6 +147,8 @@ ID                                          Name                 Status   Resour
 ab94137e-7794-454e-9b4b-6274082172d9        demo-bkp-policy-x2   stable   Default
 ```
 {: screen}
+
+For more information about available command options, see [`ibmcloud is backup-policies`](/docs/vpc?topic=vpc-vpc-reference#backup-policies).
 
 ### View backup policy details from the CLI
 {: #backup-view-details-cli}
@@ -176,6 +180,8 @@ Created                2022-06-28T17:56:53+05:30
 ```
 {: screen}
 
+For more information about available command options, see [`ibmcloud is backup-policy`](/docs/vpc?topic=vpc-vpc-reference#backup-policy).
+
 ### List all plans for a backup policy from the CLI
 {: #backup-view-plans-cli}
 
@@ -195,6 +201,8 @@ ID                                          Name               Active   Lifecycl
 2dc6ecf9-8f09-4c34-86c6-c10ea6526563        my-policy-plan-1   true     stable            42 10 * * *
 ```
 {: screen}
+
+For more information about available command options, see [`ibmcloud is backup-policy-plans`](/docs/vpc?topic=vpc-vpc-reference#backup-policy-plans).
 
 ### View backup plan details from the CLI
 {: #backup-view-plan-details-cli}

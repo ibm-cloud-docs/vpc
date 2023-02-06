@@ -434,7 +434,6 @@ Tags                   env:test,env:prod
 ```
 {: codeblock}
 
-
 ## Rename a snapshot with the API
 {: #snapshots-vpc-rename-api}
 {: api}
@@ -469,7 +468,6 @@ curl -X PATCH \
     }'
 ```
 {: codeblock}
-
 
 ## IAM roles for creating and managing snapshots
 {: #snapshots-vpc-iam}
