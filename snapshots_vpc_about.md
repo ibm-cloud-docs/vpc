@@ -43,6 +43,9 @@ With {{site.data.keyword.iamlong}}, you can set up resource groups in your accou
 Before you take a snapshot, make sure that all cached data is present on disk, especially when you're taking snapshots of instances with Windows and Linux&reg; operating systems. For example, on Linux&reg; operating systems, run the `sync` command to force an immediate write of all cached data to disk.
 {: note}
 
+For customers with special access, data isolation is provided to store snapshots that you created from your dedicated hosts. With data isolation's extra security, your data is encrypted at rest with a unique key and access to your data is protected by a private firewall.
+{: beta}
+
 ## How snapshots work
 {: #snapshots-vpc-operation}
 
