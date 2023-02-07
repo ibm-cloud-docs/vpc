@@ -61,7 +61,7 @@ With the VPC API, you can make a `POST /volumes` call and specify the snapshot I
 ### Restoring a volume with the fast restore feature
 {: #snapshots-vpc-use-fast-restore}
 
-Restoring a volume by using the fast restore feature creates a fully provisioned volume at creation time. With this feature, you create and keep a clone of the snapshot in a different zone within your region instead of a {{site.data.keyword.cos_short}} bucket. You can also use the fast restore feature with the backup service. For more information, see [backup policy plan](/docs/vpc?topic=vpc-backup-policy-create).
+Restoring a volume by using the fast restore feature creates a fully provisioned volume at creation time. With this feature, you create and keep a clone of the snapshot in a zone or zones within your region instead of a {{site.data.keyword.cos_short}} bucket. You can also use the fast restore feature with the backup service. For more information, see [backup policy plan](/docs/vpc?topic=vpc-backup-policy-create).
 
 In the console, you can filter the list of available snapshots to see which ones have fast restore clones. Select the fast restore snapshot clone to restore the volume and have it ready to use faster. When you restore data from a fast restore snapshot, the data is pulled from the clone within your region and not from {{site.data.keyword.cos_short}}. Thus the data is immediately available, and no hydration is necessary. Performance levels are not affected.
 
