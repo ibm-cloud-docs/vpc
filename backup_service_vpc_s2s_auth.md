@@ -4,7 +4,7 @@ copyright:
   years: 2022, 2023
 lastupdated: "2023-01-31"
 
-keywords:
+keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
 subcollection: vpc
 

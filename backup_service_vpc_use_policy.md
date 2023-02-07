@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-31"
+lastupdated: "2023-02-02"
 
-keywords:
+keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
 subcollection: vpc
 
@@ -22,9 +22,7 @@ Apply backup policies by adding tags to new or existing {{site.data.keyword.bloc
 {: #backup-gen-proc-tags}
 
 1. [Create a backup policy and plan](/docs/vpc?topic=vpc-backup-policy-create).
-
 2. [Apply backup policy tags](#backup-apply-tags-ui) to your target {{site.data.keyword.block_storage_is_short}} volumes by using the [UI](/docs/vpc?topic=vpc-backup-use-policies&interface=ui#backup-apply-tags-ui), [CLI](/docs/vpc?topic=vpc-backup-use-policies&interface=cli#backup-apply-tags-volumes-cli), or [API](/docs/vpc?topic=vpc-backup-use-policies&interface=api#backup-apply-tags-volumes-api). Go to the {{site.data.keyword.block_storage_is_short}} volume that you want to back up and add at least one tag to it.
-
 3. Verify that your {{site.data.keyword.block_storage_is_short}} volume is associated with a backup policy. For more information, see [View a list of volumes that have a backup policy](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-vol-backup-policies).
 
 ## Applying tags to {{site.data.keyword.block_storage_is_short}} volumes in the UI
@@ -42,26 +40,18 @@ Apply tags to new or existing {{site.data.keyword.block_storage_is_short}} volum
 {: #backup-tags-volumes-list-ui}
 
 1. Go to the [list of {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui).
-
 2. Locate an _available_ volume. In the **Tags** column, volumes with tags show a number that indicates the tags that are already applied. You can view the tags by clicking the number link. Volumes without tags have an **Add tags** link.
-
 3. Click **Add tags**.
-
 4. In the new window, type a tag in the User tags text box.
-
 5. Click **Save**.
 
 ### Add tags from the volume details page
 {: #backup-tags-vol-details}
 
 1. Go to the [list of {{site.data.keyword.block_storage_is_short}} volumes](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui).
-
 2. Click the name of a volume in the list.
-
 3. On the volume details page, click the pencil icon next to the {{site.data.keyword.block_storage_is_short}} volume name.
-
 4. In the new window, type a tag in the User tags text box.
-
 5. Click **Save**.
 
 ## Applying tags to {{site.data.keyword.block_storage_is_short}} volumes from the CLI

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-12-09"
+  years: 2022, 2023
+lastupdated: "2023-02-07"
 
 keywords:
 
@@ -36,13 +36,19 @@ Backup snapshots, also called _backups_, are scheduled snapshots that are create
 
 A bootable snapshot is a copy of a boot volume. You can use this snapshot to create another boot volume when you provision a new instance.
 
+## What is a fast restore snapshot?
+{: faq}
+{: #faq-snapshot-fr}
+
+A [fast restore snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-use-fast-restore) is a clone of a snapshot that is stored within one or more zones of a VPC region. The original snapshot is stored in {{site.data.keyword.cos_full_notm}}. When you perform a restore, data can be restored faster from a clone than from the snapshot in {{site.data.keyword.cos_short}}.
+
 ## How many snapshots can I take?
 {: faq}
 {: #faq-snapshot-3}
 
-You can take up to 750 snapshots per volume in a region. Deleting snapshots from this quota frees up space for more snapshots. A snapshot of a volume cannot be greater than 10 TB. Also, consider how your [billing changes](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=api#snapshots_vpc_considerations) when you increase the number of snapshots that you take and retain.
+You can take up to 750 snapshots per volume in a region. Deleting snapshots from this quota makes space for more snapshots. A snapshot of a volume cannot be greater than 10 TB. Also, consider how your [billing changes](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=api#snapshots_vpc_considerations) when you increase the number of snapshots that you take and retain.
 
-## Is there a limit on the size of a volume that I can snapshot?
+## Is there a limit on the size of a volume that I can take a snapshot of?
 {: faq}
 {: #faq-snapshot-4}
 
@@ -62,6 +68,16 @@ Snapshots retain the encryption from the original volume, IBM-managed or custome
 
 Restoring a volume from a snapshot creates an entirely new boot or data volume. The new volume has the same properties of the original volume, including encryption. If you restore from a bootable snapshot, you create a boot volume. Similarly, you can create a data volume from a snapshot of a data volume. The volume that you create from the snapshot uses the same volume profile and contains the same data and metadata as the original volume. You can restore a volume when you provision an instance, update an existing instance, or create a stand-alone volume by using the UI, CLI, or the `volumes` API. For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
 
+For best performance, you can enable snapshots for fast restore. By using the fast restore feature, you can create a volume from a snapshot that is fully provisioned when the volume is created. For more information, see [Snapshots fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore).
+
+### I restored a {{site.data.keyword.block_storage_is_short}} volume from a snapshot, and it's not performing at the expected levels. Is this normal?
+{: faq}
+{: #faq-snapshot-performance}
+
+Performance of boot and data volumes is initially degraded when data is restored from a snapshot. Performance degradation occurs during the restoration because your data is copied from {{site.data.keyword.cos_full}} to {{site.data.keyword.block_storage_is_short}} in the background. After the restoration process is complete, you can realize full IOPS on the new volume.
+
+Volumes that are restored from fast restore clones do not require hydration. The data is available as soon as the volume is created.
+
 ## What happens to snapshots when I delete my volume?
 {: faq}
 {: #faq-snapshot-7}
@@ -78,17 +94,19 @@ Yes, you can use Backup for VPC to create a backup policy and plan. In the plan 
 {: faq}
 {: #faq-snapshot-9}
 
-Snapshots have their own lifecycle, independent of the {{site.data.keyword.block_storage_is_short}} volume. You can separately manage the source volume. However, when taking a snapshot, you must wait for the snapshot creation process to complete before you detach or delete the volume.
+Snapshots have their own lifecycle, independent of the {{site.data.keyword.block_storage_is_short}} volume. You can separately manage the source volume. However, when you take a snapshot, you must wait for the snapshot creation process to complete before you detach or delete the volume.
 
 ## How am I charged for usage?
 {: faq}
 {: #faq-snapshot-pricing}
 
-Cost for snapshots is calculated based on GB capacity that is stored per month, unless the duration is less than one month. Because the snapshot is based on the capacity that was provisioned for the original volume, the snapshot capacity does not vary. Deleting snapshots reduces cost, so the fewer snapshots you retain the lower the cost.
+Cost for snapshots is calculated based on GB capacity that is stored per month, unless the duration is less than one month. Because the snapshot is based on the capacity that was provisioned for the original volume, the snapshot capacity does not vary. Deleting snapshots reduces cost, so the fewer snapshots you retain the lower the cost becomes.
 
 Pricing for snapshots is also set by region. For more information, see [Pricing](https://www.ibm.com/cloud/vpc/pricing).
 
-### Can I add tags to a {{site.data.keyword.block_storage_is_short}}  snapshot?
+When you use the [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore) feature, your existing regional plan is adjusted. Billing for fast restore is based on instance hours. The cost is $0.75 per hour regardless of snapshot size.
+
+### Can I add tags to a {{site.data.keyword.block_storage_is_short}} snapshot?
 {: faq}
 {: #faq-snapshot-tags}
 

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-01-25"
+lastupdated: "2023-02-07"
 
-keywords:
+keywords: faqs, block storage for vpc, fast restore, multizone, instance, instance provisioning, volume management, volume deletion.
 
 subcollection: vpc
 
@@ -52,7 +52,7 @@ You can create 12 {{site.data.keyword.block_storage_is_short}} data volumes per 
 
 Cost for {{site.data.keyword.block_storage_is_short}} is calculated based on GB capacity that is stored per month, unless the duration is less than one month. The volume exists on the account until you delete the volume or you reach the end of a billing cycle, whichever comes first.
 
-Pricing is also affected when you [expand volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes) or [adjust IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) by specifying a different IOPS profile. For example, expanding volume capacity increases costs, and changing an IOPS profile from a 5 IOPS/GB tier to a 3 IOPS/GB tier decreases the monthly and hourly rate.  Billing for an updated volume is automatically updated to add the prorated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
+Pricing is also affected when you [expand volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes) or [adjust IOPS](/docs/vpc?topic=vpc-adjusting-volume-iops) by specifying a different IOPS profile. For example, expanding volume capacity increases costs, and changing an IOPS profile from a 5-IOPS/GB tier to a 3-IOPS/GB tier decreases the monthly and hourly rate. Billing for an updated volume is automatically updated to add the prorated difference of the new price to the current billing cycle. The new full amount is then billed in the next billing cycle.
 
 Pricing for {{site.data.keyword.block_storage_is_short}} volumes is also set by region. For more information, see [Pricing](https://www.ibm.com/cloud/vpc/pricing){: external}.
 
@@ -155,7 +155,7 @@ You can experience degraded performance when you provision the volume by restori
 {: faq}
 {: #faq-block-storage-snapshot}
 
-Snapshots are a point-in-time copy of your {{site.data.keyword.block_storage_is_short}} boot or data volume that you manually create. The first snapshot is a full backup of the volume. Subsequent snapshots of the same volume record only the changes since the last snapshot. For more information, see [About {{site.data.keyword.block_storage_is_short}} Snapshots for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about).
+Snapshots are a point-in-time copy of your {{site.data.keyword.block_storage_is_short}} boot or data volume that you manually create. The first snapshot is a full backup of the volume. Subsequent snapshots of the same volume capture only the changes since the last snapshot. For more information, see [About {{site.data.keyword.block_storage_is_short}} Snapshots for VPC](/docs/vpc?topic=vpc-snapshots-vpc-about).
 
 ### What is a backup snapshot?
 {: faq}
@@ -163,11 +163,19 @@ Snapshots are a point-in-time copy of your {{site.data.keyword.block_storage_is_
 
 Backup snapshots, simply called "backups", are snapshots that are automatically created by the Backup for VPC service. For more information, see [About Backup for VPC](/docs/vpc?topic=vpc-backup-service-about).
 
+### What can I do about data backups for disaster recovery?
+{: faq}
+{: #faq-block-storage-dr}
+
+{{site.data.keyword.block_storage_is_short}} secures your data across redundant fault zones in your region. By using the [backup service](/docs/vpc?topic=vpc-backup-service-about), you can regularly back up your volume data based on a schedule that you set up. You can create backup snapshots as frequently as 1 hour. However, the backup service does not provide continual backup with automatic failover, and restoring a volume from a backup or snapshot is a manual operation that takes time. If you require a higher level of service for automatic disaster recovery, see IBM's [Cloud disaster recovery solutions](https://www.ibm.com/cloud/disaster-recovery).
+
 ### What is restoring a volume from a snapshot?
 {: faq}
 {: #faq-block-storage-restore-vol}
 
-Restoring from a snapshot creates a new, fully provisioned boot or data volume. You can restore boot and data volumes during instance creation, instance modification, or when you provision a new stand-alone volume. For data volumes, you can also use the `volumes` API to create a data volume from a snapshot. For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
+Restoring from a snapshot creates a new, fully provisioned boot or data volume. You can restore storage volumes during instance creation, instance modification, or when you provision a new stand-alone volume. For data volumes, you can also use the `volumes` API to create a data volume from a snapshot. For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore).
+
+For best performance, you can enable snapshots for fast restore. By using the fast restore feature, you can create a volume from a snapshot that is fully provisioned when the volume is created. For more information, see [Snapshots fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore).
 
 ### Can I add tags to a volume?
 {: faq}
@@ -212,7 +220,7 @@ IOPS is measured based on a load profile of 16-KB blocks with random 50% read an
 {: faq}
 {: #faq-block-storage-17a}
 
-Data storage contention is a common issue when multiple instances compete for access to the same {{site.data.keyword.block_storage_is_short}} volume. {{site.data.keyword.block_storage_is_short}} uses rate limiting at the hypervisor for optimal bandwidth between the hypervisor and {{site.data.keyword.block_storage_is_short}} service. As a result, latency is guaranteed to be less than 1 millisecond for random reads and under 2 milliseconds for writes for a typical 16-KB block size. Latency outside these metrics might indicate a problem on the client side.
+Data storage contention is a common issue when multiple instances compete for access to the same {{site.data.keyword.block_storage_is_short}} volume. {{site.data.keyword.block_storage_is_short}} uses Rate Limiting at the hypervisor for optimal bandwidth between the hypervisor and {{site.data.keyword.block_storage_is_short}} service. As a result, latency is guaranteed to be less than 1 millisecond for random reads and under 2 milliseconds for writes for a typical 16-KB block size. Latency outside these metrics might indicate a problem on the client side.
 
 ### What happens when a volume is in a degraded health state?
 {: faq}
@@ -232,7 +240,7 @@ All {{site.data.keyword.block_storage_is_short}} volumes are encrypted at rest w
 
 For more security, you can protect your data by using your own customer root keys (CRKs). You import your root keys to, or create them in, a supported key management service (KMS). Your root keys are safely managed by the supported KMS, either {{site.data.keyword.keymanagementserviceshort}} (FIPS 140-2 Level 3 compliance) or {{site.data.keyword.hscrypto}}. Both KMS solutions offer the highest level of security (FIPS 140-2 Level 4 compliance). Your key material is protected in transit and at rest.
 
-For more information, see [Supported key management services for customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok). To learn how to set up customer-managed encryption, see
+For more information, see [Supported key management services for customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#kms-for-byok). To learn how to configure customer-managed encryption, see
 [Creating {{site.data.keyword.block_storage_is_short}} volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
 
 You control access to your root keys stored in KMS instances within {{site.data.keyword.cloud}} by using IBM {{site.data.keyword.iamshort}} (IAM). You grant access to the IBM {{site.data.keyword.block_storage_is_short}} Service to use your keys. With the API, you can link a primary account that holds a root key to a secondary account, then use that key to encrypt new volumes in the secondary account. For more information, see [Cross-account encryption for multitenant storage resources](/docs/vpc?topic=vpc-getting-started).
@@ -269,7 +277,7 @@ Deleting a root key has greater consequences. Deleting a root key purges usage o
 {: faq}
 {: #faq_block_storage_remove_iam}
 
-If you remove IAM authorization before you delete your BYOK volume (or image), the delete operation completes but the root keys that are protecting these resources are not unregistered in the KMS instance. In other words, the root key remains registered for a resource that doesn't exist. Always delete a BYOK resource before you remove IAM authorization. For more information about safely removing service authorization, see [Removing service authorization to a root key](/docs/vpc?topic=vpc-vpc-encryption-managing#instance-byok-inaccessible-data).
+If you remove IAM authorization before you delete your BYOK volume (or image), the delete operation completes without unregistering the root keys in the KMS instance. In other words, the root key remains registered for a resource that doesn't exist. Always delete a BYOK resource before you remove IAM authorization. For more information about safely removing service authorization, see [Removing service authorization to a root key](/docs/vpc?topic=vpc-vpc-encryption-managing#instance-byok-inaccessible-data).
 
 ### What can I do if my root key is compromised?
 {: faq}

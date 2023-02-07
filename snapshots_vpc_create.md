@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-12-09"
+  years: 2021, 2023
+lastupdated: "2023-02-07"
 
 keywords:
 subcollection: vpc
@@ -17,14 +17,14 @@ subcollection: vpc
 With the UI, CLI, or API, you can create a snapshot of a {{site.data.keyword.block_storage_is_short}} volume that is attached to a virtual server instance. You can create a snapshot of a boot or data volume.
 {: shortdesc}
 
-Before you take a snapshot, make sure that all cached data is present on disk - which applies to instances with Windows and Linux&reg; operating systems. For example, on Linux&reg; operating systems, run the `sync` command to force an immediate write of all cached data to disk.
+Before you take a snapshot, make sure that all cached data is present on disk, especially when you're taking a snapshot of instances with Windows and Linux&reg; operating systems. For example, on Linux&reg; operating systems, run the `sync` command to force an immediate write of all cached data to disk.
 {: note}
 
 ## Create a snapshot in the UI
 {: #snapshots-vpc-create-ui}
 {: ui}
 
-In the UI, you can create a snapshot of a {{site.data.keyword.block_storage_is_short}} volume that you attached to a running virtual server instance.
+In the console, you can create a snapshot of a {{site.data.keyword.block_storage_is_short}} volume that is attached to a running virtual server instance.
 
 ### Create a snapshot from the list of snapshots
 {: #snapshots-vpc-create-from-list}
@@ -32,23 +32,21 @@ In the UI, you can create a snapshot of a {{site.data.keyword.block_storage_is_s
 Follow these steps to create a snapshot from the list of snapshots.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage snapshots**.
-
 2. From the list of snapshots (initially empty), click **Create**.
+3. Enter the required information (see Table 1) to define your snapshot and select the {{site.data.keyword.block_storage_is_short}} volume that you want to copy.
 
-3. Enter the information in Table 1 to define your snapshot and select the {{site.data.keyword.block_storage_is_short}} volume that you want to copy.
+   | Field | Value |
+   |-------|-------|
+   | Location | Specify the geography and region for this snapshot. |
+   | Name  | Provide a unique name for the snapshot. The UI verifies the name for proper conventions and identifies duplicate names. For suggestions about how to name your snapshots, see [Naming snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-naming). |
+   | Resource group | Select a [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups) for the snapshot, or use the default. You can't change the resource group after the snapshot is created. |
+   | Tags | Specify any [user tags that you want to identify this resource. |
+   | Access management tags | Specify any [access management tags](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#storage-add-access-mgt-tags) for this resource. |
+   | Block storage volume | Select a volume from the list. The boot or data volume must be attached to a running virtual server instance. |
+   | Encryption | Encryption information for the volume that you selected, either [provider-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-provider-managed-encryption) or [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-customer-managed-encryption). The snapshot inherits the encryption of the source volume. You can't change the encryption type.
+   {: caption="Table 1. Selections for creating a snapshot" caption-side="bottom"}
 
-4. Click **Create snapshot**. You're returned to the list of snapshots. Messages display while snapshot is being created and when ready, the snapshot displays first in the list of snapshots. You can then [view details of your snapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui).
-
-| Field | Value |
-|-------|-------|
-| Location | Specify the geography and region for this snapshot. |
-| Name  | Provide a unique name for the snapshot. The UI verifies the name for proper conventions and identifies duplicate names. For suggestions about how to name your snapshots, see [Naming snapshots](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-naming). |
-| Resource group | Select a [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups) for the snapshot, or use the default. You can't change the resource group after the snapshot is created. |
-| Tags | Specify any [user tags](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#apply-tags-volumes-ui) you want to identify this resource. |
-| Access management tags | Specify any [access management tags](/docs/vpc?topic=vpc-managing-block-storage&interface=ui#storage-add-access-mgt-tags) for this resource. |
-| Block storage volume | Select a volume from the drop-down list. The boot or data volume must be attached to a running virtual server instance. |
-| Encryption | Encryption information for the volume that you selected, either [provider-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-provider-managed-encryption) or [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-customer-managed-encryption). The snapshot inherits the encryption of the source volume. You can't change the encryption type.
-{: caption="Table 1. Selections for creating a snapshot" caption-side="bottom"}
+4. Click **Create snapshot**. You're returned to the list of snapshots. Messages are displayed while the snapshot is being created and when it's ready, the snapshot displays first in the list of snapshots. You can then [view details of your snapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui).
 
 ### Create a snapshot from the list of {{site.data.keyword.block_storage_is_short}} volumes
 {: #snapshots-vpc-create-from-volume-list}
@@ -56,31 +54,24 @@ Follow these steps to create a snapshot from the list of snapshots.
 Follow these steps to create a snapshot from the list of {{site.data.keyword.block_storage_is_short}} volumes. The volume must be attached to a virtual server instance.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**.
-
 2. From the list of volumes, locate a boot or data volume that is attached to an instance.
-
 3. Click the overflow menu (...) and select **Create snapshot**.
-
-4. On the snapshots list page, messages display while snapshot is being created. When ready, the snapshot displays first in the list of snapshots. You can then [view details of your snapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui).
+4. On the snapshots list page, messages are displayed while snapshot is being created. When it's ready, the snapshot is displayed first in the list of snapshots. You can then [view details of your snapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui).
 
 ### Create a snapshot from an attached {{site.data.keyword.block_storage_is_short}} volume
 {: #snapshots-vpc-create-from-vol-details}
 
-For a volume that's attached to an instance, you can create a snapshot from the volume details.
+For a volume that is attached to an instance, you can create a snapshot from the volume details.
 
 1. Go to the volume details page in either of these ways:
 
     * From the [instance details page](#view-vol-details-instance-ui), scroll to the list of attached volumes and click the link.
-    * From the [list of block storage volumes](/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui), select a volume attached to an instance.
+    * From the [list of block storage volumes](/vpc?topic=vpc-viewing-block-storage&interface=ui#viewvols-ui), select a volume that is attached to an instance.
 
 2. On the volume details page, select **Create snapshot** from the **Actions** menu.
-
 3. Provide a snapshot name and optionally, a resource group and user tags.
-
-4. Under **Volume**, click **Edit** to select a volume form the list that displays, then click **Save**. A summary displays in the side panel.
-
-5. Click **Create block storage snapshot**. A message indicates the snapshot is being created and you're returned to the volume details page.
-
+4. Under **Volume**, click **Edit** to select a volume form the list that is displayed, then click **Save**. A summary is shown in the side panel.
+5. Click **Create block storage snapshot**. A message indicates that the snapshot is being created and you're returned to the volume details page.
 6. To view the snapshot, click the **Backups and Snapshots** tab.
 
 ## Create a snapshot from the CLI
@@ -102,11 +93,10 @@ Gather the following information:
 | Instance INSTANCE_ID  | `ibmcloud is instance INSTANCE_ID` | View details of an instance to see attached boot and data volumes. |
 {: caption="Table 1. Details for creating snapshots" caption-side="bottom"}
 
-### Create a snapshot from the CLI
+### Prerequisites for creating a snapshot from the CLI
 {: #snapshots-vpc-create-procedure-cli}
 
 1. Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
-
 2. To use the CLI, set the `IBMCLOUD_IS_FEATURE_SNAPSHOT` environment variable to `true`. Copy the following code:
 
    ```zsh
@@ -115,58 +105,85 @@ Gather the following information:
    {: pre}
 
 3. After you install the vpc-infrastructure plug-in, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
-
 4. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli#create-a-vpc-cli).
 
-5. Run the `snapshot-create` command to create a snapshot.
+### Create a snapshot from the CLI
+{: #snapshot-create-cli}
+
+To create a snapshot, run the `snapshot-create` command.
 
 ```zsh
-ibmcloud is snapshot-create --volume VOLUME_ID [--name NAME] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--tags  TAG_NAME1,TAG_NAME2,...] [--output JSON] [-q, --quiet]
+ibmcloud is snapshot-create --volume VOLUME_ID [--name NAME] [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME] [--tags  TAG_NAME1,TAG_NAME2,...] [--clone-zones ZONE1,ZONE2] [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
-Example:
+The following example creates a snapshot with the name `cli-snapshot-2` of the boot volume `test-1`. The snapshot is tagged with `env:test` and `env:prod`, and clones fast restore snapshots in `us-south-1` and `us-south-3` zones.
 
-```zsh
-$ ibmcloud is snapshot-create --name demo-snapshot1 --volume c3f9ffa4-6609-4750-ad09-e8caea5d9e5c --tags env:test,env:prod
-Creating snapshot demo-snapshot-1 in resource group under account VPC 01 as user rtuser1@mycompany.com...
-
-ID                 b40ecbfa-296b-4592-b959-59459868d683
-Name               my-snapshot1
-CRN                crn:v1:public:is:us-south:a/23db6395-3466-4055-ada1-c072b6b749bf::
-                   snapshot:b40ecbfa-296b-4592-b959-59459868d683
-Status             pending
-Source Volume      ID                                          Name
-                   c3f9ffa4-6609-4750-ad09-e8caea5d9e5c        demo-volume1
-
-Progress           0
-Bootable           false
-Encryption         provider_managed
-Encryption key     -
-Minimum Capacity   100
-Size               1
-Source Image       ID                                          Name
-                   c348a188-bc70-4c08-afb7-cbcbde831be3        ibm-centos-7-6-minimal-amd64-2
-
-Resource group     ID                                          Name
-                   64e81667-75d8-4803-9935-fb0ee5895c04        Default
-
-Created            2022-12-09T16:18:56+08:00
-Tags               env:test,env:prod
+```sh
+$ ibmcloud is snapshot-create --volume test-1 --name cli-snapshot-2 --tags env:test,env:prod --clone-zones us-south-1,us-south-3
+Creating snapshot cli-snapshot-2 under account VPC 01 as rtuser1@mycompany.com...
+                          
+ID                     r134-e9c45a8f-3b6e-420f-8147-7dff7582e89f   
+Name                   cli-snapshot-2   
+CRN                    crn:v1:staging:public:is:us-south:a/efe5afc483594adaa8325e2b4d1290df::snapshot:r134-e9c45a8f-3b6e-420f-8147-7dff7582e89f   
+Status                 pending   
+Clones                 Zone         Available   Created      
+                       us-south-1   false       2022-11-04T12:18:21+05:30      
+                       us-south-3   false       2022-11-04T12:18:21+05:30      
+                          
+Source volume          ID                                          Name      
+                       r134-806aaab7-555f-45fd-87ed-b11848c74a55   test-1      
+                          
+Bootable               true   
+Encryption             provider_managed   
+Encryption key         -   
+Minimum capacity(GB)   100   
+Size(GB)               1   
+Source image           ID                                          Name      
+                       r134-2630c3c2-ed8a-4d82-89b2-facea89d49d3   ibm-centos-7-9-minimal-amd64-7      
+                          
+Operating system       Name             Vendor   Version                 Family   Architecture   Display name      
+                       centos-7-amd64   CentOS   7.x - Minimal Install   CentOS   amd64          CentOS 7.x - Minimal Install (amd64)      
+                          
+Resource group         ID                                 Name      
+                       11caaa983d9c4beb82690daab08717e9   Default      
+                          
+Created                2022-11-04T12:18:21+05:30   
+Captured at            0001-01-01T05:53:28+05:53   
+Tags                   env:test,env:prod
 ```
 {: screen}
+
+For more information about available command options, see [`ibmcloud is snapshot-create`](/docs/cli?topic=cli-vpc-reference#snapshot-create).
+
+### Create a fast restore snapshot clone
+{: #snapshots-vpc-create-frclone}
+{: cli}
+
+The following example creates a fast restore snapshot clone of the snapshot `r134-502aeb51-38f2-4905-bb50-b0786760d692` in the `us-south-3` zone.
+
+```sh
+ibmcloud is snapshot-clc r134-502aeb51-38f2-4905-bb50-b0786760d692  --zone us-south-3
+Creating zonal clone of snapshot r134-502aeb51-38f2-4905-bb50-b0786760d692 under account VPCUI-DEV as user Shyam.Venkat.R@ibm.com...
+               
+Zone        us-south-3   
+Available   false   
+Created     2022-11-04T12:23:01+05:30   
+Href        https://us-south-stage01.iaasdev.cloud.ibm.com/v1/regions/us-south/zones/us-south-3
+```
+{: screen}
+
+For more information about available command options, see [`ibmcloud is snapshot-create`](/docs/cli?topic=cli-vpc-reference#snapshot-create).
 
 ## Create a snapshot with the API
 {: #snapshots-vpc-create-api}
 {: api}
 
-You can create a snapshot by calling the [VPC API](/apidocs/vpc).
-
-Make a `POST/snapshots` request to create a snapshot of a boot or data volume. The following example creates a snapshot of a boot volume by using the volume ID, and specifies user tags that can be associated with a [backup policy](/docs/vpc?topic=vpc-backup-service-about).
+You can create a snapshot by calling the [VPC API](/apidocs/vpc). Make a `POST/snapshots` request to create a snapshot of a boot or data volume. The following example creates a snapshot of a boot volume by using the volume ID, and specifies user tags that can be associated with a [backup policy](/docs/vpc?topic=vpc-backup-service-about).
 
 ```curl
 curl -X POST \
-"$vpc_api_endpoint/v1/snapshots?version=2022-12-09&generation=2" \
+"$vpc_api_endpoint/v1/snapshots?version=2022-12-12&generation=2" \
 -H "Authorization: $iam_token" \
 -d '{
       "name": "boot-snapshot-1",
@@ -183,13 +200,15 @@ curl -X POST \
     }'
 ```
 {: codeblock}
+{: curl}
 
-A successful response looks like the following example. The snapshot lifecycle state is `pending` while the snapshot is created. When successfully created, the status changes to `stable`.
+A successful response looks like the following example. The snapshot lifecycle state is `pending` while the snapshot is created. When it is successfully created, the status changes to `stable`.
 
 ```json
 {
   "bootable": true,
-  "created_at": "2022-12-09T20:18:18Z",
+  "clones": [],
+  "created_at": "2022-12-12T20:18:18Z",
   "crn": "crn:[...]",
   "deletable": false,
   "encryption": "user_managed",
@@ -241,6 +260,74 @@ A successful response looks like the following example. The snapshot lifecycle s
     "env:prod"
   ]
 }
+```
+{: codeblock}
+
+## Create a snapshot and fast restore snapshot clone with the API
+{: #snapshots-vpc-create-snaphot-clone-api}
+{: api}
+
+When you create a snapshot, you can also create a fast restore snapshot clone in another zone. By cloning a snapshot and keeping it in another zone, you can later use the fast restore feature to quickly provision a new volume with data from a snapshot. For more information, see [Snapshots fast restore feature](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=ui#snapshots_vpc_fast_restore).
+
+Make a `POST/snapshots` request to create a snapshot of a boot or data volume and specify the `clones` property. Indicate a different zone or zones in your region from the zone in which you're creating the snapshot. In the following example, a clone is created in us-south-2, specified by name.
+
+```curl
+curl -X POST \
+"$vpc_api_endpoint/v1/snapshots?version=2022-12-18\&generation=2" \
+-H "Authorization: $iam_token" \
+-d '{
+    "clones": [
+      {
+        "zone": {
+            "name": "us-south-2"
+        }
+      }
+    ],
+    "name": "my-snapshot-1",
+    "source_volume": {
+        "id": "1a6b7274-678d-4dfb-8981-c71dd9d4daa5"
+    "resource_group": {
+        "id": "a342dbfb-3ea7-48d1-96e8-2825ec5feab4"
+    },
+      "user_tags": [
+         "env:test",
+         "env:prod"
+    ]
+  }'
+```
+{: codeblock}
+{: curl}
+
+A successful response indicates that the clone was created in the specified zone.
+
+```json
+{
+  "bootable": true,
+  "clones": [
+		{
+			"available": false,
+			"created_at": "2022-12-18T14:58:32Z",
+			"zone": {
+				"name": "us-south-2",
+				"href": "https:ibm.com/v1/regions/us-south/zones/us-south-1",
+				"resource_type": "zone"
+			}
+		}
+	],
+  "created_at": "2022-12-18T20:18:18Z",
+  "crn": "crn:[...]",
+  "deletable": false,
+  "encryption": "user_managed",
+  "encryption_key": {
+     "crn": "crn:[...]"
+  },
+  "href": "https://us-south.iaas.cloud.ibm.com/v1/snapshots/12917904-3771-424d-8391-53ec9e305d52",
+  "id": "12917904-3771-424d-8391-53ec9e305d52",
+  "lifecycle_state": "pending",
+  .
+  .
+  .
+}  
 ```
 {: codeblock}
 

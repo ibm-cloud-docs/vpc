@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-31"
+lastupdated: "2023-02-07"
 
-keywords:
+keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists,
 
 subcollection: vpc
 
@@ -76,7 +76,7 @@ You can view a list of backup jobs by specifying the ID or name of the backup po
 ### View a list of backup jobs from the CLI
 {: #backup-view-jobs-list-cli}
 
-Run the `backup-policy-jobs` command to view the backup jobs for your backup snapshots. Status indicates when backup snapshots are being created, failed completion, or succeeded completion. 
+Run the `backup-policy-jobs` command to view the backup jobs for your backup snapshots. Status indicates when backup snapshots are being created, failed completion, or succeeded completion.
 
 ```text
 ibmcloud is backup-policy-jobs POLICY [--volume VOLUME] [--snapshot SNAPSHOT] [--snapshot-crn SNAPSHOT_CRN] [--status failed | running | succeeded] [--plan PLAN] [--output JSON] [-q, --quiet]
@@ -94,6 +94,8 @@ d3b0d928-1a3a-4302-9b12-cc0a17bdd1d5   true          15                  2022-06
 2022-06-25T17:00:20+05:30   creation   succeeded
 ```
 {: screen}
+
+For more information about available command options, see [`ibmcloud is backup-policy-jobs`](/docs/vpc?topic=vpc-vpc-reference#backup-policy-jobs).
 
 ### View details of a backup job from the CLI
 {: #backup-view-jobs-details-cli}
@@ -132,6 +134,8 @@ Job type                creation
 Resource type           backup_policy_job
 ```
 {: screen}
+
+For more information about available command options, see [`ibmcloud is backup-policy-jobs`](/docs/vpc?topic=vpc-vpc-reference#backup-policy-jobs).
 
 ## View backup jobs with the API
 {: #backup-view-jobs-api}
