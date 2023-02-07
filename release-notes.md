@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-01-31"
+lastupdated: "2023-02-07"
 
 keywords:
 
@@ -26,6 +26,19 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API , see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
+
+## February 2023
+{: #vpc-feb23}
+
+### 7 February 2023
+{: #vpc-february0723}
+{: release-note}
+
+Block storage fast restore snapshots
+:    You can now restore a fully provisioned volume with all its data from a snapshot by using a fast restore snapshot clone. To create the clone, you specify a zone or zones in the same region as the source snapshot. The clone is used to automatically restore a volume with all of its data in the zone where the clone exists. Using this feature restores a volume more quickly than restoring from a regular snapshot. For more information, see [Restoring a volume using fast restore](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-use-fast-restore).
+
+Additional security for VPC snapshots (closed beta)
+:    For customers with special access to this security beta feature, data isolation is provided to store snapshots created from your dedicated hosts. With data isolation additional security, your data is encrypted at rest with a unique key and access to your data is protected by a private firewall.
 
 ## January 2023
 {: #vpc-jan23}
