@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-12-28"
+  years: 2019, 2023
+lastupdated: "2023-02-08"
 
 keywords:
 
@@ -46,14 +46,14 @@ You can attach only one block storage volume to a virtual server instance at a t
 ### Boot volumes
 {: #block-storage-vpc-boot-volumes}
 
-When you create an instance from a stock image, a 100 GB, 3,000 IOPS general-purpose boot volume is created and attached to the instance by default. When you create an instance from a custom image, you can specify a boot volume capacity 10 GB to 250 GB, depending what the image requires. This capacity can be any size between the minimum size supported for the selected image and the maximum supported image size. If the custom image is smaller than 10 GB, the boot volume capacity is rounded up to 10 GB. After the boot volume is created, you can expand the boot volume size to the maximum supported size, which is 250 GB.
+When you create an instance from a stock image, a 100 GB, 3,000 IOPS general-purpose boot volume is created and attached to the instance by default. When you create an instance from a custom image, you can specify a boot volume capacity 10 GB to 250 GB, depending what the image requires. This capacity can be any size between the minimum size that is supported for the selected image and the maximum supported image size. If the custom image is smaller than 10 GB, the boot volume capacity is rounded up to 10 GB. After the boot volume is created, you can expand the boot volume size to the maximum supported size, which is 250 GB.
 
-You cannot create an image from an encrypted boot volume (Image from a volume feature) that is not 100GB. The operation will be blocked.
+You cannot create an image from a boot volume that is encrypted with customer-managed keys and is not 100 GB. Such an operation is not supported.
 {: note}
 
 By default, boot volumes are encrypted by IBM-managed encryption. Optionally, you can use your own root keys (CRKs) by choosing customer-managed encryption during instance creation (see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption)).
 
-By default, boot volumes are deleted when you delete an instance. You can toggle this setting on or off in the instance details. A boot volume can only be unattached by deleting the instance it is attached to. A boot volume cannot be detached from an instance while the instance exists. See [Viewing instance details](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#viewing-virtual-server-instances-ui) for more information.
+By default, boot volumes are deleted when you delete an instance. You can toggle this setting on or off in the instance details. A boot volume can be unattached only by deleting the instance that it is attached to. A boot volume cannot be detached from an instance while the instance exists. For more information, see [Viewing instance details](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#viewing-virtual-server-instances-ui).
 
 ### Data volumes
 {: #secondary-data-volumes}
@@ -70,14 +70,14 @@ Block storage data volumes can be attached to any available instance in your reg
 
 Detached volumes can be attached to an available, running instance without reprovisioning the volume or the instance.
 
-When you create and attach a data volume to a virtual server instance, you can later increase the size of that volume. You indicate capacity in GB increments up to 16,000 GB capacity, depending on your volume profile. For more information, see [Expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
+When you create and attach a data volume to a virtual server instance, you can later increase the size of that volume. You indicate capacity in GB increments up to 16,000 GB capacity, depending on your volume profile. For more information, see [expanding block storage volume capacity](/docs/vpc?topic=vpc-expanding-block-storage-volumes).
 
 Data volumes are encrypted by default with IBM-managed encryption. You can also encrypt data volumes by using your own root keys.
 
 ## Block Storage encryption
 {: #vpc-storage-encryption}
 
-{{site.data.keyword.cloud_notm}} takes the need for security seriously and understands the importance of being able to encrypt data to keep it safe. When you create a stand-alone data volume or create a data volume as part of instance creation, you can choose to protect your data by using your own root keys, or use the default IBM-managed encryption. Boot volumes created when you provision an instance are encrypted with IBM-managed encryption. You can also edit the boot volume to use your root keys. After you set up encryption for a boot or data volume, you can't change it.
+{{site.data.keyword.cloud_notm}} takes the need for security seriously and understands the importance of being able to encrypt data to keep it safe. When you create a data volume, you can choose to protect your data by using your own root keys, or use the default IBM-managed encryption. Boot volumes created when you provision an instance are encrypted with IBM-managed encryption. You can also edit the boot volume to use your root keys. After you set up encryption for a boot or data volume, you can't change it.
 
 For more information about data encryption, see [About data encryption for VPC](/docs/vpc?topic=vpc-vpc-encryption-about).
 
@@ -106,12 +106,12 @@ For more information about managing tags for your account, see [Working with tag
 ## Cancelling your block storage
 {: #vpc-cancel-storage}
 
-If you no longer need a volume, you can cancel it at any time. IBM [wipes all data](/docs/vpc?topic=vpc-managing-block-storage#block-storage-data-eradication) before the storage is reused. If you have extra compliance requirements such as NIST 800-88 Guidelines for Media Sanitization, you must perform data sanitation procedures before you delete your volumes. For more information, see [Sanitizing your data before deleting a volume](/docs/vpc?topic=vpc-managing-block-storage#block-storage-sanitization).
+If you no longer need a volume, you can cancel it at any time. IBM [wipes all data](/docs/vpc?topic=vpc-managing-block-storage#block-storage-data-eradication) before the storage is reused. If you have extra compliance requirements such as NIST 800-88 Guidelines for Media Sanitization, you must perform data sanitation procedures before you delete your volumes. For more information, see [Sanitize your data before you delete a volume](/docs/vpc?topic=vpc-managing-block-storage#block-storage-sanitization).
 
 ## Next Steps
 {: #block-storage-about-next-steps}
 
-Start creating {{site.data.keyword.block_storage_is_short}} volumes.
+Create your {{site.data.keyword.block_storage_is_short}} volumes.
 
 * For more information about creating a volume during instance provisioning, see [Create and attach a block storage volume when you create an instance](/docs/vpc?topic=vpc-creating-block-storage#create-from-vsi).
 * For more information about creating a block storage encrypted by your own encryption keys, see [Creating block storage volumes with customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
@@ -121,5 +121,5 @@ Start creating {{site.data.keyword.block_storage_is_short}} volumes.
 
 For more information about creating and managing instances in the VPC, see [About virtual server instances for VPC](/docs/vpc?topic=vpc-about-advanced-virtual-servers).
 
-{{site.data.keyword.block_storage_is_short}} provides features unique to the VPC and is not compatible with the classic infrastructure storage. If you're interested in {{site.data.keyword.blockstoragefull}} on the classic infrastructure, see [{{site.data.keyword.blockstoragefull}}](/docs/BlockStorage?topic=BlockStorage-getting-started).
+{{site.data.keyword.block_storage_is_short}} provides features that are unique to the VPC and not compatible with the classic infrastructure storage. If you're interested in {{site.data.keyword.blockstoragefull}} on the classic infrastructure, see [{{site.data.keyword.blockstoragefull}}](/docs/BlockStorage?topic=BlockStorage-getting-started).
 {: note}
