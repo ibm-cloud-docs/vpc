@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-02-08"
+  years: 2021, 2023
+lastupdated: "2023-02-08"
 
-keywords: block storage, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, iops
+keywords: block storage for VPC, boot volume, data volume, volume, data storage, virtual server instance, instance, adjustable volume, iops
 
 subcollection: vpc
 
@@ -12,10 +12,10 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Adjusting block storage volume IOPS
+# Adjusting {{site.data.keyword.block_storage_is_short}} volume IOPS
 {: #adjusting-volume-iops}
 
-For {{site.data.keyword.block_storage_is_short}} volumes attached to a virtual server instance, you can increase or decrease IOPS to meet your performance needs. Adjust IOPs by specifying a different IOPS tier profile or different IOPS value withing a custom IOPS band. There's no outage or lack of access to the storage while adjusting IOPS.
+For {{site.data.keyword.block_storage_is_full}} volumes that are attached to a virtual server instance, you can increase or decrease IOPS to meet your performance needs. Adjust IOPs by specifying a different IOPS tier profile or different IOPS value withing a custom IOPS band. The IOPS adjustment causes no outage or lack of access to the storage.
 {: shortdesc}
 
 Billing for an updated volume is automatically updated. The prorated difference of the new price is added to the current billing cycle. The new full amount is then billed in the next billing cycle.
@@ -23,13 +23,13 @@ Billing for an updated volume is automatically updated. The prorated difference 
 ## Adjustable IOPS concepts
 {: #adjustable-iops-concepts}
 
-You can adjust IOPS for your block storage data volumes attached to a running virtual server instance to tailor performance to meet your requirements.
+You can adjust IOPS for your {{site.data.keyword.block_storage_is_short}} data volumes that are attached to a running virtual server instance to tailor performance to meet your requirements.
 
-For example, you might find that an application has scaled such that a lower-tier storage profile is now a performance bottleneck. Instead of ordering a new volume and migrating your data, you can change the performance characteristics of the existing volume by increasing IOPS in the next performance tier.
+For example, you might find that an application scaled such that a lower-tier storage profile is now a performance bottleneck. Instead of ordering a new volume and migrating your data, you can change the performance characteristics of the existing volume by increasing IOPS in the next performance tier.
 
 In another scenario, you might want to initially set your storage at a higher 10 IOPS/GB performance level to expedite a data upload. After the upload completes, you can reset storage to a lower 5 IOPS/GB for normal operations. Alternatively, you might want to increase your volume's IOPS during peak times for your application and decrease IOPS during off-peak hours.
 
-Using this feature, you can:
+With this feature, you can:
 
 * Adjust IOPS up or down by selecting a different [IOPS tier](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#tiers).
 * Adjust IOPS within a [custom IOPS](/docs/vpc?topic=vpc-block-storage-profiles&interface=api#custom) band.
@@ -39,7 +39,7 @@ The degree to which IOPS can be increased is determined by the maximum that is a
 
 If you use a [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom), you can increase IOPS by specifying the next IOPS custom band. For example, for a volume 10 - 39 GB, you can increase custom IOPS to 1,000 IOPS by specifying a custom IOPS value. The IOPS range within a custom band is based on the volume size. If you later [increase the size of a volume](/docs/vpc?topic=vpc-expanding-block-storage-volumes), you can increase the IOPS again.
 
-To adjust a volume's IOPS, the volume must be in an _available_ state and the instance must be running. Your user authorization is verified before adjusting IOPS.
+To adjust a volume's IOPS, the volume must be in an _available_ state and the instance must be running. Your user authorization is verified before IOPS is adjusted.
 
 You can use the [UI](#adjust-vpc-iops-ui-block), [CLI](#adjust-vpc-iops-cli-block), or [API](#adjust-vpc-iops-api-block) to adjust IOPS. You can adjust the volume's IOPS multiple times up to its maximum limit or reduce IOPS to its lower limit.
 
@@ -54,22 +54,22 @@ The following limitations apply to this release.
 {: #exp-iops-general-limitations}
 
 * Primary boot volume IOPS cannot be adjusted.
-* To adjust IOPS, the volume must be attached to a running virtual server instance.
-* The volume must be in an _available_ state with the instance powered on and in a _running_ state.
+* To adjust IOPS, the volume must be attached to a virtual server instance that is powered on and _running_.
+* To adjust IOPS, the volume must be in an _available_ state.
 
 ### Volume and IOPS limitations
 {: #exp-vol-IOPS-limitations}
 
-* For a volume created by using an [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers), to increase or decrease IOPS, select a different profile for the volume size. If the volume size exceeds that of the new IOPS tier profile, you can't change the profile.
-* A [custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom) can expand to the highest allowed by the custom band. You can't switch custom bands unless you increase volume size and move to a higher band.
+* For a volume that was created by using an [IOPS tier profile](/docs/vpc?topic=vpc-block-storage-profiles#tiers), select a different profile for the volume size to increase or decrease IOPS. If the volume size exceeds that of the new IOPS tier profile, you can't change the profile.
+* A [custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles#custom) can expand to the highest value that is allowed by the custom band. You can't switch custom bands unless you increase volume size and move to a higher band.
 * Custom IOPS can be adjusted multiple times until the maximum or minimum limit is reached.
 * Maximum IOPS for a volume for all profiles is [48,000 IOPs](/docs/vpc?topic=vpc-block-storage-profiles#tiers).
 
-### Additional limitations
+### Other limitations
 {: #exp-vols-additional-limitations}
 
-* When a volume is in transition (for example, the volume is detached while IOPS adjustment is in progress), the volume remains in an _updating_ state until you reattach it to an instance. The IOPS expansion then resumes and completes.
-* When you delete an instance, volumes that are marked for auto-deletion are not deleted when IOPS adjustment is underway.
+* When a volume is in transition, the volume remains in an _updating_ state until you reattach it to a running instance. For example, if the volume is detached while IOPS adjustment is in progress, the IOPS expansion resumes and completes only after the volume is reattached.
+* When you delete an instance, volumes that are marked for auto-deletion are not deleted while the IOPS adjustment is underway.
 
 ## Adjust IOPS in the UI
 {: #adjust-vpc-iops-ui-block}
@@ -77,21 +77,20 @@ The following limitations apply to this release.
 
 Follow these steps to adjust IOPS by selecting a new IOPS tier or custom IOPS band:
 
-1. Navigate to the list of block storage volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage volumes**. By default, block storage volumes display for all resource groups in your region.
-2. In the list of all **Block storage for VPC volumes**, click the name of the volume to see the volume details.
+1. Go to the list of {{site.data.keyword.block_storage_is_short}} volumes. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block Storage volumes**. By default, {{site.data.keyword.block_storage_is_short}} volumes display for all resource groups in your region.
+2. In the list of all **{{site.data.keyword.block_storage_is_short}} volumes**, click the name of the volume to see the volume details.
    The volume that you select must be attached to a virtual server instance. In the list of volumes, its attachment type is _data_.
    {: note}
 
 3. Alternatively, go to a virtual server instance with an attached volume that you want to adjust IOPS and select it from the list of attached volumes.
 4. On the volume details page, locate **Profile** and click the pencil icon or use the **Actions** menu and select **Edit IOPS profile**. Volumes must be attached to a virtual server instance for these actions.
 5. In the side panel, adjust IOPS as follows:
-   * For an IOPS tier, select a different tier from the drop-down menu. For example, you might have a 3 IOPS/GB general purpose profile you're increasing to a 5 IOPS/GB profile.
+   * For an IOPS tier, select a different tier from the menu. For example, you might have a 3 IOPS/GB general-purpose profile you're increasing to a 5 IOPS/GB profile.
    * For a Custom IOPS, the current IOPS value is shown and volume size. Enter a new IOPS value in the range specified for that custom band.
 6. Review the estimated monthly order summary for your geography and new pricing.
 7. If you're satisfied, click **Save and continue**.
 
 Your new IOPS allocation is realized when you restart the instance.
-
 
 ## Adjust IOPS from the CLI
 {: #adjust-vpc-iops-cli-block}
@@ -100,14 +99,14 @@ Your new IOPS allocation is realized when you restart the instance.
 ### Adjust IOPS for a Custom profile
 {: #adjust-iops-cli-block}
 
-From the CLI, use the `volume-update` command with the `--iops` parameter to indicate the new IOPS size for a custom profile. The IOPS you indicate must be within the range for the size of the volume (see [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#custom)).
+From the CLI, use the `volume-update` command with the `--iops` parameter to indicate the new IOPS size for a custom profile. The IOPS that you choose must be within the range for the size of the volume. For more information, see [Custom IOPS profile](/docs/vpc?topic=vpc-block-storage-profiles&interface=ui#custom).
 
 ```sh
 ibmcloud is volume-update VOLUME_ID --iops IOPS
 ```
 {: pre}
 
-This example shows an increase of IOPS from 100 IOPS to 3,000 IOPS for a 100 GB volume based on a 100 - 499 custom profile. (The IOPS range for this custom band is 100 - 6,000 IOPS.)
+This example shows an increase of IOPS from 100 IOPS to 3,000 IOPS for a 100 GB volume based on a 100 - 499 custom profile. The IOPS range for this custom band is 100 - 6,000 IOPS.
 
 ```bash
 $ ibmcloud is volume-update 933c8781-f7f5-4a8f-8a2d-3bfc711788ee --iops 3000
@@ -170,9 +169,9 @@ curl -X PATCH \
 ```
 {: codeblock}
 
-The volume status shows `updating` while the IOPS is being adjusted. The current IOPS is shown until you restart the instance. In this example, IOPS is adjusted from 100 to 3000 for the 3 IOPS/GB profile.
+The volume status shows `updating` while the IOPS is being adjusted. The current IOPS is shown until you restart the instance. In this example, IOPS is increased from 100 to 3000 for the 3 IOPS/GB profile.
 
-```sh
+```json
 {
 	"iops": 100,
 	"created_at": "2022-01-11T09:46:43.000Z",
@@ -190,7 +189,7 @@ The volume status shows `updating` while the IOPS is being adjusted. The current
 
 When the IOPS expansion completes, restart the instance. The new value displays, and the volume status is `available`.
 
-```sh
+```json
 {
 	"capacity": 250,
 	"created_at": "2022-01-11T09:46:43.000Z",
@@ -254,7 +253,7 @@ curl -X PATCH \
 ## Next steps
 {: #next-step-adjustable-iops-block}
 
-Create more volumes or manage your existing block storage volumes:
+Create more volumes or manage your existing {{site.data.keyword.block_storage_is_short}} volumes:
 
-* [Creating block storage volumes by using the UI](/docs/vpc?topic=vpc-creating-block-storage)
-* [Managing block storage volumes by using the UI](/docs/vpc?topic=vpc-managing-block-storage)
+* [Creating {{site.data.keyword.block_storage_is_short}} volumes in the UI](/docs/vpc?topic=vpc-creating-block-storage)
+* [Managing {{site.data.keyword.block_storage_is_short}} volumes in the UI](/docs/vpc?topic=vpc-managing-block-storage)
