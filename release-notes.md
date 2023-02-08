@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-02-07"
+lastupdated: "2023-02-08"
 
 keywords:
 
@@ -39,6 +39,16 @@ Block storage fast restore snapshots
 
 Additional security for VPC snapshots (closed beta)
 :    For customers with special access to this security beta feature, data isolation is provided to store snapshots created from your dedicated hosts. With data isolation additional security, your data is encrypted at rest with a unique key and access to your data is protected by a private firewall.
+
+### 3 February 2023
+{: #vpc-february0323}
+{: release-note}
+
+Images for VPC UI Updates
+:    Previously, the path to custom images was **VPC Infrastructure > Compute > Custom Images**. The new path is **VPC Infrastructure > Compute > Images**. The new page is **Images for VPC** and there is now a tab for each type of image:
+    - Custom images
+    - Stock images
+    - Catalog images
 
 ## January 2023
 {: #vpc-jan23}
