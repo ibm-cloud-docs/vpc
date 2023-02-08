@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-10-28"
+  years: 2019, 2023
+lastupdated: "2023-02-08"
 
 keywords:
 
@@ -39,7 +39,7 @@ Bandwidth that is available to the VSI is split between attached block storage v
 
 The allocation of the instance's total bandwidth can be adjusted, balancing between network bandwidth and volume bandwidth. If you do not specify the initial volume and network bandwidth allocation, then 25% of total instance bandwidth is allocated to volume bandwidth and 75% is allocated to network bandwidth.
 
-The maximum volume bandwidth is the highest potential bandwidth that can be allocated to the volume when it is attached to an instance. In cases where the total maximum bandwidth of attached volumes exceeds the amount that is available on the instance, the bandwidth for each volume attachment is set proportionally, based on the corresponding volume's maximum bandwidth.
+The maximum volume bandwidth is the highest potential bandwidth that can be allocated to the volume when it is attached to an instance. In cases where the total maximum bandwidth of attached volumes exceeds the amount that is available on the instance, the bandwidth for each volume attachment is set proportionally. The bandwidth is allocated based on the corresponding volume's maximum bandwidth.
 
 The volume bandwidth available to the instance is apportioned on a per-volume basis. The bandwidth is assigned per volume, not shared between volumes.
 {: note}
@@ -51,11 +51,11 @@ For more information, see [Bandwidth allocation for instance profiles](/docs/vpc
 
 IOPS value is based on a 16 KB block size (for all the tiers) with a 50-50 read/write random workload. Each 16 KB of data read/written counts as one read/write operation; a single write of less than 16 KB counts as a single write operation.
 
-Baseline throughput is determined by the number of IOPS multiplied by the 16-KB throughput multiplier (for 3 IOPS/GB or 5 IOPS/GB tiers) or 256-KB throughput multiplier (for 10 IOPS/GB or custom IOPS tiers). The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
+Baseline throughput is determined by the number of IOPS multiplied by the throughput multiplier. The throughput multiplier is 16 KB for 3 IOPS/GB or 5 IOPS/GB tiers, or 256 KB for 10 IOPS/GB or custom IOPS tiers. The higher the IOPS that you specify, the higher the throughput. Maximum throughput is 1024 MBps.
 
 The application I/O size directly impacts storage performance. If the application I/O size is smaller than the throughput multiplier that is used by the profile to calculate the volume’s bandwidth limit, the IOPS limit is reached before the throughput limit. Conversely, if the application I/O size is larger, the throughput limit is reached before the IOPS limit.
 
-The following table provides some examples of how application I/O size and provisioned IOPS affect the throughput, calculated as average application I/O size x IOPS = Throughput in MBps.
+The following table provides some examples of how application I/O size and provisioned IOPS affect the throughput, which is calculated as average application I/O size x IOPS = Throughput in MBps.
 
 | Average I/O Size (KB) | IOPS | Throughput (MBps) |
 |-----------------|------|-------------------|
@@ -67,7 +67,7 @@ The following table provides some examples of how application I/O size and provi
 | 128 | 128 | 16 |
 {: caption="Table 1. Examples of how application I/O size and IOPS affect the throughput" caption-side="top"}
 
-&sup1;If your cap is 1000 IOPS or 16K average I/O size, the throughput caps at whatever limit is reached first.
+&sup1;If your cap is 1000 IOPS or 16 K average I/O size, the throughput caps at whatever limit is reached first.
 
 Maximum IOPS can still be obtained when you use smaller I/O sizes, but throughput is less. The following example shows how throughput decreases for smaller average I/O sizes, when max IOPS is maintained.
 
