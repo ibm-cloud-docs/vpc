@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-10-18"
+  years: 2018, 2023
+lastupdated: "2023-02-09"
 
 keywords: VPC, virtual private cloud
 
@@ -195,4 +195,5 @@ The following table displays current VPC service limits. Unlike quotas, these li
 | Secondary volumes per instance | Up to 12 secondary volumes |
 | Instance groups for auto scale and more | 200 per account|
 | Instance group memberships  | 1000 per instance group|
+| Image export jobs | 5 active jobs per image, 10 total per image, 20 active jobs per account, per region|
 {: caption="Table 13. Limits for VPC resources" caption-side="bottom"}
