@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2019, 2022
+  years: 2019, 2023
 
-lastupdated: "2022-09-27"
+lastupdated: "2023-02-09"
 
 keywords:
 
@@ -415,6 +415,13 @@ The following table lists the actions that are related to image resources and th
 | image  | is.image.image.create   | Image was created |
 | image  | is.image.image.delete   | Image was deleted |
 | image  | is.image.image.update   | Image was updated |
+| image  | is.image.image.read     | Image was retrieved |
+| image  | is.image.image.export   | Image was exported |
+| image  | is.image.image-export-job.create   | Image export job was created |
+| image  | is.image.image-export-job.delete   | Image export job was deleted |
+| image  | is.image.image-export-job.update   | Image export job was updated |
+| image  | is.image.image-export-job.read     | Image export job was retrieved |
+| image  | is.image.image-export-job.list     | Image export jobs were listed |
 {: caption="Table 20. Actions that generate events for image resources" caption-side="bottom"}
 
 For the image update event, if you are rotating the root key for an image, the CRN for the old key and new key remains the same. The ID for the new key that is rotated in is indicated in the `kmsKeyRefID` field of the image.
