@@ -7,17 +7,7 @@ lastupdated: "2023-02-09"
 subcollection: vpc
 
 ---
-
-{:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:note: .note}
-{:important: .important}
-{:tip: .tip}
-{:new_window: target="_blank"}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:external: target="_blank" .external}
+{{site.data.keyword.attribute-definition-list}}
 
 
 # x86 virtual server images
