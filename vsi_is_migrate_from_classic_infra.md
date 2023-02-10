@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-01-30"
+lastupdated: "2023-02-10"
 
 keywords: migrate virtual server from classic infrastructure, migrate to vpc, migrate image template, image template, import image to vpc infrastructure, migrate virtual server, migrate instance
 
@@ -112,11 +112,11 @@ To export the new image template that you created from the modified virtual serv
 ### Step 6 - Import the custom image to the {{site.data.keyword.vpc_short}} infrastructure
 {: #migrate-import-image}
 
-1. In {{site.data.keyword.cloud_notm}} console, go to **menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Custom Images**.
-2. Click **Import Custom Image**. For more information, see [Importing a custom image](/docs/vpc?topic=vpc-managing-images#import-custom-image).
+1. In {{site.data.keyword.cloud_notm}} console, go to **menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Images**.
+2. On the **Custom images** tab, click **Import Custom Image**. For more information, see [Importing a custom image](/docs/vpc?topic=vpc-managing-images#import-custom-image).
 
 ### Step 7 - Use the custom image to create a virtual server instance in {{site.data.keyword.vpc_short}}
 {: #migrate-create-virtual-server}
 
-1. When the image that you imported is available on the **Custom Images for VPC** page, you can use it to create a virtual server instance in the {{site.data.keyword.vpc_short}} infrastructure.
-2. On the **Custom Images for VPC** page, identify the name of the custom image that you imported, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) and select **New virtual server**.
+1. When the image that you imported is available on the **Custom images** tab of the **Images for VPC** page, you can use it to create a virtual server instance in the {{site.data.keyword.vpc_short}} infrastructure.
+2. On the **Custom images** tab, identify the name of the custom image that you imported, click the Actions icon ![More Actions icon](../icons/action-menu-icon.svg) and select **New virtual server**.

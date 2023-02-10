@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-10-19"
+  years: 2021, 2023
+lastupdated: "2023-02-10"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
 
@@ -44,9 +44,9 @@ Use the UI to create an image from a volume that is attached to an available vir
 
 Use the UI to import your custom image by choosing to create and import an image from a volume.
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Custom Images**.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Images**.
 
-2. Click **Create**. The Import custom image page is displayed.
+2. On the **Custom images** tab, click **Create**. The Import custom image page is displayed.
 
 3. Complete the required fields on the Import custom images page (see Table 1), and then continue with one of the **Source** options.
 
@@ -122,9 +122,9 @@ For more information, see [Setting up your key management service and keys](/doc
 
 When the image from a volume is created, it appears in the list of custom images.
 
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Custom Images**.
+1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Images**.
 
-2. To see the volume from which it was created, click the image name. The image details panel links to the source volume.
+2. On the **Custom images** tab, click the image name to see the volume from which it was created. The image details panel links to the source volume.
 
 To use this image when you create a new instance, select it as operating system type when you create an instanceL
 

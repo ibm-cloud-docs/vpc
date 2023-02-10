@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-05-27"
+  years: 2021, 2023
+lastupdated: "2021-02-10"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
 
@@ -28,9 +28,9 @@ Images from volumes have their own lifecycle that you can manage.
 
 Delete an image from a volume from the list of custom images. You can delete images in the [process of being created](#ifv-delete-queued) (_pending_ state) and available images.
 
-1. Go to the list of custom images. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Custom Images**.
+1. Go to the list of custom images. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Images**.
 
-2. Locate the image that you want to delete. From the overflow menu (ellipsis), select **Delete**.
+2. On the **Custom images** tab, locate the image that you want to delete. From the overflow menu (ellipsis), select **Delete**.
 
 
 ## Deleting an image from volume by using the CLI
