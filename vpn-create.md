@@ -105,7 +105,7 @@ Where:
 - **-q, --quiet** - Suppress verbose output.
 
 ### Command examples
-{: #command-examples-vpn-gateway-create}
+{: #cli-command-examples-vpn-gateway-create}
 
 - Create a route-based VPN gateway with a specific subnet ID:
    `ibmcloud is vpn-gateway-create my-vpc-gateway fee82deba12e4c0fb69c3b09d1f12345 --mode route`
