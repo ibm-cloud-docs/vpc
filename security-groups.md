@@ -33,7 +33,7 @@ When you create a resource that uses a security group and don't specify a securi
 Updating the rules fo the _default_ security group is a separate process from updating the default security group policy. If you edit the rules of the default security group, those edited rules then apply to all current and future servers in the group. For more information, see [Updating default security group rules](/docs/vpc?topic=vpc-updating-the-default-security-group#updating-the-default-security-group).
 
 ## Security group targets
-{: #security-group-targets}
+{: #about-security-group-targets}
 
 A target is any resource you attach or detach a security group to or from. Security group targets include virtual server instance network interfaces, endpoint gateways, and load balancers.
 
@@ -57,7 +57,7 @@ Because NACLs are not _stateful_, if you want to permit traffic both ways on a t
 ![Security groups across instances and zones](/images/security-groups-across-zones.svg){: caption="Figure 1: Security groups across instances and zones" caption-side="bottom"}
 
 ## Defining security group rules
-{: #security-group-rules}
+{: #defining-security-group-rules}
 
 Every security group consists of a set of rules. The security group examines all of its rules before allowing any traffic to enter or leave the instance. The rules that are used to control the inbound traffic are independent of the rules that are used to control the outbound traffic. 
 
