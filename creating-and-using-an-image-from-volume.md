@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-01-23"
+lastupdated: "2023-02-10"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance, instances, virtual servers, creating virtual servers, virtual server instances, virtual machines, Virtual Servers for VPC, compute, vsi, vpc, creating, UI, console
 
@@ -64,8 +64,8 @@ You can use the UI to create an image from a volume that is attached to an avail
 
 Complete the following actions to import your custom image in the UI.
 
-1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Custom Images**.
-2. Click **Create**. The Import custom image page is displayed.
+1. In [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Images**.
+2. On the **Custom images** tab, click **Create**. The Import custom image page is displayed.
 3. Complete the following required fields on the Import custom images page.
 
 | Field | Value |
