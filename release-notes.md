@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-02-10"
+lastupdated: "2023-02-13"
 
 keywords:
 
@@ -30,8 +30,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## February 2023
 {: #vpc-feb23}
 
-### 15 February 2023
-{: #vpc-february1523}
+### 14 February 2023
+{: #vpc-february1423}
 {: release-note}
 
 Hyper Protect Secure Build
