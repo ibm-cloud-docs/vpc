@@ -87,6 +87,7 @@ toc:
                - certificate_validate.md
                - hpvs-logging.md
                - hpvs-disks-encryption-validate.md
+               - about-hp-securebuild.md
            - host-failure-recovery.md
        - topicgroup:
            label: Storage

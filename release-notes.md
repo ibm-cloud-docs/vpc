@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-02-09"
+lastupdated: "2023-02-13"
 
 keywords:
 
@@ -29,6 +29,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## February 2023
 {: #vpc-feb23}
+
+### 14 February 2023
+{: #vpc-february1423}
+{: release-note}
+
+Hyper Protect Secure Build
+:    You can now use [Hyper Protect Secure Build](/docs/vpc?topic=vpc-about-hpsb) to securely build an Open Container Initiative (OCI) image in [Hyper Protect Virtual Servers for VPC](/docs/vpc?topic=vpc-about-se). You can push the image to DockerHub or IBM Cloud Container Registry (ICR), later you can pull the image from the registry to provision it in another {{site.data.keyword.hpvs}} for VPC instance. You can also pull SLES BaseContainerImages (BCI) from the SUSE registry, and use the images to provision {{site.data.keyword.hpvs}} for VPC instances.
 
 ### 9 February 2023
 {: #vpc-february0923}
@@ -84,7 +91,7 @@ Using {{site.data.keyword.hpvs}} for VPC in a private network
 {: #vpc-jan2723}
 {: release-note}
 
-Context-based restrictions 
+Context-based restrictions
 :   Context-based restrictions are now generally available for IBM Cloud VPC resources. With context-based restrictions, account owners and administrators can define and enforce network access policies. For more information, see [Protecting Virtual Private Cloud (VPC) Infrastructure Services with context-based restrictions](/docs/vpc?topic=vpc-cbr).
 
 ### 18 January 2023
@@ -98,7 +105,7 @@ New region (Tokyo) for LinuxONE Bare Metal Servers (s390x processor architecture
 {: #vpc-jan1723}
 {: release-note}
 
-Application Load Balancer and VPN for VPC 
+Application Load Balancer and VPN for VPC
 :    As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they are no longer valid. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager).
 
 End of support (EOS) for deprecated VPN for VPC IKE and IPsec ciphers
