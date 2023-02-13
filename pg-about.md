@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2022
-lastupdated: "2022-08-15"
+  years: 2022, 2023
+lastupdated: "2023-02-13"
 
 keywords: 
 
@@ -12,7 +12,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # About public gateways
-{: #public-gateways}
+{: #about-public-gateways}
 
 A public gateway enables a subnet and all its attached virtual server instances to connect to the internet. By default, subnets do not have access to the public internet. After a subnet is attached to a public gateway, all instances in that subnet can connect to the internet. 
 {: shortdesc}
