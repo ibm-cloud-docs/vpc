@@ -32,6 +32,104 @@ For more information about these API calls and examples, see the [Metadata servi
 Windows users have extra requirements to access and use the metadata service. For more information, see [Setting up windows servers for using the metadata service](/docs/vpc?topic=vpc-imd-windows-configuration).
 {: note}
 
+
+## Accessing the metadata service by using the instance identity access token service
+{: #imd-get-token}
+
+To access the instance metadata service, you must first obtain an instance identity access token. You can later generate IAM tokens from the instance identity access token and then use them to access IAM-enabled services.
+
+Windows users have extra requirements to set up the metadata service. For more information, see [Setting up Windows servers for using the metadata service](/docs/vpc?topic=vpc-imd-windows-configuration).
+{: note}
+
+### Instance identity access token concepts
+{: #imd-token-concepts}
+
+An instance identity access token provides a security credential for accessing the metadata service. It's a signed token with a set of claims based on information about the instance and information that is passed in the token request.
+
+To access the instance identity, make a `PUT "http://api.metadata.cloud.ibm.com/instance_identity/v1/token` call by using the [Metadata service API](/apidocs/vpc-metadata#create-access-token) that invokes the instance host name. Communication between the instance and metadata service never leaves the host, you acquire the token from within the instance. If secure access to the instance metadata service is enabled on your instance use, the "https" protocol instead of the "http" protocol.
+
+In the request, you specify an expiration time for the token. The default is 5 minutes, but you can specify that it expires sooner or later (5 seconds to 1 hour).
+
+The response (a JSON payload) contains the instance identity access token. Use this token to access the metadata service.
+
+You can also generate an IAM token from this token and use the RIAS API to call IAM-enabled services. For more information, see [Generate an IAM token from an instance identity access token](#imd-token-exchange).
+
+### Acquire an instance identity access token
+{: #imd-json-token}
+
+Using the Metadata service API, make `PUT "http://api.metadata.cloud.ibm.com/instance_identity/v1/token` call to get an instance identity access token. The following example uses `jq` to parse the JSON API response and then extract the instance identity access token value. You can use your preferred JSON parser.
+
+In the example, the return value of the cURL command is the instance identity access token, which is extracted by `jq` and placed in the `instance_identity_token` environment variable. You use specify this variable in a `GET` call to the metadata service to reach the metadata endpoint. For more information, see [Retrieve metadata from your running instances](/docs/vpc?topic=vpc-imd-get-metadata&interface=api#imd-retrieve-instance-data).
+
+The example uses `jq` as a parser, a third-party tool licensed under the [MIT license](https://stedolan.github.io/jq/download/). `jq` might not come preinstalled on all VPC images available when you create an instance. You might need to install `jq` before use or use any parser of your choice.
+{: note}
+
+```json
+instance_identity_token=`curl -X PUT "http://api.metadata.cloud.ibm.com/instance_identity/v1/token?version=2022-08-08"\
+  -H "Metadata-Flavor: ibm"\
+  -d '{
+        "expires_in": 3600
+      }' | jq -r '(.access_token)'`
+```
+{: pre}
+
+The following JSON response shows the instance identity access token character string, date, and time that it was created, date, and time that it expires, and expiration time you set. Keep in mind that the token expires in 5 minutes.
+
+```json
+{
+  "access_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IlZTSS1DUl91cy1lYXN0X2I5...",
+  "created_at": "2022-08-08T11:08:39.363Z",
+  "expires_at": "2022-08-08T11:13:39.363Z",
+  "expires_in": 3600
+}
+```
+{: codeblock}
+
+
+## Generate an IAM token from an instance identity access token
+{: #imd-token-exchange}
+{: api}
+
+To access IBM Cloud IAM-enabled services in the account, you can generate an IAM token from the instance identity access token by using trusted profile information. After you generate the IAM token, you can use it to access IAM-enabled services, such as {{site.data.keyword.cos_full_notm}}, Cloud Database Service, and the VPC APIs. You can reuse the token multiple times.
+
+Make a `POST /instance_identity/v1/iam_token` call and specify the ID of the trusted profile. This request uses the instance identity access token and a trusted profile that is linked to a virtual server instance to generate an IAM access token. The trusted profile can be linked either when you create the instance or provided in the request body.
+
+The IAM API used to pass the instance identity access token and generate an IAM token is being deprecated. Beta users must migrate to the metadata service API to generate an IAM token by using `POST /instance_identity/v1/iam_token`.
+{: note}
+
+Example request:
+
+```json
+iam_token=`curl -X POST "http://api.metadata.cloud.ibm.com/instance_identity/v1/iam_token?version=2022-08-08"\
+   -H "Authorization: Bearer $instance_identity_token"\
+   -d '{
+       "trusted_profile": {
+          "id": "Profile-8dd84246-7df4-4667-94e4-8cede51d5ac5"
+       }
+      }' | jq -r '(.access_token)'`
+```
+{: pre}
+
+The JSON response shows the IAM token.
+
+```json
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aGVfYmVzdCI6I8...",
+  "created_at": "2022-08-08T14:10:15Z",
+  "expires_at": "2022-08-08T15:10:15Z",
+  "expires_in": 3600
+}
+```
+{: codeblock}
+
+For more information about trusted profiles, see [Using a trusted profile to call IAM-enabled services](/docs/vpc?topic=vpc-imd-trusted-profile-metadata).
+
+## Create a trusted profile for the instance
+{: #imd-trusted-profile-config}
+
+Trusted profiles for compute resource identities help you assign an {{site.data.keyword.cloud}} IAM identity to an {{site.data.keyword.cloud}} resource, such as a virtual server instance. You can call any IAM-enabled service from an instance without having to manage and distribute IAM secrets to the instance. You can create a trusted profile when you generate an IAM token from an instance identity access token and link it to the instance. For more information, see [Using a trusted profile to call IAM-enabled services](/docs/vpc?topic=vpc-imd-trusted-profile-metadata).
+
+
 ## Retrieve instance metadata from your running virtual server instance
 {: #imd-retrieve-instance-data}
 
