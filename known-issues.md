@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-01-24"
+lastupdated: "2023-02-24"
 
 
 keywords: known issues, bugs, defects
@@ -53,11 +53,6 @@ The floating IP associated with a bare metal network interface is not available 
 **Workarounds:**
 - Wait for the bare metal server network interfaces to be `available` before listing the floating IPs on the interfaces.
 - [List all floating IPs](/apidocs/vpc#list-floating-ips) to view those associated with bare metal server interfaces that are not yet `available`.
-
-## Instance metadata service Activity Tracker events issues
-{: #instance-metadata-activity-tracker-event-known-issues}
-
-**Issue:** Activity Tracker events for the metadata service are undergoing changes and might not match the [events as documented](/docs/vpc?topic=vpc-at-events#events-metadata). The documented events are still useful for audit purposes but must not be used for automation.
 
 ## Network load balancers fail if port settings fall outside the supported range
 {: #nlb-port-range}
