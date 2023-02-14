@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-09-27"
+  years: 2019, 2023
+lastupdated: "2023-02-14"
 
 
 keywords: api, change log, metadata, new features, restrictions, migration, versioned change
@@ -28,6 +28,16 @@ Some changes, such as new response properties or new optional request parameters
 - Follow HTTP redirect rules for any `3xx` HTTP status code
 - Consume only the resources and properties your application needs to function
 - Avoid depending on behavior that is not explicitly documented
+
+## 14 February 2022
+{: #14-february-2023-metadata}
+
+### For all version dates
+{: #14-february-2023-all-version-dates-metadata}
+
+**VPC instance metadata new endpoint URL.** You can now use the fully qualified domain name (FQDN) `api.metadata.cloud.ibm.com` for the metadata service endpoint. The FQDN resolves to the link-local IP address `169.254.169.254` without requiring the application of special configurations. For more information, see [Endpoint URLs](/apidocs/vpc-metadata#endpoint-url) in the VPC Instance Metadata API.
+
+**VPC instance metadata communication protocol and hop limit.** You can now view the communication protocol and hop limit for IP response packets used by the [VPC Instance Metadata service](/docs/vpc?topic=vpc-imd-about). When you [retrieve the instance](/apidocs/vpc-metadata#get-instance), the new `protocol` and `response_hop_limit` properties will be shown. For more information, see [Configure the instance metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=api).
 
 ## 27 September 2022
 {: #27-september-2022-metadata}
