@@ -92,7 +92,7 @@ The following procedure uses [OpenVPN easy-rsa](https://github.com/OpenVPN/easy-
    {: note}   
    
 ### Importing a VPN server certificate into Secrets Manager
-(: #import-vpn-server-certificates-sm}
+{: #import-vpn-server-certificates-sm}
 
 To import a VPN server certificate into Secrets Manager, follow these steps:
 
