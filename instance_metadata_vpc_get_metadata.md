@@ -34,7 +34,7 @@ Windows users have extra requirements to access and use the metadata service. Fo
 
 
 ## Accessing the metadata service by using the instance identity access token service
-{: #imd-get-token}
+{: #imd-get-token-usemd}
 
 To access the instance metadata service, you must first obtain an instance identity access token. You can later generate IAM tokens from the instance identity access token and then use them to access IAM-enabled services.
 
@@ -42,7 +42,7 @@ Windows users have extra requirements to set up the metadata service. For more i
 {: note}
 
 ### Instance identity access token concepts
-{: #imd-token-concepts}
+{: #imd-token-concepts-usemd}
 
 An instance identity access token provides a security credential for accessing the metadata service. It's a signed token with a set of claims based on information about the instance and information that is passed in the token request.
 
@@ -55,7 +55,7 @@ The response (a JSON payload) contains the instance identity access token. Use t
 You can also generate an IAM token from this token and use the RIAS API to call IAM-enabled services. For more information, see [Generate an IAM token from an instance identity access token](#imd-token-exchange).
 
 ### Acquire an instance identity access token
-{: #imd-json-token}
+{: #imd-json-token-usemd}
 
 Using the Metadata service API, make `PUT "http://api.metadata.cloud.ibm.com/instance_identity/v1/token` call to get an instance identity access token. The following example uses `jq` to parse the JSON API response and then extract the instance identity access token value. You can use your preferred JSON parser.
 
@@ -87,7 +87,7 @@ The following JSON response shows the instance identity access token character s
 
 
 ## Generate an IAM token from an instance identity access token
-{: #imd-token-exchange}
+{: #imd-token-exchange-usemd}
 {: api}
 
 To access IBM Cloud IAM-enabled services in the account, you can generate an IAM token from the instance identity access token by using trusted profile information. After you generate the IAM token, you can use it to access IAM-enabled services, such as {{site.data.keyword.cos_full_notm}}, Cloud Database Service, and the VPC APIs. You can reuse the token multiple times.
@@ -125,7 +125,7 @@ The JSON response shows the IAM token.
 For more information about trusted profiles, see [Using a trusted profile to call IAM-enabled services](/docs/vpc?topic=vpc-imd-trusted-profile-metadata).
 
 ## Create a trusted profile for the instance
-{: #imd-trusted-profile-config}
+{: #imd-trusted-profile-config-usemd}
 
 Trusted profiles for compute resource identities help you assign an {{site.data.keyword.cloud}} IAM identity to an {{site.data.keyword.cloud}} resource, such as a virtual server instance. You can call any IAM-enabled service from an instance without having to manage and distribute IAM secrets to the instance. You can create a trusted profile when you generate an IAM token from an instance identity access token and link it to the instance. For more information, see [Using a trusted profile to call IAM-enabled services](/docs/vpc?topic=vpc-imd-trusted-profile-metadata).
 
