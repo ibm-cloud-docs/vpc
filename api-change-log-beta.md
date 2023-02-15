@@ -27,10 +27,10 @@ There are no backward-compatibility guarantees as a feature progresses through i
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
 
 ## 14 February 2023
-{: #14-february-2023}
+{: #14-february-2023-beta}
 
 ### For all version dates
-{: #14-february-2023-all-version-dates}
+{: #14-february-2023-all-version-dates-beta}
 
 **Exporting custom images.** Accounts that have been granted special approval to preview this feature can now [export custom images](/apidocs/vpc-beta#create-image-export-job) to an authorized IBM Cloud Object Storage bucket. Specify the target `storage_bucket` to export the image to.   The image will be exported as `qcow2` unless you specify another value using the `format` property. 
 
