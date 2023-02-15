@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-02-14"
+lastupdated: "2023-02-15"
 
 keywords:
 
@@ -69,7 +69,6 @@ The following JSON response shows the instance identity access token character s
 }
 ```
 {: codeblock}
-
 
 ## Generate an IAM token from an instance identity access token
 {: #imd-token-exchange}
@@ -371,56 +370,58 @@ You can configure features of the metadata service by using the UI. When the met
 
 You can select an existing trusted profile for the instance metadata service.
 
-**Select a trusted profile when you provision an instance** To slecect a trusted profile by using the UI, navigate to the Default trusted profile option and select a trusted profile from a list of preexisting trusted profiles.
+**Select a trusted profile when you provision an instance** To select a trusted profile, navigate to the Default trusted profile option and select a trusted profile from a list of preexisting trusted profiles. 
+
 For more information, see [Create a trusted profile for the instance](/docs/vpc?topic=vpc-imd-configure-service&interface=ui#imd-trusted-profile-config).
 
 ### Toggle auto link by using the UI
 {: #auto-link-ui}
 {: ui}
 
-You can toggle auto link for the instance metadata service. When autolink is enabled, the specified trusted profile is automatically linked to the virtual server instance when the instance is provisioned. An instance provisioned with auto link the trusted profile is available to the instance immediatley at startup. When auto link is disabeld, the specified trusted profile must be linked to the instance for it to be used by the instace.
+You can toggle auto link for the instance metadata service. When autolink is enabled, the specified trusted profile is automatically linked to the virtual server instance when the instance is provisioned. On instances provisioned with auto link, the trusted profile is available to the instance immediatley at startup. When auto link is disabeld, the specified trusted profile must be linked to the instance for it to be used by the instace.
 
-**Toggle auto link when you provision an instance** To toggle auto link when you provision an instance by using the UI, navigate to the auto link setting in the Metadata window on the instance provision page. Toggle the auto link switch so that it displays `Enabled`.
+**Toggle auto link when you provision an instance** To toggle auto link when you provision an instance, navigate to the Secure access setting in the Metadata window on the instance provision page. Toggle the secure access switch so that it displays `Enabled`.
 
 ### Enable secure access by using the UI
 {: #secure-access-ui}
 {: ui}
 
-You can enable secure access to the instance metadata service. When secure access is enabled, the metadata service is only accessible to the virtual server instance by encrypted HTTP secure protocol (HTTPS). When secure access is disabled the metadata service is only accessible to the virtual server instance by unencrypted HTTP protocol. Secure access is disabled by default. When the `metadata_service.protocol` property is `http`, the endpoint URL may contain either the service's IP address `http://169.254.169.254` or the service's hostname `http://api.metadata.cloud.ibm.com`. When the `metadata_service.protocol` property is `https`, the endpoint URL must contain the service's hostname `https://api.metadata.cloud.ibm.com`.
-You cannot configure the metadata service with both `http` and `https` protocols at the same time.
+You can enable secure access to the instance metadata service. When secure access is enabled, the metadata service is accessible only to the virtual server instance by encrypted HTTP secure protocol (HTTPS). When secure access is disabled, the metadata service is accessible only to the virtual server instance by unencrypted HTTP protocol. Secure access is disabled by default.
 
-If you are using the IBM Cloud CLI Virtual Server Instance for VPC compute resource identity login method, or the IBM Cloud SDK with [VPC Instance Authentication](https://github.com/IBM/ibm-cloud-sdk-common#authentication){: external} inside an instance with secure access to the instance metadata service enabled, certain properties might be required. For more information, see [Logging in as a Virtual Server Instance Compute Resource Identity](/docs/cli?topic=cli-vsi-cri-login), and [IBM Cloud Go SDK](https://github.com/IBM/go-sdk-core/blob/main/Authentication.md#vpc-instance-authentication){: external}
-{: important}
+Additional properties might be required in the following scenarios:
+
+- You are using the IBM Cloud CLI Virtual Server Instance for VPC compute resource identity login method. For more information, see [Logging in as a Virtual Server Instance Compute Resource Identity](/docs/cli?topic=cli-vsi-cri-login).
+- You are using the IBM Cloud SDK with [VPC Instance Authentication](https://github.com/IBM/ibm-cloud-sdk-common#authentication){: external} inside an instance with secure access to the instance metadata service enabled. For more information, see [IBM Cloud Go SDK](https://github.com/IBM/go-sdk-core/blob/main/Authentication.md#vpc-instance-authentication){: external}
 
 #### Enable secure access when you provision an instance
 {: #secure-access-ui-provisioning}
 {: ui}
 
-To enable secure access when provisioning an instance by using the UI, navigate to the Secure access setting in the Metadata window when you **Create** an instance from the **Virtual server instances for VPC** page. Toggle the secure access switch so that it displays `Enabled`.
+To enable secure access when provisioning an instance, navigate to the Secure access setting in the Metadata window when you **Create** an instance from the **Virtual server instances for VPC** page. Toggle the secure access switch so that it displays `Enabled`.
 
 #### Enable secure access on an existing instance
 {: #secure-access-ui-existing}
 {: ui}
 
-To enable secure access on an existing instance by using the UI, navigate to the Secure access setting on the **Instance details** page of your instance.
+To enable secure access on an existing instance, navigate to the Secure access setting on the **Instance details** page of your instance.
 
 ### Set the metadata hop limit by using the UI
 {: #set-hop-limit-ui}
 {: ui}
 
-You can set the hop limit for IP response packets from the metadata service. The hop limit can be any value from 1 to 64.
+You can set the hop limit for IP response packets from the metadata service. The hop limit can be any value from 1 (default) to 64. The metadata service must be enabled.
 
 #### Set the metadata hop limit when you provision an instance
 {: #set-hop-limit-ui-provisioning}
 {: ui}
 
-To set the hop limit when you provision an instance by using the UI, navigate to the Hop limit setting in the Metadata window in the Metadata window when you **Create** an instance from the **Virtual server instances for VPC** page. Input a value for the hop limit setting.
+To set the hop limit when you provision an instance, go to the Hop limit setting in the Metadata window when you **Create** an instance from the **Virtual server instances for VPC** page. Specify a hop limit value between 1 and 64.
 
 #### Set the metadata hop limit on an existing instance
 {: #set-hop-limit-ui-existing}
 {: ui}
 
-To set the hop limit on an existing instance by using the UI, navigate to the Hop limit setting setting on the **Instance details** page of your instance. Input a value for the Hop limit setting.
+To set the hop limit on an existing instance, go to the Hop limit setting setting on the **Instance details** page of your instance. Specify a hop limit value between 1 and 64.
 
 ## Configure metadata settings on an existing instance with the CLI
 {: #metadata-config-cli}
@@ -429,6 +430,7 @@ To set the hop limit on an existing instance by using the UI, navigate to the Ho
 You can enable and disable features of the metadata service using the CLI.
 
 The following example shows an instance with the metadata service enabled.
+
 ```sh
 $ ibmcloud is instance instance-name -q
 
@@ -470,7 +472,7 @@ VPC                                   ID                                        
 
 You can disable auto link for the instance metadata service when provisioning an instance. Auto link is enabled by default when a trusted profile is selected. When autolink is enabled, the specified trusted profile is automatically linked to the virtual server instance when the instance is provisioned. An instance provisioned with auto link the trusted profile is available to the instance immediatley at startup. When auto link is disabeld, the specified trusted profile must be linked to the instance for it to be used by the instace.
 
-To disable auto link by using the CLI, set the `--default-trusted-profile-auto-link` property to `true` when provisioning an instance. The following example shows instance the provision command with auto link set to `false`.
+To disable auto link, set the `--default-trusted-profile-auto-link` option to `true` when provisioning an instance. The following example shows instance the provision command with auto link set to `false`.
 
 ```sh
 ibmcloud is instance-create .... --default-trusted-profile "Profile-9fd84246-7df4-4667-94e4-8ecde51d5ac5" --default-trusted-profile-auto-link false
@@ -480,17 +482,18 @@ ibmcloud is instance-create .... --default-trusted-profile "Profile-9fd84246-7df
 {: #secure-access-cli}
 {: cli}
 
-You can enable secure access to the instance metadata service. When secure access is enabled, the metadata service is only accessible to the virtual server instance by encrypted HTTP Secure protocol (HTTPS). When secure access is disabled the metadata service is only accessible to the virtual server instance by unencrypted HTTP protocol. Secureecure access is disabled by default. When the `metadata_service.protocol` property is `http`, the endpoint URL may contain either the service's IP address `http://169.254.169.254` or the service's hostname `http://api.metadata.cloud.ibm.com`. When the `metadata_service.protocol` property is `https`, the endpoint URL must contain the service's hostname `https://api.metadata.cloud.ibm.com`.
-You cannot configure the metadata service with both `http` and `https` protocols at the same time.
+You can enable secure access to the instance metadata service. When secure access is enabled, the metadata service is accessible only to the virtual server instance by encrypted HTTP Secure protocol (HTTPS). When secure access is disabled the metadata service is accessible only to the virtual server instance by unencrypted HTTP protocol. Secure access is disabled by default.
 
-If you are using the IBM Cloud CLI Virtual Server Instance for VPC compute resource identity login method, or the IBM Cloud SDK with [VPC Instance Authentication](https://github.com/IBM/ibm-cloud-sdk-common#authentication){: external} inside an instance with secure access to the instance metadata service enabled, certain properties might be required. For more information, see [Logging in as a Virtual Server Instance Compute Resource Identity](/docs/cli?topic=cli-vsi-cri-login), and [IBM Cloud Go SDK](https://github.com/IBM/go-sdk-core/blob/main/Authentication.md#vpc-instance-authentication){: external}
-{: important}
+Certain properties might be required in the following scenarios:
+
+- You are using the IBM Cloud CLI Virtual Server Instance for VPC compute resource identity login method. For more information, see [Logging in as a Virtual Server Instance Compute Resource Identity](/docs/cli?topic=cli-vsi-cri-login).
+- You are using the IBM Cloud SDK with [VPC Instance Authentication](https://github.com/IBM/ibm-cloud-sdk-common#authentication){: external} inside an instance with secure access to the instance metadata service enabled. For more information, see [IBM Cloud Go SDK](https://github.com/IBM/go-sdk-core/blob/main/Authentication.md#vpc-instance-authentication){: external}.
 
 #### Enable secure access when you provision an instance
 {: #secure-access-cli-provision}
 {: cli}
 
-To enable secure access with the CLI when you provision an instance, input a value for the `--metadata-service-protocol` option when you use the `instance-create` command. For secure access input `https`. The default setting is unencrypted `http`.
+To enable secure access when you provision an instance, specify a value for the `--metadata-service-protocol` option when you use the `instance-create` command. For secure access specify `https`. The default setting is unencrypted `http`.
 
 ```sh
 ibmcloud is instance-create INSTANCE_NAME VPC ZONE_NAME PROFILE_NAME SUBNET ... [--metadata-service-protocol http | https] ...
@@ -503,21 +506,19 @@ ibmcloud is instance-create INSTANCE_NAME VPC ZONE_NAME PROFILE_NAME SUBNET ... 
 {: #secure-access-cli-existing}
 {: cli}
 
-To enable secure access with the CLI on an existing instance, input a value for the `protocol` sub property of the `metadata service` when you use the `instance-update` command.
+To enable secure access on an existing instance, specify a value for the `protocol` sub-property of the `metadata service` when you use the `instance-update` command.
 
 ### Set the metadata hop limit with the CLI
 {: #set-hop-limit-cli}
 {: cli}
 
-You can set the hop limit for IP response packets from the metadata service.
-To set the hop limit by using the CLI, input a value for the `Response hop limit` sub property of the `Metadata service` property for your instance.
-The hop limit can be any value from 1 to 64.
+You can set a hop limit for IP response packets from the metadata service by specifying a hop limit value between `1` (default) and `64` for the `Response hop limit` sub-property of the `Metadata service` property for your instance.
 
 ### Set the metadata hop limit when you provision an instance
 {: #set-hop-limit-cli-when-provisioning}
 {: cli}
 
-To set the metadata hop limit when you provision an instance, enter a value for the `--metadata-service-response-hop-limit` option when you use the `instance-create` command.
+To set the metadata hop limit when you provision an instance, specify a hop limit value between `1` (default) and `64` for the `--metadata-service-response-hop-limit` option when you use the `instance-create` command.
 
 ```sh
 ibmcloud is instance-create INSTANCE_NAME VPC ZONE_NAME PROFILE_NAME SUBNET ... [--metadata-service-response-hop-limit METADATA-SERVICE-RESPONSE-HOP-LIMIT] ...
@@ -542,14 +543,14 @@ You can enable and disable features of the metadata service by using the API.
 
 You can disable auto link for the instance metadata service when provisioning an instance. Auto link is enabled automatically when a trusted profile is selected. When autolink is enabled, the specified trusted profile is automatically linked to the virtual server instance when the instance is provisioned. The trusted profile that is associated with an instance that is provisioned with auto link is available to the instance immediately at startup. When auto link is disabeld, the specified trusted profile must be linked to the instance for it to be used by the instace.
 
-To disable auto link by using the API, the `auto_link` option of the `default_trusted_profile` property set to `false`. The following example shows the `default_trusted_profile` property with the `auto_link` option disabled.
+To disable auto link by using the API, the `auto_link` value for the `default_trusted_profile` property must be set to `false`. The following example shows the `default_trusted_profile` property with the `auto_link` option disabled.
 
 ```json
 "default_trusted_profile": {
       "auto_link": false,
-	  "target": {
-	      "id": "Profile-9fd84246-7df4-4667-94e4-8ecde51d5ac5"
-	  }
+   "target": {
+       "id": "Profile-9fd84246-7df4-4667-94e4-8ecde51d5ac5"
+   }
   },
 ```
 
@@ -557,44 +558,45 @@ To disable auto link by using the API, the `auto_link` option of the `default_tr
 {: #secure-access-api}
 {: api}
 
-You can enable secure access to the instance metadata service. When secure access is enabled, the metadata service is only accessible to the virtual server instance by encrypted HTTP Secure protocol (HTTPS). When secure access is disabled the metadata service is only accessible to the virtual server instance by unencrypted HTTP protocol. Secureecure access is disabled by default. When the `metadata_service.protocol` property is `http`, the endpoint URL may contain either the service's IP address `http://169.254.169.254` or the service's hostname `http://api.metadata.cloud.ibm.com`. When the `metadata_service.protocol` property is `https`, the endpoint URL must contain the service's hostname `https://api.metadata.cloud.ibm.com`.
-You cannot configure the metadata service with both `http` and `https` protocols at the same time.
+You can enable secure access to the instance metadata service. When secure access is enabled, the metadata service is accessible only to the virtual server instance by encrypted HTTP Secure protocol (HTTPS). When secure access is disabled the metadata service is accessible only to the virtual server instance by unencrypted HTTP protocol. Secure access is disabled by default.
+Certain properties might be required in the following scenarios:
 
-If you are using the IBM Cloud CLI Virtual Server Instance for VPC compute resource identity login method, or the IBM Cloud SDK with [VPC Instance Authentication](https://github.com/IBM/ibm-cloud-sdk-common#authentication){: external} inside an instance with secure access to the instance metadata service enabled, certain properties might be required. For more information, see [Logging in as a Virtual Server Instance Compute Resource Identity](/docs/cli?topic=cli-vsi-cri-login), and [IBM Cloud Go SDK](https://github.com/IBM/go-sdk-core/blob/main/Authentication.md#vpc-instance-authentication){: external}
-{: important}
+- You are using the IBM Cloud CLI Virtual Server Instance for VPC compute resource identity login method. For more information, see [Logging in as a Virtual Server Instance Compute Resource Identity](/docs/cli?topic=cli-vsi-cri-login).
+- You are using the IBM Cloud SDK with [VPC Instance Authentication](https://github.com/IBM/ibm-cloud-sdk-common#authentication){: external} inside an instance with secure access to the instance metadata service enabled. For more information, see [IBM Cloud Go SDK](https://github.com/IBM/go-sdk-core/blob/main/Authentication.md#vpc-instance-authentication){: external}.
 
 #### Enable secure access with the API when you provision an instance
 {: #secure-access-api-provision}
 {: api}
 
-To enable secure access with the API when you provision an instance with the [POST /instances method](/apidocs/vpc/latest#create-instance), input a value for the `protocol` sub property of the `Metadata service` property for your instance. For secure access input `https`. The default setting is unencrypted `http`.
-
+To enable secure access, when you provision an instance with the [POST /instances](/apidocs/vpc/latest#create-instance) method, specify a value for the `metadata_service.protocol` property for your instance. For secure access specify `https`. The default setting is unencrypted `http`.
 
 #### Enable secure access with the API on an existing instance
 {: #secure-access-api-existing}
 {: api}
 
-To enable secure access with the API on an existing instance, use the [PATCH /instances/{id}](/apidocs/vpc/latest#update-instance) method to update the instance. input a value for the `protocol` sub property of the `Metadata service` property for your instance. For secure access input `https`. The default setting is unencrypted `http`.
+To enable secure access on an existing instance, use the [PATCH /instances/{id}](/apidocs/vpc/latest#update-instance) method to update the instance. Specify a value for the `metadata_service.protocol` property for your instance. For secure access specify `https`. The default setting is unencrypted `http`.
 
 ### Set the metadata hop limit with the API
 {: #set-hop-limit-api}
 {: api}
 
-You can set the hop limit for IP response packets from the metadata service.
-To set the hop limit by using the CLI, input a value for the `Response hop limit` property of the `Metadata service` property for your instance.
-The hop limit can be any value from 1 to 64.
+You can set the hop limit for IP response packets from the metadata service using the `metadata_service.response_hop_limit` property 
+
+This property applies only when the metadata service is enabled by setting `metadata_service.enabled` to `true`. The default is `false`.
 
 ### Set the metadata hop limit when you provision an instance
 {: #set-hop-limit-api-when-provisioning}
 {: api}
 
-To set the response with the API when you provision an instance with the [POST /instances method](/apidocs/vpc/latest#create-instance), use the `response_hop_limit` property to specify either `http` or `https`  communication. `http` is the default setting.
+To set the response when you provision an instance, call the [POST /instances method](/apidocs/vpc/latest#create-instance) method, and specify the `metadata_service.response_hop_limit` property value between `1` (default) and `64`.
+
+This property applies only when the metadata service is enabled by setting `metadata_service.enabled` to `true`. The default is `false`.
 
 ### Set the metadata hop limit on an existing instance
 {: #set-hop-limit-api-on-existing-instance}
 {: api}
 
-To set the response hop limit with the API on an existing instance, use the [PATCH /instances/{id}](/apidocs/vpc/latest#update-instance) method to update the instance. When you update the instance, use the `response_hop_limit` property to specify either `http` or `https`  communication. `http` is the default setting.
+To set the response hop limit on an existing instance, call the [PATCH /instances/{id}](/apidocs/vpc/latest#update-instance) method, and specify the `metadata_service.response_hop_limit` property value between `1` (default) and `64`.
 
 ## Activity Tracker events for instance metadata
 {: #imd-at-events}
