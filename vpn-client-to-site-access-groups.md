@@ -22,15 +22,9 @@ To create an IAM access group and grant the user role to connect to the VPN serv
 1. From the IBM Cloud console, navigate to the [Access groups](https://cloud.ibm.com/iam/groups){: external} page (**Manage > Access (IAM) > Access groups**) and click **Create**.
 1. Type a name for your access group and optional description, then click **Create**.
 1. Click the **Access** tab, then click **Assign access**.
-1. From the drop-down menu, select **VPC Infrastructure Services**. Then, click **Next**.
-
-   ![Assigning access to an access group](images/vpn-iam1.png){: caption="Assigning access to an access group" caption-side="bottom"}
-
+1. From the drop-down menu, select **VPC Infrastructure Services**. Then, click **Next**. 
 1. For Resources, select **All resources**, then click **Next**.
 1. For Roles and actions, select **Users of the VPN server need this role to connect to the VPN server**, then click **Review**.
-
-   ![Selecting level of access](images/vpn-iam2.png ){: caption="Selecting level of access" caption-side="bottom"}
-
 1. Review the Create policy summary and click **Add**.
 1. In the Access summary side panel, click **Assign**.
 3. Add users to your group.

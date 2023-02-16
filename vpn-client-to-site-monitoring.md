@@ -189,29 +189,22 @@ To receive monitoring metrics, you must set up your {{site.data.keyword.mon_full
 To receive monitoring metrics, use the following steps:
 
 1. Navigate to the [metrics monitoring portal](/observe/monitoring){: external} and click **Create a monitoring instance**.
-
-2. Select a region for your {{site.data.keyword.mon_full_notm}} instance.
+1. Select a region for your {{site.data.keyword.mon_full_notm}} instance.
 
    If you do not have an existing VPN server, see [Creating a VPN server](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#vpn-ui) to provision one.
    {: tip}
 
-   ![Region](images/metrics_1.png){: caption="Region" caption-side="bottom"}
-
    The region needs to match the location of your existing VPN server.
    {: important}
 
-3. Choose your pricing plan.
+1. Choose your pricing plan. Pricing plan details are explained in the selection window. Select the plan that best meets your requirements.
 
-   Pricing plan details are explained in the selection window. Select the plan that best meets your requirements.
-
-4. Provide a unique service name for your instance. The name can be any name that you want and has no impact on functionality.
+1. Provide a unique service name for your instance. The name can be any name that you want and has no impact on functionality.
 
    Do not give multiple {{site.data.keyword.mon_full_notm}} instances the same name.
    {: important}
 
-5. Optionally, select a resource group. A resource group organizes account resources in customizable groupings. Any account resource that is managed by using IBM Cloud Identity and Access Management (IAM) access control belongs to a resource group within your account.
-
-   ![Resource group](images/metrics_2.png){: caption="Resource group" caption-side="bottom"}
+1. Optionally, select a resource group. A resource group organizes account resources in customizable groupings. Any account resource that is managed by using IBM Cloud Identity and Access Management (IAM) access control belongs to a resource group within your account.
 
    If you do not have any pre-configured resource groups, or have no reason to share this resource selectively, use the default selection.
    {: note}
@@ -219,9 +212,9 @@ To receive monitoring metrics, use the following steps:
    If your account has multiple resource groups, you can choose which group has access to this {{site.data.keyword.mon_full_notm}} instance. By using this selective access, metrics can be available to some resource groups and not to others.
    {: tip}
 
-6. Check the **Enable Platform Metrics** checkbox. You must select this option to receive metrics from your VPN server.
+1. Check the **Enable Platform Metrics** checkbox. You must select this option to receive metrics from your VPN server.
 
-7. Click **Create**. You are taken back to the monitoring metrics home page.
+1. Click **Create**. You are taken back to the monitoring metrics home page.
 
 Within a few minutes, your new {{site.data.keyword.mon_full_notm}} instance displays with several configurations. You might have to refresh your browser to see it.
 
@@ -243,8 +236,6 @@ To view and work with your {{site.data.keyword.mon_full_notm}} metrics, follow t
 
 5. The dashboard shows six main metrics. These metrics include VPN server health status, VPN server active client count, VPN server authentication failure count, VPN server CRL days until expiration, and VPN server bytes input/output. If you want to modify the parameters and segment your metrics by VPN server name, you must create a custom dashboard.
 
-   ![VPN server {{site.data.keyword.mon_full_notm}} dashboard](images/dashboard_c2s_vpn.png){: caption="VPN server {{site.data.keyword.mon_full_notm}} dashboard" caption-side="bottom"}
-
    You can choose what time window that you'd like to see your metrics by using the time selection bar.
    {: tip}
 
@@ -256,13 +247,8 @@ You can create your own dashboard to customize your monitoring metrics, such as 
 To customize your dashboard, use the following steps:
 
 1. Navigate to the [metrics monitoring portal](/observe/monitoring){: external}.
-
 2. Click **Open Dashboard** next to the service name of the {{site.data.keyword.mon_full_notm}} instance you want to work with. You now see the dashboard.
-
 3. Select **Dashboards** and click the **+** in the panel.
-
-   ![Add VPN {{site.data.keyword.mon_full_notm}} dashboard](images/add_dashboard_c2s_vpn.png){: caption="Add VPN monitoring dashboard" caption-side="bottom"}
-
 4. Select **Blank dashboard** and select the type of visual representation that you want.
 
    {{site.data.keyword.mon_full_notm}} offers eight different visualizations for your dashboard. Read the description for each visualization and choose the one that best meets your requirements.
@@ -303,9 +289,6 @@ To collect this information and work with your {{site.data.keyword.mon_full_notm
 2. Click **Open Dashboard** next to the instance that you want to work with.
 
 3. After you see the {{site.data.keyword.mon_full_notm}} dashboard, select your Account Profile icon on the sidebar and select **Settings**. You now see your account settings.
-
-   ![Settings](images/metrics_settings.png){: caption="Settings" caption-side="bottom"}
-
 4. Your Monitor API token is an alphanumeric string that is located in the **IBM Cloud Monitor API Token** field. Click the **Copy** button to copy the token to your clipboard.
 
    Do not share this API token. Anyone who has this API token has full access to your metrics.
@@ -384,12 +367,9 @@ If the time range that is specified by `from` and `to` is large (for example, 4 
 
 To access metrics for a specific VPN server, follow these steps:
 
-1. Navigate to the [VPNs for VPC](https://cloud.ibm.com/vpc-ext/network/vpngateways){: external} page and click the **Client-to-site servers** tab.
+1. Navigate to the [VPNs for VPC](/vpc-ext/network/vpngateways){: external} page and click the **Client-to-site servers** tab.
 1. Click the name of the VPN server to display its details.
 1. Click the **Monitoring** tab to view the VPN server metrics.
-
-   ![VPN server metrics](images/vpn-monitoring.png){: caption="VPN monitoring" caption-side="bottom"}
-
 1. Configure the history, dates, and time zone to generate the output you are looking for.
 
 You can download the metrics or launch monitoring from your VPN dashboard by selecting **Launch monitoring.**
