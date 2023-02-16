@@ -217,10 +217,8 @@ To find a certificate's CRN, follow these steps:
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../icons/icon_hamburger.svg) > Resource list**. 
 1. Click to expand **Security**, then select the Secrets Manager that you want to find the CRN for.
-1. Select anywhere in the table row of the certificate to open the Certificate details side panel. The certificate CRN is listed. 
-
-   ![Service instance CRN](images/vpn_server_cert_crn.png "Service instance CRN"){: caption="Service instance CRN" caption-side="bottom"}
-
+1. Select anywhere in the table row of the certificate to open the Certificate details side panel. The certificate CRN is listed in the side panel.
+ 
 ### Migrating a certificate from Certificate Manager to Secrets Manager
 {: #migrate-certificate}
 
@@ -232,10 +230,7 @@ To migrate a certificate, follow these steps:
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > VPNs**.
 1. Go to the **Client-to-site servers** page and select the VPN server that uses a certificate from Certificate Manager.
 1. Click **Edit** in the Authentication panel. The Edit Authentication window is shown. 
-1. Select **Secrets Manager** in the **Certificate source** list, then choose a Secrets Manager instance and a certificate.
-
-   ![Authentication with Secrets Manager](images/vpn_server_authentication_secrets_manager.png "Authentication with Secrets Manager"){: caption="Authentication with Secrets Manager" caption-side="bottom"}
-
+1. Select **Secrets Manager** in the **Certificate source** list, then choose a Secrets Manager server instance and a server SSL certificate.
 1. Click **Save**. The VPN server migrates the certificate to Secrets Manager.
 
 ## Configuring user IDs and passcodes
