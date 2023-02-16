@@ -428,14 +428,8 @@ If you use the Lite (free) pricing plan for {{site.data.keyword.cos_full_notm}},
 
 To view generated flow log files from the {{site.data.keyword.cos_short}} bucket, follow these steps:
 
-1. To ensure that the flow logs are being captured, check the {{site.data.keyword.cos_short}} bucket. For example, check the `ibm_vpc_flowlogs_v1` entry as shown:
- 
-   ![Viewing flow log files in an {{site.data.keyword.cos_short}} bucket](images/fl-objects.png){: caption="Viewing flow log files in an {{site.data.keyword.cos_short}} bucket" caption-side="bottom"}
-
+1. To ensure that the flow logs are being captured, check the {{site.data.keyword.cos_short}} bucket.
 1. Navigate in the folder to find your VPC or the resource where you configured monitoring.
-
-   ![Viewing flow log files in an {{site.data.keyword.cos_short}} bucket](images/flow-logs-cos1.png){: caption="Viewing flow log files in an {{site.data.keyword.cos_short}} bucket" caption-side="bottom"}
-   
 1. Drill-down into the resource to find the network resource that you are monitoring. 
 
    If configured correctly, you should see several gzip files for each log entry.

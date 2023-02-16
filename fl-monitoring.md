@@ -72,7 +72,7 @@ The following attributes are available for segmenting one or more attributes as 
 {: caption="Table 3: Additional attributes" caption-side="bottom"}
 
 ## Enabling metrics monitoring
-{: #enable-metrics-monitoring-fl}
+{: #-fl}
 
 To receive monitoring metrics, you must set up your {{site.data.keyword.mon_full_notm}} instance.
 
@@ -81,8 +81,6 @@ To receive monitoring metrics, use the following steps:
 1. Navigate to the [metrics monitoring portal](/observe/monitoring){: external} and click **Create a monitoring instance**.
 
 2. Select a region for your monitoring instance.
-
-   ![Region](images/metrics_1.png "Region"){: caption="Figure 1. Region" caption-side="bottom}
 
    The region needs to match the location of your existing VPN gateway.
    {: important}
@@ -97,8 +95,6 @@ To receive monitoring metrics, use the following steps:
    {: important}
 
 5. Optionally, select a resource group. A resource group organizes account resources in customizable groupings. Any account resource that is managed by using IBM Cloud Identity and Access Management (IAM) access control belongs to a resource group within your account.
-
-   ![Resource group](images/metrics_2.png "Resource group"){: caption="Figure 2. Resource group" caption-side="bottom}
 
    If you do not have any pre-configured resource groups, or have no reason to share this resource selectively, use the default selection.
    {: note}
@@ -117,11 +113,5 @@ Within a few minutes, your new monitoring instance is displayed with several con
 
 To view metrics for a specific flow log, follow these steps:
 
-1. From the Flow logs for VPC page, click the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg) associated with the flow log. Then, select **Monitoring** from the menu.
-
-   ![Viewing metrics](images/fl-monitoring.png "Viewing metrics"){: caption="Figure 3. Viewing metrics" caption-side="bottom}
-   
-1. Launch the Monitoring dashboard. Here is an example of flow log metrics.
-   
-   ![IBM Cloud Monitoring dashboard](images/fl-monitoring-dashboard.png "IBM Cloud Monitoring dashboard"){: caption="Figure 4. IBM Cloud Monitoring dashboard" caption-side="bottom}
-
+1. From the Flow logs for VPC page, click the **Actions** menu ![Actions icon](../icons/action-menu-icon.svg) associated with the flow log. Then, select **Monitoring** from the menu.  
+1. Launch the Monitoring dashboard. 
