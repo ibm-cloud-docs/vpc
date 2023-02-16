@@ -31,11 +31,7 @@ The ACL is on the subnet that holds the reserved IP, which is bound to the endpo
 
 OR
 
-* If you have differeent ACLs on the three different subnets, make sure to set up a rule on each of ACLs for the same VPE. 
-
-The following screen capture shows an example of outbound rules.
-
-![Outbound rules](/images/vpe-outbound-rules.png "Outbound rules"){: caption="Figure 1. Outbound rules" caption-side="bottom}
+* If you have different ACLs on the three different subnets, make sure to set up a rule on each of ACLs for the same VPE.
 
 ## Attaching security groups to endpoint gateways
 {: #attaching-sqs-endpoint-gateways}

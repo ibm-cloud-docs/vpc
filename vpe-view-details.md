@@ -33,8 +33,6 @@ To view details of an endpoint gateway by using the {{site.data.keyword.cloud}} 
 1. To view the details of a specific gateway, click an individual gateway name. 
 
    From the details page, you can view additional information about the endpoint gateway, view its bound reserved IPs and their subnets, delete an endpoint gateway, attach a security group, and more.
-
-   ![Endpoint gateway details page](./images/vpe-details.png "Endpoint gateway details page - Overview"){: caption="Figure 1. Endpoint gateway details page - Overview" caption-side="bottom}
    
 Descriptions of the fields for the virtual endpoint gateway details page are:
 
@@ -51,8 +49,6 @@ Descriptions of the fields for the virtual endpoint gateway details page are:
 {: caption="Table 1. Details about your endpoint gateway" caption-side="bottom"}
 
 From the Attached resources section, you can select to view either Reserved IP or Security groups. Click **Manage attached resources** to switch to the Attached resources view.
-
-![Endpoint gateway details - Attached resources view](./images/vpe-details2.png "Endpoint gateway details page - Attached resources view"){: caption="Figure 2. Endpoint gateway details page - Attached resources view" caption-side="bottom}
 
 The Reserved IPs table shows all bound, reserved IPs to this endpoint gateway. Descriptions of the fields in the Reserved IPs table are:
 

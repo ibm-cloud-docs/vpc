@@ -28,8 +28,6 @@ From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select 
 
 The Virtual private endpoint gateways for VPC page appears. Use this table to view endpoint gateways in the region.
 
-![Virtual private endpoint gateways for VPC page](./images/vpe-dashboard.png "Virtual private endpoint gateways for VPC page"){: caption="Figure 1. Virtual private endpoint gateways for VPC page" caption-side="bottom}
-
 ## Listing endpoint gateways from the CLI
 {: #vpe-listing-endpoint-gateways-cli}
 {: cli}

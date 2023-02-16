@@ -17,7 +17,7 @@ subcollection: vpc
 {: troubleshoot}
 {: support}
 
-Reserved IP addresses belong to a subnet. You can create reserved IP addresses explicitly by using subnet APIs (`POST /subnets/{subnet_id}/reserved_ips`), or implicitly as part of an endpoint gateway call by specifying the subnet.
+Reserved IP addresses belong to a subnet. You can create these IP addresses explicitly by using subnet APIs (`POST /subnets/{subnet_id}/reserved_ips`), or implicitly as part of an endpoint gateway call by specifying the subnet.
 {: shortdesc}
 
 Reserved IP address shows an `0.0.0.0` address.
