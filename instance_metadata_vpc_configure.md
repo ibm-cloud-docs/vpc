@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-02-15"
+lastupdated: "2023-02-16"
 
 keywords:
 
@@ -364,7 +364,7 @@ You can't use the API to change the `metadata-service` setting after the instanc
 
 You can configure features of the metadata service by using the UI. When the metadata service is enabled, expand the metadata window to access the metadata service settings.
 
-### Select a trusted profile
+### Select a trusted profile by using the UI
 {: #select-trusted-profile-ui}
 {: ui}
 
@@ -423,7 +423,7 @@ To set the hop limit when you provision an instance, go to the Hop limit setting
 
 To set the hop limit on an existing instance, go to the Hop limit setting setting on the **Instance details** page of your instance. Specify a hop limit value between 1 and 64.
 
-## Configure metadata settings on an existing instance with the CLI
+## Configure metadata settings by using the CLI
 {: #metadata-config-cli}
 {: cli}
 
@@ -478,7 +478,7 @@ To disable auto link, set the `--default-trusted-profile-auto-link` option to `t
 ibmcloud is instance-create .... --default-trusted-profile "Profile-9fd84246-7df4-4667-94e4-8ecde51d5ac5" --default-trusted-profile-auto-link false
 ```
 
-### Enable secure access with the CLI
+### Enable secure access by using the CLI
 {: #secure-access-cli}
 {: cli}
 
@@ -502,19 +502,15 @@ ibmcloud is instance-create INSTANCE_NAME VPC ZONE_NAME PROFILE_NAME SUBNET ... 
   endpoint. Applies only when the metadata service is enabled. One of: http, https. (default: "http")
 ```
 
-#### Enable secure access on an existing instance
-{: #secure-access-cli-existing}
-{: cli}
-
 To enable secure access on an existing instance, specify a value for the `protocol` sub-property of the `metadata service` when you use the `instance-update` command.
 
-### Set the metadata hop limit with the CLI
+### Set the metadata hop limit by using the CLI
 {: #set-hop-limit-cli}
 {: cli}
 
 You can set a hop limit for IP response packets from the metadata service by specifying a hop limit value between `1` (default) and `64` for the `Response hop limit` sub-property of the `Metadata service` property for your instance.
 
-### Set the metadata hop limit when you provision an instance
+#### Set the metadata hop limit when you provision an instance
 {: #set-hop-limit-cli-when-provisioning}
 {: cli}
 
@@ -527,17 +523,13 @@ ibmcloud is instance-create INSTANCE_NAME VPC ZONE_NAME PROFILE_NAME SUBNET ... 
   from the metadata service. (default: 1)
 ```
 
-### Set the metadata hop limit on an existing instance
-{: #set-hop-limit-cli-on-existing-instance}
-{: cli}
-
 ## Configure metadata settings by using the API
 {: #metadata-config-api}
 {: api}
 
 You can enable and disable features of the metadata service by using the API.
 
-### Disable auto link
+### Disable auto link by using the API
 {: #auto-link-api}
 {: api}
 
@@ -554,7 +546,7 @@ To disable auto link by using the API, the `auto_link` value for the `default_tr
   },
 ```
 
-### Enable secure access with the API
+### Enable secure access by using the API
 {: #secure-access-api}
 {: api}
 
@@ -564,19 +556,19 @@ Certain properties might be required in the following scenarios:
 - You are using the IBM Cloud CLI Virtual Server Instance for VPC compute resource identity login method. For more information, see [Logging in as a Virtual Server Instance Compute Resource Identity](/docs/cli?topic=cli-vsi-cri-login).
 - You are using the IBM Cloud SDK with [VPC Instance Authentication](https://github.com/IBM/ibm-cloud-sdk-common#authentication){: external} inside an instance with secure access to the instance metadata service enabled. For more information, see [IBM Cloud Go SDK](https://github.com/IBM/go-sdk-core/blob/main/Authentication.md#vpc-instance-authentication){: external}.
 
-#### Enable secure access with the API when you provision an instance
+#### Enable secure access when you provision an instance
 {: #secure-access-api-provision}
 {: api}
 
 To enable secure access, when you provision an instance with the [POST /instances](/apidocs/vpc/latest#create-instance) method, specify a value for the `metadata_service.protocol` property for your instance. For secure access specify `https`. The default setting is unencrypted `http`.
 
-#### Enable secure access with the API on an existing instance
+#### Enable secure access on an existing instance
 {: #secure-access-api-existing}
 {: api}
 
 To enable secure access on an existing instance, use the [PATCH /instances/{id}](/apidocs/vpc/latest#update-instance) method to update the instance. Specify a value for the `metadata_service.protocol` property for your instance. For secure access specify `https`. The default setting is unencrypted `http`.
 
-### Set the metadata hop limit with the API
+### Set the metadata hop limit by using the API
 {: #set-hop-limit-api}
 {: api}
 
@@ -584,7 +576,7 @@ You can set the hop limit for IP response packets from the metadata service usin
 
 This property applies only when the metadata service is enabled by setting `metadata_service.enabled` to `true`. The default is `false`.
 
-### Set the metadata hop limit when you provision an instance
+#### Set the metadata hop limit when you provision an instance
 {: #set-hop-limit-api-when-provisioning}
 {: api}
 
@@ -592,7 +584,7 @@ To set the response when you provision an instance, call the [POST /instances me
 
 This property applies only when the metadata service is enabled by setting `metadata_service.enabled` to `true`. The default is `false`.
 
-### Set the metadata hop limit on an existing instance
+#### Set the metadata hop limit on an existing instance
 {: #set-hop-limit-api-on-existing-instance}
 {: api}
 
