@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-10-03"
+  years: 2020, 2023
+lastupdated: "2023-02-03"
 
 keywords: custom routes
 
@@ -37,22 +37,22 @@ When you create a routing table, you can select one of the following traffic typ
    Only one custom routing table can be associated with a particular ingress traffic source. However, you can use different routing tables for different traffic sources. For example, routing table A might use Transit Gateway and VPC Zone, while routing table B uses Direct Link.
    {: note}
 
-## System routing table
-{: #system-routing-table}
+## Defining the system-implicit routing table
+{: #system-implicit-routing-table}
 
-You cannot configure a routing table to use the system routing table; it is populated automatically. The system routing table is used when no matching route is found in the custom routing table that is associated with the subnet where the traffic is egressing. If no match is found, the packet is dropped.
+You cannot configure a routing table to use the system-implicit routing table; it is populated automatically. The system-implicit routing table is used when no matching route is found in the custom routing table that is associated with the subnet where the traffic is egressing. If no match is found, the packet is dropped.
 
-A system routing table is maintained for each VPC. A VPC can have a presence in multiple zones, and the VPC's system routing table is different in each zone. For ingress routing, the system routing table contains only routes to each network interface in the VPC’s zone.
+A system-implicit routing table is maintained for each VPC. A VPC can have a presence in multiple zones, and the VPC's system-implicit routing table is different in each zone. For ingress routing, the system-implicit routing table contains only routes to each network interface in the VPC’s zone.
 
-This behavior can be avoided with a custom route table default route with an action of `drop`.
+This behavior can be avoided with a custom routing table default route with an action of `drop`.
 {: tip}
 
-The system route table contains:
+The system-implicit routing table contains:
 
 * Routes to the CIDR of each subnet in the VPC
 * Routes to subnets within the zone (statically maintained)
 * Routes to subnets in other zones that are learned through BGP
-* Dynamic routes learned through BGP (for example, Direct Link) 
+* Dynamic routes learned through BGP (for example, Direct Link and Transit Gateway) 
 * The default route for internet traffic (used when a public gateway or floating IP is associated with the VPC)
 * Routes to the classic infrastructure service network CIDRs (used when a service gateway is associated with the VPC), for example:
 
@@ -71,27 +71,21 @@ The following use cases illustrate different routing scenarios.
 
 | Destination | Action | Next hop | Location|
 |-------------|--------|----------|---------|
-| - | - | - | - |
-| - | - | - | - |
-{: caption="Table 1. Default route table, edge proxy firewall" caption-side="bottom"}
-
-| Destination | Action | Next hop | Location|
-|-------------|--------|----------|---------|
 | `10.10.0.0/16` | Delegate |  | Dallas DC 1|
 | `10.11.0.0/16` | Delegate |  | Dallas DC 1|
 | `0.0.0.0/0` | Deliver | `10.10.1.5` | Dallas DC 1|
-{: caption="Table 2. Proxy route table, edge proxy firewall" caption-side="bottom"}
+{: caption="Table 1. Edge proxy firewall egress routing table" caption-side="bottom"}
 
 #### Objective: Edge proxy firewall
 {: #objective-edge-proxy-firewall}
 
 Secure flows to the public internet from behind a client-defined gateway, proxy, or firewall appliance, while also allowing resources on the other subnets to flow through the VPC-managed public gateway.
 
-Using VPC custom routes with per subnet egress routing, you can create a table to override the system-implicit routing with the VPC network. In this example, the default table created by the system, where all subnets are assigned at creation, is unchanged. A table to direct traffic from subnet `10.10.1.0/24` through an edge proxy is created as well.
+Using VPC custom routes with per subnet egress routing, you can create a table to override the system-implicit routing within the VPC network. In this example, the default table created by the system, where all subnets are assigned at creation, is unchanged. A table to direct traffic from subnet `10.10.1.0/24` through an edge proxy (NFV Proxy) is created as well.
 
-Because the destination for the proxied flows are the public internet and, typically, follow the default route (`0.0.0.0/0`), you must first exempt flows toward internally-reachable private networks using the Delegate function of custom routes. Resources in subnet `10.10.3.0/24` continue to use the public gateway that is attached to that subnet. You can achieve further isolation by disconnecting the public gateway, or removing it from the VPC altogether.
+Because the destination for the proxied flows are the public internet and, typically, follow the default route (`0.0.0.0/0`), you must first exempt flows toward internally-reachable private networks using the Delegate function of custom routes. Resources in subnet `10.10.3.0/24` continue to use the public gateway that is attached to that subnet. 
 
-While the instances that use the proxy share a common subnet with the proxy in this example, you are not required to do so. Custom routes also enable you to specify a next-hop IP on a subnet that is not connected to the instance. This allows you to scale horizontally without concern for the subnet sizings of Edge services. For example, a proxy route table can be attached to subnet `10.10.3.0/24` and directs all public flows to the NFV proxy.
+While the instances that use the proxy share a common subnet with the proxy in this example, you are not required to do so. Custom routes also enable you to specify a next-hop IP of an instance connected to a different subnet. This allows you to scale horizontally without concern for the subnet sizings of Edge services. For example, a proxy routing table can be attached to subnet `10.10.3.0/24` and directs all public flows to the NFV proxy.
 
 #### Functions used in an Edge proxy firewall
 {: #functions-used-in-edge-proxy-firewall}
@@ -110,18 +104,12 @@ This use case uses the following functions of Edge proxy firewalls:
 
 | Destination | Action | Next hop | Location|
 |-------------|--------|----------|---------|
-| -  |  - | -  | -  |
-| -  | - | -  | - |
-{: caption="Table 3. Default route table, public load balancer" caption-side="bottom"}
-
-| Destination | Action | Next hop | Location|
-|-------------|--------|----------|---------|
 | `10.10.0.0/16` | Delegate |  | Dallas DC 1|
 | `10.11.0.0/16` | Delegate |  | Dallas DC 1|
 | `166.26.0.0/16` * | Delegate |  | Dallas DC 1|
 | `166.8.0.0/14` * | Delegate |  | Dallas DC 1|
 | `0.0.0.0/0` | Deliver | `10.10.1.5` | Dallas DC 1|
-{: caption="Table 4. Web route table, public load balancer" caption-side="bottom"}
+{: caption="Table 2. Public load balancer Web egress routing table" caption-side="bottom"}
 
 #### Objective: public load balancer
 {: #objective-public-load-balancer}
@@ -189,14 +177,13 @@ The implicit router performs ECMP routing (multiple routes with the same destina
 ### Ingress routes
 {: #routes-ingress}
 
-
 * Currently, public ingress routing (`public internet` traffic choice) is available in the UI only. CLI and API are forthcoming. 
-* Each ingress source type can be associated with up to one ingress route table per VPC, however, a VPC can have multiple ingress route tables and each ingress route table can have one or more ingress types associated.
+* Each ingress source type can be associated with up to one ingress routing table per VPC, however, a VPC can have multiple ingress routing tables and each ingress routing table can have one or more ingress types associated.
 * Ingress traffic from a particular traffic source is routed using the routes in the custom routing table that is associated with that traffic source.
 * Custom routes in a custom routing table associated with an ingress traffic source, and with an action of `deliver`, must have a next hop IP contained by one of the address prefixes of the VPC in the availability zone where the route is added. In addition, the next hop IP must be configured on a virtual server interface in the VPC and availability zone where the route is targeted.  
 * Ingress traffic from a particular traffic source is routed using the routes in the custom routing table that is associated with that traffic source. If no matching route is found in a custom routing table, routing continues by using the VPC system routing table. You can avoid this behavior with a custom routing table's default route with an action of **drop**.
 * An ingress custom routing table containing any custom routes with destination IP (FIP) should be defined in the same zone as the virtual server instance that a FIP is associated with.
-* Floating IPs that are bound to an IBM Cloud VPN Gateway may not be used as a Destination for a Custom Route in an Ingress Route Table when the Public Internet (`route_internet_ingress`) source type is enabled.
+* Floating IPs that are bound to an IBM Cloud VPN gateway cannot be used as a destination for a custom route in an ingress routing table when the Public Internet (`route_internet_ingress`) source type is enabled.
 
 ### Unique prefix lengths
 {: #routes-unique-prefix-lengths}
