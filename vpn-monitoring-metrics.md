@@ -247,15 +247,13 @@ To receive monitoring metrics, you must set up your {{site.data.keyword.mon_full
 
 To receive monitoring metrics, use the following steps:
 
-1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring){: external} and click **Options** &gt; **Create**.
+1. Navigate to the [metrics monitoring portal](/observe/monitoring){: external} and click **Options** &gt; **Create**.
 
 2. Select a region for your {{site.data.keyword.mon_full_notm}} instance.
 
    If you do not have an existing VPN gateway, see [Creating a VPN gateway](/docs/vpc?topic=vpc-creating-a-vpc-using-the-ibm-cloud-console#vpn-ui
 ) to provision one.
    {: tip}
-
-   ![Region](images/metrics_1.png "Region"){: caption="Region" caption-side="bottom"}
 
    The region needs to match the location of your existing VPN gateway.
    {: important}
@@ -269,9 +267,7 @@ To receive monitoring metrics, use the following steps:
    Do not give multiple {{site.data.keyword.mon_full_notm}} instances the same name.
    {: important}
 
-5. Optionally, select a resource group. A resource group organizes account resources in customizable groupings. Any account resource that is managed by using IBM Cloud Identity and Access Management (IAM) access control belongs to a resource group within your account.
-
-   ![Resource group](images/metrics_2.png "Resource group"){: caption="Resource group" caption-side="bottom"}
+5. Optionally, select a resource group. A resource group organizes account resources in customizable groupings. Any account resource that is managed by using IBM Cloud Identity and Access Management (IAM) access control belongs to a resource group within your account. 
 
    If you do not have any pre-configured resource groups, or have no reason to share this resource selectively, use the default selection.
    {: note}
@@ -291,7 +287,7 @@ Within a few minutes, your new {{site.data.keyword.mon_full_notm}} instance disp
 
 To view and work with your {{site.data.keyword.mon_full_notm}} metrics, follow these steps:
 
-1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring){: external}.
+1. Navigate to the [metrics monitoring portal](/observe/monitoring){: external}.
 
 2. Click **Open dashboard** next to the service name of the {{site.data.keyword.mon_full_notm}} instance that you want to work with.
 
@@ -304,8 +300,6 @@ To view and work with your {{site.data.keyword.mon_full_notm}} metrics, follow t
 
 5. Ten main metrics in the dashboard are shown. These metrics include Gateway/Connection status, Gateway/Connection bytes input/output, and Gateway/Connection packets input/output. If you want to modify parameters and segment your metrics by VPN gateway name and VPN connection name, you must create a custom dashboard.
 
-   ![VPN {{site.data.keyword.mon_full_notm}} dashboard](images/dashboard_vpn.png){: caption="VPN monitoring dashboard" caption-side="bottom"}
-
    You can choose what time window that you'd like to see your metrics by using the time selection bar.
    {: tip}
 
@@ -317,14 +311,9 @@ You can create your own dashboard to customize your monitoring metrics, such as 
 
 To customize your dashboard, use the following steps:
 
-1. Navigate to the [metrics monitoring portal](https://cloud.ibm.com/observe/monitoring){: external}.
-
+1. Navigate to the [metrics monitoring portal](/observe/monitoring){: external}.
 1. Click **Open dashboard** next to the service name of the {{site.data.keyword.mon_full_notm}} instance you want to work with. You now see the dashboard.
-
 1. Select **Dashboards** and click the **+** in the panel.
-
-   ![Add VPN {{site.data.keyword.mon_full_notm}} dashboard](images/add_dashboard_vpn.png){: caption="Add VPN monitoring dashboard" caption-side="bottom"}
-
 1. Select **Blank dashboard** and select the type of visual representation that you want.
 
    {{site.data.keyword.mon_full_notm}} offers eight different visualizations for your dashboard. Read the description for each visualization and choose the one that best meets your requirements.
@@ -337,7 +326,6 @@ To customize your dashboard, use the following steps:
    * In the **Metrics** field, enter `ibm_is` to display the ten IBM Cloud VPN for VPC metrics: `ibm_is_vpn_gateway_status`, `ibm_is_vpn_connection_status`, `ibm_is_vpn_gateway_bytes_in`, `ibm_is_vpn_gateway_bytes_out`, `ibm_is_vpn_gateway_packets_in`, `ibm_is_vpn_gateway_packets_out`, `ibm_is_vpn_connection_bytes_in`, `ibm_is_vpn_connection_bytes_out`, `ibm_is_vpn_connection_packets_in`, and `ibm_is_vpn_connection_packets_out`.
 
    * You can choose a scope to display in your dashboard by clicking **Override Dashboard Scope**. For example, you can display the metrics for a particular VPN gateway.
-
    * You can also set a segment to compare metrics across the scope that you define. For example, you can look at the connection status for a particular VPN gateway that is segmented by gateway name and connection name.
 
 1. Click **Save**.
@@ -360,12 +348,9 @@ After you create your {{site.data.keyword.mon_full_notm}} instance, you must col
 
 To collect this information and work with your {{site.data.keyword.mon_full_notm}} instance by using metric query API, follow these steps:
 
-1. Access the [Monitoring home page](https://cloud.ibm.com/observe/monitoring){: external}.
+1. Access the [Monitoring home page](/observe/monitoring){: external}.
 1. Click **Open Dashboard** next to the instance that you want to work with.
 1. After the {{site.data.keyword.mon_full_notm}} dashboard is displayed, select your Account Profile icon on the sidebar and select **Settings**. You now see your account settings.
-
-   ![Settings](images/metrics_settings.png "Settings"){: caption="Settings" caption-side="bottom"}
-
 1. Your Monitor API token is an alphanumeric string that is located in the **Monitor API Token** field. Click the **Copy** button to copy the token to your clipboard.
 
    Do not share this API token. Anyone who has this API token has full access to your metrics.
@@ -450,17 +435,9 @@ You can view individual VPN gateway metrics and launch the {{site.data.keyword.m
 1. Click a VPN gateway name whose {{site.data.keyword.mon_full_notm}} metrics that you want to view and go to its **Overview** page.
 
    The **Monitoring preview** panel displays the sum of every metric over the last hour.
-   
-   ![VPN Monitoring preview](images/vpn_monitoring_preview.png){: caption="VPN monitoring preview" caption-side="bottom"}
 
    You can click **Launch monitoring** to launch the VPN gateway's default {{site.data.keyword.mon_full_notm}} dashboard.
    
-   ![VPN Monitoring dashboard](images/vpn_monitoring_dashboard.png){: caption="VPN monitoring dashboard" caption-side="bottom"}
-
-1. Open the VPN gateway's **Monitoring** page.
-
-   The page displays a VPN gateway's throughput and packets in a time range.
-   
-   ![VPN Monitoring](images/vpn_monitoring.png){: caption="VPN Monitoring" caption-side="bottom"}
+1. Open the VPN gateway's **Monitoring** page. The page displays a VPN gateway's throughput and packets in a time range.
    
    Similarly, you can also launch the VPN gateway's default {{site.data.keyword.mon_full_notm}} dashboard by clicking **Launch monitoring**.

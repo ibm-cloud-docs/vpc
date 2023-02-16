@@ -50,9 +50,6 @@ To view the {{site.data.keyword.cloud_notm}} {{site.data.keyword.vpn_vpc_short}}
 1. Open the {{site.data.keyword.la_full_notm}} instance dashboard.
 1. Apply the source filter for **is.vpn-server** to filter logs from {{site.data.keyword.vpn_vpc_short}}.
 1. Click the **Sources** filter menu.
-
-   ![Source filter](images/vpc-vpn-server-logdna-source-filter.png){: caption="Source filter" caption-side="bottom"}
-
 1. Click **Apply**.
 
 Additionally, you can enter the VPN server ID in the Search field to filter the logs specific to a VPN server.

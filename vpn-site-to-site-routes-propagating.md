@@ -24,5 +24,3 @@ Select `VPN gateway` in the following cases:
 1. For troubleshooting purposes, you can select or deselect `VPN gateway` to check routes that were added by the VPN gateway.
 
 VPN gateway route propagation supports both the default routing table and custom routing tables. When you create a routing table, make sure to select `VPN gateway` if you want VPN gateway routes propagated to it. For the default routing table, `VPN gateway` is selected by default.
-
-![Policy-based VPN gateway accepts routes from](images/vpn-gateway-routes-propagating.png){: caption="Policy-based VPN gateway accepts routes from" caption-side="bottom"}
