@@ -42,9 +42,6 @@ To create a public gateway using the {{site.data.keyword.cloud_notm}} console, f
 1. Go to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com){: external} and log in to your account.
 
 1. Select the Menu icon ![Menu icon](./images/menu_icon.png), then click **VPC Infrastructure** > **Public gateways**. The Public gateways for VPC page shows.
-
-   ![Public gateways UI](./images/pg-1.png "Public gateways dashboard"){: caption="Figure 1. Public gateways UI" caption-side="bottom}
-
 1. Click **Create** to go to the **Create public gateway** page.
 1. Select the **Edit location** icon ![Edit location icon](../icons/edit-tagging.svg "Edit location") and enter values for the following fields:
 
@@ -66,10 +63,6 @@ To create a public gateway using the {{site.data.keyword.cloud_notm}} console, f
 1. Copy a **sample API call** (optional).
 1. Click **Create**.
 1. If you don't have a paid account, **Upgrade your account** might appear instead of **Create**. If this option is shown, click to update your account to a paid account before creating your public gateway. For more information, see [Upgrading your account](/docs/account?topic=account-upgrading-account).
-
-   For example:
-
-   ![Example Public gateways page](./images/pg-2.png "Public gateways menu"){: caption="Figure 2. Example public gateways page" caption-side="bottom}
 
 ## Creating a public gateway from the CLI
 {: #pg-creating-cli}
