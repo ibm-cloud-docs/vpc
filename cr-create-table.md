@@ -31,10 +31,7 @@ You can create a routing table for an {{site.data.keyword.cloud_notm}} service b
 
 To create a routing table in the UI, follow these steps:
 
-1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the Navigation Menu ![Navigation Menu](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appear.
-
-   ![Routing tables for VPC page](./images/cr-routing-tables-page.png){: caption="Figure 1. Routing tables for VPC page" caption-side="bottom}
-
+1. From the [{{site.data.keyword.cloud_notm}} console](/login){: external}, select the Navigation Menu ![Navigation Menu](/images/menu_icon.png), then click **VPC Infrastructure > Routing tables** in the Network section. The Routing tables for VPC page appears.
 1. Click **Create** in the upper right of the page.
 1. In the Routing table for VPC provisioning page, complete the following information:
 
@@ -56,9 +53,7 @@ To create a routing table in the UI, follow these steps:
 
             The next-hop must be within the same zone of the specified VPC.
             {: note}
-
-      ![Routing table creation page](./images/cr-create-routing-table.png){: caption="Figure 2. Routing table creation page" caption-side="bottom}
-
+            
 1. Click **Create routing table**.
 
 ## Creating a routing table from the CLI

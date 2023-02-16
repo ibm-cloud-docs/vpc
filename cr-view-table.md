@@ -28,8 +28,6 @@ To view the details of a routing table in the UI, follow these steps:
 
 1. Click the name of the routing table that you want details for. The Routing table details page appears.
 
-    ![Routing table details](./images/cr-routing-table-details2.png){: caption="Figure 1. Routing table details" caption-side="bottom}
-
 Field descriptions are as follows.
 
 | Field | Description |

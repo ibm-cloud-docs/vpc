@@ -28,8 +28,6 @@ To delete a route in the UI, follow these steps:
 2. Click the number of routes, or the routing table name that contains the route.
 3. Click the Actions menu ![Actions menu](images/overflow.png) next to the route that you want to delete, then click **Delete**. Click **Delete** again to confirm the deletion.
 
-   ![Deleting a route](./images/cr-routing-table-route-delete.png){: caption="Figure 1. Deleting a route" caption-side="bottom}
-
 ## Deleting a route from the CLI
 {: #cr-delete-using-the-cli}
 {: cli}

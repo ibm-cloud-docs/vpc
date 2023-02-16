@@ -31,9 +31,7 @@ To attach a routing table to a subnet in the UI, follow these steps:
 1. Click the name of the routing table in which you want to view subnet details. Alternatively, you can click the number of attached subnets.  
 1. From the Subnets tab, click **Attach subnet**. The Attach subnets to routing table side panel shows.
 1. Select a subnet from the drop-down list. The current routing table, IP range, and location of the subnet shows.
-1. Click **Attach**.   
-
-   ![Attaching subnets to routing table side panel](/images/attach-subnet-routing-table.png "Attaching subnets to routing table side panel"){: caption="Figure 1. Attaching subnets to routing table side panel" caption-side="bottom"}
+1. Click **Attach**.
 
 To reassign a routing table to a subnet, follow these steps:
 
@@ -41,8 +39,6 @@ To reassign a routing table to a subnet, follow these steps:
 1. Click the Actions menu ![Actions menu](images/overflow.png) next to the subnet, then click **Reassign routing table**.
 1. From the Reassign subnet routing table side panel, click the subnet that you want to assign to this routing table.
 1. Click **Reassign**.
-
-   ![Reassign routing table side panel](/images/reassign-routing-table.png "Reassign routing table side panel"){: caption="Figure 2. Reassign routing table side panel" caption-side="bottom"}
    
 ## Attaching subnets to a routing table from the CLI
 {: #cr-attach-subnets-using-the-cli}
@@ -60,7 +56,6 @@ ibmcloud is subnet-update SUBNET_ID --routing-table-id ROUTING_TABLE_ID
 Where:
 * **SUBNET_ID** - Is the ID of the subnet you want to update.  
 * **ROUTING_TABLE_ID** - Is the ID of the routing table that you want to assign the subnet to. 
-
 
 ## Attaching subnets to a routing table with the API
 {: #cr-attach-subnets-using-the-api}
