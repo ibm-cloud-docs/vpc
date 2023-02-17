@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-31"
+lastupdated: "2023-02-07"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -23,7 +23,7 @@ Restoring from a backup snapshot creates a fully provisioned boot or data volume
 
 Restoring a volume from a backup snapshot creates a boot or data volume, depending on whether the snapshot is "bootable" or "nonbootable". The new volume that is created from the snapshot inherits properties from the original volume, but you can specify a larger volume size, different IOPS profile, and customer-managed encryption.
 
-When you restore from a bootable backup snapshot, you create a boot volume that you use to provision another instance. The boot volume uses a general-purpose profile and is limited to 250 GB. Because the bootable backup snapshot is not fully provisioned, in the beginning the performance is slower than when you use a regular boot volume. For more information, see [Performance considerations](#baas-boot-perf).
+When you restore from a bootable backup snapshot, you create a boot volume that you use to provision another instance. The boot volume uses a general-purpose profile and is limited to 250 GB. Because the bootable backup snapshot is not fully provisioned, in the beginning the performance is slower than when you use a regular boot volume. For more information, see [Performance impact](#baas-boot-perf).
 
 For best performance, use backups with fast restore. You can enable fast restore backup snapshots in multiple regions and use them to restore a volume that is fully provisioned when the volume is created. For more information, see [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore).
 
@@ -184,24 +184,17 @@ The API requests are the same as the one you use to restore from a manually crea
 
 For more information about using the API and all backup service API methods, see [VPC API reference](/apidocs/vpc/latest).
 
-## Performance considerations
+## Performance impact
 {: #baas-performance-considerations}
 
-Restoring boot and data volumes from a backup snapshot have the following performance implications.
+The performance of boot and data volumes is initially degraded when data is restored from a snapshot. Performance degradation occurs during the restoration because your data is copied from {{site.data.keyword.cos_full}} to {{site.data.keyword.block_storage_is_short}} in the background. After the restoration process is complete, you can realize full IOPS on the new volume.
 
-### Performance considerations when a volume is restored from a backup snapshot
-{: #baas-vol-perf}
+### Performance considerations when a bootable backup snapshot is used to provision an instance
+{: #baas-boot-perf} 
 
-Boot and data volume performance is initially degraded when you're restoring from a snapshot. During the restoration, your data is copied from {{site.data.keyword.cos_full_notm}} to {{site.data.keyword.block_storage_is_short}}. After the restoration process is completed, you can realize full IOPS on your new volume.
+Before you select a backup snapshot of a boot volume to provision an instance, consider the following points:
 
-### Performance considerations when a bootable backup snapshot is used to provision a new instance
-{: #baas-boot-perf}
-
-Before you select a backup snapshot of a boot volume to provision an instance, keep in mind these performance considerations:
-
-* Because the bootable backup snapshot is not fully hydrated, initial performance is slower than compared to a regular boot volume. During the restoration, your data is copied from {{site.data.keyword.cos_full}} to {{site.data.keyword.block_storage_is_short}}.
-
-* For disaster recovery, it's better to restore from a manually created snapshot than from a backup snapshot. Your volume is created sooner.
+* Because the bootable backup snapshot is not fully hydrated, initial performance is slower than compared to a regular boot volume. Volumes that are restored from fast restore clones do not require hydration. The data is available as soon as the volume is created.
 
 * To achieve the best performance and efficiency when you provision multiple instances, boot from an existing image. Custom images that you provide are better than stock images for this purpose. Images can have a maximum size of 250 GB.
 

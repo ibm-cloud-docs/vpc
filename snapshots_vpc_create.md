@@ -46,7 +46,8 @@ Follow these steps to create a snapshot from the list of snapshots.
    | Encryption | Encryption information for the volume that you selected, either [provider-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-provider-managed-encryption) or [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about&interface=ui#vpc-customer-managed-encryption). The snapshot inherits the encryption of the source volume. You can't change the encryption type.
    {: caption="Table 1. Selections for creating a snapshot" caption-side="bottom"}
 
-4. Click **Create snapshot**. You're returned to the list of snapshots. Messages are displayed while the snapshot is being created and when it's ready, the snapshot displays first in the list of snapshots. You can then [view details of your snapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui).
+4. Click **Create snapshot**. You're returned to the list of snapshots. Messages are displayed while the snapshot is being created and when it's ready, the snapshot displays first in the list of snapshots.
+5. If you want to enable fast restore clones for the snapshot, click on the new snapshot to [view its details](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui). Scroll to the **Fast restore** card and click **Edit**. In the side panel, select the zones where you want to enable fast restore clones. Click **Save**.
 
 ### Create a snapshot from the list of {{site.data.keyword.block_storage_is_short}} volumes
 {: #snapshots-vpc-create-from-volume-list}
@@ -57,6 +58,7 @@ Follow these steps to create a snapshot from the list of {{site.data.keyword.blo
 2. From the list of volumes, locate a boot or data volume that is attached to an instance.
 3. Click the overflow menu (...) and select **Create snapshot**.
 4. On the snapshots list page, messages are displayed while snapshot is being created. When it's ready, the snapshot is displayed first in the list of snapshots. You can then [view details of your snapshot](/docs/vpc?topic=vpc-snapshots-vpc-view#snapshots-vpc-view-snapshot-ui).
+5. If you want to enable fast restore clones for the snapshot, scroll to the **Fast restore** card and click **Edit**. In the side panel, select the zones where you want to enable fast restore clones. Click **Save**.
 
 ### Create a snapshot from an attached {{site.data.keyword.block_storage_is_short}} volume
 {: #snapshots-vpc-create-from-vol-details}
@@ -73,6 +75,7 @@ For a volume that is attached to an instance, you can create a snapshot from the
 4. Under **Volume**, click **Edit** to select a volume form the list that is displayed, then click **Save**. A summary is shown in the side panel.
 5. Click **Create block storage snapshot**. A message indicates that the snapshot is being created and you're returned to the volume details page.
 6. To view the snapshot, click the **Backups and Snapshots** tab.
+7. If you want to enable fast restore clones for the snapshot, scroll to the **Fast restore** card and click **Edit**. In the side panel, select the zones where you want to enable fast restore clones. Click **Save**.
 
 ## Create a snapshot from the CLI
 {: #snapshots-vpc-create-cli}
