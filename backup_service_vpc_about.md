@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-02-07"
+lastupdated: "2023-02-17"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -121,7 +121,7 @@ The restored volume has the same capacity and IOPS tier profile as the original 
 ### Restoring a volume by using fast restore
 {: #backup-service-fastrestore}
 
-Restoring a volume by using fast restore creates a fully hydrated volume instantly. You can cache a backup snapshot to a zone, then use the backup for fast restore in multiple zones within the same region. You can create a [backup policy plan](/docs/vpc?topic=vpc-backup-policy-create#backup-plan-ui) with fast restore zones, and add or remove zones later as needed.
+Restoring a volume by using fast restore creates a fully hydrated volume instantly. You can cache a backup snapshot to a zone, then use the backup for fast restore in multiple zones within the same region. You can create a [backup policy plan](/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=ui#backup-plan-ui) with fast restore zones, and add or remove zones later as needed.
 
 When you use fast restore, your existing regional plan is adjusted, including billing. Billing is based on instance hours, $0.75 per hour regardless of the backup size.
 
