@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Managing Snapshots
+# Managing snapshots
 {: #snapshots-vpc-manage}
 
 You can manage existing snapshots in several ways. Delete snapshots that you no longer need and free space for new snapshots. Rename existing snapshots to make them easier to identify. Add user tags to snapshots for use by the VPC backup service. Verify {{site.data.keyword.iamshort}} access. Verify snapshot statuses. Edit a snapshot for fast restore.
