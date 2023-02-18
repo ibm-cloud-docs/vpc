@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-02-16"
+lastupdated: "2023-02-17"
 
 keywords:
 
@@ -61,7 +61,7 @@ With the VPC API, you can make a `POST /volumes` call and specify the snapshot I
 ### Restoring a volume with the fast restore feature
 {: #snapshots-vpc-use-fast-restore}
 
-Restoring a volume by using the fast restore feature creates a fully provisioned volume at creation time. With this feature, you create and keep a clone of the snapshot in a different zone within your region instead of a {{site.data.keyword.cos_short}} bucket. You can also use the fast restore feature with the backup service. For more information, see [backup policy plan](/docs/vpc?topic=vpc-backup-policy-create).
+Restoring a volume by using the [fast restore feature](/docs/vpc?topic=vpc-snapshots-vpc-faqs&interface=ui#faq-snapshot-fr) creates a fully provisioned volume at creation time. With this feature, you create and keep a clone of the snapshot in a different zone within your region instead of a {{site.data.keyword.cos_short}} bucket. You can also use the fast restore feature with the backup service. For more information, see [backup policy plan](/docs/vpc?topic=vpc-backup-policy-create).
 
 In the console, you can filter the list of available snapshots to see which ones have fast restore clones. Select the fast restore snapshot clone to restore the volume and have it ready to use faster. When you restore data from a fast restore snapshot, the data is pulled from the clone within your region and not from {{site.data.keyword.cos_short}}. Thus the data is immediately available, and no hydration is necessary. Performance levels are not affected.
 
@@ -190,20 +190,27 @@ Restoring a volume from a snapshot from the CLI creates a new, fully provisioned
 ### Before you begin
 {: #snapshots-vpc-restore-prereq-CLI}
 
-1. Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
-2. To use the CLI, set the `IBMCLOUD_IS_FEATURE_SNAPSHOT` environment variable to `true`. Copy the following code:
-   ```zsh
-   export IBMCLOUD_IS_FEATURE_SNAPSHOT=true
+Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
+{: requirement}
+
+1. Log in to the IBM Cloud.
+   ```sh
+   ibmcloud login --sso -a cloud.ibm.com
    ```
    {: pre}
 
-3. After you install the vpc-infrastructure plug-in, set the target to generation 2 by running the `ibmcloud is target --gen 2` command.
-4. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-creating-a-vpc-using-cli#create-a-vpc-cli).
+   This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
+
+2. Select the current generation of VPC. 
+   ```sh
+   ibmcloud is target --gen 2
+   ```
+   {: pre}
 
 ### Create a boot volume from a snapshot for a new instance from the CLI
 {: #snapshots-vpc-restore-boot-CLI}
 
-Run the `ibmcloud is instance-create` command with the `source_snapshot` parameter and ID or name of a bootable snapshot. The restored boot volume is used to initialize the instance.
+Run the `ibmcloud is instance-create` command with the `source_snapshot` option and ID or name of a bootable snapshot. The restored boot volume is used to initialize the instance.
 
 See the following example.
 

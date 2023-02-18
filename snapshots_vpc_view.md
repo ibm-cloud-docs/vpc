@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-02-07"
+lastupdated: "2023-02-17"
 
 keywords:
 
@@ -53,7 +53,7 @@ Table 1 describes the information for all snapshots in the list of snapshots.
 | | Copy the Cloud Resource Name (CRN). |
 | | [Create volume](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-vpc-restore-ui). |
 | | [Edit fast restore](https://test.cloud.ibm.com/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-edit-fast-restore) |
-| | [Delete the snapshot](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete). |
+| | [Delete the snapshot](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete-snapshot-ui). |
 | | [Delete all snapshots for a volume](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete-all-ui). |
 {: caption="Table 1. List of all snapshots" caption-side="bottom"}
 
@@ -93,7 +93,33 @@ To see details about a snapshot:
 
 You can use the CLI to list all snapshots, all snapshots for a volume, and details about a particular snapshot.
 
-### View all snapshots
+### Before you begin
+{: #snapshots-vpc-view-cli-requirement}
+
+Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
+{: requirement}
+
+1. Log in to the IBM Cloud.
+   ```sh
+   ibmcloud login --sso -a cloud.ibm.com
+   ```
+   {: pre}
+
+   This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
+
+2. Select the current generation of VPC. 
+   ```sh
+   ibmcloud is target --gen 2
+   ```
+   {: pre}
+
+3. Set the `IBMCLOUD_IS_FEATURE_SNAPSHOT` environment variable to `true`.
+   ```zsh
+   export IBMCLOUD_IS_FEATURE_SNAPSHOT=true
+   ```
+   {: pre}
+
+### View all snapshots of an account in a region from the CLI
 {: #snapshots-vpc-view-all-cli}
 
 Run the `snapshots` command to list all snapshots.
@@ -103,22 +129,24 @@ ibmcloud is snapshots [--json]
 ```
 {: pre}
 
-Example:
+The following example provides a list of all the snapshots in all the resource groups in the `eu-de` region that were created by the users of the Test Account.
 
 ```sh
-$ ibmcloud is snapshots
-Listing snapshots for generation 2 compute in all resource groups and region us-south under account VPC 01 as user rtuser1@mycompany.com...
-
-ID                                          Name         Status    Progress   Source Volume                               Bootable   Resource group   Created
-6a093fdd-9e33-4e96-9ca8-cf5b45d097d8   snapshot1    stable    -
-0f136bf8-6530-47e4-9482-ff0c06a7edc4   false      Default          2022-12-16T16:18:56+08:00
-50308933-05b4-4363-9c45-00584fc52a43   snapshot2   pending   0          0f136bf8-6530-47e4-9482-ff0c06a7edc4   false      Default          2022-01-16T16:26:04+08:00
+cloudshell:~$ ibmcloud is snapshots [--json]
+Listing snapshots in all resource groups and region eu-de under account Test Account as user test.user@ibm.com...
+ID                                          Name                                           Status     Source volume                               Bootable   Resource group   Created   
+r138-7cac80af-63bb-4a1b-83dd-5f6d550a5db7   bear-peroxide-viewable-oxidant                 stable     r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa   false      test-snap        2023-02-17T18:49:48+00:00    
+r138-f95ef79e-5452-4a2a-b674-923c8ab84923   csi-plan-6kraq5zm-x7ss0u3h-3dbc4108a6b6-4356   stable     r010-a32b3fc7-8cd1-4b6e-ab97-f9837024fc03   false      defaults         2023-01-18T15:35:19+00:00   
+r138-9ad969ee-64b2-409a-b1e8-a3093446ad4e   csi-plan-nmplujx4-67413149ce61-4740            unusable   r010-63524a21-889d-4c44-95d1-4d2332394975   false      defaults         2023-01-18T13:40:28+00:00   
+r138-0f005da7-026c-453a-aa9b-2bc6f5cc6961   demo2-8be140e9561c-4381                        stable     r010-5a558256-ca83-4534-973f-f7a3b80aebe7   true       defaults         2023-02-01T00:41:23+00:00   
+r138-f7030231-bc5b-4672-8454-2f30271578f6   my-hpcs-snapshot                               stable     r010-921c3c6f-6a0a-4914-bdc5-3e8c9167ec30   false      defaults         2022-02-11T16:54:35+00:00   
+r138-e6664842-b370-496a-9ae7-da3fb647707c   snappy-snap-snap                               stable     r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa   false      test-snap        2023-02-17T18:53:57+00:00
 ```
 {: screen}
 
 For more information about available command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots).
 
-### View all snapshots for a volume from the CLI
+### View all snapshots of a volume from the CLI
 {: #snapshots-vpc-view-cli}
 
 Run the `snapshots` command and specify the volume ID.
@@ -128,15 +156,15 @@ ibmcloud is snapshots --volume VOLUME-ID [--json]
 ```
 {: pre}
 
-Example:
+The following example shows all three snapshots that were taken of the volume `r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa`.
 
 ```zsh
-$ ibmcloud is snapshots --volume 728b2d3c-2165-46c7-9863-9397e0a9af42
-Listing snapshots for generation 2 compute in all resource groups and region us-south under account VPC 01 as user rtuser1@mycompany.com...
-
-ID                                          Name   Status   Progress   Source Volume                               Bootable   Resource group   Created
-b2168769-a4dc-4cb8-9fc6-e62d45918858   t2b1   stable   -          728b2d3c-2165-46c7-9863-9397e0a9af42   false      Default          2022-01-12T16:28:58+08:00
-6e7ac183-3223-43d1-8f15-bea30c94eda0   t2b2   stable   -          728b2d3c-2165-46c7-9863-9397e0a9af42   false      Default          2022-01-12T16:29:01+08:00
+cloudshell:~$ ibmcloud is snapshots --volume  r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa
+Listing snapshots in all resource groups and region eu-de under account Test Account as user test.user@ibm.com...
+ID                                          Name                             Status   Source volume                               Bootable   Resource group   Created   
+r138-7cac80af-63bb-4a1b-83dd-5f6d550a5db7   bear-peroxide-viewable-oxidant   stable   r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa   false      test-snap        2023-02-17T18:49:48+00:00   
+r138-4463eb2c-4913-43b1-b9bf-62a94f74c146   cli-snapshot-test                stable   r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa   false      defaults         2023-02-17T20:15:43+00:00   
+r138-e6664842-b370-496a-9ae7-da3fb647707c   snappy-snap-snap                 stable   r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa   false      test-snap        2023-02-17T18:53:57+00:00 
 ```
 {: screen}
 
@@ -152,10 +180,10 @@ ibmcloud is snapshots SNAPSHOT_ID [--json]
 ```
 {: pre}
 
-Example:
+The following example shows the details of a bootable snapshot in the `us-south` region.
 
 ```zsh
-$ ibmcloud is snapshot c2bc3194-0cab-40c4-9434-db9f26218700
+cloudshell:~$ ibmcloud is snapshot c2bc3194-0cab-40c4-9434-db9f26218700
 Getting snapshot c2bc3194-0cab-40c4-9434-db9f26218700 under account vpc1 as user user@mycompany.com...
 
 ID                     c2bc3194-0cab-40c4-9434-db9f26218700
@@ -185,19 +213,49 @@ Captured               2022-01-14T01:53:34+05:30
 ```
 {: screen}
 
+The following example shows the details of a nonbootable snapshot in the `eu-de` region, which also has a fast restore clone in the `eu-de-1` zone.
+
+```sh
+cloudshell:~$ ibmcloud is snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
+Getting snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Account as user test.user@ibm.com...
+                          
+ID                     r138-4463eb2c-4913-43b1-b9bf-62a94f74c146   
+Name                   cli-snapshot-test   
+CRN                    crn:v1:bluemix:public:is:eu-de:a/a10d63fa66daffc9b9b5286ce1533080::snapshot:r138-4463eb2c-4913-43b1-b9bf-62a94f74c146   
+Status                 stable   
+Clones                 Zone      Available   Created      
+                       eu-de-1   true        2023-02-17T20:15:46+00:00      
+                          
+Source volume          ID                                          Name      
+                       r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa   block-test1      
+                          
+Bootable               false   
+Encryption             provider_managed   
+Encryption key         -   
+Minimum capacity(GB)   20   
+Size(GB)               1   
+Resource group         ID                                 Name      
+                       6edefe513d934fdd872e78ee6a8e73ef   defaults      
+                          
+Created                2023-02-17T20:15:43+00:00   
+Captured at            2023-02-17T20:15:44+00:00   
+Tags                   env:prod,env:test
+```
+{: screen}
+
 For more information about available command options, see [`ibmcloud is snapshots`](/docs/vpc?topic=vpc-vpc-reference#snapshots).
 
 ### View all fast restore snapshot clones from the CLI
 {: #snapshots-view-zonal-clones-cli}
 
-The following example lists the available fast restore snapshot clones (copies of the snapshot) that is specified by the snapshot ID.
+You can list all available fast restore clones of a snapshot by issuing the `ibmcloud is snapshot-cls` command. The following example lists the available fast restore snapshot clones of the snapshot that has the ID of `r138-4463eb2c-4913-43b1-b9bf-62a94f74c146`.
 
 ```sh
-ibmcloud is snapshot-cls e9c45a8f-3b6e-420f-8147-7dff7582e89f
-Listing zonal clones of snapshot e9c45a8f-3b6e-420f-8147-7dff7582e89f under account VPC 01 as rtuser1@mycompany.com......
-Zone         Available   Created
-us-south-1   true        2022-11-04T12:18:21+05:30
-us-south-3   true        2022-11-04T12:18:21+05:30
+cloudshell:~$ ibmcloud is snapshot-cls r138-4463eb2c-4913-43b1-b9bf-62a94f74c146
+Listing zonal clones of snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Account as user test.user@ibm.com...
+Zone      Available   Created   
+eu-de-1   true        2023-02-17T20:15:46+00:00   
+eu-de-3   true        2023-02-17T20:29:21+00:00   
 ```
 {: screen}
 
@@ -206,16 +264,16 @@ For more information about available command options, see [`ibmcloud is snapshot
 ### View details of a fast restore snapshot clone from the CLI
 {: #snapshots-clone-details-cli}
 
-You can run the `ibmcloud is snapshot-cl` command to list the details of a specific fast restore snapshot clone. The following example shows how to list the details of the fast restore snapshot clone of snapshot `502aeb51-38f2-4905-bb50-b0786760d692` that resides in the `us-south-3` zone. 
+You can run the `ibmcloud is snapshot-cl` command to list the details of a specific fast restore snapshot clone. The following example shows how to list the details of the fast restore snapshot clone of snapshot `r138-4463eb2c-4913-43b1-b9bf-62a94f74c146` that resides in the `eu-de-3` zone. 
 
 ```sh
-ibmcloud is snapshot-cl 502aeb51-38f2-4905-bb50-b0786760d692  us-south-3 
-Getting zonal clone us-south-3 of snapshot r134-502aeb51-38f2-4905-bb50-b0786760d692 under account VPCUI-DEV as user Shyam.Venkat.R@ibm.com...
+cloudshell:~$ ibmcloud is snapshot-cl r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 eu-de-3
+Getting zonal clone eu-de-3 of snapshot r138-4463eb2c-4913-43b1-b9bf-62a94f74c146 under account Test Account as user test.user@ibm.com...
                
-Zone        us-south-3   
+Zone        eu-de-3   
 Available   true   
-Created     2022-11-04T12:23:01+05:30   
-Href        https://us-south-stage01.iaasdev.cloud.ibm.com/v1/regions/us-south/zones/us-south-3
+Created     2023-02-17T20:29:21+00:00   
+Href        https://eu-de.iaas.cloud.ibm.com/v1/regions/eu-de/zones/eu-de-3 
 ```
 {: screen}
 
