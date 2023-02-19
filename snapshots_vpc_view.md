@@ -52,7 +52,7 @@ Table 1 describes the information for all snapshots in the list of snapshots.
 | | Copy the snapshot ID. |
 | | Copy the Cloud Resource Name (CRN). |
 | | [Create volume](/docs/vpc?topic=vpc-snapshots-vpc-restore#snapshots-vpc-restore-ui). |
-| | [Edit fast restore](https://test.cloud.ibm.com/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-edit-fast-restore) |
+| | [Edit fast restore](https://test.cloud.ibm.com/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-edit-fast-restore). |
 | | [Delete the snapshot](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete-snapshot-ui). |
 | | [Delete all snapshots for a volume](/docs/vpc?topic=vpc-snapshots-vpc-manage#snapshots-vpc-delete-all-ui). |
 {: caption="Table 1. List of all snapshots" caption-side="bottom"}
@@ -62,7 +62,7 @@ You can also list all snapshots that were created from a {{site.data.keyword.blo
 ### View snapshot details in the UI
 {: #snapshots-vpc-view-snapshot-ui}
 
-To see details about a snapshot:
+To see detailed information about a snapshot, take the following steps.
 
 1. Go to the list of all snapshots. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Block storage snapshots**.
 
