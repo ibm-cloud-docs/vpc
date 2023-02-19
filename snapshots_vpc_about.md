@@ -92,9 +92,7 @@ You can create a volume from a snapshot at any time. This process, called restor
 ## Snapshots fast restore feature
 {: #snapshots_vpc_fast_restore}
 
-By using the snapshots fast restore feature, can create fast restore snapshot clones in multiple zones within the same region. For example, for a snapshot in "us-south", you can create clones in "us-south-1", "us-south-2", or "us-south-3". You can add or remove zones as needed. You can also create [backup policy plan with fast restore zones](/docs/vpc?topic=vpc-backup-service-about#backup-service-fastrestore).
-
-Using fast restore, your data is fully available when the volume is created. In contrast, when not restoring from a fast restore snapshot clone, volume data is restored from {{site.data.keyword.cos_short}} when the volume is attached to an instance. The fast restore feature eliminates I/O latency when the volume is accessed for the first time and instantly delivers your required performance. 
+By using the snapshots fast restore feature, you create and keep a clone of the data in a different zone within your VPC region. In other words, your data is fully available when the volume is created. In contrast, when not restoring from a fast restore snapshot clone, volume data is restored from {{site.data.keyword.cos_short}} when the volume is attached to an instance. The fast restore feature eliminates I/O latency when the volume is accessed for the first time and instantly delivers your required performance. 
 
 The fast restore feature can be enabled in the UI, from the CLI, or with the API. In the CLI and API, the responses show `clones`. The UI shows fast restore snapshot clones simply as fast restore snapshots, but they are the same thing. 
 
