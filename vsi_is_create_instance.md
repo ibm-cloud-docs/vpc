@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2023
 
-lastupdated: "2023-02-16"
+lastupdated: "2023-02-20"
 
 keywords:
 
@@ -147,7 +147,7 @@ Use the following commands to determine the required information for creating a 
    ```
    {: screen}
 
-   If you do not have an available VPC, you can create one by using the `ibmcloud is vpc-create` command. For more information about creating a VPC, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#vpcs).
+   If you do not have an available VPC, you can create one by using the **`ibmcloud is vpc-create`** command. For more information about creating a VPC, see [ibmcloud is vpc-create](/docs/vpc?topic=vpc-vpc-reference#vpc-create).
 
 4. List the subnets that are associated with the {{site.data.keyword.vpc_short}}.
    ```sh
@@ -164,7 +164,7 @@ Use the following commands to determine the required information for creating a 
    ```
    {: screen}
 
-   If you do not have a subnet available, you can create one by using the `ibmcloud is subnet-create` command. For more information about creating a subnet, see [IBM Cloud VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#subnets).
+   If you do not have a subnet available, you can create one by using the **`ibmcloud is subnet-create`** command. For more information about creating a subnet, see [ibmcloud is subnet-create](/docs/vpc?topic=vpc-vpc-reference#subnet-create).
 
 5. List the available profiles for creating your instance.
    ```sh
@@ -276,7 +276,7 @@ Use the following commands to determine the required information for creating a 
 {: #create-instance-cli}
 {: cli}
 
-After you know the needed values, use them to run the `instance-create` command. You also need to specify a unique name for the instance.
+After you know the needed values, use them to run the **`ibmcloud is instance-create`**  command. You also need to specify a unique name for the instance.
 
 Use the following steps to create a virtual server instance by using the CLI.
 
@@ -328,9 +328,9 @@ Use the following steps to create a virtual server instance by using the CLI.
    - `PLACEMENT_GROUP_ID` is _r134-a812ff17-cac5-4e20-8d2b-95b587be6637
    - `METADATA-SERVICE` is set to `true` to enable it. By default, it is disabled and set to `false`.
 
-   For this example, you see a response that is silimar the following example.
+   For this example, you see a response that is similar to the following example.
 
-   The following response varies depending on what optional values that you use.
+   The following response varies depending on the optional values that you use.
    {: note}
 
    ```sh
@@ -365,10 +365,12 @@ Use the following steps to create a virtual server instance by using the CLI.
    ```
    {: screen}
 
-   Information about the network interfaces that are created for the new instance aren't returned after the instance is created. You can view the information by using the command that was provided in **Step 2**.
+   Information about the network interfaces that are created for the new instance aren't returned after the instance is created. You can view the information by using the `ibmcloud is instance INSTANCE` command as described in the following step.
 
    The status displays pending until the instance is created.
    {: note}
+   
+   For a full list of command options, see [ibmcloud is instance-create](/docs/vpc?topic=vpc-vpc-reference#instance-create). 
 
 2. When the status changes to *running*, verify that you can see your new instance and view the network interfaces that were created for your new instance.
 
