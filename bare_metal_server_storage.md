@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-01-21"
+  years: 2021, 2023
+lastupdated: "2023-02-20"
 
 keywords: 
 
@@ -25,8 +25,4 @@ Storage for Bare Metal Servers for VPC is unmanaged. You are responsible for enc
 
 The following network-attached storages are not supported:
 * Block Storage for VPC
-* File Storage for VPC (select availability)
-
-File Storage for VPC is available for customers with special approval to preview this service in the Washington, Dallas, Frankfurt, London, Sydney, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access. 
-{: preview}
-  
+* File Storage for VPC
