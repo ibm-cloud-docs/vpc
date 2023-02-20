@@ -229,6 +229,6 @@ Make sure that you created the required authorizations in IBM {{site.data.keywor
 ## Next steps
 {: #encrypt-next-steps}
 
-When your image is successfully encrypted, your KMS is set up, and you created the required keys, you can [import](/docs/vpc?topic=vpc-managing-images) the image to {{site.data.keyword.vpc_short}}. When the image is available in {{site.data.keyword.vpc_short}}, you can use it to provision instances. Make sure that you have [Granted access to {{site.data.keyword.cos_full_notm}} to import images](/docs/vpc?topic=vpc-object-storage-prereq).  
+When your image is successfully encrypted, your KMS is set up, and you created the required keys, you can [import](/docs/vpc?topic=vpc-managing-custom-images) the image to {{site.data.keyword.vpc_short}}. When the image is available in {{site.data.keyword.vpc_short}}, you can use it to provision instances. Make sure that you have [Granted access to {{site.data.keyword.cos_full_notm}} to import images](/docs/vpc?topic=vpc-object-storage-prereq).  
 
 When you are ready to provision a new virtual server instance with the encrypted image, no encryption information is needed. The wrapped data encryption key (WDEK) and the CRN of the customer root key (CRK) are stored as metadata with the image.
