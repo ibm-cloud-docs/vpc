@@ -31,6 +31,11 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "14 February 2023", 
+          "title": "VPC instance metadata communication protocol and hop limit",
+          "description": "You can now control the communication protocol and hop limit for IP response packets that are used by the [VPC Instance Metadata service](/docs/vpc?topic=vpc-imd-about). When you provision or update an instance, use the new **Secure access** setting to specify either `http` (default) or `https` (secure access) communication. In addition, use the new **Hop limit** setting to specify a value between `1` (default) and `64`. Both of these settings apply only when the metadata service is enabled."
+        },  
+        {
           "date": "14 February 2023",
           "title": "Hyper Protect Secure Build",
           "description": "You can now use Hyper Protect Secure Build to securely build an Open Container Initiative (OCI) image in Hyper Protect Virtual Servers for VPC. You can push the image to DockerHub or IBM Cloud Container Registry (ICR), later you can pull the image from the registry to provision it in another Hyper Protect Virtual Servers for VPC instance. You can also pull SLES BaseContainerImages (BCI) from the SUSE registry, and use the images to provision Hyper Protect Virtual Servers for VPC instances."
@@ -39,11 +44,6 @@
           "date": "9 February 2023",
           "title": "Export custom images (Beta)",
           "description": "For accounts authorized to preview this feature, users can now export custom images to IBM Cloud Object Storage. "
-        },
-        {
-          "date": "7 February 2023",
-          "title": "Block storage fast restore snapshots",
-          "description": "You can now restore a fully provisioned volume with all its data from a snapshot by using a fast restore snapshot clone. To create the clone, you specify a zone or zones in the same region as the source snapshot. The clone is used to automatically restore a volume with all of its data in the zone where the clone exists. Using this feature restores a volume more quickly than restoring from a regular snapshot."
         }
       ]
     }
