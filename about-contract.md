@@ -482,7 +482,7 @@ Steps 4 - 8 are used to encrypt the `env` section. If you choose to not encrypt 
 
 Complete the following steps on an Ubuntu system, to prepare the signature:
 
-If you have got the encrypted `user-data.yaml` from the [Creating the encrypted `workload` section of a contract](#hpcr_contract_encrypt_workload), and [Creating encrypted `env` section of a contract](#hpcr_contract_encrypt_env), skip to step 3.
+If you have got the encrypted `user-data.yaml` from the [Creating the encrypted `workload` section of a contract](#hpcr_contract_encrypt_workload) and [Creating encrypted `env` section of a contract](#hpcr_contract_encrypt_env) sections, skip to step 3.
 
 1. Get the encrypted `workload.yaml` and encrypted `env.yaml` files.
 
