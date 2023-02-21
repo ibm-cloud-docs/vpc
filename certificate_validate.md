@@ -24,7 +24,7 @@ You can validate the certificates that you download for contract encryption and 
 Download the following certificates:
 * Get the DigiCert certificates. The DigiCert Trusted Root G4 certificate can be downloaded [here](https://cacerts.digicert.com/DigiCertTrustedRootG4.crt.pem), and the Digicert G4 intermediate certificate can be downloaded [here](https://cacerts.digicert.com/DigiCertTrustedG4CodeSigningRSA4096SHA3842021CA1.crt.pem){: external}.
 * Get the IBM intermediate certificate [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-8-intermediate.crt){: external}, for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-8`.
-    For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-8`, you can download the IBM intermediate certificate [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-7-intermediate.crt){: external}.
+    For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-7`, you can download the IBM intermediate certificate [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-7-intermediate.crt){: external}.
     {: note}
 
 ## Validating the contract encryption certificate
@@ -150,8 +150,8 @@ Complete the following steps on an Ubuntu system to validate the attestation cer
 ## Certificate revocation list
 {: #certificate-revocation-list}
 
-Starting from `ibm-hyper-protect-container-runtime-1-0-s390x-8-encrypt.crt` and
-`ibm-hyper-protect-container-runtime-1-0-s390x-8-attestation.crt`, the
+Starting from `ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt` and
+`ibm-hyper-protect-container-runtime-1-0-s390x-7-attestation.crt`, the
 certificates will contain **Certificate Revocation List (CRL) Distribution Points**. You can use the CRL to verify that your certificates are valid (not revoked).
 
 1. Extract and download the CRL URL from the attestation or encryption certificate:
