@@ -95,8 +95,6 @@ It's important to read the following information and complete the required prepa
    
    Currently, the instance supports only one data volume and [encrypted by default with the seed or passphrase that you provide](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_volumes), which ensures that your workload data is protected. Even though you can add multiple data volumes, they're ignored and only one of them is encrypted. It's recommended that you attach one data volume to the instance during instance creation so that data from the container is stored in the data volume. It's also recommended that you take a snapshot of the data volume so that you can revert to it in case you face any issues in the future.
 
-   Starting from the HPCR image version `ibm-hyper-protect-container-runtime-1-0-s390x-9`, for new {{site.data.keyword.hpvs}} for VPC instances, the data volume is partitioned into two parts. The first partition is used to support the Bring Your Own Key (BYOK) feature. It remains as an unencrypted metadata partition (100Mib), until it's used to store the customer root key that encrypts the second partition (the data volume for workloads). Note that only new (unencrypted) volumes are partitioned, and you can't use the partitioned volume with an older version of the HPCR image. If you provision with an encrypted volume, the encrypted volume will not be partitioned, and you can go back to an older image with this volume. 
-
    When you create a {{site.data.keyword.hpvs}} for VPC instance, detaching the data volume attached to the running instance causes the workload running on the instance to fail. It's recommended that you do not detach the data volume.
 
 - Security group for ports

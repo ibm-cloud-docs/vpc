@@ -150,8 +150,8 @@ Complete the following steps on an Ubuntu system to validate the attestation cer
 ## Certificate revocation list
 {: #certificate-revocation-list}
 
-Starting from `ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt` and
-`ibm-hyper-protect-container-runtime-1-0-s390x-7-attestation.crt`, the
+Starting from `ibm-hyper-protect-container-runtime-1-0-s390x-8-encrypt.crt` and
+`ibm-hyper-protect-container-runtime-1-0-s390x-8-attestation.crt`, the
 certificates will contain **Certificate Revocation List (CRL) Distribution Points**. You can use the CRL to verify that your certificates are valid (not revoked).
 
 1. Extract and download the CRL URL from the attestation or encryption certificate:

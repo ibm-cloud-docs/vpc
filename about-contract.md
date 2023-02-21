@@ -210,12 +210,6 @@ volumes:
 ```
 {: codeblock}
 
-Starting from the HPCR image version `ibm-hyper-protect-container-runtime-1-0-s390x-9`, for new {{site.data.keyword.hpvs}} for VPC instances, the data volume is partitioned into two parts. The first partition is used to support the upcoming Bring Your Own Key (BYOK) feature. It remains as an unencrypted metadata partition (100Mib), until it's used to store the customer root key that encrypts the second partition (the data volume for workloads).
-
-Only new (unencrypted) volumes are partitioned, and you can't use the partitioned volume with an older version of the HPCR image. If you provision with an encrypted volume, the encrypted volume will not be partitioned, and you can go back to an older image with this volume. 
-{: note}
-
-
 ## The `env` section
 {: #hpcr_contract_env}
 
