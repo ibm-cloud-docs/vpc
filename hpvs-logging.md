@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-17"
+lastupdated: "2023-02-07"
 
 keywords: confidential computing, secure execution, logging for hyper protect virtual server for vpc
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # Logging for {{site.data.keyword.hpvs}} for VPC
 {: #logging-for-hyper-protect-virtual-servers-for-vpc}
 
-To launch a {{site.data.keyword.hpvs}} for VPC instance, you (as the deployer) need to set up logging first by adding the logging configuration in the `env` section of the [contract](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_env). The instance will read the configuration and configure logging accordingly. All other services will start only after logging is configured. If the logging configuration is incorrect, the instance will not start and an error message will be displayed in the serial console.
+To launch a {{site.data.keyword.hpvs}} for VPC instance, you (as the deployer) need to set up logging first by adding the logging configuration in the `env` section of the [contract](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_env). The instance reads the configuration and configures logging accordingly. All other services start only after logging is configured. If the logging configuration is incorrect, the instance will not start and an error message will be displayed in the serial console.
 {: shortdesc}
 
 The logs include startup logs, service logs issued by the {{site.data.keyword.hpvs}} for VPC instance, and container logs.
@@ -207,7 +207,7 @@ You can follow the following procedure to create the required certificates and k
    CN = client.example.org
    ```
 
-   Make sure to update `dn` with your values. Whether the actual values play a role depends on the `StreamDriver.Authmode` setting (which will appear later in the following documentation). In this example, we use the setting `StreamDriver.Authmode="x509/certvalid"` and in this case, the value of `dn` does **not** play a role (since all valid client certificates are accepted). Adjust this according to your needs. For more information, see [StreamDriver.Authmode](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imtcp.html#streamdriver-authmode).
+   Make sure to update `dn` with your values. Whether the actual values play a role depends on the `StreamDriver.Authmode` setting (which appears in the following documentation). In this example, we use the setting `StreamDriver.Authmode="x509/certvalid"` and in this case, the value of `dn` does **not** play a role (since all valid client certificates are accepted). Adjust this according to your needs. For more information, see [StreamDriver.Authmode](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imtcp.html#streamdriver-authmode).
    {: note}
 
    Create the key and certificate:
@@ -265,7 +265,7 @@ env:
 
 There are many ways to set up a compatible server endpoint. The following example shows a simple setup of an [rsyslog](https://www.rsyslog.com/) server.
 
-1. Install the required server packages (example shows ubuntu).
+1. Install the required server packages (example shows Ubuntu).
 
    ```bash
    apt-get install rsyslog rsyslog-gnutls

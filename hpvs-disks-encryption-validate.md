@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-12-2"
+  years: 2022, 2023
+lastupdated: "2023-02-07"
 
 keywords: confidential computing, secure execution, security claims, disks encryption
 
@@ -21,7 +21,7 @@ Both the root disk and data disks in the {{site.data.keyword.hpvs}} for VPC inst
 
 - The data disk encryption is configured by using the “seed” provided in the `workload` and `env` sections within the contract. During the instance initiation, the disks are attached and encrypted by using the seed to create a LUKS passphrase. If the seed information or the data disk is not configured, the instance fails to initiate. For more information, see [The `workload` - `volumes` subsection](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_volumes) of the contract.
 
-The disk encryption status check daemon checks the crypto headers of the root disk and data disks attached to the instance each hour, and then writes the information messages about the disk encryption status into the log.
+The disk encryption status check daemon checks the crypto headers of the root disk and data disks that are attached to the instance each hour, and then writes the information messages about the disk encryption status into the log.
 
 The following example shows the disk encryption check related messages within the log.
 
@@ -34,5 +34,7 @@ Nov 29 10:24:08 hpvs211vsi verify-disk-encryption info Checked for mount point /
 Nov 29 10:24:08 hpvs211vsi verify-disk-encryption info HPL13001I: Root disk and all the data disks are encrypted
 ...
 ```
+{: codeblock}
 
-*Note:* You can't configure the interval of the disk encryption status checks.
+You can't configure the interval of the disk encryption status checks.
+{: note}
