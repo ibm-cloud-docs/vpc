@@ -33,5 +33,3 @@ To explore the Terraform samples for {{site.data.keyword.hpvs}} for VPC, go to t
 - `postgresql` - deploys a PostgreSQL instance on a Hyper Protect Virtual Server for VPC in a region.
 - `postgresql-cluster` - deploys a PostgreSQL cluster on Hyper Protect Virtual Servers for VPC in given regions.
 - `log-encryption` - encrypts selected log messages.
-
-
