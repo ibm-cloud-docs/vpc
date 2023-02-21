@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2023-02-16",
+    "lastupdated": "2023-02-17",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -33,8 +33,8 @@
         {
           "date": "14 February 2023", 
           "title": "VPC instance metadata communication protocol and hop limit",
-          "description": "You can now control the communication protocol and hop limit for IP response packets that are used by the VPC Instance Metadata service. When you provision or update an instance, use the new Secure access setting to specify either `http` (default) or `https` (secure access) communication. You can also use the new Hop limit setting to specify a value between `1` (default) and `64`. Both of these settings apply only when the metadata service is enabled."
-        },  
+          "description": "You can now control the communication protocol and hop limit for IP response packets that are used by the VPC Instance Metadata service. When you provision or update an instance, use the new **Secure access** setting to specify either http (default) or https (secure access) communication. You can also use the new Hop limit setting to specify a value between `1` (default) and `64`. Both of these settings apply only when the metadata service is enabled."
+        },
         {
           "date": "14 February 2023",
           "title": "Hyper Protect Secure Build",
