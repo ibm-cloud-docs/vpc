@@ -155,7 +155,7 @@ Starting from `ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt` and
 certificates will contain **Certificate Revocation List (CRL) Distribution Points**. You can use the CRL to verify that your certificates are valid (not revoked).
 
 1. Extract and download the CRL URL from the attestation or encryption certificate:
-   ```Sh
+   ```sh
    openssl x509 -in "ibm-hyper-protect-container-runtime-1-0-s390x-8-encrypt.crt" -noout -ext crlDistributionPoints
    crl_url=https://ibm.biz/hyper-protect-container-runtime-023BC9-crl-1  # (example)
    curl --location --silent "$crl_url" --output "ibm-hyper-protect-container-runtime.crl"
