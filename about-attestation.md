@@ -41,7 +41,7 @@ The encryption and attestation certificates are signed by the IBM intermediate c
 Use the following procedure to validate the attestation record and hashes:
 
 * Check the attestation record `se-checksums.txt` and the signature file `se-signature.bin` under the `/var/hyperprotect` directory after after you log in to your {{site.data.keyword.hpvs}} for VPC instance.
-* Get the IBM attestation certificate [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-8-attestation.crt){: external} for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-9`.
+* Get the IBM attestation certificate [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-8-attestation.crt){: external} for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-8`.
    For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-8`, you can download the IBM attestation certificate [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-7-attestation.crt){: external}.
    {: note}
 
