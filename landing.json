@@ -33,7 +33,7 @@
         {
           "date": "14 February 2023", 
           "title": "VPC instance metadata communication protocol and hop limit",
-          "description": "You can now control the communication protocol and hop limit for IP response packets that are used by the [VPC Instance Metadata service](/docs/vpc?topic=vpc-imd-about). When you provision or update an instance, use the new **Secure access** setting to specify either `http` (default) or `https` (secure access) communication. In addition, use the new **Hop limit** setting to specify a value between `1` (default) and `64`. Both of these settings apply only when the metadata service is enabled."
+          "description": "You can now control the communication protocol and hop limit for IP response packets that are used by the VPC Instance Metadata service. When you provision or update an instance, use the new Secure access setting to specify either `http` (default) or `https` (secure access) communication. You can also use the new Hop limit setting to specify a value between `1` (default) and `64`. Both of these settings apply only when the metadata service is enabled."
         },  
         {
           "date": "14 February 2023",
