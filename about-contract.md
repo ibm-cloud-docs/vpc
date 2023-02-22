@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-30"
+lastupdated: "2023-02-17"
 
 keywords: confidential computing, enclave, secure execution, hpcr, contract, customization, schema, contract schema, env, workload, encryption
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # About the contract
 {: #about-contract_se}
 
-When you create an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC instance, you must specify a contract as part of the **User Data** field.
+When you create an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC instance with the IBM Hyper Protect Container Runtime (HPCR) image, you must specify a contract as part of the **User Data** field.
 {: shortdesc}
 
 ## What is a contract?
@@ -30,10 +30,10 @@ If the workload discloses the decrypted tokens (either through SSH or REST APIs)
 {: #hpcr_contract_sections}
 
 A contract file can have the following four valid high-level sections, of which the `workload` and `env` sections are mandatory.
-* [`workload`](#hpcr_contract_workload). Is a mandatory section.
-* [`env`](#hpcr_contract_env). Is a mandatory section.
-* [`attestationPublicKey`](/docs/vpc?topic=vpc-about-attestation#attest_pubkey). Is an optional section. You can provide a public RSA key as part of the contract, which is used to encrypt the attestation document and the attribute must be named as `attestationPublicKey`.
-* `envWorkloadSignature`. Is an optional section and contains the signature of the other sections of the contract.
+* [`workload`](#hpcr_contract_workload) is a mandatory section.
+* [`env`](#hpcr_contract_env) is a mandatory section.
+* [`attestationPublicKey`](/docs/vpc?topic=vpc-about-attestation#attest_pubkey) is an optional section. You can provide a public RSA key as part of the contract, which is used to encrypt the attestation document and the attribute must be named as `attestationPublicKey`.
+* `envWorkloadSignature` is an optional section and contains the signature of the other sections of the contract.
 
 The two primary sections in a contract are the `workload` and `env` sections. These two sections are needed because the information that is added into the contract comes from two different personas, namely the "workload" and the "deployer" persona.
 
@@ -85,7 +85,7 @@ volumes:
 ### The `auths` subsection
 {: #hpcr_contract_auths}
 
-The `auths` section consists of information about the container's registry. Currently, only one container is supported, so there is only one registry and credentials to this registry, that must be populated here. If a public image is used in the contract, then you do not need the `auths` section because no credentials are required. The `auths` subsection is required only if the container images are private. This subsection does not have any image information, as shown in the following sample. This subsection needs to contain the name of the image registry and the credentials such as username-password for the same. The key must be the hostname of the container registry or the following string for the default docker registry:
+The `auths` section consists of information about the container's registry. Currently, only one container is supported, so only one registry and credentials to this registry are populated here. If a public image is used in the contract, you do not need the `auths` section because no credentials are required. The `auths` subsection is required only if the container images are private. This subsection does not have any image information, as shown in the following sample. This subsection needs to contain the name of the image registry and the credentials such as username-password for the same. The key must be the hostname of the container registry or the following string for the default docker registry:
 
 ```text
 https://index.docker.io/v1/
@@ -107,8 +107,7 @@ auths:
 
 It consists of an archive subsection. The archive subsection contains the Base64 encoded TGZ file archive of the `docker-compose.yaml` file. As the Hyper Protect Container Runtime image uses Docker Engine and Docker Compose to start containers, the information about containers must first be created by using a standard docker-compose file. This file is then archived and base64 encoded and the output of this is provided as the value to the archive subsection, within the compose section. For more information, see [Overview of Docker Compose](https://docs.docker.com/compose/).
 
-The mount points specified under the volumes information of the docker-compose file might be aligned with the volume mount point that is specified in the workload section of the contract. Both "yaml" and "yml" formats are supported for docker-compose file.
-This is an example of a docker-compose file.
+The mount points specified under the volumes information of the docker-compose file might be aligned with the volume mount point that is specified in the workload section of the contract. Both "yaml" and "yml" formats are supported for docker-compose file. This is an example of a docker-compose file.
 
 ```yaml
 version: '3'
@@ -211,7 +210,6 @@ volumes:
 ```
 {: codeblock}
 
-
 ## The `env` section
 {: #hpcr_contract_env}
 
@@ -269,10 +267,10 @@ environment:
 ```
 {: codeblock}
 
-When the docker compose file has an environment section, as shown in the example above, then you can pass the values in the  `env` section of the deployer. The following shows an example on how to specify the values for the `env` variables:
+When the docker compose file has an environment section, as shown in the example above, you can pass the values in the  `env` section of the deployer. The following example shows how to specify the values for the `env` variables:
 ```buildoutcfg
 env:
- value1:"abc"
+ value1: "abc"
  value2: "xyz"
 ```
 {: codeblock}
@@ -294,11 +292,10 @@ The encryption and attestation certificates are signed by the IBM intermediate c
 {: #encrypt_downloadcert}
 
 1. Download the certificate (for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-8`) that is used to encrypt the contract [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-8-encrypt.crt){: external}.
-   You can download the certificate for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-7` [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt){: external}
+   You can download the certificate for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-7` [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt){: external}.
    {: note}
 
 2. Validate the encryption certificate by following the instructions [here](/docs/vpc?topic=vpc-cert_validate#validate_encrypt_cert).
-
 
 ### Creating the encrypted `workload` section of a contract
 {: #hpcr_contract_encrypt_workload}
@@ -365,7 +362,7 @@ Complete the following steps on an Ubuntu system, to encrypt the workload sectio
 
 Complete the following steps on an Ubuntu system, to encrypt the `env` section used in a contract:
 
-1. Create the [env section](#hpcr_contract_env) of the contract and add the contents in the `env.yaml` file.
+1. Create the [`env` section](#hpcr_contract_env) of the contract and add the contents in the `env.yaml` file.
 
 2. Export the complete path of the `env.yaml` file and the `ibm-hyper-protect-container-runtime-1-0-s390x-8-encrypt.crt`:
    ```yaml
@@ -485,7 +482,7 @@ Steps 4 - 8 are used to encrypt the `env` section. If you choose to not encrypt 
 
 Complete the following steps on an Ubuntu system, to prepare the signature:
 
-If you have got the encrypted `user-data.yaml` from the [Creating the encrypted `workload` section of a contract](#hpcr_contract_encrypt_workload), and [Creating encrypted `env` section of a contract](#hpcr_contract_encrypt_env) sections, then skip to step 3.
+If you have got the encrypted `user-data.yaml` from the [Creating the encrypted `workload` section of a contract](#hpcr_contract_encrypt_workload) and [Creating encrypted `env` section of a contract](#hpcr_contract_encrypt_env) sections, skip to step 3.
 
 1. Get the encrypted `workload.yaml` and encrypted `env.yaml` files.
 
@@ -496,7 +493,7 @@ If you have got the encrypted `user-data.yaml` from the [Creating the encrypted 
    ```
    {: pre}
 
-3. Create the `contract.txt` file. Add the value of `workload` first then add the value of `env` from the `user-data.yaml` file. Ensure that there is no space or new line after `workload` and before `env`. Also, ensure that there is no new line or space at the end of the file. It is recommended to cross check the binary content of the `contract.txt` file with tools such as `hexdump`. In the binary file dump, make sure that you do not see the `0a` ASCII value as the last entry.
+3. Create the `contract.txt` file. Add the value of `workload` first then add the value of `env` from the `user-data.yaml` file. Ensure that there is no space or new line after `workload` and before `env`. Also, ensure that there is no new line or space at the end of the file. It is recommended to cross-check the binary content of the `contract.txt` file with tools such as `hexdump`. In the binary file dump, make sure that you do not see the `0a` ASCII value as the last entry.
    ```yaml
    hyper-protect-basic.js7TGt77EQ5bgTIKk5C0pViFTRHqWtn..............hyper-protect-basic.VWg/5/SWE+9jLfhr8q4i.........
    ```

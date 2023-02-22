@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-30"
+lastupdated: "2023-02-07"
 
 keywords: troubleshoot, troubleshoot hyper protect virtual servers for vpc, debug hyper protect virtual servers for vpc, questions about hyper protect virtual servers for vpc, hyper protect virtual server shut down
 
@@ -23,12 +23,12 @@ Your {{site.data.keyword.cloud}} {{site.data.keyword.hpvs}} for VPC instance shu
 Causes vary.
 {: tsCauses}
 
-Check if you have performed the following actions correctly.
+Check whether you have performed the following actions correctly.
 {: tsResolve}
 
 - Attach data volume within 15 min
   
-   If you have a volumes section in the contract, the IBM Cloud {{site.data.keyword.hpvs}} for VPC instance assumes that a data volume will be attached. The cloud user must either attach the volume during the instance creation, or within 15 minutes after instance creation has been started. After this 15-minute wait period, the instance shuts down.
+   If you have a volumes section in the contract, the IBM Cloud {{site.data.keyword.hpvs}} for VPC instance assumes that a data volume will be attached. The cloud user must either attach the volume during the instance creation, or within 15 minutes after instance creation starts. After this 15-minute wait period, the instance shuts down.
 
 - Contract is mandatory
 
@@ -44,8 +44,8 @@ Check if you have performed the following actions correctly.
 
 - Image or Profile mismatch
 
-   {{site.data.keyword.hpvs}} for VPC instances can be created from the UI, CLI, and any other interface that {{site.data.keyword.vpc_full}} (VPC) supports, and you must select the right image and profile combination. Without the combination of the image and profile, the instance fails to start.  
+   {{site.data.keyword.hpvs}} for VPC instances can be created from the UI, CLI, and any other interface that {{site.data.keyword.vpc_full}} (VPC) supports. You must select the right image and profile combination. Without the right combination of the image and profile, the instance fails to start.  
 
 - Logging configuration failure
 
-   When the instance boots, monitor the serial console to identify if there are any errors that are logged by the bootloader or from the logging service. If you don't see any logs reaching your private IBM Log Analysis instance, it might be because your logging configuration failed. Failure to configure logging also leads to the instance shutting down. If your logging configuration fails, you should check whether the logging hostname, port, and ingestion key that are provided in the contract are correct.
+   When the instance boots, monitor the serial console to identify any errors that are logged by the bootloader or from the logging service. If you don't see any logs in your private IBM Log Analysis instance, it might be because your logging configuration failed. Failure to configure logging also leads to the instance shutting down. If your logging configuration fails, check whether the logging hostname, port, and ingestion key that are provided in the contract are correct.

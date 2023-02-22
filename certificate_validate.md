@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-30"
+lastupdated: "2023-02-07"
 
 keywords: confidential computing, secure execution, hpcr, contract, customization, env, workload, encryption, attestation, validating
 
@@ -30,7 +30,7 @@ Download the following certificates:
 ## Validating the contract encryption certificate
 {: #validate_encrypt_cert}
 
-Complete the following steps on an Ubuntu system, to validate the encryption certificate:
+Complete the following steps on an Ubuntu system to validate the encryption certificate:
 
 1. Use the following command to verify the CA certificate:
    ```sh
@@ -90,7 +90,7 @@ Complete the following steps on an Ubuntu system, to validate the encryption cer
 ## Validating the attestation certificate
 {: #validate_attest_cert}
 
-Complete the following steps on an Ubuntu system, to validate the attestation certificate:
+Complete the following steps on an Ubuntu system to validate the attestation certificate:
 
 1. Use the following command to verify the CA certificate:
    ```sh
@@ -161,7 +161,7 @@ certificates will contain **Certificate Revocation List (CRL) Distribution Point
    curl --location --silent "$crl_url" --output "ibm-hyper-protect-container-runtime.crl"
    ```
 
-2. Verify the CRL is valid (check valid dates and issuer):
+2. Verify that the CRL is valid (check valid dates and issuer):
    ```sh
    openssl crl -text -noout -in "ibm-hyper-protect-container-runtime.crl"
    ```
