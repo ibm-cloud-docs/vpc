@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-12-19"
+  years: 2022, 2023
+lastupdated: "2023-02-23"
 
 keywords:
 
@@ -32,7 +32,7 @@ Before you create a custom image, you must verify that your custom image meets t
 {: #custom-image-operating-systems}
 
 * Make sure that your image is supported as an [x86 stock image](/docs/vpc?topic=vpc-about-images) or an [s390x stock image](/docs/vpc?topic=vpc-vsabout-images) on {{site.data.keyword.vpc_full}}.
-* If you choose to create a custom image with your own license, select the [BYOL](/docs/vpc?topic=vpc-byol-vpc-about) option.
+* If you choose to create a custom image with your own license, specify the appropriate operating system version that has `-byol` appended to the name when you import the image. For more information, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about).
 * ISO images of licensed operating systems, such as Windows&reg; and Linux&reg;, and open source operating systems, such as CentOS and Ubuntu, aren't provided by {{site.data.keyword.cloud}}. If you need these ISO images, you can download them from the respective vendor website.
 
 ### {{site.data.keyword.cos_full_notm}} considerations
