@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-02-07"
+lastupdated: "2023-02-23"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -21,14 +21,14 @@ Restoring from a backup snapshot creates a fully provisioned boot or data volume
 ## About restoring a volume from a backup snapshot
 {: #baas-vpc-restore-concepts}
 
-Restoring a volume from a backup snapshot creates a boot or data volume, depending on whether the snapshot is "bootable" or "nonbootable". The new volume that is created from the snapshot inherits properties from the original volume, but you can specify a larger volume size, different IOPS profile, and customer-managed encryption.
+Restoring a volume from a backup snapshot creates a boot or data volume, depending on whether the snapshot is "bootable" or "nonbootable". The new volume that is created from the snapshot inherits properties from the original volume, but you can specify a larger volume size, different IOPS profile, and customer-managed encryption. 
 
 When you restore from a bootable backup snapshot, you create a boot volume that you use to provision another instance. The boot volume uses a general-purpose profile and is limited to 250 GB. Because the bootable backup snapshot is not fully provisioned, in the beginning the performance is slower than when you use a regular boot volume. For more information, see [Performance impact](#baas-boot-perf).
 
-For best performance, use backups with fast restore. You can enable fast restore backup snapshots in multiple regions and use them to restore a volume that is fully provisioned when the volume is created. For more information, see [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore).
+For best performance, use backups with fast restore. You can enable fast restore backup snapshots in multiple regions and use them to restore a volume that is fully provisioned when the volume is created. The fast restore feature can achieve a [recovery time objective](#x3167918){: term} (RTO) quicker than restoring from a regular backup snapshot. For more information, see [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore).
 
 You can restore a volume from a backup snapshot of a data volume when you provision an instance, when you update an existing instance, or when you create a stand-alone data volume.
-- For new instances, during the create and attach process. You can select a backup snapshot of the volume to restore the volume. A volume is created and attached to the instance as auxiliary storage.
+- For new instances, during the create and attach process, you can select a backup snapshot of the volume to restore the volume. A volume is created and attached to the instance as auxiliary storage.
 - When you create a volume, you specify a snapshot to provision the volume. The snapshot does not have to be from a volume that is attached to an instance.
 
 The restored volume inherits the same [profile](/docs/vpc?topic=vpc-block-storage-profiles), capacity, data, and metadata as the original volume. You can choose a different profile and capacity if you prefer. If the source volume used [customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption), the new volume inherits that encryption.
