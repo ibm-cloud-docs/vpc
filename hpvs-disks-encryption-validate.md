@@ -36,8 +36,10 @@ Nov 29 10:24:08 hpvs211vsi verify-disk-encryption info HPL13001I: Root disk and 
 ```
 {: codeblock}
 
-You can't configure the interval of the disk encryption status checks.
-{: note}
+**Note:** 
 
-To address Denial-of-Service attacks, requests are throttled at three per five minutes.
-{: note}
+1. You can't configure the interval of the disk encryption status checks.
+
+2. To address Denial-of-Service attacks, requests are throttled at three per five minutes.
+
+3. To verify that the mounted data volume is encrypted, trigger explicitly `echo 'HPL13000I' | systemd-cat` from the container and the results are captured in the logs.
