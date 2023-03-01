@@ -38,3 +38,6 @@ Nov 29 10:24:08 hpvs211vsi verify-disk-encryption info HPL13001I: Root disk and 
 
 You can't configure the interval of the disk encryption status checks.
 {: note}
+
+To address Denial-of-Service attacks, requests are throttled at three per five minutes.
+{: note}
