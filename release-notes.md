@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-02-20"
+lastupdated: "2023-03-01"
 
 keywords:
 
@@ -89,6 +89,9 @@ Updated certificates for IBM Hyper Protect Container Runtime image
 
 Using {{site.data.keyword.hpvs}} for VPC in a private network
 :   You can use your {{site.data.keyword.hpvs}} for VPC instance in **private-only** network configurations, in which the VPC doesn't have a public gateway and the virtual server instance doesn't have a floating IP. You can connect to private endpoints of other services, including container registry and [IBM Log Analysis](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc). The prerequisite is to have a DNS server attached to your virtual server instance. You don't need to do any additional configurations.
+
+Security enhancement to disk encryption verification
+:   To address Denial-of-Service attacks, the requests to [verify disk encryption status](/docs/vpc?topic=vpc-hpvs-disks-encryption-validate) are throttled at three per five minutes.
 
 ### 27 January 2023
 {: #vpc-jan2723}

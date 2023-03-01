@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-02-07"
+lastupdated: "2023-03-01"
 
 keywords: confidential computing, secure execution, security claims, disks encryption
 
@@ -36,5 +36,10 @@ Nov 29 10:24:08 hpvs211vsi verify-disk-encryption info HPL13001I: Root disk and 
 ```
 {: codeblock}
 
-You can't configure the interval of the disk encryption status checks.
-{: note}
+**Note:** 
+
+1. You can't configure the interval of the disk encryption status checks.
+
+2. To address Denial-of-Service attacks, requests are throttled at three per five minutes.
+
+3. To verify that the mounted data volume is encrypted, you can trigger explicitly `echo 'HPL13000I' | systemd-cat` on the VSI, and the results are captured in the logs.

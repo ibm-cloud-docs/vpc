@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-02-17"
+lastupdated: "2023-03-01"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -21,6 +21,8 @@ Confidential computing is enabled on LinuxONE (s390x processor architecture) by 
 By using IBM Secure Execution for Linux, you can create encrypted Linux images that can run on a public, private, or hybrid cloud with their in-use memory protected. The workload or data is protected from external and insider threats.
 
 A new operating system that leverages the IBM Secure Execution for Linux technology is now available as **IBM Hyper Protect**. The associated image that's used to create the instance is called the [IBM Hyper Protect Container Runtime (HPCR) image](/docs/vpc?topic=vpc-vsabout-images#hyper-protect-runtime). A virtual server instance that's provisioned by using this image is called as an **{{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for VPC** (Virtual Private Cloud) instance.
+
+For a technical deep dive into the IBM Hyper Protect Platform, see the white paper [The Second Generation of IBM Hyper Protect Platform](https://www.ibm.com/downloads/cas/GPVMWPM3){: external}.
 
 For the on-prem version of {{site.data.keyword.hpvs}}, see [IBM Hyper Protect Virtual Servers v2.1](https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/nicolas-mding/2022/10/06/ibm-hyper-protect-virtual-servers-v21){: external}.
 
