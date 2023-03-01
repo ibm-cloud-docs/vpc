@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-02-24"
+lastupdated: "2023-03-01"
 
-keywords: ackup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
+keywords: backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
 subcollection: vpc
 
@@ -21,7 +21,7 @@ Apply backup policies by adding tags to new or existing {{site.data.keyword.bloc
 ## General procedure
 {: #backup-gen-proc-tags}
 
-1. [Create a backup policy and plan](/docs/vpc?topic=vpc-backup-policy-create).
+1. [Create a backup policy and plan](/docs/vpc?topic=vpc-create-backup-policy-and-plan).
 2. [Apply backup policy tags](#backup-apply-tags-ui) to your target {{site.data.keyword.block_storage_is_short}} volumes by using the [UI](/docs/vpc?topic=vpc-backup-use-policies&interface=ui#backup-apply-tags-ui), [CLI](/docs/vpc?topic=vpc-backup-use-policies&interface=cli#backup-apply-tags-volumes-cli), or [API](/docs/vpc?topic=vpc-backup-use-policies&interface=api#backup-apply-tags-volumes-api). Go to the {{site.data.keyword.block_storage_is_short}} volume that you want to back up and add at least one tag to it.
 3. Verify that your {{site.data.keyword.block_storage_is_short}} volume is associated with a backup policy. For more information, see [View a list of volumes that have a backup policy](/docs/vpc?topic=vpc-backup-view-policies&interface=ui#backup-view-vol-backup-policies).
 
@@ -221,5 +221,5 @@ To apply tags to a {{site.data.keyword.block_storage_is_short}} volume, follow t
 {: #backup-next-steps-use}
 
 * [Manage your backup policies and plans](/docs/vpc?topic=vpc-backup-service-manage).
-* [Create extra backup policies](/docs/vpc?topic=vpc-backup-policy-create&interface=ui).
+* [Create extra backup policies](/docs/vpc?topic=vpc-create-backup-policy-and-plan).
 * [Restore a volume from a backup snapshot](/docs/vpc?topic=vpc-baas-vpc-restore).
