@@ -42,4 +42,4 @@ Nov 29 10:24:08 hpvs211vsi verify-disk-encryption info HPL13001I: Root disk and 
 
 2. To address Denial-of-Service attacks, requests are throttled at three per five minutes.
 
-3. To verify that the mounted data volume is encrypted, trigger explicitly `echo 'HPL13000I' | systemd-cat` from the container and the results are captured in the logs.
+3. To verify that the mounted data volume is encrypted, you can trigger explicitly `echo 'HPL13000I' | systemd-cat` on the VSI, and the results are captured in the logs.
