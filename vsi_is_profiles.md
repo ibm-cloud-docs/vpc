@@ -1,8 +1,8 @@
 ---
 copyright:
-  years: 2019, 2022
+  years: 2019, 2023
 
-lastupdated: "2022-11-04"
+lastupdated: "2023-02-22"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -65,8 +65,8 @@ Balanced profiles with the bx2d prefix are available in the US South (Dallas), U
 | bx2d-64x256 | 64 | 32 | 256 | 80 | 2x1200 |
 | bx2-96x384 | 96 | 48 | 384 | 80 | - |
 | bx2d-96x384 | 96 | 48 | 384 | 80 | 2x1800 |
-| bx2-128x512 | 128 | 114 | 512 | 80 | - |
-| bx2d-128x512 | 128 | 114 | 512 | 80 | 2x400 |
+| bx2-128x512 | 128 | 64 | 512 | 80 | - |
+| bx2d-128x512 | 128 | 64 | 512 | 80 | 2x400 |
 {: caption="Table 3. Balance profiles options for Intel x86-64 instances" caption-side="bottom"}
 {: #balanced-intel-x86-64}
 {: tab-title="Intel x86-64"}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-12-20"
+  years: 2019, 2023
+lastupdated: "2023-02-23"
 
 keywords: view instance details, restart, stop, instance details, delete
 
@@ -48,18 +48,18 @@ From the *Virtual server instances* page in {{site.data.keyword.cloud_notm}} con
 {: #rename-virtual-server-instances-CLI}
 {: cli}
 
-You can rename the virtual server instance in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
+You can rename a virtual server instance in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
 
-To rename the virtual server instance by using the CLI, use the **ibmcloud is instance-update** command. Specify the new name of the instance disk in `--name`.
+To rename a virtual server instance by using the CLI, use the `ibmcloud is instance-update INSTANCE` command. Specify the new name of the instance with the `--name NEW_NAME` option.
 
-The following example renames an instance with a current ID of `72251a2e-d6c5-42b4-97b0-b5f8e8d1f479` to a new name of `my-instance`.
+The following example renames a virtual server with the name of `my-instance-name` to `my-instance-name-new`.
 
 ```sh
-ibmcloud is instance-update 72251a2e-d6c5-42b4-97b0-b5f8e8d1f479 --name my-instance
+ibmcloud is instance-update my-instance-name --name my-instance-name-new
 ```
 {: pre}
 
-For more information, see [ibmcloud is instance-update](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-update) in the VPC CLI reference page.
+For a full list of command options, see [ibmcloud is instance-update](/docs/vpc?topic=vpc-vpc-reference#instance-update).
 
 ## Rename a virtual server instance using the API
 {: #rename-virtual-server-instances-API}
@@ -96,18 +96,16 @@ From the *Virtual server instances* page in {{site.data.keyword.cloud_notm}} con
 
 You can stop the virtual server instance in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
 
-To stop the virtual server instance by using the CLI, use the **ibmcloud is instance-stop** command. Specify the ID of the instance that is being stopped.
-
-The following example stops an instance with an ID of `INSTANCE`.
+To stop the virtual server instance by using the CLI, use the **`ibmcloud is instance-stop`** command. Specify the ID or name of the virtual server instance that you want to stop with the `INSTANCE` variable.
 
 ```sh
-ibmcloud is instance-stop INSTANCE [--no-wait] [-f, --force] [--output JSON] [-q, --quiet]
+ibmcloud is instance-stop INSTANCE
 ```
 {: pre}
 
 The stop action shuts down the guest operating system and then the virtual server instance is deprovisioned. This change frees the instance resources that were being consumed. The virtual server instance is transitioned to the Stop state. If the instance is stopped, the instance remains in the stopped state and must be started manually. Billing is [suspended](/docs/vpc?topic=vpc-suspend-billing) for some compute resources while the instance is stopped. You cannot interact with an instance if it is stopped, but volumes remain provisioned. If the instance is started, normal interaction and billing continues.
 
-The following example stops an instance without requesting confirmation. The instance has an ID of `0777_e7af506a-35d4-451d-aa9e-59330e62b77e`. The `--force` option indicates that the request for confirmation is skipped. 
+The following example stops an instance without requesting confirmation. The virtual server instance has an ID of `0777_e7af506a-35d4-451d-aa9e-59330e62b77e`. The `--force` option indicates that the request for confirmation is skipped. 
 
 ```sh
 ibmcloud is instance-stop 0777_e7af506a-35d4-451d-aa9e-59330e62b77e --force
@@ -124,7 +122,7 @@ ibmcloud is instance-stop 0757_5446c277-3190-48dd-ac67-5f02fab39ed5 --force --no
 ```
 {: pre}
 
-For more information, see [ibmcloud is instance-stop](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-stop) on the VPC CLI reference page.
+For a full list of command options, see [ibmcloud is instance-stop](/docs/vpc?topic=vpc-vpc-reference#instance-stop).
 
 ## Start a virtual server instance using the CLI
 {: #start-virtual-server-instances-cli}
@@ -132,16 +130,14 @@ For more information, see [ibmcloud is instance-stop](/docs/vpc?topic=vpc-infras
 
 You can start a virtual server instance that is stopped in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
 
-To start the virtual server instance by using the CLI, use the **ibmcloud is instance-start** command. Specify the ID of the instance that is being started.
-
-The following example starts an instance with an ID of `INSTANCE`.
+To start the virtual server instance by using the CLI, use the **`ibmcloud is instance-start`** command. Specify the ID or name of the virtual server instance that you want to start by using the `INSTANCE` variable.
 
 ```sh
-ibmcloud is instance-start INSTANCE [--output JSON] [-q, --quiet]
+ibmcloud is instance-start INSTANCE 
 ```
 {: pre}
 
-For more information, see [ibmcloud is instance-start](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-start) on the VPC CLI reference page.
+For a full list of command options, see [ibmcloud is instance-start](/docs/vpc?topic=vpc-vpc-reference#instance-start).
 
 ## Stop a virtual server instance using the API
 {: #stop-virtual-server-instances-api}
@@ -199,21 +195,19 @@ From the *Virtual server instances* page in {{site.data.keyword.cloud_notm}} con
 
 The reboot action triggers a guest operating system reboot. The virtual server instance remains in a running state while the guest operating system is rebooting. Billing continues.
 
-A Force reboot action triggers a power cycle reset of the virtual server instance.
+A Force reboot action, by using the `--force` option, triggers a power cycle reset of the virtual server instance.
 {: note}
 
 You can reboot the virtual server instance in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
 
-To reboot the virutal server instance by using the CLI, use the **ibmcloud is instance-reboot** command. Specify the ID of the instance that is being rebooted.
-
-The following example reboots an instance with an ID of `INSTANCE`.
+To reboot the virtual server instance by using the CLI, use the **`ibmcloud is instance-reboot`** command. Specify the ID or name of the virtual server instance that you want to reboot by using the `INSTANCE` variable.
 
 ```sh
-ibmcloud is instance-reboot INSTANCE [--no-wait] [-f, --force] [--output JSON] [-q, --quiet]
+ibmcloud is instance-reboot INSTANCE 
 ```
 {: pre}
 
-For more information, see [ibmcloud is instance-reboot](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-reference#instance-reboot) on the VPC CLI reference page.
+For a full list of command options, see [ibmcloud is instance-reboot](/docs/vpc?topic=vpc-vpc-reference#instance-reboot).
 
 ## Reboot a virtual server instance using the API
 {: #reboot-virtual-server-instances-api}
@@ -271,14 +265,14 @@ The delete action permanently removes an instance and its connected vNIC, and da
 
 You can delete the virtual server instance in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
 
-To delete the virtual server instance by using the CLI, use the **ibmcloud is instance-delete** command. Specify the ID of the instance that is being deleted.
-
-The following example deletes 2 instances with an IDs of `INSTANCE1` and `INSTANCE2`.
+To delete the virtual server instance by using the CLI, use the **`ibmcloud is instance-delete`** command. Specify the ID or name of the virtual server instance that you want to delete by using the `INSTANCE` variable.
 
 ```sh
-ibmcloud is instance-delete (INSTANCE1 INSTANCE2 ...) [--output JSON] [-f, --force] [-q, --quiet]
+ibmcloud is instance-delete INSTANCE 
 ```
 {: pre}
+
+For a full list of command options, see [ibmcloud is instance-delete](/docs/vpc?topic=vpc-vpc-reference#instance-delete). 
 
 The delete action permanently removes an instance and its connected vNIC, and data from your account. The instance boot volume is also deleted if it was configured to be deleted when the attached instance is deleted. If the instance has one or more attached data volumes, those volumes are preserved unless the default setting is changed to auto-delete. After you confirm the delete action, the process to delete the instance and its associated vNIC, boot volume, and data begins. The delete action can take up to 30  minutes, but when the process is complete, the instance no longer appears on the virtual server instances page.
 
@@ -309,14 +303,12 @@ You can view a summary of all instances on the *Virtual server instances* page. 
 {: #viewing-virtual-server-instances-cli}
 {: cli}
 
-You can view the virtual server instance details in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
+You can view the virtual server instance details in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI). 
 
-To view the virtual server instance details by using the CLI, use the **ibmcloud is instance** command. Specify the ID of the instance that is being viewed.
-
-The following example views the details of the virtual server instance with the ID `INSTANCE`.
+To view the virtual server instance details by using the CLI, use the **`ibmcloud is instance`** command. Specify the ID or name of the virtual server instance that you want to view by using the `INSTANCE` variable.
 
 ```sh
-ibmcloud is instance INSTANCE [--output JSON] [-q, --quiet]
+ibmcloud is instance INSTANCE 
 ```
 {: pre}
 

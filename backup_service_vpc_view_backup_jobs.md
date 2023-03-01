@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-02-07"
+lastupdated: "2023-02-24"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data, view backup lists,
 
@@ -15,10 +15,8 @@ subcollection: vpc
 # Viewing backup jobs
 {: #backup-view-policy-jobs}
 
-When a backup policy is being created or deleted, you can view the backup job status. Use the UI, CLI, or API to list all backup jobs for a policy and view job details.
+When backup snapshots are being created or deleted by a backup policy, you can view the backup job status. Use the UI, CLI, or API to list all backup jobs for a policy and view job details.
 {: shortdesc}
-
-A job creates a snapshot from a volume, on behalf of a backup policy and plan.
 
 ## View backup jobs in the UI
 {: #backup-view-jobs-ui}
@@ -29,7 +27,7 @@ List all backup jobs. Select a backup job and review its details.
 ### View a list of backup jobs in the UI
 {: #backup-view-jobs-list-ui}
 
-From the backup policy details page, you can list all backup jobs for that policy. The jobs are listed with the newest one first. Backup jobs show all backups that were created in the account for the selected region.
+From the backup policy details page, you can list all backup jobs for that policy. The jobs are listed with the oldest one first. Backup jobs show all backups that were created by the backup policy for the selected region.
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Storage > Backup policies**.
 
@@ -45,7 +43,7 @@ From the backup policy details page, you can list all backup jobs for that polic
 | Job completed | Date and time of when the job finished. |
 | Snapshot | The snapshot (backup) that was created when the backup job finishes. Click the name to see the details in the side panel. |
 | Source | Source volume from which the backup was created. Click the volume name to see its details. |
-{: caption="Table 1. List of backup jobs for the backup policy" caption-side="bottom"}
+{: caption="Table 1. Information provided by the list of backup jobs for the backup policy" caption-side="bottom"}
 
 ### View snapshots that were created by a backup job in the UI
 {: #backup-view-snap-backup-ui}
@@ -56,6 +54,7 @@ From the list of backup jobs, click the name of a snapshot. A side panel provide
 |-------|-------------|
 | Status | The status of the snapshot, such as _Stable_. For a list of snapshot statuses, see [Snapshot statuses](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status). |
 | Name | The name of the backup policy that created the snapshot. You can change the backup policy settings by clicking the pencil icon. For more information, see [Managing backup policies](/docs/vpc?topic=vpc-backup-service-manage). |
+| Tags |  User tags inherited from the source volume when the snapshot was created. Click the pencil icon to more user tags.|
 | ID | GUID of the snapshot. |
 | Bootable | It indicates whether the snapshot was created from a boot volume. |
 | CRN | Cloud resource name of the snapshot. |
@@ -64,7 +63,6 @@ From the list of backup jobs, click the name of a snapshot. A side panel provide
 | Size | Size in GBs of the snapshot, it is inherited from the source volume. |
 | Source Volume | Source volume from which the first snapshot was taken. Click the link for volume details. If the volume was deleted, the name appears without a link. |
 | Encryption | Either provider-managed or customer-managed. |
-| Tags |  User tags inherited from the source volume when the snapshot was created. Click the pencil icon to more user tags.|
 {: caption="Table 2. Snapshot details side panel" caption-side="bottom"}
 
 ## View backup jobs from the CLI
@@ -83,15 +81,146 @@ ibmcloud is backup-policy-jobs POLICY [--volume VOLUME] [--snapshot SNAPSHOT] [-
 ```
 {: pre}
 
-In this example, the ID of the backup policy lists jobs for that backup policy. You can also specify the backup policy name.
+In the first example, the name of the backup policy is used to lists the jobs of that backup policy.
+
+```sh
+cloudshell:~$ ibmcloud is backup-policy-jobs new-policy-23
+Listing jobs of backup policy new-policy-23 under account Test Account as user test.user@ibm.com...
+ID                                          Auto delete   Auto delete after   Completed at                Created at                  Job type   Status   
+r138-25828175-2b51-4247-ba01-79c538f68282   true          15                  2023-02-23T20:12:37+00:00   2023-02-23T20:12:14+00:00   creation   succeeded   
+r138-57028109-4702-443a-891b-31cac565546c   true          15                  2023-02-22T20:12:44+00:00   2023-02-22T20:12:25+00:00   creation   succeeded   
+r138-d25c915c-3166-436d-b289-68d222297510   true          15                  2023-02-22T15:27:43+00:00   2023-02-22T15:27:20+00:00   creation   succeeded
+```
+{: screen}
+
+In the second example, the policy is identified by its ID, and the JSON output option is used.
 
 ```json
-ibmcloud is backup-policy-jobs bd8e95e1-e63a-468e-9df8-6a8747f03ffc
-Listing jobs of backup policy bd8e95e1-e63a-468e-9df8-6a8747f03ffc under account VPC as user myuser@mycompany.com...
-ID                                          Auto delete   Auto delete after   Completed at                Created                     Job type   Status
-934c7e39-f1ba-4e62-b9ae-d5d3773874c0   true          15                  2022-06-24T17:02:14+05:30   2022-06-24T17:01:16+05:30   creation   succeeded
-d3b0d928-1a3a-4302-9b12-cc0a17bdd1d5   true          15                  2022-06-25T17:00:35+05:30
-2022-06-25T17:00:20+05:30   creation   succeeded
+cloudshell:~$ ibmcloud is backup-policy-jobs r138-0521986d-963c-4c18-992d-d6a7a99d115f --output JSON
+[
+    {
+        "auto_delete": true,
+        "auto_delete_after": 15,
+        "backup_policy_plan": {
+            "href": "https://eu-de.iaas.cloud.ibm.com/v1/backup_policies/r138-0521986d-963c-4c18-992d-d6a7a99d115f/plans/r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9",
+            "id": "r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9",
+            "name": "my-policy-plan-b",
+            "resource_type": "backup_policy_plan"
+        },
+        "completed_at": "2023-02-23T20:12:37.000Z",
+        "created_at": "2023-02-23T20:12:14.000Z",
+        "href": "https://eu-de.iaas.cloud.ibm.com/v1/backup_policies/r138-0521986d-963c-4c18-992d-d6a7a99d115f/jobs/r138-25828175-2b51-4247-ba01-79c538f68282",
+        "id": "r138-25828175-2b51-4247-ba01-79c538f68282",
+        "job_type": "creation",
+        "resource_type": "backup_policy_job",
+        "source": {
+            "crn": "crn:v1:bluemix:public:is:eu-de-2:a/a10d63fa66daffc9b9b5286ce1533080::volume:r010-18ee3ad3-0b7e-4c3a-ba92-226073696049",
+            "href": "https://eu-de.iaas.cloud.ibm.com/v1/volumes/r010-18ee3ad3-0b7e-4c3a-ba92-226073696049",
+            "id": "r010-18ee3ad3-0b7e-4c3a-ba92-226073696049",
+            "name": "fra-vsi-boot-1645484638000"
+        },
+        "source_volume": {
+            "crn": null,
+            "href": null,
+            "id": null,
+            "name": null
+        },
+        "status": "succeeded",
+        "status_reasons": [],
+        "target_snapshot": null,
+        "target_snapshots": [
+            {
+                "crn": "crn:v1:bluemix:public:is:eu-de:a/a10d63fa66daffc9b9b5286ce1533080::snapshot:r138-d9ec292d-c638-46dd-bc4d-d9eb500d2925",
+                "href": "https://eu-de.iaas.cloud.ibm.com/v1/snapshots/r138-d9ec292d-c638-46dd-bc4d-d9eb500d2925",
+                "id": "r138-d9ec292d-c638-46dd-bc4d-d9eb500d2925",
+                "name": "my-policy-plan-b-b2a849936b7c-4200",
+                "resource_type": "snapshot"
+            }
+        ]
+    },
+    {
+        "auto_delete": true,
+        "auto_delete_after": 15,
+        "backup_policy_plan": {
+            "href": "https://eu-de.iaas.cloud.ibm.com/v1/backup_policies/r138-0521986d-963c-4c18-992d-d6a7a99d115f/plans/r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9",
+            "id": "r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9",
+            "name": "my-policy-plan-b",
+            "resource_type": "backup_policy_plan"
+        },
+        "completed_at": "2023-02-22T20:12:44.000Z",
+        "created_at": "2023-02-22T20:12:25.000Z",
+        "href": "https://eu-de.iaas.cloud.ibm.com/v1/backup_policies/r138-0521986d-963c-4c18-992d-d6a7a99d115f/jobs/r138-57028109-4702-443a-891b-31cac565546c",
+        "id": "r138-57028109-4702-443a-891b-31cac565546c",
+        "job_type": "creation",
+        "resource_type": "backup_policy_job",
+        "source": {
+            "crn": "crn:v1:bluemix:public:is:eu-de-2:a/a10d63fa66daffc9b9b5286ce1533080::volume:r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa",
+            "href": "https://eu-de.iaas.cloud.ibm.com/v1/volumes/r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa",
+            "id": "r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa",
+            "name": "my-block-vol-test1"
+        },
+        "source_volume": {
+            "crn": null,
+            "href": null,
+            "id": null,
+            "name": null
+        },
+        "status": "succeeded",
+        "status_reasons": [],
+        "target_snapshot": null,
+        "target_snapshots": [
+            {
+                "crn": "crn:v1:bluemix:public:is:eu-de:a/a10d63fa66daffc9b9b5286ce1533080::snapshot:r138-27010e09-565d-4852-a21f-fae663cc2720",
+                "href": "https://eu-de.iaas.cloud.ibm.com/v1/snapshots/r138-27010e09-565d-4852-a21f-fae663cc2720",
+                "id": "r138-27010e09-565d-4852-a21f-fae663cc2720",
+                "name": "my-policy-plan-c-69547459d912-4916",
+                "resource_type": "snapshot"
+            }
+        ]
+    },
+    {
+        "auto_delete": true,
+        "auto_delete_after": 15,
+        "backup_policy_plan": {
+            "deleted": {
+                "more_info": "https://cloud.ibm.com/apidocs/vpc#deleted-resources"
+            },
+            "href": "https://eu-de.iaas.cloud.ibm.com/v1/backup_policies/r138-0521986d-963c-4c18-992d-d6a7a99d115f/plans/r138-2129a79a-5629-4069-bf79-7bb0af3b0bd3",
+            "id": "r138-2129a79a-5629-4069-bf79-7bb0af3b0bd3",
+            "name": "-deleted-7bb0af3b0bd3",
+            "resource_type": "backup_policy_plan"
+        },
+        "completed_at": "2023-02-22T15:27:43.000Z",
+        "created_at": "2023-02-22T15:27:20.000Z",
+        "href": "https://eu-de.iaas.cloud.ibm.com/v1/backup_policies/r138-0521986d-963c-4c18-992d-d6a7a99d115f/jobs/r138-d25c915c-3166-436d-b289-68d222297510",
+        "id": "r138-d25c915c-3166-436d-b289-68d222297510",
+        "job_type": "creation",
+        "resource_type": "backup_policy_job",
+        "source": {
+            "crn": "crn:v1:bluemix:public:is:eu-de-2:a/a10d63fa66daffc9b9b5286ce1533080::volume:r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa",
+            "href": "https://eu-de.iaas.cloud.ibm.com/v1/volumes/r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa",
+            "id": "r010-df8ffd90-f2e5-470b-83d7-76e64995a1aa",
+            "name": "my-block-vol-test1"
+        },
+        "source_volume": {
+            "crn": null,
+            "href": null,
+            "id": null,
+            "name": null
+        },
+        "status": "succeeded",
+        "status_reasons": [],
+        "target_snapshot": null,
+        "target_snapshots": [
+            {
+                "crn": "crn:v1:bluemix:public:is:eu-de:a/a10d63fa66daffc9b9b5286ce1533080::snapshot:r138-0290995a-9867-4066-98b4-cb2ebfcaf237",
+                "href": "https://eu-de.iaas.cloud.ibm.com/v1/snapshots/r138-0290995a-9867-4066-98b4-cb2ebfcaf237",
+                "id": "r138-0290995a-9867-4066-98b4-cb2ebfcaf237",
+                "name": "my-policy-plan-a-35b95419d283-41bf",
+                "resource_type": "snapshot"
+            }
+        ]
+    }
 ```
 {: screen}
 
@@ -107,31 +236,49 @@ ibmcloud is backup-policy-job POLICY JOB_ID [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
-The following example shows the output when you run the command by using the policy ID and the job ID as parameters.
+The following example shows the output when you run the command by using the policy name and the job ID as arguments, and the `--output JSON` option.
 
 ```json
-ibmcloud is backup-policy-job 7003cdf1-48bb-4af2-9ceb-1edbe8fcb818 a0d4eac1-6473-4c3b-a123-5543cdecaf45
-Getting job a0d4eac1-6473-4c3b-a123-5543cdecaf45 under account VPC as user myuser@mycompanu.com...
-
-ID                      a0d4eac1-6473-4c3b-a123-5543cdecaf45
-Auto delete             true
-Auto delete after       15
-Plans                   ID                                          Name                         Resource type
-                        392d5e3a-4596-407f-9ca6-2c78afce8d6e        test-p1-plan-2               backup_policy_plan
-Completed at            2022-06-21T16:59:52+05:30
-Created                 2022-06-21T16:59:30+05:30
-Source volume           CRN                                                                                                                        ID                                          Name                          Resource type
-                        crn:v1:staging:public:is:us-south-3:a/fee5afc483594adaa8325e2b4d1290df::volume:a11e25f2-3fc3-4507-8725-e5f1d07256ea   a11e25f2-3fc3-4507-8725-e5f1d07256ea   volume-2
-
-Status                  succeeded
-Completed at            2022-06-21T16:59:52+05:30
-Current status reason   Code   Message
-
-Target snapshot         CRN                                                                                                                        ID                                          Name                                                 Resource type
-                        crn:v1:staging:public:is:us-south:a/fee5afc483594adaa8325e2b4d1290df::snapshot:cd900168-918e-4386-9527-f1ba13157bba   cd900168-918e-4386-9527-f1ba13157bba   test-p1-plan-2-e49bef87507f-400d   snapshot
-
-Job type                creation
-Resource type           backup_policy_job
+cloudshell:~$ ibmcloud is backup-policy-job new-policy-23 r138-25828175-2b51-4247-ba01-79c538f68282 --output JSON
+{
+    "auto_delete": true,
+    "auto_delete_after": 15,
+    "backup_policy_plan": {
+        "href": "https://eu-de.iaas.cloud.ibm.com/v1/backup_policies/r138-0521986d-963c-4c18-992d-d6a7a99d115f/plans/r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9",
+        "id": "r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9",
+        "name": "my-policy-plan-b",
+        "resource_type": "backup_policy_plan"
+    },
+    "completed_at": "2023-02-23T20:12:37.000Z",
+    "created_at": "2023-02-23T20:12:14.000Z",
+    "href": "https://eu-de.iaas.cloud.ibm.com/v1/backup_policies/r138-0521986d-963c-4c18-992d-d6a7a99d115f/jobs/r138-25828175-2b51-4247-ba01-79c538f68282",
+    "id": "r138-25828175-2b51-4247-ba01-79c538f68282",
+    "job_type": "creation",
+    "resource_type": "backup_policy_job",
+    "source": {
+        "crn": "crn:v1:bluemix:public:is:eu-de-2:a/a10d63fa66daffc9b9b5286ce1533080::volume:r010-18ee3ad3-0b7e-4c3a-ba92-226073696049",
+        "href": "https://eu-de.iaas.cloud.ibm.com/v1/volumes/r010-18ee3ad3-0b7e-4c3a-ba92-226073696049",
+        "id": "r010-18ee3ad3-0b7e-4c3a-ba92-226073696049",
+        "name": "fra-vsi-boot-1645484638000"
+    },
+    "source_volume": {
+        "crn": null,
+        "href": null,
+        "id": null,
+        "name": null
+    },
+    "status": "succeeded",
+    "status_reasons": [],
+    "target_snapshot": null,
+    "target_snapshots": [
+        {
+            "crn": "crn:v1:bluemix:public:is:eu-de:a/a10d63fa66daffc9b9b5286ce1533080::snapshot:r138-d9ec292d-c638-46dd-bc4d-d9eb500d2925",
+            "href": "https://eu-de.iaas.cloud.ibm.com/v1/snapshots/r138-d9ec292d-c638-46dd-bc4d-d9eb500d2925",
+            "id": "r138-d9ec292d-c638-46dd-bc4d-d9eb500d2925",
+            "name": "my-policy-plan-b-b2a849936b7c-4200",
+            "resource_type": "snapshot"
+        }
+    ]
 ```
 {: screen}
 
@@ -286,7 +433,7 @@ A successful response looks like the following example.
 ### Backup job statuses and reason codes
 {: #backup-jobs-status}
 
-When you view details of a backup job by making a `GET/backup_policies/{backup_policy_id}/jobs/{backup_job_id}` request, the `status` property indicates whether the job `failed`, is `running`, or `succeeded`. The API also provides status reasons, with the following codes:
+When you view details of a backup job by making a `GET /backup_policies/{backup_policy_id}/jobs/{backup_job_id}` request, the `status` property indicates whether the job `failed`, is `running`, or `succeeded`. The API also provides status reasons, with the following codes:
 
 * `internal_error`: Indicates an internal error. Contact IBM support if your see this code.
 * `snapshot_pending`: Indicates that backup snapshot in the `pending` [snapshot lifecycle state](/docs/vpc?topic=vpc-snapshots-vpc-manage&interface=ui#snapshots-vpc-status) cannot be deleted.

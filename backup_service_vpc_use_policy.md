@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-02-02"
+lastupdated: "2023-02-24"
 
-keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
+keywords: ackup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
 subcollection: vpc
 
@@ -58,34 +58,65 @@ Apply tags to new or existing {{site.data.keyword.block_storage_is_short}} volum
 {: #backup-apply-tags-volumes-cli}
 {: cli}
 
-Run the `ibmcloud is volume-update` command with the `--tags` parameter to add user tags to a volume.
+### Before you begin
+{: ##backup-apply-tags-volumes-cli-prereq}
 
-Use the same parameter to add tags to a volume when you create a new volume by using `ibmcloud is volume-create`.
+Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
+{: requirement}
+
+1. Log in to the IBM Cloud.
+   ```sh
+   ibmcloud login --sso -a cloud.ibm.com
+   ```
+   {: pre}
+
+   This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
+
+2. Select the current generation of VPC. 
+   ```sh
+   ibmcloud is target --gen 2
+   ```
+   {: pre}
+
+### Apply tags to volumes from the CLI
+{: #backup-apply-tags-cli}
+
+Issue the `ibmcloud is volume-update VOLUME` command with the `--tags` option to update the user tags of a volume. The volume arguement can be defined by either the volume ID or the volume name.
+
+Use the same option to add tags to a volume when you create a volume by using `ibmcloud is volume-create`.
 {: tip}
 
-The following example adds user tags `env:test` and `env:prod` to a volume identified by ID.
+The following example adds user tags `env:test` and `bkp:test` to a volume identified by ID. The output shows information such as name, status, capacity, performance profile, location, and so on. The updated tags appear at the end of the response.
 
 ```sh
-$ ibmcloud is volume-update 50fda9c3-eecd-4152-b473-a98018ccfb10 --tags env:test,env:prod
-Updating volume 50fda9c3-eecd-4152-b473-a98018ccfb10 under account VPC1 as user user.mycompany.com...
-
-ID                                     50fda9c3-eecd-4152-b473-a98018ccfb10
-Name                                   my-volume
-CRN                                    crn:bluemix:public:is:us-south:a/823bd195e9fd4f0db40ac2e1bffef3e0:369e7ee7-2c0d-4723-941a-601c1a273727::
-Status                                 available
-Capacity                               500
-IOPS                                   3000
-Bandwidth(Mbps)                        393
-Profile                                general-purpose
-Encryption key                         -
-Encryption                             provider_managed
-Resource group                         Default
-Created                                2022-04-28T11:42:22.287+05:30
-Zone                                   us-south-1
-Volume Attachment Instance Reference   -
-Active                                 false
-Busy                                   false
-User Tags                              env:test,env:prod
+cloudshell:~$ ibmcloud is volume-update r010-bdb8fc70-8afb-4622-826a-d65a9fc477a4 --tags env:test,bkp:test,bcp:test
+Updating volume r010-bdb8fc70-8afb-4622-826a-d65a9fc477a4 under account Test Account as user test.user@ibm.com...
+                                          
+ID                                     r010-bdb8fc70-8afb-4622-826a-d65a9fc477a4   
+Name                                   my-bootable-snapshot-restore-21   
+CRN                                    crn:v1:bluemix:public:is:eu-de-2:a/a10d63fa66daffc9b9b5286ce1533080::volume:r010-bdb8fc70-8afb-4622-826a-d65a9fc477a4   
+Status                                 available   
+Capacity                               100   
+IOPS                                   3000   
+Bandwidth(Mbps)                        393   
+Profile                                general-purpose   
+Encryption key                         -   
+Encryption                             provider_managed   
+Resource group                         defaults   
+Created                                2023-02-23T18:52:00+00:00   
+Zone                                   eu-de-2   
+Health State                           ok   
+Volume Attachment Instance Reference   -   
+Source snapshot                        ID                                          Name      
+                                       r138-92c3efcb-4588-4c9c-828b-c52836629954   my-bootable-snapshot      
+                                          
+Operating system                       CentOS 7.x - Minimal Install (amd64)   
+Source image                           ID                                          Name      
+                                       r010-067bd38b-7ddd-49d9-a7f3-6e0a798e0554   ibm-centos-7-9-minimal-amd64-5      
+                                          
+Active                                 false   
+Busy                                   false   
+Tags                                   env:test,bkp:test,bcp:test
 ```
 {: screen}
 

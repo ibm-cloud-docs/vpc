@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-02-07"
+lastupdated: "2023-02-24"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -103,6 +103,26 @@ When you click a volume name to see the details, you need administrator privileg
 {: #backup-view-cli}
 {: cli}
 
+### Before you begin
+{: #backup-view-cli-prereq}
+
+Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI plug-in. For more information, see the [CLI prerequisites](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
+{: requirement}
+
+1. Log in to the IBM Cloud.
+   ```sh
+   ibmcloud login --sso -a cloud.ibm.com
+   ```
+   {: pre}
+
+   This command returns a URL and prompts for a passcode. Go to that URL in your browser and log in. If successful, you get a one-time passcode. Copy this passcode and paste it as a response on the prompt. After successful authentication, you are prompted to choose your account. If you have access to multiple accounts, select the account that you want to log in as. Respond to any remaining prompts to finish logging in.
+
+2. Select the current generation of VPC. 
+   ```sh
+   ibmcloud is target --gen 2
+   ```
+   {: pre}
+
 ### List all backup policies from the CLI
 {: #backup-view-all-cli}
 
@@ -116,12 +136,13 @@ ibmcloud is backup-policies [--tag TAG_NAME] [--resource-group-id RESOURCE_GROUP
 The following example shows the output that you can expect.
 
 ```sh
-$ ibmcloud is backup-policies
-
-Listing backup policies in all resource groups and region us-south under account vpcdemo as user myuser.mycompany.com...
-ID                                     Name                          Status    Resource group
-d8a0e8d9-c592-4175-80bc-3056f6fd1da5   demopolicy20                  pending   Default
-688816c5-788d-4c2c-ba95-b9c588195dfb   demopolicy21                  stable    Default
+cloudshell:~$ ibmcloud is backup-policies
+Listing backup policies in all resource groups and region eu-de under account Test Account as user test.user@ibm.com...
+ID                                          Name                  Status   Resource group   
+r138-0521986d-963c-4c18-992d-d6a7a99d115f   backup-policy-v1      stable   defaults   
+r138-a84c2063-e95f-46dc-98a8-9799b0e2fd2f   demo2                 stable   defaults   
+r138-8c494618-9e4f-4b67-9a08-ee3491404f3b   my-backup-policy-v1   stable   defaults   
+r138-5c719085-cf26-456e-9216-984866659e29   my-backup-policy-v2   stable   defaults 
 ```
 {: screen}
 
@@ -130,7 +151,7 @@ For more information about available command options, see [`ibmcloud is backup-p
 ### List all backup policies filter by user tags from the CLI
 {: #backup-view-all-filter-by-tags-cli}
 
-Run the `backup-policies` command to list all backup policies that you created in your account and region. The `--tag` parameter filters the collection of backup policies with the exact user tag value.
+Run the `backup-policies` command to list all backup policies that you created in your account and region. The `--tag` option filters the collection of backup policies with the exact user tag value.
 
 ```sh
 ibmcloud is backup-policies --tag
@@ -140,11 +161,12 @@ ibmcloud is backup-policies --tag
 The following example produces a list of backup policies that have the `dev:test` tag.
 
 ```text
-$ ibmcloud is backup-policies --tag dev:test
-Listing backup policies in all resource groups and region us-south under account vpcdemo as user myuser.mycompany.com...
-ID                                          Name                 Status   Resource group
-16a6e20b-a99b-4275-9662-832bc6af23f6        demo-bkp-policy-x    stable   Default
-ab94137e-7794-454e-9b4b-6274082172d9        demo-bkp-policy-x2   stable   Default
+cloudshell:~$ ibmcloud is backup-policies --tag dev:test
+Listing backup policies in all resource groups and region eu-de under account Test Account as user test.userd@ibm.com...
+ID                                          Name                  Status   Resource group   
+r138-0521986d-963c-4c18-992d-d6a7a99d115f   backup-policy-v1      stable   defaults   
+r138-8c494618-9e4f-4b67-9a08-ee3491404f3b   my-backup-policy-v1   stable   defaults
+r138-5c719085-cf26-456e-9216-984866659e29   my-backup-policy-v2   stable   defaults   
 ```
 {: screen}
 
@@ -160,23 +182,66 @@ ibmcloud is backup-policy POLICY [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
-The following example uses the policy ID.
+The following example uses the policy ID and the option to receive the response in JSON format.
+
+```json
+cloudshell:~$ ibmcloud is backup-policy r138-0521986d-963c-4c18-992d-d6a7a99d115f --output JSON
+{
+    "created_at": "2023-02-21T22:42:10.000Z",
+    "crn": "crn:v1:bluemix:public:is:eu-de:a/a10d63fa66daffc9b9b5286ce1533080::backup-policy:r138-0521986d-963c-4c18-992d-d6a7a99d115f",
+    "href": "https://eu-de.iaas.cloud.ibm.com/v1/backup_policies/r138-0521986d-963c-4c18-992d-d6a7a99d115f",
+    "id": "r138-0521986d-963c-4c18-992d-d6a7a99d115f",
+    "last_job_completed_at": "2023-02-22T20:12:44.000Z",
+    "lifecycle_state": "stable",
+    "match_resource_types": [
+        "volume"
+    ],
+    "match_user_tags": [
+        "dev:test"
+    ],
+    "name": "backup-policy-v1",
+    "plans": [
+        {
+            "href": "https://eu-de.iaas.cloud.ibm.com/v1/backup_policies/r138-0521986d-963c-4c18-992d-d6a7a99d115f/plans/r138-2129a79a-5629-4069-bf79-7bb0af3b0bd3",
+            "id": "r138-2129a79a-5629-4069-bf79-7bb0af3b0bd3",
+            "name": "my-policy-plan-a",
+            "resource_type": "backup_policy_plan"
+        },
+        {
+            "href": "https://eu-de.iaas.cloud.ibm.com/v1/backup_policies/r138-0521986d-963c-4c18-992d-d6a7a99d115f/plans/r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9",
+            "id": "r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9",
+            "name": "my-policy-plan-c",
+            "resource_type": "backup_policy_plan"
+        }
+    ],
+    "resource_group": {
+        "href": "https://resource-controller.cloud.ibm.com/v2/resource_groups/6edefe513d934fdd872e78ee6a8e73ef",
+        "id": "6edefe513d934fdd872e78ee6a8e73ef",
+        "name": "defaults"
+    },
+    "resource_type": "backup_policy"
+```
+{: screen} 
+
+The following example uses the policy name and no other options.
 
 ```sh
-ibmcloud is backup-policy ac2a8be2-aa99-4571-baed-c3ec63a64ce7
-Getting backup policy ac2a8be2-aa99-4571-baed-c3ec63a64ce7 under account VPC as user myuser@mycompany.com...
-
-ID                     ac2a8be2-aa99-4571-baed-c3ec63a64ce7
-Name                   bkp-policy-1
-CRN                    crn:v1:staging:public:is:us-south:a/2d1bace7b46e4815a81e52c6ffeba5cf::backup-policy:r134-ac2a8be2-aa99-4571-baed-c3ec63a64ce7
-Status                 stable
-Plans                  ID                                     Name              Resource type
-                       361ed7f8-ee19-4c74-86c1-e3aafcac8a0d   bkp-plan-1        backup_policy_plan
-
-Backup tags            env:dev
-Backup resource type   volume
-Resource group         Default
-Created                2022-06-28T17:56:53+05:30
+cloudshell:~$ ibmcloud is backup-policy my-backup-policy-v1
+Getting backup policy my-backup-policy-v1 under account Test Account as user test.user@ibm.com...
+                           
+ID                      r138-8c494618-9e4f-4b67-9a08-ee3491404f3b   
+Name                    my-backup-policy-v1   
+CRN                     crn:v1:bluemix:public:is:eu-de:a/a10d63fa66daffc9b9b5286ce1533080::backup-policy:r138-8c494618-9e4f-4b67-9a08-ee3491404f3b   
+Status                  stable   
+Last job completed at   2023-02-22T20:12:44.000Z   
+Plans                   ID                                          Name                    Resource type      
+                        r138-4d77d84c-929c-49e9-9f05-952be9486406   not-just-another-plan   backup_policy_plan      
+                        r138-7734be40-e2a5-4ee6-b4bd-75763639092b   my-policy-plan          backup_policy_plan      
+                           
+Backup tags             dev:test   
+Backup resource type    volume   
+Resource group          defaults   
+Created at              2023-02-21T18:37:17+00:00   
 ```
 {: screen}
 
@@ -192,13 +257,84 @@ ibmcloud is backup-policy-plans POLICY [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
-The following example specifies the policy ID. The backup plan uses a CRON expression to schedule backups.
+The following example specifies the policy name. The output provides basic information of the backup plans, such as ID, name, status, and the CRON expressions that define the schedules for the backups.
 
 ```sh
-ibmcloud is backup-policy-plans ac2a8be2-aa99-4571-baed-c3ec63a64ce7
-Listing plans of backup policy ac2a8be2-aa99-4571-baed-c3ec63a64ce7 under account VPC as user myuser@mycompany.com...
-ID                                          Name               Active   Lifecycle state   Cron specification
-2dc6ecf9-8f09-4c34-86c6-c10ea6526563        my-policy-plan-1   true     stable            42 10 * * *
+cloudshell:~$ ibmcloud is backup-policy-plans backup-policy-v1 
+Listing plans of backup policy backup-policy-v1 under account Test Account as user test.user@ibm.com...
+ID                                          Name               Active   Lifecycle state   Cron specification   
+r138-2129a79a-5629-4069-bf79-7bb0af3b0bd3   my-policy-plan-a   true     stable            05 15 * * *   
+r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9   my-policy-plan-c   true     stable            10 20 * * * 
+```
+{: screen}
+
+The following example specifies the policy ID of the policy from the previous example. The output provides more detailed information about the plans (`my-policy-plan-a` and `my-policy-plan-c`) that includes information about fast restore clones and the retention policy as well.
+
+```json
+cloudshell:~$ ibmcloud is backup-policy-plans r138-0521986d-963c-4c18-992d-d6a7a99d115f  --output JSON
+[
+    {
+        "active": true,
+        "attach_user_tags": [
+            "daily-backup-plan"
+        ],
+        "clone_policy": {
+            "max_snapshots": 4,
+            "zones": [
+                {
+                    "href": "https://eu-de.iaas.cloud.ibm.com/v1/regions/eu-de/zones/eu-de-1",
+                    "name": "eu-de-1"
+                },
+                {
+                    "href": "https://eu-de.iaas.cloud.ibm.com/v1/regions/eu-de/zones/eu-de-2",
+                    "name": "eu-de-2"
+                }
+            ]
+        },
+        "copy_user_tags": true,
+        "created_at": "2023-02-21T22:42:31.000Z",
+        "cron_spec": "05 15 * * *",
+        "deletion_trigger": {
+            "delete_after": 20,
+            "delete_over_count": 20
+        },
+        "href": "https://eu-de.iaas.cloud.ibm.com/v1/backup_policies/r138-0521986d-963c-4c18-992d-d6a7a99d115f/plans/r138-2129a79a-5629-4069-bf79-7bb0af3b0bd3",
+        "id": "r138-2129a79a-5629-4069-bf79-7bb0af3b0bd3",
+        "lifecycle_state": "stable",
+        "name": "my-policy-plan-a",
+        "resource_type": "backup_policy_plan"
+    },
+    {
+        "active": true,
+        "attach_user_tags": [
+            "daily-backup-plan"
+        ],
+        "clone_policy": {
+            "max_snapshots": 3,
+            "zones": [
+                {
+                    "href": "https://eu-de.iaas.cloud.ibm.com/v1/regions/eu-de/zones/eu-de-1",
+                    "name": "eu-de-1"
+                },
+                {
+                    "href": "https://eu-de.iaas.cloud.ibm.com/v1/regions/eu-de/zones/eu-de-2",
+                    "name": "eu-de-2"
+                }
+            ]
+        },
+        "copy_user_tags": true,
+        "created_at": "2023-02-21T22:42:32.000Z",
+        "cron_spec": "10 20 * * *",
+        "deletion_trigger": {
+            "delete_after": 20,
+            "delete_over_count": 20
+        },
+        "href": "https://eu-de.iaas.cloud.ibm.com/v1/backup_policies/r138-0521986d-963c-4c18-992d-d6a7a99d115f/plans/r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9",
+        "id": "r138-6f4f08ba-e0bb-470f-bbfb-f3a22aebbfa9",
+        "lifecycle_state": "stable",
+        "name": "my-policy-plan-c",
+        "resource_type": "backup_policy_plan"
+    }
 ```
 {: screen}
 
@@ -214,27 +350,27 @@ ibmcloud is backup-policy-plan POLICY PLAN [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
-The following example specifies the policy ID and the plan ID.
+The following example specifies the policy and the plan name.
 
 ```sh
-ibmcloud is backup-policy-plan r134-48b18c4b-f079-4576-802e-fe0b4186ae0b r134-b19c5178-3b58-4aca-8a17-95607585dcff
-Getting plan r134-b19c5178-3b58-4aca-8a17-95607585dcff under account VPC as user myuser@mycompany.com...
+cloudshell:~$ ibmcloud is backup-policy-plan backup-policy-v1 my-policy-plan-a
+Getting plan my-policy-plan-a under account Test Account as user test.userd@ibm.com...
                         
-ID                   r134-b19c5178-3b58-4aca-8a17-95607585dcff   
-Name                 demo-bkp-plan-2   
+ID                   r138-2129a79a-5629-4069-bf79-7bb0af3b0bd3   
+Name                 my-policy-plan-a   
 Active               true   
 Lifecycle state      stable   
 Clone policy         Max snapshots   Zones      
-                     4               us-south-1,us-south-2      
+                     4               eu-de-1,eu-de-2      
                         
 Deletion trigger     Delete after   Delete over count      
-                     60             2      
+                     20             20      
                         
-Attached tags        dev:test   
-Copy tags            false   
-Cron specification   40 17 * * *   
-Created at           2022-11-17T23:05:18+05:30   
-Resource type        backup_policy_plan
+Attached tags        daily-backup-plan   
+Copy tags            true   
+Cron specification   05 15 * * *   
+Created at           2023-02-21T22:42:31+00:00   
+Resource type        backup_policy_plan   
 ```
 {: screen}
 
