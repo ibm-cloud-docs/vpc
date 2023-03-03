@@ -64,7 +64,7 @@ When you have an image available in {{site.data.keyword.cos_full_notm}}, you can
 {: caption="Table 1. Import custom image user interface fields" caption-side="bottom"}
 
 ## Validating an imported custom image
-{: #validate-custom images-cloud-object-storage}
+{: #validate-custom-images-cloud-object-storage}
 
 After you import a custom image, you can view the checksum that was generated for the image when it is imported to {{site.data.keyword.vpc_short}}.
 
