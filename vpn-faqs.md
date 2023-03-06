@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-03-08"
+  years: 2020, 2023
+lastupdated: "2023-03-06"
 
 keywords: virtual private network, faq, faqs, frequently asked questions, vpn, vpn gateway
 
@@ -147,3 +147,12 @@ See the **IBM Cloud VPN** tab on the [Pricing](https://www.ibm.com/cloud/vpc/pri
 
 While using a VPN gateway, you are also charged for all outbound public internet traffic billed at VPC data rates. See the *Data Transfer* tab on the [Pricing](https://www.ibm.com/cloud/vpc/pricing) page for details about the unit pricing for outbound data transfer.
 {: note}
+
+## Why doesn't the route-based VPN gateway route the traffic?
+{: #vpn-gateway-route}
+{: faq}
+
+If you configured a VPC route and its next hop is a VPN connection, the following use cases block the traffic forwarded through the VPN connection.
+
+* The security groups associated with the VPC instance do not permit the traffic; the network ACLs associated with the subnet of the VPC instance and VPN gateway blocked the traffic. For more information about configuring security groups and network ACLs, see [Configuring ACLs and security groups for use with VPN](/docs/vpc?topic=vpc-acls-security-groups-vpn).
+* The traffic source IP is not in any subnet associated with the VPC routing table. For example, the VPC routing table is associated with subnet A and includes a route whose next hop is a VPN connection. However, when the traffic reaches the VPN gateway, the source IP is not in subnet A or any other subnets that are associated with the routing table. Therefore, the VPN gateway drops the traffic.
