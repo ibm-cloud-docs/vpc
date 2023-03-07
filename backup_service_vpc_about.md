@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-02-24"
+lastupdated: "2023-03-02"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -43,7 +43,7 @@ When the backup is triggered at the scheduled interval, a backup copy is created
 
 You can [restore](#backup-service-restore-concepts) data from a backup snapshot to a new, fully provisioned volume. If the backup is of a boot volume, you can use it to provision a new instance. However, when you provision an instance by restoring a boot volume from a bootable backup snapshot, you can expect degraded performance in the beginning. During the restoration process, the data is copied from {{site.data.keyword.cos_full}} to {{site.data.keyword.block_storage_is_short}}, and thus the provisioned IOPS cannot be fully realized until that process finishes.
 
-With the fast restore feature, you can cache snapshots in a specified zone of your choosing. This way, volumes can be restored from snapshots nearly immediately and the new volumes operate with full IOPS instantly. The fast restore feature can achieve a [recovery time objective](#x3167918){: term} (RTO) quicker than restoring from a regular backup snapshot. When you opt for fast restore, your existing regional plan is adjusted, including billing. Billing is based on instance hours, $0.75 per hour regardless of the backup size.
+With the fast restore feature, you can cache snapshots in a specified zone of your choosing. This way, volumes can be restored from snapshots nearly immediately and the new volumes operate with full IOPS instantly. The fast restore feature can achieve a [recovery time objective](#x3167918){: term} (RTO) quicker than restoring from a regular backup snapshot. When you opt for fast restore, your existing regional plan is adjusted, including billing. For more information about the cost of fast restore, see [Pricing](https://www.ibm.com/cloud/vpc/pricing){: external}.
 
 ### Comparison of backups and snapshots
 {: #baas-comparison}

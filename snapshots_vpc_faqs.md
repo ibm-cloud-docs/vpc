@@ -46,7 +46,7 @@ A [fast restore snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui
 {: faq}
 {: #faq-snapshot-3}
 
-You can take up to 750 snapshots per volume in a region. Deleting snapshots from this quota makes space for more snapshots. A snapshot of a volume cannot be greater than 10 TB. Also, consider how your [billing changes](/docs/vpc?topic=vpc-snapshots-vpc-about&interface=api#snapshots_vpc_considerations) when you increase the number of snapshots that you take and retain.
+You can take up to 750 snapshots per volume in a region. Deleting snapshots from this quota makes space for more snapshots. A snapshot of a volume cannot be greater than 10 TB. Also, consider how your [billing changes](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_considerations) when you increase the number of snapshots that you take and retain.
 
 ## Is there a limit on the size of a volume that I can take a snapshot of?
 {: faq}
@@ -104,7 +104,8 @@ Cost for snapshots is calculated based on GB capacity that is stored per month, 
 
 Pricing for snapshots is also set by region. For more information, see [Pricing](https://www.ibm.com/cloud/vpc/pricing).
 
-When you use the [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore) feature, your existing regional plan is adjusted. Billing for fast restore is based on instance hours. The cost is $0.75 per hour regardless of snapshot size.
+When you use the [fast restore](/docs/vpc?topic=vpc-snapshots-vpc-about#snapshots_vpc_fast_restore) feature, your existing regional plan is adjusted. Billing for fast restore is based on instance hours.  For more information about the cost of fast restore, see [Pricing](https://www.ibm.com/cloud/vpc/pricing){: external}.
+
 
 ### Can I add tags to a {{site.data.keyword.block_storage_is_short}} snapshot?
 {: faq}

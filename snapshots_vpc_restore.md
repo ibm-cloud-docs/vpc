@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-02-22"
+lastupdated: "2023-03-07"
 
 keywords:
 
@@ -65,7 +65,7 @@ Restoring a volume by using the [fast restore feature](/docs/vpc?topic=vpc-snaps
 
 In the console, you can filter the list of available snapshots to see which ones have fast restore clones. Select the fast restore snapshot clone to restore the volume and have it ready to use faster. When you restore data from a fast restore snapshot, the data is pulled from the clone within your region and not from {{site.data.keyword.cos_short}}. Because the data is immediately available, no hydration is necessary. Performance levels are not affected. By using fast restore snapshots, you can achieve [recovery time objective](#x3167918){: term} (RTO) quicker than restoring from a regular snapshot.
 
-When you use the fast restore feature, your existing regional plan is adjusted, including billing. Billing is based on instance hours, $0.75 per hour regardless of snapshot size.
+When you use the fast restore feature, your existing regional plan is adjusted, including billing. Billing is based on instance hours, regardless of snapshot size. For more information, see [Pricing](https://www.ibm.com/cloud/vpc/pricing){: external}.
 
 ## Limitations of restoring a volume from a snapshot
 {: #snapshots-vpc-restore-limitations}
@@ -210,7 +210,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 ### Create a boot volume from a snapshot for a new instance from the CLI
 {: #snapshots-vpc-restore-boot-CLI}
 
-Run the `ibmcloud is instance-create` command with the `source_snapshot` option and ID or name of a bootable snapshot. The restored boot volume is used to initialize the instance.
+Run the `ibmcloud is instance-create` command with the `source_snapshot` property in the boot volume JSON. Specify the ID or name of a bootable snapshot. The restored boot volume is used to initialize the instance.
 
 See the following example.
 
@@ -325,11 +325,13 @@ Use the VPC API to restore a volume from a snapshot. Restoring creates a new, fu
 ### Creating a boot volume when you create a new instance with the API
 {: #snapshots-vpc-restore-boot-api}
 
-To restore a boot volume from a bootable snapshot, make a `POST /instances` request and specify the boot volume attachment and snapshot ID. See the following example.
+To restore a boot volume from a bootable snapshot when you create an instance, make a `POST /instances` request and specify the `boot_volume_attachment` property and the bootable snapshot ID in the `source_snapshot` subproperty.
+
+See the following example.
 
 ```curl
 curl -X POST \
-"$vpc_api_endpoint/v1/instances?version=2022-06-14&generation=2" \
+"$vpc_api_endpoint/v1/instances?version=2023-03-07&generation=2" \
 -H "Authorization: $iam_token" \
 -H "Content-Type: application/json" \
 -d '{
@@ -408,6 +410,7 @@ curl -X POST \
                 }
             }
         }
+     ]
     "resource_group": {
         "id": "2fab2c7f-c09d-4c64-baf7-1453b7461493"
     }
