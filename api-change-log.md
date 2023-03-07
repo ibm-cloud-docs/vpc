@@ -49,6 +49,14 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
 
+## 7 March 2023
+{: #7-march-2023}
+
+### For all version dates
+{: #7-march-2023-all-version-dates}
+
+**Idle connection timeout control for application load balancers.** You can now control the maximum time a client can be inactive when connected to the server by specifying the `idle_connection_timeout` property when [creating a load balancer](/apidocs/vpc/latest#create-load-balancer), [creating a load balancer listener](/apidocs/vpc/latest#create-load-balancer-listener), and [updating a load balancer listener](/apidocs/vpc/latest#update-load-balancer-listener). The `idle_connection_timeout` value defaults to the minimum of 50 seconds, and has a maximum of 2 hours, specified in seconds. For more information, see [Creating an application load balancer](/docs/vpc?topic=vpc-load-balancers&interface=ui).
+
 ## 14 February 2023
 {: #14-february-2023}
 
