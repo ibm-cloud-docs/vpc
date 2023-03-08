@@ -693,6 +693,15 @@ toc:
                 - vpe-ts-cannot-reach-target.md
                 - vpe-ts-cannot-communicate.md
             - topicgroup:
+                label: Troubleshooting load balancers
+                topics:
+                - lb-ts-401.md
+                - lb-ts-maintenance-pending.md
+                - lb-ts-unknown
+                - lb-ts-faulted.md
+                - lb-ts-409.md
+                - lb-ts-backend-members.md
+            - topicgroup:
                 label: Troubleshooting site-to-site VPN gateways
                 topics:
                 - vpn-ts-unable-establish-connection.md
