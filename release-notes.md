@@ -30,8 +30,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## March 2023
 {: #vpc-mar23}
 
-### 15 March 2023
-{: #vpc-march1523}
+### 10 March 2023
+{: #vpc-march1023}
 {: release-note}
 
 Client server timeout for application load balancers
