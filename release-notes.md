@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-03-01"
+lastupdated: "2023-03-10"
 
 keywords:
 
@@ -26,6 +26,16 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API , see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
+
+## March 2023
+{: #vpc-mar23}
+
+### 15 March 2023
+{: #vpc-march1523}
+{: release-note}
+
+Client server timeout for application load balancers
+:    You can now configure the client and server timeout parameters for IBM Cloud Application Load Balancer for VPC using the UI, CLI, and API. The maximum timeout period for each listener is 2 hours, and the minimum is 50 seconds. If you need a timeout amount greater than 2 hours, open a [support case](/docs/vpc?topic=vpc-getting-help) with IBM Support. For more information on setting the client and server timeout period, refer to [Creating an application load balancer](/docs/vpc?topic=vpc-load-balancers&interface=ui). This functionality is only available for application load balancers.
 
 ## February 2023
 {: #vpc-feb23}
