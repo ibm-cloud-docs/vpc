@@ -30,6 +30,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## March 2023
 {: #vpc-mar23}
 
+### 15 March 2023
+{: #vpc-March1523}
+{: release-note}
+
+Private DNS zones for network load balancers
+:    IBM Cloud Application and Network Load Balancers for VPC now allow you to bind DNS zones from [IBM Cloud DNS Services](/docs/dns-svcs?topic=dns-svcs-getting-started), which allows you to move all DNS resolutions into private networks. Private DNS zones are resolvable only on IBM Cloud, and only from explicitly permitted networks in an account or with cross account access. For more information, see [Integrating a load balancer with IBM Cloud DNS Services](/docs/vpc?topic=vpc-lb-dns).
+
 ### 10 March 2023
 {: #vpc-march1023}
 {: release-note}
