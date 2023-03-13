@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-09-22"
+  years: 2020, 2023
+lastupdated: "2023-03-13"
 
 keywords: virtual private endpoints, endpoint gateway, VPE
 subcollection: vpc
@@ -44,7 +44,7 @@ subcollection: vpc
 * Resource Controller ([Endpoint URLs](/apidocs/resource-controller/resource-controller#endpoint-url)) 
 * Resource Manager ([Endpoint URLs](/apidocs/resource-controller/resource-manager#endpoint-urls))
 * Schematics ([Instructions](/docs/schematics?topic=schematics-private-endpoints#endpoint-setup))
-* {{site.data.keyword.secrets-manager_short}} ([Instructions](/docs/secrets-manager?topic=secrets-manager-virtual-private-endpoint))
+* {{site.data.keyword.secrets-manager_short}} ([Instructions](/docs/secrets-manager?topic=secrets-manager-endpoints))
 * Transit Gateway ([Instructions](/docs/transit-gateway?topic=transit-gateway-vpe-for-ibm-cloud-transit-gateway))
 * Usage Metering ([Endpoint URLs](/apidocs/usage-metering#endpoint))
 * Usage Reports ([Endpoint URLs](/apidocs/metering-reporting#endpoint))
