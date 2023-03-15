@@ -15,7 +15,7 @@ subcollection: vpc
 # Planning data encryption
 {: #vpc-encryption-planning}
 
-When you're planning a data encryption strategy for your {{site.data.keyword.block_storage_is_short}} volumes, snapshots, {{site.data.keyword.filestorage_vpc_short} shares, or custom images, you might find this checklist helpful.
+When you're planning a data encryption strategy for your {{site.data.keyword.block_storage_is_short}} volumes, snapshots, {{site.data.keyword.filestorage_vpc_short}} shares, or custom images, you might find this checklist helpful.
 {: shortdesc}
 
 ## Planning for data encryption
