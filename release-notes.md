@@ -30,6 +30,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## March 2023
 {: #vpc-mar23}
 
+### 16 March 2023
+{: #vpc-march1623}
+{: release-note}
+
+Client-to-site VPN server private certificate support
+:    VPN servers now support the use of Secrets Manager private certificates. Private certificates are SSL/TLS certificates that you can sign, issue, and manage in the Secrets Manager service. For VPN server considerations, see [Using a private certificate](/docs/vpc?topic=vpc-client-to-site-authentication#using-private-certificate). For Secrets Manager information, see [Creating a private certificate](/docs/secrets-manager?topic=secrets-manager-certificates&interface=ui#create-certificates).
+
 ### 10 March 2023
 {: #vpc-march1023}
 {: release-note}
