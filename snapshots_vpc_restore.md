@@ -84,9 +84,9 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
 
 3. From the overflow menu, select **Create volume**.
 
-4. In the side panel, choose whether you want to create an unattached data volume, create and attach a volume to an existing instance, or create a volume and use it to provision an new instance.
+4. In the side panel, choose whether you want to create an unattached data volume, create and attach a volume to an existing instance, or create a volume and use it to provision an instance.
 
-    * For an **stand-alone data volume**, leave **Attach volume to virtual server** clear.
+    * For a **stand-alone data volume**, leave **Attach volume to virtual server** clear.
        Use this option when you're not sure which virtual server instance you want to attach the volume to.
        {: tip}
 
