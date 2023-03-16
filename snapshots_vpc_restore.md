@@ -44,7 +44,7 @@ The following limitations apply when you restore a volume from a snapshot.
 
 * To restore a volume, the snapshot must be in a _stable_ state.
 * You can delete the new volume at any time. However, you can't delete the snapshot from which the volume is restored from unless the hydration is complete or the volume is deleted.
-* If snapshot has customer-managed encryption and you don't specify a different root key CRN, the restored volume is encrypted with the snapshot's encryption key and it cannot be changed later.
+* If snapshot has customer-managed encryption and you don't specify a different root key CRN, the restored volume is encrypted with the snapshot's encryption key. The encryption cannot be changed later.
 * When the new volume is created, data restoration begins immediately, but performance is degraded until the volume is fully hydrated.
 
 ### Performance impact
