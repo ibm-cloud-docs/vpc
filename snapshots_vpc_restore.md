@@ -71,7 +71,7 @@ When you use the fast restore feature, your existing regional plan is adjusted, 
 {: #snapshots-vpc-restore-ui}
 {: ui}
 
-You can create volumes from various pages in the {{site.data.keyword.cloud_notm}} console. During the "create and attach" phase of virtual server instance provisioning, you can select a snapshot to restore the volume. Restoring from a bootable snapshot creates a boot volume that you use to provision the virtual server instance. The boot volume uses a general-purpose profile and is limited to 250 GB. Data volumes are created and attached to the instance. You can restore volumes from a snapshot outside of instance provisioning as well, you can create stand alone volumes and new auxiliary volumes for existing instances.
+You can create volumes from various pages in the {{site.data.keyword.cloud_notm}} console. During the "create and attach" phase of virtual server instance provisioning, you can select a snapshot to restore the volume. Restoring from a bootable snapshot creates a boot volume that you use to provision the virtual server instance. The boot volume uses a general-purpose profile and is limited to 250 GB. Data volumes are created and attached to the instance. You can restore volumes from a snapshot outside of instance provisioning as well, you can create stand-alone volumes and new auxiliary volumes for existing instances.
 
 ### Create a volume from the list of snapshots in the UI
 {: #snapshots-vpc-restore-snaphot-list-ui}
@@ -158,7 +158,7 @@ You can also create a data volume from a snapshot for an existing instance. Choo
 {: #snapshots-vpc-restore-CLI}
 {: cli}
 
-During the "create and attach" phase of instance provisioning, you can select a snapshot to restore the volume. Restoring from a bootable snapshot creates a boot volume that you cab use to provision a virtual server instance. The boot volume uses a general-purpose profile and is limited to 250 GB. Data volumes are created and can be attached to the instance. You can restore volumes from a snapshot outside of instance provisioning as well, you can create stand alone volumes and new auxiliary volumes for existing instances.
+During the "create and attach" phase of instance provisioning, you can select a snapshot to restore the volume. Restoring from a bootable snapshot creates a boot volume that you cab use to provision a virtual server instance. The boot volume uses a general-purpose profile and is limited to 250 GB. Data volumes are created and can be attached to the instance. You can restore volumes from a snapshot outside of instance provisioning as well, you can create stand-alone volumes and new auxiliary volumes for existing instances.
 
 ### Before you begin
 {: #snapshots-vpc-restore-prereq-CLI}
