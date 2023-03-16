@@ -119,7 +119,7 @@ From the list of {{site.data.keyword.block_storage_is_short}} snapshots, you can
 2. On the {{site.data.keyword.block_storage_is_short}} volume details page, select the **Snapshots and Backups** tab. A list of snapshots that were created manually or by backup policies is shown.
 3. From the list, click the snapshot name to go to its details page.
 4. From the **Actions** menu, click **Create volume**.
-5. Define the new volume in the side panel. The information that you need to provide is the same as when you create a volume from the [list of snapshots](#snapshots-vpc-restore-snaphot-list-ui).
+5. Define the new volume in the side panel. The information that you need to provide is the same as when you create a volume from the [list of snapshots](#snapshots-vpc-restore-snaphot-list-ui). See Table 1 for the details.
 6. When you're finished, click **Save**. The new volume is created.
 
 ### Create a volume from a snapshot when you provision a virtual server instance in the UI
