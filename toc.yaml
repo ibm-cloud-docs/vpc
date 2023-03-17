@@ -352,7 +352,6 @@ toc:
                 topics:
                 - vpn-client-to-site.md
                 - vpn-client-to-site-planning.md
-                - vpn-client-to-site-migration.md
                 - vpn-client-to-site-securing-environment.md
                 - vpn-client-to-site-access-groups.md
                 - vpn-client-to-site-auth.md
