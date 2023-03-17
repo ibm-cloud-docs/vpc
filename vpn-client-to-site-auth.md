@@ -236,20 +236,6 @@ To find a certificate's CRN, follow these steps:
 1. Click to expand **Security**, then select the Secrets Manager that you want to find the CRN for.
 1. Select anywhere in the table row of the certificate to open the Certificate details side panel. The certificate CRN is listed in the side panel.
 
-### Migrating a certificate from Certificate Manager to Secrets Manager
-{: #migrate-certificate}
-
-End of support for IBM Cloud Certificate Manager is 31 December 2022. If your VPN server still uses a certificate from Certificate Manager, you must migrate the certificate to Secrets Manager. This is a requirement for both server and client certificates if they both are used in Certificate Manager.
-{: important}
-
-To migrate a certificate, follow these steps:
-
-1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **menu icon ![menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > VPNs**.
-1. Go to the **Client-to-site servers** page and select the VPN server that uses a certificate from Certificate Manager.
-1. Click **Edit** in the Authentication panel. The Edit Authentication window is shown. 
-1. Select **Secrets Manager** in the **Certificate source** list, then choose a Secrets Manager server instance and a server SSL certificate.
-1. Click **Save**. The VPN server migrates the certificate to Secrets Manager.
-
 ## Configuring user IDs and passcodes
 {: #client-to-site-configuration-passcode}
 
