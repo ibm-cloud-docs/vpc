@@ -18,9 +18,6 @@ subcollection: vpc
 Configure your authentication settings for the VPN server and VPN clients. Certificates are managed through {{site.data.keyword.secrets-manager_full}}. 
 {: shortdesc}
 
-As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager were deleted. If you had any user-provided Ingress secrets that were stored in Certificate Manager, they are no longer valid. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager).
-{: important}
-
 ## Creating an IAM service-to-service authorization
 {: #creating-iam-service-to-service}
 
