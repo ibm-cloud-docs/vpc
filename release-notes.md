@@ -30,6 +30,22 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## March 2023
 {: #vpc-mar23}
 
+### 20 March 2023
+{: #vpc-march2023}
+{: release-note}
+
+Updated certificates for IBM Hyper Protect Container Runtime image
+:   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-9`, new certificates are available.
+   - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-9-attestation.crt){: external}
+   - [Encryption certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-9-encrypt.crt){: external}
+   - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-9-intermediate.crt){: external}
+
+Two partitions in new data volume
+:   Starting from the IBM Hyper Protect Container Runtime (HPCR) image version `ibm-hyper-protect-container-runtime-1-0-s390x-9`, for new {{site.data.keyword.hpvs_full_notm}} instances, the data volume is partitioned into two parts. The first partition (100Mib) is reserved for internal metadata; the second partition remains as the data volume for workload. Only new volumes are partitioned, and you can't use the partitioned volume with an older version of the HPCR image. Provisioning with an existing encrypted volume also works. The difference is that the existing volume does not get partitioned, and you can also go back to an older image with this volume. 
+
+Support for using a dynamic registry reference
+:   There exist usecases in which the registry is **not known** when the workload section is pre-encrypted, for example, when the workload provider wants to allow the deployer to use a registry mirror or a private container registry. In such a case, it's possible to dynamically override the registry as well as the pull credentials. This is an coordinated effort between the workload provider and the deployer. For more information, see [Using a dynamic registry reference](/docs/vpc?topic=vpc-hyper-protect-virtual-server-use-dynamic-registry-reference).
+
 ### 16 March 2023
 {: #vpc-march1623}
 {: release-note}
