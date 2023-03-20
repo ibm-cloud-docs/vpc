@@ -36,11 +36,13 @@ toc:
            label: Network
            topics:
            - about-network.md
+           - about-network-latency.md
            - vpc-security.md
            - vpc-networking-concepts.md
            - interconnectivity.md
            - private-wan.md
            - private-connectivity-vpe.md
+           - vpc-ips.md
            - topicgroup:
                label: Networking overview for bare metal servers
                topics:
@@ -88,6 +90,7 @@ toc:
                - hpvs-logging.md
                - hpvs-disks-encryption-validate.md
                - about-hp-securebuild.md
+               - hpvs-override-registry.md
            - host-failure-recovery.md
        - topicgroup:
            label: Storage
@@ -125,6 +128,7 @@ toc:
             - user-access-to-dedicated-hosts-and-groups.md
             - creating-and-using-an-image-from-volume.md
             - vpn-openvpn-client-tutorial.md
+
         - topicgroup:
             label: Solution tutorials
             topics:
@@ -140,6 +144,7 @@ toc:
         id: howto
         topics:
         - set-up-environment.md
+        - terraform.md
         - topicgroup:
             label: Managing access
             topics:
@@ -185,6 +190,7 @@ toc:
             - vsi_is_manage_instances.md
             - vsi_is_ssh_keys.md
             - vsi_is_instance_vnics.md
+            - vsi_is_configuring_network_performance.md
             - vsi_instance_storage_how_to.md
             - monitoring-vpc-metrics.md
             - vsi_is_instance_resize.md
@@ -211,6 +217,7 @@ toc:
             - bare_metal_server_planning.md
             - bare_metal_server_create.md
             - bare_metal_server_connect.md
+            - bare_metal_server_connect_windows.md
             - bare_metal_server_connect_s390x.md
             - bare-metal-server-connect-serial-console-windows.md
             - bare_metal_server_manage_nic.md
@@ -237,8 +244,8 @@ toc:
                 topics:
                  - vsi_is_create_linux_custom_image.md
                  - vsi_is_create_windows_custom_image.md
-                 - vsi_is_create_zos_custom_image.md
                  - vpc_image_from_volume_create.md
+                 - vsi_is_create_zos_custom_image.md
                  - vsi_is_migrate_from_classic_infra.md
                  - vsi_is_encrypt_custom_image.md
                  - building-custom-os.md
@@ -281,6 +288,7 @@ toc:
             - vpe-view-details.md
             - vpe-list.md
             - vpe-delete.md
+            - vpe-attach-detach-sqs.md
             - vpe-iam.md
             - vpe-limitations.md
             - vpe-supported-services.md
@@ -300,10 +308,12 @@ toc:
             label: Routing tables
             topics:
             - cr-intro.md
+            - cr-route-preference.md
             - topicgroup:
                 label: VPC routing tables
                 topics:
                 - cr-create-table.md
+                - cr-update-table.md
                 - cr-view-table.md
                 - cr-attach-subnet.md
                 - cr-list-table.md
@@ -312,6 +322,7 @@ toc:
                 label: VPC routes
                 topics:
                 - cr-create-route.md
+                - cr-update-route.md
                 - cr-list-route.md
                 - cr-delete-route.md
         - topicgroup:
@@ -328,6 +339,7 @@ toc:
                 - vpn-create-ike-policy.md
                 - vpn-create-ipsec-policy.md
                 - vpn-site-to-site-routes.md
+                - vpn-site-to-site-routes-propagating.md
                 - vpn-onprem.md
                 - vpn-onprem-aws.md
                 - vpn-onprem-check-point.md
@@ -341,7 +353,6 @@ toc:
                 - vpn-access-service-endpoint.md
                 - vpn-ha.md
                 - vpn-configure-acls-security-groups.md
-                - vpn-site-to-site-routes-propagating.md
                 - vpn-view-logs.md
                 - vpn-monitoring-metrics.md
                 - vpn-limitations.md
@@ -383,25 +394,38 @@ toc:
                 - lb-monitoring-metrics.md
                 - lb-ig-integration.md
                 - lb-sg-integration.md
-                - lb-datapath-logging.md
+                - lb-private-dns-integration.md
                 - lb-api.md
+                - lb-datapath-logging.md
                 - lb-limitations.md
             - topicgroup:
                 label: Network Load Balancer for VPC
                 topics:
                 - nlb-about.md
                 - nlb-create.md
-                - nlb-vnf-create.md
+                - nlb-vnf-create.md                
+                - ppnlb-create.md
                 - nlb-update.md
                 - nlb-delete.md
                 - nlb-health-checks.md
                 - nlb-listeners.md
-                - nlb-udp.md
                 - nlb-port-range.md
                 - nlb-pools.md
-                - nlb-privatelb.md
+                - nlb-private-dns-integration.md
+                - nlb-udp.md
                 - nlb-monitoring-metrics.md
+                - nlb-privatelb.md
                 - nlb-limitations.md
+        - topicgroup:
+            label: Private Path service
+            topics:
+            - pps-about.md
+            - pps-create.md
+            - pps-permit.md
+            - pps-deny.md
+            - pps-update.md
+            - pps-delete.md
+            - pps-limitations.md
         - topicgroup:
             label: Flow logs
             topics:
@@ -430,26 +454,13 @@ toc:
                 - vnf-limitations.md
         - ip-addresses.md
         - topicgroup:
-            label: Backup service
-            topics:
-            - backup_service_vpc_best_practices.md
-            - backup_service_vpc_planning.md
-            - backup_service_vpc_s2s_auth.md
-            - backup_service_vpc_create_policy.md
-            - backup_service_vpc_view_policy.md
-            - backup_service_vpc_view_backup_jobs.md
-            - backup_service_vpc_manage_policy.md
-            - backup_service_vpc_use_policy.md
-            - backup_service_vpc_restore.md
-        - topicgroup:
-            label: Block storage volumes
+            label: Block storage
             topics:
             - block_storage_is_create.md
             - block_storage_is_attach.md
             - block_storage_is_view.md
             - block_storage_is_manage.md
             - block_storage_vpc_manage_storage_limits.md
-            - modifying-the-linux-os-expanded-boot-volume.md
             - block_storage_is_use_volume_lin.md
             - block_storage_is_use_volume_win.md
             - topicgroup:
@@ -458,11 +469,13 @@ toc:
                 - block_storage_vpc_expand_vol_about.md
                 - block_storage_vpc_expandable_volumes.md
                 - block_storage_vpc_resize_boot_volume.md
+                - modifying-the-linux-os-expanded-boot-volume.md
                 - block_storage_vpc_adjustable_iops.md
         - topicgroup:
-            label: Block storage Acadia platform - Experimental
+            label: Block storage on Acadia platform - Beta
             topics:
             - block_storage_acadia_about.md
+            - block_storage_acadia_profiles.md
             - block_storage_acadia_getting_started.md
             - block_storage_acadia_troubleshoot_known_issues.md
             - block_storage_acadia_support.md
@@ -476,14 +489,28 @@ toc:
             - snapshots_vpc_restore.md
             - snapshots_vpc_manage.md
         - topicgroup:
+            label: Backup service
+            topics:
+            - backup_service_vpc_best_practices.md
+            - backup_service_vpc_planning.md
+            - backup_service_vpc_s2s_auth.md
+            - backup_service_vpc_create_policy.md
+            - backup_service_vpc_view_policy.md
+            - backup_service_vpc_view_backup_jobs.md
+            - backup_service_vpc_manage_policy.md
+            - backup_service_vpc_use_policy.md
+            - backup_service_vpc_restore.md            
+        - topicgroup:
             label: File storage
             topics:
             - file_storage_vpc_plan.md
             - file_storage_vpc_create.md
+            - file_storage_vpc_mount_vsi_access.md
             - file_storage_vpc_view.md
             - file_storage_vpc_manage.md
+            - file_storage_vpc_migrate_profiles.md
             - topicgroup:
-                label: Modifying file share size and IOPS
+                label:  Modifying file share size and IOPS
                 topics:
                 - file_storage_vpc_expandable_shares.md
                 - file_storage_vpc_adjustable_iops.md
@@ -501,6 +528,7 @@ toc:
                 - file_storage_vpc_create_replication.md
                 - file_storage_vpc_manage_replication.md
                 - file_storage_vpc_replication_failover.md
+                - file_storage_vpc_failover_remount.md
         - topicgroup:
             label: Auto scale
             topics:
@@ -520,20 +548,7 @@ toc:
             - vpc_byok_multitenant_file_encryption.md
             - vpc_byok_multitenant_block_encryption.md
             - vsi_vpc_key_rotation.md
-            - block_storage_vpc_key_rotation.md
             - vsi-vpc-manage-encryption.md
-        - topicgroup:
-            label: High availability and disaster recovery
-            topics:
-            - ha-dr.md
-            - bc-dr.md
-            - topicgroup:
-                label: Backup and recovery using Veeam
-                topics:
-                - about-veeam.md
-                - ordering-veeam-licenses.md
-                - using-veeam-agent.md
-                - using-veeam-backup-replication.md
         - topicgroup:
             label: Enhancing security
             topics:
@@ -546,9 +561,9 @@ toc:
             label: Logging and monitoring
             topics:
             - ibm-monitoring.md
-            - at-events.md
             - logging.md
             - vpc-quota-metrics.md
+            - at-events.md
 #  Links to your REST API docs should be included in the Reference navigation group. For details on publishing API docs, see https://test.cloud.ibm.com/docs/api-docs.
 #  Links to your command line reference docs should be included in the Reference navigation group.
 
@@ -588,11 +603,24 @@ toc:
                label: Reference
                href: https://{DomainName}/apidocs/vpc-metadata-beta
             - api-metadata-beta-change-log.md
+        - topicgroup:
+            label: High availability and disaster recovery
+            topics:
+            - ha-dr.md
+            - bc-dr.md
+            - topicgroup:
+                label: Backup and recovery using Veeam
+                topics:
+                - about-veeam.md
+                - ordering-veeam-licenses.md
+                - using-veeam-agent.md
+                - using-veeam-backup-replication.md
         - vpc-responsibilities.md
         - vsi-understanding-cloud-maintenance.md
         - vsi_is_disable_hyper-threading.md
         - security-best-practices-zos.md
         - vpc-endpoints.md
+        - vpc-sdks.md
         - topicgroup:
             label: Terraform
             topics:
@@ -630,16 +658,23 @@ toc:
                 topics:
                 - file_storage_vpc_faqs.md
                 - block_storage_is_faq.md
-            - fl-faq.md
-            - nlb-faqs.md
-            - lb-faqs.md
-            - instance_metadata_vpc_faqs.md
-            - faqs-placement-groups.md
+            - fl-faq.md            
+            - topicgroup:
+                label: FAQs for load balancers
+                topics:
+                - lb-faqs.md
+                - nlb-faqs.md
+            - pps-faqs.md
             - snapshots_vpc_faqs.md
             - vpe-faqs.md
-            - vpn-faqs.md
-            - vpn-client-to-site-faqs.md
+            - topicgroup:
+               label: FAQs for VPNs
+               topics:
+               - vpn-faqs.md
+               - vpn-client-to-site-faqs.md
             - faq-vsi.md
+            - faqs-placement-groups.md
+            - instance_metadata_vpc_faqs.md
         - topicgroup:
             label: Troubleshooting
             topics:
@@ -675,6 +710,10 @@ toc:
                 - fl-ts-cos-bucket.md
                 - fl-ts-unauth-access-cos.md
             - topicgroup:
+                label: Troubleshooting placement groups
+                topics:
+                - placement-group-failed.md
+            - topicgroup:
                 label: Troubleshooting public ingress routes
                 topics:
                 - ingressroutes-ts-traffic.md
@@ -701,6 +740,10 @@ toc:
                 - lb-ts-409.md
                 - lb-ts-backend-members.md
             - topicgroup:
+                label: Troubleshooting Private Path services
+                topics:
+                - ts-pps.md
+            - topicgroup:
                 label: Troubleshooting site-to-site VPN gateways
                 topics:
                 - vpn-ts-unable-establish-connection.md
@@ -720,9 +763,11 @@ toc:
                 - vpn-ts-dns-configuration-not-working.md
                 - vpn-ts-vpn-client-hangs.md
                 - vpn-ts-vpn-server-fix-bad-service-routes.md
+            - flc_troubleshooting.md
             - resource-suspension.md
             - instance-status-messages.md
             - quota-dashboard-troubleshooting.md
+            - ts-asymmetric-routing.md
         - topicgroup:
             label: Migration
             topics:
@@ -731,4 +776,5 @@ toc:
         - known-issues.md
         - metadata-error-codes.md
         - errors.md
+        - enable-local-browser-storage-for-notifications.md
         - getting-help.md

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-03-20"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -67,13 +67,11 @@ It's important to read the following information and complete the required prepa
 
 - Choose to build your own image with {{site.data.keyword.hpvs}}
 
-   Apart from using the stock image, you can choose to securely build your own image with {{site.data.keyword.hpvs}} and use that image to provision a {{site.data.keyword.hpvs}} for VPC instance. For more information, see [Protecting your image build](/docs/hp-virtual-servers?topic=hp-virtual-servers-imagebuild).
-
-   Ensure that you use the latest Secure Build CLI code and also use the latest `secure_build.asc` file. For more information, see [Deploying the Secure Build Server as a Hyper Protect Virtual Server](/docs/hp-virtual-servers?topic=hp-virtual-servers-imagebuild#deploysecurebuild). You can get the public key by following these [instructions](https://github.com/ibm-hyper-protect/secure-build-cli#how-to-extract-public-key-used-for-signing-container-image-inside-sbs){: external}. You can then proceed to preparing the contract and provision the instance. 
+   Apart from using the stock image, you can choose to securely build your own image with {{site.data.keyword.hpvs}} and use that image to provision a {{site.data.keyword.hpvs}} for VPC instance. For more information, see [Hyper Protect Secure Build](/docs/vpc?topic=vpc-about-hpsb).
 
 - [Prepare a contract](/docs/vpc?topic=vpc-about-contract_se)
    
-   When you create an instance, you must pass a **valid contract** in the **User Data** field. The IBM Hyper Protect Container Runtime image consists of different components or services that decrypts the contract (if it's encrypted), validates the contract schema, checks for contract signature, creates the passphrase to encrypt the disk device, and brings up the containers that are specified in the contract.
+   When you create an instance, you must pass a **valid contract** in the **User Data** field. The IBM Hyper Protect Container Runtime image consists of different components or services that decrypts the contract (if it's encrypted), validates the contract schema, checks for contract signature, creates the passphrase to encrypt the disk device, and brings up the container that's specified in the contract.
 
    If no contract is passed, the instance eventually shuts down. 
    {: important}
@@ -97,18 +95,20 @@ It's important to read the following information and complete the required prepa
    
    Currently, the instance supports only one data volume and [encrypted by default with the seed or passphrase that you provide](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_volumes), which ensures that your workload data is protected. Even though you can add multiple data volumes, they're ignored and only one of them is encrypted. It's recommended that you attach one data volume to the instance during instance creation so that data from the container is stored in the data volume. It's also recommended that you take a snapshot of the data volume so that you can revert to it in case you face any issues in the future.
 
+   Starting from the HPCR image version `ibm-hyper-protect-container-runtime-1-0-s390x-9`, for new {{site.data.keyword.hpvs}} for VPC instances, the data volume is partitioned into two parts. The first partition (100Mib) is reserved for internal metadata; the second partition remains as the data volume for workload. Only new volumes are partitioned, and you can't use the partitioned volume with an older version of the HPCR image. Provisioning with an existing encrypted volume also works. The difference is that the existing volume does not get partitioned, and you can also go back to an older image with this volume. 
+
    When you create a {{site.data.keyword.hpvs}} for VPC instance, detaching the data volume attached to the running instance causes the workload running on the instance to fail. It's recommended that you do not detach the data volume.
 
 - Security group for ports
 
-   The ports that are associated with the containers or workloads must be explicitly opened up through security groups for them to be accessible. Therefore, you must create a security group based on the ports that are associated with the containers and attach it to the corresponding VPC that's used with the {{site.data.keyword.hpvs}} for VPC instance.
+   The ports that are associated with the container or workload must be explicitly opened up through security groups for them to be accessible. Therefore, you must create a security group based on the ports that are associated with the container and attach it to the corresponding VPC that's used with the {{site.data.keyword.hpvs}} for VPC instance.
 
 ## Creating a {{site.data.keyword.hpvs}} for VPC instance
 {: #create-hyper-protect-virtual-servers-for-vpc-instance}
 
 After you finish planning and have the contract ready, you can create a {{site.data.keyword.hpvs}} for VPC instance.
 
-- [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui). On the [provisioning page](https://cloud.ibm.com/vpc-ext/provision/vs?architecture=s390x&secureExecution=true){: external}, make sure that you select **IBM Z, LinuxONE** for **Architecture**, and click the **Run your workload with an OS and a profile protected by Secure Execution** toggle under **Confidential computing**.
+- [Creating an instance by using the UI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui). On the [provisioning page](https://cloud.ibm.com/vpc-ext/provision/vs?architecture=s390x&secureExecution=true){: external}, make sure that you select **IBM Z, LinuxONE** for **Architecture**, and turn on the **Run your workload with an OS and a profile protected by Secure Execution** toggle under **Confidential computing**.
 - [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli)
 
 See the [troubleshooting documentation](/docs/vpc?topic=vpc-hyper-protect-virtual-server-shutdown) or [get support](/docs/vpc?topic=vpc-getting-help&interface=cli) if you have any problems with the instance.
