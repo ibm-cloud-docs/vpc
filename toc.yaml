@@ -88,6 +88,7 @@ toc:
                - hpvs-logging.md
                - hpvs-disks-encryption-validate.md
                - about-hp-securebuild.md
+               - hpvs-override-registry.md
            - host-failure-recovery.md
        - topicgroup:
            label: Storage
