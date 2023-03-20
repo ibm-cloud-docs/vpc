@@ -129,7 +129,7 @@ New region (Tokyo) for LinuxONE Bare Metal Servers (s390x processor architecture
 {: release-note}
 
 Application Load Balancer and VPN for VPC
-:    As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they are no longer valid. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager).
+:    As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they are no longer valid. 
 
 End of support (EOS) for deprecated VPN for VPC IKE and IPsec ciphers
 :    On 20 September 2022, the following VPN IKE and IPsec ciphers were deprecated:
@@ -514,8 +514,7 @@ File Storage for VPC
 Secrets Manager for application load balancers
 :    Application load balancers now support [IBM Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started). With Secrets Manager, you can create, lease, and centrally manage secrets that are used in {{site.data.keyword.cloud}} services or your custom-built applications.
 
-:    Secrets Manager replaces the use of [IBM Certificate Manager](/docs/certificate-manager?topic=certificate-manager-getting-started). IBM will continue to support Certificate Manager until September 30 2022. To migrate your existing certificates to Secrets Manager, refer to the information [here](https://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager). After your certificates are migrated, you must then update the existing listener configuration with the new certificate CRN.
-{: important}
+:    As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they are no longer valid. 
 
 ### 17 May 2022
 {: #vpc-may1722}
