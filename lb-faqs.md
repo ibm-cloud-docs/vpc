@@ -140,12 +140,6 @@ Make sure that the security group rules that are attached to your load balancer 
 
 Approved Scanning Vendor (ASV) quarterly scanning is a requirement of the Payment Card Industry (PCI) Security Standards Council. ASV scanning of LBaaS data-plane appliances is solely a customer responsibility. IBM does not use ASVs to scan data-plane appliances because these scans can negatively impact customer workload functions and performance.
 
-## How can I migrate from Certificate Manager to Secrets Manager for my existing HTTPS listeners?
-{: #migrate-to-secrets-manager}
-{: faq}
-
-As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they are no longer valid. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager).
-
 ## How are active connections handled when a load balancer is scaled down?
 {: #faqs-active-connections}
 {: faq}
