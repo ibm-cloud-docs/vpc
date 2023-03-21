@@ -34,9 +34,6 @@ The following profile families are available:
 |[Ultra High Memory with instance storage](#uhm-is-dh-pr) | Best for in-memory OLTP databases, such as SAP. The Ultra High Memory profile offers the highest vCPU to memory ratios with 1 vCPU to 28 GiB of RAM, is hosted exclusively on the Intel® Xeon® Platinum Cascade Lake server, and includes instance storage for temporary swap space or cache|
 {: caption="Table 1. Dedicated host family selections" caption-side="bottom"}
 
-Profiles with AMD manufactured processors are available in the TOR region.
-{: preview}
-
 ## Balanced
 {: #balanced-dh-pr}
 
@@ -58,16 +55,6 @@ The following Balanced profiles are available for dedicated hosts.
 {: tab-group="DH Balanced"}
 {: class="simple-tab-table"}
 {: summary="Dedicated Host Balanced profiles options for Intel&reg; x86-64 virtual server instances."}
-
-| Dedicated host profile | vCPU | GiB RAM | 
-|---------|---------|---------|
-| bx2a-host-228x912 | 228 | 912 |
-{: caption="Table 2. AMD x86-64 balanced profile for dedicated hosts" caption-side="bottom"}
-{: #dh-balanced-amd-x86-64}
-{: tab-title="AMD x86-64"}
-{: tab-group="DH Balanced"}
-{: class="simple-tab-table"}
-{: summary="Dedicated Host Balanced profiles options for AMD x86-64 virtual server instances."}
 
 For supported instance profiles in the Balanced family, see [balanced profiles](/docs/vpc?topic=vpc-profiles#balanced). Instance profiles that are provisioned on a dedicated host in the Balanced family must include a *bx2* prefix in the instance profile name. Profiles with instance storage include *d* in the profile name, for example *bx2d*.
 
