@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-02-08"
+lastupdated: "2023-03-14"
 
 keywords:
 
@@ -51,7 +51,7 @@ You cannot create an image from an boot volume that is encrypted with customer-m
 
 By default, boot volumes are encrypted by IBM-managed encryption. Optionally, you can use your own root keys (CRKs) by choosing customer-managed encryption during instance creation (see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption)).
 
-By default, boot volumes are deleted when you delete an instance. You can toggle this setting on or off in the instance details. A boot volume can be unattached only by deleting the instance that it is attached to. A boot volume cannot be detached from an instance while the instance exists. For more information, see [Viewing instance details](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#viewing-virtual-server-instances-ui).
+By default, boot volumes are deleted when you delete an instance. You can toggle this setting on or off in the instance details. A boot volume can only be unattached by deleting the instance it is attached to. A boot volume cannot be detached from an instance while the instance exists. See [Viewing instance details](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui#viewing-virtual-server-instances-ui) for more information.
 
 ### Data volumes
 {: #secondary-data-volumes}

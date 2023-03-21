@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-01-27"
+lastupdated: "2023-03-14"
 
 subcollection: vpc
 
@@ -159,3 +159,15 @@ Yes, when you create a custom image for {{site.data.keyword.vpc_short}}, you can
 {: faq}
 
 Yes, you can use a custom image in a private catalog with an instance group. However, you must first create a service-to-service policy to `globalcatalog-collection.instance.retrieve` before you can create the instance group. For more information, see [Using a custom image in a private catalog with an instance group](/docs/vpc?topic=vpc-private-catalog-image-instance-group&interface=ui).
+
+## Can I change the boot volume associated with my resource group after creating the resource group?
+{: #faq-vsi-24}
+{: faq}
+
+No. The resource group of a volume is set at resource creation and cannot be changed. This behavior is shared by all VPC resources.
+
+## Can I move my volume to another region or zone?
+{: #faq-vsi-25}
+{: faq}
+
+No, a volume is restricted to the zone it was created in. However, you can move the volume's data by creating a new snapshot from the volume, and creating a new volume from that snapshot in a different zone.
