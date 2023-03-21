@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-02-07"
+lastupdated: "2023-03-21"
 
 keywords:
 
@@ -230,8 +230,10 @@ VDisk-data1   0738-fd146b1f-e1bb-4eab-ba78-3109e6bc3a2d   data         true     
 
 Use the `instance-volume-attachment-detach` command to detach a volume from an instance and delete the volume attachment. The {{site.data.keyword.block_storage_is_short}} volume is not deleted; you can later [attach it to another instance](/docs/vpc?topic=vpc-attaching-block-storage-cli).
 
+In the syntax for this command, INSTANCE is the ID or name of the instance. VOLUME_ATTACHMENT is the ID or name of the volume attachment. You can specify multiple volume attachments. For more information about volume attachments, see the CLI reference for [creating a volume attachment](/docs/vpc?topic=vpc-vpc-reference&interface=cli#instance-volume-attachment-add).
+
 ```text
-ibmcloud is instance-volume-attachment-detach INSTANCE_ID VOLUME_ATTACHMENT_ID [-f, --force]
+ibmcloud is instance-volume-attachment-detach INSTANCE (VOLUME_ATTACHMENT1 VOLUME_ATTACHMENT2 ...) [--output JSON] [-f, --force] [-q, --quiet]
 ```
 {: pre}
 
