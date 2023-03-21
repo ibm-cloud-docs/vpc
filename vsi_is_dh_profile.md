@@ -61,7 +61,7 @@ The following Balanced profiles are available for dedicated hosts.
 
 | Dedicated host profile | vCPU | GiB RAM | 
 |---------|---------|---------|
-| bx2a-hoat-228x912 | 228 | 912 |
+| bx2a-host-228x912 | 228 | 912 |
 | bx2a-host-236x944	| 236 | 944 | 
 {: caption="Table 2. AMD x86-64 balanced profile for dedicated hosts" caption-side="bottom"}
 {: #dh-balanced-amd-x86-64}
