@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-03-14"
+lastupdated: "2023-03-21"
 
 subcollection: vpc
 
@@ -171,4 +171,3 @@ No. The resource group of a volume is set at resource creation and cannot be cha
 {: faq}
 
 No, a volume is restricted to the zone it was created in. However, you can move the volume's data by creating a new snapshot from the volume, and creating a new volume from that snapshot in a different zone.
-
