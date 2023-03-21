@@ -11,7 +11,6 @@ subcollection: vpc
 ---
 
 {{site.data.keyword.attribute-definition-list}}
-<!--- comment: linked help topic -->
 
 # About {{site.data.keyword.block_storage_is_short}}
 {: #block-storage-about}
