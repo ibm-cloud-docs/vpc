@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-03-10"
+lastupdated: "2023-03-21"
 
 keywords:
 
@@ -29,6 +29,14 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## March 2023
 {: #vpc-mar23}
+
+### 21 March 2023
+{: #vpc-march2123}
+{: release-note}
+
+You can now use profiles with AMD manufactured processors when you create an instance or dedicated host in the TOR region.
+
+For more information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#balanced), [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui#balanced-dh-pr).
 
 ### 20 March 2023
 {: #vpc-march2023}
