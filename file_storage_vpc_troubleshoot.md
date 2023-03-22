@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-26"
+lastupdated: "2023-03-22"
 
 keywords: troubleshooting, file storage for vpc, CBR errors
 
@@ -69,3 +69,42 @@ The error occurs when you attempt to create a file share after CBR is enabled. F
 
 This error requires that you contact [IBM support](/docs/vpc?topic=vpc-getting-help&interface=cli#support-cases). Provide the error logs for their reference.
 {: tsResolve}
+
+## Bulk migration of file share profiles is not supported
+{: #fs-troubleshoot-profiles}
+{: troubleshoot}
+{: support}
+
+{{site.data.keyword.filestorage_vpc_short}} does not support changing file storage profiles of multiple shares at the same time. You can update the profile for a single share but bulk migration is not supported. 
+{: tsSymptoms}
+
+You cannot use the UI, CLI, or API to update the profiles of multiple file shares in a single operation.
+ {: tsCauses}
+
+For migrating multiple shares, you must create your own script. The script can list the shares that you want to update, and then go through the list of shares to update each individual share profile.
+{: tsResolve}
+
+Create a script file to list your file shares, parse the list, and then individually update the profile for each file share. 
+Make sure you set execute permission on your script file. In your script:
+
+1. List your file shares in your region by specifying a `GET /shares` request. To keep the operation manageable, you might want to set a limit on the number of shares. 
+
+   ```curl
+   curl -X GET \
+   "$vpc_api_endpoint/v1/shares?limit=20?version=2023-01-24&generation=2"\
+   -H "Authorization: $iam_token"
+   ```
+   {: codeblock}
+
+2. Parse each file in the list and update each file share by making separate `PATCH/ shares/{share_id}` requests.
+
+   ```curl
+   curl -X PATCH "$rias_endpoint/v1/shares/432f1a4d-4aac-4ba1-922c-76fdbcbeb1e3?version=2023-01-24&generation=2" -H "Authorization: $iam_token" -d '{
+   -d '{
+        "profile": {
+           "name": "dp2"
+        },
+  }'
+  {: codeblock}
+
+3. Verify that the profile was updated by listing your file shares again.

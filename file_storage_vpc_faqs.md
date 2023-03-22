@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-12-08"
+  years: 2021, 2023
+lastupdated: "2023-03-22"
 
 keywords:
 
@@ -46,7 +46,7 @@ You can use the UI, CLI, or API to create and manage your file shares.
 {: faq}
 {: #faq-fs-os}
 
-No, file shares can only be mounted on supported on Linux operating systems or a z/OS-based {{site.data.keyword.cloud}} Compute Instance that support NFS file shares. For more information, see the mounting information for [Red Hat](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHE), [CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos), and [Ubuntu](/docs/vpc?topic=vpc-file-storage-vpc-mount-ubuntu) Linux distributions, or [z/OS](/docs/vpc?topic=vpc-file-storage-vpc-mount-zos) systems.
+No, file shares can be mounted only on supported on Linux operating systems or a z/OS-based {{site.data.keyword.cloud}} Compute Instance that support NFS file shares. For more information, see the mounting information for [Red Hat](/docs/vpc?topic=vpc-file-storage-vpc-mount-RHE), [CentOS](/docs/vpc?topic=vpc-file-storage-mount-centos), and [Ubuntu](/docs/vpc?topic=vpc-file-storage-vpc-mount-ubuntu) Linux distributions, or [z/OS](/docs/vpc?topic=vpc-file-storage-vpc-mount-zos) systems.
 
 ### What is the minimum NFS version supported?
 {: faq}
@@ -54,7 +54,7 @@ No, file shares can only be mounted on supported on Linux operating systems or a
 
 {{site.data.keyword.filestorage_vpc_short}} requires NFS versions v4.1 or higher.
 
-### What functionality is supported in this release?
+### What features are supported in this release?
 {: faq}
 {: #faq-fs-5}
 {: support}
@@ -122,7 +122,7 @@ File shares are not elastic. Currently, you can provision minimum of 10 GB to ma
 {: faq}
 {: #faq-fs-mgt-8}
 
-You can increase the size of a file share from its original capacity in GB increments up to 32,000 GB capacity, depending on your file share profile. For more information, see [Expanding file share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity).
+You can increase the size of a file share from its original capacity in GB increments up to 32,000 GB capacity, depending on your file share profile. For more information, see [expanding file share capacity](/docs/vpc?topic=vpc-file-storage-expand-capacity).
 
 ### Is there a way to replicate my file shares in case of events?
 {: faq}
@@ -146,13 +146,25 @@ You can choose the frequency of replication by creating a schedule with a `crons
 {: faq}
 {: #faq-fs-mgt-12}
 
-No, choosing to fail over to the replica site is a manual operation, and you have to reconcile your data after failing over the the replica share. For more information about how failover works for disaster recovery, see [Failover for disaster recovery](/docs/vpc?topic=vpc-file-storage-failover&interface=ui#fs-failover-dr).
+No, choosing to fail over to the replica site is a manual operation, and you must reconcile your data after the failover to the replica share is done. For more information about how failover works for disaster recovery, see [Failover for disaster recovery](/docs/vpc?topic=vpc-file-storage-failover&interface=ui#fs-failover-dr).
 
 ### Can I add tags to my file shares?
 {: faq}
 {: #faq-fs-mgt-13}
 
 Yes. You can specify user and access management tags when you create a file share or update an existing file share. Adding user tags to a file share or replica share can make organizing your resources easier. For more information, see [Add user tags to a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=api#fs-add-user-tags). {{site.data.keyword.filestorage_vpc_short}} also supports access management tags. For more information, see [Access management tags for file shares](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-about-mgt-tags).
+
+### What is the dp2 profile?
+{: faq}
+{: #faq-fs-mgt-dp2}
+
+The **dp2** profile is the latest file storage profile, offering greater capacity and performance for your file shares. With this profile, ou can specify the total IOPS for the file share within the range for a specific file share size. You can provision shares with IOPS performance from 100 IOPS to 96,000 IOPS, based on share size. For more information, see [dp2 file storage profile](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile).
+
+### Can I migrate all my file share profiles to dp2?
+{: faq}
+{: #faq-fs-mgt-migrate-dp2}
+
+You can migrate file shares that were created by using either the IOPS tier profile or custom IOPS profile to the latest dp2 profile. By migrating to the [dp2 profile](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile), you can take advantage of the latest {{site.data.keyword.filestorage_vpc_short}} features. Currently, you can use the {{site.data.keyword.filestorage_vpc_short}} UI, CLI, or API to revise a single file share profile. For migrating multiple shares, you need to create your own script that would first list these shares and then go through the list of shares and update each individual share profile.
 
 ## Performance questions
 {: #file-storage-vpc-performance-questions}
@@ -168,7 +180,16 @@ You can expect an average latency less than 100 ms for writes and less than 50 m
 {: faq}
 {: #faq-fs-perf-2}
 
-Yes, you can increase or decrease IOPS for file shares based on an IOPS tier profile or custom profile. Adjusting IOPS is dependent on the file share size. There's no outage or lack of access to the storage while adjusting IOPS. For more information, see [Adjusting file share IOPS](/docs/vpc?topic=vpc-adjusting-share-iops&interface=ui).
+Yes, you can increase or decrease IOPS for file shares based on an **IOPS tier**, **custom**, or **dp2** profile. Adjusting IOPS depends on the file share size. Adjusting the IOPS causes no outage or lack of access to the storage. Pricing is adjusted with your selection. For more information, see [Adjusting file share IOPS](/docs/vpc?topic=vpc-adjusting-share-iops&interface=ui).
+
+### Can I change a file share profile?
+{: faq}
+{: #faq-fs-update-profile}
+
+Yes, you can use the UI, CLI, or API to update a file share profile. You can change among IOPS tier profiles. When you select a custom profile or dp2 high-performance profile, you specify the maximum IOPS based on the file share size.
+
+You cannot use the UI, CLI, or API to update multiple file shares in a single operation. For more on this issue, see [troubleshooting {{site.data.keyword.filestorage_vpc_short}}](/docs/vpc?topic=vpc-troubleshooting-file-storage).
+{: note}
 
 ## Data security and encryption questions
 {: #file-storage-vpc-security-questions}
@@ -178,7 +199,7 @@ Yes, you can increase or decrease IOPS for file shares based on an IOPS tier pro
 {: #faq-fs-sec-1}
 {: support}
 
-All data-at-rest is encrypted by default with IBM-managed encryption. You can also encrypt your file shares with your own root keys, which gives your more control over your data security. For example, you can rotate, suspend, delete, and restore your root keys. For more information about his option, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption).
+All data-at-rest is encrypted by default with IBM-managed encryption. You can also encrypt your file shares with your own root key, which gives your more control over your data security. For example, you can rotate, suspend, delete, and restore your root keys. For more information, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption).
 
 Data-in-transit is not supported in this release.
 
@@ -192,4 +213,4 @@ No.
 {: faq}
 {: #faq-fs-sec-3}
 
-By default, your file share data is protected at rest with IBM-managed encryption. You can also bring your own keys to the {{site.data.keyword.cloud}} and use them to encrypt your file shares. For more information, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption). By using the API, you can link a primary account containing a root key to a secondary account, then use that key to encrypt new file shares in the secondary account. For more information, see [Cross-account encryption for multitenant storage resources](/docs/vpc?topic=vpc-getting-started).
+By default, your file share data is protected at rest with IBM-managed encryption. You can also bring your own keys to the {{site.data.keyword.cloud}} and use them to encrypt your file shares. For more information, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption). By using the API, you can link a primary account that holds a root key to a secondary account, then use that key to encrypt new file shares in the secondary account. For more information, see [Cross-account encryption for multitenant storage resources](/docs/vpc?topic=vpc-getting-started).

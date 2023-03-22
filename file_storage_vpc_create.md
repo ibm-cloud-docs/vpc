@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-01-27"
+lastupdated: "2023-03-22"
 
 keywords:
 
@@ -42,9 +42,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share and
 
 1. On the File shares for VPC page, click **Create**. The **Create** tab is selected by default.
 
-1. Enter the information described in the Table 1.
-
-1. When you create a file share, specify the information for the mount target as well.
+1. Enter the information described in the Table 1. When you create a file share, specify the information for the mount target as well.
 
 1. When finished, click **Create file share**. You're returned to the {{site.data.keyword.filestorage_vpc_short}} page, where a message indicates that the file share is provisioning. When completed, the status changes to **Active**.
 
@@ -56,7 +54,10 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share and
 | Resource Group | Use the default resource group or specify a [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups). Resource groups help organize your account resources for access control and billing purposes. |
 | Tags | Enter user tags to apply to this file share. As you type, existing tags appear that you can select. For more information about tags, see [Add user tags to a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-user-tags). |
 | Access Management Tags | Enter access management tags that you created in IAM to apply them to this file share. For more information about access management tags, see [Access management tags for file shares](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-about-mgt-tags). |
-| Mount targets (Optional) | Click **Create** to create a new [mount target](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets) for the file share. You can create one mount target per VPC per file share. Provide a name for the mount target and select a VPC in that zone. You can add as many mount targets are you have VPCs. If you don't have one, first [create a VPC](/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc). (To use the API, see [Creating a VPC with the REST APIs](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis).) For more information about creating mount targets as a separate operation, see [Create a mount target](#fs-create-mount-target-ui). |
+| **Mount target access mode** | Select how you want the mount targets accessed on this file share: |
+| Securty group  | Access to the file share is based on security group rules within a subnet. This option resticts access to specific virtual server instances. Use this option only when selecting a `dp2` profile. For more information, see [Create a mount target with security group access mode when creating a new file share](/docs/vpc?topic=vpc-file-storage-vpc-target-vsi&interface=ui#fs-create-vni-mount-target-ui). |
+| Virtual private cloud | Access to the file share is granted to any virtual server instance in the same VPC. |
+| **Mount targets (Optional)** | Click **Create** to create a new [mount target](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets) for the file share. You can create one mount target per VPC per file share. Provide a name for the mount target and select a VPC in that zone. You can add as many mount targets are you have VPCs. If you don't have one, first [create a VPC](/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc). (To use the API, see [Creating a VPC with the REST APIs](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis).) For more information about creating mount targets as a separate operation, see [Create a mount target](#fs-create-mount-target-ui). |
 | Profile | Select an IOPS tier or Custom IOPS for file share. The profile that you select determines the input/output performance of a file share. For more information about file storage IOPS tier and Custom profiles, see [File storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). |
 | Size | Specify the size for the file share. You can later [increase this size](/docs/vpc?topic=vpc-file-storage-expand-capacity), depending on the file share profile. |
 | Encryption | Encryption with IBM-managed keys is enabled by default when you create a new file share. You can also choose **Customer Managed** and use your own encryption key. For more information about creating encrypted file shares, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption). If you create a replica share when you provision a new file share, the encryption is inherited. You can't encrypt a replica with a different key. If you change the encryption on the source share, the replica is updated. |
@@ -117,7 +118,7 @@ Review the following information:
 | File share details | `ibmcloud is share SHARE_ID`  | Review details of a share. |
 | Mount targets  | `ibmcloud is share-targets SHARE_ID` | List all mount targets for a file share. |
 | File share profiles   | `ibmcloud is share-profiles` | List all file share profiles in a region. |
-| File share profile details | `ibmcloud is share-profile PROFILE_NAME` | List details of a file share profile. Profile names are `tier-3iops`, `tier-5iops`, `tier-10iops`, and `custom`. |
+| File share profile details | `ibmcloud is share-profile PROFILE_NAME` | List details of a file share profile. Profile names are `tier-3iops`, `tier-5iops`, `tier-10iops`, `custom`, and `dp2`. |
 {: caption="Table 1. Details for creating file shares." caption-side="top"}
 
 ### Create a file share and mount target from the CLI
@@ -128,14 +129,14 @@ Run the following command to create a file share and mount target. Indicate the 
 To create a file share with replication, see [Create a new file share with replication from the CLI](/docs/vpc?topic=vpc-file-storage-create-replication&interface=cli#fs-create-new-share-replica-cli).
 {: note}
 
-```zsh
+```sh
 ibmcloud is share-create
   --zone ZONE_NAME
   --profile PROFILE
   --size SIZE
   [--name NAME]
   [--user-tags USER_TAGS]
-  [--targets TARGETS_JSON | @TARGETS_JSON_FILE]
+  [--mount-targets TARGETS_JSON | @TARGETS_JSON_FILE]
   [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME]
   [--output JSON] [-q, --quiet]
 ```
@@ -144,7 +145,7 @@ ibmcloud is share-create
 This example creates a file share with two mount targets.
 
 ```text
-ibmcloud is share-create --name my-file-share-8 --zone us-south-1 --profile tier-3iops --size 40  --user-tags env:dev,env:prod --targets '[{"name": "my-target121","vpc": {"name": "vpcl"}},{"name": "my-target122","vpc": {"name": "vpc2"}}]'
+ibmcloud is share-create --name my-file-share-8 --zone us-south-1 --profile tier-3iops --size 40  --user-tags env:dev,env:prod --mount-targets '[{"name": "my-target121","vpc": {"name": "vpcl"}},{"name": "my-target122","vpc": {"name": "vpc2"}}]'
 Creating file share my-file-share-8 under account vpc1 as user user@mycompany.com...
 
 ID                0e04ca62-e02a-4319-9551-380c7f7cd87f
@@ -157,7 +158,7 @@ Size(GB)          40
 IOPS              3000
 User Tags         env:dev,env:prod
 Encryption        provider_managed
-Targets           ID                                       Name           VPC ID                                   VPC Name
+Mount Targets     ID                                       Name           VPC ID                                   VPC Name
                   87171615-f8b4-4ccd-a216-bab12eb1a973     my-target121   81ee2425-7c2f-4042-9d8f-d02b0ee8886c     vpc1
                   b041fc54-f0b9-4397-b68e-2ab032cd1206     my-target122   c338ca08-1256-4420-9932-a9960a0f1cfd     vpc2
 
@@ -172,7 +173,7 @@ Created           2022-09-17T15:26:21+05:30
 
 Run the `share-target-create` command with the file share and VPC ID or name to create a mount target on the file share. The VPC must be unique to each mount target.
 
-```zsh
+```sh
 ibmcloud is share-target-create SHARE_ID [SHARE_NAME] --vpc VPC_ID [NAME] [--output JSON] [-q, --quiet]
 ```
 {: pre}
@@ -200,7 +201,7 @@ Created           2022-09-17T18:05:18+05:30
 
 You can create file shares and mount targets by directly calling the REST APIs. For more information about the file shares VPC API, see the [VPC API reference](/apidocs/vpc-beta).
 
-File Storage for VPC regional API is released as beta for customers with special approval to preview this feature.
+{{site.data.keyword.filestorage_vpc_short}} regional API is released as beta for customers with special approval to preview this feature.
 {: note}
 
 ### Before you begin – Set up your API environment
@@ -221,7 +222,7 @@ You must provide `generation` parameter with the API request and specify `genera
 To create a new file share and a replica file share, see [Create a file share with replication with the API](/docs/vpc?topic=vpc-file-storage-create-replication&interface=api#fs-create-new-share-replica-api).
 {: note}
 
-This example shows a request to create a 4800 GB file share with a 10 IOPS/GB profile.
+The following example shows a request to create a 4800 GB file share with a 10 IOPS/GB profile.
 
 ```curl
 curl -X POST \
@@ -415,7 +416,7 @@ A successful response looks like this:
 ### Add supplemental IDs when you create a file share with the API
 {: #fs-add-supplemental-id-api}
 
-With the API, you can set `UID` and `GID` values for the `initial_owner` property to control access to your file shares. Wherever you mount the file share, the root folder uses that user ID and group ID owner. You set the `UID` and/or `GID` when you create a share in a `POST /shares` call.
+With the API, you can set `UID` and `GID` values for the `initial_owner` property to control access to your file shares. Wherever you mount the file share, the root folder uses that user ID and group ID owner. You set the `UID` or `GID`, or both when you create a share in a `POST /shares` call.
 
 If you change the supplemental IDs (UID or GID) from the virtual server instance, there is no way to determine that it was changed. As a result, `initial_owner` does not change in the API database but changes only in the file storage system.
 {: note}

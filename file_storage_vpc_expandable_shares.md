@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-27"
+lastupdated: "2023-03-22"
 
 keywords:
 
@@ -30,7 +30,7 @@ You can increase the capacity of the file share. The file share size cannot be l
 
 Capacity can be increased for file shares that are in a `stable` state. Your user authorization is verified before the file share is expanded. You can use the [UI](#expand-vpc-share-ui), [CLI](#expand-vpc-share-cli), or [API](#expand-vpc-share-api) to increase file share capacity. You can expand a file share multiple times up to its [maximum capacity limit](#exp-share-capacity-IOPS-limitations). After you expanded the file share, you can't reduce the capacity.
 
-Expanded capacity is determined by the maximum that is allowed by the file share profile. File shares that are created from a [Custom](/docs/vpc?topic=vpc-file-storage-profiles#custom) profile can be expanded within the allowable IOPS range for that file share size.
+Expanded capacity is determined by the maximum that is allowed by the file share profile. File shares that are created from a [Custom](/docs/vpc?topic=vpc-file-storage-profiles#custom) profile or a [dp2](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile) profile can be expanded within the allowable IOPS range for that file share size.
 
 File shares that are created from an [IOPS tier profile](/docs/vpc?topic=vpc-file-storage-profiles#fs-tiers) can be expanded to the maximum size for its IOPS tier:
 
@@ -54,11 +54,12 @@ The following limitations apply to this release.
 
 * File shares can expand, with the following restrictions:
     * If the file share was created with a [Tiered IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles#fs-tiers) that limits capacity to less than 32,000 GB, it can expand only to the allowed capacity for that tier.
-    * If the file share was created with a [Custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles#custom) and created in a lower range that doesn't allow expanding to 16,000 GB (custom IOPS max), it can expand only to its maximum capacity for that custom IOPS range.
+    * If the file share was created with a [Custom IOPS profile](/docs/vpc?topic=vpc-file-storage-profiles#custom) and created in a lower range that doesn't allow expanding to 16,000 GB (custom GB max), it can expand only to its maximum capacity for the specified custom range.
+    * If the file share was created with a [dp2 profile](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile) and created in a lower range that doesn't allow expanding to 32,000 GB (dp2 GB max), it can expand only to its maximum capacity for the specified dp2 range.
     * File shares can expand multiple times until maximum capacity is reached.
 * IOPS increase to the maximum allowed by the profile.
 * You can't independently modify IOPS for a file share that was created from an IOPS tier profile. IOPS is adjusted when you expand capacity.
-* When you expand a file share that was created from a custom profile, the capacity is increased, but the IOPS remains the same unless you choose to [adjust IOPS](/docs/vpc?topic=vpc-adjusting-share-iops).
+* When you expand a file share that was created from a custom or dp2 profile, the capacity is increased, but the IOPS remains the same unless you choose to [adjust IOPS](/docs/vpc?topic=vpc-adjusting-share-iops).
 * Maximum IOPS for a file share is capped at 48,000 IOPS if it is accessed by a single host. For a file share that is accessed by multiple hosts, IOPS can reach up to 96,000 IOPS.
 * After a file share is expanded, you can't reduce its size.
 
@@ -90,9 +91,9 @@ Your new file storage allocation is available in a few minutes. If your requirem
 {: #expand-vpc-shares-cli}
 {: cli}
 
-From the CLI, use the `share-update` command with the `--size` parameter to indicate the new size of the file share in GBs.
+From the CLI, use the `share-update` command with the `--size` option to indicate the new size of the file share in GBs.
 
-```zsh
+```sh
 ibmcloud is share-update SHARE_ID --size SIZE_GB
 ```
 {: pre}
@@ -119,7 +120,7 @@ Mount targets     ID                                          Name              
 Resource Group    ID                                 Name
                   875623bcde2b4ebda924d32640908845   Default
 
-Created           2022-09-07T02:15:52-06:00
+Created           2023-02-07T02:15:52-06:00
 ```
 {: screen}
 
@@ -136,7 +137,7 @@ This request example expands a file share with a capacity of 50 GB to 2500 GB fo
 
 ```curl
 curl -X PATCH \
- "$vpc_api_endpoint/v1/shares/$share_id?version=2022-09-06&generation=2" \
+ "$vpc_api_endpoint/v1/shares/$share_id?version=2023-02-06&generation=2" \
  -H "Authorization: $iam_token" \
  -d '{
       "size": 2500
@@ -148,7 +149,7 @@ The file share status shows `updating` while the capacity is increased. The curr
 
 ```json
 {
-  "created_at": "2022-09-07T23:31:59Z",
+  "created_at": "2023-02-07T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",
@@ -170,7 +171,7 @@ When the file share expansion completes, the new value displays, and the status 
 
 ```json
 {
-  "created_at": "2022-09-07T23:31:59Z",
+  "created_at": "2023-02-07T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",
