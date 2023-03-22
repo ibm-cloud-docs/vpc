@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2023
 
-lastupdated: "2023-03-21"
+lastupdated: "2023-03-22"
 
 keywords:
 
@@ -645,16 +645,6 @@ A series of emails is sent to your administrator: Acknowledgment of the virtual 
 If you choose a GPU profile, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
 
 After the instance is created, associate a floating IP address to the instance. Then, you can connect to your instance. For more information, see [Connecting to your Linux instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux) or [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
-
-## Next steps after using the CLI
-{: #next-step-after-creating-virtual-servers-cli}
-{: cli}
-
-A series of emails is sent to your administrator: Acknowledgment of the virtual server instance order, order approval and processing, and a message that the instance is created.
-
-If you choose a GPU profile, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
-
-After the instance is created, associate a floating IP address to the instance. Then, you can connect to your instance. For more information, see [Connecting to your Linux instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux), [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows), or [Connecting to your z/OS instance](/docs/vpc?topic=vpc-vsi_is_connecting_zos).
 
 ## Next steps after using the UI
 {: #next-steps-creating-virtual-servers-ui}
