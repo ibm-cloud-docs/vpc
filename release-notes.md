@@ -30,6 +30,19 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## March 2023
 {: #vpc-mar23}
 
+### 21 March 2023
+{: #vpc-march2123}
+{: release-note}
+
+Designating VPC route priority
+:   When multiple VPC routes exist for a given destination, you can now control the priority of these routes (from `0` to `4`). New and existing routes, created without a priority value, are automatically set to the default priority (`2`). Smaller values have higher priority. For more information, see [Determining route preference](/docs/vpc?topic=vpc-about-custom-routes#cr-determining-route-preference).
+
+   The route priority is considered on identical destinations only. 
+   {: note}
+
+Modifying the next hop for VPC routes
+:   You can now [update](/apidocs/vpc/latest#update-vpc-routing-table-route) the next-hop of a VPC route. For more information, see [Creating a route](/docs/vpc?topic=vpc-create-vpc-route).
+
 ### 20 March 2023
 {: #vpc-march2023}
 {: release-note}
