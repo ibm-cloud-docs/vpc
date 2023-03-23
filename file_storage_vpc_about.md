@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-02-24"
+lastupdated: "2023-03-23"
 
 keywords:
 
@@ -61,18 +61,7 @@ You can [increase the file share size](/docs/vpc?topic=vpc-file-storage-expand-c
 ### Mount targets for file shares
 {: #fs-share-mount-targets}
 
-A mount target for a file share is a network endpoint or path. When you create a mount target, an NFS mount path is created for the file share. You use the mount path to attach the file share to virtual server instances or Kubernetes clusters in the same VPC and zone. Depending on the [access mode](#fs-mount-access-mode) you choose, you can mount the share to a specific instance in the VPC.
-
-To mount a file share to an instance with the API, you create a mount target by providing a VPC or subnet information. If you want to connect a file share to instances that are running in multiple VPCs in the same zone, you can create multiple mount targets for different VPCs. After the mount target (or targets) is (are) created, you can SSH into the virtual server instance and attach the file share.
-
-### Mount target access modes
-{: #fs-mount-access-mode}
-
-When you create or update a mount target, you can specify the manner in which you want the mount target to be accessed on the file share. You have two options:
-
-* Configure access to the file share by any virtual server instance in the same VPC, one mount target per VPC per zone. This option is available for all [file share profiles](/docs/vpc?topic=vpc-file-storage-profiles). Encryption of data in transit is not supported.
-
-* Configure access to the file share for a specific instance, based on security group rules within a subnet. In this case, you specify a subnet and IP address when creating the mount target. After you create the file share and mount target, you configure the virtual server instance. This option is available to newer file shares based on the `dp2` profile and supports encryption of data in transit. For more information, see [Restricting file share access to specific virtual server instances](#file-storage-vpc-target-vsi).
+A mount target for a file share is a network endpoint or path. When you create a mount target, an NFS mount path is created for the file share. You use the mount path to attach the file share to virtual server instances or Kubernetes clusters in the same VPC and zone. You configure access to the file share by any virtual server instance in the same VPC, one mount target per VPC per zone. This option is available for all [file share profiles](/docs/vpc?topic=vpc-file-storage-profiles).
 
 ### NFS version
 {: #fs-nfs-version}
@@ -86,7 +75,6 @@ The following limitations apply to this release of {{site.data.keyword.filestora
 
 * File share size cannot be increased after it is created.
 * Previous profiles are not supported when you provision a new file share, which is based on the `dp2` profile. However, earlier version file shares can continue to use existing profiles.
-* Restricting file share access to specific virtual server instances and data encryption in transit is available only for shares using the `dp2` profile.
 * Windows operating systems are not supported.
 * Minimum capacity is 10 GB per file share.
 * Maximum capacity is 32,000 GB per file share.
@@ -103,11 +91,6 @@ You can bring your own customer root key (CRK) to the cloud for customer-managed
 You can select the root key when you [create a new encrypted file share](/docs/vpc?topic=vpc-file-storage-vpc-encryption). For more information, see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption).
 
 After you specified an encryption type for a file share, you can't change it.
-
-### Encryption of data in transit
-{: #fs-eit}
-
-Encryption in transit for your file shares lets you establish an encrypted mount connection between the virtual server instance and storage system using an IPsec security profile. For file shares based on the `dp2` profile, mount targets that are created with a [virtual network interface](/docs/vpc?topic=vpc-file-storage-vpc-target-vsi) can enable this encryption in transit. When deciding on using this feature, decide balance your requirements between performance and increased security, since encrypting data in transit takes longer.
 
 ## File share replication and failover
 {: #fs-repl-failover-overview}
