@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-03-10"
+lastupdated: "2023-03-21"
 
 keywords:
 
@@ -41,7 +41,7 @@ Designating VPC route priority
    {: note}
 
 Modifying the next hop for VPC routes
-:   You can now [update](/apidocs/vpc/latest#update-vpc-routing-table-route) the next-hop of a VPC route. For more information, see [Creating a route](/docs/vpc?topic=vpc-create-vpc-route).
+:   You can now update the next-hop of a VPC route. For more information, see [Creating a route](/docs/vpc?topic=vpc-create-vpc-route).
 
 ### 20 March 2023
 {: #vpc-march2023}
