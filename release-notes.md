@@ -45,6 +45,9 @@ New network latency dashboard
 {: #vpc-march2123}
 {: release-note}
 
+Instance provision by volume
+:   You can now reuse an existing boot volume to provision a virtual server instance. The specified volume must be unattached, be in the same zone as the instance profile, and must have an operating system with the same architecture as the instance profile. By default, a boot volume created as part of provisioning a virtual server instance is deleted when the instance is deleted. You can control this behavior when creating or updating an instance. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui), and [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui).
+
 Designating VPC route priority
 :   When multiple VPC routes exist for a given destination, you can now control the priority of these routes (from `0` to `4`). New and existing routes, created without a priority value, are automatically set to the default priority (`2`). Smaller values have higher priority. For more information, see [Determining route preference](/docs/vpc?topic=vpc-about-custom-routes#cr-determining-route-preference).
 
