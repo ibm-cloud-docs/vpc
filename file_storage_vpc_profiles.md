@@ -68,7 +68,7 @@ Table 2 shows the available IOPS ranges based on share size.
 ### IOPS tiers
 {: #fs-tiers}
 
-Existing file shares can be based on IOPS tiers that you can select when you were creating a file share. Table 3 describes the IOPS performance for the IOPS tier profile.
+Existing file shares can be based on IOPS tiers that you selected when you created the file share. Table 3 describes the IOPS performance for the IOPS tier profile.
 
 | IOPS Tier | Workload | Share size | Max IOPS |
 |-----------|----------|-------------|--------------|
@@ -85,7 +85,7 @@ The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS ca
 ### Custom IOPS profile
 {: #fs-custom}
 
-Custom IOPS profiles specify the total IOPS for the file share within the range for its size. File shares by using a custom IOPS profile can have IOPS performance in the range 100 - 48,000 IOPS.
+Custom IOPS profiles specify the total IOPS for the file share within the range for its size. File shares that use a custom IOPS profile can have IOPS performance level in the range 100 - 48,000 IOPS.
 
 Table 4 shows the available IOPS ranges based on file share size.
 
@@ -108,11 +108,13 @@ The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS ca
 
 ### View profiles in the UI
 {: #fs-using-ui-iops-profile}
+{: ui}
 
 When you create a file share in the console, under **Profiles**, select a profile.
 
 ### View profiles from the CLI
 {: #fs-using-cli-iops-profiles}
+{: cli}
 
 To view the list of available profiles from the CLI, run the following command.
 
@@ -123,6 +125,7 @@ ibmcloud is share-profiles
 
 ### View profiles with the API
 {: #fs-using-api-iops-profiles}
+{: api}
 
 Use the `GET /share/profiles` request to retrieve information for all share profiles.
 
