@@ -36,8 +36,10 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 New network latency dashboard
 :   Provides visibility into network latency between all regions to help you plan the optimal selection for your cloud deployment and plan for scenarios, such as data residency and performance. This dashboard provides the average network round-trip latency (round-trip time or RTT) for all pairs of regions in {{site.data.keyword.cloud_notm} over a 30-day period.
-You can view and monitor performance in the following {{site.data.keyword.cloud_notm} regions: Dallas, Toronto, Washington DC, Frankfurt, London, Osaka, Sydney, Tokyo and São Paulo.
-To view performance metrics, see the [Network latency dashboard](/docs/vpc?topic=vpc-network-latency-dashboard).
+
+   You can view and monitor performance in the following {{site.data.keyword.cloud_notm} regions: Dallas, Toronto, Washington DC, Frankfurt, London, Osaka, Sydney, Tokyo and São Paulo.
+   
+   To view performance metrics, see the [Network latency dashboard](/docs/vpc?topic=vpc-network-latency-dashboard).
 
 ### 21 March 2023
 {: #vpc-march2123}
