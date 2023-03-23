@@ -36,6 +36,7 @@ toc:
            label: Network
            topics:
            - about-network.md
+           - about-network-latency.md
            - vpc-security.md
            - vpc-networking-concepts.md
            - interconnectivity.md
