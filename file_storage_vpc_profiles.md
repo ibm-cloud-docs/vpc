@@ -106,13 +106,13 @@ Table 4 shows the available IOPS ranges based on file share size.
 The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS calculation results in IOPS less than or equal to 48,000 IOPS.
 {: note}
 
-### View profiles in the UI
+## View profiles in the UI
 {: #fs-using-ui-iops-profile}
 {: ui}
 
 When you create a file share in the console, under **Profiles**, select a profile.
 
-### View profiles from the CLI
+## View profiles from the CLI
 {: #fs-using-cli-iops-profiles}
 {: cli}
 
@@ -123,7 +123,7 @@ ibmcloud is share-profiles
 ```
 {: pre}
 
-### View profiles with the API
+## View profiles with the API
 {: #fs-using-api-iops-profiles}
 {: api}
 
