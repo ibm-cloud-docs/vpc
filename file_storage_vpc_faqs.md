@@ -86,7 +86,7 @@ For more information about who to contact, see [Getting help and support](/docs/
 {: #faq-fs-mgt-1}
 {: support}
 
-No. As a zonal service, file shares that are created for a zone are accessible to instances only within that zone. For this release, {{site.data.keyword.filestorage_vpc_short}} is available in single zones in the Dallas (us-south), Washington DC (us-east), Frankfurt (eu-de), and London (eu-gb) regions for allow-listed {{site.data.keyword.cloud}} customer accounts.
+No. As a zonal service, file shares that are created for a zone are accessible to instances only within that zone. For this release, {{site.data.keyword.filestorage_vpc_short}} is available in single zones for allow-listed {{site.data.keyword.cloud}} customer accounts.
 
 ### Can I mount file shares for my Kube containers?
 {: faq}
@@ -158,7 +158,7 @@ Yes. You can specify user and access management tags when you create a file shar
 {: faq}
 {: #faq-fs-mgt-dp2}
 
-The **dp2** profile is the latest file storage profile, offering greater capacity and performance for your file shares. With this profile, ou can specify the total IOPS for the file share within the range for a specific file share size. You can provision shares with IOPS performance from 100 IOPS to 96,000 IOPS, based on share size. For more information, see [dp2 file storage profile](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile).
+The **dp2** profile is the latest file storage profile, offering greater capacity and performance for your file shares. With this profile, you can specify the total IOPS for the file share within the range for a specific file share size. You can provision shares with IOPS performance from 100 IOPS to 96,000 IOPS, based on share size. For more information, see [dp2 file storage profile](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile).
 
 ### Can I migrate all my file share profiles to dp2?
 {: faq}
@@ -199,7 +199,7 @@ You cannot use the UI, CLI, or API to update multiple file shares in a single op
 {: #faq-fs-sec-1}
 {: support}
 
-All data-at-rest is encrypted by default with IBM-managed encryption. You can also encrypt your file shares with your own root key, which gives your more control over your data security. For example, you can rotate, suspend, delete, and restore your root keys. For more information, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption).
+All data-at-rest is encrypted by default with IBM-managed encryption. You can also encrypt your file shares with your own root key to have more control over your data security. You can rotate, suspend, delete, and restore your root keys. For more information, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption).
 
 Data-in-transit is not supported in this release.
 
