@@ -54,9 +54,6 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share and
 | Resource Group | Use the default resource group or specify a [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups). Resource groups help organize your account resources for access control and billing purposes. |
 | Tags | Enter user tags to apply to this file share. As you type, existing tags appear that you can select. For more information about tags, see [Add user tags to a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-user-tags). |
 | Access Management Tags | Enter access management tags that you created in IAM to apply them to this file share. For more information about access management tags, see [Access management tags for file shares](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-about-mgt-tags). |
-| **Mount target access mode** | Select how you want the mount targets accessed on this file share: |
-| Securty group  | Access to the file share is based on security group rules within a subnet. This option resticts access to specific virtual server instances. Use this option only when selecting a `dp2` profile. For more information, see [Create a mount target with security group access mode when creating a new file share](/docs/vpc?topic=vpc-file-storage-vpc-target-vsi&interface=ui#fs-create-vni-mount-target-ui). |
-| Virtual private cloud | Access to the file share is granted to any virtual server instance in the same VPC. |
 | **Mount targets (Optional)** | Click **Create** to create a new [mount target](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets) for the file share. You can create one mount target per VPC per file share. Provide a name for the mount target and select a VPC in that zone. You can add as many mount targets are you have VPCs. If you don't have one, first [create a VPC](/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc). (To use the API, see [Creating a VPC with the REST APIs](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis).) For more information about creating mount targets as a separate operation, see [Create a mount target](#fs-create-mount-target-ui). |
 | Profile | Select an IOPS tier or Custom IOPS for file share. The profile that you select determines the input/output performance of a file share. For more information about file storage IOPS tier and Custom profiles, see [File storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). |
 | Size | Specify the size for the file share. You can later [increase this size](/docs/vpc?topic=vpc-file-storage-expand-capacity), depending on the file share profile. |
@@ -241,7 +238,7 @@ curl -X POST \
 ```
 {: pre}
 
-A successful response looks like this:
+A successful response looks like the following example.
 
 ```json
 {
@@ -317,7 +314,7 @@ curl -X POST \
 ```
 {: pre}
 
-A successful response looks like this:
+A successful response looks like the following example.
 
 ```json
 {
@@ -391,7 +388,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-A successful response looks like this:
+A successful response looks like the following example.
 
 ```json
 {
