@@ -78,9 +78,9 @@ Valid mount target names can include a combination of lowercase alpha-numeric ch
 
 You can change the profile for a file share from the current profile to another **IOPS tier** profile, to a **custom** profile, or to a high performance **dp2** profile. Your billing adjusts based on the type of profile you choose.
 
-1. Navigate to the [file shares details](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-view-single-share-ui) page.
+1. Go to the [file shares details](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-view-single-share-ui) page.
 
-2. Click the pencil icon next to the current profile or use the **Actions** menu and select **Edit IOPS profile**. A side panel shows the current profile, file share size, and maximum IOPS.
+2. Click the pencil icon next to the current profile, or use the **Actions** menu, and select **Edit IOPS profile**. A side panel shows the current profile, file share size, and maximum IOPS.
 
 3. For **New profile**, click the down arrow. You can select a new IOPS tier, a custom profile, or dp2. For **Custom IOPS** or **dp2**, specify a new max IOPS based on the file share size. The file share price is automatically calculated based on your seletion.
 
@@ -408,16 +408,16 @@ Valid file share names can include a combination of lowercase alpha-numeric char
 ### Rename a mount target of a file share from the CLI
 {: #rename-mount-target-cli}
 
-Run the `share-mount-target-update` command with the file share name or ID, and the mount target name. Specify a new mount target name.
+Run the `ibmcloud is share-target-update` command. Identify the file share by its name or ID. Identify the mount target by its name or ID. Also, provide the new mount target name with the `--name` option.
 
 ```sh
-ibmcloud is share-mount-target-update SHARE/SHARE_ID TARGET_ID --name NEW_NAME [--output JSON] [-q, --quiet]
+ibmcloud is share-target-update SHARE TARGET --name NEW_NAME [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
 Valid mount target names can include a combination of lowercase alpha-numeric characters (a-z, 0-9) and the hyphen (-), up to 63 characters. Mount target names must begin with a lowercase letter.
 
-### Update a file share profile in the CLI
+### Update a file share profile from the CLI
 {: #fs-update-profile-cli}
 
 Use the `share-update` command with the `--profile` parameter to indicate the new file share profile by name.
@@ -439,10 +439,6 @@ CRN               crn:v1:staging:public:is:us-south-1:a/0ef3f509-04f4-465e-88c6-
 Lifecycle state   updating
 Zone              us-south-1
 Profile           dp2
-
-.
-.
-.
 ```
 {: codeblock}
 
@@ -590,11 +586,11 @@ A successful response looks like the following example.
 ### Rename a mount target of a file share with the API
 {: #rename-mount-target-api}
 
-Make a `PATCH /shares/$share_id/mount_targets/$target_id` call to rename a mount target of a file share. For example:
+Make a `PATCH /shares/$share_id/targets/$target_id` call to rename a mount target of a file share. For example:
 
 ```curl
 curl -X PATCH \
-"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$target_id?version=2023-01-06&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id/targets/$target_id?version=2023-01-06&generation=2" \
   -H "Authorization: Bearer ${API_TOKEN}" \
   -d '{
     "name": "target-renamed1"
@@ -651,13 +647,13 @@ If the file share is configured for replication, there are additional steps. For
 #### Delete mount target of a file share with the API
 {: #delete-mount-target-api}
 
-Make a `DELETE /shares/{share_ID}/mount_targets/{target_id}` call to delete a mount target of a file share. The file share must be in a `stable` state.
+Make a `DELETE /shares/{share_ID}/targets/{target_id}` call to delete a mount target of a file share. The file share must be in a `stable` state.
 
 For example:
 
 ```curl
 curl -X DELETE \
-"$vpc_api_endpoint/v1/shares/$share_id/mount_targets/$target_id?version=2023-01-06&generation=2" \
+"$vpc_api_endpoint/v1/shares/$share_id/targets/$target_id?version=2023-01-06&generation=2" \
   -H "Authorization: Bearer ${API_TOKEN}"
 ```
 {: pre}
