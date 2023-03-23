@@ -67,12 +67,10 @@ The following table describes the information on files shares details page.
 | Encryption instance | For customer-managed encryption, link to the {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance. |
 | Key ID |  Copiable customer root key ID. |
 | ID | For customer-managed encryption, the UUID generated when you created the file share. |
-| Size | File share size in GB. |
-| Created | Date the file share was created. |
-| Mount target access mode | Access to the file share is granted by either a security group within a subnet or to any virtual server instance in the VPC. Click the pencil icon to switch access modes. Security group access is available only to file shares created with the [`dp2` profile](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#dp2-profile). For more information, see the [security group access mode concepts](/docs/vpc?topic=vpc-file-storage-vpc-target-vsi&interface=ui#file-storage-access-mode-concepts). |
+| Created date | Date the file share was created. |
 | **Profile, size, and IOPS**| |
 | Size | File share size in GB. |
-| IOPS tier | IOPS tier [profile](/docs/vpc?topic=vpc-file-storage-profiles) defining the file share performance. For example, a 3 IOPS/GB general-purpose profile. |
+| IOPS tier | Storage [profile](/docs/vpc?topic=vpc-file-storage-profiles) that defines the file share performance. For example, a 3 IOPS/GB general-purpose profile. |
 | Max IOPS | Maximum IOPS for the specified profile. |
 | **Mount targets** | Number of mount targets associated with the file share. You can have one mount target per VPC per file share. You can create more mount targets for other VPCs. |
 | Name | Name of the mount target. |
@@ -389,7 +387,7 @@ A successful response looks like the following example:
 
 Make a `GET /shares/{share_id}/targets/{mount_target_id}` request to information of a single mount target of a file share. This call includes mount path information. Use the mount path to attach a file share to an instance.
 
-Fpr example,
+See the following example.
 
 ```curl
 curl -X GET \
