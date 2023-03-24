@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-02-07"
+lastupdated: "2023-03-24"
 
 keywords: confidential computing, secure execution, logging for hyper protect virtual server for vpc
 
@@ -19,6 +19,9 @@ To launch a {{site.data.keyword.hpvs}} for VPC instance, you (as the deployer) n
 {: shortdesc}
 
 The logs include startup logs, service logs issued by the {{site.data.keyword.hpvs}} for VPC instance, and container logs.
+
+If your workload produces sensitive information, you can [encrypt your log messages](/docs/vpc?topic=vpc-encrypt-log-messages-for-hyper-protect-virtual-servers-for-vpc).
+{: tip}
 
 The following logging services are supported.
 
