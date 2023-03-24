@@ -40,7 +40,7 @@ The encryption and attestation certificates are signed by the IBM intermediate c
 
 Use the following procedure to validate the attestation record and hashes:
 
-* Check the attestation record `se-checksums.txt` and the signature file `se-signature.bin` under the `/var/hyperprotect` directory after after you log in to your {{site.data.keyword.hpvs}} for VPC instance.
+* Obtain the attestation record `se-checksums.txt` and the signature file `se-signature.bin` from your {{site.data.keyword.hpvs}} for VPC instance. To do so, you can implement your container to provide the attestation record and the signature file. The attestation record and the signature file are made available to your container in the `/var/hyperprotect` directory.
 * Get the IBM attestation certificate [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-9-attestation.crt){: external} for the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-9`.
    For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-8`, you can download the IBM attestation certificate [here](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-8-attestation.crt){: external}.
    {: note}
@@ -50,6 +50,12 @@ Use the following procedure to validate the attestation record and hashes:
 
    ```sh
    openssl x509 -pubkey -noout -in ibm-hyper-protect-container-runtime-1-0-s390x-9-attestation.crt > contract-public-key.pub
+   ```
+   {: pre}
+
+* Verify the signature of the attestation record:
+   ```
+   openssl sha256 -verify contract-public-key.pub -signature se-signature.bin se-checksums.txt
    ```
    {: pre}
 
