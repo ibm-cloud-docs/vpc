@@ -67,7 +67,7 @@ As recommended in the [documentation](/docs/vpc?topic=vpc-about-contract_se#hpcr
 
 3. Create the `workload` section. Refer to the `workload.yaml` sample file in the `example-files` folder. In this example, the docker compose file in the `example-files` folder will be used for the `compose` subsection.
 
-   In addition, provide the public key for encrypting the log messages. Run the following commands to generate a key pair, we will proceed with the public key. Note that `logEncrypt` is the passphrase to generate keys, you may use your own.
+   In addition, provide the public key for encrypting the log messages. Run the following commands to generate a key pair. We will proceed with the public key. Note that `logEncrypt` is the passphrase to generate keys, you may use your own.
    ```
    openssl genrsa -aes128 -passout pass:logEncrypt -out logging 4096
    ```
@@ -79,7 +79,7 @@ As recommended in the [documentation](/docs/vpc?topic=vpc-about-contract_se#hpcr
 
   4. A sample output can be found in the `compose` folder under `example-files`. Keep in mind that the `logging.pub` file containing the public key must be stored in the `compose` folder along with `docker-compose.yml`.
 
-   We then go on to compress and encrypt the folder, as the `compose` subsection requires this for the `archive` value. Use the following command to obtain the `base64` encoded archive as a file named `compose.b64`. Use the raw content of `compose.b64` for the value of `archive` under the `compose` subsection.
+   Compress and encrypt the folder, as the `compose` subsection requires this for the `archive` value. Use the following command to obtain the `base64` encoded archive as a file named `compose.b64`. Use the raw content of `compose.b64` for the value of `archive` under the `compose` subsection.
    ```
    tar czvf - -C <COMPOSE_FOLDER> . | base64 -w0 > compose.b64
    ```
@@ -91,7 +91,7 @@ As recommended in the [documentation](/docs/vpc?topic=vpc-about-contract_se#hpcr
    ```
    {: codeblock}
 
-  6. Complete the `user-data.yaml` with the output of of Step 2 and 5. Please refer to the sample `user-data.yaml` for correct schema. Please note the `hyper-protect-basic` token approach to implement hybrid encryption, as it's used throughout **IBM Cloud Hyper Protect Virtual Server for VPC**
+  6. Complete the `user-data.yaml` with the output of of Step 2 and 5. Refer to the sample `user-data.yaml` for correct schema. Note the `hyper-protect-basic` token approach to implement hybrid encryption, as it's used throughout IBM Cloud Hyper Protect Virtual Server for VPC.
 
 ## Create your Hyper Protect Virtual Server instance 
 {: #create-virtual-server}
