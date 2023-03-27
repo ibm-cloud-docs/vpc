@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-16"
+lastupdated: "2023-03-27"
 
 keywords: linuxone bare metal servers, s390x bare metal servers
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # About LinuxONE Bare Metal Servers
 {: #about-linuxone-bare-metal-servers}
 
-s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), Toronto (ca-tor), and São Paulo (br-sao) regions.
+s390x Bare Metal Servers for VPC is available in the São Paulo (br-sao) region, and is available for customers with special approval to preview this service in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), and Toronto (ca-tor) regions.
 {: preview}
 
 LinuxONE Bare Metal Servers provide dedicated CPU cores, memory, and I/O channels to host your Linux&reg; workloads on s390x bare metal servers on your {{site.data.keyword.vpc_full}}. You can use supported Linux operating system images on your s390x bare metal servers. As s390x bare metal servers are integrated with the VPC platform, you can take advantage of the network, storage, and security capacity provided by the VPC.
