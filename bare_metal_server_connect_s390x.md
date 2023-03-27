@@ -15,7 +15,7 @@ subcollection: vpc
 # Connecting to s390x bare metal servers
 {: #connect-to-s390x-bare-metal-servers}
 
-s390x bare betal bervers for VPC is available in the São Paulo (br-sao) region, and is available for customers with special approval to preview this service in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), and Toronto (ca-tor) regions.
+s390x bare metal bervers for VPC is available in the São Paulo (br-sao) region, and is available for customers with special approval to preview this service in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), and Toronto (ca-tor) regions.
 {: preview}
 
 After your s390x bare metal server is running, you can connect to the server by using your private SSH key through a floating IP. You can also connect to the server by using a serial console.
