@@ -30,8 +30,9 @@ See table 1 for the configurations of each profile. Each CPU core of the s390x b
 
 | Name | CPU cores | vCPU |Memory (GiB) | SAN storage | Total network bandwidth (Gbps) | Number of supported interfaces |
 |---------|---------|---------|---------|---------|---------|------|
-| mz2d-metal-2x64 | 1 | 2 | 64 | 100 GB FCP boot storage on IBM FlashSystem 9200  \n  \n 1024 GB FCP Data storage | 2 | 1 |
-| mz2d-metal-16x512 | 8 | 16 | 512 | 100 GB FCP boot storage on IBM FlashSystem 9200  \n  \n 4096 GB FCP Data storage | 10 | 2 |
+| mz2d-metal-2x64 | 1 | 2 | 64 | 100 GB FCP boot storage on IBM FlashSystem 9200  \n  \n 1000 GB FCP Data storage  \n (allocation of 10X100) | 2 | 1 |
+| mz2d-metal-16x512 | 8 | 16 | 512 | 100 GB FCP boot storage on IBM FlashSystem 9200  \n  \n 4000 GB FCP Data storage  \n (allocation of 10X400) | 10 | 2 |
+| mz2d-metal-32x1024 | 16 | 32 | 1024 | 100 GB FCP boot storage on IBM FlashSystem 9200  \n  \n 16000 GB FCP Data storage  \n (allocation of 20X800) | 10 | 2 |
 {: caption="Table 1. s390x bare metal server profiles" caption-side="bottom"}
 
 ## Understanding the naming rule of profiles
