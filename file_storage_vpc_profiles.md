@@ -123,6 +123,20 @@ ibmcloud is share-profiles
 ```
 {: pre}
 
+The command returns the following profiles:
+
+```text
+ibmcloud is share-profiles
+Listing file share profiles in region us-south under account VPC1 as user user@mycompany.com...
+Name          Family
+custom-iops   custom
+dp2           defined-performance
+tier-10iops   tiered
+tier-3iops    tiered
+tier-5iops    tiered
+```
+{: screen}
+
 ## View profiles with the API
 {: #fs-using-api-iops-profiles}
 {: api}
