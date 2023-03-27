@@ -35,6 +35,9 @@ See table 1 for the configurations of each profile. Each CPU core of the s390x b
 | mz2d-metal-32x1024 | 16 | 32 | 1024 | 100 GB FCP boot storage on IBM FlashSystem 9200  \n  \n 16000 GB FCP Data storage  \n (allocation of 20X800) | 10 | 2 |
 {: caption="Table 1. s390x bare metal server profiles" caption-side="bottom"}
 
+The `mz2d-metal-32x1024` profile is currently available only in the Washington DC (us-east) region.
+{: preview}
+
 ## Understanding the naming rule of profiles
 {: #profile-naming-rule}
 
