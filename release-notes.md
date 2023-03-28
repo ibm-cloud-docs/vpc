@@ -27,11 +27,11 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API , 
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
 
-## March 2023
-{: #vpc-mar23}
+## April 2023
+{: #vpc-apr23}
 
-### 27 March 2023
-{: #vpc-march2723}
+### 10 April 2023
+{: #vpc-april1023}
 {: release-note}
 
 s390x Bare Metal Servers for VPC
