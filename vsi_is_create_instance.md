@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2023
 
-lastupdated: "2023-03-23"
+lastupdated: "2023-03-28"
 
 keywords:
 
@@ -69,13 +69,14 @@ Using an existing volume to create a virtual server instance is a beta feature t
 {: #creating-virtual-servers-cli}
 {: cli}
 
-You can create instances by using the command-line interface (CLI). For information on creating a virtual server instance using a custom image shared from a private catalog, see [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli).
+You can create instances by using the command-line interface (CLI). If you would like to use user tags or access management tags to manage your resources, see [Working with tags](/docs/account?topic=account-tag&interface=cli).
 
 {{site.data.keyword.cloud_notm}} CLI is not supported on LinuxONE (s390x processor architecture). However, you can install the CLI on another supported platform and use it with LinuxONE (s390x processor architecture) virtual server instances.
 {: note}
 
 ### Before you begin
 {: #before-creating-virtual-servers-cli}
+{: cli}
 
 * Download, install, and initialize the following CLI plug-ins:
    - {{site.data.keyword.cloud_notm}} CLI
@@ -83,7 +84,7 @@ You can create instances by using the command-line interface (CLI). For informat
 
     For more information, see [Setting up your API and CLI environment](/docs/vpc?topic=vpc-set-up-environment#cli-prerequisites-setup).
 
-* Make sure that you [created a VPC](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
+* Make sure that you [created a VPC](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli).
 
 ### Gathering information to create an instance by using the CLI
 {: #gather-info-to-create-virtual-servers-cli}
@@ -103,7 +104,6 @@ Gather the following information by using the associated commands.
 | Subnet                | `ibmcloud is subnets`           |
 | Zone                  | `ibmcloud is zones`             |  
 | Placement groups      | `ibmcloud is placement-groups`  |
-| Manufacturer          | `Intel`                         |
 {: caption="Table 1. Required instance details" caption-side="bottom"}   
 
 Use the following commands to determine the required information for creating a new instance.
@@ -116,8 +116,8 @@ Use the following commands to determine the required information for creating a 
 
    For this example, you see a response that is similar to the following output:
    ```sh
-   Name       Endpoint               Status 
-   us-south   /v1/regions/us-south   available
+   Name       Endpoint                              Status   
+   us-south   https://us-south.iaas.cloud.ibm.com   available  
    ```
    {: screen}
 
@@ -130,7 +130,9 @@ Use the following commands to determine the required information for creating a 
    For this example, you see a response that is similar to the following output:
    ```text
    Name         Region     Status   
-   us-south-1   us-south   available
+   us-south-1   us-south   available   
+   us-south-2   us-south   available   
+   us-south-3   us-south   available 
    ```
    {: screen}
 
@@ -142,9 +144,8 @@ Use the following commands to determine the required information for creating a 
 
    For this example, you see a response that is similar to the following output:
    ```text
-   ID                                          Name                                  Default   Created       Status      Tags   
-   0738-xxx1xx23-4xx5-6789-12x3-456xx7xx123x   my-vpc                                yes       1 month ago   available   -   
-   0738-xxxx1234-5678-9x12-x34x-567x8912x3xx   my-other-vpc                          no        4 days ago    available   -   
+   ID                                        Name       Status     Classic access   Default network ACL              Default security group        Resource group 
+   r134-35b9cf35-616e-462e-a145-cf8db4062fcf my-vpc     available  false            immortality-casing-extoll-exit   enhance-corsage-managing-jinx Default
    ```
    {: screen}
 
@@ -158,10 +159,10 @@ Use the following commands to determine the required information for creating a 
 
    For this example, you see a response that is similar to the following output:
    ```text
-   ID                                          Name                                     IPv*   Subnet CIDR         Addresses   Gen   Gateway   Created   Status      VPC                    Zone         Resource Group   Tags   
-   0738-1234x12x-345x-1x23-45x6-x7x891011x1x   my-subnet                                ipv4   172.16.1.0/24       0/0         -     -         1 week ago    available   my-vpc(xxx1xx23-.)     us-south-1   -                -   
-   0738-12xx345x-6789-1xxx-x2x3-x4x56xx78x9x   my-subnet-2                              ipv4   172.20.28.0/24      0/0         -     -         1 day ago     available   my-vpc(xxx1xx23-.)     us-south-1   -                -   
-   0738-1x2x3xx4-xx56-7891-234x-xx5678x9x123   my-other-subnet                          ipv4   192.168.88.0/24     0/0         -     -         1 day ago     available   my-other-vpc(xxx1234-.)us-south-1   -                -   
+   ID                                          Name            Status      Subnet CIDR      Addresses   ACL                              Public Gateway   VPC 
+   Zone         Resource group   
+   0726-198db988-3b9b-4cfa-9dec-0206420d37d0   my-subnet       available   10.240.64.0/28   7/16        immortality-casing-extoll-exit   -               my-vpc
+   us-south-2   Default   
    ```
    {: screen}
 
@@ -176,44 +177,18 @@ Use the following commands to determine the required information for creating a 
 
    For this example, you see a response that is similar to the following output:
    ```text
-   Name            vCPU Manufacturer   Architecture   Family        vCPUs   Memory(GiB)   Bandwidth(Mbps)   Volume bandwidth(Mbps)   GPUs   Storage(GB)   
-   bz2-1x4         IBM                 s390x          balanced           1       4             2000              500                      -     -
-   bz2e-1x4        IBM                 s390x          balanced           1       4             2000              500                      -      
-   ba2-2x8         AMD                 amd64          balanced           2       8             4000              1000                     -      -   
-   bx2-2x8         Intel               amd64          balanced           2       8             4000              1000                     -      -  
-   bz2-2x8         IBM                 s390x          balanced           2       8             4000              1000                     -      
-   bz2e-2x8        IBM                 s390x          balanced           2       8             4000              1000                     -       
-   bx2d-2x8        Intel               amd64          balanced           2       8             4000              1000                     -      1x75   
-   ba2-8x32        AMD                 amd64          balanced           8       32            16000             4000                     -      -   
-   bx2d-8x32       Intel               amd64          balanced           8       32            16000             4000                     -      2x300   
-   ba2-32x128      AMD                 amd64          balanced           32      128           64000             16000                    -      -   
-   ba2-48x192      AMD                 amd64          balanced           48      192           80000             20000                    -        
-   ca2-2x4         AMD                 amd64          compute            2       4             4000              1000                     -      -   
-   cx2-2x4         Intel               amd64          compute            2       4             4000              1000                     -      -   
-   cz2-2x4         IBM                 s390x          compute            2       4             4000              1000                     -      -
-   cz2e-2x4        IBM                 s390x          compute            2       4             4000              1000                     -      -
-   cx2d-48x96      Intel               amd64          compute           48      96            80000             20000                    -      2x400   
-   ca2-4x8         AMD                 amd64          cpu               4       8             8000              2000                     -      -   
-   ca2-16x32       AMD                 amd64          cpu               16      32            32000             8000                     -      -   
-   ca2-32x64       AMD                 amd64          cpu               32      64            64000             16000                    -      -   
-   gp2-16x128x4    Intel               amd64          gpu               16      128           32000             8000                     4      -   
-   ux2d-104x2912   Intel               amd64          high-memory       104     2912          80000             20000                    -      1x3120   
-   ux2d-128x3584   Intel               amd64          high-memory       128     3584          80000             20000                    -      1x3584   
-   ma2-2x16        AMD                 amd64          memory            2       16            4000              1000                     -      -   
-   mx2-2x16        Intel               amd64          memory            2       16            4000              1000                     -      -   
-   mz2-2x16        IBM                 s390x          memory            2       16            4000              1000                     -      -
-   mz2e-2x16       IBM                 s390x          memory            2       16            4000              1000                     -      -
-   mx2d-2x32       Intel               amd64          memory            2       32            4000              1000                     -      1x75   
-   ma2-4x32        AMD                 amd64          memory            4       32            8000              2000                     -      -   
-   ma2-8x64        AMD                 amd64          memory            8       64            16000             4000                     -      -   
-   ma2-16x128      AMD                 amd64          memory            16      128           32000             8000                     -      -   
-   ma2-32x256      Intel               amd64          memory            32      256           64000             16000                    -      -   
-   mz2-16x128      IBM                 s390x          memory            16      128           32000             8000                     -      -
-   mz2e-16x128     IBM                 s390x          memory            16      128           32000             8000                     -      -
-
+   Name                         vCPU Manufacturer   Architecture   Family              vCPUs   Memory(GiB)   Bandwidth(Mbps)   Volume bandwidth(Mbps)   GPUs          Storage(GB)   Min NIC Count   Max NIC Count   
+   bx2-2x8                      intel               amd64          balanced            2       8             4000              1000                     -      -                    1               5   
+   bx2a-2x8                     amd                 amd64          balanced            2       8             2000              500                      -      -                    1               5   
+   bx2d-2x8                     intel               amd64          balanced            2       8             4000              1000                     -            1x75          1               5   
+   bx2-4x16                     intel               amd64          balanced            4       16            8000              2000                     -      -                    1               5   
+   bx2a-4x16                    amd                 amd64          balanced            4       16            4000              1000                     -      -                    1               5   
+   bx2d-4x16                    intel               amd64          balanced            4       16            8000              2000                     -            1x150         1               5   
    ```
    {: screen}
 
+   For more information about available profiles, see [x86 instance profiles](/docs/vpc?topic=vpc-profiles) and [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles). 
+   
    Secure execution-enabled profiles are now available and are identified by the fourth character of the profile name that is an "e", such as *bz2e*. For more information, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se).
 
    The secure execution-enabled profiles are available for Balanced, Compute, and Memory families. Make sure that you use secure-enabled profiles when you use the IBM Hyper Protect Container Runtime image. Profile validation for the IBM-provided stock images and the IBM Hyper Protect Container Runtime occurs in the RIAS layer. Any profile mismatch results in an error message that is similar to the following example.
@@ -229,23 +204,27 @@ Use the following commands to determine the required information for creating a 
 6. List the available stock images, custom images, or images that are shared with your account from a private catalog for creating your instance. If you are creating an instance from an existing boot volume, skip this step.
 
    - To list all available stock or custom images, run the following command:
-
+      
       ```sh
-      ibmcloud is images   
+      ibmcloud is images
       ```
       {: pre}
+      
+      For this example, you see a response that is similar to the following output:     
+
+      ```text
+      ID                                          Name                               Status       Arch    OS name                   OS version       File size(GB)
+      Visibility   Owner type   Encryption   Resource group   Catalog Offering     
+      r134-24d856e2-6aec-41c2-8f36-5a8a3766f0d6   ibm-centos-7-9-minimal-amd64-9     available    amd64   centos-7-amd64            7.x - Minimal Install  1             public       provider     none         Default          -   
+      r134-9768bb7f-c75d-4408-ba34-61015632f907   ibm-debian-10-13-minimal-amd64-2   available    amd64   debian-10-amd64           10.x Buster/Stable     1             public       provider     none         Default          -   
+      r134-f83ce520-00b5-40c5-9938-a5c82a273f91   ibm-debian-11-3-minimal-amd64-4    available    amd64   debian-11-amd64           11.x Bullseye/Stable   1
+      ```
+      {: screen}
+      
+      For a full list of command options, see [ibmcloud is images](/docs/vpc?topic=vpc-vpc-reference#images-list).
 
       Deprecated images do not include the most current support.
       {: tip}
-
-      Let's pick image `ibm-debian-11-3-minimal-amd64-1`. To get the image ID, run the following command:
-
-       ```sh
-       image=$(ibmcloud is images | grep -i "debian.*available.*amd64.*public" | cut -d" " -f1)
-       ```
-       {: pre}
-
-       Save the image ID as a variable, which will be used later to provision an instance.
 
    - To list all available images shared from a private catalog, run the following commands:
 
@@ -299,17 +278,7 @@ Use the following commands to determine the required information for creating a 
 
 
 8. List the available SSH keys that you can associate with your instance.
-    
-   Ensure that the the chosen volume is in the same zone as the instance that is being provisioned, in an unattached state, and has an OS compatible with the profile that is selected in step 5.
-   You can also use the following comand to list summary details of all available volumes.
-   
-   ```sh
-   ibmcloud is volumes
-   ```
-   {: pre}
-   
-   Check for volumes that are in the same zone as the instance you are creating. Use the volume ID of volumes in compatible zones in the `ibmcloud is volume VOLUME_ID` command to ensure their attachment state and OS are compatible.
-   
+
    ```sh
    ibmcloud is keys
    ```
@@ -318,9 +287,8 @@ Use the following commands to determine the required information for creating a 
    For this example, you see a response that is similar to the following output.
    
    ```text
-   ID                                          Name           Type   Length   FingerPrint          Created        Resource Group   Tags
-   0738-1234xxxx-x12x-xxxx-34xx-xx1234xxxxxx   my-key         RSA    2048     PHcP/zyw/PNGIe/u..   5 days ago     -                -   
-   0738-12xx3456-x78x-9123-4x56-78xx9xxx1x2x   my-other-key   RSA    2048     +rvkRMBhdFmz1dlT..   2 days ago     -                -    
+   ID                                          Name     Type   Length   FingerPrint          Resource group   
+   r134-89ec781c-9630-4f76-b9c4-a7d204828d61   my-key   rsa    4096     gtnf+pdX2PYI9Ofq..   Default    
    ```
    {: screen}
    
@@ -335,12 +303,8 @@ Use the following commands to determine the required information for creating a 
     For this example, you see a response that is similar to the following output.
 
     ```text
-    Listing placement groups for generation 2 compute in all resource groups and region us-east under account vpcdemo as user    yaohaif@cn.ibm.com...
     ID                                            Name                             State    Strategy       Resource Group   
-    c5f1f366-b92a-4080-991a-aa5c2e33d96b          placement-group-region-us-east   stable   power_spread       5018a8564e8120570150b0764d39ebcc   
-    placement-group-cccc-cccc-cccc-cccccccccccc   vsi-placementGroup1              stable   host_spread    5018a8564e8120570150b0764d39ebcc   
-    placement-group-bbbb-bbbb-bbbb-bbbbbbbbbbbb   vsi-placementGroup2              stable   power_spread     5018a8564e8120570150b0764d39ebcc   
-    placement-group-aaaa-aaaa-aaaa-aaaaaaaaaaaa   vsi-placementGroup3              stable   power_spread   1d18e482b282409e80eff354c919c6a2
+    c5f1f366-b92a-4080-991a-aa5c2e33d96b          placement-group-region-us-south   stable   power_spread  Default   
     ```
     {: screen}
 
@@ -348,170 +312,260 @@ Use the following commands to determine the required information for creating a 
 {: #create-instance-cli}
 {: cli}
 
-After you know the needed values, use them to run the **`ibmcloud is instance-create`**  command. You also need to specify a unique name for the instance.
+### Provision from a stock or custom image
+{: #instance-create-from-image-cli}
+{: cli}
 
-Use the following steps to create a virtual server instance by using the CLI.
+After you know the needed values, use them to run the **`ibmcloud is instance-create`** command. You also need to specify a unique name for the instance.
+
+Use the following steps to create a basic virtual server instance from a stock image by using the CLI. By default, a boot volume is attached to the instance when it's created. For most virtual server instances the default boot volume size is 100 GB. The default boot volume size for a z/OS virtual server instance is 250 GB.
 
 1. Create an instance by using the following command.
 
    ```sh
    ibmcloud is instance-create \
-       <INSTANCE_NAME> \
-       <VPC_ID> \
-       <ZONE_NAME> \
-       <PROFILE_ID> \
-       <SUBNET_ID> \
-       --image-id <IMAGE_ID> \
-       --key-ids <KEY_IDS> \
-       --volume-attach <VOLUME_ATTACH_JSON or JSON file> \
-       --placement-group <PLACEMENT_GROUP_NAME> \
-       --metadata-service <false | true>
+       INSTANCE_NAME \
+       VPC \
+       ZONE_NAME \
+       PROFILE_NAME \
+       SUBNET \
+       --image IMAGE \
+       --keys KEYS \
    ```
    {: pre}
-
-   For example, if you create an instance that is called _my-instance_ in _us-south-1_ and use the _b-2x4_ profile, your `instance-create` command looks similar to the following example.
+   
+   For example, the following `instance-create` command uses the sample values found in the [Gathering information](#gather-info-to-create-virtual-servers-cli) section. 
 
    ```sh
-   ibmcloud is instance-create\
-       my-instance\
-       0738-xxx1xx23-4xx5-6789-12x3-456xx7xx123x\
-       us-south-1\
-       b-2x4\
-       0738-1234x12x-345x-1x23-45x6-x7x891011x1x\
-       --image-id 1xx2x34x-5678-12x3-x4xx-567x81234567\
-       --key-ids 1234xxxx-x12x-xxxx-34xx-xx1234xxxxxx\
-       --volume-attach @/Users/myname/myvolume-attachment_create.json\
-       --placement-group r134-a812ff17-cac5-4e20-8d2b-95b587be6637\
-       --metadata-service true
-       --host-failure-policy true
+   ibmcloud is instance-create \
+       my-instance \
+       r134-35b9cf35-616e-462e-a145-cf8db4062fcf \
+       us-south-2 \
+       bx2-2x8 \
+       0726-198db988-3b9b-4cfa-9dec-0206420d37d0 \
+       --image r134-f83ce520-00b5-40c5-9938-a5c82a273f91 \
+       --keys r134-89ec781c-9630-4f76-b9c4-a7d204828d61 \
    ```
-   {: screen}
+   {: pre}
+   
+   Where the following argument and option values are used: 
+      * INSTANCE_NAME: `my-instance`
+      * VPC: `r134-35b9cf35-616e-462e-a145-cf8db4062fcf`
+      * ZONE_NAME: `us-south-2`
+      * PROFILE_NAME: `bx2-2x8` 
+      * SUBNET: `0726-198db988-3b9b-4cfa-9dec-0206420d37d0` 
+      * IMAGE: Debian 11 image `r134-f83ce520-00b5-40c5-9938-a5c82a273f91`
+      * KEYS: `r134-89ec781c-9630-4f76-b9c4-a7d204828d61`
 
-   Where:
-   - `INSTANCE_NAME` is _my-instance_
-   - `VPC_ID` is _VPC_ID_
-   - `ZONE_NAME` is _us-south-1_
-   - `Availability policy on host failure` is enabled by default and set to `start`. To disable it, set it to `stop`.
-   - `PROFILE_ID` is _b-2x4_
-   - `SUBNET_ID` is _SUBNET_ID_
-   - `IMAGE_ID` is _IMAGE_ID_
-   - `KEY_IDS` is _KEY_ID1, KEY_ID2, ..._
-   - `VOLUME_ATTACH_JSON` is the volume attachment specification in JSON format, provided in the command or as a file. For an example volume attachment JSON file, see [Create a volume attachment JSON](/docs/vpc?topic=vpc-attaching-block-storage&interface=cli#volume_attachment_json). You can also include [user tags for the volumes](/docs/vpc?topic=vpc-creating-block-storage&interface=cli#create-instance-vol-cli) in the volume attachment.
-   - `PLACEMENT_GROUP_ID` is _r134-a812ff17-cac5-4e20-8d2b-95b587be6637
-   - `METADATA-SERVICE` is set to `true` to enable it. By default, it is disabled and set to `false`.
-
-   For this example, you see a response that is similar to the following example.
-
-   The following response varies depending on the optional values that you use.
+   The response varies depending on the option values that you use.
    {: note}
 
-   ```sh
-   ibmcloud is instance create test a0162c41-6a75-4a04-aabb-da1c78539531 us-south-2  bx2-2x8  7284-47efd8c6-0efc-462e-89c0-e0457119f90b --image r134-63363662-a4ee-4ba4-a6c4-92e6c78c6b58 --host-failure-policy stop
-   Creating instance test under account VPC1 as user myuser@mycompany.com...
-
-   ID                                    7284_683902df-85ce-4546-808c-3675247074d8   
-   Name                                  test   
-   CRN                                   crn:v1:staging:public:is:us-south-2:a/efe5afc483594adaa8325e2b4d1290df::instance:7284_683902df-85ce-4546-808c-3675247074d8   
+   ```text
+   ID                                    0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0   
+   Name                                  my-instance   
+   CRN                                   crn:v1:public:is:us-south-2:a/2d1bace7b46e4815a81e52c6ffeba5cf::instance:0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0   
    Status                                pending   
-   Availability policy on host failure   start   
+   Availability policy on host failure   restart   
    Startable                             true   
    Profile                               bx2-2x8   
    Architecture                          amd64   
-   vCPU Manufacturer                     Intel   
+   vCPU Manufacturer                     intel   
    vCPUs                                 2   
-   Memory(GiB)                           8   
+   Memory(GiB)                           8  
    Bandwidth(Mbps)                       4000   
+   Volume bandwidth(Mbps)                1000   
+   Network bandwidth(Mbps)               3000     
+                                         
+   Metadata service                      Enabled   Protocol   Response hop limit      
+                                         false     http       1      
+                                         
    Image                                 ID                                          Name      
-                                         63363662-a4ee-4ba4-a6c4-92e6c78c6b58   ibm-centos-7-9-minimal-amd64-3      
-
+                                         r134-f83ce520-00b5-40c5-9938-a5c82a273f91   ibm-debian-11-3-minimal-amd64-4      
+                                         
    VPC                                   ID                                          Name      
-                                         a0162c41-6a75-4a04-aabb-da1c78539531   cli-vpc-1      
-
+                                         r134-35b9cf35-616e-462e-a145-cf8db4062fcf   my-vpc      
+                                         
    Zone                                  us-south-2   
    Resource group                        ID                                 Name      
-                                         11caaa983d9c4beb82690daab08717e9   Default      
-
-   Created                               2022-08-25T16:39:30+05:30   
-   Boot volume                           ID   Name           Attachment ID                               Attachment name      
-                                         -    PROVISIONING   7284-69923add-65e2-4b93-bee4-a4bca3836696   boot-attachment-12
+                                         cdc21b72d4e647b195de988b175e3d82   Default      
+                                         
+   Created                               2023-03-23T21:50:24+00:00   
+   Boot volume                           ID   Name   Attachment ID                               Attachment name      
+                                         -    -      0726-7ccd4284-e59d-45d8-932a-9e52f62f187a   landing-faucet-prankish-sprout 
    ```
    {: screen}
 
-   Information about the network interfaces that are created for the new instance aren't returned after the instance is created. You can view the information by using the `ibmcloud is instance INSTANCE` command as described in the following step.
+   Information about the network interfaces that are created for the new instance aren't returned after the instance is created. You can view the information by using the `ibmcloud is instance INSTANCE` command as described in the following step. The status displays *pending* until the instance is created.
 
-   The status displays pending until the instance is created.
-   {: note}
+   
+   For more information about some additional features that you can include as command options on the `instance-create` command, see the following topics: [Create a volume attachment JSON](/docs/vpc?topic=vpc-attaching-block-storage&interface=cli#volume_attachment_json), [Enable or disable the metadata service](/docs/vpc?topic=vpc-imd-configure-service&interface=cli#imd-enable-on-instance-cli), and [Creating a placement group](/docs/vpc?topic=vpc-managing-placement-group&interface=cli#creating-placement-group-CLI).
+   {: tip}
    
    For a full list of command options, see [ibmcloud is instance-create](/docs/vpc?topic=vpc-vpc-reference#instance-create). 
-
-2. When the status changes to *running*, verify that you can see your new instance and view the network interfaces that were created for your new instance.
+   
+2. Next, run the following `instance` details command to verify that you can see your new instance and view the network interfaces that were created for the new instance. `0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0` is the virtual server instance ID that was assigned when the instance was created in the previous step. 
 
    ```sh
-   ibmcloud is instance 2x12xxx5-xx11-1234-x4x5-1xxx12345678
+   ibmcloud is instance 0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0
    ```
    {: pre}
 
-   For this example, you see the following response.
+   For this example, you see the following response. The status now shows *running*. Check the Network Interfaces section to locate the ID of the network interface.
 
-   ```sh
-   ID                           0738-2x12xxx5-xx11-1234-x4x5-1xxx12345678
-   Name                         my-instance
-   Status                       running
-   Profile                      b-2x4
-   Architecture                 amd64
-   vCPUs                        2
-   Memory                       4
-   Network Performance (Gbps)   4
-   Image                        ID                                          Name
-                                0738-7eb4e35b-4257-56f8-d7da-326d85452591   ubuntu-16.04-amd64
-
-   VPC                          ID                                          Name
-                                xxx1xx23-4xx5-6789-12x3-456xx7xx123x        my-vpc
-
-   Zone                         us-south-1
-   Resource group               Default
-   Metadata service enabled     true   
-   Created                      2020-08-24T20:25:50+08:00
-   Network Interfaces           Interface   Name      ID                                          Subnet      Subnet ID                                       Private IP     Floating IP   Security Groups
-                                Primary     primary   0738-xx12x345-6xxx-7x89-123x-4x5xxx678x9x   my-subnet   0736-a50f4dbb-d374-492f-a8bf-877b4cbd8921   10.240.128.5   -             ajar-arrive-urging-daylong    
-   Boot volume                  ID   Name           Attachment ID                               Attachment name
-                                -    PROVISIONING   0736-76436447-3262-4b3d-8b42-aa3fbb5927f6   volume-attachment
-   Data volumes                 ID                                          Name        Attachment ID                    Attachment name
-                                r134-dd9cefce-8f3e-4a63-b92a-066c8505e25c   my-volume   0738-xx55xx44-3xx1-1234-42x1-234xx5x678xx my-volume-attachment                                
-   Placement            ID                                          Name       Resource type      
-                     r134-a812ff17-cac5-4e20-8d2b-95b587be6637   mypg2-re   placement_group                                 
+   ```text
+   ID                                    0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0   
+   Name                                  my-instance   
+   CRN                                   crn:v1:public:is:us-south-2:a/2d1bace7b46e4815a81e52c6ffeba5cf::instance:0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0 
+   Status                                running   
+   Availability policy on host failure   restart   
+   Startable                             true   
+   Profile                               bx2-2x8   
+   Architecture                          amd64   
+   vCPU Manufacturer                     intel   
+   vCPUs                                 2   
+   Memory(GiB)                           8   
+   Bandwidth(Mbps)                       4000   
+   Volume bandwidth(Mbps)                1000   
+   Network bandwidth(Mbps)               3000
+   
+   Metadata service                      Enabled   Protocol   Response hop limit      
+                                         false     http       1      
+                                         
+   Image                                 ID                                          Name      
+                                         r134-f83ce520-00b5-40c5-9938-a5c82a273f91   ibm-debian-11-3-minimal-amd64-4      
+                                            
+   VPC                                   ID                                          Name      
+                                         r134-35b9cf35-616e-462e-a145-cf8db4062fcf   my-vpc     
+                                            
+   Zone                                  us-south-2   
+   Resource group                        ID                                 Name      
+                                         cdc21b72d4e647b195de988b175e3d82   Default      
+                                         
+   Created                               2023-03-23T21:50:24+00:00   
+   Network Interfaces                    Interface   Name      ID                                          Subnet            Subnet ID                                   Floating IP   Security Groups                 Allow source IP spoofing   Reserved IP      
+                                         Primary     primary   0726-4db768bb-65c3-4045-8712-523e62eeabd2   my-subnet   0726-198db988-3b9b-4cfa-9dec-0206420d37d0         -             enhance-corsage-managing-jinx   false                      10.240.64.10      
+                                            
+   Boot volume                           ID                                          Name                           Attachment ID                                    Attachment name      
+                                         r134-7a1d72d1-56ac-438e-bf85-6c0173e3f9a6   expend-anger-whiff-jackknife   0726-7ccd4284-e59d-45d8-932a-9e52f62f187a        landing-faucet-prankish-sprout                                       
    ```
    {: screen}
 
-3. Request a floating IP address to associate to your instance by using the following command.
+3. Request a floating IP address to associate to your instance by using the following command. The name specified for the floating IP is `my-floatingip`. `0726-4db768bb-65c3-4045-8712-523e62eeabd2` is the ID of the network interface for the virtual server instance that displayed in the previous step.
 
    ```sh
    ibmcloud is floating-ip-reserve \
        my-floatingip \
-       --nic-id xx12x345-6xxx-7x89-123x-4x5xxx678x9x
+       --nic 0726-4db768bb-65c3-4045-8712-523e62eeabd2
    ```
    {: pre}
 
    For this example, you see a response that is similar to the following output.
 
-   ```sh
-     Address          xxx.xxx.xxx.xxx   
-     Name             my-floatingip   
-     Target           great-scott-stride-lilac-captivate-filtrate(xx12x345-.)   
-     Target Type      intf   
-     Target IP        172.16.1.4   
-     Created          1 second ago   
-     Status           available   
-     Zone             us-south-1   
-     Resource Group   -   
-     Tags             -  
-    ```
-    {: screen}
+   ```text
+   ID               r134-9b79b9bc-a2dc-4337-865a-57d9b9198b76   
+   Address          169.59.214.164   
+   Name             my-floatingip   
+   CRN              crn:v1:public:is:us-south-2:a/2d1bace7b46e4815a81e52c6ffeba5cf::floating-ip:r134-9b79b9bc-a2dc-4337-865a-57d9b9198b76   
+   Status           available   
+   Zone             us-south-2   
+   Created          2023-03-23T22:13:07+00:00   
+   Target           ID                                          Target type         Instance ID                                 Target interface name   Target interface private IP      
+                    0726-4db768bb-65c3-4045-8712-523e62eeabd2   network_interface   0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0   primary                 -      
+                    
+                    
+   Resource group   ID                                 Name      
+                    cdc21b72d4e647b195de988b175e3d82   Default    
+   ```
+   {: screen}
 
-    Remember the floating IP `Address` for later.  
+    Record the floating IP `Address` to use later.
+    
+    For a full list of command options, see [ibmcloud is floating-ip-reserve](/docs/vpc?topic=vpc-vpc-reference#floating-ip-reserve). 
 
 Need more help? You can always run `ibmcloud is instance-create --help` to display help for creating an instance.
 {: tip}
+
+### Provision from a private catalog image
+{: #instance-create-from-private-catalog-image-cli}
+{: cli}
+
+After you know the needed values, use them to run the **`ibmcloud is instance-create`** command. You also need to specify a unique name for the instance.
+
+Use the following steps to create a virtual server instance from a private catalog offering or a catalog offering version by using the CLI.
+
+1. Create an instance by using the following command.
+
+   ```sh
+   ibmcloud is instance-create \
+       INSTANCE_NAME \
+       VPC \
+       ZONE_NAME \
+       PROFILE_NAME \
+       SUBNET \
+       --catalog-offering <CRN for the IBM Cloud catalog offering> or --catalog-offering-version <The CRN for the version of a IBM Cloud catalog offering> \
+       --keys KEYS \
+       --placement-group PLACEMENT_GROUP_NAME \
+   ```
+   {: pre}
+
+   For example, if you create an instance that is called *my-instance* in *us-south-2* and use the *bx2-2x8* profile and the catalog offering, your `instance-create` command looks similar to the following example.
+
+   ```sh
+   ibmcloud is instance-create\
+       my-instance\
+       r134-35b9cf35-616e-462e-a145-cf8db4062fcf\
+       us-south-2\
+       bx2-2x8\
+       0726-198db988-3b9b-4cfa-9dec-0206420d37d0\
+       --catalog-offering crn:v1:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:offering:136559f6-4588-4af2-8585-f3c625eee09d
+       --keys r134-89ec781c-9630-4f76-b9c4-a7d204828d61\
+       --placement-group c5f1f366-b92a-4080-991a-aa5c2e33d96b\
+   ```
+   {: pre}
+   
+   Where the following argument and option values are used: 
+      * INSTANCE_NAME: `my-instance`
+      * VPC: `r134-35b9cf35-616e-462e-a145-cf8db4062fcf`
+      * ZONE_NAME: `us-south-2`
+      * PROFILE_NAME: `bx2-2x8` 
+      * SUBNET: `0726-198db988-3b9b-4cfa-9dec-0206420d37d0` 
+      * CATALOG-OFFERING: is `crn:v1:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:offering:136559f6-4588-4af2-8585-f3c625eee09d`
+      * KEYS: `r134-89ec781c-9630-4f76-b9c4-a7d204828d61`
+      * PLACEMENT_GROUP: `c5f1f366-b92a-4080-991a-aa5c2e33d96b`
+   
+   Information about the network interfaces that are created for the new instance aren't returned after the instance is created. You can view the information by using the `ibmcloud is instance INSTANCE` command as described in the following step.
+
+   The status of the virtual server instance displays *pending* until the instance is created.
+   {: note}
+   
+   For a full list of command options, see [ibmcloud is instance-create](/docs/vpc?topic=vpc-vpc-reference#instance-create). 
+   
+2. Next, run the following `instance` details command to verify that you can see your new instance and view the network interfaces that were created for the new instance. For `INSTANCE` specify the ID that was assigned to your new virtual server instance in the previous step. 
+
+   ```sh
+   ibmcloud is instance INSTANCE
+   ```
+   {: pre}
+   
+   The status should now show *running*. Check the Network Interfaces section to locate the ID of the network interface. 
+   
+
+3. Request a floating IP address to associate to your instance by using the following command. For `FLOATING_IP_NAME` specify a name for your floating IP, and for `TARGET_INTERFACE` specify the ID of the network interface that you identified in the previous step.
+
+   ```sh
+   ibmcloud is floating-ip-reserve \
+       FLOATING_IP_NAME \
+       --nic TARGET_INTERFACE
+   ```
+   {: pre}
+
+    Record the floating IP `Address` to use later.  
+    
+    For a full list of command options, see [ibmcloud is floating-ip-reserve](/docs/vpc?topic=vpc-vpc-reference#floating-ip-reserve).
+
+Need more help? You can always run `ibmcloud is instance-create --help` to display help for creating an instance.
+{: tip}
+
 
 ### Provision from an existing volume
 {: #create-instance-volume-cli}
@@ -519,117 +573,71 @@ Need more help? You can always run `ibmcloud is instance-create --help` to displ
 
 After you know the needed values, use them to run the `instance-create` command. You also need to specify a unique name for the instance.
 
-Use the following steps to create a virtual server instance from a bootable volume by using the CLI.
+Use the following steps to create a virtual server instance from a bootable volume, and that includes a volume attachment.
 
 1. Create an instance by using the following command.
 
    ```sh
    ibmcloud is instance-create \
-       <INSTANCE_NAME> \
-       <VPC_ID> \
-       <ZONE_NAME> \
-       <PROFILE_ID> \
-       <SUBNET_ID> \
-       --boot-volume <VOLUME_ID>
-       --keys <KEY_IDS> \
-       --volume-attach <VOLUME_ATTACH_JSON or JSON file> \
-       --placement-group <PLACEMENT_GROUP_NAME> \
-       --metadata-service <false | true>
+       INSTANCE_NAME \
+       VPC \
+       ZONE_NAME \
+       PROFILE_NAME \
+       SUBNET \
+       --boot-volume VOLUME_ID \
+       --keys KEYS \
+       --volume-attach VOLUME_ATTACH_JSON \
    ```
    {: pre}
 
-   For example, if you create an instance that is called *my-instance* in *us-south-1* and use the *bx2-2x8* profile, your `instance-create` command looks similar to the following example.
-
-   ```text
-   ibmcloud is instance-create\
-       my-instance\
-       r006-c7e1cfb7-6c28-4441-9c8a-d3b707303a17\
-       us-south-1\
-       bx2-2x8\
-       0717-187279e6-4ba9-41a4-8233-75db6e1051d8\
-       --boot-volume r006-feec3e99-995e-4e8f-896b-48b42c7d05a7\
-       --keys r006-477cf08b-f4c1-4d20-8352-0e1872799406\
-       --volume-attach @/Users/myname/myvolume-attachment_create.json\
-       --placement-group r134-a812ff17-cac5-4e20-8d2b-95b587be6637\
-       --metadata-service true
-   ```
-   {: screen}
-
-For an example volume attachment JSON file, see [Create a volume attachment JSON](/docs/vpc?topic=vpc-attaching-block-storage&interface=cli#volume_attachment_json). You can also include [user tags for the volumes](/docs/vpc?topic=vpc-creating-block-storage&interface=cli#create-instance-vol-cli) in the volume attachment.
-
-   Information about the network interfaces that are created for the new instance aren't returned after the instance is created. You can view the information by using the command that was provided in **Step 2**.
-
-   The status displays pending until the instance is created.
-   {: note}
-
-2. When the status changes to *running*, verify that you can see your new instance and view the network interfaces that were created for your new instance.
+   For example, if you create an instance that is called *my-instance* in *us-south-1* and use the *bx2-2x8* profile and an existing boot volume, your `instance-create` command looks similar to the following example.
 
    ```sh
-   ibmcloud is instance 2x12xxx5-xx11-1234-x4x5-1xxx12345678
+   ibmcloud is instance-create\
+       my-instance\
+       r134-35b9cf35-616e-462e-a145-cf8db4062fcf\
+       us-south-1\
+       bx2-2x8\
+       0726-198db988-3b9b-4cfa-9dec-0206420d37d0\
+       --boot-volume r006-feec3e99-995e-4e8f-896b-48b42c7d05a7\
+       --keys r134-89ec781c-9630-4f76-b9c4-a7d204828d61\
+       --volume-attach @/Users/myname/myvolume-attachment_create.json\
    ```
    {: pre}
 
-   For this example, you see the following response.
+   For an example volume attachment JSON file, see [Create a volume attachment JSON](/docs/vpc?topic=vpc-attaching-block-storage&interface=cli#volume_attachment_json). You can also include [user tags for the volumes](/docs/vpc?topic=vpc-creating-block-storage&interface=cli#create-instance-vol-cli) in the volume attachment.
 
-   ```text
-   ID                           0738-2x12xxx5-xx11-1234-x4x5-1xxx12345678
-   Name                         my-instance
-   Status                       running
-   Profile                      b-2x4
-   Architecture                 amd64
-   vCPUs                        2
-   Memory                       4
-   Network Performance (Gbps)   4
-   Image                        ID                                          Name
-                                0738-7eb4e35b-4257-56f8-d7da-326d85452591   ubuntu-16.04-amd64
+   Information about the network interfaces that are created for the new instance aren't returned after the instance is created. You can view the information by using the `ibmcloud is instance INSTANCE` command as described in the next step.
+   
+   The status displays *pending* until the instance is created.
+   {: note}
+   
+   For a full list of command options, see [ibmcloud is instance-create](/docs/vpc?topic=vpc-vpc-reference#instance-create). 
 
-   VPC                          ID                                          Name
-                                xxx1xx23-4xx5-6789-12x3-456xx7xx123x        my-vpc
+2. Next, run the following `instance` details command to verify that you can see your new instance and view the network interfaces that were created for the new instance. For `INSTANCE` specify the ID that was assigned to your new virtual server instance in the previous step. 
 
-   Zone                         us-south-1
-   Resource group               Default
-   Metadata service enabled     true   
-   Created                      2020-08-24T20:25:50+08:00
-   Network Interfaces           Interface   Name      ID                                          Subnet      Subnet ID                                       Private IP     Floating IP   Security Groups
-                                Primary     primary   0738-xx12x345-6xxx-7x89-123x-4x5xxx678x9x   my-subnet   0736-a50f4dbb-d374-492f-a8bf-877b4cbd8921   10.240.128.5   -             ajar-arrive-urging-daylong    
-   Boot volume                  ID   Name           Attachment ID                               Attachment name
-                                -    PROVISIONING   r006-feec3e99-995e-4e8f-896b-48b42c7d05a7   my-boot-volume
-   Data volumes                 ID                                          Name        Attachment ID                    Attachment name
-                                r134-dd9cefce-8f3e-4a63-b92a-066c8505e25c   my-volume   0738-xx55xx44-3xx1-1234-42x1-234xx5x678xx my-volume-attachment                                
-   Placement            ID                                          Name       Resource type      
-                     r134-a812ff17-cac5-4e20-8d2b-95b587be6637   mypg2-re   placement_group                                 
+   ```sh
+   ibmcloud is instance INSTANCE
    ```
-   {: screen}
+   {: pre}
+   
+   The status should now show *running*. Check the Network Interfaces section to locate the ID of the network interface. 
 
-3. Request a floating IP address to associate to your instance by using the following command.
+3. Request a floating IP address to associate to your instance by using the following command. For `FLOATING_IP_NAME` specify a name for your floating IP, and for `TARGET_INTERFACE` specify the ID of the network interface that you identified in the previous step.
 
    ```sh
    ibmcloud is floating-ip-reserve \
-       my-floatingip \
-       --nic-id xx12x345-6xxx-7x89-123x-4x5xxx678x9x
+       FLOATING_IP_NAME \
+       --nic TARGET_INTERFACE
    ```
    {: pre}
+   
+   Record the floating IP `Address` to use later.  
+   
+   For a full list of command options, see [ibmcloud is floating-ip-reserve](/docs/vpc?topic=vpc-vpc-reference#floating-ip-reserve). 
 
-   For this example, you see a response that is similar to the following output.
-
-   ```text
-     Address          xxx.xxx.xxx.xxx   
-     Name             my-floatingip   
-     Target           great-scott-stride-lilac-captivate-filtrate(xx12x345-.)   
-     Target Type      intf   
-     Target IP        172.16.1.4   
-     Created          1 second ago   
-     Status           available   
-     Zone             us-south-1   
-     Resource Group   -   
-     Tags             -  
-    ```
-    {: screen}
-
-    Remember the floating IP `Address` for later.  
-
-Need more help? You can always run `ibmcloud is instance-create --help` to display help for creating an instance.
-{: tip}
+   Need more help? You can always run `ibmcloud is instance-create --help` to display help for creating an instance.
+   {: tip}
 
 ### Create a boot volume from a snapshot and use it to provision a new instance with the CLI
 {: #create-instance-bootable-snapshot-cli}
@@ -645,6 +653,7 @@ A series of emails is sent to your administrator: Acknowledgment of the virtual 
 If you choose a GPU profile, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
 
 After the instance is created, associate a floating IP address to the instance. Then, you can connect to your instance. For more information, see [Connecting to your Linux instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux) or [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
+
 
 ## Next steps after using the UI
 {: #next-steps-creating-virtual-servers-ui}
