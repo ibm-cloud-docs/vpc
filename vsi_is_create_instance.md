@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2023
 
-lastupdated: "2023-02-20"
+lastupdated: "2023-03-23"
 
 keywords:
 
@@ -17,7 +17,7 @@ subcollection: vpc
 # Creating virtual server instances
 {: #creating-virtual-servers}
 
-You can create one or more virtual server instances in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console or by using the CLI. If you are planning on using a custom image in a private catalog for your instance, see [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api) for those CLI examples.
+You can create one or more virtual server instances in your {{site.data.keyword.vpc_short}} by using the {{site.data.keyword.cloud_notm}} console, CLI, API, or Terraform.
 {: shortdesc}
 
 ## Creating a virtual server instance with the UI
@@ -46,7 +46,7 @@ Using an existing volume to create a virtual server instance is a beta feature t
 | Processor architecture | Select the processor architecture that your instance is created with. *x86* means x86_64 bit processor, and *s390x* is IBM Z or LinuxONE (s390x processor architecture). |
 | Operating system | Image \n \n Select a stock image, `Custom image`, or `Catalog image` for the operating system. \n \n   \n \n * For more information about available stock images, see [x86 virtual server images](/docs/vpc?topic=vpc-about-images) and [s390x virtual server images](/docs/vpc?topic=vpc-vsabout-images). All operating system images use cloud-init that you can use to enter user metadata that is associated with the instance for post provisioning scripts. Metadata isn't supported for {{site.data.keyword.cloud}} Hyper Protect Virtual Server for {{site.data.keyword.vpc_full}} instances and z/OS virtual server instances. If you plan to use Windows operating systems with SQL Server, see the [About Microsoft SQL on VPC](/docs/microsoft?topic=microsoft-mssql-about). \n * A `custom image` is an image that you create externally and import to {{site.data.keyword.cloud}}, which you can then import into {{site.data.keyword.vpc_short}}. For more information about custom images, see [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images). \n * You can also use a custom image that was created from a boot volume and was attached to an instance. For more information about creating an image from a volume, see [About creating an image from a volume](/docs/vpc?topic=vpc-image-from-volume-vpc). \n * A `Catalog image` is a custom image that is imported into a private catalog. You can either import a custom image that was already imported into {{site.data.keyword.vpc_short}} or an image from a volume. For more information about catalog images, see [Custom images in a private catalog](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#custom-image-cloud-private-catalog) **Note** If you select a catalog image that belongs to a different account, there are additional considerations and limitations to review. See [Using cross-account image references in a private catalog in the UI](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-ui). To create a private catalog, see the tutorial [Onboarding a virtual server image for VPC](/docs/account?topic=account-catalog-vsivpc-tutorial&interface=ui). \n * You can also select either a RHEL or Windows custom image and bring your own license (BYOL). For more information about creating BYOL custom images, see [Bring your own license](/docs/vpc?topic=vpc-byol-vpc-about).|
 | | Snapshot \n \n Select a snapshot of a boot volume that includes an operating system. \n * If you created a boot volume from a bootable snapshot, it appears under Boot Volume. \n * If you want to use another bootable snapshot and create a boot volume, click **Change** to select a different snapshot from the list of snapshots. \n For more information, see [Restoring a volume from a snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore). |
-| | Existing volume \n \n Select an existing volume that is not attached to a volume or an instance. \n * Select **Change volume** from the **Existing volumes** tab to view a list of pre-existing available boot volumes. Choose an available volume and then select **Save volume** to continue. |
+| |  Select an existing boot volume that is not attached to an instance. \n * Select **Existing volumes** to view the existing volume option. Select **Change volume** to view a list of available boot volumes. Choose the volume that you want to use and select **Save volume** to continue. |
 | Profile |  Select from popular profiles or all available vCPU and RAM combinations. The profile families are Balanced, Compute, Memory, Ultra High Memory, Very High Memory, and GPU. For more information, see [Profiles](/docs/vpc?topic=vpc-profiles). When you create an {{site.data.keyword.cloud_notm}} {{site.data.keyword.hpvs}} for {{site.data.keyword.vpc_full}} instance, make sure that you select secure execution-enabled profiles, otherwise provisioning fails. For more information, see [s390x instance profiles](/docs/vpc?topic=vpc-vs-profiles).  \n  \n Some profiles might not be available because the amount network interfaces in the virtual server exceed profile limits. You can remove network interfaces to select from more profiles. For more information, see [Resizing a virtual server](/docs/vpc?topic=vpc-resizing-an-instance). |
 | SSH Key | You must select an existing SSH key or upload a new SSH key to use before you create the instance. SSH keys are used to securely connect to the instance after it's running. |
 | | **Note:** Alpha-numeric combinations are limited to 100 characters. |
@@ -96,6 +96,7 @@ Gather the following information by using the associated commands.
 |    Instance details   |  Listing options                |
 | --------------------- | --------------------------------|
 | Image                 | `ibmcloud is images`            |
+| Boot volume           | `ibmcloud is volumes`                   |
 | Profile               | `ibmcloud is instance-profiles` |
 | Key                   | `ibmcloud is keys`              |
 | VPC                   | `ibmcloud is vpcs`              |
@@ -115,7 +116,7 @@ Use the following commands to determine the required information for creating a 
 
    For this example, you see a response that is similar to the following output:
    ```sh
-   Name       Endpoint               Status   
+   Name       Endpoint               Status 
    us-south   /v1/regions/us-south   available
    ```
    {: screen}
@@ -127,7 +128,7 @@ Use the following commands to determine the required information for creating a 
    {: pre}
 
    For this example, you see a response that is similar to the following output:
-   ```sh
+   ```text
    Name         Region     Status   
    us-south-1   us-south   available
    ```
@@ -140,7 +141,7 @@ Use the following commands to determine the required information for creating a 
    {: pre}
 
    For this example, you see a response that is similar to the following output:
-   ```sh
+   ```text
    ID                                          Name                                  Default   Created       Status      Tags   
    0738-xxx1xx23-4xx5-6789-12x3-456xx7xx123x   my-vpc                                yes       1 month ago   available   -   
    0738-xxxx1234-5678-9x12-x34x-567x8912x3xx   my-other-vpc                          no        4 days ago    available   -   
@@ -156,7 +157,7 @@ Use the following commands to determine the required information for creating a 
    {: pre}
 
    For this example, you see a response that is similar to the following output:
-   ```sh
+   ```text
    ID                                          Name                                     IPv*   Subnet CIDR         Addresses   Gen   Gateway   Created   Status      VPC                    Zone         Resource Group   Tags   
    0738-1234x12x-345x-1x23-45x6-x7x891011x1x   my-subnet                                ipv4   172.16.1.0/24       0/0         -     -         1 week ago    available   my-vpc(xxx1xx23-.)     us-south-1   -                -   
    0738-12xx345x-6789-1xxx-x2x3-x4x56xx78x9x   my-subnet-2                              ipv4   172.20.28.0/24      0/0         -     -         1 day ago     available   my-vpc(xxx1xx23-.)     us-south-1   -                -   
@@ -174,7 +175,7 @@ Use the following commands to determine the required information for creating a 
 
 
    For this example, you see a response that is similar to the following output:
-   ```sh
+   ```text
    Name            vCPU Manufacturer   Architecture   Family        vCPUs   Memory(GiB)   Bandwidth(Mbps)   Volume bandwidth(Mbps)   GPUs   Storage(GB)   
    bz2-1x4         IBM                 s390x          balanced           1       4             2000              500                      -     -
    bz2e-1x4        IBM                 s390x          balanced           1       4             2000              500                      -      
@@ -209,13 +210,14 @@ Use the following commands to determine the required information for creating a 
    ma2-32x256      Intel               amd64          memory            32      256           64000             16000                    -      -   
    mz2-16x128      IBM                 s390x          memory            16      128           32000             8000                     -      -
    mz2e-16x128     IBM                 s390x          memory            16      128           32000             8000                     -      -
+
    ```
    {: screen}
 
-   Secure execution-enabled profiles are now available and are identified by the fourth character of the profile name that is an "e", such as _bz2e_. For more information, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se).
+   Secure execution-enabled profiles are now available and are identified by the fourth character of the profile name that is an "e", such as *bz2e*. For more information, see [Confidential computing with LinuxONE](/docs/vpc?topic=vpc-about-se).
 
-   The secure execution-enabled profiles are available for Balanced, Compute, and Memory families. Make sure that you use secure-enabled profiles when you use the IBM Hyper Protect Container Runtime image. Profile validation for the IBM-provided stock images and the IBM Hyper Protect Container Runtime occurs in the RIAS layer and any profile mismatch results in an error message similar to the following example.
-   ```sh
+   The secure execution-enabled profiles are available for Balanced, Compute, and Memory families. Make sure that you use secure-enabled profiles when you use the IBM Hyper Protect Container Runtime image. Profile validation for the IBM-provided stock images and the IBM Hyper Protect Container Runtime occurs in the RIAS layer. Any profile mismatch results in an error message that is similar to the following example.
+   ```text
    FAILED
    Response HTTP Status Code: 400
    Error code: bad_field
@@ -224,37 +226,107 @@ Use the following commands to determine the required information for creating a 
    ```
    {: screen}
 
-6. List the available images for creating your instance.
+6. List the available stock images, custom images, or images that are shared with your account from a private catalog for creating your instance. If you are creating an instance from an existing boot volume, skip this step.
+
+   - To list all available stock or custom images, run the following command:
+
+      ```sh
+      ibmcloud is images   
+      ```
+      {: pre}
+
+      Deprecated images do not include the most current support.
+      {: tip}
+
+      Let's pick image `ibm-debian-11-3-minimal-amd64-1`. To get the image ID, run the following command:
+
+       ```sh
+       image=$(ibmcloud is images | grep -i "debian.*available.*amd64.*public" | cut -d" " -f1)
+       ```
+       {: pre}
+
+       Save the image ID as a variable, which will be used later to provision an instance.
+
+   - To list all available images shared from a private catalog, run the following commands:
+
+      If you select a catalog image that belongs to a different account, there are additional considerations and limitations to review. See [Using cross-account image references in a private catalog in the CLI](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-cli)
+      {: note}
+
+       - To list all available private catalog image offerings, run the following command.
+
+          ```sh
+          ibmcloud is catalog-image-offerings
+          ```
+          {: pre}
+
+          This command returns the identifier of each image offering and the identifier of the private catalog where the image resides. Save the `offering_id` and `catalog_id` in variables, which will be used later to provision an instance.
+
+          ```sh
+          offering_id=6bf79f7b-de48-4ce8-8cae-866b376f2889
+          catalog_id=71306253-8444-4cae-a45d-64d35e5393ec
+          ```
+          {: pre}
+
+       - To get the `offering_crn` for the offering and the `offering_version_crn` for each version in the offering, run the following command.
+
+          ```sh
+          ibmcloud is catalog-image-offering $catalog_id $offering_id
+          ```
+          {: pre}
+
+       When you provision an instance, you can either provision the instance from the private catalog managed image in the latest version in a catalog product offering using the `offering_crn` value or from the specific version in the catalog product offering using the `offering_version_crn` value.
+
+       Save the `offering_crn` and `offering_version_crn`in variables, which will be used later to provision an instance.
+
+       ```sh
+       offering_crn="crn:v1:staging:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:offering:136559f6-4588-4af2-8585-f3c625eee09d"
+       offering_version_crn="crn:v1:staging:public:globalcatalog-collection:global:a/efe5afc483594adaa8325e2b4d1290df:0b322820-dafd-4b5e-b694-6465da6f008a:version:136559f6-4588-4af2-8585-f3c625eee09d/8ae92879-e253-4a7c-b09f-8d30af12e518"
+       ```
+       {: pre}
+
+7. List the available boot volumes for creating your instance.
+   If you are creating an instance from an image, skip this step.
+   To create an instance from an existing volume, you must use a volume compatible with the instance options chosen previously. A compatible volume is in the same zone as the instance that is being provisioned, in an unattached state, and has an OS compatible with the profile that is selected in step 5.
+   Use the `volumes` subcommand to see the compatible volumes.
+   For example, to see unattached volumes with an x64 operating system architecture in `us-south-1`:
+   
    ```sh
-   ibmcloud is images   
+   ibmcloud is volumes --attachment-state unattached  --operating-system-architecture amd64 --zone us-south-1
    ```
    {: pre}
 
-   For this example, you see a response that is similar to the following output.
-   ```sh
-   ID                                          Name                 OS                                                       Arch    Created         Status   Visibility   Tags   
-   0738-cc8debe0-1b30-6e37-2e13-744bfb2a0c11   centos-7.x-amd64     CentOS (7.x - Minimal Install)                           amd64      9 hours ago     READY    public       -   
-   0738-7eb4e35b-4257-56f8-d7da-326d85452591   ubuntu-16.04-amd64   Ubuntu Linux (16.04 LTS Xenial Xerus Minimal Install)    amd64      9 hours ago     READY    public       -   
-   ```
-   {: screen}
+    You can optionally [create a boot volume from a bootable snapshot](#create-instance-bootable-snapshot-cli) and use that for your image. To list all snapshots for a volume, see [View all snapshots that were created from the Block Storage for VPC volume](/docs/vpc?topic=vpc-viewing-block-storage&interface=ui#view-snapshots-for-volume). 
 
-7. List the available SSH keys that you can associate with your instance.
+
+8. List the available SSH keys that you can associate with your instance.
+    
+   Ensure that the the chosen volume is in the same zone as the instance that is being provisioned, in an unattached state, and has an OS compatible with the profile that is selected in step 5.
+   You can also use the following comand to list summary details of all available volumes.
+   
+   ```sh
+   ibmcloud is volumes
+   ```
+   {: pre}
+   
+   Check for volumes that are in the same zone as the instance you are creating. Use the volume ID of volumes in compatible zones in the `ibmcloud is volume VOLUME_ID` command to ensure their attachment state and OS are compatible.
+   
    ```sh
    ibmcloud is keys
    ```
    {: pre}
-
+    
    For this example, you see a response that is similar to the following output.
-   ```sh
+   
+   ```text
    ID                                          Name           Type   Length   FingerPrint          Created        Resource Group   Tags
    0738-1234xxxx-x12x-xxxx-34xx-xx1234xxxxxx   my-key         RSA    2048     PHcP/zyw/PNGIe/u..   5 days ago     -                -   
    0738-12xx3456-x78x-9123-4x56-78xx9xxx1x2x   my-other-key   RSA    2048     +rvkRMBhdFmz1dlT..   2 days ago     -                -    
    ```
    {: screen}
-
+   
    If you do not have an SSH key available, you can create an SSH key by using the `ibmcloud is key-create` command. For more information, see [SSH keys](/docs/vpc?topic=vpc-ssh-keys).
-
-8. List all the available placement groups that you can associate with your instance.
+   
+9. List all the available placement groups that you can associate with your instance.
     ```sh
     ibmcloud is placement-groups
     ```
@@ -262,7 +334,7 @@ Use the following commands to determine the required information for creating a 
 
     For this example, you see a response that is similar to the following output.
 
-    ```sh
+    ```text
     Listing placement groups for generation 2 compute in all resource groups and region us-east under account vpcdemo as user    yaohaif@cn.ibm.com...
     ID                                            Name                             State    Strategy       Resource Group   
     c5f1f366-b92a-4080-991a-aa5c2e33d96b          placement-group-region-us-east   stable   power_spread       5018a8564e8120570150b0764d39ebcc   
@@ -441,7 +513,130 @@ Use the following steps to create a virtual server instance by using the CLI.
 Need more help? You can always run `ibmcloud is instance-create --help` to display help for creating an instance.
 {: tip}
 
-## Next steps after using the CLI
+### Provision from an existing volume
+{: #create-instance-volume-cli}
+{: cli}
+
+After you know the needed values, use them to run the `instance-create` command. You also need to specify a unique name for the instance.
+
+Use the following steps to create a virtual server instance from a bootable volume by using the CLI.
+
+1. Create an instance by using the following command.
+
+   ```sh
+   ibmcloud is instance-create \
+       <INSTANCE_NAME> \
+       <VPC_ID> \
+       <ZONE_NAME> \
+       <PROFILE_ID> \
+       <SUBNET_ID> \
+       --boot-volume <VOLUME_ID>
+       --keys <KEY_IDS> \
+       --volume-attach <VOLUME_ATTACH_JSON or JSON file> \
+       --placement-group <PLACEMENT_GROUP_NAME> \
+       --metadata-service <false | true>
+   ```
+   {: pre}
+
+   For example, if you create an instance that is called *my-instance* in *us-south-1* and use the *bx2-2x8* profile, your `instance-create` command looks similar to the following example.
+
+   ```text
+   ibmcloud is instance-create\
+       my-instance\
+       r006-c7e1cfb7-6c28-4441-9c8a-d3b707303a17\
+       us-south-1\
+       bx2-2x8\
+       0717-187279e6-4ba9-41a4-8233-75db6e1051d8\
+       --boot-volume r006-feec3e99-995e-4e8f-896b-48b42c7d05a7\
+       --keys r006-477cf08b-f4c1-4d20-8352-0e1872799406\
+       --volume-attach @/Users/myname/myvolume-attachment_create.json\
+       --placement-group r134-a812ff17-cac5-4e20-8d2b-95b587be6637\
+       --metadata-service true
+   ```
+   {: screen}
+
+For an example volume attachment JSON file, see [Create a volume attachment JSON](/docs/vpc?topic=vpc-attaching-block-storage&interface=cli#volume_attachment_json). You can also include [user tags for the volumes](/docs/vpc?topic=vpc-creating-block-storage&interface=cli#create-instance-vol-cli) in the volume attachment.
+
+   Information about the network interfaces that are created for the new instance aren't returned after the instance is created. You can view the information by using the command that was provided in **Step 2**.
+
+   The status displays pending until the instance is created.
+   {: note}
+
+2. When the status changes to *running*, verify that you can see your new instance and view the network interfaces that were created for your new instance.
+
+   ```sh
+   ibmcloud is instance 2x12xxx5-xx11-1234-x4x5-1xxx12345678
+   ```
+   {: pre}
+
+   For this example, you see the following response.
+
+   ```text
+   ID                           0738-2x12xxx5-xx11-1234-x4x5-1xxx12345678
+   Name                         my-instance
+   Status                       running
+   Profile                      b-2x4
+   Architecture                 amd64
+   vCPUs                        2
+   Memory                       4
+   Network Performance (Gbps)   4
+   Image                        ID                                          Name
+                                0738-7eb4e35b-4257-56f8-d7da-326d85452591   ubuntu-16.04-amd64
+
+   VPC                          ID                                          Name
+                                xxx1xx23-4xx5-6789-12x3-456xx7xx123x        my-vpc
+
+   Zone                         us-south-1
+   Resource group               Default
+   Metadata service enabled     true   
+   Created                      2020-08-24T20:25:50+08:00
+   Network Interfaces           Interface   Name      ID                                          Subnet      Subnet ID                                       Private IP     Floating IP   Security Groups
+                                Primary     primary   0738-xx12x345-6xxx-7x89-123x-4x5xxx678x9x   my-subnet   0736-a50f4dbb-d374-492f-a8bf-877b4cbd8921   10.240.128.5   -             ajar-arrive-urging-daylong    
+   Boot volume                  ID   Name           Attachment ID                               Attachment name
+                                -    PROVISIONING   r006-feec3e99-995e-4e8f-896b-48b42c7d05a7   my-boot-volume
+   Data volumes                 ID                                          Name        Attachment ID                    Attachment name
+                                r134-dd9cefce-8f3e-4a63-b92a-066c8505e25c   my-volume   0738-xx55xx44-3xx1-1234-42x1-234xx5x678xx my-volume-attachment                                
+   Placement            ID                                          Name       Resource type      
+                     r134-a812ff17-cac5-4e20-8d2b-95b587be6637   mypg2-re   placement_group                                 
+   ```
+   {: screen}
+
+3. Request a floating IP address to associate to your instance by using the following command.
+
+   ```sh
+   ibmcloud is floating-ip-reserve \
+       my-floatingip \
+       --nic-id xx12x345-6xxx-7x89-123x-4x5xxx678x9x
+   ```
+   {: pre}
+
+   For this example, you see a response that is similar to the following output.
+
+   ```text
+     Address          xxx.xxx.xxx.xxx   
+     Name             my-floatingip   
+     Target           great-scott-stride-lilac-captivate-filtrate(xx12x345-.)   
+     Target Type      intf   
+     Target IP        172.16.1.4   
+     Created          1 second ago   
+     Status           available   
+     Zone             us-south-1   
+     Resource Group   -   
+     Tags             -  
+    ```
+    {: screen}
+
+    Remember the floating IP `Address` for later.  
+
+Need more help? You can always run `ibmcloud is instance-create --help` to display help for creating an instance.
+{: tip}
+
+### Create a boot volume from a snapshot and use it to provision a new instance with the CLI
+{: #create-instance-bootable-snapshot-cli}
+
+You can create a boot volume from a bootable [snapshot](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=ui#snapshots-vpc-restore-concepts) and use that for your image. When you run the `ibmcloud is instance-create` command, specify the `source_snapshot` subproperty in the boot volume JSON and the ID or name of a bootable snapshot. For an example, see [Create a boot volume from a snapshot for a new instance from the CLI](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=cli#snapshots-vpc-restore-boot-CLI).
+
+## Next steps after an instance is created from the CLI
 {: #next-step-after-creating-virtual-servers-cli}
 {: cli}
 
@@ -449,7 +644,7 @@ A series of emails is sent to your administrator: Acknowledgment of the virtual 
 
 If you choose a GPU profile, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
 
-After the instance is created, associate a floating IP address to the instance. Then, you can connect to your instance. For more information, see [Connecting to your Linux instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux), [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows), or [Connecting to your z/OS instance](/docs/vpc?topic=vpc-vsi_is_connecting_zos).
+After the instance is created, associate a floating IP address to the instance. Then, you can connect to your instance. For more information, see [Connecting to your Linux instance](/docs/vpc?topic=vpc-vsi_is_connecting_linux) or [Connecting to your Windows instance](/docs/vpc?topic=vpc-vsi_is_connecting_windows).
 
 ## Next steps after using the UI
 {: #next-steps-creating-virtual-servers-ui}
@@ -461,12 +656,119 @@ After the instance is created, you need to [associate a floating IP address to t
 
 If you have an existing instance with a floating IP address, it isn't necessary to assign a second floating IP to another instance. You can connect to the first instance with a floating IP, then SSH to the second instance by using the private subnet IP address that is automatically assigned to it.
 
+## Creating a virtual server instance by using the API
+{: #create-instance-api}
+{: api}
+
+You can create instances by using the API.
+
+### Before you begin
+{: #before-you-begin-create-instance-api}
+{: api}
+
+Ensure that you have the required access. To call these methods, you must be assigned one or more IAM access roles that include the following actions, depending on any listed conditions. You can check your access by going to the **Users** page of [{{site.data.keyword.iamshort}} dashboard](https://test.cloud.ibm.com/iam/overview){: external}.
+
+### Gathering information to create an instance by using the API
+{: #gather-info-to-create-virtual-servers-api}
+{: api}
+
+Before you can create an instance, you need to know the details about the instance, such as the instance profile or the image that you want to use. Gather information by making the following API calls:
+
+|    Instance details   |  Listing options                | API spec documentation
+| --------------------- | ------------------------------- | ----------------------------------------------------------------------
+| Image                 | `GET /images`                   | [List all images](/apidocs/vpc/latest#list-images)
+| Profile               | `GET /instance/profiles`        | [List all instance profiles](/apidocs/vpc/latest#list-instance-profiles)
+| Key                   | `GET /keys`                     | [List all keys](/apidocs/vpc/latest#list-keys)
+| VPC                   | `GET /vpcs`                     | [List all VPCs](/apidocs/vpc/latest#list-vpcs)
+| Subnet                | `GET /subnets`                  | [List all subnets](/apidocs/vpc/latest#list-subnets)
+| Zone                  | `GET /regions/<region>/zones`   | [List all zones in a region](/apidocs/vpc/latest#list-region-zones)
+| Placement groups      | `GET /placement_groups`         | [List all placement groups](/apidocs/vpc/latest#list-placement-groups)
+{: caption="Table 2. Required instance details api" caption-side="bottom"}
+
+### Creating an instance by using the API
+{: #create-vsi-api}
+{: api}
+
+After you've retrieved the information you need, you can run the [`POST /instances`](/apidocs/vpc/latest#create-instance) method to create an instance.
+
+### Provision from an existing volume
+{: #create-instance-ipbv-api}
+{: api}
+
+Reusing an existing, bootable volume is faster than creating a new volume from a snapshot or an image.
+
+You can provision an instance with an existing volume by specifying the existing volume's `id` or `crn` sub-property as the value of the `boot_volume_attachment` property.
+
+The existing, bootable volume must be an unattached bootable volume that has the same operating system and architecture as the instance profile. Use the [list volumes](/apidocs/vpc/latest#list-volumes) filter and reference the `attachment_state` property and `operating_system` property to view a volume's eligibility.
+
+For example, to see unattached volumes in `us-south-1` with an x86 operating system:
+
+```sh
+curl -X GET "$vpc_api_endpoint/v1/volumes?version=2023-02-08&generation=2?attachment_state=unattached&zone.name=us-south-1&operating_system.architecture=amd64"
+-H "Authorization: Bearer $iam_token"
+```
+
+By default, a boot volume created as part of provisioning a virtual server instance will be deleted when the instance is deleted. You can control this behavior by setting the `delete_volume_on_instance_delete` property to `true` when you create the instance or update the boot volume attachment.
+
+Use the [`POST /instances`](/apidocs/vpc/latest#create-instance) method to create an instance with the information you have gathered. The following call is an example of provisioning an instance by using an existing boot volume.
+
+```sh
+curl -X POST "$vpc_api_endpoint/v1/instances?version=2023-02-08&generation=2"
+-H "Authorization: Bearer $iam_token"
+-d '{
+  "boot_volume_attachment": {
+    "volume": {
+      "id": "r006-feec3e99-995e-4e8f-896b-48b42c7d05a7"
+    }
+  },
+  "keys": [
+    {
+      "id": "363f6d70-0000-0001-0000-00000013b96c"
+    }
+  ],
+  "name": "my-instance",
+  "placement_target": {
+    "id": "0787-8c2a09be-ee18-4af2-8ef4-6a6060732221"
+  },
+  "primary_network_interface": {
+    "name": "my-network-interface",
+    "subnet": {
+      "id": "bea6a632-5e13-42a4-b4b8-31dc877abfe4"
+    }
+  },
+  "profile": {
+    "name": "bx2-2x8"
+  },
+  "volume_attachments": [
+    {
+      "volume": {
+        "capacity": 1000,
+        "encryption_key": {
+          "crn": "crn:[...]"
+        },
+        "name": "my-data-volume",
+        "profile": {
+          "name": "5iops-tier"
+        }
+      }
+    }
+  ],
+  "vpc": {
+    "id": "f0aae929-7047-46d1-92e1-9102b07a7f6f"
+  },
+  "zone": {
+    "name": "us-south-1"
+  }
+}'
+```
+
+For more information, see [Create an instance](/apidocs/vpc/latest#create-instance).
+
 ## Creating virtual server instances by using Terraform
 {: #create-instance-terraform}
 {: terraform}
 
 You can create instances by using Terraform. If you would like to use user tags or access management tags to manage your resources, see [Working with tags](/docs/account?topic=account-tag&interface=terraform).
-
 
 ### Before you begin
 {: #before-you-begin-create-instance-terraform}
@@ -475,9 +777,10 @@ You can create instances by using Terraform. If you would like to use user tags 
 Make sure that you set up [Terraform for VPC](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest).
 
 ### Create a private catalog
-{: #cli-create-private-catalog}
+{: #terraform-create-private-catalog}
+{: terraform}
 
-This step is optional. If you plan to share images from a private catalog, the private catalog must be created first. If you select a catalog image that belongs to a different account, review [Using cross-account image references in a private catalog in Terraform](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-terraform) for additional considerations and limitations. To create a private catalog, see the tutorial [Onboarding a virtual server image with Terraform](/docs/account?topic=account-catalog-vsi-tutorial&interface=ui).
+This step is optional. If you plan to share images from a private catalog, the private catalog must be created first. If you select a catalog image that belongs to a different account, review [Using cross-account image references in a private catalog in Terraform](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-terraform) for more considerations and limitations. To create a private catalog, see the tutorial [Onboarding a virtual server image with Terraform](/docs/account?topic=account-catalog-vsi-tutorial&interface=ui).
 
 ### Gathering information to create an instance by using Terraform
 {: #gather-info-to-create-virtual-servers-terraform}
@@ -487,7 +790,7 @@ Ready to create an instance? Before you can run the `ibm_is_instance` command, y
 
 Gather the following information by using `DataSource` command.
 
-1. Gather instance profile details. Run the following command for the profile you select. See [x86 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#profiles) for a list of available profiles. For more information, see the Terraform documentation on [ibm_is_instance_profiles](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_instance_profiles). Use an instance profile by referring to the instance profile data source. For more information, see the Terraform documentation on [ibm_is_instance_profile](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_instance_profile).
+1. Gather instance profile details. Run the following command for the profile that you select. See [x86 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#profiles) for a list of available profiles. For more information, see the Terraform documentation on [ibm_is_instance_profiles](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_instance_profiles). Use an instance profile by referring to the instance profile data source. For more information, see the Terraform documentation on [ibm_is_instance_profile](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_instance_profile).
 
    ```terraform
    data "ibm_is_instance_profile" "example_profile" {
@@ -496,7 +799,7 @@ Gather the following information by using `DataSource` command.
    ```
    {: codeblock}
 
-1. List the available images for creating your instance. The command depends on what image you want to use. You can use a stock image, a custom image from your account, or an image that was shared with your account from a private catalog. For more information, see the Terraform documentation on [ibm_is_image](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_image). If you plan to use an image that was shared from a private catalog, see the Terraform documentation on [ibm_cm_version](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/cm_version) or [ibm_cm_offering_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/cm_offering_instance).
+1. List the available images for creating your instance. The command depends on what image that you want to use. You can use a stock image, a custom image from your account, or an image that was shared with your account from a private catalog. For more information, see the Terraform documentation on [ibm_is_image](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_image). If you plan to use an image that was shared from a private catalog, see the Terraform documentation on [ibm_cm_version](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/cm_version) or [ibm_cm_offering_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/cm_offering_instance).
 
    * Select a stock image or custom image from your account for your instance.
 
@@ -509,7 +812,7 @@ Gather the following information by using `DataSource` command.
 
    * Select an image shared from a private catalog for the instance. For more information, see the Terraform documentation on [ibm_is_images](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_images). You can select an image from the list to create the instance as shown in the section [Go to Creating an instance by using Terraform section](#create-instance-terraform)
 
-   If you select a catalog image that belongs to a different account, there are additional considerations and limitations to review. See [Using cross-account image references in a private catalog in Terraform](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-terraform).
+   If you select a catalog image that belongs to a different account, you have more considerations and limitations to review. See [Using cross-account image references in a private catalog in Terraform](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#private-catalog-image-reference-vpc-terraform).
      {: note}
 
       * To list all available private catalog image offerings, run the following command.
@@ -543,7 +846,7 @@ Gather the following information by using `DataSource` command.
    ```
    {: codeblock}
 
-1. Create a new ssh-key resource or use an existing ssh-key by referring to the ssh-key data source. For more information, see the Terraform documentation on [ibm_is_ssh_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_ssh_key).
+1. Create a ssh-key resource or use an existing ssh-key by referring to the ssh-key data source. For more information, see the Terraform documentation on [ibm_is_ssh_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_ssh_key).
 
    ```terraform
    resource "ibm_is_ssh_key" "example_sshkey" {
@@ -553,7 +856,7 @@ Gather the following information by using `DataSource` command.
    ```
    {: codeblock}
 
-1. Create a new subnet_reserved_ip resource or use a existing subnet_reserved_ip by referring to the subnet_reserved_ip data source. For more information, see the Terraform documentation on [ibm_is_subnet_reserved_ip](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_subnet_reserved_ip)
+1. Create a subnet_reserved_ip resource or use an existing subnet_reserved_ip by referring to the subnet_reserved_ip data source. For more information, see the Terraform documentation on [ibm_is_subnet_reserved_ip](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_subnet_reserved_ip)
 
    ```terraform
    resource "ibm_is_subnet_reserved_ip" "example_reserved_ip" {
@@ -568,72 +871,70 @@ Gather the following information by using `DataSource` command.
 {: #create-instance-using-terraform}
 {: terraform}
 
-Create the instance by using one of the following examples. For more information and additional examples, see the Terraform documentation on [ibm_is_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance).
+Create the instance by using one of the following examples. For more information, see the Terraform documentation on [ibm_is_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance).
 
-Run one of the following Terraform commands based on the image you plan to use.
+Run one of the following Terraform commands based on the image that you plan to use.
 
-* Create an instance using a stock image or custom image from your account for your instance.
+* Create an instance by using a stock image or custom image from your account for your instance.
 
-```terraform
-resource "ibm_is_instance" "example_instance" {
-  name    = "example-instance-reserved-ip"
-  image   = data.ibm_is_image.example_image.id
-  profile = data.ibm_is_instance_profile.example_profile.name
+   ```terraform
+   resource "ibm_is_instance" "example_instance" {
+     name    = "example-instance-reserved-ip"
+     image   = data.ibm_is_image.example_image.id
+     profile = data.ibm_is_instance_profile.example_profile.name
+   
+     primary_network_interface {
+       name   = "eth0"
+       subnet = ibm_is_subnet.example_subnet.id
+       primary_ip {
+         reserved_ip = ibm_is_subnet_reserved_ip.example_reserved_ip.reserved_ip
+       }
+     }
+     network_interfaces {
+       name   = "eth1"
+       subnet = ibm_is_subnet.example_subnet.id
+       primary_ip {
+         name = "example-reserved-ip1"
+         auto_delete = true
+         address = "${replace(ibm_is_subnet.example_subnet.ipv4_cidr_block, "0/24", "14")}"
+       }
+     }
 
-  primary_network_interface {
-    name   = "eth0"
-    subnet = ibm_is_subnet.example_subnet.id
-    primary_ip {
-      reserved_ip = ibm_is_subnet_reserved_ip.example_reserved_ip.reserved_ip
-    }
-  }
-  network_interfaces {
-    name   = "eth1"
-    subnet = ibm_is_subnet.example_subnet.id
-    primary_ip {
-      name = "example-reserved-ip1"
-      auto_delete = true
-      address = "${replace(ibm_is_subnet.example_subnet.ipv4_cidr_block, "0/24", "14")}"
-    }
-  }
-
-  vpc  = ibm_is_vpc.example_vpc.id
-  zone = "us-south-1"
-  keys = [ibm_is_ssh_key.example_sshkey.id]
-}
-```
-{: codeblock}
-
+     vpc  = ibm_is_vpc.example_vpc.id
+     zone = "us-south-1"
+     keys = [ibm_is_ssh_key.example_sshkey.id]
+   }
+   ```
+   {: codeblock}
+   
 * Create an instance that uses a private catalog-managed image.
+   
+   ```terraform
+   resource "ibm_is_instance" "example_instance" {
+     name    = "example-instance-reserved-ip"
+     image   = data.ibm_is_image.example_image.id
+     profile = data.ibm_is_instance_profile.example_profile.name
+   
+     primary_network_interface {
+       name   = "eth0"
+       subnet = ibm_is_subnet.example_subnet.id
+       primary_ip {
+         reserved_ip = ibm_is_subnet_reserved_ip.example_reserved_ip.reserved_ip
+       }
+     }
+     network_interfaces {
+       name   = "eth1"
+       subnet = ibm_is_subnet.example_subnet.id
+       primary_ip {
+         name = "example-reserved-ip1"
+         auto_delete = true
+         address = "${replace(ibm_is_subnet.example_subnet.ipv4_cidr_block, "0/24", "14")}"
+       }
+     }
 
-```terraform
-resource "ibm_is_instance" "example_instance" {
-  name    = "example-instance-reserved-ip"
-  catalog_offering {
-    version_crn = data.ibm_is_images.example_images.images.0.catalog_offering.0.version.0.crn
-  }
-  profile = data.ibm_is_instance_profile.example_profile.name
-
-  primary_network_interface {
-    name   = "eth0"
-    subnet = ibm_is_subnet.example_subnet.id
-    primary_ip {
-      reserved_ip = ibm_is_subnet_reserved_ip.example_reserved_ip.reserved_ip
-    }
-  }
-  network_interfaces {
-    name   = "eth1"
-    subnet = ibm_is_subnet.example_subnet.id
-    primary_ip {
-      name = "example-reserved-ip1"
-      auto_delete = true
-      address = "${replace(ibm_is_subnet.example_subnet.ipv4_cidr_block, "0/24", "14")}"
-    }
-  }
-
-  vpc  = ibm_is_vpc.example_vpc.id
-  zone = "us-south-1"
-  keys = [ibm_is_ssh_key.example_sshkey.id]
-}
-```
-{: codeblock}
+     vpc  = ibm_is_vpc.example_vpc.id
+     zone = "us-south-1"
+     keys = [ibm_is_ssh_key.example_sshkey.id]
+   }
+   ```
+   {: codeblock}

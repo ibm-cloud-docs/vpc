@@ -38,7 +38,7 @@ Manage your root keys by taking the following actions:
 
 {{site.data.keyword.block_storage_is_short}} volumes, snapshots, {{site.data.keyword.filestorage_vpc_short}} shares, and custom images that are encrypted with your key are registered against the root key in the key management service ({{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}). By viewing the registration, you can map your resources to their associated encryption keys. You can quickly see which resources are protected by a root key. You can also assess the risk that is involved in disabling or deleting a key by viewing which keys are actively protecting data.
 
-For more information, see:
+For more information the following topics.
 
 * {{site.data.keyword.keymanagementserviceshort}} - [Viewing associations between root keys and encrypted IBM Cloud resources](/docs/key-protect?topic=key-protect-view-protected-resources)
 * {{site.data.keyword.hscrypto}} - [Viewing associations between root keys and encrypted IBM Cloud resources](/docs/hs-crypto?topic=hs-crypto-view-protected-resources)
@@ -134,7 +134,7 @@ Root keys move to various states as a result of the actions that you take, and d
 
 [^tabletext2]: A root key can be deleted from three states, _active_, _suspended_, or _deactivated_. The _deactivated_ state occurs automatically when a key's expiration date is reached. Regardless of the state before deletion, keys can be restored.
 
-For more information about root key states from a KMS perspective, see:
+For more information about root key states from a KMS perspective, see the following topics.
 
    * [{{site.data.keyword.keymanagementserviceshort}} - Key states and transitions](/docs/key-protect?topic=key-protect-key-states#key-transitions)
    * [{{site.data.keyword.hscrypto}} - Key states and transitions](/docs/hs-crypto?topic=hs-crypto-key-states#key-transitions)
@@ -150,7 +150,7 @@ To see which root keys are disabled, look in the UI list of resources. The statu
 
 You can [enable a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#enable-ui) that's in a _suspended_ state, which returns the key to an _active_ state. You can also [delete a suspended key](#byok-delete-root-keys) or restore the deleted key if necessary.
 
-For more information about disabling root keys, see:
+For more information about disabling root keys the following topics.
 
    * [{{site.data.keyword.keymanagementserviceshort}} - Disabling root keys](/docs/key-protect?topic=key-protect-disable-keys)
    * [{{site.data.keyword.hscrypto}} - Disabling root keys](/docs/hs-crypto?topic=hs-crypto-disable-keys)
@@ -175,7 +175,7 @@ To force the deletion of a root key in {{site.data.keyword.hscrypto}}, use the A
 
 {{site.data.keyword.block_storage_is_short}} volumes, snapshots, and custom images with a deleted root key appear in the list of resources with an _unusable_ status. {{site.data.keyword.filestorage_vpc_short}} shares show a _suspended_ status. The API reason code is _encryption_key_deleted_.
 
-The following conditions result:
+Deletion of the root key results in the following conditions.
 
    * All instances with an unusable boot volume do not restart.
    * You can't attach unusable data volumes to an instance.
@@ -187,7 +187,7 @@ The following conditions result:
 Before you force delete a root key, it's best to review all resources that are associated with that root key. Consider [temporarily disabling the key](#byok-disable-root-keys) instead of deleting it to suspend the use of that root key. Root keys can be restored within 30 days, but only if they are imported root keys, not KMS generated.
 {: important}
 
-For more information about deleting root keys, see:
+For more information about deleting root keys, see the following topics.
 
    * [{{site.data.keyword.keymanagementserviceshort}} - Deleting keys](/docs/key-protect?topic=key-protect-delete-keys)
    * [{{site.data.keyword.hscrypto}} - Deleting keys](/docs/hs-crypto?topic=hs-crypto-delete-keys)
@@ -219,7 +219,7 @@ To complete the key restoration process, you need the key ID that was associated
 
 You also need to create volume attachments for your data volumes. The volume attachment IDs are different than before you deleted the root key.
 
-For more information about restoring root keys in a KMS instance, see:
+For more information about restoring root keys in a KMS instance, see the following topics.
 
    * [{{site.data.keyword.keymanagementserviceshort}} - Restoring keys](/docs/key-protect?topic=key-protect-restore-keys)
    * [{{site.data.keyword.hscrypto}} - Restoring keys](/docs/hs-crypto?topic=hs-crypto-restore-keys)
@@ -232,11 +232,11 @@ You can use the UI to disable, enable, delete, or restore your root keys. Table 
 
 | User action | {{site.data.keyword.keymanagementserviceshort}} UI procedure | {{site.data.keyword.hscrypto}} UI procedure |
 |-------------|--------------------------|-------------------|
-| Disable key | [Disabling a root key](/docs/key-protect?topic=key-protect-disable-keys#disable-ui) | [Disabling a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#disable-ui) |
-| Enable key | [Enabling a root key](/docs/key-protect?topic=key-protect-disable-keys#enable-ui) | [Enabling a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#enable-ui) |
-| Delete key | [Deleting keys in the console (single authorization)](/docs/key-protect?topic=key-protect-delete-keys#delete-key-gui) | [Deleting keys with the GUI (single authorization)](/docs/hs-crypto?topic=hs-crypto-delete-keys#delete-keys-gui) |
-| | [Deleting a key with dual authorization](/docs/key-protect?topic=key-protect-delete-dual-auth-keys#delete-dual-auth-keys-api) | [Authorize deletion for a key with the GUI (dual authorization)](/docs/hs-crypto?topic=hs-crypto-delete-dual-auth-keys#set-key-deletion-console) |
-| Restore key | [Restoring a deleted key with the console](/docs/key-protect?topic=key-protect-restore-keys#restore-ui) | [Restoring a deleted key with the GUI](/docs/hs-crypto?topic=hs-crypto-restore-keys#restore-ui) |
+| Disable key | [Disabling a root key](/docs/key-protect?topic=key-protect-disable-keys#disable-ui). | [Disabling a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#disable-ui). |
+| Enable key | [Enabling a root key](/docs/key-protect?topic=key-protect-disable-keys#enable-ui). | [Enabling a root key](/docs/hs-crypto?topic=hs-crypto-disable-keys#enable-ui). |
+| Delete key | [Deleting keys in the console (single authorization)](/docs/key-protect?topic=key-protect-delete-keys#delete-key-gui). | [Deleting keys with the GUI (single authorization)](/docs/hs-crypto?topic=hs-crypto-delete-keys#delete-keys-gui). |
+| | [Deleting a key with dual authorization](/docs/key-protect?topic=key-protect-delete-dual-auth-keys#delete-dual-auth-keys-api). | [Authorize deletion for a key with the GUI (dual authorization)](/docs/hs-crypto?topic=hs-crypto-delete-dual-auth-keys#set-key-deletion-console). |
+| Restore key | [Restoring a deleted key with the console](/docs/key-protect?topic=key-protect-restore-keys#restore-ui). | [Restoring a deleted key with the GUI](/docs/hs-crypto?topic=hs-crypto-restore-keys#restore-ui). |
 {: caption="Table 5. UI procedures for managing root keys" caption-side="bottom"}
 
 ### Manage root keys with the API
@@ -412,10 +412,10 @@ When you initiate activity in the KMS to disable or delete a root key, specific 
 * When you delete a key (key state changes to _destroyed_), a `kms.secrets.delete` event is generated.
 * When you restore a deleted key (key state changes from _destroyed_ to _active_), a `kms.secrets.restore` event is generated.
 
-For more information, see all [Activity Tracker key events](/docs/key-protect?topic=key-protect-at-events#key-actions)
+For more information, see all [Activity Tracker key events](/docs/key-protect?topic=key-protect-at-events#key-actions).
 
 ## Next Steps
 {: #next-steps-byok-manage}
 
-* [Create volumes that use customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption)
-* [Create an instance with volumes that use customer-managed encryption](/docs/vpc?topic=vpc-creating-instances-byok)
+* [Create volumes that use customer-managed encryption](/docs/vpc?topic=vpc-block-storage-vpc-encryption).
+* [Create an instance with volumes that use customer-managed encryption](/docs/vpc?topic=vpc-creating-instances-byok).

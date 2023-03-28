@@ -18,17 +18,10 @@ subcollection: vpc
 Use {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) to distribute traffic among multiple server instances within the same region of your VPC.
 {: shortdesc}
 
-The following diagram illustrates the deployment architecture for the ALB.
-
-![Application load balancer for VPC](images/alb_arc.png "Application load balancer"){: caption="Application load balancer" caption-side="bottom"}
-
-In this diagram, "Client Resources" represents the resources (VPCs and subnets, for instance) that belong to the client ecosystem.
-{: note}
-
 ## Types of application load balancers
 {: #types-load-balancer}
 
-You can create a public or private ALB. Table 1 shows a comparison of public versus private features.
+As discussed in the [Load balancers for VPC overview](/docs/vpc?topic=vpc-nlb-vs-elb&interface=ui), you can create a public or private ALB. Table 1 shows a comparison of public versus private features.
 
 | Feature | Public load balancer | Private load balancer |
 |--------|-------|-------|
@@ -59,6 +52,13 @@ Similar to a public application load balancer, your private application load bal
 Use the assigned FQDN to send traffic to the private application load balancer to avoid connectivity problems to your applications during system maintenance or scaling down activities.
 {: important}
 
+## Choosing an application load balancer
+{: #choosing-application-load-balancer}
+
+If you have public and private workloads and layer 7 traffic, use an application load balancer. 
+
+![Choosing a load balancer](/images/loadbalancer_decision_tree.svg){: caption="Figure 1: Choosing an application load balancer" caption-side="bottom"} 
+ 
 ## Load-balancing methods
 {: #load-balancing-methods}
 
@@ -98,7 +98,7 @@ HTTPS redirect listeners redirect the traffic from an HTTP listener to an HTTPS 
 
 For instance, if a service listens on port 443 with HTTPS and a user tries to access the service on port 80 using HTTP, then the request automatically redirects to port 443 with HTTPS.
 
-If policies are present on the HTTPS redirect listener, then the policies are evaluated first. If thre are no policy matches, then the request redirects to a configured HTTPS listener.
+If policies are present on the HTTPS redirect listener, then the policies are evaluated first. If there are no policy matches, then the request redirects to a configured HTTPS listener.
 
 ### HTTPS redirect listener properties
 {: #https_redirect_listener_properties}
@@ -123,9 +123,6 @@ URI | The relative URI to which a request redirects. This is an optional propert
 * You can attach up to 50 virtual server instances to a back-end pool. Traffic is sent to each instance on its specified data port. This data port does not need to be the same one as the front-end listener port.
 * "Private only" endpoints for Secrets Manager are not supported with HTTPS listeners. To configure an HTTPS listener in an ALB, you must upload your TLS certificates to a "Public and private" endpoint.
 
-As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they are no longer valid. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager).
-{: important}
-
 ## Elasticity
 {: #alb-elasticity}
 
@@ -139,9 +136,6 @@ SSL offloading allows the application load balancer service to terminate all inc
 When an HTTPS listener is configured with an HTTP pool, the HTTPS request is terminated at the front-end and the load balancer establishes a plain-text HTTP communication with the back-end server instance. With this technique, CPU-intensive SSL handshakes and encryption or decryption tasks are shifted away from the back-end server instances, allowing them to use all their CPU cycles for processing application traffic.
 
 SSL offloading requires you to provide an SSL certificate for the application load balancer to perform SSL offloading tasks. You can manage the SSL certificates through the [{{site.data.keyword.secrets-manager_full_notm}}](/docs/secrets-manager?topic=secrets-manager-getting-started). 
-
-As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they are no longer valid. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager).
-{: important}
 
 {{site.data.content.load-balancer-grant-service-auth}} 
 
@@ -166,18 +160,16 @@ The following lists the supported ciphers (in order of precedence):
 ### Locating the certificate CRN 
 {: #locating-alb-crn}
 
-When configuring authentication for an application load balancer during provisioning using the UI, you can choose to specify the certificate manager and SSL certificate, or the certificate's CRN. You might want to do this if you cannot view the certificate manager in the drop-down menu, which means you don't have access to the certificate manager instance. Keep in mind that you must enter the CRN if using the API to create an ALB.
+When configuring authentication for an application load balancer during provisioning using the UI, you can choose to specify the Secrets Manager and SSL certificate, or the certificate's CRN. You might want to do this if you cannot view the Secrets Manager in the drop-down menu, which means you don't have access to the Secrets Manager instance. Keep in mind that you must enter the CRN if using the API to create an ALB.
 
-To obtain the CRN, you must have permission to access the certificate manager instance.
+To obtain the CRN, you must have permission to access the Secrets Manager instance.
 {: note}
 
 To find a certificate's CRN, follow these steps:
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > Resource list**. 
-1. Click to expand **Services and software**, then select the certificate manager that you want to find the CRN for.
+1. Click to expand **Services and software**, then select the Secrets Manager that you want to find the CRN for.
 1. Select anywhere in the table row of the certificate to open the Certificate details side panel. The certificate CRN is listed. 
-
-   ![Service instance CRN](images/vpn-crn.png "Service instance CRN"){: caption="Service instance CRN" caption-side="bottom"}
 
 ## End-to-end SSL encryption
 {: #end-to-end-ssl-encryption}
@@ -223,6 +215,16 @@ Application load balancers support end-to-end HTTP2 traffic, and works with list
 {: #websocket-support}
 
 WebSocket provides full-duplex communication channels over a single TCP connection. Application load balancers support WebSocket with every type of listener protocol (HTTP/HTTPS/TCP). 
+
+## Architecture
+{: #nlb-architecture}
+
+The following diagram illustrates the deployment architecture for the ALB.
+
+![Application load balancer for VPC](images/alb_arc.png "Application load balancer"){: caption="Application load balancer" caption-side="bottom"}
+
+In this diagram, "Client Resources" represents the resources (VPCs and subnets, for instance) that belong to the client ecosystem.
+{: note}
 
 ## Related links
 {: #permissions-related-links-alb}

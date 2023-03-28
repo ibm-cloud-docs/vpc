@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-10-03"
+  years: 2020, 2023
+lastupdated: "2023-03-21"
 
 keywords: custom routes
 
@@ -65,27 +65,63 @@ Before you begin, make sure to [set up your CLI environment](/docs/vpc?topic=vpc
 To create a routing table by using the CLI, run the following command:
 
 ```sh
-ibmcloud is vpc-routing-table-create VPC [--name NAME] [--direct-link-ingress false | true] [--transit-gateway-ingress false | true] [--vpc-zone-ingress false | true] [--public-internet-ingress false | true] [--output JSON] [-q, --quiet]
+ibmcloud is vpc-routing-table-create VPC [--name NAME] [--direct-link-ingress false | true] [--internet-ingress, --internet false | true] [--transit-gateway-ingress false | true] [--vpc-zone-ingress false | true] [--accept-routes-from-resource-type-filters, --ar-rtf vpn_server | vpn_gateway] [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
 Where:
 
-- `VPC` is the ID of the VPC.
-- `--name` is the name of the VPC routing table.
-- `--direct-link-ingress` - If set to **true**, this routing table is used to route traffic that originates from {{site.data.keyword.cloud_notm}} Direct Link to this VPC. One of: **false**, **true**.
-- `--transit-gateway-ingress` - If set to **true**, this routing table is used to route traffic that originates from {{site.data.keyword.cloud_notm}} Transit Gateway to this VPC. One of: **false**, **true**.
-- `--vpc-zone-ingress` - If set to **true**, this routing table is used to route traffic that originates from the public internet. For this to succeed, the VPC must not have an existing routing table with this property set to **true**. One of: **false**, **true**.
-- `--route-internet-ingress` - If set to **true**, this routing table allows public internet ingress traffic destined to a floating IP to be routed to a VPC next-hop IP. One of: **false**, **true**.
+`VPC`
+:   Is the ID or name of the VPC.
 
-   Routes with an action of **deliver** are treated as **drop** unless the next-hop is an IP address that is bound to a network interface on a subnet in the route’s zone. Hence, if an incoming packet matches a route with a next-hop of an internet-bound IP address or a VPN gateway connection, the packet is dropped.
-   {: important}
+`--name`
+:   Is the name of the VPC routing table.
 
-- `--output` is the output format. One of: `JSON`.
-- `-q, --quiet` suppresses verbose output.
+`--direct-link-ingress, --direct-link`
+:   Optional. If set to **true**, this routing table is used to route traffic that originates from {{site.data.keyword.cloud_notm}} Direct Link to this VPC. For the routing to succeed, the VPC must not already have a routing table with this property set to **true**. One of: **false**, **true**.
+
+`--internet-ingress, --internet`
+:   Indicates whether this routing table is used to route traffic that originates from the internet. Updating to **true** selects this routing table, provided no other routing table in the VPC already has this property set to **true**. Updating to **false** deselects this routing table.  One of: **false**, **true**.
+
+`--transit-gateway-ingress, --transit-gateway`
+:   If set to **true**, this routing table is used to route traffic that originates from Transit Gateway to this VPC. For the routing to succeed, the VPC must not already have a routing table with this property set to **true**. One of: **false**, **true**.
+
+`--vpc-zone-ingress, --vpc-zone`
+:   Optional. If set to **true**, this routing table is used to route traffic that originates from the public internet. For the routing to succeed, the VPC must not have an existing routing table with this property set to **true**. One of: **false**, **true**.
+
+`--accept-routes-from-resource-type-filters, --ar-rtf`
+:   Comma-separated resource type filters that can create routes in this routing table. One of: **vpn_server**, **vpn_gateway**.
+
+`--output` 
+:   Is the output format. One of: **JSON**.
+
+`-q, --quiet` 
+:   Suppresses verbose output.
+
+Routes with an action of **deliver** are treated as **drop** unless the next-hop is an IP address that is bound to a network interface on a subnet in the route’s zone. Hence, if an incoming packet matches a route with a next-hop of an internet-bound IP address or a VPN gateway connection, the packet is dropped.
+{: important}
 
 You can set an ingress option to **true** on only one routing table per VPC, and then only if that routing table is not attached to any subnets.
 {: note}
+
+### CLI examples
+{: #routing-table-create-examples-cli}
+
+```sh
+ibmcloud is vpc-routing-table-create 72b27b5c-f4b0-48bb-b954-5becc7c1dcb3 --name my-vpc-routing-table --direct-link-ingress true -—output JSON
+```
+
+```sh
+ibmcloud is vpc-routing-table-create my-vpc --name my-vpc-routing-table —-transit-gateway-ingress true --output JSON
+```
+
+```sh
+ibmcloud is vpc-routing-table-create my-vpc --name my-vpc-routing-table --direct-link-ingress true --transit-gateway-ingress true -—output JSON
+```
+
+```sh
+ibmcloud is vpc-routing-table-create 979b4bc6-f018-40a2-92f5-0b1cf777b55d --name test-vpc-cli-routing-tb1 --direct-link-ingress false --internet-ingress false --transit-gateway-ingress false --vpc-zone-ingress true
+```
 
 ## Creating a routing table with the API
 {: #cr-using-the-api-ct}

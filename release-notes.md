@@ -37,6 +37,56 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 Private DNS zones for network load balancers
 :    You can now use IBM Cloud Application and Network Load Balancers for VPC to bind DNS zones from [IBM Cloud DNS Services](/docs/dns-svcs?topic=dns-svcs-getting-started), which you can use to move all DNS resolutions into private networks. Private DNS zones are resolvable only on IBM Cloud, and only from explicitly permitted networks in an account or with cross account access. For more information, see [Integrating a load balancer with IBM Cloud DNS Services](/docs/vpc?topic=vpc-lb-dns).
 
+### 23 March 2023
+{: #vpc-march2323}
+{: release-note}
+
+New network latency dashboard
+:   Provides visibility into network latency between all regions to help you plan the optimal selection for your cloud deployment and plan for scenarios, such as data residency and performance. This dashboard provides the average network round-trip latency (round-trip time or RTT) for all pairs of regions in {{site.data.keyword.cloud_notm}} over a 30-day period.
+
+   You can view and monitor performance in the following {{site.data.keyword.cloud_notm}} regions: Dallas, Toronto, Washington DC, Frankfurt, London, Osaka, Sydney, Tokyo and São Paulo.
+   
+   To view performance metrics, see the [Network latency dashboard](/docs/vpc?topic=vpc-network-latency-dashboard).
+
+### 21 March 2023
+{: #vpc-march2123}
+{: release-note}
+
+Instance provision by volume
+:   You can now reuse an existing boot volume to provision a virtual server instance. The specified volume must be unattached, be in the same zone as the instance profile, and must have an operating system with the same architecture as the instance profile. By default, a boot volume created as part of provisioning a virtual server instance is deleted when the instance is deleted. You can control this behavior when creating or updating an instance. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui), and [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui).
+
+Designating VPC route priority
+:   When multiple VPC routes exist for a given destination, you can now control the priority of these routes (from `0` to `4`). New and existing routes, created without a priority value, are automatically set to the default priority (`2`). Smaller values have higher priority. For more information, see [Determining route preference](/docs/vpc?topic=vpc-about-custom-routes#cr-determining-route-preference).
+
+   The route priority is considered on identical destinations only. 
+   {: note}
+
+Modifying the next hop for VPC routes
+:   You can now update the next-hop of a VPC route. For more information, see [Creating a route](/docs/vpc?topic=vpc-create-vpc-route).
+
+### 20 March 2023
+{: #vpc-march2023}
+{: release-note}
+
+IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-9` updates
+:  For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-9`, new certificates are available.
+   - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-9-attestation.crt){: external}
+   - [Encryption certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-9-encrypt.crt){: external}
+   - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-9-intermediate.crt){: external}
+
+   Two partitions in new data volume
+   - For new {{site.data.keyword.hpvs}} instances, the data volume is partitioned into two parts. The first partition (100Mib) is reserved for internal metadata; the second partition remains as the data volume for workload. Only new volumes are partitioned, and you can't use the partitioned volume with an older version of the HPCR image. Provisioning with an existing encrypted volume also works. The difference is that the existing volume does not get partitioned, and you can also go back to an older image with this volume. 
+
+   Support for using a dynamic registry reference
+   - There exist usecases in which the registry is **not known** when the workload section is pre-encrypted, for example, when the workload provider wants to allow the deployer to use a registry mirror or a private container registry. In such a case, it's possible to dynamically override the registry as well as the pull credentials. This is an coordinated effort between the workload provider and the deployer. For more information, see [Using a dynamic registry reference](/docs/vpc?topic=vpc-hyper-protect-virtual-server-use-dynamic-registry-reference).
+
+### 16 March 2023
+{: #vpc-march1623}
+{: release-note}
+
+Client-to-site VPN server private certificate support
+:    VPN servers now support the use of Secrets Manager private certificates. Private certificates are SSL/TLS certificates that you can sign, issue, and manage in the Secrets Manager service. For VPN server considerations, see [Using a private certificate](/docs/vpc?topic=vpc-client-to-site-authentication#using-private-certificate). For Secrets Manager information, see [Creating a private certificate](/docs/secrets-manager?topic=secrets-manager-certificates&interface=ui#create-certificates).
+
 ### 10 March 2023
 {: #vpc-march1023}
 {: release-note}
@@ -98,17 +148,17 @@ Secure boot with Trusted Plaform Module (TPM) (LA)
 {: #vpc-january3023}
 {: release-note}
 
-Updated certificates for IBM Hyper Protect Container Runtime image
-:   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-8`, new certificates are available.
+IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-8` updates
+:  For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-8`, new certificates are available.
    - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-8-attestation.crt){: external}
    - [Encryption certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-8-encrypt.crt){: external}
    - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-8-intermediate.crt){: external}
 
-Using {{site.data.keyword.hpvs}} for VPC in a private network
-:   You can use your {{site.data.keyword.hpvs}} for VPC instance in **private-only** network configurations, in which the VPC doesn't have a public gateway and the virtual server instance doesn't have a floating IP. You can connect to private endpoints of other services, including container registry and [IBM Log Analysis](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc). The prerequisite is to have a DNS server attached to your virtual server instance. You don't need to do any additional configurations.
+   Using {{site.data.keyword.hpvs}} for VPC in a private network
+   - You can use your {{site.data.keyword.hpvs}} for VPC instance in **private-only** network configurations, in which the VPC doesn't have a public gateway, and the virtual server instance doesn't have a floating IP. You can connect to private endpoints of other services, including container registry and [IBM Log Analysis](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc). The prerequisite is that you need a DNS server that is attached to your virtual server instance. You don't need to do any extra configurations.
 
-Security enhancement to disk encryption verification
-:   To address Denial-of-Service attacks, the requests to [verify disk encryption status](/docs/vpc?topic=vpc-hpvs-disks-encryption-validate) are throttled at three per five minutes.
+   Security enhancement to disk encryption verification
+   - To address Denial-of-Service attacks, the requests to [verify disk encryption status](/docs/vpc?topic=vpc-hpvs-disks-encryption-validate) are throttled at three per five minutes.
 
 ### 27 January 2023
 {: #vpc-jan2723}
@@ -129,7 +179,7 @@ New region (Tokyo) for LinuxONE Bare Metal Servers (s390x processor architecture
 {: release-note}
 
 Application Load Balancer and VPN for VPC
-:    As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they are no longer valid. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager).
+:    As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they are no longer valid. 
 
 End of support (EOS) for deprecated VPN for VPC IKE and IPsec ciphers
 :    On 20 September 2022, the following VPN IKE and IPsec ciphers were deprecated:
@@ -165,16 +215,14 @@ Backup for VPC
 {: #vpc-dec1722}
 {: release-note}
 
-Updated certificates for IBM Hyper Protect Container Runtime image
-:   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-7`, new certificates are available.
+IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-7` updates
+:  For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-7`, new certificates are available.
    - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-7-attestation.crt){: external}
    - [Encryption certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt){: external}
    - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-7-intermediate.crt){: external}
 
-Certificate revocation list
-:   Starting from `ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt` and
-`ibm-hyper-protect-container-runtime-1-0-s390x-7-attestation.crt`, the
-certificates will contain **Certificate Revocation List (CRL) Distribution Points**. You can use the CRL to verify that your certificates are valid (not revoked). For more information, see [Certificate revocation list](/docs/vpc?topic=vpc-cert_validate#certificate-revocation-list).
+   Certificate revocation list
+   - Starting from `ibm-hyper-protect-container-runtime-1-0-s390x-7-encrypt.crt` and `ibm-hyper-protect-container-runtime-1-0-s390x-7-attestation.crt`, the certificates will contain **Certificate Revocation List (CRL) Distribution Points**. You can use the CRL to verify that your certificates are valid (not revoked). For more information, see [Certificate revocation list](/docs/vpc?topic=vpc-cert_validate#certificate-revocation-list).
 
 ### 15 December 2022
 {: #vpc-dec1522}
@@ -204,17 +252,17 @@ Block storage volume health states
 {: #vpc-nov1422}
 {: release-note}
 
-Updated certificates for IBM Hyper Protect Container Runtime image
-:   For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-6`, new certificates are available.
+IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1-0-s390x-6` updates
+:  For the IBM Hyper Protect Container Runtime image version `ibm-hyper-protect-container-runtime-1-0-s390x-6`, new certificates are available.
    - [Attestation certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-6-attestation.crt){: external}
    - [Encryption certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-6-encrypt.crt){: external}
    - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-6-intermediate.crt){: external}
 
-Logging for {{site.data.keyword.hpvs}} for VPC
-:   Apart from IBM Log Analysis, you can now configure logging with a generic syslog backend. For more information, see [Logging for {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc#syslog).
+   Logging for {{site.data.keyword.hpvs}} for VPC
+   - Apart from IBM Log Analysis, you can now configure logging with a generic syslog backend. For more information, see [Logging for {{site.data.keyword.hpvs}} for VPC](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc#syslog).
 
-Security claims on disks encryption
-:   Both the root disk and data disks in the {{site.data.keyword.hpvs}} for VPC instance are configured with Linux Unified Key Setup (LUKS) Encryption. You can verify the encryption status by checking related messages in the log. For more information, see [Verifying disk encryption status](/docs/vpc?hpvs-disks-encryption-validate).
+   Security claims on disks encryption
+   - Both the root disk and data disks in the {{site.data.keyword.hpvs}} for VPC instance are configured with Linux Unified Key Setup (LUKS) Encryption. You can verify the encryption status by checking related messages in the log. For more information, see [Verifying disk encryption status](/docs/vpc?hpvs-disks-encryption-validate).
 
 ### 11 November 2022
 {: #vpc-nov1122}
@@ -514,8 +562,7 @@ File Storage for VPC
 Secrets Manager for application load balancers
 :    Application load balancers now support [IBM Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started). With Secrets Manager, you can create, lease, and centrally manage secrets that are used in {{site.data.keyword.cloud}} services or your custom-built applications.
 
-:    Secrets Manager replaces the use of [IBM Certificate Manager](/docs/certificate-manager?topic=certificate-manager-getting-started). IBM will continue to support Certificate Manager until September 30 2022. To migrate your existing certificates to Secrets Manager, refer to the information [here](https://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager). After your certificates are migrated, you must then update the existing listener configuration with the new certificate CRN.
-{: important}
+:    As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they are no longer valid. 
 
 ### 17 May 2022
 {: #vpc-may1722}

@@ -72,7 +72,7 @@ ibm-<family>-<version>-<type>-<architecture>-<build>
 The following example shows the image naming convention.
 
 ```sh
-ibm-hyper-protect-container-runtime-1-0-s390x-8
+ibm-hyper-protect-container-runtime-1-0-s390x-9
 ```
 
 The following list explains the variables that make up the components of the image name:

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-02-14"
+lastupdated: "2023-03-21"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -48,6 +48,20 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 21 March 2023
+{: #21-march-2023}
+
+### For all version dates
+{: #21-march-2023-all-version-dates}
+
+**Instance provision by volume.**  You can now reuse an existing boot volume to provision a virtual server instance by specifying the existing volume using the `id` or `crn` sub-properties of the `boot_volume_attachment` property. The specified volume must be unattached and must have an operating system with the same architecture as the instance profile. You can use the new volume `attachment_state` property and expanded `operating_system` property to determine its eligibility. You can also use the new [list volumes](/apidocs/vpc/latest#list-volumes) filters to list volumes that have specific `attachment_state`, `operating_system`, and `encryption_type` values.
+
+By default, a boot volume created as part of provisioning a virtual server instance will be deleted when the instance is deleted. You can control this by specifying the `delete_volume_on_instance_delete` property when [creating the instance](/apidocs/vpc/latest#create-instance) or updating the [boot volume attachment](/apidocs/vpc/latest#update-instance-volume-attachment). For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api).
+
+**VPC route priority.** You can now control the priority of [VPC routes](/docs/vpc?topic=vpc-about-custom-routes). When you [create](/apidocs/vpc/latest#create-vpc-routing-table-route) or [update](/apidocs/vpc/latest#update-vpc-routing-table-route) a VPC route, use the new `priority` property to specify a value between `0` and `4` (default: `2`). Smaller values have higher priority. For more information, see [Determining route preference](/docs/vpc?topic=vpc-about-custom-routes#cr-determining-route-preference).
+
+**Modifiable next hop for VPC routes.** You can now [update](/apidocs/vpc/latest#update-vpc-routing-table-route) the `next_hop` property of a VPC route. For more information about next hop, see [Creating a route](/docs/vpc?topic=vpc-create-vpc-route).
 
 ## 7 March 2023
 {: #7-march-2023}
