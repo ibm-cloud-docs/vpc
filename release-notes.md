@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-03-10"
+lastupdated: "2023-03-28"
 
 keywords:
 
@@ -30,8 +30,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## March 2023
 {: #vpc-mar23}
 
-### 15 March 2023
-{: #vpc-March1523}
+### 28 March 2023
+{: #vpc-March2823}
 {: release-note}
 
 Private DNS zones for network load balancers
