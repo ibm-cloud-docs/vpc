@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2023
-lastupdated: "2023-03-27"
+lastupdated: "2023-03-28"
 
 keywords: dedicated host profiles, balanced, compute, memory, ultra high memory, generation 2, gen 2
 
@@ -34,7 +34,7 @@ The following profile families are available:
 |[Ultra High Memory with instance storage](#uhm-is-dh-pr) | Best for in-memory OLTP databases, such as SAP. The Ultra High Memory profile offers the highest vCPU to memory ratios with 1 vCPU to 28 GiB of RAM, is hosted exclusively on the Intel® Xeon® Platinum Cascade Lake server, and includes instance storage for temporary swap space or cache|
 {: caption="Table 1. Dedicated host family selections" caption-side="bottom"}
 
-Profiles with AMD manufactured processors are available for select customers in the Toronto region. Contact IBM sales if you are interested in purchasing and using this offering.
+Profiles with AMD manufactured processors are available in the Toronto region.
 {: preview}
 
 ## Balanced

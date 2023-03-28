@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-03-21"
+lastupdated: "2023-03-28"
 
 keywords: api, change log, beta
 
@@ -107,8 +107,7 @@ You can also change a share between the `tiered` and `custom` profile families s
 
 **AMD support for instances and dedicated hosts.** Accounts that have been granted special approval to preview this feature can select new profiles for [dedicated hosts](/apidocs/vpc-beta#list-dedicated-host-profiles) and [instances](/apidocs/vpc-beta#list-instance-profiles). When provisioning or managing an instance or dedicated host, use the new `vcpu_manufacturer` property to choose between profiles from different processor manufacturers.
 
-Currently, the `vcpu_manufacturer` property included in the `InstanceProfile` and `DedicatedHostProfile` schemas may return values that include uppercase characters. See [Known issues](/docs/vpc?topic=vpc-known-issues#amd-on-vpc-known-issues).
-{: note}
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#28-march-2023).
 
 ## 24 May 2022
 {: #24-may-2022-beta}
