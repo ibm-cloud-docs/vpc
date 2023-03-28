@@ -385,6 +385,7 @@ toc:
                 - lb-monitoring-metrics.md
                 - lb-ig-integration.md
                 - lb-sg-integration.md
+                - lb-private-dns-integration.md
                 - lb-datapath-logging.md
                 - lb-api.md
                 - lb-limitations.md
@@ -401,6 +402,7 @@ toc:
                 - nlb-udp.md
                 - nlb-port-range.md
                 - nlb-pools.md
+                - nlb-private-dns-integration.md
                 - nlb-privatelb.md
                 - nlb-monitoring-metrics.md
                 - nlb-limitations.md
