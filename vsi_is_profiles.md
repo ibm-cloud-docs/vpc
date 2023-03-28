@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-03-21"
+lastupdated: "2023-03-24"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -39,10 +39,13 @@ The following profile families are available:
 Profiles with instance storage and profiles with 64 or more vCPUs are deployed exclusively on the Intel&reg;'s second-generation quad processor Xeon&reg; Platinum 8260 Cascade Lake with 96 cores that are running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz or Intel&reg;'s quad processor Xeon&reg; Gold 6248 Cascade Lake with 80 cores that are running at a base speed of 2.5 GHz and an all-core turbo frequency of 3.1 GHz.
 {: note}
 
+Profiles with AMD manufactured processors are available for select customers in the Toronto region. Contact IBM sales if you are interested in purchasing and using this offering.
+{: preview}
+
 ## Balanced
 {: #balanced}
 
-Balanced profiles provide a mix of performance and scalability for more common workloads with a ratio of 4 GiB of memory for every 1 vCPU of compute. The Balanced profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Balanced profiles available for Intel&reg; x86-64 processors.
+Balanced profiles provide a mix of performance and scalability for more common workloads with a ratio of 4 GiB of memory for every 1 vCPU of compute. The Balanced profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage). The following table shows all Balanced profiles available for Intel&reg; x86-64, and AMD x86-64 processors.
 
 Balanced profiles with the bx2d prefix are available in the US South (Dallas), US East (Washington DC), Canada (Toronto), United Kingdom (London), EU Germany (Frankfurt), Japan (Tokyo), Japan (Osaka), and Australia (Sydney) regions.
 {: preview}
@@ -66,12 +69,31 @@ Balanced profiles with the bx2d prefix are available in the US South (Dallas), U
 | bx2-96x384 | 96 | 48 | 384 | 80 | - |
 | bx2d-96x384 | 96 | 48 | 384 | 80 | 2x1800 |
 | bx2-128x512 | 128 | 64 | 512 | 80 | - |
+| bx2d-128x512 | 128 | 64 | 512 | 80 | 2x2400 |
 {: caption="Table 3. Balance profiles options for Intel x86-64 instances" caption-side="bottom"}
 {: #balanced-intel-x86-64}
 {: tab-title="Intel x86-64"}
 {: tab-group="Balanced"}
 {: class="simple-tab-table"}
 {: summary="Balanced profiles options for Intel x86-64 virtual server instances."}
+
+| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Instance Storage (GB) |
+|---------|---------|---------|---------|---------| ---------|
+| bx2a-2x8 | 2 | 1 | 8 | 2 | - |
+| bx2a-4x16 | 4 | 2 |  16 | 4 | - |
+| bx2a-8x32 | 8 | 4 | 32 | 8 | - |
+| bx2a-16x64 | 16 | 8 | 64 | 16 | - |
+| bx2a-32x128	| 32 | 16 | 128 | 32 | - |
+| bx2a-48x192	| 48 | 24 | 192 | 48 | - |
+| bx2a-64x256	| 64 | 32 | 256 | 64 | - |
+| bx2a-96x384	| 96 | 48 | 384 | 80 | - |
+| bx2a-128x512	| 128 | 64 | 512 | 80 | - |
+{: caption="Table 3. Balance profiles options for x86-64 instances" caption-side="bottom"}
+{: #balanced-amd-x86-64}
+{: tab-title="AMD x86-64"}
+{: tab-group="Balanced"}
+{: class="simple-tab-table"}
+{: summary="Balanced profiles options for AMD x86-64 virtual server instances."}
 
 ## Compute
 {: #compute}
