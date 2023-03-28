@@ -15,69 +15,41 @@ subcollection: vpc
 # `2022-03-29` API migration
 {: #2022-03-29-migration}
 
-As described in [Versioning](/apidocs/vpc#api-versioning){: external}, most changes to the VPC APIs
-are fully backward compatible and therefore are made available to all clients, regardless of the API
-version the client requests. However, the `2022-03-29` release of the VPC API necessitated
-incompatible changes in support of the reserved IPs feature:
+As described in [Versioning](/apidocs/vpc#api-versioning){: external}, most changes to the VPC APIs are fully backward compatible and therefore are made available to all clients, regardless of the API version the client requests. However, the `2022-03-29` release of the VPC API necessitated incompatible changes in support of the reserved IP addresses feature:
 
-- IP addresses are now modeled as objects (resources), rather than strings
-- Security groups must now be associated with targets rather than network interfaces
+- IP addresses are now modeled as objects (resources), rather than strings.
+- Security groups must now be associated with targets rather than network interfaces.
 
-If your clients continue to specify version `2022-03-28` or earlier of the VPC API, no changes are
-required, but those clients remain unable to fully benefit from reserved IPs. See [Managing IP
-addresses](/docs/vpc?topic=vpc-managing-ip-addresses) to learn more about reserved IPs.
+If your clients continue to specify version `2022-03-28` or earlier of the VPC API, no changes are required, but those clients remain unable to fully benefit from reserved IP addresses. For more information about reserved addresses, see [Managing IP addresses](/docs/vpc?topic=vpc-managing-ip-addresses).
 
-Even if you are not planning to make use of reserved IPs, to avoid regressions in client
-functionality, be sure to read and follow the [action needed](#action-needed) before specifying
-version `2022-03-29` or later.
+Even if you are not planning to use reserved IP addresses, to avoid regressions in client functionality, be sure to read and follow the [action needed](#action-needed) before your client specifies version `2022-03-29` or later.
 {: important}
 
-The [VPC Instance Metadata API](/apidocs/vpc-metadata) does not yet support reserved IPs. Clients
-that use the metadata API do not require changes to use version `2022-03-29` or later.
+The [VPC Instance Metadata API](/apidocs/vpc-metadata) does not yet support reserved IP addresses. Clients that use the metadata API do not require changes to use version `2022-03-29` or later.
 {: note}
 
 ## Action needed
 {: #action-needed}
 
-Before specifying version `2022-03-29` or later, follow these actions to avoid regressions in client 
-functionality.
+Before the client specifies version `2022-03-29` or later, follow these actions to avoid regressions in client functionality.
 
 ### Migrating use of IP addresses
 {: #migrate-ip-addresses}
 
-Before migrating a client to API version `2022-03-29` or later, review your code for any use of
-the `primary_ipv4_address` property. As shown in the [examples](#examples), as of version
-`2022-03-29`, the `primary_ipv4_address` string property has been replaced by the `primary_ip`
-object property, which includes an `address` sub-property. Therefore, you'll need to change all
-instances of `primary_ipv4_address` to `primary_ip.address` in the manner appropriate for your
-programming language.
+Before you migrate a client to API version `2022-03-29` or later, review your code for any use of the `primary_ipv4_address` property. As shown in the [examples](#examples), as of version `2022-03-29`, the `primary_ipv4_address` string property is replaced by the `primary_ip` object property, which includes an `address` subproperty. Therefore, you need to change all instances of `primary_ipv4_address` to `primary_ip.address` in the manner appropriate for your programming language.
 
-While `primary_ipv4_address` appears only in the `NetworkInterface`, `NetworkInterfaceReference`,
-and `NetworkInterfacePrototype` schemas (and their closely-related `BareMetalNetworkInterface`
-schemas), those are extensively used in the VPC API. Therefore, even though the incompatible change
-is limited to the `primary_ipv4_address` property, many operations have been affected. See
-[Changed operations](#changed-operations) for a complete list.
+While `primary_ipv4_address` appears only in the `NetworkInterface`, `NetworkInterfaceReference`, and `NetworkInterfacePrototype` schemas (and their closely related `BareMetalNetworkInterface` schemas), those schemas are used extensively in the VPC API. Therefore, even though the incompatible change is limited to the `primary_ipv4_address` property, many operations have been affected. See [Changed operations](#changed-operations) for a complete list.
 
 ### Migrating use of security group associations
 {: #migrate-security-group-assoc}
 
-As part of the [`2021-02-23` release](/docs/vpc?topic=vpc-api-change-log#23-february-2021), security
-group target methods were made available, and the original methods specific to network interfaces
-were deprecated. API version `2022-03-29` removes support for those deprecated methods. As shown in
-the [examples](#examples), the security group target methods include the capabilities of the
-deprecated methods. Security group targets also allow security groups to be associated with other VPC
-resources, such as endpoint gateways and load balancers.
+As part of the [`2021-02-23` release](/docs/vpc?topic=vpc-api-change-log#23-february-2021), security group target methods were made available, and the original methods specific to network interfaces were deprecated. API version `2022-03-29` removes support for those deprecated methods. As shown in
+the [examples](#examples), the security group target methods include the capabilities of the deprecated methods. Security group targets also allow security groups to be associated with other VPC resources, such as endpoint gateways and load balancers.
 
-The deprecated `GET` and `PUT` methods returned `NetworkInterface` response schemas, but the new
-`GET` and `PUT` methods return `NetworkInterfaceReference` response schemas. If your client was
-accessing properties beyond those in `NetworkInterfaceReference`, your client will need to call `GET
+The deprecated `GET` and `PUT` methods returned `NetworkInterface` response schemas, but the new `GET` and `PUT` methods return `NetworkInterfaceReference` response schemas. If your client was accessing properties beyond the properties in `NetworkInterfaceReference`, your client needs to call `GET
 /instances/{instance_id}/network_interfaces/{id}` to retrieve those properties separately.
 
-Additionally, if your client was previously accessing the `network_interfaces[]` property returned
-by `GET /security_groups`, it will instead need to access the `targets[]` property. If your client
-was accessing properties in `network_interfaces[]` beyond those in `NetworkInterfaceReference`, your
-client will need to call `GET /instances/{instance_id}/network_interfaces/{id}` to retrieve those
-properties separately.
+Additionally, if your client was previously accessing the `network_interfaces[]` property that is returned by `GET /security_groups`, it needs to access the `targets[]` property instead. If your client was accessing properties in `network_interfaces[]` beyond the properties in `NetworkInterfaceReference`, your client needs to call `GET /instances/{instance_id}/network_interfaces/{id}` to retrieve those properties separately.
 {: important}
 
 ## Examples
@@ -88,9 +60,7 @@ These examples compare differences between before and after the `2022-03-29` ver
 ### IP address examples
 {: #ip-address-examples}
 
-The following examples compare how to make a `POST /instances` call to provision an instance with a
-specific IP address on its primary network interface before and after the `2022-03-29` versioned
-change, and how to retrieve that IP address.
+The following examples compare how to make a `POST /instances` call to provision an instance with a specific IP address on its primary network interface before and after the `2022-03-29` versioned change, and how to retrieve that IP address.
 
 Specifying API version `2022-03-28` or earlier:
 
@@ -148,9 +118,7 @@ curl -X GET \
 ```
 {: pre}
 
-The following examples compare how to make a `POST /instances/{id}/network_interface` call to create a new network
-interface on an existing instance with a specific IP address before and after the `2022-03-29` versioned
-change, and how to retrieve the address.
+The following examples compare how to make a `POST /instances/{id}/network_interface` call to create a new network interface on an existing instance with a specific IP address before and after the `2022-03-29` versioned change, and how to retrieve the address.
 
 Specifying API version `2022-03-28` or earlier:
 
@@ -201,8 +169,7 @@ curl -X GET \
 ### Security group association examples
 {: #security-group-assoc-examples}
 
-The following examples compare how to place a network interface into a security group before and
-after the `2022-03-29` versioned change.
+The following examples compare how to place a network interface into a security group before and after the `2022-03-29` versioned change.
 
 Specifying API version `2022-03-28` or earlier:
 
@@ -223,8 +190,7 @@ curl -X PUT \
 {: pre}
 
 
-The following examples compare how to remove a network interface from a security group before and
-after the `2022-03-29` versioned change.
+The following examples compare how to remove a network interface from a security group before and after the `2022-03-29` versioned change.
 
 Specifying API version `2022-03-28` or earlier:
 
@@ -250,9 +216,7 @@ curl -X DELETE \
 ### IP addresses
 {: #ip-address-changes}
 
-The following table lists the operations that have had `primary_ipv4_address` changed to
-`primary_ip` in their request bodies, response bodies, or both. A period (`.`) indicates that
-`primary_ipv4_address` was changed to `primary_ip` in the top-level response schema.
+The following table lists the operations where `primary_ipv4_address` changed to `primary_ip` in the request bodies, response bodies, or both. A period (`.`) indicates that `primary_ipv4_address` was changed to `primary_ip` in the top-level response schema.
 
 
 | Method   | Path                                                                                        | Changed request properties                        | Changed response properties                                            |
@@ -286,13 +250,12 @@ The following table lists the operations that have had `primary_ipv4_address` ch
 | `GET`    | `/instances/{instance_id}/network_interfaces/{network_interface_id}/floating_ips/{id}`      |                                                   | `.target` |
 | `PUT`    | `/instances/{instance_id}/network_interfaces/{network_interface_id}/floating_ips/{id}`      |                                                   | `.target` |
 | `GET`    | `/vpcs/{id}/default_security_group`                                                         |                                                   | `.network_interfaces[]` |
-{: caption="Table 1. List of operations that have changed properties" caption-side="bottom"}
+{: caption="Table 1. List of operations that have changed properties." caption-side="bottom"}
 
 ### Security group associations
 {: #sg-assoc-changes}
 
-The following table lists the methods or properties that have been removed as part of completing the
-migration to security group targets.
+The following table lists the methods or properties that were removed as part of completing the migration to security group targets.
 
 | Method   | Path                                                                                        | Changed request properties                        | Changed response properties                                            |
 |----------|---------------------------------------------------------------------------------------------|---------------------------------------------------|------------------------------------------------------------------------|
@@ -301,4 +264,4 @@ migration to security group targets.
 | `DELETE` | ~~`/security_groups/{security_group_id}/network_interfaces/{id}`~~                          |                                                   | |
 | `GET`    | ~~`/security_groups/{security_group_id}/network_interfaces/{id}`~~                          |                                                   | |
 | `PUT`    | ~~`/security_groups/{security_group_id}/network_interfaces/{id}`~~                          |                                                   | |
-{: caption="Table 2. List of methods or properties that have been removed" caption-side="bottom"}
+{: caption="Table 2. List of methods or properties that have been removed." caption-side="bottom"}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-02-08"
+lastupdated: "2023-03-21"
 
 keywords:
 
@@ -11,7 +11,6 @@ subcollection: vpc
 ---
 
 {{site.data.keyword.attribute-definition-list}}
-<!--- comment: linked help topic -->
 
 # About {{site.data.keyword.block_storage_is_short}}
 {: #block-storage-about}
@@ -46,7 +45,7 @@ You can attach only one boot volume to a virtual server instance at a time, but 
 
 When you create an instance from a stock image, a 100 GB, 3,000 IOPS general-purpose boot volume is created and attached to the instance by default. When you create an instance from a custom image, you can specify a boot volume capacity of 10 GB to 250 GB, depending what the image requires. This capacity can be any size between the minimum size that is supported for the selected image and the maximum supported image size. If the custom image is smaller than 10 GB, the boot volume capacity is rounded up to 10 GB. After the boot volume is created, you can expand the boot volume size to the maximum supported size, which is 250 GB.
 
-You cannot create an image from an boot volume that is encrypted with customer-managed keys and is not 100 GB. Such an operation is not supported.
+You cannot create an image from a boot volume that is encrypted with customer-managed keys and is not 100 GB. Such an operation is not supported.
 {: note}
 
 By default, boot volumes are encrypted by IBM-managed encryption. Optionally, you can use your own root keys (CRKs) by choosing customer-managed encryption during instance creation (see [Customer-managed encryption](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption)).

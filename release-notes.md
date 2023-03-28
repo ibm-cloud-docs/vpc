@@ -37,6 +37,40 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 VCPU manufacturer support for instances and dedicated hosts (select availability)
 :   For accounts authorized to preview this functionality, you can now choose between profiles from different processor manufacturers when provisioning an instance or dedicated host in the TOR region. For more information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#balanced), [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui#balanced-dh-pr).
 
+### 28 March 2023
+{: #vpc-March2823}
+{: release-note}
+
+Private DNS zones for network load balancers
+:    You can now use IBM Cloud Application and Network Load Balancers for VPC to bind DNS zones from [IBM Cloud DNS Services](/docs/dns-svcs?topic=dns-svcs-getting-started), which you can use to move all DNS resolutions into private networks. Private DNS zones are resolvable only on IBM Cloud, and only from explicitly permitted networks in an account or with cross account access. For more information, see [Integrating a load balancer with IBM Cloud DNS Services](/docs/vpc?topic=vpc-lb-dns).
+
+### 23 March 2023
+{: #vpc-march2323}
+{: release-note}
+
+New network latency dashboard
+:   Provides visibility into network latency between all regions to help you plan the optimal selection for your cloud deployment and plan for scenarios, such as data residency and performance. This dashboard provides the average network round-trip latency (round-trip time or RTT) for all pairs of regions in {{site.data.keyword.cloud_notm}} over a 30-day period.
+
+   You can view and monitor performance in the following {{site.data.keyword.cloud_notm}} regions: Dallas, Toronto, Washington DC, Frankfurt, London, Osaka, Sydney, Tokyo and São Paulo.
+   
+   To view performance metrics, see the [Network latency dashboard](/docs/vpc?topic=vpc-network-latency-dashboard).
+
+### 21 March 2023
+{: #vpc-march2123}
+{: release-note}
+
+Instance provision by volume
+:   You can now reuse an existing boot volume to provision a virtual server instance. The specified volume must be unattached, be in the same zone as the instance profile, and must have an operating system with the same architecture as the instance profile. By default, a boot volume created as part of provisioning a virtual server instance is deleted when the instance is deleted. You can control this behavior when creating or updating an instance. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui), and [Managing virtual server instances](/docs/vpc?topic=vpc-managing-virtual-server-instances&interface=ui).
+
+Designating VPC route priority
+:   When multiple VPC routes exist for a given destination, you can now control the priority of these routes (from `0` to `4`). New and existing routes, created without a priority value, are automatically set to the default priority (`2`). Smaller values have higher priority. For more information, see [Determining route preference](/docs/vpc?topic=vpc-about-custom-routes#cr-determining-route-preference).
+
+   The route priority is considered on identical destinations only. 
+   {: note}
+
+Modifying the next hop for VPC routes
+:   You can now update the next-hop of a VPC route. For more information, see [Creating a route](/docs/vpc?topic=vpc-create-vpc-route).
+
 ### 20 March 2023
 {: #vpc-march2023}
 {: release-note}
