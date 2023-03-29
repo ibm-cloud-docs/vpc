@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-02-31"
+lastupdated: "2023-03-31"
 
 keywords:
 
@@ -76,15 +76,15 @@ Valid mount target names can include a combination of lowercase alpha-numeric ch
 ### Update a file share profile in the UI
 {: #fs-update-profile-ui}
 
-You can change the profile for a file share from the current profile to another **IOPS tier** profile, to a **custom** profile, or to a high performance **dp2** profile. Your billing adjusts based on the type of profile you choose.
+You can change the [file share profile](/docs/vpc?topic=vpc-file-storage-profiles) from the current profile to another **IOPS tier** profile, to a **custom** profile, or to a high performance **dp2** profile. Your billing adjusts based on the type of profile you choose.
 
-1. Go to the [file shares details](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-view-single-share-ui) page.
+1. Navigate to the [file shares details](/docs/vpc?topic=vpc-file-storage-view&interface=ui#fs-view-single-share-ui) page. The **Profile, size, and IOPS** tile contains the current profile information.
 
-2. Click the pencil icon next to the current profile, or use the **Actions** menu, and select **Edit IOPS profile**. A side panel shows the current profile, file share size, and maximum IOPS.
+2. Click **Edit** or use the **Actions** menu to select **Edit profile and size**. A side panel shows the current profile, file share size, and maximum IOPS.
 
-3. For **New profile**, click the down arrow. You can select a new IOPS tier, a custom profile, or dp2. For **Custom IOPS** or **dp2**, specify a new max IOPS based on the file share size. The file share price is automatically calculated based on your seletion.
+3. For **Profile**, **Performance characteristics**, select **dp2**, a different IOPS tier, or a custom profile. For **dp2** or **Custom IOPS**, specify a new max IOPS based on the file share size. The allowable range is indicated. The file share price is automatically calculated based on your seletion.
 
-4. Click **Save and continue**.
+4. Click **Save**.
 
 ### Delete file shares and mount targets in the UI
 {: #delete-targets-shares-ui}
