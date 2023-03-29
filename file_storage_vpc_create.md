@@ -55,7 +55,7 @@ In the {{site.data.keyword.cloud_notm}} console, you can create a file share and
 | Tags | Enter user tags to apply to this file share. As you type, existing tags appear that you can select. For more information about tags, see [Add user tags to a file share](/docs/vpc?topic=vpc-file-storage-managing&interface=ui#fs-add-user-tags). |
 | Access Management Tags | Enter access management tags that you created in IAM to apply them to this file share. For more information about access management tags, see [Access management tags for file shares](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui#fs-about-mgt-tags). |
 | Mount targets (Optional) | Click **Create** to create a new [mount target](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets) for the file share. You can create one mount target per VPC per file share. Provide a name for the mount target and select a VPC in that zone. You can add as many mount targets as you have VPCs. If you don't have one, first [create a VPC](/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc). For more information about creating mount targets as a separate operation, see [Create a mount target](#fs-create-mount-target-ui). |
-| Profile | Select an IOPS tier or Custom IOPS for file share. The profile that you select determines the input/output performance of the file share. For more information about IOPS tiers and Custom profiles, see [File storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). |
+| Profile | Select a profile for the file share. The profile that you select determines the input/output performance of the file share. For more information about the dp2, IOPS tier, or Custom profiles, see [File storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). |
 | Size | Specify the size for the file share. You can later [increase this size](/docs/vpc?topic=vpc-file-storage-expand-capacity), depending on the file share profile. |
 | Encryption | Encryption with IBM-managed keys is enabled by default when you create a new file share. You can also choose **Customer Managed** and use your own encryption key. For more information about creating encrypted file shares, see [Creating file shares with customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption). If you create a replica share when you provision a new file share, the encryption is inherited. You can't encrypt a replica with a different key. If you change the encryption on the source share, the replica is updated. |
 | Asynchronous replica | Informational field that says that you can create a replica after the file share is created. |
@@ -223,7 +223,7 @@ The following example shows a request to create a 4800 GB file share with a 10 I
 
 ```curl
 curl -X POST \
-"$rias_endpoint/v1/shares?version=2022-09-06&generation=2"\
+"$rias_endpoint/v1/shares?version=2023-03-28&generation=2"\
 -H "Authorization: $iam_token" \
 -d '{
     "size": 4800,
@@ -242,7 +242,7 @@ A successful response looks like the following example.
 
 ```json
 {
-  "created_at": "2022-09-07T22:31:50Z",
+  "created_at": "2023-03-28T22:31:50Z",
   "crn": "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "https://us-south-1.cloud.ibm.com/v1/shares/acd96d70-b8d3-4b56-ad7f-9c1035df93b2",
@@ -286,7 +286,7 @@ This request creates a file share and a mount target, and adds [user tags](/docs
 
 ```curl
 curl -X POST \
-"$rias_endpoint/v1/shares?version=2022-09-06&generation=2"\
+"$rias_endpoint/v1/shares?version=2023-03-28&generation=2"\
 -H "Authorization: Bearer $iam_token"\
 -H 'Content-Type: application/json' \
 -d '{
@@ -318,7 +318,7 @@ A successful response looks like the following example.
 
 ```json
 {
-  "created_at": "2022-09-07T23:31:59Z",
+  "created_at": "2023-03-28T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/ff859972-8c39-4528-91df-eb9160eae918",
@@ -376,7 +376,7 @@ This request creates or adds a mount target to an existing file share.
 
 ```curl
 curl -X POST \
-"$rias_endpoint/v1/shares/$share_id/targets?version=2022-09-06&generation=2"\
+"$rias_endpoint/v1/shares/$share_id/targets?version=2023-03-28&generation=2"\
 -H "Authorization: Bearer $iam_token"\
 -H 'Content-Type: application/json'\
 -d '{
@@ -392,7 +392,7 @@ A successful response looks like the following example.
 
 ```json
 {
-  "created_at": "2022-09-07T23:31:59Z",
+  "created_at": "2023-03-28T23:31:59Z",
   "href": "$vpc_api_endpoint/v1/shares/ff859972-8c39-4528-91df-eb9160eae918/targets/9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "id": "9fdf4438-f5b4-4b6f-8bca-602494fd6c31",
   "lifecycle_state": "pending",
@@ -438,7 +438,7 @@ To set supplemental IDs when you create a share, make a `POST /shares` call and 
 
 ```curl
 curl -X POST \
-"$rias_endpoint/v1/shares?version=2022-09-06&generation=2\
+"$rias_endpoint/v1/shares?version=2023-03-28&generation=2\
 -H "Authorization: $iam_token" \
 -d '{
     "initial_owner": {
