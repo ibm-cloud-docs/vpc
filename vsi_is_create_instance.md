@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2023
 
-lastupdated: "2023-03-28"
+lastupdated: "2023-03-29"
 
 keywords:
 
@@ -29,9 +29,6 @@ Use the following steps to create a virtual server instance.
 1. In the [{{site.data.keyword.cloud_notm}} console ![External link icon](../icons/launch-glyph.svg "External link icon")](https://{DomainName}/vpc-ext), go to **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Virtual server instances**.
 2. Click **Create** and enter the information that is in Table 1.
 3. Click **Create virtual server instance** when you are ready to provision.
-
-Using an existing volume to create a virtual server instance is a beta feature that is available for evaluation and testing purposes.
-{: beta}
 
 | Field | Value |
 |-------|-------|
