@@ -213,6 +213,7 @@ toc:
             - bare_metal_server_planning.md
             - bare_metal_server_create.md
             - bare_metal_server_connect.md
+            - bare_metal_server_connect_windows.md
             - bare_metal_server_connect_s390x.md
             - bare-metal-server-connect-serial-console-windows.md
             - bare_metal_server_manage_nic.md
