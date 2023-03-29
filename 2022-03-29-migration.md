@@ -36,7 +36,7 @@ Before the client specifies version `2022-03-29` or later, follow these actions 
 ### Migrating use of IP addresses
 {: #migrate-ip-addresses}
 
-Before you migrate a client to API version `2022-03-29` or later, review your code for any use of the `primary_ipv4_address` property. As shown in the [examples](#examples), as of version `2022-03-29`, the `primary_ipv4_address` string property is replaced by the `primary_ip` object property, which includes an `address` subproperty. Therefore, you need to change all instances of `primary_ipv4_address` to `primary_ip.address` in the manner appropriate for your programming language.
+Before you migrate a client to API version `2022-03-29` or later, review your code for any use of the `primary_ipv4_address` property. As shown in the [examples](#examples), as of version `2022-03-29`, the `primary_ipv4_address` string property is replaced by the `primary_ip` object property, which includes an `address` sub-property. Therefore, you need to change all instances of `primary_ipv4_address` to `primary_ip.address` in the manner appropriate for your programming language.
 
 While `primary_ipv4_address` appears only in the `NetworkInterface`, `NetworkInterfaceReference`, and `NetworkInterfacePrototype` schemas (and their closely related `BareMetalNetworkInterface` schemas), those schemas are used extensively in the VPC API. Therefore, even though the incompatible change is limited to the `primary_ipv4_address` property, many operations have been affected. See [Changed operations](#changed-operations) for a complete list.
 
