@@ -20,7 +20,7 @@ subcollection: vpc
 After you create your Windows bare metal server, you can connect to it by completing the following steps.
 {: shortdesc}
 
-Windows servers aren't supported for LinuxONE (s390x processor architecture).
+Windows servers aren't supported for LinuxONE s390x processor architecture.
 {: note}
 
 ## Before you begin
