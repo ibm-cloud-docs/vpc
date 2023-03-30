@@ -30,13 +30,13 @@ Earlier file shares that were created by using either the [IOPS tier](#fs-tiers)
 
 Table 1 shows the dp2 profile performance levels compared to the earlier profiles. [Table 2](#dp2-profile) presents the IOPS and capacity ranges for the dp2 profile. For more information about the earlier IOPS tiers and custom profiles, see [previous version file storage profiles](#fs-v2-profiles).
 
-| Profile | IOPS | IOPS per share | Max throughput | Share size  | Block size |
-|---------|------|-----------------|----------------|--------------|------------|
-| dp2 | 3 - 100 IOPS/GB | 100-96,000 | 1024 MB/s | 10 GB - 32,000 GB | 256 KB |
-| General purpose | 3 IOPS/GB | 3,000 - 48,000 | 670 MB/s | 10 GB - 16,000 GB |  16 KB |
-| 5-iops | 5 IOPS/GB | 3,000 - 48,000 | 768 MB/s | 10 GB - 9,600 GB | 16 KB |
-| 10-iops | 10 IOPS/GB | 3,000 - 48,000 | 1024 MB/s | 10 GB - 4,800 GB | 256 KB |
-| Custom | 1-100 IOPS/GB | 3,000 - 48,000 | 1024 MB/s | 10 GB - 16,800 GB | 256 KB |
+| Profile | IOPS | IOPS per share | Max throughput (MB/s)| Share size (GB) | Block size (KB) |
+|---------|------|-----------------|---------------------|-----------------|-----------------|
+| dp2 | 3-100 IOPS/GB | 100-96000 | 1024 | 10-32000 | 256 |
+| General purpose | 3 IOPS/GB | 3000-48000 | 670 | 10-16000 GB |  16 |
+| 5-iops | 5 IOPS/GB | 3000-48000 | 768 | 10-9600 | 16 |
+| 10-iops | 10 IOPS/GB | 3000-48000 | 1024 | 10-4800 | 256 |
+| Custom | 1-100 IOPS/GB | 3000-48000 | 1024 | 10-16800 GB | 256 |
 {: caption="Table 1. Comparison of file share profiles and performance levels" caption-side="top"}
 
 ## dp2 file storage profile
@@ -46,18 +46,18 @@ By using the dp2 profile, you can specify the total IOPS for the file share with
 
 Table 2 shows the available IOPS ranges, based on share size.
 
-| Share size (GB) | IOPS range |
+| Share size (GB) | IOPS range (IOPS) |
 |------------------|-----------|
-| 10 -39   | 100 - 1,000 |
-| 40 - 79 | 100 -2,000 |
-| 80 - 99 | 100 - 4,000 |
-| 100 - 499 | 100 - 6,000 |
-| 500 - 999 | 100 - 10,000 |
-| 1,000 - 1,999 | 100 - 20,000 | 
-| 2,000 - 3,999 GB | 200	- 40,000 |
-| 4,000 - 7,999 GB | 300	- 40,000 |
-| 8,000 - 15,999 GB | 500	- 64,000 | 
-| 16,000 - 32,000 GB | 2,000	- 96,000&sup1; |
+| 10-39   | 100-1000 |
+| 40-79 | 100-2000 |
+| 80-99 | 100-4000 |
+| 100-499 | 100-6000 |
+| 500-999 | 100-10000 |
+| 1000-1999 | 100-20000 | 
+| 2000-3999  | 200-40000 |
+| 4000-7999 | 300-40000 |
+| 8000-15999  | 500-64000 | 
+| 16000-32000 | 2000-96000&sup1; |
 {: caption="Table 2. dp2 file share profile IOPS and capacity ranges" caption-side="top"}
 
 &sup1;For the 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share that is accessed by one instance is limited to 48,000 IOPS.
@@ -89,18 +89,18 @@ Custom IOPS profiles specify the total IOPS for the file share within the range 
 
 Table 4 shows the available IOPS ranges based on file share size.
 
-| File Share size (GB) | IOPS range |
+| File Share size (GB) | IOPS range (IOPS) |
 |-------------|--------------|
-| 10 - 39   | 100 - 1,000 |
-| 40 - 79 | 100 -2,000 |
-| 80 - 99 | 100 - 4,000 |
-| 100 - 499 | 100 - 6,000 |
-| 500 - 999 | 100 - 10,000 |
-| 1,000 - 1,999 | 100 - 20,000 |
-| 2000 - 3,999 | 200 - 40,000 |
-| 4000 - 7,999 | 300 - 40,000 |
-| 8000 - 9,999 | 500 - 48,000 |
-| 10,000 - 16,000 | 1,000 - 48,000 |
+| 10-39   | 100-1000 |
+| 40-79 | 100-2000 |
+| 80-99 | 100-4000 |
+| 100-499 | 100-6000 |
+| 500-999 | 100-10000 |
+| 1000-1999 | 100-20000 |
+| 2000-3999 | 200-40000 |
+| 4000-7999 | 300-40000 |
+| 8000-9999 | 500-48000 |
+| 10000-16000 | 1000-48000 |
 {: caption="Table 4. Available IOPS based on file share size." caption-side="bottom"}
 
 The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS calculation results in IOPS less than or equal to 48,000 IOPS.
