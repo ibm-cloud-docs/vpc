@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-03-24"
+lastupdated: "2023-03-30"
 
 keywords: confidential computing, secure execution, logging for hyper protect virtual server for vpc
 

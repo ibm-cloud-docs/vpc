@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-03-24"
+lastupdated: "2023-03-30"
 
 keywords: logging for hyper protect virtual server for vpc, encrypt log messages for hyper protect virtual server for vpc
 
