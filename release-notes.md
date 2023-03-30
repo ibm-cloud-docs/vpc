@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-03-23"
+lastupdated: "2023-03-29"
 
 keywords:
 
@@ -29,6 +29,20 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 
 ## March 2023
 {: #vpc-mar23}
+
+### 29 March 2023
+{: #vpc-march2923}
+{: release-note}
+
+VCPU manufacturer support for instances and dedicated hosts (LA)
+:   For accounts authorized to preview this functionality, you can now choose between profiles from different processor manufacturers when provisioning an instance or dedicated host in the TOR region. For more information, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) and [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui#balanced-dh-pr).
+
+### 28 March 2023
+{: #vpc-March2823}
+{: release-note}
+
+Private DNS zones for network load balancers
+:    You can now use IBM Cloud Application and Network Load Balancers for VPC to bind DNS zones from [IBM Cloud DNS Services](/docs/dns-svcs?topic=dns-svcs-getting-started), which you can use to move all DNS resolutions into private networks. Private DNS zones are resolvable only on IBM Cloud, and only from explicitly permitted networks in an account or with cross account access. For more information, see [Integrating a load balancer with IBM Cloud DNS Services](/docs/vpc?topic=vpc-lb-dns).
 
 ### 23 March 2023
 {: #vpc-march2323}
