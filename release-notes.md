@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-03-29"
+lastupdated: "2023-03-30"
 
 keywords:
 
@@ -50,6 +50,9 @@ VCPU manufacturer support for instances and dedicated hosts (LA)
 
 Private DNS zones for network load balancers
 :    You can now use IBM Cloud Application and Network Load Balancers for VPC to bind DNS zones from [IBM Cloud DNS Services](/docs/dns-svcs?topic=dns-svcs-getting-started), which you can use to move all DNS resolutions into private networks. Private DNS zones are resolvable only on IBM Cloud, and only from explicitly permitted networks in an account or with cross account access. For more information, see [Integrating a load balancer with IBM Cloud DNS Services](/docs/vpc?topic=vpc-lb-dns).
+
+Enhancements to viewing profiles - number of supported network interfaces
+:   In {{site.data.keyword.cloud_notm}} console, when you click **View all profiles** on the **Create virtual server instance** page, the **Bandwidth** column values include a tool tip. The tool tip now includes the number of network interfaces that can be attached for the profile. A similar feature is now available in the API when you list instance profiles. For more information, see [Network interface configuration for instance profiles](/docs/vpc?topic=vpc-api-change-log&interface=cli#28-march-2023-all-version-dates).
 
 ### 23 March 2023
 {: #vpc-march2323}
