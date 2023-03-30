@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-03-24"
+lastupdated: "2023-03-28"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -39,7 +39,7 @@ The following profile families are available:
 Profiles with instance storage and profiles with 64 or more vCPUs are deployed exclusively on the Intel&reg;'s second-generation quad processor Xeon&reg; Platinum 8260 Cascade Lake with 96 cores that are running at a base speed of 2.4 GHz and an all-core turbo frequency of 3.1 GHz or Intel&reg;'s quad processor Xeon&reg; Gold 6248 Cascade Lake with 80 cores that are running at a base speed of 2.5 GHz and an all-core turbo frequency of 3.1 GHz.
 {: note}
 
-Profiles with AMD manufactured processors are available for select customers in the Toronto region. Contact IBM sales if you are interested in purchasing and using this offering.
+Profiles with AMD manufactured processors are available in the Toronto region.
 {: preview}
 
 ## Balanced
@@ -88,6 +88,7 @@ Balanced profiles with the bx2d prefix are available in the US South (Dallas), U
 | bx2a-64x256	| 64 | 32 | 256 | 64 | - |
 | bx2a-96x384	| 96 | 48 | 384 | 80 | - |
 | bx2a-128x512	| 128 | 64 | 512 | 80 | - |
+| bx2a-228x912 | 228 | 114 | 912 | 80 | - |
 {: caption="Table 3. Balance profiles options for x86-64 instances" caption-side="bottom"}
 {: #balanced-amd-x86-64}
 {: tab-title="AMD x86-64"}
