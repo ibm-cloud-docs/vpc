@@ -32,7 +32,7 @@ Table 1 shows the `dp2` profile performance levels compared to the earlier profi
 
 | Profile | IOPS | IOPS per share | Max throughput | Share size  | Block size |
 |---------|------|-----------------|----------------|--------------|------------|
-| dp2 | 1 - 100 IOPS/GB | 100-64,000 | 1024 MB/s | 1 GB - 32,000 GB | 256 KB |
+| dp2 | 3 - 50 IOPS/GB | 100-96,000 | 1024 MB/s | 10 GB - 32,000 GB | 256 KB |
 | General purpose | 3 IOPS/GB | 3,000 - 48,000 | 670 MB/s | 10 GB - 16,000 GB |  16 KB |
 | 5-iops | 5 IOPS/GB | 3,000 - 48,000 | 768 MB/s | 10 GB - 9,600 GB | 16 KB |
 | 10-iops | 10 IOPS/GB | 3,000 - 48,000 | 1024 MB/s | 10 GB - 4,800 GB | 256 KB |
