@@ -30,8 +30,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## March 2023
 {: #vpc-mar23}
 
-### 29 March 2023
-{: #vpc-march2923}
+### 30 March 2023
+{: #vpc-march3023}
 {: release-note}
 
 Documentation enhancement: Encrypting log messages for {{site.data.keyword.hpvs}} for VPC
