@@ -54,7 +54,7 @@ Use the following procedure to validate the attestation record and hashes:
    {: pre}
 
 * Verify the signature of the attestation record:
-   ```
+   ```sh
    openssl sha256 -verify contract-public-key.pub -signature se-signature.bin se-checksums.txt
    ```
    {: pre}
