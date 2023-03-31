@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-03-30"
+lastupdated: "2023-03-31"
 
 keywords:
 
@@ -23,12 +23,19 @@ content-type: release-note
 Use the release notes to learn the latest updates to {{site.data.keyword.vpc_full}} that are grouped by date.
 {: shortdesc}
 
-For more information about changes to the {{site.data.keyword.vpc_short}} API , see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
+For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
 
 ## March 2023
 {: #vpc-mar23}
+
+### 31 March 2023
+{: #vpc-march3123}
+{: release-note}
+
+New network latency dashboard to view latency between zones in a multi-zone region (MZR)
+:   Not only can you view inter-region latency metrics, but you can now view inter-AZ metrics between all regions and availability zones (AZs) to help you plan the optimal selection for your cloud deployment. To view performance metrics, see the [Network latency dashboards](/docs/vpc?topic=vpc-network-latency-dashboard).
 
 ### 30 March 2023
 {: #vpc-march3023}
