@@ -87,7 +87,6 @@ toc:
                - about-contract.md
                - certificate_validate.md
                - hpvs-logging.md
-               - hpvs-encrypt-log-message.md
                - hpvs-disks-encryption-validate.md
                - about-hp-securebuild.md
                - hpvs-override-registry.md
