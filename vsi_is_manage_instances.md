@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-03-21"
+lastupdated: "2023-03-31"
 
 keywords: view instance details, restart, stop, instance details, delete
 
@@ -368,10 +368,10 @@ To view the new bandwidth allocation, you must either stop and start the instanc
 
 You can adjust the allocation of your instance's total bandwidth between network bandwidth and storage bandwidth using the CLI.
 
-To reallocate instance bandwidth by using the CLI, run the `instance-update {id}` command and specify the total storage bandwidth in megabits per second (Mbps) for the `total-volume-bandwidth` parameter. Use this syntax:
+To reallocate instance bandwidth by using the CLI, run the `instance-update` command and specify the total storage bandwidth in megabits per second (Mbps) for the `total-volume-bandwidth` parameter. Here, INSTANCE can be ID or Name of the instance. Use this syntax:
 
 ```sh
-ibmcloud is instance-update {id} --total-volume-bandwidth VALUE
+ibmcloud is instance-update INSTANCE --total-volume-bandwidth VALUE
 ```
 {: pre}
 
@@ -455,10 +455,10 @@ For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-h
 {: #set-recovery-policy-cli}
 {: cli}
 
-You can update an instance in your IBM Cloud VPC with and change the availability policy on host failure by using the command-line interface (CLI). Run the ibmcloud `instance-update` command and set the `--host-failure-policy` property to `start` or `stop`. The host failure policy service is set to `restart` by default.
+You can update an instance in your IBM Cloud VPC with and change the availability policy on host failure by using the command-line interface (CLI). Run the ibmcloud `instance-update` command and set the `--host-failure-policy` property to `start` or `stop`. The host failure policy service is set to `restart` by default. Here, INSTANCE can be ID or Name of the Instance.
 
 ```sh
-ibmcloud is instance-update {id} --total-volume-bandwidth VALUE --host-failure-policy stop
+ibmcloud is instance-update INSTANCE --total-volume-bandwidth VALUE --host-failure-policy stop
 ```
 {: pre}
 
