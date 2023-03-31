@@ -77,7 +77,7 @@ As recommended in the [documentation](/docs/vpc?topic=vpc-about-contract_se#hpcr
    ```
    {: codeblock}
 
-  4. A sample output can be found in the `compose` folder under `example-files`. Keep in mind that the `logging.pub` file containing the public key must be stored in the `compose` folder along with `docker-compose.yml`.
+4. A sample output can be found in the `compose` folder under `example-files`. Keep in mind that the `logging.pub` file containing the public key must be stored in the `compose` folder along with `docker-compose.yml`.
 
    Compress and encrypt the folder, as the `compose` subsection requires this for the `archive` value. Use the following command to obtain the `base64` encoded archive as a file named `compose.b64`. Use the raw content of `compose.b64` for the value of `archive` under the `compose` subsection.
    ```
@@ -85,13 +85,13 @@ As recommended in the [documentation](/docs/vpc?topic=vpc-about-contract_se#hpcr
    ```
    {: codeblock}
 
-  5. Run the `encrypt-basic.sh` script to obtain the encrypted `workload` section of the contract.
+5. Run the `encrypt-basic.sh` script to obtain the encrypted `workload` section of the contract.
    ```
    cat workload.yaml | ./encrypt-basic.sh hpcr.crt
    ```
    {: codeblock}
 
-  6. Complete the `user-data.yaml` with the output of of Step 2 and 5. Refer to the sample `user-data.yaml` for correct schema. Note the `hyper-protect-basic` token approach to implement hybrid encryption, as it's used throughout IBM Cloud Hyper Protect Virtual Server for VPC.
+6. Complete the `user-data.yaml` with the output of of Step 2 and 5. Refer to the sample `user-data.yaml` for correct schema. Note the `hyper-protect-basic` token approach to implement hybrid encryption, as it's used throughout IBM Cloud Hyper Protect Virtual Server for VPC.
 
 ## Create your Hyper Protect Virtual Server instance 
 {: #create-virtual-server}
