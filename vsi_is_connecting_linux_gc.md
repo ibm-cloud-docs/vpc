@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2022-11-03"
+  years: 2018, 2023
+lastupdated: "2023-03-31"
 
 keywords: connecting, linux
 
@@ -28,7 +28,7 @@ in [Creating an instance by using the CLI](/docs/vpc?topic=vpc-creating-virtual-
 
 If you need to locate your floating IP address for the instance to which you want to connect, complete the following steps. If you already know your floating IP address, skip to [Getting connected](#getting-connected).
 
-1. You need to identify your floating IP ID before you can locate your floating IP address. Run the following command to identify your floating IP ID:
+1. You need to identify your floating IP address. Run the following command to identify your floating IP address:
 
    ```sh
    ibmcloud is instance-network-interfaces <INSTANCE_ID> <NETWORK_INTERFACE_ID> --json
@@ -39,7 +39,8 @@ If you need to locate your floating IP address for the instance to which you wan
    
    ```json
    "floating_ips": [
-           {
+           {   
+               "address": "123.45.678.90"
                "crn:v1:mydomain:public:vpc:us-south:a/c4cxxxc10xx54xxx9e2xxx59xxx3fa0f::floating_ip:12345x67-8901-234x-5678-9xx01xx23x4x",
                "href": "https://us-south.myaccount.cloud.ibm.com/v1/floating_ips/12345x67-8901-234x-5678-9xx01xx23x4x",
                "id": "0738-12345x67-8901-234x-5678-9xx01xx23x4x",

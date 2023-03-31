@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-03-15"
+lastupdated: "2023-03-30"
 
 keywords: Backup for VPC, backup snapshot, create backups for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -92,7 +92,7 @@ You can schedule backups in your plan on a daily, weekly, or monthly basis by us
 3. Specify a **Retention type** for the backups. You can specify either how long to keep them by number of days or the total number to retain.
 
    * For **Age**, specify the number of days that you want to retain the backups. A default value for the maximum number of days to keep a backup is not provided.
-   * For **Count**, provide the number of backups that you want to keep. You can retain up to 750 snapshots for a volume.
+   * For **Count**, provide the number of backups that you want to keep.
    
    To keep costs down, set a retention period or snapshots count adequate to your needs. For example, setting 7 for **Age** retains a week's worth of backups.
 
@@ -121,7 +121,7 @@ Use the cost estimator to see what your backups might cost based on the rate of 
 
    * Average amount of data per volume (in GBs). For example, you might associate two volumes with a policy. The first volume has 4 GB of data and the second 20 GB. An average of the two would be 12 GB.
 
-   * Number of backups per volume per month. Consider the backup frequency that you set in your backup plan. You can take a maximum of 750 backup snapshots per volume.
+   * Number of backups per volume per month. You can take a maximum of 750 backup snapshots per volume.
 
    * Percent of incremental change after the initial backup. For example, 15 percent increase in size for each subsequent backup.
 
