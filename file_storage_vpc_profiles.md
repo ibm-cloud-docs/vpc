@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-03-31"
+lastupdated: "2023-04-03"
 
 keywords:
 
@@ -32,7 +32,7 @@ Table 1 shows the dp2 profile performance levels compared to the earlier profile
 
 | Profile | IOPS | IOPS per share | Max throughput (MB/s)| Share size (GB) | Block size (KB) |
 |---------|------|-----------------|---------------------|-----------------|-----------------|
-| dp2 | 3-100 IOPS/GB | 100-96000 | 1024 | 10-32000 | 256 |
+| dp2 | 1-100 IOPS/GB | 100-96000 | 1024 | 10-32000 | 256 |
 | General purpose | 3 IOPS/GB | 3000-48000 | 670 | 10-16000 GB |  16 |
 | 5-iops | 5 IOPS/GB | 3000-48000 | 768 | 10-9600 | 16 |
 | 10-iops | 10 IOPS/GB | 3000-48000 | 1024 | 10-4800 | 256 |
