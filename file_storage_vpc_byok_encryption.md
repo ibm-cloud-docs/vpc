@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-25"
+lastupdated: "2023-03-31"
 
 keywords:
 
@@ -46,7 +46,7 @@ Follow this procedure to specify customer-managed encryption when you create a f
    | Resource Group | Specify a [resource group](/docs/vpc?topic=vpc-iam-getting-started#resources-and-resource-groups). Resource groups help organize your account resources for access control and billing purposes. |
    | Location | Choose the zone where you want to create the file share. The zones inherited from the VPC, for example, _US South 3_. |
    | Mount targets (Optional) | Click **Create** to create a [mount target](/docs/vpc?topic=vpc-file-storage-vpc-about#fs-share-mount-targets) for the file share. You can create one mount target per VPC per file share. Provide a name for the mount target and select a VPC in that zone. You can add as many mount targets as you have VPCs. If you don't have one, first [create a VPC](/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc). (To use the API, see [Creating a VPC by using the REST APIs](/docs/vpc?topic=vpc-creating-a-vpc-using-the-rest-apis).) For more information about creating mount targets as a separate operation, see [Create a mount target](#fs-create-mount-target-ui). |
-   | Profile | Select an IOPS tier for file share. The tier that you select determines the input/output performance of a file share. For more information, see [IOPS tier profiles](/docs/vpc?topic=vpc-file-storage-profiles). |
+   | Profile | Select an IOPS tier, custom, or dp2 profile. The profile that you select determines the input/output performance of a file share. For more information, see [file storage profiles](/docs/vpc?topic=vpc-file-storage-profiles). |
    | Size | Specify the size for the file share. |
    | Encryption | Choose **Customer Managed** and use your own encryption key.
    {: caption="Table 1. Values for creating a file share and mount target." caption-side="bottom"}
@@ -70,13 +70,13 @@ If you created your {{site.data.keyword.keymanagementserviceshort}} or {{site.da
 {: #fs-byok-cli}
 {: cli}
 
-To create a file share with customer-managed encryption from the CLI, use the `ibmcloud is share-create` command with the `--encryption-key` parameter. The `encryption_key` parameter specifies a valid CRN for the root key in the key management service.
+To create a file share with customer-managed encryption from the CLI, use the `ibmcloud is share-create` command with the `--encryption-key` option. The `encryption_key` parameter specifies a valid CRN for the root key in the key management service.
 
 Before you begin, verify that you completed the [prerequisites](/docs/vpc?topic=vpc-file-storage-create#before-creating-file-storage-cli), then follow these steps:
 
 1. Use the procedure in [Step 1 - Obtain service instance and root key information](/docs/vpc?topic=vpc-creating-instances-byok#byok-cli-setup-prereqs) to obtain the ID of your key management service and the CRN of the root key in that service.
 
-2. Specify the `ibmcloud is share-create` command with the `--encryption-key` parameter to a volume with customer-managed encryption. The `encryption_key` parameter specifies a valid CRN for the root key in the key management service.
+2. Specify the `ibmcloud is share-create` command with the `--encryption-key` option to a volume with customer-managed encryption. The `encryption_key` parameter specifies a valid CRN for the root key in the key management service.
 
 ```bash
 ibmcloud is share-create
@@ -111,7 +111,7 @@ Encryption Key                          crn:v1:bluemix:public:kms:us-south:a/8d6
 Encryption                              customer_managed
 Status                                  pending
 Resource Group                          Default(dbb12715c2a22f2bb60df4ffd4a543f2)
-Created                                 2022-09-07 10:09:28
+Created                                 2023-02-07 10:09:28
 Zone                                    us-south-2
 Mount targets                           none
 ```
@@ -132,7 +132,7 @@ The following example creates a file share with a mount target, and specifies th
 
    ```curl
    curl -X POST \
-   "$vpc_api_endpoint/v1/shares?version=2022-09-06&generation=2" \
+   "$vpc_api_endpoint/v1/shares?version=2023-02-06&generation=2" \
    -H "Authorization: $iam_token" \
    -d '{
        "encryption_key": {
@@ -166,7 +166,7 @@ A successful response looks like the following example.
 
    ```json
    {
-     "created_at": "2022-09-07T22:58:49.000Z",
+     "created_at": "2023-02-07T22:58:49.000Z",
      "crn": "crn:[...]",
      "encryption": "customer_managed",
      "encryption_key": {
