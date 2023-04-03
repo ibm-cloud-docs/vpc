@@ -2,8 +2,7 @@
 
 copyright:
   years: 2021, 2023
-
-lastupdated: "2023-04-04"
+lastupdated: "2023-03-28"
 
 keywords: api, change log, beta
 
@@ -26,26 +25,6 @@ There are no backward-compatibility guarantees as a feature progresses through i
 {: important}
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
-
-## 4 April 2023
-{: #4-april-2023-beta}
-
-### For all version dates
-{: #4-april-2023-all-version-dates-beta}
-
-**File storage profiles.** Accounts that have been granted special approval to preview this feature can now create file shares using the **dp2** profile. You can specify the `dp2` subproperty when you:
-
-* [Create a file share](/apidocs/vpc-beta#create-share)
-* [update a file share](/apidocs/vpc-beta#update-share)
-* [retrieve a file share profile](/apidocs/vpc-beta#get-share-profile)
-
-The `dp2` profile is also shown in all methods that return the `profile` property, including:
-
-* [List all file share profiles](/apidocs/vpc-beta#list-share-profiles)
-* [List all file shares](/apidocs/vpc-beta#list-shares)
-* [Retrieve the source file share for a replica file share](/apidocs/vpc-beta#get-share-source)
-
-For more information, see the [dp2 file storage profile](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile).
 
 ## 14 February 2023
 {: #14-february-2023-beta}
