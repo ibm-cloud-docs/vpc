@@ -90,7 +90,7 @@ This use case does not apply for connections between a policy-based VPN and a ro
 
 Both policy-based and route-based VPNs allow users to connect to multiple remote peer devices associated with different VPCs/environments by using multiple VPN connections
 
-![Multiple peers VPN use case](images/vpn-multiple-peers.png){: caption="Mulitple Peers VPN use case" caption-side="bottom"}
+![Multiple peers VPN use case](images/vpn-multiple-peers.png){: caption="Multiple Peers VPN use case" caption-side="bottom"}
 
 ## About policy negotiation
 {: #policy-negotiation}
