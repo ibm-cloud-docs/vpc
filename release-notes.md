@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-03-31"
+lastupdated: "2023-04-04"
 
 keywords:
 
@@ -26,6 +26,16 @@ Use the release notes to learn the latest updates to {{site.data.keyword.vpc_ful
 For more information about changes to the {{site.data.keyword.vpc_short}} API, see [{{site.data.keyword.vpc_short}} API change log](/docs/vpc?topic=vpc-api-change-log).
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
+
+## April 2023
+{: #vpc-apr04}
+
+### 4 April 2023
+{: #vpc-april0423}
+{: release-note}
+
+{{site.data.keyword.filestorage_vpc_short}} defined-performance profile (beta)
+:    For customers with special access to this feature, you can now create file shares using the **dp2** defined-performance profile. This profile provides higher IOPS and greater capacity than earlier profiles. You can also modify existing file shares to use this profile. For more information, see the [file share profiles overview](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#file-storage-profile-overview).
 
 ## March 2023
 {: #vpc-mar23}
