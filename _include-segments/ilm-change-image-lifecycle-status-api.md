@@ -2,7 +2,7 @@
 
 To make an immediate status change, use one of the following examples. For the`$image_id` variable, specify the ID of the custom image for the status change.
 
-You can only make an immediate status change if a future status change is not scheduled. To remove a previously scheduled status change, see [Remove a previously scheduled custom image lifecycle status change using the API](#schedule-ilm-reset-status-change-API). After removing the scheduled status change, you can then make an immediate status change.
+You can make an immediate status change only if a future status change is not scheduled. To remove a scheduled status change, see [Remove a scheduled custom image lifecycle status change by using the API](#schedule-ilm-reset-status-change-API). After you remove the scheduled status change, you can make an immediate status change.
 {: note}
 
 - Change image lifecycle status to `deprecate`.
@@ -19,7 +19,7 @@ You can only make an immediate status change if a future status change is not sc
    ```
    {: pre}
 
-To schedule a status change, use one of the following examples. For the `deprecated_at` or `obsoleted_at` properties, specify a date in the `YYYY-MM-DDThh:mm:ss+hh:mm` format. Both of the dates and times must be for a future date and time. If you define both the `deprecated_at` and `obsoleted_at` date and times, the `obsoleted_at` date must be after the `deprecated_at` date and time.
+To schedule a status change, use one of the following examples. For the `deprecated_at` or `obsoleted_at` properties, specify a date in the `YYYY-MM-DDThh:mm:ss+hh:mm` format. Both the date and time must be a future date and time. If you define both the `deprecated_at` and `obsoleted_at` dates and times, the `obsoleted_at` date must be after the `deprecated_at` date and time.
 
 - Schedule a status change to `deprecated`.
 
@@ -41,4 +41,4 @@ To schedule a status change, use one of the following examples. For the `depreca
    ```
    {: pre}
 
-   If you want to change the `deprecated_at` and `obsoleted_at` date and time entries, you can run these commands again. The previous dates and times are then replaced with the newly specified dates and times.
+   If you want to change the `deprecated_at` and `obsoleted_at` date and time entries, you can run these commands again. The previous dates and times are replaced with the new dates and times.
