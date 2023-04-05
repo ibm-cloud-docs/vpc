@@ -72,26 +72,6 @@ This diagram illustrates an example VPN setup with multiple on-premises networks
 
 ![VPN setup example](images/vpn-setup.png){: caption="VPN setup example" caption-side="bottom"}
 
-## {{site.data.keyword.vpn_vpc_short}} use cases
-{: #vpn-use-cases}
-
-### Use case 1: VPN connection to single remote peer device of the same type that is associated with one or more peer networks
-{: #use-case-1-vpn}
-
-Both route-based and policy-based VPNs allow users to connect to a single remote peer device associated with one or more networks.
-
-This use case does not apply for connections between a policy-based VPN and a route-based VPN. For more information, see [Known limitations](/docs/vpc?topic=vpc-vpn-limitations).
-{: important}
-
-![Single peer VPN use case](images/vpn-single-peer.png){: caption="Single peer VPN use case" caption-side="bottom"}
-
-### Use case 2: VPN connections to multiple remote peer devices
-{: #use-case-2-vpn}
-
-Both policy-based and route-based VPNs allow users to connect to multiple remote peer devices associated with different VPCs/environments by using multiple VPN connections
-
-![Multiple peers VPN use case](images/vpn-multiple-peers.png){: caption="Multiple Peers VPN use case" caption-side="bottom"}
-
 ## About policy negotiation
 {: #policy-negotiation}
 
@@ -142,6 +122,26 @@ By default, PFS is disabled for IBM Cloud VPN for VPC. Some vendors require PFS 
 | 2  | aes192gcm16 | Disabled | Disabled  |
 | 3  | aes256gcm16 | Disabled | Disabled  |
 {: caption="Table 3. Combined-mode encryption options for IPsec auto-negotiation Phase 2" caption-side="bottom"}
+
+## {{site.data.keyword.vpn_vpc_short}} use cases
+{: #vpn-use-cases}
+
+### Use case 1: VPN connection to single remote peer device of the same type that is associated with one or more peer networks
+{: #use-case-1-vpn}
+
+Both route-based and policy-based VPNs allow users to connect to a single remote peer device associated with one or more networks.
+
+This use case does not apply for connections between a policy-based VPN and a route-based VPN. For more information, see [Known limitations](/docs/vpc?topic=vpc-vpn-limitations).
+{: important}
+
+![Single peer VPN use case](images/vpn-single-peer.png){: caption="Single peer VPN use case" caption-side="bottom"}
+
+### Use case 2: VPN connections to multiple remote peer devices
+{: #use-case-2-vpn}
+
+Both policy-based and route-based VPNs allow users to connect to multiple remote peer devices associated with different VPCs/environments by using multiple VPN connections
+
+![Multiple peers VPN use case](images/vpn-multiple-peers.png){: caption="Multiple Peers VPN use case" caption-side="bottom"}
 
 ## Related links
 {: #vpn-related-links}
