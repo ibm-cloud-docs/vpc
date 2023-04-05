@@ -371,7 +371,11 @@ Use the following steps to create a basic virtual server instance from a stock i
    Memory(GiB)                           8  
    Bandwidth(Mbps)                       4000   
    Volume bandwidth(Mbps)                1000   
-   Network bandwidth(Mbps)               3000     
+   Network bandwidth(Mbps)               3000   
+   Lifecycle Reasons                     Code   Message      
+                                          -      -      
+                                         
+   Lifecycle State                       pending   
                                          
    Metadata service                      Enabled   Protocol   Response hop limit      
                                          false     http       1      
@@ -412,38 +416,39 @@ Use the following steps to create a basic virtual server instance from a stock i
    ```text
    ID                                    0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0   
    Name                                  my-instance   
-   CRN                                   crn:v1:public:is:us-south-2:a/2d1bace7b46e4815a81e52c6ffeba5cf::instance:0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0 
-   Status                                running   
+   CRN                                   crn:v1:public:is:us-south-2:a/2d1bace7b46e4815a81e52c6ffeba5cf::instance:0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0   
+   Status                                pending   
    Availability policy on host failure   restart   
    Startable                             true   
    Profile                               bx2-2x8   
    Architecture                          amd64   
    vCPU Manufacturer                     intel   
    vCPUs                                 2   
-   Memory(GiB)                           8   
+   Memory(GiB)                           8  
    Bandwidth(Mbps)                       4000   
    Volume bandwidth(Mbps)                1000   
-   Network bandwidth(Mbps)               3000
-   
+   Network bandwidth(Mbps)               3000   
+   Lifecycle Reasons                     Code   Message      
+                                          -      -      
+                                         
+   Lifecycle State                       pending   
+                                         
    Metadata service                      Enabled   Protocol   Response hop limit      
                                          false     http       1      
                                          
    Image                                 ID                                          Name      
                                          r134-f83ce520-00b5-40c5-9938-a5c82a273f91   ibm-debian-11-3-minimal-amd64-4      
-                                            
+                                         
    VPC                                   ID                                          Name      
-                                         r134-35b9cf35-616e-462e-a145-cf8db4062fcf   my-vpc     
-                                            
+                                         r134-35b9cf35-616e-462e-a145-cf8db4062fcf   my-vpc      
+                                         
    Zone                                  us-south-2   
    Resource group                        ID                                 Name      
                                          cdc21b72d4e647b195de988b175e3d82   Default      
                                          
    Created                               2023-03-23T21:50:24+00:00   
-   Network Interfaces                    Interface   Name      ID                                          Subnet            Subnet ID                                   Floating IP   Security Groups                 Allow source IP spoofing   Reserved IP      
-                                         Primary     primary   0726-4db768bb-65c3-4045-8712-523e62eeabd2   my-subnet   0726-198db988-3b9b-4cfa-9dec-0206420d37d0         -             enhance-corsage-managing-jinx   false                      10.240.64.10      
-                                            
-   Boot volume                           ID                                          Name                           Attachment ID                                    Attachment name      
-                                         r134-7a1d72d1-56ac-438e-bf85-6c0173e3f9a6   expend-anger-whiff-jackknife   0726-7ccd4284-e59d-45d8-932a-9e52f62f187a        landing-faucet-prankish-sprout                                       
+   Boot volume                           ID   Name   Attachment ID                               Attachment name      
+                                         -    -      0726-7ccd4284-e59d-45d8-932a-9e52f62f187a   landing-faucet-prankish-sprout 
    ```
    {: screen}
 
