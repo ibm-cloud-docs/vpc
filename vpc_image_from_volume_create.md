@@ -2,7 +2,8 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-02-10"
+
+lastupdated: "2023-04-06"
 
 keywords: image, virtual private cloud, boot volume, virtual server instance, instance
 
@@ -32,14 +33,13 @@ You can create an image from a volume in several ways.
 Depending on the size of the image that you're creating, the job might take from 5 minutes to 1.5 hours. You can cancel a job that's taking too long to queue. For more information, see [Performance considerations](/docs/vpc?topic=vpc-image-from-volume-vpc-manage#ifv-performance).
 {: note}
 
-
-## Create an image from a volume in the UI
+## Creating an image from a volume in the UI
 {: #create-image-from-volume-vpc-ui}
 {: ui}
 
 Use the UI to create an image from a volume that is attached to an available virtual server instance as the primary boot volume or as a secondary boot volume.
 
-### Choose the source for your custom image
+### Choosing the source for your custom image
 {: #import-custom-image-src-UI}
 
 Use the UI to import your custom image by choosing to create and import an image from a volume.
@@ -57,7 +57,12 @@ Use the UI to import your custom image by choosing to create and import an image
 | Tags |  You can assign a label to this resource so that you can easily filter resources in your resource list. |
 | Region | Select the location, or specific geographic area, where you want your custom image to be available for provisioning.|
 | Source | Select the source for the custom image by choosing either [Virtual server instance boot volume](#import-custom-image-vsi) (default) or [Block storage boot volume](#import-custom-image-vol). |
+| Manage image lifecycle (optional) | Select to schedule status changes for the image. You can schedule a single status change or schedule the complete lifecycle of the images. The image statuses are:  \n  \n * `available`: The image can be used to create an instance.  \n  \n * `deprecated`: The image is still available to use to provision and instance, but you receive a warning message.  This status means that you can move away from soon-to-be obsolete images.  \n * `obsolete`: The image is not available to use to provision an instancce.  \n  \n * Schedule complete lifecycle: You can schedule both the `deprecated` and `obsolete` status changes at the same time.  \n  \n You can move back and forth between the three statuses. Only the statuses you can change to are displayed. You can schedule status changes by using calendar date and time or number of days. The obsolescence date must always be after the deprecation date. |
 {: caption="Table 1. Import custom image user interface fields" caption-side="bottom"}
+
+The Image lifecycle feature is a beta feature that is available for evaluation and testing purposes.
+{: beta}
+
 
 ### Create an image from a virtual server instance boot volume
 {: #import-custom-image-vsi}
@@ -75,7 +80,7 @@ When you select **Virtual server instance boot volume** as the source of your cu
 
 1. Select the encryption type, either customer-managed encryption or IBM-managed encryption (see [Table 2](#encrypt-custom-images)).
 
-1. On the side panel, click **Import custom image**.
+1. On the side panel, click **Create custom image**.
 
 ### Create an image from the list of boot volumes
 {: #import-custom-image-vol}
@@ -99,7 +104,7 @@ To create an image from the volume:
 
 1. Select the encryption type, either customer-managed encryption or IBM-managed encryption (see [Table 2](#encrypt-custom-images)).
 
-1. On the side panel, click **Import custom image**.
+1. On the side panel, click **Create custom image**.
 
 
 ### Select the encryption type
@@ -156,7 +161,6 @@ Use the CLI to create an image from a volume that is attached to an available vi
 
 2. Make sure that you [created an {{site.data.keyword.vpc_short}}](/docs/vpc?topic=vpc-getting-started).
 
-
 ### Create an image from a boot volume that is attached to an instance
 {: #ifv-create-cli}
 
@@ -199,7 +203,24 @@ Use the CLI to create an image from a volume that is attached to an available vi
    ```
    {: screen}
 
-## Create an image from a volume with the API
+### Schedule custom image lifecycle status changes by using the CLI
+{: #import-schedule-ilm-status-change-cli}
+
+Custom image lifecycle is a beta feature that is available for evaluation and testing purposes.
+{: beta}
+
+When you import a custom image by using the command-line interface (CLI), you can also schedule the lifecycle status changes of the {{site.data.keyword.vpc_short}} custom image at the same time by using options of the **`ibmcloud is image-create`** command.
+
+Specify the name of the custom image to be created by using the `IMAGE_NAME` variable and the source by using the `--source-volume` option to indicate that the source is an existing boot volume.
+
+To schedule the `deprecated` or `obsolete` status changes at the same time, use the `--deprecate-at` and `--obsolete-at` options that are specified in the `YYYY-MM-DDThh:mm:ss+hh:mm` format. If you define both the deprecate-at and obsolete-at dates, the obsolete-at date must be after the deprecate-at date. Both dates must be in the future.
+
+```sh
+ibmcloud is image-create IMAGE_NAME [--source-volume VOLUME_ID] [--deprecate-at YYYY-MM-DDThh:mm:ss+hh:mm] [--obsolete-at YYYY-MM-DDThh:mm:ss+hh:mm]
+```
+{: pre}
+
+## Creating an image from a volume by using the API
 {: #image-from-volume-vpc-api}
 {: api}
 
@@ -210,7 +231,7 @@ Use the regional API to create an image from volume when you create an instance 
 
 Before you can use the API, you must take some preliminary steps. For more information, see [API prerequisites](/docs/vpc?topic=vpc-set-up-environment#api-prerequisites-setup).
 
-### Create an image from volume when you create an instance (API)
+### Creating an image from volume when you create an instance (API)
 {: #ifv-vpc-api-create-instance}
 
 Follow these steps to create an image from volume when you create a new instance. The new instance's boot volume is used for the image, which inherits the encryption from the boot volume. In this scenario, the boot volume uses the default IBM-managed encryption, which is inherited by the new image. You can also specify your own root encryption key in the `POST/images` call. For more information, see [Create an image from volume and use your root encryption key](#ifv-use-crk).
@@ -221,12 +242,12 @@ This procedure:
 2. Stops the running instance.
 3. Creates an image with the ID of the boot volume. In this scenario, the boot volume is encrypted with the default IBM-managed encryption. If the boot volume was encrypted with a [customer root key](/docs/vpc?topic=vpc-vpc-encryption-about#vpc-customer-managed-encryption), that root key is used to encrypt the new image. The API response displays the [CRN of the root key](#ifv-use-crk).
 
-#### Step 1 - Create an instance
+#### Step 1 - Creating an instance
 {: #ifv-create-instance}
 
 Specify a `POST/instances` request to create an instance and pass the required parameters. See the following example.
 
-```curl
+```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/instances?version=2021-05-20 \
 $iam_token" -d
@@ -254,12 +275,12 @@ $iam_token" -d
 ```
 {: codeblock}
 
-#### Step 2 - Stop the running instance
+#### Step 2 - Stopping the running instance
 {: #ifv-stop-instance-api}
 
 Stop the running instance by specifying the `stop` action in a `POST /instances` call:
 
-```curl
+```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/instances/{instance-id}/gen/actions?version=2021-05-20"
 $iam_token" -d
@@ -269,14 +290,14 @@ $iam_token" -d
 ```
 {: codeblock}
 
-#### Step 3 - Create an image and provide the ID of the boot volume image
+#### Step 3 - Creating an image and provide the ID of the boot volume image
 {: #ifv-create-image}
 
 The source boot volume originates from an image. This boot volume is used to populate the new image's operating system information.
 
 Create an image with a `POST /images` request and pass the boot volume ID of the instance that you created in [Step 1](#ifv-create-instance) as source volume. See the following example:
 
-```curl
+```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/images?version=2021-05-20"
 $iam_token" -d
@@ -289,7 +310,7 @@ $iam_token" -d
 ```
 {: codeblock}
 
-In the example response, `source_volume` indicates the boot volume that is used to create the image. Also notice that the image encryption appears as `none` because the source volume used the default IBM-managed encryption. If you [used you own root key](#ifv-use-crk), the response would show `user-managed` instead.
+In the example response, `source_volume` indicates the boot volume that is used to create the image. Also, notice that the image encryption appears as `none` because the source volume used the default IBM-managed encryption. If you [used you own root key](#ifv-use-crk), the response would show `user-managed` instead.
 
 ```json
 {
@@ -327,14 +348,14 @@ In the example response, `source_volume` indicates the boot volume that is used 
 ```
 {: codeblock}
 
-### Create an image from volume and specify your own encryption key
+### Creating an image from volume and specifying your own encryption key
 {: #ifv-use-crk}
 
 In this scenario, you're creating an image from a volume and specifying your root key in the `POST/images` call.
 
 The example request specifies the CRN of the root key in the `encryption_key` parameter:
 
-```cURL
+```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/images?version=2021-05-20"
 $iam_token" -d
@@ -391,7 +412,7 @@ The response includes information about the root key:
 ```
 {: codeblock}
 
-### Create an image from a volume of an existing instance
+### Creating an image from a volume of an existing instance
 {: #ifv-vpc-api-list-instance}
 
 You can also create an image from a boot volume that is attached to an existing instance. This procedure:
@@ -400,12 +421,12 @@ You can also create an image from a boot volume that is attached to an existing 
 2. Stops the running instance.
 3. Creates an image by using the ID of the boot volume image.
 
-#### Step 1 - Locate the instance and the boot volume ID
+#### Step 1 - Locating the instance and the boot volume ID
 {: #ifv-locate-instance}
 
 Make a `GET /instances` call to list all instances and locate the available, running instance that you need. See the following example:
 
-```cURL
+```sh
 curl -X GET \
 "$vpc_api_endpoint/v1/instances/version=2021-05-20&generation=2" \
 -H "Authorization: $iam_token"
@@ -438,12 +459,12 @@ The response shows the ID of the boot volume under `volume_attachments`:
 You can also tell whether the instance is running by making a `GET /volumes/{id}` call and specifying the boot volume ID. If you see `active = true` in the response, the instance is running.
 {: tip}
 
-#### Step 2 - Stop the running instance
+#### Step 2 - Stopping the running instance
 {: #ifv-stop-instance}
 
 Stop the running instance by specifying the `stop` action in a `POST /instances` call:
 
-```cURL
+```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/instances/{instance-id}/gen/actions?version=2021-05-20"
 $iam_token" -d
@@ -454,12 +475,12 @@ $iam_token" -d
 {: codeblock}
 
 
-#### Step 3 - Create an image and provide the ID of the boot volume image
+#### Step 3 - Creating an image and providing the ID of the boot volume image
 {: #ifv-create-image-boot-id}
 
 Create an image with a `POST /images` request and pass the boot volume ID of the instance.
 
-```cURL
+```sh
 curl -X POST \
 "$vpc_api_endpoint/v1/images?version=2021-05-20"
 $iam_token" -d
@@ -471,6 +492,30 @@ $iam_token" -d
 }
 ```
 {: codeblock}
+
+### Scheduling custom image lifecycle status changes by using the API
+{: #import-schedule-ilm-status-change-API}
+
+Custom image lifecycle is a beta feature that is available for evaluation and testing purposes.
+{: beta}
+
+When you create an image from volume by using the application programming interface (API), you can schedule the lifecycle status changes of the {{site.data.keyword.vpc_short}} image from volume at the same time.
+
+The `name` can't be used by another image in the region and names that start with `ibm-` are reserved for system-provided images. Specify the `source.volume` subproperty to indicate the source of the image from volume.
+
+To schedule the `deprecated` or `obsolete` status changes at the same time, use the `deprecated_at` and `obsoleted_at` properties that are specified in the `YYYY-MM-DDThh:mm:ss+hh:mm` format. If you define both the deprecated_at and obsoleted_at dates, the obsoleted_at date must be after the deprecated_at date. Both dates must be in the future.
+
+```sh
+curl -X POST "$vpc_api_endpoint/v1/images?version=2023-02-21&generation=2" -H "Authorization: Bearer $iam_token" -d '{
+      "name": "test-ifv-boot-volume",
+      "source_volume": {
+    	  "id": "4fec84ef-baf9-405d-bf3b-9d5a60e068f7"
+      },
+      "deprecated_at": "2023-03-01T06:11:28+05:30",
+      "obsoleted_at": "2023-12-31T06:11:28+05:30"
+    }'
+```
+{: pre}
 
 ## Next steps
 {: #ifv-next-steps-api}
