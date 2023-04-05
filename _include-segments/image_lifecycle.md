@@ -7,7 +7,7 @@ You can use the UI, CLI, API, and Terraform to manage the lifecycle of your cust
 | Image status | Description |
 | -------------- | -------------- | 
 | `available` | The image can be used to create an instance. |
-| `deprecated` | The image can be used to create an instance, but you receive a warning. Using the `deprecated` status can discourage use of the image before changing the status to `obsolete`.| 
+| `deprecated` | The image can be used to create an instance. Using the `deprecated` status can discourage use of the image before changing the status to `obsolete`.| 
 | `obsolete` | The image can't be used to create an instance. If you try to use an obsolete image to create an instance, you will receive a message stating that the image can't be used to create an instance. This status allows a reversible disabling of an image before you delete the image. | 
 {: caption="Table 1. Image lifecycle status" caption-side="bottom"}
 
