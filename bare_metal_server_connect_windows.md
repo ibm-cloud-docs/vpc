@@ -3,12 +3,11 @@
 copyright:
   years: 2023
 
-lastupdated: "2023-03-29"
+lastupdated: "2023-04-05"
 
 keywords: connecting, windows, bare metal, bare metal server
 
 subcollection: vpc
-
 
 ---
 
@@ -17,7 +16,7 @@ subcollection: vpc
 # Connecting to a Windows bare metal server
 {: #bare_metal_server_connecting_windows}
 
-After you create your Windows bare metal server, you can connect to it by completing the following steps.
+After you create your Windows bare metal server, you can connect to it by using the following steps.
 {: shortdesc}
 
 Windows servers aren't supported for LinuxONE s390x processor architecture.
@@ -51,8 +50,6 @@ Complete the following prerequisites:
    |-----------|------|------|------|
    | TCP| Any | <cidr_range> | Any port|
    {: caption="Table 2. Configuration information for outbound rules" caption-side="bottom"}
-
-1. Make sure that you reserve and associate a floating IP address to your Windows server.
 
 ## Connecting to your Windows bare metal server
 {: #bare_metal_server_connect_windows}
