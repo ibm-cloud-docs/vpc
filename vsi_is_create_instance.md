@@ -702,6 +702,105 @@ Before you can create an instance, you need to know the details about the instan
 
 After you've retrieved the information you need, you can run the [`POST /instances`](/apidocs/vpc/latest#create-instance) method to create an instance.
 
+### Provision an instance from a stock or custom image by using the API
+{: #create-instance-stock-custom-image-api}
+{: api}
+
+You can provision an instance with a stock or custom image by specifying the image's `id` sub-property as the value of the `image` property.
+
+ ```bash
+    curl -X POST "$vpc_api_endpoint/v1/instances?version=$api_version&generation=2" \
+      -H "Authorization:$iam_token" \
+      -d '{
+            "name": "my-instance",
+            "zone": {
+              "name": "us-south-3"
+            },
+            "vpc": {
+              "id": "'$vpc'"
+            },
+            "primary_network_interface": {
+              "subnet": {
+                "id": "'$subnet'"
+              }
+            },
+            "keys":[{"id": "'$key'"}],
+            "profile": {
+              "name": "'$profile_name'"
+             },
+            "image": {
+              "id": "'$image_id'"
+             }
+            }'
+ ```
+ {: pre}
+
+### Provision an instance from a private catalog image by using the API
+{: #create-instance-private-catalog-image-api}
+{: api}
+
+You can provision an instance with a private catalog image by specifying the image's `offering_crn` or the `version_crn` sub-property as the value of the `catalog_offering` property.
+
+* Create an instance using a private catalog image from the latest version of a catalog product offering.
+
+    ```bash
+    curl -X POST "$vpc_api_endpoint/v1/instances?version=$api_version&generation=2" \
+      -H "Authorization:$iam_token" \
+      -d '{
+            "name": "my-instance",
+            "zone": {
+              "name": "us-south-3"
+            },
+            "vpc": {
+              "id": "'$vpc'"
+            },
+            "primary_network_interface": {
+              "subnet": {
+                "id": "'$subnet'"
+              }
+            },
+            "keys":[{"id": "'$key'"}],
+            "profile": {
+              "name": "'$profile_name'"
+             },
+            "catalog_offering": {
+              "offering": {
+                "crn": "'$offering_crn'"
+             }
+            }'
+    ```
+    {: pre}
+
+* Create an instance using a private catalog image from a specific version of a catalog product offering.
+
+    ```bash
+    curl -X POST "$vpc_api_endpoint/v1/instances?version=$api_version&generation=2" \
+      -H "Authorization:$iam_token" \
+      -d '{
+            "name": "my-instance",
+            "zone": {
+              "name": "us-south-3"
+            },
+            "vpc": {
+              "id": "'$vpc'"
+            },
+            "primary_network_interface": {
+              "subnet": {
+                "id": "'$subnet'"
+              }
+            },
+            "keys":[{"id": "'$key'"}],
+            "profile": {
+              "name": "'$profile_name'"
+             },
+            "catalog_offering": {
+              "version": {
+                "crn": "'$version_crn'"
+             }
+            }'
+    ```
+    {: pre}
+
 ### Provision from an existing volume
 {: #create-instance-ipbv-api}
 {: api}
@@ -774,6 +873,40 @@ curl -X POST "$vpc_api_endpoint/v1/instances?version=2023-02-08&generation=2"
 ```
 
 For more information, see [Create an instance](/apidocs/vpc/latest#create-instance).
+
+### Restore a boot volume from a snapshot and use it to provision a new instance
+{: #create-instance-bootable-snapshot-api}
+{: api}
+
+You can [restore](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-restore-concepts) a boot volume from a bootable snapshot and then use that boot volume when provisioning an instance. The bootable snapshot must have the same operating system and architecture as the instance profile.
+
+In the `POST /instances` request, specify the `boot_volume_attachment` property and the bootable snapshot ID in the `source_snapshot` subproperty. For example, 
+
+```curl
+curl -X POST \
+"$vpc_api_endpoint/v1/instances?version=2023-03-07&generation=2" \
+-H "Authorization: $iam_token" \
+-H "Content-Type: application/json" \
+-d '{
+      "boot_volume_attachment": {
+        "delete_volume_on_instance_delete": true,
+        "volume": {
+            "profile": {
+                "name": "general-purpose"
+            },
+            "source_snapshot": {
+                "id": "eb373975-4171-4d91-81d2-c49efb033753"
+            }
+        }
+     },
+     .
+     .
+     .
+  }'
+```
+{: codeblock}
+
+For more information about restoring a volume with the API, see [Restore a volume from a snapshot with the API](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-restore-API). 
 
 ## Creating virtual server instances by using Terraform
 {: #create-instance-terraform}
