@@ -37,8 +37,15 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 Image lifecycle management for custom images (beta)
 :   You can use the UI, CLI, and API to manage the lifecycle of your custom images with the following 3 statuses. You can move the image back and forth through all the statuses. You can also schedule status changes to manage the entire lifecycle of the image. For more information, see [Custom image lifecycle](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#custom-image-lifecycle) in [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images&interface=ui).
     * `available`: The image can be used to create an instance
-    * `deprecated`: The image can be used to create an instance. This status means that you can move away from soon-to-be obsolete images.
+    * `deprecated`: The image can be used to create an instance. Using the `deprecated` status can discourage use of the image before the status changes to `obsolete`.
     * `obsolete`: The image can't be used to create an instance. 
+
+### 4 April 2023
+{: #vpc-apr04}
+{: release-note}
+
+{{site.data.keyword.filestorage_vpc_short}} defined-performance profile (beta)
+:    For customers with special access to this feature, you can now create file shares using the **dp2** defined-performance profile. This profile provides higher IOPS and greater capacity than earlier profiles. You can also modify existing file shares to use this profile. For more information, see the [file share profiles overview](/docs/vpc?topic=vpc-file-storage-profiles&interface=ui#file-storage-profile-overview).
 
 ## March 2023
 {: #vpc-mar23}

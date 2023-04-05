@@ -38,7 +38,7 @@ MD-5 and SHA-1 authentication algorithms, 2 and 5 DH groups, and the 3-DES encry
    A static, route-based VPN deploys in Active-Active redundancy mode. Two VPN tunnels are connected with the peer VPN gateway; however, the IBM gateway always uses the tunnel with the small public IP as the primary egress path. The tunnel with the large public IP is the secondary egress path. Traffic from the IBM VPC to the on-prem network goes through the primary egress path if both tunnels are active. Traffic goes through the secondary egress path if the primary egress path is disabled. The on-prem VPN gateway must use route priority to choose the same preferred path. {: #important-notice}
    {: important}
 
-* **Internet Key Exchange (IKE)** - IKE is a part of the IPsec protocol that is used to establish VPN connections. In IKE Phase 1, VPN peers use Diffie-Hellman (DH) key exchange to create a secure, authenticated communication channel. In IKE Phase 2, the peers use the secure channel from Phase 1 to negotiate parameters for IPsec tunnels. IBM Cloud VPN for VPC supports both IKEv1 (main mode) and IKEv2. See [About policy negotiation](#policy-negotiation) for the supported combinations.
+* **Internet Key Exchange (IKE)** - IKE is a part of the IPsec protocol that is used to establish VPN connections. In IKE Phase 1, VPN peers use Diffie-Hellman (DH) key exchange to create a secure, authenticated communication channel. In IKE Phase 2, the peers use the secure channel from Phase 1 to negotiate parameters for IPsec tunnels. IBM Cloud VPN for VPC supports both IKEv1 (main mode) and IKEv2. See [About policy negotiation](/docs/vpc?topic=vpc-using-vpn#policy-negotiation) for the supported combinations.
 * **IPsec** - Protocol suite that provides secure communication between devices. IBM Cloud VPN for VPC uses UDP Encapsulation of IPsec Encapsulating Security Protocol (ESP) Packets in tunnel mode, which offers authentication and entire packet encryption.
 * **Modes** - IBM Cloud VPN for VPC offers static-route-based, and policy-based VPN modes. With a policy-based VPN, traffic that matches negotiated CIDR ranges passes through the VPN. For a static-route-based VPN, virtual tunnel interfaces are created and any traffic that is routed toward these logical interfaces with custom routes passes through the VPN. Both VPN options provide the same features.
 * **Perfect Forward Secrecy (PFS)** - PFS makes sure that DH-generated keys aren't used again during IPsec renegotiation. If a key is compromised, only data in transit during the protected security association's lifetime is accessible.
@@ -90,7 +90,7 @@ This use case does not apply for connections between a policy-based VPN and a ro
 
 Both policy-based and route-based VPNs allow users to connect to multiple remote peer devices associated with different VPCs/environments by using multiple VPN connections
 
-![Multiple peers VPN use case](images/vpn-multiple-peers.png){: caption="Mulitple Peers VPN use case" caption-side="bottom"}
+![Multiple peers VPN use case](images/vpn-multiple-peers.png){: caption="Multiple Peers VPN use case" caption-side="bottom"}
 
 ## About policy negotiation
 {: #policy-negotiation}

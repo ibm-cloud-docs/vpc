@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-03-28"
+lastupdated: "2023-04-04"
 
 keywords: api, change log, beta
 
@@ -100,7 +100,7 @@ The following updates have been made since the [beta release](#24-august-2021):
 You can also change a share between the `tiered` and `custom` profile families so long as the requested `iops` and `size` are supported by the requested profile. For more information about file share profiles, see [File Storage for VPC profiles](/docs/vpc?topic=vpc-file-storage-profiles). For information about adjusting IOPS with a profile, or changing between `tiered` and `custom` profiles, see [Adjusting file share IOPS](/docs/vpc?topic=vpc-adjusting-share-iops&interface=api).
 
 ## 31 May 2022
-{: #31-may-2022}
+{: #31-may-2022-beta}
 
 ### For all version dates
 {: #31-may-2022-all-version-dates-beta}
