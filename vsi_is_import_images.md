@@ -229,8 +229,6 @@ ibmcloud is image r134-1d1e92e9-6550-4d06-8483-d674310045fd
 {: pre}
 
 ```text
-Getting image r134-1d1e92e9-6550-4d06-8483-d674310045fd under account Rios IMSLess as user gbgrout@ibm.com...
-
 ID                             r134-589548bd-9241-4ad7-a610-1df6ba020793
 Name                           my-image-from-volume-cli-1
 CRN                            crn:v1:staging:public:is:us-south:a/efe5afc483594adaa8325e2b4d1290df::image:r134-589548bd-9241-4ad7-a610-1df6ba020793
