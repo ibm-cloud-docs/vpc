@@ -260,6 +260,9 @@ volumes:
 ```
 {: codeblock}
 
+The name of the volume must be the same as that in the [workload - volumes](#hpcr_contract_volumes) subsection.
+{: note}
+
 ### `signingKey` subsection
 {: #hpcr_contract_env_signkey}
 
@@ -573,7 +576,7 @@ tar -czvf compose.tgz docker-compose.yaml
 {: pre}
 
 ```sh
-base64 -i compose.tgz -o compose.b64
+base64 -i compose.tgz > compose.b64
 ```
 {: pre}
 
@@ -586,8 +589,10 @@ base64 -i compose.tgz -o compose.b64
 ```
 {: codeblock}
 
-### 6. Populate the workload section. Ensure that you do not miss the pipe symbol (|) if you are using a plain text contract
+### 6. Populate the workload section
 {: #step6}
+
+Ensure that you do not miss the pipe symbol (|) if you are using a plain text contract.
 
 ```yaml
 workload: |

@@ -21,7 +21,7 @@ The documentation walks you through how to use a dynamic registry reference.
 ## Explicit registry reference
 {: #explicit-registry-reference}
 
-Typically, the docker registry is referenced via the full docker URL in the compose file. For example:
+Typically, the docker registry is referenced via the full docker URL in the compose file. For example,
 
 ```yaml
 services:
