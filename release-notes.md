@@ -30,13 +30,13 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## April 2023
 {: #vpc-apr23}
 
-### 06 April 2023
+### 6 April 2023
 {: #vpc-april0623}
 {: release-note}
 
 Image lifecycle management for custom images (beta)
-:   For customers with special access to this feature, you can use the UI, CLI, and API to manage the lifecycle of your custom images with the following 3 statuses. You can move the image back and forth through all the statuses. You can also schedule status changes to manage the entire lifecycle of the image. For more information, see [Custom image lifecycle](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#custom-image-lifecycle) in [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images&interface=ui).
-    * `available`: The image can be used to create an instance
+:   For customers with special access to this feature, you can use the UI, CLI, and API to manage the lifecycle of your custom images with the following three statuses. You can move the image back and forth through all the statuses. You can also schedule status changes to manage the entire lifecycle of the image. For more information, see [Custom image lifecycle](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#custom-image-lifecycle) in [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images&interface=ui).
+    * `available`: The image can be used to create an instance.
     * `deprecated`: The image can be used to create an instance. Using the `deprecated` status can discourage use of the image before the status changes to `obsolete`.
     * `obsolete`: The image can't be used to create an instance. 
 
