@@ -371,7 +371,11 @@ Use the following steps to create a basic virtual server instance from a stock i
    Memory(GiB)                           8  
    Bandwidth(Mbps)                       4000   
    Volume bandwidth(Mbps)                1000   
-   Network bandwidth(Mbps)               3000     
+   Network bandwidth(Mbps)               3000   
+   Lifecycle Reasons                     Code   Message      
+                                          -      -      
+                                         
+   Lifecycle State                       pending   
                                          
    Metadata service                      Enabled   Protocol   Response hop limit      
                                          false     http       1      
@@ -412,38 +416,39 @@ Use the following steps to create a basic virtual server instance from a stock i
    ```text
    ID                                    0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0   
    Name                                  my-instance   
-   CRN                                   crn:v1:public:is:us-south-2:a/2d1bace7b46e4815a81e52c6ffeba5cf::instance:0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0 
-   Status                                running   
+   CRN                                   crn:v1:public:is:us-south-2:a/2d1bace7b46e4815a81e52c6ffeba5cf::instance:0726_67b1179a-8b25-4ac9-8bc0-7f3027466ed0   
+   Status                                pending   
    Availability policy on host failure   restart   
    Startable                             true   
    Profile                               bx2-2x8   
    Architecture                          amd64   
    vCPU Manufacturer                     intel   
    vCPUs                                 2   
-   Memory(GiB)                           8   
+   Memory(GiB)                           8  
    Bandwidth(Mbps)                       4000   
    Volume bandwidth(Mbps)                1000   
-   Network bandwidth(Mbps)               3000
-   
+   Network bandwidth(Mbps)               3000   
+   Lifecycle Reasons                     Code   Message      
+                                          -      -      
+                                         
+   Lifecycle State                       pending   
+                                         
    Metadata service                      Enabled   Protocol   Response hop limit      
                                          false     http       1      
                                          
    Image                                 ID                                          Name      
                                          r134-f83ce520-00b5-40c5-9938-a5c82a273f91   ibm-debian-11-3-minimal-amd64-4      
-                                            
+                                         
    VPC                                   ID                                          Name      
-                                         r134-35b9cf35-616e-462e-a145-cf8db4062fcf   my-vpc     
-                                            
+                                         r134-35b9cf35-616e-462e-a145-cf8db4062fcf   my-vpc      
+                                         
    Zone                                  us-south-2   
    Resource group                        ID                                 Name      
                                          cdc21b72d4e647b195de988b175e3d82   Default      
                                          
    Created                               2023-03-23T21:50:24+00:00   
-   Network Interfaces                    Interface   Name      ID                                          Subnet            Subnet ID                                   Floating IP   Security Groups                 Allow source IP spoofing   Reserved IP      
-                                         Primary     primary   0726-4db768bb-65c3-4045-8712-523e62eeabd2   my-subnet   0726-198db988-3b9b-4cfa-9dec-0206420d37d0         -             enhance-corsage-managing-jinx   false                      10.240.64.10      
-                                            
-   Boot volume                           ID                                          Name                           Attachment ID                                    Attachment name      
-                                         r134-7a1d72d1-56ac-438e-bf85-6c0173e3f9a6   expend-anger-whiff-jackknife   0726-7ccd4284-e59d-45d8-932a-9e52f62f187a        landing-faucet-prankish-sprout                                       
+   Boot volume                           ID   Name   Attachment ID                               Attachment name      
+                                         -    -      0726-7ccd4284-e59d-45d8-932a-9e52f62f187a   landing-faucet-prankish-sprout 
    ```
    {: screen}
 
@@ -697,6 +702,105 @@ Before you can create an instance, you need to know the details about the instan
 
 After you've retrieved the information you need, you can run the [`POST /instances`](/apidocs/vpc/latest#create-instance) method to create an instance.
 
+### Provision an instance from a stock or custom image by using the API
+{: #create-instance-stock-custom-image-api}
+{: api}
+
+You can provision an instance with a stock or custom image by specifying the image's `id` sub-property as the value of the `image` property.
+
+ ```bash
+    curl -X POST "$vpc_api_endpoint/v1/instances?version=$api_version&generation=2" \
+      -H "Authorization:$iam_token" \
+      -d '{
+            "name": "my-instance",
+            "zone": {
+              "name": "us-south-3"
+            },
+            "vpc": {
+              "id": "'$vpc'"
+            },
+            "primary_network_interface": {
+              "subnet": {
+                "id": "'$subnet'"
+              }
+            },
+            "keys":[{"id": "'$key'"}],
+            "profile": {
+              "name": "'$profile_name'"
+             },
+            "image": {
+              "id": "'$image_id'"
+             }
+            }'
+ ```
+ {: pre}
+
+### Provision an instance from a private catalog image by using the API
+{: #create-instance-private-catalog-image-api}
+{: api}
+
+You can provision an instance with a private catalog image by specifying the image's `offering_crn` or the `version_crn` sub-property as the value of the `catalog_offering` property.
+
+* Create an instance using a private catalog image from the latest version of a catalog product offering.
+
+    ```bash
+    curl -X POST "$vpc_api_endpoint/v1/instances?version=$api_version&generation=2" \
+      -H "Authorization:$iam_token" \
+      -d '{
+            "name": "my-instance",
+            "zone": {
+              "name": "us-south-3"
+            },
+            "vpc": {
+              "id": "'$vpc'"
+            },
+            "primary_network_interface": {
+              "subnet": {
+                "id": "'$subnet'"
+              }
+            },
+            "keys":[{"id": "'$key'"}],
+            "profile": {
+              "name": "'$profile_name'"
+             },
+            "catalog_offering": {
+              "offering": {
+                "crn": "'$offering_crn'"
+             }
+            }'
+    ```
+    {: pre}
+
+* Create an instance using a private catalog image from a specific version of a catalog product offering.
+
+    ```bash
+    curl -X POST "$vpc_api_endpoint/v1/instances?version=$api_version&generation=2" \
+      -H "Authorization:$iam_token" \
+      -d '{
+            "name": "my-instance",
+            "zone": {
+              "name": "us-south-3"
+            },
+            "vpc": {
+              "id": "'$vpc'"
+            },
+            "primary_network_interface": {
+              "subnet": {
+                "id": "'$subnet'"
+              }
+            },
+            "keys":[{"id": "'$key'"}],
+            "profile": {
+              "name": "'$profile_name'"
+             },
+            "catalog_offering": {
+              "version": {
+                "crn": "'$version_crn'"
+             }
+            }'
+    ```
+    {: pre}
+
 ### Provision from an existing volume
 {: #create-instance-ipbv-api}
 {: api}
@@ -769,6 +873,40 @@ curl -X POST "$vpc_api_endpoint/v1/instances?version=2023-02-08&generation=2"
 ```
 
 For more information, see [Create an instance](/apidocs/vpc/latest#create-instance).
+
+### Restore a boot volume from a snapshot and use it to provision a new instance
+{: #create-instance-bootable-snapshot-api}
+{: api}
+
+You can [restore](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-restore-concepts) a boot volume from a bootable snapshot and then use that boot volume when provisioning an instance. The bootable snapshot must have the same operating system and architecture as the instance profile.
+
+In the `POST /instances` request, specify the `boot_volume_attachment` property and the bootable snapshot ID in the `source_snapshot` subproperty. For example, 
+
+```curl
+curl -X POST \
+"$vpc_api_endpoint/v1/instances?version=2023-03-07&generation=2" \
+-H "Authorization: $iam_token" \
+-H "Content-Type: application/json" \
+-d '{
+      "boot_volume_attachment": {
+        "delete_volume_on_instance_delete": true,
+        "volume": {
+            "profile": {
+                "name": "general-purpose"
+            },
+            "source_snapshot": {
+                "id": "eb373975-4171-4d91-81d2-c49efb033753"
+            }
+        }
+     },
+     .
+     .
+     .
+  }'
+```
+{: codeblock}
+
+For more information about restoring a volume with the API, see [Restore a volume from a snapshot with the API](/docs/vpc?topic=vpc-snapshots-vpc-restore&interface=api#snapshots-vpc-restore-API). 
 
 ## Creating virtual server instances by using Terraform
 {: #create-instance-terraform}
