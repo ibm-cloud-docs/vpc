@@ -36,7 +36,7 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-april1023}
 {: release-note}
 
-s390x Bare Metal Servers for VPC
+s390x Bare Metal Servers for VPC (LA)
 :   LinuxONE Bare Metal Servers are now generally available in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), and Toronto (ca-tor), and São Paulo (br-sao) regions. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
 
 ### 6 April 2023
@@ -47,7 +47,7 @@ Image lifecycle management for custom images (beta)
 :   For customers with special access to this feature, you can use the UI, CLI, and API to manage the lifecycle of your custom images with the following three statuses. You can move the image back and forth through all the statuses. You can also schedule status changes to manage the entire lifecycle of the image. For more information, see [Custom image lifecycle](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#custom-image-lifecycle) in [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images&interface=ui).
     * `available`: The image can be used to create an instance.
     * `deprecated`: The image can be used to create an instance. Using the `deprecated` status can discourage use of the image before the status changes to `obsolete`.
-    * `obsolete`: The image can't be used to create an instance. 
+    * `obsolete`: The image can't be used to create an instance.
 
 ### 4 April 2023
 {: #vpc-apr04}
