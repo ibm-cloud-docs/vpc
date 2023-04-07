@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2022-11-16"
+  years: 2021, 2023
+lastupdated: "2023-03-31"
 
 subcollection: vpc
 
@@ -97,13 +97,13 @@ Complete the following steps to resize an existing virtual server instance.
 Use the `instance-update` command to resize a virtual server.
 
 ```sh
-ibmcloud is instance-update instance-id --profile profile-id  
+ibmcloud is instance-update <instance> --profile <profile>   
 ```
 {: pre}
 
 Where:
-* `instance-id` is the ID of the instance that you want to resize
-* `profile-id` is the ID of the profile that you want to use
+* `instance` is the ID or Name of the instance that you want to resize
+* `profile` is the Name of the profile that you want to use
 
 As an example, if you want to resize an instance to the _bx2-16x64_ profile, the command would look similar to the following example.
 

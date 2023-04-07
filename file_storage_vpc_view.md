@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-11-11"
+  years: 2022, 2023
+lastupdated: "2023-03-31"
 
 keywords:
 
@@ -15,10 +15,10 @@ subcollection: vpc
 # Viewing file shares and mount targets
 {: #file-storage-view}
 
-View all file shares and mount targets in the UI, CLI, or API. View details of a single file share or mount target. View
+View all file shares and mount targets in the UI, CLI, or API. View details of a single file share or mount target.
 {: shortdesc}
 
-{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Tokyo, and Osaka regions. Contact your IBM Sales representative if you are interested in getting access.
+{{site.data.keyword.filestorage_vpc_full}} is available for customers with special approval to preview this service in the Frankfurt, London, Dallas, Toronto, Washington, Sao Paulo, Sydney, Osaka, and Tokyo regions. Contact your IBM Sales representative if you are interested in getting access.
 {: preview}
 
 ## View file shares and mount targets in the UI
@@ -39,8 +39,8 @@ View all file shares and mount targets in the UI, CLI, or API. View details of a
 | Status | For a list of statuses for file shares, see [File storage lifecycle states](/docs/vpc?topic=vpc-file-storage-managing#file-storage-vpc-status). |
 | Mount targets | Number of mount targets that are associated with the file share. You can have one mount target per VPC per file share. |
 | Size | Size of the file share, in GBs. |
-| Replication role | Relationship to the source file share. "Replica of" indicates the file share a replica of the source share, which is linked. "Source of" indicates that the share the source of the replica, which is linked.. "None" indicates there is no replication configured for the file share. |
-| Encryption type | Shows encryption type of the file share, either provider-managed or customer-managed. [Customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption) uses your own root keys to protect your data. The UI also identifies the key management service (KMS), Key Protect or Hyper Protect. |
+| Replication role | Relationship to the source file share. "Replica of" indicates that the file share a replica of the source share, which is linked. "Source of" indicates that the share the source of the replica, which is linked. "None" indicates that replication is not configured for the file share. |
+| Encryption type | Shows encryption type of the file share, either provider-managed or customer-managed. [Customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption) uses your own root keys to protect your data. The UI also identifies the key management service (KMS), {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. |
 | Actions menu| Options for managing the file share, depending on its state. For a file share in a _stable_ state, you can rename the share, create a replica, or delete a file share. **Delete** and **Create replica** are disabled if you set up replication to a replica file share. For more information, see [Creating replica file shares](/docs/vpc?topic=vpc-file-storage-create-replication&interface=ui). |
 {: caption="Table 1. File shares list page." caption-side="bottom"}
 
@@ -59,22 +59,24 @@ The following table describes the information on files shares details page.
 |-------|-------|
 | **File share details** | |
 | Name  | The file share name. Click the pencil icon to change the name. |
-| Zone | zone for the file share (for example, Dallas 2). |
-| Max IOPS | Maximum IOPS for the IOPS tier profile associated with the file share. |
+| Zone | Zone for the file share (for example, Dallas 2). |
+| Max IOPS | Maximum IOPS for the IOPS tier, custom, or dp2 [profile](/docs/vpc?topic=vpc-file-storage-profiles) associated with the file share. |
 | Resource group | Resource groups associated with the file share in your account. |
 | Replication role | Source file share or replica. |
-| Encryption | Specifies provider managed or [customer managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption). |
-| Encryption instance | For customer managed encryption, link to the Key Protect or Hyper Protect instance. |
-| Key ID | Copyable customer root key ID. |
+| Encryption | Specifies provider-managed or [customer-managed encryption](/docs/vpc?topic=vpc-file-storage-vpc-encryption). |
+| Encryption instance | For customer-managed encryption, link to the {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}} instance. |
+| Key ID |  Copiable customer root key ID. |
 | ID | For customer-managed encryption, the UUID generated when you created the file share. |
+| Created date | Date the file share was created. |
+| **Profile, size, and IOPS**| |
 | Size | File share size in GB. |
-| Created | Date the file share was created. |
-| IOPS tier | [IOPS tier profile](/docs/vpc?topic=vpc-file-storage-profiles#fs-tiers) defining the file share performance (for example 3 IOPS/GB). |
+| IOPS tier | Storage [profile](/docs/vpc?topic=vpc-file-storage-profiles) that defines the file share performance. For example, a 3 IOPS/GB general-purpose profile. |
+| Max IOPS | Maximum IOPS for the specified profile. |
 | **Mount targets** | Number of mount targets associated with the file share. You can have one mount target per VPC per file share. You can create more mount targets for other VPCs. |
 | Name | Name of the mount target. |
-| Virtual private cloud | Click the name to go to the details page for that VPC, where you can see a [list of file shares](#fs-view-shares-vpc) that have a mount target to the VPC]. |
+| Virtual private cloud | Click the name to go to the details page for that VPC, where you can see a [list of file shares](#fs-view-shares-vpc) that have a mount target to the VPC. |
 | Status | Status of the mount target on the VPC. |
-| **File share replication relationship** | Shows the replica file share in relationship to the source file share. If you make changes to the source file share size or profile applied, the replica will be updated at the next replication interval. \n Click **Remove replication relationship** to break the replication relationship. The replica file share is now an independent read/write file share. If no replica file shares were created, click **Create replica** to [create one](/docs/vpc?topic=vpc-file-storage-create-replication).|
+| **File share replication relationship** | Shows the replica file share in relationship to the source file share. If you change to the source file share size or profile that is applied, the replica is updated at the next replication interval. \n Click **Remove replication relationship** to break the replication relationship. The replica file share is now an independent read/write file share. If no replica file shares were created, click **Create replica** to [create one](/docs/vpc?topic=vpc-file-storage-create-replication).|
 | Replication frequency | Hover over the information icon to see an explanation of the cron replication frequency. |
 | Replication role | Source or replica file share. |
 | File share Name | Click the file share name to see its details. |
@@ -104,7 +106,7 @@ You can see all file shares that have a mount target to a VPC by viewing the VPC
 
 Run the `ibmcloud is share-targets` command and specify the file share ID to see all mount targets for a file share.
 
-```zsh
+```sh
 ibmcloud is share-targets SHARE_ID [--output JSON] [-q, --quiet]
 ```
 {: pre}
@@ -115,7 +117,7 @@ ibmcloud is share-targets SHARE_ID [--output JSON] [-q, --quiet]
 
 Run the `ibmcloud is shares` command to list all file shares in a region.
 
-```zsh
+```sh
 ibmcloud is shares [--resource-group-id RESOURCE_GROUP_ID | --resource-group-name RESOURCE_GROUP_NAME | --all-resource-groups] [--output JSON] [-q, --quiet]
 ```
 {: pre}
@@ -156,7 +158,7 @@ Mount Targets     ID                                          Name           VPC
 Resource Group    ID                                 Name
                   bdd96715c2a44f2bb60df4ff14a543f5   Default
 
-Created           2022-09-07T15:21:35+05:30
+Created           2023-03-07T15:21:35+05:30
 ```
 {: screen}
 
@@ -165,12 +167,12 @@ Created           2022-09-07T15:21:35+05:30
 
 Run the `ibmcloud is share-replica-source` command and specify the replica share by ID or name.
 
-```zsh
+```sh
 ibmcloud is share-replica-source REPLICA-SHARE [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
-For example:
+For example,
 
 ```text
 ibmcloud is share-replica-source replica-share-4
@@ -191,8 +193,8 @@ Mount targets        ID                          Name   VPC ID   VPC Name
 Resource group       ID                                 Name
                      11caaa983d9c4beb82690daab08717e9   Default
 
-Created              2022-09-07T18:13:04+05:30
-Last sync at         2022-09-06T05:53:28+05:53
+Created              2023-03-07T18:13:04+05:30
+Last sync at         2023-03-06T05:53:28+05:53
 Latest job           succeeded
 Replication share    ID                                          Name                Resource type
                      0bb9c083-2ac5-43d5-962a-757f69d5e6c8        replica-p-share-4   share
@@ -214,7 +216,7 @@ Make a `GET /shares` request to list all file shares for a region.
 
 ```curl
 curl -X GET \
-"$vpc_api_endpoint/v1/shares?version=2022-09-06&generation=2"\
+"$vpc_api_endpoint/v1/shares?version=2023-03-06&generation=2"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -229,7 +231,7 @@ A successful response looks like the following example:
   "limit": 50,
   "shares": [
     {
-      "created_at": "2022-09-07T13:02:17Z",
+      "created_at": "2023-03-07T13:02:17Z",
       "crn": "crn:[...]",
       "encryption": "provider_managed",
       "href": "$vpc_api_endpoint/v1/shares/51bba578-0dce-4f8a-aa6e-f06c899e2c8e",
@@ -291,7 +293,7 @@ A successful response looks like the following example:
 
 ```json
 {
-  "created_at": "2022-09-07T23:31:59Z",
+  "created_at": "2023-03-07T23:31:59Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63",
@@ -340,11 +342,11 @@ A successful response looks like the following example:
 
 Make a `GET /shares/{share_id}/targets` request to list all mount targets of a file share.
 
-Example:
+For example,
 
 ```curl
 curl -X GET \
-"$vpc_api_endpoint/v1/shares/$share_id/targets?version=2022-09-06&generation=2"\
+"$vpc_api_endpoint/v1/shares/$share_id/targets?version=2023-03-06&generation=2"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -359,7 +361,7 @@ A successful response looks like the following example:
   "limit": 50,
   "targets": [
     {
-      "created_at": "2022-09-07T23:31:59Z",
+      "created_at": "2023-03-07T23:31:59Z",
       "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63/targets/d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
       "id": "d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
       "lifecycle_state": "stable",
@@ -385,11 +387,11 @@ A successful response looks like the following example:
 
 Make a `GET /shares/{share_id}/targets/{mount_target_id}` request to information of a single mount target of a file share. This call includes mount path information. Use the mount path to attach a file share to an instance.
 
-Example:
+See the following example.
 
 ```curl
 curl -X GET \
-"$vpc_api_endpoint/v1/shares/$share_id/targets/$mount_target_id?version=2022-09-06&generation=2"\
+"$vpc_api_endpoint/v1/shares/$share_id/targets/$mount_target_id?version=2023-03-06&generation=2"\
 -H "Authorization: $iam_token"
 ```
 {: pre}
@@ -398,7 +400,7 @@ A successful response looks like the following example:
 
 ```json
 {
-  "created_at": "2022-09-07T23:31:59Z",
+  "created_at": "2023-03-07T23:31:59Z",
   "href": "$vpc_api_endpoint/v1/shares/199d78ec-b971-4a5c-a904-8f37ae710c63/targets/d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
   "id": "d5fd8173-f519-4ff7-8f63-0ead23ecf1f4",
   "lifecycle_state": "stable",
@@ -423,7 +425,7 @@ Make a `GET /shares/{replica_id}/source` request and specify the replica share I
 
 ```curl
 curl -X GET \
-"$vpc_api_endpoint/v1/shares/$replica_id/source?version=2022-09-06&generation=2"\
+"$vpc_api_endpoint/v1/shares/$replica_id/source?version=2023-03-06&generation=2"\
 -H "Authorization: $iam_token"\
 ```
 {: pre}
@@ -432,7 +434,7 @@ A successful response provides details of the source file share. Notice that the
 
 ```json
 {
-  "created_at": "2022-09-07T22:58:49.000Z",
+  "created_at": "2023-03-07T22:58:49.000Z",
   "crn": "crn:[...]",
   "encryption": "provider_managed",
   "href": "https://us-south.iaas.cloud.ibm.com/v1/shares/a1b07083-f411-446d-9116-8c08d6448c86",

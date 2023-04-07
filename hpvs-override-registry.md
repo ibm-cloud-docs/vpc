@@ -21,7 +21,7 @@ The documentation walks you through how to use a dynamic registry reference.
 ## Explicit registry reference
 {: #explicit-registry-reference}
 
-Typically, the docker registry is referenced via the full docker URL in the compose file. For example:
+Typically, the docker registry is referenced via the full docker URL in the compose file. For example,
 
 ```yaml
 services:
@@ -39,7 +39,7 @@ In such a case, the role that decides about the registry (and the associated pul
 
 There exist usecases in which the registry is **not known** when the workload section is pre-encrypted, for example, when the workload provider wants to allow the deployer to use a registry mirror or a private container registry. 
 
-In such a case, it's possible to dynamically override the registry as well as the pull credentials. This is an coordinated effort between the workload provider and the deployer.
+In such a case, it's possible to dynamically override the registry as well as the pull credentials. This is a coordinated effort between the workload provider and the deployer.
 
 The templating approach only works for a [compose](/docs/vpc?topic=vpc-about-contract_se#hpcr_contract_compose)-based workload and also only for images referenced via a digest (no support for DCT-based workloads).
 {: note}

@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2018, 2022
+  years: 2018, 2023
 
-lastupdated: "2022-11-08"
+lastupdated: "2023-03-31"
 
 keywords:
 
@@ -148,7 +148,7 @@ gateway="0738-446c0c63-f0b1-4043-b30d-644f55fde391"
 To attach the public gateway to your subnet, run the following command:
 
 ```sh
-ibmcloud is subnet-update $subnet --public-gateway-id $gateway
+ibmcloud is subnet-update $subnet --pgw $gateway
 ```
 {: pre}
 
@@ -401,7 +401,7 @@ For Windows images, make sure the security group that is associated with the ins
 Create a floating IP address if you want your instance to be reachable from the internet.
 
 ```sh
-ibmcloud is floating-ip-reserve my-fip --nic-id $nic
+ibmcloud is floating-ip-reserve my-fip --nic $nic
 ```
 {: pre}
 

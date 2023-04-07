@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-02-09"
+lastupdated: "2023-03-29"
 
 subcollection: vpc
 
@@ -28,7 +28,7 @@ The following operating systems are available as stock images when you create a 
 |---------|---------|
 | CentOS 7.x, 8.x, 9.x | x86-64 |
 | Debian 10.x, 11.x | x86-64 |
-| Red Hat Enterprise Linux 7.x, 8.x | x86-64 |
+| Red Hat Enterprise Linux 7.x, 8.x, 9.x | x86-64 |
 | Rocky Linux 8.5 | x86-64 |
 | SUSE Linux Enterprise Server 12.x, 15.x | x86-64 |
 | Ubuntu 18.04.x, 20.04.x, 22.04.x | x86-64 |
