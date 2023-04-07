@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-03-27"
+lastupdated: "2023-04-07"
 
 keywords: s390x bare metal faq, linuxone bare metal server faq
 
@@ -15,8 +15,8 @@ subcollection: vpc
 # FAQ for s390x bare metal servers
 {: #s390x-bare-metal-server-faq}
 
-s390x Bare Metal Servers for VPC is available in the São Paulo (br-sao) region, and is available for customers with special approval to preview this service in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), and Toronto (ca-tor) regions.
-{: preview
+s390x Bare Metal Servers for VPC is available in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), Toronto (ca-tor), and São Paulo (br-sao) regions.
+{: preview}
 
 You might encounter the following frequently asked questions when you use an s390x bare metal server.
 
