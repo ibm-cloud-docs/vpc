@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2023
 
 
-lastupdated: "2023-04-07"
+lastupdated: "2023-04-10"
 
 keywords:
 
@@ -32,8 +32,8 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 {: #vpc-apr23}
 
 
-### 10 April 2023
-{: #vpc-april1023}
+### 11 April 2023
+{: #vpc-april1123}
 {: release-note}
 
 s390x Bare Metal Servers for VPC (LA)
