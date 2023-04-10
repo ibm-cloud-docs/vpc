@@ -44,7 +44,7 @@ The [contract](/docs/vpc?topic=vpc-about-contract_se) is a YAML file to specify 
 This tutorial also provides sample files such as `env.yaml`, `workload.yaml`, and `user-data.yaml`. They are only meant as references for correct schema.
 
 ## Before you begin
-{: #before-you-begin}
+{: #hpvs-prereq}
 
 1. Install [OpenSSL](https://www.openssl.org/){: external} for encryption. This tutorial uses version 3.0 or later.
 2. Set up your logging instance by following the [documentation](/docs/vpc?topic=vpc-logging-for-hyper-protect-virtual-servers-for-vpc).

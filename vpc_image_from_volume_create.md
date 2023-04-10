@@ -204,7 +204,7 @@ Use the CLI to create an image from a volume that is attached to an available vi
    {: screen}
 
 ### Schedule custom image lifecycle status changes by using the CLI
-{: #import-schedule-ilm-status-change-cli}
+{: #ifv-import-schedule-ilm-status-change-cli}
 
 Custom image lifecycle is a beta feature that is available for evaluation and testing purposes.
 {: beta}
@@ -494,7 +494,7 @@ $iam_token" -d
 {: codeblock}
 
 ### Scheduling custom image lifecycle status changes by using the API
-{: #import-schedule-ilm-status-change-API}
+{: #ifv-import-schedule-ilm-status-change-API}
 
 Custom image lifecycle is a beta feature that is available for evaluation and testing purposes.
 {: beta}
