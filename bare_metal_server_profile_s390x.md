@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-16"
+lastupdated: "2023-04-07"
 
 keywords: LinuxONE bare metal profiles, s390x bare metal profiles
 
@@ -15,7 +15,7 @@ subcollection: vpc
 # s390x bare metal server profiles
 {: #s390x-bare-metal-servers-profile}
 
-s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), Toronto (ca-tor), and São Paulo (br-sao) regions.
+s390x Bare Metal Servers for VPC is available in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), Toronto (ca-tor), and São Paulo (br-sao) regions.
 {: preview}
 
 When you create an s390x bare metal server, you can select an s390x bare metal server profile that best fits your needs. A profile provides a different combination of hardware configurations that include number of CPU cores, amount of RAM, and size of local storage. The attributes define the size and capabilities of the bare metal server that is provisioned.
@@ -30,9 +30,13 @@ See table 1 for the configurations of each profile. Each CPU core of the s390x b
 
 | Name | CPU cores | vCPU |Memory (GiB) | SAN storage | Total network bandwidth (Gbps) | Number of supported interfaces |
 |---------|---------|---------|---------|---------|---------|------|
-| mz2d-metal-2x64 | 1 | 2 | 64 | 100 GB FCP boot storage on IBM FlashSystem 9200  \n  \n 1024 GB FCP Data storage | 2 | 1 |
-| mz2d-metal-16x512 | 8 | 16 | 512 | 100 GB FCP boot storage on IBM FlashSystem 9200  \n  \n 4096 GB FCP Data storage | 10 | 2 |
+| mz2d-metal-2x64 | 1 | 2 | 64 | 100 GB FCP boot storage on IBM FlashSystem 9200  \n  \n 1000 GB FCP Data storage  \n (allocation of 10X100) | 2 | 1 |
+| mz2d-metal-16x512 | 8 | 16 | 512 | 100 GB FCP boot storage on IBM FlashSystem 9200  \n  \n 4000 GB FCP Data storage  \n (allocation of 10X400) | 10 | 2 |
+| mz2d-metal-32x1024 | 16 | 32 | 1024 | 100 GB FCP boot storage on IBM FlashSystem 9200  \n  \n 16000 GB FCP Data storage  \n (allocation of 20X800) | 10 | 2 |
 {: caption="Table 1. s390x bare metal server profiles" caption-side="bottom"}
+
+The `mz2d-metal-32x1024` profile is currently available only in the Washington DC (us-east) region.
+{: preview}
 
 ## Understanding the naming rule of profiles
 {: #profile-naming-rule}
