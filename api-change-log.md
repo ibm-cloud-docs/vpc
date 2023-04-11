@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-03-28"
+lastupdated: "2023-04-11"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -38,6 +38,11 @@ SDK changes are based on API changes. For information about the latest changes t
 ## Upcoming changes
 {: #upcoming-changes}
 
+**`InstanceTemplate` response schema change.** In an upcoming release, future methods of creating instances, and therefore creating instance templates, may not require a primary network interface. To accommodate this, the `primary_network_interface` property is now optional in the instance template response model.
+
+At this time, all instances, and therefore all instance templates, continue to require that a primary network interface be specified. Therefore, existing instance templates are unaffected. Additionally, new instance templates will continue to include a primary network interface until further notice. However, to ensure your clients will not be affected in the future, verify that they are tolerant of the `primary_network_interface` property not being included when consuming `InstanceTemplate` responses. 
+{: important}
+
 **`Instance` response schema change.** In an upcoming release, volume attachments returned in the `boot_volume_attachment` and `volume_attachments[]` properties of an instance will not include the `volume` sub-property if the volume has not yet been provisioned. Such volumes are currently represented with empty `crn`, `id`, and `href` properties along with an undocumented sentinel value for `name`.
 
 To prepare for this change, verify that your client checks that the `volume` property exists for a volume attachment before attempting to access its `crn`, `id`, `href`, or `name` sub-properties.
@@ -48,6 +53,16 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 11 April 2023
+{: #11-april-2023}
+
+### For all version dates
+{: #11-april-2023-all-version-dates}
+
+**Console type configuration for bare metal server profiles.** When you [retrieve a bare metal server profile](/apidocs/vpc/latest#get-bare-metal-server-profile) or [list all bare metal server profiles](/apidocs/vpc/latest#list-bare-metal-server-profiles), the response now provides a `console_types` property that denotes the console type configuration for a bare metal server with this profile.
+
+**Network interface configuration for bare metal server profiles.** When you [retrieve a bare metal server profile](/apidocs/vpc/latest#get-bare-metal-server-profile) or [list all bare metal server profiles](/apidocs/vpc/latest#list-bare-metal-server-profiles), the response now provides a `network_interface_count` property. When the `type` is `range`, the new property provides `max` and `min` sub-properties that denote the maximum and minimum number of network interfaces that are supported for a bare metal server with the specified profile. The values for `max` and `min` include both the primary network interface and secondary network interfaces. When the `type` is `dependent`, the network interface count depends on another value that is specified when the server is created. For more information about network interfaces, see [Overview of bare metal server network interfaces](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers#overview-bare-metal-network-interfaces), and [Managing network interfaces for bare metal servers on VPC](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers&interface).
 
 ## 28 March 2023
 {: #28-march-2023}
