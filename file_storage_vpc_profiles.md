@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-04-03"
+lastupdated: "2023-04-11"
 
 keywords:
 
@@ -26,17 +26,17 @@ When you provision {{site.data.keyword.filestorage_vpc_short}} file shares by us
 
 When you [create a file share](/docs/vpc?topic=vpc-file-storage-create) in your availability zone, you select share size and IOPS performance based on a file storage profile. New file shares are created based on the high performance, [dp2](#dp2-profile) profile. 
 
-Earlier file shares that were created by using either the [IOPS tier](#fs-tiers) profiles or [custom IOPS](#fs-custom) profile continue to operate based on these profiles. You can also update these file shares to use the dp2 profile or switch back to a previous profile. However, you cannot use the previous profiles when you create a new file share.
+Earlier file shares that were created by using either the [IOPS tier](#fs-tiers) profiles or [custom IOPS](#fs-custom) profile can continue to operate based on these profiles. You can also update these file shares to use the dp2 profile or switch back to a previous profile. However, you cannot use the previous profiles when you create a new file share.
 
 Table 1 shows the dp2 profile performance levels compared to the earlier profiles. [Table 2](#dp2-profile) presents the IOPS and capacity ranges for the dp2 profile. For more information about the earlier IOPS tiers and custom profiles, see [previous version file storage profiles](#fs-v2-profiles).
 
-| Profile | IOPS | IOPS per share | Max throughput (MB/s)| Share size (GB) | Block size (KB) |
-|---------|------|-----------------|---------------------|-----------------|-----------------|
-| dp2 | 1-100 IOPS/GB | 100-96000 | 1024 | 10-32000 | 256 |
-| General purpose | 3 IOPS/GB | 3000-48000 | 670 | 10-16000 GB |  16 |
-| 5-iops | 5 IOPS/GB | 3000-48000 | 768 | 10-9600 | 16 |
-| 10-iops | 10 IOPS/GB | 3000-48000 | 1024 | 10-4800 | 256 |
-| Custom | 1-100 IOPS/GB | 3000-48000 | 1024 | 10-16800 GB | 256 |
+| Profile | Family | IOPS | IOPS per share | Max throughput (MB/s)| Share size (GB) | Block size (KB) |
+|---------|------  |------|----------------|----------------------|-----------------|-----------------|
+| dp2 | defined_performance | 1-100 IOPS/GB | 100-96000 | 1024 | 10-32000 | 256 |
+| tier-3iops | tiered |3 IOPS/GB | 3000-48000 | 670 | 10-16000 |  16 |
+| tier-5iops | tiered | 5 IOPS/GB | 3000-48000 | 768 | 10-9600 | 16 |
+| tier-10iops | tiered | 10 IOPS/GB | 3000-48000 | 1024 | 10-4800 | 256 |
+| custom | custom | 1-100 IOPS/GB | 3000-48000 | 1024 | 10-16800  | 256 |
 {: caption="Table 1. Comparison of file share profiles and performance levels" caption-side="top"}
 
 ## dp2 file storage profile
@@ -47,7 +47,7 @@ By using the dp2 profile, you can specify the total IOPS for the file share with
 Table 2 shows the available IOPS ranges, based on share size.
 
 | Share size (GB) | IOPS range (IOPS) |
-|------------------|-----------|
+|-----------------|-------------------|
 | 10-39   | 100-1000 |
 | 40-79 | 100-2000 |
 | 80-99 | 100-4000 |
@@ -70,11 +70,11 @@ Table 2 shows the available IOPS ranges, based on share size.
 
 Existing file shares can be based on IOPS tiers that you selected when you created the file share. Table 3 describes the IOPS performance for the IOPS tier profile.
 
-| IOPS Tier | Workload | Share size | Max IOPS |
-|-----------|----------|-------------|--------------|
-| 3 IOPS/GB | General-purpose workloads - Workloads that host small databases for web applications or store virtual machine disk images for a hypervisor | 10 GB to 32,000 GB | 48,000/96,000&sup1; IOPS |
-| 5 IOPS/GB | High I/O intensity workloads - Workloads characterized by a large percentage of active data, such as transactional and other performance-sensitive databases| 10 GB to 9,600 GB | 48,000 IOPS|
-| 10 IOPS/GB | Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics | 10 GB to 4,800 GB | 48,000 IOPS |
+| IOPS Tier | Workload | Share size (GB) | Max IOPS (IOPS) |
+|-----------|----------|-----------------|-----------------|
+| 3 IOPS/GB | General-purpose workloads - Workloads that host small databases for web applications or store virtual machine disk images for a hypervisor | 10-32000 | 48000/96000&sup1; |
+| 5 IOPS/GB | High I/O intensity workloads - Workloads characterized by a large percentage of active data, such as transactional and other performance-sensitive databases| 10-9600 | 48000 |
+| 10 IOPS/GB | Demanding storage workloads - Data intensive workloads created by NoSQL databases, data processing for video, machine learning, and analytics | 10-4800 | 48000 |
 {: caption="Table 3. IOPS tier profiles and performance levels for each tier" caption-side="bottom"}
 
 &sup1; For the 96,000 IOPS to be realized, a single file share must be accessed by multiple virtual server instances. A single file share that is accessed by one instance is limited to 48,000 IOPS.
@@ -85,12 +85,12 @@ The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS ca
 ### Custom IOPS profile
 {: #fs-custom}
 
-Custom IOPS profiles specify the total IOPS for the file share within the range for its size. File shares that use a custom IOPS profile can have IOPS performance level in the range 100 - 48,000 IOPS.
+Custom IOPS profiles specify the total IOPS for the file share within the range for its size. File shares that use a custom IOPS profile can have IOPS performance level in the range 100-48000 IOPS.
 
 Table 4 shows the available IOPS ranges based on file share size.
 
 | File Share size (GB) | IOPS range (IOPS) |
-|-------------|--------------|
+|----------------------|-------------------|
 | 10-39   | 100-1000 |
 | 40-79 | 100-2000 |
 | 80-99 | 100-4000 |
@@ -110,7 +110,7 @@ The total maximum IOPS is rounded up to the next multiple of 10 when the IOPS ca
 {: #fs-using-ui-iops-profile}
 {: ui}
 
-When you create a file share in the console, under **Profiles**, select a profile.
+When you [create a file share in the UI](/docs/vpc?topic=vpc-file-storage-create&interface=ui#file-storage-create-ui), under **Profiles**, select a profile.
 
 ## View profiles from the CLI
 {: #fs-using-cli-iops-profiles}
@@ -148,20 +148,47 @@ curl -X GET \
 $vpc_api_endpoint/v1/share/profiles?$api_version&generation=2 \
 -H "Authorization: $iam_token"
 ```
-{: codeblock}
+{: pre}
 
 The response returns the following profiles:
 
 ```json
-Name          Family
-custom-iops   custom
-dp2           defined-performance
-tier-10iops   tiered
-tier-3iops    tiered
-tier-5iops    tiered
+{
+"profiles": [
+    {
+      "family": "custom",
+      "href": "$vpc_api_endpoint/v1/share/profiles/custom-iops",
+      "name": "custom-iops",
+      "resource_type": "share_profile"
+    },
+    {
+      "family": "defined_performance",
+      "href": "$vpc_api_endpoint/v1/share/profiles/dp2",
+      "name": "dp2",
+      "resource_type": "share_profile"
+    },
+    {
+      "family": "tiered",
+      "href": "$vpc_api_endpoint/v1/share/profiles/tier-10iops",
+      "name": "tier-10iops",
+      "resource_type": "share_profile"
+    },
+    {
+      "family": "tiered",
+      "href": "$vpc_api_endpoint/v1/share/profiles/tier-3iops",
+      "name": "tier-3iops",
+      "resource_type": "share_profile"
+    },
+    {
+      "family": "tiered",
+      "href": "$vpc_api_endpoint/v1/share/profiles/tier-5iops",
+      "name": "tier-5iops",
+      "resource_type": "share_profile"
+    }
+  ]
+}
 ```
 {: codeblock}
-
 
 ## How block size affects file share performance
 {: #fs-profiles-block-size}
@@ -175,16 +202,16 @@ The block size that you choose for I/O from your application directly impacts st
 Table 5 provides some examples of how block size and IOPS affect the throughput, calculated average I/O block size x IOPS = Throughput in MBps.
 
 | Block Size (KB) | IOPS | Throughput (MBps) |
-|-----|-----|-----|
-| 4 | 1,000 | 4&sup1;|
-| 8 | 1,000 | 8&sup1;|
-| 16 | 1,000 | 16 |
+|-----------------|------|-------------------|
+| 4 | 1000 | 4&sup1;|
+| 8 | 1000 | 8&sup1;|
+| 16 | 1000 | 16 |
 | 32 | 500 | 16 |
 | 64 | 250 | 16 |
 | 128 | 128 | 16 |
 | 512 | 32 | 16 |
 | 1024 | 16 | 16 |
-{: caption="Table 5. How block size and IOPS affect throughput." caption-side="bottom"}
+{: caption="Table 5. How block size and IOPS affect throughput" caption-side="bottom"}
 
 &sup1;If your cap is 1000 IOPS or 16 KB block size, the throughput caps at whatever limit is reached first.
 
