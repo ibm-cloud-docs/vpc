@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-04-07"
+lastupdated: "2023-04-11"
 
 keywords: LinuxONE bare metal profiles, s390x bare metal profiles
 
