@@ -3,7 +3,8 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-04-06"
+
+lastupdated: "2023-04-10"
 
 keywords:
 
@@ -30,6 +31,14 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## April 2023
 {: #vpc-apr23}
 
+
+### 11 April 2023
+{: #vpc-april1123}
+{: release-note}
+
+s390x Bare Metal Servers for VPC (LA)
+:   LinuxONE Bare Metal Servers are now generally available in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), and Toronto (ca-tor), and São Paulo (br-sao) regions. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
+
 ### 6 April 2023
 {: #vpc-april0623}
 {: release-note}
@@ -38,7 +47,7 @@ Image lifecycle management for custom images (beta)
 :   For customers with special access to this feature, you can use the UI, CLI, and API to manage the lifecycle of your custom images with the following three statuses. You can move the image back and forth through all the statuses. You can also schedule status changes to manage the entire lifecycle of the image. For more information, see [Custom image lifecycle](/docs/vpc?topic=vpc-planning-custom-images&interface=ui#custom-image-lifecycle) in [Getting started with custom images](/docs/vpc?topic=vpc-planning-custom-images&interface=ui).
     * `available`: The image can be used to create an instance.
     * `deprecated`: The image can be used to create an instance. Using the `deprecated` status can discourage use of the image before the status changes to `obsolete`.
-    * `obsolete`: The image can't be used to create an instance. 
+    * `obsolete`: The image can't be used to create an instance.
 
 ### 4 April 2023
 {: #vpc-apr04}
@@ -89,7 +98,7 @@ New network latency dashboard
 :   Provides visibility into network latency between all regions to help you plan the optimal selection for your cloud deployment and plan for scenarios, such as data residency and performance. This dashboard provides the average network round-trip latency (round-trip time or RTT) for all pairs of regions in {{site.data.keyword.cloud_notm}} over a 30-day period.
 
    You can view and monitor performance in the following {{site.data.keyword.cloud_notm}} regions: Dallas, Toronto, Washington DC, Frankfurt, London, Osaka, Sydney, Tokyo and São Paulo.
-   
+
    To view performance metrics, see the [Network latency dashboard](/docs/vpc?topic=vpc-network-latency-dashboard).
 
 ### 21 March 2023
@@ -102,7 +111,7 @@ Instance provision by volume
 Designating VPC route priority
 :   When multiple VPC routes exist for a given destination, you can now control the priority of these routes (from `0` to `4`). New and existing routes, created without a priority value, are automatically set to the default priority (`2`). Smaller values have higher priority. For more information, see [Determining route preference](/docs/vpc?topic=vpc-about-custom-routes#cr-determining-route-preference).
 
-   The route priority is considered on identical destinations only. 
+   The route priority is considered on identical destinations only.
    {: note}
 
 Modifying the next hop for VPC routes
@@ -119,7 +128,7 @@ IBM Hyper Protect Container Runtime image `ibm-hyper-protect-container-runtime-1
    - [Intermediate certificate](/media/docs/downloads/hyper-protect-container-runtime/ibm-hyper-protect-container-runtime-1-0-s390x-9-intermediate.crt){: external}
 
    Two partitions in new data volume
-   - For new {{site.data.keyword.hpvs}} instances, the data volume is partitioned into two parts. The first partition (100Mib) is reserved for internal metadata; the second partition remains as the data volume for workload. Only new volumes are partitioned, and you can't use the partitioned volume with an older version of the HPCR image. Provisioning with an existing encrypted volume also works. The difference is that the existing volume does not get partitioned, and you can also go back to an older image with this volume. 
+   - For new {{site.data.keyword.hpvs}} instances, the data volume is partitioned into two parts. The first partition (100Mib) is reserved for internal metadata; the second partition remains as the data volume for workload. Only new volumes are partitioned, and you can't use the partitioned volume with an older version of the HPCR image. Provisioning with an existing encrypted volume also works. The difference is that the existing volume does not get partitioned, and you can also go back to an older image with this volume.
 
    Support for using a dynamic registry reference
    - There exist use cases in which the registry is **not known** when the workload section is pre-encrypted, for example, when the workload provider wants to allow the deployer to use a registry mirror or a private container registry. In such a case, it's possible to dynamically override the registry as well as the pull credentials. This is a coordinated effort between the workload provider and the deployer. For more information, see [Using a dynamic registry reference](/docs/vpc?topic=vpc-hyper-protect-virtual-server-use-dynamic-registry-reference).
@@ -223,7 +232,7 @@ New region (Tokyo) for LinuxONE Bare Metal Servers (s390x processor architecture
 {: release-note}
 
 Application Load Balancer and VPN for VPC
-:    As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they are no longer valid. 
+:    As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they are no longer valid.
 
 End of support (EOS) for deprecated VPN for VPC IKE and IPsec ciphers
 :    On 20 September 2022, the following VPN IKE and IPsec ciphers were deprecated:
@@ -606,7 +615,7 @@ File Storage for VPC
 Secrets Manager for application load balancers
 :    Application load balancers now support [IBM Secrets Manager](/docs/secrets-manager?topic=secrets-manager-getting-started). With Secrets Manager, you can create, lease, and centrally manage secrets that are used in {{site.data.keyword.cloud}} services or your custom-built applications.
 
-:    As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they are no longer valid. 
+:    As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they are no longer valid.
 
 ### 17 May 2022
 {: #vpc-may1722}
