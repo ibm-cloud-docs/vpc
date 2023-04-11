@@ -91,7 +91,7 @@ After you create your Windows server and complete the prerequisites, use the fol
    ```
    {: pre}
 
-4. You now have a decrypted password and a floating IP address to connect to your Windows server. Use your preferred Remote Desktop client to connect to your server. To connect to your server, provide the floating IP address and the decrypted password. The username is `Administrator` by default. (If you are connecting from a client that is running the Windows Administrator account, use `.\Administrator` as the user ID to log on to RDP.)
+4. You now have a decrypted password and a floating IP address to connect to your Windows server. Use your preferred Remote Desktop client to connect to your server. To connect to your server, provide the floating IP address and the decrypted password. The username is `Administrator` by default. (If you are connecting from a client that is running the Windows Administrator account, use `.\administrator` as the user ID to log on to RDP.)
 
 ## Next steps
 {: #next-manage-vsi-bms-win}
