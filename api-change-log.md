@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-04-11"
+lastupdated: "2023-04-18"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -53,6 +53,14 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 18 April 2023
+{: #18-april-2023}
+
+### For all version dates
+{: #18-april-2023-all-version-dates}
+
+**Resource suspension for bare metal servers.** The [list all bare metal servers](/apidocs/vpc/latest#list-bare-metal-servers) and [retrieve a bare metal server](/apidocs/vpc/latest#get-bare-metal-server) methods now provide `lifecycle_reasons` and `lifecycle_state` properties. A bare metal server that violates IBM Cloud’s [Acceptable Use Policy](https://www.ibm.com/services/us/imc/html/aup1.html){: external} will now have its `lifecycle_state` property set to `suspended`. A suspended bare metal server is automatically powered off and you cannot update, delete, or power it on. For more information, see [Viewing bare metal status and lifecycle_state in the API](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=api) and [Resource suspension](/docs/vpc?topic=vpc-resource-suspension).
 
 ## 11 April 2023
 {: #11-april-2023}
