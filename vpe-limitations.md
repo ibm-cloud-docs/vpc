@@ -13,7 +13,7 @@ keywords: VPE, virtual private endpoints, limitations, endpoint gateway
 # Virtual private endpoint limitations
 {: #limitations-vpe}
 
-* The following items are not supported for {{site.data.keyword.cloud_notm}} Virtual Private Endpoints for VPC:
+* The following items are not supported for {{site.data.keyword.cloud}} Virtual Private Endpoints for VPC:
 
    * Services that are in zones and regions other than [IBM Cloud Multi-Zone Regions (MZRs)](/docs/overview?topic=overview-locations#mzr-table) 
    * {{site.data.keyword.cloud_notm}} Flow Logs for VPC

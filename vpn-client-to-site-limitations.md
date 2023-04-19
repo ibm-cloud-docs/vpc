@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-06-27"
+  years: 2023
+lastupdated: "2023-02-02"
 keywords:
 
 subcollection: vpc
@@ -16,7 +16,6 @@ subcollection: vpc
 
 The limitations for this release are as follows:
 
-* You cannot use the Secrets Manager private certificate in VPN server or client authentication.
 * Currently, only 2000 maximum active client connections are supported per server.
 * MFA support is provided by IAM.
 * Currently, SDK and Terraform support is not available.
