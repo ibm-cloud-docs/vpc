@@ -56,8 +56,6 @@ Use the assigned FQDN to send traffic to the private application load balancer t
 {: #choosing-application-load-balancer}
 
 If you have public and private workloads and layer 7 traffic, use an application load balancer. 
-
-![Choosing a load balancer](/images/loadbalancer_decision_tree.svg){: caption="Figure 1: Choosing an application load balancer" caption-side="bottom"} 
  
 ## Load-balancing methods
 {: #load-balancing-methods}
