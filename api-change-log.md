@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-02-14"
+lastupdated: "2023-04-18"
 
 keywords: api, change log, new features, restrictions, migration
 
@@ -38,6 +38,11 @@ SDK changes are based on API changes. For information about the latest changes t
 ## Upcoming changes
 {: #upcoming-changes}
 
+**`InstanceTemplate` response schema change.** In an upcoming release, future methods of creating instances, and therefore creating instance templates, may not require a primary network interface. To accommodate this, the `primary_network_interface` property is now optional in the instance template response model.
+
+At this time, all instances, and therefore all instance templates, continue to require that a primary network interface be specified. Therefore, existing instance templates are unaffected. Additionally, new instance templates will continue to include a primary network interface until further notice. However, to ensure your clients will not be affected in the future, verify that they are tolerant of the `primary_network_interface` property not being included when consuming `InstanceTemplate` responses. 
+{: important}
+
 **`Instance` response schema change.** In an upcoming release, volume attachments returned in the `boot_volume_attachment` and `volume_attachments[]` properties of an instance will not include the `volume` sub-property if the volume has not yet been provisioned. Such volumes are currently represented with empty `crn`, `id`, and `href` properties along with an undocumented sentinel value for `name`.
 
 To prepare for this change, verify that your client checks that the `volume` property exists for a volume attachment before attempting to access its `crn`, `id`, `href`, or `name` sub-properties.
@@ -48,6 +53,50 @@ The new response code will be rolled out gradually. Each phase of the rollout wi
 {: note}
 
 **Security group targets.** In an upcoming release, new resource types will be permitted as security group targets. If you add resources of these new types to a security group, existing client applications will be exposed to the new types when iterating over the security group's targets. To avoid disruption, check that client applications are written to gracefully handle unexpected resource types in a security group's targets.
+
+## 18 April 2023
+{: #18-april-2023}
+
+### For all version dates
+{: #18-april-2023-all-version-dates}
+
+**Resource suspension for bare metal servers.** The [list all bare metal servers](/apidocs/vpc/latest#list-bare-metal-servers) and [retrieve a bare metal server](/apidocs/vpc/latest#get-bare-metal-server) methods now provide `lifecycle_reasons` and `lifecycle_state` properties. A bare metal server that violates IBM Cloud’s [Acceptable Use Policy](https://www.ibm.com/services/us/imc/html/aup1.html){: external} will now have its `lifecycle_state` property set to `suspended`. A suspended bare metal server is automatically powered off and you cannot update, delete, or power it on. For more information, see [Viewing bare metal status and lifecycle_state in the API](/docs/vpc?topic=vpc-managing-bare-metal-servers&interface=api) and [Resource suspension](/docs/vpc?topic=vpc-resource-suspension).
+
+## 11 April 2023
+{: #11-april-2023}
+
+### For all version dates
+{: #11-april-2023-all-version-dates}
+
+**Console type configuration for bare metal server profiles.** When you [retrieve a bare metal server profile](/apidocs/vpc/latest#get-bare-metal-server-profile) or [list all bare metal server profiles](/apidocs/vpc/latest#list-bare-metal-server-profiles), the response now provides a `console_types` property that denotes the console type configuration for a bare metal server with this profile.
+
+**Network interface configuration for bare metal server profiles.** When you [retrieve a bare metal server profile](/apidocs/vpc/latest#get-bare-metal-server-profile) or [list all bare metal server profiles](/apidocs/vpc/latest#list-bare-metal-server-profiles), the response now provides a `network_interface_count` property. When the `type` is `range`, the new property provides `max` and `min` sub-properties that denote the maximum and minimum number of network interfaces that are supported for a bare metal server with the specified profile. The values for `max` and `min` include both the primary network interface and secondary network interfaces. When the `type` is `dependent`, the network interface count depends on another value that is specified when the server is created. For more information about network interfaces, see [Overview of bare metal server network interfaces](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers#overview-bare-metal-network-interfaces), and [Managing network interfaces for bare metal servers on VPC](/docs/vpc?topic=vpc-managing-nic-for-bare-metal-servers&interface).
+
+## 28 March 2023
+{: #28-march-2023}
+
+### For all version dates
+{: #28-march-2023-all-version-dates}
+
+**VCPU manufacturer support for instances and dedicated hosts.** When [provisioning](/apidocs/vpc/latest#create-instance) an instance or dedicated host, you can now use the new `vcpu_manufacturer` property in the [instance](/apidocs/vpc/latest#list-instance-profiles) or [dedicated host](/apidocs/vpc/latest#list-dedicated-host-profiles) profile to choose between profiles from different processor manufacturers. You can also view the virtual server instance VCPU configuration through the `vcpu` sub-property `manufacturer`. For more information and limitations, see [x86-64 instance profiles](/docs/vpc?topic=vpc-profiles&interface=ui#balanced) and [Dedicated host profiles](/docs/vpc?topic=vpc-dh-profiles&interface=ui#balanced-dh-pr).
+
+**Network interface configuration for instance profiles.** When you [retrieve an instance profile](/apidocs/vpc/latest#get-instance-profile) or [list all instance profiles](/apidocs/vpc/latest#list-instance-profiles), the response now provides a `network_interface_count` property. When the `type` is `range`, the new property provides `max` and `min` sub-properties that denote the maximum and minimum number of network interfaces that are supported for a virtual server instance with the specified profile. The values for `max` and `min` include both the primary network interface and secondary network interfaces. When the `type` is `dependent`, the network interface count depends on another value that is specified when the instance is created. For more information about instance profiles and network interface count, see [Bandwidth allocation with multiple network interfaces](/docs/vpc?topic=vpc-profiles&interface=api#bandwidth-multi-vnic). 
+
+**Private DNS integration for load balancers.** When you [create](/apidocs/vpc/latest#create-load-balancer) or [update](/apidocs/vpc/latest#update-load-balancer) a load balancer, you can now bind the IP addresses of your VPC load balancers to your private DNS zone by specifying the new `dns.instance` and `dns.zone` properties. When you specify these properties, load balancer IPs will no longer be registered to the publicly resolvable `lb.appdomain.cloud` domain name. For more information, see [IBM Cloud Network Load Balancer for VPC](/docs/vpc?topic=vpc-nlb-dns&interface=api) and [IBM Cloud Application Load Balancer for VPC](/docs/vpc?topic=vpc-lb-dns&interface=api).
+
+## 21 March 2023
+{: #21-march-2023}
+
+### For all version dates
+{: #21-march-2023-all-version-dates}
+
+**Instance provision by volume.**  You can now reuse an existing boot volume to provision a virtual server instance by specifying the existing volume using the `id` or `crn` sub-properties of the `boot_volume_attachment` property. The specified volume must be unattached and must have an operating system with the same architecture as the instance profile. You can use the new volume `attachment_state` property and expanded `operating_system` property to determine its eligibility. You can also use the new [list volumes](/apidocs/vpc/latest#list-volumes) filters to list volumes that have specific `attachment_state`, `operating_system`, and `encryption_type` values.
+
+By default, a boot volume created as part of provisioning a virtual server instance will be deleted when the instance is deleted. You can control this by specifying the `delete_volume_on_instance_delete` property when [creating the instance](/apidocs/vpc/latest#create-instance) or updating the [boot volume attachment](/apidocs/vpc/latest#update-instance-volume-attachment). For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api).
+
+**VPC route priority.** You can now control the priority of [VPC routes](/docs/vpc?topic=vpc-about-custom-routes). When you [create](/apidocs/vpc/latest#create-vpc-routing-table-route) or [update](/apidocs/vpc/latest#update-vpc-routing-table-route) a VPC route, use the new `priority` property to specify a value between `0` and `4` (default: `2`). Smaller values have higher priority. For more information, see [Determining route preference](/docs/vpc?topic=vpc-about-custom-routes#cr-determining-route-preference).
+
+**Modifiable next hop for VPC routes.** You can now [update](/apidocs/vpc/latest#update-vpc-routing-table-route) the `next_hop` property of a VPC route. For more information about next hop, see [Creating a route](/docs/vpc?topic=vpc-create-vpc-route).
 
 ## 7 March 2023
 {: #7-march-2023}

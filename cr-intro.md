@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-02-03"
+lastupdated: "2023-03-21"
 
 keywords: custom routes
 
@@ -58,6 +58,27 @@ The system-implicit routing table contains:
 
     `10.0.0.0/14`, `10.200.0.0/14`, `10.198.0.0/15`, and `10.254.0.0/16` are classic infrastructure service network CIDRs.
     {: note}
+    
+## Determining route preference
+{: #cr-determining-route-preference}
+
+You can designate the route priority (`0`-`4`) of VPC routes to determine which routes have a higher priority when there are multiple routes for a given destination. Existing routes and new routes, created without a priority value, are automatically set to the default priority (`2`). 
+{: shortdesc}
+
+The route priority is considered on identical destinations only and is similar to any dynamically learned route.
+{: note}
+
+### Setting route priority examples
+{: #examples-setting-route-priority}
+
+- If you have a route with a `/32` prefix and priority of `1`, and a route with destination of `/31` and priority `0`, then `/32` is used first (longest prefix match). In other words, priority matters only when there is more than one route with the exact same prefix.
+- If you have three routes with `0.0.0.0/0` (default route), only the route with the highest priority is used. If the selected route is removed (for example, through automation), the highest priority from the remaining two routes is selected.
+- If there is only one route with a given prefix in the custom routing table, that one route is always used regardless of its priority. Best route selection is performed for every given prefix and picks the route with the highest priority.
+ 
+Equal-Cost Multi-Path (ECMP) routing is used when two routes have the same destination and priority (extending the current behavior where ECMP is used for two routes with same destination). At most, two routes in a routing table are allowed to have the same destination and priority. For example, if the custom routing table has three routes with the same destination, one route with priority `1` and the other two routes with priority `4` (ECMP), the route with priority `1` is selected and the ECMP routes are ignored (no ECMP). Now, if the two routes with the same destination and priority have the highest priority, the system selects these two routes and performs ECMP. Then, if one of these routes is deleted, the route that still exists is selected and ECMP is not performed.
+
+For route priority limitations, see [Limitations and guidelines](/docs/vpc?topic=vpc-about-custom-routes&interface=ui#route-rules-considerations).
+{: note}
 
 ## Use cases
 {: #use-cases}
@@ -160,6 +181,11 @@ The following limitations and guidelines apply to {{site.data.keyword.cloud_notm
 * The ability to reach a next hop IP address in a custom route is not a determining factor in whether the route is used for forward traffic. This can cause issues when multiple routes with the same prefix (but different next hop IP addresses) are used, as traffic to unreachable next hop IP addresses might not be delivered.
 * {{site.data.keyword.cloud_notm}} VPC permits the use of RFC-1918 and IANA-registered IPv4 address spaces privately within your VPC, with some exceptions in the IANA special-purpose ranges, and select ranges assigned to {{site.data.keyword.cloud_notm}} services. When using IANA-registered ranges within your enterprise, and within VPCs in conjunction with {{site.data.keyword.cloud_notm}} Transit Gateway or {{site.data.keyword.cloud_notm}} Direct Link, you must install custom routes in each zone. For more information, see [Routing considerations for IANA-registered IP assignments](/docs/vpc?topic=vpc-interconnectivity#routing-considerations-iana).
 
+### Route priority
+{: #route-rules-considerations}
+
+If multiple routes exist with the same destination CIDR/prefix, the route with the highest priority value is used. Routes with the same destination CIDR/prefix and priority use ECMP routing. 
+
 ### Egress routes
 {: #routes-egress-routes}
 
@@ -173,6 +199,7 @@ The implicit router performs ECMP routing (multiple routes with the same destina
 * This only applies to routes with an action of `deliver`.
 * Only two identical destination routes are permitted per zone, and each must have different next hop addresses.
 * When ECMP is used, the return path might not take the same path.
+* ECMP only supports a next hop type of IP address.
 
 ### Ingress routes
 {: #routes-ingress}

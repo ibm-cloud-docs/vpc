@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-02-24"
+lastupdated: "2023-03-30"
 
 keywords: Backup for VPC, backup snapshot, create backups for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -21,9 +21,12 @@ You can create backup policies for your {{site.data.keyword.block_storage_is_sho
 ## Before you begin
 {: #backup-prereqs}
 
-1. Establish IAM user roles to grant [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth) so the backup service can detect volume tags and create backups.
+1. Establish IAM user roles to grant [service-to-service authorizations](/docs/vpc?topic=vpc-backup-s2s-auth#backup-s2s-auth-overview) so the backup service can detect volume tags and create backups.
 
 2. Create user tags for new or existing data volumes that you can associate with a backup policy. For more information about adding tags, see [Apply tags to resources for backup policies](/docs/vpc?topic=vpc-backup-use-policies). For more information about creating tags, see [Working with tags](/docs/account?topic=account-tag).
+
+While you're not required to create a backup plan when you create a backup policy, it's good practice to create at least one backup plan with your policy.
+{: tip}
 
 ## Create a backup policy and plan in the UI
 {: #backup-policy-create-ui}
@@ -34,7 +37,19 @@ You can create backup policies for your {{site.data.keyword.block_storage_is_sho
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Backup policies**. The **Create** tab is selected by default.
 
-2. Enter information for each section of the provisioning form. Create at least one backup plan per policy.
+   The UI is set up to evaluate whether the correct service-to-service authorizations are enabled for your account. If one or more authorizations are incorrect or missing, a notification message with the three required services and their matching roles are displayed. Click **Authorize ->** for each item to display a side panel. The minimum required permission is preselected. Click **Review**, then confirm that the correct role is selected and click **Assign**.
+
+   | Field | Description |
+   |-------|-------------|
+   | Block storage for VPC: Operator |  **Target service** Block Storage for VPC \n **Access** _Operator_ access. |
+   | Block storage snapshots for VPC: Editor | **Target service** Block Storage Snapshots for VPC \n **Access** _Editor_ access. |
+   | Virtual server for VPC: Operator | **Target service** Virtual Server for VPC \n **Access** _Operator_ access. |
+   {: caption="Table 1. Service-to-service authorizations for creating backup policies" caption-side="bottom"}
+
+   If your account does not allow for the required service-to-service authorizations and user access roles to create a backup policy, [contact IBM support](/docs/vpc?topic=vpc-getting-help&interface=ui) for help.
+   {: note}
+
+3. Enter information for each section of the provisioning form. Optionally create a backup plan for the policy.
 
    | Field        | Description |
    |--------------|-------------|
@@ -48,11 +63,11 @@ You can create backup policies for your {{site.data.keyword.block_storage_is_sho
    | - Access management tags | Access management tags are used to manage access to resources, and they can be created in advance for use in access policies. Access policies control access to the resources where the tags are attached. Only the account administrator can create access management tag. |
    | **Tags for target resources** | Specify the user tags to apply to your target resources ({{site.data.keyword.block_storage_is_short}} volumes) in your region. If multiple resources use the same tag, backups are created for all tagged resources. If a resource has multiple tags, it needs to match only one tag that is associated with the backup policy. After the backup policy is created, existing resources with any of the tags for target resources are automatically associated. |
    | **Plan**         | Click **Create** to create backup plans for this policy. In the side panel, specify the plan details. When finished, click **Create**. The page refreshes with a summary of the plan details. You can create up to four backup plans. All apply to the volumes with tags that match the backup policy. \n For more information about options, see [Specify a backup plan](#backup-plan-ui). |
-   {: caption="Table 1. Backup policy provisioning selections" caption-side="bottom"}
+   {: caption="Table 2. Backup policy provisioning selections" caption-side="bottom"}
 
-3. Optionally, [estimate the costs](#backup-cost-estimator-ui) for your backups.
+4. Optionally, [estimate the costs](#backup-cost-estimator-ui) for your backups.
 
-4. Click **Create backup policy**. The order summary side panel shows the backup policy and all plans that were created for it.
+5. Click **Create backup policy**. The order summary side panel shows the backup policy and all plans that were created for it.
 
 ### Create a backup plan in the UI
 {: #backup-plan-ui}
@@ -62,14 +77,14 @@ You can schedule backups in your plan on a daily, weekly, or monthly basis by us
 1. From the Plan side panel, enter a name for the plan (for example, _daily-dallas-vol1_). The plan name must be unique within the policy.
 
 2. Specify the **Frequency**. Select one of the following options from the list:
-     * Daily: 
+     * Daily
        - For a Daily plan, enter the **starting time (UTC)** in hours and minutes, Coordinated Universal Time. For example, 12 noon would be 12:00. Local time conversion is automatically provided on the screen, for example, 12 PM Central Daylight Time.
-     * Weekly: 
+     * Weekly
        - For a Weekly plan, select the days of the week you want backups to run. For example, you can select Monday, Wednesday, and Friday. Specify the starting time in the same manner as a Daily plan.
-     * Monthly: 
+     * Monthly
        - For a Monthly plan, select the day of the month you want backups to run. For example, 1 would schedule a backup every first of the month. Specify the starting time in the same manner as a Daily plan.
-     * Specify by using cron expression: 
-       - Under **Cron expression {UTC)**, enter the backup creation frequency in `cron-spec` format: minute, hour, day, month, and weekday. For example, to create a backup every day at 5:30 PM, you need to enter `30 17 * * *`.
+     * Specify by using cron expression
+       - Under **Cron expression (UTC)**, enter the backup creation frequency in `cron-spec` format: minute, hour, day, month, and weekday. For example, to create a backup every day at 5:30 PM, you need to enter `30 17 * * *`.
 
    The **Backup destination** shows the {{site.data.keyword.block_storage_is_short}} volume's region. The **Backup resource group** is the resource group that is associated with the volume.
    {: note}
@@ -77,7 +92,7 @@ You can schedule backups in your plan on a daily, weekly, or monthly basis by us
 3. Specify a **Retention type** for the backups. You can specify either how long to keep them by number of days or the total number to retain.
 
    * For **Age**, specify the number of days that you want to retain the backups. A default value for the maximum number of days to keep a backup is not provided.
-   * For **Count**, provide the number of backups that you want to keep. You can retain up to 750 snapshots for a volume.
+   * For **Count**, provide the number of backups that you want to keep.
    
    To keep costs down, set a retention period or snapshots count adequate to your needs. For example, setting 7 for **Age** retains a week's worth of backups.
 
@@ -106,7 +121,7 @@ Use the cost estimator to see what your backups might cost based on the rate of 
 
    * Average amount of data per volume (in GBs). For example, you might associate two volumes with a policy. The first volume has 4 GB of data and the second 20 GB. An average of the two would be 12 GB.
 
-   * Number of backups per volume per month. Consider the backup frequency that you set in your backup plan. You can take a maximum of 750 backup snapshots per volume.
+   * Number of backups per volume per month. You can take a maximum of 750 backup snapshots per volume.
 
    * Percent of incremental change after the initial backup. For example, 15 percent increase in size for each subsequent backup.
 
@@ -147,7 +162,7 @@ Before you can use the CLI, you must install the IBM Cloud CLI and the VPC CLI p
 
 Run the `ibmcloud is backup-policy-create` command to create a backup policy without a backup plan. Use the options `--match-tags` and `--name` to give your policy a name and identify the tag that you want to use for your target resources. After the policy is created, you can [add backup plans](#backup-create-plan-cli) to it later on.
 
-```zsh
+```sh
 cloudshell:~$ ibmcloud is backup-policy-create --match-tags dev:test --name my-backup-policy-v1
 Creating backup policy my-backup-policy-v1 under account Test Account as user test.user@ibm.com...
                           
@@ -171,7 +186,7 @@ For more information about available command options, see [`ibmcloud is backup-p
 
 Run the `backup-policy-create` command to create a backup policy and a backup plan in the same command. 
 
-The following example uses the `--match_tags` option to match tags to volumes with the user tag `dev:test` and specifies the frequency of the backup plan as a `cron-spec` expression. The `--plan-attach-user-tags` option indicates that the backup plan's user tags are to be attached to the backup snapshot. Setting the `--plan-copy-user-tags` option to false indicates that the source volume's user tags are not copied to the backup. The `--plan-delete-after` option indicates the maximum number of days that the backups are to be kept and the `--plan-delete-over-count` option defines the maximum number of recent backups to keep. The`-plan-clone-policy-zones` option specifies that after the backup snapshot is created and stored in {{site.data.keyword.cos_short}} regionally, a full copy of the backup is stored in the `us-south-1` region of the availability zone. The `--plan-clone-policy-max-snapshots` option changes the number of cached backups that are stored in the AZ to 4. The default value is 5.
+The following example uses the `--match_tags` option to match tags to volumes with the user tag `dev:test` and specifies the frequency of the backup plan as a `cron-spec` expression. The `--plan-attach-user-tags` option indicates that the backup plan's user tags are to be attached to the backup snapshot. Setting the `--plan-copy-user-tags` option to false indicates that the source volume's user tags are not copied to the backup. The `--plan-delete-after` option indicates the maximum number of days that the backups are to be kept and the `--plan-delete-over-count` option defines the maximum number of recent backups to keep. The `-plan-clone-policy-zones` option specifies that after the backup snapshot is created and stored in {{site.data.keyword.cos_short}} regionally, a full copy of the backup is stored in the `us-south-1` region of the availability zone. The `--plan-clone-policy-max-snapshots` option changes the number of cached backups that are stored in the AZ to 4. The default value is 5.
 
 ```sh
 cloudshell:~$ ibmcloud is backup-policy-create --match-tags dev:test --name my-backup-policy-v2 --plan-name my-plan-b  --plan-attach-tags bkp:test --plan-copy-tags false --plan-delete-after 60 --plan-cron-spec '45 09 * * *' --plan-active --plan-clone-policy-max-snapshots 4 --plan-clone-policy-zones eu-de-1,eu-de-2 --plan-delete-over-count 2
@@ -200,12 +215,12 @@ Run the `backup-policy-plan-create` command to create a backup plan and attach i
 
 Syntax:
 
-```zsh
+```sh
 ibmcloud is backup-policy-plan-create POLICY --cron-spec CRON_SPEC [--name NAME] [--active] [--attach-tags ATTACH_TAGS] [--copy-tags true | false] [[--delete-after DELETE_AFTER] [--delete-over-count DELETE_OVER_COUNT]] [--output JSON] [-q, --quiet]
 ```
 {: pre}
 
-The following example creates a backup plan for an existing policy, which is identified by name `my-backup-policy-v1`. It attaches backup policy tags to the backup snapshots that are created by the new plan that's called `not-just-another-plan`. The back up jobs runs at 01:05 every morning, and copies source volume tags to the backup snapshot. Fast restore clones are not enabled and the oldest backup is deleted after 80 backup snapshots are taken.
+The following example creates a backup plan for an existing policy, which is identified by name `my-backup-policy-v1`. It attaches backup policy tags to the backup snapshots that are created by the new plan that is called `not-just-another-plan`. The backup jobs run at 01:05 every morning, and copies source volume tags to the backup snapshot. Fast restore clones are not enabled and the oldest backup is deleted after 80 backup snapshots are taken.
 
 ```sh
 cloudshell:~$ ibmcloud is backup-policy-plan-create my-backup-policy-v1  --attach-tags dev:test --copy-tags true --cron-spec '05 01 * * *' --delete-after 80 --name not-just-another-plan
@@ -310,21 +325,21 @@ Created at             2023-02-21T22:42:10+00:00
 For more information about available command options, see [`ibmcloud is backup-policy-create`](/docs/cli?topic=cli-vpc-reference#backup-policy-create).
 
 ### Create a backup plan and fast restore option from the CLI
-{: #backup-create-plan-with-fr-cli}}
+{: #backup-create-plan-with-fr-cli}
 
-To create a backup plan for an existing policy, use the `ibmcloud is backup-policy-plan-create` command and specify the policy ID. Then use the following options to flesh out the plan.
+To create a backup plan for an existing policy, use the `ibmcloud is backup-policy-plan-create` command and specify the policy ID. Then, use the following options to flesh out the plan.
 
 * `--cron-spec` followed by the cron expression that defines when the backup job is to run.
 * `--active` to indicate that the plan is active.
 * `--name` followed by the name that you chose for the new plan.
 * `--attach-tags` followed by the list of tags that you want to attach to your backup snapshots.
-* `--copy-tags` followed by true or false to indicate whether the backup snapshots should inherit the tags from the parent volume.
+* `--copy-tags` followed by true or false to indicate whether the backup snapshots are to inherit the tags from the parent volume.
 * `--delete-after` followed by the number of days that you want to keep the backups for.
-* `--delete-over` followed by the maximum number of backups you want to keep of the volume.
+* `--delete-over` followed by the maximum number of backups that you want to keep of the volume.
 * `--clone-policy-max-snapshots` following by the number of clones you want to keep.
 * `--clone-policy-zones` followed by the list of zones, where you want to keep a copy of the backup snapshot.
 
-The following example creates a backup plan for an existing policy that includes fast restore in two zones within the eu-de region. The plan includes keeping a maximum of two cached backups in each zone. The backup job starts creating backup snapshots at 07:15 PM every day.
+The following example creates a backup plan for an existing policy that includes fast restore in two zones within the eu-de region. The plan includes keeping a maximum of two cached backups in each zone. The backup job starts creating backup snapshots at 7:15 PM every day.
 
 ```sh
 ibmcloud is backup-policy-plan-create r138-8c494618-9e4f-4b67-9a08-ee3491404f3b  --cron-spec '15 19 * * *' --active --name my-policy-plan --attach-tags my-daily-backup-plan --copy-tags true --delete-after 10 --delete-over-count 2 --clone-policy-max-snapshots 2 --clone-policy-zones eu-de-1,eu-de-3

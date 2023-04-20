@@ -60,9 +60,6 @@ When you create a VPN server, you can specify either high-availability or stand-
 ### VPN server authentication
 {: #server-authentication}
 
-As a reminder, end of support for IBM Cloud Certificate Manager was 31 December 2022. Remaining instances of Certificate Manager have been deleted. If you have any user-provided Ingress secrets stored in Certificate Manager, they are no longer valid. For more information, see [Migrating certificates from Certificate Manager](/docs/secrets-manager?topic=secrets-manager-migrate-from-certificate-manager).
-{: important}
-
 You must specify a VPN server certificate during provisioning. You can create a certificate using the {{site.data.keyword.cloud_notm}} Secrets Manager, or use one of your own.
 
    If using the CLI or API, you must specify the certificate's CRN. To obtain the certificate CRN, see [Locating the certificate CRN](/docs/vpc?topic=vpc-client-to-site-authentication#locating-cert-crn).

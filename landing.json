@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2023-02-17",
+    "lastupdated": "2023-04-11",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
-          "date": "14 February 2023", 
-          "title": "VPC instance metadata communication protocol and hop limit",
-          "description": "You can now control the communication protocol and hop limit for IP response packets that are used by the VPC Instance Metadata service. When you provision or update an instance, use the new **Secure access** setting to specify either http (default) or https (secure access) communication. You can also use the new Hop limit setting to specify a value between `1` (default) and `64`. Both of these settings apply only when the metadata service is enabled."
+          "date": "11 April 2023", 
+          "title": "s390x Bare Metal Servers for VPC (LA)",
+          "description": "LinuxONE Bare Metal Servers are now generally available in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), Toronto (ca-tor), and São Paulo (br-sao) regions."
         },
         {
-          "date": "14 February 2023",
-          "title": "Hyper Protect Secure Build",
-          "description": "You can now use Hyper Protect Secure Build to securely build an Open Container Initiative (OCI) image in Hyper Protect Virtual Servers for VPC. You can push the image to DockerHub or IBM Cloud Container Registry (ICR), later you can pull the image from the registry to provision it in another Hyper Protect Virtual Servers for VPC instance. You can also pull SLES BaseContainerImages (BCI) from the SUSE registry, and use the images to provision Hyper Protect Virtual Servers for VPC instances."
+          "date": "06 April 2023", 
+          "title": "Image lifecycle management for custom images (beta)",
+          "description": "You can use the UI, CLI, and API to manage the lifecycle of your custom images with three statuses: available, deprecated, and obsolete. You can move the image back and forth through all the statuses. You can also schedule status changes to manage the entire lifecycle of the image."
         },
         {
-          "date": "9 February 2023",
-          "title": "Export custom images (Beta)",
-          "description": "For accounts authorized to preview this feature, users can now export custom images to IBM Cloud Object Storage. "
+          "date": "04 April 2023",
+          "title": "File Storage for VPC defined-performance profile (beta)",
+          "description": "For customers with special access to this feature, you can now create file shares using the dp2 defined-performance profile. This profile provides higher IOPS and greater capacity than earlier profiles. You can also modify existing file shares to use this profile."
         }
       ]
     }

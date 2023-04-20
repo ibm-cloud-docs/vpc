@@ -37,8 +37,6 @@ To reserve or bind an IP address by using the {{site.data.keyword.cloud}} consol
    If you did not reserve or bind an IP during endpoint gateway creation, this link appears in the IP address column in the table.
    {: note}
 
-   ![Binding a reserved IP address](./images/vpe-bind.png "Binding a reserved IP address"){: caption="Figure 1. Binding a reserved IP address" caption-side="bottom}
-
 1. From the Reserved IP side panel, have IBM select an IP address for you from the subnet that is listed, or select from existing IPs.
 
    You can bind only one reserved IP to one endpoint gateway from each zone. To bind a reserved IP to an endpoint gateway, you must have an existing subnet. You need to also make sure that no subnets of the VPC that are bound to the same zone.

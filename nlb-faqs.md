@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2022-12-12"
+lastupdated: "2023-02-23"
 
 keywords: load balancer, network, faqs
 
@@ -57,29 +57,6 @@ No. A network load balancer is not horizontally scalable. However, it comes with
 {: #what-should-i-do-if-i-am-using-acls-on-the-subnets-that-are-used-to-deploy-the-load-balancer-nlb}
 
 Make sure that the proper ACL rules are in place to allow incoming traffic for configured listener ports and traffic between a network load balancer and back-end instances should also be allowed.
-
-## Why am I receiving a `401 Unauthorized Error` code?
-{: #nlb-401-unauthorized-error}
-{: faq}
-
-If you are receiving a `401` error code for your network load balancer, check the following access policies for your user:
-* The access policy for the load balancer resource type.
-* The access policy for the resource group.
-
-## Why is my network load balancer in `maintenance_pending` state?
-{: #nlb-maintenance-pending}
-{: faq}
-
-An NLB enters a `maintenance_pending` state during various maintenance activities, such as:
-* Recovery activities,
-* Load balancer failover,
-* Upgrades to address vulnerabilities and apply security patches.
-
-## Why is the back-end member health under my pool `unknown`?
-{: #back-end-member-health-unknown}
-{: faq}
-
-The pool might not be associated with any listeners, or configuration changes were made to the pool or its associated listener.
 
 ## What are the default settings and allowed values for health check parameters?
 {: #what-are-the-default-settings-and-allowed-values-for-health-check-parameters}

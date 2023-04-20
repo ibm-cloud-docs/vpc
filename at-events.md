@@ -3,7 +3,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-02-09"
+lastupdated: "2023-03-31"
 
 keywords:
 
@@ -495,7 +495,8 @@ File Storage for VPC is available for customers with special approval to preview
 | shares  | is.share.replica.split | Replication relationship is removed between two file shares |
 | shares  | is.share.replica.failover | Replication relationship is reversed between two file shares |
 | share mount targets  | is.share.target.create  | Mount target for a file share was created  |
-| share mount targets  | is.share.target.read  | One or more mount targets for a file share were retrieved  |
+| share mount targets  | is.share.target.read  | One mount target for a file share was retrieved  |
+| share mount targets  | is.share.target.list  | List of all mount targets for a file share was retrieved  |
 | share mount targets  | is.share.target.update  | Mount target for a file share was modified  |
 | share mount targets  | is.share.target.delete | Mount target for a file share was deleted  |
 {: caption="Table 24. Actions that generate events for file storage resources" caption-side="bottom"}

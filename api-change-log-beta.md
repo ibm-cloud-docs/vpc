@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-02-14"
+lastupdated: "2023-04-11"
 
 keywords: api, change log, beta
 
@@ -25,6 +25,21 @@ There are no backward-compatibility guarantees as a feature progresses through i
 {: important}
 
 To review the change log of generally available API features, see the [VPC API change log](/docs/vpc?topic=vpc-api-change-log).
+
+## 11 April 2023
+{: #11-april-2023-beta}
+
+### For all version dates
+{: #11-april-2023-all-version-dates-beta}
+
+**Image lifecycle management.** Accounts that have been granted special approval to preview this feature can now [deprecate](/apidocs/vpc-beta#deprecate-image) or [obsolete](/apidocs/vpc-beta#obsolete-image) custom images directly. Alternatively, you can schedule transition at a later date by specifying the `deprecated_at` or `obsoleted_at` properties when [creating](/apidocs/vpc-beta#create-image) or [updating](/apidocs/vpc-beta#update-image) an image. If you need to revert a status change, you can transition `deprecated` or `obsolete` images back to `available`. For more information, see [Managing custom images](/docs/vpc?topic=vpc-managing-custom-images&interface=api#custom-images-list-api).
+
+`deprecated` custom images remain usable, while `obsolete` images cannot be used to provision instances or bare metal servers.
+{: note}
+
+**Revised file storage profiles.** For users with accounts that have access to file shares, a new `dp2` profile is now available when [creating](/apidocs/vpc-beta#create-share) and [updating](/apidocs/vpc-beta#update-share) a file share. Profiles in the existing `custom` and `tiered` families have been deprecated and will remain available only to accounts that have already provisioned file shares with those profiles. The deprecated profiles also will not be included in the upcoming general availability release for file shares.
+
+The `dp2` profile belongs to a new `defined_performance` file share profile family, which provides similar functionality to the deprecated `custom` file share profile family. While existing file shares using profiles in the `custom` and `tiered` families will continue to work, you are encouraged to update all your file shares to the new `dp2` profile in preparation for general availability of the file share service. Bulk migration of existing file shares is not supported. For more information, see [dp2 file storage profile](/docs/vpc?topic=vpc-file-storage-profiles#dp2-profile).
 
 ## 14 February 2023
 {: #14-february-2023-beta}
@@ -52,6 +67,8 @@ The following updates have been made for [listing backup policy jobs](/apidocs/v
 **Instance provision by volume.** Accounts that have been granted special approval to preview this feature can now reuse an existing boot volume to provision a virtual server instance by specifying the existing volume's `id` or `crn` sub-property of the `boot_volume_attachment` property. The specified volume must be unattached and must have an operating system with the same architecture as the instance profile. Volumes now include an `attachment_state` property and an expanded `operating_system` property you can use to view a volume's eligibility. You can also use the new [list volumes](/apidocs/vpc/latest#list-volumes) filters to list volumes that have specific `attachment_state`, `operating_system`, and `encryption_type` values.
 
 By default, a boot volume attached to a virtual server instance is deleted when the instance is deleted. To preserve the boot volume when deleting a virtual server instance, change the `delete_volume_on_instance_delete` property to `false` by updating the [boot volume attachment](/apidocs/vpc/latest#update-instance-volume-attachment). See [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui), [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli) for more information.
+
+This feature is now generally available. Since the beta release, by default, only a boot volume created as part of provisioning a virtual server instance will be deleted when the instance is deleted. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#21-march-2023).
 
 ## 16 August 2022
 {: #16-august-2022-beta}
@@ -98,15 +115,14 @@ The following updates have been made since the [beta release](#24-august-2021):
 You can also change a share between the `tiered` and `custom` profile families so long as the requested `iops` and `size` are supported by the requested profile. For more information about file share profiles, see [File Storage for VPC profiles](/docs/vpc?topic=vpc-file-storage-profiles). For information about adjusting IOPS with a profile, or changing between `tiered` and `custom` profiles, see [Adjusting file share IOPS](/docs/vpc?topic=vpc-adjusting-share-iops&interface=api).
 
 ## 31 May 2022
-{: #31-may-2022}
+{: #31-may-2022-beta}
 
 ### For all version dates
 {: #31-may-2022-all-version-dates-beta}
 
 **AMD support for instances and dedicated hosts.** Accounts that have been granted special approval to preview this feature can select new profiles for [dedicated hosts](/apidocs/vpc-beta#list-dedicated-host-profiles) and [instances](/apidocs/vpc-beta#list-instance-profiles). When provisioning or managing an instance or dedicated host, use the new `vcpu_manufacturer` property to choose between profiles from different processor manufacturers.
 
-Currently, the `vcpu_manufacturer` property included in the `InstanceProfile` and `DedicatedHostProfile` schemas may return values that include uppercase characters. See [Known issues](/docs/vpc?topic=vpc-known-issues#amd-on-vpc-known-issues).
-{: note}
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#28-march-2023).
 
 ## 24 May 2022
 {: #24-may-2022-beta}

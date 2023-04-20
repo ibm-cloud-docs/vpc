@@ -12,7 +12,7 @@ subcollection: vpc
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Creating an {{site.data.keyword.cloud_notm}} {{site.data.keyword.alb_full}}
+# Creating an application load balancer
 {: #load-balancers}
 
 You can create an {{site.data.keyword.cloud}} {{site.data.keyword.alb_full}} (ALB) to distribute inbound traffic across multiple instances. IBM supports virtual server instances, bare metal server instances, and other devices that are reachable to the application load balancer with a device IP address, such as Power Systems™ Virtual Server instances connected over {{site.data.keyword.cloud_notm}} Direct Link.
@@ -101,6 +101,8 @@ To create an ALB:
     * **Back-end pool**: The default back-end pool to which this listener forwards traffic.
     * **Max connections** (optional): Maximum number of concurrent connections the listener allows.
     * **SSL certificate**: If HTTPS is the selected protocol for this listener, you must select an SSL certificate. Make sure that the load balancer is authorized to access the SSL certificate.
+    * **Timeout** (optional): The maximum timeout after which the load balancer closes the connection if no data has been sent or received by the time that the idle timeout period elapses. The minimum and maximum timeout value is 50 seconds and 2 hours respectively.
+    
 1. Click **Create** to create the front-end listener.
 1. In the Security groups section, select the security groups that you want to attach to your load balancer, or click **Create** to create a new security group to attach to your ALB.
 
@@ -262,14 +264,15 @@ To create an application load balancer by using the CLI, follow these steps:
     ```sh
     Creating listener of load balancer r134-99b5ab45-6357-42db-8b32-5d2c8aa62776 under account IBM Cloud Network Services as user test@ibm.com...
 
-    ID                     r134-2847a948-f9b6-4fc1-91c6-f1c49dac3eba
-    Certificate instance   -
-    Connection limit       -
-    Port                   7070
-    Protocol               tcp
-    Default pool           r134-3b66d605-6aa5-4166-9f66-b16054da3cb0
-    Provision status       create_pending
-    Created                2020-08-27T15:16:08.643-05:00
+    ID                      r134-2847a948-f9b6-4fc1-91c6-f1c49dac3eba
+    Certificate instance    -
+    Connection limit        -
+    Idle connection timeout 50
+    Port                    7070
+    Protocol                tcp
+    Default pool            r134-3b66d605-6aa5-4166-9f66-b16054da3cb0
+    Provision status        create_pending
+    Created                 2020-08-27T15:16:08.643-05:00
     ```
     {: screen}
 

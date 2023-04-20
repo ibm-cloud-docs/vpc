@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-02-23"
+lastupdated: "2023-04-13"
 
 keywords: view instance details, restart, stop, instance details, delete
 
@@ -34,7 +34,7 @@ To manage your instances, complete the following steps.
 | Start | Start an instance that is stopped. This action is not available if the instance status is Running. |
 | Reboot | Immediately powers off a running instance and then powers it back on again. |
 | Resize | Vertically scale virtual server instances to any supported profile size. For more information, see [Resizing a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance).
-| Delete | To delete an instance, the instance must have a powered off status. If the instance has a floating IP address, it must be unassociated or released before the instance is deleted. The delete action permanently removes an instance and its connected vNIC, boot volume, and data from your account. |
+| Delete | To delete an instance, the instance must have a powered off status. If the instance has a floating IP address, it must be unassociated or released before the instance is deleted. The delete action permanently removes an instance and its connected vNIC, boot volume, and data from your account. If auto-delete is enabled, the associated boot volume is also deleted. |
 | Host failure auto restart | Toggle on or off the host failure restart policy for an instance. For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-host-failure-recovery-policies&interface=api). |
 {: caption="Table 1. Actions available for virtual server instances" caption-side="top"}
 
@@ -257,13 +257,19 @@ For the steps to resize a virtual server instance using the CLI, see [Resizing a
 
 From the *Virtual server instances* page in {{site.data.keyword.cloud_notm}} console, click **Delete**.
 
-The delete action permanently removes an instance and its connected vNIC, and data from your account. The instance boot volume is also deleted if it was configured to be deleted when the attached instance is deleted. If the instance has one or more attached data volumes, those volumes are preserved unless the default setting is changed to auto-delete. After you confirm the delete action, the process to delete the instance and its associated vNIC, boot volume, and data begins. The delete action can take up to 30  minutes, but when the process is complete, the instance no longer appears on the virtual server instances page.
+If the instance has a floating IP address, it must be unassociated or released before the instance is deleted. The account associated with the floating IP will continue to be charged if it is not released.
+{: important}
+
+The delete action permanently removes an instance and its connected vNIC, and data from your account. The instance boot volume is also deleted if the volume auto-delete setting is configured to be deleted when the attached instance is deleted. If an existing boot volume is attached as part of provisioning a virtual server instance, the volume is preserved by default when the instance is deleted. If a boot volume created as part of provisioning a virtual server instance, the volume will be deleted by default when the instance is deleted. After you confirm the delete action, the process to delete the instance and its associated vNIC, boot volume, and data begins. The delete action can take up to 30  minutes, but when the process is complete, the instance no longer appears on the virtual server instances page.
 
 ## Delete a virtual server instance using the CLI
 {: #delete-virtual-server-instances-cli}
 {: cli}
 
 You can delete the virtual server instance in your {{site.data.keyword.vpc_short}} by using the command-line interface (CLI).
+
+If the instance has a floating IP address, it must be unassociated or released before the instance is deleted. The account associated with the floating IP will continue to be charged if it is not released.
+{: important}
 
 To delete the virtual server instance by using the CLI, use the **`ibmcloud is instance-delete`** command. Specify the ID or name of the virtual server instance that you want to delete by using the `INSTANCE` variable.
 
@@ -274,13 +280,16 @@ ibmcloud is instance-delete INSTANCE
 
 For a full list of command options, see [ibmcloud is instance-delete](/docs/vpc?topic=vpc-vpc-reference#instance-delete). 
 
-The delete action permanently removes an instance and its connected vNIC, and data from your account. The instance boot volume is also deleted if it was configured to be deleted when the attached instance is deleted. If the instance has one or more attached data volumes, those volumes are preserved unless the default setting is changed to auto-delete. After you confirm the delete action, the process to delete the instance and its associated vNIC, boot volume, and data begins. The delete action can take up to 30  minutes, but when the process is complete, the instance no longer appears on the virtual server instances page.
+The delete action permanently removes an instance and its connected vNIC, and data from your account. The instance boot volume is also deleted if the volume auto-delete setting is configured to be deleted when the attached instance is deleted. If an existing boot volume is attached as part of provisioning a virtual server instance, the volume is preserved by default when the instance is deleted. If a boot volume created as part of provisioning a virtual server instance, the volume will be deleted by default when the instance is deleted. After you confirm the delete action, the process to delete the instance and its associated vNIC, boot volume, and data begins. The delete action can take up to 30  minutes, but when the process is complete, the instance no longer appears on the virtual server instances page.
 
 ## Delete a virtual server instance using the API
 {: #delete-virtual-server-instances-api}
 {: api}
 
 You can delete the virtual server instance in your {{site.data.keyword.vpc_short}} by using the API.
+
+If the instance has a floating IP address, it must be unassociated or released before the instance is deleted. The account associated with the floating IP will continue to be charged if it is not released.
+{: important}
 
 The following example deletes an instance.
 
@@ -289,15 +298,33 @@ curl -X DELETE "$vpc_api_endpoint/v1/instances/$instance_id?version=2021-06-22&g
 ```
 {: pre}
 
-The delete action permanently removes an instance and its connected vNIC, and data from your account. The instance boot volume is also deleted if it was configured to be deleted when the attached instance is deleted. If the instance has one or more attached data volumes, those volumes are preserved unless the default setting is changed to auto-delete. After you confirm the delete action, the process to delete the instance and its associated vNIC, boot volume, and data begins. The delete action can take up to 30  minutes, but when the process is complete, the instance no longer appears on the virtual server instances page.
+The delete action permanently removes an instance and its connected vNIC, and data from your account. The instance boot volume is also deleted if the volume auto-delete setting is configured to be deleted when the attached instance is deleted. If an existing boot volume is attached as part of provisioning a virtual server instance, the volume is preserved by default when the instance is deleted. If a boot volume created as part of provisioning a virtual server instance, the volume will be deleted by default when the instance is deleted. After you confirm the delete action, the process to delete the instance and its associated vNIC, boot volume, and data begins. The delete action can take up to 30  minutes, but when the process is complete, the instance no longer appears on the virtual server instances page.
 
 For more information, see the [Delete an instance](/apidocs/vpc#delete-instance) in the Virtual Private Cloud API documentation.
+
+## Toggle the auto-deletion of boot volumes attached to an instance using the UI
+{: #auto-delete-toggle-ui}
+{: ui}
+
+By default, a boot volume created as part of provisioning a virtual server instance is deleted when the instance is deleted. If an existing boot volume is attached as part of provisioning a virtual server instance, the volume is preserved by default when the instance is deleted. You can control this by setting the auto-delete option on the Edit boot volume panel when creating an instance. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui).
+
+## Toggle the auto-deletion of boot volumes attached to an instance using the CLI
+{: #auto-delete-toggle-cli}
+{: cli}
+
+By default, a boot volume created as part of provisioning a virtual server instance is deleted when the instance is deleted. If an existing boot volume is attached as part of provisioning a virtual server instance, the volume is preserved by default when the instance is deleted. You can control this by specifying the `auto_delete` property when creating the instance or updating the boot volume attachment. For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli).
+
+## Toggle the auto-deletion of boot volumes attached to an instance using the API
+{: #auto-delete-toggle-api}
+{: api}
+
+By default, a boot volume created as part of provisioning a virtual server instance is deleted when the instance is deleted. If an existing boot volume is attached as part of provisioning a virtual server instance, the volume is preserved by default when the instance is deleted. You can control this by specifying the `delete_volume_on_instance_delete` property when [creating the instance](/apidocs/vpc/latest#create-instance) or updating the [boot volume attachment](/apidocs/vpc/latest#update-instance-volume-attachment). For more information, see [Creating virtual server instances](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api).
 
 ## Viewing instance details using the UI
 {: #viewing-virtual-server-instances-ui}
 {: ui}
 
-You can view a summary of all instances on the *Virtual server instances* page. You can access the details page for an instance clicking an individual instance name to view details and make changes. From the instance details page, you can also view the associated network interface, access its subnet, toggle the auto-delete setting, and reserve or delete a floating IP address.
+You can view a summary of all instances on the *Virtual server instances* page. You can access the details page for an instance clicking an individual instance name to view details and make changes. From the instance details page, you can also view the associated network interface, access its subnet, toggle the auto-delete setting, and reserve or release a floating IP address.
 
 ## Viewing instance details using the CLI
 {: #viewing-virtual-server-instances-cli}
@@ -350,10 +377,10 @@ To view the new bandwidth allocation, you must either stop and start the instanc
 
 You can adjust the allocation of your instance's total bandwidth between network bandwidth and storage bandwidth using the CLI.
 
-To reallocate instance bandwidth by using the CLI, run the `instance-update {id}` command and specify the total storage bandwidth in megabits per second (Mbps) for the `total-volume-bandwidth` parameter. Use this syntax:
+To reallocate instance bandwidth by using the CLI, run the `instance-update` command and specify the total storage bandwidth in megabits per second (Mbps) for the `total-volume-bandwidth` parameter. Here, INSTANCE can be ID or Name of the instance. Use this syntax:
 
 ```sh
-ibmcloud is instance-update {id} --total-volume-bandwidth VALUE
+ibmcloud is instance-update INSTANCE --total-volume-bandwidth VALUE
 ```
 {: pre}
 
@@ -437,10 +464,10 @@ For more information, see [Host failure recovery policies](/docs/vpc?topic=vpc-h
 {: #set-recovery-policy-cli}
 {: cli}
 
-You can update an instance in your IBM Cloud VPC with and change the availability policy on host failure by using the command-line interface (CLI). Run the ibmcloud `instance-update` command and set the `--host-failure-policy` property to `start` or `stop`. The host failure policy service is set to `restart` by default.
+You can update an instance in your IBM Cloud VPC with and change the availability policy on host failure by using the command-line interface (CLI). Run the ibmcloud `instance-update` command and set the `--host-failure-policy` property to `start` or `stop`. The host failure policy service is set to `restart` by default. Here, INSTANCE can be ID or Name of the Instance.
 
 ```sh
-ibmcloud is instance-update {id} --total-volume-bandwidth VALUE --host-failure-policy stop
+ibmcloud is instance-update INSTANCE --total-volume-bandwidth VALUE --host-failure-policy stop
 ```
 {: pre}
 

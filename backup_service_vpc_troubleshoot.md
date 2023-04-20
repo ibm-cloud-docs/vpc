@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-01-31"
+lastupdated: "2023-03-15"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -26,7 +26,7 @@ When you use the Backup for VPC service, you might encounter issues. Often, you 
 Volumes are not getting backed up on all scheduled times. For example, you created a schedule for backups in a backup plan to create daily backups. However, after the service created backups for a while as defined in the plan, the backups stop.
 {: tsSymptoms}
 
-Some causes might be:
+The issue can have one of the following causes.
 {: tsCauses}
 
 * Your volume might be deattached after the successful backups were made.
@@ -50,7 +50,7 @@ Look at the `reason_codes` property in the response. It might be an internal err
 Contact IBM support if you see an internal error. If the backup snapshot limit is reached, delete the oldest snapshots so new ones can be created. You can create up to 100 backup snapshots of a volume.
 {: tsResolve}
 
-## Backup policy not created due to incorrect authorizations
+## Backup policy is not created due to incorrect authorizations
 {: #baas-ts-3}
 {: troubleshoot}
 
