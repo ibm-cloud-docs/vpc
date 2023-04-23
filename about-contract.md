@@ -217,7 +217,7 @@ Here you can learn how the "seed" can be provided in the workload section of the
 The following snippet is an example for the volumes section:
 ```yaml
 volumes:
-  test:
+  hpsb:
     filesystem: ext4
     mount: /mnt/data
     seed: workload phrase
@@ -263,7 +263,7 @@ Read the [workload - volumes](#hpcr_contract_volumes) subsection of the workload
 This is an example of the `env` - `volumes` subsection:
 ```yaml
 volumes:
-  test:
+  hpsb:
     seed: env phrase
 ```
 {: codeblock}
@@ -457,7 +457,7 @@ Complete the following steps on an Ubuntu system, to create the contract signatu
        ingestionKey: cfae1522876e860e58f5844a33bdcaa8
        port: 6514
    volumes:
-     test:
+     hpsb:
        seed: hogwarts
    signingKey: "-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAvLaeSA8Nc3p99HNUMwon\n5lMMALAsIxRRpWUaEZ5IcUky2sgCi/rSmxU2sm6FK/BmCftk33f5W2BsYHdY9R/0\nELZ9A4POQcJsPF3ronU2QHwnRjcqYuUFXmf1VqfPPLpELriFNoCb2FN2zCa+VUmu\n+fGhroZ3Fr9kBPwJhGr917E5jeCQ+MzsGkulcTvr0SfvThiZQQ/KlU0R35ThamF3\n8C0F5IQBpqDUwDFmWvD5lF2SmprpluDBFEj8LLfLxvW9M2Qwku6nGUnnFReg3vNH\n7IF0SRr1K1AdO5hEmevCdyG9hgTdUY6dXcjntiN/kbqXErILknvzDnb4jyPZZRdK\ndrOzVt8hjbdmkS396SrMFtA++QrV3GNZl5zCscpn6d8S7BEA8mDzroo2UAbrypVP\n9l9AmzUnmnPCpZQySUUHoY0xG2vgMSA50CWH7Uwjmpixr02Td4/LU8fE7NWCO6ci\nx4++ANSaxu+uuZ2Pe1OjjgV98r06ZUs38eaxptLZqLpn3N6w8WAJxGwSLapZwNtP\ng2spUXu2Eh/TN5t4/ly5iXOsyIy8IPtTrUPX7rpaaqFZ72P6BJLj3WLEvOG/eF/8\nBTjrsZAjb8YjkO1uGk10IPa63sniZWe5vlm9w9UKy2uGuy6RhWxwoVHRRbfhboQF\nsO20dsVwgTZn8c46HMD2PoMCAwEAAQ==\n-----END PUBLIC KEY----"
    ```
