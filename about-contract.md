@@ -113,7 +113,12 @@ auths:
 
 It consists of an archive subsection. The archive subsection contains the Base64 encoded TGZ file archive of the `docker-compose.yaml` file. As the Hyper Protect Container Runtime image uses Docker Engine and Docker Compose to start the container, the information about the container must first be created by using a standard docker-compose file. This file is then archived and base64 encoded and the output of this is provided as the value to the archive subsection, within the compose section. For more information, see [Overview of Docker Compose](https://docs.docker.com/compose/).
 
-The mount points specified under the volumes information of the docker-compose file might be aligned with the volume mount point that is specified in the workload section of the contract. Both "yaml" and "yml" formats are supported for docker-compose file. This is an example of a docker-compose file.
+The mount points specified under the volumes information of the docker-compose file might be aligned with the volume mount point that is specified in the workload section of the contract. 
+
+Executing a build as part of a docker compose file is not supoprted. Make sure your docker compose file doesn't have a `build` section.
+{: note}
+
+Both "yaml" and "yml" formats are supported for docker-compose file. This is an example of a docker-compose file.
 
 ```yaml
 version: '3'
@@ -133,6 +138,9 @@ Use the following command to get the base64 encoded archive file. The base64 out
 tar czvf - -C <COMPOSE_FOLDER> . | base64 -w0 > compose.b64
 ```
 {: pre}
+
+Make sure that the compose tgz file only contains directories and regular files. Links or pipes are not supported.
+{: note}
 
 Copy the content of compose.b64 as a value of compose -> archive.
 ```buildoutcfg
