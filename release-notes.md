@@ -28,15 +28,18 @@ For more information about changes to the {{site.data.keyword.vpc_short}} API, s
 
 For more information about changes to the {{site.data.keyword.vpc_short}} command line interface (CLI), see [{{site.data.keyword.vpc_short}} CLI release notes](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-cli-rn).
 
-## April 2023
-{: #vpc-apr23}
+## May 2023
+{: #vpc-may23}
 
-### 30 April 2023
-{: #vpc-april3023}
+### 1 May 2023
+{: #vpc-may0123}
 {: release-note}
 
 New `-a100` GPU profile is available (LA)
 :   There is a new profile available for provisioning instances based on NVIDIA's A100 Amperere GPU attached to a single virtual server instance. The `gx2-80x1280x8a100` profile supports artificial intelligence and machine language frameworks and includes instance storage. Only Redhat and Ubuntu are supported for this profile. This profile is currently only available in the Washington DC region. For more information, see [GPU profiles](https://test.cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui#gpu). 
+
+## April 2023
+{: #vpc-apr23}
 
 ### 11 April 2023
 {: #vpc-april1123}
