@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-03-15"
+lastupdated: "2023-04-25"
 
 keywords: Backup for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -37,11 +37,9 @@ If you set up service authorizations incorrectly, the backup service is designed
 ## Enabling authorization
 {: #backup-s2s-auth-procedure}
 
-When you create a backup policy in the UI, the UI checks that the correct service-to-service authorizations and user access roles are enabled. If any of them is incorrect or missing, you can assign the required authorizations without leaving the backup policy creation page. Enabling the source service to delegate its access to other dependent services automatically creates authorization policies for those services.
+When you create a backup policy, the UI and APIU display a notification when service-to-service authorizations are incorrect or missing on your account. Enabling the source service to delegate its access to other dependent services automatically creates authorization policies for those services.
 
-For more information about setting authorizations when you create a backup policy, see [Create a backup policy in the UI](https://test.cloud.ibm.com/docs/vpc?topic=vpc-create-backup-policy-and-plan&interface=ui#backup-provisioning-page-ui).
-
-You can also directly manage IAM access to create the service-to-service authorization policies by following this procedure.
+To manage IAM access to create the service-to-service authorization policies in the UI, follow this procedure:
 
 1. In the {{site.data.keyword.cloud_notm}} console, go to **Manage > Access (IAM)**. The **Manage access and users** page is displayed.
 
