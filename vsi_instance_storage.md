@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2022-10-18"
+  years: 2020, 2023
+lastupdated: "2023-04-25"
 
 keywords: instance storage, local disk, storage, temporary storage, generation 2, gen 2
 
@@ -59,7 +59,7 @@ Block storage volumes and instance storage are complementary technologies. Volum
 ## Encryption and isolation
 {: #encryption-isolation}
 
-Instance storage data is secured with on-disk encryption. The physical disks used for instance storage are self-encrypting with the strong AES-256 encryption standard. The data is automatically decrypted when your instance accesses the data. When your instance is shut down or deleted, the underlying storage space is erased and unrecoverable. At that point, the data is unrecoverable. For more information, see [Introduction to encryption](/docs/key-protect?topic=key-protect-basics).
+Instance storage data is secured with on-disk encryption. The physical disks used for instance storage are self-encrypting with the strong AES-256 encryption standard. The data is automatically decrypted when your instance accesses the data. When your instance is shut down or deleted, the underlying storage space is erased and unrecoverable. At that point, the data is unrecoverable. 
 
 Data is automatically encrypted on the physical media at the drive level. However, customer-managed keys are not supported for instance storage. For sensitive data, it is strongly recommended that users utilize software-based file system encryption such as LUKS for Linux&reg; or BitLocker for Windows&reg;. This technology allows end users to encrypt entirely within the instance, and can provide additional protection for sensitive data in-transit between the instances and the physical drive media. Some operating systems also provide FIPS certified encryption algorithms that may also be used. See [Encrypting block devices using LUKS](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/security_hardening/encrypting-block-devices-using-luks_security-hardening){: external} for an example of how to encrypt on Red Hat Enterprise Linux&reg; however, refer to the Operating System documentation or specific information on how to encrypt each device.
 
