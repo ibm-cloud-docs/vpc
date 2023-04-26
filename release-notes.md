@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2023
 
 
-lastupdated: "2023-04-11"
+lastupdated: "2023-04-27"
 
 keywords:
 
@@ -31,6 +31,12 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## April 2023
 {: #vpc-apr23}
 
+### 27 April 2023
+{: #vpc-april2723}
+{: release-note}
+
+Export custom images 
+:   The ability to export custom images to {{site.data.keyword.cos_full_notm}}, a feature previously available in beta, is now generally available. For more information, see [Exporting a custom image to IBM Cloud Object Storage](/docs/vpc?topic=vpc-managing-custom-images&interface=ui#custom-image-export-to-cos).
 
 ### 11 April 2023
 {: #vpc-april1123}
