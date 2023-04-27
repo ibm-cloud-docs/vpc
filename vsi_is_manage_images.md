@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-04-06"
+lastupdated: "2023-04-27"
 
 keywords:
 
@@ -136,11 +136,8 @@ curl -X GET \
 ```
 {: codeblock}
 
-## Exporting a custom image to {{site.data.keyword.cos_full_notm}} (Beta)
+## Exporting a custom image to {{site.data.keyword.cos_full_notm}}
 {: #custom-image-export-to-cos}
-
-Export custom image is a beta feature that is available to select customers for evaluation and testing purposes. To request to be included in the evaluation of this beta feature, contact IBM Support.
-{: beta}
 
 You can export a custom image to {{site.data.keyword.cos_full_notm}}. Later, you might want to copy the image to a new region by importing it again, or you might want to extract the image outside of VPC for use in a different location, such as on premises. Charges might be incurred for storing images in {{site.data.keyword.cos_full_notm}}. For more information, see [Billing](/docs/cloud-object-storage?topic=cloud-object-storage-billing).
 
@@ -215,7 +212,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-## Viewing and managing custom image export history (Beta)
+## Viewing and managing custom image export history
 {: #custom-image-export-job-history}
 
 You can view the custom image export history to see details such as the export job name, status, target bucket in {{site.data.keyword.cos_full_notm}}, the {{site.data.keyword.cos_full_notm}} object name that is assigned, the date that the export job started, and if the export job is complete, the completion date.
