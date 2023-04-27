@@ -112,7 +112,7 @@ ibmcloud is instance template create tpl-1 vpc-1 us-south-1 bx2-2x8  cli-subnet-
 ```
 {: screen}
 
-For more information about creating virtual server instances from the CLI, see [Creating virtual server instances from the CLI](/docs/vpc?topic=vpc-creating-virtual-servers-cli). For more information about the commands that are used for increasing boot volume size, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-referenc) 
+For more information about creating virtual server instances from the CLI, see [Creating virtual server instances from the CLI](docs/vpc?topic=vpc-creating-virtual-servers&interface=cli). For more information about the commands that are used for increasing boot volume size, see the [VPC CLI reference](/docs/vpc?topic=vpc-infrastructure-cli-plugin-vpc-referenc) 
 
 ### Increase capacity of an existing boot volume from the CLI
 {: #expand-existing-boot-vol-cli}
