@@ -80,14 +80,15 @@ toc:
                label: Confidential computing with LinuxONE
                topics:
                - about-confidential-computing.md
-               - about-attestation.md
-               - about-contract.md
                - certificate_validate.md
+               - about-contract.md
+               - about-attestation.md
                - hpvs-logging.md
                - hpvs-encrypt-log-message.md
                - hpvs-disks-encryption-validate.md
                - about-hp-securebuild.md
                - hpvs-override-registry.md
+               - hpvs-deploy-pay-now.md
            - host-failure-recovery.md
        - topicgroup:
            label: Storage
