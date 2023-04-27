@@ -31,9 +31,12 @@ For more information about changes to the {{site.data.keyword.vpc_short}} comman
 ## April 2023
 {: #vpc-apr23}
 
-## 27 April 2023
+### 27 April 2023
 {: #vpc-april2723}
 {: release-note}
+
+Export custom images (GA)
+:   The ability to export custom images to {{site.data.keyword.cos_full_notm}}, a feature previously available in beta, is now generally available. For more information, see [Exporting a custom image to IBM Cloud Object Storage](/docs/vpc?topic=vpc-managing-custom-images&interface=ui#custom-image-export-to-cos).
 
 UI update to enable deletion of nested resources
 :    When you delete a resource, such as a VPC or a subnet, any attached resources must be deleted first before you can delete the VPC. The UI is updated to display a side panel listing all the resources still attached to the VPC that must be deleted. You can delete these resources from this side panel and then continue with deleting the VPC.
