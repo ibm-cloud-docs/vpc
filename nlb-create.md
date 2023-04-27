@@ -27,7 +27,7 @@ You can create an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NL
 To create and configure {{site.data.keyword.nlb_full}} by using the {{site.data.keyword.cloud_notm}} console, follow these steps:
 
 1. From your browser, open the [{{site.data.keyword.cloud_notm}} console](/login){: external} and log in to your account.
-1. Select the Menu icon ![Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
+1. Select the Navigation Menu icon ![Navigation Menu icon](../../icons/icon_hamburger.svg) from the upper left, then click **VPC Infrastructure > Load balancers**.
 1. Click **Create ++** in the upper right of the page.
 1. In the Location section, edit the following fields, if necessary.
    * **Geography**: Indicates the geography where you want the load balancer created.
@@ -54,7 +54,7 @@ To create and configure {{site.data.keyword.nlb_full}} by using the {{site.data.
      * **Health protocol** - The protocol used by the load balancer to send health check messages to the instances in the pool.
      * **Health port** - The port on which to send health check requests. By default, health checks are sent on the same port on which traffic is sent to the instance.
      * **Interval** - Interval in seconds between two consecutive health check attempts. By default, health checks are sent every 5 seconds.
-     * **Timeout** - Maximum amount of time the system waits for a response from a health check request. By default, the load balancer waits 2 seconds for a response.
+     * **Timeout (sec)** - Maximum amount of time the system waits for a response from a health check request. By default, the load balancer waits 2 seconds for a response.
      * **Max retries** - Maximum number of health check attempts that the load balancer makes before an instance is declared unhealthy. By default, an instance is no longer considered healthy after two failed health checks.
 
        Although the load balancer stops sending connections to unhealthy instances, the load balancer continues monitoring the health of these instances and resumes their use if they're found healthy again (that is, if they successfully pass two consecutive health check attempts).
