@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-04-21"
+lastupdated: "2023-04-27"
 
 keywords: confidential computing, enclave, secure execution, hpcr, hyper protect virtual server for vpc
 
@@ -24,7 +24,7 @@ A new operating system that leverages the IBM Secure Execution for Linux technol
 
 For a technical deep dive into the IBM Hyper Protect Platform, see the white paper [The Second Generation of IBM Hyper Protect Platform](https://www.ibm.com/downloads/cas/GPVMWPM3){: external}.
 
-Check out the video [Confidential Computing for a financial transaction using Hyper Protect Virtual Server for VPC](https://mediacenter.ibm.com/media/Confidential+Computing+for+a+financial+transaction+using+Hyper+Protect+Virtual+Server+for+VPC/1_vv3j2oo6){: external} to learn about how to protect Personally Identifiable Information and credit card information entered into web forms by using Confidential Computing on Hyper Protect Virtual Server for VPC.
+Check out the [tutorial](/docs/vpc?topic=vpc-financial-transaction-confidential-computing-on-hyper-protect-virtual-server-for-vpc) and the [video](https://mediacenter.ibm.com/media/Confidential+Computing+for+a+financial+transaction+using+Hyper+Protect+Virtual+Server+for+VPC/1_vv3j2oo6){: external} on Confidential Computing for a financial transaction using Hyper Protect Virtual Server for VPC. You can learn about how to protect Personally Identifiable Information and credit card information entered into web forms by using Confidential Computing on Hyper Protect Virtual Server for VPC.
 
 For the on-prem version of {{site.data.keyword.hpvs}}, see [IBM Hyper Protect Virtual Servers v2.1](https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/nicolas-mding/2022/10/06/ibm-hyper-protect-virtual-servers-v21){: external}.
 

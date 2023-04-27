@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud VPC docs",
-    "lastupdated": "2023-04-11",
+    "lastupdated": "2023-04-27",
     "introduction": "With IBM Cloud Virtual Private Cloud (VPC), you can quickly provision virtual server instances and other Infrastructure-as-a-Service (IaaS) offerings. Leverage the docs, API & SDK reference, architecture references, and more to support your infrastructure needs.",
     "section_devtools": {
       "api": "/apidocs/vpc",
@@ -31,19 +31,19 @@
       "view_more": "/docs/vpc?topic=vpc-release-notes",
       "tiles": [
         {
+          "date": "27 April 2023", 
+          "title": "UI update to enable deletion of nested resources",
+          "description": "When you delete a resource, such as a VPC or a subnet, any attached resources must be deleted first before you can delete the VPC. The UI is updated to display a side panel listing all the resources still attached to the VPC that must be deleted. You can delete these resources from this side panel and then continue with deleting the VPC."
+        }
+        {
+          "date": "27 April 2023", 
+          "title": "Documentation enhancement: Deploying an application for financial transactions with Confidential Computing on Hyper Protect Virtual Server for VPC",
+          "description": "The newly added Deploying an application on Hyper Protect Virtual Server for VPC tutorial walks you through how to deploy the PayNow application with Confidential Computing on Hyper Protect Virtual Server for VPC."
+        },
+        {
           "date": "11 April 2023", 
           "title": "s390x Bare Metal Servers for VPC (LA)",
           "description": "LinuxONE Bare Metal Servers are now generally available in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), Toronto (ca-tor), and São Paulo (br-sao) regions."
-        },
-        {
-          "date": "06 April 2023", 
-          "title": "Image lifecycle management for custom images (beta)",
-          "description": "You can use the UI, CLI, and API to manage the lifecycle of your custom images with three statuses: available, deprecated, and obsolete. You can move the image back and forth through all the statuses. You can also schedule status changes to manage the entire lifecycle of the image."
-        },
-        {
-          "date": "04 April 2023",
-          "title": "File Storage for VPC defined-performance profile (beta)",
-          "description": "For customers with special access to this feature, you can now create file shares using the dp2 defined-performance profile. This profile provides higher IOPS and greater capacity than earlier profiles. You can also modify existing file shares to use this profile."
         }
       ]
     }
