@@ -39,7 +39,7 @@
           "date": "27 April 2023", 
           "title": "UI update to enable deletion of nested resources",
           "description": "When you delete a resource, such as a VPC or a subnet, any attached resources must be deleted first before you can delete the VPC. The UI is updated to display a side panel listing all the resources still attached to the VPC that must be deleted. You can delete these resources from this side panel and then continue with deleting the VPC."
-        }
+        },
         {
           "date": "27 April 2023", 
           "title": "Documentation enhancement: Deploying an application for financial transactions with Confidential Computing on Hyper Protect Virtual Server for VPC",
