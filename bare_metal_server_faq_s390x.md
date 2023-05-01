@@ -15,7 +15,7 @@ subcollection: vpc
 # FAQ for s390x bare metal servers
 {: #s390x-bare-metal-server-faq}
 
-s390x Bare Metal Servers for VPC is available in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), Toronto (ca-tor), and São Paulo (br-sao) regions.
+s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), Toronto (ca-tor), and São Paulo (br-sao) regions.
 {: preview}
 
 You might encounter the following frequently asked questions when you use an s390x bare metal server.
