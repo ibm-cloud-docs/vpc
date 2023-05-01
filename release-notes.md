@@ -44,13 +44,6 @@ UI update to enable deletion of nested resources
 Documentation enhancement: Deploying an application for financial transactions with Confidential Computing on Hyper Protect Virtual Server for VPC
 :   The newly added [**Deploying an application on Hyper Protect Virtual Server for VPC** tutorial](/docs/vpc?topic=vpc-financial-transaction-confidential-computing-on-hyper-protect-virtual-server-for-vpc) walks you through how to deploy the PayNow application with Confidential Computing on Hyper Protect Virtual Server for VPC.
 
-### 11 April 2023
-{: #vpc-april1123}
-{: release-note}
-
-s390x Bare Metal Servers for VPC (LA)
-:   LinuxONE Bare Metal Servers are now generally available in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), Toronto (ca-tor), and São Paulo (br-sao) regions. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
-
 ### 6 April 2023
 {: #vpc-april0623}
 {: release-note}
