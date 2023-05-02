@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-04-11"
+lastupdated: "2023-05-02"
 
 keywords: api, change log, beta
 
@@ -50,6 +50,8 @@ The `dp2` profile belongs to a new `defined_performance` file share profile fami
 **Exporting custom images.** Accounts that have been granted special approval to preview this feature can now [export custom images](/apidocs/vpc-beta#create-image-export-job) to an authorized IBM Cloud Object Storage bucket. Specify the target `storage_bucket` to export the image to.   The image will be exported as `qcow2` unless you specify another value using the `format` property. 
 
 For more information, see [Exporting a custom image to IBM Cloud Object Storage](/docs/vpc?topic=vpc-managing-custom-images&interface=api#custom-image-export-to-cos-api), or start using the new [export jobs](/apidocs/vpc-beta#list-image-export-jobs) methods.
+
+This feature is now generally available. See the [VPC API change log](/docs/vpc?topic=vpc-api-change-log#2-may-2023).
 
 ## 20 December 2022
 {: #20-december-2022-beta}
