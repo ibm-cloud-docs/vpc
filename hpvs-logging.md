@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-03-30"
+lastupdated: "2023-05-04"
 
 keywords: confidential computing, secure execution, logging for hyper protect virtual server for vpc
 
@@ -27,6 +27,9 @@ The following logging services are supported.
 
 ## IBM Log Analysis
 {: #log-analysis}
+
+Logging to Log Analysis is dependent on the state and health of the Log Analysis service. Service outages might lead to a loss of log data. If you want to log data for audit purposes, it's suggested that you employ your own logging service.
+{: note}
 
 1. [Log in to your IBM Cloud account](/login){: external}.
 2. [Provision a Log Analysis instance](/docs/log-analysis?topic=log-analysis-provision). Choose a plan according to your requirements.  
