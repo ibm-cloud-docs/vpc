@@ -20,6 +20,21 @@ You can create an {{site.data.keyword.cloud}} {{site.data.keyword.nlb_full}} (NL
 * An [IBMid](https://www.ibm.com/account/us-en/signup/register.html){: external} account.
 * A VPC in which to deploy the network load balancer.
 
+The NLB service may add rules to custom routing tables to ensure service availability for some failure conditions. As a result, if the client is outside the zone and/or VPC of the NLB, you must add an ingress custom routing table to the VPC where the NLB resides with the proper traffic source selected.
+{: important}
+
+For Private NLB, depending on the location of the clients, you must ensure that ingress routing tables exist (as described in Table 1).
+
+| Client location | Routing table type | Traffic source |
+|----|----|----|
+| On-prem | Ingress | Direct link |
+| Another VPC or classic infrastructure | Ingress | Transit gateway |
+| Another availability zone of the same VPC | Ingress | VPC zone |
+{: caption="Table 1: Traffic sources that require ingress custom routing tables." caption-side="bottom"}
+
+For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes).
+{: note}
+
 ## Creating a network load balancer using the UI
 {: #nlb-ui}
 {: ui}
