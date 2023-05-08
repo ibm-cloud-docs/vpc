@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-03-30"
+lastupdated: "2023-04-25"
 
 keywords: Backup for VPC, backup snapshot, create backups for VPC, backup service, backup plan, backup policy, restore, restore volume, restore data
 
@@ -37,14 +37,7 @@ While you're not required to create a backup plan when you create a backup polic
 
 1. In the [{{site.data.keyword.cloud_notm}} console](/login){: external}, go to the **menu ![menu icon](../../icons/icon_hamburger.svg) > VPC Infrastructure > Backup policies**. The **Create** tab is selected by default.
 
-   The UI is set up to evaluate whether the correct service-to-service authorizations are enabled for your account. If one or more authorizations are incorrect or missing, a notification message with the three required services and their matching roles are displayed. Click **Authorize ->** for each item to display a side panel. The minimum required permission is preselected. Click **Review**, then confirm that the correct role is selected and click **Assign**.
-
-   | Field | Description |
-   |-------|-------------|
-   | Block storage for VPC: Operator |  **Target service** Block Storage for VPC \n **Access** _Operator_ access. |
-   | Block storage snapshots for VPC: Editor | **Target service** Block Storage Snapshots for VPC \n **Access** _Editor_ access. |
-   | Virtual server for VPC: Operator | **Target service** Virtual Server for VPC \n **Access** _Operator_ access. |
-   {: caption="Table 1. Service-to-service authorizations for creating backup policies" caption-side="bottom"}
+   The UI diplays a notification message when service-to-service authorizations are incorrect or missing on your account.
 
    If your account does not allow for the required service-to-service authorizations and user access roles to create a backup policy, [contact IBM support](/docs/vpc?topic=vpc-getting-help&interface=ui) for help.
    {: note}

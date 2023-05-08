@@ -59,7 +59,7 @@ Before you can use the CLI to create your VPC, you must install the IBM Cloud CL
    ```
    {: pre}
 
-   To learn how to create resources by using the CLI, see [Creating VPC resources](/docs/vpc?topic=vpc-creating-vpc-resources&interface=cli).
+   To learn how to create resources by using the CLI, see [Creating VPC resources](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=cli).
 
 ### Accessing CLI through the VPC API private endpoint
 {: #access_cli_through_api_private_endpoints}
@@ -222,4 +222,4 @@ If you run into unexpected results, add the `--verbose` (debug) flag after the `
     ```
     {: pre}
 
-To learn how to create resources by using the API, see [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources&interface=cli).
+To learn how to create resources by using the API, see [Creating VPC resources with CLI and API](/docs/vpc?topic=vpc-creating-vpc-resources-with-cli-and-api&interface=api).

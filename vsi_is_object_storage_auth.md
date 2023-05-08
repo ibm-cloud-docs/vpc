@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2023
-lastupdated: "2023-02-09"
+lastupdated: "2023-04-27"
 
 keywords: create authorization for {{site.data.keyword.cos_full_notm}}, import image to vpc infrastructure, migrate virtual server, migrate instance
 
@@ -19,9 +19,6 @@ To import a custom image to {{site.data.keyword.vpc_short}}, or to export a cust
 available. You must also create a bucket in {{site.data.keyword.cos_full_notm}} to store your images. Finally, you must 
 create an authorization so that the Image Service for VPC can access {{site.data.keyword.cos_full_notm}}.
 {: shortdesc}
-
-Export custom image is a beta feature that is available to select customers for evaluation and testing purposes. To request to be included in the evaluation of this beta feature, contact IBM Support. 
-{: beta}
 
 ## Creating an {{site.data.keyword.cos_full_notm}} service instance
 {: #migrate-prereq-icos-instance}

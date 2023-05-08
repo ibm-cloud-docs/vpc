@@ -4,7 +4,7 @@ copyright:
   years: 2019, 2023
 
 
-lastupdated: "2023-04-11"
+lastupdated: "2023-05-09"
 
 keywords:
 
@@ -41,12 +41,18 @@ New `-a100` GPU profile is available (LA)
 ## April 2023
 {: #vpc-apr23}
 
-### 11 April 2023
-{: #vpc-april1123}
+### 27 April 2023
+{: #vpc-april2723}
 {: release-note}
 
-s390x Bare Metal Servers for VPC (LA)
-:   LinuxONE Bare Metal Servers are now generally available in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), Toronto (ca-tor), and São Paulo (br-sao) regions. For more information, see [About LinuxONE Bare Metal Servers](/docs/vpc?topic=vpc-about-linuxone-bare-metal-servers).
+Export custom images (GA)
+:   The ability to export custom images to {{site.data.keyword.cos_full_notm}}, a feature previously available in beta, is now generally available. For more information, see [Exporting a custom image to IBM Cloud Object Storage](/docs/vpc?topic=vpc-managing-custom-images&interface=ui#custom-image-export-to-cos).
+
+UI update to enable deletion of nested resources
+:    When you delete a resource, such as a VPC or a subnet, any attached resources must be deleted first before you can delete the VPC. The UI is updated to display a side panel listing all the resources still attached to the VPC that must be deleted. You can delete these resources from this side panel and then continue with deleting the VPC.
+
+Documentation enhancement: Deploying an application for financial transactions with Confidential Computing on Hyper Protect Virtual Server for VPC
+:   The newly added [**Deploying an application on Hyper Protect Virtual Server for VPC** tutorial](/docs/vpc?topic=vpc-financial-transaction-confidential-computing-on-hyper-protect-virtual-server-for-vpc) walks you through how to deploy the PayNow application with Confidential Computing on Hyper Protect Virtual Server for VPC.
 
 ### 6 April 2023
 {: #vpc-april0623}

@@ -4,8 +4,7 @@ copyright:
 
   years: 2022, 2023
 
-lastupdated: "2023-04-06"
-
+lastupdated: "2023-05-08"
 
 
 keywords: operating system end of support (eos)
@@ -19,7 +18,7 @@ subcollection: vpc
 # Lifecycle for guest operating systems
 {: #guest-os-lifecycle}
 
-In the lifecycle of an operating system, end of support (EOS) is the last date that {{site.data.keyword.cloud}} delivers standard support for a version or release of a product. The end of support date is aligned to the vendor and community support dates. It is also the effective date that the product ceases to exist (is deprecated) and can no longer be ordered or purchased.
+In the lifecycle of an operating system, end of support (EOS) is the last date that {{site.data.keyword.cloud}} delivers standard support for a version or release of a product. The EOS date is aligned to the vendor and community support dates. It is also the effective date that the product ceases to exist (is deprecated) and can no longer be ordered or purchased.
 {: shortdesc}
 
 A stock image starts out in available status. When a newer version of the image becomes available, the status of the older image changes to deprecated. A deprecated image can still be used to provision a virtual server instance, but such use is discouraged. If an image moves to obsolete status, such as when the image operating system reaches EOS, it can't be used to provision new virtual server instances.
@@ -152,7 +151,7 @@ The following table describes the end of support date and license model for Ubun
 |-----------------|----------------|---------------|
 | Ubuntu 22.04 minimal | 30 April 2027 | Free |
 | Ubuntu 20.04 minimal | 30 April 2025 | Free |
-| Ubuntu 18.04 minimal | 15 May 2023  | Free |
+| Ubuntu 18.04 minimal | 31 May 2023  | Free |
 | Ubuntu 16.04 minimal | 01 April 2021  | Free |
 {: caption="Table 7. Lifecycle for Ubuntu operating systems" caption-side="bottom"}
 

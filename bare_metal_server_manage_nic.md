@@ -16,8 +16,9 @@ subcollection: vpc
 After you create a bare metal server, you can add new network interfaces or edit existing network interfaces. When you edit a network interface, you can change its name, associate or disassociate a floating IP address, or access the security group that is associated with an interface. For more information about the networking features of Bare Metal Server for VPC, see [Networking overview for bare metal servers on VPC](/docs/vpc?topic=vpc-bare-metal-servers-network) or [Networking overview for s390x bare metal servers](/docs/vpc?topic=vpc-s390x-bare-metal-servers-network).
 {: shortdesc}
 
-s390x Bare Metal Servers for VPC is available in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), Toronto (ca-tor), and São Paulo (br-sao) regions.
+s390x Bare Metal Servers for VPC is available for customers with special approval to preview this service in the Washington DC (us-east), London (eu-gb), Tokyo (jp-tok), Toronto (ca-tor), and São Paulo (br-sao) regions.
 {: preview}
+
 
 ## Overview of bare metal server network interfaces
 {: #overview-bare-metal-network-interfaces}

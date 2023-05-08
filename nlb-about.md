@@ -90,6 +90,21 @@ The following diagram illustrates how you can deploy {{site.data.keyword.cloud_n
 
 You may want to leverage the high throughput performance (and low latency) the NLB gains through DSR. In addition, it is recommended that you deploy your workloads in multiple zones to increase their availability in an HA environment.
 
+The NLB service may add rules to custom routing tables to ensure service availability for some failure conditions. As a result, if the client is outside the zone and/or VPC of the NLB, you must add an ingress custom routing table to the VPC where the NLB resides with the proper traffic source selected.
+{: important}
+
+For Private NLB, depending on the location of the clients, you must ensure that ingress routing tables exist (as described in Table 1).
+
+| Client location | Routing table type | Traffic source |
+|----|----|----|
+| On-prem | Ingress | Direct link |
+| Another VPC or classic infrastructure | Ingress | Transit gateway |
+| Another availability zone of the same VPC | Ingress | VPC zone |
+{: caption="Table 1: Traffic sources that require ingress custom routing tables." caption-side="bottom"}
+
+For more information, see [About routing tables and routes](/docs/vpc?topic=vpc-about-custom-routes).
+{: note}
+
 ![Multi-zone public network load balancer](images/nlb_glb.png){: caption="Figure 3. Multi-zone network load balancer" caption-side="bottom}
 
 ## Front-end listeners and back-end pools

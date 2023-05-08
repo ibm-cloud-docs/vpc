@@ -5,7 +5,7 @@ copyright:
 
 lastupdated: "2021-08-09"
 
-keywords:  
+keywords:
 
 subcollection: vpc
 
@@ -14,7 +14,7 @@ subcollection: vpc
 {{site.data.keyword.attribute-definition-list}}
 
 # About network ACLs
-{: #using-acls} 
+{: #using-acls}
 
 You can use an access control list (ACL) to control all incoming and outgoing traffic in {{site.data.keyword.vpc_full}}. An ACL is a built-in, virtual firewall, similar to a security group. In contrast to security groups, ACL rules control traffic to and from the _subnets_, rather than to and from the _instances_.
 
@@ -28,10 +28,10 @@ The example that is presented in this document shows how to create network ACLs 
 
 To make your ACLs effective, create rules that determine how to handle your inbound and outbound network traffic. You can create multiple inbound and outbound rules. For more information about rules quotas, see [Quotas](/docs/vpc?topic=vpc-quotas#acl-quotas).
 
-* With inbound rules, you can allow or deny traffic from a source IP range, with specified protocols and ports. 
+* With inbound rules, you can allow or deny traffic from a source IP range, with specified protocols and ports.
 * With outbound rules, you can allow or deny traffic to a destination IP range, with specified protocols and ports.
 * ACL rules are prioritized and considered in sequence. Higher priority rules are evaluated first and override lower priority rules.
-* Inbound rules are separated from outbound rules.  
+* Inbound rules are separated from outbound rules.
 * If no rules are specified, then **implicit deny** is the default behavior.
 
 For more information about using ICMP, TCP, and UDP protocols in your ACL rules, see [Understanding internet communication protocols](/docs/vpc?topic=vpc-understanding-icp#understanding-icp).
@@ -101,7 +101,7 @@ This example illustrates general cases only. In your scenarios, you might want t
 ### Example steps
 {: #acl-example-steps}
 
-The following example steps skip the prerequisite steps of using the CLI to create a VPC, which must be done first. For more information, see [Creating a VPC by using the CLI](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
+The following example steps skip the prerequisite steps of using the CLI to create a VPC, which must be done first. For more information, see [Using the CLI to create VPC resources](/docs/vpc?topic=vpc-creating-a-vpc-using-cli).
 
 #### Step 1. Create the ACLs
 {: #step-1-create-the-acls}
