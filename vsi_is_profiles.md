@@ -2,7 +2,7 @@
 copyright:
   years: 2019, 2023
 
-lastupdated: "2023-03-28"
+lastupdated: "2023-05-09"
 
 keywords: vsi, virtual server instances, profile, profiles, balanced, compute, memory, ultra high memory, very high memory, gpu, sap, olap, oltp, nvidia, cascade lake
 
@@ -32,7 +32,7 @@ The following profile families are available:
 | [Memory](#memory) | Memory profiles offer a core to RAM ratio 1 vCPU to 8 GiB of RAM ratio and are best for memory caching and real-time analytics workloads. Memory profiles are best for memory intensive workloads, such as large caching workloads, intensive database applications, or in-memory analytics workloads. |
 | [Very High Memory](#vhmemory) | Very High Memory profiles offer a core to RAM ratio of 1 vCPU to 14 GiB of RAM. This family is optimized for running small to medium in-memory databases and OLAP workloads, such as SAP BW/4 HANA. |
 | [Ultra High Memory](#uhmemory) | Ultra High Memory profiles offer the most memory per core with 1 vCPU to 28 GiB of RAM. These profiles are optimized to run large in-memory databases and OLTP workloads, such as SAP S/4 HANA.|
-| [GPU](#gpu) | GPU enabled profiles provide on-demand access to NVIDIA V100 GPUs to accelerate AI, high-performance computing, data science, and graphics workloads. |
+| [GPU](#gpu) | GPU enabled profiles provide on-demand access to NVIDIA V100 and A100 GPUs to accelerate AI, high-performance computing, data science, and graphics workloads.|
 | [Storage Optimized](#storageopt) | Storage Optimized profiles offer temporary SSD instance storagedisks at a ratio of 1 vCPU to 300 GB instance storage with a lower price point per GB. These profiles are designed for storage-dense workloads and offer `virtio` interface type for attached disks. |
 {: caption="Table 2. Virtual server family selections" caption-side="bottom"}
 
@@ -224,14 +224,18 @@ The following Ultra High Memory profiles are available for x86-64 processors:
 ## GPU
 {: #gpu}
 
-GPU profiles include 1 or 2 NVIDIA V100 PCIe 16GB GPUs. All OS images are supported on the GPU profiles. NVIDIA GPU drivers must be installed separately.
+GPU `-v100` profiles include 1 or 2 NVIDIA V100 PCIe 16GB GPUs. All OS images are supported on these GPU profiles. The GPU `-a100` profile includes 8 NVIDIA A100 NVlink 80 GB GPUs. This GPU profile only supports Linux OS images Ubuntu or RHEL. See [Download drivers](https://www.nvidia.com/Download/index.aspx?lang=en-us) to review the most current versions that are supported. NVIDIA GPU drivers must be installed separately. The GPU profile family includes profiles with and without [instance storage](/docs/vpc?topic=vpc-instance-storage).
 
-| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs |
-|---------|---------|---------|---------|---------|---------|
+The `gx2-80x1280x8a100` profile is available for select customers. Contact IBM Sales if you are interested in purchasing and using this offering. 
+{: preview}
+
+| Instance profile | vCPU | Cores | GiB RAM | Bandwidth Cap (Gbps) | Number of GPUs | Instance storage (GB) |
+|---------|---------|---------|---------|---------|---------|---------|
 | gx2-8x64x1v100 | 8 | 4 | 64 | 16 | 1 |
 | gx2-16x128x1v100 | 16 | 8 | 128 | 32 | 1 |
 | gx2-16x128x2v100 | 16 | 8 | 128 | 32 | 2 |
 | gx2-32x256x2v100 | 32 | 16 | 256 | 64 | 2 |
+| gx2-80x1280x8a100 | 80 | 40 | 1280 | 200 | 8 | 4x3200 |
 {: caption="Table 8. GPU profile options" caption-side="bottom"}
 {: #gpu-intel-x86-64}
 {: tab-title="Intel x86-64"}
@@ -244,9 +248,16 @@ GPU profiles include 1 or 2 NVIDIA V100 PCIe 16GB GPUs. All OS images are suppor
 
 When you create a GPU profile, keep the following recommendations in mind.
 
+- During {{site.data.keyword.Bluemix_notm}} periodic maintenance, GPU workloads aren't secure live migrated. Instead, the virtual server instance is restarted. You are notified 30 days in advance of any maintenance where the virtual server instance will be restarted. For more information, see [Understanding cloud maintenance operations](/docs/vpc?topic=vpc-about-cloud-maintenance).
 - If you are using GPU profiles, you need to install the NVIDA driver onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
 - If you are using GPU profiles, you might need to install the CUDA toolkit onto your virtual server instance. For more information, see [Managing GPUs](/docs/vpc?topic=vpc-managing-gpus).
 - For more information about persistent storage options, see [Storage notes for profiles](#storage-notes-for-profiles).
+
+Considerations specific to the GPU `-a100` profile:
+- Only Redhat and Ubuntu are supported.
+- This profile is not certified for {{site.data.keyword.Bluemix_notm}} for Financial Service&reg;. While you can configure flow logs for the VPC, instance, interface, or subnets, data is not captured for the `-a100` profile.
+- You can't [resize a virtual server instance](/docs/vpc?topic=vpc-resizing-an-instance&interface=ui) that was created with this profile.
+- You can't attach new NICs or volumes to an existing, running virtual server instance. You must first stop the virtual server instance, make the changes, and then restart the virtual server instance.
 
 ## Storage Optimized
 {: #storageopt}
