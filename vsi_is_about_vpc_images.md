@@ -53,7 +53,7 @@ When you provision a virtual server on your VPC, you need to select an image to 
 
 All available stock images can be found in **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Images > Stock images**.
 
-To create a virtual server using a custom image, see one of the following:
+To create a virtual server using a stock image, see one of the following:
 * [Creating a virtual server instance with the UI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#creating-virtual-servers-ui)
 * [Creating a virtual server instance with the CLI - provision with a stock or custom image](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#instance-create-from-image-cli)
 * [Creating a virtual server instance with the API - provision with a stock or custom image](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api#create-instance-stock-custom-image-api)
@@ -66,7 +66,7 @@ If you plan to share or publish a custom image to other accounts within your ent
 
 Any private catalog images available to your VPC can be found in **Menu icon ![Menu icon](../icons/icon_hamburger.svg) > VPC Infrastructure > Compute > Images > Catalog images**
 
-To create a virtual server using a custom image, see one of the following:
+To create a virtual server using a private catalog image, see one of the following:
 * [Creating a virtual server instance with the UI](/docs/vpc?topic=vpc-creating-virtual-servers&interface=ui#creating-virtual-servers-ui)
 * [Creating a virtual server instance with the CLI - provision with a private catalog image](/docs/vpc?topic=vpc-creating-virtual-servers&interface=cli#instance-create-from-private-catalog-image-cli)
 * [Creating a virtual server instance with the API - provision with a private catalog image](/docs/vpc?topic=vpc-creating-virtual-servers&interface=api#create-instance-private-catalog-image-api)
