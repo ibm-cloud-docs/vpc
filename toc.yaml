@@ -55,14 +55,6 @@ toc:
                - bare_metal_server_about_s390x.md
            - suspend-billing.md
            - topicgroup:
-               label: Images
-               topics:
-               - vsi-images.md
-               - s390x-vsi-images.md
-               - os-lifecycle.md
-               - bare_metal_server_image.md
-               - bare_metal_server_image_s390x.md
-           - topicgroup:
                label: Profiles
                topics:
                - vsi_is_profiles.md
@@ -224,32 +216,62 @@ toc:
             - vsi_is_create_dh_instance.md
             - vsi_is_manage_dedicated_host_group.md
         - topicgroup:
-            label: Custom images
+            label: Images - Stock images
             topics:
+            - vsi_is_about_vpc_images.md
+            - vsi_is_create_server_with_image.md
+            - os-lifecycle.md
+            - vsi-images.md
+            - s390x-vsi-images.md
+            - bare_metal_server_image.md
+            - bare_metal_server_image_s390x.md  
+        - topicgroup:
+            label: Images - Custom images
+            topics:
+            - vsi_is_about_vpc_images.md
+            - vsi_is_create_server_with_image.md
+            - os-lifecycle.md
             - topicgroup:
                 label: Planning for custom images
                 topics:
                 - vsi_is_about_custom_images.md
-                - vpc_image_from_volume.md
                 - vsi_is_object_storage_auth.md
                 - vsi_is_byol_about.md
                 - image-rbac-permissions.md
             - topicgroup:
-                label: Creating custom images
+                label: Preparing custom images
                 topics:
-                 - vsi_is_create_linux_custom_image.md
-                 - vsi_is_create_windows_custom_image.md
-                 - vsi_is_create_zos_custom_image.md
-                 - vpc_image_from_volume_create.md
-                 - vsi_is_migrate_from_classic_infra.md
-                 - vsi_is_encrypt_custom_image.md
-                 - building-custom-os.md
-            - vsi_is_import_images.md
+                - vsi_is_prepare_custom_image_import.md
+                - vsi_is_create_linux_custom_image.md
+                - vsi_is_create_windows_custom_image.md
+                - vsi_is_create_zos_custom_image.md
+                - vsi_is_migrate_from_classic_infra.md
+                - vsi_is_encrypt_custom_image.md
+                - building-custom-os.md
+            - topicgroup:
+                label: Importing and exporting custom images
+                topics:
+                - vsi_is_prepare_custom_image_import.md
+                - vsi_is_import_custom_image_COS.md
+                - vsi_is_import_images.md
             - topicgroup:
                 label: Managing custom images
                 topics:
                  - vsi_is_manage_images.md
-                 - vpc_image_from_volume_manage.md
+            - topicgroup:
+                label: Image from volume
+                topics:
+                - vpc_image_from_volume.md
+                - vpc_image_from_volume_create.md
+                - vpc_image_from_volume_manage.md
+        - topicgroup:
+            label: Images - Catalog 
+            topics:
+            - vsi_is_about_vpc_images.md
+            - vsi_is_create_server_with_image.md
+            - os-lifecycle.md        
+            - vsi_is_private_catalog_custom_images.md
+
         - topicgroup:
             label: DNS Services
             topics:
